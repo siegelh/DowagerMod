@@ -46,7 +46,7 @@ def installMod(civ_directory):
 
 ## Fetch install path
 src_path = sys.argv[0][:-16].replace('/','\\') + 'assets'
-civ_drive = input('Type the letter drive name (caps insensitive) where Civ Beyond the Sword is installed: ')
+civ_drive = raw_input('Type the letter drive name (caps insensitive) where Civ Beyond the Sword is installed: ')
 civ_path = findPath(civ_drive)
 if civ_path == "Failed":
 	print("Could not find Assets directory. Installation failed. Goodbye!")
