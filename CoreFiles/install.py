@@ -32,7 +32,7 @@ def findPath(civ_drive):
 				{0}
 				
 				""".format(current_path))
-				response = input("Is this the correct directory? [y / n]: ")
+				response = raw_input("Is this the correct directory? [y / n]: ")
 				response = response.lower()
 				if response == "y":
 					return current_path
