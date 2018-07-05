@@ -57,6 +57,6 @@ else:
 	
 	""".format(civ_path))
 	installMod(civ_path)
-	exit = input('Success! Click enter to exit setup.')
+	exit = raw_input('Success! Click enter to exit setup.')
               
            
