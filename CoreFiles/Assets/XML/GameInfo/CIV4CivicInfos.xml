@@ -1076,7 +1076,32 @@
 			<BuildingHappinessChanges/>
 			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
-			<ImprovementYieldChanges/>
+			<ImprovementYieldChanges>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_VILLAGE</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_HAMLET</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+			</ImprovementYieldChanges>
 			<WeLoveTheKing/>
 		</CivicInfo>
 		<CivicInfo>
@@ -1230,7 +1255,7 @@
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
-			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
+			<iImprovementUpgradeRateModifier>100</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
 			<iBaseFreeMilitaryUnits>0</iBaseFreeMilitaryUnits>
@@ -1247,7 +1272,7 @@
 			<iLargestCityHappiness>0</iLargestCityHappiness>
 			<iWarWearinessModifier>0</iWarWearinessModifier>
 			<iFreeSpecialist>0</iFreeSpecialist>
-			<iTradeRoutes>3</iTradeRoutes>
+			<iTradeRoutes>2</iTradeRoutes>
 			<bNoForeignTrade>0</bNoForeignTrade>
 			<bNoCorporations>0</bNoCorporations>
 			<bNoForeignCorporations>0</bNoForeignCorporations>
@@ -1262,8 +1287,8 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>50</iYield>
-				<iYield>50</iYield>
+				<iYield></iYield>
+				<iYield></iYield>
 				<iYield>100</iYield>
 			</TradeYieldModifiers>
 			<CommerceModifiers/>
@@ -1441,16 +1466,7 @@
 			<SpecialBuildingNotRequireds/>
 			<SpecialistValids/>
 			<BuildingHappinessChanges/>
-			<BuildingHealthChanges>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_PUBLIC_TRANSPORTATION</BuildingType>
-					<iHealthChange>3</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_GRANARY</BuildingType>
-					<iHealthChange>2</iHealthChange>
-				</BuildingHealthChange>
-			</BuildingHealthChanges>
+			<BuildingHealthChanges/>
 			<FeatureHappinessChanges>
 				<FeatureHappinessChange>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -1473,7 +1489,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINDMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 						<iYield>0</iYield>
 						<iYield>2</iYield>
 					</ImprovementYields>
