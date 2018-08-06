@@ -1287,8 +1287,8 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield></iYield>
-				<iYield></iYield>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
 				<iYield>100</iYield>
 			</TradeYieldModifiers>
 			<CommerceModifiers/>
@@ -1602,7 +1602,7 @@
 			<iFreeSpecialist>0</iFreeSpecialist>
 			<iTradeRoutes>0</iTradeRoutes>
 			<bNoForeignTrade>0</bNoForeignTrade>
-			<bNoCorporations>0</bNoCorporations>
+			<bNoCorporations>0</bNoCorporations>	
 			<bNoForeignCorporations>0</bNoForeignCorporations>
 			<iCivicPercentAnger>0</iCivicPercentAnger>
 			<bStateReligion>1</bStateReligion>
