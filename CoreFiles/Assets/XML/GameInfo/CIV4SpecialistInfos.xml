@@ -34,6 +34,33 @@
 			<Button>Art/Interface/MainScreen/CityScreen/Citizen.dds</Button>
 		</SpecialistInfo>
 		<SpecialistInfo>
+			<Type>SPECIALIST_ENTERTAINER</Type>
+			<Description>TXT_KEY_SPECIALIST_ENTERTAINER</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_ENTERTAINER_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/Entertainer.dds</Texture>
+			<bVisible>1</bVisible>
+			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>0</iGreatPeopleRateChange>
+			<Yields>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>2</iYield>
+			</Yields>
+			<Commerces/>
+			<iHealth>0</iHealth>
+			<iHappiness>3</iHappiness>
+			<iExperience>0</iExperience>
+			<Flavors/>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/MainScreen/CityScreen/Citizen.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo>
 			<Type>SPECIALIST_PRIEST</Type>
 			<Description>TXT_KEY_SPECIALIST_PRIEST</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_SPECIALISTS_PEDIA</Civilopedia>
