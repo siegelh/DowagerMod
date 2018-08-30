@@ -58,7 +58,7 @@
 			<bShiftDown>0</bShiftDown>
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
-			<Button>Art/Interface/MainScreen/CityScreen/Citizen.dds</Button>
+			<Button>Art/Interface/MainScreen/CityScreen/Entertainer.dds</Button>
 		</SpecialistInfo>
 		<SpecialistInfo>
 			<Type>SPECIALIST_PRIEST</Type>

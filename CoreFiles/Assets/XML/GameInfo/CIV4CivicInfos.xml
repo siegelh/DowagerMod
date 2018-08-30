@@ -998,6 +998,10 @@
 					<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
 					<bValid>1</bValid>
 				</SpecialistValid>
+				<SpecialistValid>
+					<SpecialistType>SPECIALIST_ENTERTAINER</SpecialistType>
+					<bValid>1</bValid>
+				</SpecialistValid>
 			</SpecialistValids>
 			<BuildingHappinessChanges/>
 			<BuildingHealthChanges/>
