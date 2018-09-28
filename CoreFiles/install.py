@@ -12,16 +12,16 @@ import os
 
 version = '0.2.1'
 print('Preparing to install HarrisonMod version %s, please wait...' % version)
-winsound.PlaySound('install_noise.wav',winsound.SND_FILENAME)
+##winsound.PlaySound('install_noise.wav',winsound.SND_FILENAME)
 
 ## Functions
 def findPath(civ_drive):
 	"""
 	Returns either the path where Civ 4 is installed or 'Failed'.
 	"""
-	for root, directories, filenames in os.walk(civ_drive.upper() + ":"):
+	for root, directories, filenames in os.walk(civ_drive.upper() + ":\\"):
 		for directory in directories:
-			print(os.path.join(root, directory))
+			##print(os.path.join(root, directory))
 			current_path = os.path.join(root, directory).replace("\n",'\\')
 			if "\\Sid Meier's Civilization IV Beyond the Sword\\Beyond the Sword\\Assets" in current_path:
 				print("""
