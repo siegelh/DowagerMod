@@ -1315,7 +1315,7 @@
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iAIWeight>0</iAIWeight>
 			<iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
-			<iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
+			<iGreatGeneralRateModifier>100</iGreatGeneralRateModifier>
 			<iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
 			<iStateReligionGreatPeopleRateModifier>0</iStateReligionGreatPeopleRateModifier>
 			<iDistanceMaintenanceModifier>-100</iDistanceMaintenanceModifier>
@@ -1342,7 +1342,7 @@
 			<iWarWearinessModifier>0</iWarWearinessModifier>
 			<iFreeSpecialist>0</iFreeSpecialist>
 			<iTradeRoutes>0</iTradeRoutes>
-			<bNoForeignTrade>1</bNoForeignTrade>
+			<bNoForeignTrade>0</bNoForeignTrade>
 			<bNoCorporations>1</bNoCorporations>
 			<bNoForeignCorporations>0</bNoForeignCorporations>
 			<iCivicPercentAnger>0</iCivicPercentAnger>
@@ -1378,7 +1378,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WORKSHOP</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
+						<iYield>3</iYield>
 						<iYield>2</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
@@ -1387,15 +1387,15 @@
 					<ImprovementType>IMPROVEMENT_MINE</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
-						<iYield>1</iYield>
+						<iYield>2</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
-						<iYield>2</iYield>
+						<iYield>3</iYield>
+						<iYield>3</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
