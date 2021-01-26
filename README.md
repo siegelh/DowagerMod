@@ -7,3 +7,7 @@ If you have python installed natively, you can navigate to CoreFiles and use `py
 
 ## Questions
 Who can say?
+
+## Rebuilding Windows installer
+
+Run 'python setup.py py2exe'
