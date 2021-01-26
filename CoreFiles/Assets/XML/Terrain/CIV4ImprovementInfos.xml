@@ -1323,20 +1323,20 @@
 			<iHappiness>0</iHappiness>
 			<iPillageGold>10</iPillageGold>
 			<bOutsideBorders>0</bOutsideBorders>
-			<TerrainMakesValids>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_GRASS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-				<TerrainMakesValid>
-					<TerrainType>TERRAIN_PLAINS</TerrainType>
-					<bMakesValid>1</bMakesValid>
-				</TerrainMakesValid>
-			</TerrainMakesValids>
+			<TerrainMakesValids/>
 			<FeatureMakesValids/>
 			<ImprovementPillage/>
 			<ImprovementUpgrade>IMPROVEMENT_HAMLET</ImprovementUpgrade>
-			<TechYieldChanges/>
+			<TechYieldChanges>
+				<TechYieldChange>
+					<PrereqTech>TECH_CURRENCY</PrereqTech>
+					<TechYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</TechYields>
+				</TechYieldChange>
+			</TechYieldChanges>
 			<RouteYieldChanges/>
 			<bGraphicalOnly>0</bGraphicalOnly>
 		</ImprovementInfo>
@@ -1379,7 +1379,16 @@
 			<FeatureMakesValids/>
 			<ImprovementPillage>IMPROVEMENT_COTTAGE</ImprovementPillage>
 			<ImprovementUpgrade>IMPROVEMENT_VILLAGE</ImprovementUpgrade>
-			<TechYieldChanges/>
+			<TechYieldChanges>
+				<TechYieldChange>
+					<PrereqTech>TECH_CURRENCY</PrereqTech>
+					<TechYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</TechYields>
+				</TechYieldChange>
+			</TechYieldChanges>
 			<RouteYieldChanges/>
 			<bGraphicalOnly>0</bGraphicalOnly>
 		</ImprovementInfo>
@@ -1425,6 +1434,14 @@
 			<TechYieldChanges>
 				<TechYieldChange>
 					<PrereqTech>TECH_PRINTING_PRESS</PrereqTech>
+					<TechYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</TechYields>
+				</TechYieldChange>
+				<TechYieldChange>
+					<PrereqTech>TECH_CURRENCY</PrereqTech>
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
@@ -1481,6 +1498,14 @@
 						<iYield>0</iYield>
 						<iYield>0</iYield>
 						<iYield>1</iYield>
+					</TechYields>
+				</TechYieldChange>
+				<TechYieldChange>
+					<PrereqTech>TECH_CURRENCY</PrereqTech>
+					<TechYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>2</iYield>
 					</TechYields>
 				</TechYieldChange>
 			</TechYieldChanges>
