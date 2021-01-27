@@ -1323,7 +1323,24 @@
 			<iHappiness>0</iHappiness>
 			<iPillageGold>10</iPillageGold>
 			<bOutsideBorders>0</bOutsideBorders>
-			<TerrainMakesValids/>
+			<TerrainMakesValids>
+				<TerrainMakesValid>
+					<TerrainType>TERRAIN_GRASS</TerrainType>
+					<bMakesValid>1</bMakesValid>
+				</TerrainMakesValid>
+				<TerrainMakesValid>
+					<TerrainType>TERRAIN_PLAINS</TerrainType>
+					<bMakesValid>1</bMakesValid>
+				</TerrainMakesValid>
+				<TerrainMakesValid>
+					<TerrainType>TERRAIN_DESERT</TerrainType>
+					<bMakesValid>1</bMakesValid>
+				</TerrainMakesValid>
+				<TerrainMakesValid>
+					<TerrainType>TERRAIN_TUNDRA</TerrainType>
+					<bMakesValid>1</bMakesValid>
+				</TerrainMakesValid>
+			</TerrainMakesValids>
 			<FeatureMakesValids/>
 			<ImprovementPillage/>
 			<ImprovementUpgrade>IMPROVEMENT_HAMLET</ImprovementUpgrade>
@@ -1495,8 +1512,8 @@
 				<TechYieldChange>
 					<PrereqTech>TECH_PRINTING_PRESS</PrereqTech>
 					<TechYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
+						<iYield>1</iYield>
 						<iYield>1</iYield>
 					</TechYields>
 				</TechYieldChange>
