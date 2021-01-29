@@ -1314,18 +1314,17 @@
 			<BuildingHealthChanges>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_MARKET</BuildingType>
-					<iHappinessChange>5</iHappinessChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_GROCER</BuildingType>
-					<iHappinessChange>5</iHappinessChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_BANK</BuildingType>
-					<iHappinessChange>5</iHappinessChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 			</BuildingHealthChanges>
-			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
 			<ImprovementYieldChanges/>
 			<WeLoveTheKing/>
