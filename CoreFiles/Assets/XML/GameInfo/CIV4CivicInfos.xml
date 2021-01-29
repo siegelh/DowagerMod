@@ -167,7 +167,6 @@
 			<iFreeExperience>0</iFreeExperience>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
 			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
-			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
 			<iBaseFreeMilitaryUnits>0</iBaseFreeMilitaryUnits>
@@ -1354,11 +1353,11 @@
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
+					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
 					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>3</iYield>
 						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>5</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
