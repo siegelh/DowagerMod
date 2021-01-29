@@ -1308,10 +1308,23 @@
 				</BuildingHappinessChange>
 				<BuildingHappinessChange>
 					<BuildingType>BUILDINGCLASS_BANK</BuildingType>
-					<iHappinessChange>1</iHappinessChange>
+					<iHappinessChange>2</iHappinessChange>
 				</BuildingHappinessChange>
 			</BuildingHappinessChanges>
-			<BuildingHealthChanges/>
+			<BuildingHealthChanges>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_MARKET</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_GROCER</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_BANK</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+			</BuildingHealthChanges>
 			<FeatureHappinessChanges/>
 			<ImprovementYieldChanges/>
 			<WeLoveTheKing/>

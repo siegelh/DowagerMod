@@ -1300,7 +1300,7 @@
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>0</bHillsMakesValid>
-			<bFreshWaterMakesValid>1</bFreshWaterMakesValid>
+			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
 			<bRequiresFlatlands>0</bRequiresFlatlands>
@@ -1594,7 +1594,11 @@
 			<Description>TXT_KEY_IMPROVEMENT_FOREST_PRESERVE</Description>
 			<Civilopedia>TXT_KEY_IMPROVEMENT_FOREST_PRESERVE_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_IMPROVEMENT_FOREST_PRESERVE</ArtDefineTag>
-			<YieldChanges/>
+			<YieldChanges>
+				<iYieldChange>2</iYieldChange>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>2</iYieldChange>
+			</YieldChanges>
 			<RiverSideYieldChange>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
