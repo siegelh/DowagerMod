@@ -1251,11 +1251,11 @@
 			<iStateReligionGreatPeopleRateModifier>0</iStateReligionGreatPeopleRateModifier>
 			<iDistanceMaintenanceModifier>0</iDistanceMaintenanceModifier>
 			<iNumCitiesMaintenanceModifier>0</iNumCitiesMaintenanceModifier>
-			<iCorporationMaintenanceModifier>-95</iCorporationMaintenanceModifier>
+			<iCorporationMaintenanceModifier>-90</iCorporationMaintenanceModifier>
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
-			<iImprovementUpgradeRateModifier>400</iImprovementUpgradeRateModifier>
+			<iImprovementUpgradeRateModifier>100</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
 			<iBaseFreeMilitaryUnits>0</iBaseFreeMilitaryUnits>
@@ -1272,7 +1272,7 @@
 			<iLargestCityHappiness>0</iLargestCityHappiness>
 			<iWarWearinessModifier>0</iWarWearinessModifier>
 			<iFreeSpecialist>0</iFreeSpecialist>
-			<iTradeRoutes>2</iTradeRoutes>
+			<iTradeRoutes>1</iTradeRoutes>
 			<bNoForeignTrade>0</bNoForeignTrade>
 			<bNoCorporations>0</bNoCorporations>
 			<bNoForeignCorporations>0</bNoForeignCorporations>
@@ -1289,7 +1289,7 @@
 			<TradeYieldModifiers>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
-				<iYield>150</iYield>
+				<iYield>100</iYield>
 			</TradeYieldModifiers>
 			<CommerceModifiers/>
 			<CapitalCommerceModifiers/>
@@ -1297,20 +1297,7 @@
 			<Hurrys/>
 			<SpecialBuildingNotRequireds/>
 			<SpecialistValids/>
-			<BuildingHappinessChanges>
-				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_MARKET</BuildingType>
-					<iHappinessChange>1</iHappinessChange>
-				</BuildingHappinessChange>
-				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_GROCER</BuildingType>
-					<iHappinessChange>1</iHappinessChange>
-				</BuildingHappinessChange>
-				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_BANK</BuildingType>
-					<iHappinessChange>1</iHappinessChange>
-				</BuildingHappinessChange>
-			</BuildingHappinessChanges>
+			<BuildingHappinessChanges/>
 			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
 			<ImprovementYieldChanges/>
@@ -1399,7 +1386,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_MINE</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
+						<iYield>0</iYield>
 						<iYield>2</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
