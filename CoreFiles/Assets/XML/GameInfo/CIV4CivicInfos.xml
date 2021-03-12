@@ -1206,8 +1206,8 @@
 			<bBuildingOnlyHealthy>0</bBuildingOnlyHealthy>
 			<iLargestCityHappiness>0</iLargestCityHappiness>
 			<iWarWearinessModifier>0</iWarWearinessModifier>
-			<iFreeSpecialist>3</iFreeSpecialist>
-			<iTradeRoutes>0</iTradeRoutes>
+			<iFreeSpecialist>1</iFreeSpecialist>
+			<iTradeRoutes>1</iTradeRoutes>
 			<bNoForeignTrade>1</bNoForeignTrade>
 			<bNoCorporations>0</bNoCorporations>
 			<bNoForeignCorporations>1</bNoForeignCorporations>
@@ -1221,7 +1221,11 @@
 			<iStateReligionFreeExperience>0</iStateReligionFreeExperience>
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
-			<TradeYieldModifiers/>
+			<TradeYieldModifiers>
+				<iYield>100</iYield>
+				<iYield>100</iYield>
+				<iYield>0</iYield>
+			</TradeYieldModifiers>	
 			<CommerceModifiers/>
 			<CapitalCommerceModifiers/>
 			<SpecialistExtraCommerces/>
