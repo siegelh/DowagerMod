@@ -359,7 +359,7 @@
 					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
-						<iYield>0</iYield>
+						<iYield>2</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
@@ -1207,7 +1207,7 @@
 			<iLargestCityHappiness>0</iLargestCityHappiness>
 			<iWarWearinessModifier>0</iWarWearinessModifier>
 			<iFreeSpecialist>1</iFreeSpecialist>
-			<iTradeRoutes>1</iTradeRoutes>
+			<iTradeRoutes>0</iTradeRoutes>
 			<bNoForeignTrade>1</bNoForeignTrade>
 			<bNoCorporations>0</bNoCorporations>
 			<bNoForeignCorporations>1</bNoForeignCorporations>
@@ -1222,8 +1222,8 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>50</iYield>
-				<iYield>50</iYield>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers/>
@@ -1259,7 +1259,7 @@
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
-			<iImprovementUpgradeRateModifier>100</iImprovementUpgradeRateModifier>
+			<iImprovementUpgradeRateModifier>150</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
 			<iBaseFreeMilitaryUnits>0</iBaseFreeMilitaryUnits>
@@ -1291,8 +1291,8 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>0</iYield>
-				<iYield>0</iYield>
+				<iYield>40</iYield>
+				<iYield>40</iYield>
 				<iYield>100</iYield>
 			</TradeYieldModifiers>
 			<CommerceModifiers/>
@@ -1391,7 +1391,7 @@
 					<ImprovementType>IMPROVEMENT_MINE</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
-						<iYield>1</iYield>
+						<iYield>2</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
