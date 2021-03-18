@@ -1222,9 +1222,9 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
+				<iYield>80</iYield>
 				<iYield>0</iYield>
-				<iYield>0</iYield>
-				<iYield>0</iYield>
+				<iYield>-50</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers/>
 			<CapitalCommerceModifiers/>
@@ -1291,8 +1291,8 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>40</iYield>
-				<iYield>40</iYield>
+				<iYield>20</iYield>
+				<iYield>20</iYield>
 				<iYield>100</iYield>
 			</TradeYieldModifiers>
 			<CommerceModifiers/>
