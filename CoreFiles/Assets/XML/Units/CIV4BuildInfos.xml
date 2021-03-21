@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Bart Muzzin (Firaxis Games) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Firaxis Games (Firaxis Games) -->
 <!-- Sid Meier's Civilization 4 -->
 <!-- Copyright Firaxis Games 2005 -->
 <!-- -->
@@ -12,10 +12,11 @@
 			<Help/>
 			<PrereqTech>TECH_THE_WHEEL</PrereqTech>
 			<iTime>200</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>NONE</ImprovementType>
 			<RouteType>ROUTE_ROAD</RouteType>
-			<EntityEvent>ENTEVENT_SHOVEL</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_SHOVEL</EntityEvent>
 			<FeatureStructs/>
 			<HotKey>KB_R</HotKey>
 			<bAltDown>0</bAltDown>
@@ -30,10 +31,11 @@
 			<Help/>
 			<PrereqTech>TECH_RAILROAD</PrereqTech>
 			<iTime>300</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>NONE</ImprovementType>
 			<RouteType>ROUTE_RAILROAD</RouteType>
-			<EntityEvent>ENTEVENT_RAILROAD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_RAILROAD</EntityEvent>
 			<FeatureStructs/>
 			<HotKey>KB_R</HotKey>
 			<bAltDown>0</bAltDown>
@@ -48,10 +50,11 @@
 			<Help/>
 			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
 			<iTime>500</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_FARM</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_IRRIGATE</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_IRRIGATE</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -81,10 +84,11 @@
 			<Help/>
 			<PrereqTech>TECH_FISHING</PrereqTech>
 			<iTime>0</iTime>
+			<iCost>0</iCost>
 			<bKill>1</bKill>
 			<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs/>
 			<HotKey>KB_F</HotKey>
 			<bAltDown>0</bAltDown>
@@ -99,10 +103,11 @@
 			<Help/>
 			<PrereqTech>TECH_OPTICS</PrereqTech>
 			<iTime>0</iTime>
+			<iCost>0</iCost>
 			<bKill>1</bKill>
 			<ImprovementType>IMPROVEMENT_WHALING_BOATS</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs/>
 			<HotKey>KB_W</HotKey>
 			<bAltDown>0</bAltDown>
@@ -117,10 +122,11 @@
 			<Help/>
 			<PrereqTech>TECH_MINING</PrereqTech>
 			<iTime>400</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_MINE</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_MINE</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -150,10 +156,11 @@
 			<Help/>
 			<PrereqTech>TECH_METAL_CASTING</PrereqTech>
 			<iTime>600</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_WORKSHOP</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_MINE</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -183,10 +190,11 @@
 			<Help/>
 			<PrereqTech>TECH_REPLACEABLE_PARTS</PrereqTech>
 			<iTime>800</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_LUMBERMILL</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs/>
 			<HotKey>KB_L</HotKey>
 			<bAltDown>0</bAltDown>
@@ -201,10 +209,11 @@
 			<Help/>
 			<PrereqTech>TECH_MACHINERY</PrereqTech>
 			<iTime>500</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_WINDMILL</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -234,10 +243,11 @@
 			<Help/>
 			<PrereqTech>TECH_MACHINERY</PrereqTech>
 			<iTime>800</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -267,10 +277,11 @@
 			<Help/>
 			<PrereqTech>TECH_CALENDAR</PrereqTech>
 			<iTime>500</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_PLANTATION</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -300,10 +311,11 @@
 			<Help/>
 			<PrereqTech>TECH_MASONRY</PrereqTech>
 			<iTime>600</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_QUARRY</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -333,10 +345,11 @@
 			<Help/>
 			<PrereqTech>TECH_ANIMAL_HUSBANDRY</PrereqTech>
 			<iTime>400</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_PASTURE</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -366,10 +379,11 @@
 			<Help/>
 			<PrereqTech>TECH_HUNTING</PrereqTech>
 			<iTime>400</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs/>
 			<HotKey>KB_H</HotKey>
 			<bAltDown>0</bAltDown>
@@ -384,10 +398,11 @@
 			<Help/>
 			<PrereqTech>TECH_COMBUSTION</PrereqTech>
 			<iTime>1000</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_WELL</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -417,10 +432,11 @@
 			<Help/>
 			<PrereqTech>TECH_PLASTICS</PrereqTech>
 			<iTime>0</iTime>
+			<iCost>0</iCost>
 			<bKill>1</bKill>
 			<ImprovementType>IMPROVEMENT_OFFSHORE_PLATFORM</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs/>
 			<HotKey>KB_O</HotKey>
 			<bAltDown>0</bAltDown>
@@ -435,10 +451,11 @@
 			<Help/>
 			<PrereqTech>TECH_MONARCHY</PrereqTech>
 			<iTime>500</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_WINERY</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -468,10 +485,11 @@
 			<Help/>
 			<PrereqTech>TECH_POTTERY</PrereqTech>
 			<iTime>400</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_COTTAGE</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -500,11 +518,12 @@
 			<Description>TXT_KEY_BUILD_FORT</Description>
 			<Help/>
 			<PrereqTech>TECH_MATHEMATICS</PrereqTech>
-			<iTime>600</iTime>
+			<iTime>1000</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>IMPROVEMENT_FORT</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs/>
 			<HotKey>KB_F</HotKey>
 			<bAltDown>0</bAltDown>
@@ -519,10 +538,11 @@
 			<Help/>
 			<PrereqTech>NONE</PrereqTech>
 			<iTime>0</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>NONE</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_CHOP</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_CHOP</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
@@ -545,10 +565,11 @@
 			<Help/>
 			<PrereqTech>NONE</PrereqTech>
 			<iTime>0</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>NONE</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_CHOP</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_CHOP</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_FOREST</FeatureType>
@@ -571,10 +592,11 @@
 			<Help/>
 			<PrereqTech>NONE</PrereqTech>
 			<iTime>0</iTime>
+			<iCost>0</iCost>
 			<bKill>0</bKill>
 			<ImprovementType>NONE</ImprovementType>
 			<RouteType>NONE</RouteType>
-			<EntityEvent>ENTEVENT_IRRIGATE</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_IRRIGATE</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_FALLOUT</FeatureType>
@@ -590,6 +612,25 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>1</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildScrubFallout.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,8</Button>
+		</BuildInfo>
+		<BuildInfo>
+			<Type>BUILD_FOREST_PRESERVE</Type>
+			<Description>TXT_KEY_BUILD_FOREST_PRESERVE</Description>
+			<Help/>
+			<PrereqTech>TECH_CALENDAR</PrereqTech>
+			<iTime>800</iTime>
+			<iCost>0</iCost>
+			<bKill>0</bKill>
+			<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
+			<RouteType>NONE</RouteType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs/>
+			<HotKey>KB_F</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>,Art/Interface/Buttons/TerrainFeatures/Forest.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,4,14</Button>
 		</BuildInfo>
 	</BuildInfos>
 </Civ4BuildInfos>
