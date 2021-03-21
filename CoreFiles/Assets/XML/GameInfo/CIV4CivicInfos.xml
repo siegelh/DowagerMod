@@ -1222,9 +1222,9 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>80</iYield>
+				<iYield>75</iYield>
+				<iYield>75</iYield>
 				<iYield>0</iYield>
-				<iYield>-50</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers/>
 			<CapitalCommerceModifiers/>
