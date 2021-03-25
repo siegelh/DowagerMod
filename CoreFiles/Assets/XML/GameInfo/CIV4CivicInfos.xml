@@ -1082,7 +1082,7 @@
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
@@ -1090,7 +1090,7 @@
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
@@ -1098,7 +1098,7 @@
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
@@ -1222,8 +1222,8 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>75</iYield>
-				<iYield>75</iYield>
+				<iYield>100</iYield>
+				<iYield>100</iYield>
 				<iYield>0</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers/>
@@ -1291,8 +1291,8 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>20</iYield>
-				<iYield>20</iYield>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
 				<iYield>100</iYield>
 			</TradeYieldModifiers>
 			<CommerceModifiers/>
@@ -1310,7 +1310,7 @@
 					<ImprovementYields>
 						<iYield>4</iYield>
 						<iYield>0</iYield>
-						<iYield>6</iYield>
+						<iYield>2</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
@@ -1399,7 +1399,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_MINE</ImprovementType>
 					<ImprovementYields>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 						<iYield>2</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
