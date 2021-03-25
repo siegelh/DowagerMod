@@ -11,8 +11,8 @@ import glob
 import winsound
 import os
 
-version = '0.4.3'
-print('Preparing to install HarrisonMod version %s, please wait...' % version)
+version = '0.4.4'
+print('Preparing to install DowagerMod version %s, please wait...' % version)
 winsound.PlaySound('install_noise.wav',winsound.SND_FILENAME)
 
 ## Functions
