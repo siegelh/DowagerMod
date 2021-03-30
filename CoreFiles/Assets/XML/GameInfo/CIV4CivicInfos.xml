@@ -1483,11 +1483,11 @@
 			<FeatureHappinessChanges>
 				<FeatureHappinessChange>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<iHappinessChange>3</iHappinessChange>
+					<iHappinessChange>2</iHappinessChange>
 				</FeatureHappinessChange>
 				<FeatureHappinessChange>
 					<FeatureType>FEATURE_FOREST</FeatureType>
-					<iHappinessChange>3</iHappinessChange>
+					<iHappinessChange>2</iHappinessChange>
 				</FeatureHappinessChange>
 			</FeatureHappinessChanges>
 			<ImprovementYieldChanges>
