@@ -16,7 +16,7 @@ from cx_Freeze import setup, Executable
 
 setup(
     name = "DowagerMod",
-    version = "0.2.1",
+    version = "0.3.0",
     description = "You know golly well what this is.",
     executables = [Executable("install.py", base = "Win32GUI")])
 	"""
