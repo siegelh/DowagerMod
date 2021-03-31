@@ -1308,17 +1308,17 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
 					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
 						<iYield>4</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_LUMBERMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>5</iYield>
-						<iYield>2</iYield>
 						<iYield>1</iYield>
+						<iYield>2</iYield>
+						<iYield>5</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
