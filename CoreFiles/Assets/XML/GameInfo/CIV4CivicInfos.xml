@@ -1441,7 +1441,7 @@
 			<iDistanceMaintenanceModifier>0</iDistanceMaintenanceModifier>
 			<iNumCitiesMaintenanceModifier>0</iNumCitiesMaintenanceModifier>
 			<iCorporationMaintenanceModifier>50</iCorporationMaintenanceModifier>
-			<iExtraHealth>8</iExtraHealth>
+			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
 			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
@@ -1491,11 +1491,11 @@
 			<FeatureHappinessChanges>
 				<FeatureHappinessChange>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<iHappinessChange>1</iHappinessChange>
+					<iHappinessChange>4</iHappinessChange>
 				</FeatureHappinessChange>
 				<FeatureHappinessChange>
 					<FeatureType>FEATURE_FOREST</FeatureType>
-					<iHappinessChange>1</iHappinessChange>
+					<iHappinessChange>4</iHappinessChange>
 				</FeatureHappinessChange>
 			</FeatureHappinessChanges>
 			<ImprovementYieldChanges>
