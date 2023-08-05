@@ -1421,7 +1421,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WORKSHOP</ImprovementType>
 					<ImprovementYields>
-						<iYield>3</iYield>
+						<iYield>2</iYield>
 						<iYield>2</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
