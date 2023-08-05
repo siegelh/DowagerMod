@@ -1573,8 +1573,8 @@
 					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
 					<ImprovementYields>
 						<iYield>3</iYield>
-						<iYield>1</iYield>
-						<iYield>1</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
