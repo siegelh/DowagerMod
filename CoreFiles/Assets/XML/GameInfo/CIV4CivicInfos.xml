@@ -1314,9 +1314,9 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
+						<iYield>1</iYield>
 						<iYield>0</iYield>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
