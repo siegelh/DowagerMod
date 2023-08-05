@@ -365,7 +365,7 @@
 					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
-						<iYield>3</iYield>
+						<iYield>4</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
@@ -1534,7 +1534,7 @@
 					<ImprovementYields>
 						<iYield>4</iYield>
 						<iYield>1</iYield>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
@@ -1542,7 +1542,7 @@
 					<ImprovementYields>
 						<iYield>4</iYield>
 						<iYield>1</iYield>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
@@ -1550,7 +1550,7 @@
 					<ImprovementYields>
 						<iYield>4</iYield>
 						<iYield>1</iYield>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
