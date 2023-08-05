@@ -272,7 +272,12 @@
 				<iCommerce>100</iCommerce>
 			</CapitalCommerceModifiers>
 			
-			<SpecialistExtraCommerces/>
+
+			<SpecialistExtraCommerces>
+				<iCommerce>0</iCommerce>
+				<iCommerce>1</iCommerce>
+				<iCommerce>1</iCommerce>
+			</SpecialistExtraCommerces>
 			<Hurrys/>
 			<SpecialBuildingNotRequireds/>
 			<SpecialistValids>
