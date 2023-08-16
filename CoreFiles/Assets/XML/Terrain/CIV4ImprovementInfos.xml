@@ -1387,7 +1387,16 @@
 			<FeatureMakesValids/>
 			<ImprovementPillage>IMPROVEMENT_COTTAGE</ImprovementPillage>
 			<ImprovementUpgrade>IMPROVEMENT_VILLAGE</ImprovementUpgrade>
-			<TechYieldChanges/>
+			<TechYieldChanges>
+				<TechYieldChange>
+					<PrereqTech>TECH_PRINTING_PRESS</PrereqTech>
+					<TechYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>1</iYield>
+					</TechYields>
+				</TechYieldChange>
+			</TechYieldChanges>
 			<RouteYieldChanges/>
 			<bGraphicalOnly>0</bGraphicalOnly>
 		</ImprovementInfo>
@@ -1436,7 +1445,7 @@
 					<TechYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>1</iYield>
+						<iYield>2</iYield>
 					</TechYields>
 				</TechYieldChange>
 			</TechYieldChanges>
@@ -1487,8 +1496,8 @@
 					<PrereqTech>TECH_PRINTING_PRESS</PrereqTech>
 					<TechYields>
 						<iYield>0</iYield>
-						<iYield>0</iYield>
 						<iYield>1</iYield>
+						<iYield>3</iYield>
 					</TechYields>
 				</TechYieldChange>
 			</TechYieldChanges>
