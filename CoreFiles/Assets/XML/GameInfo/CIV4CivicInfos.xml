@@ -1359,6 +1359,14 @@
 						<iYield>3</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_WHALING_BOATS</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
 			<WeLoveTheKing/>
 		</CivicInfo>
@@ -1451,6 +1459,14 @@
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 					<ImprovementYields>
 						<iYield>3</iYield>
@@ -1479,6 +1495,14 @@
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>3</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_FORT</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>5</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
