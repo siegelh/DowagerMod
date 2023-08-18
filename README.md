@@ -1,13 +1,25 @@
-# DowagerMod
+# Installation Instructions
 
-## Install
-If using Windows, run the `CoreFiles/dist/install.exe` from command prompt with administrator.
+To install the application, follow these steps:
 
-If you have python installed natively, you can navigate to CoreFiles and use `python install.py`.
+1. Download the installer executable from the 'dist' directory.
 
-## Questions
+2. Run the installer by double-clicking on the 'install.exe' file.
+
+3. Follow the on-screen instructions to complete the installation process.
+
+# Rebuilding the Installer
+
+If you need to re-build the installer, you can use the following steps:
+
+1. Open a command prompt or terminal.
+
+2. Navigate to the directory containing the 'install.py' script.
+
+3. Run the following command to re-build the installer:
+
+   ```bash
+   pyinstaller --onefile install.py
+
+# Questions
 Who can say?
-
-## Rebuilding Windows installer
-
-Run 'python setup.py py2exe'
