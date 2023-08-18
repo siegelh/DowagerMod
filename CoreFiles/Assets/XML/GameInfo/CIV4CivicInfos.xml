@@ -264,15 +264,12 @@
 				<iCommerce>0</iCommerce>
 				<iCommerce>100</iCommerce>
 			</CommerceModifiers>
-
 			<CapitalCommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>400</iCommerce>
 			</CapitalCommerceModifiers>
-			
-
 			<SpecialistExtraCommerces>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -290,7 +287,16 @@
 			<BuildingHappinessChanges/>
 			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
-			<ImprovementYieldChanges/>
+			<ImprovementYieldChanges>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_FORT</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>5</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+			</ImprovementYieldChanges>
 			<WeLoveTheKing>TXT_KEY_CIVIC_WE_LOVE_DICTATOR</WeLoveTheKing>
 		</CivicInfo>
 		<CivicInfo>
@@ -1596,7 +1602,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINDMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>4</iYield>
+						<iYield>5</iYield>
 						<iYield>0</iYield>
 						<iYield>2</iYield>
 					</ImprovementYields>
@@ -1604,7 +1610,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>4</iYield>
+						<iYield>5</iYield>
 						<iYield>0</iYield>
 						<iYield>2</iYield>
 					</ImprovementYields>
