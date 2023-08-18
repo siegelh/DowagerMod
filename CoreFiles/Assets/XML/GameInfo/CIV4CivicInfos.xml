@@ -292,7 +292,7 @@
 					<ImprovementType>IMPROVEMENT_FORT</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
-						<iYield>5</iYield>
+						<iYield>4</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
@@ -1336,7 +1336,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_LUMBERMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
+						<iYield>0</iYield>
 						<iYield>2</iYield>
 						<iYield>5</iYield>
 					</ImprovementYields>
@@ -1344,7 +1344,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINERY</ImprovementType>
 					<ImprovementYields>
-						<iYield>0</iYield>
+						<iYield>2</iYield>
 						<iYield>0</iYield>
 						<iYield>5</iYield>
 					</ImprovementYields>
@@ -1352,7 +1352,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_PLANTATION</ImprovementType>
 					<ImprovementYields>
-						<iYield>0</iYield>
+						<iYield>2</iYield>
 						<iYield>0</iYield>
 						<iYield>5</iYield>
 					</ImprovementYields>
@@ -1508,7 +1508,7 @@
 					<ImprovementType>IMPROVEMENT_FORT</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
-						<iYield>5</iYield>
+						<iYield>4</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
@@ -1583,11 +1583,11 @@
 			<FeatureHappinessChanges>
 				<FeatureHappinessChange>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<iHappinessChange>2</iHappinessChange>
+					<iHappinessChange>3</iHappinessChange>
 				</FeatureHappinessChange>
 				<FeatureHappinessChange>
 					<FeatureType>FEATURE_FOREST</FeatureType>
-					<iHappinessChange>2</iHappinessChange>
+					<iHappinessChange>3</iHappinessChange>
 				</FeatureHappinessChange>
 			</FeatureHappinessChanges>
 			<ImprovementYieldChanges>
@@ -1602,9 +1602,9 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINDMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>5</iYield>
-						<iYield>0</iYield>
+						<iYield>8</iYield>
 						<iYield>2</iYield>
+						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
