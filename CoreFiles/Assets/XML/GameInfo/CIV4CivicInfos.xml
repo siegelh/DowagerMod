@@ -1092,9 +1092,9 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
 					<ImprovementYields>
-						<iYield>1</iYield>
 						<iYield>0</iYield>
-						<iYield>6</iYield>
+						<iYield>0</iYield>
+						<iYield>5</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
