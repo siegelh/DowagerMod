@@ -1632,7 +1632,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>3</iYield>
+						<iYield>1</iYield>
 						<iYield>5</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
