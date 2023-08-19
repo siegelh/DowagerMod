@@ -1332,7 +1332,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
 					<ImprovementYields>
-						<iYield>1</iYield>
+						<iYield>0</iYield>
 						<iYield>0</iYield>
 						<iYield>1</iYield>
 					</ImprovementYields>
@@ -1348,7 +1348,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINERY</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
+						<iYield>3</iYield>
 						<iYield>0</iYield>
 						<iYield>5</iYield>
 					</ImprovementYields>
@@ -1356,9 +1356,17 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_PLANTATION</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
+						<iYield>3</iYield>
 						<iYield>0</iYield>
 						<iYield>5</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
+					<ImprovementYields>
+						<iYield>2</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
@@ -1608,25 +1616,25 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
 					<ImprovementYields>
-						<iYield>3</iYield>
+						<iYield>4</iYield>
+						<iYield>-1</iYield>
 						<iYield>0</iYield>
-						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINDMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>8</iYield>
-						<iYield>2</iYield>
 						<iYield>0</iYield>
+						<iYield>5</iYield>
+						<iYield>2</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 					<ImprovementYields>
+						<iYield>3</iYield>
 						<iYield>5</iYield>
 						<iYield>0</iYield>
-						<iYield>2</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
