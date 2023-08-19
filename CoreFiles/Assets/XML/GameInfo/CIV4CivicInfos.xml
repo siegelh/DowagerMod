@@ -292,7 +292,7 @@
 					<ImprovementType>IMPROVEMENT_FORT</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
-						<iYield>4</iYield>
+						<iYield>3</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
@@ -1242,12 +1242,16 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>100</iYield>
-				<iYield>100</iYield>
+				<iYield>200</iYield>
+				<iYield>200</iYield>
 				<iYield>0</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers/>
-			<CapitalCommerceModifiers/>
+			<CapitalCommerceModifiers>
+				<iYield>25</iYield>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+			</CapitalCommerceModifiers>
 			<SpecialistExtraCommerces/>
 			<Hurrys/>
 			<SpecialBuildingNotRequireds/>
@@ -1426,15 +1430,20 @@
 			<iStateReligionUnitProductionModifier>0</iStateReligionUnitProductionModifier>
 			<iStateReligionBuildingProductionModifier>0</iStateReligionBuildingProductionModifier>
 			<iStateReligionFreeExperience>0</iStateReligionFreeExperience>
-			<YieldModifiers>
+			<YieldModifiers/>
+			<CapitalYieldModifiers>
 				<iYield>0</iYield>
-				<iYield>10</iYield>
+				<iYield>50</iYield>
 				<iYield>0</iYield>
-			</YieldModifiers>
-			<CapitalYieldModifiers/>
+			</CapitalYieldModifiers>
 			<TradeYieldModifiers/>
 			<CommerceModifiers/>
-			<CapitalCommerceModifiers/>
+			<CapitalCommerceModifiers>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+				<iYield>100</iYield>
+			</CapitalCommerceModifiers>
 			<SpecialistExtraCommerces/>
 			<Hurrys/>
 			<SpecialBuildingNotRequireds/>
@@ -1444,7 +1453,12 @@
 					<bValid>1</bValid>
 				</SpecialistValid>
 			</SpecialistValids>
-			<BuildingHappinessChanges/>
+			<BuildingHappinessChanges>
+				<BuildingHappinessChange>
+					<BuildingType>BUILDINGCLASS_PALACE</BuildingType>
+					<iHappinessChange>5</iHappinessChange>
+				</BuildingHappinessChange>
+			</BuildingHappinessChanges>
 			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
 			<ImprovementYieldChanges>
@@ -1508,7 +1522,7 @@
 					<ImprovementType>IMPROVEMENT_FORT</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
-						<iYield>4</iYield>
+						<iYield>3</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
@@ -1617,6 +1631,22 @@
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+					<ImprovementYields>
+						<iYield>3</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_WINERY</ImprovementType>
+					<ImprovementYields>
+						<iYield>3</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_PLANTATION</ImprovementType>
 					<ImprovementYields>
 						<iYield>3</iYield>
 						<iYield>0</iYield>
