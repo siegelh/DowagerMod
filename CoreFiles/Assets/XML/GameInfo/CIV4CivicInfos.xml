@@ -1757,7 +1757,7 @@
 			<iCorporationMaintenanceModifier>0</iCorporationMaintenanceModifier>
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
-			<iWorkerSpeedModifier>50</iWorkerSpeedModifier>
+			<iWorkerSpeedModifier>-50</iWorkerSpeedModifier>
 			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
@@ -1785,7 +1785,7 @@
 			<iStateReligionHappiness>0</iStateReligionHappiness>
 			<iNonStateReligionHappiness>0</iNonStateReligionHappiness>
 			<iStateReligionUnitProductionModifier>0</iStateReligionUnitProductionModifier>
-			<iStateReligionBuildingProductionModifier>35</iStateReligionBuildingProductionModifier>
+			<iStateReligionBuildingProductionModifier>100</iStateReligionBuildingProductionModifier>
 			<iStateReligionFreeExperience>0</iStateReligionFreeExperience>
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
