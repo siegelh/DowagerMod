@@ -1242,8 +1242,8 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>200</iYield>
-				<iYield>200</iYield>
+				<iYield>100</iYield>
+				<iYield>100</iYield>
 				<iYield>0</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers/>
@@ -1569,7 +1569,7 @@
 			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
-			<iBaseFreeMilitaryUnits>0</iBaseFreeMilitaryUnits>
+			<iBaseFreeMilitaryUnits>10</iBaseFreeMilitaryUnits>
 			<iFreeUnitsPopulationPercent>0</iFreeUnitsPopulationPercent>
 			<iFreeMilitaryUnitsPopulationPercent>0</iFreeMilitaryUnitsPopulationPercent>
 			<iGoldPerUnit>0</iGoldPerUnit>
@@ -1625,15 +1625,15 @@
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
 					<ImprovementYields>
 						<iYield>5</iYield>
-						<iYield>-2</iYield>
+						<iYield>-1</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINDMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>7</iYield>
-						<iYield>0</iYield>
+						<iYield>6</iYield>
+						<iYield>2</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
@@ -1757,7 +1757,7 @@
 			<iCorporationMaintenanceModifier>0</iCorporationMaintenanceModifier>
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
-			<iWorkerSpeedModifier>-50</iWorkerSpeedModifier>
+			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
 			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
@@ -1785,7 +1785,7 @@
 			<iStateReligionHappiness>0</iStateReligionHappiness>
 			<iNonStateReligionHappiness>0</iNonStateReligionHappiness>
 			<iStateReligionUnitProductionModifier>0</iStateReligionUnitProductionModifier>
-			<iStateReligionBuildingProductionModifier>100</iStateReligionBuildingProductionModifier>
+			<iStateReligionBuildingProductionModifier>35</iStateReligionBuildingProductionModifier>
 			<iStateReligionFreeExperience>0</iStateReligionFreeExperience>
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
