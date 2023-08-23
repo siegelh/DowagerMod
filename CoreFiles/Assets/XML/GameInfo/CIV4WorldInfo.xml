@@ -14,7 +14,6 @@
 			<iDefaultPlayers>25</iDefaultPlayers>
 			<iUnitNameModifier>0</iUnitNameModifier>
 			<iTargetNumCities>8</iTargetNumCities>
-			<iTargetNumCities>100</iTargetNumCities>
 			<iNumFreeBuildingBonuses>7</iNumFreeBuildingBonuses>
 			<iBuildingClassPrereqModifier>100</iBuildingClassPrereqModifier>
 			<iMaxConscriptModifier>75</iMaxConscriptModifier>
@@ -39,7 +38,6 @@
 			<iDefaultPlayers>3</iDefaultPlayers>
 			<iUnitNameModifier>40</iUnitNameModifier>
 			<iTargetNumCities>4</iTargetNumCities>
-			<iTargetNumCities>100</iTargetNumCities>
 			<iNumFreeBuildingBonuses>1</iNumFreeBuildingBonuses>
 			<iBuildingClassPrereqModifier>0</iBuildingClassPrereqModifier>
 			<iMaxConscriptModifier>-25</iMaxConscriptModifier>
@@ -64,7 +62,6 @@
 			<iDefaultPlayers>5</iDefaultPlayers>
 			<iUnitNameModifier>30</iUnitNameModifier>
 			<iTargetNumCities>5</iTargetNumCities>
-			<iTargetNumCities>100</iTargetNumCities>
 			<iNumFreeBuildingBonuses>3</iNumFreeBuildingBonuses>
 			<iBuildingClassPrereqModifier>25</iBuildingClassPrereqModifier>
 			<iMaxConscriptModifier>0</iMaxConscriptModifier>
@@ -89,7 +86,6 @@
 			<iDefaultPlayers>10</iDefaultPlayers>
 			<iUnitNameModifier>20</iUnitNameModifier>
 			<iTargetNumCities>5</iTargetNumCities>
-			<iTargetNumCities>100</iTargetNumCities>
 			<iNumFreeBuildingBonuses>5</iNumFreeBuildingBonuses>
 			<iBuildingClassPrereqModifier>50</iBuildingClassPrereqModifier>
 			<iMaxConscriptModifier>25</iMaxConscriptModifier>
@@ -114,7 +110,6 @@
 			<iDefaultPlayers>16</iDefaultPlayers>
 			<iUnitNameModifier>10</iUnitNameModifier>
 			<iTargetNumCities>6</iTargetNumCities>
-			<iTargetNumCities>100</iTargetNumCities>
 			<iNumFreeBuildingBonuses>6</iNumFreeBuildingBonuses>
 			<iBuildingClassPrereqModifier>75</iBuildingClassPrereqModifier>
 			<iMaxConscriptModifier>50</iMaxConscriptModifier>
@@ -139,7 +134,6 @@
 			<iDefaultPlayers>18</iDefaultPlayers>
 			<iUnitNameModifier>0</iUnitNameModifier>
 			<iTargetNumCities>6</iTargetNumCities>
-			<iTargetNumCities>100</iTargetNumCities>
 			<iNumFreeBuildingBonuses>7</iNumFreeBuildingBonuses>
 			<iBuildingClassPrereqModifier>100</iBuildingClassPrereqModifier>
 			<iMaxConscriptModifier>75</iMaxConscriptModifier>
