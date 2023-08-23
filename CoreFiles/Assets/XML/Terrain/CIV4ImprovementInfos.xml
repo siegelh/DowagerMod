@@ -1630,7 +1630,7 @@
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
 			<iTilesPerGoody>0</iTilesPerGoody>
 			<iGoodyRange>0</iGoodyRange>
-			<iFeatureGrowth>10000</iFeatureGrowth>
+			<iFeatureGrowth>5000</iFeatureGrowth>
 			<iUpgradeTime>0</iUpgradeTime>
 			<iAirBombDefense>20</iAirBombDefense>
 			<iDefenseModifier>0</iDefenseModifier>
