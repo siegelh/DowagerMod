@@ -168,7 +168,7 @@ def findPath(civ_drive):
     for root, directories, filenames in os.walk(civ_drive.upper()):
         for directory in directories:
             current_path = os.path.join(root, directory).replace("\n",'\\')
-            if "\\Sid Meier's Civilization IV Beyond the Sword\\Beyond the Sword\\Assets" in current_path:
+            if "\\Sid Meier's Civilization IV Beyond the Sword" in current_path and "steam" in current_path.lower():  # \\Beyond the Sword\\Assets
                 print("""
                 ---------------------------------
                 Civ 4 BTS Assets Directory found!
@@ -190,7 +190,7 @@ def installMod(civ_directory):
     print('Finished installing HarrisonMod version %s!' % version)
 
 ## Fetch install path
-src_path = sys.argv[0][:-16].replace('/','\\') + 'assets'
+src_path = sys.argv[0][:-16].replace('/','\\') + "Sid Meier's Civilization IV Beyond the Sword"
 
 # Prompt the user for the drive where they think the game is installed.
 civ_drive = input('Type the letter drive name (caps insensitive) where Civ Beyond the Sword is installed (e.g., C): ')
