@@ -1348,31 +1348,31 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINERY</ImprovementType>
 					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
+						<iYield>4</iYield>
+						<iYield>-3</iYield>
 						<iYield>5</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_PLANTATION</ImprovementType>
 					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
+						<iYield>4</iYield>
+						<iYield>-3</iYield>
 						<iYield>5</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_PASTURE</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
+						<iYield>5</iYield>
+						<iYield>-3</iYield>
+						<iYield>-3</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
+						<iYield>4</iYield>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
@@ -1391,6 +1391,14 @@
 						<iYield>0</iYield>
 						<iYield>0</iYield>
 						<iYield>3</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
+					<ImprovementYields>
+						<iYield>1</iYield>
+						<iYield>0</iYield>
+						<iYield>5</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
