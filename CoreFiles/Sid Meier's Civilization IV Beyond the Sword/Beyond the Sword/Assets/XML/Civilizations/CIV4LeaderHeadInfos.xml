@@ -29029,7 +29029,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<TraitType>TRAIT_PARANOID</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
