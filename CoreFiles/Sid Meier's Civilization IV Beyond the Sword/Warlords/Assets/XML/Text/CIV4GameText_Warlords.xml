@@ -311,6 +311,14 @@
 		<Spanish>Pro</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_TRAIT_PARANOID_SHORT</Tag>
+		<English>Pro</English>
+		<French>Pro</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_MISC_GP_BORN_FIELD</Tag>
 		<English>%s1_GreatPersonName has emerged in the field</English>
 		<French>%s1_GreatPersonName s'est r&#233;v&#233;l&#233; sur le champ de bataille</French>
