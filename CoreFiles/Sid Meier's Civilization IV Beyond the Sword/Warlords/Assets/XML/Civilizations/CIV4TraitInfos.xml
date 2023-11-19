@@ -312,8 +312,18 @@
 				<iCommerce>5</iCommerce>
 			</CommerceChanges>
 			<CommerceModifiers/>
-			<FreePromotions/>
-			<FreePromotionUnitCombats/>
+			<FreePromotions>
+				<FreePromotion>
+					<PromotionType>PROMOTION_GIGA</PromotionType>
+					<bFreePromotion>1</bFreePromotion>
+				</FreePromotion>
+			</FreePromotions>
+			<FreePromotionUnitCombats>
+				<FreePromotionUnitCombat>
+					<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+					<bFreePromotionUnitCombat>1</bFreePromotionUnitCombat>
+				</FreePromotionUnitCombat>
+			</FreePromotionUnitCombats>
 		</TraitInfo>
 	</TraitInfos>
 </Civ4TraitInfos>
