@@ -24,7 +24,7 @@
 		</LeaderheadArtInfo>
         <LeaderheadArtInfo>
             <Type>ART_DEF_LEADER_DUTCH_KING</Type>
-            <Button>,Art/Leaderheads/colonization_civilizations_leaders.dds,8,2</Button>
+            <Button>,Art/Leaderheads/Colonization_Civilizations_Leaders.dds,8,2</Button>
             <NIF>art/Leaderheads/archbishop/King_Dutch.nif</NIF>
             <KFM>art/Leaderheads/archbishop/King_Dutch.kfm</KFM>
 			<NoShaderNIF></NoShaderNIF>
