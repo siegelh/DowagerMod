@@ -19,7 +19,7 @@ If you need to re-build the installer, you can use the following steps:
 3. Run the following command to re-build the installer:
 
    ```bash
-   pyinstaller --onefile install.py
+   python -m PyInstaller --onefile install.py
 
 # Questions
 Who can say?

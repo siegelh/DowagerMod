@@ -6867,7 +6867,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_ANGER_FEATURES</Tag>
-		<English>+%d1_Change[ICON_UNHAPPY]: "You egregged us by putting us in a prison! Pat can't compute!"</English>
+		<English>+%d1_Change[ICON_UNHAPPY]: "You egregged us by putting us in a prison! Pat can compute (maybe)!"</English>
 		<French>+%d1_Change[ICON_UNHAPPY] : "Toute cette &#233;cologie me rend fou !"</French>
 		<German>+%d1_Change[ICON_UNHAPPY]: "Dieses ewige Tree-hugging treibt mich noch in den Wahnsinn!"</German>
 		<Italian>+%d1_Change[ICON_UNHAPPY]: "Tutto questo movimento mi rende pazzo!"</Italian>
