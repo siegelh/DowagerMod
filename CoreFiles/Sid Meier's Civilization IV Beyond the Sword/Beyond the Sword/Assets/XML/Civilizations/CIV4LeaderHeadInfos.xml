@@ -29033,7 +29033,11 @@
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
+					<TraitType>TRAIT_PACIFIST</TraitType>
+					<bTrait>1</bTrait>
+				</Trait>
+				<Trait>
+					<TraitType>TRAIT_BLOODTHIRSTY</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>

@@ -312,8 +312,24 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_TRAIT_PARANOID_SHORT</Tag>
-		<English>Pro</English>
-		<French>Pro</French>
+		<English>Par</English>
+		<French>Par</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_PACIFIST_SHORT</Tag>
+		<English>Pac</English>
+		<French>Pac</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_BLOODTHIRSTY_SHORT</Tag>
+		<English>Blo</English>
+		<French>Blo</French>
 		<German>Stz</German>
 		<Italian>Pro</Italian>
 		<Spanish>Pro</Spanish>
