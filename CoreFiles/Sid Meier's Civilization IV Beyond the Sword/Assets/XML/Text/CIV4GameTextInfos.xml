@@ -1794,6 +1794,14 @@
 		<Spanish>[ICON_BULLET]Puede atacar varias veces por turno</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GIGA_TEXT</Tag>
+		<English>[ICON_BULLET]Shits on compie, Pat can't compute.</English>
+		<French>[ICON_BULLET]Peut attaquer plusieurs fois par tour</French>
+		<German>[ICON_BULLET]Kann mehrmals pro Runde angreifen</German>
+		<Italian>[ICON_BULLET]Permette di attaccare pi&#249; volte durante lo stesso turno</Italian>
+		<Spanish>[ICON_BULLET]Puede atacar varias veces por turno</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_PROMOTION_AMPHIB_TEXT</Tag>
 		<English>[ICON_BULLET]No Combat Penalty for Attacking from Sea</English>
 		<French>[ICON_BULLET]Aucune p&#233;nalit&#233; de combat en attaquant depuis la mer</French>
