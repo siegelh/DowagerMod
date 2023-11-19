@@ -290,8 +290,8 @@
 		</TraitInfo>
 		<TraitInfo>
 			<Type>TRAIT_PARANOID</Type>
-			<Description>TXT_KEY_TRAIT_PROTECTIVE</Description>
-			<ShortDescription>TXT_KEY_TRAIT_PROTECTIVE_SHORT</ShortDescription>
+			<Description>TXT_KEY_TRAIT_PARANOID</Description>
+			<ShortDescription>TXT_KEY_TRAIT_PARANOID_SHORT</ShortDescription>
 			<iHealth>0</iHealth>
 			<iHappiness>0</iHappiness>
 			<iMaxAnarchy>-1</iMaxAnarchy>
