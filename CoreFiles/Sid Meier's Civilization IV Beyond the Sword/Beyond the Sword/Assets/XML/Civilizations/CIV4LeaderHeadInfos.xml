@@ -21742,6 +21742,10 @@
 					<TraitType>TRAIT_ORGANIZED</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
+				<Trait>
+					<TraitType>TRAIT_ROOSEVELT</TraitType>
+					<bTrait>1</bTrait>
+				</Trait>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -27323,6 +27327,10 @@
 				</Trait>
 				<Trait>
 					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<bTrait>1</bTrait>
+				</Trait>
+				<Trait>
+					<TraitType>TRAIT_GEORGE_WASHINGTON</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>

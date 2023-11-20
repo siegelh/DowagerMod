@@ -327,6 +327,22 @@
 		<Spanish>Pro</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_TRAIT_GEORGE_WASHINGTON_SHORT</Tag>
+		<English>Was</English>
+		<French>Was</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_ROOSEVELT_SHORT</Tag>
+		<English>Ros</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_TRAIT_BLOODTHIRSTY_SHORT</Tag>
 		<English>Blo</English>
 		<French>Blo</French>
