@@ -218,46 +218,57 @@ name_entry.grid(row=1, column=1, padx=10, pady=5)
 tk.Label(frame1, text="Health:").grid(row=2, column=0, padx=10, pady=5)
 health_entry = tk.Entry(frame1)
 health_entry.grid(row=2, column=1, padx=10, pady=5)
+health_entry.insert(0, "0")
 
 tk.Label(frame1, text="Happiness:").grid(row=3, column=0, padx=10, pady=5)
 happiness_entry = tk.Entry(frame1)
 happiness_entry.grid(row=3, column=1, padx=10, pady=5)
+happiness_entry.insert(0, "0")
 
 tk.Label(frame1, text="General Rate Modifier:").grid(row=4, column=0, padx=10, pady=5)
 general_rate_modifier_entry = tk.Entry(frame1)
 general_rate_modifier_entry.grid(row=4, column=1, padx=10, pady=5)
+general_rate_modifier_entry.insert(0, "0")
 
 tk.Label(frame1, text="Domestic General Rate Modifier:").grid(row=5, column=0, padx=10, pady=5)
 domestic_general_rate_modifier_entry = tk.Entry(frame1)
 domestic_general_rate_modifier_entry.grid(row=5, column=1, padx=10, pady=5)
+domestic_general_rate_modifier_entry.insert(0, "0")
 
 tk.Label(frame1, text="Great People Rate Modifier:").grid(row=6, column=0, padx=10, pady=5)
 great_people_rate_modifier_entry = tk.Entry(frame1)
 great_people_rate_modifier_entry.grid(row=6, column=1, padx=10, pady=5)
+great_people_rate_modifier_entry.insert(0, "0")
 
 tk.Label(frame1, text="Promotion Experience Modifier:").grid(row=7, column=0, padx=10, pady=5)
 promotion_experience_modifier_entry = tk.Entry(frame1)
 promotion_experience_modifier_entry.grid(row=7, column=1, padx=10, pady=5)
+promotion_experience_modifier_entry.insert(0, "0")
 
 tk.Label(frame1, text="Max Anarchy Length:").grid(row=8, column=0, padx=10, pady=5)
 max_anarchy_length_entry = tk.Entry(frame1)
 max_anarchy_length_entry.grid(row=8, column=1, padx=10, pady=5)
+max_anarchy_length_entry.insert(-1, "-1")
 
 tk.Label(frame1, text="World Wonder Production Modifier:").grid(row=9, column=0, padx=10, pady=5)
 world_wonder_modifier_entry = tk.Entry(frame1)
 world_wonder_modifier_entry.grid(row=9, column=1, padx=10, pady=5)
+world_wonder_modifier_entry.insert(0, "0")
 
 tk.Label(frame1, text="National Wonder Production Modifier:").grid(row=10, column=0, padx=10, pady=5)
 national_wonder_modifier_entry = tk.Entry(frame1)
 national_wonder_modifier_entry.grid(row=10, column=1, padx=10, pady=5)
+national_wonder_modifier_entry.insert(0, "0")
 
 tk.Label(frame1, text="Team Wonder Production Modifier:").grid(row=11, column=0, padx=10, pady=5)
 team_wonder_modifier_entry = tk.Entry(frame1)
 team_wonder_modifier_entry.grid(row=11, column=1, padx=10, pady=5)
+team_wonder_modifier_entry.insert(0, "0")
 
 tk.Label(frame1, text="Upkeep Modifier:").grid(row=12, column=0, padx=10, pady=5)
 upkeep_modifier_entry = tk.Entry(frame1)
 upkeep_modifier_entry.grid(row=12, column=1, padx=10, pady=5)
+upkeep_modifier_entry.insert(0, "0")
 
 # City Income Change
 create_category_frame(frame1, "City Income Change (Extra raw values)", "City Income Change (Extra raw values)", 13)
