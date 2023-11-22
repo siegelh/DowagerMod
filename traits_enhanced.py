@@ -7,6 +7,7 @@ from xml.dom import minidom
 def generate_output():
     # Get values from input fields
     user_name = name_entry.get()
+    description = description_entry.get()
     health_value = health_entry.get()
     happiness_value = happiness_entry.get()
     general_rate_modifier = general_rate_modifier_entry.get()
@@ -47,6 +48,10 @@ def generate_output():
         result_label.config(text="Error: Please give your trait a name, imby.")
         return
     
+    if description == "":
+        result_label.config(text="Error: Please give your trait a description, imby.")
+        return
+    
     both_empty_or_non_empty = (not promotions) == (not units)
     if not both_empty_or_non_empty:
         result_label.config(text="Error: If using either Promotion or Unit, must include both.")
@@ -82,12 +87,19 @@ def generate_output():
 
     # Write the output to the text file
     trait_file_name = "TRAIT_" + user_name.upper()
-    file_path = f"traits/{trait_file_name}.txt"
+    file_path = f"traits/{trait_file_name}.xml"
     with open(file_path, "w") as file:
         file.write(xml_output)
 
+    trait_description_file_name = "traits/TXT_KEY_TRAIT_" + user_name.upper() + ".xml"
+    generate_description_xml(trait_description_file_name, [user_name.upper(), description])
+
+    trait_description_short_file_name = "traits/TXT_KEY_TRAIT_" + user_name.upper() + "_SHORT" + ".xml"
+    generate_short_description_xml(trait_description_short_file_name, [user_name.upper(), user_name[:3]])
+
     # Update the text in the result_label
     result_label.config(text=f"Output written to {file_path}")
+
 
     # Trait Class
 class TraitInfoBuilder:
@@ -131,6 +143,55 @@ class TraitInfoBuilder:
         return reparsed.toprettyxml(indent="  ")
 
 # functions
+
+def generate_description_xml(file_name, trait_data):
+    trait_key, description = trait_data
+
+    xml_content = f'''
+    <TEXT>
+		<Tag>{trait_key}</Tag>
+		<English>{description}</English>
+		<French>
+			<Text>{description}</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>'''
+
+    with open(file_name, 'w', encoding='utf-8') as file:
+        file.write(xml_content)
+
+
+def generate_short_description_xml(file_name, trait_data):
+    trait_key, short_description = trait_data
+
+    xml_content = f'''
+    <TEXT>
+        <Tag>{trait_key}</Tag>
+        <English>{short_description[:3]}</English>
+        <French>{short_description[:3]}</French>
+        <German>{short_description[:3]}</German>
+        <Italian>{short_description[:3]}</Italian>
+        <Spanish>{short_description[:3]}</Spanish>
+    </TEXT>'''
+
+    with open(file_name, 'w', encoding='utf-8') as file:
+        file.write(xml_content)
 
 def generate_named_tuples(input_list, name_variable):
     """
@@ -215,141 +276,145 @@ tk.Label(frame1, text="Trait Name:").grid(row=1, column=0, padx=10, pady=5)
 name_entry = tk.Entry(frame1)
 name_entry.grid(row=1, column=1, padx=10, pady=5)
 
-tk.Label(frame1, text="Health:").grid(row=2, column=0, padx=10, pady=5)
+tk.Label(frame1, text="Trait Description:").grid(row=2, column=0, padx=10, pady=5)
+description_entry = tk.Entry(frame1)
+description_entry.grid(row=2, column=1, padx=10, pady=5)
+
+tk.Label(frame1, text="Health:").grid(row=3, column=0, padx=10, pady=5)
 health_entry = tk.Entry(frame1)
-health_entry.grid(row=2, column=1, padx=10, pady=5)
+health_entry.grid(row=3, column=1, padx=10, pady=5)
 health_entry.insert(0, "0")
 
-tk.Label(frame1, text="Happiness:").grid(row=3, column=0, padx=10, pady=5)
+tk.Label(frame1, text="Happiness:").grid(row=4, column=0, padx=10, pady=5)
 happiness_entry = tk.Entry(frame1)
-happiness_entry.grid(row=3, column=1, padx=10, pady=5)
+happiness_entry.grid(row=4, column=1, padx=10, pady=5)
 happiness_entry.insert(0, "0")
 
-tk.Label(frame1, text="General Rate Modifier:").grid(row=4, column=0, padx=10, pady=5)
+tk.Label(frame1, text="General Rate Modifier:").grid(row=5, column=0, padx=10, pady=5)
 general_rate_modifier_entry = tk.Entry(frame1)
-general_rate_modifier_entry.grid(row=4, column=1, padx=10, pady=5)
+general_rate_modifier_entry.grid(row=5, column=1, padx=10, pady=5)
 general_rate_modifier_entry.insert(0, "0")
 
-tk.Label(frame1, text="Domestic General Rate Modifier:").grid(row=5, column=0, padx=10, pady=5)
+tk.Label(frame1, text="Domestic General Rate Modifier:").grid(row=6, column=0, padx=10, pady=5)
 domestic_general_rate_modifier_entry = tk.Entry(frame1)
-domestic_general_rate_modifier_entry.grid(row=5, column=1, padx=10, pady=5)
+domestic_general_rate_modifier_entry.grid(row=6, column=1, padx=10, pady=5)
 domestic_general_rate_modifier_entry.insert(0, "0")
 
-tk.Label(frame1, text="Great People Rate Modifier:").grid(row=6, column=0, padx=10, pady=5)
+tk.Label(frame1, text="Great People Rate Modifier:").grid(row=7, column=0, padx=10, pady=5)
 great_people_rate_modifier_entry = tk.Entry(frame1)
-great_people_rate_modifier_entry.grid(row=6, column=1, padx=10, pady=5)
+great_people_rate_modifier_entry.grid(row=7, column=1, padx=10, pady=5)
 great_people_rate_modifier_entry.insert(0, "0")
 
-tk.Label(frame1, text="Promotion Experience Modifier:").grid(row=7, column=0, padx=10, pady=5)
+tk.Label(frame1, text="Promotion Experience Modifier:").grid(row=8, column=0, padx=10, pady=5)
 promotion_experience_modifier_entry = tk.Entry(frame1)
-promotion_experience_modifier_entry.grid(row=7, column=1, padx=10, pady=5)
+promotion_experience_modifier_entry.grid(row=8, column=1, padx=10, pady=5)
 promotion_experience_modifier_entry.insert(0, "0")
 
-tk.Label(frame1, text="Max Anarchy Length:").grid(row=8, column=0, padx=10, pady=5)
+tk.Label(frame1, text="Max Anarchy Length:").grid(row=9, column=0, padx=10, pady=5)
 max_anarchy_length_entry = tk.Entry(frame1)
-max_anarchy_length_entry.grid(row=8, column=1, padx=10, pady=5)
+max_anarchy_length_entry.grid(row=9, column=1, padx=10, pady=5)
 max_anarchy_length_entry.insert(-1, "-1")
 
-tk.Label(frame1, text="World Wonder Production Modifier:").grid(row=9, column=0, padx=10, pady=5)
+tk.Label(frame1, text="World Wonder Production Modifier:").grid(row=10, column=0, padx=10, pady=5)
 world_wonder_modifier_entry = tk.Entry(frame1)
-world_wonder_modifier_entry.grid(row=9, column=1, padx=10, pady=5)
+world_wonder_modifier_entry.grid(row=10, column=1, padx=10, pady=5)
 world_wonder_modifier_entry.insert(0, "0")
 
-tk.Label(frame1, text="National Wonder Production Modifier:").grid(row=10, column=0, padx=10, pady=5)
+tk.Label(frame1, text="National Wonder Production Modifier:").grid(row=11, column=0, padx=10, pady=5)
 national_wonder_modifier_entry = tk.Entry(frame1)
-national_wonder_modifier_entry.grid(row=10, column=1, padx=10, pady=5)
+national_wonder_modifier_entry.grid(row=11, column=1, padx=10, pady=5)
 national_wonder_modifier_entry.insert(0, "0")
 
-tk.Label(frame1, text="Team Wonder Production Modifier:").grid(row=11, column=0, padx=10, pady=5)
+tk.Label(frame1, text="Team Wonder Production Modifier:").grid(row=12, column=0, padx=10, pady=5)
 team_wonder_modifier_entry = tk.Entry(frame1)
-team_wonder_modifier_entry.grid(row=11, column=1, padx=10, pady=5)
+team_wonder_modifier_entry.grid(row=12, column=1, padx=10, pady=5)
 team_wonder_modifier_entry.insert(0, "0")
 
-tk.Label(frame1, text="Upkeep Modifier:").grid(row=12, column=0, padx=10, pady=5)
+tk.Label(frame1, text="Upkeep Modifier:").grid(row=13, column=0, padx=10, pady=5)
 upkeep_modifier_entry = tk.Entry(frame1)
-upkeep_modifier_entry.grid(row=12, column=1, padx=10, pady=5)
+upkeep_modifier_entry.grid(row=13, column=1, padx=10, pady=5)
 upkeep_modifier_entry.insert(0, "0")
 
 # City Income Change
-create_category_frame(frame1, "City Income Change (Extra raw values)", "City Income Change (Extra raw values)", 13)
-tk.Label(frame1, text="Gold:").grid(row=14, column=0, padx=5, pady=5, sticky='e')
+create_category_frame(frame1, "City Income Change (Extra raw values)", "City Income Change (Extra raw values)", 14)
+tk.Label(frame1, text="Gold:").grid(row=15, column=0, padx=5, pady=5, sticky='e')
 city_income_change_gold_entry = tk.Entry(frame1)
-city_income_change_gold_entry.grid(row=14, column=1, padx=5, pady=5)
+city_income_change_gold_entry.grid(row=15, column=1, padx=5, pady=5)
 city_income_change_gold_entry.insert(0, "0")
 
-tk.Label(frame1, text="Science:").grid(row=14, column=2, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Science:").grid(row=15, column=2, padx=5, pady=5, sticky='e')
 city_income_change_science_entry = tk.Entry(frame1)
-city_income_change_science_entry.grid(row=14, column=3, padx=5, pady=5)
+city_income_change_science_entry.grid(row=15, column=3, padx=5, pady=5)
 city_income_change_science_entry.insert(0, "0")
 
-tk.Label(frame1, text="Culture:").grid(row=14, column=4, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Culture:").grid(row=15, column=4, padx=5, pady=5, sticky='e')
 city_income_change_culture_entry = tk.Entry(frame1)
-city_income_change_culture_entry.grid(row=14, column=5, padx=5, pady=5)
+city_income_change_culture_entry.grid(row=15, column=5, padx=5, pady=5)
 city_income_change_culture_entry.insert(0, "0")
 
-tk.Label(frame1, text="Espionage:").grid(row=14, column=6, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Espionage:").grid(row=15, column=6, padx=5, pady=5, sticky='e')
 city_income_change_espionage_entry = tk.Entry(frame1)
-city_income_change_espionage_entry.grid(row=14, column=7, padx=5, pady=5)
+city_income_change_espionage_entry.grid(row=15, column=7, padx=5, pady=5)
 city_income_change_espionage_entry.insert(0, "0")
 
 # City Income Modifier
-create_category_frame(frame1, "City Income Modifier (As a percent for each city)", "City Income Modifier (As a percent for each city)", 15)
-tk.Label(frame1, text="Gold:").grid(row=16, column=0, padx=5, pady=5, sticky='e')
+create_category_frame(frame1, "City Income Modifier (As a percent for each city)", "City Income Modifier (As a percent for each city)", 16)
+tk.Label(frame1, text="Gold:").grid(row=17, column=0, padx=5, pady=5, sticky='e')
 city_income_modifier_gold_entry = tk.Entry(frame1)
-city_income_modifier_gold_entry.grid(row=16, column=1, padx=5, pady=5)
+city_income_modifier_gold_entry.grid(row=17, column=1, padx=5, pady=5)
 city_income_modifier_gold_entry.insert(0, "0")
 
-tk.Label(frame1, text="Science:").grid(row=16, column=2, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Science:").grid(row=17, column=2, padx=5, pady=5, sticky='e')
 city_income_modifier_science_entry = tk.Entry(frame1)
-city_income_modifier_science_entry.grid(row=16, column=3, padx=5, pady=5)
+city_income_modifier_science_entry.grid(row=17, column=3, padx=5, pady=5)
 city_income_modifier_science_entry.insert(0, "0")
 
-tk.Label(frame1, text="Culture:").grid(row=16, column=4, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Culture:").grid(row=17, column=4, padx=5, pady=5, sticky='e')
 city_income_modifier_culture_entry = tk.Entry(frame1)
-city_income_modifier_culture_entry.grid(row=16, column=5, padx=5, pady=5)
+city_income_modifier_culture_entry.grid(row=17, column=5, padx=5, pady=5)
 city_income_modifier_culture_entry.insert(0, "0")
 
-tk.Label(frame1, text="Espionage:").grid(row=16, column=6, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Espionage:").grid(row=17, column=6, padx=5, pady=5, sticky='e')
 city_income_modifier_espionage_entry = tk.Entry(frame1)
-city_income_modifier_espionage_entry.grid(row=16, column=7, padx=5, pady=5)
+city_income_modifier_espionage_entry.grid(row=17, column=7, padx=5, pady=5)
 city_income_modifier_espionage_entry.insert(0, "0")
 
 # Extra Yield Thresholds
-create_category_frame(frame1, "Extra Yield Thresholds", "Extra Yield Thresholds", 17)
-tk.Label(frame1, text="Food:").grid(row=18, column=0, padx=5, pady=5, sticky='e')
+create_category_frame(frame1, "Extra Yield Thresholds", "Extra Yield Thresholds", 18)
+tk.Label(frame1, text="Food:").grid(row=19, column=0, padx=5, pady=5, sticky='e')
 extra_yield_threshold_food_entry = tk.Entry(frame1)
-extra_yield_threshold_food_entry.grid(row=18, column=1, padx=5, pady=5)
+extra_yield_threshold_food_entry.grid(row=19, column=1, padx=5, pady=5)
 extra_yield_threshold_food_entry.insert(0, "0")
 
-tk.Label(frame1, text="Hammer:").grid(row=18, column=2, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Hammer:").grid(row=19, column=2, padx=5, pady=5, sticky='e')
 extra_yield_threshold_hammer_entry = tk.Entry(frame1)
-extra_yield_threshold_hammer_entry.grid(row=18, column=3, padx=5, pady=5)
+extra_yield_threshold_hammer_entry.grid(row=19, column=3, padx=5, pady=5)
 extra_yield_threshold_hammer_entry.insert(0, "0")
 
-tk.Label(frame1, text="Gold:").grid(row=18, column=4, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Gold:").grid(row=19, column=4, padx=5, pady=5, sticky='e')
 extra_yield_threshold_gold_entry = tk.Entry(frame1)
-extra_yield_threshold_gold_entry.grid(row=18, column=5, padx=5, pady=5)
+extra_yield_threshold_gold_entry.grid(row=19, column=5, padx=5, pady=5)
 extra_yield_threshold_gold_entry.insert(0, "0")
 
 # Trade Yield Modifier
-create_category_frame(frame1, "Trade Yield Modifier", "Extra Yield Modifier", 19)
-tk.Label(frame1, text="Food:").grid(row=20, column=0, padx=5, pady=5, sticky='e')
+create_category_frame(frame1, "Trade Yield Modifier", "Extra Yield Modifier", 20)
+tk.Label(frame1, text="Food:").grid(row=21, column=0, padx=5, pady=5, sticky='e')
 trade_yield_modifier_food_entry = tk.Entry(frame1)
-trade_yield_modifier_food_entry.grid(row=20, column=1, padx=5, pady=5)
+trade_yield_modifier_food_entry.grid(row=21, column=1, padx=5, pady=5)
 trade_yield_modifier_food_entry.insert(0, "0")
 
-tk.Label(frame1, text="Hammer:").grid(row=20, column=2, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Hammer:").grid(row=21, column=2, padx=5, pady=5, sticky='e')
 trade_yield_modifier_hammer_entry = tk.Entry(frame1)
-trade_yield_modifier_hammer_entry.grid(row=20, column=3, padx=5, pady=5)
+trade_yield_modifier_hammer_entry.grid(row=21, column=3, padx=5, pady=5)
 trade_yield_modifier_hammer_entry.insert(0, "0")
 
-tk.Label(frame1, text="Gold:").grid(row=20, column=4, padx=5, pady=5, sticky='e')
+tk.Label(frame1, text="Gold:").grid(row=21, column=4, padx=5, pady=5, sticky='e')
 trade_yield_modifier_gold_entry = tk.Entry(frame1)
-trade_yield_modifier_gold_entry.grid(row=20, column=5, padx=5, pady=5)
+trade_yield_modifier_gold_entry.grid(row=21, column=5, padx=5, pady=5)
 trade_yield_modifier_gold_entry.insert(0, "0")
 
 # Promotions
-create_category_frame(frame1, "Promotions", "Select promotions and unit types here.", 21)
+create_category_frame(frame1, "Promotions", "Select promotions and unit types here.", 22)
 
 promotion_listbox = tk.Listbox(frame1, selectmode="multiple", height=15, width = 30, exportselection=False)
 promotions = [
@@ -374,23 +439,24 @@ unit_types = [
 for unit_type in unit_types:
     unit_type_listbox.insert(tk.END, unit_type)
 
-promotion_listbox.grid(row=22, column=0, padx=10, pady=5)
-unit_type_listbox.grid(row=22, column=1, padx=10, pady=5)
+promotion_listbox.grid(row=23, column=0, padx=10, pady=5)
+unit_type_listbox.grid(row=23, column=1, padx=10, pady=5)
 
 # Buttons to collect and print selected promotions and unit types
 collect_promotions_button = tk.Button(frame1, text="Apply Promotions", command=collect_promotions)
-collect_promotions_button.grid(row=23, column=0, pady=5)
+collect_promotions_button.grid(row=24, column=0, pady=5)
 
 collect_unit_types_button = tk.Button(frame1, text="Apply Unit Types", command=collect_unit_types)
-collect_unit_types_button.grid(row=23, column=1, pady=5)
+collect_unit_types_button.grid(row=24, column=1, pady=5)
 
 # Create a button to trigger the text generation
 generate_button = tk.Button(window, text="Generate", command=generate_output)
-generate_button.grid(row=24, column=0, pady=10)
+generate_button.grid(row=25, column=0, pady=10)
 
 # Create a label to display the formatted output
 result_label = tk.Label(window, text="", font=('Helvetica', 12))
-result_label.grid(row=26, column=0, pady=10)
+result_label.grid(row=27, column=0, pady=10)
+
 
 
 # Tooltip label

@@ -1,10 +1,15 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<Civ4GameText>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by XMLSPY 2004 Professional Ed. Release 2, Installed Multi + SMP for 3 users (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text Cities -->
+<Civ4GameText xmlns="http://www.firaxis.com">
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_TREBUCHET</Tag>
 		<English>Trebuchet</English>
 		<French>
-			<Text>Trébuchet</Text>
+			<Text>Tr&#233;buchet</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -196,7 +201,7 @@
 		<Tag>TXT_KEY_LEADER_AUGUSTUS</Tag>
 		<English>Augustus Caesar</English>
 		<French>
-			<Text>Auguste César</Text>
+			<Text>Auguste C&#233;sar</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -316,7 +321,7 @@
 		<Tag>TXT_KEY_LEADER_RAMESSES</Tag>
 		<English>Ramesses II</English>
 		<French>
-			<Text>Ramsès II</Text>
+			<Text>Rams&#232;s II</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -612,7 +617,7 @@
 		<Tag>TXT_KEY_CIV_KOREA_DESC</Tag>
 		<English>Korean Empire</English>
 		<French>
-			<Text>Empire coréen</Text>
+			<Text>Empire cor&#233;en</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -664,7 +669,7 @@
 			<Plural>0:1</Plural>
 		</English>
 		<French>
-			<Text>Coréens</Text>
+			<Text>Cor&#233;ens</Text>
 			<Gender>Male</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -840,7 +845,7 @@
 		<Tag>TXT_KEY_UNIT_GREAT_GENERAL</Tag>
 		<English>Great General</English>
 		<French>
-			<Text>Général illustre</Text>
+			<Text>G&#233;n&#233;ral illustre</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -888,7 +893,7 @@
 		<Tag>TXT_KEY_BUILDING_MILITARY_ACADEMY</Tag>
 		<English>Military Academy</English>
 		<French>
-			<Text>Académie militaire</Text>
+			<Text>Acad&#233;mie militaire</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -984,7 +989,7 @@
 		<Tag>TXT_KEY_BUILDING_FRENCH_CASTLE</Tag>
 		<English>French Chateau</English>
 		<French>
-			<Text>Château français</Text>
+			<Text>Ch&#226;teau fran&#231;ais</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1200,7 +1205,7 @@
 		<Tag>TXT_KEY_BUILDING_EGYPTIAN_OBELISK</Tag>
 		<English>Egyptian Monument</English>
 		<French>
-			<Text>Monument égyptien</Text>
+			<Text>Monument &#233;gyptien</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1224,7 +1229,7 @@
 		<Tag>TXT_KEY_BUILDING_JAPAN_LIBRARY</Tag>
 		<English>Japanese Academy of Bushido</English>
 		<French>
-			<Text>Académie de Bushido japonaise</Text>
+			<Text>Acad&#233;mie de Bushido japonaise</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1248,7 +1253,7 @@
 		<Tag>TXT_KEY_BUILDING_KOREA_UNIVERSITY</Tag>
 		<English>Korean University</English>
 		<French>
-			<Text>Université coréenne</Text>
+			<Text>Universit&#233; cor&#233;enne</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1320,7 +1325,7 @@
 		<Tag>TXT_KEY_BUILDING_GREEK_THEATRE</Tag>
 		<English>Greek Theatre</English>
 		<French>
-			<Text>Théâtre grec</Text>
+			<Text>Th&#233;&#226;tre grec</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1343,7 +1348,7 @@
 		<Tag>TXT_KEY_BUILDING_INCAN_AQUEDUCT</Tag>
 		<English>Incan Ceremonial Baths</English>
 		<French>
-			<Text>Bains cérémoniels incas</Text>
+			<Text>Bains c&#233;r&#233;moniels incas</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1367,7 +1372,7 @@
 		<Tag>TXT_KEY_BUILDING_AMERICAN_BROADCAST_TOWER</Tag>
 		<English>American Broadcast Tower</English>
 		<French>
-			<Text>Tour de diffusion américaine</Text>
+			<Text>Tour de diffusion am&#233;ricaine</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1463,7 +1468,7 @@
 		<Tag>TXT_KEY_BUILDING_AZTEC_COURTHOUSE</Tag>
 		<English>Aztec Sacrificial Altar</English>
 		<French>
-			<Text>Autel sacrificiel aztèque</Text>
+			<Text>Autel sacrificiel azt&#232;que</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1559,7 +1564,7 @@
 		<Tag>TXT_KEY_BUILDING_ARTEMIS</Tag>
 		<English>The Temple of Artemis</English>
 		<French>
-			<Text>Temple d'Artémis</Text>
+			<Text>Temple d'Art&#233;mis</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1607,7 +1612,7 @@
 		<Tag>TXT_KEY_BUILDING_SANKORE</Tag>
 		<English>University of Sankore</English>
 		<French>
-			<Text>Université de Sankoré</Text>
+			<Text>Universit&#233; de Sankor&#233;</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1799,7 +1804,7 @@
 		<Tag>TXT_KEY_PROMOTION_GUERILLA3</Tag>
 		<English>Guerilla III</English>
 		<French>
-			<Text>Guérilla III</Text>
+			<Text>Gu&#233;rilla III</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
