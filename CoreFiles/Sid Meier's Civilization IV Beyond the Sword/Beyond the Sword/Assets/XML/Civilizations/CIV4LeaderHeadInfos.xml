@@ -15660,7 +15660,7 @@
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
+					<TraitType>TRAIT_MASTER_TRADER</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -16215,7 +16215,7 @@
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<TraitType>TRAIT_GREAT_LEAP_FORWARD</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -27900,7 +27900,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
+					<TraitType>TRAIT_MASTER_TRADER</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>

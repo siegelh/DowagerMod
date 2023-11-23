@@ -19787,6 +19787,22 @@
 		<Spanish>Jugador %d1_ID: LoggingEnabled=1.[NEWLINE]Comprueba si se trata de un jugador de confianza.</Spanish>
 	</TEXT>
 <TEXT>
+        <Tag>TXT_KEY_TRAIT_GREAT_LEAP_FORWARD_SHORT</Tag>
+        <English>Gre</English>
+        <French>Gre</French>
+        <German>Gre</German>
+        <Italian>Gre</Italian>
+        <Spanish>Gre</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_MASTER_TRADER_SHORT</Tag>
+        <English>Mas</English>
+        <French>Mas</French>
+        <German>Mas</German>
+        <Italian>Mas</Italian>
+        <Spanish>Mas</Spanish>
+    </TEXT>
+<TEXT>
         <Tag>TXT_KEY_TRAIT_PARANOID_SHORT</Tag>
         <English>Par</English>
         <French>Par</French>
