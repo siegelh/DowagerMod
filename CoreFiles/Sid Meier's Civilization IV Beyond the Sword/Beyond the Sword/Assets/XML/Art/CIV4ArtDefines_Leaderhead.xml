@@ -30,6 +30,14 @@
 			<NoShaderNIF></NoShaderNIF>
             <BackgroundKFM>Art/LeaderHeads/archbishop/King_Dutch_BG.kfm</BackgroundKFM>
         </LeaderheadArtInfo>
+        <LeaderheadArtInfo>
+            <Type>ART_DEF_LEADER_STUYVESANT</Type>
+            <Button>,Art/Leaderheads/Colonization_Civilizations_Leaders.dds,8,2</Button>
+            <NIF>art/Leaderheads/simonbolivar/bolivar.nif</NIF>
+            <KFM>art/Leaderheads/archbishop/King_Dutch.kfm</KFM>
+			<NoShaderNIF>art/Leaderheads/Ermak/Stuyvesant_noshader.nif</NoShaderNIF>
+            <BackgroundKFM>art/Leaderheads/simonbolivar/bolivar_bg.kfm</BackgroundKFM>
+        </LeaderheadArtInfo>
 		<LeaderheadArtInfo>
 			<Type>ART_DEF_LEADER_REGINALD_ENDICOTT_BARCLAY</Type>
 			<Button>,Art/interface/LeaderHeads/barclay.dds</Button>
