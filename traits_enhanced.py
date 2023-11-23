@@ -3,6 +3,8 @@ from tkinter import ttk
 from collections import OrderedDict
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
+import subprocess
+import threading
 
 def generate_output():
     # Get values from input fields
@@ -92,10 +94,10 @@ def generate_output():
         file.write(xml_output)
 
     trait_description_file_name = "traits/TXT_KEY_TRAIT_" + user_name.upper() + ".xml"
-    generate_description_xml(trait_description_file_name, [user_name.upper(), description])
+    generate_description_xml(trait_description_file_name, ["TXT_KEY_TRAIT_" + user_name.upper(), description])
 
     trait_description_short_file_name = "traits/TXT_KEY_TRAIT_" + user_name.upper() + "_SHORT" + ".xml"
-    generate_short_description_xml(trait_description_short_file_name, [user_name.upper(), user_name[:3]])
+    generate_short_description_xml(trait_description_short_file_name, ["TXT_KEY_TRAIT_" + user_name.upper() + "_SHORT", user_name[:3]])
 
     # Update the text in the result_label
     result_label.config(text=f"Output written to {file_path}")
@@ -147,7 +149,13 @@ class TraitInfoBuilder:
 def generate_description_xml(file_name, trait_data):
     trait_key, description = trait_data
 
-    xml_content = f'''
+    xml_content = f'''<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by XMLSPY 2004 Professional Ed. Release 2, Installed Multi + SMP for 3 users (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text Cities -->
+<Civ4GameText xmlns="http://www.firaxis.com">
     <TEXT>
 		<Tag>{trait_key}</Tag>
 		<English>{description}</English>
@@ -171,7 +179,8 @@ def generate_description_xml(file_name, trait_data):
 			<Gender>Male:Female</Gender>
 			<Plural>0</Plural>
 		</Spanish>
-	</TEXT>'''
+	</TEXT>
+</Civ4GameText>'''
 
     with open(file_name, 'w', encoding='utf-8') as file:
         file.write(xml_content)
@@ -180,7 +189,14 @@ def generate_description_xml(file_name, trait_data):
 def generate_short_description_xml(file_name, trait_data):
     trait_key, short_description = trait_data
 
-    xml_content = f'''
+    xml_content = f'''<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Tim McCracken (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<!--Please place any new text entries into this file-->
     <TEXT>
         <Tag>{trait_key}</Tag>
         <English>{short_description[:3]}</English>
@@ -188,7 +204,8 @@ def generate_short_description_xml(file_name, trait_data):
         <German>{short_description[:3]}</German>
         <Italian>{short_description[:3]}</Italian>
         <Spanish>{short_description[:3]}</Spanish>
-    </TEXT>'''
+    </TEXT>
+</Civ4GameText>'''
 
     with open(file_name, 'w', encoding='utf-8') as file:
         file.write(xml_content)
@@ -462,6 +479,24 @@ result_label.grid(row=27, column=0, pady=10)
 # Tooltip label
 tooltip_label = tk.Label(window, text="", bg="white", relief="solid", borderwidth=1)
 tooltip_label.place_forget()
+
+def run_script_and_update_button():
+    def run_script():
+        # Run the script
+        subprocess.run(["python", "merge_traits_all.py"])
+
+        # Update the button to show completion
+        merge_button.config(text="Merge Complete", bg="green")
+        
+        # Wait for 5 seconds
+        window.after(5000, lambda: merge_button.config(text="Run Merge Script", bg="SystemButtonFace"))
+
+    # Start the script in a new thread
+    threading.Thread(target=run_script).start()
+
+# Create a button to trigger the script execution
+merge_button = tk.Button(window, text="Run Merge Script", command=run_script_and_update_button)
+merge_button.grid(row=28, column=0, pady=10)
 
 # Start the main loop
 window.mainloop()
