@@ -17868,11 +17868,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<TraitType>TRAIT_GRANDE_ARMEE</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -29042,10 +29038,6 @@
 				</Trait>
 				<Trait>
 					<TraitType>TRAIT_PACIFIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_BLOODTHIRSTY</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>

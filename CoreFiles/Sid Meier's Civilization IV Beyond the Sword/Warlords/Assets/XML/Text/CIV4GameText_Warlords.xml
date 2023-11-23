@@ -329,12 +329,12 @@
 		<Spanish>Pro</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TRAIT_BLOODTHIRSTY_SHORT</Tag>
-		<English>Blo</English>
-		<French>Blo</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
+		<Tag>TXT_KEY_TRAIT_GRANDE_ARMEE_SHORT</Tag>
+		<English>NAP1</English>
+		<French>NAP1</French>
+		<German>NAP1</German>
+		<Italian>NAP1</Italian>
+		<Spanish>NAP1</Spanish>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_MISC_GP_BORN_FIELD</Tag>

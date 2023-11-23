@@ -315,9 +315,9 @@
 			<FreePromotionUnitCombats />
 		</TraitInfo>
 		<TraitInfo>
-		  <Type>TRAIT_BLOODTHIRSTY</Type>
-		  <Description>TXT_KEY_TRAIT_BLOODTHIRSTY</Description>
-		  <ShortDescription>TXT_KEY_TRAIT_BLOODTHIRSTY_SHORT</ShortDescription>
+		  <Type>TRAIT_GRANDE_ARMEE</Type>
+		  <Description>TXT_KEY_TRAIT_GRANDE_ARMEE</Description>
+		  <ShortDescription>TXT_KEY_TRAIT_GRANDE_ARMEE_SHORT</ShortDescription>
 		  <iHealth>0</iHealth>
 		  <iHappiness>0</iHappiness>
 		  <iMaxAnarchy>-1</iMaxAnarchy>

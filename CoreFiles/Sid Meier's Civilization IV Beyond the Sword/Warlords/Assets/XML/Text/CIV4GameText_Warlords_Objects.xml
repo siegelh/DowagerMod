@@ -1748,10 +1748,10 @@
 		</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TRAIT_BLOODTHIRSTY</Tag>
-		<English>Bloodthirsty</English>
+		<Tag>TXT_KEY_TRAIT_GRANDE_ARMEE</Tag>
+		<English>Le Grande Armee</English>
 		<French>
-			<Text>Bloodthirsty</Text>
+			<Text>Grande Armee</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
