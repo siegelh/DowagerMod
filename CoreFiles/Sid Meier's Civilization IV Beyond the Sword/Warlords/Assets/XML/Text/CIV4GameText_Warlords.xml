@@ -305,14 +305,6 @@
 		<Spanish>Pro</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TRAIT_PARANOID_SHORT</Tag>
-		<English>Par</English>
-		<French>Par</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
 		<Tag>TXT_KEY_TRAIT_PACIFIST_SHORT</Tag>
 		<English>Pac</English>
 		<French>Pac</French>
@@ -19794,4 +19786,12 @@
 		<Italian>Giocatore %d1_ID: LoggingEnabled=1.[NEWLINE]Assicurati che il giocatore sia affidabile.</Italian>
 		<Spanish>Jugador %d1_ID: LoggingEnabled=1.[NEWLINE]Comprueba si se trata de un jugador de confianza.</Spanish>
 	</TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_PARANOID_SHORT</Tag>
+        <English>Par</English>
+        <French>Par</French>
+        <German>Par</German>
+        <Italian>Par</Italian>
+        <Spanish>Par</Spanish>
+    </TEXT>
 </Civ4GameText>
