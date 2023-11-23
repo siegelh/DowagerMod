@@ -7,11 +7,11 @@
 <Civ4GameText xmlns="http://www.firaxis.com">
 	<!--Please place any new text entries into this file-->
     <TEXT>
-        <Tag>TXT_KEY_TRAIT_MONTEZUMA_SHORT</Tag>
-        <English>Mon</English>
-        <French>Mon</French>
-        <German>Mon</German>
-        <Italian>Mon</Italian>
-        <Spanish>Mon</Spanish>
+        <Tag>TXT_KEY_TRAIT_WANGKON_SHORT</Tag>
+        <English>Wan</English>
+        <French>Wan</French>
+        <German>Wan</German>
+        <Italian>Wan</Italian>
+        <Spanish>Wan</Spanish>
     </TEXT>
 </Civ4GameText>

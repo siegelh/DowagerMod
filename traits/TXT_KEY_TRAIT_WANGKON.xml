@@ -6,10 +6,10 @@
 <!-- Game Text Cities -->
 <Civ4GameText xmlns="http://www.firaxis.com">
     <TEXT>
-		<Tag>TXT_KEY_TRAIT_MONTEZUMA</Tag>
-		<English>Nextlahualli</English>
+		<Tag>TXT_KEY_TRAIT_WANGKON</Tag>
+		<English>Scientific Pioneers</English>
 		<French>
-			<Text>Nextlahualli</Text>
+			<Text>Scientific Pioneers</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>

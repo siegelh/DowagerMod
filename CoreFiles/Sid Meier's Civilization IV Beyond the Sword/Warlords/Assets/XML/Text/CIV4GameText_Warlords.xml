@@ -19819,11 +19819,35 @@
         <Spanish>Par</Spanish>
     </TEXT>
 <TEXT>
+        <Tag>TXT_KEY_TRAIT_GENGHIS_KAHN_SHORT</Tag>
+        <English>Gen</English>
+        <French>Gen</French>
+        <German>Gen</German>
+        <Italian>Gen</Italian>
+        <Spanish>Gen</Spanish>
+    </TEXT>
+<TEXT>
         <Tag>TXT_KEY_TRAIT_MONTEZUMA_SHORT</Tag>
         <English>Mon</English>
         <French>Mon</French>
         <German>Mon</German>
         <Italian>Mon</Italian>
         <Spanish>Mon</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_STALIN_SHORT</Tag>
+        <English>Sta</English>
+        <French>Sta</French>
+        <German>Sta</German>
+        <Italian>Sta</Italian>
+        <Spanish>Sta</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_WANGKON_SHORT</Tag>
+        <English>Wan</English>
+        <French>Wan</French>
+        <German>Wan</German>
+        <Italian>Wan</Italian>
+        <Spanish>Wan</Spanish>
     </TEXT>
 </Civ4GameText>

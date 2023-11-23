@@ -8501,7 +8501,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<TraitType>TRAIT_GENGHIS_KAHN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
@@ -23921,7 +23921,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<TraitType>TRAIT_STALIN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
@@ -26745,7 +26745,7 @@
 			<FavoriteReligion>RELIGION_CONFUCIANISM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
+					<TraitType>TRAIT_WANGKON</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
