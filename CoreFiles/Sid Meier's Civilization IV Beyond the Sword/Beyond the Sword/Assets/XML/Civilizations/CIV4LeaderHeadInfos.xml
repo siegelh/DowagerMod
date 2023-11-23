@@ -17323,7 +17323,7 @@
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
+					<TraitType>TRAIT_MONTEZUMA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -21730,10 +21730,6 @@
 			<FavoriteCivic>CIVIC_MERCANTILISM</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 				<Trait>
 					<TraitType>TRAIT_ORGANIZED</TraitType>
 					<bTrait>1</bTrait>

@@ -19795,6 +19795,14 @@
         <Spanish>Gre</Spanish>
     </TEXT>
 <TEXT>
+        <Tag>TXT_KEY_TRAIT_JUSTINIAN_SHORT</Tag>
+        <English>Jus</English>
+        <French>Jus</French>
+        <German>Jus</German>
+        <Italian>Jus</Italian>
+        <Spanish>Jus</Spanish>
+    </TEXT>
+<TEXT>
         <Tag>TXT_KEY_TRAIT_MASTER_TRADER_SHORT</Tag>
         <English>Mas</English>
         <French>Mas</French>
@@ -19809,5 +19817,13 @@
         <German>Par</German>
         <Italian>Par</Italian>
         <Spanish>Par</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_MONTEZUMA_SHORT</Tag>
+        <English>Mon</English>
+        <French>Mon</French>
+        <German>Mon</German>
+        <Italian>Mon</Italian>
+        <Spanish>Mon</Spanish>
     </TEXT>
 </Civ4GameText>

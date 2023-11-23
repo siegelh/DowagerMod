@@ -12112,6 +12112,10 @@
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_MONTEZUMA</ProductionTraitType>
+					<iProductionTrait>300</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>

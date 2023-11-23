@@ -6,10 +6,10 @@
 <!-- Game Text Cities -->
 <Civ4GameText xmlns="http://www.firaxis.com">
     <TEXT>
-		<Tag>TXT_KEY_TRAIT_MASTER_TRADER</Tag>
-		<English>Master Trader</English>
+		<Tag>TXT_KEY_TRAIT_MONTEZUMA</Tag>
+		<English>Nextlahualli</English>
 		<French>
-			<Text>Master Trader</Text>
+			<Text>Nextlahualli</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>

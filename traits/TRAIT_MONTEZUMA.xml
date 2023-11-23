@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <TraitInfo>
-  <Type>TRAIT_MASTER_TRADER</Type>
-  <Description>TXT_KEY_TRAIT_MASTER_TRADER</Description>
-  <ShortDescription>TXT_KEY_TRAIT_MASTER_TRADER_SHORT</ShortDescription>
+  <Type>TRAIT_MONTEZUMA</Type>
+  <Description>TXT_KEY_TRAIT_MONTEZUMA</Description>
+  <ShortDescription>TXT_KEY_TRAIT_MONTEZUMA_SHORT</ShortDescription>
   <iHealth>0</iHealth>
   <iHappiness>0</iHappiness>
-  <iMaxAnarchy>-1</iMaxAnarchy>
+  <iMaxAnarchy>0</iMaxAnarchy>
   <iUpkeepModifier>0</iUpkeepModifier>
   <iLevelExperienceModifier>0</iLevelExperienceModifier>
   <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
@@ -22,7 +22,7 @@
   <TradeYieldModifiers>
     <iYield>0</iYield>
     <iYield>0</iYield>
-    <iYield>50</iYield>
+    <iYield>0</iYield>
   </TradeYieldModifiers>
   <CommerceChanges>
     <iCommerce>0</iCommerce>
