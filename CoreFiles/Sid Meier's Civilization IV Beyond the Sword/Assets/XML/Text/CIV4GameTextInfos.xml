@@ -5128,6 +5128,14 @@
 		<Spanish>[NEWLINE][SPACE][SPACE][ICON_BULLET]Dobla la velocidad de producci&#243;n de[SPACE]</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_TRAIT_TRIPLE_SPEED</Tag>
+		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]Triple Production Speed of[SPACE]</English>
+		<French>[NEWLINE][SPACE][SPACE][ICON_BULLET]Triple la vitesse de production de :[SPACE]</French>
+		<German>[NEWLINE][SPACE][SPACE][ICON_BULLET]Doppelte Produktionsgeschwindigkeit f&#252;r:[SPACE]</German>
+		<Italian>[NEWLINE][SPACE][SPACE][ICON_BULLET]Raddoppia la velocit&#224; di produzione di[SPACE]</Italian>
+		<Spanish>[NEWLINE][SPACE][SPACE][ICON_BULLET]Dobla la velocidad de producci&#243;n de[SPACE]</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_TRAIT_PRODUCTION_MODIFIER</Tag>
 		<English>[NEWLINE][SPACE][SPACE][ICON_BULLET]%d1%% Faster Production of[SPACE]</English>
 		<French>[NEWLINE][SPACE][SPACE][ICON_BULLET]Production %d1%% plus rapide de :[SPACE]</French>

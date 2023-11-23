@@ -13462,7 +13462,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
+					<TraitType>TRAIT_JUSTINIAN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>

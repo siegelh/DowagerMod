@@ -28,6 +28,14 @@
 					<ProductionTraitType>TRAIT_SPIRITUAL</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_MONTEZUMA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
+					<iProductionTrait>200</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Temple.dds</Button>
 		</SpecialBuildingInfo>
@@ -38,7 +46,12 @@
 			<TechPrereq>TECH_MUSIC</TechPrereq>
 			<TechPrereqAnyone>NONE</TechPrereqAnyone>
 			<bValid>1</bValid>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
+					<iProductionTrait>200</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Cathedral.dds</Button>
 		</SpecialBuildingInfo>
 		<SpecialBuildingInfo>
@@ -48,7 +61,12 @@
 			<TechPrereq>TECH_MEDITATION</TechPrereq>
 			<TechPrereqAnyone>NONE</TechPrereqAnyone>
 			<bValid>1</bValid>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
+					<iProductionTrait>200</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Monastery_Hindu.dds</Button>
 		</SpecialBuildingInfo>
 	</SpecialBuildingInfos>
