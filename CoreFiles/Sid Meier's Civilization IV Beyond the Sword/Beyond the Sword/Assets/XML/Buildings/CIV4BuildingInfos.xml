@@ -364,8 +364,8 @@
 			<BuildingClass>BUILDINGCLASS_GREAT_PALACE</BuildingClass>
 			<Type>BUILDING_MONGOLIAN_PALACE</Type>
 			<SpecialBuildingType>NONE</SpecialBuildingType>
-			<Description>TXT_KEY_BUILDING_GREAT_PALACE</Description>
-			<Civilopedia>TXT_KEY_BUILDING_GREAT_PALACE_PEDIA</Civilopedia>
+			<Description>TXT_KEY_BUILDING_MONGOLIAN_PALACE</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MONGOLIAN_PALACE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_GREAT_PALACE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_GREAT_PALACE</ArtDefineTag>
@@ -2006,8 +2006,8 @@
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
-			<FreeBonus>BONUS_HORSE</FreeBonus>
-			<iNumFreeBonuses>1</iNumFreeBonuses>
+			<FreeBonus>NONE</FreeBonus>
+			<iNumFreeBonuses>0</iNumFreeBonuses>
 			<FreeBuilding>NONE</FreeBuilding>
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
