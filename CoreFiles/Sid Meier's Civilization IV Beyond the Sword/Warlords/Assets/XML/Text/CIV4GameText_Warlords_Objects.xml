@@ -2011,4 +2011,220 @@
 			<Plural>0</Plural>
 		</Spanish>
 	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_AUGUSTUS_CAESAR</Tag>
+		<English>Imperial Architect</English>
+		<French>
+			<Text>Imperial Architect</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_CATHERINE</Tag>
+		<English>Enlightened Autocrat</English>
+		<French>
+			<Text>Enlightened Autocrat</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_DE_GAULLE</Tag>
+		<English>Voice of the People</English>
+		<French>
+			<Text>Voice of the People</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_HUAYNA_CAPAC</Tag>
+		<English>Road of the Sun</English>
+		<French>
+			<Text>Road of the Sun</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_LOUIS</Tag>
+		<English>L'etat c'est moi</English>
+		<French>
+			<Text>L'etat c'est moi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_QIN_SHI_HUANG</Tag>
+		<English>Great Protector</English>
+		<French>
+			<Text>Great Protector</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_BISMARCK</Tag>
+		<English>Iron Chancellor</English>
+		<French>
+			<Text>Iron Chancellor</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_BOUDICA</Tag>
+		<English>Stone Circles</English>
+		<French>
+			<Text>Stone Circles</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_RAMESSES</Tag>
+		<English>Osirian Monumentalist</English>
+		<French>
+			<Text>Osirian Monumentalist</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
 </Civ4GameText>

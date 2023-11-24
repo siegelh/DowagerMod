@@ -798,6 +798,14 @@
 					<ProductionTraitType>TRAIT_JOAO</ProductionTraitType>
 					<iProductionTrait>25</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_CATHERINE</ProductionTraitType>
+					<iProductionTrait>25</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_AUGUSTUS_CAESAR</ProductionTraitType>
+					<iProductionTrait>25</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<Flavors/>
 			<iAIWeight>0</iAIWeight>
@@ -1057,6 +1065,10 @@
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_EXPANSIVE</ProductionTraitType>
+					<iProductionTrait>25</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_AUGUSTUS_CAESAR</ProductionTraitType>
 					<iProductionTrait>25</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>

@@ -563,7 +563,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_LOUIS</ProductionTraitType>
+					<iProductionTrait>10</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -1492,8 +1497,21 @@
 					<ProductionTraitType>TRAIT_AGGRESSIVE</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_AUGUSTUS_CAESAR</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_BISMARCK</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
-			<HappinessTraits/>
+			<HappinessTraits>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_BISMARCK</HappinessTraitType>
+					<iHappinessTrait>2</iHappinessTrait>
+				</HappinessTrait>
+			</HappinessTraits>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
 			<FreeBonus>NONE</FreeBonus>
@@ -2777,7 +2795,11 @@
 			<SeaPlotYieldChanges/>
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
-			<YieldChanges/>
+			<YieldChanges>
+				<iYield>3</iYield>
+				<iYield>0</iYield>
+				<iYield>1</iYield>
+			</YieldChanges>
 			<CommerceChanges/>
 			<ObsoleteSafeCommerceChanges>
 				<iCommerce>0</iCommerce>
@@ -6711,6 +6733,10 @@
 					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
 					<iHappinessTrait>1</iHappinessTrait>
 				</HappinessTrait>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_BOUDICA</HappinessTraitType>
+					<iHappinessTrait>1</iHappinessTrait>
+				</HappinessTrait>
 			</HappinessTraits>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -6880,8 +6906,17 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_RAMESSES</ProductionTraitType>
+					<iProductionTrait>50</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_RAMESSES</HappinessTraitType>
+					<iHappinessTrait>1</iHappinessTrait>
+				</HappinessTrait>
 				<HappinessTrait>
 					<HappinessTraitType>TRAIT_CHARISMATIC</HappinessTraitType>
 					<iHappinessTrait>1</iHappinessTrait>
@@ -10822,7 +10857,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_AUGUSTUS_CAESAR</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -21081,7 +21121,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_RAMESSES</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -21255,7 +21300,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_BOUDICA</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -23450,7 +23500,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_LOUIS</ProductionTraitType>
+					<iProductionTrait>10</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -23808,7 +23863,16 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_STALIN</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_CATHERINE</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -23988,7 +24052,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_DE_GAULLE</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -25032,7 +25101,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ROOSEVELT</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -26078,7 +26152,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_QIN_SHI_HUANG</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>

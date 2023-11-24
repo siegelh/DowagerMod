@@ -19858,4 +19858,76 @@
         <Italian>Joa</Italian>
         <Spanish>Joa</Spanish>
     </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_AUGUSTUS_CAESAR_SHORT</Tag>
+        <English>Aug</English>
+        <French>Aug</French>
+        <German>Aug</German>
+        <Italian>Aug</Italian>
+        <Spanish>Aug</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_CATHERINE_SHORT</Tag>
+        <English>Cat</English>
+        <French>Cat</French>
+        <German>Cat</German>
+        <Italian>Cat</Italian>
+        <Spanish>Cat</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_DE_GAULLE_SHORT</Tag>
+        <English>De_</English>
+        <French>De_</French>
+        <German>De_</German>
+        <Italian>De_</Italian>
+        <Spanish>De_</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_HUAYNA_CAPAC_SHORT</Tag>
+        <English>Hua</English>
+        <French>Hua</French>
+        <German>Hua</German>
+        <Italian>Hua</Italian>
+        <Spanish>Hua</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_LOUIS_SHORT</Tag>
+        <English>Lou</English>
+        <French>Lou</French>
+        <German>Lou</German>
+        <Italian>Lou</Italian>
+        <Spanish>Lou</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_QIN_SHI_HUANG_SHORT</Tag>
+        <English>QIN</English>
+        <French>QIN</French>
+        <German>QIN</German>
+        <Italian>QIN</Italian>
+        <Spanish>QIN</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_BISMARCK_SHORT</Tag>
+        <English>BIS</English>
+        <French>BIS</French>
+        <German>BIS</German>
+        <Italian>BIS</Italian>
+        <Spanish>BIS</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_BOUDICA_SHORT</Tag>
+        <English>Bou</English>
+        <French>Bou</French>
+        <German>Bou</German>
+        <Italian>Bou</Italian>
+        <Spanish>Bou</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_RAMESSES_SHORT</Tag>
+        <English>Ram</English>
+        <French>Ram</French>
+        <German>Ram</German>
+        <Italian>Ram</Italian>
+        <Spanish>Ram</Spanish>
+    </TEXT>
 </Civ4GameText>

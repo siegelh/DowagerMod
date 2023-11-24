@@ -1375,11 +1375,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<TraitType>TRAIT_AUGUSTUS_CAESAR</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -1925,7 +1921,7 @@
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<TraitType>TRAIT_BISMARCK</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -2468,11 +2464,11 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<TraitType>TRAIT_AGGRESSIVE</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<TraitType>TRAIT_BOUDICA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -3578,7 +3574,7 @@
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
+					<TraitType>TRAIT_CATHERINE</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -6329,7 +6325,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<TraitType>TRAIT_DE_GAULLE</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
@@ -11250,11 +11246,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
+					<TraitType>TRAIT_HUAYNA_CAPAC</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -15110,7 +15102,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<TraitType>TRAIT_LOUIS</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
@@ -20087,11 +20079,7 @@
 			<FavoriteReligion>RELIGION_TAOISM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<TraitType>TRAIT_QIN_SHI_HUANG</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -20633,7 +20621,7 @@
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
-					<TraitType>TRAIT_INDUSTRIOUS</TraitType>
+					<TraitType>TRAIT_RAMESSES</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
