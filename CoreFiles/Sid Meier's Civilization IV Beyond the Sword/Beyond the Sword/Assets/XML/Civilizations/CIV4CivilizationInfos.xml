@@ -2666,6 +2666,10 @@
 					<BuildingClassType>BUILDINGCLASS_STABLE</BuildingClassType>
 					<BuildingType>BUILDING_MONGOL_GER</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_GREAT_PALACE</BuildingClassType>
+					<BuildingType>BUILDING_MONGOLIAN_PALACE</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>

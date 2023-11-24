@@ -12367,6 +12367,30 @@
 		</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MONGOLIAN_PALACE</Tag>
+		<English>Palace of Myriad Peace</English>
+		<French>
+			<Text>Cit&#233; interdite</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Verbotene Stadt</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Palazzo Proibito:Palazzi Proibiti</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Ciudad Prohibida:Ciudades Prohibidas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_BUILDING_VERSAILLES</Tag>
 		<English>Versailles</English>
 		<French>
