@@ -329,14 +329,6 @@
 		<Spanish>Pro</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TRAIT_GRANDE_ARMEE_SHORT</Tag>
-		<English>NAP1</English>
-		<French>NAP1</French>
-		<German>NAP1</German>
-		<Italian>NAP1</Italian>
-		<Spanish>NAP1</Spanish>
-	</TEXT>
-	<TEXT>
 		<Tag>TXT_KEY_MISC_GP_BORN_FIELD</Tag>
 		<English>%s1_GreatPersonName has emerged in the field</English>
 		<French>%s1_GreatPersonName s'est révélé sur le champ de bataille</French>
@@ -19849,5 +19841,21 @@
         <German>Wan</German>
         <Italian>Wan</Italian>
         <Spanish>Wan</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_GRANDE_ARMEE_SHORT</Tag>
+        <English>Gra</English>
+        <French>Gra</French>
+        <German>Gra</German>
+        <Italian>Gra</Italian>
+        <Spanish>Gra</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_JOAO_SHORT</Tag>
+        <English>Joa</English>
+        <French>Joa</French>
+        <German>Joa</German>
+        <Italian>Joa</Italian>
+        <Spanish>Joa</Spanish>
     </TEXT>
 </Civ4GameText>

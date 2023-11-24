@@ -794,6 +794,10 @@
 					<ProductionTraitType>TRAIT_IMPERIALIST</ProductionTraitType>
 					<iProductionTrait>50</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_JOAO</ProductionTraitType>
+					<iProductionTrait>25</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<Flavors/>
 			<iAIWeight>0</iAIWeight>
@@ -17654,7 +17658,7 @@
 			<DomainMods/>
 			<BonusProductionModifiers/>
 			<iBombRate>0</iBombRate>
-			<iBombardRate>0</iBombardRate>
+			<iBombardRate>4</iBombardRate>
 			<SpecialCargo>NONE</SpecialCargo>
 			<DomainCargo>DOMAIN_LAND</DomainCargo>
 			<iCargo>4</iCargo>

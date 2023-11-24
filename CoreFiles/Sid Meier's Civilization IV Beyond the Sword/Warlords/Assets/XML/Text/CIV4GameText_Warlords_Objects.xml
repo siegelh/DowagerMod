@@ -1701,7 +1701,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_TRAIT_GEORGE_WASHINGTON</Tag>
-		<English>George Washington's famous retreating</English>
+		<English>Master of Retreat</English>
 		<French>
 			<Text>George Washington's famous retreating</Text>
 			<Gender>Male</Gender>
@@ -1728,30 +1728,6 @@
 		<English>Roosevelt's New Deal</English>
 		<French>
 			<Text>Roosevelt's New Deal</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Sch�tzend:sch�tzendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_GRANDE_ARMEE</Tag>
-		<English>Le Grande Armee</English>
-		<French>
-			<Text>Grande Armee</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1968,6 +1944,54 @@
 		<English>Scientific Pioneers</English>
 		<French>
 			<Text>Scientific Pioneers</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_GRANDE_ARMEE</Tag>
+		<English>Le Grande Armee</English>
+		<French>
+			<Text>Le Grande Armee</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_JOAO</Tag>
+		<English>Descobrimentos Marítimos</English>
+		<French>
+			<Text>Descobrimentos Marítimos</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
