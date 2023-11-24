@@ -1511,6 +1511,10 @@
 					<HappinessTraitType>TRAIT_BISMARCK</HappinessTraitType>
 					<iHappinessTrait>2</iHappinessTrait>
 				</HappinessTrait>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_DE_GAULLE</HappinessTraitType>
+					<iHappinessTrait>1</iHappinessTrait>
+				</HappinessTrait>
 			</HappinessTraits>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -6735,6 +6739,10 @@
 				</HappinessTrait>
 				<HappinessTrait>
 					<HappinessTraitType>TRAIT_BOUDICA</HappinessTraitType>
+					<iHappinessTrait>1</iHappinessTrait>
+				</HappinessTrait>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_DE_GAULLE</HappinessTraitType>
 					<iHappinessTrait>1</iHappinessTrait>
 				</HappinessTrait>
 			</HappinessTraits>
