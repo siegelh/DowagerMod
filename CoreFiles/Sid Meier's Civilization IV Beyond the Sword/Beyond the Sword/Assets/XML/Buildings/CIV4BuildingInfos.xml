@@ -1831,7 +1831,7 @@
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
 			<FreeBonus>BONUS_HORSE</FreeBonus>
-			<iNumFreeBonuses>0</iNumFreeBonuses>
+			<iNumFreeBonuses>1</iNumFreeBonuses>
 			<FreeBuilding>NONE</FreeBuilding>
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
