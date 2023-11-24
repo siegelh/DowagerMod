@@ -578,6 +578,10 @@
       <PromotionType>PROMOTION_MOBILITY</PromotionType>
       <bFreePromotion>1</bFreePromotion>
     </FreePromotion>
+    <FreePromotion>
+      <PromotionType>PROMOTION_CITY_RAIDER1</PromotionType>
+      <bFreePromotion>1</bFreePromotion>
+    </FreePromotion>
   </FreePromotions>
   <FreePromotionUnitCombats>
     <FreePromotionUnitCombat>
