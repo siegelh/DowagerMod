@@ -921,13 +921,17 @@
 			<iStateReligionBuildingProductionModifier>0</iStateReligionBuildingProductionModifier>
 			<iStateReligionFreeExperience>0</iStateReligionFreeExperience>
 			<YieldModifiers>
-				<iYield>-25</iYield>
-				<iYield>-25</iYield>
-				<iYield>-25</iYield>
+				<iYield>-10</iYield>
+				<iYield>-10</iYield>
+				<iYield>-10</iYield>
 			</YieldModifiers>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers/>
-			<CommerceModifiers/>
+			<CommerceModifiers>
+				<iCommerce>0</iCommerce>
+				<iCommerce>-10</iCommerce>
+				<iCommerce>0</iCommerce>
+			</CommerceModifiers>
 			<CapitalCommerceModifiers/>
 			<SpecialistExtraCommerces/>
 			<Hurrys/>
