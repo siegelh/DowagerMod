@@ -1033,7 +1033,7 @@
 			<Civilopedia>TXT_KEY_CIVIC_EMANCIPATION_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_CIVIC_EMANCIPATION_STRATEGY</Strategy>
 			<Button>,Art/Interface/Buttons/Civics/Emancipation.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,6,1</Button>
-			<TechPrereq>TECH_DEMOCRACY</TechPrereq>
+			<TechPrereq>TECH_EMANCIPATION</TechPrereq>
 			<iAnarchyLength>1</iAnarchyLength>
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iAIWeight>0</iAIWeight>

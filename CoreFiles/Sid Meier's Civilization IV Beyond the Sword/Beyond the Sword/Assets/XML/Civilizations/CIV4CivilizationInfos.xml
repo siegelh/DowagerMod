@@ -114,7 +114,7 @@
 					<bFreeTech>1</bFreeTech>
 				</FreeTech>
 				<FreeTech>
-					<TechType>TECH_DEMOCRACY</TechType>
+					<TechType>TECH_EMANCIPATION</TechType>
 					<bFreeTech>1</bFreeTech>
 				</FreeTech>
 			</FreeTechs>
@@ -122,10 +122,9 @@
 			<InitialCivics>
 				<CivicType>CIVIC_DESPOTISM</CivicType>
 				<CivicType>CIVIC_BARBARISM</CivicType>
-				<CivicType>CIVIC_TRIBALISM</CivicType>
+				<CivicType>CIVIC_EMANCIPATION</CivicType>
 				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
 				<CivicType>CIVIC_PAGANISM</CivicType>
-				<CivicType>CIVIC_EMANCIPATION</CivicType>
 			</InitialCivics>
 			<Leaders>
 				<Leader>
