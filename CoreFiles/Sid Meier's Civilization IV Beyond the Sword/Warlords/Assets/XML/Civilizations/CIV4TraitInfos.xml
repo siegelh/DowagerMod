@@ -864,7 +864,7 @@
   <iMaxAnarchy>-1</iMaxAnarchy>
   <iUpkeepModifier>0</iUpkeepModifier>
   <iLevelExperienceModifier>0</iLevelExperienceModifier>
-  <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
+  <iGreatPeopleRateModifier>20</iGreatPeopleRateModifier>
   <iGreatGeneralRateModifier>50</iGreatGeneralRateModifier>
   <iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
   <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
@@ -883,7 +883,7 @@
   <CommerceChanges>
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
-    <iCommerce>0</iCommerce>
+    <iCommerce>1</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceChanges>
   <CommerceModifiers>
@@ -1098,7 +1098,7 @@
   <Type>TRAIT_BISMARCK</Type>
   <Description>TXT_KEY_TRAIT_BISMARCK</Description>
   <ShortDescription>TXT_KEY_TRAIT_BISMARCK_SHORT</ShortDescription>
-  <iHealth>1</iHealth>
+  <iHealth>3</iHealth>
   <iHappiness>0</iHappiness>
   <iMaxAnarchy>-1</iMaxAnarchy>
   <iUpkeepModifier>0</iUpkeepModifier>
@@ -1111,7 +1111,7 @@
   <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
   <ExtraYieldThresholds>
     <iExtraYieldThreshold>0</iExtraYieldThreshold>
-    <iExtraYieldThreshold>0</iExtraYieldThreshold>
+    <iExtraYieldThreshold>5</iExtraYieldThreshold>
     <iExtraYieldThreshold>0</iExtraYieldThreshold>
   </ExtraYieldThresholds>
   <TradeYieldModifiers>

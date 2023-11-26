@@ -1921,10 +1921,6 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
 					<TraitType>TRAIT_BISMARCK</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
@@ -3573,10 +3569,6 @@
 			<FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 				<Trait>
 					<TraitType>TRAIT_CATHERINE</TraitType>
 					<bTrait>1</bTrait>
