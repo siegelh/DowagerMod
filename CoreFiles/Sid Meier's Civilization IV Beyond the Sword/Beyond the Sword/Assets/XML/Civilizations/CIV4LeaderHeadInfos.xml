@@ -287,6 +287,10 @@
 					<TraitType>TRAIT_AGGRESSIVE</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
+				<Trait>
+					<TraitType>TRAIT_HELLENIC_LEGACY</TraitType>
+					<bTrait>1</bTrait>
+				</Trait>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -18967,6 +18971,10 @@
 				</Trait>
 				<Trait>
 					<TraitType>TRAIT_CREATIVE</TraitType>
+					<bTrait>1</bTrait>
+				</Trait>
+				<Trait>
+					<TraitType>TRAIT_HELLENIC_LEGACY</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>

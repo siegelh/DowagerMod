@@ -19930,4 +19930,12 @@
         <Italian>Ram</Italian>
         <Spanish>Ram</Spanish>
     </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_HELLENIC_LEGACY_SHORT</Tag>
+        <English>hel</English>
+        <French>hel</French>
+        <German>hel</German>
+        <Italian>hel</Italian>
+        <Spanish>hel</Spanish>
+    </TEXT>
 </Civ4GameText>
