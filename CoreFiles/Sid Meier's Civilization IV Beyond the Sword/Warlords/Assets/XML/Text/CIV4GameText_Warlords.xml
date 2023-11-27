@@ -19819,14 +19819,6 @@
         <Spanish>Gen</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_MONTEZUMA_SHORT</Tag>
-        <English>Mon</English>
-        <French>Mon</French>
-        <German>Mon</German>
-        <Italian>Mon</Italian>
-        <Spanish>Mon</Spanish>
-    </TEXT>
-<TEXT>
         <Tag>TXT_KEY_TRAIT_STALIN_SHORT</Tag>
         <English>Sta</English>
         <French>Sta</French>
@@ -19953,5 +19945,13 @@
         <German>Per</German>
         <Italian>Per</Italian>
         <Spanish>Per</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_MONTEZUMA_SHORT</Tag>
+        <English>Mon</English>
+        <French>Mon</French>
+        <German>Mon</German>
+        <Italian>Mon</Italian>
+        <Spanish>Mon</Spanish>
     </TEXT>
 </Civ4GameText>

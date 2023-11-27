@@ -17295,10 +17295,6 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
 					<TraitType>TRAIT_MONTEZUMA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
