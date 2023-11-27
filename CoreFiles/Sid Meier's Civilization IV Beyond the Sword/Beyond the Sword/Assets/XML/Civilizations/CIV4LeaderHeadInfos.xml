@@ -283,10 +283,6 @@
 					<TraitType>TRAIT_ALEXANDER</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
-				<Trait>
-					<TraitType>TRAIT_HELLENIC_LEGACY</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -18935,10 +18931,6 @@
 			<Traits>
 				<Trait>
 					<TraitType>TRAIT_PERICLES</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_HELLENIC_LEGACY</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>

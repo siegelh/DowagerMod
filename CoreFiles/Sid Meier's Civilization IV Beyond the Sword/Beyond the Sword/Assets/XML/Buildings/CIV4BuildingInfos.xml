@@ -21535,7 +21535,11 @@
 			<PrereqBonuses/>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_HELLENIC_LEGACY</ProductionTraitType>
+					<ProductionTraitType>TRAIT_PERICLES</ProductionTraitType>
+					<iProductionTrait>5</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ALEXANDER</ProductionTraitType>
 					<iProductionTrait>5</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -21731,7 +21735,11 @@
 			<PrereqBonuses/>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_HELLENIC_LEGACY</ProductionTraitType>
+					<ProductionTraitType>TRAIT_PERICLES</ProductionTraitType>
+					<iProductionTrait>5</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ALEXANDER</ProductionTraitType>
 					<iProductionTrait>5</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -22099,7 +22107,11 @@
 			<PrereqBonuses/>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_HELLENIC_LEGACY</ProductionTraitType>
+					<ProductionTraitType>TRAIT_PERICLES</ProductionTraitType>
+					<iProductionTrait>5</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ALEXANDER</ProductionTraitType>
 					<iProductionTrait>5</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -22292,7 +22304,11 @@
 			<PrereqBonuses/>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_HELLENIC_LEGACY</ProductionTraitType>
+					<ProductionTraitType>TRAIT_PERICLES</ProductionTraitType>
+					<iProductionTrait>5</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ALEXANDER</ProductionTraitType>
 					<iProductionTrait>5</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -22478,7 +22494,11 @@
 			<PrereqBonuses/>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_HELLENIC_LEGACY</ProductionTraitType>
+					<ProductionTraitType>TRAIT_PERICLES</ProductionTraitType>
+					<iProductionTrait>5</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ALEXANDER</ProductionTraitType>
 					<iProductionTrait>5</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -25862,7 +25882,11 @@
 			<PrereqBonuses/>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_HELLENIC_LEGACY</ProductionTraitType>
+					<ProductionTraitType>TRAIT_PERICLES</ProductionTraitType>
+					<iProductionTrait>5</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ALEXANDER</ProductionTraitType>
 					<iProductionTrait>5</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -26417,7 +26441,11 @@
 			<PrereqBonuses/>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_HELLENIC_LEGACY</ProductionTraitType>
+					<ProductionTraitType>TRAIT_PERICLES</ProductionTraitType>
+					<iProductionTrait>5</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ALEXANDER</ProductionTraitType>
 					<iProductionTrait>5</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
