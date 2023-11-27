@@ -13441,10 +13441,6 @@
 					<TraitType>TRAIT_JUSTINIAN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 			</Traits>
 			<Flavors>
 				<Flavor>
