@@ -10701,7 +10701,12 @@
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
 			<ProductionTraits/>
-			<HappinessTraits/>
+			<HappinessTraits>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_LINCOLN</HappinessTraitType>
+					<iHappinessTrait>2</iHappinessTrait>
+				</HappinessTrait>
+			</HappinessTraits>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
 			<FreeBonus>NONE</FreeBonus>
@@ -10892,7 +10897,12 @@
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
-			<HappinessTraits/>
+			<HappinessTraits>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_LINCOLN</HappinessTraitType>
+					<iHappinessTrait>2</iHappinessTrait>
+				</HappinessTrait>
+			</HappinessTraits>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
 			<FreeBonus>NONE</FreeBonus>
@@ -11082,7 +11092,12 @@
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
 			<ProductionTraits/>
-			<HappinessTraits/>
+			<HappinessTraits>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_LINCOLN</HappinessTraitType>
+					<iHappinessTrait>2</iHappinessTrait>
+				</HappinessTrait>
+			</HappinessTraits>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
 			<FreeBonus>NONE</FreeBonus>
@@ -11458,7 +11473,12 @@
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
 			<ProductionTraits/>
-			<HappinessTraits/>
+			<HappinessTraits>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_LINCOLN</HappinessTraitType>
+					<iHappinessTrait>2</iHappinessTrait>
+				</HappinessTrait>
+			</HappinessTraits>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
 			<FreeBonus>NONE</FreeBonus>

@@ -19954,4 +19954,12 @@
         <Italian>Mon</Italian>
         <Spanish>Mon</Spanish>
     </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_LINCOLN_SHORT</Tag>
+        <English>Lin</English>
+        <French>Lin</French>
+        <German>Lin</German>
+        <Italian>Lin</Italian>
+        <Spanish>Lin</Spanish>
+    </TEXT>
 </Civ4GameText>

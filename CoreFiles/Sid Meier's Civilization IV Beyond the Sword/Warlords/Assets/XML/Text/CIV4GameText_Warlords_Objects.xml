@@ -2299,4 +2299,28 @@
 			<Plural>0</Plural>
 		</Spanish>
 	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_LINCOLN</Tag>
+		<English>Whiggery</English>
+		<French>
+			<Text>Whiggery</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
 </Civ4GameText>

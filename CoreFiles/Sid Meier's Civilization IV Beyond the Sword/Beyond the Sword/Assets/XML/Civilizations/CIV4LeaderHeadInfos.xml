@@ -14535,11 +14535,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<TraitType>TRAIT_LINCOLN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
