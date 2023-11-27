@@ -97,7 +97,7 @@ def generate_output():
     generate_description_xml(trait_description_file_name, ["TXT_KEY_TRAIT_" + user_name.upper(), description])
 
     trait_description_short_file_name = "traits/TXT_KEY_TRAIT_" + user_name.upper() + "_SHORT" + ".xml"
-    generate_short_description_xml(trait_description_short_file_name, ["TXT_KEY_TRAIT_" + user_name.upper() + "_SHORT", user_name[:3]])
+    generate_short_description_xml(trait_description_short_file_name, ["TXT_KEY_TRAIT_" + user_name.upper() + "_SHORT", description])
 
     # Update the text in the result_label
     result_label.config(text=f"Output written to {file_path}")
