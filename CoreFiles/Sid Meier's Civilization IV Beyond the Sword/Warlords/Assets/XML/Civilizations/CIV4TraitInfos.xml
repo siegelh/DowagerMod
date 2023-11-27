@@ -422,7 +422,7 @@
   <iHealth>0</iHealth>
   <iHappiness>-1</iHappiness>
   <iMaxAnarchy>0</iMaxAnarchy>
-  <iUpkeepModifier>0</iUpkeepModifier>
+  <iUpkeepModifier>-75</iUpkeepModifier>
   <iLevelExperienceModifier>0</iLevelExperienceModifier>
   <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
   <iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
