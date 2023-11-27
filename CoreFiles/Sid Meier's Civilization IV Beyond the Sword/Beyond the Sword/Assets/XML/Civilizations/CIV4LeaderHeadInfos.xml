@@ -16187,10 +16187,6 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
 					<TraitType>TRAIT_GREAT_LEAP_FORWARD</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
