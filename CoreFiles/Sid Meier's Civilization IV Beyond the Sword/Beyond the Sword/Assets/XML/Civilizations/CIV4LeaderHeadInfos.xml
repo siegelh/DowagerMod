@@ -2464,10 +2464,6 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
 					<TraitType>TRAIT_BOUDICA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
