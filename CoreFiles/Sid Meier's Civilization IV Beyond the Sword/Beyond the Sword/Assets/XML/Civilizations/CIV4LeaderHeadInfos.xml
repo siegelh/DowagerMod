@@ -280,11 +280,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<TraitType>TRAIT_ALEXANDER</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>
@@ -18954,11 +18950,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
+					<TraitType>TRAIT_PERICLES</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 				<Trait>

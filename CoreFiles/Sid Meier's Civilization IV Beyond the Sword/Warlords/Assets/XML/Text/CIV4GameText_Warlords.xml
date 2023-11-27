@@ -19931,11 +19931,27 @@
         <Spanish>Ram</Spanish>
     </TEXT>
 <TEXT>
+        <Tag>TXT_KEY_TRAIT_ALEXANDER_SHORT</Tag>
+        <English>Ale</English>
+        <French>Ale</French>
+        <German>Ale</German>
+        <Italian>Ale</Italian>
+        <Spanish>Ale</Spanish>
+    </TEXT>
+<TEXT>
         <Tag>TXT_KEY_TRAIT_HELLENIC_LEGACY_SHORT</Tag>
         <English>hel</English>
         <French>hel</French>
         <German>hel</German>
         <Italian>hel</Italian>
         <Spanish>hel</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_PERICLES_SHORT</Tag>
+        <English>Per</English>
+        <French>Per</French>
+        <German>Per</German>
+        <Italian>Per</Italian>
+        <Spanish>Per</Spanish>
     </TEXT>
 </Civ4GameText>

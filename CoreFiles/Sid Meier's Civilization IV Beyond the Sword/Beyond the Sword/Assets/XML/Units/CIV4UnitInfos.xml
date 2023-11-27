@@ -804,7 +804,7 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_AUGUSTUS_CAESAR</ProductionTraitType>
-					<iProductionTrait>25</iProductionTrait>
+					<iProductionTrait>34</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<Flavors/>
@@ -1069,7 +1069,7 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_AUGUSTUS_CAESAR</ProductionTraitType>
-					<iProductionTrait>25</iProductionTrait>
+					<iProductionTrait>34</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<Flavors/>
