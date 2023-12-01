@@ -19962,4 +19962,52 @@
         <Italian>Whiggery</Italian>
         <Spanish>Whiggery</Spanish>
     </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_CHARLEMAGNE_SHORT</Tag>
+        <English>Car</English>
+        <French>Car</French>
+        <German>Car</German>
+        <Italian>Car</Italian>
+        <Spanish>Car</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_CHURCHILL_SHORT</Tag>
+        <English>Res</English>
+        <French>Res</French>
+        <German>Res</German>
+        <Italian>Res</Italian>
+        <Spanish>Res</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_CYRUS_SHORT</Tag>
+        <English>Ben</English>
+        <French>Ben</French>
+        <German>Ben</German>
+        <Italian>Ben</Italian>
+        <Spanish>Ben</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_DARIUS_SHORT</Tag>
+        <English>Ach</English>
+        <French>Ach</French>
+        <German>Ach</German>
+        <Italian>Ach</Italian>
+        <Spanish>Ach</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_ELIZABETH_SHORT</Tag>
+        <English>Vir</English>
+        <French>Vir</French>
+        <German>Vir</German>
+        <Italian>Vir</Italian>
+        <Spanish>Vir</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_FREDERICK_SHORT</Tag>
+        <English>Kri</English>
+        <French>Kri</French>
+        <German>Kri</German>
+        <Italian>Kri</Italian>
+        <Spanish>Kri</Spanish>
+    </TEXT>
 </Civ4GameText>

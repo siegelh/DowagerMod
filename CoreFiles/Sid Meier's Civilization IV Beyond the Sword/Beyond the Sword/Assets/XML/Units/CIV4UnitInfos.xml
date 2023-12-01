@@ -795,6 +795,10 @@
 					<iProductionTrait>50</iProductionTrait>
 				</ProductionTrait>
 				<ProductionTrait>
+					<ProductionTraitType>TRAIT_CYRUS</ProductionTraitType>
+					<iProductionTrait>50</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
 					<ProductionTraitType>TRAIT_JOAO</ProductionTraitType>
 					<iProductionTrait>25</iProductionTrait>
 				</ProductionTrait>
@@ -805,6 +809,10 @@
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_AUGUSTUS_CAESAR</ProductionTraitType>
 					<iProductionTrait>34</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_IMPERIALIST</ProductionTraitType>
+					<iProductionTrait>50</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<Flavors/>
