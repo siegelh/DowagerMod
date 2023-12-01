@@ -1431,6 +1431,10 @@
 					<BuildingClassType>BUILDINGCLASS_OBSERVATORY</BuildingClassType>
 					<BuildingType>BUILDING_FRENCH_SALON</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType>
+					<BuildingType>BUILDING_FRENCH_BROADCAST_TOWER</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
@@ -1894,6 +1898,14 @@
 				<Unit>
 					<UnitClassType>UNITCLASS_WARRIOR</UnitClassType>
 					<UnitType>UNIT_INCAN_QUECHUA</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_WORKER</UnitClassType>
+					<UnitType>UNIT_HUAYNA_WORKER</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitType>UNIT_HUAYNA_SETTLER</UnitType>
 				</Unit>
 			</Units>
 			<FreeUnitClasses>
