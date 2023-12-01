@@ -20557,10 +20557,6 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
 					<TraitType>TRAIT_RAMESSES</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>

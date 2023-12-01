@@ -2502,6 +2502,30 @@
 		</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_UNIT_HUAYNA_SETTLER</Tag>
+		<English>Hill Settler</English>
+		<French>
+			<Text>Ouvrier rapide</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schneller Bautrupp</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Lavoratore veloce:Lavoratori veloci</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Trabajador r&#225;pido:Trabajadores r&#225;pidos</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORKER</Tag>
 		<English>Worker</English>
 		<French>
@@ -2528,6 +2552,30 @@
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_INDIAN_FAST_WORKER</Tag>
 		<English>Fast Worker</English>
+		<French>
+			<Text>Ouvrier rapide</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schneller Bautrupp</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Lavoratore veloce:Lavoratori veloci</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Trabajador r&#225;pido:Trabajadores r&#225;pidos</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HUAYNA_WORKER</Tag>
+		<English>Hill Worker</English>
 		<French>
 			<Text>Ouvrier rapide</Text>
 			<Gender>Male</Gender>
@@ -13089,6 +13137,30 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_BROADCAST_TOWER</Tag>
 		<English>Broadcast Tower</English>
+		<French>
+			<Text>Tour de radiodiffusion</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Funkturm</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Ripetitore:Ripetitori</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Torre de radiodifusi&#243;n:Torres de radiodifusi&#243;n</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FRENCH_BROADCAST_TOWER</Tag>
+		<English>Tour de Radiodiffusion</English>
 		<French>
 			<Text>Tour de radiodiffusion</Text>
 			<Gender>Female</Gender>

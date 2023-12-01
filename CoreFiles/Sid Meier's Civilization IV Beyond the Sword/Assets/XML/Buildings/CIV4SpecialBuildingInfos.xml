@@ -31,6 +31,10 @@
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 				<ProductionTrait>
+					<ProductionTraitType>TRAIT_RAMESSES</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
 					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
 					<iProductionTrait>200</iProductionTrait>
 				</ProductionTrait>
