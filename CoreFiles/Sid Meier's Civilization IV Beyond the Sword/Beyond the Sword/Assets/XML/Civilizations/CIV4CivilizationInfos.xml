@@ -2900,6 +2900,10 @@
 					<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
 					<BuildingType>BUILDING_NETHERLANDS_DIKE</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_LIGHTHOUSE</BuildingClassType>
+					<BuildingType>BUILDING_MASTER_TRADER_LIGHTHOUSE</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
