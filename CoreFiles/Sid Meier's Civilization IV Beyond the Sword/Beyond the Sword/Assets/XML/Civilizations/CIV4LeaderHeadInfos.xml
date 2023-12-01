@@ -8464,10 +8464,6 @@
 					<TraitType>TRAIT_GENGHIS_KAHN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
-				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 			</Traits>
 			<Flavors>
 				<Flavor>
