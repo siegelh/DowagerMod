@@ -1221,6 +1221,30 @@
 		</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MAURYAN_OBELISK</Tag>
+		<English>Pillar of Ashoka</English>
+		<French>
+			<Text>Monument égyptien</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Ägyptischer Obelisk</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</German>
+		<Italian>
+			<Text>Monumento egizio:Monumenti egizi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Obelisco egipcio:Obeliscos egipcios</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_BUILDING_JAPAN_LIBRARY</Tag>
 		<English>Japanese Academy of Bushido</English>
 		<French>

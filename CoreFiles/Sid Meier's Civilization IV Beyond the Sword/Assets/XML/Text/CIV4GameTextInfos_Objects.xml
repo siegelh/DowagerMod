@@ -10763,6 +10763,54 @@
 		</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_CIV_MAURYA_DESC</Tag>
+		<English>Mauryan Empire</English>
+		<French>
+			<Text>Empire indien</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Indisches Reich:Indische Reich:Indischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Impero Indiano</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Imperio Indio</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MAURYA_SHORT_DESC</Tag>
+		<English>Maurya</English>
+		<French>
+			<Text>Indiens</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Indien</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>L'India:l'India:dell'India:d'India</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>India</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_CIV_INDIA_ADJECTIVE</Tag>
 		<English>Indian</English>
 		<French>
@@ -12441,6 +12489,30 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_MONGOLIAN_PALACE</Tag>
 		<English>Palace of Myriad Peace</English>
+		<French>
+			<Text>Cit&#233; interdite</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Verbotene Stadt</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Palazzo Proibito:Palazzi Proibiti</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Ciudad Prohibida:Ciudades Prohibidas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MAURYAN_GREAT_PALACE</Tag>
+		<English>Edicts of Ashoka</English>
 		<French>
 			<Text>Cit&#233; interdite</Text>
 			<Gender>Female</Gender>
