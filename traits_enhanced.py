@@ -199,11 +199,11 @@ def generate_short_description_xml(file_name, trait_data):
 	<!--Please place any new text entries into this file-->
     <TEXT>
         <Tag>{trait_key}</Tag>
-        <English>{short_description[:3]}</English>
-        <French>{short_description[:3]}</French>
-        <German>{short_description[:3]}</German>
-        <Italian>{short_description[:3]}</Italian>
-        <Spanish>{short_description[:3]}</Spanish>
+        <English>{short_description}</English>
+        <French>{short_description}</French>
+        <German>{short_description}</German>
+        <Italian>{short_description}</Italian>
+        <Spanish>{short_description}</Spanish>
     </TEXT>
 </Civ4GameText>'''
 

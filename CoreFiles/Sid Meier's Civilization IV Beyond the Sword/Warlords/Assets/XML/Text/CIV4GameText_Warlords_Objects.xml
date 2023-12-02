@@ -1820,7 +1820,7 @@
 		</Spanish>
 	</TEXT>
 <TEXT>
-		<Tag>TXT_KEY_TRAIT_MASTER_TRADER</Tag>
+		<Tag>TXT_KEY_TRAIT_ORANGE</Tag>
 		<English>Master Trader</English>
 		<French>
 			<Text>Master Trader</Text>
@@ -2448,6 +2448,30 @@
 		<English>Kriegsphilosoph</English>
 		<French>
 			<Text>Kriegsphilosoph</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_MANSA_MUSA</Tag>
+		<English>Sovereign of Splendor</English>
+		<French>
+			<Text>Sovereign of Splendor</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>

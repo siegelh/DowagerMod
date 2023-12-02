@@ -4047,9 +4047,9 @@
 		</BuildingInfo>
 		<BuildingInfo>
 			<BuildingClass>BUILDINGCLASS_LIGHTHOUSE</BuildingClass>
-			<Type>BUILDING_MASTER_TRADER_LIGHTHOUSE</Type>
+			<Type>BUILDING_ORANGE_LIGHTHOUSE</Type>
 			<SpecialBuildingType>NONE</SpecialBuildingType>
-			<Description>TXT_KEY_BUILDING_MASTER_TRADER_LIGHTHOUSE</Description>
+			<Description>TXT_KEY_BUILDING_ORANGE_LIGHTHOUSE</Description>
 			<Civilopedia>TXT_KEY_BUILDING_LIGHTHOUSE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_LIGHTHOUSE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_GROWTH</Advisor>

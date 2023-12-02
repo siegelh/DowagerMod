@@ -19795,7 +19795,7 @@
         <Spanish>Codex Justinianus</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_MASTER_TRADER_SHORT</Tag>
+        <Tag>TXT_KEY_TRAIT_ORANGE_SHORT</Tag>
         <English>Master Trader</English>
         <French>Mas</French>
         <German>Mas</German>
@@ -20009,5 +20009,13 @@
         <German>Kri</German>
         <Italian>Kri</Italian>
         <Spanish>Kri</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_MANSA_MUSA_SHORT</Tag>
+        <English>Sov</English>
+        <French>Sov</French>
+        <German>Sov</German>
+        <Italian>Sov</Italian>
+        <Spanish>Sov</Spanish>
     </TEXT>
 </Civ4GameText>

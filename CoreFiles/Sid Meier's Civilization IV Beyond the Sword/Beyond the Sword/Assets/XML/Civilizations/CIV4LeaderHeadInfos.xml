@@ -15596,11 +15596,7 @@
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_MASTER_TRADER</TraitType>
+					<TraitType>TRAIT_MANSA_MUSA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -27812,7 +27808,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_MASTER_TRADER</TraitType>
+					<TraitType>TRAIT_ORANGE</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
