@@ -10101,11 +10101,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CHARISMATIC</TraitType>
+					<TraitType>TRAIT_HANNIBAL</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -21642,10 +21638,6 @@
 			<FavoriteCivic>CIVIC_MERCANTILISM</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 				<Trait>
 					<TraitType>TRAIT_ROOSEVELT</TraitType>
 					<bTrait>1</bTrait>

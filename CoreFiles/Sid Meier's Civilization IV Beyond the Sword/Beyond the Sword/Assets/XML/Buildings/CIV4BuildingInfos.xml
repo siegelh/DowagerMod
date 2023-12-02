@@ -1509,6 +1509,10 @@
 					<ProductionTraitType>TRAIT_ALEXANDER</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_HANNIBAL</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits>
 				<HappinessTrait>
@@ -1517,6 +1521,10 @@
 				</HappinessTrait>
 				<HappinessTrait>
 					<HappinessTraitType>TRAIT_DE_GAULLE</HappinessTraitType>
+					<iHappinessTrait>1</iHappinessTrait>
+				</HappinessTrait>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_HANNIBAL</HappinessTraitType>
 					<iHappinessTrait>1</iHappinessTrait>
 				</HappinessTrait>
 			</HappinessTraits>
@@ -1861,8 +1869,18 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
-			<HappinessTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_HANNIBAL</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
+			<HappinessTraits>
+				<HappinessTrait>
+					<HappinessTraitType>TRAIT_HANNIBAL</HappinessTraitType>
+					<iHappinessTrait>1</iHappinessTrait>
+				</HappinessTrait>
+			</HappinessTraits>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
 			<FreeBonus>NONE</FreeBonus>
@@ -4151,7 +4169,7 @@
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iSpaceProductionModifier>0</iSpaceProductionModifier>
 			<iGlobalSpaceProductionModifier>0</iGlobalSpaceProductionModifier>
-			<iTradeRoutes>1</iTradeRoutes>
+			<iTradeRoutes>2</iTradeRoutes>
 			<iCoastalTradeRoutes>0</iCoastalTradeRoutes>
 			<iGlobalTradeRoutes>0</iGlobalTradeRoutes>
 			<iTradeRouteModifier>50</iTradeRouteModifier>
@@ -4166,7 +4184,7 @@
 			<iPower>0</iPower>
 			<fVisibilityPriority>1.0</fVisibilityPriority>
 			<SeaPlotYieldChanges>
-				<iYield>1</iYield>
+				<iYield>0</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</SeaPlotYieldChanges>
