@@ -814,7 +814,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>0</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_FREE_RELIGION</FavoriteCivic>
+			<FavoriteCivic>CIVIC_PACIFISM</FavoriteCivic>
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<Trait>
@@ -829,7 +829,7 @@
 			<Flavors>
 				<Flavor>
 					<FlavorType>FLAVOR_RELIGION</FlavorType>
-					<iFlavor>5</iFlavor>
+					<iFlavor>8</iFlavor>
 				</Flavor>
 				<Flavor>
 					<FlavorType>FLAVOR_SCIENCE</FlavorType>

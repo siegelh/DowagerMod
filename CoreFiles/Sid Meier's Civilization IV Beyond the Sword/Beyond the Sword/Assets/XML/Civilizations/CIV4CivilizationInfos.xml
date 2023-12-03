@@ -2115,7 +2115,7 @@
 			<Type>CIVILIZATION_MAURYA</Type>
 			<Description>TXT_KEY_CIV_MAURYA_DESC</Description>
 			<ShortDescription>TXT_KEY_CIV_MAURYA_SHORT_DESC</ShortDescription>
-			<Adjective>TXT_KEY_CIV_MAURYAN_ADJECTIVE</Adjective>
+			<Adjective>TXT_KEY_CIV_MAURYA_ADJECTIVE</Adjective>
 			<Civilopedia>TXT_KEY_CIV_MAURYA_PEDIA</Civilopedia>
 			<DefaultPlayerColor>PLAYERCOLOR_PURPLE</DefaultPlayerColor>
 			<ArtDefineTag>ART_DEF_CIVILIZATION_INDIA</ArtDefineTag>

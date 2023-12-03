@@ -549,8 +549,8 @@
 			<HolyCity>NONE</HolyCity>
 			<ReligionType>RELIGION_BUDDHISM</ReligionType>
 			<StateReligion>RELIGION_BUDDHISM</StateReligion>
-			<bStateReligion>1</bStateReligion>
-			<PrereqReligion>RELIGION_BUDDHISM</PrereqReligion>
+			<bStateReligion>0</bStateReligion>
+			<PrereqReligion>NONE</PrereqReligion>
 			<PrereqCorporation>NONE</PrereqCorporation>
 			<FoundsCorporation>NONE</FoundsCorporation>
 			<GlobalReligionCommerce>NONE</GlobalReligionCommerce>
@@ -567,9 +567,9 @@
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
-			<FreeBonus>NONE</FreeBonus>
-			<iNumFreeBonuses>0</iNumFreeBonuses>
-			<FreeBuilding>NONE</FreeBuilding>
+			<FreeBonus>BONUS_ASOKA</FreeBonus>
+			<iNumFreeBonuses>-1</iNumFreeBonuses>
+			<FreeBuilding>BUILDINGCLASS_OBELISK</FreeBuilding>
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
@@ -636,7 +636,7 @@
 			<iGlobalHealth>0</iGlobalHealth>
 			<iHappiness>0</iHappiness>
 			<iAreaHappiness>0</iAreaHappiness>
-			<iGlobalHappiness>0</iGlobalHappiness>
+			<iGlobalHappiness>2</iGlobalHappiness>
 			<iStateReligionHappiness>0</iStateReligionHappiness>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
@@ -672,7 +672,12 @@
 			<SpecialistExtraCommerces/>
 			<StateReligionCommerces/>
 			<CommerceHappinesses/>
-			<ReligionChanges/>
+			<ReligionChanges>
+				<ReligionChange>
+					<ReligionType>RELIGION_BUDDHISM</ReligionType>
+					<iReligionChange>1</iReligionChange>
+				</ReligionChange>
+			</ReligionChanges>
 			<SpecialistCounts/>
 			<FreeSpecialistCounts/>
 			<CommerceFlexibles/>
@@ -685,18 +690,8 @@
 			<DomainFreeExperiences/>
 			<DomainProductionModifiers/>
 			<BuildingHappinessChanges/>
-			<PrereqBuildingClasses>
-				<PrereqBuildingClass>
-					<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
-					<iNumBuildingNeeded>2</iNumBuildingNeeded>
-				</PrereqBuildingClass>
-			</PrereqBuildingClasses>
-			<BuildingClassNeededs>
-				<BuildingClassNeeded>
-					<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
-					<bNeededInCity>1</bNeededInCity>
-				</BuildingClassNeeded>
-			</BuildingClassNeededs>
+			<PrereqBuildingClasses/>
+			<BuildingClassNeededs/>
 			<SpecialistYieldChanges/>
 			<BonusYieldModifiers/>
 			<ImprovementFreeSpecialists/>
@@ -7574,7 +7569,7 @@
 			<iAreaFreeSpecialist>0</iAreaFreeSpecialist>
 			<iGlobalFreeSpecialist>0</iGlobalFreeSpecialist>
 			<iMaintenanceModifier>0</iMaintenanceModifier>
-			<iWarWearinessModifier>0</iWarWearinessModifier>
+			<iWarWearinessModifier>25</iWarWearinessModifier>
 			<iGlobalWarWearinessModifier>0</iGlobalWarWearinessModifier>
 			<iEnemyWarWearinessModifier>0</iEnemyWarWearinessModifier>
 			<iHealRateChange>0</iHealRateChange>
@@ -17795,7 +17790,12 @@
 			<CommerceChangeOriginalOwners/>
 			<ConstructSound>AS2D_BUILD_BUDDHIST</ConstructSound>
 			<BonusHealthChanges/>
-			<BonusHappinessChanges/>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_ASOKA</BonusType>
+					<iHappinessChange>1</iHappinessChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
 			<BonusProductionModifiers/>
 			<UnitCombatFreeExperiences/>
 			<DomainFreeExperiences/>
@@ -17969,6 +17969,10 @@
 			<BonusHappinessChanges>
 				<BonusHappinessChange>
 					<BonusType>BONUS_INCENSE</BonusType>
+					<iHappinessChange>1</iHappinessChange>
+				</BonusHappinessChange>
+				<BonusHappinessChange>
+					<BonusType>BONUS_ASOKA</BonusType>
 					<iHappinessChange>1</iHappinessChange>
 				</BonusHappinessChange>
 			</BonusHappinessChanges>
@@ -18154,7 +18158,12 @@
 			<CommerceChangeOriginalOwners/>
 			<ConstructSound>AS2D_BUILD_BUDDHIST</ConstructSound>
 			<BonusHealthChanges/>
-			<BonusHappinessChanges/>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_ASOKA</BonusType>
+					<iHappinessChange>1</iHappinessChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
 			<BonusProductionModifiers/>
 			<UnitCombatFreeExperiences/>
 			<DomainFreeExperiences/>
@@ -18338,7 +18347,12 @@
 			</CommerceChangeOriginalOwners>
 			<ConstructSound>AS2D_BUILD_BUDDHIST</ConstructSound>
 			<BonusHealthChanges/>
-			<BonusHappinessChanges/>
+			<BonusHappinessChanges>
+				<BonusHappinessChange>
+					<BonusType>BONUS_ASOKA</BonusType>
+					<iHappinessChange>1</iHappinessChange>
+				</BonusHappinessChange>
+			</BonusHappinessChanges>
 			<BonusProductionModifiers/>
 			<UnitCombatFreeExperiences/>
 			<DomainFreeExperiences/>

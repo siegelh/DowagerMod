@@ -5214,6 +5214,30 @@
 		</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_BONUS_ASOKA</Tag>
+		<English>Edict of Ashoka</English>
+		<French>
+			<Text>Com&#233;dies musicales</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Musicals</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Musical di successo</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Musicales de &#233;xito</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_BONUS_MUSIC</Tag>
 		<English>Hit Singles</English>
 		<French>
@@ -10808,6 +10832,34 @@
 			<Text>India</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MAURYA_ADJECTIVE</Tag>
+		<English>
+			<Text>Mauryan</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>Indiens</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Indisch:indischen:indische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Indiano:Indiani:Indiana:Indiane</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>indio:india:indios:indias</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
 		</Spanish>
 	</TEXT>
 	<TEXT>
