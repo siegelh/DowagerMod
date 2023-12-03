@@ -2112,7 +2112,7 @@
 			<CivilizationActionSound>AS3D_INDIA_ORDER</CivilizationActionSound>
 		</CivilizationInfo>
 		<CivilizationInfo>
-			<Type>CIVILIZATION_INDIA</Type>
+			<Type>CIVILIZATION_MAURYA</Type>
 			<Description>TXT_KEY_CIV_MAURYA_DESC</Description>
 			<ShortDescription>TXT_KEY_CIV_MAURYA_SHORT_DESC</ShortDescription>
 			<Adjective>TXT_KEY_CIV_MAURYAN_ADJECTIVE</Adjective>
