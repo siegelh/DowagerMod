@@ -427,6 +427,10 @@
 					<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
 					<BuildingType>BUILDING_AZTEC_SACRIFICIAL_ALTAR</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_GREAT_PALACE</BuildingClassType>
+					<BuildingType>BUILDING_AZTEC_PALACE</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
