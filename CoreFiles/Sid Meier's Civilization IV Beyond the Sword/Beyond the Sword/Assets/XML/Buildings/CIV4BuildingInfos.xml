@@ -27805,16 +27805,11 @@
 			<FreeStartEra>NONE</FreeStartEra>
 			<MaxStartEra>NONE</MaxStartEra>
 			<ObsoleteTech>NONE</ObsoleteTech>
-			<PrereqTech>TECH_RADIO</PrereqTech>
+			<PrereqTech>TECH_THEOLOGY</PrereqTech>
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits>
-				<ProductionTrait>
-					<ProductionTraitType>TRAIT_SPIRITUAL</ProductionTraitType>
-					<iProductionTrait>100</iProductionTrait>
-				</ProductionTrait>
-			</ProductionTraits>
+			<ProductionTraits/>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -27822,7 +27817,7 @@
 			<iNumFreeBonuses>0</iNumFreeBonuses>
 			<FreeBuilding>NONE</FreeBuilding>
 			<FreePromotion>NONE</FreePromotion>
-			<CivicOption>NONE</CivicOption>
+			<CivicOption>CIVICOPTION_ECONOMY</CivicOption>
 			<GreatPeopleUnitClass>UNITCLASS_ENGINEER</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
@@ -27848,7 +27843,7 @@
 			<bPrereqReligion>0</bPrereqReligion>
 			<bCenterInCity>0</bCenterInCity>
 			<iAIWeight>0</iAIWeight>
-			<iCost>1000</iCost>
+			<iCost>500</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -27863,7 +27858,7 @@
 			<iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
 			<iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
 			<iGlobalGreatPeopleRateModifier>0</iGlobalGreatPeopleRateModifier>
-			<iAnarchyModifier>-100</iAnarchyModifier>
+			<iAnarchyModifier>0</iAnarchyModifier>
 			<iGoldenAgeModifier>0</iGoldenAgeModifier>
 			<iGlobalHurryModifier>0</iGlobalHurryModifier>
 			<iExperience>0</iExperience>
