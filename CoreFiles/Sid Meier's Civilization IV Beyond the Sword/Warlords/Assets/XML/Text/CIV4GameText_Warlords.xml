@@ -314,7 +314,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_TRAIT_GEORGE_WASHINGTON_SHORT</Tag>
-		<English>Was</English>
+		<English>First in War, First in Peace</English>
 		<French>Was</French>
 		<German>Stz</German>
 		<Italian>Pro</Italian>
@@ -322,7 +322,79 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_TRAIT_ROOSEVELT_SHORT</Tag>
-		<English>Ros</English>
+		<English>The New Deal</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_ZARA_SHORT</Tag>
+		<English>Elect of God</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_BARCLAY_SHORT</Tag>
+		<English>Hollow Pursuits</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_SALADIN_SHORT</Tag>
+		<English>Righteousness of the Faith</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_SHAKA_SHORT</Tag>
+		<English>Wrath of Mfecane</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_SITTING_BULL_SHORT</Tag>
+		<English>10,000-Strong Tribe</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_SULEIMAN_SHORT</Tag>
+		<English>Magnificent Lawgiver</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_VICTORIA_SHORT</Tag>
+		<English>By the Grace of God</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_SURYAVARMAN_SHORT</Tag>
+		<English>Protector of the Sun</English>
+		<French>Ros</French>
+		<German>Stz</German>
+		<Italian>Pro</Italian>
+		<Spanish>Pro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_TOKUGAWA_SHORT</Tag>
+		<English>Shogun Unifier</English>
 		<French>Ros</French>
 		<German>Stz</German>
 		<Italian>Pro</Italian>
@@ -19820,7 +19892,7 @@
     </TEXT>
 <TEXT>
         <Tag>TXT_KEY_TRAIT_STALIN_SHORT</Tag>
-        <English>Politburo</English>
+        <English>The Red Star</English>
         <French>Sta</French>
         <German>Sta</German>
         <Italian>Sta</Italian>
@@ -19852,7 +19924,7 @@
     </TEXT>
 <TEXT>
         <Tag>TXT_KEY_TRAIT_AUGUSTUS_CAESAR_SHORT</Tag>
-        <English>Imperial Architect</English>
+        <English>Architectus Imperialis</English>
         <French>Aug</French>
         <German>Aug</German>
         <Italian>Aug</Italian>
@@ -19868,7 +19940,7 @@
     </TEXT>
 <TEXT>
         <Tag>TXT_KEY_TRAIT_DE_GAULLE_SHORT</Tag>
-        <English>Voice of the People</English>
+        <English>Les Trente Glorieuses</English>
         <French>De_</French>
         <German>De_</German>
         <Italian>De_</Italian>
@@ -19884,7 +19956,23 @@
     </TEXT>
 <TEXT>
         <Tag>TXT_KEY_TRAIT_LOUIS_SHORT</Tag>
-        <English>The Sun King</English>
+        <English>Le Roi Soleil</English>
+        <French>Lou</French>
+        <German>Lou</German>
+        <Italian>Lou</Italian>
+        <Spanish>Lou</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_MEHMED_SHORT</Tag>
+        <English>Ebu'l-feth, the Father of Conquest</English>
+        <French>Lou</French>
+        <German>Lou</German>
+        <Italian>Lou</Italian>
+        <Spanish>Lou</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_PACAL_SHORT</Tag>
+        <English>Divine Lord of Palenque</English>
         <French>Lou</French>
         <German>Lou</German>
         <Italian>Lou</Italian>
@@ -19908,7 +19996,15 @@
     </TEXT>
 <TEXT>
         <Tag>TXT_KEY_TRAIT_BOUDICA_SHORT</Tag>
-        <English>Druidic Legacy</English>
+        <English>Queen of the Druids</English>
+        <French>Bou</French>
+        <German>Bou</German>
+        <Italian>Bou</Italian>
+        <Spanish>Bou</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_BRENNUS_SHORT</Tag>
+        <English>Iron-Forged Chieftan</English>
         <French>Bou</French>
         <German>Bou</German>
         <Italian>Bou</Italian>
@@ -19956,7 +20052,7 @@
     </TEXT>
 <TEXT>
         <Tag>TXT_KEY_TRAIT_LINCOLN_SHORT</Tag>
-        <English>Whiggery</English>
+        <English>Great Emancipator</English>
         <French>Whiggery</French>
         <German>Whiggery</German>
         <Italian>Whiggery</Italian>
@@ -19988,7 +20084,7 @@
     </TEXT>
 <TEXT>
         <Tag>TXT_KEY_TRAIT_DARIUS_SHORT</Tag>
-        <English>Achaemenid</English>
+        <English>Achaemenid Dynasty</English>
         <French>Ach</French>
         <German>Ach</German>
         <Italian>Ach</Italian>
@@ -20019,8 +20115,88 @@
         <Spanish>Sov</Spanish>
     </TEXT>
 <TEXT>
+        <Tag>TXT_KEY_TRAIT_GANDHI_SHORT</Tag>
+        <English>Ahimsa and Satyagraha</English>
+        <French>Sov</French>
+        <German>Sov</German>
+        <Italian>Sov</Italian>
+        <Spanish>Sov</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_GILGAMESH_SHORT</Tag>
+        <English>Hero, King, God</English>
+        <French>Sov</French>
+        <German>Sov</German>
+        <Italian>Sov</Italian>
+        <Spanish>Sov</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_HAMMURABI_SHORT</Tag>
+        <English>King of the Four Corners of the World</English>
+        <French>Sov</French>
+        <German>Sov</German>
+        <Italian>Sov</Italian>
+        <Spanish>Sov</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_HATSHEPSUT_SHORT</Tag>
+        <English>Pharaoh Queen</English>
+        <French>Sov</French>
+        <German>Sov</German>
+        <Italian>Sov</Italian>
+        <Spanish>Sov</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_ISABELLA_SHORT</Tag>
+        <English>La Reina Católica</English>
+        <French>Sov</French>
+        <German>Sov</German>
+        <Italian>Sov</Italian>
+        <Spanish>Sov</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_JULIUS_CAESAR_SHORT</Tag>
+        <English>Dictator In Perpetuum</English>
+        <French>Sov</French>
+        <German>Sov</German>
+        <Italian>Sov</Italian>
+        <Spanish>Sov</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_KUBLAI_KHAN_SHORT</Tag>
+        <English>Khagan Emperor</English>
+        <French>Sov</French>
+        <German>Sov</German>
+        <Italian>Sov</Italian>
+        <Spanish>Sov</Spanish>
+    </TEXT>
+<TEXT>
         <Tag>TXT_KEY_TRAIT_HANNIBAL_SHORT</Tag>
         <English>Master Tactician</English>
+        <French>Master Tactician</French>
+        <German>Master Tactician</German>
+        <Italian>Master Tactician</Italian>
+        <Spanish>Master Tactician</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_ASOKA_SHORT</Tag>
+        <English>Devanampriya, Beloved of the Gods</English>
+        <French>Master Tactician</French>
+        <German>Master Tactician</German>
+        <Italian>Master Tactician</Italian>
+        <Spanish>Master Tactician</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_PETER_SHORT</Tag>
+        <English>The Bronze Horseman</English>
+        <French>Master Tactician</French>
+        <German>Master Tactician</German>
+        <Italian>Master Tactician</Italian>
+        <Spanish>Master Tactician</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_RAGNAR_SHORT</Tag>
+        <English>King of the Northern Seas</English>
         <French>Master Tactician</French>
         <German>Master Tactician</German>
         <Italian>Master Tactician</Italian>
