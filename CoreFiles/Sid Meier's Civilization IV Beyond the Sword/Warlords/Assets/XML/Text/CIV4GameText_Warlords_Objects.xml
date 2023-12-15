@@ -2348,54 +2348,6 @@
 		</Spanish>
 	</TEXT>
 <TEXT>
-		<Tag>TXT_KEY_TRAIT_GILGAMESH</Tag>
-		<English>Hero, King, God</English>
-		<French>
-			<Text>Voice of the People</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-<TEXT>
-		<Tag>TXT_KEY_TRAIT_HAMMURABI</Tag>
-		<English>King of the Four Corners of the World</English>
-		<French>
-			<Text>Voice of the People</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-<TEXT>
 		<Tag>TXT_KEY_TRAIT_HATSHEPSUT</Tag>
 		<English>Pharoah Queen</English>
 		<French>
@@ -3048,6 +3000,78 @@
 		<English>Master Tactician</English>
 		<French>
 			<Text>Master Tactician</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_GHANDI</Tag>
+		<English>Ahimsa and Satyagraha</English>
+		<French>
+			<Text>Ahimsa and Satyagraha</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_GILGAMESH</Tag>
+		<English>Hero, King, God</English>
+		<French>
+			<Text>Hero, King, God</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_HAMMURABI</Tag>
+		<English>King of the Four Corners of the World</English>
+		<French>
+			<Text>King of the Four Corners of the World</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>

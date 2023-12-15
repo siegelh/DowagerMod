@@ -6027,6 +6027,14 @@
 		<Spanish>Altar de sacrificios:Altares de sacrificios</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BABYLON_COURTHOUSE</Tag>
+		<English>Babutu Gate</English>
+		<French>Autel de sacrifice</French>
+		<German>Opferaltar</German>
+		<Italian>Altare sacrificale</Italian>
+		<Spanish>Altar de sacrificios:Altares de sacrificios</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_BUILDING_CHINESE_PAVILLION</Tag>
 		<English>Pavilion</English>
 		<French>Pavillon</French>
@@ -6101,6 +6109,14 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_MALI_MINT</Tag>
 		<English>Mint</English>
+		<French>Hôtel de la Monnaie</French>
+		<German>Münzanstalt</German>
+		<Italian>Zecca</Italian>
+		<Spanish>Ceca:Cecas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GANDHI_FORGE</Tag>
+		<English>Salt March</English>
 		<French>Hôtel de la Monnaie</French>
 		<German>Münzanstalt</German>
 		<Italian>Zecca</Italian>
@@ -20123,22 +20139,6 @@
         <Spanish>Sov</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_GILGAMESH_SHORT</Tag>
-        <English>Hero, King, God</English>
-        <French>Sov</French>
-        <German>Sov</German>
-        <Italian>Sov</Italian>
-        <Spanish>Sov</Spanish>
-    </TEXT>
-<TEXT>
-        <Tag>TXT_KEY_TRAIT_HAMMURABI_SHORT</Tag>
-        <English>King of the Four Corners of the World</English>
-        <French>Sov</French>
-        <German>Sov</German>
-        <Italian>Sov</Italian>
-        <Spanish>Sov</Spanish>
-    </TEXT>
-<TEXT>
         <Tag>TXT_KEY_TRAIT_HATSHEPSUT_SHORT</Tag>
         <English>Pharaoh Queen</English>
         <French>Sov</French>
@@ -20201,5 +20201,29 @@
         <German>Master Tactician</German>
         <Italian>Master Tactician</Italian>
         <Spanish>Master Tactician</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_GHANDI_SHORT</Tag>
+        <English>Ahimsa and Satyagraha</English>
+        <French>Ahimsa and Satyagraha</French>
+        <German>Ahimsa and Satyagraha</German>
+        <Italian>Ahimsa and Satyagraha</Italian>
+        <Spanish>Ahimsa and Satyagraha</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_GILGAMESH_SHORT</Tag>
+        <English>Hero, King, God</English>
+        <French>Hero, King, God</French>
+        <German>Hero, King, God</German>
+        <Italian>Hero, King, God</Italian>
+        <Spanish>Hero, King, God</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_HAMMURABI_SHORT</Tag>
+        <English>King of the Four Corners of the World</English>
+        <French>King of the Four Corners of the World</French>
+        <German>King of the Four Corners of the World</German>
+        <Italian>King of the Four Corners of the World</Italian>
+        <Spanish>King of the Four Corners of the World</Spanish>
     </TEXT>
 </Civ4GameText>

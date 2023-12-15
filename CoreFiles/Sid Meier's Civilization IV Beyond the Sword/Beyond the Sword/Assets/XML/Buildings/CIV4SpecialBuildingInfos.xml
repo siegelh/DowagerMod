@@ -40,6 +40,10 @@
 					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
 					<iProductionTrait>200</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_GHANDI</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Temple.dds</Button>
 		</SpecialBuildingInfo>

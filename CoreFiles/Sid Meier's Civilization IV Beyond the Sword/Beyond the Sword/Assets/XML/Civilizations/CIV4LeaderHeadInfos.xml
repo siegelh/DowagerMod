@@ -7944,11 +7944,7 @@
 			<FavoriteReligion>RELIGION_HINDUISM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+					<TraitType>TRAIT_GHANDI</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -9004,11 +9000,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
+					<TraitType>TRAIT_GILGAMESH</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -9550,11 +9542,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<TraitType>TRAIT_HAMMURABI</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>

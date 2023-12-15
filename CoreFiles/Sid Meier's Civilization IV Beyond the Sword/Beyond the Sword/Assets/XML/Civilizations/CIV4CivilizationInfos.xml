@@ -537,6 +537,10 @@
 					<BuildingClassType>BUILDINGCLASS_COLOSSEUM</BuildingClassType>
 					<BuildingType>BUILDING_BABYLON_GARDEN</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+					<BuildingType>BUILDING_BABYLON_COURTHOUSE</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
@@ -2067,6 +2071,10 @@
 				<Building>
 					<BuildingClassType>BUILDINGCLASS_JAIL</BuildingClassType>
 					<BuildingType>BUILDING_INDIAN_MAUSOLEUM</BuildingType>
+				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
+					<BuildingType>BUILDING_GANDHI_FORGE</BuildingType>
 				</Building>
 			</Buildings>
 			<Units>
