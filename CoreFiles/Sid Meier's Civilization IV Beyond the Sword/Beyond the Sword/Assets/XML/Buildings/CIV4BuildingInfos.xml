@@ -13732,7 +13732,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_BABYLON_COURTHOUSE_PEDIA</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_COURTHOUSE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
-			<ArtDefineTag>ART_DEF_BUILDING_COURTHOUSE</ArtDefineTag>
+			<ArtDefineTag>ART_DEF_BUILDING_SUMERIAN_ZIGGURAT</ArtDefineTag>
 			<MovieDefineTag>NONE</MovieDefineTag>
 			<HolyCity>NONE</HolyCity>
 			<ReligionType>NONE</ReligionType>
@@ -13854,7 +13854,7 @@
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges/>
 			<CommerceChanges>
-				<iCommerce>2</iCommerce>
+				<iCommerce>1</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>2</iCommerce>
@@ -13869,7 +13869,7 @@
 			<ReligionChanges/>
 			<SpecialistCounts>
 				<SpecialistCount>
-					<SpecialistType>SPECIALIST_SPY</SpecialistType>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
 					<iSpecialistCount>1</iSpecialistCount>
 				</SpecialistCount>
 			</SpecialistCounts>
