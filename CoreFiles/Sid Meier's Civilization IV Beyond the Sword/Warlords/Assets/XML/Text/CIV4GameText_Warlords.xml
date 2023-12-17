@@ -6115,6 +6115,14 @@
 		<Spanish>Ceca:Cecas</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MALI_MARKET</Tag>
+		<English>Caravansarai</English>
+		<French>Hôtel de la Monnaie</French>
+		<German>Münzanstalt</German>
+		<Italian>Zecca</Italian>
+		<Spanish>Ceca:Cecas</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_BUILDING_GANDHI_FORGE</Tag>
 		<English>Salt March</English>
 		<French>Hôtel de la Monnaie</French>
@@ -19979,14 +19987,6 @@
         <Spanish>Lou</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_MEHMED_SHORT</Tag>
-        <English>Ebu'l-feth, the Father of Conquest</English>
-        <French>Lou</French>
-        <German>Lou</German>
-        <Italian>Lou</Italian>
-        <Spanish>Lou</Spanish>
-    </TEXT>
-<TEXT>
         <Tag>TXT_KEY_TRAIT_PACAL_SHORT</Tag>
         <English>Divine Lord of Palenque</English>
         <French>Lou</French>
@@ -20013,14 +20013,6 @@
 <TEXT>
         <Tag>TXT_KEY_TRAIT_BOUDICA_SHORT</Tag>
         <English>Queen of the Druids</English>
-        <French>Bou</French>
-        <German>Bou</German>
-        <Italian>Bou</Italian>
-        <Spanish>Bou</Spanish>
-    </TEXT>
-<TEXT>
-        <Tag>TXT_KEY_TRAIT_BRENNUS_SHORT</Tag>
-        <English>Iron-Forged Chieftan</English>
         <French>Bou</French>
         <German>Bou</German>
         <Italian>Bou</Italian>
@@ -20139,22 +20131,6 @@
         <Spanish>Sov</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_HATSHEPSUT_SHORT</Tag>
-        <English>Pharaoh Queen</English>
-        <French>Sov</French>
-        <German>Sov</German>
-        <Italian>Sov</Italian>
-        <Spanish>Sov</Spanish>
-    </TEXT>
-<TEXT>
-        <Tag>TXT_KEY_TRAIT_ISABELLA_SHORT</Tag>
-        <English>La Reina Católica</English>
-        <French>Sov</French>
-        <German>Sov</German>
-        <Italian>Sov</Italian>
-        <Spanish>Sov</Spanish>
-    </TEXT>
-<TEXT>
         <Tag>TXT_KEY_TRAIT_JULIUS_CAESAR_SHORT</Tag>
         <English>Dictator In Perpetuum</English>
         <French>Sov</French>
@@ -20195,14 +20171,6 @@
         <Spanish>Master Tactician</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_RAGNAR_SHORT</Tag>
-        <English>King of the Northern Seas</English>
-        <French>Master Tactician</French>
-        <German>Master Tactician</German>
-        <Italian>Master Tactician</Italian>
-        <Spanish>Master Tactician</Spanish>
-    </TEXT>
-<TEXT>
         <Tag>TXT_KEY_TRAIT_GHANDI_SHORT</Tag>
         <English>Ahimsa and Satyagraha</English>
         <French>Ahimsa and Satyagraha</French>
@@ -20225,5 +20193,61 @@
         <German>King of the Four Corners of the World</German>
         <Italian>King of the Four Corners of the World</Italian>
         <Spanish>King of the Four Corners of the World</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_KUBLAI_SHORT</Tag>
+        <English>Khagan Emperor</English>
+        <French>Khagan Emperor</French>
+        <German>Khagan Emperor</German>
+        <Italian>Khagan Emperor</Italian>
+        <Spanish>Khagan Emperor</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_JULIUS_SHORT</Tag>
+        <English>Imperator of Conquest</English>
+        <French>Imperator of Conquest</French>
+        <German>Imperator of Conquest</German>
+        <Italian>Imperator of Conquest</Italian>
+        <Spanish>Imperator of Conquest</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_HATSHEPSUT_SHORT</Tag>
+        <English>Pharaoh Queen</English>
+        <French>Pharaoh Queen</French>
+        <German>Pharaoh Queen</German>
+        <Italian>Pharaoh Queen</Italian>
+        <Spanish>Pharaoh Queen</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_ISABELLA_SHORT</Tag>
+        <English>La Reina Catolica</English>
+        <French>La Reina Catolica</French>
+        <German>La Reina Catolica</German>
+        <Italian>La Reina Catolica</Italian>
+        <Spanish>La Reina Catolica</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_RAGNAR_SHORT</Tag>
+        <English>King of the Northern Seas</English>
+        <French>King of the Northern Seas</French>
+        <German>King of the Northern Seas</German>
+        <Italian>King of the Northern Seas</Italian>
+        <Spanish>King of the Northern Seas</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_BRENNUS_SHORT</Tag>
+        <English>Iron-Forged Chieftan</English>
+        <French>Iron-Forged Chieftan</French>
+        <German>Iron-Forged Chieftan</German>
+        <Italian>Iron-Forged Chieftan</Italian>
+        <Spanish>Iron-Forged Chieftan</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_MEHMED_SHORT</Tag>
+        <English>Ebu'l-feth, the Father of Conquest</English>
+        <French>Ebu'l-feth, the Father of Conquest</French>
+        <German>Ebu'l-feth, the Father of Conquest</German>
+        <Italian>Ebu'l-feth, the Father of Conquest</Italian>
+        <Spanish>Ebu'l-feth, the Father of Conquest</Spanish>
     </TEXT>
 </Civ4GameText>

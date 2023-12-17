@@ -2643,6 +2643,10 @@
 					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
 					<BuildingType>BUILDING_MALI_MINT</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType>
+					<BuildingType>BUILDING_MALI_MARKET</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
@@ -3198,6 +3202,10 @@
 				<Unit>
 					<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 					<UnitType>UNIT_OTTOMAN_JANISSARY</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_CANNON</UnitClassType>
+					<UnitType>UNIT_BOMBARD</UnitType>
 				</Unit>
 			</Units>
 			<FreeUnitClasses>

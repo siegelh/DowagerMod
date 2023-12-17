@@ -33,6 +33,14 @@
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 				<ProductionTrait>
+					<ProductionTraitType>TRAIT_HATSHEPSUT</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ISABELLA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
 					<ProductionTraitType>TRAIT_MONTEZUMA</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
@@ -42,6 +50,10 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_GHANDI</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_MEHMED</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -73,6 +85,10 @@
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
 					<iProductionTrait>200</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_MEHMED</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Monastery_Hindu.dds</Button>
