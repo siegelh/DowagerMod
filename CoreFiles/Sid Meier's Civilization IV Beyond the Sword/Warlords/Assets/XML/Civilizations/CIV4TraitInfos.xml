@@ -372,8 +372,8 @@
 			</ExtraYieldThresholds>
   <TradeYieldModifiers>
     <iYield>0</iYield>
-    <iYield>250</iYield>
-    <iYield>-250</iYield>
+    <iYield>300</iYield>
+    <iYield>-300</iYield>
   </TradeYieldModifiers>
 			<CommerceChanges />
 			<CommerceModifiers />
