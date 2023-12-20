@@ -123,7 +123,11 @@
 			<iStateReligionFreeExperience>0</iStateReligionFreeExperience>
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
-			<TradeYieldModifiers/>
+			<TradeYieldModifiers>
+				<iYield>-25</iYield>
+				<iYield>50</iYield>
+				<iYield>0</iYield>
+			</TradeYieldModifiers>	
 			<CommerceModifiers/>
 			<CapitalCommerceModifiers/>
 			<SpecialistExtraCommerces/>
@@ -926,7 +930,11 @@
 				<iYield>-10</iYield>
 			</YieldModifiers>
 			<CapitalYieldModifiers/>
-			<TradeYieldModifiers/>
+			<TradeYieldModifiers>
+				<iYield>0</iYield>
+				<iYield>100</iYield>
+				<iYield>-100</iYield>
+			</TradeYieldModifiers>	
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>-10</iCommerce>
@@ -1247,7 +1255,7 @@
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
 				<iYield>0</iYield>
-				<iYield>250</iYield>
+				<iYield>200</iYield>
 				<iYield>-50</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers/>
