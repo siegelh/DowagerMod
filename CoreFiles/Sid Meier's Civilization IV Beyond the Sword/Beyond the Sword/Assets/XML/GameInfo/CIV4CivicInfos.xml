@@ -1678,7 +1678,11 @@
 				<iYield>0</iYield>			
 			</YieldModifiers>
 			<CapitalYieldModifiers/>
-			<TradeYieldModifiers/>
+			<TradeYieldModifiers>
+				<iYield>50</iYield>
+				<iYield>0</iYield>
+				<iYield>-100</iYield>
+			</TradeYieldModifiers>	
 			<CommerceModifiers/>
 			<CapitalCommerceModifiers/>
 			<SpecialistExtraCommerces>
