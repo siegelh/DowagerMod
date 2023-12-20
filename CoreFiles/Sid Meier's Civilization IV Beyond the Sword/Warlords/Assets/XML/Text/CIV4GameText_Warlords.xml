@@ -361,14 +361,6 @@
 		<Spanish>Pro</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SITTING_BULL_SHORT</Tag>
-		<English>10,000-Strong Tribe</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
 		<Tag>TXT_KEY_TRAIT_SULEIMAN_SHORT</Tag>
 		<English>Magnificent Lawgiver</English>
 		<French>Ros</French>
@@ -19987,14 +19979,6 @@
         <Spanish>Lou</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_PACAL_SHORT</Tag>
-        <English>Divine Lord of Palenque</English>
-        <French>Lou</French>
-        <German>Lou</German>
-        <Italian>Lou</Italian>
-        <Spanish>Lou</Spanish>
-    </TEXT>
-<TEXT>
         <Tag>TXT_KEY_TRAIT_QIN_SHI_HUANG_SHORT</Tag>
         <English>Great Protector</English>
         <French>QIN</French>
@@ -20163,14 +20147,6 @@
         <Spanish>Master Tactician</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_PETER_SHORT</Tag>
-        <English>The Bronze Horseman</English>
-        <French>Master Tactician</French>
-        <German>Master Tactician</German>
-        <Italian>Master Tactician</Italian>
-        <Spanish>Master Tactician</Spanish>
-    </TEXT>
-<TEXT>
         <Tag>TXT_KEY_TRAIT_GHANDI_SHORT</Tag>
         <English>Ahimsa and Satyagraha</English>
         <French>Ahimsa and Satyagraha</French>
@@ -20249,5 +20225,29 @@
         <German>Ebu'l-feth, the Father of Conquest</German>
         <Italian>Ebu'l-feth, the Father of Conquest</Italian>
         <Spanish>Ebu'l-feth, the Father of Conquest</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_PACAL_SHORT</Tag>
+        <English>Divine Lord of Palenque</English>
+        <French>Divine Lord of Palenque</French>
+        <German>Divine Lord of Palenque</German>
+        <Italian>Divine Lord of Palenque</Italian>
+        <Spanish>Divine Lord of Palenque</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_PETER_SHORT</Tag>
+        <English>Modernization Tsar</English>
+        <French>Modernization Tsar</French>
+        <German>Modernization Tsar</German>
+        <Italian>Modernization Tsar</Italian>
+        <Spanish>Modernization Tsar</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_SITTING_BULL_SHORT</Tag>
+        <English>Bountiful Plains</English>
+        <French>Bountiful Plains</French>
+        <German>Bountiful Plains</German>
+        <Italian>Bountiful Plains</Italian>
+        <Spanish>Bountiful Plains</Spanish>
     </TEXT>
 </Civ4GameText>

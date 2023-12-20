@@ -1284,6 +1284,10 @@
 					<ProductionTraitType>TRAIT_AUGUSTUS_CAESAR</ProductionTraitType>
 					<iProductionTrait>34</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_PETER</ProductionTraitType>
+					<iProductionTrait>25</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<Flavors/>
 			<iAIWeight>0</iAIWeight>

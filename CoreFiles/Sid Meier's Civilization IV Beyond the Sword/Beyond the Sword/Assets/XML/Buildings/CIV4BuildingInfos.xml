@@ -2935,6 +2935,10 @@
 					<ProductionTraitType>TRAIT_HATSHEPSUT</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_PETER</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
@@ -4145,6 +4149,10 @@
 					<ProductionTraitType>TRAIT_DARIUS</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_PETER</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
@@ -4655,6 +4663,10 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_RAGNAR</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_PETER</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -8366,7 +8378,7 @@
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iSpaceProductionModifier>0</iSpaceProductionModifier>
 			<iGlobalSpaceProductionModifier>0</iGlobalSpaceProductionModifier>
-			<iTradeRoutes>0</iTradeRoutes>
+			<iTradeRoutes>1</iTradeRoutes>
 			<iCoastalTradeRoutes>0</iCoastalTradeRoutes>
 			<iGlobalTradeRoutes>0</iGlobalTradeRoutes>
 			<iTradeRouteModifier>0</iTradeRouteModifier>
@@ -8819,6 +8831,10 @@
 					<ProductionTraitType>TRAIT_KUBLAI</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_PETER</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
@@ -9199,6 +9215,10 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_GHANDI</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_PETER</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -11214,7 +11234,7 @@
 			<PrereqBonuses/>
 			<ProductionTraits>
 				<ProductionTrait>
-					<ProductionTraitType>TRAIT_CREATIVE</ProductionTraitType>
+					<ProductionTraitType>TRAIT_PACAL</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -11315,7 +11335,11 @@
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges/>
 			<CommerceChanges/>
-			<ObsoleteSafeCommerceChanges/>
+			<ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>2</iCommerce>
+				<iCommerce>2</iCommerce>
+			</ObsoleteSafeCommerceChanges>
 			<CommerceChangeDoubleTimes/>
 			<CommerceModifiers/>
 			<GlobalCommerceModifiers/>
@@ -23563,7 +23587,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_HAMMURABI</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -24510,7 +24539,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>
@@ -24689,7 +24723,12 @@
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_PACAL</ProductionTraitType>
+					<iProductionTrait>20</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
 			<PowerBonus>NONE</PowerBonus>

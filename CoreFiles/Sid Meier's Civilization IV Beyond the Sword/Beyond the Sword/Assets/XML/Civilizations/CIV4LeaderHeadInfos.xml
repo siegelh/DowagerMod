@@ -18299,11 +18299,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<TraitType>TRAIT_PACAL</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -19405,11 +19401,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<TraitType>TRAIT_PETER</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -23235,11 +23227,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
+					<TraitType>TRAIT_SITTING_BULL</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
