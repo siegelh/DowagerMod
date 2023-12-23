@@ -124,9 +124,9 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>-25</iYield>
-				<iYield>50</iYield>
 				<iYield>0</iYield>
+				<iYield>50</iYield>
+				<iYield>-25</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers/>
 			<CapitalCommerceModifiers/>
