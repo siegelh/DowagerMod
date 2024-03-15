@@ -157,6 +157,26 @@ import winsound
 import os
 
 version = '0.4.4'
+print("")
+print("")
+print("""
+
+EVERYONE MUST DO THIS THING:
+
+1. Open "My Games" folder in Documents
+2. Open "beyond the sword" folder
+3. Open CivilizationIV.ini
+4. Update the following lines from 0 to 1:
+
+; Disable caching of file system (may slow initialization)
+DisableFileCaching = 1
+
+; Disable caching of xml and file system (may slow initialization)
+DisableCaching = 1
+
+""")
+print("")
+print("")
 print('Preparing to install DowagerMod version %s, please wait...' % version)
 winsound.PlaySound('install_noise.wav',winsound.SND_FILENAME)
 

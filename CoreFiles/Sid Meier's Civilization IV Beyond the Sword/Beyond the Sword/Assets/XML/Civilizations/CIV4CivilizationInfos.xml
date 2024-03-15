@@ -7,6 +7,136 @@
 <Civ4CivilizationInfos xmlns="x-schema:CIV4CivilizationsSchema.xml">
 	<CivilizationInfos>
 		<CivilizationInfo>
+			<Type>CIVILIZATION_AMERICA_LINCOLN</Type>
+			<Description>TXT_KEY_CIV_AMERICA_DESC</Description>
+			<ShortDescription>TXT_KEY_CIV_AMERICA_SHORT_DESC</ShortDescription>
+			<Adjective>TXT_KEY_CIV_AMERICA_ADJECTIVE</Adjective>
+			<Civilopedia>TXT_KEY_CIV_AMERICA_PEDIA</Civilopedia>
+			<DefaultPlayerColor>PLAYERCOLOR_BLUE</DefaultPlayerColor>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA</ArtDefineTag>
+			<ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
+			<UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
+			<bPlayable>1</bPlayable>
+			<bAIPlayable>1</bAIPlayable>
+			<Cities>
+				<City>TXT_KEY_CITY_NAME_WASHINGTON</City>
+				<City>TXT_KEY_CITY_NAME_NEW_YORK</City>
+				<City>TXT_KEY_CITY_NAME_BOSTON</City>
+				<City>TXT_KEY_CITY_NAME_PHILADELPHIA</City>
+				<City>TXT_KEY_CITY_NAME_ATLANTA</City>
+				<City>TXT_KEY_CITY_NAME_CHICAGO</City>
+				<City>TXT_KEY_CITY_NAME_SEATTLE</City>
+				<City>TXT_KEY_CITY_NAME_SAN_FRANCISCO</City>
+				<City>TXT_KEY_CITY_NAME_LOS_ANGELES</City>
+				<City>TXT_KEY_CITY_NAME_HOUSTON</City>
+				<City>TXT_KEY_CITY_NAME_PORTLAND</City>
+				<City>TXT_KEY_CITY_NAME_ST_LOUIS</City>
+				<City>TXT_KEY_CITY_NAME_MIAMI</City>
+				<City>TXT_KEY_CITY_NAME_BUFFALO</City>
+				<City>TXT_KEY_CITY_NAME_DETROIT</City>
+				<City>TXT_KEY_CITY_NAME_NEW_ORLEANS</City>
+				<City>TXT_KEY_CITY_NAME_BALTIMORE</City>
+				<City>TXT_KEY_CITY_NAME_DENVER</City>
+				<City>TXT_KEY_CITY_NAME_CINCINNATI</City>
+				<City>TXT_KEY_CITY_NAME_DALLAS</City>
+				<City>TXT_KEY_CITY_NAME_MEMPHIS</City>
+				<City>TXT_KEY_CITY_NAME_CLEVELAN</City>
+				<City>TXT_KEY_CITY_NAME_KANSAS_CITY</City>
+				<City>TXT_KEY_CITY_NAME_SAN_DIEGO</City>
+				<City>TXT_KEY_CITY_NAME_RICHMOND</City>
+				<City>TXT_KEY_CITY_NAME_LAS_VEGAS</City>
+				<City>TXT_KEY_CITY_NAME_PHOENIX</City>
+				<City>TXT_KEY_CITY_NAME_ALBUQUERQUE</City>
+				<City>TXT_KEY_CITY_NAME_MINNEAPOLIS</City>
+				<City>TXT_KEY_CITY_NAME_PITTSBURGH</City>
+				<City>TXT_KEY_CITY_NAME_OAKLAND</City>
+				<City>TXT_KEY_CITY_NAME_TAMPA_BAY</City>
+				<City>TXT_KEY_CITY_NAME_ORLANDO</City>
+				<City>TXT_KEY_CITY_NAME_TACOMA</City>
+				<City>TXT_KEY_CITY_NAME_SANTA_FE</City>
+				<City>TXT_KEY_CITY_NAME_OLYMPIA</City>
+				<City>TXT_KEY_CITY_NAME_HUNT_VALLEY</City>
+				<City>TXT_KEY_CITY_NAME_SPRINGFIELD</City>
+				<City>TXT_KEY_CITY_NAME_PALO_ALTO</City>
+				<City>TXT_KEY_CITY_NAME_CENTRALIA</City>
+				<City>TXT_KEY_CITY_NAME_SPOKANE</City>
+				<City>TXT_KEY_CITY_NAME_JACKSONVILLE</City>
+				<City>TXT_KEY_CITY_NAME_SAVANNAH</City>
+				<City>TXT_KEY_CITY_NAME_CHARLESTON</City>
+				<City>TXT_KEY_CITY_NAME_SAN_ANTONIO</City>
+				<City>TXT_KEY_CITY_NAME_OMAHA</City>
+				<City>TXT_KEY_CITY_NAME_BIRMINGHAM</City>
+				<City>TXT_KEY_CITY_NAME_HONOLULU</City>
+				<City>TXT_KEY_CITY_NAME_ANCHORAGE</City>
+				<City>TXT_KEY_CITY_NAME_SACRAMENTO</City>
+				<City>TXT_KEY_CITY_NAME_SALT_LAKE_CITY</City>
+				<City>TXT_KEY_CITY_NAME_RENO</City>
+				<City>TXT_KEY_CITY_NAME_BOISE</City>
+				<City>TXT_KEY_CITY_NAME_MILWAUKEE</City>
+				<City>TXT_KEY_CITY_NAME_SANTA_CRUZ</City>
+				<City>TXT_KEY_CITY_NAME_MONTEREY</City>
+				<City>TXT_KEY_CITY_NAME_SANTA_MONICA</City>
+				<City>TXT_KEY_CITY_NAME_LITTLE_ROCK</City>
+				<City>TXT_KEY_CITY_NAME_COLUMBUS</City>
+				<City>TXT_KEY_CITY_NAME_LE_BAM</City>
+			</Cities>
+			<Buildings>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
+					<BuildingType>BUILDING_AMERICAN_MALL</BuildingType>
+				</Building>
+			</Buildings>
+			<Units>
+				<Unit>
+					<UnitClassType>UNITCLASS_MARINE</UnitClassType>
+					<UnitType>UNIT_AMERICAN_NAVY_SEAL</UnitType>
+				</Unit>
+			</Units>
+			<FreeUnitClasses>
+				<FreeUnitClass>
+					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<iFreeUnits>1</iFreeUnits>
+				</FreeUnitClass>
+			</FreeUnitClasses>
+			<FreeBuildingClasses>
+				<FreeBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+					<bFreeBuildingClass>1</bFreeBuildingClass>
+				</FreeBuildingClass>
+			</FreeBuildingClasses>
+			<FreeTechs>
+				<FreeTech>
+					<TechType>TECH_FISHING</TechType>
+					<bFreeTech>1</bFreeTech>
+				</FreeTech>
+				<FreeTech>
+					<TechType>TECH_AGRICULTURE</TechType>
+					<bFreeTech>1</bFreeTech>
+				</FreeTech>
+				<FreeTech>
+					<TechType>TECH_EMANCIPATION</TechType>
+					<bFreeTech>1</bFreeTech>
+				</FreeTech>
+			</FreeTechs>
+			<DisableTechs/>
+			<InitialCivics>
+				<CivicType>CIVIC_DESPOTISM</CivicType>
+				<CivicType>CIVIC_BARBARISM</CivicType>
+				<CivicType>CIVIC_EMANCIPATION</CivicType>
+				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
+				<CivicType>CIVIC_PAGANISM</CivicType>
+			</InitialCivics>
+			<Leaders>
+				<Leader>
+					<LeaderName>LEADER_LINCOLN</LeaderName>
+					<bLeaderAvailability>1</bLeaderAvailability>
+				</Leader>
+			</Leaders>
+			<DerivativeCiv>NONE</DerivativeCiv>
+			<CivilizationSelectionSound>AS3D_AMERICA_SELECT</CivilizationSelectionSound>
+			<CivilizationActionSound>AS3D_AMERICA_ORDER</CivilizationActionSound>
+		</CivilizationInfo>
+		<CivilizationInfo>
 			<Type>CIVILIZATION_AMERICA</Type>
 			<Description>TXT_KEY_CIV_AMERICA_DESC</Description>
 			<ShortDescription>TXT_KEY_CIV_AMERICA_SHORT_DESC</ShortDescription>
@@ -129,10 +259,6 @@
 				</Leader>
 				<Leader>
 					<LeaderName>LEADER_FRANKLIN_ROOSEVELT</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_LINCOLN</LeaderName>
 					<bLeaderAvailability>1</bLeaderAvailability>
 				</Leader>
 				<Leader>
@@ -301,6 +427,10 @@
 					<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
 					<BuildingType>BUILDING_AZTEC_SACRIFICIAL_ALTAR</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_GREAT_PALACE</BuildingClassType>
+					<BuildingType>BUILDING_AZTEC_PALACE</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
@@ -406,6 +536,10 @@
 				<Building>
 					<BuildingClassType>BUILDINGCLASS_COLOSSEUM</BuildingClassType>
 					<BuildingType>BUILDING_BABYLON_GARDEN</BuildingType>
+				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+					<BuildingType>BUILDING_BABYLON_COURTHOUSE</BuildingType>
 				</Building>
 			</Buildings>
 			<Units>
@@ -1305,6 +1439,10 @@
 					<BuildingClassType>BUILDINGCLASS_OBSERVATORY</BuildingClassType>
 					<BuildingType>BUILDING_FRENCH_SALON</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType>
+					<BuildingType>BUILDING_FRENCH_BROADCAST_TOWER</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
@@ -1769,6 +1907,14 @@
 					<UnitClassType>UNITCLASS_WARRIOR</UnitClassType>
 					<UnitType>UNIT_INCAN_QUECHUA</UnitType>
 				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_WORKER</UnitClassType>
+					<UnitType>UNIT_HUAYNA_WORKER</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitType>UNIT_HUAYNA_SETTLER</UnitType>
+				</Unit>
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
@@ -1926,6 +2072,177 @@
 					<BuildingClassType>BUILDINGCLASS_JAIL</BuildingClassType>
 					<BuildingType>BUILDING_INDIAN_MAUSOLEUM</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
+					<BuildingType>BUILDING_GANDHI_FORGE</BuildingType>
+				</Building>
+			</Buildings>
+			<Units>
+				<Unit>
+					<UnitClassType>UNITCLASS_WORKER</UnitClassType>
+					<UnitType>UNIT_INDIAN_FAST_WORKER</UnitType>
+				</Unit>
+			</Units>
+			<FreeUnitClasses>
+				<FreeUnitClass>
+					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<iFreeUnits>1</iFreeUnits>
+				</FreeUnitClass>
+			</FreeUnitClasses>
+			<FreeBuildingClasses>
+				<FreeBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+					<bFreeBuildingClass>1</bFreeBuildingClass>
+				</FreeBuildingClass>
+			</FreeBuildingClasses>
+			<FreeTechs>
+				<FreeTech>
+					<TechType>TECH_MYSTICISM</TechType>
+					<bFreeTech>1</bFreeTech>
+				</FreeTech>
+				<FreeTech>
+					<TechType>TECH_MINING</TechType>
+					<bFreeTech>1</bFreeTech>
+				</FreeTech>
+			</FreeTechs>
+			<DisableTechs/>
+			<InitialCivics>
+				<CivicType>CIVIC_DESPOTISM</CivicType>
+				<CivicType>CIVIC_BARBARISM</CivicType>
+				<CivicType>CIVIC_TRIBALISM</CivicType>
+				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
+				<CivicType>CIVIC_PAGANISM</CivicType>
+			</InitialCivics>
+			<Leaders>
+				<Leader>
+					<LeaderName>LEADER_GANDHI</LeaderName>
+					<bLeaderAvailability>1</bLeaderAvailability>
+				</Leader>
+			</Leaders>
+			<DerivativeCiv>NONE</DerivativeCiv>
+			<CivilizationSelectionSound>AS3D_INDIA_SELECT</CivilizationSelectionSound>
+			<CivilizationActionSound>AS3D_INDIA_ORDER</CivilizationActionSound>
+		</CivilizationInfo>
+		<CivilizationInfo>
+			<Type>CIVILIZATION_MAURYA</Type>
+			<Description>TXT_KEY_CIV_MAURYA_DESC</Description>
+			<ShortDescription>TXT_KEY_CIV_MAURYA_SHORT_DESC</ShortDescription>
+			<Adjective>TXT_KEY_CIV_MAURYA_ADJECTIVE</Adjective>
+			<Civilopedia>TXT_KEY_CIV_MAURYA_PEDIA</Civilopedia>
+			<DefaultPlayerColor>PLAYERCOLOR_PURPLE</DefaultPlayerColor>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_INDIA</ArtDefineTag>
+			<ArtStyleType>ARTSTYLE_ASIAN</ArtStyleType>
+			<UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
+			<bPlayable>1</bPlayable>
+			<bAIPlayable>1</bAIPlayable>
+			<Cities>
+				<City>TXT_KEY_CITY_NAME_PATALIPUTRA</City>
+				<City>TXT_KEY_CITY_NAME_BOMBAY</City>
+				<City>TXT_KEY_CITY_NAME_VIJAYANAGARA</City>
+				<City>TXT_KEY_CITY_NAME_DELHI</City>
+				<City>TXT_KEY_CITY_NAME_VARANASI</City>
+				<City>TXT_KEY_CITY_NAME_AGRA</City>
+				<City>TXT_KEY_CITY_NAME_CALCUTTA</City>
+				<City>TXT_KEY_CITY_NAME_LAHORE</City>				
+				<City>TXT_KEY_CITY_NAME_MADRAS</City>
+				<City>TXT_KEY_CITY_NAME_BANGALORE</City>
+				<City>TXT_KEY_CITY_NAME_HYDERABAD</City>
+				<City>TXT_KEY_CITY_NAME_MADURAI</City>
+				<City>TXT_KEY_CITY_NAME_AHMEDABAD</City>
+				<City>TXT_KEY_CITY_NAME_KOLHAPUR</City>
+				<City>TXT_KEY_CITY_NAME_PRAYAGA</City>
+				<City>TXT_KEY_CITY_NAME_AYODHYA</City>
+				<City>TXT_KEY_CITY_NAME_INDRAPRASTHA</City>
+				<City>TXT_KEY_CITY_NAME_MATHURA</City>
+				<City>TXT_KEY_CITY_NAME_UJJAIN</City>
+				<City>TXT_KEY_CITY_NAME_TAXILA</City>
+				<City>TXT_KEY_CITY_NAME_GULBARGA</City>
+				<City>TXT_KEY_CITY_NAME_JAUNPUR</City>
+				<City>TXT_KEY_CITY_NAME_RAJAGRIHA</City>
+				<City>TXT_KEY_CITY_NAME_SRAVASTI</City>
+				<City>TXT_KEY_CITY_NAME_TIRUCHIRAPALLI</City>
+				<City>TXT_KEY_CITY_NAME_THANJAVUR</City>
+				<City>TXT_KEY_CITY_NAME_BODHGAYA</City>
+				<City>TXT_KEY_CITY_NAME_KUSHINAGAR</City>
+				<City>TXT_KEY_CITY_NAME_AMARAVATI</City>
+				<City>TXT_KEY_CITY_NAME_GAUR</City>
+				<City>TXT_KEY_CITY_NAME_GWALIOR</City>
+				<City>TXT_KEY_CITY_NAME_JAIPUR</City>
+				<City>TXT_KEY_CITY_NAME_KARACHI</City>
+				<City>TXT_KEY_CITY_NAME_DHAKA</City>
+				<City>TXT_KEY_CITY_NAME_LUCKNOW</City>
+				<City>TXT_KEY_CITY_NAME_JODHPUR</City>
+				<City>TXT_KEY_CITY_NAME_PUNE</City>
+				<City>TXT_KEY_CITY_NAME_BHOPAL</City>
+				<City>TXT_KEY_CITY_NAME_INDORE</City>
+				<City>TXT_KEY_CITY_NAME_KANPUR</City>
+				<City>TXT_KEY_CITY_NAME_NAGPUR</City>
+				<City>TXT_KEY_CITY_NAME_PESHAWAR</City>
+				<City>TXT_KEY_CITY_NAME_MULTAN</City>
+				<City>TXT_KEY_CITY_NAME_SURAT</City>
+				<City>TXT_KEY_CITY_NAME_COCHIN</City>
+				<City>TXT_KEY_CITY_NAME_CUTTACK</City>
+				<City>TXT_KEY_CITY_NAME_BHUBANESHWAR</City>
+				<City>TXT_KEY_CITY_NAME_TAMRALIPTA</City>
+				<City>TXT_KEY_CITY_NAME_CHITTAGONG</City>
+				<City>TXT_KEY_CITY_NAME_GUWAHATI</City>
+				<City>TXT_KEY_CITY_NAME_VIJAYAWADA</City>
+				<City>TXT_KEY_CITY_NAME_MYSORE</City>
+				<City>TXT_KEY_CITY_NAME_SRIRANGAPATNA</City>
+				<City>TXT_KEY_CITY_NAME_AMRITSAR</City>
+				<City>TXT_KEY_CITY_NAME_SRINAGAR</City>
+				<City>TXT_KEY_CITY_NAME_REWALSAR</City>
+				<City>TXT_KEY_CITY_NAME_VAISHALI</City>
+				<City>TXT_KEY_CITY_NAME_CAMBAY</City>
+				<City>TXT_KEY_CITY_NAME_ANHILWARA</City>
+				<City>TXT_KEY_CITY_NAME_PAHARPUR</City>
+				<City>TXT_KEY_CITY_NAME_MAHASTHANGARH</City>
+				<City>TXT_KEY_CITY_NAME_GANGAI_KONDA_CHOLAPURAM</City>
+				<City>TXT_KEY_CITY_NAME_KANCHI</City>
+				<City>TXT_KEY_CITY_NAME_NAGAPATTINAM</City>
+				<City>TXT_KEY_CITY_NAME_KAVERIPATTINAM</City>
+				<City>TXT_KEY_CITY_NAME_KALYANI</City>
+				<City>TXT_KEY_CITY_NAME_DHARWAD</City>
+				<City>TXT_KEY_CITY_NAME_SALEM</City>
+				<City>TXT_KEY_CITY_NAME_COIMBATORE</City>
+				<City>TXT_KEY_CITY_NAME_MASULIPATNAM</City>
+				<City>TXT_KEY_CITY_NAME_BIDAR</City>
+				<City>TXT_KEY_CITY_NAME_GOLCONDA</City>
+				<City>TXT_KEY_CITY_NAME_ELLICHPUR</City>
+				<City>TXT_KEY_CITY_NAME_WARANGAL</City>
+				<City>TXT_KEY_CITY_NAME_HALEBID</City>
+				<City>TXT_KEY_CITY_NAME_PRATISHTHANA</City>
+				<City>TXT_KEY_CITY_NAME_BIJAPUR</City>
+				<City>TXT_KEY_CITY_NAME_SOLAPUR</City>
+				<City>TXT_KEY_CITY_NAME_CALICUT</City>
+				<City>TXT_KEY_CITY_NAME_BHARUCH</City>
+				<City>TXT_KEY_CITY_NAME_MANGALORE</City>
+				<City>TXT_KEY_CITY_NAME_DHAR</City>
+				<City>TXT_KEY_CITY_NAME_AMBER</City>
+				<City>TXT_KEY_CITY_NAME_CHITTOR</City>
+				<City>TXT_KEY_CITY_NAME_VRINDAVAN</City>
+				<City>TXT_KEY_CITY_NAME_BADORA</City>
+				<City>TXT_KEY_CITY_NAME_KALPI</City>
+				<City>TXT_KEY_CITY_NAME_BELUR</City>
+				<City>TXT_KEY_CITY_NAME_NAINITAL</City>
+				<City>TXT_KEY_CITY_NAME_JABALPUR</City>
+				<City>TXT_KEY_CITY_NAME_RANCHI</City>
+				<City>TXT_KEY_CITY_NAME_RAIPUR</City>
+				<City>TXT_KEY_CITY_NAME_SONEPUR</City>
+				<City>TXT_KEY_CITY_NAME_BOGRA</City>
+				<City>TXT_KEY_CITY_NAME_DARJEELING</City>
+				<City>TXT_KEY_CITY_NAME_IMPHAL</City>
+				<City>TXT_KEY_CITY_NAME_CHANDIGARH</City>
+			</Cities>
+			<Buildings>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
+					<BuildingType>BUILDING_MAURYAN_OBELISK</BuildingType>
+				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_GREAT_PALACE</BuildingClassType>
+					<BuildingType>BUILDING_MAURYAN_GREAT_PALACE</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
@@ -1966,10 +2283,6 @@
 			<Leaders>
 				<Leader>
 					<LeaderName>LEADER_ASOKA</LeaderName>
-					<bLeaderAvailability>1</bLeaderAvailability>
-				</Leader>
-				<Leader>
-					<LeaderName>LEADER_GANDHI</LeaderName>
 					<bLeaderAvailability>1</bLeaderAvailability>
 				</Leader>
 			</Leaders>
@@ -2330,6 +2643,10 @@
 					<BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
 					<BuildingType>BUILDING_MALI_MINT</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType>
+					<BuildingType>BUILDING_MALI_MARKET</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
@@ -2538,6 +2855,10 @@
 				<Building>
 					<BuildingClassType>BUILDINGCLASS_STABLE</BuildingClassType>
 					<BuildingType>BUILDING_MONGOL_GER</BuildingType>
+				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_GREAT_PALACE</BuildingClassType>
+					<BuildingType>BUILDING_MONGOLIAN_PALACE</BuildingType>
 				</Building>
 			</Buildings>
 			<Units>
@@ -2770,6 +3091,10 @@
 					<BuildingClassType>BUILDINGCLASS_LEVEE</BuildingClassType>
 					<BuildingType>BUILDING_NETHERLANDS_DIKE</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_LIGHTHOUSE</BuildingClassType>
+					<BuildingType>BUILDING_ORANGE_LIGHTHOUSE</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
@@ -2877,6 +3202,10 @@
 				<Unit>
 					<UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
 					<UnitType>UNIT_OTTOMAN_JANISSARY</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_CANNON</UnitClassType>
+					<UnitType>UNIT_BOMBARD</UnitType>
 				</Unit>
 			</Units>
 			<FreeUnitClasses>
@@ -3679,6 +4008,14 @@
 				<Unit>
 					<UnitClassType>UNITCLASS_MACEMAN</UnitClassType>
 					<UnitType>UNIT_VIKING_BESERKER</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_SWORDSMAN</UnitClassType>
+					<UnitType>UNIT_VIKING_SWORDSMAN</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_AXEMAN</UnitClassType>
+					<UnitType>UNIT_VIKING_AXEMAN</UnitType>
 				</Unit>
 			</Units>
 			<FreeUnitClasses>

@@ -396,5 +396,14 @@
 			<Button>,Art/Interface/Buttons/WorldBuilder/Music.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,13</Button>
 			<FontButtonIndex>42</FontButtonIndex>
 		</BonusArtInfo>
+		<BonusArtInfo>
+			<Type>ART_DEF_BONUS_ASOKA</Type>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Religions/Buddhism.dds,Art/Interface/Buttons/Civics_Civilizations_Religions_Atlas.dds,1,8</Button>
+			<FontButtonIndex>43</FontButtonIndex>
+		</BonusArtInfo>
 	</BonusArtInfos>
 </Civ4ArtDefines>

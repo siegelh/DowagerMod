@@ -35,7 +35,12 @@
 			<ObsoleteTech>NONE</ObsoleteTech>
 			<TechPrereq>TECH_MUSIC</TechPrereq>
 			<bValid>1</bValid>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
+					<iProductionTrait>200</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Cathedral.dds</Button>
 		</SpecialBuildingInfo>
 		<SpecialBuildingInfo>
@@ -44,7 +49,12 @@
 			<ObsoleteTech>TECH_SCIENTIFIC_METHOD</ObsoleteTech>
 			<TechPrereq>TECH_MEDITATION</TechPrereq>
 			<bValid>1</bValid>
-			<ProductionTraits/>
+			<ProductionTraits>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
+					<iProductionTrait>200</iProductionTrait>
+				</ProductionTrait>
+			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Monastery_Hindu.dds</Button>
 		</SpecialBuildingInfo>
 	</SpecialBuildingInfos>

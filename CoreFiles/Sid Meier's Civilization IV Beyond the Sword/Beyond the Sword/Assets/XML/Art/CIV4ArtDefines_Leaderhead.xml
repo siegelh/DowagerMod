@@ -16,7 +16,7 @@
 		</LeaderheadArtInfo>
 		<LeaderheadArtInfo>
 			<Type>ART_DEF_LEADER_DOWAGER_COUNTESS</Type>
-			<Button>,Art/interface/LeaderHeads/dowager_button.dds</Button>
+			<Button>art/LeaderHeads/dowager_button.dds</Button>
 			<NIF>art/LeaderHeads/dowager.dds</NIF>
 			<KFM></KFM>
 			<NoShaderNIF></NoShaderNIF>
@@ -24,7 +24,7 @@
 		</LeaderheadArtInfo>
 		<LeaderheadArtInfo>
 			<Type>ART_DEF_LEADER_REGINALD_ENDICOTT_BARCLAY</Type>
-			<Button>,Art/interface/LeaderHeads/barclay.dds</Button>
+			<Button>art/LeaderHeads/barclay_button.dds</Button>
 			<NIF>art/LeaderHeads/barclay.dds</NIF>
 			<KFM></KFM>
 			<NoShaderNIF></NoShaderNIF>
