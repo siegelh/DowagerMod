@@ -28791,8 +28791,8 @@
 		</LeaderHeadInfo>
 		<LeaderHeadInfo>
 			<Type>LEADER_DOWAGER_COUNTESS</Type>
-			<Description>Dowager Countess of Grantham</Description>
-			<Civilopedia>Dowager Countess Maggie Smith</Civilopedia>
+			<Description>Evil Dowager Countess of Grantham</Description>
+			<Civilopedia>Evil Dowager Countess Maggie Smith</Civilopedia>
 			<ArtDefineTag>ART_DEF_LEADER_DOWAGER_COUNTESS</ArtDefineTag>
 			<iWonderConstructRand>20</iWonderConstructRand>
 			<iBaseAttitude>-1</iBaseAttitude>
