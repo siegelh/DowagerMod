@@ -818,11 +818,7 @@
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<TraitType>TRAIT_ASOKA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -23760,10 +23756,6 @@
 					<TraitType>TRAIT_STALIN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -26568,10 +26560,6 @@
 					<TraitType>TRAIT_WANGKON</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -27133,10 +27121,6 @@
 			<FavoriteCivic>CIVIC_FREE_SPEECH</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 				<Trait>
 					<TraitType>TRAIT_GEORGE_WASHINGTON</TraitType>
 					<bTrait>1</bTrait>

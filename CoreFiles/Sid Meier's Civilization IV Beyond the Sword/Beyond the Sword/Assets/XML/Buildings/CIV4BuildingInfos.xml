@@ -4170,6 +4170,10 @@
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ASOKA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
 					<ProductionTraitType>TRAIT_DARIUS</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
@@ -13717,6 +13721,10 @@
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ASOKA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
 					<ProductionTraitType>TRAIT_DARIUS</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
@@ -13911,6 +13919,10 @@
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_ORGANIZED</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ASOKA</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 				<ProductionTrait>

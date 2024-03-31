@@ -1964,30 +1964,6 @@
 		</Spanish>
 	</TEXT>
 <TEXT>
-		<Tag>TXT_KEY_TRAIT_ASOKA</Tag>
-		<English>Devanampriya, Beloved of the Gods</English>
-		<French>
-			<Text>French</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-<TEXT>
 		<Tag>TXT_KEY_TRAIT_WANGKON</Tag>
 		<English>Seonbi Scholarship</English>
 		<French>
@@ -2952,6 +2928,30 @@
 		<English>Bountiful Plains</English>
 		<French>
 			<Text>Bountiful Plains</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Schützend:schützendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_ASOKA</Tag>
+		<English>Devanampriya, Beloved of the Gods</English>
+		<French>
+			<Text>Devanampriya, Beloved of the Gods</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>

@@ -322,7 +322,7 @@
 			<iHappiness>0</iHappiness>
 			<iMaxAnarchy>-1</iMaxAnarchy>
 			<iUpkeepModifier>0</iUpkeepModifier>
-			<iLevelExperienceModifier>-25</iLevelExperienceModifier>
+			<iLevelExperienceModifier>-75</iLevelExperienceModifier>
 			<iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
 			<iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
 			<iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
@@ -618,13 +618,13 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
-    <iCommerce>3</iCommerce>
+    <iCommerce>10</iCommerce>
   </CommerceChanges>
   <CommerceModifiers>
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
-    <iCommerce>20</iCommerce>
+    <iCommerce>0</iCommerce>
   </CommerceModifiers>
 			<FreePromotions>
 				<FreePromotion>
@@ -669,13 +669,13 @@
   </TradeYieldModifiers>
   <CommerceChanges>
     <iCommerce>0</iCommerce>
-    <iCommerce>3</iCommerce>
+    <iCommerce>4</iCommerce>
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceChanges>
   <CommerceModifiers>
     <iCommerce>0</iCommerce>
-    <iCommerce>10</iCommerce>
+    <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
@@ -1474,8 +1474,8 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions/>
-  <FreePromotionUnitCombats/>
+  <FreePromotions />
+  <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_CHURCHILL</Type>
   <Description>TXT_KEY_TRAIT_CHURCHILL</Description>
@@ -2347,6 +2347,45 @@
     <iYield>150</iYield>
     <iYield>-500</iYield>
     <iYield>-500</iYield>
+  </TradeYieldModifiers>
+  <CommerceChanges>
+    <iCommerce>0</iCommerce>
+    <iCommerce>0</iCommerce>
+    <iCommerce>0</iCommerce>
+    <iCommerce>0</iCommerce>
+  </CommerceChanges>
+  <CommerceModifiers>
+    <iCommerce>0</iCommerce>
+    <iCommerce>0</iCommerce>
+    <iCommerce>0</iCommerce>
+    <iCommerce>0</iCommerce>
+  </CommerceModifiers>
+  <FreePromotions />
+  <FreePromotionUnitCombats />
+</TraitInfo><TraitInfo>
+  <Type>TRAIT_ASOKA</Type>
+  <Description>TXT_KEY_TRAIT_ASOKA</Description>
+  <ShortDescription>TXT_KEY_TRAIT_ASOKA_SHORT</ShortDescription>
+  <iHealth>0</iHealth>
+  <iHappiness>0</iHappiness>
+  <iMaxAnarchy>0</iMaxAnarchy>
+  <iUpkeepModifier>-50</iUpkeepModifier>
+  <iLevelExperienceModifier>0</iLevelExperienceModifier>
+  <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
+  <iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
+  <iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
+  <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
+  <iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier>
+  <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
+  <ExtraYieldThresholds>
+    <iExtraYieldThreshold>0</iExtraYieldThreshold>
+    <iExtraYieldThreshold>0</iExtraYieldThreshold>
+    <iExtraYieldThreshold>0</iExtraYieldThreshold>
+  </ExtraYieldThresholds>
+  <TradeYieldModifiers>
+    <iYield>0</iYield>
+    <iYield>0</iYield>
+    <iYield>0</iYield>
   </TradeYieldModifiers>
   <CommerceChanges>
     <iCommerce>0</iCommerce>

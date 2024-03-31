@@ -20083,14 +20083,6 @@
         <Spanish>Master Tactician</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_ASOKA_SHORT</Tag>
-        <English>Devanampriya, Beloved of the Gods</English>
-        <French>Master Tactician</French>
-        <German>Master Tactician</German>
-        <Italian>Master Tactician</Italian>
-        <Spanish>Master Tactician</Spanish>
-    </TEXT>
-<TEXT>
         <Tag>TXT_KEY_TRAIT_GHANDI_SHORT</Tag>
         <English>Ahimsa and Satyagraha</English>
         <French>Ahimsa and Satyagraha</French>
@@ -20193,6 +20185,14 @@
         <German>Bountiful Plains</German>
         <Italian>Bountiful Plains</Italian>
         <Spanish>Bountiful Plains</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_ASOKA_SHORT</Tag>
+        <English>Devanampriya, Beloved of the Gods</English>
+        <French>Devanampriya, Beloved of the Gods</French>
+        <German>Devanampriya, Beloved of the Gods</German>
+        <Italian>Devanampriya, Beloved of the Gods</Italian>
+        <Spanish>Devanampriya, Beloved of the Gods</Spanish>
     </TEXT>
 <TEXT>
         <Tag>TXT_KEY_TRAIT_SALADIN_SHORT</Tag>
