@@ -7387,11 +7387,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<TraitType>TRAIT_FREDERICK</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
