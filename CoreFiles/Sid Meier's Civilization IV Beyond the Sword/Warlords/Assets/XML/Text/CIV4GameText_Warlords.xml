@@ -329,64 +329,8 @@
 		<Spanish>Pro</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TRAIT_ZARA_SHORT</Tag>
-		<English>Elect of God</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
 		<Tag>TXT_KEY_TRAIT_BARCLAY_SHORT</Tag>
 		<English>Hollow Pursuits</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SALADIN_SHORT</Tag>
-		<English>Righteousness of the Faith</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SHAKA_SHORT</Tag>
-		<English>Wrath of Mfecane</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SULEIMAN_SHORT</Tag>
-		<English>Magnificent Lawgiver</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_VICTORIA_SHORT</Tag>
-		<English>By the Grace of God</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SURYAVARMAN_SHORT</Tag>
-		<English>Protector of the Sun</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_TOKUGAWA_SHORT</Tag>
-		<English>Shogun Unifier</English>
 		<French>Ros</French>
 		<German>Stz</German>
 		<Italian>Pro</Italian>
@@ -20249,5 +20193,61 @@
         <German>Bountiful Plains</German>
         <Italian>Bountiful Plains</Italian>
         <Spanish>Bountiful Plains</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_SALADIN_SHORT</Tag>
+        <English>Righteousness of the Faith</English>
+        <French>Righteousness of the Faith</French>
+        <German>Righteousness of the Faith</German>
+        <Italian>Righteousness of the Faith</Italian>
+        <Spanish>Righteousness of the Faith</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_SHAKA_SHORT</Tag>
+        <English>Wrath of Mfecane</English>
+        <French>Wrath of Mfecane</French>
+        <German>Wrath of Mfecane</German>
+        <Italian>Wrath of Mfecane</Italian>
+        <Spanish>Wrath of Mfecane</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_SULEIMAN_SHORT</Tag>
+        <English>Magnificent Lawgiver</English>
+        <French>Magnificent Lawgiver</French>
+        <German>Magnificent Lawgiver</German>
+        <Italian>Magnificent Lawgiver</Italian>
+        <Spanish>Magnificent Lawgiver</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_SURYAVARMAN_SHORT</Tag>
+        <English>Protector of the Sun</English>
+        <French>Protector of the Sun</French>
+        <German>Protector of the Sun</German>
+        <Italian>Protector of the Sun</Italian>
+        <Spanish>Protector of the Sun</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_TOKUGAWA_SHORT</Tag>
+        <English>Shogun Unifier</English>
+        <French>Shogun Unifier</French>
+        <German>Shogun Unifier</German>
+        <Italian>Shogun Unifier</Italian>
+        <Spanish>Shogun Unifier</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_VICTORIA_SHORT</Tag>
+        <English>By the Grace of God</English>
+        <French>By the Grace of God</French>
+        <German>By the Grace of God</German>
+        <Italian>By the Grace of God</Italian>
+        <Spanish>By the Grace of God</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_ZARA_SHORT</Tag>
+        <English>Elect of God</English>
+        <French>Elect of God</French>
+        <German>Elect of God</German>
+        <Italian>Elect of God</Italian>
+        <Spanish>Elect of God</Spanish>
     </TEXT>
 </Civ4GameText>

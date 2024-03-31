@@ -22129,11 +22129,7 @@
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
+					<TraitType>TRAIT_SALADIN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -22682,11 +22678,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<TraitType>TRAIT_SHAKA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -24331,11 +24323,7 @@
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+					<TraitType>TRAIT_SULEIMAN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -24904,11 +24892,7 @@
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
+					<TraitType>TRAIT_SURYAVARMAN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -25466,11 +25450,7 @@
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<TraitType>TRAIT_TOKUGAWA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -26030,11 +26010,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
+					<TraitType>TRAIT_VICTORIA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -28307,11 +28283,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<TraitType>TRAIT_ZARA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>

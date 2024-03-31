@@ -1111,6 +1111,10 @@
 					<ProductionTraitType>TRAIT_GILGAMESH</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_TOKUGAWA</ProductionTraitType>
+					<iProductionTrait>200</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
@@ -1458,6 +1462,14 @@
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_GILGAMESH</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_TOKUGAWA</ProductionTraitType>
+					<iProductionTrait>200</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SULEIMAN</ProductionTraitType>
+					<iProductionTrait>50</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
@@ -1890,6 +1902,14 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_BRENNUS</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_TOKUGAWA</ProductionTraitType>
+					<iProductionTrait>200</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SHAKA</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -2938,6 +2958,10 @@
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_PETER</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_CHARLEMAGNE</ProductionTraitType>
+					<iProductionTrait>-25</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
@@ -7549,10 +7573,6 @@
 					<iHappinessTrait>1</iHappinessTrait>
 				</HappinessTrait>
 				<HappinessTrait>
-					<HappinessTraitType>TRAIT_CYRUS</HappinessTraitType>
-					<iHappinessTrait>1</iHappinessTrait>
-				</HappinessTrait>
-				<HappinessTrait>
 					<HappinessTraitType>TRAIT_BOUDICA</HappinessTraitType>
 					<iHappinessTrait>1</iHappinessTrait>
 				</HappinessTrait>
@@ -7868,7 +7888,11 @@
 			<SpecialistCounts>
 				<SpecialistCount>
 					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-					<iSpecialistCount>2</iSpecialistCount>
+					<iSpecialistCount>1</iSpecialistCount>
+				</SpecialistCount>
+				<SpecialistCount>
+					<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
+					<iSpecialistCount>1</iSpecialistCount>
 				</SpecialistCount>
 			</SpecialistCounts>
 			<FreeSpecialistCounts/>
@@ -8231,7 +8255,7 @@
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>25</iCommerce>
+				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
 			<SpecialistExtraCommerces/>
@@ -8239,7 +8263,12 @@
 			<CommerceHappinesses/>
 			<ReligionChanges/>
 			<SpecialistCounts/>
-			<FreeSpecialistCounts/>
+			<FreeSpecialistCounts>
+				<FreeSpecialistCount>
+					<SpecialistType>SPECIALIST_PRIEST</SpecialistType>
+					<iFreeSpecialistCount>1</iFreeSpecialistCount>
+				</FreeSpecialistCount>
+			</FreeSpecialistCounts>
 			<CommerceFlexibles/>
 			<CommerceChangeOriginalOwners/>
 			<ConstructSound>AS2D_BUILD_OBELISK</ConstructSound>
@@ -8835,6 +8864,26 @@
 					<ProductionTraitType>TRAIT_PETER</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ZARA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_VICTORIA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SULEIMAN</ProductionTraitType>
+					<iProductionTrait>50</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SALADIN</ProductionTraitType>
+					<iProductionTrait>75</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_CHARLEMAGNE</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
@@ -9220,6 +9269,14 @@
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_PETER</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_VICTORIA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SULEIMAN</ProductionTraitType>
+					<iProductionTrait>50</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
@@ -10308,6 +10365,10 @@
 					<ProductionTraitType>TRAIT_KUBLAI</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ZARA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
 			</ProductionTraits>
 			<HappinessTraits/>
 			<NoBonus>NONE</NoBonus>
@@ -10876,6 +10937,10 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_GILGAMESH</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ZARA</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -11564,7 +11629,7 @@
 			<FreeStartEra>NONE</FreeStartEra>
 			<MaxStartEra>NONE</MaxStartEra>
 			<ObsoleteTech>NONE</ObsoleteTech>
-			<PrereqTech>TECH_MASS_MEDIA</PrereqTech>
+			<PrereqTech>TECH_ELECTRICITY</PrereqTech>
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
@@ -13661,6 +13726,10 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_MEHMED</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SULEIMAN</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -25823,7 +25892,7 @@
 			<FreeStartEra>NONE</FreeStartEra>
 			<MaxStartEra>NONE</MaxStartEra>
 			<ObsoleteTech>NONE</ObsoleteTech>
-			<PrereqTech>TECH_RADIO</PrereqTech>
+			<PrereqTech>TECH_STEEL</PrereqTech>
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>

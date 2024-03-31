@@ -46,7 +46,7 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
-					<iProductionTrait>200</iProductionTrait>
+					<iProductionTrait>300</iProductionTrait>
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_GHANDI</ProductionTraitType>
@@ -54,6 +54,22 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_MEHMED</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ZARA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SURYAVARMAN</ProductionTraitType>
+					<iProductionTrait>150</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SALADIN</ProductionTraitType>
+					<iProductionTrait>150</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_CHARLEMAGNE</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
@@ -69,7 +85,7 @@
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
-					<iProductionTrait>200</iProductionTrait>
+					<iProductionTrait>300</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Cathedral.dds</Button>
@@ -84,11 +100,23 @@
 			<ProductionTraits>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_JUSTINIAN</ProductionTraitType>
-					<iProductionTrait>200</iProductionTrait>
+					<iProductionTrait>300</iProductionTrait>
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_MEHMED</ProductionTraitType>
 					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_ZARA</ProductionTraitType>
+					<iProductionTrait>100</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SURYAVARMAN</ProductionTraitType>
+					<iProductionTrait>50</iProductionTrait>
+				</ProductionTrait>
+				<ProductionTrait>
+					<ProductionTraitType>TRAIT_SALADIN</ProductionTraitType>
+					<iProductionTrait>150</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<Button>Art/Interface/Buttons/Buildings/Monastery_Hindu.dds</Button>
