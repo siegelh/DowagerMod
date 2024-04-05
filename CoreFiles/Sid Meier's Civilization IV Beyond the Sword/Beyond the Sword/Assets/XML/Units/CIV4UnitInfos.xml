@@ -1294,7 +1294,7 @@
 				</ProductionTrait>
 				<ProductionTrait>
 					<ProductionTraitType>TRAIT_CHARLEMAGNE</ProductionTraitType>
-					<iProductionTrait>50</iProductionTrait>
+					<iProductionTrait>-50</iProductionTrait>
 				</ProductionTrait>
 			</ProductionTraits>
 			<Flavors/>
