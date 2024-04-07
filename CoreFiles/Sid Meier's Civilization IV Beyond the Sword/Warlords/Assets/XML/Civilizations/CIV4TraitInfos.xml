@@ -594,7 +594,7 @@
   <Description>TXT_KEY_TRAIT_STALIN</Description>
   <ShortDescription>TXT_KEY_TRAIT_STALIN_SHORT</ShortDescription>
   <iHealth>0</iHealth>
-  <iHappiness>-1</iHappiness>
+  <iHappiness>-2</iHappiness>
   <iMaxAnarchy>-1</iMaxAnarchy>
   <iUpkeepModifier>0</iUpkeepModifier>
   <iLevelExperienceModifier>0</iLevelExperienceModifier>
@@ -618,7 +618,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
-    <iCommerce>30</iCommerce>
+    <iCommerce>50</iCommerce>
   </CommerceChanges>
   <CommerceModifiers>
     <iCommerce>0</iCommerce>
@@ -626,22 +626,8 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-			<FreePromotions>
-				<FreePromotion>
-					<PromotionType>PROMOTION_COMBAT1</PromotionType>
-					<bFreePromotion>1</bFreePromotion>
-				</FreePromotion>
-			</FreePromotions>
-			<FreePromotionUnitCombats>
-				<FreePromotionUnitCombat>
-					<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-					<bFreePromotionUnitCombat>1</bFreePromotionUnitCombat>
-				</FreePromotionUnitCombat>
-				<FreePromotionUnitCombat>
-					<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-					<bFreePromotionUnitCombat>1</bFreePromotionUnitCombat>
-				</FreePromotionUnitCombat>
-			</FreePromotionUnitCombats>
+<FreePromotions/>
+<FreePromotionUnitCombats/>
 </TraitInfo><TraitInfo>
   <Type>TRAIT_WANGKON</Type>
   <Description>TXT_KEY_TRAIT_WANGKON</Description>
