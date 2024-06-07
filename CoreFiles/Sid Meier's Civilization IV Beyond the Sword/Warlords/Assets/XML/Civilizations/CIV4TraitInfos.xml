@@ -2252,7 +2252,7 @@
     <iExtraYieldThreshold>0</iExtraYieldThreshold>
   </ExtraYieldThresholds>
   <TradeYieldModifiers>
-    <iYield>30</iYield>
+    <iYield>0</iYield>
     <iYield>0</iYield>
     <iYield>0</iYield>
   </TradeYieldModifiers>
