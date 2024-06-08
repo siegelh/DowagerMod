@@ -5943,7 +5943,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>50</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>0</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -5981,7 +5981,7 @@
 			<iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
 			<iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
 			<iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
-			<iGlobalGreatPeopleRateModifier>0</iGlobalGreatPeopleRateModifier>
+			<iGlobalGreatPeopleRateModifier>10</iGlobalGreatPeopleRateModifier>
 			<iAnarchyModifier>0</iAnarchyModifier>
 			<iGoldenAgeModifier>0</iGoldenAgeModifier>
 			<iGlobalHurryModifier>0</iGlobalHurryModifier>
@@ -6008,7 +6008,7 @@
 			<iAreaHappiness>0</iAreaHappiness>
 			<iGlobalHappiness>0</iGlobalHappiness>
 			<iStateReligionHappiness>0</iStateReligionHappiness>
-			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
+			<iWorkerSpeedModifier>-5</iWorkerSpeedModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iSpaceProductionModifier>0</iSpaceProductionModifier>
 			<iGlobalSpaceProductionModifier>0</iGlobalSpaceProductionModifier>
@@ -6044,31 +6044,13 @@
 			<StateReligionCommerces/>
 			<CommerceHappinesses/>
 			<ReligionChanges/>
-			<SpecialistCounts>
-				<SpecialistCount>
-					<SpecialistType>SPECIALIST_ENGINEER</SpecialistType>
-					<iSpecialistCount>1</iSpecialistCount>
-				</SpecialistCount>
-			</SpecialistCounts>
+			<SpecialistCounts/>
 			<FreeSpecialistCounts/>
 			<CommerceFlexibles/>
 			<CommerceChangeOriginalOwners/>
 			<ConstructSound>AS2D_BUILD_FORGE</ConstructSound>
 			<BonusHealthChanges/>
-			<BonusHappinessChanges>
-				<BonusHappinessChange>
-					<BonusType>BONUS_GEMS</BonusType>
-					<iHappinessChange>1</iHappinessChange>
-				</BonusHappinessChange>
-				<BonusHappinessChange>
-					<BonusType>BONUS_GOLD</BonusType>
-					<iHappinessChange>1</iHappinessChange>
-				</BonusHappinessChange>
-				<BonusHappinessChange>
-					<BonusType>BONUS_SILVER</BonusType>
-					<iHappinessChange>1</iHappinessChange>
-				</BonusHappinessChange>
-			</BonusHappinessChanges>
+			<BonusHappinessChanges/>
 			<BonusProductionModifiers/>
 			<UnitCombatFreeExperiences/>
 			<DomainFreeExperiences/>
