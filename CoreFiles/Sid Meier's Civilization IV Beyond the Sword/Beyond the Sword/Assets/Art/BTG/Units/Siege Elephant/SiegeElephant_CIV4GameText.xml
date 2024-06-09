@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SIEGE_ELEPHANT</Tag>
+		<English>Siege Elephant</English>
+		<French>Siege Elephant</French>
+		<German>Siege Elephant</German>
+		<Italian>Siege Elephant</Italian>
+		<Spanish>Siege Elephant</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SIEGE_ELEPHANT_PEDIA</Tag>
+		<English>[TAB]Siege Elephant is a war elephant with a swivel gun or small cannon mounted on top. While not particularly effective as artillery, it can certainly be intimidating!</English>
+		<French>[TAB]Siege Elephant is a war elephant with a swivel gun or small cannon mounted on top. While not particularly effective as artillery, it can certainly be intimidating!</French>
+		<German>[TAB]Siege Elephant is a war elephant with a swivel gun or small cannon mounted on top. While not particularly effective as artillery, it can certainly be intimidating!</German>
+		<Italian>[TAB]Siege Elephant is a war elephant with a swivel gun or small cannon mounted on top. While not particularly effective as artillery, it can certainly be intimidating!</Italian>
+		<Spanish>[TAB]Siege Elephant is a war elephant with a swivel gun or small cannon mounted on top. While not particularly effective as artillery, it can certainly be intimidating!</Spanish>
+	</TEXT>
+</Civ4GameText>	

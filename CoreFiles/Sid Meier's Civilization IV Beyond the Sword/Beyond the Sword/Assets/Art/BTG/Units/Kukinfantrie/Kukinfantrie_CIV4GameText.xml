@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AUSTRIA_KUKINFANTRIE</Tag>
+		<English>K.u.K. Infantrie</English>
+		<French>K.u.K. Infantrie</French>
+		<German>K.u.K. Infantrie</German>
+		<Italian>K.u.K. Infantrie</Italian>
+		<Spanish>K.u.K. Infantrie</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AUSTRIA_KUKINFANTRIE_PEDIA</Tag>
+		<English>[TAB]The Imperial and Royal infantry regiments were the professional military forces of the Habsburg, and later Austro-Hungarian Monarchy. These toughened soldiers fought across all battlefields of Europe, for better or for worse.</English>
+		<French>[TAB]The Imperial and Royal infantry regiments were the professional military forces of the Habsburg, and later Austro-Hungarian Monarchy. These toughened soldiers fought across all battlefields of Europe, for better or for worse.</French>
+		<German>[TAB]The Imperial and Royal infantry regiments were the professional military forces of the Habsburg, and later Austro-Hungarian Monarchy. These toughened soldiers fought across all battlefields of Europe, for better or for worse.</German>
+		<Italian>[TAB]The Imperial and Royal infantry regiments were the professional military forces of the Habsburg, and later Austro-Hungarian Monarchy. These toughened soldiers fought across all battlefields of Europe, for better or for worse.</Italian>
+		<Spanish>[TAB]The Imperial and Royal infantry regiments were the professional military forces of the Habsburg, and later Austro-Hungarian Monarchy. These toughened soldiers fought across all battlefields of Europe, for better or for worse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AUSTRIA_KUKINFANTRIE_STRATEGY</Tag>
+		<English>Build this moderate-strength gunpowder unit as a counter against mounted enemies like [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT]. KUK Infantrie also fights well against other gunpowder units.</English>
+		<French>Build this moderate-strength gunpowder unit as a counter against mounted enemies like [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT]. KUK Infantrie also fights well against other gunpowder units.</French>
+		<German>Build this moderate-strength gunpowder unit as a counter against mounted enemies like [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT]. KUK Infantrie also fights well against other gunpowder units.</German>
+		<Italian>Build this moderate-strength gunpowder unit as a counter against mounted enemies like [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT]. KUK Infantrie also fights well against other gunpowder units.</Italian>
+		<Spanish>Build this moderate-strength gunpowder unit as a counter against mounted enemies like [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT]. KUK Infantrie also fights well against other gunpowder units.</Spanish>
+	</TEXT>
+</Civ4GameText>	

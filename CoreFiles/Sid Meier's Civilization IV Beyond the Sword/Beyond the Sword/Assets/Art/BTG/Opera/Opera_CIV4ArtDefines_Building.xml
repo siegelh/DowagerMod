@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4ArtDefines xmlns="x-schema:Opera_CIV4ArtDefinesSchema.xml">
+	<BuildingArtInfos>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_AUSTRIA_OPERAHOUSE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Modules/Custom_Civilizations/Austria/Opera/OldOpera.nif</NIF>
+			<KFM/>
+			<Button>Modules/Custom_Civilizations/Austria/Opera/OldOpera_Button.dds</Button>
+		</BuildingArtInfo>
+	</BuildingArtInfos>
+</Civ4ArtDefines>

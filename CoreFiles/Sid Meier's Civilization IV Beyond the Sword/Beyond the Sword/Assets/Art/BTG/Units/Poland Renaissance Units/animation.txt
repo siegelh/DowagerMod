@@ -1,0 +1,7 @@
+Winged Hussar ---- Mongol Keshik.kfm
+Towarzysz Pancerny ---- Knight.kfm
+Lisowczyk ---- inclued Cuirassier.kfm
+Polish Infintary Swordsman ---- inclued (light_swordsman.kfm)
+Polish Nobleman ---- inclued (light_swordsman.kfm)
+Polish Pikeman ---- Pikeman.kfm
+Chosen Infinatry ---- inclued Janissary.kfm
