@@ -1232,6 +1232,10 @@
       <PromotionType>PROMOTION_COMBAT1</PromotionType>
       <bFreePromotion>1</bFreePromotion>
     </FreePromotion>
+    <FreePromotion>
+      <PromotionType>PROMOTION_COMBAT2</PromotionType>
+      <bFreePromotion>1</bFreePromotion>
+    </FreePromotion>
   </FreePromotions>
   <FreePromotionUnitCombats>
     <FreePromotionUnitCombat>
