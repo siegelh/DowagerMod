@@ -657,6 +657,34 @@
 					<UnitClassType>UNITCLASS_KNIGHT</UnitClassType>
 					<UnitType>UNIT_BYZANTINE_CATAPHRACT</UnitType>
 				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_JEWISH_MISSIONARY</UnitClassType>
+					<UnitType>UNIT_JUSTINIAN_JEWISH_MISSIONARY</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_CHRISTIAN_MISSIONARY</UnitClassType>
+					<UnitType>UNIT_JUSTINIAN_CHRISTIAN_MISSIONARY</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_ISLAMIC_MISSIONARY</UnitClassType>
+					<UnitType>UNIT_JUSTINIAN_ISLAMIC_MISSIONARY</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_BUDDHIST_MISSIONARY</UnitClassType>
+					<UnitType>UNIT_JUSTINIAN_BUDDHIST_MISSIONARY</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_HINDU_MISSIONARY</UnitClassType>
+					<UnitType>UNIT_JUSTINIAN_HINDU_MISSIONARY</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_TAOIST_MISSIONARY</UnitClassType>
+					<UnitType>UNIT_JUSTINIAN_TAOIST_MISSIONARY</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_CONFUCIAN_MISSIONARY</UnitClassType>
+					<UnitType>UNIT_JUSTINIAN_CONFUCIAN_MISSIONARY</UnitType>
+				</Unit>
 			</Units>
 			<FreeUnitClasses>
 				<FreeUnitClass>
