@@ -3926,6 +3926,10 @@
 					<BuildingClassType>BUILDINGCLASS_LABORATORY</BuildingClassType>
 					<BuildingType>BUILDING_RUSSIAN_RESEARCH_INSTITUTE</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
+					<BuildingType>BUILDING_USSR_MONUMENT</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
