@@ -1748,30 +1748,6 @@
 		</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TRAIT_ZARA</Tag>
-		<English>Elect of God</English>
-		<French>
-			<Text>George Washington's famous retreating</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-	<TEXT>
 		<Tag>TXT_KEY_TRAIT_BARCLAY</Tag>
 		<English>Hollow Pursuits</English>
 		<French>
@@ -1798,150 +1774,6 @@
 	<TEXT>
 		<Tag>TXT_KEY_TRAIT_ROOSEVELT</Tag>
 		<English>The New Deal</English>
-		<French>
-			<Text>Roosevelt's New Deal</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SALADIN</Tag>
-		<English>Righteousness of the Faith</English>
-		<French>
-			<Text>Roosevelt's New Deal</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SHAKA</Tag>
-		<English>Wrath of Mfecane</English>
-		<French>
-			<Text>Roosevelt's New Deal</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SULEIMAN</Tag>
-		<English>Magnificent Lawgiver</English>
-		<French>
-			<Text>Roosevelt's New Deal</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SURYAVARMAN</Tag>
-		<English>Protector of the Sun</English>
-		<French>
-			<Text>Roosevelt's New Deal</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_TOKUGAWA</Tag>
-		<English>Shogun Unifier</English>
-		<French>
-			<Text>Roosevelt's New Deal</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>Schützend:schützendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_VICTORIA</Tag>
-		<English>By the Grace of God</English>
 		<French>
 			<Text>Roosevelt's New Deal</Text>
 			<Gender>Male</Gender>
@@ -2112,30 +1944,6 @@
 		<English>The Red Star</English>
 		<French>
 			<Text>The Red Star</Text>
-			<Gender>Male</Gender>
-			<Plural>0</Plural>
-		</French>
-		<German>
-			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
-			<Gender>Male:Neuter</Gender>
-			<Plural>0:0</Plural>
-		</German>
-		<Italian>
-			<Text>Protettivo:Protettiva</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Italian>
-		<Spanish>
-			<Text>Protector:Protectora</Text>
-			<Gender>Male:Female</Gender>
-			<Plural>0</Plural>
-		</Spanish>
-	</TEXT>
-<TEXT>
-		<Tag>TXT_KEY_TRAIT_ASOKA</Tag>
-		<English>Devanampriya, Beloved of the Gods</English>
-		<French>
-			<Text>French</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -3120,6 +2928,198 @@
 		<English>Bountiful Plains</English>
 		<French>
 			<Text>Bountiful Plains</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_ASOKA</Tag>
+		<English>Devanampriya, Beloved of the Gods</English>
+		<French>
+			<Text>Devanampriya, Beloved of the Gods</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_SALADIN</Tag>
+		<English>Righteousness of the Faith</English>
+		<French>
+			<Text>Righteousness of the Faith</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_SHAKA</Tag>
+		<English>Wrath of Mfecane</English>
+		<French>
+			<Text>Wrath of Mfecane</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_SULEIMAN</Tag>
+		<English>Magnificent Lawgiver</English>
+		<French>
+			<Text>Magnificent Lawgiver</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_SURYAVARMAN</Tag>
+		<English>Protector of the Sun</English>
+		<French>
+			<Text>Protector of the Sun</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_TOKUGAWA</Tag>
+		<English>Shogun Unifier</English>
+		<French>
+			<Text>Shogun Unifier</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_VICTORIA</Tag>
+		<English>By the Grace of God</English>
+		<French>
+			<Text>By the Grace of God</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_ZARA</Tag>
+		<English>Elect of God</English>
+		<French>
+			<Text>Elect of God</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>

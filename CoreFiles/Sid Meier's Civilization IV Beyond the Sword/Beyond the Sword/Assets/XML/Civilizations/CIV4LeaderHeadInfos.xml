@@ -818,11 +818,7 @@
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<TraitType>TRAIT_ASOKA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -7387,11 +7383,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<TraitType>TRAIT_FREDERICK</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -22129,11 +22121,7 @@
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_SPIRITUAL</TraitType>
+					<TraitType>TRAIT_SALADIN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -22682,11 +22670,7 @@
 			<FavoriteReligion>NONE</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
+					<TraitType>TRAIT_SHAKA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -23772,10 +23756,6 @@
 					<TraitType>TRAIT_STALIN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 			</Traits>
 			<Flavors>
 				<Flavor>
@@ -24331,11 +24311,7 @@
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PHILOSOPHICAL</TraitType>
+					<TraitType>TRAIT_SULEIMAN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -24904,11 +24880,7 @@
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
+					<TraitType>TRAIT_SURYAVARMAN</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -25466,11 +25438,7 @@
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_AGGRESSIVE</TraitType>
+					<TraitType>TRAIT_TOKUGAWA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -26030,11 +25998,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_IMPERIALIST</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_FINANCIAL</TraitType>
+					<TraitType>TRAIT_VICTORIA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -26594,10 +26558,6 @@
 			<Traits>
 				<Trait>
 					<TraitType>TRAIT_WANGKON</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_PROTECTIVE</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -27161,10 +27121,6 @@
 			<FavoriteCivic>CIVIC_FREE_SPEECH</FavoriteCivic>
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
-				<Trait>
-					<TraitType>TRAIT_EXPANSIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
 				<Trait>
 					<TraitType>TRAIT_GEORGE_WASHINGTON</TraitType>
 					<bTrait>1</bTrait>
@@ -28307,11 +28263,7 @@
 			<FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
 			<Traits>
 				<Trait>
-					<TraitType>TRAIT_CREATIVE</TraitType>
-					<bTrait>1</bTrait>
-				</Trait>
-				<Trait>
-					<TraitType>TRAIT_ORGANIZED</TraitType>
+					<TraitType>TRAIT_ZARA</TraitType>
 					<bTrait>1</bTrait>
 				</Trait>
 			</Traits>
@@ -28791,8 +28743,8 @@
 		</LeaderHeadInfo>
 		<LeaderHeadInfo>
 			<Type>LEADER_DOWAGER_COUNTESS</Type>
-			<Description>Dowager Countess of Grantham</Description>
-			<Civilopedia>Dowager Countess Maggie Smith</Civilopedia>
+			<Description>Evil Dowager Countess of Grantham</Description>
+			<Civilopedia>Evil Dowager Countess Maggie Smith</Civilopedia>
 			<ArtDefineTag>ART_DEF_LEADER_DOWAGER_COUNTESS</ArtDefineTag>
 			<iWonderConstructRand>20</iWonderConstructRand>
 			<iBaseAttitude>-1</iBaseAttitude>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Tim McCracken (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<!--Please place any new text entries into this file-->
+    <TEXT>
+        <Tag>TXT_KEY_TRAIT_SHAKA_SHORT</Tag>
+        <English>Wrath of Mfecane</English>
+        <French>Wrath of Mfecane</French>
+        <German>Wrath of Mfecane</German>
+        <Italian>Wrath of Mfecane</Italian>
+        <Spanish>Wrath of Mfecane</Spanish>
+    </TEXT>
+</Civ4GameText>

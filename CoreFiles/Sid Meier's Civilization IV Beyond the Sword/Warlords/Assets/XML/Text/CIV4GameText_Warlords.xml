@@ -329,64 +329,8 @@
 		<Spanish>Pro</Spanish>
 	</TEXT>
 	<TEXT>
-		<Tag>TXT_KEY_TRAIT_ZARA_SHORT</Tag>
-		<English>Elect of God</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
 		<Tag>TXT_KEY_TRAIT_BARCLAY_SHORT</Tag>
 		<English>Hollow Pursuits</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SALADIN_SHORT</Tag>
-		<English>Righteousness of the Faith</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SHAKA_SHORT</Tag>
-		<English>Wrath of Mfecane</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SULEIMAN_SHORT</Tag>
-		<English>Magnificent Lawgiver</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_VICTORIA_SHORT</Tag>
-		<English>By the Grace of God</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_SURYAVARMAN_SHORT</Tag>
-		<English>Protector of the Sun</English>
-		<French>Ros</French>
-		<German>Stz</German>
-		<Italian>Pro</Italian>
-		<Spanish>Pro</Spanish>
-	</TEXT>
-	<TEXT>
-		<Tag>TXT_KEY_TRAIT_TOKUGAWA_SHORT</Tag>
-		<English>Shogun Unifier</English>
 		<French>Ros</French>
 		<German>Stz</German>
 		<Italian>Pro</Italian>
@@ -1579,6 +1523,14 @@
 	<TEXT>
 		<Tag>TXT_KEY_NEW_BUILDING_MONUMENT_PEDIA</Tag>
 		<English>[TAB]A monument is a structure that reminds people of an important event that occured in the area, or an important person - a famous general or leader, perhaps. Different cultures have constructed monuments out of varied materials - wood, stone, or even precious metals. Generally, the only ancient monuments remaining today are those made out of stone: over time the wooden monuments have decayed, and the ones constructed of precious metals have been looted and destroyed. </English>
+		<French>[TAB]Un monument est une construction bâtie en mémoire d'un important évènement survenu dans la région, ou d'une personnalité, comme un général ou un chef célèbre. Différentes cultures ont construit des monuments à partir de matériaux variés : bois, pierre ou même métaux précieux. Mais la plupart des monuments encore existants sont en pierre : ceux qui ont été construits en bois sont tombés en ruine au fil du temps, et ceux bâtis en métaux précieux ont été pillés et démantelés. </French>
+		<German>[TAB]Ein Monument ist ein Bauwerk, das die Menschen an ein bedeutendes Ereignis oder eine bedeutende Persönlichkeit, zum Beispiel einen berühmten General oder Anführer, erinnern soll. In vielen Kulturen wurden Monumente aus verschiedensten Materialien erschaffen - Holz, Stein oder sogar wertvollen Edelmetallen. Die heute noch erhaltenen antiken Monumente sind in der Regel aus Stein, da die aus Holz gefertigten Bauwerke mit der Zeit zerfallen und die aus Edelmetallen erbauten Monumente in der Vergangenheit üblicherweise zunächst geplündert und dann zerstört wurden. </German>
+		<Italian>[TAB]Un monumento è una struttura che serve alla gente per ricordare un evento importante verificatosi in quella zona; oppure può essere la commemorazione di un generale o un leader famoso. Diverse civiltà hanno costruito i propri monumenti con i materiali più vari: pietra, legno, persino metalli preziosi. I monumenti giunti fino a noi sono per lo più quelli in pietra: quelli in legno non hanno resistito alla prova del tempo e quelli in metalli preziosi sono stati saccheggiati e fusi. </Italian>
+		<Spanish>[TAB]Un monumento es una construcción que le recuerda a la gente un acontecimiento importante que sucedió en la zona o un personaje famoso (un líder o un general, por ejemplo). Las culturas han erigido sus monumentos con una gran variedad de materiales: madera, piedra o incluso metales preciosos. Por lo general, los únicos monumentos antiguos que han llegado a la actualidad son los de piedra. Con el tiempo, los de madera se han podrido y los de metales preciosos han sido saqueados y destruidos. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEW_BUILDING_FRENCH_FIFTH_REPUBLIC_MONUMENT_PEDIA</Tag>
+		<English>[TAB]The Fifth Republic Victory Monuments, towering symbols of triumph and resilience, have played a significant role in everyday civic life. Strategically placed in the heart of bustling city squares and serene parks, these monuments serve as daily reminders of the nation's enduring spirit and historical milestones. They act as communal gathering points for celebrations, public discourse, and remembrance ceremonies, fostering a shared sense of identity and pride among citizens. Educational tours and cultural events frequently utilize these monuments, integrating them into the fabric of community life. Their presence not only honors past victories but also inspires a collective aspiration for future achievements, making them integral to both the historical and contemporary civic landscape.</English>
 		<French>[TAB]Un monument est une construction bâtie en mémoire d'un important évènement survenu dans la région, ou d'une personnalité, comme un général ou un chef célèbre. Différentes cultures ont construit des monuments à partir de matériaux variés : bois, pierre ou même métaux précieux. Mais la plupart des monuments encore existants sont en pierre : ceux qui ont été construits en bois sont tombés en ruine au fil du temps, et ceux bâtis en métaux précieux ont été pillés et démantelés. </French>
 		<German>[TAB]Ein Monument ist ein Bauwerk, das die Menschen an ein bedeutendes Ereignis oder eine bedeutende Persönlichkeit, zum Beispiel einen berühmten General oder Anführer, erinnern soll. In vielen Kulturen wurden Monumente aus verschiedensten Materialien erschaffen - Holz, Stein oder sogar wertvollen Edelmetallen. Die heute noch erhaltenen antiken Monumente sind in der Regel aus Stein, da die aus Holz gefertigten Bauwerke mit der Zeit zerfallen und die aus Edelmetallen erbauten Monumente in der Vergangenheit üblicherweise zunächst geplündert und dann zerstört wurden. </German>
 		<Italian>[TAB]Un monumento è una struttura che serve alla gente per ricordare un evento importante verificatosi in quella zona; oppure può essere la commemorazione di un generale o un leader famoso. Diverse civiltà hanno costruito i propri monumenti con i materiali più vari: pietra, legno, persino metalli preziosi. I monumenti giunti fino a noi sono per lo più quelli in pietra: quelli in legno non hanno resistito alla prova del tempo e quelli in metalli preziosi sono stati saccheggiati e fusi. </Italian>
@@ -6037,6 +5989,14 @@
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_MONUMENT</Tag>
 		<English>Monument</English>
+		<French>Monument</French>
+		<German>Monument</German>
+		<Italian>Monumento</Italian>
+		<Spanish>Obelisco:Obeliscos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FRENCH_FIFTH_REPUBLIC_MONUMENT</Tag>
+		<English>Victory Monument</English>
 		<French>Monument</French>
 		<German>Monument</German>
 		<Italian>Monumento</Italian>
@@ -20139,14 +20099,6 @@
         <Spanish>Master Tactician</Spanish>
     </TEXT>
 <TEXT>
-        <Tag>TXT_KEY_TRAIT_ASOKA_SHORT</Tag>
-        <English>Devanampriya, Beloved of the Gods</English>
-        <French>Master Tactician</French>
-        <German>Master Tactician</German>
-        <Italian>Master Tactician</Italian>
-        <Spanish>Master Tactician</Spanish>
-    </TEXT>
-<TEXT>
         <Tag>TXT_KEY_TRAIT_GHANDI_SHORT</Tag>
         <English>Ahimsa and Satyagraha</English>
         <French>Ahimsa and Satyagraha</French>
@@ -20249,5 +20201,69 @@
         <German>Bountiful Plains</German>
         <Italian>Bountiful Plains</Italian>
         <Spanish>Bountiful Plains</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_ASOKA_SHORT</Tag>
+        <English>Devanampriya, Beloved of the Gods</English>
+        <French>Devanampriya, Beloved of the Gods</French>
+        <German>Devanampriya, Beloved of the Gods</German>
+        <Italian>Devanampriya, Beloved of the Gods</Italian>
+        <Spanish>Devanampriya, Beloved of the Gods</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_SALADIN_SHORT</Tag>
+        <English>Righteousness of the Faith</English>
+        <French>Righteousness of the Faith</French>
+        <German>Righteousness of the Faith</German>
+        <Italian>Righteousness of the Faith</Italian>
+        <Spanish>Righteousness of the Faith</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_SHAKA_SHORT</Tag>
+        <English>Wrath of Mfecane</English>
+        <French>Wrath of Mfecane</French>
+        <German>Wrath of Mfecane</German>
+        <Italian>Wrath of Mfecane</Italian>
+        <Spanish>Wrath of Mfecane</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_SULEIMAN_SHORT</Tag>
+        <English>Magnificent Lawgiver</English>
+        <French>Magnificent Lawgiver</French>
+        <German>Magnificent Lawgiver</German>
+        <Italian>Magnificent Lawgiver</Italian>
+        <Spanish>Magnificent Lawgiver</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_SURYAVARMAN_SHORT</Tag>
+        <English>Protector of the Sun</English>
+        <French>Protector of the Sun</French>
+        <German>Protector of the Sun</German>
+        <Italian>Protector of the Sun</Italian>
+        <Spanish>Protector of the Sun</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_TOKUGAWA_SHORT</Tag>
+        <English>Shogun Unifier</English>
+        <French>Shogun Unifier</French>
+        <German>Shogun Unifier</German>
+        <Italian>Shogun Unifier</Italian>
+        <Spanish>Shogun Unifier</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_VICTORIA_SHORT</Tag>
+        <English>By the Grace of God</English>
+        <French>By the Grace of God</French>
+        <German>By the Grace of God</German>
+        <Italian>By the Grace of God</Italian>
+        <Spanish>By the Grace of God</Spanish>
+    </TEXT>
+<TEXT>
+        <Tag>TXT_KEY_TRAIT_ZARA_SHORT</Tag>
+        <English>Elect of God</English>
+        <French>Elect of God</French>
+        <German>Elect of God</German>
+        <Italian>Elect of God</Italian>
+        <Spanish>Elect of God</Spanish>
     </TEXT>
 </Civ4GameText>
