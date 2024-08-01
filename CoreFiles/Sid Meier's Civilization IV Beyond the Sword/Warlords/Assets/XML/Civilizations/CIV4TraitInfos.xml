@@ -675,7 +675,7 @@
   <iHappiness>0</iHappiness>
   <iMaxAnarchy>-1</iMaxAnarchy>
   <iUpkeepModifier>0</iUpkeepModifier>
-  <iLevelExperienceModifier>0</iLevelExperienceModifier>
+  <iLevelExperienceModifier>-25</iLevelExperienceModifier>
   <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
   <iGreatGeneralRateModifier>-100</iGreatGeneralRateModifier>
   <iDomesticGreatGeneralRateModifier>-100</iDomesticGreatGeneralRateModifier>
@@ -709,6 +709,10 @@
       <PromotionType>PROMOTION_LEADER</PromotionType>
       <bFreePromotion>1</bFreePromotion>
     </FreePromotion>
+    <FreePromotion>
+      <PromotionType>PROMOTION_MOBILITY</PromotionType>
+      <bFreePromotion>1</bFreePromotion>
+    </FreePromotion>
   </FreePromotions>
   <FreePromotionUnitCombats>
     <FreePromotionUnitCombat>
@@ -725,6 +729,10 @@
     </FreePromotionUnitCombat>
     <FreePromotionUnitCombat>
       <UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+      <bFreePromotionUnitCombat>1</bFreePromotionUnitCombat>
+    </FreePromotionUnitCombat>
+    <FreePromotionUnitCombat>
+      <UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
       <bFreePromotionUnitCombat>1</bFreePromotionUnitCombat>
     </FreePromotionUnitCombat>
   </FreePromotionUnitCombats>
@@ -1232,6 +1240,14 @@
       <PromotionType>PROMOTION_COMBAT1</PromotionType>
       <bFreePromotion>1</bFreePromotion>
     </FreePromotion>
+    <FreePromotion>
+      <PromotionType>PROMOTION_COMBAT2</PromotionType>
+      <bFreePromotion>1</bFreePromotion>
+    </FreePromotion>
+    <FreePromotion>
+      <PromotionType>PROMOTION_SENTRY</PromotionType>
+      <bFreePromotion>1</bFreePromotion>
+    </FreePromotion>
   </FreePromotions>
   <FreePromotionUnitCombats>
     <FreePromotionUnitCombat>
@@ -1323,7 +1339,7 @@
   <ShortDescription>TXT_KEY_TRAIT_MONTEZUMA_SHORT</ShortDescription>
   <iHealth>0</iHealth>
   <iHappiness>0</iHappiness>
-  <iMaxAnarchy>-1</iMaxAnarchy>
+  <iMaxAnarchy>0</iMaxAnarchy>
   <iUpkeepModifier>0</iUpkeepModifier>
   <iLevelExperienceModifier>0</iLevelExperienceModifier>
   <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
