@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MAGYAR_JURTA</Tag>
+		<English>Jurta</English>
+		<French>Jurta</French>
+		<German>Jurta</German>
+		<Italian>Jurta</Italian>
+		<Spanish>Jurta</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MAGYAR_JURTA_PEDIA</Tag>
+		<English>[TAB]A Jurta (also known as a yurt) is a portable felt dwelling structure used traditionally by Magyar nomads in the steppes of Central Asia.</English>
+		<French>[TAB]A Jurta (also known as a yurt) is a portable felt dwelling structure used traditionally by Magyar nomads in the steppes of Central Asia.</French>
+		<German>[TAB]A Jurta (also known as a yurt) is a portable felt dwelling structure used traditionally by Magyar nomads in the steppes of Central Asia.</German>
+		<Italian>[TAB]A Jurta (also known as a yurt) is a portable felt dwelling structure used traditionally by Magyar nomads in the steppes of Central Asia.</Italian>
+		<Spanish>[TAB]A Jurta (also known as a yurt) is a portable felt dwelling structure used traditionally by Magyar nomads in the steppes of Central Asia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MAGYAR_JURTA_STRATEGY</Tag>
+		<English>The Magyars replace the [COLOR_BUILDING_TEXT]Stable[COLOR_REVERT] with the [COLOR_BUILDING_TEXT]Jurta[COLOR_REVERT], which lowers maintenance and gives mounted units more experience.</English>
+		<French>The Magyars replace the [COLOR_BUILDING_TEXT]Stable[COLOR_REVERT] with the [COLOR_BUILDING_TEXT]Jurta[COLOR_REVERT], which lowers maintenance and gives mounted units more experience.</French>
+		<German>The Magyars replace the [COLOR_BUILDING_TEXT]Stable[COLOR_REVERT] with the [COLOR_BUILDING_TEXT]Jurta[COLOR_REVERT], which lowers maintenance and gives mounted units more experience.</German>
+		<Italian>The Magyars replace the [COLOR_BUILDING_TEXT]Stable[COLOR_REVERT] with the [COLOR_BUILDING_TEXT]Jurta[COLOR_REVERT], which lowers maintenance and gives mounted units more experience.</Italian>
+		<Spanish>The Magyars replace the [COLOR_BUILDING_TEXT]Stable[COLOR_REVERT] with the [COLOR_BUILDING_TEXT]Jurta[COLOR_REVERT], which lowers maintenance and gives mounted units more experience.</Spanish>
+	</TEXT>
+</Civ4GameText>

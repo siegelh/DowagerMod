@@ -2681,6 +2681,14 @@
 					<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
 					<BuildingType>BUILDING_KOREAN_SEOWON</BuildingType>
 				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+					<BuildingType>BUILDING_KOREAN_LIBRARY</BuildingType>
+				</Building>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_ACADEMY</BuildingClassType>
+					<BuildingType>BUILDING_KOREAN_ACADEMY</BuildingType>
+				</Building>
 			</Buildings>
 			<Units>
 				<Unit>
@@ -3868,6 +3876,92 @@
 			<DerivativeCiv>NONE</DerivativeCiv>
 			<CivilizationSelectionSound>AS3D_RUSSIA_SELECT</CivilizationSelectionSound>
 			<CivilizationActionSound>AS3D_RUSSIA_ORDER</CivilizationActionSound>
+		</CivilizationInfo>
+		<CivilizationInfo>
+			<Type>CIVILIZATION_POLAND</Type>
+			<Description>Poland</Description>
+			<ShortDescription>Poland</ShortDescription>
+			<Adjective>Polish</Adjective>
+			<Civilopedia>TXT_KEY_CIV_POLAND_PEDIA</Civilopedia>
+			<DefaultPlayerColor>PLAYERCOLOR_RED</DefaultPlayerColor>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_POLAND</ArtDefineTag>
+			<ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
+			<UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
+			<bPlayable>1</bPlayable>
+			<bAIPlayable>1</bAIPlayable>
+			<Cities>
+				<City>Warsaw</City>
+				<City>Krakow</City>
+				<City>Lodz</City>
+				<City>Wroclaw</City>
+				<City>Poznan</City>
+				<City>Gdansk</City>
+				<City>Szczecin</City>
+				<City>Bydgoszcz</City>
+				<City>Lublin</City>
+				<City>Ozga</City>
+				<City>Katowice</City>
+				<City>Bialystok</City>
+				<City>Gdynia</City>
+				<City>Czestochowa</City>
+				<City>Radom</City>
+				<City>Torun</City>
+				<City>Kielce</City>
+				<City>Rzeszow</City>
+				<City>Gliwice</City>
+				<City>Zabrze</City>
+			</Cities>
+			<Buildings>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_CASTLE</BuildingClassType>
+					<BuildingType>BUILDING_POLISH_ROYAL_CASTLE</BuildingType>
+				</Building>
+			</Buildings>
+			<Units>
+				<Unit>
+					<UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
+					<UnitType>UNIT_POLISH_DRAGOON</UnitType>
+				</Unit>
+			</Units>
+			<FreeUnitClasses>
+				<FreeUnitClass>
+					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<iFreeUnits>1</iFreeUnits>
+				</FreeUnitClass>
+			</FreeUnitClasses>
+			<FreeBuildingClasses>
+				<FreeBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+					<bFreeBuildingClass>1</bFreeBuildingClass>
+				</FreeBuildingClass>
+			</FreeBuildingClasses>
+			<FreeTechs>
+				<FreeTech>
+					<TechType>TECH_HUNTING</TechType>
+					<bFreeTech>1</bFreeTech>
+				</FreeTech>
+				<FreeTech>
+					<TechType>TECH_MINING</TechType>
+					<bFreeTech>1</bFreeTech>
+				</FreeTech>
+			</FreeTechs>
+			<DisableTechs/>
+			<InitialCivics>
+				<CivicType>CIVIC_DESPOTISM</CivicType>
+				<CivicType>CIVIC_BARBARISM</CivicType>
+				<CivicType>CIVIC_TRIBALISM</CivicType>
+				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
+				<CivicType>CIVIC_PAGANISM</CivicType>
+			</InitialCivics>
+			<Leaders>
+				<Leader>
+					<LeaderName>LEADER_CASIMIR</LeaderName>
+					<bLeaderAvailability>1</bLeaderAvailability>
+				</Leader>
+			</Leaders>
+			<DerivativeCiv>NONE</DerivativeCiv>
+			<CivilizationSelectionSound>AS3D_POLAND_SELECT</CivilizationSelectionSound>
+			<CivilizationActionSound>AS3D_POLAND_ORDER</CivilizationActionSound>
 		</CivilizationInfo>
 		<CivilizationInfo>
 			<Type>CIVILIZATION_USSR</Type>

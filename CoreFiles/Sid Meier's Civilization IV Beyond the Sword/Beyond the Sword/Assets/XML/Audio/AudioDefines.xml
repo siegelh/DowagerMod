@@ -8064,6 +8064,20 @@
 			<bInGeneric>1</bInGeneric>
 		</SoundData>
 		<SoundData>
+			<SoundID>SND_POLAND_SELECT</SoundID>
+			<Filename>Sounds/Units/PolandSelect</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
+			<SoundID>SND_POLAND_ORDER</SoundID>
+			<Filename>Sounds/Units/PolandOrder</Filename>
+			<LoadType>DYNAMIC_RES</LoadType>
+			<bIsCompressed>1</bIsCompressed>
+			<bInGeneric>1</bInGeneric>
+		</SoundData>
+		<SoundData>
 			<SoundID>SND_SPAIN_SELECT</SoundID>
 			<Filename>Sounds/Units/SpainSelect</Filename>
 			<LoadType>DYNAMIC_RES</LoadType>

@@ -134,6 +134,135 @@
 		<Spanish>Dadnos esto si no queréis que vayamos y lo cojamos.</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>AI_DIPLO_FIRST_CONTACT_LEADER_CASIMIR_1</Tag>
+		<English>Welcome, distinguished leader; let our encounter today be the first step towards a legacy of peace and cooperation.</English>
+		<French>Bonjour, étranger ! Contemplez avec crainte la majesté des [OUR_CIV_ADJ:3] !</French>
+		<German>Ich grüße Euch, Fremdling! Kommt und bestaunt die Pracht des Volkes von [OUR_CIV_SHORT]!</German>
+		<Italian>Saluti, straniero! Ammira stupito lo splendore di [OUR_CIV_SHORT]!</Italian>
+		<Spanish>Saludos a los que vienen de tierras lejanas. ¡Maravillaos ante la majestad de [OUR_CIV_SHORT]!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_REFUSE_TO_TALK_LEADER_CASIMIR_1</Tag>
+		<English>I do not speak to liars and cheats.</English>
+		<French>Je ne parle ni aux menteurs ni aux traîtres.</French>
+		<German>Mit Lügnern und Betrügern wie Euch will ich nichts zu schaffen haben!</German>
+		<Italian>Non parlo a bugiardi e truffatori.</Italian>
+		<Spanish>No hablamos con embusteros y tramposos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_NO_PEACE_LEADER_CASIMIR_1</Tag>
+		<English>There will be no peace until the last [CT_CIV_ADJ] soldier's head is atop a [OUR_CIV_ADJ] spear!</English>
+		<French>Il n'y aura pas de paix tant que la tête du dernier soldat [CT_CIV_ADJ:1] ne sera pas au bout d'une lance [OUR_CIV_ADJ:2] !</French>
+		<German>Es wird keinen Frieden geben, bis nicht auch das letzte Haupt eines [CT_CIV_ADJ:2] Kriegers die Spitze eines [OUR_CIV_ADJ:2] Speers ziert!</German>
+		<Italian>Non ci sarà pace fino a quando anche l'ultima testa di un soldato di [CT_CIV_ADJ] non sarà su una picca [OUR_CIV_ADJ]!</Italian>
+		<Spanish>¡No habrá paz hasta que la cabeza del último soldado [CT_CIV_ADJ:1] esté clavada en una pica [OUR_CIV_ADJ:2]!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_GREETINGS_ATT_FR_LEADER_CASIMIR_1</Tag>
+		<English>Welcome, friend [CT_NAME]! What can mighty [OUR_CIV_SHORT] do to assist your humble empire?</English>
+		<French>Bienvenue, cher [CT_NAME] ! En quoi les puissants [OUR_CIV_SHORT:3] peuvent-ils aider votre humble empire ?</French>
+		<German>Ich grüße Euch in Freundschaft, [CT_NAME]! Womit kann das mächtige Volk von [OUR_CIV_SHORT] Eurem bescheidenen Reich dienen?</German>
+		<Italian>Salute, amico [CT_NAME]! Cosa può fare il grande [OUR_CIV_SHORT] per aiutare il tuo umile impero?</Italian>
+		<Spanish>¡Os saludamos, amigable [CT_NAME]! ¿Qué puede hacer la poderosa tierra de [OUR_CIV_SHORT] por ayudar a vuestro humilde imperio?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_GREETINGS_ATT_FUR_LEADER_CASIMIR_1</Tag>
+		<English>Well? Get on with it! I have laws to write and Royal Castles to build!</English>
+		<French>Alors ? Dépêchez-vous ! J'ai des lois à écrire !</French>
+		<German>Nun? Was gibt's? Ich habe Gesetze zu erlassen!</German>
+		<Italian>E quindi? Continua! Ho delle leggi da scrivere!</Italian>
+		<Spanish>¿Y bien? ¡Soltadlo de una vez! ¡Que tenemos un código que escribir!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_DEMAND_TRIBUTE_POWER_WEAKER_CASIMIR_1</Tag>
+		<English>We could use your assistance, friend [CT_NAME].</English>
+		<French>Nous aurions besoin de votre aide, cher [CT_NAME].</French>
+		<German>Wir könnten Eure freundliche Unterstützung gebrauchen, [CT_NAME].</German>
+		<Italian>Potremmo avere bisogno del tuo aiuto, amico [CT_NAME].</Italian>
+		<Spanish>Nos iría bien vuestra ayuda, amigable [CT_NAME].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_DEMAND_TRIBUTE_POWER_EQUAL_CASIMIR_1</Tag>
+		<English>Can you spare this for a good friend?</English>
+		<French>Pouvez-vous donner ceci à un bon ami ?</French>
+		<German>Könntet Ihr dies für gute Freunde erübrigen?</German>
+		<Italian>Avresti un po' di questi in nome della nostra amicizia?</Italian>
+		<Spanish>¿Podríais darles esto a unos buenos amigos?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_DEMAND_TRIBUTE_POWER_STRONGER_CASIMIR_1</Tag>
+		<English>Give us this or my Winged Hussars shall surely come and take it.</English>
+		<French>Donnez-nous ce que nous voulons ou nous viendrons nous en emparer par la force.</French>
+		<German>Gebt uns, was wir verlangen, oder wir werden kommen und es uns holen!</German>
+		<Italian>Dacci ciò che vogliamo, o verremo di certo a prendercelo.</Italian>
+		<Spanish>Dadnos esto si no queréis que vayamos y lo cojamos.</Spanish>
+	</TEXT>
+	<!-- Dowager! -->
+	<TEXT>
+		<Tag>AI_DIPLO_FIRST_CONTACT_LEADER_DOWAGER_COUNTESS_1</Tag>
+		<English>Welcome, to Downton Abbey, peasant. Prostrate yourself before my decadence!</English>
+		<French>Bonjour, étranger ! Contemplez avec crainte la majesté des [OUR_CIV_ADJ:3] !</French>
+		<German>Ich grüße Euch, Fremdling! Kommt und bestaunt die Pracht des Volkes von [OUR_CIV_SHORT]!</German>
+		<Italian>Saluti, straniero! Ammira stupito lo splendore di [OUR_CIV_SHORT]!</Italian>
+		<Spanish>Saludos a los que vienen de tierras lejanas. ¡Maravillaos ante la majestad de [OUR_CIV_SHORT]!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_REFUSE_TO_TALK_LEADER_DOWAGER_COUNTESS_1</Tag>
+		<English>I do not speak to liars and cheats... or servants.</English>
+		<French>Je ne parle ni aux menteurs ni aux traîtres.</French>
+		<German>Mit Lügnern und Betrügern wie Euch will ich nichts zu schaffen haben!</German>
+		<Italian>Non parlo a bugiardi e truffatori.</Italian>
+		<Spanish>No hablamos con embusteros y tramposos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_NO_PEACE_LEADER_DOWAGER_COUNTESS_1</Tag>
+		<English>There will be no peace until the last [CT_CIV_ADJ] soldier's head is atop a [OUR_CIV_ADJ] spear!</English>
+		<French>Il n'y aura pas de paix tant que la tête du dernier soldat [CT_CIV_ADJ:1] ne sera pas au bout d'une lance [OUR_CIV_ADJ:2] !</French>
+		<German>Es wird keinen Frieden geben, bis nicht auch das letzte Haupt eines [CT_CIV_ADJ:2] Kriegers die Spitze eines [OUR_CIV_ADJ:2] Speers ziert!</German>
+		<Italian>Non ci sarà pace fino a quando anche l'ultima testa di un soldato di [CT_CIV_ADJ] non sarà su una picca [OUR_CIV_ADJ]!</Italian>
+		<Spanish>¡No habrá paz hasta que la cabeza del último soldado [CT_CIV_ADJ:1] esté clavada en una pica [OUR_CIV_ADJ:2]!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_GREETINGS_ATT_FR_LEADER_DOWAGER_COUNTESS_1</Tag>
+		<English>Welcome, friend [CT_NAME]! What can mighty [OUR_CIV_SHORT] do to assist your humble empire?</English>
+		<French>Bienvenue, cher [CT_NAME] ! En quoi les puissants [OUR_CIV_SHORT:3] peuvent-ils aider votre humble empire ?</French>
+		<German>Ich grüße Euch in Freundschaft, [CT_NAME]! Womit kann das mächtige Volk von [OUR_CIV_SHORT] Eurem bescheidenen Reich dienen?</German>
+		<Italian>Salute, amico [CT_NAME]! Cosa può fare il grande [OUR_CIV_SHORT] per aiutare il tuo umile impero?</Italian>
+		<Spanish>¡Os saludamos, amigable [CT_NAME]! ¿Qué puede hacer la poderosa tierra de [OUR_CIV_SHORT] por ayudar a vuestro humilde imperio?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_GREETINGS_ATT_FUR_LEADER_DOWAGER_COUNTESS_1</Tag>
+		<English>Well? Get on with it! I have high tea to attend to and an afternoon of napping.</English>
+		<French>Alors ? Dépêchez-vous ! J'ai des lois à écrire !</French>
+		<German>Nun? Was gibt's? Ich habe Gesetze zu erlassen!</German>
+		<Italian>E quindi? Continua! Ho delle leggi da scrivere!</Italian>
+		<Spanish>¿Y bien? ¡Soltadlo de una vez! ¡Que tenemos un código que escribir!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_DEMAND_TRIBUTE_POWER_WEAKER_DOWAGER_COUNTESS_1</Tag>
+		<English>We could use your assistance, friend [CT_NAME].</English>
+		<French>Nous aurions besoin de votre aide, cher [CT_NAME].</French>
+		<German>Wir könnten Eure freundliche Unterstützung gebrauchen, [CT_NAME].</German>
+		<Italian>Potremmo avere bisogno del tuo aiuto, amico [CT_NAME].</Italian>
+		<Spanish>Nos iría bien vuestra ayuda, amigable [CT_NAME].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_DEMAND_TRIBUTE_POWER_EQUAL_DOWAGER_COUNTESS_1</Tag>
+		<English>Can you spare this for a dear, old lady friend?</English>
+		<French>Pouvez-vous donner ceci à un bon ami ?</French>
+		<German>Könntet Ihr dies für gute Freunde erübrigen?</German>
+		<Italian>Avresti un po' di questi in nome della nostra amicizia?</Italian>
+		<Spanish>¿Podríais darles esto a unos buenos amigos?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_DEMAND_TRIBUTE_POWER_STRONGER_DOWAGER_COUNTESS_1</Tag>
+		<English>Give us this or my the wrath of my gaze shall surely turn you to stone.</English>
+		<French>Donnez-nous ce que nous voulons ou nous viendrons nous en emparer par la force.</French>
+		<German>Gebt uns, was wir verlangen, oder wir werden kommen und es uns holen!</German>
+		<Italian>Dacci ciò che vogliamo, o verremo di certo a prendercelo.</Italian>
+		<Spanish>Dadnos esto si no queréis que vayamos y lo cojamos.</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>AI_DIPLO_FIRST_CONTACT_LEADER_JUSTINIAN_1</Tag>
 		<English>Welcome, [CT_NAME]! May the heavens bless you as you deserve to be blessed!</English>
 		<French>Bienvenue, [CT_NAME] ! Que les cieux vous bénissent comme vous le méritez !</French>

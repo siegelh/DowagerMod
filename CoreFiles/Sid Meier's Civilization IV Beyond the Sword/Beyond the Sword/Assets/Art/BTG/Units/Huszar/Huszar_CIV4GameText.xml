@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MAGYAR_HUSZAR</Tag>
+		<English>Huszar Cavalry</English>
+		<French>Huszar Cavalry</French>
+		<German>Huszar Cavalry</German>
+		<Italian>Huszar Cavalry</Italian>
+		<Spanish>Huszar Cavalry</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MAGYAR_HUSZAR_PEDIA</Tag>
+		<English>[TAB]Hussars in Hungary were ideal for reconnaissance and raiding sources of fodder and provisions in advance of the army. In battle, they were used in such light cavalry roles as harassing enemy skirmishers, overrunning cannon positions, and pursuing fleeing troops. Hussars had a reputation for being the dashing, if unruly, adventurers of the army. The traditional image of the hussar is of a reckless, hard-drinking, hard-swearing, womanising, moustachioed swashbuckler. Less romantically, hussars were also known (and feared) for their poor treatment of local civilians. In addition to commandeering local food-stocks for the army, hussars were known to also use the opportunity for personal looting and pillaging.</English>
+		<French>[TAB]Hussars in Hungary were ideal for reconnaissance and raiding sources of fodder and provisions in advance of the army. In battle, they were used in such light cavalry roles as harassing enemy skirmishers, overrunning cannon positions, and pursuing fleeing troops. Hussars had a reputation for being the dashing, if unruly, adventurers of the army. The traditional image of the hussar is of a reckless, hard-drinking, hard-swearing, womanising, moustachioed swashbuckler. Less romantically, hussars were also known (and feared) for their poor treatment of local civilians. In addition to commandeering local food-stocks for the army, hussars were known to also use the opportunity for personal looting and pillaging.</French>
+		<German>[TAB]Hussars in Hungary were ideal for reconnaissance and raiding sources of fodder and provisions in advance of the army. In battle, they were used in such light cavalry roles as harassing enemy skirmishers, overrunning cannon positions, and pursuing fleeing troops. Hussars had a reputation for being the dashing, if unruly, adventurers of the army. The traditional image of the hussar is of a reckless, hard-drinking, hard-swearing, womanising, moustachioed swashbuckler. Less romantically, hussars were also known (and feared) for their poor treatment of local civilians. In addition to commandeering local food-stocks for the army, hussars were known to also use the opportunity for personal looting and pillaging.</German>
+		<Italian>[TAB]Hussars in Hungary were ideal for reconnaissance and raiding sources of fodder and provisions in advance of the army. In battle, they were used in such light cavalry roles as harassing enemy skirmishers, overrunning cannon positions, and pursuing fleeing troops. Hussars had a reputation for being the dashing, if unruly, adventurers of the army. The traditional image of the hussar is of a reckless, hard-drinking, hard-swearing, womanising, moustachioed swashbuckler. Less romantically, hussars were also known (and feared) for their poor treatment of local civilians. In addition to commandeering local food-stocks for the army, hussars were known to also use the opportunity for personal looting and pillaging.</Italian>
+		<Spanish>[TAB]Hussars in Hungary were ideal for reconnaissance and raiding sources of fodder and provisions in advance of the army. In battle, they were used in such light cavalry roles as harassing enemy skirmishers, overrunning cannon positions, and pursuing fleeing troops. Hussars had a reputation for being the dashing, if unruly, adventurers of the army. The traditional image of the hussar is of a reckless, hard-drinking, hard-swearing, womanising, moustachioed swashbuckler. Less romantically, hussars were also known (and feared) for their poor treatment of local civilians. In addition to commandeering local food-stocks for the army, hussars were known to also use the opportunity for personal looting and pillaging.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MAGYAR_HUSZAR_STRATEGY</Tag>
+		<English>The Magyar replacement for the [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT] starts with the March promotion.</English>
+		<French>The Magyar replacement for the [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT] starts with the March promotion.</French>
+		<German>The Magyar replacement for the [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT] starts with the March promotion.</German>
+		<Italian>The Magyar replacement for the [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT] starts with the March promotion.</Italian>
+		<Spanish>The Magyar replacement for the [COLOR_UNIT_TEXT]Cavalry[COLOR_REVERT] starts with the March promotion.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_ROYAL_NADASDY_REGIMENT</Tag>
+		<English>Royal Nadasdy regiment</English>
+		<French>
+			<Text>Royal Nadasdy regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Royal Nadasdy regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Royal Nadasdy regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Royal Nadasdy regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_BARANIAY_HUSSAR_REGIMENT</Tag>
+		<English>Baraniay Hussar regiment</English>
+		<French>
+			<Text>Baraniay Hussar regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Baraniay Hussar regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Baraniay Hussar regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Baraniay Hussar regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_ESTERHAZY_HUNGARIAN_REGIMENT</Tag>
+		<English>Esterhazy Hungarian regiment</English>
+		<French>
+			<Text>Esterhazy Hungarian regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Esterhazy Hungarian regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Esterhazy Hungarian regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Esterhazy Hungarian regiment</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_1ST_ROYAL_HUNGARIAN</Tag>
+		<English>1st Royal Hungarian</English>
+		<French>
+			<Text>1st Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>1st Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>1st Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>1st Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_2ND_ROYAL_HUNGARIAN</Tag>
+		<English>2nd Royal Hungarian</English>
+		<French>
+			<Text>2nd Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>2nd Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>2nd Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>2nd Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_3RD_ROYAL_HUNGARIAN</Tag>
+		<English>3rd Royal Hungarian</English>
+		<French>
+			<Text>3rd Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>3rd Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>3rd Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>3rd Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_4TH_ROYAL_HUNGARIAN</Tag>
+		<English>4th Royal Hungarian</English>
+		<French>
+			<Text>4th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>4th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>4th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>4th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_5TH_ROYAL_HUNGARIAN</Tag>
+		<English>5th Royal Hungarian</English>
+		<French>
+			<Text>5th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>5th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>5th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>5th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_1E_REGIMENT_DE_HUSSARDS</Tag>
+		<English>1e Regiment de Hussards</English>
+		<French>
+			<Text>1e Regiment de Hussards</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>1e Regiment de Hussards</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>1e Regiment de Hussards</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>1e Regiment de Hussards</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_LES_HUSSARDS_DE_BERCHENY</Tag>
+		<English>Les Hussards de Bercheny</English>
+		<French>
+			<Text>Les Hussards de Bercheny</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Les Hussards de Bercheny</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Les Hussards de Bercheny</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Les Hussards de Bercheny</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_6TH_ROYAL_HUNGARIAN</Tag>
+		<English>6th Royal Hungarian</English>
+		<French>
+			<Text>6th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>6th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>6th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>6th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_7TH_ROYAL_HUNGARIAN</Tag>
+		<English>7th Royal Hungarian</English>
+		<French>
+			<Text>7th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>7th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>7th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>7th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_8TH_ROYAL_HUNGARIAN</Tag>
+		<English>8th Royal Hungarian</English>
+		<French>
+			<Text>8th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>8th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>8th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>8th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_9TH_ROYAL_HUNGARIAN</Tag>
+		<English>9th Royal Hungarian</English>
+		<French>
+			<Text>9th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>9th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>9th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>9th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_10TH_ROYAL_HUNGARIAN</Tag>
+		<English>10th Royal Hungarian</English>
+		<French>
+			<Text>10th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>10th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>10th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>10th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_11TH_ROYAL_HUNGARIAN</Tag>
+		<English>11th Royal Hungarian</English>
+		<French>
+			<Text>11th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>11th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>11th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>11th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_12TH_ROYAL_HUNGARIAN</Tag>
+		<English>12th Royal Hungarian</English>
+		<French>
+			<Text>12th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>12th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>12th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>12th Royal Hungarian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_23RD_HONVED_DIVISION</Tag>
+		<English>23rd Honved Division</English>
+		<French>
+			<Text>23rd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>23rd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>23rd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>23rd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_1ST_HONVED_DIVISION</Tag>
+		<English>1st Honved Division</English>
+		<French>
+			<Text>1st Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>1st Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>1st Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>1st Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_2ND_HONVED_DIVISION</Tag>
+		<English>2nd Honved Division</English>
+		<French>
+			<Text>2nd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>2nd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>2nd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>2nd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_3RD_HONVED_DIVISION</Tag>
+		<English>3rd Honved Division</English>
+		<French>
+			<Text>3rd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>3rd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>3rd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>3rd Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_4TH_HONVED_DIVISION</Tag>
+		<English>4th Honved Division</English>
+		<French>
+			<Text>4th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>4th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>4th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>4th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_5TH_HONVED_DIVISION</Tag>
+		<English>5th Honved Division</English>
+		<French>
+			<Text>5th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>5th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>5th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>5th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_6TH_HONVED_DIVISION</Tag>
+		<English>6th Honved Division</English>
+		<French>
+			<Text>6th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>6th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>6th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>6th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_7TH_HONVED_DIVISION</Tag>
+		<English>7th Honved Division</English>
+		<French>
+			<Text>7th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>7th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>7th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>7th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_8TH_HONVED_DIVISION</Tag>
+		<English>8th Honved Division</English>
+		<French>
+			<Text>8th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>8th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>8th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>8th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_9TH_HONVED_DIVISION</Tag>
+		<English>9th Honved Division</English>
+		<French>
+			<Text>9th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>9th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>9th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>9th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIQUE_NAME_10TH_HONVED_DIVISION</Tag>
+		<English>10th Honved Division</English>
+		<French>
+			<Text>10th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>10th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>10th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>10th Honved Division</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+</Civ4GameText>	

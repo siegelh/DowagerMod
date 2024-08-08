@@ -1,10 +1,5 @@
-<?xml version="1.0"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Firaxis Games (Firaxis Games) -->
-<!-- Sid Meier's Civilization 4 -->
-<!-- Copyright Firaxis Games 2005 -->
-<!-- -->
-<!-- Building art path information -->
-<Civ4ArtDefines xmlns="x-schema:CIV4ArtDefinesSchema.xml">
+<?xml version='1.0' encoding='UTF-8'?>
+<Civ4ArtDefines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\Schema\Caveman2Cosmos.xsd">
 	<BuildingArtInfos>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_PALACE</Type>
@@ -75,6 +70,16 @@
 			<NIF>Art/Structures/Buildings/Spanish_Citadel/Spanish_Citadel.nif</NIF>
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Buildings/Castle.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,3</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_POLISH_ROYAL_CASTLE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.46</fInterfaceScale>
+			<NIF>Art/BTG/Structures/Hungarian_Vegvar/Castle2.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/vegvar.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_BARRACKS</Type>
@@ -378,6 +383,16 @@
 			<Button>,Art/Interface/Buttons/Buildings/Obelisk.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,4</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MAURYAN_OBELISK</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>0.28</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/porcelaintower/nanjing.nif</NIF>
+			<KFM/>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/porcelaintower.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_EGYPTIAN_OBELISK</Type>
 			<LSystem>LSYSTEM_1x1</LSystem>
 			<bAnimated>0</bAnimated>
@@ -398,6 +413,16 @@
 			<Button>,Art/Interface/Buttons/Buildings/Academy.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,5,5</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_KOREAN_ACADEMY</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/BTG/Buildings/Changdeokgung/forbiddenpalace.nif</NIF>
+			<KFM/>
+			<Button>Art/BTG/Buildings/Changdeokgung/Changdeokgung.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_LIBRARY</Type>
 			<LSystem>LSYSTEM_3x2</LSystem>
 			<bAnimated>0</bAnimated>
@@ -406,6 +431,16 @@
 			<NIF>Art/Structures/Buildings/Library/Library.nif</NIF>
 			<KFM/>
 			<Button>,Art/Interface/Buttons/Buildings/Library.dds,Art/Interface/Buttons/Buildings_Atlas.dds,5,4</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_KOREAN_LIBRARY</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.3</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/BTG/ChooseReligions/Shinto_Files/Buildings/ShintoNaiku.nif</NIF>
+			<KFM/>
+			<Button>Art/BTG/ChooseReligions/Shinto_Files/Buildings/ShintoNaiku_Button.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_ARABIAN_MADRASSA</Type>
@@ -1438,6 +1473,16 @@
 			<Button>,Art/Interface/Buttons/Buildings/Obelisk.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,4</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SOVIET_MONUMENT</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>4</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/dictatormonument/saddammonument.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Buildings/Obelisk.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,6,4</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_ETHIOPIAN_STELE</Type>
 			<LSystem>LSYSTEM_2x3</LSystem>
 			<bAnimated>0</bAnimated>
@@ -1606,6 +1651,4177 @@
 			<NIF>Art/Structures/Buildings/Apostolic_Palace/Apostolic_Palace.nif</NIF>
 			<KFM/>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,2,14</Button>
+		</BuildingArtInfo>
+	<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_AACHEN_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.3</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/aachen/aachen08.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/aachencathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MA_ACCADEMIA_AERONAUTICA</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.75</fScale>
+			<fInterfaceScale>0.34</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/westpoint/westpoint.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/accademiaaeronauticabuilding.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ADAM_SMITHS_TRADING_COMPANY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/agora/agora.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/adam_smith.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ADRIANO</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/hadrians_wall/greco_palace_med.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/hadrians_wall.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ADVANCED_SHIELDING</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology_advshielded.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/colossus.dds,art/interface/buttons/nextwar_atlas.dds,8,4</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_AIRBASE</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.00</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/airport/airport.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/airbase.dds,art/interface/buttons/rom_building_atlas.dds,1,1</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_AIRFIELD</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.10</fScale>
+			<fInterfaceScale>1.10</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/airfield/runway.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/sports/buttons/airfield.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_AKSHARDHAM</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.3</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/hindu/second.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hindu/akshardham.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ALAMO</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.49</fScale>
+			<fInterfaceScale>0.42</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/alamo/missionalamo.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/alamo.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ALAMUT</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.05</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/alamut/alamut.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/alamut.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ALHAMBRA</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.80</fScale>
+			<fInterfaceScale>0.60</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/alhambra/alhambra.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/islam/alhambra.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MALL</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.09</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shopping mall/mall.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/supermarket.dds,art/interface/buttons/warlords_atlas_1.dds,8,1</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_AN</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/godsofold/temples/temple_an.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/temple_an.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ANDEAN_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>3.5</fScale>
+			<fInterfaceScale>3.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/andean_cathedral/gaurishrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/andean/templomayor.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ANDEAN_MONASTERY</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>3.3</fScale>
+			<fInterfaceScale>3.3</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/andean_monastery/gauribazaar.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/andean/fortification.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CORICANCHA</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>3.7</fScale>
+			<fInterfaceScale>3.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/andean_shrine/gauricentervillage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/andean/epicworks.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ANDEAN_TEMPLE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>2.4</fScale>
+			<fInterfaceScale>2.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/andean_temple/gauritemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/andean/04.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ANTI_MISSILE_BATTERIES</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.75</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/anti-missile_batteries/anti-missile_batteries.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/anti_missile_batteries.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_APADANA_PALACE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>0.28</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/apadana_palace/darius.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/zoroastrian/apadana_palace.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_APIARY</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.4</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/apiary/beehive3x.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/apiary.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_APOTHECARY_SHOP</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>1.50</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/apothecary/apothecary.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/apothecary_shop_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MADRASSA</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.47</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/madrassa/madrassa.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/islam/madrassa.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ARC_DE_TRIOMPHE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.33</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arc_de_triomphe/arc_de_triomphe.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/arc_de_triomphe.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ARCHIMEDES</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/archimedes/siegeworkshop.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/archimedes_workshop.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NATIONAL_ARCHIVES</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>6.0</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/nationalarchives/archives.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/national_archives.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ARCOLOGY</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/colossus.dds,art/interface/buttons/nextwar_atlas.dds,2,4</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ARCOLOGY_SHIELDED</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology_shielded.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/colossus.dds,art/interface/buttons/nextwar_atlas.dds,3,4</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_AREA51</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>3.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/area51/airport.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/secret_army_base.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ARK_OF_THE_COVENANT</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arkofthecovenant/ark.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/judaism/arkbutton.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_ARTEMIS</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.7</fScale>
+			<fInterfaceScale>0.59</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/temple_of_artemis/temple_of_artemis.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/temple_of_artemis.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ARTIST_COLONY</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/platos_academy/platos_academy.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/artistcolony.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SUN_TZUS_ART_OF_WAR</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/artofwar/artofwar.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/suntzu_art_of_war.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_AUTOMATED_DEFENSES</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.75</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/anti-missile_batteries/anti-missile_batteries.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/automated_defenses.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TLALOCS_ALTAR</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.62</fScale>
+			<fInterfaceScale>0.42</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/aztec altar/aztec_altar.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/nagualism/tlalocs_altar.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BABEL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>3.0</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tower_of_babel/babel09.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/tower_of_babel.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BACH</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/bach/stephansdom.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/bach.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BAHAI_DAR_BE_MEHR</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/bahai_cathedral/zorocathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/bahai/bahai_cathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BAHAI_MONASTERY</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>.75</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/bahai_monastery/zoro_kloster.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/bahai/bahai_monastery.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHRINE_OF_BAB</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/bahai_shrine/babshrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/bahai/bahai_shrine_of_bab.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BAHAI_TEMPLE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.4</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/bahai_temple/ftemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/bahai/bahai_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BANK_OF_CHINA_TOWER</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.023</fScale>
+			<fInterfaceScale>0.25</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/boc tower.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/bankchina.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BARBWIRE_FENCE</Type>
+			<LSystem>LSYSTEM_BARBWIRE_FENCE</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>2.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/barbwire fence/wall02_eu_an.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/barbwire_fence.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BUREAU_OF_FARM_MANAGEMENT</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.73</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/bfm/recyclingcenter.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/bureau_of_farm_managment.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MONTREAL_BIODOME</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>12</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/biodome/biodome.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/montreal_biodome.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INTERGALACTIC_BIRCH_PLANET</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/birch_planet.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ENCLOSURE_BIRD</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/cage_bird.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_DEEP_SPACE_BISHOP_RING</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/bishop_ring_regular.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HERD_BISON</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.70</fScale>
+			<fInterfaceScale>0.83</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/herd/stable.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/herd_bison.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BLARNEY_CASTLE</Type>
+			<LSystem>LSYSTEM_CASTLE</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.01</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/castle/castle.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/blarney.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BOLSHOI</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.6</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/bolshoi/bolshoi.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/bolshoi.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BOMB_SHELTERS</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>0.56</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/bombshelters/bombshelters.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/bombshelters.dds,art/interface/buttons/buildings_atlas.dds,7,1</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BOOK</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.5</fScale>
+			<fInterfaceScale>0.53</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/declarationhumanrights/book.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/declarationhumanrights.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BOTANICAL_GARDENS</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/b_garden/central_park.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/botanical_gardens.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CARNIVAL_BOXING_KANGAROO</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/boxingkangaroo.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BRANDENBURG_GATE</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.35</fScale>
+			<fInterfaceScale>0.47</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/brandenburg_gate/brandenburg_gate.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/brandenburg_gate.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BUDDHIST_STUPA</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.7</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/buddhist_cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/buddhist/cathedral_buddhist.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_MAHABODHI</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/buddhist_shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/buddhist/shrine_buddhist.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BURNING_MAN</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2</fScale>
+			<fInterfaceScale>0.3</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/burningman/warrior.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/burningman.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CAHOKIA_MOUNDS</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>30</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cahokia/caho04.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cahokia.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CANAANITE_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.25</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/canaanite_cathedral/temple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/canaanism/cathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CANAANITE_MONASTERY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>.75</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/canaanite_temple/temple_an.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/canaanism/monastery.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CANAANITE_SHRINE</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>2.1</fScale>
+			<fInterfaceScale>0.3</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/canaanite_shrine/shrine_nanna.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/canaanism/shrine.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CANAANITE_TEMPLE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.10</fScale>
+			<fInterfaceScale>.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/canaanite_shrine/shrine_ki.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/canaanism/temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CAO_DAI_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.90</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/taoist_cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/caodai/cathedral_caodai.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CAO_DAI_MONASTERY</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>.85</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/monastery/taoist/taoist_monastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/caodai/monastery_caodai.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GREAT_TEMPLE_TAY_NINH</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/taoist_shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/caodai/shrine_caodai.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CAO_DAI_TEMPLE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/temple/taoist/taoist_temple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/caodai/temple_caodai.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CARHENGE</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.6</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/carhenge/carhenge.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/carhenge.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CARNIVAL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.15</fScale>
+			<fInterfaceScale>0.2</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/carnival/fest_mid_tentbig.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/carnival.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CASTLE_GARDEN</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/babylonian_garden/babylonian_garden.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/castle_garden.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CATACOMBS_OF_KOM_EL_SHOQAFA</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/catacombs/fortmeso1.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/catacombs.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CAVEBEAR_CAGE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/cagecavebear.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BEZEKLIK_CAVES</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/buddhism/caves08.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/buddhist/bezeklik_caves.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CENTRAL_BANK</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/central_bank/bank.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/central_bank.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CHECKPOINT</Type>
+			<LSystem>LSYSTEM_BARBWIRE_FENCE</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>2.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/barbwire fence/wall02_eu_an.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/checkpoint.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CHEOMSEONGDAE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cheomseongdae/observ_ancient.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cheomseongdae.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PAVILION</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.89</fScale>
+			<fInterfaceScale>0.56</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/chinese pavillion/chinese_pavillion.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/theatre.dds,art/interface/buttons/warlords_atlas_1.dds,3,2</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_CHURCH_OF_THE_NATIVITY</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.31</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/christian shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/christian/shrine_christian.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CIRCUS_MAXIMUS</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>0.55</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/circus/circus.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/circus_maximus.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CISLUNAR_ONEILL_CYLINDER</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/cislunar_oneill_cylinder.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CIVILIZED_JEWELERS_STORE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/corporationhq/corporationhq_jewelry.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/civilized_jewelers_store.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CLEOPATRAS_NEEDLE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.15</fScale>
+			<fInterfaceScale>0.3</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cleopatra_needle/cleopatra.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/structures/buildings/cleopatra_needle/cleopatra_needle.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CLIMATOLOGY_LAB</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/meteorology/berlaymont.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/climatologylab.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_COLOSSUS</Type>
+			<LSystem>LSYSTEM_WATER</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.13</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/colossus/colossus.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/colossus.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CONFUCIAN_ACADEMY</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/confucian_cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/confucian/cathedral_confucianist.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_KONG_MIAO</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/confuscian_shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/confucian/shrine_confucianist.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CONFUCIO</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.50</fScale>
+			<fInterfaceScale>0.65</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/confucian/ic_palace_early.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/confucian/confucian_school.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_COPERNICUS</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/observatory/observatory.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/copernicus.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ADVENTURE_TOURS_FRANCHISE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/adventure_tours_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_ADVENTURE_TOURS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_adventure_tours.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_BULLSEYE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_bullseye.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BULLSEYE_STORE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/bullseye_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_BURGERWORLD</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_burgerworld.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BURGERWORLD_RESTAURANT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/corporations/burgerworld.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_EMPERORS_CLOTHING</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_emperors_clothing.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EMPERORS_CLOTHING_STORE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.20</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/emperors_clothing_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_EAST_WEST_TRADERS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_east_west_traders.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EAST_WEST_TRADERS_STORE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/east_west_traders_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_FASHION_HOUSE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_fashion.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_fashion_house.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FASHION_HOUSE_STORE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.20</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_fashion.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/sparth/corporate_hq_fashion.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_MALLWART</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_mallwart.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MALLWART_STORE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/mallwart_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_MAPSTER</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_mapster.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_BIG_MCDOWELLS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_big_mcdowells.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BIG_MCDOWELLS_RESTAURANT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/mcdowells_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MILEHIGH_TRAVELS_INTERNATIONAL_FRANCHISE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/mileshigh_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_MILEHIGH_TRAVELS_INTERNATIONAL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_milehigh_travels.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_MOBBY_MEATS_INTERNATIONAL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_mobby_meats.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MOBBY_MEATS_STORE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/sparth/corporate_hq_moby.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_MOONBEAN_COFFEE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_moonbean_coffee.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MOONBEAN_COFFEESHOP</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.20</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/moonbean_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_RED_CURTAINS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_red_courtain.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_RED_CURTAINS_THEATRE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/redcourtain_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SAFARI_HUNTERS_GUIDE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/safari_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_SAFARI_HUNTERS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_safari_hunters.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_ULTIMATE_SOLDIERS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_ultimate_soldiers.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ULTIMATE_SOLDIERS_TRAINER</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/ultimate_soldier_hq.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HQ_WONKA_CONFECTIONERIES</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/corpo_wonka_confectioners.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_WONKA_CONFECTIONERIES_SHOP</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/vincentz_corporations/corporationhq_burgerworld.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/sparth/corporate_hq_wonka.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CRYSTAL_PALACE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/crystalpalace/crystalpalace4.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/crystalpalace.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CUSTOMS_OFFICE</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.16</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/customs_house/customs_house.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/bank.dds,art/interface/buttons/beyond_the_sword_atlas.dds,6,8</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CYRUS_CYLINDER</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cyruscylinder/cyruscylinder.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cyrus_cylinder.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TOMB_OF_CYRUS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>5.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cyrus_tomb/cyrustomb.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cyrustomb.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CARNIVAL_DANCING_BEAR</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/dancingbear.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GREAT_MOSQUE_OF_DESERT</Type>
+			<LSystem>LSYSTEM_3x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.75</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/islam/med_african_palace.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/islam/great_mosque_of_desert.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MONUMENT_OF_THE_DICTATOR</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.27</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/dictatormonument/saddammonument.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/dictator_monument.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_DISTRICT_COURTHOUSE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.61</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/courthouse/courthouse.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/district_courthouse.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GREAT_MOSQUE_OF_DJENNE</Type>
+			<LSystem>LSYSTEM_3x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/djenne/med_african_palace.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/great_mosque_of_djenne.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_DOG</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>4.88</fScale>
+			<fInterfaceScale>4.75</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/dogkennel/banditredoubt.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/dogkennel.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_DOSAN_SEOWON</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/confuscian_shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/confucian/dosan_seowon.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_DUBAI</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/burj_dubai/dubai.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/burj_al_arab.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_DUNGEON</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>4.40</fScale>
+			<fInterfaceScale>4.20</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/dungeon/humancentervillage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/dungeon.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_DUTCH_DIKE</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/dutch_dike/dutch_dike.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/dike.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INTERSTELLAR_DYSON_SPHERE</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/dyson_sphere.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EARTH_WALL</Type>
+			<LSystem>LSYSTEM_EARTHWALL</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/celtic_dun/celtic_dun_civilopedia.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/wall.dds,art/interface/buttons/warlords_atlas_1.dds,8,3</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EDINBURGH_CASTLE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.9</fScale>
+			<fInterfaceScale>0.3</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/castle1/castle.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/edinburgh_castle.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EDISONS_WORKSHOP</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/leonardo/leonardo.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/edison_workshop.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EINSTEINS_LABORATORY</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.35</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/university/university.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/einstein_laboratory.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EJE_SONG</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tengri_song/an_orc.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/tengri/eje_song.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ELDER_COUNCIL</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/elder_council/eldercouncil.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/eldercouncil.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EMPIRE_STATE_BUILDING</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.7</fScale>
+			<fInterfaceScale>0.25</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/empirestatebuilding/empire.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/empirestatebuilding.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_ENKI</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/godsofold/temples/temple_water.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/temple_enki.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_ENLIL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/godsofold/temples/temple_enlil.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/temple_enlil.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_ERECHTHEUM</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>2.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/parthenon/parthenon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hellenism/erechtheum.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ESTAMBUL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.63</fScale>
+			<fInterfaceScale>0.85</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/islam/mideast_latetemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/islam/blue_mosque.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MA_EVELPIDON_MILITARY_ACADEMY</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.75</fScale>
+			<fInterfaceScale>0.34</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/westpoint/westpoint.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/evelpidonmilitaryacademybuilding.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ENCLOSURE_EXOTIC_HERBIVORE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/cageherbivore.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_E_BANK</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/e-bank/barrier_i.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/civics/capitalism.dds,art/interface/buttons/rom_civic_atlas.dds,6,8</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FAMEN_TEMPLE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/famensi/library.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/b_famensi.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MAXIMUM_SECURITY_PRISON</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.6</fScale>
+			<fInterfaceScale>.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/federal_prison/dangeon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/maximum_security_prison.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FESTIVAL</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.3</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/festival/circus.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/festival.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PHIDIAS_STATUE_WORKSHOP</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.11</fScale>
+			<fInterfaceScale>0.50</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/hellenism/statue.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hellenism/phidias_statue_workshop.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FIGHTING_PIT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.55</fScale>
+			<fInterfaceScale>.55</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/fighting_pit/cell.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/sports/buttons/fighting_pit.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FIRE_STATION</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/firestation/fire_station.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/firestorm/buttons/fire_station.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FLAK_TOWER</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/flak tower/bunker.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/flak_tower.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FLAVIAN_AMPHITHEATRE_AMPHITHEATRE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.60</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/flavianamphitheatre/colosseum_new.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/flavian.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SALON</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/french salon/french_salon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/salon.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GAMBLING_HALL</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/gambling_house/grocery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/gamblinghouse.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ASSEMBLY_PLANT</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/german_assembly_plant/german_assembly_plant.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/factory.dds,art/interface/buttons/warlords_atlas_1.dds,6,2</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GRAVEYARD</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0</fScale>
+			<fInterfaceScale>0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/graveyard/barracks.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/graveyard.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GREAT_BATH_OF_MOHENJO_DARO</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/great_bath/bath_middle_east.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/great_bath_of_mohenjo_daro.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THREE_GORGES_DAM</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.98</fScale>
+			<fInterfaceScale>0.57</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/threegorgesdam/hooverdam.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/three_gorges_dam.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_GREAT_LIBRARY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.43</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/greatlibrary/greatlibrary.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/great_library.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_GREAT_LIGHTHOUSE</Type>
+			<LSystem>LSYSTEM_WATER</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>2.2</fScale>
+			<fInterfaceScale>0.36</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/greatlighthouse/greatlighthouse.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/great_lighthouse.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FORBIDDEN_PALACE</Type>
+			<LSystem>LSYSTEM_GREAT_PALACE</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/forbiddenpalace/forbiddenpalace.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/forbidden_palace.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_GREAT_PYRAMID</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>3.03</fScale>
+			<fInterfaceScale>0.36</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/pyramid/pyramid.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/pyramid.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PYRAMID_OF_THE_MOON</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.5</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/nagualismo/toltec.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/nagualism/pyramid_of_the_moon.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PYRAMID_OF_THE_SUN</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.5</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/nagualismo/sacrificial_pyramid.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/nagualism/pyramid_of_the_sun.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_GREAT_SPHINX</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.3</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/sphinx/sphinx.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/sphinx.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GREAT_WALL_OF_CHINA</Type>
+			<LSystem>LSYSTEM_GREAT_WALL</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/great_wall/great_wall_civlopedia.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/great_wall.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GREAT_ZIMBABWE</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/great_zimbabwe.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/great_zimbabwe.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ODEON</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.17</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/odeon/odeon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hellenism/odeon.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HAMMURABI_STELE_OF_LAWS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.61</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/zoroasterism/codeofhammurabi.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/hammurabi_stele_of_laws.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_HANGING_GARDENS</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.66</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/hanginggardens/babylongardens.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/hanging_gardens.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_HARVARD_UNIVERSITY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/harvarduniversity.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HEALERS_HUT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/hut/hut.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/healer_hut_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HEALTH_SPA</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>1.50</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/apothecary/apothecary.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/healthspa.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_HEIDELBERG_UNIVERSITY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofheidelberg.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HELLSMOUTH</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>66.32</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/voodoo/volcan/volcanotemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/voodoo/hellsmouth_sanctuary.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HELSINKI_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.06</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/helsinki.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/b_helsinki.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HERBALIST</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/herbalist/apothecary.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/herbalist.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EXPRESSWAY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.75</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/highwayproject/autobahn.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/highway_project.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HIGH_WALLS</Type>
+			<LSystem>LSYSTEM_HIGH_WALLS</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tall wall/tall_wall_civilopedia.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/wall.dds,art/interface/buttons/warlords_atlas_1.dds,7,4</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HIMEJI_SAMURAI_CASTLE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/himejicastle/asiapalace.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/himejicastle.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_BRIHADEESWARAR_TEMPLE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/angkorwat/angkorwat.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hindu/brihadeeswarar_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HINDU_MANDIR</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/hindu_cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hindu/cathedral_hindu.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_KASHI_VISHWANATH</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>0.56</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/hindu_shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hindu/shrine_hindu.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HIPPOCRATIC_OATH</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/hipocratic_oath/fireshrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/hipocratic_oath.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HIPPODROME</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.77</fScale>
+			<fInterfaceScale>0.65</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/byzantine_hippodrome/byzantine_hippodrome.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/colosseum.dds,art/interface/buttons/beyond_the_sword_atlas.dds,5,7</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NATIONAL_NIGHT_OF_HOCKEY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/hnic/scotlandyard.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/hockey_night_in_canada.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HERD_HORSE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.70</fScale>
+			<fInterfaceScale>0.83</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/herd/stable.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/horseherd.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HOTEL</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/french salon/french_salon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/observatory.dds,art/interface/buttons/warlords_atlas_1.dds,5,2</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SNOWCASTLE_OF_KEMI</Type>
+			<LSystem>LSYSTEM_3x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>5.00</fScale>
+			<fInterfaceScale>5.00</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ice_hotel/tiglu.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/snowcastle_of_kemi.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ICE_RINK</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ice rink/ice rink.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/sports/buttons/ice_rink.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHRINE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>0.75</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/aztec altar/aztec_altar.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/idolshrine.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MA_IMPERIAL_NAVAL_ACADEMY</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.75</fScale>
+			<fInterfaceScale>0.34</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/westpoint/westpoint.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/imperialjapanesenavalacademybuilding.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_INANNA</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/godsofold/temples/temple_ianna.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/temple_inanna.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TERRACE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/incan_terrace/incan_terrace.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/granary.dds,art/interface/buttons/warlords_atlas_1.dds,5,4</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MAUSOLEUM</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/indian_mausoleum/indian_mausoleum.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/policestation.dds,art/interface/buttons/warlords_atlas_1.dds,7,2</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_IRONWORKS</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.93</fScale>
+			<fInterfaceScale>0.47</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ironworks/ironworks.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/iron_works.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_ISHTAR_GATE</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.66</fScale>
+			<fInterfaceScale>0.55</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ishtar/ishtargate.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/ishtar.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ISLAMIC_MOSQUE</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.58</fScale>
+			<fInterfaceScale>0.57</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/islamic_cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/islam/cathedral_islamic.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_MASJID_AL_HARAM</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/islamic_shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/islam/shrine_islamic.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ITSUKUSHIMA_SHRINE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/itsukushima_shrine/torii.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shinto/itsukushima_shrine.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_JAGIELLONIAN_UNIVERSITY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/jagiellonianuniversity.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_STATUE_OF_GOMATESHWARA</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.25</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/statue_jain/statue.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/jainism/button_shrine_jain.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_JAIN_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.90</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/hindu_cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/jainism/cathedral_jain.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_JAIN_MONASTERY</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>.85</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/monastery/hindu/hindu_monastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/jainism/monastery_jain.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_JAIN_TEMPLE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/temple/hindu/hindu_temple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/jainism/temple_jain.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHALE_PLANT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.7</fScale>
+			<fInterfaceScale>0.47</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/japanese shale plant/shale_plant.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/coalplant.dds,art/interface/buttons/warlords_atlas_1.dds,8,2</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_JEWISH_SYNAGOGUE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.49</fScale>
+			<fInterfaceScale>0.54</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/jewish-cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/judaism/cathedral_jewish.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_TEMPLE_OF_SOLOMON</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/jewish-shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/judaism/shrine_jewish.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CASTLE_KEEP</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>15.44</fScale>
+			<fInterfaceScale>0.70</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/keep/humancentercity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/keep.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BARAY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/khmer_baray/khmer_baray.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/baray.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_KI</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/godsofold/temples/temple_ki.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/temple_ki.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_KINGS_SAGA</Type>
+			<LSystem>LSYSTEM_3x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.35</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kings_saga/kingssaga.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/statue_of_champion.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_KINGS_TOURNAMENT</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kingstournament/joust.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/kings_tournament.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_KING_GESAR_SONG</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tengri_song/an_orc.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/tengri/king_gesar_song.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_KI_CORN</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/godsofold/temples/temple_ki.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/temple_of_ki_corn.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_KI_POTATO</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/godsofold/temples/temple_ki.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/temple_of_ki_potato.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_KI_RICE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/godsofold/temples/temple_ki.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/temple_of_ki_rice.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_KI_WHEAT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/godsofold/temples/temple_ki.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/temple_of_ki_wheat.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_KOTOKU_IN</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/buddhism/buddha.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/buddhist/kotoku.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_KRAK_DES_CHEVALIERS</Type>
+			<LSystem>LSYSTEM_CASTLE</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.01</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/castle/castle.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/krak.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_KREMLIN</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.21</fScale>
+			<fInterfaceScale>0.36</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kremlin/kremlin.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/kremlin.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LABYRINTH_OF_KNOSSOS</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.9</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/labyrinth/labyrint2.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/labyrinth_of_knossos.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LASCAUX_PAINTS</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>60.0</fScale>
+			<fInterfaceScale>0.3</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/lascaux/tiglu.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/lascaux.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LAS_VEGAS_STRIP</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2</fScale>
+			<fInterfaceScale>2</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/lasvegasstrip/lasvegasstrip.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/lasevegas.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_DISTANT_LAYERED_REALITY</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/layered_world.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LEONARDOS_WORKSHOP</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/leonardo/leonardo.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/leonardo_workshop.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LION_CAGE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/cagelion.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LOCAL_RADIO_STATION</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>0.38</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/broadcasttower/broadcasttower.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/civics/free_speech.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LONDON_EYE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.04</fScale>
+			<fInterfaceScale>0.2</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/londoneye/eye.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/londoneye.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LOTUS_TEMPLE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/lotustemple/lotus6.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/bahai/lotustemple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LUNAR_ARCOLOGY</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/lunar_arcology.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MACHU_PICCHU</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.81</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/machu/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/andean/machu_picchu.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MAGELLANS_VOYAGE</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/magellan/caravel_freeze1000.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/magellans_voyage.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MAGINOT_LINE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>0.64</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/maginotline/bunker.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/maginotline.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MAJOR_LEAGUE_STADIUM</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.50</fScale>
+			<fInterfaceScale>1.50</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/major league stadium/yankee.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/sports/buttons/major_league_stadium.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MANHATTAN_PROJECT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/manhattan/deepground.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/manhattan_project.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GRAND_MANOR</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.3</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/estate/manor.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/tweaks/art/manor.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MARCOS_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/christianity/sanmarco.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/christian/saint_marks_basillica.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MARCO_POLOS_EMBASSY</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.05</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/chinese pavillion/chinese_pavillion.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/marco_polo_embassy.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MARTIAN_ARCOLOGY</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/mars_arcology.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MASADA</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.49</fScale>
+			<fInterfaceScale>0.54</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/jewish-cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/judaism/masada.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MATSUMOTO_CASTLE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.75</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/matsumotocastle/asiapalace.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shinto/matsumoto_castle.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BALL_COURT</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/mayan_ballcourt/mayan_ballcourt.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/nagualism/mayan_ballcourt.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MEENAKSHI_TEMPLE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/hindu/menak_two.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hindu/meenakshi_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_METEOROLOGY_LAB</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/meteorology/berlaymont.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/meteorologylab.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MINOR_LEAGUE_STADIUM</Type>
+			<LSystem>LSYSTEM_COLOSSEUM</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1.37</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/colosseum/colosseum.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/sports/buttons/minor_league_stadium.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GER</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.88</fScale>
+			<fInterfaceScale>0.75</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/yert_ger/yurt_ger.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/tengri/mongol_ger.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_MONTPELLIER_UNIVERSITY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofmontpellier.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NAITERU_KOB_BLESS</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ngai/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/ngai/naiterukob.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NARAS_GIANT_BUDDHA</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/buddhism/buddha.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/buddhist/naras_giant_buddha.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SECURITY_BUREAU</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.4</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/nsa_headquarters/nsa_headquarters.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/scotlandyard.dds,art/interface/buttons/beyond_the_sword_atlas.dds,4,8</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NATIONAL_SPORTS</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/veterans/veterans04.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/national_sports_league.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TOTEM_POLE</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.6</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/nativeamerican_totempole/nativeamerican_totempole.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/totem_pole.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NAVAL_ACADEMY</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>3.50</fScale>
+			<fInterfaceScale>0.34</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/navalacademy/navalacademy.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/navalacademy.dds,art/interface/buttons/rom_building_atlas.dds,7,10</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NAZCA_LINES</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/nazcalines/nazca.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/nazcalines.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_NECROMANTEION</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>1.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/hellenism/necromanteion.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hellenism/necromanteion.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NEUSCHWANSTEIN</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.75</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/neuschwanstein/neuschwanstein.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/neuschwanstein.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NEWTON</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.85</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/isaac_newton_college.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NGAI_BLESS</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ngai/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/ngai/ngai.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NGAI_NA_NYOKE_BLESS</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ngai/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/ngai/nanyoke.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NGAI_NAROK_BLESS</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ngai/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/ngai/narok.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NGAI_NAROK_BLESS_COW</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ngai/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/ngai/narok_cow.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NGAI_NAROK_BLESS_PIG</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ngai/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/ngai/narok_pig.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NGAI_NAROK_BLESS_SHEEP</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ngai/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/ngai/narok_sheep.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NIMRUD_PALACE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/zoroasterism/ic_palace_med.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/nimrud_palace.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LIBRARY_OF_NINEVEH</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/nineveh/library_of_nineveh.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/library_of_nineveh.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PATTAKY_OF_OBATALA</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/yoruba/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/yoruba/obatala.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PATTAKY_OF_OGGUN</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/yoruba/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/yoruba/oggun.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_OLDOINYO</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ngai/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/ngai/oldoinyo.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_OLODUMARE</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/yoruba/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/yoruba/olodumare.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PATTAKY_OF_OLOFIN</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/yoruba/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/yoruba/olofin.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PATTAKY_OF_OLOKUN</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/yoruba/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/yoruba/olokun.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_OLYMPIC</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/veterans/veterans04.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/olympic_games.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_ORACLE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>2.43</fScale>
+			<fInterfaceScale>0.56</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oracle/oracle.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/oracle.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PATTAKY_OF_OSHOSI</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/yoruba/hilmon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/yoruba/oshosi.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HAMMAM</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ottoman hammam/hammam.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/hammam.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_OXFORD_UNIVERSITY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/oxforduniversity.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PALISADE</Type>
+			<LSystem>LSYSTEM_WOOD_WALLS</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/walls/wall01_stockade.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/tower/art/palisadewall.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PARADISE</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/central_park/central_park.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art\interface\buttons\civics\none.dds,art/rom_atlas.dds,6,7</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_PARTHENON</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.25</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/parthenon/parthenon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hellenism/parthenon.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_PENTAGON</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/pentagon/pentagon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/pentagon.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PERGAMON_ALTAR</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.52</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/pergamonaltar/pergamonaltar.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/pergamonaltar.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PETRA</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/petra/petra.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/petra.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LEANING_TOWER_OF_PISA</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.40</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/pisa/pisa.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/pisa.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PLATOS_ACADEMY</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.9</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/platos_academy/platos_academy.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/platos_academy.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_POLICESTATION</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/jail/jail.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/police_station_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_DISTRICT_OFFICE</Type>
+			<LSystem>LSYSTEM_COURTHOUSE</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/courthouse/courthouse.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/polling_place.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PONT_DU_GARD</Type>
+			
+			<LSystem>LSYSTEM_AQUEDUCT</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/aqueduct/pedia_aqueduct.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/pont_du_gard.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PORCELAIN_TOWER</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>0.28</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/porcelaintower/nanjing.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/porcelaintower.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FEITORIA</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/portuguese_feitoria/potuguese_feitoria.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/feitoria.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_POTALA</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.75</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/potala_palace/potalapalace.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/buddhist/palace_of_potala.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_POTTERS_HUT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/pottery_hut/potteryshop.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/potteryhut.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PRESIDENTIAL_MONUMENT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.6</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/presidentialmonument/washington02.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/presidential_monument.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ENCLOSURE_PRIMATE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/cage_primate.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_PTAH</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>1.30</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/egyptmyth/ptah.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/kemetism/temple_of_ptah.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_QUANZHEN_SCHOOL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.80</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/taoism/quanzhen.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/taoist/quanzhen_school.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_RADIOTELESCOPE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/seti program/lokator.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/radiotelescope.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ELECTRONIC_WASTE_RECYCLING_DEPOT</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.9</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/advanced_factories/advanced_factories.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/recyclingfactory.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_REEDUCATION_CENTER</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.0</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/reeducation/barracks.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/reeducation_camp.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_REICHSTAG</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.3</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/reichstag.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/reichstag.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ENCLOSURE_REPTILE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/cage_reptile.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MA_REPUBLIC_NAVAL_ACADEMY</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.75</fScale>
+			<fInterfaceScale>0.34</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/westpoint/westpoint.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/republicofchinanavalacademybuilding.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ROCK_N_ROLL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.53</fScale>
+			<fInterfaceScale>0.76</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/graceland/graceland.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/rocknroll.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ENCLOSURE_RODENT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/cage_rodent.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CHRAM</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.90</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/rodnovery_cathedral/celtic_temple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/rodnovery_cathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_IDOL</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>.85</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/monument/pacific_monument/svarog_temple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/rodnovery_monastery.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ARKONA</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.25</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/rodnovery_shrine/nordic_temple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/rodnovery_shrine.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GAJ</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/rodnovery_temple/slavic_temple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/rodnovery_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FORUM</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/roman forum/forum.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/market.dds,art/interface/buttons/warlords_atlas_1.dds,4,3</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MA_ROYAL_AIR_FORCE_ACADEMY</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.75</fScale>
+			<fInterfaceScale>0.34</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/westpoint/westpoint.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/royalairforceacademybuilding.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ROYAL_MONUMENT</Type>
+			<LSystem>LSYSTEM_MONUMENT</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/monument/monument.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/royal_monument.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_RESEARCH_INSTITUTE</Type>
+			<LSystem>LSYSTEM_3x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.3</fScale>
+			<fInterfaceScale>0.77</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/russian research institute/research_institute.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/research_institute.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_UNIVERSITY_OF_SANKORE</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>2.53</fScale>
+			<fInterfaceScale>0.61</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/sankore/sankore.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/sankore.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PIAZZA_SAN_MARCO</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>0.28</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/sanmarco/sanmarco.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/sanmarco.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SCARBOROUGH_FAIR</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.15</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/scarborough/fest_mid_tentbig.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/scarborough.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SCIENTOLOGY_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.50</fScale>
+			<fInterfaceScale>0.55</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/scientology/scotlandyard.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/scientology/scientology_cathedral.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SCIENTOLOGY_MONASTERY</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.7</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/scientology/martian nest.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/scientology/scientology_monastery.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SCIENTOLOGY_SEDE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.9</fScale>
+			<fInterfaceScale>0.75</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/scientology/scotlandyard.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/scientology/scientology_sede.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SCIENTOLOGY_TEMPLE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.1</fScale>
+			<fInterfaceScale>0.35</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/scientology/scotlandyard.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/scientology/scientology_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SERPENT_MOUND</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>3</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/serpentmound/serpent.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/serpentmound.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SETI_PROGRAM</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/seti program/lokator.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/seti.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANS_YURTA</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tengri_yurta/an_orc.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/tengri/tengritemplenew.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SPIRITS_ALLIANCE</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamancathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shamancathedral_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SPIRITS_LEGACY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/wildwood.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shamancathedral2_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INVOCATION_HUT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanmonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shamanmonastery_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INVOCATION_HUT_BISON</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanmonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/invocation_hut_bison.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INVOCATION_HUT_COW</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanmonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/invocation_hut_cow.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INVOCATION_HUT_DEER</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanmonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/invocation_hut_deer.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INVOCATION_HUT_PIG</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanmonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/invocation_hut_pig.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INVOCATION_HUT_RABBIT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanmonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/invocation_hut_rabbit.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INVOCATION_HUT_SEAL</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanmonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/invocation_hut_seal.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INVOCATION_HUT_SHEEP</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanmonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/invocation_hut_sheep.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INVOCATION_HUT_WALRUS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanmonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/invocation_hut_walrus.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SPIRITS_ANSWER</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamanshrine2.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shamanshrine_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANISTIC_TEMPLE</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamantemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shamantemple_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANISTIC_TEMPLE_BISON</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamantemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shaman_temple_bison.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANISTIC_TEMPLE_COW</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamantemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shaman_temple_cow.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANISTIC_TEMPLE_DEER</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamantemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shaman_temple_deer.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANISTIC_TEMPLE_PIG</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamantemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shaman_temple_pig.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANISTIC_TEMPLE_RABBIT</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamantemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shaman_temple_rabbit.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANISTIC_TEMPLE_SEAL</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamantemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shaman_temple_seal.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANISTIC_TEMPLE_SHEEP</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamantemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shaman_temple_sheep.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAMANISTIC_TEMPLE_WALRUS</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.65</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaman/shamantemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shaman/shaman_temple_walrus.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHAOLIN_TEMPLE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>1.2</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shaolin/wudang.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/shaolin.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHINTO_JINGU</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.7</fScale>
+			<fInterfaceScale>0.54</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shinto/shintocathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shinto/shintocathedral_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHINTO_MONASTERY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>3.0</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shinto/shintomonastery.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shinto/shintomonastery_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_ISE_JINGU</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.3</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shinto/shintonaiku.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/structures/buildings/shinto/shintonaiku_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SHINTO_TEMPLE</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.5</fScale>
+			<fInterfaceScale>0.44</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shinto/shintotemple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/shinto/shintotemple_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BALLISTA_TURRET</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.50</fScale>
+			<fInterfaceScale>1.50</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/siegetowers/ballista.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/siege_towers.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SIKH_CATHEDRAL</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>.90</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/hindu_cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/sikh/cathedral_sikh.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_GOLDEN_TEMPLE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/hindu_shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/sikh/shrine_sikh.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SIKH_GURDWARA</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/temple/hindu/hindu_temple.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/sikh/temple_sikh.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SILICON_VALLEY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.15</fScale>
+			<fInterfaceScale>0.52</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/laboratory/laboratory.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/silicon_valley.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SILKROAD</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.05</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/market/market.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/silk_road.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HYPERSPACE_SIMULATED_UNIVERSE</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/simulated_universe.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SKI_RESORT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.20</fScale>
+			<fInterfaceScale>1.20</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/ski resort/ski resort.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/sports/buttons/ski_resort.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SKYSCRAPER</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/unitednations/unitednations.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/building.dds,art/interface/buttons/rom_building_atlas.dds,4,2</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SOCIAL_JUSTICE_ORGANIZATION</Type>
+			<LSystem>LSYSTEM_3x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/socialjustice/trophyhall.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/social_justice_organization.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SOLOMONS_TEMPLE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>1.10</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/judaism/solomon.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/judaism/solomons_temple.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_SORBONNE_UNIVERSITY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/sorbonneuniversity.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CITADEL</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.38</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/spanish_citadel/spanish_citadel.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/christian/citadel.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SPEEDWAY</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.80</fScale>
+			<fInterfaceScale>0.90</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/speedway/nascar race course.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/sports/buttons/speedway.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_STATUE_OF_ZEUS</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.6</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/zeus/zeus.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/hellenism/statue_of_zeus.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_STRATEGIC_GRAIN_RESERVE</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.33</fScale>
+			<fInterfaceScale>.70</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/strategicgrainreserve/grain_elevator.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/strategicgrainreserve.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_WOMENS_SUFFRAGE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/woman/woman.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/womens_suffrage.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SULTAN_QABOOS_GRAND_MOSQUE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.65</fScale>
+			<fInterfaceScale>1.05</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/islam/muscat02.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/islam/sultan_qaboos_grand_mosque.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ZIGGURAT</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/sumerian_ziggurat/sumerian_ziggurat.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/mesopotamia/ziggurat.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_SVALBARD_GLOBAL_SEED_VAULT</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>3</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/svalbard/svallbad.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/svalbard.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TAILOR_SHOP</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tailor/ts_e_tav.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/tailor.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TAIPEI_101</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>0.25</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/taipei_101/taipei6.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/taipei101.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TAOIST_PAGODA</Type>
+			<LSystem>LSYSTEM_4x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.71</fScale>
+			<fInterfaceScale>0.53</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cathedrals/taoist_cathedral.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/taoist/cathedral_taoist.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_DAI_MIAO</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.26</fScale>
+			<fInterfaceScale>0.83</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/shrine/taoist_shrine.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/taoist/shrine_taoist.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TENGRII_HORSE_TRAINER</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.5</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tengri_horsebreeder/stable.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/tengri/tengrihorsebreeder.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_KHAN_TENGRI</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>3</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tengri_khan/caves.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/tengri/khantengributton.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TENGRI_SONG</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.0</fScale>
+			<fInterfaceScale>0.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tengri_song/an_orc.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/tengri/tengri_song.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TERRACOTTA_ARMY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/terracotta/xian.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/terracottaarmy.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THEATRE_OF_DIONYSUS</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/theatre_dionysus/theatre_dionysus.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/theatre_of_dionysus.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_MOTHERLAND_CALLS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.06</fScale>
+			<fInterfaceScale>0.35</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/motherland.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/motherland.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TITAN_ARCOLOGY</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/titan_arcology.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TOPKAPI_PALACE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/topkapi_palace/fortme8.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/topkapi_palace.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TEMPLE_OF_TOTH</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>1.30</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/egyptmyth/ptah.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/kemetism/temple_of_toth.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TOXIC_WASTE_DUMP</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/toxic_waste_dump/radioactive_dump.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/toxic_waste_dump.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TRANSTELLAR_DYSON_SPHERE</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/transtellar_dyson_sphere.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TRIUMPH_COLUMN</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/obelisk/obelisk.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/triumph_column.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TROYES_TRADE_FAIR</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.15</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/troyes/fest_mid_tentbig.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/troyes.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TSUKIJI_FISH_MARKET</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tsukiji/tsukiji.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/tsukiji.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_UNIVERSAL_HEALTH_CARE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.85</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/universal/dna.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/universal_health_care.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_UNIVERSITY_OF_BARCELONA</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofbarcelona.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_UNIVERSITY_OF_BASEL</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofbasel.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_UNIVERSITY_OF_BOLOGNA</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofbologna.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_UNIVERSITY_OF_CAMBRIDGE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofcambridge.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_UNIVERSITY_OF_COIMBRA</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofcoimbra.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_UNIVERSITY_OF_EDINBURGH</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofedinburgh.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_UNIVERSITY_OF_MURCIA</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofmurcia.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_UNIVERSITY_OF_PADUA</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofpadua.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_EU_UNIVERSITY_OF_SALAMANCA</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.83</fScale>
+			<fInterfaceScale>0.33</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/oxforduniversity/oxforduniversity.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/universityofsalamanca.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_UN_MISSION</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.25</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/unmission/unmission.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/un_mission.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HOLY_SEE_LIBRARY</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>0.7</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/christianity/dp.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/christian/holy_see_library.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_VENUS_SURFACE_CITY</Type>
+			<LSystem>LSYSTEM_ARCOLOGY</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>7</fScale>
+			<fInterfaceScale>0.1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/arcology/arcology.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/venus_surface.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_TRADING_POST</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.38</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/viking trading post/viking_post.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos,art/interface/buttons/buildings/lighthouse.dds,art/interface/buttons/warlords_atlas_1.dds,3,4</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GRAND_VILLA</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/villa/villa_2.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/tweaks/art/villa.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_VOODOO_MARKET</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.2</fScale>
+			<fInterfaceScale>0.55</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/voodoo/voodoomarket.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/voodoo/voodoomarket_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_HOUNFOR</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.9</fScale>
+			<fInterfaceScale>0.45</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/voodoo/voodoopython.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/voodoo/voodoopython_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_THE_TOMB_OF_ANSYEN_BON</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.63</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/voodoo/voodoopyramid.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/voodoo/voodoopyramid_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LOA_HWE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.5</fScale>
+			<fInterfaceScale>0.50</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/voodoo/voodoohut.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/voodoo/voodoohut_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_WEMBLEY_STADIUM</Type>
+			<LSystem>LSYSTEM_4x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/wembley/wembley03.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/wembley.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MA_WEST_POINT</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.75</fScale>
+			<fInterfaceScale>0.34</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/westpoint/westpoint.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/westpointmilitaryacademybuilding.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_WHEELWRIGHT</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.8</fScale>
+			<fInterfaceScale>0.8</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/wheelwright/wheelwrightb.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/wheelwright.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_WOLF_PEN</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1</fScale>
+			<fInterfaceScale>1</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/kennel/cage.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/cagewolf.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_WORLD_TRADE_CENTER</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.5</fScale>
+			<fInterfaceScale>0.28</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/wtc/wtc.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/wtc.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_WUDANG_MOUNTAIN</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>1.20</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/taoism/wudang.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/taoist/wudang_mountain.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ZIZKOV_TELEVISION_TOWER</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.15</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/zizkov/zizkov.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/zizkovtv.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_IKHANDA</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.16</fScale>
+			<fInterfaceScale>0.57</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/zuluikhanda/ikhanda.nif</NIF>
+			<KFM />
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/ikhanda.dds</Button>
 		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4ArtDefines xmlns="x-schema:Maximillian_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_MAXIMILIAN</Type>
+			<Button>Modules/Custom_Civilizations/Austria/Maximillian/maximilianbutton.dds</Button>
+			<NIF>Modules/Custom_Civilizations/Austria/Maximillian/Sitting Bull.nif</NIF>
+			<KFM>Modules/Custom_Civilizations/Austria/Maximillian/Sitting Bull.kfm</KFM>
+			<NoShaderNIF>Modules/Custom_Civilizations/Austria/Maximillian/Sitting Bull_BG.nif</NoShaderNIF>
+			<BackgroundKFM>Modules/Custom_Civilizations/Austria/Maximillian/Sitting Bull_BG.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>
