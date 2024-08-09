@@ -20857,8 +20857,8 @@
 			<iDiscoverMultiplier>0</iDiscoverMultiplier>
 			<iBaseHurry>0</iBaseHurry>
 			<iHurryMultiplier>0</iHurryMultiplier>
-			<iBaseTrade>0</iBaseTrade>
-			<iTradeMultiplier>0</iTradeMultiplier>
+			<iBaseTrade>200</iBaseTrade>
+			<iTradeMultiplier>200</iTradeMultiplier>
 			<iGreatWorkCulture>0</iGreatWorkCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<TerrainImpassables/>
@@ -25544,7 +25544,7 @@
 			<PrereqReligion>NONE</PrereqReligion>
 			<PrereqCorporation>NONE</PrereqCorporation>
 			<PrereqBuilding>NONE</PrereqBuilding>
-			<PrereqTech>NONE</PrereqTech>
+			<PrereqTech>TECH_CURRENCY</PrereqTech>
 			<TechTypes/>
 			<BonusType>NONE</BonusType>
 			<PrereqBonuses/>
@@ -25556,7 +25556,7 @@
 				</Flavor>
 			</Flavors>
 			<iAIWeight>0</iAIWeight>
-			<iCost>-1</iCost>
+			<iCost>50</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -25568,8 +25568,8 @@
 			<iDropRange>0</iDropRange>
 			<iNukeRange>-1</iNukeRange>
 			<iWorkRate>0</iWorkRate>
-			<iBaseDiscover>1000</iBaseDiscover>
-			<iDiscoverMultiplier>2</iDiscoverMultiplier>
+			<iBaseDiscover>0</iBaseDiscover>
+			<iDiscoverMultiplier>0</iDiscoverMultiplier>
 			<iBaseHurry>0</iBaseHurry>
 			<iHurryMultiplier>0</iHurryMultiplier>
 			<iBaseTrade>200</iBaseTrade>
