@@ -1883,7 +1883,7 @@
 			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/arc_de_triomphe.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
-			<Type>ART_DEF_BUILDING_ARCHIMEDES</Type>
+			<Type>ART_DEF_BUILDING_ARCHIMEDES_WORKSHOP</Type>
 			<LSystem>LSYSTEM_2x2</LSystem>
 			<bAnimated>0</bAnimated>
 			<fScale>1.1</fScale>
@@ -5822,6 +5822,26 @@
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/zuluikhanda/ikhanda.nif</NIF>
 			<KFM />
 			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/ikhanda.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_COPERNICUS_OBSERVATORY</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.5</fScale>
+			<fInterfaceScale>0.3</fInterfaceScale>
+			<NIF>Art/BTG/Copernicus/copernicus.nif</NIF>
+			<KFM/>
+			<Button>Art/BTG/Copernicus/copernicus.dds</Button>
+		</BuildingArtInfo>	
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ADAM_SMITH</Type>
+			<LSystem>LSYSTEM_2x4</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>0.70</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/BTG/Buildings/Adam Smith Trading Co/inn.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Units/Worker.dds,Art/BTG/Buttons/Megapack.dds,3,4</Button>
 		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>
