@@ -2230,10 +2230,10 @@
 			<iAsset>1</iAsset>
 			<iPower>0</iPower>
 			<UnitMeshGroups>
-				<iGroupSize>2</iGroupSize>
+				<iGroupSize>1</iGroupSize>
 				<fMaxSpeed>1.75</fMaxSpeed>
 				<fPadTime>1</fPadTime>
-				<iMeleeWaveSize>2</iMeleeWaveSize>
+				<iMeleeWaveSize>1</iMeleeWaveSize>
 				<iRangedWaveSize>0</iRangedWaveSize>
 				<UnitMeshGroup>
 					<iRequired>1</iRequired>

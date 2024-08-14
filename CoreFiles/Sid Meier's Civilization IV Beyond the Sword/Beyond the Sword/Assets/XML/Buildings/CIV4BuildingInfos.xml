@@ -35313,8 +35313,8 @@
 			<Type>BUILDING_MAXIMUM_SECURITY_PRISON</Type>		
 			<SpecialBuildingType>NONE</SpecialBuildingType>
 			<Description>Maximum Security Prison</Description>
-			<Civilopedia></Civilopedia>
-			<Strategy></Strategy>
+			<Civilopedia>The Maximum Security Prison is designed to house the most dangerous and high-profile criminals, providing tight security measures to prevent escapes and manage internal unrest. Its robust isolation protocols and rigorous surveillance significantly reduce war weariness by effectively controlling and neutralizing threats before they can escalate. Additionally, the prison's secure environment makes it an ideal location for espionage, as it enables the monitoring and interrogation of individuals who may possess valuable intelligence or connections to enemy factions.</Civilopedia>
+			<Strategy>Placing the Maximum Security Prison in a strategically located city where its high espionage points can be leveraged, despite the resulting unhappiness, maximizes its effectiveness for intelligence gathering while balancing the city's strategic importance.</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_MAXIMUM_SECURITY_PRISON</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_MAXIMUM_SECURITY_PRISON</MovieDefineTag>
@@ -35331,7 +35331,7 @@
 			<FreeStartEra>NONE</FreeStartEra>
 			<MaxStartEra>NONE</MaxStartEra>
 			<ObsoleteTech>NONE</ObsoleteTech>
-			<PrereqTech>TECH_UNOBTAINABLE</PrereqTech>
+			<PrereqTech>TECH_CONSTITUTION</PrereqTech>
 			<TechTypes/>
 			<Bonus>NONE</Bonus>
 			<PrereqBonuses/>
@@ -35369,7 +35369,7 @@
 			<bPrereqReligion>0</bPrereqReligion>
 			<bCenterInCity>0</bCenterInCity>
 			<iAIWeight>1</iAIWeight>
-			<iCost>500</iCost>
+			<iCost>300</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iAdvancedStartCost>-1</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -35400,13 +35400,13 @@
 			<iGlobalFreeSpecialist>0</iGlobalFreeSpecialist>
 			<iMaintenanceModifier>0</iMaintenanceModifier>
 			<iWarWearinessModifier>0</iWarWearinessModifier>
-			<iGlobalWarWearinessModifier>0</iGlobalWarWearinessModifier>
+			<iGlobalWarWearinessModifier>-25</iGlobalWarWearinessModifier>
 			<iEnemyWarWearinessModifier>0</iEnemyWarWearinessModifier>
 			<iHealRateChange>0</iHealRateChange>
 			<iHealth>0</iHealth>
 			<iAreaHealth>0</iAreaHealth>
 			<iGlobalHealth>0</iGlobalHealth>
-			<iHappiness>0</iHappiness>
+			<iHappiness>-6</iHappiness>
 			<iAreaHappiness>0</iAreaHappiness>
 			<iGlobalHappiness>0</iGlobalHappiness>
 			<iStateReligionHappiness>0</iStateReligionHappiness>
@@ -35432,16 +35432,17 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges/>
-			<CommerceChanges/>
-			<ObsoleteSafeCommerceChanges>
+			<CommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
-			</ObsoleteSafeCommerceChanges>
+				<iCommerce>0</iCommerce>
+				<iCommerce>50</iCommerce>
+			</CommerceChanges>
+			<ObsoleteSafeCommerceChanges/>
 			<CommerceChangeDoubleTimes>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>1000</iCommerce>
+				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers/>
 			<GlobalCommerceModifiers/>
@@ -35460,27 +35461,27 @@
 			<ConstructSound/>
 			<BonusHealthChanges/>
 			<BonusHappinessChanges/>
-			<BonusProductionModifiers>
-				<BonusProductionModifier>
-					<BonusType>BONUS_IRON</BonusType>
-					<iProductonModifier>50</iProductonModifier>
-				</BonusProductionModifier>
-			</BonusProductionModifiers>
+			<BonusProductionModifiers/>
 			<UnitCombatFreeExperiences/>
 			<DomainFreeExperiences/>
 			<DomainProductionModifiers/>
 			<BuildingHappinessChanges/>
-			<PrereqBuildingClasses/>
-			<BuildingClassNeededs/>
+			<PrereqBuildingClasses>
+				<PrereqBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_JAIL</BuildingClassType>
+					<iNumBuildingNeeded>4</iNumBuildingNeeded>
+				</PrereqBuildingClass>
+			</PrereqBuildingClasses>
+			<BuildingClassNeededs>
+				<BuildingClassNeeded>
+					<BuildingClassType>BUILDINGCLASS_JAIL</BuildingClassType>
+					<bNeededInCity>1</bNeededInCity>
+				</BuildingClassNeeded>
+			</BuildingClassNeededs>
 			<SpecialistYieldChanges/>
 			<BonusYieldModifiers/>
 			<ImprovementFreeSpecialists/>
-			<Flavors>
-				<Flavor>
-					<FlavorType>FLAVOR_GROWTH</FlavorType>
-					<iFlavor>8</iFlavor>
-				</Flavor>
-			</Flavors>
+			<Flavors/>
 			<HotKey/>
 			<bAltDown>0</bAltDown>
 			<bShiftDown>0</bShiftDown>
