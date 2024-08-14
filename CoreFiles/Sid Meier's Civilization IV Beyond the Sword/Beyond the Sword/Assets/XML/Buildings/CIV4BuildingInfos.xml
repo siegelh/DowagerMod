@@ -31748,8 +31748,12 @@
 			<Civilopedia>Archimedes' Workshop is an imagined space where the ancient Greek mathematician and inventor Archimedes would have developed his groundbreaking ideas and inventions. This workshop symbolizes the ingenuity and scientific curiosity that led to Archimedes' discoveries in mathematics, physics, and engineering, including the famous Archimedean screw and the principle of buoyancy. It represents the fusion of theoretical knowledge and practical experimentation that defined Archimedes' contributions to science and technology.</Civilopedia>
 			<Strategy>Adam Smith's Trading Company is magnificient.</Strategy>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
+			<!--
 			<ArtDefineTag>ART_DEF_BUILDING_ARCHIMEDES_WORKSHOP</ArtDefineTag>
 			<MovieDefineTag>ART_DEF_MOVIE_ARCHIMEDES_WORKSHOP</MovieDefineTag>
+			-->
+			<ArtDefineTag>ART_DEF_BUILDING_STATUE_OF_ZEUS</ArtDefineTag>
+			<MovieDefineTag>ART_DEF_MOVIE_STATUE_OF_ZEUS</MovieDefineTag>
 			<HolyCity>NONE</HolyCity>
 			<ReligionType>NONE</ReligionType>
 			<StateReligion>NONE</StateReligion>
