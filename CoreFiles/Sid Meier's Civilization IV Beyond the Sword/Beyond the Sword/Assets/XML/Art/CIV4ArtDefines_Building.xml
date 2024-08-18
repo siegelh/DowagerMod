@@ -1890,7 +1890,7 @@
 			<fInterfaceScale>0.40</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/archimedes/siegeworkshop.nif</NIF>
 			<KFM />
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/archimedes_workshop.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/archimedes_workshop.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_NATIONAL_ARCHIVES</Type>
@@ -3150,7 +3150,7 @@
 			<fInterfaceScale>.6</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/federal_prison/dangeon.nif</NIF>
 			<KFM />
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/maximum_security_prison.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/national_wonders/maximum_security_prison.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_FESTIVAL</Type>
