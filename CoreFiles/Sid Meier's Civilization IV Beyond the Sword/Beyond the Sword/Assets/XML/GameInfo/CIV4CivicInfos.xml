@@ -1742,19 +1742,19 @@
 			<BuildingHealthChanges>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_GRANARY</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>6</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_PUBLIC_TRANSPORTATION</BuildingType>
-					<iHealthChange>20</iHealthChange>
+					<iHealthChange>30</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_HOSPITAL</BuildingType>
-					<iHealthChange>20</iHealthChange>
+					<iHealthChange>30</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_MARKET</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>6</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_SUPERMARKET</BuildingType>
@@ -1762,67 +1762,67 @@
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_GROCER</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>10</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_AQUEDUCT</BuildingType>
-					<iHealthChange>6</iHealthChange>
+					<iHealthChange>10</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_JEWISH_MONASTERY</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_CHRISTIAN_MONASTERY</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_ISLAMIC_MONASTERY</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_CONFUCIAN_MONASTERY</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_BUDDHIST_MONASTERY</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_TAOIST_MONASTERY</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_HINDU_MONASTERY</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_HINDU_TEMPLE</BuildingType>
-					<iHealthChange>4</iHealthChange>
+					<iHealthChange>5</iHealthChange>
 				</BuildingHealthChange>
 			</BuildingHealthChanges>
 			<FeatureHappinessChanges>
