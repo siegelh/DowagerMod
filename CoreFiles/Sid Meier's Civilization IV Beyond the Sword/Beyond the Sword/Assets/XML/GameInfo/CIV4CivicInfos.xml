@@ -193,7 +193,7 @@
 			<CapitalCommerceModifiers/>
 			<SpecialistExtraCommerces>
 				<iCommerce>0</iCommerce>
-				<iCommerce>1</iCommerce>
+				<iCommerce>2</iCommerce>
 				<iCommerce>0</iCommerce>
 			</SpecialistExtraCommerces>
 			<Hurrys/>
@@ -1006,7 +1006,7 @@
 			<bBuildingOnlyHealthy>0</bBuildingOnlyHealthy>
 			<iLargestCityHappiness>0</iLargestCityHappiness>
 			<iWarWearinessModifier>0</iWarWearinessModifier>
-			<iFreeSpecialist>1</iFreeSpecialist>
+			<iFreeSpecialist>0</iFreeSpecialist>
 			<iTradeRoutes>0</iTradeRoutes>
 			<bNoForeignTrade>0</bNoForeignTrade>
 			<bNoCorporations>0</bNoCorporations>
