@@ -936,7 +936,7 @@
 			</YieldModifiers>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
-				<iYield>20</iYield>
+				<iYield>50</iYield>
 				<iYield>100</iYield>
 				<iYield>-200</iYield>
 			</TradeYieldModifiers>	
@@ -1060,7 +1060,12 @@
 			<iStateReligionBuildingProductionModifier>0</iStateReligionBuildingProductionModifier>
 			<iStateReligionFreeExperience>0</iStateReligionFreeExperience>
 			<YieldModifiers/>
-			<CapitalYieldModifiers/>
+			<CapitalYieldModifiers>
+				<iYield>8</iYield>
+				<iYield>8</iYield>
+				<iYield>8</iYield>
+				<iYield>8</iYield>
+			</CapitalYieldModifiers>
 			<TradeYieldModifiers/>
 			<CommerceModifiers>
 				<iCommerce>8</iCommerce>
@@ -2344,7 +2349,31 @@
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>-3</iYield>
-						<iYield>6</iYield>
+						<iYield>4</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_VILLAGE</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>-2</iYield>
+						<iYield>2</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_HAMLET</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>-1</iYield>
+						<iYield>1</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_COTTAGE</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
