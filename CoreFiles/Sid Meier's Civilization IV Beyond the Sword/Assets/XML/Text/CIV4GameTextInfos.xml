@@ -3369,6 +3369,14 @@
 		<Spanish>[ICON_BULLET]No se pueden construir misioneros sin [NUM1:un:una:unos:unas] [COLOR_BUILDING_TEXT]%s1_Building[COLOR_REVERT]</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_CIVIC_BUILD_ENVIRO</Tag>
+		<English>[ICON_BULLET]Can spread Environmental.</English>
+		<French>[ICON_BULLET]Peut cr&#233;er des missionnaires sans [COLOR_BUILDING_TEXT]%s1_Building[COLOR_REVERT]</French>
+		<German>[ICON_BULLET]Kann ohne das Geb&#228;ude [COLOR_BUILDING_TEXT]%s1_Building[COLOR_REVERT] Missionare errichten</German>
+		<Italian>[ICON_BULLET]Permette di realizzare missionari senza [COLOR_BUILDING_TEXT]%s1_Building[COLOR_REVERT]</Italian>
+		<Spanish>[ICON_BULLET]No se pueden construir misioneros sin [NUM1:un:una:unos:unas] [COLOR_BUILDING_TEXT]%s1_Building[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_CIVIC_UNLIMTED</Tag>
 		<English>[ICON_BULLET]Unlimited[SPACE]</English>
 		<French>[ICON_BULLET]Sans limite[SPACE]</French>

@@ -3014,8 +3014,8 @@
 			<DefaultUnitAI>UNITAI_MISSIONARY</DefaultUnitAI>
 			<Invisible>NONE</Invisible>
 			<SeeInvisible>NONE</SeeInvisible>
-			<Description>TXT_KEY_UNIT_EXECUTIVE_2</Description>
-			<Civilopedia>TXT_KEY_CONCEPT_CORPORATIONS_PEDIA</Civilopedia>
+			<Description>Environmental Cracker</Description>
+			<Civilopedia>The environmental cracker is a breakthrough biodegradable snack that not only satisfies your hunger but also leaves zero trace behind, thanks to its edible wrapper and sustainable ingredients. Feeds the world.</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_EXECUTIVE_STRATEGY</Strategy>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<bAnimal>0</bAnimal>
@@ -3076,7 +3076,7 @@
 			<StateReligion>NONE</StateReligion>
 			<PrereqReligion>NONE</PrereqReligion>
 			<PrereqCorporation>CORPORATION_2</PrereqCorporation>
-			<PrereqBuilding>NONE</PrereqBuilding>
+			<PrereqBuilding>BUILDING_BOMB_SHELTER</PrereqBuilding>
 			<PrereqTech>NONE</PrereqTech>
 			<TechTypes/>
 			<BonusType>NONE</BonusType>
@@ -24726,6 +24726,10 @@
 					<BuildingType>BUILDING_TAOIST_SHRINE</BuildingType>
 					<bBuilding>1</bBuilding>
 				</Building>
+				<Building>
+					<BuildingType>BUILDING_CORPORATION_2</BuildingType>
+					<bBuilding>1</bBuilding>
+				</Building>
 			</Buildings>
 			<ForceBuildings/>
 			<HolyCity>NONE</HolyCity>
@@ -25393,10 +25397,6 @@
 			<Buildings>
 				<Building>
 					<BuildingType>BUILDING_CORPORATION_1</BuildingType>
-					<bBuilding>1</bBuilding>
-				</Building>
-				<Building>
-					<BuildingType>BUILDING_CORPORATION_2</BuildingType>
 					<bBuilding>1</bBuilding>
 				</Building>
 			</Buildings>

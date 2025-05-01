@@ -40,18 +40,25 @@
 		</CorporationInfo>
 		<CorporationInfo>
 			<Type>CORPORATION_2</Type>
-			<Description>CHANGED_TXT_KEY_CORPORATION_2</Description>
-			<Civilopedia>TXT_KEY_CORPORATION_2_PEDIA</Civilopedia>
+			<Description>Environmental Ideology</Description>
+			<Civilopedia>Environmental Ideology</Civilopedia>
 			<TechPrereq>NONE</TechPrereq>
 			<FreeUnitClass>NONE</FreeUnitClass>
 			<iSpreadFactor>200</iSpreadFactor>
-			<iSpreadCost>50</iSpreadCost>
-			<iMaintenance>100</iMaintenance>
+			<iSpreadCost>25</iSpreadCost>
+			<iMaintenance>50</iMaintenance>
 			<PrereqBonuses>
 				<BonusType>BONUS_CRAB</BonusType>
 				<BonusType>BONUS_CLAM</BonusType>
 				<BonusType>BONUS_FISH</BonusType>
 				<BonusType>BONUS_RICE</BonusType>
+				<BonusType>BONUS_SHEEP</BonusType>
+				<BonusType>BONUS_COW</BonusType>
+				<BonusType>BONUS_DEER</BonusType>
+				<BonusType>BONUS_PIG</BonusType>
+				<BonusType>BONUS_BANANA</BonusType>
+				<BonusType>BONUS_WHEAT</BonusType>
+				<BonusType>BONUS_CORN</BonusType>
 			</PrereqBonuses>
 			<HeadquarterCommerces>
 				<iHeadquarterCommerce>4</iHeadquarterCommerce>
@@ -62,10 +69,10 @@
 			<CommercesProduced>
 				<iCommerceProduced>0</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
-				<iCommerceProduced>200</iCommerceProduced>
+				<iCommerceProduced>0</iCommerceProduced>
 			</CommercesProduced>
 			<YieldsProduced>
-				<iYieldProduced>50</iYieldProduced>
+				<iYieldProduced>150</iYieldProduced>
 				<iYieldProduced>0</iYieldProduced>
 				<iYieldProduced>0</iYieldProduced>
 			</YieldsProduced>

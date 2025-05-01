@@ -1839,6 +1839,10 @@
 					<SpecialBuildingType>SPECIALBUILDING_MONASTERY</SpecialBuildingType>
 					<bNotRequired>1</bNotRequired>
 				</SpecialBuildingNotRequired>
+				<SpecialBuildingNotRequired>
+					<SpecialBuildingType>SPECIALBUILDING_BOMB_SHELTER</SpecialBuildingType>
+					<bNotRequired>1</bNotRequired>
+				</SpecialBuildingNotRequired>
 			</SpecialBuildingNotRequireds>
 			<SpecialistValids/>
 			<BuildingHappinessChanges/>
@@ -1997,6 +2001,22 @@
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_PLANTATION</ImprovementType>
+					<ImprovementYields>
+						<iYield>3</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_PASTURE</ImprovementType>
+					<ImprovementYields>
+						<iYield>3</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
 					<ImprovementYields>
 						<iYield>3</iYield>
 						<iYield>0</iYield>

@@ -10,9 +10,9 @@
 			<Type>SPECIALBUILDING_BOMB_SHELTER</Type>
 			<Description>TXT_KEY_SPECIALBUILDING_BOMB_SHELTER</Description>
 			<ObsoleteTech>NONE</ObsoleteTech>
-			<TechPrereq>NONE</TechPrereq>
+			<TechPrereq>TECH_UNOBTAINABLE</TechPrereq>
 			<TechPrereqAnyone>NONE</TechPrereqAnyone>
-			<bValid>0</bValid>
+			<bValid>1</bValid>
 			<ProductionTraits/>
 			<Button>Art/Interface/Buttons/Buildings/BombShelters.dds</Button>
 		</SpecialBuildingInfo>

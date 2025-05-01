@@ -2974,8 +2974,8 @@
 			<BuildingClass>BUILDINGCLASS_BOMB_SHELTER</BuildingClass>
 			<Type>BUILDING_BOMB_SHELTER</Type>
 			<SpecialBuildingType>SPECIALBUILDING_BOMB_SHELTER</SpecialBuildingType>
-			<Description>TXT_KEY_BUILDING_BOMB_SHELTER</Description>
-			<Civilopedia>TXT_KEY_BUILDING_BOMB_SHELTER_PEDIA</Civilopedia>
+			<Description>Enviro Corp Prerequisite</Description>
+			<Civilopedia>Not for you!</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_BOMB_SHELTER_STRATEGY</Strategy>
 			<Advisor>ADVISOR_MILITARY</Advisor>
 			<ArtDefineTag>ART_DEF_BUILDING_BOMB_SHELTER</ArtDefineTag>
@@ -24353,7 +24353,7 @@
 			<VictoryPrereq>NONE</VictoryPrereq>
 			<FreeStartEra>NONE</FreeStartEra>
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
-			<ObsoleteTech>TECH_CORPORATION</ObsoleteTech>
+			<ObsoleteTech>NONE</ObsoleteTech>
 			<PrereqTech>TECH_SAILING</PrereqTech>
 			<TechTypes>
 				<PrereqTech>TECH_MASONRY</PrereqTech>
@@ -30151,7 +30151,7 @@
 			<FreeStartEra>NONE</FreeStartEra>
 			<MaxStartEra>NONE</MaxStartEra>
 			<ObsoleteTech>NONE</ObsoleteTech>
-			<PrereqTech>TECH_MEDICINE</PrereqTech>
+			<PrereqTech>NONE</PrereqTech>
 			<TechTypes>
 				<PrereqTech>TECH_CORPORATION</PrereqTech>
 				<PrereqTech>NONE</PrereqTech>
