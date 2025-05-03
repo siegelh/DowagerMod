@@ -30153,7 +30153,7 @@
 			<ObsoleteTech>NONE</ObsoleteTech>
 			<PrereqTech>NONE</PrereqTech>
 			<TechTypes>
-				<PrereqTech>TECH_CORPORATION</PrereqTech>
+				<PrereqTech>TECH_CODE_OF_LAWS</PrereqTech>
 				<PrereqTech>NONE</PrereqTech>
 				<PrereqTech>NONE</PrereqTech>
 			</TechTypes>
