@@ -48,17 +48,11 @@
 			<iSpreadCost>25</iSpreadCost>
 			<iMaintenance>50</iMaintenance>
 			<PrereqBonuses>
-				<BonusType>BONUS_CRAB</BonusType>
-				<BonusType>BONUS_CLAM</BonusType>
-				<BonusType>BONUS_FISH</BonusType>
 				<BonusType>BONUS_RICE</BonusType>
-				<BonusType>BONUS_SHEEP</BonusType>
-				<BonusType>BONUS_COW</BonusType>
-				<BonusType>BONUS_DEER</BonusType>
-				<BonusType>BONUS_PIG</BonusType>
 				<BonusType>BONUS_BANANA</BonusType>
 				<BonusType>BONUS_WHEAT</BonusType>
 				<BonusType>BONUS_CORN</BonusType>
+				<BonusType>BONUS_SUGAR</BonusType>
 			</PrereqBonuses>
 			<HeadquarterCommerces>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
