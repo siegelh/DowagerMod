@@ -37,17 +37,49 @@ app.on('activate', () => {
   }
 });
 
+// --- Helper: Find Git Root ---
+function findGitRoot() {
+  // In portable mode, the exe runs from temp, but PORTABLE_EXECUTABLE_DIR tells us where the exe really is.
+  // In dev, we start from __dirname.
+  let currentPath = app.isPackaged
+    ? (process.env.PORTABLE_EXECUTABLE_DIR || path.dirname(app.getPath('exe')))
+    : __dirname;
+
+  const root = path.parse(currentPath).root;
+
+  while (currentPath && currentPath !== root) {
+    if (fs.existsSync(path.join(currentPath, '.git'))) {
+      return currentPath;
+    }
+    currentPath = path.dirname(currentPath);
+  }
+  return null;
+}
+
 // --- IPC Handlers ---
 
 ipcMain.handle('run-installer', async (event, driveLetter) => {
   return new Promise((resolve, reject) => {
     const isProd = app.isPackaged;
     const scriptName = 'install_for_gui.py';
+    const gitRoot = findGitRoot();
 
-    // In dev, look in CoreFiles. In prod, look in resources.
-    const scriptPath = isProd
-      ? path.join(process.resourcesPath, scriptName)
-      : path.join(__dirname, '../../CoreFiles', scriptName);
+    let scriptPath;
+
+    // Try to find the script in the repo first (CoreFiles)
+    if (gitRoot) {
+      const repoScriptPath = path.join(gitRoot, 'CoreFiles', scriptName);
+      if (fs.existsSync(repoScriptPath)) {
+        scriptPath = repoScriptPath;
+      }
+    }
+
+    // Fallback to resources if not found in repo (or if gitRoot not found)
+    if (!scriptPath) {
+      scriptPath = isProd
+        ? path.join(process.resourcesPath, scriptName)
+        : path.join(__dirname, '../../CoreFiles', scriptName);
+    }
 
     const scriptDir = path.dirname(scriptPath);
 
@@ -91,9 +123,16 @@ ipcMain.handle('run-installer', async (event, driveLetter) => {
 
 ipcMain.handle('git-checkout', async (event, branchName) => {
   return new Promise((resolve, reject) => {
+    const gitRoot = findGitRoot();
+
+    if (!gitRoot) {
+      resolve({ success: false, error: "Could not find .git repository. Make sure the launcher is inside the DowagerMod repository." });
+      return;
+    }
+
     const command = `git fetch origin && git checkout ${branchName} && git pull origin ${branchName}`;
 
-    exec(command, { cwd: process.cwd() }, (error, stdout, stderr) => {
+    exec(command, { cwd: gitRoot }, (error, stdout, stderr) => {
       if (error) {
         console.error(`exec error: ${error}`);
         resolve({ success: false, error: error.message });
