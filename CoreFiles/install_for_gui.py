@@ -159,7 +159,7 @@ def installMod(src_path, civ_path):
     print('Finished installing HarrisonMod version %s!' % version)
 
 ## Fetch install path
-src_path = sys.argv[0][:-16].replace('/', '\\') + "Sid Meier's Civilization IV Beyond the Sword"
+src_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Sid Meier's Civilization IV Beyond the Sword")
 
 # Get the drive from the parameters when calling the script
 civ_drive = sys.argv[1].strip().upper()
