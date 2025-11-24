@@ -11,6 +11,6 @@ extraResources:
   - from: ../CoreFiles/install_for_gui.py
     to: install_for_gui.py
 win:
-  target: nsis
+  target: portable
   icon: public/favicon.ico
 electronVersion: 29.4.6
