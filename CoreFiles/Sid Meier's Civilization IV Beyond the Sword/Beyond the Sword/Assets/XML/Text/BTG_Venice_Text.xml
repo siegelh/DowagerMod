@@ -40,4 +40,148 @@
 		<Italian>Functions as Venice's unique Palace and provides core capital administration and commerce output.</Italian>
 		<Spanish>Functions as Venice's unique Palace and provides core capital administration and commerce output.</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_MARCO_POLO</Tag>
+		<English>Marco Polo</English>
+		<French>Marco Polo</French>
+		<German>Marco Polo</German>
+		<Italian>Marco Polo</Italian>
+		<Spanish>Marco Polo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_NICCOLO_POLO</Tag>
+		<English>Niccolo Polo</English>
+		<French>Niccolo Polo</French>
+		<German>Niccolo Polo</German>
+		<Italian>Niccolo Polo</Italian>
+		<Spanish>Niccolo Polo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_MAFFEO_POLO</Tag>
+		<English>Maffeo Polo</English>
+		<French>Maffeo Polo</French>
+		<German>Maffeo Polo</German>
+		<Italian>Maffeo Polo</Italian>
+		<Spanish>Maffeo Polo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_GIACOMO_BADOER</Tag>
+		<English>Giacomo Badoer</English>
+		<French>Giacomo Badoer</French>
+		<German>Giacomo Badoer</German>
+		<Italian>Giacomo Badoer</Italian>
+		<Spanish>Giacomo Badoer</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_ALVISE_CADAMOSTO</Tag>
+		<English>Alvise Cadamosto</English>
+		<French>Alvise Cadamosto</French>
+		<German>Alvise Cadamosto</German>
+		<Italian>Alvise Cadamosto</Italian>
+		<Spanish>Alvise Cadamosto</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_PIETRO_QUERINI</Tag>
+		<English>Pietro Querini</English>
+		<French>Pietro Querini</French>
+		<German>Pietro Querini</German>
+		<Italian>Pietro Querini</Italian>
+		<Spanish>Pietro Querini</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_SEBASTIANO_ZIANI</Tag>
+		<English>Sebastiano Ziani</English>
+		<French>Sebastiano Ziani</French>
+		<German>Sebastiano Ziani</German>
+		<Italian>Sebastiano Ziani</Italian>
+		<Spanish>Sebastiano Ziani</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_ENRICO_DANDOLO</Tag>
+		<English>Enrico Dandolo</English>
+		<French>Enrico Dandolo</French>
+		<German>Enrico Dandolo</German>
+		<Italian>Enrico Dandolo</Italian>
+		<Spanish>Enrico Dandolo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_PIETRO_ZIANI</Tag>
+		<English>Pietro Ziani</English>
+		<French>Pietro Ziani</French>
+		<German>Pietro Ziani</German>
+		<Italian>Pietro Ziani</Italian>
+		<Spanish>Pietro Ziani</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_JACOPO_TIEPOLO</Tag>
+		<English>Jacopo Tiepolo</English>
+		<French>Jacopo Tiepolo</French>
+		<German>Jacopo Tiepolo</German>
+		<Italian>Jacopo Tiepolo</Italian>
+		<Spanish>Jacopo Tiepolo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_RANIERI_ZENO</Tag>
+		<English>Ranieri Zeno</English>
+		<French>Ranieri Zeno</French>
+		<German>Ranieri Zeno</German>
+		<Italian>Ranieri Zeno</Italian>
+		<Spanish>Ranieri Zeno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_MARINO_MOROSINI</Tag>
+		<English>Marino Morosini</English>
+		<French>Marino Morosini</French>
+		<German>Marino Morosini</German>
+		<Italian>Marino Morosini</Italian>
+		<Spanish>Marino Morosini</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_GIOVANNI_SORANZO</Tag>
+		<English>Giovanni Soranzo</English>
+		<French>Giovanni Soranzo</French>
+		<German>Giovanni Soranzo</German>
+		<Italian>Giovanni Soranzo</Italian>
+		<Spanish>Giovanni Soranzo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_ANDREA_DANDOLO</Tag>
+		<English>Andrea Dandolo</English>
+		<French>Andrea Dandolo</French>
+		<German>Andrea Dandolo</German>
+		<Italian>Andrea Dandolo</Italian>
+		<Spanish>Andrea Dandolo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_TOMMASO_MOCENIGO</Tag>
+		<English>Tommaso Mocenigo</English>
+		<French>Tommaso Mocenigo</French>
+		<German>Tommaso Mocenigo</German>
+		<Italian>Tommaso Mocenigo</Italian>
+		<Spanish>Tommaso Mocenigo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_FRANCESCO_FOSCARI</Tag>
+		<English>Francesco Foscari</English>
+		<French>Francesco Foscari</French>
+		<German>Francesco Foscari</German>
+		<Italian>Francesco Foscari</Italian>
+		<Spanish>Francesco Foscari</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_LEONARDO_LOREDAN</Tag>
+		<English>Leonardo Loredan</English>
+		<French>Leonardo Loredan</French>
+		<German>Leonardo Loredan</German>
+		<Italian>Leonardo Loredan</Italian>
+		<Spanish>Leonardo Loredan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GREAT_PERSON_VENICE_ANDREA_GRITTI</Tag>
+		<English>Andrea Gritti</English>
+		<French>Andrea Gritti</French>
+		<German>Andrea Gritti</German>
+		<Italian>Andrea Gritti</Italian>
+		<Spanish>Andrea Gritti</Spanish>
+	</TEXT>
 </Civ4GameText>
