@@ -462,5 +462,13 @@
 			<NoShaderNIF>Art/BTG/LeaderHeads/enrico_dandolo/brotherhood.nif</NoShaderNIF>
 			<BackgroundKFM>Art/BTG/LeaderHeads/enrico_dandolo/ramassesii_bg.kfm</BackgroundKFM>
 		</LeaderheadArtInfo>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_SELASSIE</Type>
+			<Button>Art/BTG/LeaderHeads/selassie/selassie.dds</Button>
+			<NIF>Art/BTG/LeaderHeads/selassie/hselassie.nif</NIF>
+			<KFM>Art/BTG/LeaderHeads/selassie/saladin.kfm</KFM>
+			<NoShaderNIF>Art/BTG/LeaderHeads/selassie/hselassie.nif</NoShaderNIF>
+			<BackgroundKFM>Art/BTG/LeaderHeads/selassie/saladin_bg.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
 	</LeaderheadArtInfos>
 </Civ4ArtDefines>

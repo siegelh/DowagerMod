@@ -16,4 +16,28 @@
 		<Italian>Venetian Merchant Prince</Italian>
 		<Spanish>Venetian Merchant Prince</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VENETIAN_DOGE_PALACE</Tag>
+		<English>Doge's Palace</English>
+		<French>Doge's Palace</French>
+		<German>Doge's Palace</German>
+		<Italian>Doge's Palace</Italian>
+		<Spanish>Doge's Palace</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VENETIAN_DOGE_PALACE_PEDIA</Tag>
+		<English>The Doge's Palace is the Venetian replacement for the standard Palace, serving as the capital's government center.</English>
+		<French>The Doge's Palace is the Venetian replacement for the standard Palace, serving as the capital's government center.</French>
+		<German>The Doge's Palace is the Venetian replacement for the standard Palace, serving as the capital's government center.</German>
+		<Italian>The Doge's Palace is the Venetian replacement for the standard Palace, serving as the capital's government center.</Italian>
+		<Spanish>The Doge's Palace is the Venetian replacement for the standard Palace, serving as the capital's government center.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VENETIAN_DOGE_PALACE_STRATEGY</Tag>
+		<English>Functions as Venice's unique Palace and provides core capital administration and commerce output.</English>
+		<French>Functions as Venice's unique Palace and provides core capital administration and commerce output.</French>
+		<German>Functions as Venice's unique Palace and provides core capital administration and commerce output.</German>
+		<Italian>Functions as Venice's unique Palace and provides core capital administration and commerce output.</Italian>
+		<Spanish>Functions as Venice's unique Palace and provides core capital administration and commerce output.</Spanish>
+	</TEXT>
 </Civ4GameText>

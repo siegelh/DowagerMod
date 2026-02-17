@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_HAILE_SELASSIE</Tag>
+		<English>Haile Selassie</English>
+		<French>Haile Selassie</French>
+		<German>Haile Selassie</German>
+		<Italian>Haile Selassie</Italian>
+		<Spanish>Haile Selassie</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_HAILE_SELASSIE_PEDIA</Tag>
+		<English>Haile Selassie I led Ethiopia through modernization, anti-fascist resistance, and international diplomacy in the modern era.</English>
+		<French>Haile Selassie I led Ethiopia through modernization, anti-fascist resistance, and international diplomacy in the modern era.</French>
+		<German>Haile Selassie I led Ethiopia through modernization, anti-fascist resistance, and international diplomacy in the modern era.</German>
+		<Italian>Haile Selassie I led Ethiopia through modernization, anti-fascist resistance, and international diplomacy in the modern era.</Italian>
+		<Spanish>Haile Selassie I led Ethiopia through modernization, anti-fascist resistance, and international diplomacy in the modern era.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_SELASSIE</Tag>
+		<English>Lion of Judah</English>
+		<French>Lion of Judah</French>
+		<German>Lion of Judah</German>
+		<Italian>Lion of Judah</Italian>
+		<Spanish>Lion of Judah</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRAIT_SELASSIE_SHORT</Tag>
+		<English>Lion of Judah</English>
+		<French>Lion of Judah</French>
+		<German>Lion of Judah</German>
+		<Italian>Lion of Judah</Italian>
+		<Spanish>Lion of Judah</Spanish>
+	</TEXT>
+</Civ4GameText>
