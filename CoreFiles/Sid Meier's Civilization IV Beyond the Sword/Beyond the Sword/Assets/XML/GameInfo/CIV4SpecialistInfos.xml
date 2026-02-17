@@ -299,6 +299,35 @@
 			<Button>Art/Interface/MainScreen/CityScreen/Great_Merchant.dds</Button>
 		</SpecialistInfo>
 		<SpecialistInfo>
+			<Type>SPECIALIST_VENETIAN_MERCHANT_PRINCE</Type>
+			<Description>TXT_KEY_SPECIALIST_VENETIAN_MERCHANT_PRINCE</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_GREAT_PEOPLE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_SPECIALIST_GREAT_MERCHANT_STRATEGY</Strategy>
+			<Help/>
+			<Texture>Art/Interface/MainScreen/CityScreen/Great_Merchant.dds</Texture>
+			<bVisible>0</bVisible>
+			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
+			<iGreatPeopleRateChange>0</iGreatPeopleRateChange>
+			<Yields>
+				<iYield>6</iYield>
+				<iYield>0</iYield>
+				<iYield>0</iYield>
+			</Yields>
+			<Commerces>
+				<iCommerce>8</iCommerce>
+				<iCommerce>0</iCommerce>
+				<iCommerce>0</iCommerce>
+			</Commerces>
+			<iExperience>0</iExperience>
+			<Flavors/>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/MainScreen/CityScreen/Great_Merchant.dds</Button>
+		</SpecialistInfo>
+		<SpecialistInfo>
 			<Type>SPECIALIST_GREAT_ENGINEER</Type>
 			<Description>TXT_KEY_SPECIALIST_GREAT_ENGINEER</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_GREAT_PEOPLE_PEDIA</Civilopedia>
