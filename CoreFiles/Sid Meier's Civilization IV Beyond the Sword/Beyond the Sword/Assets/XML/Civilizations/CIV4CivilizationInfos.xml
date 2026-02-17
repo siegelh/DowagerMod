@@ -4513,6 +4513,7 @@
 			<bPlayable>1</bPlayable>
 			<bAIPlayable>1</bAIPlayable>
 			<Cities>
+				<City>Venice</City>
 				<City>San Marco</City>
 				<City>Castello</City>
 				<City>Cannaregio</City>

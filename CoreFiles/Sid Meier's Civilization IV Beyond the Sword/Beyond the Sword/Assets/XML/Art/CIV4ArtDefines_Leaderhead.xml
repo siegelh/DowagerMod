@@ -454,5 +454,13 @@
 			<NoShaderNIF>Art/BTG/Leaderheads/Casimir_III/brennus.nif</NoShaderNIF>
 			<BackgroundKFM>Art/BTG/Leaderheads/Casimir_III/brennus_BG.kfm</BackgroundKFM>
 		</LeaderheadArtInfo>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_ENRICO_DANDOLO</Type>
+			<Button>Art/BTG/LeaderHeads/enrico_dandolo/btn_dandolo.dds</Button>
+			<NIF>Art/BTG/LeaderHeads/enrico_dandolo/brotherhood.nif</NIF>
+			<KFM>Art/BTG/LeaderHeads/enrico_dandolo/ramassesii.kfm</KFM>
+			<NoShaderNIF>Art/BTG/LeaderHeads/enrico_dandolo/brotherhood.nif</NoShaderNIF>
+			<BackgroundKFM>Art/BTG/LeaderHeads/enrico_dandolo/ramassesii_bg.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
 	</LeaderheadArtInfos>
 </Civ4ArtDefines>
