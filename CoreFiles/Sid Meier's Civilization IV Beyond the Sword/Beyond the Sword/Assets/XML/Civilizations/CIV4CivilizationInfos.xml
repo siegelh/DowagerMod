@@ -4547,6 +4547,10 @@
 			</Buildings>
 			<Units>
 				<Unit>
+					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<UnitType>UNIT_VENETIAN_MERCHANT</UnitType>
+				</Unit>
+				<Unit>
 					<UnitClassType>UNITCLASS_MERCHANT</UnitClassType>
 					<UnitType>UNIT_VENETIAN_MERCHANT</UnitType>
 				</Unit>

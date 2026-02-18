@@ -25510,6 +25510,7 @@
 			<Class>UNITCLASS_MERCHANT</Class>
 			<Type>UNIT_VENETIAN_MERCHANT</Type>
 			<UniqueNames>
+				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_ENRICO_DANDOLO</UniqueName>
 				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_MARCO_POLO</UniqueName>
 				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_NICCOLO_POLO</UniqueName>
 				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_MAFFEO_POLO</UniqueName>
@@ -25517,7 +25518,6 @@
 				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_ALVISE_CADAMOSTO</UniqueName>
 				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_PIETRO_QUERINI</UniqueName>
 				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_SEBASTIANO_ZIANI</UniqueName>
-				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_ENRICO_DANDOLO</UniqueName>
 				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_PIETRO_ZIANI</UniqueName>
 				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_JACOPO_TIEPOLO</UniqueName>
 				<UniqueName>TXT_KEY_GREAT_PERSON_VENICE_RANIERI_ZENO</UniqueName>
@@ -25557,7 +25557,7 @@
 			<bStealPlans>0</bStealPlans>
 			<bInvestigate>0</bInvestigate>
 			<bCounterSpy>0</bCounterSpy>
-			<bFound>0</bFound>
+			<bFound>1</bFound>
 			<bGoldenAge>1</bGoldenAge>
 			<bInvisible>0</bInvisible>
 			<bFirstStrikeImmune>0</bFirstStrikeImmune>
@@ -25587,7 +25587,12 @@
 				</UnitAI>
 			</UnitAIs>
 			<NotUnitAIs/>
-			<Builds/>
+			<Builds>
+				<Build>
+					<BuildType>BUILD_ROAD</BuildType>
+					<bBuild>1</bBuild>
+				</Build>
+			</Builds>
 			<ReligionSpreads/>
 			<CorporationSpreads/>
 			<GreatPeoples>
@@ -25599,6 +25604,30 @@
 			<Buildings>
 				<Building>
 					<BuildingType>BUILDING_CORPORATION_1</BuildingType>
+					<bBuilding>1</bBuilding>
+				</Building>
+				<Building>
+					<BuildingType>BUILDING_CORPORATION_3</BuildingType>
+					<bBuilding>1</bBuilding>
+				</Building>
+				<Building>
+					<BuildingType>BUILDING_CORPORATION_4</BuildingType>
+					<bBuilding>1</bBuilding>
+				</Building>
+				<Building>
+					<BuildingType>BUILDING_CORPORATION_5</BuildingType>
+					<bBuilding>1</bBuilding>
+				</Building>
+				<Building>
+					<BuildingType>BUILDING_CORPORATION_6</BuildingType>
+					<bBuilding>1</bBuilding>
+				</Building>
+				<Building>
+					<BuildingType>BUILDING_CORPORATION_7</BuildingType>
+					<bBuilding>1</bBuilding>
+				</Building>
+				<Building>
+					<BuildingType>BUILDING_ACADEMY</BuildingType>
 					<bBuilding>1</bBuilding>
 				</Building>
 			</Buildings>
@@ -25632,14 +25661,14 @@
 			<iAirUnitCap>0</iAirUnitCap>
 			<iDropRange>0</iDropRange>
 			<iNukeRange>-1</iNukeRange>
-			<iWorkRate>0</iWorkRate>
+			<iWorkRate>1000</iWorkRate>
 			<iBaseDiscover>1000</iBaseDiscover>
 			<iDiscoverMultiplier>2</iDiscoverMultiplier>
 			<iBaseHurry>0</iBaseHurry>
 			<iHurryMultiplier>0</iHurryMultiplier>
 			<iBaseTrade>1000</iBaseTrade>
 			<iTradeMultiplier>400</iTradeMultiplier>
-			<iGreatWorkCulture>0</iGreatWorkCulture>
+			<iGreatWorkCulture>4000</iGreatWorkCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<TerrainImpassables/>
 			<FeatureImpassables/>

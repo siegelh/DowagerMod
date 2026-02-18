@@ -309,12 +309,12 @@
 			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>2</iGreatPeopleRateChange>
 			<Yields>
-				<iYield>6</iYield>
+				<iYield>3</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</Yields>
 			<Commerces>
-				<iCommerce>8</iCommerce>
+				<iCommerce>3</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 			</Commerces>
