@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_MURSILIS</Tag>
+		<English>Mursilis</English>
+		<French>Mursilis</French>
+		<German>Mursilis</German>
+		<Italian>Mursilis</Italian>
+		<Spanish>Mursilis</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_MURSILIS_PEDIA</Tag>
+		<English>
+			[H1]Mursilis [\H1][NEWLINE][BOLD]king of the Hittite Empire [\BOLD][NEWLINE][BOLD]Lived: [\BOLD] ca. 1321 ? 1295 BC [NEWLINE][PARAGRAPH:2][BOLD]Background: [\BOLD][PARAGRAPH:1]Mursili II (also spelled Mursilis II)assumed the throne after the premature death of Arnuwanda II who, like their father, fell victim to the plague which ravaged the Hatti in the 1320s BCE. He was greeted with contempt by Hatti's enemies and faced numerous rebellions early in his reign, the most serious of which were those initiated by the Kaskas in the mountains of Anatolia, but also by the kingdom Arzawa in southwest Turkey because he was perceived to be an inexperienced ruler who only became king due to the early death of Arnuwanda II. Mursili II records the scorn of his foes in his this Annal document:[PARAGRAPH:1]You are a child; you know nothing and instill no fear in me. Your land is now in ruins, and your infantry amd chariotry are few. Against your infantry, I have many infantry; against your chariotry I have many chariotry. Your father had many infantry and chariotry. But you who are a child, how can you match him? (Comprehensive Annals, AM 18-21)[PARAGRAPH:1][PARAGRAPH:1]While Mursili II was a young and inexperienced king, he was almost certainly not a child when he took the Hittite throne and must have reached an age to be capable of ruling in his own right.[4] If he was indeed a child, other arrangements would have been made to secure the stability of the Empire; Mursili after all had two surviving elder brothers who served as the viceroys of Carchemish (ie: Sarri-Kush) and Aleppo respectively.[5] Mursili II would prove to be more than a match for his successful father, Suppiluliuma I, in his military deeds and diplomacy. The Annals for the first Ten years of his reign have survived and record that he carried out punitive campaigns against the Kaska tribes in the first two years of his reign in order to secure his kingdom's northern borders. The king then turned to the West to resist the aggression of Uhhaziti, king of Arzawa who was attempting to lure away Hittite allies into his camp. The Annals also reveal that an "omen of the sun," or solar eclipse, occurred in his tenth year as king, just as he was about to launch his campaign against the Kaska peoples. While Mursili II's highest confirmed date was his twenty-second year[6], he is believed to have lived beyond this date for a few more years and died after a reign of around 25 to 27 years. He was succeeded by Muwatalli.	</English>
+	</TEXT>
+</Civ4GameText>

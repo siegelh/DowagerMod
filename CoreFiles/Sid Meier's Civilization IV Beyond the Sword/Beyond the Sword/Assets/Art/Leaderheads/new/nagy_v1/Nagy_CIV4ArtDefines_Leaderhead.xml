@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Firaxis Games (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Leaderhead art path information -->
+<Civ4ArtDefines xmlns="x-schema:Nagy_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_MAGYAR_Nagy</Type>
+			<Button>,Modules/Custom Civilizations/Hungary/leaderheads/Nagy_v1/Btn_LH_Magyar_Nagy.dds</Button>
+			<NIF>Modules/Custom Civilizations/Hungary/leaderheads/Nagy_v1/alexander.nif</NIF>
+			<KFM>Modules/Custom Civilizations/Hungary/leaderheads/Nagy_v1/alexander.kfm</KFM>
+			<NoShaderNIF>Modules/Custom Civilizations/Hungary/leaderheads/Nagy_v1/alexander_noshader.nif</NoShaderNIF>
+			<BackgroundKFM>Modules/Custom Civilizations/Hungary/leaderheads/Nagy_v1/alexander_bg.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>

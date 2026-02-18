@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Firaxis Games (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Building art path information -->
+<Civ4ArtDefines xmlns="x-schema:Petro_CIV4ArtDefinesSchema.xml">
+	<BuildingArtInfos>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_REFINERY</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.53</fInterfaceScale>
+			<NIF>Modules/Petromod/Art/Structures/Buildings/Refinery/gasplant.nif</NIF>
+			<KFM/>
+			<Button>Modules/Petromod/Art/Structures/Buildings/Refinery/refinery_button.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_OPEC</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.53</fInterfaceScale>
+			<NIF>Modules/Petromod/Art/Structures/Buildings/OPEC_HQ/OPEC.nif</NIF>
+			<KFM/>
+			<Button>Modules/Petromod/Art/Structures/Buildings/OPEC_HQ/OPEC.dds</Button>
+		</BuildingArtInfo>
+	</BuildingArtInfos>
+</Civ4ArtDefines>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Created with Notepad by strategyonly -->
+<Civ4ArtDefines xmlns="x-schema:G3_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_GEORGE_III</Type>
+			<Button>Modules\Custom LeaderHeads\GeorgeIII\G3button.dds</Button>
+			<NIF>Modules\Custom LeaderHeads\GeorgeIII\peter.nif</NIF>
+			<KFM>Modules\Custom LeaderHeads\GeorgeIII\peter.kfm</KFM>
+			<NoShaderNIF>Modules\Custom LeaderHeads\GeorgeIII\peter.nif</NoShaderNIF>
+			<BackgroundKFM>Modules\Custom LeaderHeads\GeorgeIII\peter_bg.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>

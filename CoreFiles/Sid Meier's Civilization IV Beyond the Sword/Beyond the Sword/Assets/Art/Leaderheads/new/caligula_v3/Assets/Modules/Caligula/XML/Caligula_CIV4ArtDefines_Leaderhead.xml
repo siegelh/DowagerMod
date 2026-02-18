@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Firaxis Games (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<Civ4ArtDefines xmlns="x-schema:Caligula_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_CALIGULA</Type>
+			<Button>Modules/Caligula/Btn_LH_Caligula.dds</Button>
+			<NIF>Modules/Caligula/Pacal.nif</NIF>
+			<KFM>Modules/Caligula/Pacal.kfm</KFM>
+			<NoShaderNIF>Modules/Caligula/Pacal.nif</NoShaderNIF>
+			<BackgroundKFM>Modules/Caligula/Pacal_BG.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>

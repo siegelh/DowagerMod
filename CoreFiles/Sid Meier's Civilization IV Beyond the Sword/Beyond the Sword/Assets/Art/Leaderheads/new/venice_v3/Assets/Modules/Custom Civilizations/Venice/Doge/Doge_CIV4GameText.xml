@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VENICE_ARSENAL</Tag>
+		<English>Arsenal</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VENICE_ARSENAL_PEDIA</Tag>
+		<English>[TAB]An arsenal is an establishment for the construction, repair, storage and issue of weapons and ammunition. The word arsenal appears in various forms in Romance languages (from which it has been adopted into the ones), i.e. Italian arzanale, Spanish arsenal etc.; Italian also has arzana and darsena, and Spanish a longer form atarazanal. The word is of Arabic origin, being a corruption of dar as-sina'ah, "house of trade" or "manufacture". Such guesses as arx navalis, "naval citadel", arx senatus (i.e. of Venice, etc.), have been discounted. For the rest of Early Modern Europe, the Arsenal was the Venetian Arsenal.[PARAGRAPH:1]</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_VENICE_ARSENAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Arsenal[COLOR_REVERT] allows a city to produce units and buildings faster, but also adds unhealthiness in cities. [COLOR_BUILDING_TEXT]Arsenals[COLOR_REVERT] are required to build the [COLOR_BUILDING_TEXT]Colossus[COLOR_REVERT], [COLOR_BUILDING_TEXT]Eiffel Tower[COLOR_REVERT], and [COLOR_BUILDING_TEXT]Statue of LIberty[COLOR_REVERT] world wonders, and the [COLOR_BUILDING_TEXT]Ironworks[COLOR_REVERT] national wonder.</English>
+	</TEXT>
+</Civ4GameText>

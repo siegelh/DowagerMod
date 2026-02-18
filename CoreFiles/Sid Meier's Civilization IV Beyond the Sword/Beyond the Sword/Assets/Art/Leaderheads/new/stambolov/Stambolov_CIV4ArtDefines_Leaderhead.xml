@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Firaxis Games (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<Civ4ArtDefines xmlns="x-schema:Stambolov_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_STAMBOLOV</Type>
+			<Button>Modules/Bulgaria/Stambolov/Stambolov.dds</Button>
+			<NIF>Modules/Bulgaria/Stambolov/ataturk.nif</NIF>
+			<KFM>Modules/Bulgaria/Stambolov/ataturk.kfm</KFM>
+			<NoShaderNIF>Modules/Bulgaria/Stambolov/ataturk.nif</NoShaderNIF>
+			<BackgroundKFM>Modules/Bulgaria/Stambolov/peter_bg.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_CALIGULA</Tag>
+		<English>Caligula</English>
+		<French>Caligula</French>
+		<German>Caligula</German>
+		<Italian>Caligula</Italian>
+		<Spanish>Caligula</Spanish>
+		<Hungarian>Caligula</Hungarian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_CALIGULA_PEDIA</Tag>
+		<English>
+			[H1]Gaius Julius Caesar Augustus Germanicus[\H1][NEWLINE][BOLD]Emperor of Rome[\BOLD][NEWLINE][BOLD]Lived: [\BOLD]August 31, 12 - January 24, 41[NEWLINE][PARAGRAPH:2][BOLD]Background:[\BOLD][NEWLINE][TAB]Although Caligula was popular with the Roman public throughout his reign, the scarce surviving sources focus upon anecdotes of his alleged cruelty, extravagance and sexual perversity, presenting him as an insane tyrant. While the reliability of these sources has been difficult to assess, what is known is that during his brief reign, Caligula worked to increase the authority of the Principate, but struggled to maintain his position in the face of several conspiracies to overthrow him. He focused much of his attention on ambitious construction projects, and annexed Mauretania but failed to conquer Britain.[PARAGRAPH:1] In 40, Caligula began implementing very controversial policies that introduced religion into his political role. Caligula began appearing in public dressed as various gods and demigods such as Hercules, Mercury, Venus and Apollo. Reportedly, he began referring to himself as a god when meeting with politicians and he was referred to as Jupiter on occasion in public documents. A sacred precinct was set apart for his worship at Miletus in the province of Asia and two temples were erected for worship of him in Rome. The Temple of Castor and Pollux on the Forum was linked directly to the Imperial residence on the Palatine and dedicated to Caligula. He would appear here on occasion and present himself as a god to the public. Caligula's religious policy was a subtle, but important departure from the policy of his predecessors. According to Cassius Dio, living Emperors could be worshipped as divine in the east and dead Emperors could be worshipped as divine in Rome. Augustus also had the public worship his spirit on occasion, but Dio describes this as an extreme act that emperors generally shied away from. Caligula took things a step further and had those in Rome, including Senators, worship him as a physical living god.[PARAGRAPH:1]Surviving sources present a number of outlandish stories about Caligula that attempt to illustrate cruelty, debauchery and insanity. 	The contemporary sources, Philo of Alexandria and Seneca the Younger, describe an insane Emperor who was self-absorbed, angry, killed on a whim, and who indulged in too much spending and sex. He is accused of sleeping with other men's wives and bragging about it, killing for mere amusement, purposely wasting money on his bridge, causing starvation, and wanting a statue of himself erected in the Temple of Jerusalem for his worship. While repeating the earlier stories, the later sources of Suetonius and Cassius Dio add additional tales of insanity. They accuse Caligula of incest with his sisters, Agrippina, Drusilla and Julia Livilla, and say he prostituted them to other men.[104] They state he sent troops on illogical military exercises. They also allege he made the palace into a literal brothel.[106] Perhaps most famous, they say that Caligula tried to make his horse, Incitatus, a consul and a priest. The validity of these accounts is debatable. In Roman political culture, insanity and sexual perversity were often presented hand-in-hand with poor government.[PARAGRAPH:1]On 24 January 41, Caligula was assassinated as the result of a conspiracy involving members of his own bodyguard and the Roman Senate. The conspirators' attempt to use the opportunity to restore the Roman Republic was thwarted, as the same day the Praetorian Guard declared Caligula's uncle Claudius emperor in his place.</English>
+	</TEXT>
+</Civ4GameText>

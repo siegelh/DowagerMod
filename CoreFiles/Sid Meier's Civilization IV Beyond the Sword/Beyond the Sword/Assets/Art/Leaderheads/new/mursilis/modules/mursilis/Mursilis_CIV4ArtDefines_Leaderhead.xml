@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4ArtDefines xmlns="x-schema:Mursilis_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_MURSILIS</Type>
+			<Button>,Art/interface/LeaderHeads/Btn_LH_Mursilis.dds</Button>
+			<NIF>art/Leaderheads/Mursilis/Mursilis.nif</NIF>
+			<KFM>art/Leaderheads/Mursilis/peter.kfm</KFM>
+			<NoShaderNIF>art/Leaderheads/Mursilis/Mursilis.nif</NoShaderNIF>
+			<BackgroundKFM>art/LeaderHeads/Mursilis/Mursilis_BG.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>

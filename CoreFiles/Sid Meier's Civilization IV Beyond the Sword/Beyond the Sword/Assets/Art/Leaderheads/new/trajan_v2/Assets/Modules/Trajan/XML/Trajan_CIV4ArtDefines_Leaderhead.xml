@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Firaxis Games (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<Civ4ArtDefines xmlns="x-schema:Trajan_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_TRAJAN</Type>
+			<Button>Modules/Trajan/Btn_LH_Trajan.dds</Button>
+			<NIF>Modules/Trajan/julius_caesar.nif</NIF>
+			<KFM>Modules/Trajan/julius_caesar.kfm</KFM>
+			<NoShaderNIF>Modules/Trajan/julius_caesar.nif</NoShaderNIF>
+			<BackgroundKFM>Modules/Trajan/julius_caesar_BG.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>

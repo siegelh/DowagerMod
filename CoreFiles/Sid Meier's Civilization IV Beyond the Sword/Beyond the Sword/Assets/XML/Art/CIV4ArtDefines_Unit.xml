@@ -16988,12 +16988,12 @@
 			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/apache_calvary.dds</Button>
 			<fScale>0.42</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
-			<NIF>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.nif</NIF>
-			<KFM>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.kfm</KFM>
-			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.nif</SHADERNIF>
+				<NIF>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.nif</NIF>
+				<KFM>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.kfm</KFM>
+				<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.nif</SHADERNIF>
 			<ShadowDef>
 				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
-				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
+					<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
 			<fBattleDistance>0.35</fBattleDistance>

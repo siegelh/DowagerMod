@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_TRAJAN</Tag>
+		<English>Trajan</English>
+		<French>Trajan</French>
+		<German>Trajan</German>
+		<Italian>Trajan</Italian>
+		<Spanish>Trajan</Spanish>
+		<Hungarian>Trajan</Hungarian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_TRAJAN_PEDIA</Tag>
+		<English>
+			[H1]Marcus Ulpius Nerva Traianus[\H1][NEWLINE][BOLD]Emperor of Rome[\BOLD][NEWLINE][BOLD]Lived: [\BOLD]September 18, 53 - August 9, 117[NEWLINE][PARAGRAPH:2][BOLD]Background:[\BOLD][NEWLINE][TAB][PARAGRAPH:1] Trajan rose to prominence during the reign of emperor Domitian, serving as a general in the Roman army along the German frontier, and successfully crushing the revolt of Antonius Saturninus in 89. On September 18, 96, Domitian was succeeded by Marcus Cocceius Nerva, an old and childless senator who proved to be unpopular with the army. After a brief and tumultuous year in power, a revolt by members of the Praetorian Guard compelled him to adopt the more popular Trajan as his heir and successor. Nerva died on January 27, 98, and was succeeded by his adopted son without incident.[PARAGRAPH:1]As a civilian administrator, Trajan is best known for his extensive public building program, which reshaped the city of Rome and left multiple enduring landmarks such as Trajan's Forum, Trajan's Market and Trajan's Column. It was as a military commander however that Trajan celebrated his greatest triumphs. In 101, he launched a punitive expedition into the kingdom of Dacia against king Decebalus, defeating the Dacian army near Tapae in 102, and finally conquering Dacia completely in 106. In 107, Trajan pushed further east and conquered Nabatea, gaining the short-lived province of Arabia Petraea. After a period of relative peace within the Empire, he launched his final campaign in 113 against Parthia, advancing as far as the city of Susa in 116, and expanding the Roman Empire to its greatest extent. During this campaign Trajan was struck by illness, and late in 117, while sailing back to Rome, he died of stroke on August 9, in the city of Selinus. He was deified by the Senate and his ashes were laid to rest in the Mausoleum of Augustus. He was succeeded by his first cousin once removed Publius Aelius Hadrianus?commonly known as Hadrian.[PARAGRAPH:1]As an emperor, Trajan's enduring in the history of the Roman Empire, and in reputation better than Augustus. Every new emperor after Trajan was honored by the Senate with the prayer felicior Augusto, melior Traiano, meaning "may he be luckier than Augustus and better than Trajan". Contrary to many lauded rulers in history, this reputation survived nearly undiminished for over nineteen centuries. Among medieval Christian theologians, Trajan was considered a virtuous pagan, while the 18th century historian Edward Gibbon popularized the notion of the Five Good Emperors, of which Trajan was the second.[PARAGRAPH:1] Unlike many lauded rulers in history, Trajan's reputation has survived undiminished for nearly nineteen centuries. The Christianization of Rome resulted in further embellishment of his legend: it was commonly said in medieval times that Pope Gregory I, through divine intercession, resurrected Trajan from the dead and baptized him into the Christian faith. An account of this features in the Golden Legend. Theologians, such as Thomas Aquinas, discussed Trajan as an example of a virtuous pagan. In the Divine Comedy, Dante, following this legend, sees the spirit of Trajan in the Heaven of Jupiter with other historical and mythological persons noted for their justice. He also features in Piers Plowman. An episode, referred to as the justice of Trajan was reflected in several art works.		</English>
+	</TEXT>
+</Civ4GameText>

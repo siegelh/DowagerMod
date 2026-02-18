@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_MARCUS</Tag>
+		<English>Marcus Aurelius</English>
+		<French>Marcus Aurelius</French>
+		<German>Marcus Aurelius</German>
+		<Italian>Marcus Aurelius</Italian>
+		<Spanish>Marcus Aurelius</Spanish>
+		<Hungarian>Marcus Aurelius</Hungarian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_MARCUS_PEDIA</Tag>
+		<English>
+			Marcus Aurelius Antoninus Augustus (called "the Wise") (April 26, 121 - March 17, 180) was Roman Emperor from 161 to his death in 180. He was the last of the "Five Good Emperors", and is also considered one of the most important Stoic philosophers. His tenure was marked by wars in Asia against a revitalized Parthian Empire, and with Germanic tribes along the Limes Germanicus into Gaul and across the Danube. A revolt in the East, led by Avidius Cassius, failed. Marcus Aurelius' work Meditations, written on campaign between 170 and 180, is still revered as a literary monument to a government of service and duty and has been praised for its "exquisite accent and its infinite tenderness."
+		</English>
+	</TEXT>
+</Civ4GameText>

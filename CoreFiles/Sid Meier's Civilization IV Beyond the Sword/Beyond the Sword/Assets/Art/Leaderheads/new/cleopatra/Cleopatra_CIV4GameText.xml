@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_CLEOPATRA</Tag>
+		<English>Cleopatra</English>
+		<French>Cleopatra</French>
+		<German>Cleopatra</German>
+		<Italian>Cleopatra</Italian>
+		<Spanish>Cleopatra</Spanish>
+		<Hungarian>Cleopatra</Hungarian>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_CLEOPATRA_PEDIA</Tag>
+		<English>[H1]Cleopatra VII Thea Philopator[\H1][NEWLINE][BOLD]Hellenistic ruler of Egypt[\BOLD][NEWLINE][BOLD]Lived:[\BOLD] January 69 BC to 30 BC[NEWLINE][PARAGRAPH:2][BOLD]Background:[\BOLD][PARAGRAPH:1]Originally sharing power with her father Ptolemy XII and later with her brothers/husbands Ptolemy XIII and Ptolemy XIV; eventually gaining sole rule of Egypt. As Pharaoh, she consummated a liaison with Gaius Julius Caesar that solidified her grip on the throne, and, after Caesar's assassination, aligned with Mark Antony, with whom she produced twins. In all, Cleopatra had four children, one by Caesar (Caesarion) and three by Antony (Cleopatra Selene II, Alexander Helios, and Ptolemy Philadelphus). Her unions with her brothers produced no children. It is possible that they were never consummated; in any case, they were not close. Her reign marks the end of the Hellenistic Era and the beginning of the Roman Era in the eastern Mediterranean. She was the last Pharaoh of Ancient Egypt (her son by Julius Caesar, Caesarion, ruled in name only before Augustus had him executed).</English>
+	</TEXT>
+	<TEXT>
+		<Tag>AI_DIPLO_FIRST_CONTACT_LEADER_CLEOPATRA_1</Tag>
+		<English>Greetings, [CT_NAME]. Be it known that we, the greatest, are misthought.</English>		
+	</TEXT>	
+</Civ4GameText>

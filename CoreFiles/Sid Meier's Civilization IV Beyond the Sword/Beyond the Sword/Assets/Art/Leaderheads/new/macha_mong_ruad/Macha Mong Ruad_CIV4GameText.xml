@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- -->
+<!-- edited with XML Marker 1.1 -->
+<!-- In The WayBack -->
+<!-- Modified by the Barbarian Graphics Shop (2008)-->
+<!-- this space available -->
+<!-- -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+     <TEXT>
+	   <Tag>TXT_KEY_LEADER_MACHA_MONG_RUAD_PEDIA</Tag>
+       <English>[H1]Macha Mong Ruad[\H1][NEWLINE][BOLD]Milesian Queen of Gaelach (Ireland)[\BOLD][NEWLINE][BOLD]Lived: [\BOLD]aprox. 300 BCE[NEWLINE][BOLD]Background:[\BOLD][NEWLINE][TAB]Of all the great queens and ladies of Ireland, there was one Queen of many talents, who outshone many others, famous and quite capable in her own right. This great Queen, of whom Ireland rightly boast's, was Macha Mong Ruad (the Red-Haired) who reigned over the land in approximately 300 BCE. Her father, Aod Ruad (Red Hugh) was one of a triumvirate consisting of his brothers ~ Dithorba and Cimbaoth ~ who by mutual agreement took turns at seven year intervals in reigning. Aod Ruad was the first of the brothers to govern but met his death by drowning at Eas-Aod-Ruad (Assaore) ~ now known as Ballyshanny. 
+[TAB]At the death of Aod Ruad, his daughter, Macha stepped forth to claim her right to wear the crown, and refused to give up the realm, thereby becoming the first Milesian Queen of Ireland. But for this right, she had to battle her father's two brother's ~ which she willing did, conquering and slaying first Dithorba; then with equal skill and mastery she deftly turned her attention towards her father's remaining brother, first defeating Cimbaoth and then compelling him to wed her, thereby confirming her right to rule all of Ireland as queen. Which, had the anticipated result of settling everything. 
+[TAB]For many years the reign of Macha and Cimbaoth (which co-incides with that of the legendary Alexander the Great) marks the beginning of certainty in Irish history ~ according to the famed remark of the trusted eleventh century historian, Tighenach of Clonmacnoise, where he stated that such records prior to that reign were uncertain. 
+[TAB]Upon the death of her husband, Cimbaoth, Macha once again took up the sole reins of government herself. But the record above all others that this distinguished warrior and leader leaves to history is her founding of the ancient and oft storied stronghold, named after her ~ Emania Macha, later to become renown as the fortress of the Red Branch, which was for more than six hundred years to play a vital and most important role in the fortunes and history of Uladh (now Ulster) as well as that of Ireland itself. Today, Emania Macha is represented by the grassy ramparts of a great hill-fortress, now known as Navan Fort, about three miles north-west of Ard Macha (Armagh), 
+[TAB]"The five sons of Dithorba, having been expelled out of Ulster, fled acroos the Shannon and in the west of the kingdom plotted revenge against Macha. Then it was that the Queen went down alone into Connaught and there found the brothers. Thinking themselves alone and safe in the forest, the brothers, wearied with a successful hunt, were cooking a wild boar and resting before the freshly kindled fire. Suddenly, Macha appeared, her aspect grim and fearsome to behold, terrible and fierce as war itself but with bright and flashing eyes. One by one the brothers were inflamed by her sinister beauty, and one by one she overpowered them in battle and bound them. Taking her burden of the five sons of Dithorba back with her to the north. Where with the spear of her brooch she then marked out on the plain the circuit of the city of Emania Macha, whose very ramparts and trenches were constructed as punishment by the captives, laboring like slaves under her command." 
+[TAB]It was Macha's foster-son, Ugani-Mor (the Great) who after succeeding her, led forth his armies into Britain to have his power and reign acknowledged there. After bringing the greater part of Britain to obedience to his rule, some traditions say that his ambitions led him forth onto the Continent where he also met with a great many victories and success's, thereby giving basis for the ancient seanchies styling him "King of Ireland and the whole of Western Europe as far as the Muir Torian" - the Mediterranean Sea. 
+[TAB]All of the leading families of Ulster, Leinster and Connaught trace their descent from Ugani Mor ~ the common father of those three great provinces. This many faceted woman, Macha Mong Ruad, indeed left a legacy befitting her. </English>
+     </TEXT>
+
+	<TEXT>
+		<Tag>AI_DIPLO_FIRST_CONTACT_LEADER_MACHA_MONG_RUAD_1</Tag>
+		<English>I am [OUR_NAME] of the [OUR_EMPIRE]. Why are you here?</English>
+	</TEXT>
+</Civ4GameText>

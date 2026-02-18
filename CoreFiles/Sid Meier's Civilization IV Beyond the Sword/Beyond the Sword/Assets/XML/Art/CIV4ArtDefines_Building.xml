@@ -3050,7 +3050,7 @@
 			<fInterfaceScale>0.8</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/elder_council/eldercouncil.nif</NIF>
 			<KFM />
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/eldercouncil.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/eldercouncil.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_EMPIRE_STATE_BUILDING</Type>

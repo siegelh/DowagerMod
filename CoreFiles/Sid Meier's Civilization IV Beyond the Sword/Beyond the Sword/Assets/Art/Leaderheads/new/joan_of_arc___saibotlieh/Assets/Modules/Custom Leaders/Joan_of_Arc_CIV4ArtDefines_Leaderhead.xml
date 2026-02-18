@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Firaxis Games (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Leaderhead art path information -->
+<Civ4ArtDefines xmlns="x-schema:Joan_of_Arc_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_JOAN_OF_ARC</Type>
+			<Button>Modules/Custom Leaders/Art/Interface/Leaderheads/joan_of_arc.dds</Button>
+			<NIF>Modules/Custom Leaders/Art/Leaderheads/Joan_of_Arc/elizabeth.nif</NIF>
+			<KFM>Art/LeaderHeads/elizabeth/elizabeth.kfm</KFM>
+			<NoShaderNIF>Modules/Custom Leaders/Art/Leaderheads/Joan_of_Arc/elizabeth_noshader.nif</NoShaderNIF>
+			<BackgroundKFM>Modules/Custom Leaders/Art/Leaderheads/Joan_of_Arc/elizabeth_bg.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>

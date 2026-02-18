@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_CLEOPATRA</Tag>
+		<English>Cleopatra</English>
+		<French>
+			<Text>Cleopatra</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Kleopatra</Text>
+			<Gender>female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Cleopatra</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Cleopatra</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_CLEOPATRA_PEDIA</Tag>
+		<English>[H1]Cleopatra[\H1][NEWLINE][BOLD]Pharaoh of Egypt[NEWLINE]Lived:[\BOLD] 69BC - 30BC[NEWLINE][PARAGRAPH:2][BOLD]Background:[\BOLD][PARAGRAPH:1] Cleopatra VII Philopator was the last person to rule Egypt  as an Egyptian pharaoh – after she died, Egypt became a Roman province.
+		
+She was a member of the Ptolemaic dynasty of Ancient Egypt, and therefore was a descendant of one of Alexander the Great's generals who had seized control over Egypt after Alexander's death. Most Ptolemeis spoke Greek and refused to learn Egyptian, which is the reason that Greek as well as Egyptian languages were used on official court documents like the Rosetta Stone. By contrast, Cleopatra learned Egyptian and represented herself as the reincarnation of an Egyptian Goddess.
+
+Cleopatra originally ruled jointly with her father Ptolemy XII Auletes and later with her brothers, Ptolemy XIII and Ptolemy XIV, whom she married as per Egyptian custom, but eventually she became sole ruler. As pharaoh, she consummated a liaison with Gaius Julius Caesar that solidified her grip on the throne. She later elevated her son with Caesar, Caesarion, to co-ruler in name.
+
+After Caesar's assassination in 44 BC, she aligned with Mark Antony in opposition to Caesar's legal heir, Gaius Iulius Caesar Octavianus (later known as Augustus). With Antony, she bore the twins Cleopatra Selene II and Alexander Helios, and another son, Ptolemy Philadelphus. Her unions with her brothers produced no children. After losing the Battle of Actium to Octavian's forces, Antony committed suicide. Cleopatra followed suit, according to tradition killing herself by means of an asp bite on August 12, 30 BC. She was briefly outlived by Caesarion, who was declared pharaoh, but he was soon killed on Octavian's orders. Egypt became the Roman province of Aegyptus.
+
+Though Cleopatra bore the ancient Egyptian title of pharaoh, the Ptolemaic dynasty was Hellenistic, having been founded 300 years before by Ptolemy I Soter, a Macedonian Greek general of Alexander the Great. As such, Cleopatra's language was the Greek spoken by the Hellenic aristocracy, though she was reputed to be the first ruler of the dynasty to learn Egyptian. She also adopted common Egyptian beliefs and deities. Her patron goddess was Isis, and thus, during her reign, it was believed that she was the re-incarnation and embodiment of the goddess of wisdom. Her death marked the end of the Ptolemaic Kingdom and Hellenistic period and the beginning of the Roman era in the eastern Mediterranean.
+
+To this day, Cleopatra remains a popular figure in Western culture. Her legacy survives in numerous works of art and the many dramatizations of her story in literature and other media, including William Shakespeare's tragedy Antony and Cleopatra, Jules Massenet's opera Cléopâtre and the 1963 film Cleopatra. In most depictions, Cleopatra is put forward as a great beauty and her successive conquests of the world's most powerful men are taken to be proof of her aesthetic and sexual appeal. In his Pensées, philosopher Blaise Pascal contends that Cleopatra's classically beautiful profile changed world history: "Cleopatra's nose, had it been shorter, the whole face of the world would have been changed.</English>
+		<French></French>
+		<German>[H1]Kleopatra[\H1][NEWLINE][BOLD]Pharao von Ägypten[\BOLD][NEWLINE][BOLD]Lebenszeit: [\BOLD] 69 v.Chr - 30 v.Chr[PARAGRAPH:2:0]Kleopatra VII. Philopator herrschte als letzte Königin des ägyptischen Ptolemäerreiches  und zugleich als letzter weiblicher Pharao von 51 v. Chr. bis 30 v. Chr. In den ersten vier Jahren regierte sie zunächst gemeinsam mit ihrem Bruder Ptolemaios XIII., der 47 v. Chr. im Alter von 14 Jahren verstarb, später mit anderen männlichen Mitregenten, da unter der Garantie Roms gesetzliche Regelungen eine Doppelbesetzung des Thrones vorsahen. Von den Königinnen gleichen Namens ist Kleopatra VII. die bekannteste.
+
+Sie wollte ihr Reich konsolidieren und ausbauen, konnte dieses Ziel aber nicht gegen die Weltmacht Rom durchsetzen. Daher gewann sie die beiden mächtigsten Römer ihrer Zeit, zuerst Gaius Iulius Caesar und nach dessen Ermordung Marcus Antonius, zu Geliebten und konnte mit deren Hilfe für einige Zeit die Machtstellung des Ptolemäerreichs deutlich erhöhen. Antonius’ Niederlage gegen den späteren Kaiser Augustus bedeutete das Ende ihrer Herrschaft. Sie und Antonius verübten Selbstmord und Ägypten wurde zur römischen Provinz Aegyptus.
+
+Das Liebesdrama von Antonius und Kleopatra, das Verhältnis der ägyptischen Königin zu Caesar sowie die mysteriösen Umstände ihres Todes beflügelten die Fantasie der Menschen seit der Antike und inspirierten zahlreiche bedeutende Schriftsteller, Komponisten, Maler und seit dem 20. Jahrhundert auch Filmproduzenten. Als literarisches Hauptwerk zu diesem Thema gilt die Tragödie Antonius und Cleopatra (um 1606/07) von William Shakespeare.</German>
+	</TEXT>
+</Civ4GameText>	

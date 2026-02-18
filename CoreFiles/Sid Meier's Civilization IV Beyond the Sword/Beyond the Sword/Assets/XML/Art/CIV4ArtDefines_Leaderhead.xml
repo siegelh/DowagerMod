@@ -406,7 +406,14 @@
 			<NoShaderNIF>art/LeaderHeads/Sitting Bull/Sitting_Bull_NONSHADER.nif</NoShaderNIF>
 			<BackgroundKFM>art/LeaderHeads/Sitting Bull/Sitting Bull_BG.kfm</BackgroundKFM>
 		</LeaderheadArtInfo>
-		<LeaderheadArtInfo>
+				<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_GERONIMO</Type>
+			<Button>Art/Leaderheads/new/Geronimo/Btn_LH_Geronimo.dds</Button>
+			<NIF>Art/Leaderheads/new/Geronimo/geronimo.nif</NIF>
+			<KFM>Art/Leaderheads/new/Geronimo/george_washington.kfm</KFM>
+			<NoShaderNIF>Art/Leaderheads/new/Geronimo/geronimo.nif</NoShaderNIF>
+			<BackgroundKFM>Art/Leaderheads/new/Geronimo/washington_bg.kfm</BackgroundKFM>
+		</LeaderheadArtInfo><LeaderheadArtInfo>
 			<Type>ART_DEF_LEADER_SULEIMAN</Type>
 			<Button>,Art/interface/LeaderHeads/Btn_LH_America_Washington.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,4,2</Button>
 			<NIF>art/LeaderHeads/Suleiman/Suleiman.nif</NIF>

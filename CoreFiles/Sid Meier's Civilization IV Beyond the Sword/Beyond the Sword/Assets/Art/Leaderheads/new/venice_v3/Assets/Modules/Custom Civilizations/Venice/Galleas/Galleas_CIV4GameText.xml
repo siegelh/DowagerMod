@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GALLEAS</Tag>
+		<English>Galleass</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GALLEAS_PEDIA</Tag>
+		<English>
+			[TAB]The galleass or "galliass" (known as a "mahon" in Turkey) developed from large merchant galleys.
+			Converted for military use they were higher and larger than regular ("light") galleys. They had up to 32 oars, each worked by up to 5 men. They usually had three masts and a forecastle and aftcastle. Much effort was made in Venice to make these galleasses as fast as possible to compete with regular galleys. The gun-deck usually ran over the rowers' heads, but there are also pictures showing the opposite arrangement.[Paragraph:1]	Galleasses usually carried more sails than true galleys, and were far deadlier; a galley caught broadside lay all but helpless, but coming broadside to a galleass, as with a ship of the line, exposed an attacker to her gunfire. The galleass exemplified an intermediate type between the galley and the true man-of-war. Relatively few galleasses were built ? one disadvantage was that, being more reliant on sails, their position at the front of the galley line at the start of a battle could not be guaranteed ? but they were used at the Battle of Lepanto (7 October 1571), their firepower helping to win victory for the Christian fleet, and some sufficiently seaworthy galleasses accompanied the Spanish Armada in 1588 (e.g. La Girona).[Paragraph:1]	In the Mediterranean, with its shallower waters, less dangerous weather and fickle winds, both galleasses and galleys continued in use, particularly in Venice and Turkey, long after they became obsolete elsewhere. Later, "round ships" and galleasses were replaced by galleons and ships of the line which originated in northern Europe. The first Venetian ship of the line was built in 1660.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GALLEAS_STRATEGY</Tag>
+		<English>The [COLOR_UNIT_TEXT]Trader[COLOR_REVERT] serves as an upgraded trieme that can carry the same number of units as a galley. </English>
+	</TEXT>
+</Civ4GameText>

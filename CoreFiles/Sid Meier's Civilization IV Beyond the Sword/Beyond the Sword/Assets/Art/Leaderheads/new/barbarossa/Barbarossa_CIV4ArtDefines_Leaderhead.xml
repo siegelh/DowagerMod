@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- -->
+<Civ4ArtDefines xmlns="x-schema:BARBAROSSA_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_BARBAROSSA</Type>
+			<Button>art/LeaderHeads/Barbarossa/FriedrichBarbarossa.dds</Button>
+			<NIF>art/LeaderHeads/Barbarossa/Cunne_Shote.nif</NIF>
+			<KFM>art/LeaderHeads/Barbarossa/Cunne_Shote.kfm</KFM>
+			<NoShaderNIF>art/LeaderHeads/Barbarossa/Cunne_Shote.nif</NoShaderNIF>
+			<BackgroundKFM>art/LeaderHeads/Barbarossa/Cunne_Shote_BG.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>

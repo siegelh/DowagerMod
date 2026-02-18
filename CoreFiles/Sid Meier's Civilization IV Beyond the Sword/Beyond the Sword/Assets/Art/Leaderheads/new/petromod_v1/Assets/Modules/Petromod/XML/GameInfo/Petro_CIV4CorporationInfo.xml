@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Religion -->
+<Civ4CorporationInfo xmlns="x-schema:Petro_CIV4GameInfoSchema.xml">
+	<CorporationInfos>
+		<CorporationInfo>
+			<Type>CORPORATION_3</Type>
+			<!--<Description>Standard Oil</Description>-->
+			<Description>Eco-Oil</Description>
+			<Civilopedia>TXT_KEY_BUILDING_EO_STRATEGY</Civilopedia>
+			<TechPrereq>NONE</TechPrereq>
+			<FreeUnitClass>NONE</FreeUnitClass>
+			<iSpreadFactor>0</iSpreadFactor>
+			<iSpreadCost>50</iSpreadCost>
+			<iMaintenance>100</iMaintenance>
+			<PrereqBonuses>
+				<BonusType>BONUS_OIL</BonusType>
+			</PrereqBonuses>
+			<HeadquarterCommerces>
+				<iHeadquarterCommerce>5</iHeadquarterCommerce>
+				<iHeadquarterCommerce>0</iHeadquarterCommerce>
+				<iHeadquarterCommerce>0</iHeadquarterCommerce>
+			</HeadquarterCommerces>
+			<BonusProduced>NONE</BonusProduced>
+			<CommercesProduced>
+				<iCommerceProduced>0</iCommerceProduced>
+			</CommercesProduced>
+			<YieldsProduced>
+				<iYieldProduced>0</iYieldProduced>
+				<iYieldProduced>400</iYieldProduced>
+				<iYieldProduced>0</iYieldProduced>
+			</YieldsProduced>
+			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,3,6</Button>
+			<!--<Button>Modules/Petromod/Art/Corporations/StdOil.dds</Button>-->
+			<MovieFile>NONE</MovieFile>
+			<MovieSound>NONE</MovieSound>
+			<Sound>AS2D_BUILD_BANK</Sound>
+		</CorporationInfo>
+		</CorporationInfos>
+</Civ4CorporationInfo>

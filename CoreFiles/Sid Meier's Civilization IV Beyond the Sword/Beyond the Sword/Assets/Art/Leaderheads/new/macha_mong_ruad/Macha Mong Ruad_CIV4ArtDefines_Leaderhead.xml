@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- -->
+<!-- edited with XML Marker 1.1 -->
+<!-- In The WayBack -->
+<!-- Modified by the Barbarian Graphics Shop (2008)-->
+<!-- this space available -->
+<!-- -->
+<Civ4ArtDefines xmlns="x-schema:Macha Mong Ruad_CIV4ArtDefinesSchema.xml">
+	<LeaderheadArtInfos>
+		<LeaderheadArtInfo>
+			<Type>ART_DEF_LEADER_MACHA_MONG_RUAD</Type>
+			<Button>Modules/Custom Civilizations/Celt/Macha Mong Ruad/BTN_LH_Celt_Macha Mong Ruad.dds</Button>
+			<NIF>Modules/Custom Civilizations/Celt/Macha Mong Ruad/Macha Mong Ruad.nif</NIF>
+			<KFM>Modules/Custom Civilizations/Celt/Macha Mong Ruad/Macha Mong Ruad.kfm</KFM>
+			<NoShaderNIF>Modules/Custom Civilizations/Celt/Macha Mong Ruad/Macha Mong Ruad_noshader.nif</NoShaderNIF>
+			<BackgroundKFM>Modules/Custom Civilizations/Celt/Macha Mong Ruad/Macha Mong Ruad_bg.kfm</BackgroundKFM>
+		</LeaderheadArtInfo>
+	</LeaderheadArtInfos>
+</Civ4ArtDefines>

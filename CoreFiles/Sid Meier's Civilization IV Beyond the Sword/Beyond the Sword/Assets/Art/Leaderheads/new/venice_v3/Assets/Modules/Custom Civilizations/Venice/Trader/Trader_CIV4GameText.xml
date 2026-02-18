@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Sid Meier's Civilization 4 Beyond the Sword -->
+<!-- Modified by the Civ Gold Team -->
+<!-- -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TRADER</Tag>
+		<English>Trader</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TRADER_PEDIA</Tag>
+		<English> [TAB]Traders function as professionals who deal with trade, dealing in commodities that they do not produce themselves, in order to produce profit. Marco Polo was a famous Vnetian trader who open the eyes of Europe to the east and inspired Columbus and his voyages.
+		</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TRADER_STRATEGY</Tag>
+		<English>The [COLOR_UNIT_TEXT]Trader[COLOR_REVERT] can explorer rival territory and conduct trade missions. The Venetian replacement for the [COLOR_UNIT_TEXT]Explorer[COLOR_REVERT] is also slightly more powerful than the standard unit and receives a bonus against [COLOR_HIGHLIGHT_TEXT]Melee[COLOR_REVERT] units.</English>
+	</TEXT>
+</Civ4GameText>

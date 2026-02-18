@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ###################################################################################### -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+    <TEXT>
+	<Tag>TXT_KEY_LEADER_GEORGE_III_PEDIA</Tag>
+		<English>
+			[H1]George III[\H1][NEWLINE][BOLD]Governor of California [\BOLD][NEWLINE][BOLD]Lived: [\BOLD] September 2, 1866 � August 6, 1945[NEWLINE][PARAGRAPH:2][BOLD]Background:[\BOLD][NEWLINE][TAB] Hiram Warren Johnsonm was a leading American progressive and later isolationist politician from California; he served as Governor from 1911 to 1917, and as a United States Senator from 1917 to 1945. Johnson gained some recognition in the media and general public during the 2003 California recall election because he was the most important person behind the introduction of the law that allowed state officials to be recalled. Also, then-gubernatorial candidate Arnold Schwarzenegger referred to Johnson's progressive legacy in his campaign speeches.
+		</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_GEORGE_III</Tag>
+		<English>George III</English>
+	</TEXT>
+
+</Civ4GameText>
