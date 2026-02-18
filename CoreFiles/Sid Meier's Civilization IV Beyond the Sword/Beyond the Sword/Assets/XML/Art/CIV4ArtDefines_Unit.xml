@@ -7119,7 +7119,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -7717,7 +7717,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -8691,7 +8691,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/dragoon/light_dragoon.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/dragoon/light_dragoon.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -10729,7 +10729,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/highwayman/knightofsaintjohngeneral.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -10869,7 +10869,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/horseman_eurasian/horseman_eurasian.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/horseman_eurasian/horseman_eurasian_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -10886,7 +10886,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/animals/donkey/donkey.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -11349,7 +11349,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/lancer/lancer_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -11969,7 +11969,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/medical_vet/serbia.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -13224,7 +13224,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/outlaw/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -15693,7 +15693,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/trench_cavalry/ww1_cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -16802,7 +16802,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_heavycavalry/heavycavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/animals/camel/camel.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -16992,8 +16992,8 @@
 				<KFM>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.kfm</KFM>
 				<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
-					<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
+				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
 			<fBattleDistance>0.35</fBattleDistance>
@@ -17362,7 +17362,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/unique/mexican/rurales/villista.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -17844,7 +17844,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/chariot/chariot.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mali_sparth/chariot/malichariot_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -17861,7 +17861,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/light_cavalry/chinahorse_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -18132,7 +18132,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/celtic_sparth/cuirassier/celticcuirassierfinal.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -18322,7 +18322,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/german_sparth/cuirassier/imperialcuirassierfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -18373,7 +18373,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/spanish_sparth/carabinier/mountedconquistador.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/spanish_sparth/carabinier/mountedconquistador.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -18798,7 +18798,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/meso_american_sparth/cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -19091,7 +19091,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_lightcavalry/lightcavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/ottoman_sparth/light_cavalry/newottomanhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -19260,7 +19260,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_heavycavalry/heavycavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/light_cavalry/rajputheavycavalrylateblackcoat.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -19469,7 +19469,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/adventurer/malihorse_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -19587,7 +19587,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/carabanier/brazil_cuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -19878,7 +19878,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/native_american_sparth/adventurer/native_scout.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/adventurer/native_scout.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -20178,7 +20178,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/bandit_rider/african_horseman_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -20444,7 +20444,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/carabanier/sioux_cuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -20461,7 +20461,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/cavalry/native_mounted_cavalry2.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -20682,7 +20682,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -20729,7 +20729,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/dragoon/turkishhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -21425,7 +21425,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/highwayman/cuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -21478,7 +21478,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/horseman/african_horseman_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -21680,7 +21680,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/lancer/knight.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -22455,7 +22455,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/outlaw/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -23146,7 +23146,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/trench_cavalry/ww1_cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -23665,7 +23665,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_heavycavalry/heavycavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/adventurer/knight.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -23980,7 +23980,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/bandit_rider_sa/african_horseman_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -24246,7 +24246,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/carabanier/brazil_cuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -24263,7 +24263,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/cavalry/incacavalryfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -24434,7 +24434,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/cuirassier/incacuirassierfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -24481,7 +24481,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/dragoon/turkishhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -25182,7 +25182,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/highwayman/incacuirassierfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -25217,7 +25217,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/horseman_sa/african_horseman_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -25403,7 +25403,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/lancer/winged hussar.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -26230,7 +26230,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/outlaw/newzulucavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -26839,7 +26839,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/trench_cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -27412,7 +27412,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/european_sparth/bandit_rider/slavicpolishhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -28021,7 +28021,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/european_sparth/horseman/vietnamhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -28038,7 +28038,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/european_sparth/lancer/uhlan.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -28646,7 +28646,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/knight/knight.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/adventurer/horseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -28943,7 +28943,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/bandit_rider/mongelkeshik_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -29228,7 +29228,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/carabanier/cuirassier_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -29281,7 +29281,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -29537,7 +29537,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/cuirassier/cuirassier_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -29621,7 +29621,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/dragoon/turkishhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -30467,7 +30467,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/highwayman/cuirassier_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -30670,7 +30670,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/horseman_eurasian/horseman_eurasian.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/lancer/horseman_eurasian_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -30738,7 +30738,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/light_cavalry/chinahorse_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -31494,7 +31494,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/outlaw/newnihoncuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -32281,7 +32281,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/trench_cavalry/nihoncavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -32838,7 +32838,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/adventurer/malihorse_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -33172,7 +33172,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/bandit_rider/persianimmortal_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -33473,7 +33473,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/carabanier/africanearlycavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -33490,7 +33490,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/cavalry/cavalry_african_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -33881,7 +33881,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/cuirassier/cuirassier_african_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -33928,7 +33928,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/dragoon/turkishhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -34662,7 +34662,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/highwayman/africanearlycavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -34986,7 +34986,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_heavycavalry/heavycavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/lancer/knight.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -35829,7 +35829,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/outlaw/ethiopiacuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -36611,7 +36611,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/african_sparth/trench_cavalry/senegelesespahi.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -37130,7 +37130,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/adventurer/cholacavalryturban.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -37500,7 +37500,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/carabanier/persiancuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -37517,7 +37517,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/cavalry/arabiccavalryindustrial.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -37758,7 +37758,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/cuirassier/mamlukcuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -37805,7 +37805,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/dragoon/horseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -38384,7 +38384,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/highwayman/travancorecuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -38605,7 +38605,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_lightcavalry/lightcavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/lancer/arabicbedouincavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -39447,7 +39447,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/outlaw/algerianspahi.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -40057,7 +40057,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/trench_cavalry/arabicmoderncavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -40560,7 +40560,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/meso_american_sparth/adventurer/mesomidhvycavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -40874,7 +40874,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/meso_american_sparth/carabinier/cuirassier2.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -40927,7 +40927,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/meso_american_sparth/cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -41112,7 +41112,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/meso_american_sparth/cuirassier/cuirassier_fx.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -41489,7 +41489,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/meso_american_sparth/highwayman/villista.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -41524,7 +41524,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/knight_south_america/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/meso_american_sparth/horseman/newaztechorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -42689,7 +42689,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/meso_american_sparth/trench_cavalry/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -43041,7 +43041,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/prodromoi/prodromoi.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/adventurer/newegypthorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -43215,7 +43215,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/prodromoi/prodromoi.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/bandit_rider/newegypthorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -43348,7 +43348,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/carabanier/egyptcuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -43365,7 +43365,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/cavalry/egyptcavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -43568,7 +43568,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/cuirassier/cuirassier_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -43615,7 +43615,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/dragoon/egyptmidhvycavalryarmor_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -44136,7 +44136,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/prodromoi/prodromoi.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/horseman/newegypthorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -44221,7 +44221,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/prodromoi/prodromoi.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/lancer/newegypthorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -45306,7 +45306,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/denmark_sparth/carabinier/cuirassierbr.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -45437,7 +45437,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_heavycavalry/heavycavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/denmark_sparth/knight/knight.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -45758,7 +45758,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/adventurer/mysorecavalrysword.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -46007,7 +46007,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/bandit_rider/indianancienttamillighthorsepants.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -46190,7 +46190,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/carabanier/indianmarathacuirassierarmored.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -46207,7 +46207,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/cavalry/sepoymutineercavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -46428,7 +46428,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/cuirassier/mughalcuirassierchainmailandturban.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -46445,7 +46445,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/dragoon/sepoylatercavalrysword.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -46943,7 +46943,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/highwayman/travancorecuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -46978,7 +46978,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/horseman/indianancienttamillighthorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -47163,7 +47163,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_lightcavalry/lightcavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/lancer/indianmarathalightcavalryredturban.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -47886,7 +47886,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/outlaw/mughalcuirassierunarmored.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -48422,7 +48422,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/trench_cavalry/indianmoderncavalrymadras.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -49066,7 +49066,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/greek_sparth/carabanier/byzantinecuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -49083,7 +49083,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/greek_sparth/cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -49272,7 +49272,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/dragoon/light_dragoon.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/greek_sparth/dragoon/light_dragoon.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -49763,7 +49763,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/greek_sparth/horseman/greekearlyhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -49931,7 +49931,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/greek_sparth/lancer/greekhorsemanhelmetfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -50999,7 +50999,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/greek_sparth/trench_cavalry/serbia.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -51601,7 +51601,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/german_sparth/carabanier/cuirassierge.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -51653,7 +51653,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/german_sparth/cavalry/hussar.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -51768,7 +51768,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/german_sparth/mailed_knight/knight.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -51890,7 +51890,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/german_sparth/cuirassier/imperialcuirassierfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -51907,7 +51907,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/dragoon/light_dragoon.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/german_sparth/dragoon/dragoon.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -52377,7 +52377,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/german_sparth/horseman/light_cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -52528,7 +52528,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_lightcavalry/lightcavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/german_sparth/lancer/lightcavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -53336,7 +53336,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/german_sparth/trench_cavalry/germanycavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -53600,7 +53600,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/iroquois_sparth/cavalry/iroquois_cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -54489,7 +54489,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/french_sparth/cavalry/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -54606,7 +54606,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/french_sparth/mailed_knight/knight.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -55183,7 +55183,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/australia_sparth/cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -55375,7 +55375,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/australia_sparth/trench_cavalry/aussie_cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -55495,7 +55495,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/adventurer/babylonlightcavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -55624,7 +55624,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/bandit_rider/horsemanme.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -55705,7 +55705,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/carabanier/israeli_cuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -55722,7 +55722,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/cavalry/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -55874,7 +55874,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/cuirassier/cuirassier_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -55891,7 +55891,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/knight_south_america/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/dragoon/horseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -56295,7 +56295,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/horseman/newsumerhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -56413,7 +56413,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_heavycavalry/heavycavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/lancer/heavy_cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -57292,7 +57292,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/trench_cavalry/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -57673,7 +57673,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/horsearcher/horsearcher.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/adventurer/pecheneghorsearcherfemale.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -57986,7 +57986,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/carabanier/mongolcuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -58003,7 +58003,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/cavalry/malicavalryfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -58172,7 +58172,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/cuirassier/cuirassier_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -58189,7 +58189,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/dragoon/mamlukswordcavalryvestwsleeves.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -58567,7 +58567,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/horseman/mongelkeshik.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -58718,7 +58718,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/lancer/prepetrinecavalryheavyspear.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -59288,7 +59288,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/outlaw/mamlukcavalryindustrialvestwsleeves.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -59786,7 +59786,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/trench_cavalry/mongolcavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -60268,7 +60268,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/rome_sparth/carabanier/cuirassierru.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -60285,7 +60285,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/rome_sparth/cavalry/romancavalryfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -60454,7 +60454,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/rome_sparth/cuirassier/romancuirassierfinal_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -60471,7 +60471,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/knight_south_america/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/rome_sparth/dragoon/romanhorsemangloss_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -60845,7 +60845,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/rome_sparth/horseman/romanhorsemangloss_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -60947,7 +60947,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/rome_sparth/lancer/lancer_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -61619,7 +61619,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/rome_sparth/trench_cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -61938,7 +61938,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/carthage_sparth/cavalry/desert_cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -62056,7 +62056,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/carthage_sparth/currassier/cuirassier_fx.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -62221,7 +62221,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/knight_south_america/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/carthage_sparth/horseman/knight.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -62704,7 +62704,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/celtic_sparth/cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -62824,7 +62824,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/celtic_sparth/cuirassier/celticcuirassierfinal.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -62960,7 +62960,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/celtic_sparth/horseman/mswordsman_light.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -63378,7 +63378,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/celtic_sparth/trench_cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -63624,7 +63624,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/japan_sparth/bandit_rider/soheicavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -63725,7 +63725,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/japan_sparth/carabinier/cuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -63742,7 +63742,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/japan_sparth/cavalry/nihoncavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -63859,7 +63859,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/japan_sparth/cuirassier/cuirassier_fx.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -64054,7 +64054,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/japan_sparth/horseman/newnihonhorseman2.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -64106,7 +64106,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/japan_sparth/lancer/yaricav.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -64510,7 +64510,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/japan_sparth/trench_cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -64804,7 +64804,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/khmer_sparth/carabinier/khmer_cuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -64821,7 +64821,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/khmer_sparth/cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -64888,7 +64888,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/khmer_sparth/cuirassier/vietnamesecuirassier.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -65057,7 +65057,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/horseman_eurasian/horseman_eurasian.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/khmer_sparth/horseman/vietnamhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -65624,7 +65624,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/korea_sparth/carabinier/cuirassier_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -65641,7 +65641,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/korea_sparth/cavalry/koreancavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -65726,7 +65726,7 @@
 			<NIF>Art/Caveman2Cosmos/art/units/korea_sparth/cuirasier/korea_cuirassier2.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -66369,7 +66369,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mali_sparth/carabanier/malicuirassierfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -66386,7 +66386,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mali_sparth/cavalry/malicavalryfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -66623,7 +66623,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mali_sparth/horseman/malihorse.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -67041,7 +67041,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/nubia_sparth/adventurer/ethiopiahorsefinalx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -67123,7 +67123,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/nubia_sparth/carabinier/cuirassier_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -67140,7 +67140,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/nubia_sparth/cavalry/newethiopiacavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -67376,7 +67376,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/nubia_sparth/horseman/nubianhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -67703,7 +67703,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/nubia_sparth/trench_cavalry/ethiocavalryfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -67840,7 +67840,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/ottoman_sparth/carabinier/delicuirassier1.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -67857,7 +67857,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/ottoman_sparth/cavalry/turkishcavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -67991,7 +67991,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/ottoman_sparth/cuirassier/turkishcuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -68008,7 +68008,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/dragoon/light_dragoon.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/ottoman_sparth/dragoon/ottomandelihorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -68563,7 +68563,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/ottoman_sparth/trench_cavalry/ottoman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -68704,7 +68704,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/knight/knight.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/polynesia_sparth/adventurer/koreahorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -68944,7 +68944,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/polynesia_sparth/carabinier/incacuirassierfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -68961,7 +68961,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/polynesia_sparth/cavalry/polycavalrydef.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -69129,7 +69129,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/polynesia_sparth/cuirassier/polycuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -69146,7 +69146,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/polynesia_sparth/dragoon/turkishhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -69518,7 +69518,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/polynesia_sparth/horseman/polyhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -69620,7 +69620,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/polynesia_sparth/lancer/african_horseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -70346,7 +70346,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/polynesia_sparth/trench_cavalry/ww1_cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -70609,7 +70609,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/russian_sparth/adventurer/oprichnik.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -70821,7 +70821,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/russian_sparth/carabinier/cuirassierru.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -70873,7 +70873,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/russian_sparth/cavalry/russiancossack.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -70989,7 +70989,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/russian_sparth/cuirassier/prepetrinecuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -71361,7 +71361,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/russian_sparth/highwayman/cossackzaporozhianvest.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -71396,7 +71396,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/russian_sparth/horseman/slavicrussianhorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -71522,7 +71522,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/russian_sparth/lancer/prepetrinecavalryheavyspear.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -72199,7 +72199,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/russian_sparth/trench_cavalry/cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -72514,7 +72514,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/spanish_sparth/carabinier/mountedconquistador.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/spanish_sparth/carabinier/mountedconquistador.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -72531,7 +72531,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/spanish_sparth/cavalry/spain_cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -72647,7 +72647,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/spanish_sparth/cuirassier/spaincuirassier2.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -72837,7 +72837,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/spanish_sparth/horseman/spainishjinete.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -73221,7 +73221,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/viking_sparth/adventurer/companion_cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -73308,7 +73308,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/viking_sparth/bandit_rider/mongelkeshik.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -73391,7 +73391,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/viking_sparth/carabinier/swedishcuirassierfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -73408,7 +73408,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/viking_sparth/cavalry/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -73493,7 +73493,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/viking_sparth/cuirassier/cuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -73510,7 +73510,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/dragoon/light_dragoon.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/viking_sparth/dragoon/conquistador.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -73766,7 +73766,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_lightcavalry/lightcavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/viking_sparth/horseman/vikinghorsemanfinal.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -74524,7 +74524,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/unique/venezuela/llanero/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -74542,7 +74542,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/cuirassier/native_mounted_warrior.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -75126,7 +75126,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/unique/hungarian/hussar/hussar.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -75161,7 +75161,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/unique/venezuela/llanero/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -75556,7 +75556,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/unique/cuba/mambise/cubca.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -75574,7 +75574,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/unique/southafrica/boercavalry/boer_commando.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -75712,7 +75712,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/prussia/uhlan/hussar.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/unique/prussia/uhlan/hussar.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -75902,7 +75902,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/unique/venezuela/llanero/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -79676,7 +79676,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/argentinian/mounted_grenadiers/argentine_cavalry.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -79891,7 +79891,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/south_american_sparth/outlaw/newzulucavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -80011,7 +80011,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/lancer/lancer_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -80418,7 +80418,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/prodromoi/prodromoi.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/horseman/newegypthorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -80495,7 +80495,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/paiute/paiute_cavalry/mesomoderncavalry.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -80634,7 +80634,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/spanish_sparth/carabinier/mountedconquistador.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/spanish_sparth/carabinier/mountedconquistador.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -80673,7 +80673,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/spanish_sparth/carabinier/mountedconquistador.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/spanish_sparth/carabinier/mountedconquistador.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -80712,7 +80712,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/dragoon/horseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -80731,7 +80731,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/peruvian/peruvian_conquistador/cuirassiersp.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -80751,7 +80751,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/spanish_sparth/cavalry/spain_cavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -81263,7 +81263,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/horseman_eurasian/horseman_eurasian.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/lancer/horseman_eurasian_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -81613,7 +81613,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_heavycavalry/heavycavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/babylon_sparth/lancer/heavy_cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -81633,7 +81633,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/indian_sparth/horseman/indianancienttamillighthorseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -82313,7 +82313,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/nubia_sparth/cavalry/newethiopiacavalry.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -82448,7 +82448,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/tajiks/omuchtan/cossackdonblackcoat.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -82487,7 +82487,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/tagalog/katipunan_cavalry/malaypostmelakalightcavalrygunpowder.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -82901,7 +82901,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/mongol_sparth/carabanier/mongolcuirassier.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -83329,7 +83329,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/transoxanian/khingila_warriors/indianindosakaspearman.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/unique/greek/phalanx/greekphalanx.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -83551,7 +83551,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/ukrainian/zaporozki_kozak/cossackzaporozhiangreencoat.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -83841,7 +83841,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/saudi/saud_cavalry/arab_cavalry.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -83919,7 +83919,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/vandal/vandal_pillager/maxeman.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/scenario/companion_cavalry/companion_cavalry.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -83962,7 +83962,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/waray/waray_riders/filipinohorseman.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -84118,7 +84118,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/wayuu/wayuu_cavalry/brazil_cavalry.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -85300,7 +85300,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/aksumite/aksum_merchants/greatmerchant_fx.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/greatpeople/merchant/greatmerchantancient.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -85649,7 +85649,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_mountedinfantry/mountedinfantry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/middle_eastern_sparth/adventurer/cholacavalryturban.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -86252,7 +86252,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/persia/immortal/persianimmortal.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/polynesia_sparth/lancer/african_horseman.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -86481,7 +86481,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/gaucho/gaucho_cavalry/mountedbandeirantes.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/cuirassier/cuirassier.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -86501,7 +86501,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/cavalry/cavalry.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/outlaw/cavalry_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -86520,7 +86520,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/georgian/monaspa_guard/knightme.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/knight/knight.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -86871,7 +86871,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/guatemala/alvarado_cavalry/knightofsaintjohngeneral.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/unique/russia/cossack/russiancossack.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -87046,7 +87046,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/himyarite/myrh_caravan/greatmerchant_fx.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/greatpeople/merchant/greatmerchantancient.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -87911,7 +87911,7 @@
 			<NIF>Art/Caveman2Cosmos/art/unique/khazak/batyrs/kipchakheavycavalry.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/charlemagne_lightcavalry/lightcavalry.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -88025,7 +88025,7 @@
 			<KFM>Art/Caveman2Cosmos/art/units/unique/mongol/keshik/mongelkeshik.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/asian_sparth/bandit_rider/mongelkeshik_fx.nif</SHADERNIF>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/horseshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/HorseShadow.nif</ShadowNIF>
 				<ShadowAttachNode>HorseBip Spine1</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -88620,3 +88620,4 @@
 		</UnitArtInfo>
 	</UnitArtInfos>
 </Civ4ArtDefines>
+
