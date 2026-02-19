@@ -3064,7 +3064,7 @@
 			<Adjective>TXT_KEY_CIV_NATIVE_AMERICA_ADJECTIVE</Adjective>
 			<Civilopedia>TXT_KEY_CIV_NATIVE_AMERICA_PEDIA</Civilopedia>
 			<DefaultPlayerColor>PLAYERCOLOR_LIGHT_BROWN</DefaultPlayerColor>
-			<ArtDefineTag>ART_DEF_CIVILIZATION_NATIVE_AMERICA</ArtDefineTag>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_POLYNESIA_BTG</ArtDefineTag>
 			<ArtStyleType>ARTSTYLE_SOUTH_AMERICA</ArtStyleType>
 			<UnitArtStyleType>UNIT_ARTSTYLE_SOUTH_AMERICA</UnitArtStyleType>
 			<bPlayable>1</bPlayable>
@@ -5454,7 +5454,7 @@
 				</Building>
 			</Buildings><Units>
 				<Unit>
-					<UnitClassType>UNITCLASS_HORSE_ARCHER</UnitClassType>
+					<UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
 					<UnitType>UNIT_APACHE_RAIDER_BTG</UnitType>
 				</Unit>
 			</Units><FreeUnitClasses><FreeUnitClass><UnitClassType>UNITCLASS_SETTLER</UnitClassType><iFreeUnits>1</iFreeUnits></FreeUnitClass></FreeUnitClasses><FreeBuildingClasses><FreeBuildingClass><BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType><bFreeBuildingClass>1</bFreeBuildingClass></FreeBuildingClass></FreeBuildingClasses><FreeTechs><FreeTech><TechType>TECH_AGRICULTURE</TechType><bFreeTech>1</bFreeTech></FreeTech><FreeTech><TechType>TECH_FISHING</TechType><bFreeTech>1</bFreeTech></FreeTech></FreeTechs><DisableTechs /><InitialCivics><CivicType>CIVIC_DESPOTISM</CivicType><CivicType>CIVIC_BARBARISM</CivicType><CivicType>CIVIC_TRIBALISM</CivicType><CivicType>CIVIC_DECENTRALIZATION</CivicType><CivicType>CIVIC_PAGANISM</CivicType></InitialCivics><Leaders>
@@ -5463,5 +5463,119 @@
 					<bLeaderAvailability>1</bLeaderAvailability>
 				</Leader>
 			</Leaders><DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv><CivilizationSelectionSound>AS3D_NATIVE_AMERICA_SELECT</CivilizationSelectionSound><CivilizationActionSound>AS3D_NATIVE_AMERICA_ORDER</CivilizationActionSound></CivilizationInfo>
+
+		<CivilizationInfo>
+			<Type>CIVILIZATION_POLYNESIA_BTG</Type>
+			<Description>TXT_KEY_CIV_POLYNESIA_BTG_DESC</Description>
+			<ShortDescription>TXT_KEY_CIV_POLYNESIA_BTG_SHORT_DESC</ShortDescription>
+			<Adjective>TXT_KEY_CIV_POLYNESIA_BTG_ADJECTIVE</Adjective>
+			<Civilopedia>TXT_KEY_CIV_POLYNESIA_BTG_PEDIA</Civilopedia>
+			<DefaultPlayerColor>PLAYERCOLOR_LIGHT_BROWN</DefaultPlayerColor>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_NATIVE_AMERICA</ArtDefineTag>
+			<ArtStyleType>ARTSTYLE_SOUTH_AMERICA</ArtStyleType>
+			<UnitArtStyleType>UNIT_ARTSTYLE_SOUTH_AMERICA</UnitArtStyleType>
+			<bPlayable>1</bPlayable>
+			<bAIPlayable>1</bAIPlayable>
+			<Cities>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_APIA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_NUKUALOFA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_PAGO_PAGO_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_AVARUA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_ALOFI_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_HANGA_ROA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_PAPEETE_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_FAAA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_UTUROA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_RAIATEA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_BORA_BORA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_MOOREA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_HUAHINE_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_TAIOHAE_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_ATUONA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_NUKU_HIVA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_HIVA_OA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_RANGIROA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_FAKARAVA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_RAROTONGA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_MATA_UTU_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_HONOLULU_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_HILO_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_KAILUA_KONA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_LAHAINA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_LIHUE_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_KANEOHE_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_WAIMEA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_KAHULUI_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_TAMAKI_MAKAURAU_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_ROTORUA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_TAURANGA_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_WHANGAREI_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_RAPA_NUI_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_SAVAII_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_UPOLU_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_TONGATAPU_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_VAVAU_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_NIUE_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_RAIVAVAE_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_RURUTU_BTG</City>
+				<City>TXT_KEY_CITY_NAME_POLYNESIA_RAPA_ITI_BTG</City>
+			</Cities>
+			<Buildings>
+				<Building>
+					<BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
+					<BuildingType>BUILDING_POLYNESIA_MARAE_BTG</BuildingType>
+				</Building>
+			</Buildings>
+			<Units>
+				<Unit>
+					<UnitClassType>UNITCLASS_GALLEY</UnitClassType>
+					<UnitType>UNIT_POLYNESIA_OCEAN_CANOE_BTG</UnitType>
+				</Unit>
+				<Unit>
+					<UnitClassType>UNITCLASS_WORKBOAT</UnitClassType>
+					<UnitType>UNIT_POLYNESIA_WAYFINDER_WORKBOAT_BTG</UnitType>
+				</Unit>
+			</Units>
+			<FreeUnitClasses>
+				<FreeUnitClass>
+					<UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+					<iFreeUnits>1</iFreeUnits>
+				</FreeUnitClass>
+			</FreeUnitClasses>
+			<FreeBuildingClasses>
+				<FreeBuildingClass>
+					<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+					<bFreeBuildingClass>1</bFreeBuildingClass>
+				</FreeBuildingClass>
+			</FreeBuildingClasses>
+			<FreeTechs>
+				<FreeTech>
+					<TechType>TECH_AGRICULTURE</TechType>
+					<bFreeTech>1</bFreeTech>
+				</FreeTech>
+				<FreeTech>
+					<TechType>TECH_FISHING</TechType>
+					<bFreeTech>1</bFreeTech>
+				</FreeTech>
+			</FreeTechs>
+			<DisableTechs/>
+			<InitialCivics>
+				<CivicType>CIVIC_DESPOTISM</CivicType>
+				<CivicType>CIVIC_BARBARISM</CivicType>
+				<CivicType>CIVIC_TRIBALISM</CivicType>
+				<CivicType>CIVIC_DECENTRALIZATION</CivicType>
+				<CivicType>CIVIC_PAGANISM</CivicType>
+			</InitialCivics>
+			<Leaders>
+				<Leader>
+					<LeaderName>LEADER_SALAMASINA_BTG</LeaderName>
+					<bLeaderAvailability>1</bLeaderAvailability>
+				</Leader>
+			</Leaders>
+			<DerivativeCiv>CIVILIZATION_AMERICA</DerivativeCiv>
+			<CivilizationSelectionSound>AS3D_POLYNESIA_SELECT</CivilizationSelectionSound>
+			<CivilizationActionSound>AS3D_POLYNESIA_ORDER</CivilizationActionSound>
+		</CivilizationInfo>
 </CivilizationInfos>
 </Civ4CivilizationInfos>
+
