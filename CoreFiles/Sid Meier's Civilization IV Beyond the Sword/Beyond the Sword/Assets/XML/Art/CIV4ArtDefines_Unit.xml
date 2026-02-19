@@ -2220,8 +2220,8 @@
 				<AudioRunTypeLoop>LOOPSTEP_OCEAN1</AudioRunTypeLoop>
 				<AudioRunTypeEnd>ENDSTEP_OCEAN1</AudioRunTypeEnd>
 			</AudioRunSounds>
-			<SelectionSound>AS3D_UN_WRK_BOAT_ANC_FORT</SelectionSound>
-			<ActionSound>AS3D_UN_WRK_BOAT_ANC_FORT</ActionSound>
+			<SelectionSound>AS3D_UN_WRK_FORT_VOX</SelectionSound>
+			<ActionSound>AS3D_UN_WRK_SURR_VOX</ActionSound>
 		</UnitArtInfo>
 		<UnitArtInfo>
 			<Type>ART_DEF_UNIT_POLYNESIA_WAYFINDER_WORKBOAT_BTG</Type>
@@ -2334,8 +2334,8 @@
 				<AudioRunTypeLoop>LOOPSTEP_OCEAN1</AudioRunTypeLoop>
 				<AudioRunTypeEnd>ENDSTEP_OCEAN1</AudioRunTypeEnd>
 			</AudioRunSounds>
-			<SelectionSound>AS3D_UN_OCEAN_END1</SelectionSound>
-			<ActionSound>AS3D_UN_OCEAN_END1</ActionSound>
+			<SelectionSound>AS3D_UN_WRK_FORT_VOX</SelectionSound>
+			<ActionSound>AS3D_UN_WRK_SURR_VOX</ActionSound>
 		</UnitArtInfo>
 		<UnitArtInfo>
 			<Type>ART_DEF_UNIT_POLYNESIA_OCEAN_CANOE_BTG</Type>
