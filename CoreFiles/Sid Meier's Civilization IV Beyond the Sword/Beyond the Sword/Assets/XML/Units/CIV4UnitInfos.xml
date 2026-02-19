@@ -19648,7 +19648,7 @@
       <bFlatMovementCost>0</bFlatMovementCost>
       <bIgnoreTerrainCost>0</bIgnoreTerrainCost>
       <bNukeImmune>0</bNukeImmune>
-      <bPrereqBonuses>1</bPrereqBonuses>
+      <bPrereqBonuses>0</bPrereqBonuses>
       <bPrereqReligion>0</bPrereqReligion>
       <bMechanized>1</bMechanized>
       <bRenderBelowWater>1</bRenderBelowWater>
@@ -26840,7 +26840,7 @@
       <bFlatMovementCost>0</bFlatMovementCost>
       <bIgnoreTerrainCost>0</bIgnoreTerrainCost>
       <bNukeImmune>0</bNukeImmune>
-      <bPrereqBonuses>1</bPrereqBonuses>
+      <bPrereqBonuses>0</bPrereqBonuses>
       <bPrereqReligion>0</bPrereqReligion>
       <bMechanized>1</bMechanized>
       <bRenderBelowWater>1</bRenderBelowWater>
