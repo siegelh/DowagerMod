@@ -22778,17 +22778,17 @@
 		</UnitArtInfo>
 		<UnitArtInfo>
 			<Type>ART_DEF_UNIT_SCOUT_NATIVE_AMERICAN</Type>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/scout.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/scout.dds</Button>
 			<fScale>0.44</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/units/native_american_sparth/scout/newnativescout.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/scout/scout.kfm</KFM>
 			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/scout/newnativescout.nif</SHADERNIF>
-			<ShadowDef>
+	<!--		<ShadowDef>
 				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/unitshadow.nif</ShadowNIF>
 				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
-				<fShadowScale>1.0</fShadowScale>
-			</ShadowDef>
+				<fShadowScale>1.0</fShadowScale>  
+			</ShadowDef>  -->
 			<fBattleDistance>0.35</fBattleDistance>
 			<fRangedDeathTime>0.31</fRangedDeathTime>
 			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
@@ -23360,7 +23360,24 @@
 			<NIF>Art/Caveman2Cosmos/art/units/native_american_sparth/warden/converted_native.nif</NIF>
 			<KFM>Art/Caveman2Cosmos/art/units/native_american_sparth/warden/converted_native.kfm</KFM>
 			<ShadowDef>
-				<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/unitshadow.nif</ShadowNIF>
+				<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
+				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
+				<fShadowScale>1.0</fShadowScale>
+			</ShadowDef>
+			<fBattleDistance>0.35</fBattleDistance>
+			<fRangedDeathTime>0.31</fRangedDeathTime>
+			<TrainSound>AS2D_UNIT_BUILD_UNIT</TrainSound>
+		</UnitArtInfo>
+		<UnitArtInfo>
+			<Type>ART_DEF_UNIT_APACHE_MEDICINE_MAN_BTG</Type>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/medicine_man.dds</Button>
+			<fScale>0.44</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/units/native_american_sparth/warden/converted_native.nif</NIF>
+			<KFM>Art/Caveman2Cosmos/art/units/native_american_sparth/warden/converted_native.kfm</KFM>
+			<SHADERNIF>Art/Caveman2Cosmos/art/units/native_american_sparth/warden/converted_native.nif</SHADERNIF>
+			<ShadowDef>
+				<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
 				<ShadowAttachNode>BIP Pelvis</ShadowAttachNode>
 				<fShadowScale>1.0</fShadowScale>
 			</ShadowDef>
@@ -76723,7 +76740,7 @@
 		</UnitArtInfo>
 		<UnitArtInfo>
 			<Type>ART_DEF_UNIT_MEDICINE_MAN</Type>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/medicine_man.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/medicine_man.dds</Button>
 			<fScale>0.44</fScale>
 			<fInterfaceScale>1</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/units/medicine_man/axeman.nif</NIF>

@@ -4545,4 +4545,28 @@
 		<Italian>Palazzo Apostolico/Nazioni Unite</Italian>
 		<Spanish>El Palacio Apost&#243;lico/las Naciones Unidas</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_APACHE_MEDICINE_MAN_BTG</Tag>
+		<English>Medicine Man</English>
+		<French>Medicine Man</French>
+		<German>Medicine Man</German>
+		<Italian>Medicine Man</Italian>
+		<Spanish>Medicine Man</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_APACHE_MEDICINE_MAN_BTG_PEDIA</Tag>
+		<English>The Medicine Man replaces the Scout. It keeps core recon mobility while providing strong early field support with Medic and Sentry training from the moment it is built.</English>
+		<French>The Medicine Man replaces the Scout. It keeps core recon mobility while providing strong early field support with Medic and Sentry training from the moment it is built.</French>
+		<German>The Medicine Man replaces the Scout. It keeps core recon mobility while providing strong early field support with Medic and Sentry training from the moment it is built.</German>
+		<Italian>The Medicine Man replaces the Scout. It keeps core recon mobility while providing strong early field support with Medic and Sentry training from the moment it is built.</Italian>
+		<Spanish>The Medicine Man replaces the Scout. It keeps core recon mobility while providing strong early field support with Medic and Sentry training from the moment it is built.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_APACHE_MEDICINE_MAN_BTG_STRATEGY</Tag>
+		<English>Use Medicine Men to explore safely, monitor enemy movement, and keep your early stacks healthy. Their extra movement and built-in Medic support let Apache armies sustain pressure longer.</English>
+		<French>Use Medicine Men to explore safely, monitor enemy movement, and keep your early stacks healthy. Their extra movement and built-in Medic support let Apache armies sustain pressure longer.</French>
+		<German>Use Medicine Men to explore safely, monitor enemy movement, and keep your early stacks healthy. Their extra movement and built-in Medic support let Apache armies sustain pressure longer.</German>
+		<Italian>Use Medicine Men to explore safely, monitor enemy movement, and keep your early stacks healthy. Their extra movement and built-in Medic support let Apache armies sustain pressure longer.</Italian>
+		<Spanish>Use Medicine Men to explore safely, monitor enemy movement, and keep your early stacks healthy. Their extra movement and built-in Medic support let Apache armies sustain pressure longer.</Spanish>
+	</TEXT>
 </Civ4GameText>

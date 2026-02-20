@@ -5454,6 +5454,10 @@
 				</Building>
 			</Buildings><Units>
 				<Unit>
+					<UnitClassType>UNITCLASS_SCOUT</UnitClassType>
+					<UnitType>UNIT_APACHE_MEDICINE_MAN_BTG</UnitType>
+				</Unit>
+				<Unit>
 					<UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
 					<UnitType>UNIT_APACHE_RAIDER_BTG</UnitType>
 				</Unit>
