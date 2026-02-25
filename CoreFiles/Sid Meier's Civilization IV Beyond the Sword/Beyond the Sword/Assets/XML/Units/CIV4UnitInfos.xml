@@ -24935,7 +24935,12 @@
         </UnitAI>
       </UnitAIs>
       <NotUnitAIs />
-      <Builds />
+      <Builds>
+        <Build>
+          <BuildType>BUILD_GRAND_COLOSSEUM_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+      </Builds>
       <ReligionSpreads />
       <CorporationSpreads />
       <GreatPeoples>
@@ -24980,7 +24985,7 @@
       <iAirUnitCap>0</iAirUnitCap>
       <iDropRange>0</iDropRange>
       <iNukeRange>-1</iNukeRange>
-      <iWorkRate>0</iWorkRate>
+      <iWorkRate>1000</iWorkRate>
       <iBaseDiscover>1000</iBaseDiscover>
       <iDiscoverMultiplier>2</iDiscoverMultiplier>
       <iBaseHurry>0</iBaseHurry>
@@ -25590,6 +25595,10 @@
       <Builds>
         <Build>
           <BuildType>BUILD_ROAD</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_GRAND_COLOSSEUM_BTG</BuildType>
           <bBuild>1</bBuild>
         </Build>
       </Builds>

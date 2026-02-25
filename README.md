@@ -1,25 +1,45 @@
-# Installation Instructions
+# DowagerMod
 
-To install the application, follow these steps:
+## Install
 
-1. Download the installer executable from the 'dist' directory.
+1. Build or obtain the installer executable from `dist`.
+2. Run `install.exe`.
+3. The installer copies files from:
+   - `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/`
+   into the live game install.
 
-2. Run the installer by double-clicking on the 'install.exe' file.
+## Build DLL (CvGameCoreDLL)
 
-3. Follow the on-screen instructions to complete the installation process.
+Use the canonical build script from repo root:
 
-# Rebuilding the Installer
+```powershell
+.\tools\build_civ4_dll.ps1
+```
 
-If you need to re-build the installer, you can use the following steps:
+What it does:
 
-1. Open a command prompt or terminal.
+1. Builds `CvGameCoreDLL.dll` from:
+   - `third_party/beyond-the-sword-sdk/CvGameCoreDLL`
+2. Copies a timestamped DLL to:
+   - `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets`
+3. Output name format:
+   - `CvGameCoreDLL_YYYYMMDD_HHMMSS.dll`
 
-2. Navigate to the directory containing the 'install.py' script.
+Notes:
 
-3. Run the following command to re-build the installer:
+- This timestamped DLL is ignored by git via `.gitignore`.
+- Rename/copy it to `CvGameCoreDLL.dll` when you want it to be the active shipped DLL.
 
-   ```bash
-   python -m PyInstaller --onefile install.py
+## Rebuild Installer
 
-# Questions
-Who can say?
+From repo root:
+
+```powershell
+python -m PyInstaller --onefile install.py
+```
+
+## More DLL Build Details
+
+See:
+
+- `third_party/beyond-the-sword-sdk/BUILDING_CVGAMECOREDLL.md`

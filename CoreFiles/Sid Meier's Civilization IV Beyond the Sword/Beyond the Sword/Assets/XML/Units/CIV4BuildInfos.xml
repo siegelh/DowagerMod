@@ -795,6 +795,25 @@
 			<Button>,Art/Interface/Buttons/Builds/BuildOffshorePlatform.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,4,7</Button>
 		</BuildInfo>
 	<BuildInfo>
+			<Type>BUILD_GRAND_COLOSSEUM_BTG</Type>
+			<Description>TXT_KEY_BUILD_GRAND_COLOSSEUM_BTG</Description>
+			<Help/>
+			<PrereqTech>NONE</PrereqTech>
+			<iTime>0</iTime>
+			<iCost>0</iCost>
+			<bKill>1</bKill>
+			<ImprovementType>IMPROVEMENT_GRAND_COLOSSEUM_BTG</ImprovementType>
+			<RouteType>NONE</RouteType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs/>
+			<HotKey/>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>,Art/Interface/Buttons/Buildings/Colosseum.dds,Art/Interface/Buttons/Buildings_Atlas.dds,2,2</Button>
+		</BuildInfo>
+	<BuildInfo>
 			<Type>BUILD_POLYNESIA_REEF_WORKS_BTG</Type>
 			<Description>TXT_KEY_BUILD_POLYNESIA_REEF_WORKS_BTG</Description>
 			<Help/>

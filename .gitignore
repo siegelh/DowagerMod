@@ -1,1 +1,12 @@
 **/__pycache__/ 
+third_party/**/.vs/
+third_party/**/temp_files/
+third_party/**/Debug/
+third_party/**/Release/
+third_party/**/x64/
+third_party/**/ipch/
+third_party/**/*.suo
+third_party/**/*.sdf
+third_party/**/*.VC.db
+third_party/**/.git/
+CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/CvGameCoreDLL_*.dll
