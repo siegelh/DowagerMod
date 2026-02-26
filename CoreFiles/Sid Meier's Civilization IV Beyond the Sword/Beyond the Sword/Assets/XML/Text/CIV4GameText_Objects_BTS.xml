@@ -1,10 +1,5 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
-<!-- Sid Meier's Civilization 4 -->
-<!-- Copyright Firaxis Games 2005 -->
-<!-- -->
-<!-- Game Text - New -->
-<Civ4GameText xmlns="http://www.firaxis.com">
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<Civ4GameText>
 	<TEXT>
 		<Tag>TXT_KEY_CIV_HOLY_ROMAN_DESC</Tag>
 		<English>Holy Roman Empire</English>
@@ -14,7 +9,7 @@
 			<Plural>0</Plural>
 		</French>
 		<German>
-			<Text>Heiliges R&#246;misches Reich:Heilige R&#246;mische Reich:Heiligen R&#246;mischen Reich</Text>
+			<Text>Heiliges Römisches Reich:Heilige Römische Reich:Heiligen Römischen Reich</Text>
 			<Gender>Neuter:Neuter:Neuter</Gender>
 			<Plural>0:0:0</Plural>
 		</German>
@@ -66,7 +61,7 @@
 			<Plural>0:0:1:1</Plural>
 		</French>
 		<German>
-			<Text>Heilig-r&#246;misch:heilig-r&#246;mischen:heilig-r&#246;mische</Text>
+			<Text>Heilig-römisch:heilig-römischen:heilig-römische</Text>
 			<Gender>Neuter:Neuter:Neuter</Gender>
 			<Plural>0:0:0</Plural>
 		</German>
@@ -90,7 +85,7 @@
 			<Plural>0</Plural>
 		</French>
 		<German>
-			<Text>Karl der Gro&#223;e</Text>
+			<Text>Karl der Große</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -172,7 +167,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Nav&#237;o de las Indias Orientales:Nav&#237;os de las Indias Orientales</Text>
+			<Text>Navío de las Indias Orientales:Navíos de las Indias Orientales</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -181,7 +176,7 @@
 		<Tag>TXT_KEY_LEADER_PERICLES</Tag>
 		<English>Pericles</English>
 		<French>
-			<Text>P&#233;ricl&#232;s</Text>
+			<Text>Périclès</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -229,12 +224,12 @@
 		<Tag>TXT_KEY_CIV_NETHERLANDS_DESC</Tag>
 		<English>Dutch Empire</English>
 		<French>
-			<Text>Empire n&#233;erlandais</Text>
+			<Text>Empire néerlandais</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
 		<German>
-			<Text>Holl&#228;ndisches Reich:Holl&#228;ndische Reich:Holl&#228;ndischen Reich</Text>
+			<Text>Holländisches Reich:Holländische Reich:Holländischen Reich</Text>
 			<Gender>Neuter:Neuter:Neuter</Gender>
 			<Plural>0:0:0</Plural>
 		</German>
@@ -244,7 +239,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Imperio Holand&#233;s</Text>
+			<Text>Imperio Holandés</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -281,12 +276,12 @@
 			<Plural>0:1</Plural>
 		</English>
 		<French>
-			<Text>n&#233;erlandais:n&#233;erlandaise:n&#233;erlandais:n&#233;erlandaises</Text>
+			<Text>néerlandais:néerlandaise:néerlandais:néerlandaises</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</French>
 		<German>
-			<Text>Holl&#228;ndisch:holl&#228;ndischen:holl&#228;ndische</Text>
+			<Text>Holländisch:holländischen:holländische</Text>
 			<Gender>Neuter:Neuter:Neuter</Gender>
 			<Plural>0:0:0</Plural>
 		</German>
@@ -296,7 +291,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>holand&#233;s:holandesa:holandeses:holandesas</Text>
+			<Text>holandés:holandesa:holandeses:holandesas</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</Spanish>
@@ -344,7 +339,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Pol&#237;gono industrial:Pol&#237;gonos industriales</Text>
+			<Text>Polígono industrial:Polígonos industriales</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -358,7 +353,7 @@
 			<Plural>1</Plural>
 		</French>
 		<German>
-			<Text>&#214;ffentliche Verkehrsmittel</Text>
+			<Text>Öffentliche Verkehrsmittel</Text>
 			<Gender>Neuter</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -368,7 +363,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Transporte p&#250;blico:Transportes p&#250;blicos</Text>
+			<Text>Transporte público:Transportes públicos</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -377,7 +372,7 @@
 		<Tag>TXT_KEY_BUILDING_LEVEE</Tag>
 		<English>Levee</English>
 		<French>
-			<Text>Lev&#233;e:Lev&#233;es</Text>
+			<Text>Levée:Levées</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -488,7 +483,7 @@
 			<Plural>1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Am&#233;rica Maya</Text>
+			<Text>América Maya</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -597,12 +592,12 @@
 		<Tag>TXT_KEY_CIV_ETHIOPIA_DESC</Tag>
 		<English>Ethiopian Empire</English>
 		<French>
-			<Text>Empire &#233;thiopien</Text>
+			<Text>Empire éthiopien</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
 		<German>
-			<Text>&#196;thiopisches Reich:&#196;thiopische Reich:&#196;thiopischen Reich</Text>
+			<Text>Äthiopisches Reich:Äthiopische Reich:Äthiopischen Reich</Text>
 			<Gender>Neuter:Neuter:Neuter</Gender>
 			<Plural>0:0:0</Plural>
 		</German>
@@ -612,7 +607,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Imperio Et&#237;ope</Text>
+			<Text>Imperio Etíope</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -626,7 +621,7 @@
 			<Plural>1</Plural>
 		</French>
 		<German>
-			<Text>&#196;thiopien</Text>
+			<Text>Äthiopien</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -636,7 +631,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Etiop&#237;a</Text>
+			<Text>Etiopía</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -649,12 +644,12 @@
 			<Plural>0:1</Plural>
 		</English>
 		<French>
-			<Text>&#233;thiopien:&#233;thiopienne:&#233;thiopiens:&#233;thiopiennes</Text>
+			<Text>éthiopien:éthiopienne:éthiopiens:éthiopiennes</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</French>
 		<German>
-			<Text>&#196;thiopisch:&#228;thiopischen:&#228;thiopische</Text>
+			<Text>Äthiopisch:äthiopischen:äthiopische</Text>
 			<Gender>Neuter:Neuter:Neuter</Gender>
 			<Plural>0:0:0</Plural>
 		</German>
@@ -664,7 +659,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>et&#237;ope:et&#237;ope:et&#237;opes:et&#237;opes</Text>
+			<Text>etíope:etíope:etíopes:etíopes</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</Spanish>
@@ -673,7 +668,7 @@
 		<Tag>TXT_KEY_BUILDING_ETHIOPIAN_STELE</Tag>
 		<English>Stele</English>
 		<French>
-			<Text>St&#232;le:St&#232;les</Text>
+			<Text>Stèle:Stèles</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -726,7 +721,7 @@
 			<Plural>0</Plural>
 		</French>
 		<German>
-			<Text>S&#252;leyman I.</Text>
+			<Text>Süleyman I.</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -736,7 +731,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Solim&#225;n</Text>
+			<Text>Solimán</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -745,7 +740,7 @@
 		<Tag>TXT_KEY_LEADER_BOUDICA</Tag>
 		<English>Boudica</English>
 		<French>
-			<Text>Boadic&#233;e</Text>
+			<Text>Boadicée</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -808,7 +803,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Dar&#237;o I</Text>
+			<Text>Darío I</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -904,7 +899,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Imperio J&#233;mer</Text>
+			<Text>Imperio Jémer</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -928,7 +923,7 @@
 			<Plural>1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>J&#233;mer</Text>
+			<Text>Jémer</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -956,7 +951,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>j&#233;mer:j&#233;mer:j&#233;meres:j&#233;meres</Text>
+			<Text>jémer:jémer:jémeres:jémeres</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</Spanish>
@@ -989,7 +984,7 @@
 		<Tag>TXT_KEY_UNIT_KHMER_BALLISTA_ELEPHANT</Tag>
 		<English>Ballista Elephant</English>
 		<French>
-			<Text>El&#233;phant avec baliste:El&#233;phants avec balliste</Text>
+			<Text>Eléphant avec baliste:Eléphants avec balliste</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -1118,7 +1113,7 @@
 			<Plural>0:1</Plural>
 		</French>
 		<German>
-			<Text>Kampfbogensch&#252;tze</Text>
+			<Text>Kampfbogenschütze</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -1152,7 +1147,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Jard&#237;n:Jardines</Text>
+			<Text>Jardín:Jardines</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -1161,7 +1156,7 @@
 		<Tag>TXT_KEY_CIV_SUMERIA_DESC</Tag>
 		<English>Sumerian Empire</English>
 		<French>
-			<Text>Empire sum&#233;rien</Text>
+			<Text>Empire sumérien</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1185,7 +1180,7 @@
 		<Tag>TXT_KEY_CIV_SUMERIA_SHORT_DESC</Tag>
 		<English>Sumeria</English>
 		<French>
-			<Text>Sum&#233;riens</Text>
+			<Text>Sumériens</Text>
 			<Gender>Male</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -1213,7 +1208,7 @@
 			<Plural>0:1</Plural>
 		</English>
 		<French>
-			<Text>sum&#233;rien:sum&#233;rienne:sum&#233;riens:sum&#233;riennes</Text>
+			<Text>sumérien:sumérienne:sumériens:sumériennes</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</French>
@@ -1309,7 +1304,7 @@
 		<Tag>TXT_KEY_CIV_NATIVE_AMERICA_DESC</Tag>
 		<English>Native American Empire</English>
 		<French>
-			<Text>Empire am&#233;rindien</Text>
+			<Text>Empire amérindien</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -1333,7 +1328,7 @@
 		<Tag>TXT_KEY_CIV_NATIVE_AMERICA_SHORT_DESC</Tag>
 		<English>Native America</English>
 		<French>
-			<Text>Am&#233;rindiens</Text>
+			<Text>Amérindiens</Text>
 			<Gender>Male</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -1348,7 +1343,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Am&#233;rica India</Text>
+			<Text>América India</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -1361,7 +1356,7 @@
 			<Plural>0:1</Plural>
 		</English>
 		<French>
-			<Text>am&#233;rindien::am&#233;rindienne:am&#233;rindiens:am&#233;rindiennes</Text>
+			<Text>amérindien::amérindienne:amérindiens:amérindiennes</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</French>
@@ -1400,7 +1395,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>T&#243;tem:T&#243;tems</Text>
+			<Text>Tótem:Tótems</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -1472,7 +1467,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Imperio Portugu&#233;s</Text>
+			<Text>Imperio Portugués</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -1524,7 +1519,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>portugu&#233;s:portuguesa:portugueses:portuguesas</Text>
+			<Text>portugués:portuguesa:portugueses:portuguesas</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</Spanish>
@@ -1696,7 +1691,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Hip&#243;dromo:Hip&#243;dromos</Text>
+			<Text>Hipódromo:Hipódromos</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -1734,7 +1729,7 @@
 			<Plural>0:1</Plural>
 		</French>
 		<German>
-			<Text>K&#252;rassier</Text>
+			<Text>Kürassier</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -1801,7 +1796,7 @@
 		<Tag>TXT_KEY_UNIT_GUIDED_MISSILE</Tag>
 		<English>Guided Missile</English>
 		<French>
-			<Text>Missile guid&#233;:Missiles guid&#233;s</Text>
+			<Text>Missile guidé:Missiles guidés</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -1864,7 +1859,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Infanter&#237;a antitanque:Infanter&#237;as antitanque</Text>
+			<Text>Infantería antitanque:Infanterías antitanque</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -1888,7 +1883,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Pieza de artiller&#237;a autopropulsada:Piezas de artiller&#237;a autopropulsada</Text>
+			<Text>Pieza de artillería autopropulsada:Piezas de artillería autopropulsada</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -1897,7 +1892,7 @@
 		<Tag>TXT_KEY_UNIT_MOBILE_SAM</Tag>
 		<English>Mobile SAM</English>
 		<French>
-			<Text>Unit&#233; SAM mobile:Unit&#233;s SAM mobiles</Text>
+			<Text>Unité SAM mobile:Unités SAM mobiles</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -1912,7 +1907,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Misil tierra-aire m&#243;vil:Misiles tierra-aire m&#243;viles</Text>
+			<Text>Misil tierra-aire móvil:Misiles tierra-aire móviles</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -1993,7 +1988,7 @@
 		<Tag>TXT_KEY_BUILDING_NATIONAL_SECURITY</Tag>
 		<English>Security Bureau</English>
 		<French>
-			<Text>Agence de s&#233;curit&#233;:Agences de s&#233;curit&#233;</Text>
+			<Text>Agence de sécurité:Agences de sécurité</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -2022,7 +2017,7 @@
 			<Plural>0:1</Plural>
 		</French>
 		<German>
-			<Text>Tarnzerst&#246;rer</Text>
+			<Text>Tarnzerstörer</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -2041,7 +2036,7 @@
 		<Tag>TXT_KEY_IMPROVEMENT_FOREST_PRESERVE</Tag>
 		<English>Forest Preserve</English>
 		<French>
-			<Text>R&#233;serve bois&#233;e:R&#233;serves bois&#233;es</Text>
+			<Text>Réserve boisée:Réserves boisées</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -2070,7 +2065,7 @@
 			<Plural>0:1</Plural>
 		</French>
 		<German>
-			<Text>Gro&#223;er Spion</Text>
+			<Text>Großer Spion</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -2080,7 +2075,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Gran esp&#237;a:Grandes esp&#237;as</Text>
+			<Text>Gran espía:Grandes espías</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -2089,7 +2084,7 @@
 		<Tag>TXT_KEY_BUILDING_MOAI_STATUES</Tag>
 		<English>Moai Statues</English>
 		<French>
-			<Text>Statues moa&#239;</Text>
+			<Text>Statues moaï</Text>
 			<Gender>Female</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -2113,7 +2108,7 @@
 		<Tag>TXT_KEY_BUILDING_CRISTO_REDENTOR</Tag>
 		<English>Cristo Redentor</English>
 		<French>
-			<Text>Christ R&#233;dempteur</Text>
+			<Text>Christ Rédempteur</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -2161,7 +2156,7 @@
 		<Tag>TXT_KEY_BUILDING_MAUSOLEUM_OF_MAUSSOLLOS</Tag>
 		<English>Mausoleum of Maussollos</English>
 		<French>
-			<Text>Mausol&#233;e d'Halicarnasse</Text>
+			<Text>Mausolée d'Halicarnasse</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -2233,7 +2228,7 @@
 		<Tag>TXT_KEY_UNIT_TACTICAL_NUKE</Tag>
 		<English>Tactical Nuke</English>
 		<French>
-			<Text>Arme nucl&#233;aire tactique:Armes nucl&#233;aires tactiques</Text>
+			<Text>Arme nucléaire tactique:Armes nucléaires tactiques</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -2248,7 +2243,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Arma nuclear t&#225;ctica:Armas nucleares t&#225;cticas</Text>
+			<Text>Arma nuclear táctica:Armas nucleares tácticas</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -2257,7 +2252,7 @@
 		<Tag>TXT_KEY_TECH_ADVANCED_FLIGHT</Tag>
 		<English>Advanced Flight</English>
 		<French>
-			<Text>Vol avanc&#233;</Text>
+			<Text>Vol avancé</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -2281,7 +2276,7 @@
 		<Tag>TXT_KEY_TECH_STEALTH</Tag>
 		<English>Stealth</English>
 		<French>
-			<Text>Furtivit&#233;</Text>
+			<Text>Furtivité</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -2291,7 +2286,7 @@
 			<Plural>0</Plural>
 		</German>
 		<Italian>
-			<Text>Invisibilit&#224;</Text>
+			<Text>Invisibilità</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</Italian>
@@ -2344,7 +2339,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>L&#225;ser</Text>
+			<Text>Láser</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -2353,12 +2348,12 @@
 		<Tag>TXT_KEY_TECH_AESTHETICS</Tag>
 		<English>Aesthetics</English>
 		<French>
-			<Text>Esth&#233;tique</Text>
+			<Text>Esthétique</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
 		<German>
-			<Text>&#196;sthetik</Text>
+			<Text>Ästhetik</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -2368,7 +2363,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Est&#233;tica</Text>
+			<Text>Estética</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -2382,7 +2377,7 @@
 			<Plural>0</Plural>
 		</French>
 		<German>
-			<Text>Milit&#228;rwissenschaft</Text>
+			<Text>Militärwissenschaft</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -2392,7 +2387,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Belicolog&#237;a</Text>
+			<Text>Belicología</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -2430,7 +2425,7 @@
 			<Plural>0:1</Plural>
 		</French>
 		<German>
-			<Text>Fallschirmj&#228;ger</Text>
+			<Text>Fallschirmjäger</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -2464,7 +2459,7 @@
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Ruta mar&#237;tima:Rutas mar&#237;timas</Text>
+			<Text>Ruta marítima:Rutas marítimas</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -2473,7 +2468,7 @@
 		<Tag>TXT_KEY_IMPROVEMENT_BUOY_PILLAGED</Tag>
 		<English>Plundered Route</English>
 		<French>
-			<Text>Route pill&#233;e:Routes pill&#233;es</Text>
+			<Text>Route pillée:Routes pillées</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -2497,7 +2492,7 @@
 		<Tag>TXT_KEY_CONCEPT_FLANK_ATTACK</Tag>
 		<English>Improved Siege Combat</English>
 		<French>
-			<Text>Techniques de si&#232;ge avanc&#233;es</Text>
+			<Text>Techniques de siège avancées</Text>
 			<Gender>Female</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -2545,7 +2540,7 @@
 		<Tag>TXT_KEY_CONCEPT_CORPORATIONS</Tag>
 		<English>Corporations</English>
 		<French>
-			<Text>Soci&#233;t&#233;s commerciales</Text>
+			<Text>Sociétés commerciales</Text>
 			<Gender>Female</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -2664,7 +2659,7 @@
 	<TEXT>
 		<Tag>TXT_KEY_CONCEPT_LATE_START</Tag>
 		<English>Advanced Start</English>
-		<French>D&#233;part avanc&#233;</French>
+		<French>Départ avancé</French>
 		<German>Fortgeschrittener Start</German>
 		<Italian>Avvio avanzato</Italian>
 		<Spanish>Inicio avanzado</Spanish>
@@ -2673,7 +2668,7 @@
 		<Tag>TXT_KEY_CONCEPT_EVENTS</Tag>
 		<English>Events</English>
 		<French>
-			<Text>Ev&#233;nements</Text>
+			<Text>Evénements</Text>
 			<Gender>Male</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -2697,7 +2692,7 @@
 		<Tag>TXT_KEY_CONCEPT_AIR_COMBAT</Tag>
 		<English>Air Combat</English>
 		<French>
-			<Text>Combat a&#233;rien</Text>
+			<Text>Combat aérien</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -2712,7 +2707,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Combate a&#233;reo</Text>
+			<Text>Combate aéreo</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -2721,22 +2716,22 @@
 		<Tag>TXT_KEY_CONCEPT_AIR_PROMOTIONS</Tag>
 		<English>Air Unit Promotions</English>
 		<French>
-			<Text>Promotions d'unit&#233;s a&#233;riennes</Text>
+			<Text>Promotions d'unités aériennes</Text>
 			<Gender>Female</Gender>
 			<Plural>1</Plural>
 		</French>
 		<German>
-			<Text>Bef&#246;rderungen Lufteinheiten</Text>
+			<Text>Beförderungen Lufteinheiten</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
 		<Italian>
-			<Text>Promozioni unit&#224; aeree</Text>
+			<Text>Promozioni unità aeree</Text>
 			<Gender>Female</Gender>
 			<Plural>1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Ascensos de las unidades a&#233;reas</Text>
+			<Text>Ascensos de las unidades aéreas</Text>
 			<Gender>Male</Gender>
 			<Plural>1</Plural>
 		</Spanish>
@@ -2745,12 +2740,12 @@
 		<Tag>TXT_KEY_CONCEPT_GREAT_SPY</Tag>
 		<English>Great Spy / Spy Specialist</English>
 		<French>
-			<Text>Espion illustre / Sp&#233;cialiste de l'espionnage:Espions illustres / Sp&#233;cialistes de l'espionnages</Text>
+			<Text>Espion illustre / Spécialiste de l'espionnage:Espions illustres / Spécialistes de l'espionnages</Text>
 			<Gender>Male</Gender>
 			<Plural>0:1</Plural>
 		</French>
 		<German>
-			<Text>Gro&#223;er Spion/Spion-Spezialist</Text>
+			<Text>Großer Spion/Spion-Spezialist</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -2760,7 +2755,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Gran esp&#237;a/esp&#237;a especialista</Text>
+			<Text>Gran espía/espía especialista</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -2769,7 +2764,7 @@
 		<Tag>TXT_KEY_BTS_FOREST_PRESERVE</Tag>
 		<English>Forest Preserve</English>
 		<French>
-			<Text>R&#233;serve bois&#233;e:R&#233;serves bois&#233;es</Text>
+			<Text>Réserve boisée:Réserves boisées</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</French>
@@ -2802,7 +2797,7 @@
 			<Plural>0:0:1:1</Plural>
 		</French>
 		<German>
-			<Text>J&#252;disch:j&#252;dischen:j&#252;dische</Text>
+			<Text>Jüdisch:jüdischen:jüdische</Text>
 			<Gender>Neuter:Neuter:Neuter</Gender>
 			<Plural>0:0:0</Plural>
 		</German>
@@ -2812,7 +2807,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>jud&#237;o:jud&#237;a:jud&#237;os:jud&#237;as</Text>
+			<Text>judío:judía:judíos:judías</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</Spanish>
@@ -2825,7 +2820,7 @@
 			<Plural>0</Plural>
 		</English>
 		<French>
-			<Text>chr&#233;tien:chr&#233;tienne:chr&#233;tiens:chr&#233;tiennes</Text>
+			<Text>chrétien:chrétienne:chrétiens:chrétiennes</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</French>
@@ -2868,7 +2863,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>isl&#225;mico:isl&#225;mica:isl&#225;micos:isl&#225;micas</Text>
+			<Text>islámico:islámica:islámicos:islámicas</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</Spanish>
@@ -2891,12 +2886,12 @@
 			<Plural>0:0:0</Plural>
 		</German>
 		<Italian>
-			<Text>ind&#249;</Text>
+			<Text>indù</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>hind&#250;:hind&#250;:hind&#250;es:hind&#250;es</Text>
+			<Text>hindú:hindú:hindúes:hindúes</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</Spanish>
@@ -2937,7 +2932,7 @@
 			<Plural>0</Plural>
 		</English>
 		<French>
-			<Text>confuc&#233;en:confuc&#233;enne:confuc&#233;ens:confuc&#233;ennes</Text>
+			<Text>confucéen:confucéenne:confucéens:confucéennes</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</French>
@@ -2965,7 +2960,7 @@
 			<Plural>0</Plural>
 		</English>
 		<French>
-			<Text>tao&#239;ste:tao&#239;ste:tao&#239;stes:tao&#239;stes</Text>
+			<Text>taoïste:taoïste:taoïstes:taoïstes</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</French>
@@ -2980,7 +2975,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>tao&#237;sta:tao&#237;sta:tao&#237;stas:tao&#237;stas</Text>
+			<Text>taoísta:taoísta:taoístas:taoístas</Text>
 			<Gender>Male:Female:Male:Female</Gender>
 			<Plural>0:0:1:1</Plural>
 		</Spanish>
@@ -3013,7 +3008,7 @@
 		<Tag>TXT_KEY_GREAT_PERSON_EPHIALTES</Tag>
 		<English>Ephialtes of Trachis</English>
 		<French>
-			<Text>Ephialt&#232;s de Trachine</Text>
+			<Text>Ephialtès de Trachine</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -3205,7 +3200,7 @@
 		<Tag>TXT_KEY_GREAT_PERSON_BALTHASAR_GERARD</Tag>
 		<English>Balthasar Gerard</English>
 		<French>
-			<Text>Balthazar G&#233;rard</Text>
+			<Text>Balthazar Gérard</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -3772,7 +3767,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>El Palacio Apost&#243;lico</Text>
+			<Text>El Palacio Apostólico</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -3781,7 +3776,7 @@
 		<Tag>TXT_KEY_CORPORATION_1</Tag>
 		<English>Cereal Mills</English>
 		<French>
-			<Text>Les grands moulins c&#233;r&#233;aliers</Text>
+			<Text>Les grands moulins céréaliers</Text>
 			<Gender>Male</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -3829,7 +3824,7 @@
 		<Tag>TXT_KEY_CORPORATION_4</Tag>
 		<English>Creative Constructions</English>
 		<French>
-			<Text>Constructions cr&#233;atives</Text>
+			<Text>Constructions créatives</Text>
 			<Gender>Female</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -3853,7 +3848,7 @@
 		<Tag>TXT_KEY_CORPORATION_5</Tag>
 		<English>East India Company</English>
 		<French>
-			<Text>Compagnie d'exploitation mini&#232;re</Text>
+			<Text>Compagnie d'exploitation minière</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -3901,7 +3896,7 @@
 		<Tag>TXT_KEY_CORPORATION_7</Tag>
 		<English>Civilized Jewelers Inc</English>
 		<French>
-			<Text>Bijoutiers associ&#233;s</Text>
+			<Text>Bijoutiers associés</Text>
 			<Gender>Male</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -3925,7 +3920,7 @@
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_1</Tag>
 		<English>Cereal Mills Executive</English>
 		<French>
-			<Text>Directeur des Grands moulins c&#233;r&#233;aliers</Text>
+			<Text>Directeur des Grands moulins céréaliers</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -3973,7 +3968,7 @@
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_4</Tag>
 		<English>CreateCon Executive</English>
 		<French>
-			<Text>Directeur de Constructions cr&#233;atives</Text>
+			<Text>Directeur de Constructions créatives</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -3997,7 +3992,7 @@
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_5</Tag>
 		<English>Mining Inc Executive</English>
 		<French>
-			<Text>Directeur de la Compagnie d'exploitation mini&#232;re</Text>
+			<Text>Directeur de la Compagnie d'exploitation minière</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -4045,7 +4040,7 @@
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_7</Tag>
 		<English>Civ Jewels Executive</English>
 		<French>
-			<Text>Directeur des Bijoutiers associ&#233;es</Text>
+			<Text>Directeur des Bijoutiers associées</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -4117,7 +4112,7 @@
 		<Tag>TXT_KEY_PROMOTION_RANGE1</Tag>
 		<English>Range I</English>
 		<French>
-			<Text>Port&#233;e I</Text>
+			<Text>Portée I</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -4141,7 +4136,7 @@
 		<Tag>TXT_KEY_PROMOTION_RANGE2</Tag>
 		<English>Range II</English>
 		<French>
-			<Text>Port&#233;e II</Text>
+			<Text>Portée II</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -4180,7 +4175,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Intercepci&#243;n I</Text>
+			<Text>Intercepción I</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -4204,7 +4199,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Intercepci&#243;n II</Text>
+			<Text>Intercepción II</Text>
 			<Gender>Female</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -4237,7 +4232,7 @@
 		<Tag>TXT_KEY_UNITCOMBAT_AIR</Tag>
 		<English>Air Units</English>
 		<French>
-			<Text>Unit&#233;s a&#233;riennes</Text>
+			<Text>Unités aériennes</Text>
 			<Gender>Female</Gender>
 			<Plural>1</Plural>
 		</French>
@@ -4247,12 +4242,12 @@
 			<Plural>0</Plural>
 		</German>
 		<Italian>
-			<Text>Unit&#224; aerea:Unit&#224; aeree</Text>
+			<Text>Unità aerea:Unità aeree</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Unidad a&#233;rea:Unidades a&#233;reas</Text>
+			<Text>Unidad aérea:Unidades aéreas</Text>
 			<Gender>Female</Gender>
 			<Plural>0:1</Plural>
 		</Spanish>
@@ -4261,7 +4256,7 @@
 		<Tag>TXT_KEY_GREAT_PERSON_GERONIMO</Tag>
 		<English>Geronimo</English>
 		<French>
-			<Text>G&#233;ronimo</Text>
+			<Text>Géronimo</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</French>
@@ -4276,7 +4271,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Jer&#243;nimo</Text>
+			<Text>Jerónimo</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -4338,7 +4333,7 @@
 			<Plural>0</Plural>
 		</French>
 		<German>
-			<Text>Referent L&#246;wenherz</Text>
+			<Text>Referent Löwenherz</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</German>
@@ -4348,7 +4343,7 @@
 			<Plural>0</Plural>
 		</Italian>
 		<Spanish>
-			<Text>Orador Coraz&#243;n de Le&#243;n</Text>
+			<Text>Orador Corazón de León</Text>
 			<Gender>Male</Gender>
 			<Plural>0</Plural>
 		</Spanish>
@@ -4524,7 +4519,7 @@
 	<TEXT>
 		<Tag>TXT_KEY_CONCEPT_FORT</Tag>
 		<English>Updated Forts</English>
-		<French>Forts mis &#224; jour</French>
+		<French>Forts mis à jour</French>
 		<German>Verbesserte Festungen</German>
 		<Italian>Fortini aggiornati</Italian>
 		<Spanish>Fuertes actualizados</Spanish>
@@ -4532,10 +4527,10 @@
 	<TEXT>
 		<Tag>TXT_KEY_CONCEPT_LIBERATION</Tag>
 		<English>City Liberation</English>
-		<French>Lib&#233;ration de ville</French>
+		<French>Libération de ville</French>
 		<German>Stadtbefreiung</German>
 		<Italian>Liberazione cittadina</Italian>
-		<Spanish>Liberaci&#243;n de ciudades</Spanish>
+		<Spanish>Liberación de ciudades</Spanish>
 	</TEXT>
 	<TEXT>
 		<Tag>CONCEPT_APOSTOLIC_PALACE</Tag>
@@ -4543,7 +4538,7 @@
 		<French>Palais apostolique / Nations Unies</French>
 		<German>Apostolischer Palast / Vereinte Nationen</German>
 		<Italian>Palazzo Apostolico/Nazioni Unite</Italian>
-		<Spanish>El Palacio Apost&#243;lico/las Naciones Unidas</Spanish>
+		<Spanish>El Palacio Apostólico/las Naciones Unidas</Spanish>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_APACHE_MEDICINE_MAN_BTG</Tag>
@@ -4568,5 +4563,197 @@
 		<German>Use Medicine Men to explore safely, monitor enemy movement, and keep your early stacks healthy. Their extra movement and built-in Medic support let Apache armies sustain pressure longer.</German>
 		<Italian>Use Medicine Men to explore safely, monitor enemy movement, and keep your early stacks healthy. Their extra movement and built-in Medic support let Apache armies sustain pressure longer.</Italian>
 		<Spanish>Use Medicine Men to explore safely, monitor enemy movement, and keep your early stacks healthy. Their extra movement and built-in Medic support let Apache armies sustain pressure longer.</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_ASOKA</Tag>
+		<English>Devanampriya, Beloved of the Gods</English>
+		<French>
+			<Text>Devanampriya, Beloved of the Gods</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_SALADIN</Tag>
+		<English>Righteousness of the Faith</English>
+		<French>
+			<Text>Righteousness of the Faith</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_SHAKA</Tag>
+		<English>Wrath of Mfecane</English>
+		<French>
+			<Text>Wrath of Mfecane</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_SULEIMAN</Tag>
+		<English>Magnificent Lawgiver</English>
+		<French>
+			<Text>Magnificent Lawgiver</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_SURYAVARMAN</Tag>
+		<English>Protector of the Sun</English>
+		<French>
+			<Text>Protector of the Sun</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_TOKUGAWA</Tag>
+		<English>Shogun Unifier</English>
+		<French>
+			<Text>Shogun Unifier</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_VICTORIA</Tag>
+		<English>By the Grace of God</English>
+		<French>
+			<Text>By the Grace of God</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+<TEXT>
+		<Tag>TXT_KEY_TRAIT_ZARA</Tag>
+		<English>Elect of God</English>
+		<French>
+			<Text>Elect of God</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>SchÃ¼tzend:schÃ¼tzendes</Text>
+			<Gender>Male:Neuter</Gender>
+			<Plural>0:0</Plural>
+		</German>
+		<Italian>
+			<Text>Protettivo:Protettiva</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Protector:Protectora</Text>
+			<Gender>Male:Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
 	</TEXT>
 </Civ4GameText>

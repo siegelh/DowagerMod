@@ -7970,6 +7970,64 @@ int CvCity::getBaseCommerceRate(CommerceTypes eIndex) const
 	return (getBaseCommerceRateTimes100(eIndex) / 100);
 }
 
+int CvCity::getImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const
+{
+	int iTotalChange = 0;
+	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
+
+	for (int iPlotIndex = 0; iPlotIndex < NUM_CITY_PLOTS; ++iPlotIndex)
+	{
+		CvPlot* pLoopPlot = getCityIndexPlot(iPlotIndex);
+		if (pLoopPlot == NULL)
+		{
+			continue;
+		}
+		if (bWorkedOnly && !isWorkingPlot(iPlotIndex))
+		{
+			continue;
+		}
+
+		const ImprovementTypes eImprovement = pLoopPlot->getImprovementType();
+		if (eImprovement == NO_IMPROVEMENT)
+		{
+			continue;
+		}
+
+		for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
+		{
+			if (kPlayer.hasTrait((TraitTypes)iTrait))
+			{
+				if (bWorkedOnly)
+				{
+					iTotalChange += GC.getTraitInfo((TraitTypes)iTrait).getImprovementCityCommerceChangesWorked(eImprovement, eCommerce);
+				}
+				else
+				{
+					iTotalChange += GC.getTraitInfo((TraitTypes)iTrait).getImprovementCityCommerceChangesBFC(eImprovement, eCommerce);
+				}
+			}
+		}
+
+		for (int iOption = 0; iOption < GC.getNumCivicOptionInfos(); ++iOption)
+		{
+			const CivicTypes eCivic = kPlayer.getCivics((CivicOptionTypes)iOption);
+			if (eCivic != NO_CIVIC)
+			{
+				if (bWorkedOnly)
+				{
+					iTotalChange += GC.getCivicInfo(eCivic).getImprovementCityCommerceChangesWorked(eImprovement, eCommerce);
+				}
+				else
+				{
+					iTotalChange += GC.getCivicInfo(eCivic).getImprovementCityCommerceChangesBFC(eImprovement, eCommerce);
+				}
+			}
+		}
+	}
+
+	return iTotalChange;
+}
+
 int CvCity::getBaseCommerceRateTimes100(CommerceTypes eIndex) const
 {
 	int iBaseCommerceRate;
@@ -7985,6 +8043,11 @@ int CvCity::getBaseCommerceRateTimes100(CommerceTypes eIndex) const
 		iTraitSpecialistCommerce += (getSpecialistCount((SpecialistTypes)iI) + getFreeSpecialistCount((SpecialistTypes)iI)) * GET_PLAYER(getOwnerINLINE()).getTraitSpecialistCommerceChange((SpecialistTypes)iI, eIndex);
 	}
 	iBaseCommerceRate += 100 * iTraitSpecialistCommerce;
+
+	// Improvement-driven city commerce (worked tiles and in-BFC tiles) from traits/civics.
+	iBaseCommerceRate += 100 * getImprovementCityCommerceFromTraitsAndCivics(eIndex, true);
+	iBaseCommerceRate += 100 * getImprovementCityCommerceFromTraitsAndCivics(eIndex, false);
+
 	iBaseCommerceRate += 100 * (getBuildingCommerce(eIndex) + getSpecialistCommerce(eIndex) + getReligionCommerce(eIndex) + getCorporationCommerce(eIndex) + GET_PLAYER(getOwnerINLINE()).getFreeCityCommerce(eIndex));
 
 	return iBaseCommerceRate;

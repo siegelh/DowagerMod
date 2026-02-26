@@ -5848,6 +5848,20 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 	{
 		iYield += GET_PLAYER(ePlayer).getImprovementYieldChange(eImprovement, eYield);
 		iYield += GET_TEAM(GET_PLAYER(ePlayer).getTeam()).getImprovementYieldChange(eImprovement, eYield);
+
+		const TerrainTypes eTerrain = getTerrainType();
+		const FeatureTypes eFeature = getFeatureType();
+		for (iI = 0; iI < GC.getNumTraitInfos(); ++iI)
+		{
+			if (GET_PLAYER(ePlayer).hasTrait((TraitTypes)iI))
+			{
+				iYield += GC.getTraitInfo((TraitTypes)iI).getImprovementTerrainYieldChanges(eImprovement, eTerrain, eYield);
+				if (eFeature != NO_FEATURE)
+				{
+					iYield += GC.getTraitInfo((TraitTypes)iI).getImprovementFeatureYieldChanges(eImprovement, eFeature, eYield);
+				}
+			}
+		}
 	}
 
 	if (ePlayer != NO_PLAYER)

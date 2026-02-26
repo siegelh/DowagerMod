@@ -101,8 +101,17 @@ def update_or_append_traits_preserving_namespace(original_xml_path, directory_pa
     return xml_str
 
 
-# Example usage
-update_or_append_traits_preserving_namespace(r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Warlords\Assets\XML\Civilizations\CIV4TraitInfos.xml",r'C:\DowagerMod\traits', comments)
+# Canonical target is BTS. Keep other roots in sync only as compatibility copies.
+trait_targets = [
+    r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Assets\XML\Civilizations\CIV4TraitInfos.xml",
+    r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Assets\XML\Civilizations\CIV4TraitInfos.xml",
+    r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Warlords\Assets\XML\Civilizations\CIV4TraitInfos.xml",
+]
+for trait_target in trait_targets:
+    if os.path.exists(trait_target):
+        update_or_append_traits_preserving_namespace(trait_target, r"C:\DowagerMod\traits", comments)
+    else:
+        print(f"Skipping missing trait target: {trait_target}")
 
 from xml.etree import ElementTree as ET
 import io
@@ -143,9 +152,19 @@ def update_or_merge_xml_directory(master_file_path, additional_file_directory):
 
 
 
-original_xml_path = r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Warlords\Assets\XML\Text\CIV4GameText_Warlords_Objects.xml"
+def first_existing_path(paths):
+    for p in paths:
+        if os.path.exists(p):
+            return p
+    return paths[0]
+
+
+original_xml_path = first_existing_path([
+    r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Assets\XML\Text\CIV4GameText_Objects_BTS.xml",
+    r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Warlords\Assets\XML\Text\CIV4GameText_Warlords_Objects.xml",
+])
 new_text_xml_path = r"C:\DowagerMod\traits"
-output_xml_path = r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Warlords\Assets\XML\Text\CIV4GameText_Warlords_Objects.xml"
+output_xml_path = original_xml_path
 
 update_or_merge_xml_directory(original_xml_path, new_text_xml_path)
 
@@ -184,8 +203,11 @@ def update_or_merge_xml_directory_short(master_file_path, additional_file_direct
 
     master_tree.write(master_file_path, encoding='ISO-8859-1', xml_declaration=True)
 
-original_xml_path_short = r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Warlords\Assets\XML\Text\CIV4GameText_Warlords.xml"
+original_xml_path_short = first_existing_path([
+    r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Assets\XML\Text\CIV4GameText_BTS.xml",
+    r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Warlords\Assets\XML\Text\CIV4GameText_Warlords.xml",
+])
 new_text_xml_path = r"C:\DowagerMod\traits"
-output_xml_path_short = r"C:\DowagerMod\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Warlords\Assets\XML\Text\CIV4GameText_Warlords.xml"
+output_xml_path_short = original_xml_path_short
 
 update_or_merge_xml_directory_short(original_xml_path_short, new_text_xml_path)

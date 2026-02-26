@@ -737,6 +737,23 @@
 	<ElementType name="ImprovementYieldChanges" content="eltOnly">
 		<element type="ImprovementYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="ImprovementCommerces" content="eltOnly">
+		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="ImprovementCityCommerceChangeWorked" content="eltOnly">
+		<element type="ImprovementType"/>
+		<element type="ImprovementCommerces"/>
+	</ElementType>
+	<ElementType name="ImprovementCityCommerceChangesWorked" content="eltOnly">
+		<element type="ImprovementCityCommerceChangeWorked" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="ImprovementCityCommerceChangeBFC" content="eltOnly">
+		<element type="ImprovementType"/>
+		<element type="ImprovementCommerces"/>
+	</ElementType>
+	<ElementType name="ImprovementCityCommerceChangesBFC" content="eltOnly">
+		<element type="ImprovementCityCommerceChangeBFC" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="WeLoveTheKing" content="textOnly"/>
 	<ElementType name="CivicInfo" content="eltOnly">
 		<element type="CivicOptionType"/>
@@ -802,6 +819,8 @@
 		<element type="BuildingHealthChanges"/>
 		<element type="FeatureHappinessChanges"/>
 		<element type="ImprovementYieldChanges"/>
+		<element type="ImprovementCityCommerceChangesWorked" minOccurs="0"/>
+		<element type="ImprovementCityCommerceChangesBFC" minOccurs="0"/>
 		<element type="WeLoveTheKing"/>
 	</ElementType>
 	<ElementType name="CivicInfos" content="eltOnly">

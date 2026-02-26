@@ -9331,6 +9331,17 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const
 			iTempValue /= 500;
 		}
 		iTempValue += ((kCivic.getSpecialistExtraCommerce(iI) * getTotalPopulation()) / 15);
+		for (iJ = 0; iJ < GC.getNumImprovementInfos(); ++iJ)
+		{
+			const int iWorkedChange = kCivic.getImprovementCityCommerceChangesWorked(iJ, iI);
+			const int iBFCChange = kCivic.getImprovementCityCommerceChangesBFC(iJ, iI);
+			if (iWorkedChange != 0 || iBFCChange != 0)
+			{
+				const int iImprovementCount = getImprovementCount((ImprovementTypes)iJ);
+				iTempValue += (iWorkedChange * iImprovementCount * 2);
+				iTempValue += (iBFCChange * (iImprovementCount + getNumCities()));
+			}
+		}
 
 		iTempValue *= AI_commerceWeight((CommerceTypes)iI);
 

@@ -1371,6 +1371,8 @@ public:
 	bool isSpecialistValid(int i) const;								// Exposed to Python
 
 	int getImprovementYieldChanges(int i, int j) const;				// Exposed to Python
+	int getImprovementCityCommerceChangesWorked(int i, int j) const;				// Exposed to Python
+	int getImprovementCityCommerceChangesBFC(int i, int j) const;				// Exposed to Python
 
 	void read(FDataStreamBase* stream);
 	void write(FDataStreamBase* stream);
@@ -1445,6 +1447,8 @@ protected:
 	bool* m_pabSpecialistValid;
 
 	int** m_ppiImprovementYieldChanges;
+	int** m_ppiImprovementCityCommerceChangesWorked;
+	int** m_ppiImprovementCityCommerceChangesBFC;
 	
 };
 
@@ -4160,12 +4164,16 @@ public:
 	int getCommerceChange(int i) const;				// Exposed to Python
 	int getCommerceModifier(int i) const;				// Exposed to Python
 	int getImprovementYieldChanges(int i, int j) const;				// Exposed to Python
+	int getImprovementTerrainYieldChanges(int iImprovement, int iTerrain, int iYield) const;				// Exposed to Python
+	int getImprovementFeatureYieldChanges(int iImprovement, int iFeature, int iYield) const;				// Exposed to Python
 	int getBuildingYieldChanges(int i, int j) const;				// Exposed to Python
 	int getBuildingCommerceChanges(int i, int j) const;				// Exposed to Python
 	int getSpecialistYieldChanges(int i, int j) const;				// Exposed to Python
 	int getSpecialistCommerceChanges(int i, int j) const;				// Exposed to Python
 	int getBonusYieldChanges(int i, int j) const;				// Exposed to Python
 	int getRouteYieldChanges(int i, int j) const;				// Exposed to Python
+	int getImprovementCityCommerceChangesWorked(int i, int j) const;				// Exposed to Python
+	int getImprovementCityCommerceChangesBFC(int i, int j) const;				// Exposed to Python
 
 	int isFreePromotion(int i) const;				// Exposed to Python
 	int isFreePromotionUnitCombat(int i) const;			
@@ -4197,6 +4205,12 @@ protected:
 	int* m_paiCommerceModifier;
 	std::vector<CvString> m_aszImprovementYieldChangeTypes;
 	std::vector<int*> m_aaiImprovementYieldChanges;
+	std::vector<CvString> m_aszImprovementTerrainYieldChangeTypes;
+	std::vector<CvString> m_aszImprovementTerrainYieldChangeTerrains;
+	std::vector<int*> m_aaiImprovementTerrainYieldChanges;
+	std::vector<CvString> m_aszImprovementFeatureYieldChangeTypes;
+	std::vector<CvString> m_aszImprovementFeatureYieldChangeFeatures;
+	std::vector<int*> m_aaiImprovementFeatureYieldChanges;
 	std::vector<CvString> m_aszBuildingYieldChangeTypes;
 	std::vector<int*> m_aaiBuildingYieldChanges;
 	std::vector<CvString> m_aszBuildingCommerceChangeTypes;
@@ -4209,6 +4223,10 @@ protected:
 	std::vector<int*> m_aaiBonusYieldChanges;
 	std::vector<CvString> m_aszRouteYieldChangeTypes;
 	std::vector<int*> m_aaiRouteYieldChanges;
+	std::vector<CvString> m_aszImprovementCityCommerceChangeWorkedTypes;
+	std::vector<int*> m_aaiImprovementCityCommerceChangesWorked;
+	std::vector<CvString> m_aszImprovementCityCommerceChangeBFCTypes;
+	std::vector<int*> m_aaiImprovementCityCommerceChangesBFC;
 
 	bool* m_pabFreePromotion;
 	bool* m_pabFreePromotionUnitCombat;

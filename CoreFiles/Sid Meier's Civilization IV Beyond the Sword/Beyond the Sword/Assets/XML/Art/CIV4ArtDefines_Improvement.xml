@@ -79,6 +79,15 @@
 			<Button>,Art/Interface/Buttons/Buildings/Colosseum.dds,Art/Interface/Buttons/Buildings_Atlas.dds,2,2</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_EGYPT_SPHINX</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.60</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/BTG/Buildings/sphinx/sphinx.nif</NIF>
+			<KFM/>
+			<Button>Art/BTG/ChooseReligions/Ra_Files/Buildings/sphinx_button.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_WHALING_BOATS</Type>
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>1.0</fScale>

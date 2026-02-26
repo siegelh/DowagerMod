@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<Civ4GameText>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_FEDERAL_ADJECTIVE</Tag>
+    <English>Federal American</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_FEDERAL_DESC</Tag>
+    <English>Federal America</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_FEDERAL_PEDIA</Tag>
+    <English>Federal America represents a mature U.S. federal order defined by institutional continuity, continental integration, and high administrative reach. In this framing, national policy, logistics, and legal governance are centralized enough to coordinate a vast and diverse society while preserving republican constitutional form. It is a modernized expression of American state capacity beyond its founding generation.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_FEDERAL_SHORT_DESC</Tag>
+    <English>Federal America</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_FOUNDING_REPUBLIC_ADJECTIVE</Tag>
+    <English>Founding American</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_FOUNDING_REPUBLIC_DESC</Tag>
+    <English>Founding Republic of America</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_FOUNDING_REPUBLIC_PEDIA</Tag>
+    <English>The Founding Republic represents the United States in its early constitutional era, shaped by the aftermath of independence and the creation of federal institutions. Associated with George Washington and the generation of founders, this period emphasized republican government, civic virtue, and territorial consolidation. It was an age of fragile but durable institution-building that set the long-term political framework of the American state.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_FOUNDING_REPUBLIC_SHORT_DESC</Tag>
+    <English>Founding America</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_NEW_DEAL_ADJECTIVE</Tag>
+    <English>New Deal American</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_NEW_DEAL_DESC</Tag>
+    <English>New Deal America</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_NEW_DEAL_PEDIA</Tag>
+    <English>New Deal America evokes the United States of the 1930s and 1940s under Franklin D. Roosevelt, when federal power expanded to confront depression and global war. Major public programs, industrial mobilization, and coalition politics transformed the scale of modern governance. This era fused economic reform with strategic state capacity and laid foundations for postwar American leadership.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_NEW_DEAL_SHORT_DESC</Tag>
+    <English>New Deal America</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_UNION_ADJECTIVE</Tag>
+    <English>Union American</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_UNION_DESC</Tag>
+    <English>Union America</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_UNION_PEDIA</Tag>
+    <English>Union America represents the United States in the era of civil war and national reconstruction associated with Abraham Lincoln. The central state fought to preserve the Union while redefining citizenship, federal authority, and constitutional purpose. This variant emphasizes political survival through internal conflict and institutional renewal.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_AMERICA_UNION_SHORT_DESC</Tag>
+    <English>Union America</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ATHENIAN_GREECE_ADJECTIVE</Tag>
+    <English>Athenian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ATHENIAN_GREECE_DESC</Tag>
+    <English>Athenian Greece</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ATHENIAN_GREECE_PEDIA</Tag>
+    <English>Athenian Greece under Pericles represents the fifth-century BCE zenith of Classical Athens, known for civic institutions, naval power, and cultural production. The city-state led alliances, financed monumental projects, and helped define enduring forms of political and artistic expression. This variant highlights urban civic dynamism and maritime influence.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ATHENIAN_GREECE_SHORT_DESC</Tag>
+    <English>Classical Athens</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_BRITISH_REGENCY_ADJECTIVE</Tag>
+    <English>Regency British</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_BRITISH_REGENCY_DESC</Tag>
+    <English>Regency Britain</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_BRITISH_REGENCY_PEDIA</Tag>
+    <English>Regency Britain evokes the aristocratic and courtly political culture of the late Georgian and Regency world, when social hierarchy, patronage, and imperial commerce intertwined. Governance blended formal institutions with elite networks and strong landed influence. This variant highlights strategic caution, class order, and high-society power politics.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_BRITISH_REGENCY_SHORT_DESC</Tag>
+    <English>Regency Britain</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY_ADJECTIVE</Tag>
+    <English>Eighteenth-Dynasty Egyptian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY_DESC</Tag>
+    <English>Eighteenth Dynasty Egypt</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY_PEDIA</Tag>
+    <English>Eighteenth Dynasty Egypt reflects the early New Kingdom period when Egypt reached renewed strength through centralized kingship, temple patronage, and international prestige. Under Hatshepsut, monumental construction and commercial expeditions projected legitimacy as much as military force. This era combined prosperity, diplomacy, and royal sacral authority.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY_SHORT_DESC</Tag>
+    <English>18th Dynasty Egypt</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_EGYPT_NEW_KINGDOM_ADJECTIVE</Tag>
+    <English>New Kingdom Egyptian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_EGYPT_NEW_KINGDOM_DESC</Tag>
+    <English>New Kingdom Egypt</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_EGYPT_NEW_KINGDOM_PEDIA</Tag>
+    <English>New Kingdom Egypt under Ramesses II represents the high imperial phase of pharaonic power in the Late Bronze Age. It is associated with grand temples, military campaigning in the Levant, and durable royal propaganda through architecture and inscriptions. The model emphasizes monumental statecraft and long-reign legitimacy.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_EGYPT_NEW_KINGDOM_SHORT_DESC</Tag>
+    <English>New Kingdom Egypt</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ELIZABETHAN_ENGLAND_ADJECTIVE</Tag>
+    <English>Elizabethan English</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ELIZABETHAN_ENGLAND_DESC</Tag>
+    <English>Elizabethan England</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ELIZABETHAN_ENGLAND_PEDIA</Tag>
+    <English>Elizabethan England represents the late sixteenth-century kingdom shaped by confessional conflict, maritime rivalry, and expanding overseas ambition. Under Elizabeth I, the Tudor regime consolidated Protestant state power while sponsoring naval enterprise and cultural flowering. It was a formative period for English national identity and oceanic strategy.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ELIZABETHAN_ENGLAND_SHORT_DESC</Tag>
+    <English>Elizabethan England</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_IMPERIAL_ADJECTIVE</Tag>
+    <English>Imperial Ethiopian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_IMPERIAL_DESC</Tag>
+    <English>Imperial Ethiopia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_IMPERIAL_PEDIA</Tag>
+    <English>Imperial Ethiopia under Haile Selassie represents a twentieth-century monarchy confronting fascist invasion, postwar reconstruction, and modernization. The regime combined ancient dynastic legitimacy with international diplomacy, including a prominent role in pan-African and global forums. It highlights sovereignty defense and reformist imperial continuity.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_IMPERIAL_SHORT_DESC</Tag>
+    <English>Imperial Ethiopia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_SOLOMONIC_ADJECTIVE</Tag>
+    <English>Solomonic Ethiopian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_SOLOMONIC_DESC</Tag>
+    <English>Solomonic Ethiopia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_SOLOMONIC_PEDIA</Tag>
+    <English>Solomonic Ethiopia refers to the Christian highland monarchy of the late medieval and early modern Horn of Africa, linked to dynastic legitimacy through Solomonic tradition. Under rulers such as Zara Yaqob, the state strengthened religious institutions and royal authority. This variant emphasizes confessional kingship and durable highland governance.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_SOLOMONIC_SHORT_DESC</Tag>
+    <English>Solomonic Ethiopia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_BOURBON_ADJECTIVE</Tag>
+    <English>Bourbon</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_BOURBON_DESC</Tag>
+    <English>Bourbon France</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_BOURBON_PEDIA</Tag>
+    <English>Bourbon France refers to the monarchy led by the Bourbon dynasty after Henry IV&apos;s accession in 1589 and, later, after the Restoration period beginning in 1814. Under rulers such as Louis XIII and especially Louis XIV, royal authority became highly centralized and the French state developed into one of Europe&apos;s dominant powers. Court culture, aristocratic hierarchy, and administrative centralization became defining features of this era. In the Restoration phase, the Bourbons returned after Napoleon&apos;s fall and attempted to balance monarchy with constitutional limits, but growing conflict between reaction and reform culminated in the July Revolution of 1830.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_BOURBON_SHORT_DESC</Tag>
+    <English>Bourbon France</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIFTH_REPUBLIC_ADJECTIVE</Tag>
+    <English>Fifth-Republic French</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIFTH_REPUBLIC_DESC</Tag>
+    <English>Fifth Republic France</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIFTH_REPUBLIC_PEDIA</Tag>
+    <English>Fifth Republic France refers to the constitutional order founded in 1958 and strongly associated with Charles de Gaulle. It combined a strengthened presidency with parliamentary institutions to stabilize governance after colonial and domestic crises. This variant emphasizes modern state coherence, strategic autonomy, and postwar reconstruction of French power.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIFTH_REPUBLIC_SHORT_DESC</Tag>
+    <English>Fifth Republic</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIRST_EMPIRE_ADJECTIVE</Tag>
+    <English>Imperial French</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIRST_EMPIRE_DESC</Tag>
+    <English>French First Empire</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIRST_EMPIRE_PEDIA</Tag>
+    <English>The First French Empire was established in 1804 when Napoleon Bonaparte became Emperor of the French, transforming revolutionary France into an imperial state. Built on military success, administrative reform, and legal restructuring, the Empire projected French influence across much of continental Europe. Napoleon&apos;s regime preserved and systematized major institutional changes from the Revolution, including civil-law reforms associated with the Napoleonic Code. After severe strain from prolonged warfare, the Empire collapsed in 1814, briefly returned in 1815, and ended definitively after Waterloo.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIRST_EMPIRE_SHORT_DESC</Tag>
+    <English>First Empire</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_GAULIC_CONFEDERATION_ADJECTIVE</Tag>
+    <English>Gaulic</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_GAULIC_CONFEDERATION_DESC</Tag>
+    <English>Gaulic Confederation</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_GAULIC_CONFEDERATION_PEDIA</Tag>
+    <English>The Gaulic Confederation reflects Iron Age Celtic polities on the European mainland, where tribal coalitions could temporarily unite under war leaders. Associated with Brennus in classical tradition, this model emphasizes martial mobilization, prestige warfare, and fluid alliance networks. Authority was personal and situational, but capable of sudden large-scale military action.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_GAULIC_CONFEDERATION_SHORT_DESC</Tag>
+    <English>Gaulic Confederation</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_GERMAN_EMPIRE_ADJECTIVE</Tag>
+    <English>Imperial German</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_GERMAN_EMPIRE_DESC</Tag>
+    <English>German Empire</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_GERMAN_EMPIRE_PEDIA</Tag>
+    <English>The German Empire emerged through Prussian-led unification under Otto von Bismarck after wars against Denmark, Austria, and France. It combined federal monarchy with rapid industrial growth, expanding military capacity, and assertive continental diplomacy. This era marks modern German power as an integrated national state.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_GERMAN_EMPIRE_SHORT_DESC</Tag>
+    <English>German Empire</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ICENI_BRITAIN_ADJECTIVE</Tag>
+    <English>Iceni</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ICENI_BRITAIN_DESC</Tag>
+    <English>Iceni Britain</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ICENI_BRITAIN_PEDIA</Tag>
+    <English>Iceni Britain represents the Celtic societies of Roman-era Britain, centered on the Iceni uprising led by Boudica in the 1st century CE. It evokes resistance politics, regional identity, and confederated tribal warfare against imperial occupation. This variant highlights insurgent momentum and symbolic leadership under pressure from a stronger imperial system.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ICENI_BRITAIN_SHORT_DESC</Tag>
+    <English>Iceni Britain</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_IMPERIAL_RUSSIA_ADJECTIVE</Tag>
+    <English>Imperial Russian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_IMPERIAL_RUSSIA_DESC</Tag>
+    <English>Imperial Russia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_IMPERIAL_RUSSIA_PEDIA</Tag>
+    <English>Imperial Russia under Catherine II reflects a mature expansionist monarchy balancing Enlightenment rhetoric with autocratic practice. Territorial growth, court-centered governance, and administrative consolidation defined Russia&apos;s rise as a major Eurasian power. This variant emphasizes scale, elite statecraft, and imperial durability.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_IMPERIAL_RUSSIA_SHORT_DESC</Tag>
+    <English>Imperial Russia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_MACEDONIAN_EMPIRE_ADJECTIVE</Tag>
+    <English>Macedonian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_MACEDONIAN_EMPIRE_DESC</Tag>
+    <English>Macedonian Empire</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_MACEDONIAN_EMPIRE_PEDIA</Tag>
+    <English>The Macedonian Empire of Alexander III grew from a Balkan kingdom into a transcontinental imperial system stretching from the eastern Mediterranean to western India. Its campaigns shattered Achaemenid rule and spread Hellenic political and cultural forms across newly connected regions. This variant emphasizes operational speed, conquest, and imperial synthesis.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_MACEDONIAN_EMPIRE_SHORT_DESC</Tag>
+    <English>Macedonian Empire</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_MONGOL_EMPIRE_ADJECTIVE</Tag>
+    <English>Mongol</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_MONGOL_EMPIRE_DESC</Tag>
+    <English>Mongol Empire</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_MONGOL_EMPIRE_PEDIA</Tag>
+    <English>The Mongol Empire founded by Chinggis Khan in the early thirteenth century unified steppe confederations into an expansionist military state. Highly mobile armies, flexible command structures, and merit-based leadership enabled rapid conquest across Eurasia. This variant emphasizes campaign tempo and continental-scale integration by force.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_MONGOL_EMPIRE_SHORT_DESC</Tag>
+    <English>Mongol Empire</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CLASSICAL_ADJECTIVE</Tag>
+    <English>Ottoman</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CLASSICAL_DESC</Tag>
+    <English>Classical Ottoman Empire</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CLASSICAL_PEDIA</Tag>
+    <English>The classical Ottoman Empire under Suleiman I marks a high phase of imperial administration, legal codification, and military reach in the sixteenth century. Provincial governance, fiscal institutions, and court politics were coordinated at scale across diverse regions. This variant emphasizes imperial law, bureaucracy, and sustained strategic projection.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CLASSICAL_SHORT_DESC</Tag>
+    <English>Classical Ottomans</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CONQUEST_ADJECTIVE</Tag>
+    <English>Ottoman</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CONQUEST_DESC</Tag>
+    <English>Conquest Ottoman State</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CONQUEST_PEDIA</Tag>
+    <English>The conquest-era Ottoman state under Mehmed II is defined by territorial expansion, artillery-enabled siege warfare, and the capture of Constantinople in 1453. It transformed a frontier principality into an imperial capital-centered power. This variant emphasizes decisive expansion and institutional refounding through conquest.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CONQUEST_SHORT_DESC</Tag>
+    <English>Conquest Ottomans</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PEOPLES_REPUBLIC_CHINA_ADJECTIVE</Tag>
+    <English>Chinese</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PEOPLES_REPUBLIC_CHINA_DESC</Tag>
+    <English>People&apos;s Republic of China</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PEOPLES_REPUBLIC_CHINA_PEDIA</Tag>
+    <English>The People&apos;s Republic of China represents the modern socialist state founded in 1949 after prolonged civil and external war. Under centralized party rule, the PRC pursued rapid industrial transformation, mass campaigns, and later market-oriented reforms within a one-party framework. This variant emphasizes modern state planning, scale, and long-run developmental strategy.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PEOPLES_REPUBLIC_CHINA_SHORT_DESC</Tag>
+    <English>PRC</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID_ADJECTIVE</Tag>
+    <English>Achaemenid Persian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID_DESC</Tag>
+    <English>Founding Achaemenid Persia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID_PEDIA</Tag>
+    <English>Founding Achaemenid Persia under Cyrus II represents the creation of a multiethnic imperial framework in the sixth century BCE. Cyrus combined military success with pragmatic rule over conquered populations, establishing durable norms of satrapal administration and royal authority. This variant emphasizes imperial founding and integrative governance.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID_SHORT_DESC</Tag>
+    <English>Founding Achaemenids</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID_ADJECTIVE</Tag>
+    <English>Achaemenid Persian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID_DESC</Tag>
+    <English>Imperial Achaemenid Persia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID_PEDIA</Tag>
+    <English>Imperial Achaemenid Persia under Darius I reflects administrative maturation through taxation systems, satrapal oversight, major infrastructure, and imperial standardization. The empire expanded and stabilized as a continental power linking the Near East, Egypt, and parts of Central and South Asia. This variant emphasizes organized revenue, infrastructure, and imperial management.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID_SHORT_DESC</Tag>
+    <English>Imperial Achaemenids</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_ADJECTIVE</Tag>
+    <English>Petrine Russian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_DESC</Tag>
+    <English>Petrine Russia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_PEDIA</Tag>
+    <English>Petrine Russia under Peter I represents an early eighteenth-century transformation of Muscovite structures into a more European-style imperial state. Reforms targeted military organization, administration, technology transfer, and maritime access. This variant emphasizes modernization through coercive reform and strategic reorientation.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_SHORT_DESC</Tag>
+    <English>Petrine Russia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PRUSSIA_ADJECTIVE</Tag>
+    <English>Prussian</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PRUSSIA_DESC</Tag>
+    <English>Kingdom of Prussia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PRUSSIA_PEDIA</Tag>
+    <English>Prussia under Frederick II represents an eighteenth-century military-bureaucratic state that combined disciplined administration with great-power ambition. Reforms in governance, army organization, and fiscal management gave Prussia influence disproportionate to its population. This variant emphasizes efficient command structures and hard-power statecraft.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PRUSSIA_SHORT_DESC</Tag>
+    <English>Prussia</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_QIN_DYNASTY_ADJECTIVE</Tag>
+    <English>Qin</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_QIN_DYNASTY_DESC</Tag>
+    <English>Qin Dynasty</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_QIN_DYNASTY_PEDIA</Tag>
+    <English>Qin Dynasty China marks the first imperial unification of the Chinese heartland under Qin Shi Huang in the third century BCE. The regime is remembered for legalist centralization, standardized administration, and massive state projects. Though short-lived, Qin institutions strongly shaped the long imperial tradition that followed.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_QIN_DYNASTY_SHORT_DESC</Tag>
+    <English>Qin China</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ROMAN_PRINCIPATE_ADJECTIVE</Tag>
+    <English>Roman Imperial</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ROMAN_PRINCIPATE_DESC</Tag>
+    <English>Roman Principate</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ROMAN_PRINCIPATE_PEDIA</Tag>
+    <English>The Roman Principate began under Augustus, who stabilized Rome after civil war by preserving republican forms while consolidating monarchical authority. Administrative reform, professional armies, and provincial integration produced long-lived imperial governance. This variant emphasizes durable order after systemic political crisis.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ROMAN_PRINCIPATE_SHORT_DESC</Tag>
+    <English>Principate Rome</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ROMAN_REPUBLIC_LATE_ADJECTIVE</Tag>
+    <English>Roman Republican</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ROMAN_REPUBLIC_LATE_DESC</Tag>
+    <English>Late Roman Republic</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ROMAN_REPUBLIC_LATE_PEDIA</Tag>
+    <English>The Late Roman Republic was an era of expansion, elite competition, and repeated civil conflict in the first century BCE. Julius Caesar symbolizes the period&apos;s fusion of military command, popular politics, and constitutional breakdown. This variant emphasizes aggressive expansion under unstable republican institutions.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_ROMAN_REPUBLIC_LATE_SHORT_DESC</Tag>
+    <English>Late Republic</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_VICTORIAN_BRITAIN_ADJECTIVE</Tag>
+    <English>Victorian British</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_VICTORIAN_BRITAIN_DESC</Tag>
+    <English>Victorian Britain</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_VICTORIAN_BRITAIN_PEDIA</Tag>
+    <English>Victorian Britain represents the nineteenth-century United Kingdom at the height of industrial capacity and global imperial reach. Railways, finance, and maritime supremacy linked domestic production to worldwide trade and governance. This era fused technological transformation with expansive imperial administration.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_VICTORIAN_BRITAIN_SHORT_DESC</Tag>
+    <English>Victorian Britain</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_WARTIME_BRITAIN_ADJECTIVE</Tag>
+    <English>Wartime British</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_WARTIME_BRITAIN_DESC</Tag>
+    <English>Wartime Britain</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_WARTIME_BRITAIN_PEDIA</Tag>
+    <English>Wartime Britain centers on the United Kingdom during the Second World War, especially the period of national mobilization under Winston Churchill. Strategic endurance, coalition warfare, and home-front resilience defined this phase of British statecraft. It emphasizes defensive resolve and command under existential pressure.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_WARTIME_BRITAIN_SHORT_DESC</Tag>
+    <English>Wartime Britain</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_YUAN_DYNASTY_ADJECTIVE</Tag>
+    <English>Yuan</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_YUAN_DYNASTY_DESC</Tag>
+    <English>Yuan Dynasty</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_YUAN_DYNASTY_PEDIA</Tag>
+    <English>The Yuan Dynasty, established by Kublai Khan, represented the Mongol-ruled imperial order in China. It adapted steppe imperial traditions to governing dense agrarian and urban populations through inherited Chinese institutions and new administrative layers. This variant emphasizes imperial adaptation, revenue coordination, and cross-regional governance.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_YUAN_DYNASTY_SHORT_DESC</Tag>
+    <English>Yuan China</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_CONTINENTAL_LINE_INFANTRY</Tag>
+    <English>Continental Line Infantry</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_CONTINENTAL_LINE_INFANTRY_PEDIA</Tag>
+    <English>The Continental Line formed the standing core of George Washington&apos;s army during the American Revolutionary War. Trained for disciplined volley fire and sustained campaigns, these regulars anchored battlefield defense and gave the young republic military credibility.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_CONTINENTAL_LINE_INFANTRY_STRATEGY</Tag>
+    <English>Replaces the Musketman. Slightly cheaper and starts with Drill I and City Garrison I, making it a reliable defensive line unit.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_FEDERAL_HALL</Tag>
+    <English>Federal Hall</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_FEDERAL_HALL_PEDIA</Tag>
+    <English>Federal Hall symbolizes the early constitutional institutions of the United States and the consolidation of federal authority in the founding era. It reflects the administrative and civic framework that stabilized the new republic.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_FEDERAL_HALL_STRATEGY</Tag>
+    <English>Replaces the Courthouse. In addition to normal Courthouse effects, it adds +2 Culture and +2 Espionage.</English>
+  </TEXT>
+</Civ4GameText>
+

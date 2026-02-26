@@ -30,6 +30,46 @@ Notes:
 - This timestamped DLL is ignored by git via `.gitignore`.
 - Rename/copy it to `CvGameCoreDLL.dll` when you want it to be the active shipped DLL.
 
+## XML Targeting (Important)
+
+When modding and testing **Beyond the Sword**, treat BTS XML files as authoritative.
+
+Primary trait file:
+
+- `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Civilizations/CIV4TraitInfos.xml`
+
+Compatibility/legacy copies may exist under:
+
+- `.../Warlords/Assets/...`
+- `.../Assets/...` (base Civ4)
+
+but BTS gameplay should read the BTS path above. New trait behavior and trait data changes should be made there first.
+
+## XML Schema Validation Lessons
+
+When adding new XML tags, update schema and data together.
+
+What broke in this incident:
+
+- `CIV4TraitInfos.xml` failed to load after adding:
+  - `ImprovementTerrainYieldChanges`
+  - `ImprovementFeatureYieldChanges`
+- The schema referenced `TerrainType` and `FeatureType` in those blocks, but those element types were not declared in `CIV4CivilizationsSchema.xml`.
+- Once trait loading failed, follow-on XML loads produced misleading secondary errors (for example memory errors while loading `CIV4CivicOptionInfos.xml`).
+
+Required checklist for new XML capability work:
+
+1. Add new tags to the correct schema sequence (`TraitInfo`, `CivicInfo`, etc.) in all relevant copies:
+   - `.../Beyond the Sword/Assets/...`
+   - `.../Assets/...`
+   - `.../Warlords/Assets/...` when shared schemas are used
+2. Add any new referenced element types (`<ElementType name=\"...\"/>`) in schema files.
+3. Keep element order in data XML consistent with schema order.
+4. Validate XML with schema before launch (MSXML 3.0 style validation is closest to Civ4 runtime behavior).
+5. If the game shows:
+   - `Failed Loading XML file .../CIV4TraitInfos.xml`
+   treat that as the primary error and fix it first before investigating later popups.
+
 ## Rebuild Installer
 
 From repo root:
@@ -43,3 +83,15 @@ python -m PyInstaller --onefile install.py
 See:
 
 - `third_party/beyond-the-sword-sdk/BUILDING_CVGAMECOREDLL.md`
+
+## Leader Overhaul Rules
+
+Plan-of-record document:
+
+- `docs/LEADER_OVERHAUL_PLAN_OF_RECORD.md`
+
+This includes required standards for:
+
+- mixing legacy and new trait mechanisms
+- art sourcing workflow (including external art import rules)
+- civilization-specific unique tile improvements (for example, Sphinx-style desert improvements with optional city-range bonuses)

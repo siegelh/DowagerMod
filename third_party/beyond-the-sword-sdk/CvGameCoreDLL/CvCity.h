@@ -926,6 +926,7 @@ public:
 	void invalidateCommerceRankCache(CommerceTypes eCommerce = NO_COMMERCE);
 
 	int getBestYieldAvailable(YieldTypes eYield) const;
+	int getImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const;
 
 protected:
 

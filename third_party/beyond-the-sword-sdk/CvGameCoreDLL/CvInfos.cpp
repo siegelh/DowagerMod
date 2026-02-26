@@ -5308,7 +5308,9 @@ m_paiFeatureHappinessChanges(NULL),
 m_pabHurry(NULL),
 m_pabSpecialBuildingNotRequired(NULL),
 m_pabSpecialistValid(NULL),
-m_ppiImprovementYieldChanges(NULL)
+m_ppiImprovementYieldChanges(NULL),
+m_ppiImprovementCityCommerceChangesWorked(NULL),
+m_ppiImprovementCityCommerceChangesBFC(NULL)
 {
 }
 
@@ -5342,6 +5344,22 @@ CvCivicInfo::~CvCivicInfo()
 			SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges[iI]);
 		}
 		SAFE_DELETE_ARRAY(m_ppiImprovementYieldChanges);
+	}
+	if (m_ppiImprovementCityCommerceChangesWorked != NULL)
+	{
+		for (iI = 0; iI < GC.getNumImprovementInfos(); iI++)
+		{
+			SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesWorked[iI]);
+		}
+		SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesWorked);
+	}
+	if (m_ppiImprovementCityCommerceChangesBFC != NULL)
+	{
+		for (iI = 0; iI < GC.getNumImprovementInfos(); iI++)
+		{
+			SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesBFC[iI]);
+		}
+		SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesBFC);
 	}
 }
 
@@ -5700,6 +5718,24 @@ int CvCivicInfo::getImprovementYieldChanges(int i, int j) const
 	return m_ppiImprovementYieldChanges[i][j];
 }
 
+int CvCivicInfo::getImprovementCityCommerceChangesWorked(int i, int j) const
+{
+	FAssertMsg(i < GC.getNumImprovementInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(j < NUM_COMMERCE_TYPES, "Index out of bounds");
+	FAssertMsg(j > -1, "Index out of bounds");
+	return m_ppiImprovementCityCommerceChangesWorked ? m_ppiImprovementCityCommerceChangesWorked[i][j] : 0;
+}
+
+int CvCivicInfo::getImprovementCityCommerceChangesBFC(int i, int j) const
+{
+	FAssertMsg(i < GC.getNumImprovementInfos(), "Index out of bounds");
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(j < NUM_COMMERCE_TYPES, "Index out of bounds");
+	FAssertMsg(j > -1, "Index out of bounds");
+	return m_ppiImprovementCityCommerceChangesBFC ? m_ppiImprovementCityCommerceChangesBFC[i][j] : 0;
+}
+
 void CvCivicInfo::read(FDataStreamBase* stream)
 {
 	CvInfoBase::read(stream);
@@ -5819,6 +5855,36 @@ void CvCivicInfo::read(FDataStreamBase* stream)
 		stream->Read(NUM_YIELD_TYPES, m_ppiImprovementYieldChanges[i]);
 	}
 
+	if (m_ppiImprovementCityCommerceChangesWorked != NULL)
+	{
+		for (i = 0; i < GC.getNumImprovementInfos(); i++)
+		{
+			SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesWorked[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesWorked);
+	}
+	m_ppiImprovementCityCommerceChangesWorked = new int*[GC.getNumImprovementInfos()];
+	for (i = 0; i < GC.getNumImprovementInfos(); i++)
+	{
+		m_ppiImprovementCityCommerceChangesWorked[i] = new int[NUM_COMMERCE_TYPES];
+		stream->Read(NUM_COMMERCE_TYPES, m_ppiImprovementCityCommerceChangesWorked[i]);
+	}
+
+	if (m_ppiImprovementCityCommerceChangesBFC != NULL)
+	{
+		for (i = 0; i < GC.getNumImprovementInfos(); i++)
+		{
+			SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesBFC[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesBFC);
+	}
+	m_ppiImprovementCityCommerceChangesBFC = new int*[GC.getNumImprovementInfos()];
+	for (i = 0; i < GC.getNumImprovementInfos(); i++)
+	{
+		m_ppiImprovementCityCommerceChangesBFC[i] = new int[NUM_COMMERCE_TYPES];
+		stream->Read(NUM_COMMERCE_TYPES, m_ppiImprovementCityCommerceChangesBFC[i]);
+	}
+
 	stream->ReadString(m_szWeLoveTheKingKey);
 }
 
@@ -5894,6 +5960,16 @@ void CvCivicInfo::write(FDataStreamBase* stream)
 	for(i=0;i<GC.getNumImprovementInfos();i++)
 	{
 		stream->Write(NUM_YIELD_TYPES, m_ppiImprovementYieldChanges[i]);
+	}
+
+	for (i = 0; i < GC.getNumImprovementInfos(); i++)
+	{
+		stream->Write(NUM_COMMERCE_TYPES, m_ppiImprovementCityCommerceChangesWorked[i]);
+	}
+
+	for (i = 0; i < GC.getNumImprovementInfos(); i++)
+	{
+		stream->Write(NUM_COMMERCE_TYPES, m_ppiImprovementCityCommerceChangesBFC[i]);
 	}
 
 	stream->WriteString(m_szWeLoveTheKingKey);
@@ -6062,6 +6138,94 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML)
 							else
 							{
 								pXML->InitList(&m_ppiImprovementYieldChanges[iIndex], NUM_YIELD_TYPES);
+							}
+						}
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	FAssertMsg((GC.getNumImprovementInfos() > 0) && (NUM_COMMERCE_TYPES > 0), "invalid improvement/commerce counts");
+	pXML->Init2DIntList(&m_ppiImprovementCityCommerceChangesWorked, GC.getNumImprovementInfos(), NUM_COMMERCE_TYPES);
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementCityCommerceChangesWorked"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "ImprovementType");
+						iIndex = pXML->FindInInfoClass(szTextVal);
+
+						if (iIndex > -1)
+						{
+							SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesWorked[iIndex]);
+							if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementCommerces"))
+							{
+								pXML->SetCommerce(&m_ppiImprovementCityCommerceChangesWorked[iIndex]);
+								gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+							}
+							else
+							{
+								pXML->InitList(&m_ppiImprovementCityCommerceChangesWorked[iIndex], NUM_COMMERCE_TYPES);
+							}
+						}
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	FAssertMsg((GC.getNumImprovementInfos() > 0) && (NUM_COMMERCE_TYPES > 0), "invalid improvement/commerce counts");
+	pXML->Init2DIntList(&m_ppiImprovementCityCommerceChangesBFC, GC.getNumImprovementInfos(), NUM_COMMERCE_TYPES);
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementCityCommerceChangesBFC"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "ImprovementType");
+						iIndex = pXML->FindInInfoClass(szTextVal);
+
+						if (iIndex > -1)
+						{
+							SAFE_DELETE_ARRAY(m_ppiImprovementCityCommerceChangesBFC[iIndex]);
+							if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementCommerces"))
+							{
+								pXML->SetCommerce(&m_ppiImprovementCityCommerceChangesBFC[iIndex]);
+								gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+							}
+							else
+							{
+								pXML->InitList(&m_ppiImprovementCityCommerceChangesBFC[iIndex], NUM_COMMERCE_TYPES);
 							}
 						}
 
@@ -15999,6 +16163,20 @@ CvTraitInfo::~CvTraitInfo()
 	}
 	m_aaiImprovementYieldChanges.clear();
 	m_aszImprovementYieldChangeTypes.clear();
+	for (size_t i = 0; i < m_aaiImprovementTerrainYieldChanges.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementTerrainYieldChanges[i]);
+	}
+	m_aaiImprovementTerrainYieldChanges.clear();
+	m_aszImprovementTerrainYieldChangeTypes.clear();
+	m_aszImprovementTerrainYieldChangeTerrains.clear();
+	for (size_t i = 0; i < m_aaiImprovementFeatureYieldChanges.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementFeatureYieldChanges[i]);
+	}
+	m_aaiImprovementFeatureYieldChanges.clear();
+	m_aszImprovementFeatureYieldChangeTypes.clear();
+	m_aszImprovementFeatureYieldChangeFeatures.clear();
 	for (size_t i = 0; i < m_aaiBuildingYieldChanges.size(); ++i)
 	{
 		SAFE_DELETE_ARRAY(m_aaiBuildingYieldChanges[i]);
@@ -16035,6 +16213,18 @@ CvTraitInfo::~CvTraitInfo()
 	}
 	m_aaiRouteYieldChanges.clear();
 	m_aszRouteYieldChangeTypes.clear();
+	for (size_t i = 0; i < m_aaiImprovementCityCommerceChangesWorked.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementCityCommerceChangesWorked[i]);
+	}
+	m_aaiImprovementCityCommerceChangesWorked.clear();
+	m_aszImprovementCityCommerceChangeWorkedTypes.clear();
+	for (size_t i = 0; i < m_aaiImprovementCityCommerceChangesBFC.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementCityCommerceChangesBFC[i]);
+	}
+	m_aaiImprovementCityCommerceChangesBFC.clear();
+	m_aszImprovementCityCommerceChangeBFCTypes.clear();
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
 }
@@ -16139,6 +16329,34 @@ int CvTraitInfo::getImprovementYieldChanges(int i, int j) const
 	return 0;
 }
 
+int CvTraitInfo::getImprovementTerrainYieldChanges(int iImprovement, int iTerrain, int iYield) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszImprovementTerrainYieldChangeTypes.size(); ++iEntry)
+	{
+		const int iImprovementType = GC.getInfoTypeForString(m_aszImprovementTerrainYieldChangeTypes[iEntry], true);
+		const int iTerrainType = GC.getInfoTypeForString(m_aszImprovementTerrainYieldChangeTerrains[iEntry], true);
+		if (iImprovementType == iImprovement && iTerrainType == iTerrain)
+		{
+			return m_aaiImprovementTerrainYieldChanges[iEntry][iYield];
+		}
+	}
+	return 0;
+}
+
+int CvTraitInfo::getImprovementFeatureYieldChanges(int iImprovement, int iFeature, int iYield) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszImprovementFeatureYieldChangeTypes.size(); ++iEntry)
+	{
+		const int iImprovementType = GC.getInfoTypeForString(m_aszImprovementFeatureYieldChangeTypes[iEntry], true);
+		const int iFeatureType = GC.getInfoTypeForString(m_aszImprovementFeatureYieldChangeFeatures[iEntry], true);
+		if (iImprovementType == iImprovement && iFeatureType == iFeature)
+		{
+			return m_aaiImprovementFeatureYieldChanges[iEntry][iYield];
+		}
+	}
+	return 0;
+}
+
 int CvTraitInfo::getBuildingYieldChanges(int i, int j) const
 {
 	for (size_t iEntry = 0; iEntry < m_aszBuildingYieldChangeTypes.size(); ++iEntry)
@@ -16212,6 +16430,32 @@ int CvTraitInfo::getRouteYieldChanges(int i, int j) const
 		if (iType == i)
 		{
 			return m_aaiRouteYieldChanges[iEntry][j];
+		}
+	}
+	return 0;
+}
+
+int CvTraitInfo::getImprovementCityCommerceChangesWorked(int i, int j) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszImprovementCityCommerceChangeWorkedTypes.size(); ++iEntry)
+	{
+		const int iImprovementType = GC.getInfoTypeForString(m_aszImprovementCityCommerceChangeWorkedTypes[iEntry], true);
+		if (iImprovementType == i)
+		{
+			return m_aaiImprovementCityCommerceChangesWorked[iEntry][j];
+		}
+	}
+	return 0;
+}
+
+int CvTraitInfo::getImprovementCityCommerceChangesBFC(int i, int j) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszImprovementCityCommerceChangeBFCTypes.size(); ++iEntry)
+	{
+		const int iImprovementType = GC.getInfoTypeForString(m_aszImprovementCityCommerceChangeBFCTypes[iEntry], true);
+		if (iImprovementType == i)
+		{
+			return m_aaiImprovementCityCommerceChangesBFC[iEntry][j];
 		}
 	}
 	return 0;
@@ -16336,6 +16580,106 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 			}
 		}
 
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiImprovementTerrainYieldChanges.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementTerrainYieldChanges[iEntry]);
+	}
+	m_aaiImprovementTerrainYieldChanges.clear();
+	m_aszImprovementTerrainYieldChangeTypes.clear();
+	m_aszImprovementTerrainYieldChangeTerrains.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementTerrainYieldChanges"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						CvString szImprovementType;
+						CvString szTerrainType;
+						pXML->GetChildXmlValByName(szImprovementType, "ImprovementType");
+						pXML->GetChildXmlValByName(szTerrainType, "TerrainType");
+						int* paiYields = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementYields"))
+						{
+							pXML->SetYields(&paiYields);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiYields, NUM_YIELD_TYPES);
+						}
+
+						m_aszImprovementTerrainYieldChangeTypes.push_back(szImprovementType);
+						m_aszImprovementTerrainYieldChangeTerrains.push_back(szTerrainType);
+						m_aaiImprovementTerrainYieldChanges.push_back(paiYields);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiImprovementFeatureYieldChanges.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementFeatureYieldChanges[iEntry]);
+	}
+	m_aaiImprovementFeatureYieldChanges.clear();
+	m_aszImprovementFeatureYieldChangeTypes.clear();
+	m_aszImprovementFeatureYieldChangeFeatures.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementFeatureYieldChanges"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						CvString szImprovementType;
+						CvString szFeatureType;
+						pXML->GetChildXmlValByName(szImprovementType, "ImprovementType");
+						pXML->GetChildXmlValByName(szFeatureType, "FeatureType");
+						int* paiYields = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementYields"))
+						{
+							pXML->SetYields(&paiYields);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiYields, NUM_YIELD_TYPES);
+						}
+
+						m_aszImprovementFeatureYieldChangeTypes.push_back(szImprovementType);
+						m_aszImprovementFeatureYieldChangeFeatures.push_back(szFeatureType);
+						m_aaiImprovementFeatureYieldChanges.push_back(paiYields);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
@@ -16606,6 +16950,100 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 
 						m_aszRouteYieldChangeTypes.push_back(szTextVal);
 						m_aaiRouteYieldChanges.push_back(paiRouteYields);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiImprovementCityCommerceChangesWorked.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementCityCommerceChangesWorked[iEntry]);
+	}
+	m_aaiImprovementCityCommerceChangesWorked.clear();
+	m_aszImprovementCityCommerceChangeWorkedTypes.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementCityCommerceChangesWorked"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "ImprovementType");
+						int* paiImprovementCommerces = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementCommerces"))
+						{
+							pXML->SetCommerce(&paiImprovementCommerces);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiImprovementCommerces, NUM_COMMERCE_TYPES);
+						}
+
+						m_aszImprovementCityCommerceChangeWorkedTypes.push_back(szTextVal);
+						m_aaiImprovementCityCommerceChangesWorked.push_back(paiImprovementCommerces);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiImprovementCityCommerceChangesBFC.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementCityCommerceChangesBFC[iEntry]);
+	}
+	m_aaiImprovementCityCommerceChangesBFC.clear();
+	m_aszImprovementCityCommerceChangeBFCTypes.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementCityCommerceChangesBFC"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "ImprovementType");
+						int* paiImprovementCommerces = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementCommerces"))
+						{
+							pXML->SetCommerce(&paiImprovementCommerces);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiImprovementCommerces, NUM_COMMERCE_TYPES);
+						}
+
+						m_aszImprovementCityCommerceChangeBFCTypes.push_back(szTextVal);
+						m_aaiImprovementCityCommerceChangesBFC.push_back(paiImprovementCommerces);
 
 						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
 						{

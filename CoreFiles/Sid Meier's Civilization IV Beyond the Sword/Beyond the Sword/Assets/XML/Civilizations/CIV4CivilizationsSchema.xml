@@ -153,6 +153,8 @@
 		<element type="UnitAIWeightModifier" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="ImprovementType" content="textOnly"/>
+	<ElementType name="TerrainType" content="textOnly"/>
+	<ElementType name="FeatureType" content="textOnly"/>
 	<ElementType name="ImprovementWeightModifier" content="eltOnly">
 		<element type="ImprovementType"/>
 		<element type="iWeightModifier"/>
@@ -316,6 +318,39 @@
 	<ElementType name="ImprovementYieldChanges" content="eltOnly">
 		<element type="ImprovementYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="ImprovementTerrainYieldChange" content="eltOnly">
+		<element type="ImprovementType"/>
+		<element type="TerrainType"/>
+		<element type="ImprovementYields"/>
+	</ElementType>
+	<ElementType name="ImprovementTerrainYieldChanges" content="eltOnly">
+		<element type="ImprovementTerrainYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="ImprovementFeatureYieldChange" content="eltOnly">
+		<element type="ImprovementType"/>
+		<element type="FeatureType"/>
+		<element type="ImprovementYields"/>
+	</ElementType>
+	<ElementType name="ImprovementFeatureYieldChanges" content="eltOnly">
+		<element type="ImprovementFeatureYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="ImprovementCommerces" content="eltOnly">
+		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="ImprovementCityCommerceChangeWorked" content="eltOnly">
+		<element type="ImprovementType"/>
+		<element type="ImprovementCommerces"/>
+	</ElementType>
+	<ElementType name="ImprovementCityCommerceChangesWorked" content="eltOnly">
+		<element type="ImprovementCityCommerceChangeWorked" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="ImprovementCityCommerceChangeBFC" content="eltOnly">
+		<element type="ImprovementType"/>
+		<element type="ImprovementCommerces"/>
+	</ElementType>
+	<ElementType name="ImprovementCityCommerceChangesBFC" content="eltOnly">
+		<element type="ImprovementCityCommerceChangeBFC" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="BuildingYields" content="eltOnly">
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
@@ -418,6 +453,10 @@
 		<element type="CommerceChanges"/>
 		<element type="CommerceModifiers"/>
 		<element type="ImprovementYieldChanges" minOccurs="0"/>
+		<element type="ImprovementTerrainYieldChanges" minOccurs="0"/>
+		<element type="ImprovementFeatureYieldChanges" minOccurs="0"/>
+		<element type="ImprovementCityCommerceChangesWorked" minOccurs="0"/>
+		<element type="ImprovementCityCommerceChangesBFC" minOccurs="0"/>
 		<element type="BuildingYieldChanges" minOccurs="0"/>
 		<element type="BuildingCommerceChanges" minOccurs="0"/>
 		<element type="SpecialistYieldChanges" minOccurs="0"/>

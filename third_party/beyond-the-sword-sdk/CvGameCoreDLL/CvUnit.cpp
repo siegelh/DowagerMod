@@ -6349,6 +6349,22 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible)
 		return false;
 	}
 
+	const BuildTypes eSphinxBuild = (BuildTypes)GC.getInfoTypeForString("BUILD_EGYPT_SPHINX", true);
+	if (eSphinxBuild != NO_BUILD && eBuild == eSphinxBuild)
+	{
+		const CivilizationTypes eHatshepsutCiv = (CivilizationTypes)GC.getInfoTypeForString("CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY", true);
+		if (eHatshepsutCiv != NO_CIVILIZATION && GET_PLAYER(getOwnerINLINE()).getCivilizationType() != eHatshepsutCiv)
+		{
+			return false;
+		}
+
+		const FeatureTypes eFloodPlains = (FeatureTypes)GC.getInfoTypeForString("FEATURE_FLOOD_PLAINS", true);
+		if (eFloodPlains != NO_FEATURE && pPlot->getFeatureType() == eFloodPlains)
+		{
+			return false;
+		}
+	}
+
 	if (!(GET_PLAYER(getOwnerINLINE()).canBuild(pPlot, eBuild, false, bTestVisible)))
 	{
 		return false;

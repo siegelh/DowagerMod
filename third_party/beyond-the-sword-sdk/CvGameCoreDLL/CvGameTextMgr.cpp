@@ -3381,6 +3381,50 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer &szHelpString, TraitTypes eTrait
 			}
 		}
 
+		// Improvement Yields by Terrain
+		for (iI = 0; iI < NUM_YIELD_TYPES; ++iI)
+		{
+			for (iJ = 0; iJ < GC.getNumImprovementInfos(); ++iJ)
+			{
+				for (int iK = 0; iK < GC.getNumTerrainInfos(); ++iK)
+				{
+					const int iChange = GC.getTraitInfo(eTrait).getImprovementTerrainYieldChanges(iJ, iK, iI);
+					if (iChange != 0)
+					{
+						szFirstBuffer.Format(L"%s%+d%c from <link=literal>%s</link> on <link=literal>%s</link>",
+							NEWLINE,
+							iChange,
+							GC.getYieldInfo((YieldTypes)iI).getChar(),
+							GC.getImprovementInfo((ImprovementTypes)iJ).getDescription(),
+							GC.getTerrainInfo((TerrainTypes)iK).getDescription());
+						szHelpString.append(szFirstBuffer);
+					}
+				}
+			}
+		}
+
+		// Improvement Yields by Feature
+		for (iI = 0; iI < NUM_YIELD_TYPES; ++iI)
+		{
+			for (iJ = 0; iJ < GC.getNumImprovementInfos(); ++iJ)
+			{
+				for (int iK = 0; iK < GC.getNumFeatureInfos(); ++iK)
+				{
+					const int iChange = GC.getTraitInfo(eTrait).getImprovementFeatureYieldChanges(iJ, iK, iI);
+					if (iChange != 0)
+					{
+						szFirstBuffer.Format(L"%s%+d%c from <link=literal>%s</link> on <link=literal>%s</link>",
+							NEWLINE,
+							iChange,
+							GC.getYieldInfo((YieldTypes)iI).getChar(),
+							GC.getImprovementInfo((ImprovementTypes)iJ).getDescription(),
+							GC.getFeatureInfo((FeatureTypes)iK).getDescription());
+						szHelpString.append(szFirstBuffer);
+					}
+				}
+			}
+		}
+
 		// Trait Building Yields
 		for (iI = 0; iI < NUM_YIELD_TYPES; ++iI)
 		{
@@ -3509,6 +3553,42 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer &szHelpString, TraitTypes eTrait
 					szRoute.Format(L"<link=literal>%s</link>", GC.getRouteInfo((RouteTypes)iJ).getDescription());
 					setListHelp(szHelpString, szFirstBuffer, szRoute, L", ", (iChange != iLast));
 					iLast = iChange;
+				}
+			}
+		}
+
+		// Trait Improvement -> City Commerce (worked tiles only)
+		for (iI = 0; iI < NUM_COMMERCE_TYPES; ++iI)
+		{
+			for (iJ = 0; iJ < GC.getNumImprovementInfos(); ++iJ)
+			{
+				int iChange = GC.getTraitInfo(eTrait).getImprovementCityCommerceChangesWorked(iJ, iI);
+				if (iChange != 0)
+				{
+					szFirstBuffer.Format(L"%sWorked <link=literal>%s</link> tiles: %+d%c to city",
+						NEWLINE,
+						GC.getImprovementInfo((ImprovementTypes)iJ).getDescription(),
+						iChange,
+						GC.getCommerceInfo((CommerceTypes)iI).getChar());
+					szHelpString.append(szFirstBuffer);
+				}
+			}
+		}
+
+		// Trait Improvement -> City Commerce (in BFC, worked or not)
+		for (iI = 0; iI < NUM_COMMERCE_TYPES; ++iI)
+		{
+			for (iJ = 0; iJ < GC.getNumImprovementInfos(); ++iJ)
+			{
+				int iChange = GC.getTraitInfo(eTrait).getImprovementCityCommerceChangesBFC(iJ, iI);
+				if (iChange != 0)
+				{
+					szFirstBuffer.Format(L"%s<link=literal>%s</link> in city radius: %+d%c to city",
+						NEWLINE,
+						GC.getImprovementInfo((ImprovementTypes)iJ).getDescription(),
+						iChange,
+						GC.getCommerceInfo((CommerceTypes)iI).getChar());
+					szHelpString.append(szFirstBuffer);
 				}
 			}
 		}
@@ -4870,6 +4950,42 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer &szHelpText, CivicTypes eCivi
 				szImprovement.Format(L"<link=literal>%s</link>", GC.getImprovementInfo((ImprovementTypes)iJ).getDescription());
 				setListHelp(szHelpText, szFirstBuffer, szImprovement, L", ", (GC.getCivicInfo(eCivic).getImprovementYieldChanges(iJ, iI) != iLast));
 				iLast = GC.getCivicInfo(eCivic).getImprovementYieldChanges(iJ, iI);
+			}
+		}
+	}
+
+	// Improvement -> City Commerce (worked tiles only)
+	for (iI = 0; iI < NUM_COMMERCE_TYPES; ++iI)
+	{
+		iLast = 0;
+		for (iJ = 0; iJ < GC.getNumImprovementInfos(); ++iJ)
+		{
+			int iChange = GC.getCivicInfo(eCivic).getImprovementCityCommerceChangesWorked(iJ, iI);
+			if (iChange != 0)
+			{
+				szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_IMPROVEMENT_CITY_COMMERCE_WORKED", iChange, GC.getCommerceInfo((CommerceTypes)iI).getChar()).c_str());
+				CvWString szImprovement;
+				szImprovement.Format(L"<link=literal>%s</link>", GC.getImprovementInfo((ImprovementTypes)iJ).getDescription());
+				setListHelp(szHelpText, szFirstBuffer, szImprovement, L", ", (iChange != iLast));
+				iLast = iChange;
+			}
+		}
+	}
+
+	// Improvement -> City Commerce (in BFC, worked or not)
+	for (iI = 0; iI < NUM_COMMERCE_TYPES; ++iI)
+	{
+		iLast = 0;
+		for (iJ = 0; iJ < GC.getNumImprovementInfos(); ++iJ)
+		{
+			int iChange = GC.getCivicInfo(eCivic).getImprovementCityCommerceChangesBFC(iJ, iI);
+			if (iChange != 0)
+			{
+				szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_IMPROVEMENT_CITY_COMMERCE_BFC", iChange, GC.getCommerceInfo((CommerceTypes)iI).getChar()).c_str());
+				CvWString szImprovement;
+				szImprovement.Format(L"<link=literal>%s</link>", GC.getImprovementInfo((ImprovementTypes)iJ).getDescription());
+				setListHelp(szHelpText, szFirstBuffer, szImprovement, L", ", (iChange != iLast));
+				iLast = iChange;
 			}
 		}
 	}
