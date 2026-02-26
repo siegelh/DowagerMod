@@ -5919,6 +5919,19 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const
 	if (eRoute != NO_ROUTE)
 	{
 		iYield += GC.getRouteInfo(eRoute).getYieldChange(eYield);
+		if (ePlayer != NO_PLAYER)
+		{
+			iYield += GET_PLAYER(ePlayer).getTraitRouteYieldChange(eRoute, eYield);
+		}
+	}
+
+	if (ePlayer != NO_PLAYER)
+	{
+		BonusTypes eBonus = getBonusType(GET_PLAYER(ePlayer).getTeam());
+		if (eBonus != NO_BONUS)
+		{
+			iYield += GET_PLAYER(ePlayer).getTraitBonusYieldChange(eBonus, eYield);
+		}
 	}
 
 	if (ePlayer != NO_PLAYER)

@@ -294,6 +294,7 @@ void CyInfoPythonInterface3()
 		.def("getTradeYieldModifier", &CvTraitInfo::getTradeYieldModifier, "int (int i)")
 		.def("getCommerceChange", &CvTraitInfo::getCommerceChange, "int (int i)")
 		.def("getCommerceModifier", &CvTraitInfo::getCommerceModifier, "int (int i)")
+		.def("getImprovementYieldChanges", &CvTraitInfo::getImprovementYieldChanges, "int (int i, int j)")
 
 		.def("isFreePromotion", &CvTraitInfo::isFreePromotion, "int (int i)")
 		;

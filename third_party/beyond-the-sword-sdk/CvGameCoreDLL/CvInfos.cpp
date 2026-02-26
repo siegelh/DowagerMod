@@ -15993,6 +15993,48 @@ CvTraitInfo::~CvTraitInfo()
 	SAFE_DELETE_ARRAY(m_paiTradeYieldModifier);
 	SAFE_DELETE_ARRAY(m_paiCommerceChange);
 	SAFE_DELETE_ARRAY(m_paiCommerceModifier);
+	for (size_t i = 0; i < m_aaiImprovementYieldChanges.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementYieldChanges[i]);
+	}
+	m_aaiImprovementYieldChanges.clear();
+	m_aszImprovementYieldChangeTypes.clear();
+	for (size_t i = 0; i < m_aaiBuildingYieldChanges.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiBuildingYieldChanges[i]);
+	}
+	m_aaiBuildingYieldChanges.clear();
+	m_aszBuildingYieldChangeTypes.clear();
+	for (size_t i = 0; i < m_aaiBuildingCommerceChanges.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiBuildingCommerceChanges[i]);
+	}
+	m_aaiBuildingCommerceChanges.clear();
+	m_aszBuildingCommerceChangeTypes.clear();
+	for (size_t i = 0; i < m_aaiSpecialistYieldChanges.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiSpecialistYieldChanges[i]);
+	}
+	m_aaiSpecialistYieldChanges.clear();
+	m_aszSpecialistYieldChangeTypes.clear();
+	for (size_t i = 0; i < m_aaiSpecialistCommerceChanges.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiSpecialistCommerceChanges[i]);
+	}
+	m_aaiSpecialistCommerceChanges.clear();
+	m_aszSpecialistCommerceChangeTypes.clear();
+	for (size_t i = 0; i < m_aaiBonusYieldChanges.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiBonusYieldChanges[i]);
+	}
+	m_aaiBonusYieldChanges.clear();
+	m_aszBonusYieldChangeTypes.clear();
+	for (size_t i = 0; i < m_aaiRouteYieldChanges.size(); ++i)
+	{
+		SAFE_DELETE_ARRAY(m_aaiRouteYieldChanges[i]);
+	}
+	m_aaiRouteYieldChanges.clear();
+	m_aszRouteYieldChangeTypes.clear();
 	SAFE_DELETE_ARRAY(m_pabFreePromotionUnitCombat);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
 }
@@ -16084,6 +16126,97 @@ int CvTraitInfo::getCommerceModifier(int i) const
 	return m_paiCommerceModifier ? m_paiCommerceModifier[i] : -1; 
 }
 
+int CvTraitInfo::getImprovementYieldChanges(int i, int j) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszImprovementYieldChangeTypes.size(); ++iEntry)
+	{
+		const int iImprovementType = GC.getInfoTypeForString(m_aszImprovementYieldChangeTypes[iEntry], true);
+		if (iImprovementType == i)
+		{
+			return m_aaiImprovementYieldChanges[iEntry][j];
+		}
+	}
+	return 0;
+}
+
+int CvTraitInfo::getBuildingYieldChanges(int i, int j) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszBuildingYieldChangeTypes.size(); ++iEntry)
+	{
+		const int iType = GC.getInfoTypeForString(m_aszBuildingYieldChangeTypes[iEntry], true);
+		if (iType == i)
+		{
+			return m_aaiBuildingYieldChanges[iEntry][j];
+		}
+	}
+	return 0;
+}
+
+int CvTraitInfo::getBuildingCommerceChanges(int i, int j) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszBuildingCommerceChangeTypes.size(); ++iEntry)
+	{
+		const int iType = GC.getInfoTypeForString(m_aszBuildingCommerceChangeTypes[iEntry], true);
+		if (iType == i)
+		{
+			return m_aaiBuildingCommerceChanges[iEntry][j];
+		}
+	}
+	return 0;
+}
+
+int CvTraitInfo::getSpecialistYieldChanges(int i, int j) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszSpecialistYieldChangeTypes.size(); ++iEntry)
+	{
+		const int iType = GC.getInfoTypeForString(m_aszSpecialistYieldChangeTypes[iEntry], true);
+		if (iType == i)
+		{
+			return m_aaiSpecialistYieldChanges[iEntry][j];
+		}
+	}
+	return 0;
+}
+
+int CvTraitInfo::getSpecialistCommerceChanges(int i, int j) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszSpecialistCommerceChangeTypes.size(); ++iEntry)
+	{
+		const int iType = GC.getInfoTypeForString(m_aszSpecialistCommerceChangeTypes[iEntry], true);
+		if (iType == i)
+		{
+			return m_aaiSpecialistCommerceChanges[iEntry][j];
+		}
+	}
+	return 0;
+}
+
+int CvTraitInfo::getBonusYieldChanges(int i, int j) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszBonusYieldChangeTypes.size(); ++iEntry)
+	{
+		const int iType = GC.getInfoTypeForString(m_aszBonusYieldChangeTypes[iEntry], true);
+		if (iType == i)
+		{
+			return m_aaiBonusYieldChanges[iEntry][j];
+		}
+	}
+	return 0;
+}
+
+int CvTraitInfo::getRouteYieldChanges(int i, int j) const
+{
+	for (size_t iEntry = 0; iEntry < m_aszRouteYieldChangeTypes.size(); ++iEntry)
+	{
+		const int iType = GC.getInfoTypeForString(m_aszRouteYieldChangeTypes[iEntry], true);
+		if (iType == i)
+		{
+			return m_aaiRouteYieldChanges[iEntry][j];
+		}
+	}
+	return 0;
+}
+
 int CvTraitInfo::isFreePromotion(int i) const
 {
 	return m_pabFreePromotion ? m_pabFreePromotion[i] : -1; 
@@ -16097,6 +16230,8 @@ int CvTraitInfo::isFreePromotionUnitCombat(int i) const
 bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 {
 	CvString szTextVal;
+	int iNumSibs = 0;
+	int j = 0;
 	if (!CvInfoBase::read(pXML))
 	{
 		return false;
@@ -16155,6 +16290,335 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 	else
 	{
 		pXML->InitList(&m_paiCommerceModifier, NUM_COMMERCE_TYPES);
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiImprovementYieldChanges.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiImprovementYieldChanges[iEntry]);
+	}
+	m_aaiImprovementYieldChanges.clear();
+	m_aszImprovementYieldChangeTypes.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementYieldChanges"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "ImprovementType");
+						int* paiImprovementYields = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementYields"))
+						{
+							pXML->SetYields(&paiImprovementYields);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiImprovementYields, NUM_YIELD_TYPES);
+						}
+
+						m_aszImprovementYieldChangeTypes.push_back(szTextVal);
+						m_aaiImprovementYieldChanges.push_back(paiImprovementYields);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiBuildingYieldChanges.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiBuildingYieldChanges[iEntry]);
+	}
+	m_aaiBuildingYieldChanges.clear();
+	m_aszBuildingYieldChangeTypes.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BuildingYieldChanges"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "BuildingClassType");
+						int* paiBuildingYields = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BuildingYields"))
+						{
+							pXML->SetYields(&paiBuildingYields);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiBuildingYields, NUM_YIELD_TYPES);
+						}
+
+						m_aszBuildingYieldChangeTypes.push_back(szTextVal);
+						m_aaiBuildingYieldChanges.push_back(paiBuildingYields);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiBuildingCommerceChanges.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiBuildingCommerceChanges[iEntry]);
+	}
+	m_aaiBuildingCommerceChanges.clear();
+	m_aszBuildingCommerceChangeTypes.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BuildingCommerceChanges"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "BuildingClassType");
+						int* paiBuildingCommerces = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BuildingCommerces"))
+						{
+							pXML->SetCommerce(&paiBuildingCommerces);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiBuildingCommerces, NUM_COMMERCE_TYPES);
+						}
+
+						m_aszBuildingCommerceChangeTypes.push_back(szTextVal);
+						m_aaiBuildingCommerceChanges.push_back(paiBuildingCommerces);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiSpecialistYieldChanges.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiSpecialistYieldChanges[iEntry]);
+	}
+	m_aaiSpecialistYieldChanges.clear();
+	m_aszSpecialistYieldChangeTypes.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SpecialistYieldChanges"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "SpecialistType");
+						int* paiSpecialistYields = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SpecialistYields"))
+						{
+							pXML->SetYields(&paiSpecialistYields);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiSpecialistYields, NUM_YIELD_TYPES);
+						}
+
+						m_aszSpecialistYieldChangeTypes.push_back(szTextVal);
+						m_aaiSpecialistYieldChanges.push_back(paiSpecialistYields);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiSpecialistCommerceChanges.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiSpecialistCommerceChanges[iEntry]);
+	}
+	m_aaiSpecialistCommerceChanges.clear();
+	m_aszSpecialistCommerceChangeTypes.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SpecialistCommerceChanges"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "SpecialistType");
+						int* paiSpecialistCommerces = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "SpecialistCommerces"))
+						{
+							pXML->SetCommerce(&paiSpecialistCommerces);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiSpecialistCommerces, NUM_COMMERCE_TYPES);
+						}
+
+						m_aszSpecialistCommerceChangeTypes.push_back(szTextVal);
+						m_aaiSpecialistCommerceChanges.push_back(paiSpecialistCommerces);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiBonusYieldChanges.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiBonusYieldChanges[iEntry]);
+	}
+	m_aaiBonusYieldChanges.clear();
+	m_aszBonusYieldChangeTypes.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BonusYieldChanges"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "BonusType");
+						int* paiBonusYields = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BonusYields"))
+						{
+							pXML->SetYields(&paiBonusYields);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiBonusYields, NUM_YIELD_TYPES);
+						}
+
+						m_aszBonusYieldChangeTypes.push_back(szTextVal);
+						m_aaiBonusYieldChanges.push_back(paiBonusYields);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	for (size_t iEntry = 0; iEntry < m_aaiRouteYieldChanges.size(); ++iEntry)
+	{
+		SAFE_DELETE_ARRAY(m_aaiRouteYieldChanges[iEntry]);
+	}
+	m_aaiRouteYieldChanges.clear();
+	m_aszRouteYieldChangeTypes.clear();
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "RouteYieldChanges"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				if (0 < iNumSibs)
+				{
+					for (j = 0; j < iNumSibs; j++)
+					{
+						pXML->GetChildXmlValByName(szTextVal, "RouteType");
+						int* paiRouteYields = NULL;
+						if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "RouteYields"))
+						{
+							pXML->SetYields(&paiRouteYields);
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+						else
+						{
+							pXML->InitList(&paiRouteYields, NUM_YIELD_TYPES);
+						}
+
+						m_aszRouteYieldChangeTypes.push_back(szTextVal);
+						m_aaiRouteYieldChanges.push_back(paiRouteYields);
+
+						if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+						{
+							break;
+						}
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
 	pXML->SetVariableListTagPair(&m_pabFreePromotion, "FreePromotions", sizeof(GC.getPromotionInfo((PromotionTypes)0)), GC.getNumPromotionInfos());

@@ -306,6 +306,79 @@
 	<ElementType name="CommerceModifiers" content="eltOnly">
 		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="ImprovementYields" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="ImprovementYieldChange" content="eltOnly">
+		<element type="ImprovementType"/>
+		<element type="ImprovementYields"/>
+	</ElementType>
+	<ElementType name="ImprovementYieldChanges" content="eltOnly">
+		<element type="ImprovementYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BuildingYields" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BuildingYieldChange" content="eltOnly">
+		<element type="BuildingClassType"/>
+		<element type="BuildingYields"/>
+	</ElementType>
+	<ElementType name="BuildingYieldChanges" content="eltOnly">
+		<element type="BuildingYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BuildingCommerces" content="eltOnly">
+		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BuildingCommerceChange" content="eltOnly">
+		<element type="BuildingClassType"/>
+		<element type="BuildingCommerces"/>
+	</ElementType>
+	<ElementType name="BuildingCommerceChanges" content="eltOnly">
+		<element type="BuildingCommerceChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="SpecialistType" content="textOnly"/>
+	<ElementType name="SpecialistYields" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="SpecialistYieldChange" content="eltOnly">
+		<element type="SpecialistType"/>
+		<element type="SpecialistYields"/>
+	</ElementType>
+	<ElementType name="SpecialistYieldChanges" content="eltOnly">
+		<element type="SpecialistYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="SpecialistCommerces" content="eltOnly">
+		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="SpecialistCommerceChange" content="eltOnly">
+		<element type="SpecialistType"/>
+		<element type="SpecialistCommerces"/>
+	</ElementType>
+	<ElementType name="SpecialistCommerceChanges" content="eltOnly">
+		<element type="SpecialistCommerceChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BonusType" content="textOnly"/>
+	<ElementType name="BonusYields" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BonusYieldChange" content="eltOnly">
+		<element type="BonusType"/>
+		<element type="BonusYields"/>
+	</ElementType>
+	<ElementType name="BonusYieldChanges" content="eltOnly">
+		<element type="BonusYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="RouteType" content="textOnly"/>
+	<ElementType name="RouteYields" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="RouteYieldChange" content="eltOnly">
+		<element type="RouteType"/>
+		<element type="RouteYields"/>
+	</ElementType>
+	<ElementType name="RouteYieldChanges" content="eltOnly">
+		<element type="RouteYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="PromotionType" content="textOnly"/>
 	<ElementType name="bFreePromotion" content="textOnly" dt:type="boolean"/>
 	<ElementType name="FreePromotion" content="eltOnly">
@@ -344,6 +417,13 @@
 		<element type="TradeYieldModifiers"/>
 		<element type="CommerceChanges"/>
 		<element type="CommerceModifiers"/>
+		<element type="ImprovementYieldChanges" minOccurs="0"/>
+		<element type="BuildingYieldChanges" minOccurs="0"/>
+		<element type="BuildingCommerceChanges" minOccurs="0"/>
+		<element type="SpecialistYieldChanges" minOccurs="0"/>
+		<element type="SpecialistCommerceChanges" minOccurs="0"/>
+		<element type="BonusYieldChanges" minOccurs="0"/>
+		<element type="RouteYieldChanges" minOccurs="0"/>
 		<element type="FreePromotions"/>
 		<element type="FreePromotionUnitCombats"/>
 	</ElementType>

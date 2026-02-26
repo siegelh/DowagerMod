@@ -43,11 +43,17 @@ if (!(Test-Path $builtDll)) {
     throw "Build succeeded but DLL not found at expected path: $builtDll"
 }
 
-$stamp = Get-Date -Format "yyyyMMdd_HHmmss"
-$stampedName = "CvGameCoreDLL_$stamp.dll"
-$stampedOutPath = Join-Path $assetsOut $stampedName
+$targetOutPath = Join-Path $assetsOut "CvGameCoreDLL.dll"
 
-Copy-Item $builtDll $stampedOutPath -Force
+if (Test-Path $targetOutPath) {
+    $stamp = Get-Date -Format "yyyyMMdd_HHmmss"
+    $backupName = "CvGameCoreDLL_backup_$stamp.dll"
+    $backupOutPath = Join-Path $assetsOut $backupName
+    Move-Item $targetOutPath $backupOutPath -Force
+    Write-Host "Backed up existing DLL: $backupOutPath"
+}
+
+Copy-Item $builtDll $targetOutPath -Force
 
 Write-Host "Built DLL: $builtDll"
-Write-Host "Stamped copy: $stampedOutPath"
+Write-Host "Replaced active DLL: $targetOutPath"

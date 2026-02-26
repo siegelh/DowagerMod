@@ -995,7 +995,7 @@ void CvCity::doTurn()
 
 			for (iJ = 0; iJ < GC.getNumBuildingInfos(); iJ++)
 			{
-				iCount += getNumActiveBuilding((BuildingTypes)iJ) * (GC.getBuildingInfo((BuildingTypes) iJ).getYieldChange(iI) + getBuildingYieldChange((BuildingClassTypes)GC.getBuildingInfo((BuildingTypes) iJ).getBuildingClassType(), (YieldTypes)iI));
+				iCount += getNumActiveBuilding((BuildingTypes)iJ) * (GC.getBuildingInfo((BuildingTypes) iJ).getYieldChange(iI) + getBuildingYieldChange((BuildingClassTypes)GC.getBuildingInfo((BuildingTypes) iJ).getBuildingClassType(), (YieldTypes)iI) + GET_PLAYER(getOwnerINLINE()).getTraitBuildingYieldChange((BuildingClassTypes)GC.getBuildingInfo((BuildingTypes)iJ).getBuildingClassType(), (YieldTypes)iI));
 			}
 
 			iCount += getTradeYield((YieldTypes)iI);
@@ -3689,7 +3689,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		{
 			changeSeaPlotYield(((YieldTypes)iI), (GC.getBuildingInfo(eBuilding).getSeaPlotYieldChange(iI) * iChange));
 			changeRiverPlotYield(((YieldTypes)iI), (GC.getBuildingInfo(eBuilding).getRiverPlotYieldChange(iI) * iChange));
-			changeBaseYieldRate(((YieldTypes)iI), ((GC.getBuildingInfo(eBuilding).getYieldChange(iI) + getBuildingYieldChange((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType(), (YieldTypes)iI))* iChange));
+			changeBaseYieldRate(((YieldTypes)iI), ((GC.getBuildingInfo(eBuilding).getYieldChange(iI) + getBuildingYieldChange((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType(), (YieldTypes)iI) + GET_PLAYER(getOwnerINLINE()).getTraitBuildingYieldChange((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType(), (YieldTypes)iI))* iChange));
 			changeYieldRateModifier(((YieldTypes)iI), (GC.getBuildingInfo(eBuilding).getYieldModifier(iI) * iChange));
 			changePowerYieldRateModifier(((YieldTypes)iI), (GC.getBuildingInfo(eBuilding).getPowerYieldModifier(iI) * iChange));
 		}
@@ -7973,10 +7973,18 @@ int CvCity::getBaseCommerceRate(CommerceTypes eIndex) const
 int CvCity::getBaseCommerceRateTimes100(CommerceTypes eIndex) const
 {
 	int iBaseCommerceRate;
+	int iTraitSpecialistCommerce;
+	int iI;
 
 	iBaseCommerceRate = getCommerceFromPercent(eIndex, getYieldRate(YIELD_COMMERCE) * 100);
 
 	iBaseCommerceRate += 100 * ((getSpecialistPopulation() + getNumGreatPeople()) * GET_PLAYER(getOwnerINLINE()).getSpecialistExtraCommerce(eIndex));
+	iTraitSpecialistCommerce = 0;
+	for (iI = 0; iI < GC.getNumSpecialistInfos(); iI++)
+	{
+		iTraitSpecialistCommerce += (getSpecialistCount((SpecialistTypes)iI) + getFreeSpecialistCount((SpecialistTypes)iI)) * GET_PLAYER(getOwnerINLINE()).getTraitSpecialistCommerceChange((SpecialistTypes)iI, eIndex);
+	}
+	iBaseCommerceRate += 100 * iTraitSpecialistCommerce;
 	iBaseCommerceRate += 100 * (getBuildingCommerce(eIndex) + getSpecialistCommerce(eIndex) + getReligionCommerce(eIndex) + getCorporationCommerce(eIndex) + GET_PLAYER(getOwnerINLINE()).getFreeCityCommerce(eIndex));
 
 	return iBaseCommerceRate;
@@ -8089,6 +8097,7 @@ int CvCity::getBuildingCommerceByBuilding(CommerceTypes eIndex, BuildingTypes eB
 			if (getNumActiveBuilding(eBuilding) > 0)
 			{
 				iCommerce += (GC.getBuildingInfo(eBuilding).getCommerceChange(eIndex) + getBuildingCommerceChange((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType(), eIndex)) * getNumActiveBuilding(eBuilding);
+				iCommerce += GET_PLAYER(getOwnerINLINE()).getTraitBuildingCommerceChange((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType(), eIndex) * getNumActiveBuilding(eBuilding);
 
 				if (GC.getBuildingInfo(eBuilding).getReligionType() != NO_RELIGION)
 				{

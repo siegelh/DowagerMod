@@ -790,9 +790,19 @@ public:
 
 	int getSpecialistExtraYield(SpecialistTypes eIndex1, YieldTypes eIndex2) const;										// Exposed to Python
 	void changeSpecialistExtraYield(SpecialistTypes eIndex1, YieldTypes eIndex2, int iChange);
+	int getTraitSpecialistCommerceChange(SpecialistTypes eIndex1, CommerceTypes eIndex2) const;
+	void changeTraitSpecialistCommerceChange(SpecialistTypes eIndex1, CommerceTypes eIndex2, int iChange);
 
 	int getImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes eIndex2) const;								// Exposed to Python
 	void changeImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes eIndex2, int iChange);
+	int getTraitBuildingYieldChange(BuildingClassTypes eIndex1, YieldTypes eIndex2) const;
+	void changeTraitBuildingYieldChange(BuildingClassTypes eIndex1, YieldTypes eIndex2, int iChange);
+	int getTraitBuildingCommerceChange(BuildingClassTypes eIndex1, CommerceTypes eIndex2) const;
+	void changeTraitBuildingCommerceChange(BuildingClassTypes eIndex1, CommerceTypes eIndex2, int iChange);
+	int getTraitBonusYieldChange(BonusTypes eIndex1, YieldTypes eIndex2) const;
+	void changeTraitBonusYieldChange(BonusTypes eIndex1, YieldTypes eIndex2, int iChange);
+	int getTraitRouteYieldChange(RouteTypes eIndex1, YieldTypes eIndex2) const;
+	void changeTraitRouteYieldChange(RouteTypes eIndex1, YieldTypes eIndex2, int iChange);
 
 	void updateGroupCycle(CvUnit* pUnit);
 	void removeGroupCycle(int iID);
@@ -1209,6 +1219,11 @@ protected:
 
 	int** m_ppaaiSpecialistExtraYield;
 	int** m_ppaaiImprovementYieldChange;
+	int** m_ppaaiTraitSpecialistCommerceChange;
+	int** m_ppaaiTraitBuildingYieldChange;
+	int** m_ppaaiTraitBuildingCommerceChange;
+	int** m_ppaaiTraitBonusYieldChange;
+	int** m_ppaaiTraitRouteYieldChange;
 
 	CLinkList<int> m_groupCycle;
 

@@ -2081,8 +2081,8 @@ bool CvGameTextMgr::setCombatPlotHelp(CvWStringBuffer &szString, CvPlot* pPlot)
 void createTestFontString(CvWStringBuffer& szString)
 {
 	int iI;
-	szString.assign(L"!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[×]^_`abcdefghijklmnopqrstuvwxyz\n");
-	//szString.append(L"{}~\\ßÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞŸßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ¿¡«»°ŠŒŽšœž™©®€£¢”‘“…’");
+	szString.assign(L"!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[ï¿½]^_`abcdefghijklmnopqrstuvwxyz\n");
+	//szString.append(L"{}~\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÞŸï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	for (iI=0;iI<NUM_YIELD_TYPES;++iI)
 		szString.append(CvWString::format(L"%c", GC.getYieldInfo((YieldTypes) iI).getChar()));
 
@@ -3231,6 +3231,7 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer &szHelpString, TraitTypes eTrait
 	int iLast;
 	int iI, iJ;
 	CvWString szText;
+	CvWString szFirstBuffer;
 
 	// Trait Name
 	szText = GC.getTraitInfo(eTrait).getDescription();
@@ -3359,6 +3360,156 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer &szHelpString, TraitTypes eTrait
 			if (GC.getTraitInfo(eTrait).getCommerceModifier(iI) != 0)
 			{
 				szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_COMMERCE_MODIFIERS", GC.getTraitInfo(eTrait).getCommerceModifier(iI), GC.getCommerceInfo((CommerceTypes) iI).getChar(), "COMMERCE"));
+			}
+		}
+
+		// Improvement Yields
+		for (iI = 0; iI < NUM_YIELD_TYPES; ++iI)
+		{
+			iLast = 0;
+
+			for (iJ = 0; iJ < GC.getNumImprovementInfos(); iJ++)
+			{
+				if (GC.getTraitInfo(eTrait).getImprovementYieldChanges(iJ, iI) != 0)
+				{
+					szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_CIVIC_IMPROVEMENT_YIELD_CHANGE", GC.getTraitInfo(eTrait).getImprovementYieldChanges(iJ, iI), GC.getYieldInfo((YieldTypes)iI).getChar()).c_str());
+					CvWString szImprovement;
+					szImprovement.Format(L"<link=literal>%s</link>", GC.getImprovementInfo((ImprovementTypes)iJ).getDescription());
+					setListHelp(szHelpString, szFirstBuffer, szImprovement, L", ", (GC.getTraitInfo(eTrait).getImprovementYieldChanges(iJ, iI) != iLast));
+					iLast = GC.getTraitInfo(eTrait).getImprovementYieldChanges(iJ, iI);
+				}
+			}
+		}
+
+		// Trait Building Yields
+		for (iI = 0; iI < NUM_YIELD_TYPES; ++iI)
+		{
+			iLast = 0;
+			for (iJ = 0; iJ < GC.getNumBuildingClassInfos(); ++iJ)
+			{
+				int iChange = GC.getTraitInfo(eTrait).getBuildingYieldChanges(iJ, iI);
+				if (iChange != 0)
+				{
+					if (eCivilization == NO_CIVILIZATION)
+					{
+						eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo((BuildingClassTypes)iJ).getDefaultBuildingIndex();
+					}
+					else
+					{
+						eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(eCivilization).getCivilizationBuildings(iJ);
+					}
+
+					if (eLoopBuilding != NO_BUILDING)
+					{
+						szFirstBuffer.Format(L"%s%+d%c ", NEWLINE, iChange, GC.getYieldInfo((YieldTypes)iI).getChar());
+						CvWString szBuilding;
+						szBuilding.Format(L"<link=literal>%s</link>", GC.getBuildingInfo(eLoopBuilding).getDescription());
+						setListHelp(szHelpString, szFirstBuffer, szBuilding, L", ", (iChange != iLast));
+						iLast = iChange;
+					}
+				}
+			}
+		}
+
+		// Trait Building Commerce
+		for (iI = 0; iI < NUM_COMMERCE_TYPES; ++iI)
+		{
+			iLast = 0;
+			for (iJ = 0; iJ < GC.getNumBuildingClassInfos(); ++iJ)
+			{
+				int iChange = GC.getTraitInfo(eTrait).getBuildingCommerceChanges(iJ, iI);
+				if (iChange != 0)
+				{
+					if (eCivilization == NO_CIVILIZATION)
+					{
+						eLoopBuilding = (BuildingTypes)GC.getBuildingClassInfo((BuildingClassTypes)iJ).getDefaultBuildingIndex();
+					}
+					else
+					{
+						eLoopBuilding = (BuildingTypes)GC.getCivilizationInfo(eCivilization).getCivilizationBuildings(iJ);
+					}
+
+					if (eLoopBuilding != NO_BUILDING)
+					{
+						szFirstBuffer.Format(L"%s%+d%c ", NEWLINE, iChange, GC.getCommerceInfo((CommerceTypes)iI).getChar());
+						CvWString szBuilding;
+						szBuilding.Format(L"<link=literal>%s</link>", GC.getBuildingInfo(eLoopBuilding).getDescription());
+						setListHelp(szHelpString, szFirstBuffer, szBuilding, L", ", (iChange != iLast));
+						iLast = iChange;
+					}
+				}
+			}
+		}
+
+		// Trait Specialist Yields
+		for (iI = 0; iI < NUM_YIELD_TYPES; ++iI)
+		{
+			iLast = 0;
+			for (iJ = 0; iJ < GC.getNumSpecialistInfos(); ++iJ)
+			{
+				int iChange = GC.getTraitInfo(eTrait).getSpecialistYieldChanges(iJ, iI);
+				if (iChange != 0)
+				{
+					szFirstBuffer.Format(L"%s%+d%c ", NEWLINE, iChange, GC.getYieldInfo((YieldTypes)iI).getChar());
+					CvWString szSpecialist;
+					szSpecialist.Format(L"<link=literal>%s</link>", GC.getSpecialistInfo((SpecialistTypes)iJ).getDescription());
+					setListHelp(szHelpString, szFirstBuffer, szSpecialist, L", ", (iChange != iLast));
+					iLast = iChange;
+				}
+			}
+		}
+
+		// Trait Specialist Commerce
+		for (iI = 0; iI < NUM_COMMERCE_TYPES; ++iI)
+		{
+			iLast = 0;
+			for (iJ = 0; iJ < GC.getNumSpecialistInfos(); ++iJ)
+			{
+				int iChange = GC.getTraitInfo(eTrait).getSpecialistCommerceChanges(iJ, iI);
+				if (iChange != 0)
+				{
+					szFirstBuffer.Format(L"%s%+d%c ", NEWLINE, iChange, GC.getCommerceInfo((CommerceTypes)iI).getChar());
+					CvWString szSpecialist;
+					szSpecialist.Format(L"<link=literal>%s</link>", GC.getSpecialistInfo((SpecialistTypes)iJ).getDescription());
+					setListHelp(szHelpString, szFirstBuffer, szSpecialist, L", ", (iChange != iLast));
+					iLast = iChange;
+				}
+			}
+		}
+
+		// Trait Bonus Yields
+		for (iI = 0; iI < NUM_YIELD_TYPES; ++iI)
+		{
+			iLast = 0;
+			for (iJ = 0; iJ < GC.getNumBonusInfos(); ++iJ)
+			{
+				int iChange = GC.getTraitInfo(eTrait).getBonusYieldChanges(iJ, iI);
+				if (iChange != 0)
+				{
+					szFirstBuffer.Format(L"%s%+d%c ", NEWLINE, iChange, GC.getYieldInfo((YieldTypes)iI).getChar());
+					CvWString szBonus;
+					szBonus.Format(L"<link=literal>%s</link>", GC.getBonusInfo((BonusTypes)iJ).getDescription());
+					setListHelp(szHelpString, szFirstBuffer, szBonus, L", ", (iChange != iLast));
+					iLast = iChange;
+				}
+			}
+		}
+
+		// Trait Route Yields
+		for (iI = 0; iI < NUM_YIELD_TYPES; ++iI)
+		{
+			iLast = 0;
+			for (iJ = 0; iJ < GC.getNumRouteInfos(); ++iJ)
+			{
+				int iChange = GC.getTraitInfo(eTrait).getRouteYieldChanges(iJ, iI);
+				if (iChange != 0)
+				{
+					szFirstBuffer.Format(L"%s%+d%c ", NEWLINE, iChange, GC.getYieldInfo((YieldTypes)iI).getChar());
+					CvWString szRoute;
+					szRoute.Format(L"<link=literal>%s</link>", GC.getRouteInfo((RouteTypes)iJ).getDescription());
+					setListHelp(szHelpString, szFirstBuffer, szRoute, L", ", (iChange != iLast));
+					iLast = iChange;
+				}
 			}
 		}
 
@@ -3648,6 +3799,7 @@ void CvGameTextMgr::parseCivInfos(CvWStringBuffer &szInfoText, CivilizationTypes
 	CvWString szBuffer;
 	CvWString szTempString;
 	CvWString szText;
+	CvWString szFirstBuffer;
 	UnitTypes eDefaultUnit;
 	UnitTypes eUniqueUnit;
 	BuildingTypes eDefaultBuilding;
@@ -3821,6 +3973,7 @@ void CvGameTextMgr::parseSpecialistHelp(CvWStringBuffer &szHelpString, Specialis
 	PROFILE_FUNC();
 
 	CvWString szText;
+	CvWString szFirstBuffer;
 	int aiYields[NUM_YIELD_TYPES];
 	int aiCommerces[NUM_COMMERCE_TYPES];
 	int iI;
@@ -6456,6 +6609,10 @@ void CvGameTextMgr::setBuildingHelp(CvWStringBuffer &szBuffer, BuildingTypes eBu
 			{
 				aiYields[iI] += pCity->getBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), (YieldTypes)iI);
 			}
+			if (ePlayer != NO_PLAYER)
+			{
+				aiYields[iI] += GET_PLAYER(ePlayer).getTraitBuildingYieldChange((BuildingClassTypes)kBuilding.getBuildingClassType(), (YieldTypes)iI);
+			}
 		}
 		setYieldChangeHelp(szBuffer, L", ", L"", L"", aiYields, false, false);
 
@@ -6470,6 +6627,14 @@ void CvGameTextMgr::setBuildingHelp(CvWStringBuffer &szBuffer, BuildingTypes eBu
 			{
 				aiCommerces[iI] = kBuilding.getCommerceChange(iI);
 				aiCommerces[iI] += kBuilding.getObsoleteSafeCommerceChange(iI);
+				if (NULL != pCity)
+				{
+					aiCommerces[iI] += pCity->getBuildingCommerceChange((BuildingClassTypes)kBuilding.getBuildingClassType(), (CommerceTypes)iI);
+				}
+				if (ePlayer != NO_PLAYER)
+				{
+					aiCommerces[iI] += GET_PLAYER(ePlayer).getTraitBuildingCommerceChange((BuildingClassTypes)kBuilding.getBuildingClassType(), (CommerceTypes)iI);
+				}
 			}
 		}
 		setCommerceChangeHelp(szBuffer, L", ", L"", L"", aiCommerces, false, false);

@@ -82,6 +82,11 @@ CvPlayer::CvPlayer()
 
 	m_ppaaiSpecialistExtraYield = NULL;
 	m_ppaaiImprovementYieldChange = NULL;
+	m_ppaaiTraitSpecialistCommerceChange = NULL;
+	m_ppaaiTraitBuildingYieldChange = NULL;
+	m_ppaaiTraitBuildingCommerceChange = NULL;
+	m_ppaaiTraitBonusYieldChange = NULL;
+	m_ppaaiTraitRouteYieldChange = NULL;
 
 	reset(NO_PLAYER, true);
 }
@@ -239,6 +244,54 @@ void CvPlayer::init(PlayerTypes eID)
 					changeCommerceRateModifier(((CommerceTypes)iJ), GC.getTraitInfo((TraitTypes)iI).getCommerceModifier(iJ));
 				}
 
+				for (iJ = 0; iJ < GC.getNumImprovementInfos(); iJ++)
+				{
+					for (int iK = 0; iK < NUM_YIELD_TYPES; iK++)
+					{
+						changeImprovementYieldChange(((ImprovementTypes)iJ), ((YieldTypes)iK), GC.getTraitInfo((TraitTypes)iI).getImprovementYieldChanges(iJ, iK));
+					}
+				}
+
+				for (iJ = 0; iJ < GC.getNumBuildingClassInfos(); iJ++)
+				{
+					for (int iK = 0; iK < NUM_YIELD_TYPES; iK++)
+					{
+						changeTraitBuildingYieldChange(((BuildingClassTypes)iJ), ((YieldTypes)iK), GC.getTraitInfo((TraitTypes)iI).getBuildingYieldChanges(iJ, iK));
+					}
+					for (int iK = 0; iK < NUM_COMMERCE_TYPES; iK++)
+					{
+						changeTraitBuildingCommerceChange(((BuildingClassTypes)iJ), ((CommerceTypes)iK), GC.getTraitInfo((TraitTypes)iI).getBuildingCommerceChanges(iJ, iK));
+					}
+				}
+
+				for (iJ = 0; iJ < GC.getNumSpecialistInfos(); iJ++)
+				{
+					for (int iK = 0; iK < NUM_YIELD_TYPES; iK++)
+					{
+						changeSpecialistExtraYield(((SpecialistTypes)iJ), ((YieldTypes)iK), GC.getTraitInfo((TraitTypes)iI).getSpecialistYieldChanges(iJ, iK));
+					}
+					for (int iK = 0; iK < NUM_COMMERCE_TYPES; iK++)
+					{
+						changeTraitSpecialistCommerceChange(((SpecialistTypes)iJ), ((CommerceTypes)iK), GC.getTraitInfo((TraitTypes)iI).getSpecialistCommerceChanges(iJ, iK));
+					}
+				}
+
+				for (iJ = 0; iJ < GC.getNumBonusInfos(); iJ++)
+				{
+					for (int iK = 0; iK < NUM_YIELD_TYPES; iK++)
+					{
+						changeTraitBonusYieldChange(((BonusTypes)iJ), ((YieldTypes)iK), GC.getTraitInfo((TraitTypes)iI).getBonusYieldChanges(iJ, iK));
+					}
+				}
+
+				for (iJ = 0; iJ < GC.getNumRouteInfos(); iJ++)
+				{
+					for (int iK = 0; iK < NUM_YIELD_TYPES; iK++)
+					{
+						changeTraitRouteYieldChange(((RouteTypes)iJ), ((YieldTypes)iK), GC.getTraitInfo((TraitTypes)iI).getRouteYieldChanges(iJ, iK));
+					}
+				}
+
 				for (iJ = 0; iJ < GC.getNumCivicOptionInfos(); iJ++)
 				{
 					if (GC.getCivicOptionInfo((CivicOptionTypes) iJ).getTraitNoUpkeep(iI))
@@ -334,6 +387,51 @@ void CvPlayer::uninit()
 			SAFE_DELETE_ARRAY(m_ppaaiImprovementYieldChange[iI]);
 		}
 		SAFE_DELETE_ARRAY(m_ppaaiImprovementYieldChange);
+	}
+
+	if (m_ppaaiTraitSpecialistCommerceChange != NULL)
+	{
+		for (int iI = 0; iI < GC.getNumSpecialistInfos(); iI++)
+		{
+			SAFE_DELETE_ARRAY(m_ppaaiTraitSpecialistCommerceChange[iI]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaaiTraitSpecialistCommerceChange);
+	}
+
+	if (m_ppaaiTraitBuildingYieldChange != NULL)
+	{
+		for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++)
+		{
+			SAFE_DELETE_ARRAY(m_ppaaiTraitBuildingYieldChange[iI]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaaiTraitBuildingYieldChange);
+	}
+
+	if (m_ppaaiTraitBuildingCommerceChange != NULL)
+	{
+		for (int iI = 0; iI < GC.getNumBuildingClassInfos(); iI++)
+		{
+			SAFE_DELETE_ARRAY(m_ppaaiTraitBuildingCommerceChange[iI]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaaiTraitBuildingCommerceChange);
+	}
+
+	if (m_ppaaiTraitBonusYieldChange != NULL)
+	{
+		for (int iI = 0; iI < GC.getNumBonusInfos(); iI++)
+		{
+			SAFE_DELETE_ARRAY(m_ppaaiTraitBonusYieldChange[iI]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaaiTraitBonusYieldChange);
+	}
+
+	if (m_ppaaiTraitRouteYieldChange != NULL)
+	{
+		for (int iI = 0; iI < GC.getNumRouteInfos(); iI++)
+		{
+			SAFE_DELETE_ARRAY(m_ppaaiTraitRouteYieldChange[iI]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaaiTraitRouteYieldChange);
 	}
 
 	m_groupCycle.clear();
@@ -703,6 +801,61 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 			for (iJ = 0; iJ < NUM_YIELD_TYPES; iJ++)
 			{
 				m_ppaaiImprovementYieldChange[iI][iJ] = 0;
+			}
+		}
+
+		FAssertMsg(m_ppaaiTraitSpecialistCommerceChange==NULL, "about to leak memory, CvPlayer::m_ppaaiTraitSpecialistCommerceChange");
+		m_ppaaiTraitSpecialistCommerceChange = new int*[GC.getNumSpecialistInfos()];
+		for (iI = 0; iI < GC.getNumSpecialistInfos(); iI++)
+		{
+			m_ppaaiTraitSpecialistCommerceChange[iI] = new int[NUM_COMMERCE_TYPES];
+			for (iJ = 0; iJ < NUM_COMMERCE_TYPES; iJ++)
+			{
+				m_ppaaiTraitSpecialistCommerceChange[iI][iJ] = 0;
+			}
+		}
+
+		FAssertMsg(m_ppaaiTraitBuildingYieldChange==NULL, "about to leak memory, CvPlayer::m_ppaaiTraitBuildingYieldChange");
+		m_ppaaiTraitBuildingYieldChange = new int*[GC.getNumBuildingClassInfos()];
+		for (iI = 0; iI < GC.getNumBuildingClassInfos(); iI++)
+		{
+			m_ppaaiTraitBuildingYieldChange[iI] = new int[NUM_YIELD_TYPES];
+			for (iJ = 0; iJ < NUM_YIELD_TYPES; iJ++)
+			{
+				m_ppaaiTraitBuildingYieldChange[iI][iJ] = 0;
+			}
+		}
+
+		FAssertMsg(m_ppaaiTraitBuildingCommerceChange==NULL, "about to leak memory, CvPlayer::m_ppaaiTraitBuildingCommerceChange");
+		m_ppaaiTraitBuildingCommerceChange = new int*[GC.getNumBuildingClassInfos()];
+		for (iI = 0; iI < GC.getNumBuildingClassInfos(); iI++)
+		{
+			m_ppaaiTraitBuildingCommerceChange[iI] = new int[NUM_COMMERCE_TYPES];
+			for (iJ = 0; iJ < NUM_COMMERCE_TYPES; iJ++)
+			{
+				m_ppaaiTraitBuildingCommerceChange[iI][iJ] = 0;
+			}
+		}
+
+		FAssertMsg(m_ppaaiTraitBonusYieldChange==NULL, "about to leak memory, CvPlayer::m_ppaaiTraitBonusYieldChange");
+		m_ppaaiTraitBonusYieldChange = new int*[GC.getNumBonusInfos()];
+		for (iI = 0; iI < GC.getNumBonusInfos(); iI++)
+		{
+			m_ppaaiTraitBonusYieldChange[iI] = new int[NUM_YIELD_TYPES];
+			for (iJ = 0; iJ < NUM_YIELD_TYPES; iJ++)
+			{
+				m_ppaaiTraitBonusYieldChange[iI][iJ] = 0;
+			}
+		}
+
+		FAssertMsg(m_ppaaiTraitRouteYieldChange==NULL, "about to leak memory, CvPlayer::m_ppaaiTraitRouteYieldChange");
+		m_ppaaiTraitRouteYieldChange = new int*[GC.getNumRouteInfos()];
+		for (iI = 0; iI < GC.getNumRouteInfos(); iI++)
+		{
+			m_ppaaiTraitRouteYieldChange[iI] = new int[NUM_YIELD_TYPES];
+			for (iJ = 0; iJ < NUM_YIELD_TYPES; iJ++)
+			{
+				m_ppaaiTraitRouteYieldChange[iI][iJ] = 0;
 			}
 		}
 
@@ -7500,7 +7653,7 @@ int CvPlayer::specialistYield(SpecialistTypes eSpecialist, YieldTypes eYield) co
 
 int CvPlayer::specialistCommerce(SpecialistTypes eSpecialist, CommerceTypes eCommerce) const
 {
-	return (GC.getSpecialistInfo(eSpecialist).getCommerceChange(eCommerce) + getSpecialistExtraCommerce(eCommerce));
+	return (GC.getSpecialistInfo(eSpecialist).getCommerceChange(eCommerce) + getSpecialistExtraCommerce(eCommerce) + getTraitSpecialistCommerceChange(eSpecialist, eCommerce));
 }
 
 
@@ -11596,6 +11749,29 @@ void CvPlayer::changeSpecialistExtraYield(SpecialistTypes eIndex1, YieldTypes eI
 	}
 }
 
+int CvPlayer::getTraitSpecialistCommerceChange(SpecialistTypes eIndex1, CommerceTypes eIndex2) const
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumSpecialistInfos(), "eIndex1 expected to be < GC.getNumSpecialistInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_COMMERCE_TYPES, "eIndex2 expected to be < NUM_COMMERCE_TYPES");
+	return m_ppaaiTraitSpecialistCommerceChange[eIndex1][eIndex2];
+}
+
+void CvPlayer::changeTraitSpecialistCommerceChange(SpecialistTypes eIndex1, CommerceTypes eIndex2, int iChange)
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumSpecialistInfos(), "eIndex1 expected to be < GC.getNumSpecialistInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_COMMERCE_TYPES, "eIndex2 expected to be < NUM_COMMERCE_TYPES");
+
+	if (iChange != 0)
+	{
+		m_ppaaiTraitSpecialistCommerceChange[eIndex1][eIndex2] = (m_ppaaiTraitSpecialistCommerceChange[eIndex1][eIndex2] + iChange);
+		AI_makeAssignWorkDirty();
+	}
+}
+
 
 int CvPlayer::getImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes eIndex2) const
 {
@@ -11619,6 +11795,121 @@ void CvPlayer::changeImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes
 		m_ppaaiImprovementYieldChange[eIndex1][eIndex2] = (m_ppaaiImprovementYieldChange[eIndex1][eIndex2] + iChange);
 		FAssert(getImprovementYieldChange(eIndex1, eIndex2) >= 0);
 
+		updateYield();
+	}
+}
+
+int CvPlayer::getTraitBuildingYieldChange(BuildingClassTypes eIndex1, YieldTypes eIndex2) const
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumBuildingClassInfos(), "eIndex1 expected to be < GC.getNumBuildingClassInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_YIELD_TYPES, "eIndex2 expected to be < NUM_YIELD_TYPES");
+	return m_ppaaiTraitBuildingYieldChange[eIndex1][eIndex2];
+}
+
+void CvPlayer::changeTraitBuildingYieldChange(BuildingClassTypes eIndex1, YieldTypes eIndex2, int iChange)
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumBuildingClassInfos(), "eIndex1 expected to be < GC.getNumBuildingClassInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_YIELD_TYPES, "eIndex2 expected to be < NUM_YIELD_TYPES");
+
+	if (iChange != 0)
+	{
+		m_ppaaiTraitBuildingYieldChange[eIndex1][eIndex2] = (m_ppaaiTraitBuildingYieldChange[eIndex1][eIndex2] + iChange);
+
+		int iLoop = 0;
+		BuildingTypes eBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eIndex1);
+		if (NO_BUILDING != eBuilding)
+		{
+			for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+			{
+				int iNumActiveBuildings = pLoopCity->getNumActiveBuilding(eBuilding);
+				if (iNumActiveBuildings > 0)
+				{
+					pLoopCity->changeBaseYieldRate(eIndex2, iNumActiveBuildings * iChange);
+				}
+			}
+		}
+
+		invalidateYieldRankCache(eIndex2);
+		AI_makeAssignWorkDirty();
+	}
+}
+
+int CvPlayer::getTraitBuildingCommerceChange(BuildingClassTypes eIndex1, CommerceTypes eIndex2) const
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumBuildingClassInfos(), "eIndex1 expected to be < GC.getNumBuildingClassInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_COMMERCE_TYPES, "eIndex2 expected to be < NUM_COMMERCE_TYPES");
+	return m_ppaaiTraitBuildingCommerceChange[eIndex1][eIndex2];
+}
+
+void CvPlayer::changeTraitBuildingCommerceChange(BuildingClassTypes eIndex1, CommerceTypes eIndex2, int iChange)
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumBuildingClassInfos(), "eIndex1 expected to be < GC.getNumBuildingClassInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_COMMERCE_TYPES, "eIndex2 expected to be < NUM_COMMERCE_TYPES");
+
+	if (iChange != 0)
+	{
+		m_ppaaiTraitBuildingCommerceChange[eIndex1][eIndex2] = (m_ppaaiTraitBuildingCommerceChange[eIndex1][eIndex2] + iChange);
+
+		int iLoop = 0;
+		for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+		{
+			pLoopCity->updateBuildingCommerce();
+		}
+
+		AI_makeAssignWorkDirty();
+	}
+}
+
+int CvPlayer::getTraitBonusYieldChange(BonusTypes eIndex1, YieldTypes eIndex2) const
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumBonusInfos(), "eIndex1 expected to be < GC.getNumBonusInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_YIELD_TYPES, "eIndex2 expected to be < NUM_YIELD_TYPES");
+	return m_ppaaiTraitBonusYieldChange[eIndex1][eIndex2];
+}
+
+void CvPlayer::changeTraitBonusYieldChange(BonusTypes eIndex1, YieldTypes eIndex2, int iChange)
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumBonusInfos(), "eIndex1 expected to be < GC.getNumBonusInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_YIELD_TYPES, "eIndex2 expected to be < NUM_YIELD_TYPES");
+
+	if (iChange != 0)
+	{
+		m_ppaaiTraitBonusYieldChange[eIndex1][eIndex2] = (m_ppaaiTraitBonusYieldChange[eIndex1][eIndex2] + iChange);
+		updateYield();
+	}
+}
+
+int CvPlayer::getTraitRouteYieldChange(RouteTypes eIndex1, YieldTypes eIndex2) const
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumRouteInfos(), "eIndex1 expected to be < GC.getNumRouteInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_YIELD_TYPES, "eIndex2 expected to be < NUM_YIELD_TYPES");
+	return m_ppaaiTraitRouteYieldChange[eIndex1][eIndex2];
+}
+
+void CvPlayer::changeTraitRouteYieldChange(RouteTypes eIndex1, YieldTypes eIndex2, int iChange)
+{
+	FAssertMsg(eIndex1 >= 0, "eIndex1 expected to be >= 0");
+	FAssertMsg(eIndex1 < GC.getNumRouteInfos(), "eIndex1 expected to be < GC.getNumRouteInfos()");
+	FAssertMsg(eIndex2 >= 0, "eIndex2 expected to be >= 0");
+	FAssertMsg(eIndex2 < NUM_YIELD_TYPES, "eIndex2 expected to be < NUM_YIELD_TYPES");
+
+	if (iChange != 0)
+	{
+		m_ppaaiTraitRouteYieldChange[eIndex1][eIndex2] = (m_ppaaiTraitRouteYieldChange[eIndex1][eIndex2] + iChange);
 		updateYield();
 	}
 }
@@ -15570,6 +15861,7 @@ void CvPlayer::setPbemNewTurn(bool bNew)
 void CvPlayer::read(FDataStreamBase* pStream)
 {
 	int iI;
+	bool bBackfillTraitDerivedData = false;
 
 	// Init data before load
 	reset();
@@ -15748,6 +16040,76 @@ void CvPlayer::read(FDataStreamBase* pStream)
 	for (iI=0;iI<GC.getNumImprovementInfos();iI++)
 	{
 		pStream->Read(NUM_YIELD_TYPES, m_ppaaiImprovementYieldChange[iI]);
+	}
+
+	if (uiFlag >= 2)
+	{
+		for (iI = 0; iI < GC.getNumSpecialistInfos(); iI++)
+		{
+			pStream->Read(NUM_COMMERCE_TYPES, m_ppaaiTraitSpecialistCommerceChange[iI]);
+		}
+
+		for (iI = 0; iI < GC.getNumBuildingClassInfos(); iI++)
+		{
+			pStream->Read(NUM_YIELD_TYPES, m_ppaaiTraitBuildingYieldChange[iI]);
+			pStream->Read(NUM_COMMERCE_TYPES, m_ppaaiTraitBuildingCommerceChange[iI]);
+		}
+
+		for (iI = 0; iI < GC.getNumBonusInfos(); iI++)
+		{
+			pStream->Read(NUM_YIELD_TYPES, m_ppaaiTraitBonusYieldChange[iI]);
+		}
+
+		for (iI = 0; iI < GC.getNumRouteInfos(); iI++)
+		{
+			pStream->Read(NUM_YIELD_TYPES, m_ppaaiTraitRouteYieldChange[iI]);
+		}
+	}
+	else
+	{
+		bBackfillTraitDerivedData = true;
+
+		for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); iTrait++)
+		{
+			if (hasTrait((TraitTypes)iTrait))
+			{
+				for (int iSpecialist = 0; iSpecialist < GC.getNumSpecialistInfos(); iSpecialist++)
+				{
+					for (int iCommerce = 0; iCommerce < NUM_COMMERCE_TYPES; iCommerce++)
+					{
+						m_ppaaiTraitSpecialistCommerceChange[iSpecialist][iCommerce] += GC.getTraitInfo((TraitTypes)iTrait).getSpecialistCommerceChanges(iSpecialist, iCommerce);
+					}
+				}
+
+				for (int iBuildingClass = 0; iBuildingClass < GC.getNumBuildingClassInfos(); iBuildingClass++)
+				{
+					for (int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
+					{
+						m_ppaaiTraitBuildingYieldChange[iBuildingClass][iYield] += GC.getTraitInfo((TraitTypes)iTrait).getBuildingYieldChanges(iBuildingClass, iYield);
+					}
+					for (int iCommerce = 0; iCommerce < NUM_COMMERCE_TYPES; iCommerce++)
+					{
+						m_ppaaiTraitBuildingCommerceChange[iBuildingClass][iCommerce] += GC.getTraitInfo((TraitTypes)iTrait).getBuildingCommerceChanges(iBuildingClass, iCommerce);
+					}
+				}
+
+				for (int iBonus = 0; iBonus < GC.getNumBonusInfos(); iBonus++)
+				{
+					for (int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
+					{
+						m_ppaaiTraitBonusYieldChange[iBonus][iYield] += GC.getTraitInfo((TraitTypes)iTrait).getBonusYieldChanges(iBonus, iYield);
+					}
+				}
+
+				for (int iRoute = 0; iRoute < GC.getNumRouteInfos(); iRoute++)
+				{
+					for (int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
+					{
+						m_ppaaiTraitRouteYieldChange[iRoute][iYield] += GC.getTraitInfo((TraitTypes)iTrait).getRouteYieldChanges(iRoute, iYield);
+					}
+				}
+			}
+		}
 	}
 
 	m_groupCycle.Read(pStream);
@@ -16027,6 +16389,53 @@ void CvPlayer::read(FDataStreamBase* pStream)
 
 	pStream->Read(&m_iPopRushHurryCount);
 	pStream->Read(&m_iInflationModifier);
+
+	if (bBackfillTraitDerivedData)
+	{
+		int iLoop = 0;
+		for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+		{
+			for (int iBuildingClass = 0; iBuildingClass < GC.getNumBuildingClassInfos(); iBuildingClass++)
+			{
+				BuildingTypes eBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(iBuildingClass);
+				if (NO_BUILDING != eBuilding)
+				{
+					int iNumActiveBuildings = pLoopCity->getNumActiveBuilding(eBuilding);
+					if (iNumActiveBuildings > 0)
+					{
+						for (int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
+						{
+							int iTraitYield = m_ppaaiTraitBuildingYieldChange[iBuildingClass][iYield];
+							if (iTraitYield != 0)
+							{
+								pLoopCity->changeBaseYieldRate((YieldTypes)iYield, iTraitYield * iNumActiveBuildings);
+							}
+						}
+					}
+				}
+			}
+
+			for (int iSpecialist = 0; iSpecialist < GC.getNumSpecialistInfos(); iSpecialist++)
+			{
+				int iSpecialistCount = pLoopCity->getSpecialistCount((SpecialistTypes)iSpecialist) + pLoopCity->getFreeSpecialistCount((SpecialistTypes)iSpecialist);
+				if (iSpecialistCount > 0)
+				{
+					for (int iCommerce = 0; iCommerce < NUM_COMMERCE_TYPES; iCommerce++)
+					{
+						int iTraitCommerce = m_ppaaiTraitSpecialistCommerceChange[iSpecialist][iCommerce];
+						if (iTraitCommerce != 0)
+						{
+							pLoopCity->changeSpecialistCommerce((CommerceTypes)iCommerce, iTraitCommerce * iSpecialistCount);
+						}
+					}
+				}
+			}
+
+			pLoopCity->updateBuildingCommerce();
+		}
+
+		updateYield();
+	}
 }
 
 //
@@ -16037,7 +16446,7 @@ void CvPlayer::write(FDataStreamBase* pStream)
 {
 	int iI;
 
-	uint uiFlag = 1;
+	uint uiFlag = 2;
 	pStream->Write(uiFlag);		// flag for expansion
 
 	pStream->Write(m_iStartingX);
@@ -16210,6 +16619,27 @@ void CvPlayer::write(FDataStreamBase* pStream)
 	for (iI=0;iI<GC.getNumImprovementInfos();iI++)
 	{
 		pStream->Write(NUM_YIELD_TYPES, m_ppaaiImprovementYieldChange[iI]);
+	}
+
+	for (iI = 0; iI < GC.getNumSpecialistInfos(); iI++)
+	{
+		pStream->Write(NUM_COMMERCE_TYPES, m_ppaaiTraitSpecialistCommerceChange[iI]);
+	}
+
+	for (iI = 0; iI < GC.getNumBuildingClassInfos(); iI++)
+	{
+		pStream->Write(NUM_YIELD_TYPES, m_ppaaiTraitBuildingYieldChange[iI]);
+		pStream->Write(NUM_COMMERCE_TYPES, m_ppaaiTraitBuildingCommerceChange[iI]);
+	}
+
+	for (iI = 0; iI < GC.getNumBonusInfos(); iI++)
+	{
+		pStream->Write(NUM_YIELD_TYPES, m_ppaaiTraitBonusYieldChange[iI]);
+	}
+
+	for (iI = 0; iI < GC.getNumRouteInfos(); iI++)
+	{
+		pStream->Write(NUM_YIELD_TYPES, m_ppaaiTraitRouteYieldChange[iI]);
 	}
 
 	m_groupCycle.Write(pStream);

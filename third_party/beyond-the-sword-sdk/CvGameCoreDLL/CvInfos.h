@@ -4159,6 +4159,13 @@ public:
 	int getTradeYieldModifier(int i) const;				// Exposed to Python
 	int getCommerceChange(int i) const;				// Exposed to Python
 	int getCommerceModifier(int i) const;				// Exposed to Python
+	int getImprovementYieldChanges(int i, int j) const;				// Exposed to Python
+	int getBuildingYieldChanges(int i, int j) const;				// Exposed to Python
+	int getBuildingCommerceChanges(int i, int j) const;				// Exposed to Python
+	int getSpecialistYieldChanges(int i, int j) const;				// Exposed to Python
+	int getSpecialistCommerceChanges(int i, int j) const;				// Exposed to Python
+	int getBonusYieldChanges(int i, int j) const;				// Exposed to Python
+	int getRouteYieldChanges(int i, int j) const;				// Exposed to Python
 
 	int isFreePromotion(int i) const;				// Exposed to Python
 	int isFreePromotionUnitCombat(int i) const;			
@@ -4188,6 +4195,20 @@ protected:
 	int* m_paiTradeYieldModifier;
 	int* m_paiCommerceChange;
 	int* m_paiCommerceModifier;
+	std::vector<CvString> m_aszImprovementYieldChangeTypes;
+	std::vector<int*> m_aaiImprovementYieldChanges;
+	std::vector<CvString> m_aszBuildingYieldChangeTypes;
+	std::vector<int*> m_aaiBuildingYieldChanges;
+	std::vector<CvString> m_aszBuildingCommerceChangeTypes;
+	std::vector<int*> m_aaiBuildingCommerceChanges;
+	std::vector<CvString> m_aszSpecialistYieldChangeTypes;
+	std::vector<int*> m_aaiSpecialistYieldChanges;
+	std::vector<CvString> m_aszSpecialistCommerceChangeTypes;
+	std::vector<int*> m_aaiSpecialistCommerceChanges;
+	std::vector<CvString> m_aszBonusYieldChangeTypes;
+	std::vector<int*> m_aaiBonusYieldChanges;
+	std::vector<CvString> m_aszRouteYieldChangeTypes;
+	std::vector<int*> m_aaiRouteYieldChanges;
 
 	bool* m_pabFreePromotion;
 	bool* m_pabFreePromotionUnitCombat;
