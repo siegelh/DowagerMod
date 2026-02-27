@@ -1283,6 +1283,10 @@
           <BuildType>BUILD_JAPAN_CASTLE_TOWN</BuildType>
           <bBuild>1</bBuild>
         </Build>
+        <Build>
+          <BuildType>BUILD_PERSIA_ROYAL_STATION</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
       </Builds>
       <ReligionSpreads />
       <CorporationSpreads />
@@ -1569,6 +1573,10 @@
           <BuildType>BUILD_JAPAN_CASTLE_TOWN</BuildType>
           <bBuild>1</bBuild>
         </Build>
+        <Build>
+          <BuildType>BUILD_PERSIA_ROYAL_STATION</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
       </Builds>
       <ReligionSpreads />
       <CorporationSpreads />
@@ -1840,6 +1848,10 @@
         </Build>
         <Build>
           <BuildType>BUILD_JAPAN_CASTLE_TOWN</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_PERSIA_ROYAL_STATION</BuildType>
           <bBuild>1</bBuild>
         </Build>
       </Builds>

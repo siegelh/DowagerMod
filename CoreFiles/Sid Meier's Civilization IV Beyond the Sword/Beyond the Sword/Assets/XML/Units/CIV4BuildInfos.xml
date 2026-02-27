@@ -835,7 +835,7 @@
 		<BuildInfo>
 				<Type>BUILD_EGYPT_SPHINX</Type>
 			<Description>TXT_KEY_BUILD_EGYPT_SPHINX</Description>
-			<Help/>
+			<Help>TXT_KEY_BUILD_EGYPT_SPHINX_HELP</Help>
 			<PrereqTech>TECH_MASONRY</PrereqTech>
 			<iTime>700</iTime>
 			<iCost>0</iCost>
@@ -869,6 +869,25 @@
 				<bCtrlDown>0</bCtrlDown>
 				<iHotKeyPriority>1</iHotKeyPriority>
 				<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/himejicastle.dds</Button>
+			</BuildInfo>
+		<BuildInfo>
+				<Type>BUILD_PERSIA_ROYAL_STATION</Type>
+				<Description>TXT_KEY_BUILD_PERSIA_ROYAL_STATION</Description>
+				<Help>TXT_KEY_BUILD_PERSIA_ROYAL_STATION_HELP</Help>
+				<PrereqTech>TECH_THE_WHEEL</PrereqTech>
+				<iTime>700</iTime>
+				<iCost>0</iCost>
+				<bKill>0</bKill>
+				<ImprovementType>IMPROVEMENT_PERSIA_ROYAL_STATION</ImprovementType>
+				<RouteType>NONE</RouteType>
+				<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+				<FeatureStructs/>
+				<HotKey/>
+				<bAltDown>0</bAltDown>
+				<bShiftDown>0</bShiftDown>
+				<bCtrlDown>0</bCtrlDown>
+				<iHotKeyPriority>1</iHotKeyPriority>
+				<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/bazaar.dds</Button>
 			</BuildInfo>
 		</BuildInfos>
 </Civ4BuildInfos>

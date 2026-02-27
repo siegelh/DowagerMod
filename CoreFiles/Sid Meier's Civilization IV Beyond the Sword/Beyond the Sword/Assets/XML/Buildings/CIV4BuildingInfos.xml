@@ -14047,13 +14047,13 @@
       <iHotKeyPriority>0</iHotKeyPriority>
     </BuildingInfo>
     <BuildingInfo>
-      <BuildingClass>BUILDINGCLASS_GROCER</BuildingClass>
-      <Type>BUILDING_PERSIAN_APOTHECARY</Type>
+      <BuildingClass>BUILDINGCLASS_COURTHOUSE</BuildingClass>
+      <Type>BUILDING_PERSIA_SATRAPY_ARCHIVE</Type>
       <SpecialBuildingType>NONE</SpecialBuildingType>
-      <Description>TXT_KEY_BUILDING_PERSIAN_APOTHECARY</Description>
-      <Civilopedia>TXT_KEY_BUILDING_PERSIAN_GROCER_PEDIA</Civilopedia>
-      <Strategy>TXT_KEY_BUILDING_PERSIAN_APOTHECARY_STRATEGY</Strategy>
-      <Advisor>ADVISOR_GROWTH</Advisor>
+      <Description>TXT_KEY_BUILDING_PERSIA_SATRAPY_ARCHIVE</Description>
+      <Civilopedia>TXT_KEY_BUILDING_PERSIA_SATRAPY_ARCHIVE_PEDIA</Civilopedia>
+      <Strategy>TXT_KEY_BUILDING_PERSIA_SATRAPY_ARCHIVE_STRATEGY</Strategy>
+      <Advisor>ADVISOR_ECONOMY</Advisor>
       <ArtDefineTag>ART_DEF_BUILDING_PERSIAN_APOTHECARY</ArtDefineTag>
       <MovieDefineTag>NONE</MovieDefineTag>
       <HolyCity>NONE</HolyCity>
@@ -14069,12 +14069,8 @@
       <FreeStartEra>NONE</FreeStartEra>
       <MaxStartEra>NONE</MaxStartEra>
       <ObsoleteTech>NONE</ObsoleteTech>
-      <PrereqTech>TECH_GUILDS</PrereqTech>
-      <TechTypes>
-        <PrereqTech>TECH_CURRENCY</PrereqTech>
-        <PrereqTech>NONE</PrereqTech>
-        <PrereqTech>NONE</PrereqTech>
-      </TechTypes>
+      <PrereqTech>TECH_CODE_OF_LAWS</PrereqTech>
+      <TechTypes />
       <Bonus>NONE</Bonus>
       <PrereqBonuses />
       <ProductionTraits />
@@ -14111,7 +14107,7 @@
       <bPrereqReligion>0</bPrereqReligion>
       <bCenterInCity>0</bCenterInCity>
       <iAIWeight>0</iAIWeight>
-      <iCost>150</iCost>
+      <iCost>120</iCost>
       <iHurryCostModifier>0</iHurryCostModifier>
       <iAdvancedStartCost>100</iAdvancedStartCost>
       <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -14140,12 +14136,12 @@
       <iFreeSpecialist>0</iFreeSpecialist>
       <iAreaFreeSpecialist>0</iAreaFreeSpecialist>
       <iGlobalFreeSpecialist>0</iGlobalFreeSpecialist>
-      <iMaintenanceModifier>0</iMaintenanceModifier>
+      <iMaintenanceModifier>-50</iMaintenanceModifier>
       <iWarWearinessModifier>0</iWarWearinessModifier>
       <iGlobalWarWearinessModifier>0</iGlobalWarWearinessModifier>
       <iEnemyWarWearinessModifier>0</iEnemyWarWearinessModifier>
       <iHealRateChange>0</iHealRateChange>
-      <iHealth>2</iHealth>
+      <iHealth>0</iHealth>
       <iAreaHealth>0</iAreaHealth>
       <iGlobalHealth>0</iGlobalHealth>
       <iHappiness>0</iHappiness>
@@ -14174,45 +14170,26 @@
       <RiverPlotYieldChanges />
       <GlobalSeaPlotYieldChanges />
       <YieldChanges />
-      <CommerceChanges />
+      <CommerceChanges>
+        <iCommerce>0</iCommerce>
+        <iCommerce>2</iCommerce>
+        <iCommerce>0</iCommerce>
+        <iCommerce>1</iCommerce>
+      </CommerceChanges>
       <ObsoleteSafeCommerceChanges />
       <CommerceChangeDoubleTimes />
-      <CommerceModifiers>
-        <iCommerce>25</iCommerce>
-      </CommerceModifiers>
+      <CommerceModifiers />
       <GlobalCommerceModifiers />
       <SpecialistExtraCommerces />
       <StateReligionCommerces />
       <CommerceHappinesses />
       <ReligionChanges />
-      <SpecialistCounts>
-        <SpecialistCount>
-          <SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
-          <iSpecialistCount>2</iSpecialistCount>
-        </SpecialistCount>
-      </SpecialistCounts>
+      <SpecialistCounts />
       <FreeSpecialistCounts />
       <CommerceFlexibles />
       <CommerceChangeOriginalOwners />
-      <ConstructSound>AS2D_BUILD_GROCER</ConstructSound>
-      <BonusHealthChanges>
-        <BonusHealthChange>
-          <BonusType>BONUS_SPICES</BonusType>
-          <iHealthChange>1</iHealthChange>
-        </BonusHealthChange>
-        <BonusHealthChange>
-          <BonusType>BONUS_SUGAR</BonusType>
-          <iHealthChange>1</iHealthChange>
-        </BonusHealthChange>
-        <BonusHealthChange>
-          <BonusType>BONUS_WINE</BonusType>
-          <iHealthChange>1</iHealthChange>
-        </BonusHealthChange>
-        <BonusHealthChange>
-          <BonusType>BONUS_BANANA</BonusType>
-          <iHealthChange>1</iHealthChange>
-        </BonusHealthChange>
-      </BonusHealthChanges>
+      <ConstructSound>AS2D_BUILD_COURTHOUSE</ConstructSound>
+      <BonusHealthChanges />
       <BonusHappinessChanges />
       <BonusProductionModifiers />
       <UnitCombatFreeExperiences />
@@ -14228,6 +14205,10 @@
         <Flavor>
           <FlavorType>FLAVOR_GOLD</FlavorType>
           <iFlavor>10</iFlavor>
+        </Flavor>
+        <Flavor>
+          <FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+          <iFlavor>2</iFlavor>
         </Flavor>
       </Flavors>
       <HotKey />

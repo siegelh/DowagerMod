@@ -4529,8 +4529,8 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-          <BuildingType>BUILDING_PERSIAN_APOTHECARY</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_PERSIA_SATRAPY_ARCHIVE</BuildingType>
         </Building>
       </Buildings>
       <Units>
@@ -4660,8 +4660,8 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType>
-          <BuildingType>BUILDING_PERSIAN_APOTHECARY</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_PERSIA_SATRAPY_ARCHIVE</BuildingType>
         </Building>
       </Buildings>
       <Units>

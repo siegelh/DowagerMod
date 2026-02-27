@@ -6359,7 +6359,7 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible)
 		}
 
 		const FeatureTypes eFloodPlains = (FeatureTypes)GC.getInfoTypeForString("FEATURE_FLOOD_PLAINS", true);
-		if (eFloodPlains != NO_FEATURE && pPlot->getFeatureType() == eFloodPlains)
+		if (eFloodPlains != NO_FEATURE && pPlot->getFeatureType() == eFloodPlains && !bTestVisible)
 		{
 			return false;
 		}
@@ -6376,7 +6376,7 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible)
 		}
 
 		const FeatureTypes eFloodPlains = (FeatureTypes)GC.getInfoTypeForString("FEATURE_FLOOD_PLAINS", true);
-		if (eFloodPlains != NO_FEATURE && pPlot->getFeatureType() == eFloodPlains)
+		if (eFloodPlains != NO_FEATURE && pPlot->getFeatureType() == eFloodPlains && !bTestVisible)
 		{
 			return false;
 		}
@@ -6399,7 +6399,7 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible)
 				break;
 			}
 		}
-		if (!bInOwnerCityRadius)
+		if (!bInOwnerCityRadius && !bTestVisible)
 		{
 			return false;
 		}
@@ -6416,7 +6416,76 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible)
 					pLoopPlot->getImprovementType() == eJapanCastleTownImprovement)
 				{
 					++iCastleTownCount;
-					if (iCastleTownCount >= 3)
+					if (iCastleTownCount >= 3 && !bTestVisible)
+					{
+						return false;
+					}
+				}
+			}
+		}
+	}
+
+	const BuildTypes ePersiaRoyalStationBuild = (BuildTypes)GC.getInfoTypeForString("BUILD_PERSIA_ROYAL_STATION", true);
+	if (ePersiaRoyalStationBuild != NO_BUILD && eBuild == ePersiaRoyalStationBuild)
+	{
+		const CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+		const CivilizationTypes eDariusCiv = (CivilizationTypes)GC.getInfoTypeForString("CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID", true);
+		if (eDariusCiv != NO_CIVILIZATION && kOwner.getCivilizationType() != eDariusCiv)
+		{
+			return false;
+		}
+
+		const FeatureTypes eFloodPlains = (FeatureTypes)GC.getInfoTypeForString("FEATURE_FLOOD_PLAINS", true);
+		if (eFloodPlains != NO_FEATURE && pPlot->getFeatureType() == eFloodPlains && !bTestVisible)
+		{
+			return false;
+		}
+
+		const RouteTypes eRoad = (RouteTypes)GC.getInfoTypeForString("ROUTE_ROAD", true);
+		const RouteTypes eRailroad = (RouteTypes)GC.getInfoTypeForString("ROUTE_RAILROAD", true);
+		const RouteTypes eRoute = pPlot->getRouteType();
+		const bool bHasRoad = (eRoad != NO_ROUTE && eRoute == eRoad) || (eRailroad != NO_ROUTE && eRoute == eRailroad);
+		if (!bHasRoad && !bTestVisible)
+		{
+			return false;
+		}
+
+		bool bInOwnerCityRadius = false;
+		int iLoop = 0;
+		for (CvCity* pLoopCity = kOwner.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kOwner.nextCity(&iLoop))
+		{
+			for (int iCityPlot = 0; iCityPlot < NUM_CITY_PLOTS; ++iCityPlot)
+			{
+				CvPlot* pCityPlot = plotCity(pLoopCity->getX_INLINE(), pLoopCity->getY_INLINE(), iCityPlot);
+				if (pCityPlot == pPlot)
+				{
+					bInOwnerCityRadius = true;
+					break;
+				}
+			}
+			if (bInOwnerCityRadius)
+			{
+				break;
+			}
+		}
+		if (!bInOwnerCityRadius && !bTestVisible)
+		{
+			return false;
+		}
+
+		const ImprovementTypes ePersiaRoyalStation = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_PERSIA_ROYAL_STATION", true);
+		if (ePersiaRoyalStation != NO_IMPROVEMENT)
+		{
+			int iRoyalStationCount = 0;
+			for (int iPlot = 0; iPlot < GC.getMapINLINE().numPlots(); ++iPlot)
+			{
+				CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iPlot);
+				if (pLoopPlot != NULL &&
+					pLoopPlot->getOwnerINLINE() == getOwnerINLINE() &&
+					pLoopPlot->getImprovementType() == ePersiaRoyalStation)
+				{
+					++iRoyalStationCount;
+					if (iRoyalStationCount >= 5 && !bTestVisible)
 					{
 						return false;
 					}

@@ -9,6 +9,14 @@
 		<Spanish>Construir Esfinge</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_BUILD_EGYPT_SPHINX_HELP</Tag>
+		<English>Hatshepsut's Egypt only. Build on flat Desert (not Flood Plains) within your borders.</English>
+		<French>Seulement pour l'Egypte d'Hatshepsout. Construire sur desert plat (pas de plaines inondables) dans vos frontieres.</French>
+		<German>Nur fur Hatschepsuts Agypten. Auf flacher Wuste (keine Schwemmebenen) innerhalb eurer Grenzen bauen.</German>
+		<Italian>Solo per l'Egitto di Hatshepsut. Costruisci su deserto pianeggiante (non pianure alluvionali) entro i tuoi confini.</Italian>
+		<Spanish>Solo para el Egipto de Hatshepsut. Construye en desierto llano (no en llanuras aluviales) dentro de tus fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_IMPROVEMENT_EGYPT_SPHINX</Tag>
 		<English>Sphinx</English>
 		<French>Sphinx</French>

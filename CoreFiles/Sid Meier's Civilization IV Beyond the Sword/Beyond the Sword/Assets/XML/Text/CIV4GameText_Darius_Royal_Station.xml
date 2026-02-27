@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PERSIA_SATRAPY_ARCHIVE</Tag>
+		<English>Satrapy Archive</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PERSIA_SATRAPY_ARCHIVE_PEDIA</Tag>
+		<English>An Achaemenid provincial records and tax administration complex. Replaces the Courthouse.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PERSIA_SATRAPY_ARCHIVE_STRATEGY</Tag>
+		<English>Functions as a Courthouse and directly adds +2 Gold and +1 Espionage.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_PERSIA_ROYAL_STATION</Tag>
+		<English>Establish Royal Station</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_PERSIA_ROYAL_STATION_HELP</Tag>
+		<English>Darius' Achaemenid Persia only. Build on flat land (not Flood Plains), inside your city radius, on an existing Road. Hard cap: 5 Royal Stations per player.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_PERSIA_ROYAL_STATION</Tag>
+		<English>Royal Station</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_PERSIA_ROYAL_STATION_PEDIA</Tag>
+		<English>A royal caravanserai and courier waypoint on imperial roads. Base effect: +1 Commerce on Road. Additional Commerce scales with nearby city centers in a 9x9 area.</English>
+	</TEXT>
+</Civ4GameText>

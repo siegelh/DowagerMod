@@ -97,6 +97,15 @@
 			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/himejicastle.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_PERSIA_ROYAL_STATION</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>8.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/market/middle_east_market/market.nif</NIF>
+			<KFM/>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/bazaar.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_WHALING_BOATS</Type>
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>1.0</fScale>

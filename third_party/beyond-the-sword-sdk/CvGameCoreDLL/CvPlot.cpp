@@ -5874,6 +5874,34 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 		}
 	}
 
+	if (ePlayer != NO_PLAYER && eYield == YIELD_COMMERCE)
+	{
+		const ImprovementTypes ePersiaRoyalStation = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_PERSIA_ROYAL_STATION", true);
+		if (ePersiaRoyalStation != NO_IMPROVEMENT && eImprovement == ePersiaRoyalStation)
+		{
+			int iNearbyCityCenters = 0;
+			int iLoop = 0;
+			for (CvCity* pLoopCity = GET_PLAYER(ePlayer).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(ePlayer).nextCity(&iLoop))
+			{
+				int iDX = pLoopCity->getX_INLINE() - getX_INLINE();
+				if (iDX < 0)
+				{
+					iDX = -iDX;
+				}
+				int iDY = pLoopCity->getY_INLINE() - getY_INLINE();
+				if (iDY < 0)
+				{
+					iDY = -iDY;
+				}
+				if (iDX <= 4 && iDY <= 4)
+				{
+					++iNearbyCityCenters;
+				}
+			}
+			iYield += iNearbyCityCenters;
+		}
+	}
+
 	return iYield;
 }
 
