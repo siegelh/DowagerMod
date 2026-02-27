@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BABYLON_ROYAL_PALACE</Tag>
+		<English>Palace of Hammurabi</English>
+		<French>Palais d'Hammourabi</French>
+		<German>Palast Hammurabis</German>
+		<Italian>Palazzo di Hammurabi</Italian>
+		<Spanish>Palacio de Hammurabi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BABYLON_ROYAL_PALACE_PEDIA</Tag>
+		<English>The Palace of Hammurabi represents the royal court that centralized law, taxation, and administration in Old Babylon. It strengthens capital governance with production, science, culture, and espionage output while supporting a stronger imperial bureaucracy.</English>
+		<French>Le palais d'Hammourabi represente la cour royale qui centralisa le droit, la fiscalite et l'administration dans l'ancienne Babylone. Il renforce la gouvernance de la capitale avec de la production, de la science, de la culture et de l'espionnage.</French>
+		<German>Der Palast Hammurabis steht fur den koniglichen Hof, der im altbabylonischen Reich Recht, Steuern und Verwaltung zentralisierte. Er starkt die Hauptstadt durch Produktion, Wissenschaft, Kultur und Spionage.</German>
+		<Italian>Il Palazzo di Hammurabi rappresenta la corte reale che centralizzo diritto, tassazione e amministrazione nella Babilonia antica. Rafforza il governo della capitale con produzione, scienza, cultura e spionaggio.</Italian>
+		<Spanish>El Palacio de Hammurabi representa la corte real que centralizo ley, tributacion y administracion en la antigua Babilonia. Refuerza el gobierno de la capital con produccion, ciencia, cultura y espionaje.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BABYLON_ROYAL_PALACE_STRATEGY</Tag>
+		<English>Babylonian Palace replacement. Core administrative anchor: boosts capital output across Production, Science, Culture, and Espionage, and improves imperial maintenance efficiency.</English>
+		<French>Remplacement babylonien du palais. Ancrage administratif central : renforce la production de la capitale en Production, Science, Culture et Espionnage, et ameliore l'efficacite d'entretien imperial.</French>
+		<German>Babylonischer Palastersatz. Zentrales Verwaltungsfundament: steigert den Ertrag der Hauptstadt in Produktion, Wissenschaft, Kultur und Spionage und verbessert die Unterhaltseffizienz des Reiches.</German>
+		<Italian>Sostituto babilonese del Palazzo. Fulcro amministrativo: aumenta la resa della capitale in Produzione, Scienza, Cultura e Spionaggio e migliora l'efficienza del mantenimento imperiale.</Italian>
+		<Spanish>Reemplazo babilonio del Palacio. Pilar administrativo central: aumenta la produccion de la capital en Produccion, Ciencia, Cultura y Espionaje y mejora la eficiencia de mantenimiento imperial.</Spanish>
+	</TEXT>
+</Civ4GameText>

@@ -104,9 +104,11 @@ Plan-of-record document:
 This includes required standards for:
 
 - mixing legacy and new trait mechanisms
+- sparse use of trait-level `BuildingYieldChanges`/`BuildingCommerceChanges` in favor of UB/UU/Palace-driven identity
 - art sourcing workflow (including external art import rules)
 - civilization-specific unique tile improvements (for example, Sphinx-style desert improvements with optional city-range bonuses)
 - explicit UU/UB fit review (`KEEP`/`MODIFY`/`REPLACE`) before any unique replacement
+- explicit power-budget choice per overhaul (`Leader Heavy`, `Civ Heavy`, `Hybrid`) to preserve asymmetry
 - rarity and gating standards for civilization-specific tile improvements
 - living tracker for which leaders/civilizations are already overhauled
 - creativity/naming/UI clarity guardrails to keep overhauls distinct and readable

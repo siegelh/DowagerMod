@@ -35,7 +35,7 @@ Use this section to track actual implementation status and avoid duplicate/parti
 - `LEADER_TOKUGAWA` / `CIVILIZATION_JAPAN`
 
 ### In Progress
-- None
+- `LEADER_HAMMURABI` / `CIVILIZATION_BABYLON`
 
 ### Planned (Not Started)
 - Fill per planning sessions. Keep entries leader-specific and civ-specific.
@@ -44,6 +44,7 @@ Use this section to track actual implementation status and avoid duplicate/parti
 For each overhaul, record a short design brief with:
 - historical thesis (1-2 sentences)
 - gameplay thesis (win-shape and power spike timing)
+- power budget thesis: where power is intentionally concentrated (`Leader Trait Heavy`, `Civ UU/UB Heavy`, or `Hybrid`)
 - trait channels selected (legacy + new mixed)
 - UU decision: `KEEP` / `MODIFY` / `REPLACE` + why
 - UB decision: `KEEP` / `MODIFY` / `REPLACE` + why
@@ -57,6 +58,9 @@ Every proposal must include all of the following before implementation:
 - `UU/UB Fit Verdict`:
 - explicit `KEEP` / `MODIFY` / `REPLACE` decision for both existing UU and existing UB
 - short historical + gameplay justification for each
+- `Expression Priority Verdict`:
+- default to expressing identity through civilization-specific uniques (UU/UB/Palace replacement) before trait-level generic class buffs
+- if using `BuildingYieldChanges` or `BuildingCommerceChanges`, include a brief reason why a direct unique-building implementation is not better
 - `Rare Improvement Justification` (if proposing a civ-unique tile improvement):
 - why this civ specifically merits one
 - why the mechanic is not better expressed as trait/civic/building instead
@@ -180,9 +184,25 @@ Use these to keep designs differentiated and high-flavor:
 - Keep existing UU/UB when they are historically plausible for the era and mechanically coherent.
 - Modify existing UU/UB when the concept is good but tuning/theme needs adjustment.
 - Replace UU/UB only when they are clearly anachronistic, inaccurate, or incompatible with the intended era identity.
+- Palace rule:
+- For palace-centric identities, prefer a civilization-specific `BUILDINGCLASS_PALACE` replacement over trait-level `BuildingClass` buffs.
 - Every plan must record a per-unique decision:
 - `KEEP`, `MODIFY`, or `REPLACE`
 - with one short justification for each.
+
+## Trait Building-Class Channel Discipline
+- `BuildingYieldChanges` and `BuildingCommerceChanges` are secondary tools and should be used sparingly.
+- Do not default to broad class-level buffs (`Courthouse`, `Library`, `Temple`, etc.) as the primary identity expression.
+- Prefer direct UB tuning/replacement when the effect is intended to be tied to one civilization's signature institution.
+- If class-level trait buffs are used, keep them narrow and justified by clear cross-civ historical logic.
+
+## Asymmetry Requirement (Power Distribution)
+- Do not normalize all overhauls into one template with different numbers.
+- Intentional asymmetry is required:
+- some leaders can be trait-heavy with modest civ uniques
+- some civs can be UU/UB-heavy with lighter leader traits
+- some can be hybrids
+- For each overhaul, explicitly state which profile is chosen and why.
 
 ## Unique Tile Improvement Pattern (Required Consideration)
 - Leader/civ designs may include civilization-specific tile improvements when historically justified.

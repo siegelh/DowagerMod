@@ -400,6 +400,10 @@
       </Cities>
       <Buildings>
         <Building>
+          <BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+          <BuildingType>BUILDING_BABYLON_ROYAL_PALACE</BuildingType>
+        </Building>
+        <Building>
           <BuildingClassType>BUILDINGCLASS_COLOSSEUM</BuildingClassType>
           <BuildingType>BUILDING_BABYLON_GARDEN</BuildingType>
         </Building>
