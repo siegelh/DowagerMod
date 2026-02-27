@@ -72,7 +72,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_GRAND_COLOSSEUM_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>2.0</fScale>
+			<fScale>1.5</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Colosseum/Colosseum.nif</NIF>
 			<KFM/>
@@ -90,7 +90,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_JAPAN_CASTLE_TOWN</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.45</fScale>
+			<fScale>1.5</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/improvements/fort/asian_fort_himeji/himeji.nif</NIF>
 			<KFM/>
