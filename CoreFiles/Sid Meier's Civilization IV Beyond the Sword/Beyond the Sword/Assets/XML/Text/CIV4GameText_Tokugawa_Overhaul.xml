@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_JAPAN_CASTLE_TOWN</Tag>
+		<English>Establish Jokamachi</English>
+		<French>Etablir un Jokamachi</French>
+		<German>Jokamachi grunden</German>
+		<Italian>Fonda Jokamachi</Italian>
+		<Spanish>Fundar Jokamachi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILD_JAPAN_CASTLE_TOWN_HELP</Tag>
+		<English>Tokugawa Japan only. Build on flat land (not Flood Plains), within your city radius. Hard cap: 3 Jokamachi per player.</English>
+		<French>Seulement pour le Japon de Tokugawa. Construire sur terrain plat (pas de plaines inondables), dans le rayon d'une ville. Limite stricte : 3 Jokamachi par joueur.</French>
+		<German>Nur fur Tokugawas Japan. Auf flachem Land bauen (keine Schwemmebenen), innerhalb des Stadtradius. Harte Grenze: 3 Jokamachi pro Spieler.</German>
+		<Italian>Solo per il Giappone di Tokugawa. Costruisci su terreno pianeggiante (non pianure alluvionali), nel raggio cittadino. Limite rigido: 3 Jokamachi per giocatore.</Italian>
+		<Spanish>Solo para el Japon de Tokugawa. Construye en terreno llano (no en llanuras aluviales), dentro del radio urbano. Limite estricto: 3 Jokamachi por jugador.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_JAPAN_CASTLE_TOWN</Tag>
+		<English>Jokamachi</English>
+		<French>Jokamachi</French>
+		<German>Jokamachi</German>
+		<Italian>Jokamachi</Italian>
+		<Spanish>Jokamachi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_JAPAN_CASTLE_TOWN_PEDIA</Tag>
+		<English>A fortified castle-town district of Tokugawa administration. Base effects: +5 Production on the tile and strong defense. Tokugawa's trait adds +3 Culture to the city for each worked Jokamachi tile. Hard cap: 3 Jokamachi per player.</English>
+		<French>Quartier fortifie de ville-chateau de l'administration Tokugawa. Effets de base : +5 Production sur la case et forte defense. Le trait de Tokugawa ajoute +3 Culture a la ville pour chaque case Jokamachi exploitee. Limite stricte : 3 Jokamachi par joueur.</French>
+		<German>Ein befestigter Burgstadtbezirk der Tokugawa-Verwaltung. Grundeffekte: +5 Produktion auf dem Feld und starke Verteidigung. Tokugawas Merkmal gibt der Stadt +3 Kultur fur jedes bearbeitete Jokamachi-Feld. Harte Grenze: 3 Jokamachi pro Spieler.</German>
+		<Italian>Un distretto fortificato di citta-castello dell'amministrazione Tokugawa. Effetti base: +5 Produzione sulla casella e forte difesa. Il tratto di Tokugawa aggiunge +3 Cultura alla citta per ogni casella Jokamachi lavorata. Limite rigido: 3 Jokamachi per giocatore.</Italian>
+		<Spanish>Un distrito fortificado de ciudad-castillo de la administracion Tokugawa. Efectos base: +5 Produccion en la casilla y fuerte defensa. El rasgo de Tokugawa agrega +3 Cultura a la ciudad por cada casilla Jokamachi trabajada. Limite estricto: 3 Jokamachi por jugador.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JAPAN_BAKUFU_MAGISTRACY</Tag>
+		<English>Bakufu Magistracy</English>
+		<French>Magistrature du Bakufu</French>
+		<German>Bakufu-Magistratur</German>
+		<Italian>Magistratura del Bakufu</Italian>
+		<Spanish>Magistratura del Bakufu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JAPAN_BAKUFU_MAGISTRACY_PEDIA</Tag>
+		<English>An Edo-period administrative court integrating taxation, policing, and domain oversight under the shogunate. Replaces the Courthouse.</English>
+		<French>Tribunal administratif de l'epoque Edo integrant fiscalite, police et supervision des domaines sous le shogunat. Remplace le Palais de justice.</French>
+		<German>Ein Verwaltungsgericht der Edo-Zeit, das Besteuerung, Polizeiarbeit und Domanenaufsicht unter dem Shogunat verbindet. Ersetzt das Gerichtsgebaude.</German>
+		<Italian>Un tribunale amministrativo del periodo Edo che integra tassazione, polizia e controllo dei domini sotto lo shogunato. Sostituisce il Tribunale.</Italian>
+		<Spanish>Un tribunal administrativo del periodo Edo que integra tributacion, policia y supervision de dominios bajo el shogunato. Sustituye al Tribunal.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_JAPAN_BAKUFU_MAGISTRACY_STRATEGY</Tag>
+		<English>The Bakufu Magistracy preserves Courthouse maintenance reduction while adding +3 Culture and +3 Experience for units built in the city.</English>
+		<French>La Magistrature du Bakufu conserve la reduction d'entretien du Palais de justice et ajoute +3 Culture et +3 Experience aux unites produites dans la ville.</French>
+		<German>Die Bakufu-Magistratur erhalt die Unterhaltsreduktion des Gerichtsgebaudes und gewahrt +3 Kultur sowie +3 Erfahrung fur in der Stadt ausgebildete Einheiten.</German>
+		<Italian>La Magistratura del Bakufu mantiene la riduzione dei costi del Tribunale e aggiunge +3 Cultura e +3 Esperienza alle unita addestrate nella citta.</Italian>
+		<Spanish>La Magistratura del Bakufu mantiene la reduccion de mantenimiento del Tribunal y agrega +3 Cultura y +3 Experiencia a las unidades entrenadas en la ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_EDO</Tag>
+		<English>Edo</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SENDAI</Tag>
+		<English>Sendai</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KANAZAWA</Tag>
+		<English>Kanazawa</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_HIMEJI</Tag>
+		<English>Himeji</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_MITO</Tag>
+		<English>Mito</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KOKURA</Tag>
+		<English>Kokura</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_AIZU_WAKAMATSU</Tag>
+		<English>Aizu-Wakamatsu</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SUNPU</Tag>
+		<English>Sunpu</English>
+	</TEXT>
+</Civ4GameText>

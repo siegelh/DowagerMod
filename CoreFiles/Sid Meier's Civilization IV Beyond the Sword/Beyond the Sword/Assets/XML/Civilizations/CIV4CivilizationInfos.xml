@@ -1376,9 +1376,17 @@
       <bPlayable>1</bPlayable>
       <bAIPlayable>1</bAIPlayable>
       <Cities>
+        <City>TXT_KEY_CITY_NAME_EDO</City>
         <City>TXT_KEY_CITY_NAME_KYOTO</City>
         <City>TXT_KEY_CITY_NAME_OSAKA</City>
         <City>TXT_KEY_CITY_NAME_TOKYO</City>
+        <City>TXT_KEY_CITY_NAME_KANAZAWA</City>
+        <City>TXT_KEY_CITY_NAME_SENDAI</City>
+        <City>TXT_KEY_CITY_NAME_HIMEJI</City>
+        <City>TXT_KEY_CITY_NAME_MITO</City>
+        <City>TXT_KEY_CITY_NAME_SUNPU</City>
+        <City>TXT_KEY_CITY_NAME_AIZU_WAKAMATSU</City>
+        <City>TXT_KEY_CITY_NAME_KOKURA</City>
         <City>TXT_KEY_CITY_NAME_SATSUMA</City>
         <City>TXT_KEY_CITY_NAME_KAGOSHIMA</City>
         <City>TXT_KEY_CITY_NAME_NARA</City>
@@ -1414,8 +1422,8 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_COAL_PLANT</BuildingClassType>
-          <BuildingType>BUILDING_JAPANESE_SHALE_PLANT</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_JAPAN_BAKUFU_MAGISTRACY</BuildingType>
         </Building>
       </Buildings>
       <Units>

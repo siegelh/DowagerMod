@@ -1432,6 +1432,18 @@
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
+			<ImprovementCityCommerceChangesWorked>
+				<ImprovementCityCommerceChangeWorked>
+					<ImprovementType>IMPROVEMENT_JAPAN_CASTLE_TOWN</ImprovementType>
+					<ImprovementCommerces>
+						<iCommerce>3</iCommerce>
+						<iCommerce>0</iCommerce>
+						<iCommerce>0</iCommerce>
+						<iCommerce>0</iCommerce>
+					</ImprovementCommerces>
+				</ImprovementCityCommerceChangeWorked>
+			</ImprovementCityCommerceChangesWorked>
+			<ImprovementCityCommerceChangesBFC/>
 			<WeLoveTheKing/>
 		</CivicInfo>
 		<CivicInfo>
@@ -1590,6 +1602,18 @@
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
+			<ImprovementCityCommerceChangesWorked>
+				<ImprovementCityCommerceChangeWorked>
+					<ImprovementType>IMPROVEMENT_JAPAN_CASTLE_TOWN</ImprovementType>
+					<ImprovementCommerces>
+						<iCommerce>3</iCommerce>
+						<iCommerce>0</iCommerce>
+						<iCommerce>0</iCommerce>
+						<iCommerce>0</iCommerce>
+					</ImprovementCommerces>
+				</ImprovementCityCommerceChangeWorked>
+			</ImprovementCityCommerceChangesWorked>
+			<ImprovementCityCommerceChangesBFC/>
 			<WeLoveTheKing/>
 		</CivicInfo>
 		<CivicInfo>
@@ -1762,7 +1786,17 @@
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_JAPAN_CASTLE_TOWN</ImprovementType>
+					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
+			<ImprovementCityCommerceChangesWorked/>
+			<ImprovementCityCommerceChangesBFC/>
 			<WeLoveTheKing/>
 		</CivicInfo>
 		<CivicInfo>
@@ -2024,6 +2058,18 @@
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
+			<ImprovementCityCommerceChangesWorked>
+				<ImprovementCityCommerceChangeWorked>
+					<ImprovementType>IMPROVEMENT_JAPAN_CASTLE_TOWN</ImprovementType>
+					<ImprovementCommerces>
+						<iCommerce>0</iCommerce>
+						<iCommerce>3</iCommerce>
+						<iCommerce>0</iCommerce>
+						<iCommerce>0</iCommerce>
+					</ImprovementCommerces>
+				</ImprovementCityCommerceChangeWorked>
+			</ImprovementCityCommerceChangesWorked>
+			<ImprovementCityCommerceChangesBFC/>
 			<WeLoveTheKing/>
 		</CivicInfo>
 		<CivicInfo>

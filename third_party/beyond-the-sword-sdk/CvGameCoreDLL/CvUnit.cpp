@@ -6365,6 +6365,66 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible)
 		}
 	}
 
+	const BuildTypes eJapanCastleTownBuild = (BuildTypes)GC.getInfoTypeForString("BUILD_JAPAN_CASTLE_TOWN", true);
+	if (eJapanCastleTownBuild != NO_BUILD && eBuild == eJapanCastleTownBuild)
+	{
+		const CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+		const CivilizationTypes eJapanCiv = (CivilizationTypes)GC.getInfoTypeForString("CIVILIZATION_JAPAN", true);
+		if (eJapanCiv != NO_CIVILIZATION && kOwner.getCivilizationType() != eJapanCiv)
+		{
+			return false;
+		}
+
+		const FeatureTypes eFloodPlains = (FeatureTypes)GC.getInfoTypeForString("FEATURE_FLOOD_PLAINS", true);
+		if (eFloodPlains != NO_FEATURE && pPlot->getFeatureType() == eFloodPlains)
+		{
+			return false;
+		}
+
+		bool bInOwnerCityRadius = false;
+		int iLoop = 0;
+		for (CvCity* pLoopCity = kOwner.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kOwner.nextCity(&iLoop))
+		{
+			for (int iCityPlot = 0; iCityPlot < NUM_CITY_PLOTS; ++iCityPlot)
+			{
+				CvPlot* pCityPlot = plotCity(pLoopCity->getX_INLINE(), pLoopCity->getY_INLINE(), iCityPlot);
+				if (pCityPlot == pPlot)
+				{
+					bInOwnerCityRadius = true;
+					break;
+				}
+			}
+			if (bInOwnerCityRadius)
+			{
+				break;
+			}
+		}
+		if (!bInOwnerCityRadius)
+		{
+			return false;
+		}
+
+		const ImprovementTypes eJapanCastleTownImprovement = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_JAPAN_CASTLE_TOWN", true);
+		if (eJapanCastleTownImprovement != NO_IMPROVEMENT)
+		{
+			int iCastleTownCount = 0;
+			for (int iPlot = 0; iPlot < GC.getMapINLINE().numPlots(); ++iPlot)
+			{
+				CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iPlot);
+				if (pLoopPlot != NULL &&
+					pLoopPlot->getOwnerINLINE() == getOwnerINLINE() &&
+					pLoopPlot->getImprovementType() == eJapanCastleTownImprovement)
+				{
+					++iCastleTownCount;
+					if (iCastleTownCount >= 3)
+					{
+						return false;
+					}
+				}
+			}
+		}
+	}
+
 	if (!(GET_PLAYER(getOwnerINLINE()).canBuild(pPlot, eBuild, false, bTestVisible)))
 	{
 		return false;

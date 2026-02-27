@@ -88,6 +88,15 @@
 			<Button>Art/BTG/ChooseReligions/Ra_Files/Buildings/sphinx_button.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_JAPAN_CASTLE_TOWN</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.45</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/improvements/fort/asian_fort_himeji/himeji.nif</NIF>
+			<KFM/>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/himejicastle.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_WHALING_BOATS</Type>
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>1.0</fScale>

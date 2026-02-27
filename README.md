@@ -70,6 +70,17 @@ Required checklist for new XML capability work:
    - `Failed Loading XML file .../CIV4TraitInfos.xml`
    treat that as the primary error and fix it first before investigating later popups.
 
+## Tooltip Text Formatting Lessons
+
+When adding or editing text keys used by DLL help-formatting (`gDLL->getText(...)`), treat format specifiers as runtime-sensitive.
+
+Known pitfall:
+- `%+d` can leak into UI in some help paths (for example civic tooltips), showing raw tokens like `%+d%c`.
+
+Safe guideline:
+1. Prefer `%d` over `%+d` in XML text keys unless a specific call site has been validated.
+2. After text changes, verify in-game tooltips for unresolved `%` tokens.
+
 ## Rebuild Installer
 
 From repo root:
@@ -95,3 +106,18 @@ This includes required standards for:
 - mixing legacy and new trait mechanisms
 - art sourcing workflow (including external art import rules)
 - civilization-specific unique tile improvements (for example, Sphinx-style desert improvements with optional city-range bonuses)
+- explicit UU/UB fit review (`KEEP`/`MODIFY`/`REPLACE`) before any unique replacement
+- rarity and gating standards for civilization-specific tile improvements
+- living tracker for which leaders/civilizations are already overhauled
+- creativity/naming/UI clarity guardrails to keep overhauls distinct and readable
+- mandatory proposal gate: UU/UB fit verdicts, rare-improvement justification, art feasibility pass, and UI exposure plan
+
+## Overhaul Request Template
+
+For consistent execution, start overhaul requests with:
+
+`Follow docs/LEADER_OVERHAUL_PLAN_OF_RECORD.md and README.md strictly before proposing or implementing.`
+
+Then require:
+1. checklist echo before changes
+2. docs-compliance summary after changes

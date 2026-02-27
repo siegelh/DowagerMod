@@ -1279,6 +1279,10 @@
           <BuildType>BUILD_EGYPT_SPHINX</BuildType>
           <bBuild>1</bBuild>
         </Build>
+        <Build>
+          <BuildType>BUILD_JAPAN_CASTLE_TOWN</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
       </Builds>
       <ReligionSpreads />
       <CorporationSpreads />
@@ -1561,6 +1565,10 @@
           <BuildType>BUILD_EGYPT_SPHINX</BuildType>
           <bBuild>1</bBuild>
         </Build>
+        <Build>
+          <BuildType>BUILD_JAPAN_CASTLE_TOWN</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
       </Builds>
       <ReligionSpreads />
       <CorporationSpreads />
@@ -1828,6 +1836,10 @@
         </Build>
         <Build>
           <BuildType>BUILD_EGYPT_SPHINX</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_JAPAN_CASTLE_TOWN</BuildType>
           <bBuild>1</bBuild>
         </Build>
       </Builds>

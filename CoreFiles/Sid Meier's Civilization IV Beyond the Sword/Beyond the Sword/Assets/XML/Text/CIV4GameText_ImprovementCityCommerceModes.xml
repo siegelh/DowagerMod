@@ -18,18 +18,18 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_CIVIC_IMPROVEMENT_CITY_COMMERCE_WORKED</Tag>
-		<English>%+d%c per worked tile from:</English>
-		<French>%+d%c par case exploitée de :</French>
-		<German>%+d%c pro bewirtschaftetem Feld durch:</German>
-		<Italian>%+d%c per casella lavorata da:</Italian>
-		<Spanish>%+d%c por casilla trabajada de:</Spanish>
+		<English>%d%c per worked tile from:</English>
+		<French>%d%c par case exploitée de :</French>
+		<German>%d%c pro bewirtschaftetem Feld durch:</German>
+		<Italian>%d%c per casella lavorata da:</Italian>
+		<Spanish>%d%c por casilla trabajada de:</Spanish>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_CIVIC_IMPROVEMENT_CITY_COMMERCE_BFC</Tag>
-		<English>%+d%c per tile in city radius from:</English>
-		<French>%+d%c par case du rayon urbain de :</French>
-		<German>%+d%c pro Feld im Stadtradius durch:</German>
-		<Italian>%+d%c per casella nel raggio cittadino da:</Italian>
-		<Spanish>%+d%c por casilla en el radio urbano de:</Spanish>
+		<English>%d%c per tile in city radius from:</English>
+		<French>%d%c par case du rayon urbain de :</French>
+		<German>%d%c pro Feld im Stadtradius durch:</German>
+		<Italian>%d%c per casella nel raggio cittadino da:</Italian>
+		<Spanish>%d%c por casilla en el radio urbano de:</Spanish>
 	</TEXT>
 </Civ4GameText>
