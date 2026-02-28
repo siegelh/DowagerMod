@@ -656,11 +656,19 @@
           <BuildingClassType>BUILDINGCLASS_HARBOR</BuildingClassType>
           <BuildingType>BUILDING_CARTHAGE_COTHON</BuildingType>
         </Building>
+        <Building>
+          <BuildingClassType>BUILDINGCLASS_GREAT_PALACE</BuildingClassType>
+          <BuildingType>BUILDING_CARTHAGE_BYRSA_ELEPHANT_TREASURY</BuildingType>
+        </Building>
       </Buildings>
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_HORSE_ARCHER</UnitClassType>
           <UnitType>UNIT_CARTHAGE_NUMIDIAN_CAVALRY</UnitType>
+        </Unit>
+        <Unit>
+          <UnitClassType>UNITCLASS_WAR_ELEPHANT</UnitClassType>
+          <UnitType>UNIT_CARTHAGE_AFRICAN_WAR_ELEPHANT</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -4191,13 +4199,21 @@
       <Buildings>
         <Building>
           <BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
-          <BuildingType>BUILDING_ENGLISH_STOCK_EXCHANGE</BuildingType>
+          <BuildingType>BUILDING_ENGLISH_ROYAL_EXCHANGE</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
-          <UnitType>UNIT_ENGLISH_REDCOAT</UnitType>
+          <UnitClassType>UNITCLASS_GALLEY</UnitClassType>
+          <UnitType>UNIT_ENGLISH_SEA_DOG</UnitType>
+        </Unit>
+        <Unit>
+          <UnitClassType>UNITCLASS_TRIREME</UnitClassType>
+          <UnitType>UNIT_ENGLISH_SEA_DOG</UnitType>
+        </Unit>
+        <Unit>
+          <UnitClassType>UNITCLASS_PRIVATEER</UnitClassType>
+          <UnitType>UNIT_ENGLISH_SEA_DOG</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -4399,13 +4415,17 @@
       <Buildings>
         <Building>
           <BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
-          <BuildingType>BUILDING_ENGLISH_STOCK_EXCHANGE</BuildingType>
+          <BuildingType>BUILDING_BRITISH_WAR_ROOMS</BuildingType>
+        </Building>
+        <Building>
+          <BuildingClassType>BUILDINGCLASS_SCOTLAND_YARD</BuildingClassType>
+          <BuildingType>BUILDING_BRITISH_MI6</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
-          <UnitType>UNIT_ENGLISH_REDCOAT</UnitType>
+          <UnitClassType>UNITCLASS_FIGHTER</UnitClassType>
+          <UnitType>UNIT_BRITISH_FIGHTER_COMMAND</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -6777,7 +6797,7 @@
       <Buildings>
         <Building>
           <BuildingClassType>BUILDINGCLASS_STABLE</BuildingClassType>
-          <BuildingType>BUILDING_MONGOL_GER</BuildingType>
+          <BuildingType>BUILDING_YUAN_ORTOO_HUB</BuildingType>
         </Building>
         <Building>
           <BuildingClassType>BUILDINGCLASS_GREAT_PALACE</BuildingClassType>
@@ -6787,7 +6807,7 @@
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_HORSE_ARCHER</UnitClassType>
-          <UnitType>UNIT_MONGOL_KESHIK</UnitType>
+          <UnitType>UNIT_YUAN_QIANHU_CAVALRY</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -7188,8 +7208,8 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_PEOPLES_REPUBLIC_CHINA_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_PEOPLES_REPUBLIC_CHINA_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_PEOPLES_REPUBLIC_CHINA_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_DARK_PINK</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_CHINA</ArtDefineTag>
+      <DefaultPlayerColor>PLAYERCOLOR_PRC_RED</DefaultPlayerColor>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_PRC</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_ASIAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_ASIAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -7242,14 +7262,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_THEATRE</BuildingClassType>
-          <BuildingType>BUILDING_CHINESE_PAVILLION</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_PRC_DANWEI_COMMITTEE</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_CROSSBOWMAN</UnitClassType>
-          <UnitType>UNIT_CHINA_CHOKONU</UnitType>
+          <UnitClassType>UNITCLASS_INFANTRY</UnitClassType>
+          <UnitType>UNIT_PRC_PEOPLES_VOLUNTEER</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>

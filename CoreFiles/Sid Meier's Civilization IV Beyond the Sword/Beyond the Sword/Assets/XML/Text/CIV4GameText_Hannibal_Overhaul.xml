@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CARTHAGE_BYRSA_ELEPHANT_TREASURY</Tag>
+    <English>Byrsa Elephant Treasury</English>
+    <French>Tresor des Elephants de Byrsa</French>
+    <German>Byrsa-Elefantenschatzamt</German>
+    <Italian>Tesoro degli Elefanti di Byrsa</Italian>
+    <Spanish>Tesoro de Elefantes de Byrsa</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CARTHAGE_BYRSA_ELEPHANT_TREASURY_PEDIA</Tag>
+    <English>From Carthage's Byrsa citadel, officials coordinated war finance, logistics, and elephant corps provisioning across the Punic war machine.</English>
+    <French>Depuis la citadelle de Byrsa a Carthage, les magistrats coordonnaient le financement de guerre, la logistique et l'approvisionnement du corps d'elephants.</French>
+    <German>Von der Byrsa-Zitadelle in Karthago aus koordinierten Amtstrager Kriegsfinanzierung, Logistik und die Versorgung des Elefantenkorps.</German>
+    <Italian>Dalla cittadella di Byrsa a Cartagine, i magistrati coordinavano finanze di guerra, logistica e rifornimento del corpo di elefanti.</Italian>
+    <Spanish>Desde la ciudadela de Byrsa en Cartago, los magistrados coordinaban finanzas de guerra, logistica y abastecimiento del cuerpo de elefantes.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CARTHAGE_BYRSA_ELEPHANT_TREASURY_STRATEGY</Tag>
+    <English>Carthage Great Palace replacement. Requires Stables instead of Courthouses and grants 2 free Ivory to support fast elephant warfare.</English>
+    <French>Remplacement carthaginois du Grand Palais. Requiert des Ecuries au lieu des Palais de justice et accorde 2 Ivoires gratuits pour soutenir une guerre d'elephants rapide.</French>
+    <German>Karthagischer Ersatz fur den GroBen Palast. Benotigt Stalle statt Gerichtsgebaude und gewahrt 2 kostenloses Elfenbein fur schnelle Elefantenkriegsfuhrung.</German>
+    <Italian>Sostituto cartaginese del Grande Palazzo. Richiede Scuderie invece dei Tribunali e fornisce 2 Avorio gratis per sostenere una guerra di elefanti rapida.</Italian>
+    <Spanish>Reemplazo cartagines del Gran Palacio. Requiere Establos en lugar de Tribunales y otorga 2 Marfiles gratis para sostener guerra de elefantes rapida.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_CARTHAGE_AFRICAN_WAR_ELEPHANT</Tag>
+    <English>African War Elephant</English>
+    <French>Elephant de Guerre Africain</French>
+    <German>Afrikanischer Kriegselefant</German>
+    <Italian>Elefante da Guerra Africano</Italian>
+    <Spanish>Elefante de Guerra Africano</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_CARTHAGE_AFRICAN_WAR_ELEPHANT_PEDIA</Tag>
+    <English>Hannibal's elephant arm emphasized rapid shock deployment tied to strong logistics and secure ivory supply.</English>
+    <French>Le corps d'elephants d'Hannibal mettait l'accent sur un choc rapide, appuye par une logistique solide et un approvisionnement en ivoire securise.</French>
+    <German>Hannibals Elefantenkorps setzte auf schnellen Schockeinsatz, gestutzt durch starke Logistik und gesicherte Elfenbeinversorgung.</German>
+    <Italian>Il corpo di elefanti di Annibale puntava su uno shock rapido, sostenuto da logistica solida e approvvigionamento di avorio sicuro.</Italian>
+    <Spanish>El cuerpo de elefantes de Anibal enfatizaba un despliegue de choque rapido, apoyado por logistica solida y suministro seguro de marfil.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_CARTHAGE_AFRICAN_WAR_ELEPHANT_STRATEGY</Tag>
+    <English>Carthage unique War Elephant. Faster than the standard model but less durable in direct slugging. Best used in coordinated breakthroughs with Numidian cavalry.</English>
+    <French>Elephant de guerre unique de Carthage. Plus rapide que le modele standard mais moins robuste en affrontement direct. A utiliser dans des percées coordonnees avec la cavalerie numide.</French>
+    <German>Karthagos einzigartiger Kriegselefant. Schneller als das Standardmodell, aber weniger robust im direkten Schlagabtausch. Am besten fur koordinierte Durchbruche mit numidischer Kavallerie.</German>
+    <Italian>Elefante da guerra unico di Cartagine. Piu veloce del modello standard ma meno robusto nello scontro diretto. Da usare per sfondamenti coordinati con la cavalleria numida.</Italian>
+    <Spanish>Elefante de guerra unico de Cartago. Mas rapido que el modelo estandar pero menos resistente en combate directo. Mejor para rupturas coordinadas con caballeria numida.</Spanish>
+  </TEXT>
+</Civ4GameText>

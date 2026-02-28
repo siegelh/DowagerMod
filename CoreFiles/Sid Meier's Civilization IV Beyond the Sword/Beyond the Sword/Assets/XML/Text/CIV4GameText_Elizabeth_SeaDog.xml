@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ENGLISH_SEA_DOG</Tag>
+    <English>Sea Dog</English>
+    <French>Sea Dog</French>
+    <German>Sea Dog</German>
+    <Italian>Sea Dog</Italian>
+    <Spanish>Sea Dog</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ENGLISH_SEA_DOG_PEDIA</Tag>
+    <English>English crown-licensed raiding and patrol ship used for interception, shore pressure, and troop movement in the Elizabethan era.</English>
+    <French>Navire anglais de raid et de patrouille sous licence royale utilise pour l'interception, la pression cotiere et le transport de troupes a l'epoque elisabethaine.</French>
+    <German>Englisches, von der Krone lizenziertes Raub- und Patrouillenschiff fur Abfangen, Kustendruck und Truppentransport in der elisabethanischen Zeit.</German>
+    <Italian>Nave inglese da incursione e pattuglia autorizzata dalla corona, usata per intercettazione, pressione costiera e trasporto truppe in epoca elisabettiana.</Italian>
+    <Spanish>Buque ingles de incursiones y patrulla con licencia de la corona, usado para intercepcion, presion costera y transporte de tropas en la era isabelina.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ENGLISH_SEA_DOG_STRATEGY</Tag>
+    <English>Elizabethan unique naval unit replacing Galley, Trireme, and Privateer for this civ variant. Visible nationality, strong combat, Trireme-level bombardment, and cargo capacity.</English>
+    <French>Unite navale unique elisabethaine remplacant Galere, Trireme et Corsaire pour cette variante de civilisation. Nationalite visible, bon combat, bombardement de niveau Trireme et capacite de transport.</French>
+    <German>Einzigartige elisabethanische Marineeinheit, die fur diese Zivilisationsvariante Galeere, Trireme und Freibeuter ersetzt. Sichtbare Nationalitat, starke Kampfkraft, Bombardierung auf Triremen-Niveau und Transportkapazitat.</German>
+    <Italian>Unita navale unica elisabettiana che sostituisce Galera, Trireme e Corsaro per questa variante di civilta. Nazionalita visibile, buon combattimento, bombardamento livello Trireme e capacita di trasporto.</Italian>
+    <Spanish>Unidad naval unica isabelina que reemplaza Galera, Trirreme y Corsario para esta variante de civilizacion. Nacionalidad visible, buen combate, bombardeo de nivel Trirreme y capacidad de transporte.</Spanish>
+  </TEXT>
+</Civ4GameText>

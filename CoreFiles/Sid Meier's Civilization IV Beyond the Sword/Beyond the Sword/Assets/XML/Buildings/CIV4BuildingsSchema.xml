@@ -355,6 +355,13 @@
 	<ElementType name="ImprovementFreeSpecialists" content="eltOnly">
 		<element type="ImprovementFreeSpecialist" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="ImprovementYieldChange" content="eltOnly">
+		<element type="ImprovementType"/>
+		<element type="YieldChanges"/>
+	</ElementType>
+	<ElementType name="ImprovementYieldChanges" content="eltOnly">
+		<element type="ImprovementYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="ImprovementType" content="textOnly"/>
 	<ElementType name="FlavorType" content="textOnly"/>
 	<ElementType name="iFlavor" content="textOnly" dt:type="int"/>
@@ -533,6 +540,7 @@
 		<element type="BuildingClassNeededs"/>
 		<element type="SpecialistYieldChanges"/>
 		<element type="BonusYieldModifiers"/>
+		<element type="ImprovementYieldChanges" minOccurs="0"/>
 		<element type="ImprovementFreeSpecialists"/>
 		<element type="Flavors"/>
 		<element type="HotKey"/>

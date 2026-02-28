@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_BRITISH_FIGHTER_COMMAND</Tag>
+    <English>Fighter Command Squadron</English>
+    <French>Escadrille Fighter Command</French>
+    <German>Fighter-Command-Staffel</German>
+    <Italian>Squadriglia Fighter Command</Italian>
+    <Spanish>Escuadron del Fighter Command</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_BRITISH_FIGHTER_COMMAND_PEDIA</Tag>
+    <English>RAF fighter squadrons integrated with radar warning and command-and-control networks formed the backbone of Britain's air defense and interception doctrine during World War II.</English>
+    <French>Les escadrilles de chasse de la RAF, integrees aux reseaux radar et de commandement, constituaient le coeur de la doctrine britannique de defense aerienne et d'interception pendant la Seconde Guerre mondiale.</French>
+    <German>RAF-Jagdstaffeln, integriert in Radarwarnung und Fuhrungsnetze, bildeten im Zweiten Weltkrieg das Ruckgrat der britischen Luftverteidigungs- und Abfangdoktrin.</German>
+    <Italian>Le squadriglie da caccia della RAF, integrate con reti radar e di comando e controllo, formarono il fulcro della dottrina britannica di difesa aerea e intercettazione nella Seconda guerra mondiale.</Italian>
+    <Spanish>Los escuadrones de caza de la RAF, integrados con redes de radar y mando y control, formaron la base de la doctrina britanica de defensa aerea e intercepcion durante la Segunda Guerra Mundial.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_BRITISH_FIGHTER_COMMAND_STRATEGY</Tag>
+    <English>Churchill unique Fighter replacement. Stronger interception and better survivability than the standard Fighter, with improved air reach and strike pressure.</English>
+    <French>Remplacement unique du Chasseur pour Churchill. Interception plus forte et meilleure survivabilite que le Chasseur standard, avec une portee et une pression aerienne superieures.</French>
+    <German>Churchills einzigartiger Jager-Ersatz. Starkere Abfangfahigkeit und bessere Uberlebensfahigkeit als der Standardjager, mit groesserer Reichweite und Luftschlagkraft.</German>
+    <Italian>Sostituto unico del Caccia per Churchill. Intercettazione piu forte e migliore sopravvivenza del Caccia standard, con maggiore raggio e pressione aerea.</Italian>
+    <Spanish>Reemplazo unico del Caza para Churchill. Intercepcion mas fuerte y mejor supervivencia que el Caza estandar, con mayor alcance y presion aerea.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_BRITISH_WAR_ROOMS</Tag>
+    <English>Cabinet War Rooms</English>
+    <French>War Rooms du Cabinet</French>
+    <German>Kabinetts-Kriegsraume</German>
+    <Italian>War Rooms del Gabinetto</Italian>
+    <Spanish>War Rooms del Gabinete</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_BRITISH_WAR_ROOMS_PEDIA</Tag>
+    <English>The Cabinet War Rooms symbolize Britain's centralized wartime command structure, linking intelligence, civil administration, and military coordination during the existential struggle of 1940-1945.</English>
+    <French>Les War Rooms du Cabinet symbolisent la structure de commandement centralisee de la Grande-Bretagne en temps de guerre, reliant renseignement, administration civile et coordination militaire entre 1940 et 1945.</French>
+    <German>Die Kabinetts-Kriegsraume symbolisieren die zentralisierte britische Kriegsfuhrungsstruktur, die Nachrichtendienste, zivile Verwaltung und militarische Koordination im Zeitraum 1940-1945 verband.</German>
+    <Italian>Le War Rooms del Gabinetto simboleggiano la struttura di comando centralizzata della Gran Bretagna in guerra, collegando intelligence, amministrazione civile e coordinamento militare nel 1940-1945.</Italian>
+    <Spanish>Las War Rooms del Gabinete simbolizan la estructura britanica de mando centralizado en guerra, uniendo inteligencia, administracion civil y coordinacion militar entre 1940 y 1945.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_BRITISH_WAR_ROOMS_STRATEGY</Tag>
+    <English>Churchill unique Bank replacement. Delivers heavy espionage output, stronger counter-intelligence, extra Spy capacity, and reduced war weariness for prolonged total war.</English>
+    <French>Remplacement unique de la Banque pour Churchill. Apporte un fort rendement d'espionnage, un contre-espionnage renforce, une capacite d'Espions accrue et une reduction de l'usure de guerre.</French>
+    <German>Churchills einzigartiger Ersatz fur die Bank. Liefert starke Spionage, bessere Gegenspionage, mehr Spionekapazitat und reduzierte Kriegsmudigkeit fur lange Kriege.</German>
+    <Italian>Sostituto unico della Banca per Churchill. Fornisce forte produzione di spionaggio, controspionaggio potenziato, maggiore capacita di Spie e riduzione dell'usura da guerra.</Italian>
+    <Spanish>Reemplazo unico del Banco para Churchill. Aporta gran espionaje, mejor contraespionaje, mayor capacidad de Espias y reduccion del cansancio de guerra.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_BRITISH_MI6</Tag>
+    <English>MI6 Headquarters</English>
+    <French>Quartier general du MI6</French>
+    <German>MI6-Hauptquartier</German>
+    <Italian>Quartier generale MI6</Italian>
+    <Spanish>Cuartel general del MI6</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_BRITISH_MI6_PEDIA</Tag>
+    <English>MI6 represents Britain's foreign intelligence apparatus and wartime subterfuge networks, turning elite spy operations into sustained strategic leverage.</English>
+    <French>Le MI6 represente l'appareil britannique de renseignement exterieur et les reseaux de subterfuge de guerre, transformant les operations d'espionnage d'elite en avantage strategique durable.</French>
+    <German>MI6 steht fur den britischen Auslandsgeheimdienst und seine Kriegs-Subterfuge-Netzwerke, die Elite-Spionage in anhaltenden strategischen Vorteil umwandeln.</German>
+    <Italian>MI6 rappresenta l'apparato britannico di intelligence estera e le reti di sotterfugio bellico, trasformando le operazioni di spionaggio d'elite in vantaggio strategico duraturo.</Italian>
+    <Spanish>MI6 representa el aparato britanico de inteligencia exterior y las redes de subterfugio en guerra, convirtiendo operaciones de espionaje de elite en ventaja estrategica sostenida.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_BRITISH_MI6_STRATEGY</Tag>
+    <English>Churchill unique Scotland Yard replacement. Great Spy-built national intelligence anchor with a massive espionage multiplier and two free Spy specialists.</English>
+    <French>Remplacement unique de Scotland Yard pour Churchill. Pilier national du renseignement construit par un Grand Espion avec un multiplicateur d'espionnage massif et deux Espions specialists gratuits.</French>
+    <German>Churchills einzigartiger Ersatz fur Scotland Yard. Nationales Geheimdienstzentrum, durch GroBen Spion gebaut, mit starkem Spionagemultiplikator und zwei freien Spion-Spezialisten.</German>
+    <Italian>Sostituto unico di Scotland Yard per Churchill. Fulcro nazionale d'intelligence costruito da una Grande Spia con enorme moltiplicatore di spionaggio e due specialisti Spia gratuiti.</Italian>
+    <Spanish>Reemplazo unico de Scotland Yard para Churchill. Centro nacional de inteligencia construido por un Gran Espia con enorme multiplicador de espionaje y dos especialistas Espia gratis.</Spanish>
+  </TEXT>
+</Civ4GameText>

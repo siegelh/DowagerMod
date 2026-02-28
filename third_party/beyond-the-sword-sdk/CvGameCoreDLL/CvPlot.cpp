@@ -5866,6 +5866,23 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 
 	if (ePlayer != NO_PLAYER)
 	{
+		CvCity* pWorkingCity = getWorkingCity();
+		if (pWorkingCity != NULL && pWorkingCity->getOwnerINLINE() == ePlayer)
+		{
+			for (iI = 0; iI < GC.getNumBuildingInfos(); ++iI)
+			{
+				const BuildingTypes eBuilding = (BuildingTypes)iI;
+				const int iBuildingCount = pWorkingCity->getNumActiveBuilding(eBuilding);
+				if (iBuildingCount > 0)
+				{
+					iYield += iBuildingCount * GC.getBuildingInfo(eBuilding).getImprovementYieldChange(eImprovement, eYield);
+				}
+			}
+		}
+	}
+
+	if (ePlayer != NO_PLAYER)
+	{
 		eBonus = getBonusType(GET_PLAYER(ePlayer).getTeam());
 
 		if (eBonus != NO_BONUS)
@@ -6051,6 +6068,8 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const
 			{
 				iYield += GC.getYieldInfo(eYield).getGoldenAgeYield();
 			}
+
+			iYield += GET_PLAYER(ePlayer).getTraitGoldenAgeYieldChange(eYield);
 		}
 	}
 

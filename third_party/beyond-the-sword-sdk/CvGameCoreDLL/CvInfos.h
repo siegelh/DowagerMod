@@ -1719,6 +1719,7 @@ public:
 	int getPrereqNumOfBuildingClass(int i) const;				// Exposed to Python
 	int getFlavorValue(int i) const;				// Exposed to Python
 	int getImprovementFreeSpecialist(int i) const;				// Exposed to Python
+	int getImprovementYieldChange(int iImprovement, int iYield) const;				// Exposed to Python
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
@@ -1904,6 +1905,7 @@ protected:
 
 	int** m_ppaiSpecialistYieldChange;
 	int** m_ppaiBonusYieldModifier;
+	int** m_ppaiImprovementYieldChange;
 
 };
 
@@ -4161,6 +4163,7 @@ public:
 
 	int getExtraYieldThreshold(int i) const;				// Exposed to Python
 	int getTradeYieldModifier(int i) const;				// Exposed to Python
+	int getGoldenAgeYieldChange(int i) const;				// Exposed to Python
 	int getCommerceChange(int i) const;				// Exposed to Python
 	int getCommerceModifier(int i) const;				// Exposed to Python
 	int getImprovementYieldChanges(int i, int j) const;				// Exposed to Python
@@ -4201,6 +4204,7 @@ protected:
 
 	int* m_paiExtraYieldThreshold;
 	int* m_paiTradeYieldModifier;
+	int* m_paiGoldenAgeYieldChange;
 	int* m_paiCommerceChange;
 	int* m_paiCommerceModifier;
 	std::vector<CvString> m_aszImprovementYieldChangeTypes;

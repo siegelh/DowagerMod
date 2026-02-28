@@ -3480,7 +3480,7 @@
       <iBasePeaceWeight>2</iBasePeaceWeight>
       <iPeaceWeightRand>3</iPeaceWeightRand>
       <iWarmongerRespect>2</iWarmongerRespect>
-      <iEspionageWeight>130</iEspionageWeight>
+      <iEspionageWeight>150</iEspionageWeight>
       <iRefuseToTalkWarThreshold>6</iRefuseToTalkWarThreshold>
       <iNoTechTradeThreshold>15</iNoTechTradeThreshold>
       <iTechTradeKnownPercent>20</iTechTradeKnownPercent>
@@ -14384,21 +14384,21 @@
       <iEspionageWeight>100</iEspionageWeight>
       <iRefuseToTalkWarThreshold>8</iRefuseToTalkWarThreshold>
       <iNoTechTradeThreshold>10</iNoTechTradeThreshold>
-      <iTechTradeKnownPercent>30</iTechTradeKnownPercent>
+      <iTechTradeKnownPercent>20</iTechTradeKnownPercent>
       <iMaxGoldTradePercent>5</iMaxGoldTradePercent>
       <iMaxGoldPerTurnTradePercent>10</iMaxGoldPerTurnTradePercent>
-      <iMaxWarRand>100</iMaxWarRand>
+      <iMaxWarRand>85</iMaxWarRand>
       <iMaxWarNearbyPowerRatio>90</iMaxWarNearbyPowerRatio>
       <iMaxWarDistantPowerRatio>50</iMaxWarDistantPowerRatio>
       <iMaxWarMinAdjacentLandPercent>1</iMaxWarMinAdjacentLandPercent>
-      <iLimitedWarRand>60</iLimitedWarRand>
+      <iLimitedWarRand>50</iLimitedWarRand>
       <iLimitedWarPowerRatio>120</iLimitedWarPowerRatio>
-      <iDogpileWarRand>50</iDogpileWarRand>
+      <iDogpileWarRand>35</iDogpileWarRand>
       <iMakePeaceRand>40</iMakePeaceRand>
       <iDeclareWarTradeRand>40</iDeclareWarTradeRand>
       <iDemandRebukedSneakProb>40</iDemandRebukedSneakProb>
       <iDemandRebukedWarProb>10</iDemandRebukedWarProb>
-      <iRazeCityProb>25</iRazeCityProb>
+      <iRazeCityProb>10</iRazeCityProb>
       <iBuildUnitProb>25</iBuildUnitProb>
       <iBaseAttackOddsChange>0</iBaseAttackOddsChange>
       <iAttackOddsChangeRand>8</iAttackOddsChangeRand>
@@ -14441,7 +14441,7 @@
       <StopTradingThemRefuseAttitudeThreshold>ATTITUDE_ANNOYED</StopTradingThemRefuseAttitudeThreshold>
       <AdoptCivicRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</AdoptCivicRefuseAttitudeThreshold>
       <ConvertReligionRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</ConvertReligionRefuseAttitudeThreshold>
-      <OpenBordersRefuseAttitudeThreshold>ATTITUDE_ANNOYED</OpenBordersRefuseAttitudeThreshold>
+      <OpenBordersRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</OpenBordersRefuseAttitudeThreshold>
       <DefensivePactRefuseAttitudeThreshold>ATTITUDE_PLEASED</DefensivePactRefuseAttitudeThreshold>
       <PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
       <VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
@@ -16570,28 +16570,28 @@
       <iWarmongerRespect>2</iWarmongerRespect>
       <iEspionageWeight>130</iEspionageWeight>
       <iRefuseToTalkWarThreshold>8</iRefuseToTalkWarThreshold>
-      <iNoTechTradeThreshold>5</iNoTechTradeThreshold>
-      <iTechTradeKnownPercent>50</iTechTradeKnownPercent>
+      <iNoTechTradeThreshold>8</iNoTechTradeThreshold>
+      <iTechTradeKnownPercent>70</iTechTradeKnownPercent>
       <iMaxGoldTradePercent>5</iMaxGoldTradePercent>
       <iMaxGoldPerTurnTradePercent>10</iMaxGoldPerTurnTradePercent>
-      <iMaxWarRand>200</iMaxWarRand>
+      <iMaxWarRand>140</iMaxWarRand>
       <iMaxWarNearbyPowerRatio>110</iMaxWarNearbyPowerRatio>
       <iMaxWarDistantPowerRatio>60</iMaxWarDistantPowerRatio>
       <iMaxWarMinAdjacentLandPercent>1</iMaxWarMinAdjacentLandPercent>
-      <iLimitedWarRand>60</iLimitedWarRand>
+      <iLimitedWarRand>40</iLimitedWarRand>
       <iLimitedWarPowerRatio>120</iLimitedWarPowerRatio>
-      <iDogpileWarRand>50</iDogpileWarRand>
+      <iDogpileWarRand>35</iDogpileWarRand>
       <iMakePeaceRand>40</iMakePeaceRand>
       <iDeclareWarTradeRand>40</iDeclareWarTradeRand>
       <iDemandRebukedSneakProb>40</iDemandRebukedSneakProb>
-      <iDemandRebukedWarProb>5</iDemandRebukedWarProb>
+      <iDemandRebukedWarProb>12</iDemandRebukedWarProb>
       <iRazeCityProb>0</iRazeCityProb>
-      <iBuildUnitProb>25</iBuildUnitProb>
+      <iBuildUnitProb>32</iBuildUnitProb>
       <iBaseAttackOddsChange>2</iBaseAttackOddsChange>
       <iAttackOddsChangeRand>8</iAttackOddsChangeRand>
       <iWorseRankDifferenceAttitudeChange>0</iWorseRankDifferenceAttitudeChange>
       <iBetterRankDifferenceAttitudeChange>0</iBetterRankDifferenceAttitudeChange>
-      <iCloseBordersAttitudeChange>-2</iCloseBordersAttitudeChange>
+      <iCloseBordersAttitudeChange>-3</iCloseBordersAttitudeChange>
       <iLostWarAttitudeChange>-1</iLostWarAttitudeChange>
       <iAtWarAttitudeDivisor>-5</iAtWarAttitudeDivisor>
       <iAtWarAttitudeChangeLimit>5</iAtWarAttitudeChangeLimit>
@@ -16638,17 +16638,25 @@
       <FavoriteReligion>NONE</FavoriteReligion>
       <Traits>
         <Trait>
-          <TraitType>TRAIT_GREAT_LEAP_FORWARD</TraitType>
+          <TraitType>TRAIT_MAO_MASS_LINE</TraitType>
           <bTrait>1</bTrait>
         </Trait>
       </Traits>
       <Flavors>
         <Flavor>
           <FlavorType>FLAVOR_PRODUCTION</FlavorType>
-          <iFlavor>2</iFlavor>
+          <iFlavor>6</iFlavor>
         </Flavor>
         <Flavor>
           <FlavorType>FLAVOR_GROWTH</FlavorType>
+          <iFlavor>4</iFlavor>
+        </Flavor>
+        <Flavor>
+          <FlavorType>FLAVOR_MILITARY</FlavorType>
+          <iFlavor>6</iFlavor>
+        </Flavor>
+        <Flavor>
+          <FlavorType>FLAVOR_ESPIONAGE</FlavorType>
           <iFlavor>5</iFlavor>
         </Flavor>
       </Flavors>

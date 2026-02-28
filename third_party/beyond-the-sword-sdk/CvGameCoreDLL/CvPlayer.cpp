@@ -11914,6 +11914,23 @@ void CvPlayer::changeTraitRouteYieldChange(RouteTypes eIndex1, YieldTypes eIndex
 	}
 }
 
+int CvPlayer::getTraitGoldenAgeYieldChange(YieldTypes eIndex) const
+{
+	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
+	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex expected to be < NUM_YIELD_TYPES");
+
+	int iChange = 0;
+	for (int iI = 0; iI < GC.getNumTraitInfos(); iI++)
+	{
+		if (hasTrait((TraitTypes)iI))
+		{
+			iChange += GC.getTraitInfo((TraitTypes)iI).getGoldenAgeYieldChange(eIndex);
+		}
+	}
+
+	return iChange;
+}
+
 
 // XXX should pUnit be a CvSelectionGroup???
 void CvPlayer::updateGroupCycle(CvUnit* pUnit)

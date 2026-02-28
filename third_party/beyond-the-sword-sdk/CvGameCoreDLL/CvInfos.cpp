@@ -6675,7 +6675,8 @@ m_pbCommerceFlexible(NULL),
 m_pbCommerceChangeOriginalOwner(NULL),
 m_pbBuildingClassNeededInCity(NULL),
 m_ppaiSpecialistYieldChange(NULL),
-m_ppaiBonusYieldModifier(NULL)
+m_ppaiBonusYieldModifier(NULL),
+m_ppaiImprovementYieldChange(NULL)
 {
 }
 
@@ -6741,6 +6742,15 @@ CvBuildingInfo::~CvBuildingInfo()
 			SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier[i]);
 		}
 		SAFE_DELETE_ARRAY(m_ppaiBonusYieldModifier);
+	}
+
+	if (m_ppaiImprovementYieldChange != NULL)
+	{
+		for (int i = 0; i < GC.getNumImprovementInfos(); i++)
+		{
+			SAFE_DELETE_ARRAY(m_ppaiImprovementYieldChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiImprovementYieldChange);
 	}
 }
 
@@ -7637,6 +7647,15 @@ int CvBuildingInfo::getImprovementFreeSpecialist(int i) const
 	return m_piImprovementFreeSpecialist ? m_piImprovementFreeSpecialist[i] : -1;
 }
 
+int CvBuildingInfo::getImprovementYieldChange(int iImprovement, int iYield) const
+{
+	FAssertMsg(iImprovement < GC.getNumImprovementInfos(), "Index out of bounds");
+	FAssertMsg(iImprovement > -1, "Index out of bounds");
+	FAssertMsg(iYield < NUM_YIELD_TYPES, "Index out of bounds");
+	FAssertMsg(iYield > -1, "Index out of bounds");
+	return m_ppaiImprovementYieldChange ? m_ppaiImprovementYieldChange[iImprovement][iYield] : 0;
+}
+
 bool CvBuildingInfo::isCommerceFlexible(int i) const
 {
 	FAssertMsg(i < NUM_COMMERCE_TYPES, "Index out of bounds");
@@ -8040,6 +8059,22 @@ void CvBuildingInfo::read(FDataStreamBase* stream)
 		m_ppaiBonusYieldModifier[i]  = new int[NUM_YIELD_TYPES];
 		stream->Read(NUM_YIELD_TYPES, m_ppaiBonusYieldModifier[i]);
 	}
+
+	if (m_ppaiImprovementYieldChange != NULL)
+	{
+		for(i=0;i<GC.getNumImprovementInfos();i++)
+		{
+			SAFE_DELETE_ARRAY(m_ppaiImprovementYieldChange[i]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiImprovementYieldChange);
+	}
+
+	m_ppaiImprovementYieldChange = new int*[GC.getNumImprovementInfos()];
+	for(i=0;i<GC.getNumImprovementInfos();i++)
+	{
+		m_ppaiImprovementYieldChange[i]  = new int[NUM_YIELD_TYPES];
+		stream->Read(NUM_YIELD_TYPES, m_ppaiImprovementYieldChange[i]);
+	}
 }
 
 //
@@ -8216,6 +8251,11 @@ void CvBuildingInfo::write(FDataStreamBase* stream)
 	for(i=0;i<GC.getNumBonusInfos();i++)
 	{
 		stream->Write(NUM_YIELD_TYPES, m_ppaiBonusYieldModifier[i]);
+	}
+
+	for(i=0;i<GC.getNumImprovementInfos();i++)
+	{
+		stream->Write(NUM_YIELD_TYPES, m_ppaiImprovementYieldChange[i]);
 	}
 }
 
@@ -8774,6 +8814,43 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 		}
 
 		// set the current xml node to it's parent node
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	pXML->Init2DIntList(&m_ppaiImprovementYieldChange, GC.getNumImprovementInfos(), NUM_YIELD_TYPES);
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"ImprovementYieldChanges"))
+	{
+		iNumChildren = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+
+		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"ImprovementYieldChange"))
+		{
+			for(j=0;j<iNumChildren;j++)
+			{
+				pXML->GetChildXmlValByName(szTextVal, "ImprovementType");
+				k = pXML->FindInInfoClass(szTextVal);
+				if (k > -1)
+				{
+					SAFE_DELETE_ARRAY(m_ppaiImprovementYieldChange[k]);
+					if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"YieldChanges"))
+					{
+						pXML->SetYields(&m_ppaiImprovementYieldChange[k]);
+						gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+					}
+					else
+					{
+						pXML->InitList(&m_ppaiImprovementYieldChange[k], NUM_YIELD_TYPES);
+					}
+				}
+
+				if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+				{
+					break;
+				}
+			}
+
+			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+		}
+
 		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 	}
 
@@ -16137,6 +16214,7 @@ m_iMaxTeamBuildingProductionModifier(0),
 m_iMaxPlayerBuildingProductionModifier(0),
 m_paiExtraYieldThreshold(NULL),
 m_paiTradeYieldModifier(NULL),
+m_paiGoldenAgeYieldChange(NULL),
 m_paiCommerceChange(NULL),
 m_paiCommerceModifier(NULL),
 m_pabFreePromotionUnitCombat(NULL),
@@ -16155,6 +16233,7 @@ CvTraitInfo::~CvTraitInfo()
 {
 	SAFE_DELETE_ARRAY(m_paiExtraYieldThreshold);
 	SAFE_DELETE_ARRAY(m_paiTradeYieldModifier);
+	SAFE_DELETE_ARRAY(m_paiGoldenAgeYieldChange);
 	SAFE_DELETE_ARRAY(m_paiCommerceChange);
 	SAFE_DELETE_ARRAY(m_paiCommerceModifier);
 	for (size_t i = 0; i < m_aaiImprovementYieldChanges.size(); ++i)
@@ -16304,6 +16383,11 @@ int CvTraitInfo::getExtraYieldThreshold(int i) const
 int CvTraitInfo::getTradeYieldModifier(int i) const
 {
 	return m_paiTradeYieldModifier ? m_paiTradeYieldModifier[i] : -1; 
+}
+
+int CvTraitInfo::getGoldenAgeYieldChange(int i) const
+{
+	return m_paiGoldenAgeYieldChange ? m_paiGoldenAgeYieldChange[i] : 0;
 }
 
 int CvTraitInfo::getCommerceChange(int i) const			
@@ -16514,6 +16598,16 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 	else
 	{
 		pXML->InitList(&m_paiTradeYieldModifier, NUM_YIELD_TYPES);
+	}
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "GoldenAgeYieldChanges"))
+	{
+		pXML->SetYields(&m_paiGoldenAgeYieldChange);
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+	else
+	{
+		pXML->InitList(&m_paiGoldenAgeYieldChange, NUM_YIELD_TYPES);
 	}
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "CommerceChanges"))

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_YUAN_ORTOO_HUB</Tag>
+    <English>Ortoo Hub</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_YUAN_ORTOO_HUB_PEDIA</Tag>
+    <English>A Yuan relay-administration stable complex coordinating mounted couriers and military logistics. Replaces the Stable.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_YUAN_ORTOO_HUB_STRATEGY</Tag>
+    <English>+1 Trade Route, +1 Gold, and +1 XP for mounted units built in this city.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_YUAN_QIANHU_CAVALRY</Tag>
+    <English>Qianhu Cavalry</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_YUAN_QIANHU_CAVALRY_PEDIA</Tag>
+    <English>A Yuan cavalry formation adapted for fast campaigns and anti-siege operations.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_YUAN_QIANHU_CAVALRY_STRATEGY</Tag>
+    <English>Ignores terrain movement costs, has 25% withdrawal, +10% City Attack, and +25% vs Siege units.</English>
+  </TEXT>
+</Civ4GameText>

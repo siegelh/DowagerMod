@@ -803,6 +803,7 @@ public:
 	void changeTraitBonusYieldChange(BonusTypes eIndex1, YieldTypes eIndex2, int iChange);
 	int getTraitRouteYieldChange(RouteTypes eIndex1, YieldTypes eIndex2) const;
 	void changeTraitRouteYieldChange(RouteTypes eIndex1, YieldTypes eIndex2, int iChange);
+	int getTraitGoldenAgeYieldChange(YieldTypes eIndex) const;
 
 	void updateGroupCycle(CvUnit* pUnit);
 	void removeGroupCycle(int iID);

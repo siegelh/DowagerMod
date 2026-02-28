@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_MAO_MASS_LINE</Tag>
+    <English>Mass Line</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_MAO_MASS_LINE_SHORT</Tag>
+    <English>Mass Line</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PRC_DANWEI_COMMITTEE</Tag>
+    <English>Danwei Committee</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PRC_DANWEI_COMMITTEE_PEDIA</Tag>
+    <English>The Danwei Committee replaces the Courthouse for the People&apos;s Republic of China. It represents the work-unit governance structure that tied administration, labor coordination, and neighborhood-level political supervision together inside factories and urban districts.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PRC_DANWEI_COMMITTEE_STRATEGY</Tag>
+    <English>Build Danwei Committees in your high-maintenance cities to stabilize costs while adding production and espionage pressure. They are especially strong in industrial cores where a Spy specialist slot and extra espionage help counter-tech rivals.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PRC_PEOPLES_VOLUNTEER</Tag>
+    <English>People&apos;s Volunteer</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PRC_PEOPLES_VOLUNTEER_PEDIA</Tag>
+    <English>The People&apos;s Volunteer replaces Infantry for the People&apos;s Republic of China. It models politically hardened field forces optimized for sustained campaigning in difficult terrain and costly attritional warfare.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PRC_PEOPLES_VOLUNTEER_STRATEGY</Tag>
+    <English>Use People&apos;s Volunteers as your front-line industrial infantry. Their hill defense, city attack, and modest withdrawal chance make them reliable in grinding offensives and rough-border wars.</English>
+  </TEXT>
+</Civ4GameText>

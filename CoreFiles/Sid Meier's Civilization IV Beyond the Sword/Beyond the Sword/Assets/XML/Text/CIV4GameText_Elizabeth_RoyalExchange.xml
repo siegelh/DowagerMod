@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ENGLISH_ROYAL_EXCHANGE</Tag>
+    <English>Royal Exchange</English>
+    <French>Royal Exchange</French>
+    <German>Royal Exchange</German>
+    <Italian>Royal Exchange</Italian>
+    <Spanish>Royal Exchange</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ENGLISH_ROYAL_EXCHANGE_PEDIA</Tag>
+    <English>Modeled on Elizabethan London's merchant bourse, the Royal Exchange of London concentrates credit, insurance, and long-distance trade information into a single urban institution. It replaces the Bank for Elizabethan England and represents the crown-backed rise of chartered commerce.</English>
+    <French>Une institution marchande et financiere elisabethaine liee a l'expansion du commerce d'outre-mer de Londres. Remplace la Banque pour l'Angleterre elisabethaine.</French>
+    <German>Eine elisabethanische Handels- und Finanzinstitution im Zentrum von Londons wachsendem Uberseehandel. Ersetzt die Bank fur elisabethanisches England.</German>
+    <Italian>Un'istituzione mercantile e finanziaria elisabettiana legata all'espansione del commercio oltremare di Londra. Sostituisce la Banca per l'Inghilterra elisabettiana.</Italian>
+    <Spanish>Una institucion mercantil y financiera isabelina vinculada a la expansion del comercio ultramarino de Londres. Sustituye al Banco para la Inglaterra isabelina.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ENGLISH_ROYAL_EXCHANGE_STRATEGY</Tag>
+    <English>Elizabethan unique Bank replacement. Available earlier at Guilds, it provides +5 Gold and a 65% Gold modifier to power a strong midgame commercial spike.</English>
+    <French>Remplacement unique de la Banque pour Elisabeth. Disponible avec Guildes, fournit +5 Or et un modificateur de 65 % d'Or.</French>
+    <German>Einzigartiger Bank-Ersatz fur Elisabeth. Verfugbar mit Zunften, gewahrt +5 Gold und einen Goldmodifikator von 65 %.</German>
+    <Italian>Sostituto unico della Banca per Elisabetta. Disponibile con Corporazioni di mestiere, fornisce +5 Oro e un modificatore Oro del 65%.</Italian>
+    <Spanish>Reemplazo unico del Banco para Isabel. Disponible con Gremios, otorga +5 Oro y un modificador de Oro del 65%.</Spanish>
+  </TEXT>
+</Civ4GameText>

@@ -1,0 +1,3 @@
+Source image: https://flagcdn.com/w1280/cn.png
+Downloaded: 2026-02-27
+Derived files: prc_button.dds, flagdecal_prc.dds
