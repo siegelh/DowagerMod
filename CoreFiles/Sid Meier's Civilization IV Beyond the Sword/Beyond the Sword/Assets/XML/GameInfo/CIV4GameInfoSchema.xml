@@ -175,6 +175,9 @@
 	<ElementType name="iSpreadFactor" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpreadCost" content="textOnly" dt:type="int"/>
 	<ElementType name="iMaintenance" content="textOnly" dt:type="int"/>
+	<ElementType name="iFoundingMinActiveBuildingClasses" content="textOnly" dt:type="int"/>
+	<ElementType name="bCountDistinctPrereqBonusesOnly" content="textOnly"/>
+	<ElementType name="iMaxPrereqBonusCountPerType" content="textOnly" dt:type="int"/>
 	<ElementType name="iGlobalReligionCommerce" content="textOnly" dt:type="int"/>
 	<ElementType name="GlobalReligionCommerces" content="eltOnly">
 		<element type="iGlobalReligionCommerce" maxOccurs="*"/>
@@ -237,6 +240,10 @@
 		<element type="iSpreadFactor"/>
 		<element type="iSpreadCost"/>
 		<element type="iMaintenance"/>
+		<element type="iFoundingMinActiveBuildingClasses" minOccurs="0"/>
+		<element type="bCountDistinctPrereqBonusesOnly" minOccurs="0"/>
+		<element type="iMaxPrereqBonusCountPerType" minOccurs="0"/>
+		<element type="FoundingBuildingClasses" minOccurs="0"/>
 		<element type="PrereqBonuses"/>
 		<element type="HeadquarterCommerces"/>
 		<element type="BonusProduced"/>
@@ -525,6 +532,10 @@
 		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="BonusType" content="textOnly"/>
+	<ElementType name="BuildingClassType" content="textOnly"/>
+	<ElementType name="FoundingBuildingClasses" content="eltOnly">
+		<element type="BuildingClassType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="iProductonModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="BonusProductionModifier" content="eltOnly">
 		<element type="BonusType"/>

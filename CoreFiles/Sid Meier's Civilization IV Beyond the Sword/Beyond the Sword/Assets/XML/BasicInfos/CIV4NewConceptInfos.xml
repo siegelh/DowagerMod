@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
 <!-- Sid Meier's Civilization 4 -->
 <!-- Copyright Firaxis Games 2005 -->
@@ -110,6 +110,11 @@
 			<Type>CONCEPT_LIBERATION</Type>
 			<Description>TXT_KEY_CONCEPT_LIBERATION</Description>
 			<Civilopedia>TXT_KEY_CONCEPT_LIBERATION_PEDIA</Civilopedia>
+		</NewConceptInfo>
+		<NewConceptInfo>
+			<Type>CONCEPT_INDUSTRY_SUPPLY_CHAINS</Type>
+			<Description>TXT_KEY_CONCEPT_INDUSTRY_SUPPLY_CHAINS</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_INDUSTRY_SUPPLY_CHAINS_PEDIA</Civilopedia>
 		</NewConceptInfo>
 	</NewConceptInfos>
 </Civ4NewConceptInfos>

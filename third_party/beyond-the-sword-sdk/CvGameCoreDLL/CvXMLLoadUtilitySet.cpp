@@ -622,6 +622,10 @@ bool CvXMLLoadUtility::LoadPreMenuGlobals()
 	{
 		GC.getBuildingClassInfo((BuildingClassTypes)i).readPass3();
 	}
+	for (int i=0; i < GC.getNumCorporationInfos(); ++i)
+	{
+		GC.getCorporationInfo((CorporationTypes)i).readPass3();
+	}
 	LoadGlobalClassInfo(GC.getSpecialUnitInfo(), "CIV4SpecialUnitInfos", "Units", "Civ4SpecialUnitInfos/SpecialUnitInfos/SpecialUnitInfo", false);
 	LoadGlobalClassInfo(GC.getProjectInfo(), "CIV4ProjectInfo", "GameInfo", "Civ4ProjectInfo/ProjectInfos/ProjectInfo", true);
 	LoadGlobalClassInfo(GC.getCivicInfo(), "CIV4CivicInfos", "GameInfo", "Civ4CivicInfos/CivicInfos/CivicInfo", false, &CvDLLUtilityIFaceBase::createCivicInfoCacheObject);

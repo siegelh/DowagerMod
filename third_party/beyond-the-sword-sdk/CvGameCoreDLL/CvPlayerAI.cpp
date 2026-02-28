@@ -6575,6 +6575,54 @@ int CvPlayerAI::AI_baseBonusVal(BonusTypes eBonus) const
 						}
 					}
 
+					bool bIndustryBonusRequirement = false;
+					for (iJ = 0; iJ < kLoopBuilding.getNumLocalBonusPrereqs(); ++iJ)
+					{
+						const BuildingLocalBonusPrereq& kPrereq = kLoopBuilding.getLocalBonusPrereq(iJ);
+						for (int iBonusIndex = 0; iBonusIndex < (int)kPrereq.m_aiBonusTypes.size(); ++iBonusIndex)
+						{
+							if (kPrereq.m_aiBonusTypes[iBonusIndex] == eBonus)
+							{
+								iTempValue += 15;
+								bIndustryBonusRequirement = true;
+								break;
+							}
+						}
+					}
+
+					for (iJ = 0; iJ < kLoopBuilding.getNumConnectedBonusPrereqs(); ++iJ)
+					{
+						const BuildingConnectedBonusPrereq& kPrereq = kLoopBuilding.getConnectedBonusPrereq(iJ);
+						for (int iBonusIndex = 0; iBonusIndex < (int)kPrereq.m_aiBonusTypes.size(); ++iBonusIndex)
+						{
+							if (kPrereq.m_aiBonusTypes[iBonusIndex] == eBonus)
+							{
+								iTempValue += 25;
+								bIndustryBonusRequirement = true;
+								break;
+							}
+						}
+					}
+
+					if (bIndustryBonusRequirement)
+					{
+						iTempValue += std::max(0, kLoopBuilding.getCommerceChange(COMMERCE_GOLD) * 10);
+						iTempValue += std::max(0, kLoopBuilding.getCommerceChange(COMMERCE_CULTURE) * 8);
+						iTempValue += std::max(0, kLoopBuilding.getCommerceChange(COMMERCE_ESPIONAGE) * 6);
+						iTempValue += std::max(0, kLoopBuilding.getCommerceModifier(COMMERCE_GOLD) / 2);
+						iTempValue += std::max(0, kLoopBuilding.getCommerceModifier(COMMERCE_CULTURE) / 2);
+						iTempValue += std::max(0, kLoopBuilding.getCommerceModifier(COMMERCE_ESPIONAGE) / 2);
+						iTempValue += std::max(0, kLoopBuilding.getYieldChange(YIELD_FOOD) * 12);
+						iTempValue += std::max(0, kLoopBuilding.getYieldChange(YIELD_PRODUCTION) * 14);
+						iTempValue += std::max(0, kLoopBuilding.getHealth() * 15);
+						iTempValue += std::max(0, kLoopBuilding.getHappiness() * 15);
+						iTempValue += std::max(0, kLoopBuilding.getGreatPeopleRateChange() * 3);
+						if (kLoopBuilding.getPlayerMaxInstances() > 0)
+						{
+							iTempValue += 10;
+						}
+					}
+
 					iTempValue += kLoopBuilding.getBonusProductionModifier(eBonus) / 10;
 
 					if (kLoopBuilding.getPowerBonus() == eBonus)
@@ -6763,14 +6811,20 @@ int CvPlayerAI::AI_corporationBonusVal(BonusTypes eBonus) const
 			{
 				if (eBonus == kCorp.getPrereqBonus(i))
 				{
-					iValue += (50 * kCorp.getYieldProduced(YIELD_FOOD) * iCorpCount) / iCityCount;
-					iValue += (50 * kCorp.getYieldProduced(YIELD_PRODUCTION) * iCorpCount) / iCityCount;
-					iValue += (30 * kCorp.getYieldProduced(YIELD_COMMERCE) * iCorpCount) / iCityCount;
+					int iBonusCount = 1;
+					if (!kCorp.isCountDistinctPrereqBonusesOnly() && kCorp.getMaxPrereqBonusCountPerType() > 1)
+					{
+						iBonusCount = kCorp.getMaxPrereqBonusCountPerType();
+					}
 
-					iValue += (30 * kCorp.getCommerceProduced(COMMERCE_GOLD) * iCorpCount) / iCityCount;
-					iValue += (30 * kCorp.getCommerceProduced(COMMERCE_RESEARCH) * iCorpCount) / iCityCount;
-					iValue += (12 * kCorp.getCommerceProduced(COMMERCE_CULTURE) * iCorpCount) / iCityCount;
-					iValue += (20 * kCorp.getCommerceProduced(COMMERCE_ESPIONAGE) * iCorpCount) / iCityCount;
+					iValue += (50 * kCorp.getYieldProduced(YIELD_FOOD) * iCorpCount * iBonusCount) / iCityCount;
+					iValue += (50 * kCorp.getYieldProduced(YIELD_PRODUCTION) * iCorpCount * iBonusCount) / iCityCount;
+					iValue += (30 * kCorp.getYieldProduced(YIELD_COMMERCE) * iCorpCount * iBonusCount) / iCityCount;
+
+					iValue += (30 * kCorp.getCommerceProduced(COMMERCE_GOLD) * iCorpCount * iBonusCount) / iCityCount;
+					iValue += (30 * kCorp.getCommerceProduced(COMMERCE_RESEARCH) * iCorpCount * iBonusCount) / iCityCount;
+					iValue += (12 * kCorp.getCommerceProduced(COMMERCE_CULTURE) * iCorpCount * iBonusCount) / iCityCount;
+					iValue += (20 * kCorp.getCommerceProduced(COMMERCE_ESPIONAGE) * iCorpCount * iBonusCount) / iCityCount;
 					
 					//Disabled since you can't found/spread a corp unless there is already a bonus,
 					//and that bonus will provide the entirity of the bonusProduced benefit.
@@ -8857,6 +8911,15 @@ int CvPlayerAI::AI_corporationValue(CorporationTypes eCorporation, CvCity* pCity
 			{
 				if (eBonus == kCorp.getPrereqBonus(i))
 				{
+					if (kCorp.isCountDistinctPrereqBonusesOnly())
+					{
+						iBonusCount = 1;
+					}
+					else if (kCorp.getMaxPrereqBonusCountPerType() > 0)
+					{
+						iBonusCount = std::min(iBonusCount, kCorp.getMaxPrereqBonusCountPerType());
+					}
+
 					iBonusValue += (100 * kCorp.getYieldProduced(YIELD_FOOD) * iBonusCount);
 					iBonusValue += (100 * kCorp.getYieldProduced(YIELD_PRODUCTION) * iBonusCount);
 					iBonusValue += (60 * kCorp.getYieldProduced(YIELD_COMMERCE) * iBonusCount);

@@ -363,6 +363,43 @@
 		<element type="ImprovementYieldChange" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
 	<ElementType name="ImprovementType" content="textOnly"/>
+	<ElementType name="IndustryCategory" content="textOnly"/>
+	<ElementType name="bRequiresActiveLocalPrereqs" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iPlayerMaxInstances" content="textOnly" dt:type="int"/>
+	<ElementType name="ImprovementTypes" content="eltOnly">
+		<element type="ImprovementType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="iMinCount" content="textOnly" dt:type="int"/>
+	<ElementType name="LocalImprovementCountPrereq" content="eltOnly">
+		<element type="ImprovementTypes"/>
+		<element type="iMinCount"/>
+	</ElementType>
+	<ElementType name="LocalImprovementCountPrereqs" content="eltOnly">
+		<element type="LocalImprovementCountPrereq" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="BonusTypes" content="eltOnly">
+		<element type="BonusType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="bImprovedOnly" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bConnectedOnly" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bCityRadiusOnly" content="textOnly" dt:type="boolean"/>
+	<ElementType name="LocalBonusPrereq" content="eltOnly">
+		<element type="BonusTypes"/>
+		<element type="iMinCount"/>
+		<element type="bImprovedOnly"/>
+		<element type="bConnectedOnly"/>
+		<element type="bCityRadiusOnly"/>
+	</ElementType>
+	<ElementType name="LocalBonusPrereqs" content="eltOnly">
+		<element type="LocalBonusPrereq" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="ConnectedBonusPrereq" content="eltOnly">
+		<element type="BonusTypes"/>
+		<element type="iMinCount"/>
+	</ElementType>
+	<ElementType name="ConnectedBonusPrereqs" content="eltOnly">
+		<element type="ConnectedBonusPrereq" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="FlavorType" content="textOnly"/>
 	<ElementType name="iFlavor" content="textOnly" dt:type="int"/>
 	<ElementType name="Flavor" content="eltOnly">
@@ -447,6 +484,9 @@
 		<element type="bNukeImmune"/>
 		<element type="bPrereqReligion"/>
 		<element type="bCenterInCity"/>
+		<element type="IndustryCategory" minOccurs="0"/>
+		<element type="bRequiresActiveLocalPrereqs" minOccurs="0"/>
+		<element type="iPlayerMaxInstances" minOccurs="0"/>
 		<element type="iAIWeight"/>
 		<element type="iCost"/>
 		<element type="iHurryCostModifier"/>
@@ -542,6 +582,9 @@
 		<element type="BonusYieldModifiers"/>
 		<element type="ImprovementYieldChanges" minOccurs="0"/>
 		<element type="ImprovementFreeSpecialists"/>
+		<element type="LocalImprovementCountPrereqs" minOccurs="0"/>
+		<element type="LocalBonusPrereqs" minOccurs="0"/>
+		<element type="ConnectedBonusPrereqs" minOccurs="0"/>
 		<element type="Flavors"/>
 		<element type="HotKey"/>
 		<element type="bAltDown"/>

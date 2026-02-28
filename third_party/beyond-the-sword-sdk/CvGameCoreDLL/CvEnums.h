@@ -1080,6 +1080,18 @@ enum BuildingTypes						// Exposed to Python
 	NO_BUILDING = -1,
 };
 
+enum BuildingIndustryCategoryTypes
+{
+	NO_BUILDING_INDUSTRY_CATEGORY = -1,
+	BUILDING_INDUSTRY_CORE,
+	BUILDING_INDUSTRY_LUXURY,
+	BUILDING_INDUSTRY_COMPOSITE,
+
+#ifdef _USRDLL
+	NUM_BUILDING_INDUSTRY_CATEGORY_TYPES
+#endif
+};
+
 enum SpecialBuildingTypes			// Exposed to Python
 {
 	NO_SPECIALBUILDING = -1,

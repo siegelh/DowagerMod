@@ -1,0 +1,1111 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+
+<Civ4GameText>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_AGRARIAN_BOARD</Tag>
+
+		<English>Agrarian Board</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_AGRARIAN_BOARD_PEDIA</Tag>
+
+		<English>The Agrarian Board turns a city's terrain pattern into a dedicated local industry. Requires Granary in this city. Requires at least 4 total Farms in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Farms +1 Commerce. Building effects: +1 Food; +1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_AGRARIAN_BOARD_STRATEGY</Tag>
+
+		<English>Requires Granary in this city. Requires at least 4 total Farms in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Farms +1 Commerce. Building effects: +1 Food; +1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_EXCHANGE_HALL</Tag>
+
+		<English>Exchange Hall</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_EXCHANGE_HALL_PEDIA</Tag>
+
+		<English>The Exchange Hall turns a city's terrain pattern into a dedicated local industry. Requires Market in this city. Requires at least 4 total Cottages, Hamlets, Villages and Towns in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Villages +1 Commerce; Towns +1 Commerce. Building effects: +10% Gold; +1 Merchant slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_EXCHANGE_HALL_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires at least 4 total Cottages, Hamlets, Villages and Towns in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Villages +1 Commerce; Towns +1 Commerce. Building effects: +10% Gold; +1 Merchant slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MINING_BUREAU</Tag>
+
+		<English>Mining Bureau</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MINING_BUREAU_PEDIA</Tag>
+
+		<English>The Mining Bureau turns a city's terrain pattern into a dedicated local industry. Requires Forge in this city. Requires at least 3 total Mines and Quarries in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Mines +1 Hammer; Quarries +1 Hammer. Building effects: +10% Production; +1 Engineer slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MINING_BUREAU_STRATEGY</Tag>
+
+		<English>Requires Forge in this city. Requires at least 3 total Mines and Quarries in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Mines +1 Hammer; Quarries +1 Hammer. Building effects: +10% Production; +1 Engineer slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MANUFACTORIES_OFFICE</Tag>
+
+		<English>Manufactories Office</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MANUFACTORIES_OFFICE_PEDIA</Tag>
+
+		<English>The Manufactories Office turns a city's terrain pattern into a dedicated local industry. Requires Forge in this city. Requires at least 3 total Workshops in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Workshops +1 Hammer. Building effects: -1 Health; +10% Military Unit Production.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MANUFACTORIES_OFFICE_STRATEGY</Tag>
+
+		<English>Requires Forge in this city. Requires at least 3 total Workshops in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Workshops +1 Hammer. Building effects: -1 Health; +10% Military Unit Production.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FORESTRY_COMMISSION</Tag>
+
+		<English>Forestry Commission</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FORESTRY_COMMISSION_PEDIA</Tag>
+
+		<English>The Forestry Commission turns a city's terrain pattern into a dedicated local industry. Requires Granary in this city. Requires at least 3 total Lumbermills, Forest Preserves and Tree Nurseries in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Lumbermills +1 Hammer; Forest Preserves +1 Commerce; Tree Nurseries +1 Food. Building effects: +2 Culture; +1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FORESTRY_COMMISSION_STRATEGY</Tag>
+
+		<English>Requires Granary in this city. Requires at least 3 total Lumbermills, Forest Preserves and Tree Nurseries in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Lumbermills +1 Hammer; Forest Preserves +1 Commerce; Tree Nurseries +1 Food. Building effects: +2 Culture; +1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_HYDRAULIC_OFFICE</Tag>
+
+		<English>Hydraulic Office</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_HYDRAULIC_OFFICE_PEDIA</Tag>
+
+		<English>The Hydraulic Office turns a city's terrain pattern into a dedicated local industry. Requires Aqueduct in this city. Requires at least 3 total Watermills and Windmills in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Watermills +1 Hammer; Windmills +1 Commerce. Building effects: +1 Hammer; +1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_HYDRAULIC_OFFICE_STRATEGY</Tag>
+
+		<English>Requires Aqueduct in this city. Requires at least 3 total Watermills and Windmills in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Watermills +1 Hammer; Windmills +1 Commerce. Building effects: +1 Hammer; +1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ESTATE_OFFICE</Tag>
+
+		<English>Estate Office</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ESTATE_OFFICE_PEDIA</Tag>
+
+		<English>The Estate Office turns a city's terrain pattern into a dedicated local industry. Requires Market in this city. Requires at least 2 total Plantations and Wineries in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Plantations +1 Commerce; Wineries +1 Commerce. Building effects: +1 Culture; +10% Gold.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ESTATE_OFFICE_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires at least 2 total Plantations and Wineries in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Plantations +1 Commerce; Wineries +1 Commerce. Building effects: +1 Culture; +10% Gold.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PASTORAL_BOARD</Tag>
+
+		<English>Pastoral Board</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PASTORAL_BOARD_PEDIA</Tag>
+
+		<English>The Pastoral Board turns a city's terrain pattern into a dedicated local industry. Requires Granary in this city. Requires at least 2 total Pastures in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Pastures +1 Hammer. Building effects: +1 Food; +1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PASTORAL_BOARD_STRATEGY</Tag>
+
+		<English>Requires Granary in this city. Requires at least 2 total Pastures in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Pastures +1 Hammer. Building effects: +1 Food; +1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FRONTIER_LODGE</Tag>
+
+		<English>Frontier Lodge</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FRONTIER_LODGE_PEDIA</Tag>
+
+		<English>The Frontier Lodge turns a city's terrain pattern into a dedicated local industry. Requires Market in this city. Requires at least 2 total Camps in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Camps +1 Commerce. Building effects: +1 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FRONTIER_LODGE_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires at least 2 total Camps in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Camps +1 Commerce. Building effects: +1 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MARITIME_EXCHANGE</Tag>
+
+		<English>Maritime Exchange</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MARITIME_EXCHANGE_PEDIA</Tag>
+
+		<English>The Maritime Exchange turns a city's terrain pattern into a dedicated local industry. Requires Harbor in this city. Requires at least 2 total Fishing Boats and Whaling Boats in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Fishing Boats +1 Commerce; Whaling Boats +1 Commerce. Building effects: +1 Health; +10% Trade Route Yield.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MARITIME_EXCHANGE_STRATEGY</Tag>
+
+		<English>Requires Harbor in this city. Requires at least 2 total Fishing Boats and Whaling Boats in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Fishing Boats +1 Commerce; Whaling Boats +1 Commerce. Building effects: +1 Health; +10% Trade Route Yield.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ENERGY_DIRECTORATE</Tag>
+
+		<English>Energy Directorate</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ENERGY_DIRECTORATE_PEDIA</Tag>
+
+		<English>The Energy Directorate turns a city's terrain pattern into a dedicated local industry. Requires Factory in this city. Requires at least 1 total Wells and Offshore Platforms in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Wells +1 Hammer; Offshore Platforms +1 Hammer. Building effects: +10% Production; -1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ENERGY_DIRECTORATE_STRATEGY</Tag>
+
+		<English>Requires Factory in this city. Requires at least 1 total Wells and Offshore Platforms in the city radius. This is a Core Industry. Each city can support only 2 Core Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Tile effects while active: Wells +1 Hammer; Offshore Platforms +1 Hammer. Building effects: +10% Production; -1 Health.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_DYE_WORKS</Tag>
+
+		<English>Dye Works</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_DYE_WORKS_PEDIA</Tag>
+
+		<English>The Dye Works converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Dyes in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_DYE_WORKS_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires improved, connected Dyes in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FURRIERS_HALL</Tag>
+
+		<English>Furriers' Hall</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FURRIERS_HALL_PEDIA</Tag>
+
+		<English>The Furriers' Hall converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Fur in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FURRIERS_HALL_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires improved, connected Fur in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_JEWELERS_QUARTER</Tag>
+
+		<English>Jeweler's Quarter</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_JEWELERS_QUARTER_PEDIA</Tag>
+
+		<English>The Jeweler's Quarter converts a local luxury into a city-defining craft or market. Requires Forge in this city. Requires improved, connected Gems in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_JEWELERS_QUARTER_STRATEGY</Tag>
+
+		<English>Requires Forge in this city. Requires improved, connected Gems in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MINTING_HOUSE</Tag>
+
+		<English>Minting House</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MINTING_HOUSE_PEDIA</Tag>
+
+		<English>The Minting House converts a local luxury into a city-defining craft or market. Requires Forge in this city. Requires improved, connected Gold in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MINTING_HOUSE_STRATEGY</Tag>
+
+		<English>Requires Forge in this city. Requires improved, connected Gold in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_SANCTUARY</Tag>
+
+		<English>House of Incense</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_SANCTUARY_PEDIA</Tag>
+
+		<English>The House of Incense converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Incense in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +1 Happiness; +1 Priest slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_SANCTUARY_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires improved, connected Incense in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +1 Happiness; +1 Priest slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER</Tag>
+
+		<English>Ivory Carvers' Atelier</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER_PEDIA</Tag>
+
+		<English>The Ivory Carvers' Atelier converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Ivory in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires improved, connected Ivory in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP</Tag>
+
+		<English>Silk Weaver's Workshop</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP_PEDIA</Tag>
+
+		<English>The Silk Weaver's Workshop converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Silk in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +2 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires improved, connected Silk in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +2 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILVERSMITHS_HALL</Tag>
+
+		<English>Silversmiths' Hall</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILVERSMITHS_HALL_PEDIA</Tag>
+
+		<English>The Silversmiths' Hall converts a local luxury into a city-defining craft or market. Requires Forge in this city. Requires improved, connected Silver in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Culture; +10% Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILVERSMITHS_HALL_STRATEGY</Tag>
+
+		<English>Requires Forge in this city. Requires improved, connected Silver in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Culture; +10% Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SPICE_EXCHANGE</Tag>
+
+		<English>Spice Exchange</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SPICE_EXCHANGE_PEDIA</Tag>
+
+		<English>The Spice Exchange converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Spices in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SPICE_EXCHANGE_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires improved, connected Spices in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_GUILD</Tag>
+
+		<English>Confectioners' Guild</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_GUILD_PEDIA</Tag>
+
+		<English>The Confectioners' Guild converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Sugar in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_GUILD_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires improved, connected Sugar in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_VINTNERS_GUILD</Tag>
+
+		<English>Vintners' Guild</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_VINTNERS_GUILD_PEDIA</Tag>
+
+		<English>The Vintners' Guild converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Wine in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_VINTNERS_GUILD_STRATEGY</Tag>
+
+		<English>Requires Market in this city. Requires improved, connected Wine in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY</Tag>
+
+		<English>Whale Oil Chandlery</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY_PEDIA</Tag>
+
+		<English>The Whale Oil Chandlery converts a local luxury into a city-defining craft or market. Requires Harbor in this city. Requires improved, connected Whale in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Hammer; +2 Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY_STRATEGY</Tag>
+
+		<English>Requires Harbor in this city. Requires improved, connected Whale in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Hammer; +2 Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD</Tag>
+
+		<English>Playwrights' Guild</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD_PEDIA</Tag>
+
+		<English>The Playwrights' Guild converts a local luxury into a city-defining craft or market. Requires Theatre in this city. Requires empire access to Drama. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +4 Culture; +1 Happiness; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD_STRATEGY</Tag>
+
+		<English>Requires Theatre in this city. Requires empire access to Drama. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +4 Culture; +1 Happiness; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_RECORDING_HOUSE</Tag>
+
+		<English>Recording House</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_RECORDING_HOUSE_PEDIA</Tag>
+
+		<English>The Recording House converts a local luxury into a city-defining craft or market. Requires Broadcast Tower in this city. Requires empire access to Music. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +3 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_RECORDING_HOUSE_STRATEGY</Tag>
+
+		<English>Requires Broadcast Tower in this city. Requires empire access to Music. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +3 Culture; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT</Tag>
+
+		<English>Film Studio District</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT_PEDIA</Tag>
+
+		<English>The Film Studio District converts a local luxury into a city-defining craft or market. Requires Broadcast Tower in this city. Requires empire access to Movies. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Gold; +2 Culture; +10% Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT_STRATEGY</Tag>
+
+		<English>Requires Broadcast Tower in this city. Requires empire access to Movies. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Gold; +2 Culture; +10% Gold; +1 Happiness.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_GARMENTS_HOUSE</Tag>
+
+		<English>Royal Garments House</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_GARMENTS_HOUSE_PEDIA</Tag>
+
+		<English>The Royal Garments House is a composite industry that rewards matching luxury specializations in the same city. Requires Silk Weaver's Workshop and Dye Works in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Culture; +25% Gold; +1 Happiness; +3 Great Person Points; +1 Merchant slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_GARMENTS_HOUSE_STRATEGY</Tag>
+
+		<English>Requires Silk Weaver's Workshop and Dye Works in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Culture; +25% Gold; +1 Happiness; +3 Great Person Points; +1 Merchant slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_NOBLE_TAILORS_HALL</Tag>
+
+		<English>Noble Tailors' Hall</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_NOBLE_TAILORS_HALL_PEDIA</Tag>
+
+		<English>The Noble Tailors' Hall is a composite industry that rewards matching luxury specializations in the same city. Requires Silk Weaver's Workshop and Furriers' Hall in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +10% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_NOBLE_TAILORS_HALL_STRATEGY</Tag>
+
+		<English>Requires Silk Weaver's Workshop and Furriers' Hall in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +10% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_COURT_REGALIA_ATELIER</Tag>
+
+		<English>Court Regalia Atelier</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_COURT_REGALIA_ATELIER_PEDIA</Tag>
+
+		<English>The Court Regalia Atelier is a composite industry that rewards matching luxury specializations in the same city. Requires Silk Weaver's Workshop and Ivory Carvers' Atelier in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +15% Culture; +1 Happiness; +3 Great Person Points; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_COURT_REGALIA_ATELIER_STRATEGY</Tag>
+
+		<English>Requires Silk Weaver's Workshop and Ivory Carvers' Atelier in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +15% Culture; +1 Happiness; +3 Great Person Points; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_DYED_FUR_SALON</Tag>
+
+		<English>Dyed Fur Salon</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_DYED_FUR_SALON_PEDIA</Tag>
+
+		<English>The Dyed Fur Salon is a composite industry that rewards matching luxury specializations in the same city. Requires Dye Works and Furriers' Hall in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +20% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_DYED_FUR_SALON_STRATEGY</Tag>
+
+		<English>Requires Dye Works and Furriers' Hall in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +20% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CROWN_JEWELER</Tag>
+
+		<English>Crown Jeweler</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CROWN_JEWELER_PEDIA</Tag>
+
+		<English>The Crown Jeweler is a composite industry that rewards matching luxury specializations in the same city. Requires Minting House and Jeweler's Quarter in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +25% Gold; +1 Happiness; +3 Great Person Points; +1 Merchant slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CROWN_JEWELER_STRATEGY</Tag>
+
+		<English>Requires Minting House and Jeweler's Quarter in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +25% Gold; +1 Happiness; +3 Great Person Points; +1 Merchant slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_MINT</Tag>
+
+		<English>Royal Mint</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_MINT_PEDIA</Tag>
+
+		<English>The Royal Mint is a composite industry that rewards matching luxury specializations in the same city. Requires Minting House and Silversmiths' Hall in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Gold; +20% Gold; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_MINT_STRATEGY</Tag>
+
+		<English>Requires Minting House and Silversmiths' Hall in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Gold; +20% Gold; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_GEMCUTTERS_EXCHANGE</Tag>
+
+		<English>Gemcutters' Exchange</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_GEMCUTTERS_EXCHANGE_PEDIA</Tag>
+
+		<English>The Gemcutters' Exchange is a composite industry that rewards matching luxury specializations in the same city. Requires Silversmiths' Hall and Jeweler's Quarter in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +10% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_GEMCUTTERS_EXCHANGE_STRATEGY</Tag>
+
+		<English>Requires Silversmiths' Hall and Jeweler's Quarter in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +10% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_REGAL_TREASURES_COURT</Tag>
+
+		<English>Regal Treasures Court</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_REGAL_TREASURES_COURT_PEDIA</Tag>
+
+		<English>The Regal Treasures Court is a composite industry that rewards matching luxury specializations in the same city. Requires Minting House and Ivory Carvers' Atelier in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +10% Culture; +1 Happiness; +3 Great Person Points; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_REGAL_TREASURES_COURT_STRATEGY</Tag>
+
+		<English>Requires Minting House and Ivory Carvers' Atelier in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +10% Culture; +1 Happiness; +3 Great Person Points; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_QUARTER</Tag>
+
+		<English>Aromatics Quarter</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_QUARTER_PEDIA</Tag>
+
+		<English>The Aromatics Quarter is a composite industry that rewards matching luxury specializations in the same city. Requires House of Incense and Spice Exchange in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +15% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_QUARTER_STRATEGY</Tag>
+
+		<English>Requires House of Incense and Spice Exchange in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +15% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_GRAND_BANQUET_HALL</Tag>
+
+		<English>Grand Banquet Hall</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_GRAND_BANQUET_HALL_PEDIA</Tag>
+
+		<English>The Grand Banquet Hall is a composite industry that rewards matching luxury specializations in the same city. Requires Vintners' Guild and Confectioners' Guild in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Health; +2 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_GRAND_BANQUET_HALL_STRATEGY</Tag>
+
+		<English>Requires Vintners' Guild and Confectioners' Guild in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Health; +2 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_EXCHANGE</Tag>
+
+		<English>Confectioners' Exchange</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_EXCHANGE_PEDIA</Tag>
+
+		<English>The Confectioners' Exchange is a composite industry that rewards matching luxury specializations in the same city. Requires Confectioners' Guild and Spice Exchange in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Health; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_EXCHANGE_STRATEGY</Tag>
+
+		<English>Requires Confectioners' Guild and Spice Exchange in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Health; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CEREMONIAL_CELLARS</Tag>
+
+		<English>Ceremonial Cellars</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CEREMONIAL_CELLARS_PEDIA</Tag>
+
+		<English>The Ceremonial Cellars is a composite industry that rewards matching luxury specializations in the same city. Requires Vintners' Guild and House of Incense in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +10% Culture; +1 Happiness; +3 Great Person Points; +1 Priest slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CEREMONIAL_CELLARS_STRATEGY</Tag>
+
+		<English>Requires Vintners' Guild and House of Incense in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +10% Culture; +1 Happiness; +3 Great Person Points; +1 Priest slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FESTIVAL_MARKET</Tag>
+
+		<English>Festival Market</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FESTIVAL_MARKET_PEDIA</Tag>
+
+		<English>The Festival Market is a composite industry that rewards matching luxury specializations in the same city. Requires Vintners' Guild and Spice Exchange in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +15% Gold; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_FESTIVAL_MARKET_STRATEGY</Tag>
+
+		<English>Requires Vintners' Guild and Spice Exchange in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +15% Gold; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_IMPERIAL_OUTFITTERS</Tag>
+
+		<English>Imperial Outfitters</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_IMPERIAL_OUTFITTERS_PEDIA</Tag>
+
+		<English>The Imperial Outfitters is a composite industry that rewards matching luxury specializations in the same city. Requires Furriers' Hall and Ivory Carvers' Atelier in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +10% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_IMPERIAL_OUTFITTERS_STRATEGY</Tag>
+
+		<English>Requires Furriers' Hall and Ivory Carvers' Atelier in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +10% Culture; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ADMIRALTY_CURIOS_HOUSE</Tag>
+
+		<English>Admiralty Curios House</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ADMIRALTY_CURIOS_HOUSE_PEDIA</Tag>
+
+		<English>The Admiralty Curios House is a composite industry that rewards matching luxury specializations in the same city. Requires Whale Oil Chandlery and Ivory Carvers' Atelier in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Hammer; +10% Gold; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ADMIRALTY_CURIOS_HOUSE_STRATEGY</Tag>
+
+		<English>Requires Whale Oil Chandlery and Ivory Carvers' Atelier in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Hammer; +10% Gold; +1 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS</Tag>
+
+		<English>Navigators' Instrument Works</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS_PEDIA</Tag>
+
+		<English>The Navigators' Instrument Works is a composite industry that rewards matching luxury specializations in the same city. Requires Whale Oil Chandlery and Silversmiths' Hall in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Happiness; +3 Great Person Points; +1 Engineer slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS_STRATEGY</Tag>
+
+		<English>Requires Whale Oil Chandlery and Silversmiths' Hall in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Happiness; +3 Great Person Points; +1 Engineer slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_OPERA_HOUSE</Tag>
+
+		<English>Opera House</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_OPERA_HOUSE_PEDIA</Tag>
+
+		<English>The Opera House is a composite industry that rewards matching luxury specializations in the same city. Requires Playwrights' Guild and Recording House in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +20% Culture; +2 Happiness; +3 Great Person Points; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_OPERA_HOUSE_STRATEGY</Tag>
+
+		<English>Requires Playwrights' Guild and Recording House in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +20% Culture; +2 Happiness; +3 Great Person Points; +1 Artist slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CINEMA_PALACE</Tag>
+
+		<English>Cinema Palace</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CINEMA_PALACE_PEDIA</Tag>
+
+		<English>The Cinema Palace is a composite industry that rewards matching luxury specializations in the same city. Requires Playwrights' Guild and Film Studio District in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +15% Culture; +2 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_CINEMA_PALACE_STRATEGY</Tag>
+
+		<English>Requires Playwrights' Guild and Film Studio District in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +15% Culture; +2 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SOUNDSTAGE_COMPLEX</Tag>
+
+		<English>Soundstage Complex</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SOUNDSTAGE_COMPLEX_PEDIA</Tag>
+
+		<English>The Soundstage Complex is a composite industry that rewards matching luxury specializations in the same city. Requires Recording House and Film Studio District in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +10% Culture; +2 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_SOUNDSTAGE_COMPLEX_STRATEGY</Tag>
+
+		<English>Requires Recording House and Film Studio District in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +10% Gold; +10% Culture; +2 Happiness; +3 Great Person Points.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MASS_ENTERTAINMENT_NETWORK</Tag>
+
+		<English>Mass Entertainment Network</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MASS_ENTERTAINMENT_NETWORK_PEDIA</Tag>
+
+		<English>The Mass Entertainment Network is a composite industry that rewards matching luxury specializations in the same city. Requires Playwrights' Guild, Recording House and Film Studio District in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +25% Culture; +3 Happiness; +3 Great Person Points; +1 Artist slot; +1 Merchant slot.</English>
+
+	</TEXT>
+
+	<TEXT>
+
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MASS_ENTERTAINMENT_NETWORK_STRATEGY</Tag>
+
+		<English>Requires Playwrights' Guild, Recording House and Film Studio District in this city. This is a Composite Industry. Each city can support only 1 Composite Industry building. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +25% Culture; +3 Happiness; +3 Great Person Points; +1 Artist slot; +1 Merchant slot.</English>
+
+	</TEXT>
+
+</Civ4GameText>
+
+

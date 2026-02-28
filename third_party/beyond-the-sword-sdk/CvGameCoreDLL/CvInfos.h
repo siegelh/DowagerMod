@@ -1539,6 +1539,27 @@ protected:
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class CvArtInfoBuilding;
 class CvArtInfoMovie;
+struct BuildingLocalImprovementCountPrereq
+{
+	std::vector<int> m_aiImprovementTypes;
+	int m_iMinCount;
+};
+
+struct BuildingLocalBonusPrereq
+{
+	std::vector<int> m_aiBonusTypes;
+	int m_iMinCount;
+	bool m_bImprovedOnly;
+	bool m_bConnectedOnly;
+	bool m_bCityRadiusOnly;
+};
+
+struct BuildingConnectedBonusPrereq
+{
+	std::vector<int> m_aiBonusTypes;
+	int m_iMinCount;
+};
+
 class CvBuildingInfo : public CvHotkeyInfo
 {
 	//---------------------------------------PUBLIC INTERFACE---------------------------------
@@ -1621,6 +1642,8 @@ public:
 	int getGreatPeopleRateChange() const;				// Exposed to Python
 	int getConquestProbability() const;				// Exposed to Python
 	int getMaintenanceModifier() const;				// Exposed to Python
+	int getIndustryCategory() const;
+	int getPlayerMaxInstances() const;
 	int getWarWearinessModifier() const;				// Exposed to Python
 	int getGlobalWarWearinessModifier() const;				// Exposed to Python
 	int getEnemyWarWearinessModifier() const;				// Exposed to Python
@@ -1661,6 +1684,7 @@ public:
 	bool isCenterInCity() const;				// Exposed to Python
 	bool isStateReligion() const;				// Exposed to Python
 	bool isAllowsNukes() const;				// Exposed to Python
+	bool isRequiresActiveLocalPrereqs() const;
 
 	const TCHAR* getConstructSound() const;				// Exposed to Python
 	void setConstructSound(const TCHAR* szVal);
@@ -1720,6 +1744,12 @@ public:
 	int getFlavorValue(int i) const;				// Exposed to Python
 	int getImprovementFreeSpecialist(int i) const;				// Exposed to Python
 	int getImprovementYieldChange(int iImprovement, int iYield) const;				// Exposed to Python
+	int getNumLocalImprovementCountPrereqs() const;
+	const BuildingLocalImprovementCountPrereq& getLocalImprovementCountPrereq(int i) const;
+	int getNumLocalBonusPrereqs() const;
+	const BuildingLocalBonusPrereq& getLocalBonusPrereq(int i) const;
+	int getNumConnectedBonusPrereqs() const;
+	const BuildingConnectedBonusPrereq& getConnectedBonusPrereq(int i) const;
 
 	bool isCommerceFlexible(int i) const;				// Exposed to Python
 	bool isCommerceChangeOriginalOwner(int i) const;				// Exposed to Python
@@ -1819,6 +1849,8 @@ protected:
 	int m_iGreatPeopleRateChange;				
 	int m_iConquestProbability;						
 	int m_iMaintenanceModifier;					
+	int m_iIndustryCategory;
+	int m_iPlayerMaxInstances;
 	int m_iWarWearinessModifier;					
 	int m_iGlobalWarWearinessModifier;
 	int m_iEnemyWarWearinessModifier;					
@@ -1858,10 +1890,14 @@ protected:
 	bool m_bCenterInCity;
 	bool m_bStateReligion;
 	bool m_bAllowsNukes;
+	bool m_bRequiresActiveLocalPrereqs;
 
 	CvString m_szConstructSound;
 	CvString m_szArtDefineTag;
 	CvString m_szMovieDefineTag;
+	std::vector<BuildingLocalImprovementCountPrereq> m_aLocalImprovementCountPrereqs;
+	std::vector<BuildingLocalBonusPrereq> m_aLocalBonusPrereqs;
+	std::vector<BuildingConnectedBonusPrereq> m_aConnectedBonusPrereqs;
 
 	// Arrays
 
@@ -4080,6 +4116,9 @@ public:
 	int getMaintenance() const;				// Exposed to Python
 	int getMissionType() const;					// Exposed to Python
 	void setMissionType(int iNewType);
+	int getFoundingMinActiveBuildingClasses() const;
+	bool isCountDistinctPrereqBonusesOnly() const;
+	int getMaxPrereqBonusCountPerType() const;
 
 	int getBonusProduced() const;					// Exposed to Python
 
@@ -4093,6 +4132,8 @@ public:
 	// Arrays
 
 	int getPrereqBonus(int i) const;					// Exposed to Python
+	int getNumFoundingBuildingClasses() const;
+	int getFoundingBuildingClass(int i) const;
 	int getHeadquarterCommerce(int i) const;					// Exposed to Python
 	int* getHeadquarterCommerceArray() const;
 	int getCommerceProduced(int i) const;					// Exposed to Python
@@ -4101,6 +4142,7 @@ public:
 	int* getYieldProducedArray() const;
 
 	bool read(CvXMLLoadUtility* pXML);
+	bool readPass3();
 
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 protected:
@@ -4114,6 +4156,9 @@ protected:
 	int m_iMaintenance;
 	int m_iMissionType;
 	int m_iBonusProduced;
+	int m_iFoundingMinActiveBuildingClasses;
+	int m_iMaxPrereqBonusCountPerType;
+	bool m_bCountDistinctPrereqBonusesOnly;
 
 	CvString m_szMovieFile;
 	CvString m_szMovieSound;
@@ -4125,6 +4170,9 @@ protected:
 	int* m_paiHeadquarterCommerce;
 	int* m_paiCommerceProduced;
 	int* m_paiYieldProduced;
+	std::vector<int> m_aiFoundingBuildingClasses;
+	std::vector<CvString> m_aszPrereqBonusTypes;
+	std::vector<CvString> m_aszFoundingBuildingClassTypes;
 
 };
 

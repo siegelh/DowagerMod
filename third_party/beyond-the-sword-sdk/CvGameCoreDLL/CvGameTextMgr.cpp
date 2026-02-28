@@ -39,6 +39,115 @@ int shortenID(int iId)
 // For displaying Asserts and error messages
 static char* szErrorMsg;
 
+namespace
+{
+CvWString getIndustryCategoryText(BuildingIndustryCategoryTypes eCategory)
+{
+	switch (eCategory)
+	{
+	case BUILDING_INDUSTRY_CORE:
+		return L"Core Industry";
+	case BUILDING_INDUSTRY_LUXURY:
+		return L"Luxury Industry";
+	case BUILDING_INDUSTRY_COMPOSITE:
+		return L"Composite Industry";
+	default:
+		break;
+	}
+
+	return L"Industry";
+}
+
+int getIndustryCityLimitValue(BuildingIndustryCategoryTypes eCategory)
+{
+	switch (eCategory)
+	{
+	case BUILDING_INDUSTRY_CORE:
+		return GC.getDefineINT("CORE_INDUSTRY_CITY_LIMIT");
+	case BUILDING_INDUSTRY_LUXURY:
+		return GC.getDefineINT("LUXURY_INDUSTRY_CITY_LIMIT");
+	case BUILDING_INDUSTRY_COMPOSITE:
+		return GC.getDefineINT("COMPOSITE_INDUSTRY_CITY_LIMIT");
+	default:
+		break;
+	}
+
+	return 0;
+}
+
+CvWString joinWideList(const std::vector<CvWString>& aszItems, const wchar* szConjunction)
+{
+	CvWString szResult;
+
+	for (size_t i = 0; i < aszItems.size(); ++i)
+	{
+		if (i > 0)
+		{
+			if (i == aszItems.size() - 1)
+			{
+				szResult += szConjunction;
+			}
+			else
+			{
+				szResult += L", ";
+			}
+		}
+
+		szResult += aszItems[i];
+	}
+
+	return szResult;
+}
+
+CvWString getImprovementPrereqListText(const BuildingLocalImprovementCountPrereq& kPrereq)
+{
+	std::vector<CvWString> aszItems;
+
+	for (size_t i = 0; i < kPrereq.m_aiImprovementTypes.size(); ++i)
+	{
+		const ImprovementTypes eImprovement = (ImprovementTypes)kPrereq.m_aiImprovementTypes[i];
+		if (eImprovement != NO_IMPROVEMENT)
+		{
+			aszItems.push_back(GC.getImprovementInfo(eImprovement).getDescription());
+		}
+	}
+
+	return joinWideList(aszItems, L" or ");
+}
+
+CvWString getBonusPrereqListText(const BuildingLocalBonusPrereq& kPrereq)
+{
+	std::vector<CvWString> aszItems;
+
+	for (size_t i = 0; i < kPrereq.m_aiBonusTypes.size(); ++i)
+	{
+		const BonusTypes eBonus = (BonusTypes)kPrereq.m_aiBonusTypes[i];
+		if (eBonus != NO_BONUS)
+		{
+			aszItems.push_back(GC.getBonusInfo(eBonus).getDescription());
+		}
+	}
+
+	return joinWideList(aszItems, L" or ");
+}
+
+CvWString getConnectedBonusPrereqListText(const BuildingConnectedBonusPrereq& kPrereq)
+{
+	std::vector<CvWString> aszItems;
+
+	for (size_t i = 0; i < kPrereq.m_aiBonusTypes.size(); ++i)
+	{
+		const BonusTypes eBonus = (BonusTypes)kPrereq.m_aiBonusTypes[i];
+		if (eBonus != NO_BONUS)
+		{
+			aszItems.push_back(GC.getBonusInfo(eBonus).getDescription());
+		}
+	}
+
+	return joinWideList(aszItems, L" or ");
+}
+}
+
 //----------------------------------------------------------------------------
 //
 //	FUNCTION:	GetInstance()
@@ -7837,6 +7946,51 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 		ePlayer = GC.getGameINLINE().getActivePlayer();
 	}
 
+	const BuildingIndustryCategoryTypes eIndustryCategory = (BuildingIndustryCategoryTypes)kBuilding.getIndustryCategory();
+	const bool bIndustryBuilding = (eIndustryCategory != NO_BUILDING_INDUSTRY_CATEGORY);
+	if (bIndustryBuilding)
+	{
+		const CvWString szIndustryCategory = getIndustryCategoryText(eIndustryCategory);
+		szBuffer.append(NEWLINE);
+
+		if (pCity != NULL)
+		{
+			const int iIndustryLimit = pCity->getIndustryCityLimit(eIndustryCategory);
+			const int iIndustryUsed = pCity->getNumIndustryBuildings(eIndustryCategory);
+			szTempBuffer.Format(L"%s slots used in this city: %d/%d", szIndustryCategory.c_str(), iIndustryUsed, iIndustryLimit);
+			szBuffer.append(szTempBuffer);
+
+			if (iIndustryLimit > 0 && pCity->getNumBuilding(eBuilding) <= 0 && iIndustryUsed >= iIndustryLimit)
+			{
+				szBuffer.append(NEWLINE);
+				szTempBuffer.Format(L"No %s slots remaining in this city.", szIndustryCategory.c_str());
+				szBuffer.append(szTempBuffer);
+			}
+		}
+		else
+		{
+			szTempBuffer.Format(L"%s city limit: %d", szIndustryCategory.c_str(), getIndustryCityLimitValue(eIndustryCategory));
+			szBuffer.append(szTempBuffer);
+		}
+
+		szBuffer.append(NEWLINE);
+		szBuffer.append(L"Special effects only work while industry requirements remain satisfied.");
+
+		if (kBuilding.getPlayerMaxInstances() > 0)
+		{
+			szBuffer.append(NEWLINE);
+			if (ePlayer != NO_PLAYER)
+			{
+				szTempBuffer.Format(L"Per-civilization limit: %d (built: %d).", kBuilding.getPlayerMaxInstances(), GET_PLAYER(ePlayer).getBuildingClassCount((BuildingClassTypes)kBuilding.getBuildingClassType()));
+			}
+			else
+			{
+				szTempBuffer.Format(L"Per-civilization limit: %d.", kBuilding.getPlayerMaxInstances());
+			}
+			szBuffer.append(szTempBuffer);
+		}
+	}
+
 	if (NULL == pCity || !pCity->canConstruct(eBuilding))
 	{
 		if (kBuilding.getHolyCity() != NO_RELIGION)
@@ -7929,11 +8083,88 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 
 				if (eLoopBuilding != NO_BUILDING)
 				{
+					const bool bCompositeIndustryDependency = (pCity != NULL
+						&& eIndustryCategory == BUILDING_INDUSTRY_COMPOSITE
+						&& GC.getBuildingInfo(eLoopBuilding).getIndustryCategory() != NO_BUILDING_INDUSTRY_CATEGORY);
+					if (bCompositeIndustryDependency)
+					{
+						continue;
+					}
+
 					if ((pCity == NULL) || (pCity->getNumBuilding(eLoopBuilding) <= 0))
 					{
 						szBuffer.append(NEWLINE);
 						szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_REQUIRES_STRING", GC.getBuildingInfo(eLoopBuilding).getTextKeyWide()));
 					}
+				}
+			}
+		}
+
+		if (bIndustryBuilding)
+		{
+			for (int iI = 0; iI < kBuilding.getNumLocalImprovementCountPrereqs(); ++iI)
+			{
+				const BuildingLocalImprovementCountPrereq& kPrereq = kBuilding.getLocalImprovementCountPrereq(iI);
+				const CvWString szImprovementList = getImprovementPrereqListText(kPrereq);
+				if (pCity != NULL)
+				{
+					const int iCurrent = pCity->getBuildingLocalImprovementPrereqCount(eBuilding, iI);
+					if (iCurrent < kPrereq.m_iMinCount)
+					{
+						szBuffer.append(NEWLINE);
+						szTempBuffer.Format(L"Requires %d %s in this city radius (current: %d).", kPrereq.m_iMinCount, szImprovementList.c_str(), iCurrent);
+						szBuffer.append(szTempBuffer);
+					}
+				}
+				else
+				{
+					szBuffer.append(NEWLINE);
+					szTempBuffer.Format(L"Requires %d %s in this city radius.", kPrereq.m_iMinCount, szImprovementList.c_str());
+					szBuffer.append(szTempBuffer);
+				}
+			}
+
+			for (int iI = 0; iI < kBuilding.getNumLocalBonusPrereqs(); ++iI)
+			{
+				const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iI);
+				const CvWString szBonusList = getBonusPrereqListText(kPrereq);
+				if (pCity != NULL)
+				{
+					const int iCurrent = pCity->getBuildingLocalBonusPrereqCount(eBuilding, iI);
+					if (iCurrent < kPrereq.m_iMinCount)
+					{
+						szBuffer.append(NEWLINE);
+						szTempBuffer.Format(L"Requires improved, connected %s in this city radius (current: %d/%d).", szBonusList.c_str(), iCurrent, kPrereq.m_iMinCount);
+						szBuffer.append(szTempBuffer);
+					}
+				}
+				else
+				{
+					szBuffer.append(NEWLINE);
+					szTempBuffer.Format(L"Requires improved, connected %s in this city radius.", szBonusList.c_str());
+					szBuffer.append(szTempBuffer);
+				}
+			}
+
+			for (int iI = 0; iI < kBuilding.getNumConnectedBonusPrereqs(); ++iI)
+			{
+				const BuildingConnectedBonusPrereq& kPrereq = kBuilding.getConnectedBonusPrereq(iI);
+				const CvWString szBonusList = getConnectedBonusPrereqListText(kPrereq);
+				if (pCity != NULL)
+				{
+					szBuffer.append(NEWLINE);
+					const int iCurrent = pCity->getBuildingConnectedBonusPrereqCount(eBuilding, iI);
+					if (iCurrent < kPrereq.m_iMinCount)
+					{
+						szTempBuffer.Format(L"Requires connected %s in this city network (current: %d/%d).", szBonusList.c_str(), iCurrent, kPrereq.m_iMinCount);
+						szBuffer.append(szTempBuffer);
+					}
+				}
+				else
+				{
+					szBuffer.append(NEWLINE);
+					szTempBuffer.Format(L"Requires connected %s in this city network.", szBonusList.c_str());
+					szBuffer.append(szTempBuffer);
 				}
 			}
 		}
@@ -8094,32 +8325,88 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 
 			if (NO_CORPORATION != kBuilding.getFoundsCorporation())
 			{
-				bFirst = true;
-				szBonusList.clear();
-				for (int iI = 0; iI < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iI)
+				const CorporationTypes eCorporation = (CorporationTypes)kBuilding.getFoundsCorporation();
+				const CvCorporationInfo& kCorporation = GC.getCorporationInfo(eCorporation);
+				if (kCorporation.getFoundingMinActiveBuildingClasses() > 0)
 				{
-					BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo((CorporationTypes)kBuilding.getFoundsCorporation()).getPrereqBonus(iI);
-					if (NO_BONUS != eBonus)
+					szBuffer.append(NEWLINE);
+					if (pCity != NULL)
 					{
-						if ((pCity == NULL) || !(pCity->hasBonus(eBonus)))
+						std::vector<int> aiFoundingClasses;
+						for (int iFounding = 0; iFounding < kCorporation.getNumFoundingBuildingClasses(); ++iFounding)
 						{
-							szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
-							szTempBuffer.Format(L"<link=literal>%s</link>", GC.getBonusInfo(eBonus).getDescription());
-							setListHelp(szBonusList, szFirstBuffer, szTempBuffer, gDLL->getText("TXT_KEY_OR"), bFirst);
-							bFirst = false;
+							aiFoundingClasses.push_back(kCorporation.getFoundingBuildingClass(iFounding));
 						}
-						else if (NULL != pCity)
+
+						szTempBuffer.Format(L"Requires %d active composite industries in your empire from this corporation's founding set (current: %d).",
+							kCorporation.getFoundingMinActiveBuildingClasses(),
+							GET_PLAYER(ePlayer).countActiveIndustryBuildingClasses(aiFoundingClasses));
+						szBuffer.append(szTempBuffer);
+					}
+					else
+					{
+						szTempBuffer.Format(L"Requires %d active composite industries in your empire from this corporation's founding set.",
+							kCorporation.getFoundingMinActiveBuildingClasses());
+						szBuffer.append(szTempBuffer);
+					}
+
+					for (int iI = 0; iI < kCorporation.getNumFoundingBuildingClasses(); ++iI)
+					{
+						const BuildingClassTypes eBuildingClass = (BuildingClassTypes)kCorporation.getFoundingBuildingClass(iI);
+						if (eBuildingClass == NO_BUILDINGCLASS)
 						{
-							bFirst = true;
-							break;
+							continue;
 						}
+
+						BuildingTypes eFoundingBuilding = NO_BUILDING;
+						if (ePlayer != NO_PLAYER)
+						{
+							eFoundingBuilding = (BuildingTypes)GC.getCivilizationInfo(GET_PLAYER(ePlayer).getCivilizationType()).getCivilizationBuildings(eBuildingClass);
+						}
+						else
+						{
+							eFoundingBuilding = (BuildingTypes)GC.getBuildingClassInfo(eBuildingClass).getDefaultBuildingIndex();
+						}
+
+						if (eFoundingBuilding == NO_BUILDING)
+						{
+							continue;
+						}
+
+						szBuffer.append(NEWLINE);
+						szTempBuffer.Format(L"Founding composite: %s", GC.getBuildingInfo(eFoundingBuilding).getDescription());
+						szBuffer.append(szTempBuffer);
 					}
 				}
-
-				if (!bFirst)
+				else
 				{
-					szBonusList.append(ENDCOLR);
-					szBuffer.append(szBonusList);
+					bFirst = true;
+					szBonusList.clear();
+					for (int iI = 0; iI < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iI)
+					{
+						BonusTypes eBonus = (BonusTypes)kCorporation.getPrereqBonus(iI);
+						if (NO_BONUS != eBonus)
+						{
+							if ((pCity == NULL) || !(pCity->hasBonus(eBonus)))
+							{
+								szFirstBuffer.Format(L"%s%s", NEWLINE, gDLL->getText("TXT_KEY_REQUIRES").c_str());
+								szTempBuffer.Format(L"<link=literal>%s</link>", GC.getBonusInfo(eBonus).getDescription());
+								setListHelp(szBonusList, szFirstBuffer, szTempBuffer, gDLL->getText("TXT_KEY_OR"), bFirst);
+								bFirst = false;
+							}
+							else if (NULL != pCity)
+							{
+								bFirst = true;
+								break;
+							}
+						}
+					}
+
+					if (!bFirst)
+					{
+						szBonusList.append(ENDCOLR);
+						szBuffer.append(szBonusList);
+					}
 				}
 			}
 		}

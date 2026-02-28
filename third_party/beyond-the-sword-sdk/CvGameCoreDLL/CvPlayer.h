@@ -247,6 +247,8 @@ public:
 	bool hasHeadquarters(CorporationTypes eCorporation) const;																											// Exposed to Python
 	int countHeadquarters() const;																																					// Exposed to Python
 	int countCorporations(CorporationTypes eCorporation) const;																																					// Exposed to Python
+	int countActiveIndustryBuildingClasses(const std::vector<int>& aiBuildingClasses) const;
+	bool hasActiveCorporationFoundingPrereqs(CorporationTypes eCorporation) const;
 	void foundCorporation(CorporationTypes eCorporation);																										// Exposed to Python
 
 	DllExport int getCivicAnarchyLength(CivicTypes* paeNewCivics) const;																	// Exposed to Python

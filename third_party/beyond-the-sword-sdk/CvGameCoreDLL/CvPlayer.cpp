@@ -7338,6 +7338,59 @@ int CvPlayer::countCorporations(CorporationTypes eCorporation) const
 	return iCount;
 }
 
+int CvPlayer::countActiveIndustryBuildingClasses(const std::vector<int>& aiBuildingClasses) const
+{
+	int iCount = 0;
+
+	for (size_t iClass = 0; iClass < aiBuildingClasses.size(); ++iClass)
+	{
+		const BuildingClassTypes eBuildingClass = (BuildingClassTypes)aiBuildingClasses[iClass];
+		if (eBuildingClass == NO_BUILDINGCLASS)
+		{
+			continue;
+		}
+
+		const BuildingTypes eBuilding = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eBuildingClass);
+		if (eBuilding == NO_BUILDING)
+		{
+			continue;
+		}
+
+		int iLoop = 0;
+		for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+		{
+			if (pLoopCity->getNumBuilding(eBuilding) > 0 && pLoopCity->isBuildingLocalPrereqsMet(eBuilding))
+			{
+				++iCount;
+				break;
+			}
+		}
+	}
+
+	return iCount;
+}
+
+bool CvPlayer::hasActiveCorporationFoundingPrereqs(CorporationTypes eCorporation) const
+{
+	FAssertMsg(eCorporation >= 0, "eCorporation is expected to be non-negative");
+	FAssertMsg(eCorporation < GC.getNumCorporationInfos(), "eCorporation is expected to be valid");
+
+	const CvCorporationInfo& kCorporation = GC.getCorporationInfo(eCorporation);
+	const int iRequired = kCorporation.getFoundingMinActiveBuildingClasses();
+	if (iRequired <= 0)
+	{
+		return true;
+	}
+
+	std::vector<int> aiFoundingClasses;
+	for (int i = 0; i < kCorporation.getNumFoundingBuildingClasses(); ++i)
+	{
+		aiFoundingClasses.push_back(kCorporation.getFoundingBuildingClass(i));
+	}
+
+	return countActiveIndustryBuildingClasses(aiFoundingClasses) >= iRequired;
+}
+
 
 void CvPlayer::foundCorporation(CorporationTypes eCorporation)
 {
@@ -7349,6 +7402,11 @@ void CvPlayer::foundCorporation(CorporationTypes eCorporation)
 	int iLoop;
 
 	if (GC.getGameINLINE().isCorporationFounded(eCorporation))
+	{
+		return;
+	}
+
+	if (!hasActiveCorporationFoundingPrereqs(eCorporation))
 	{
 		return;
 	}
@@ -7369,7 +7427,18 @@ void CvPlayer::foundCorporation(CorporationTypes eCorporation)
 			{
 				if (NO_BONUS != GC.getCorporationInfo(eCorporation).getPrereqBonus(i))
 				{
-					iValue += 10 * pLoopCity->getNumBonuses((BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(i));
+					const BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(i);
+					int iBonusCount = pLoopCity->getNumBonuses(eBonus);
+					if (GC.getCorporationInfo(eCorporation).isCountDistinctPrereqBonusesOnly())
+					{
+						iBonusCount = (iBonusCount > 0 ? 1 : 0);
+					}
+					else if (GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType() > 0)
+					{
+						iBonusCount = std::min(iBonusCount, GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType());
+					}
+
+					iValue += 10 * iBonusCount;
 				}
 			}
 

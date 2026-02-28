@@ -786,6 +786,15 @@ public:
 	int getNumRealBuilding(BuildingTypes eIndex) const;														// Exposed to Python
 	void setNumRealBuilding(BuildingTypes eIndex, int iNewValue);		// Exposed to Python
 	void setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool bFirst, PlayerTypes eOriginalOwner, int iOriginalTime);
+	int getIndustryCityLimit(BuildingIndustryCategoryTypes eCategory) const;
+	int getNumIndustryBuildings(BuildingIndustryCategoryTypes eCategory) const;
+	int getBuildingLocalImprovementPrereqCount(BuildingTypes eBuilding, int iPrereq) const;
+	int getBuildingLocalBonusPrereqCount(BuildingTypes eBuilding, int iPrereq) const;
+	int getBuildingConnectedBonusPrereqCount(BuildingTypes eBuilding, int iPrereq) const;
+	bool isBuildingLocalPrereqsMet(BuildingTypes eBuilding) const;
+	bool isIndustryBuildingLocallyActive(BuildingTypes eBuilding) const;
+	void updateIndustryActivation(BuildingTypes eBuilding);
+	void updateAllIndustryActivations();
 
 	bool isValidBuildingLocation(BuildingTypes eIndex) const;
 
@@ -1095,6 +1104,7 @@ protected:
 	int* m_paiFreePromotionCount;
 	int* m_paiNumRealBuilding;
 	int* m_paiNumFreeBuilding;
+	bool* m_pabIndustryBuildingLocallyActive;
 
 	bool* m_pabWorkingPlot;
 	bool* m_pabHasReligion;
@@ -1147,6 +1157,17 @@ protected:
 	bool canHurryUnit(HurryTypes eHurry, UnitTypes eUnit, bool bIgnoreNew) const;
 	bool canHurryBuilding(HurryTypes eHurry, BuildingTypes eBuilding, bool bIgnoreNew) const;
 	int calculateImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const;
+	bool areBuildingLocalImprovementPrereqsMet(BuildingTypes eBuilding) const;
+	bool areBuildingLocalBonusPrereqsMet(BuildingTypes eBuilding) const;
+	bool areBuildingConnectedBonusPrereqsMet(BuildingTypes eBuilding) const;
+	bool areBuildingNetworkBonusPrereqsMet(BuildingTypes eBuilding) const;
+	bool areCompositeIndustryPrereqsActive(BuildingTypes eBuilding) const;
+	bool isIndustryBuildingVisible(BuildingTypes eBuilding) const;
+	bool calculateIndustryBuildingLocalActive(BuildingTypes eBuilding) const;
+	int countLocalImprovementTypes(const std::vector<int>& aiImprovementTypes) const;
+	int countLocalBonusTypes(const std::vector<int>& aiBonusTypes, bool bImprovedOnly, bool bConnectedOnly, bool bCityRadiusOnly) const;
+	int countConnectedBonusTypes(const std::vector<int>& aiBonusTypes) const;
+	void setIndustryBuildingLocalActive(BuildingTypes eBuilding, bool bNewValue);
 
 	virtual bool AI_addBestCitizen(bool bWorkers, bool bSpecialists, int* piBestPlot = NULL, SpecialistTypes* peBestSpecialist = NULL) = 0;
 	virtual bool AI_removeWorstCitizen(SpecialistTypes eIgnoreSpecialist = NO_SPECIALIST) = 0;

@@ -9,4 +9,16 @@
 		<DefineName>MODS_SHOULD_OVERRIDE_GLOBAL_DEFINES_HERE</DefineName>
 		<iDefineIntVal>0</iDefineIntVal>
 	</Define>
+	<Define>
+		<DefineName>CORE_INDUSTRY_CITY_LIMIT</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>LUXURY_INDUSTRY_CITY_LIMIT</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>COMPOSITE_INDUSTRY_CITY_LIMIT</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
 </Civ4Defines>

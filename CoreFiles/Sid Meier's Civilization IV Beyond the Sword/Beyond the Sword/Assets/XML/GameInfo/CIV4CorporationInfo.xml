@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
 <!-- Sid Meier's Civilization 4 -->
 <!-- Copyright Firaxis Games 2005 -->
@@ -10,63 +10,88 @@
 			<Type>CORPORATION_1</Type>
 			<Description>TXT_KEY_CORPORATION_1</Description>
 			<Civilopedia>TXT_KEY_CORPORATION_1_PEDIA</Civilopedia>
-			<TechPrereq>NONE</TechPrereq>
+			<TechPrereq>TECH_REFRIGERATION</TechPrereq>
 			<FreeUnitClass>NONE</FreeUnitClass>
-			<iSpreadFactor>200</iSpreadFactor>
+			<iSpreadFactor>180</iSpreadFactor>
 			<iSpreadCost>50</iSpreadCost>
-			<iMaintenance>100</iMaintenance>
+			<iMaintenance>90</iMaintenance>
+			<FoundingBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_BAKERS_EXCHANGE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_FESTIVAL_KITCHENS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_ROYAL_KITCHENS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_SPICED_CARVERY</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_MARITIME_SUPPER_CLUB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_PRESERVES_MARKET</BuildingClassType>
+			</FoundingBuildingClasses>
 			<PrereqBonuses>
-				<BonusType>BONUS_SHEEP</BonusType>
-				<BonusType>BONUS_COW</BonusType>
-				<BonusType>BONUS_DEER</BonusType>
-				<BonusType>BONUS_PIG</BonusType>
+				<BonusType>BONUS_FLOUR</BonusType>
+				<BonusType>BONUS_CURED_MEATS</BonusType>
+				<BonusType>BONUS_PRESERVED_SEAFOOD</BonusType>
+				<BonusType>BONUS_FRUIT_PRESERVES</BonusType>
 			</PrereqBonuses>
 			<HeadquarterCommerces>
 				<iHeadquarterCommerce>4</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
+				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 			</HeadquarterCommerces>
 			<BonusProduced>NONE</BonusProduced>
 			<CommercesProduced>
 				<iCommerceProduced>0</iCommerceProduced>
+				<iCommerceProduced>0</iCommerceProduced>
+				<iCommerceProduced>0</iCommerceProduced>
+				<iCommerceProduced>0</iCommerceProduced>
 			</CommercesProduced>
 			<YieldsProduced>
 				<iYieldProduced>100</iYieldProduced>
+				<iYieldProduced>0</iYieldProduced>
+				<iYieldProduced>0</iYieldProduced>
 			</YieldsProduced>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,1,6</Button>
 			<MovieFile>NONE</MovieFile>
 			<MovieSound>NONE</MovieSound>
 			<Sound>AS2D_BUILD_BANK</Sound>
+			<iFoundingMinActiveBuildingClasses>2</iFoundingMinActiveBuildingClasses>
+			<bCountDistinctPrereqBonusesOnly>1</bCountDistinctPrereqBonusesOnly>
+			<iMaxPrereqBonusCountPerType>1</iMaxPrereqBonusCountPerType>
 		</CorporationInfo>
 		<CorporationInfo>
 			<Type>CORPORATION_2</Type>
-			<Description>Environmental Ideology</Description>
-			<Civilopedia>Environmental Ideology</Civilopedia>
-			<TechPrereq>NONE</TechPrereq>
+			<Description>TXT_KEY_CORPORATION_2</Description>
+			<Civilopedia>TXT_KEY_CORPORATION_2_PEDIA</Civilopedia>
+			<TechPrereq>TECH_MEDICINE</TechPrereq>
 			<FreeUnitClass>NONE</FreeUnitClass>
-			<iSpreadFactor>200</iSpreadFactor>
-			<iSpreadCost>25</iSpreadCost>
-			<iMaintenance>50</iMaintenance>
+			<iSpreadFactor>180</iSpreadFactor>
+			<iSpreadCost>55</iSpreadCost>
+			<iMaintenance>100</iMaintenance>
+			<FoundingBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_GRAND_BANQUET_HALL</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_FESTIVAL_MARKET</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_CEREMONIAL_CELLARS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_MARITIME_SUPPER_CLUB</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_ROYAL_KITCHENS</BuildingClassType>
+			</FoundingBuildingClasses>
 			<PrereqBonuses>
-				<BonusType>BONUS_RICE</BonusType>
-				<BonusType>BONUS_BANANA</BonusType>
-				<BonusType>BONUS_WHEAT</BonusType>
-				<BonusType>BONUS_CORN</BonusType>
-				<BonusType>BONUS_SUGAR</BonusType>
+				<BonusType>BONUS_VINTAGE_WINE</BonusType>
+				<BonusType>BONUS_CONFECTIONS</BonusType>
+				<BonusType>BONUS_TEMPLE_INCENSE</BonusType>
+				<BonusType>BONUS_SPICE_BLENDS</BonusType>
 			</PrereqBonuses>
 			<HeadquarterCommerces>
+				<iHeadquarterCommerce>4</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 			</HeadquarterCommerces>
 			<BonusProduced>NONE</BonusProduced>
 			<CommercesProduced>
+				<iCommerceProduced>100</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
-				<iCommerceProduced>0</iCommerceProduced>
+				<iCommerceProduced>100</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
 			</CommercesProduced>
 			<YieldsProduced>
-				<iYieldProduced>150</iYieldProduced>
+				<iYieldProduced>50</iYieldProduced>
 				<iYieldProduced>0</iYieldProduced>
 				<iYieldProduced>0</iYieldProduced>
 			</YieldsProduced>
@@ -74,59 +99,86 @@
 			<MovieFile>NONE</MovieFile>
 			<MovieSound>NONE</MovieSound>
 			<Sound>AS2D_BUILD_BANK</Sound>
+			<iFoundingMinActiveBuildingClasses>2</iFoundingMinActiveBuildingClasses>
+			<bCountDistinctPrereqBonusesOnly>1</bCountDistinctPrereqBonusesOnly>
+			<iMaxPrereqBonusCountPerType>1</iMaxPrereqBonusCountPerType>
 		</CorporationInfo>
 		<CorporationInfo>
 			<Type>CORPORATION_3</Type>
 			<Description>TXT_KEY_CORPORATION_3</Description>
 			<Civilopedia>TXT_KEY_CORPORATION_3_PEDIA</Civilopedia>
-			<TechPrereq>NONE</TechPrereq>
+			<TechPrereq>TECH_BANKING</TechPrereq>
 			<FreeUnitClass>NONE</FreeUnitClass>
-			<iSpreadFactor>200</iSpreadFactor>
-			<iSpreadCost>50</iSpreadCost>
-			<iMaintenance>100</iMaintenance>
+			<iSpreadFactor>170</iSpreadFactor>
+			<iSpreadCost>60</iSpreadCost>
+			<iMaintenance>110</iMaintenance>
+			<FoundingBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_ROYAL_GARMENTS_HOUSE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_NOBLE_TAILORS_HALL</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_CROWN_JEWELER</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_ROYAL_MINT</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_GEMCUTTERS_EXCHANGE</BuildingClassType>
+			</FoundingBuildingClasses>
 			<PrereqBonuses>
-				<BonusType>BONUS_WHALE</BonusType>
-				<BonusType>BONUS_WINE</BonusType>
-				<BonusType>BONUS_FUR</BonusType>
-				<BonusType>BONUS_SUGAR</BonusType>
+				<BonusType>BONUS_FINE_SILK</BonusType>
+				<BonusType>BONUS_FINE_DYES</BonusType>
+				<BonusType>BONUS_CUT_GEMS</BonusType>
+				<BonusType>BONUS_GOLD_BULLION</BonusType>
+				<BonusType>BONUS_WORKED_SILVER</BonusType>
+				<BonusType>BONUS_FINE_FURS</BonusType>
 			</PrereqBonuses>
 			<HeadquarterCommerces>
 				<iHeadquarterCommerce>4</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
+				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 			</HeadquarterCommerces>
-			<BonusProduced></BonusProduced>
+			<BonusProduced>NONE</BonusProduced>
 			<CommercesProduced>
-				<iCommerceProduced>300</iCommerceProduced>
+				<iCommerceProduced>250</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
+				<iCommerceProduced>100</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
 			</CommercesProduced>
 			<YieldsProduced>
+				<iYieldProduced>0</iYieldProduced>
+				<iYieldProduced>0</iYieldProduced>
 				<iYieldProduced>0</iYieldProduced>
 			</YieldsProduced>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,3,6</Button>
 			<MovieFile>NONE</MovieFile>
 			<MovieSound>NONE</MovieSound>
 			<Sound>AS2D_BUILD_BANK</Sound>
+			<iFoundingMinActiveBuildingClasses>2</iFoundingMinActiveBuildingClasses>
+			<bCountDistinctPrereqBonusesOnly>1</bCountDistinctPrereqBonusesOnly>
+			<iMaxPrereqBonusCountPerType>1</iMaxPrereqBonusCountPerType>
 		</CorporationInfo>
 		<CorporationInfo>
 			<Type>CORPORATION_4</Type>
 			<Description>TXT_KEY_CORPORATION_4</Description>
 			<Civilopedia>TXT_KEY_CORPORATION_4_PEDIA</Civilopedia>
-			<TechPrereq>NONE</TechPrereq>
+			<TechPrereq>TECH_MASS_MEDIA</TechPrereq>
 			<FreeUnitClass>NONE</FreeUnitClass>
-			<iSpreadFactor>200</iSpreadFactor>
-			<iSpreadCost>50</iSpreadCost>
-			<iMaintenance>100</iMaintenance>
+			<iSpreadFactor>160</iSpreadFactor>
+			<iSpreadCost>60</iSpreadCost>
+			<iMaintenance>105</iMaintenance>
+			<FoundingBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_COURT_REGALIA_ATELIER</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_REGAL_TREASURES_COURT</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_IMPERIAL_OUTFITTERS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_ADMIRALTY_CURIOS_HOUSE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS</BuildingClassType>
+			</FoundingBuildingClasses>
 			<PrereqBonuses>
-				<BonusType>BONUS_IRON</BonusType>
-				<BonusType>BONUS_COPPER</BonusType>
-				<BonusType>BONUS_MARBLE</BonusType>
-				<BonusType>BONUS_STONE</BonusType>
-				<BonusType>BONUS_ALUMINUM</BonusType>
+				<BonusType>BONUS_IVORY_CARVINGS</BonusType>
+				<BonusType>BONUS_LAMP_OIL</BonusType>
+				<BonusType>BONUS_WORKED_SILVER</BonusType>
+				<BonusType>BONUS_FINE_FURS</BonusType>
+				<BonusType>BONUS_FINE_SILK</BonusType>
 			</PrereqBonuses>
 			<HeadquarterCommerces>
 				<iHeadquarterCommerce>4</iHeadquarterCommerce>
+				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 			</HeadquarterCommerces>
@@ -134,44 +186,54 @@
 			<CommercesProduced>
 				<iCommerceProduced>0</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
-				<iCommerceProduced>300</iCommerceProduced>
+				<iCommerceProduced>150</iCommerceProduced>
+				<iCommerceProduced>100</iCommerceProduced>
 			</CommercesProduced>
 			<YieldsProduced>
 				<iYieldProduced>0</iYieldProduced>
-				<iYieldProduced>50</iYieldProduced>
+				<iYieldProduced>25</iYieldProduced>
 				<iYieldProduced>0</iYieldProduced>
 			</YieldsProduced>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,4,6</Button>
 			<MovieFile>NONE</MovieFile>
 			<MovieSound>NONE</MovieSound>
 			<Sound>AS2D_BUILD_BANK</Sound>
+			<iFoundingMinActiveBuildingClasses>2</iFoundingMinActiveBuildingClasses>
+			<bCountDistinctPrereqBonusesOnly>1</bCountDistinctPrereqBonusesOnly>
+			<iMaxPrereqBonusCountPerType>1</iMaxPrereqBonusCountPerType>
 		</CorporationInfo>
 		<CorporationInfo>
 			<Type>CORPORATION_5</Type>
 			<Description>TXT_KEY_CORPORATION_5</Description>
 			<Civilopedia>TXT_KEY_CORPORATION_5_PEDIA</Civilopedia>
-			<TechPrereq>NONE</TechPrereq>
+			<TechPrereq>TECH_BANKING</TechPrereq>
 			<FreeUnitClass>NONE</FreeUnitClass>
-			<iSpreadFactor>200</iSpreadFactor>
-			<iSpreadCost>50</iSpreadCost>
+			<iSpreadFactor>180</iSpreadFactor>
+			<iSpreadCost>55</iSpreadCost>
 			<iMaintenance>100</iMaintenance>
+			<FoundingBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_PERFUMERS_QUARTER</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_CONFECTIONERS_EXCHANGE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_CEREMONIAL_CELLARS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_FESTIVAL_MARKET</BuildingClassType>
+			</FoundingBuildingClasses>
 			<PrereqBonuses>
-				<BonusType>BONUS_INCENSE</BonusType>
-				<BonusType>BONUS_DYE</BonusType>
-				<BonusType>BONUS_SPICES</BonusType>
-				<BonusType>BONUS_SILK</BonusType>
-				<BonusType>BONUS_IVORY</BonusType>
-				<BonusType>BONUS_BANANA</BonusType>
+				<BonusType>BONUS_TEMPLE_INCENSE</BonusType>
+				<BonusType>BONUS_SPICE_BLENDS</BonusType>
+				<BonusType>BONUS_CONFECTIONS</BonusType>
+				<BonusType>BONUS_VINTAGE_WINE</BonusType>
 			</PrereqBonuses>
 			<HeadquarterCommerces>
 				<iHeadquarterCommerce>4</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
+				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 			</HeadquarterCommerces>
 			<BonusProduced>NONE</BonusProduced>
 			<CommercesProduced>
-				<iCommerceProduced>300</iCommerceProduced>
+				<iCommerceProduced>150</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
+				<iCommerceProduced>150</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
 			</CommercesProduced>
 			<YieldsProduced>
@@ -183,28 +245,42 @@
 			<MovieFile>NONE</MovieFile>
 			<MovieSound>NONE</MovieSound>
 			<Sound>AS2D_BUILD_BANK</Sound>
+			<iFoundingMinActiveBuildingClasses>2</iFoundingMinActiveBuildingClasses>
+			<bCountDistinctPrereqBonusesOnly>1</bCountDistinctPrereqBonusesOnly>
+			<iMaxPrereqBonusCountPerType>1</iMaxPrereqBonusCountPerType>
 		</CorporationInfo>
 		<CorporationInfo>
 			<Type>CORPORATION_6</Type>
 			<Description>TXT_KEY_CORPORATION_6</Description>
 			<Civilopedia>TXT_KEY_CORPORATION_6_PEDIA</Civilopedia>
-			<TechPrereq>NONE</TechPrereq>
+			<TechPrereq>TECH_MASS_MEDIA</TechPrereq>
 			<FreeUnitClass>NONE</FreeUnitClass>
-			<iSpreadFactor>200</iSpreadFactor>
-			<iSpreadCost>50</iSpreadCost>
-			<iMaintenance>100</iMaintenance>
+			<iSpreadFactor>160</iSpreadFactor>
+			<iSpreadCost>65</iSpreadCost>
+			<iMaintenance>110</iMaintenance>
+			<FoundingBuildingClasses>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_OPERA_HOUSE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_CINEMA_PALACE</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_SOUNDSTAGE_COMPLEX</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_MASS_ENTERTAINMENT_NETWORK</BuildingClassType>
+			</FoundingBuildingClasses>
 			<PrereqBonuses>
-				<BonusType>BONUS_COAL</BonusType>
+				<BonusType>BONUS_STAGE_PLAYS</BonusType>
+				<BonusType>BONUS_MASTER_RECORDINGS</BonusType>
+				<BonusType>BONUS_FILM_PRINTS</BonusType>
 			</PrereqBonuses>
 			<HeadquarterCommerces>
 				<iHeadquarterCommerce>4</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
+				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 			</HeadquarterCommerces>
-			<BonusProduced>BONUS_ALUMINUM</BonusProduced>
+			<BonusProduced>NONE</BonusProduced>
 			<CommercesProduced>
+				<iCommerceProduced>100</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
-				<iCommerceProduced>300</iCommerceProduced>
+				<iCommerceProduced>200</iCommerceProduced>
+				<iCommerceProduced>0</iCommerceProduced>
 			</CommercesProduced>
 			<YieldsProduced>
 				<iYieldProduced>0</iYieldProduced>
@@ -215,6 +291,9 @@
 			<MovieFile>NONE</MovieFile>
 			<MovieSound>NONE</MovieSound>
 			<Sound>AS2D_BUILD_BANK</Sound>
+			<iFoundingMinActiveBuildingClasses>2</iFoundingMinActiveBuildingClasses>
+			<bCountDistinctPrereqBonusesOnly>1</bCountDistinctPrereqBonusesOnly>
+			<iMaxPrereqBonusCountPerType>1</iMaxPrereqBonusCountPerType>
 		</CorporationInfo>
 		<CorporationInfo>
 			<Type>CORPORATION_7</Type>
@@ -222,32 +301,36 @@
 			<Civilopedia>TXT_KEY_CORPORATION_7_PEDIA</Civilopedia>
 			<TechPrereq>NONE</TechPrereq>
 			<FreeUnitClass>NONE</FreeUnitClass>
-			<iSpreadFactor>200</iSpreadFactor>
-			<iSpreadCost>50</iSpreadCost>
-			<iMaintenance>100</iMaintenance>
-			<PrereqBonuses>
-				<BonusType>BONUS_GOLD</BonusType>
-				<BonusType>BONUS_SILVER</BonusType>
-				<BonusType>BONUS_GEMS</BonusType>
-			</PrereqBonuses>
+			<iSpreadFactor>0</iSpreadFactor>
+			<iSpreadCost>0</iSpreadCost>
+			<iMaintenance>0</iMaintenance>
+			<FoundingBuildingClasses/>
+			<PrereqBonuses/>
 			<HeadquarterCommerces>
-				<iHeadquarterCommerce>4</iHeadquarterCommerce>
+				<iHeadquarterCommerce>0</iHeadquarterCommerce>
+				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 				<iHeadquarterCommerce>0</iHeadquarterCommerce>
 			</HeadquarterCommerces>
 			<BonusProduced>NONE</BonusProduced>
 			<CommercesProduced>
-				<iCommerceProduced>100</iCommerceProduced>
 				<iCommerceProduced>0</iCommerceProduced>
-				<iCommerceProduced>400</iCommerceProduced>
+				<iCommerceProduced>0</iCommerceProduced>
+				<iCommerceProduced>0</iCommerceProduced>
+				<iCommerceProduced>0</iCommerceProduced>
 			</CommercesProduced>
 			<YieldsProduced>
+				<iYieldProduced>0</iYieldProduced>
+				<iYieldProduced>0</iYieldProduced>
 				<iYieldProduced>0</iYieldProduced>
 			</YieldsProduced>
 			<Button>,Art/Interface/Buttons/TechTree/Corporation.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,7,6</Button>
 			<MovieFile>NONE</MovieFile>
 			<MovieSound>NONE</MovieSound>
 			<Sound>AS2D_BUILD_BANK</Sound>
+			<iFoundingMinActiveBuildingClasses>99</iFoundingMinActiveBuildingClasses>
+			<bCountDistinctPrereqBonusesOnly>0</bCountDistinctPrereqBonusesOnly>
+			<iMaxPrereqBonusCountPerType>0</iMaxPrereqBonusCountPerType>
 		</CorporationInfo>
 	</CorporationInfos>
 </Civ4CorporationInfo>

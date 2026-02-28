@@ -5233,6 +5233,19 @@ void CvPlot::setBonusType(BonusTypes eNewValue)
 
 		updateYield();
 
+		for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI)
+		{
+			CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+			if (pLoopPlot != NULL)
+			{
+				CvCity* pLoopCity = pLoopPlot->getPlotCity();
+				if (pLoopCity != NULL)
+				{
+					pLoopCity->updateAllIndustryActivations();
+				}
+			}
+		}
+
 		setLayoutDirty(true);
 		
 		gDLL->getInterfaceIFace()->setDirty(GlobeLayer_DIRTY_BIT, true);
@@ -5330,6 +5343,19 @@ void CvPlot::setImprovementType(ImprovementTypes eNewValue)
 			verifyUnitValidPlot();
 		}
 
+		for (iI = 0; iI < NUM_CITY_PLOTS; ++iI)
+		{
+			CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+			if (pLoopPlot != NULL)
+			{
+				CvCity* pLoopCity = pLoopPlot->getPlotCity();
+				if (pLoopCity != NULL)
+				{
+					pLoopCity->updateAllIndustryActivations();
+				}
+			}
+		}
+
 		if (GC.getGameINLINE().isDebugMode())
 		{
 			setLayoutDirty(true);
@@ -5399,6 +5425,19 @@ void CvPlot::setRouteType(RouteTypes eNewValue, bool bUpdatePlotGroups)
 			if (bOldRoute != isRoute())
 			{
 				updatePlotGroup();
+			}
+		}
+
+		for (iI = 0; iI < NUM_CITY_PLOTS; ++iI)
+		{
+			CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+			if (pLoopPlot != NULL)
+			{
+				CvCity* pLoopCity = pLoopPlot->getPlotCity();
+				if (pLoopCity != NULL)
+				{
+					pLoopCity->updateAllIndustryActivations();
+				}
 			}
 		}
 

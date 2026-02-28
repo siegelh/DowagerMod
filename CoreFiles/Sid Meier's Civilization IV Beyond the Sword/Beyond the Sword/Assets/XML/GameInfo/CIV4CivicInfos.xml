@@ -371,7 +371,7 @@
 					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
-						<iYield>2</iYield>
+						<iYield>1</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
@@ -746,7 +746,7 @@
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>4</iYield>
+						<iYield>2</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
@@ -907,7 +907,7 @@
 			<iCorporationMaintenanceModifier>0</iCorporationMaintenanceModifier>
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
-			<iWorkerSpeedModifier>150</iWorkerSpeedModifier>
+			<iWorkerSpeedModifier>100</iWorkerSpeedModifier>
 			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
@@ -940,13 +940,13 @@
 			<YieldModifiers>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
-				<iYield>-10</iYield>
+				<iYield>-5</iYield>
 			</YieldModifiers>
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
 				<iYield>0</iYield>
-				<iYield>200</iYield>
-				<iYield>-200</iYield>
+				<iYield>100</iYield>
+				<iYield>-100</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
@@ -967,30 +967,6 @@
 			<FeatureHappinessChanges/>
 			<ImprovementYieldChanges>
 				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_FARM</ImprovementType>
-					<ImprovementYields>
-						<iYield>1</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_LUMBERMILL</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_MINE</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_PASTURE</ImprovementType>
 					<ImprovementYields>
 						<iYield>1</iYield>
@@ -1010,8 +986,8 @@
 					<ImprovementType>IMPROVEMENT_PLANTATION</ImprovementType>
 					<ImprovementYields>
 						<iYield>1</iYield>
-						<iYield>1</iYield>
-						<iYield>-2</iYield>
+						<iYield>0</iYield>
+						<iYield>-1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
@@ -1071,10 +1047,10 @@
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers/>
 			<CommerceModifiers>
-				<iCommerce>12</iCommerce>
-				<iCommerce>12</iCommerce>
-				<iCommerce>12</iCommerce>
-				<iCommerce>12</iCommerce>
+				<iCommerce>5</iCommerce>
+				<iCommerce>5</iCommerce>
+				<iCommerce>5</iCommerce>
+				<iCommerce>5</iCommerce>
 			</CommerceModifiers>
 			<CapitalCommerceModifiers/>
 			<SpecialistExtraCommerces/>
@@ -1101,7 +1077,16 @@
 			<BuildingHappinessChanges/>
 			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
-			<ImprovementYieldChanges/>
+			<ImprovementYieldChanges>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_FARM</ImprovementType>
+					<ImprovementYields>
+						<iYield>1</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
+			</ImprovementYieldChanges>
 			<WeLoveTheKing/>
 		</CivicInfo>
 		<CivicInfo>
@@ -1125,7 +1110,7 @@
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
-			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
+			<iImprovementUpgradeRateModifier>50</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
 			<iBaseFreeMilitaryUnits>0</iBaseFreeMilitaryUnits>
@@ -1166,40 +1151,7 @@
 			<BuildingHappinessChanges/>
 			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
-			<ImprovementYieldChanges>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>4</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_VILLAGE</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_HAMLET</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>2</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_COTTAGE</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-			</ImprovementYieldChanges>
+			<ImprovementYieldChanges/>
 			<WeLoveTheKing/>
 		</CivicInfo>
 		<CivicInfo>
@@ -1305,7 +1257,7 @@
 			<iLargestCityHappiness>0</iLargestCityHappiness>
 			<iWarWearinessModifier>0</iWarWearinessModifier>
 			<iFreeSpecialist>0</iFreeSpecialist>
-			<iTradeRoutes>2</iTradeRoutes>
+			<iTradeRoutes>1</iTradeRoutes>
 			<bNoForeignTrade>1</bNoForeignTrade>
 			<bNoCorporations>0</bNoCorporations>
 			<bNoForeignCorporations>1</bNoForeignCorporations>
@@ -1321,12 +1273,12 @@
 			<CapitalYieldModifiers/>
 			<TradeYieldModifiers>
 				<iYield>0</iYield>
-				<iYield>200</iYield>
-				<iYield>-50</iYield>
+				<iYield>100</iYield>
+				<iYield>-25</iYield>
 			</TradeYieldModifiers>	
 			<CommerceModifiers/>
 			<CapitalCommerceModifiers>
-				<iYield>25</iYield>
+				<iYield>10</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</CapitalCommerceModifiers>
@@ -1344,51 +1296,11 @@
 			<FeatureHappinessChanges/>
 			<ImprovementYieldChanges>
 				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_COTTAGE</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_HAMLET</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_VILLAGE</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>2</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_LUMBERMILL</ImprovementType>
-					<ImprovementYields>
-						<iYield>1</iYield>
-						<iYield>1</iYield>
-						<iYield>3</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINERY</ImprovementType>
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>2</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
@@ -1396,23 +1308,7 @@
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>2</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_PASTURE</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>2</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>2</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
@@ -1420,7 +1316,7 @@
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>2</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
@@ -1428,15 +1324,7 @@
 					<ImprovementYields>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>2</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_JAPAN_CASTLE_TOWN</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
@@ -1461,11 +1349,11 @@
 			<iStateReligionGreatPeopleRateModifier>0</iStateReligionGreatPeopleRateModifier>
 			<iDistanceMaintenanceModifier>0</iDistanceMaintenanceModifier>
 			<iNumCitiesMaintenanceModifier>0</iNumCitiesMaintenanceModifier>
-			<iCorporationMaintenanceModifier>-90</iCorporationMaintenanceModifier>
+			<iCorporationMaintenanceModifier>-35</iCorporationMaintenanceModifier>
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
-			<iImprovementUpgradeRateModifier>200</iImprovementUpgradeRateModifier>
+			<iImprovementUpgradeRateModifier>75</iImprovementUpgradeRateModifier>
 			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
 			<iBaseFreeMilitaryUnits>0</iBaseFreeMilitaryUnits>
@@ -1482,7 +1370,7 @@
 			<iLargestCityHappiness>0</iLargestCityHappiness>
 			<iWarWearinessModifier>0</iWarWearinessModifier>
 			<iFreeSpecialist>0</iFreeSpecialist>
-			<iTradeRoutes>0</iTradeRoutes>
+			<iTradeRoutes>1</iTradeRoutes>
 			<bNoForeignTrade>0</bNoForeignTrade>
 			<bNoCorporations>0</bNoCorporations>
 			<bNoForeignCorporations>0</bNoForeignCorporations>
@@ -1499,7 +1387,7 @@
 			<TradeYieldModifiers>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
-				<iYield>0</iYield>
+				<iYield>25</iYield>
 			</TradeYieldModifiers>
 			<CommerceModifiers/>
 			<CapitalCommerceModifiers/>
@@ -1512,99 +1400,11 @@
 			<FeatureHappinessChanges/>
 			<ImprovementYieldChanges>
 				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_WELL</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>20</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_OFFSHORE_PLATFORM</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>50</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_LUMBERMILL</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>4</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_WINERY</ImprovementType>
-					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>-3</iYield>
-						<iYield>5</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_PLANTATION</ImprovementType>
-					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>-3</iYield>
-						<iYield>5</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_PASTURE</ImprovementType>
-					<ImprovementYields>
-						<iYield>5</iYield>
-						<iYield>-3</iYield>
-						<iYield>-3</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
-					<ImprovementYields>
-						<iYield>5</iYield>
-						<iYield>-3</iYield>
-						<iYield>-3</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_WHALING_BOATS</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
 					<ImprovementYields>
 						<iYield>1</iYield>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_JAPAN_CASTLE_TOWN</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
@@ -1624,17 +1424,17 @@
 			<Upkeep>UPKEEP_LOW</Upkeep>
 			<iAIWeight>0</iAIWeight>
 			<iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
-			<iGreatGeneralRateModifier>150</iGreatGeneralRateModifier>
+			<iGreatGeneralRateModifier>75</iGreatGeneralRateModifier>
 			<iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
 			<iStateReligionGreatPeopleRateModifier>0</iStateReligionGreatPeopleRateModifier>
-			<iDistanceMaintenanceModifier>-100</iDistanceMaintenanceModifier>
+			<iDistanceMaintenanceModifier>-75</iDistanceMaintenanceModifier>
 			<iNumCitiesMaintenanceModifier>0</iNumCitiesMaintenanceModifier>
 			<iCorporationMaintenanceModifier>0</iCorporationMaintenanceModifier>
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
 			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
-			<iMilitaryProductionModifier>0</iMilitaryProductionModifier>
+			<iMilitaryProductionModifier>10</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
 			<iBaseFreeMilitaryUnits>0</iBaseFreeMilitaryUnits>
 			<iFreeUnitsPopulationPercent>0</iFreeUnitsPopulationPercent>
@@ -1665,7 +1465,7 @@
 			<YieldModifiers/>
 			<CapitalYieldModifiers>
 				<iYield>0</iYield>
-				<iYield>50</iYield>
+				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</CapitalYieldModifiers>
 			<TradeYieldModifiers/>
@@ -1674,7 +1474,7 @@
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
-				<iYield>100</iYield>
+				<iYield>0</iYield>
 			</CapitalCommerceModifiers>
 			<SpecialistExtraCommerces/>
 			<Hurrys/>
@@ -1685,108 +1485,39 @@
 					<bValid>1</bValid>
 				</SpecialistValid>
 			</SpecialistValids>
-			<BuildingHappinessChanges>
-				<BuildingHappinessChange>
-					<BuildingType>BUILDINGCLASS_PALACE</BuildingType>
-					<iHappinessChange>5</iHappinessChange>
-				</BuildingHappinessChange>
-			</BuildingHappinessChanges>
+			<BuildingHappinessChanges/>
 			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
 			<ImprovementYieldChanges>
 				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_WELL</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>20</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_OFFSHORE_PLATFORM</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>50</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WORKSHOP</ImprovementType>
 					<ImprovementYields>
-						<iYield>2</iYield>
-						<iYield>2</iYield>
+						<iYield>1</iYield>
+						<iYield>1</iYield>
 						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_LUMBERMILL</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>2</iYield>
-						<iYield>3</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_MINE</ImprovementType>
 					<ImprovementYields>
+						<iYield>0</iYield>
 						<iYield>1</iYield>
-						<iYield>2</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_PASTURE</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
+						<iYield>1</iYield>
+						<iYield>1</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_QUARRY</ImprovementType>
 					<ImprovementYields>
+						<iYield>0</iYield>
 						<iYield>1</iYield>
-						<iYield>2</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_FORT</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_JAPAN_CASTLE_TOWN</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>3</iYield>
 						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
@@ -1812,12 +1543,12 @@
 			<iStateReligionGreatPeopleRateModifier>0</iStateReligionGreatPeopleRateModifier>
 			<iDistanceMaintenanceModifier>0</iDistanceMaintenanceModifier>
 			<iNumCitiesMaintenanceModifier>0</iNumCitiesMaintenanceModifier>
-			<iCorporationMaintenanceModifier>50</iCorporationMaintenanceModifier>
+			<iCorporationMaintenanceModifier>25</iCorporationMaintenanceModifier>
 			<iExtraHealth>0</iExtraHealth>
 			<iFreeExperience>0</iFreeExperience>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
 			<iImprovementUpgradeRateModifier>0</iImprovementUpgradeRateModifier>
-			<iMilitaryProductionModifier>-50</iMilitaryProductionModifier>
+			<iMilitaryProductionModifier>-20</iMilitaryProductionModifier>
 			<iBaseFreeUnits>0</iBaseFreeUnits>
 			<iBaseFreeMilitaryUnits>0</iBaseFreeMilitaryUnits>
 			<iFreeUnitsPopulationPercent>0</iFreeUnitsPopulationPercent>
@@ -1846,7 +1577,7 @@
 			<iStateReligionBuildingProductionModifier>0</iStateReligionBuildingProductionModifier>
 			<iStateReligionFreeExperience>0</iStateReligionFreeExperience>
 			<YieldModifiers>
-				<iYield>20</iYield>
+				<iYield>10</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>			
 			</YieldModifiers>
@@ -1879,186 +1610,66 @@
 			<BuildingHealthChanges>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_GRANARY</BuildingType>
-					<iHealthChange>6</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_PUBLIC_TRANSPORTATION</BuildingType>
-					<iHealthChange>30</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_HOSPITAL</BuildingType>
-					<iHealthChange>30</iHealthChange>
+					<iHealthChange>1</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_MARKET</BuildingType>
-					<iHealthChange>6</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_SUPERMARKET</BuildingType>
-					<iHealthChange>20</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_GROCER</BuildingType>
-					<iHealthChange>10</iHealthChange>
+					<iHealthChange>1</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
 					<BuildingType>BUILDINGCLASS_AQUEDUCT</BuildingType>
-					<iHealthChange>10</iHealthChange>
+					<iHealthChange>2</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_JEWISH_MONASTERY</BuildingType>
-					<iHealthChange>5</iHealthChange>
+					<BuildingType>BUILDINGCLASS_GROCER</BuildingType>
+					<iHealthChange>2</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_CHRISTIAN_MONASTERY</BuildingType>
-					<iHealthChange>5</iHealthChange>
+					<BuildingType>BUILDINGCLASS_SUPERMARKET</BuildingType>
+					<iHealthChange>2</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_ISLAMIC_MONASTERY</BuildingType>
-					<iHealthChange>5</iHealthChange>
+					<BuildingType>BUILDINGCLASS_HOSPITAL</BuildingType>
+					<iHealthChange>3</iHealthChange>
 				</BuildingHealthChange>
 				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_CONFUCIAN_MONASTERY</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_BUDDHIST_MONASTERY</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_TAOIST_MONASTERY</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_HINDU_MONASTERY</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingType>
-					<iHealthChange>5</iHealthChange>
-				</BuildingHealthChange>
-				<BuildingHealthChange>
-					<BuildingType>BUILDINGCLASS_HINDU_TEMPLE</BuildingType>
-					<iHealthChange>5</iHealthChange>
+					<BuildingType>BUILDINGCLASS_PUBLIC_TRANSPORTATION</BuildingType>
+					<iHealthChange>3</iHealthChange>
 				</BuildingHealthChange>
 			</BuildingHealthChanges>
 			<FeatureHappinessChanges>
 				<FeatureHappinessChange>
 					<FeatureType>FEATURE_JUNGLE</FeatureType>
-					<iHappinessChange>3</iHappinessChange>
+					<iHappinessChange>1</iHappinessChange>
 				</FeatureHappinessChange>
 				<FeatureHappinessChange>
 					<FeatureType>FEATURE_FOREST</FeatureType>
-					<iHappinessChange>3</iHappinessChange>
+					<iHappinessChange>2</iHappinessChange>
 				</FeatureHappinessChange>
 			</FeatureHappinessChanges>
 			<ImprovementYieldChanges>
 				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_WELL</ImprovementType>
-					<ImprovementYields>
-						<iYield>10</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_OFFSHORE_PLATFORM</ImprovementType>
-					<ImprovementYields>
-						<iYield>30</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
 					<ImprovementYields>
-						<iYield>5</iYield>
-						<iYield>-2</iYield>
+						<iYield>1</iYield>
 						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WINDMILL</ImprovementType>
 					<ImprovementYields>
-						<iYield>6</iYield>
-						<iYield>2</iYield>
+						<iYield>1</iYield>
 						<iYield>0</iYield>
+						<iYield>1</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 					<ImprovementYields>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
 						<iYield>1</iYield>
-						<iYield>5</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
-					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_WINERY</ImprovementType>
-					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_PLANTATION</ImprovementType>
-					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_PASTURE</ImprovementType>
-					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
-					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_JAPAN_CASTLE_TOWN</ImprovementType>
-					<ImprovementYields>
-						<iYield>3</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
 					</ImprovementYields>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
@@ -2272,16 +1883,7 @@
 			<BuildingHappinessChanges/>
 			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
-			<ImprovementYieldChanges>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
-					<ImprovementYields>
-						<iYield>0</iYield>
-						<iYield>1</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-			</ImprovementYieldChanges>
+			<ImprovementYieldChanges/>
 			<WeLoveTheKing/>
 		</CivicInfo>
 		<CivicInfo>

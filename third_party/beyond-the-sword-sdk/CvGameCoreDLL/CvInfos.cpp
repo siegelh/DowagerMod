@@ -6520,6 +6520,34 @@ bool CvUnitClassInfo::readPass3()
 //					CvBuildingInfo
 //======================================================================================================
 
+namespace
+{
+BuildingIndustryCategoryTypes parseBuildingIndustryCategory(const CvString& szTextVal)
+{
+	if (szTextVal.IsEmpty())
+	{
+		return NO_BUILDING_INDUSTRY_CATEGORY;
+	}
+
+	if (szTextVal.CompareNoCase("CORE") == 0 || szTextVal.CompareNoCase("BUILDING_INDUSTRY_CORE") == 0)
+	{
+		return BUILDING_INDUSTRY_CORE;
+	}
+
+	if (szTextVal.CompareNoCase("LUXURY") == 0 || szTextVal.CompareNoCase("BUILDING_INDUSTRY_LUXURY") == 0)
+	{
+		return BUILDING_INDUSTRY_LUXURY;
+	}
+
+	if (szTextVal.CompareNoCase("COMPOSITE") == 0 || szTextVal.CompareNoCase("BUILDING_INDUSTRY_COMPOSITE") == 0)
+	{
+		return BUILDING_INDUSTRY_COMPOSITE;
+	}
+
+	return NO_BUILDING_INDUSTRY_CATEGORY;
+}
+}
+
 //------------------------------------------------------------------------------------------------------
 //
 //  FUNCTION:   CvBuildingInfo()
@@ -6598,9 +6626,11 @@ m_iGlobalReligionCommerce(0),
 m_iGlobalCorporationCommerce(0),
 m_iPrereqAndBonus(NO_BONUS),							
 m_iGreatPeopleUnitClass(NO_UNITCLASS),					
-m_iGreatPeopleRateChange(0),				
+m_iGreatPeopleRateChange(0),
 m_iConquestProbability(0),
 m_iMaintenanceModifier(0),
+m_iIndustryCategory(NO_BUILDING_INDUSTRY_CATEGORY),
+m_iPlayerMaxInstances(0),
 m_iWarWearinessModifier(0),
 m_iGlobalWarWearinessModifier(0),
 m_iEnemyWarWearinessModifier(0),
@@ -6638,6 +6668,7 @@ m_bPrereqReligion(false),
 m_bCenterInCity(false),
 m_bStateReligion(false),
 m_bAllowsNukes(false),
+m_bRequiresActiveLocalPrereqs(false),
 m_piPrereqAndTechs(NULL),
 m_piPrereqOrBonuses(NULL),
 m_piProductionTraits(NULL),
@@ -7124,6 +7155,16 @@ int CvBuildingInfo::getMaintenanceModifier() const
 	return m_iMaintenanceModifier;
 }
 
+int CvBuildingInfo::getIndustryCategory() const
+{
+	return m_iIndustryCategory;
+}
+
+int CvBuildingInfo::getPlayerMaxInstances() const
+{
+	return m_iPlayerMaxInstances;
+}
+
 int CvBuildingInfo::getWarWearinessModifier() const
 {
 	return m_iWarWearinessModifier;
@@ -7312,6 +7353,11 @@ bool CvBuildingInfo::isStateReligion() const
 bool CvBuildingInfo::isAllowsNukes() const
 {
 	return m_bAllowsNukes;
+}
+
+bool CvBuildingInfo::isRequiresActiveLocalPrereqs() const
+{
+	return m_bRequiresActiveLocalPrereqs;
 }
 
 const TCHAR* CvBuildingInfo::getConstructSound() const
@@ -7656,6 +7702,42 @@ int CvBuildingInfo::getImprovementYieldChange(int iImprovement, int iYield) cons
 	return m_ppaiImprovementYieldChange ? m_ppaiImprovementYieldChange[iImprovement][iYield] : 0;
 }
 
+int CvBuildingInfo::getNumLocalImprovementCountPrereqs() const
+{
+	return (int)m_aLocalImprovementCountPrereqs.size();
+}
+
+const BuildingLocalImprovementCountPrereq& CvBuildingInfo::getLocalImprovementCountPrereq(int i) const
+{
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(i < (int)m_aLocalImprovementCountPrereqs.size(), "Index out of bounds");
+	return m_aLocalImprovementCountPrereqs[i];
+}
+
+int CvBuildingInfo::getNumLocalBonusPrereqs() const
+{
+	return (int)m_aLocalBonusPrereqs.size();
+}
+
+const BuildingLocalBonusPrereq& CvBuildingInfo::getLocalBonusPrereq(int i) const
+{
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(i < (int)m_aLocalBonusPrereqs.size(), "Index out of bounds");
+	return m_aLocalBonusPrereqs[i];
+}
+
+int CvBuildingInfo::getNumConnectedBonusPrereqs() const
+{
+	return (int)m_aConnectedBonusPrereqs.size();
+}
+
+const BuildingConnectedBonusPrereq& CvBuildingInfo::getConnectedBonusPrereq(int i) const
+{
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(i < (int)m_aConnectedBonusPrereqs.size(), "Index out of bounds");
+	return m_aConnectedBonusPrereqs[i];
+}
+
 bool CvBuildingInfo::isCommerceFlexible(int i) const
 {
 	FAssertMsg(i < NUM_COMMERCE_TYPES, "Index out of bounds");
@@ -7839,6 +7921,22 @@ void CvBuildingInfo::read(FDataStreamBase* stream)
 	stream->Read(&m_iGreatPeopleRateChange);
 	stream->Read(&m_iConquestProbability);
 	stream->Read(&m_iMaintenanceModifier);
+	if (uiFlag & 0x1)
+	{
+		stream->Read(&m_iIndustryCategory);
+	}
+	else
+	{
+		m_iIndustryCategory = NO_BUILDING_INDUSTRY_CATEGORY;
+	}
+	if (uiFlag & 0x2)
+	{
+		stream->Read(&m_iPlayerMaxInstances);
+	}
+	else
+	{
+		m_iPlayerMaxInstances = 0;
+	}
 	stream->Read(&m_iWarWearinessModifier);
 	stream->Read(&m_iGlobalWarWearinessModifier);
 	stream->Read(&m_iEnemyWarWearinessModifier);
@@ -7878,6 +7976,14 @@ void CvBuildingInfo::read(FDataStreamBase* stream)
 	stream->Read(&m_bCenterInCity);
 	stream->Read(&m_bStateReligion);
 	stream->Read(&m_bAllowsNukes);
+	if (uiFlag & 0x1)
+	{
+		stream->Read(&m_bRequiresActiveLocalPrereqs);
+	}
+	else
+	{
+		m_bRequiresActiveLocalPrereqs = false;
+	}
 
 	stream->ReadString(m_szConstructSound);
 	stream->ReadString(m_szArtDefineTag);
@@ -8075,6 +8181,69 @@ void CvBuildingInfo::read(FDataStreamBase* stream)
 		m_ppaiImprovementYieldChange[i]  = new int[NUM_YIELD_TYPES];
 		stream->Read(NUM_YIELD_TYPES, m_ppaiImprovementYieldChange[i]);
 	}
+
+	m_aLocalImprovementCountPrereqs.clear();
+	m_aLocalBonusPrereqs.clear();
+	m_aConnectedBonusPrereqs.clear();
+	if (uiFlag & 0x1)
+	{
+		int iNumLocalImprovementCountPrereqs = 0;
+		stream->Read(&iNumLocalImprovementCountPrereqs);
+		for (i = 0; i < iNumLocalImprovementCountPrereqs; ++i)
+		{
+			BuildingLocalImprovementCountPrereq kPrereq;
+			int iNumTypes = 0;
+			stream->Read(&iNumTypes);
+			for (int j = 0; j < iNumTypes; ++j)
+			{
+				int iImprovementType = NO_IMPROVEMENT;
+				stream->Read(&iImprovementType);
+				kPrereq.m_aiImprovementTypes.push_back(iImprovementType);
+			}
+			stream->Read(&kPrereq.m_iMinCount);
+			m_aLocalImprovementCountPrereqs.push_back(kPrereq);
+		}
+
+		int iNumLocalBonusPrereqs = 0;
+		stream->Read(&iNumLocalBonusPrereqs);
+		for (i = 0; i < iNumLocalBonusPrereqs; ++i)
+		{
+			BuildingLocalBonusPrereq kPrereq;
+			int iNumTypes = 0;
+			stream->Read(&iNumTypes);
+			for (int j = 0; j < iNumTypes; ++j)
+			{
+				int iBonusType = NO_BONUS;
+				stream->Read(&iBonusType);
+				kPrereq.m_aiBonusTypes.push_back(iBonusType);
+			}
+			stream->Read(&kPrereq.m_iMinCount);
+			stream->Read(&kPrereq.m_bImprovedOnly);
+			stream->Read(&kPrereq.m_bConnectedOnly);
+			stream->Read(&kPrereq.m_bCityRadiusOnly);
+			m_aLocalBonusPrereqs.push_back(kPrereq);
+		}
+	}
+
+	if (uiFlag & 0x2)
+	{
+		int iNumConnectedBonusPrereqs = 0;
+		stream->Read(&iNumConnectedBonusPrereqs);
+		for (i = 0; i < iNumConnectedBonusPrereqs; ++i)
+		{
+			BuildingConnectedBonusPrereq kPrereq;
+			int iNumTypes = 0;
+			stream->Read(&iNumTypes);
+			for (int j = 0; j < iNumTypes; ++j)
+			{
+				int iBonusType = NO_BONUS;
+				stream->Read(&iBonusType);
+				kPrereq.m_aiBonusTypes.push_back(iBonusType);
+			}
+			stream->Read(&kPrereq.m_iMinCount);
+			m_aConnectedBonusPrereqs.push_back(kPrereq);
+		}
+	}
 }
 
 //
@@ -8084,7 +8253,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream)
 {
 	CvHotkeyInfo::write(stream);
 
-	uint uiFlag=0;
+	uint uiFlag=0x3;
 	stream->Write(uiFlag);		// flag for expansion
 
 	stream->Write(m_iBuildingClassType);
@@ -8160,6 +8329,8 @@ void CvBuildingInfo::write(FDataStreamBase* stream)
 	stream->Write(m_iGreatPeopleRateChange);
 	stream->Write(m_iConquestProbability);
 	stream->Write(m_iMaintenanceModifier);
+	stream->Write(m_iIndustryCategory);
+	stream->Write(m_iPlayerMaxInstances);
 	stream->Write(m_iWarWearinessModifier);
 	stream->Write(m_iGlobalWarWearinessModifier);
 	stream->Write(m_iEnemyWarWearinessModifier);
@@ -8199,6 +8370,7 @@ void CvBuildingInfo::write(FDataStreamBase* stream)
 	stream->Write(m_bCenterInCity);
 	stream->Write(m_bStateReligion);
 	stream->Write(m_bAllowsNukes);
+	stream->Write(m_bRequiresActiveLocalPrereqs);
 
 	stream->WriteString(m_szConstructSound);
 	stream->WriteString(m_szArtDefineTag);
@@ -8256,6 +8428,51 @@ void CvBuildingInfo::write(FDataStreamBase* stream)
 	for(i=0;i<GC.getNumImprovementInfos();i++)
 	{
 		stream->Write(NUM_YIELD_TYPES, m_ppaiImprovementYieldChange[i]);
+	}
+
+	int iNumLocalImprovementCountPrereqs = (int)m_aLocalImprovementCountPrereqs.size();
+	stream->Write(iNumLocalImprovementCountPrereqs);
+	for (i = 0; i < iNumLocalImprovementCountPrereqs; ++i)
+	{
+		const BuildingLocalImprovementCountPrereq& kPrereq = m_aLocalImprovementCountPrereqs[i];
+		int iNumTypes = (int)kPrereq.m_aiImprovementTypes.size();
+		stream->Write(iNumTypes);
+		for (int j = 0; j < iNumTypes; ++j)
+		{
+			stream->Write(kPrereq.m_aiImprovementTypes[j]);
+		}
+		stream->Write(kPrereq.m_iMinCount);
+	}
+
+	int iNumLocalBonusPrereqs = (int)m_aLocalBonusPrereqs.size();
+	stream->Write(iNumLocalBonusPrereqs);
+	for (i = 0; i < iNumLocalBonusPrereqs; ++i)
+	{
+		const BuildingLocalBonusPrereq& kPrereq = m_aLocalBonusPrereqs[i];
+		int iNumTypes = (int)kPrereq.m_aiBonusTypes.size();
+		stream->Write(iNumTypes);
+		for (int j = 0; j < iNumTypes; ++j)
+		{
+			stream->Write(kPrereq.m_aiBonusTypes[j]);
+		}
+		stream->Write(kPrereq.m_iMinCount);
+		stream->Write(kPrereq.m_bImprovedOnly);
+		stream->Write(kPrereq.m_bConnectedOnly);
+		stream->Write(kPrereq.m_bCityRadiusOnly);
+	}
+
+	int iNumConnectedBonusPrereqs = (int)m_aConnectedBonusPrereqs.size();
+	stream->Write(iNumConnectedBonusPrereqs);
+	for (i = 0; i < iNumConnectedBonusPrereqs; ++i)
+	{
+		const BuildingConnectedBonusPrereq& kPrereq = m_aConnectedBonusPrereqs[i];
+		int iNumTypes = (int)kPrereq.m_aiBonusTypes.size();
+		stream->Write(iNumTypes);
+		for (int j = 0; j < iNumTypes; ++j)
+		{
+			stream->Write(kPrereq.m_aiBonusTypes[j]);
+		}
+		stream->Write(kPrereq.m_iMinCount);
 	}
 }
 
@@ -8456,6 +8673,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_bPrereqReligion, "bPrereqReligion");
 	pXML->GetChildXmlValByName(&m_bCenterInCity, "bCenterInCity");
 	pXML->GetChildXmlValByName(&m_bStateReligion, "bStateReligion");
+	pXML->GetChildXmlValByName(&m_bRequiresActiveLocalPrereqs, "bRequiresActiveLocalPrereqs");
 	pXML->GetChildXmlValByName(&m_iAIWeight, "iAIWeight");
 	pXML->GetChildXmlValByName(&m_iProductionCost, "iCost");
 	pXML->GetChildXmlValByName(&m_iHurryCostModifier, "iHurryCostModifier");
@@ -8517,6 +8735,10 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iAssetValue, "iAsset");
 	pXML->GetChildXmlValByName(&m_iPowerValue, "iPower");
 	pXML->GetChildXmlValByName(&m_fVisibilityPriority, "fVisibilityPriority");
+	szTextVal.clear();
+	pXML->GetChildXmlValByName(szTextVal, "IndustryCategory");
+	m_iIndustryCategory = parseBuildingIndustryCategory(szTextVal);
+	pXML->GetChildXmlValByName(&m_iPlayerMaxInstances, "iPlayerMaxInstances");
 
 	// if we can set the current xml node to it's next sibling
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"SeaPlotYieldChanges"))
@@ -8858,6 +9080,194 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 	pXML->SetVariableListTagPair(&m_piImprovementFreeSpecialist, "ImprovementFreeSpecialists", sizeof(GC.getImprovementInfo((ImprovementTypes)0)), GC.getNumImprovementInfos());
 
 	pXML->SetVariableListTagPair(&m_piBuildingHappinessChanges, "BuildingHappinessChanges", sizeof(GC.getBuildingClassInfo((BuildingClassTypes)0)), GC.getNumBuildingClassInfos());
+
+	m_aLocalImprovementCountPrereqs.clear();
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "LocalImprovementCountPrereqs"))
+	{
+		iNumChildren = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "LocalImprovementCountPrereq"))
+		{
+			for (j = 0; j < iNumChildren; ++j)
+			{
+				BuildingLocalImprovementCountPrereq kPrereq;
+				kPrereq.m_iMinCount = 0;
+
+				pXML->GetChildXmlValByName(&kPrereq.m_iMinCount, "iMinCount");
+				if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ImprovementTypes"))
+				{
+					if (pXML->SkipToNextVal())
+					{
+						int iNumImprovementTypes = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+						if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+						{
+							for (int iImprovement = 0; iImprovement < iNumImprovementTypes; ++iImprovement)
+							{
+								if (pXML->GetXmlVal(szTextVal))
+								{
+									const int iImprovementType = pXML->FindInInfoClass(szTextVal);
+									if (iImprovementType != NO_IMPROVEMENT)
+									{
+										kPrereq.m_aiImprovementTypes.push_back(iImprovementType);
+									}
+								}
+
+								if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+								{
+									break;
+								}
+							}
+
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+					}
+
+					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+				}
+
+				if (!kPrereq.m_aiImprovementTypes.empty() && kPrereq.m_iMinCount > 0)
+				{
+					m_aLocalImprovementCountPrereqs.push_back(kPrereq);
+				}
+
+				if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+				{
+					break;
+				}
+			}
+
+			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	m_aLocalBonusPrereqs.clear();
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "LocalBonusPrereqs"))
+	{
+		iNumChildren = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "LocalBonusPrereq"))
+		{
+			for (j = 0; j < iNumChildren; ++j)
+			{
+				BuildingLocalBonusPrereq kPrereq;
+				kPrereq.m_iMinCount = 0;
+				kPrereq.m_bImprovedOnly = false;
+				kPrereq.m_bConnectedOnly = false;
+				kPrereq.m_bCityRadiusOnly = true;
+
+				pXML->GetChildXmlValByName(&kPrereq.m_iMinCount, "iMinCount");
+				pXML->GetChildXmlValByName(&kPrereq.m_bImprovedOnly, "bImprovedOnly");
+				pXML->GetChildXmlValByName(&kPrereq.m_bConnectedOnly, "bConnectedOnly");
+				pXML->GetChildXmlValByName(&kPrereq.m_bCityRadiusOnly, "bCityRadiusOnly");
+
+				if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BonusTypes"))
+				{
+					if (pXML->SkipToNextVal())
+					{
+						int iNumBonusTypes = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+						if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+						{
+							for (int iBonus = 0; iBonus < iNumBonusTypes; ++iBonus)
+							{
+								if (pXML->GetXmlVal(szTextVal))
+								{
+									const int iBonusType = pXML->FindInInfoClass(szTextVal);
+									if (iBonusType != NO_BONUS)
+									{
+										kPrereq.m_aiBonusTypes.push_back(iBonusType);
+									}
+								}
+
+								if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+								{
+									break;
+								}
+							}
+
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+					}
+
+					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+				}
+
+				if (!kPrereq.m_aiBonusTypes.empty() && kPrereq.m_iMinCount > 0)
+				{
+					m_aLocalBonusPrereqs.push_back(kPrereq);
+				}
+
+				if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+				{
+					break;
+				}
+			}
+
+			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	m_aConnectedBonusPrereqs.clear();
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ConnectedBonusPrereqs"))
+	{
+		iNumChildren = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ConnectedBonusPrereq"))
+		{
+			for (j = 0; j < iNumChildren; ++j)
+			{
+				BuildingConnectedBonusPrereq kPrereq;
+				kPrereq.m_iMinCount = 0;
+
+				pXML->GetChildXmlValByName(&kPrereq.m_iMinCount, "iMinCount");
+
+				if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "BonusTypes"))
+				{
+					if (pXML->SkipToNextVal())
+					{
+						int iNumBonusTypes = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+						if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+						{
+							for (int iBonus = 0; iBonus < iNumBonusTypes; ++iBonus)
+							{
+								if (pXML->GetXmlVal(szTextVal))
+								{
+									const int iBonusType = pXML->FindInInfoClass(szTextVal);
+									if (iBonusType != NO_BONUS)
+									{
+										kPrereq.m_aiBonusTypes.push_back(iBonusType);
+									}
+								}
+
+								if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+								{
+									break;
+								}
+							}
+
+							gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+						}
+					}
+
+					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+				}
+
+				if (!kPrereq.m_aiBonusTypes.empty() && kPrereq.m_iMinCount > 0)
+				{
+					m_aConnectedBonusPrereqs.push_back(kPrereq);
+				}
+
+				if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+				{
+					break;
+				}
+			}
+
+			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
 
 	return true;
 }
@@ -15932,6 +16342,9 @@ m_iSpreadCost(0),
 m_iMaintenance(0),
 m_iMissionType(NO_MISSION),
 m_iBonusProduced(NO_BONUS),
+m_iFoundingMinActiveBuildingClasses(0),
+m_iMaxPrereqBonusCountPerType(0),
+m_bCountDistinctPrereqBonusesOnly(false),
 m_paiPrereqBonuses(NULL),
 m_paiHeadquarterCommerce(NULL),
 m_paiCommerceProduced(NULL),
@@ -16010,6 +16423,21 @@ void CvCorporationInfo::setMissionType(int iNewType)
 	m_iMissionType = iNewType;
 }
 
+int CvCorporationInfo::getFoundingMinActiveBuildingClasses() const
+{
+	return m_iFoundingMinActiveBuildingClasses;
+}
+
+bool CvCorporationInfo::isCountDistinctPrereqBonusesOnly() const
+{
+	return m_bCountDistinctPrereqBonusesOnly;
+}
+
+int CvCorporationInfo::getMaxPrereqBonusCountPerType() const
+{
+	return m_iMaxPrereqBonusCountPerType;
+}
+
 int CvCorporationInfo::getBonusProduced() const
 {
 	return m_iBonusProduced;
@@ -16053,6 +16481,18 @@ int CvCorporationInfo::getPrereqBonus(int i) const
 	FAssertMsg(i < GC.getNUM_CORPORATION_PREREQ_BONUSES(), "Index out of bounds");
 	FAssertMsg(i > -1, "Index out of bounds");
 	return m_paiPrereqBonuses[i];
+}
+
+int CvCorporationInfo::getNumFoundingBuildingClasses() const
+{
+	return (int)m_aiFoundingBuildingClasses.size();
+}
+
+int CvCorporationInfo::getFoundingBuildingClass(int i) const
+{
+	FAssertMsg(i > -1, "Index out of bounds");
+	FAssertMsg(i < (int)m_aiFoundingBuildingClasses.size(), "Index out of bounds");
+	return m_aiFoundingBuildingClasses[i];
 }
 
 int CvCorporationInfo::getHeadquarterCommerce(int i) const
@@ -16112,6 +16552,9 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iSpreadFactor, "iSpreadFactor");
 	pXML->GetChildXmlValByName(&m_iSpreadCost, "iSpreadCost");
 	pXML->GetChildXmlValByName(&m_iMaintenance, "iMaintenance");
+	pXML->GetChildXmlValByName(&m_iFoundingMinActiveBuildingClasses, "iFoundingMinActiveBuildingClasses");
+	pXML->GetChildXmlValByName(&m_bCountDistinctPrereqBonusesOnly, "bCountDistinctPrereqBonusesOnly");
+	pXML->GetChildXmlValByName(&m_iMaxPrereqBonusCountPerType, "iMaxPrereqBonusCountPerType");
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"HeadquarterCommerces"))
 	{
@@ -16151,6 +16594,8 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML)
 			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
 			FAssertMsg(0 < GC.getNUM_CORPORATION_PREREQ_BONUSES(),"Allocating zero or less memory in CvCorporationInfo::read");
 			pXML->InitList(&m_paiPrereqBonuses, GC.getNUM_CORPORATION_PREREQ_BONUSES(), -1);
+			m_aszPrereqBonusTypes.clear();
+			m_aszPrereqBonusTypes.resize(GC.getNUM_CORPORATION_PREREQ_BONUSES());
 
 			if (0 < iNumSibs)
 			{
@@ -16159,7 +16604,7 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML)
 					FAssertMsg((iNumSibs <= GC.getNUM_CORPORATION_PREREQ_BONUSES()) , "There are more siblings than memory allocated for them in CvCorporationInfo::read");
 					for (int j=0; j<iNumSibs; ++j)
 					{
-						m_paiPrereqBonuses[j] = pXML->FindInInfoClass(szTextVal);
+						m_aszPrereqBonusTypes[j] = szTextVal;
 						if (!pXML->GetNextXmlVal(szTextVal))
 						{
 							break;
@@ -16168,6 +16613,42 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML)
 
 					gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 				}
+			}
+		}
+
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+	else
+	{
+		SAFE_DELETE_ARRAY(m_paiPrereqBonuses);
+		pXML->InitList(&m_paiPrereqBonuses, GC.getNUM_CORPORATION_PREREQ_BONUSES(), -1);
+		m_aszPrereqBonusTypes.clear();
+		m_aszPrereqBonusTypes.resize(GC.getNUM_CORPORATION_PREREQ_BONUSES());
+	}
+
+	m_aiFoundingBuildingClasses.clear();
+	m_aszFoundingBuildingClassTypes.clear();
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "FoundingBuildingClasses"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				for (int i = 0; i < iNumSibs; ++i)
+				{
+					if (pXML->GetXmlVal(szTextVal))
+					{
+						m_aszFoundingBuildingClassTypes.push_back(szTextVal);
+					}
+
+					if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+					{
+						break;
+					}
+				}
+
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
 			}
 		}
 
@@ -16185,6 +16666,57 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML)
 
 	pXML->GetChildXmlValByName(szTextVal, "Sound");
 	setSound(szTextVal);
+
+	return true;
+}
+
+bool CvCorporationInfo::readPass3()
+{
+	if (m_paiPrereqBonuses == NULL)
+	{
+		FAssertMsg(0 < GC.getNUM_CORPORATION_PREREQ_BONUSES(), "Expected corporation prereq bonus slots");
+		m_paiPrereqBonuses = new int[GC.getNUM_CORPORATION_PREREQ_BONUSES()];
+	}
+
+	for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i)
+	{
+		m_paiPrereqBonuses[i] = NO_BONUS;
+		if (i < (int)m_aszPrereqBonusTypes.size() && !m_aszPrereqBonusTypes[i].IsEmpty() && m_aszPrereqBonusTypes[i] != "NONE")
+		{
+			const int iBonus = GC.getInfoTypeForString(m_aszPrereqBonusTypes[i], true);
+			if (iBonus != NO_BONUS)
+			{
+				m_paiPrereqBonuses[i] = iBonus;
+			}
+			else
+			{
+				CvString szError;
+				szError.Format("Deferred corporation prereq bonus type %s not found for %s", m_aszPrereqBonusTypes[i].GetCString(), getType());
+				gDLL->logMsg("xml.log", szError);
+			}
+		}
+	}
+
+	m_aiFoundingBuildingClasses.clear();
+	for (int i = 0; i < (int)m_aszFoundingBuildingClassTypes.size(); ++i)
+	{
+		if (m_aszFoundingBuildingClassTypes[i].IsEmpty() || m_aszFoundingBuildingClassTypes[i] == "NONE")
+		{
+			continue;
+		}
+
+		const int iBuildingClass = GC.getInfoTypeForString(m_aszFoundingBuildingClassTypes[i], true);
+		if (iBuildingClass != NO_BUILDINGCLASS)
+		{
+			m_aiFoundingBuildingClasses.push_back(iBuildingClass);
+		}
+		else
+		{
+			CvString szError;
+			szError.Format("Deferred corporation founding building class %s not found for %s", m_aszFoundingBuildingClassTypes[i].GetCString(), getType());
+			gDLL->logMsg("xml.log", szError);
+		}
+	}
 
 	return true;
 }

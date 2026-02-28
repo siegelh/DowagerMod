@@ -83,6 +83,7 @@ CvCity::CvCity()
 	m_paiFreePromotionCount = NULL;
 	m_paiNumRealBuilding = NULL;
 	m_paiNumFreeBuilding = NULL;
+	m_pabIndustryBuildingLocallyActive = NULL;
 
 	m_pabWorkingPlot = NULL;
 	m_pabHasReligion = NULL;
@@ -350,6 +351,7 @@ void CvCity::uninit()
 	SAFE_DELETE_ARRAY(m_paiFreePromotionCount);
 	SAFE_DELETE_ARRAY(m_paiNumRealBuilding);
 	SAFE_DELETE_ARRAY(m_paiNumFreeBuilding);
+	SAFE_DELETE_ARRAY(m_pabIndustryBuildingLocallyActive);
 
 	SAFE_DELETE_ARRAY(m_pabWorkingPlot);
 	SAFE_DELETE_ARRAY(m_pabHasReligion);
@@ -579,6 +581,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 		m_paiBuildingOriginalTime = new int[GC.getNumBuildingInfos()];
 		m_paiNumRealBuilding = new int[GC.getNumBuildingInfos()];
 		m_paiNumFreeBuilding = new int[GC.getNumBuildingInfos()];
+		m_pabIndustryBuildingLocallyActive = new bool[GC.getNumBuildingInfos()];
 		for (iI = 0; iI < GC.getNumBuildingInfos(); iI++)
 		{
 			//m_ppBuildings[iI] = NULL;
@@ -588,6 +591,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 			m_paiBuildingOriginalTime[iI] = MIN_INT;
 			m_paiNumRealBuilding[iI] = 0;
 			m_paiNumFreeBuilding[iI] = 0;
+			m_pabIndustryBuildingLocallyActive[iI] = false;
 		}
 
 		FAssertMsg((0 < GC.getNumUnitInfos()),  "GC.getNumUnitInfos() is not greater than zero but an array is being allocated in CvCity::reset");
@@ -882,6 +886,7 @@ void CvCity::doTurn()
 	setDrafted(false);
 	setAirliftTargeted(false);
 	setCurrAirlift(0);
+	updateAllIndustryActivations();
 
 	AI_doTurn();
 
@@ -1406,6 +1411,387 @@ int CvCity::countNumImprovedPlots(ImprovementTypes eImprovement, bool bPotential
 	return iCount;
 }
 
+int CvCity::countLocalImprovementTypes(const std::vector<int>& aiImprovementTypes) const
+{
+	int iCount = 0;
+
+	for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI)
+	{
+		CvPlot* pLoopPlot = getCityIndexPlot(iI);
+		if (pLoopPlot == NULL)
+		{
+			continue;
+		}
+
+		const ImprovementTypes eImprovement = pLoopPlot->getImprovementType();
+		if (eImprovement == NO_IMPROVEMENT)
+		{
+			continue;
+		}
+
+		for (size_t iType = 0; iType < aiImprovementTypes.size(); ++iType)
+		{
+			if (eImprovement == (ImprovementTypes)aiImprovementTypes[iType])
+			{
+				++iCount;
+				break;
+			}
+		}
+	}
+
+	return iCount;
+}
+
+int CvCity::countLocalBonusTypes(const std::vector<int>& aiBonusTypes, bool bImprovedOnly, bool bConnectedOnly, bool bCityRadiusOnly) const
+{
+	int iCount = 0;
+	CvPlotGroup* pCityPlotGroup = plot()->getPlotGroup(getOwnerINLINE());
+
+	for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI)
+	{
+		CvPlot* pLoopPlot = getCityIndexPlot(iI);
+		if (pLoopPlot == NULL)
+		{
+			continue;
+		}
+
+		if (!bCityRadiusOnly)
+		{
+			// All current industry prereqs are city-radius scoped; keep the parameter for XML forward compatibility.
+		}
+
+		const BonusTypes eBonus = pLoopPlot->getNonObsoleteBonusType(getTeam());
+		if (eBonus == NO_BONUS)
+		{
+			continue;
+		}
+
+		bool bMatches = false;
+		for (size_t iType = 0; iType < aiBonusTypes.size(); ++iType)
+		{
+			if (eBonus == (BonusTypes)aiBonusTypes[iType])
+			{
+				bMatches = true;
+				break;
+			}
+		}
+
+		if (!bMatches)
+		{
+			continue;
+		}
+
+		if (bImprovedOnly && pLoopPlot->getImprovementType() == NO_IMPROVEMENT)
+		{
+			continue;
+		}
+
+		if (bConnectedOnly)
+		{
+			if (!pLoopPlot->isBonusNetwork(getTeam()))
+			{
+				continue;
+			}
+
+			if (pCityPlotGroup == NULL || pLoopPlot->getPlotGroup(getOwnerINLINE()) != pCityPlotGroup)
+			{
+				continue;
+			}
+		}
+
+		++iCount;
+	}
+
+	return iCount;
+}
+
+int CvCity::countConnectedBonusTypes(const std::vector<int>& aiBonusTypes) const
+{
+	int iCount = 0;
+
+	for (size_t iType = 0; iType < aiBonusTypes.size(); ++iType)
+	{
+		const BonusTypes eBonus = (BonusTypes)aiBonusTypes[iType];
+		if (eBonus == NO_BONUS)
+		{
+			continue;
+		}
+
+		iCount += getNumBonuses(eBonus);
+	}
+
+	return iCount;
+}
+
+int CvCity::getIndustryCityLimit(BuildingIndustryCategoryTypes eCategory) const
+{
+	switch (eCategory)
+	{
+	case BUILDING_INDUSTRY_CORE:
+		return GC.getDefineINT("CORE_INDUSTRY_CITY_LIMIT");
+	case BUILDING_INDUSTRY_LUXURY:
+		return GC.getDefineINT("LUXURY_INDUSTRY_CITY_LIMIT");
+	case BUILDING_INDUSTRY_COMPOSITE:
+		return GC.getDefineINT("COMPOSITE_INDUSTRY_CITY_LIMIT");
+	default:
+		break;
+	}
+
+	return 0;
+}
+
+int CvCity::getNumIndustryBuildings(BuildingIndustryCategoryTypes eCategory) const
+{
+	int iCount = 0;
+
+	for (int iI = 0; iI < GC.getNumBuildingInfos(); ++iI)
+	{
+		const BuildingTypes eBuilding = (BuildingTypes)iI;
+		if (getNumBuilding(eBuilding) <= 0)
+		{
+			continue;
+		}
+
+		if (GC.getBuildingInfo(eBuilding).getIndustryCategory() == eCategory)
+		{
+			iCount += getNumBuilding(eBuilding);
+		}
+	}
+
+	return iCount;
+}
+
+int CvCity::getBuildingLocalImprovementPrereqCount(BuildingTypes eBuilding, int iPrereq) const
+{
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	if (iPrereq < 0 || iPrereq >= kBuilding.getNumLocalImprovementCountPrereqs())
+	{
+		return 0;
+	}
+
+	const BuildingLocalImprovementCountPrereq& kPrereq = kBuilding.getLocalImprovementCountPrereq(iPrereq);
+	return countLocalImprovementTypes(kPrereq.m_aiImprovementTypes);
+}
+
+int CvCity::getBuildingLocalBonusPrereqCount(BuildingTypes eBuilding, int iPrereq) const
+{
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	if (iPrereq < 0 || iPrereq >= kBuilding.getNumLocalBonusPrereqs())
+	{
+		return 0;
+	}
+
+	const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iPrereq);
+	return countLocalBonusTypes(kPrereq.m_aiBonusTypes, kPrereq.m_bImprovedOnly, kPrereq.m_bConnectedOnly, kPrereq.m_bCityRadiusOnly);
+}
+
+int CvCity::getBuildingConnectedBonusPrereqCount(BuildingTypes eBuilding, int iPrereq) const
+{
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	if (iPrereq < 0 || iPrereq >= kBuilding.getNumConnectedBonusPrereqs())
+	{
+		return 0;
+	}
+
+	const BuildingConnectedBonusPrereq& kPrereq = kBuilding.getConnectedBonusPrereq(iPrereq);
+	return countConnectedBonusTypes(kPrereq.m_aiBonusTypes);
+}
+
+bool CvCity::areBuildingLocalImprovementPrereqsMet(BuildingTypes eBuilding) const
+{
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalImprovementCountPrereqs(); ++iPrereq)
+	{
+		const BuildingLocalImprovementCountPrereq& kPrereq = kBuilding.getLocalImprovementCountPrereq(iPrereq);
+		if (getBuildingLocalImprovementPrereqCount(eBuilding, iPrereq) < kPrereq.m_iMinCount)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool CvCity::areBuildingLocalBonusPrereqsMet(BuildingTypes eBuilding) const
+{
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalBonusPrereqs(); ++iPrereq)
+	{
+		const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iPrereq);
+		if (getBuildingLocalBonusPrereqCount(eBuilding, iPrereq) < kPrereq.m_iMinCount)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool CvCity::areBuildingConnectedBonusPrereqsMet(BuildingTypes eBuilding) const
+{
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	for (int iPrereq = 0; iPrereq < kBuilding.getNumConnectedBonusPrereqs(); ++iPrereq)
+	{
+		const BuildingConnectedBonusPrereq& kPrereq = kBuilding.getConnectedBonusPrereq(iPrereq);
+		if (getBuildingConnectedBonusPrereqCount(eBuilding, iPrereq) < kPrereq.m_iMinCount)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool CvCity::areBuildingNetworkBonusPrereqsMet(BuildingTypes eBuilding) const
+{
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+
+	if (kBuilding.getPrereqAndBonus() != NO_BONUS && !hasBonus((BonusTypes)kBuilding.getPrereqAndBonus()))
+	{
+		return false;
+	}
+
+	bool bRequiresAnyOrBonus = false;
+	for (int iI = 0; iI < GC.getNUM_BUILDING_PREREQ_OR_BONUSES(); ++iI)
+	{
+		const BonusTypes ePrereqBonus = (BonusTypes)kBuilding.getPrereqOrBonuses(iI);
+		if (ePrereqBonus != NO_BONUS)
+		{
+			bRequiresAnyOrBonus = true;
+			if (hasBonus(ePrereqBonus))
+			{
+				bRequiresAnyOrBonus = false;
+				break;
+			}
+		}
+	}
+
+	return !bRequiresAnyOrBonus;
+}
+
+bool CvCity::areCompositeIndustryPrereqsActive(BuildingTypes eBuilding) const
+{
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	if (kBuilding.getIndustryCategory() != BUILDING_INDUSTRY_COMPOSITE)
+	{
+		return true;
+	}
+
+	return areBuildingConnectedBonusPrereqsMet(eBuilding);
+}
+
+bool CvCity::isIndustryBuildingVisible(BuildingTypes eBuilding) const
+{
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	const BuildingIndustryCategoryTypes eIndustryCategory = (BuildingIndustryCategoryTypes)kBuilding.getIndustryCategory();
+
+	if (eIndustryCategory == BUILDING_INDUSTRY_CORE || eIndustryCategory == NO_BUILDING_INDUSTRY_CATEGORY)
+	{
+		return true;
+	}
+
+	if (!areBuildingLocalImprovementPrereqsMet(eBuilding))
+	{
+		return false;
+	}
+
+	if (eIndustryCategory == BUILDING_INDUSTRY_LUXURY)
+	{
+		for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalBonusPrereqs(); ++iPrereq)
+		{
+			const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iPrereq);
+			const int iVisibleCount = countLocalBonusTypes(kPrereq.m_aiBonusTypes, false, false, kPrereq.m_bCityRadiusOnly);
+			if (iVisibleCount < kPrereq.m_iMinCount)
+			{
+				return false;
+			}
+		}
+	}
+	else if (!areBuildingLocalBonusPrereqsMet(eBuilding))
+	{
+		return false;
+	}
+
+	if (!areBuildingConnectedBonusPrereqsMet(eBuilding))
+	{
+		return false;
+	}
+
+	if (!areBuildingNetworkBonusPrereqsMet(eBuilding))
+	{
+		return false;
+	}
+
+	if (eIndustryCategory == BUILDING_INDUSTRY_COMPOSITE && !areCompositeIndustryPrereqsActive(eBuilding))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool CvCity::isBuildingLocalPrereqsMet(BuildingTypes eBuilding) const
+{
+	return areBuildingLocalImprovementPrereqsMet(eBuilding)
+		&& areBuildingLocalBonusPrereqsMet(eBuilding)
+		&& areBuildingConnectedBonusPrereqsMet(eBuilding)
+		&& areBuildingNetworkBonusPrereqsMet(eBuilding)
+		&& areCompositeIndustryPrereqsActive(eBuilding);
+}
+
+bool CvCity::calculateIndustryBuildingLocalActive(BuildingTypes eBuilding) const
+{
+	if (getNumBuilding(eBuilding) <= 0)
+	{
+		return false;
+	}
+
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	if (!kBuilding.isRequiresActiveLocalPrereqs())
+	{
+		return true;
+	}
+
+	return isBuildingLocalPrereqsMet(eBuilding);
+}
+
+bool CvCity::isIndustryBuildingLocallyActive(BuildingTypes eBuilding) const
+{
+	FAssertMsg(eBuilding >= 0, "BuildingType eBuilding is expected to be non-negative");
+	FAssertMsg(eBuilding < GC.getNumBuildingInfos(), "BuildingType eBuilding is expected to be valid");
+	return (m_pabIndustryBuildingLocallyActive != NULL) ? m_pabIndustryBuildingLocallyActive[eBuilding] : false;
+}
+
+void CvCity::setIndustryBuildingLocalActive(BuildingTypes eBuilding, bool bNewValue)
+{
+	FAssertMsg(eBuilding >= 0, "BuildingType eBuilding is expected to be non-negative");
+	FAssertMsg(eBuilding < GC.getNumBuildingInfos(), "BuildingType eBuilding is expected to be valid");
+	if (m_pabIndustryBuildingLocallyActive != NULL)
+	{
+		m_pabIndustryBuildingLocallyActive[eBuilding] = bNewValue;
+	}
+}
+
+void CvCity::updateIndustryActivation(BuildingTypes eBuilding)
+{
+	const int iOldActiveCount = getNumActiveBuilding(eBuilding);
+	setIndustryBuildingLocalActive(eBuilding, calculateIndustryBuildingLocalActive(eBuilding));
+	const int iNewActiveCount = getNumActiveBuilding(eBuilding);
+
+	if (iNewActiveCount != iOldActiveCount)
+	{
+		processBuilding(eBuilding, iNewActiveCount - iOldActiveCount);
+	}
+}
+
+void CvCity::updateAllIndustryActivations()
+{
+	for (int iI = 0; iI < GC.getNumBuildingInfos(); ++iI)
+	{
+		updateIndustryActivation((BuildingTypes)iI);
+	}
+}
+
 
 int CvCity::countNumWaterPlots() const
 {
@@ -1908,6 +2294,18 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 		return false;
 	}
 
+	if (bTestVisible)
+	{
+		const BuildingIndustryCategoryTypes eIndustryCategory = (BuildingIndustryCategoryTypes)GC.getBuildingInfo(eBuilding).getIndustryCategory();
+		if (eIndustryCategory == BUILDING_INDUSTRY_LUXURY || eIndustryCategory == BUILDING_INDUSTRY_COMPOSITE)
+		{
+			if (!isIndustryBuildingVisible(eBuilding))
+			{
+				return false;
+			}
+		}
+	}
+
 	if (GC.getBuildingInfo(eBuilding).isGovernmentCenter())
 	{
 		if (isGovernmentCenter())
@@ -1918,6 +2316,40 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 
 	if (!bTestVisible)
 	{
+		const BuildingIndustryCategoryTypes eIndustryCategory = (BuildingIndustryCategoryTypes)GC.getBuildingInfo(eBuilding).getIndustryCategory();
+		const int iPlayerMaxInstances = GC.getBuildingInfo(eBuilding).getPlayerMaxInstances();
+		if (iPlayerMaxInstances > 0 && getNumBuilding(eBuilding) <= 0)
+		{
+			if (GET_PLAYER(getOwnerINLINE()).getBuildingClassCount((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType()) >= iPlayerMaxInstances)
+			{
+				return false;
+			}
+		}
+
+		if (eIndustryCategory != NO_BUILDING_INDUSTRY_CATEGORY)
+		{
+			const int iIndustryLimit = getIndustryCityLimit(eIndustryCategory);
+			if (iIndustryLimit > 0 && getNumBuilding(eBuilding) <= 0 && getNumIndustryBuildings(eIndustryCategory) >= iIndustryLimit)
+			{
+				return false;
+			}
+		}
+
+		if (!areBuildingLocalImprovementPrereqsMet(eBuilding))
+		{
+			return false;
+		}
+
+		if (!areBuildingLocalBonusPrereqsMet(eBuilding))
+		{
+			return false;
+		}
+
+		if (!areBuildingConnectedBonusPrereqsMet(eBuilding))
+		{
+			return false;
+		}
+
 		if (!bContinue)
 		{
 			if (getFirstBuildingOrder(eBuilding) != -1)
@@ -1987,21 +2419,7 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 				return false;
 			}
 
-			bool bValid = false;
-			for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i)
-			{
-				BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(i);
-				if (NO_BONUS != eBonus)
-				{
-					if (hasBonus(eBonus))
-					{
-						bValid = true;
-						break;
-					}
-				}
-			}
-
-			if (!bValid)
+			if (!GET_PLAYER(getOwnerINLINE()).hasActiveCorporationFoundingPrereqs(eCorporation))
 			{
 				return false;
 			}
@@ -4863,6 +5281,11 @@ int CvCity::getNumActiveBuilding(BuildingTypes eIndex) const
 		return 0;
 	}
 
+	if (GC.getBuildingInfo(eIndex).isRequiresActiveLocalPrereqs() && !isIndustryBuildingLocallyActive(eIndex))
+	{
+		return 0;
+	}
+
 	return (getNumBuilding(eIndex));
 }
 
@@ -5574,7 +5997,17 @@ int CvCity::calculateCorporationMaintenanceTimes100(CorporationTypes eCorporatio
 		BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(i);
 		if (NO_BONUS != eBonus)
 		{
-			iNumBonuses += getNumBonuses(eBonus);
+			int iBonusCount = getNumBonuses(eBonus);
+			if (GC.getCorporationInfo(eCorporation).isCountDistinctPrereqBonusesOnly())
+			{
+				iBonusCount = (iBonusCount > 0 ? 1 : 0);
+			}
+			else if (GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType() > 0)
+			{
+				iBonusCount = std::min(iBonusCount, GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType());
+			}
+
+			iNumBonuses += iBonusCount;
 		}
 	}
 
@@ -8438,7 +8871,17 @@ int CvCity::getCorporationYieldByCorporation(YieldTypes eIndex, CorporationTypes
 			BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(i);
 			if (NO_BONUS != eBonus && getNumBonuses(eBonus) > 0)
 			{
-				iYield += (GC.getCorporationInfo(eCorporation).getYieldProduced(eIndex) * getNumBonuses(eBonus) * GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getCorporationMaintenancePercent()) / 100;
+				int iBonusCount = getNumBonuses(eBonus);
+				if (GC.getCorporationInfo(eCorporation).isCountDistinctPrereqBonusesOnly())
+				{
+					iBonusCount = 1;
+				}
+				else if (GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType() > 0)
+				{
+					iBonusCount = std::min(iBonusCount, GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType());
+				}
+
+				iYield += (GC.getCorporationInfo(eCorporation).getYieldProduced(eIndex) * iBonusCount * GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getCorporationMaintenancePercent()) / 100;
 			}
 		}
 	}
@@ -8462,7 +8905,17 @@ int CvCity::getCorporationCommerceByCorporation(CommerceTypes eIndex, Corporatio
 			BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(i);
 			if (NO_BONUS != eBonus && getNumBonuses(eBonus) > 0)
 			{
-				iCommerce += (GC.getCorporationInfo(eCorporation).getCommerceProduced(eIndex) * getNumBonuses(eBonus) * GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getCorporationMaintenancePercent()) / 100;
+				int iBonusCount = getNumBonuses(eBonus);
+				if (GC.getCorporationInfo(eCorporation).isCountDistinctPrereqBonusesOnly())
+				{
+					iBonusCount = 1;
+				}
+				else if (GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType() > 0)
+				{
+					iBonusCount = std::min(iBonusCount, GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType());
+				}
+
+				iCommerce += (GC.getCorporationInfo(eCorporation).getCommerceProduced(eIndex) * iBonusCount * GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getCorporationMaintenancePercent()) / 100;
 			}
 		}
 	}
@@ -9187,6 +9640,7 @@ void CvCity::changeNumBonuses(BonusTypes eIndex, int iChange)
 	if (iChange != 0)
 	{
 		bool bOldHasBonus = hasBonus(eIndex);
+		const int iOldBonusCount = getNumBonuses(eIndex);
 
 		m_paiNumBonuses[eIndex] += iChange;
 
@@ -9205,6 +9659,11 @@ void CvCity::changeNumBonuses(BonusTypes eIndex, int iChange)
 		if (isCorporationBonus(eIndex))
 		{
 			updateCorporation();
+		}
+
+		if (iOldBonusCount != getNumBonuses(eIndex))
+		{
+			updateAllIndustryActivations();
 		}
 	}
 }
@@ -10075,6 +10534,7 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 {
 	CvCity* pLoopCity;
 	CvWString szBuffer;
+	int iOldActiveBuilding;
 	int iOldNumBuilding;
 	int iChangeNumRealBuilding;
 	int iLoop;
@@ -10088,6 +10548,7 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 	if (iChangeNumRealBuilding != 0)
 	{
 		iOldNumBuilding = getNumBuilding(eIndex);
+		iOldActiveBuilding = getNumActiveBuilding(eIndex);
 
 		m_paiNumRealBuilding[eIndex] = iNewValue;
 
@@ -10104,6 +10565,8 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 
 		if (iOldNumBuilding != getNumBuilding(eIndex))
 		{
+			setIndustryBuildingLocalActive(eIndex, calculateIndustryBuildingLocalActive(eIndex));
+
 			if (getNumRealBuilding(eIndex) > 0)
 			{
 				if (GC.getBuildingInfo(eIndex).isStateReligion())
@@ -10122,7 +10585,7 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 				}
 			}
 
-			processBuilding(eIndex, getNumBuilding(eIndex) - iOldNumBuilding);
+			processBuilding(eIndex, getNumActiveBuilding(eIndex) - iOldActiveBuilding);
 		}
 
 		if (!(GC.getBuildingClassInfo((BuildingClassTypes)(GC.getBuildingInfo(eIndex).getBuildingClassType())).isNoLimit()))
@@ -10280,6 +10743,7 @@ int CvCity::getNumFreeBuilding(BuildingTypes eIndex) const
 
 void CvCity::setNumFreeBuilding(BuildingTypes eIndex, int iNewValue)
 {
+	int iOldActiveBuilding;
 	int iOldNumBuilding;
 
 	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
@@ -10288,12 +10752,14 @@ void CvCity::setNumFreeBuilding(BuildingTypes eIndex, int iNewValue)
 	if (getNumFreeBuilding(eIndex) != iNewValue)
 	{
 		iOldNumBuilding = getNumBuilding(eIndex);
+		iOldActiveBuilding = getNumActiveBuilding(eIndex);
 
 		m_paiNumFreeBuilding[eIndex] = iNewValue;
 
 		if (iOldNumBuilding != getNumBuilding(eIndex))
 		{
-			processBuilding(eIndex, iNewValue - iOldNumBuilding);
+			setIndustryBuildingLocalActive(eIndex, calculateIndustryBuildingLocalActive(eIndex));
+			processBuilding(eIndex, getNumActiveBuilding(eIndex) - iOldActiveBuilding);
 		}
 	}
 }
@@ -12023,6 +12489,17 @@ void CvCity::read(FDataStreamBase* pStream)
 	pStream->Read(GC.getNumPromotionInfos(), m_paiFreePromotionCount);
 	pStream->Read(GC.getNumBuildingInfos(), m_paiNumRealBuilding);
 	pStream->Read(GC.getNumBuildingInfos(), m_paiNumFreeBuilding);
+	if (uiFlag & 0x1)
+	{
+		pStream->Read(GC.getNumBuildingInfos(), m_pabIndustryBuildingLocallyActive);
+	}
+	else
+	{
+		for (iI = 0; iI < GC.getNumBuildingInfos(); ++iI)
+		{
+			m_pabIndustryBuildingLocallyActive[iI] = false;
+		}
+	}
 
 	pStream->Read(NUM_CITY_PLOTS, m_pabWorkingPlot);
 	pStream->Read(GC.getNumReligionInfos(), m_pabHasReligion);
@@ -12126,13 +12603,14 @@ void CvCity::read(FDataStreamBase* pStream)
 	}
 
 	updateImprovementCityCommerceFromTraitsAndCivics(false);
+	updateAllIndustryActivations();
 }
 
 void CvCity::write(FDataStreamBase* pStream)
 {
 	int iI;
 
-	uint uiFlag=0;
+	uint uiFlag=0x1;
 	pStream->Write(uiFlag);		// flag for expansion
 
 	pStream->Write(m_iID);
@@ -12294,6 +12772,7 @@ void CvCity::write(FDataStreamBase* pStream)
 	pStream->Write(GC.getNumPromotionInfos(), m_paiFreePromotionCount);
 	pStream->Write(GC.getNumBuildingInfos(), m_paiNumRealBuilding);
 	pStream->Write(GC.getNumBuildingInfos(), m_paiNumFreeBuilding);
+	pStream->Write(GC.getNumBuildingInfos(), m_pabIndustryBuildingLocallyActive);
 
 	pStream->Write(NUM_CITY_PLOTS, m_pabWorkingPlot);
 	pStream->Write(GC.getNumReligionInfos(), m_pabHasReligion);

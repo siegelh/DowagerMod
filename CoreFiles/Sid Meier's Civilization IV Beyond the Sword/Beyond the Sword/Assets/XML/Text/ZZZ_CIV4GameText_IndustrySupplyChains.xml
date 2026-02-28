@@ -1,0 +1,819 @@
+<?xml version="1.0"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FINE_DYES</Tag>
+    <English>Fine Dyes</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FINE_DYES_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Fine Dyes provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FINE_FURS</Tag>
+    <English>Fine Furs</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FINE_FURS_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Fine Furs provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_CUT_GEMS</Tag>
+    <English>Cut Gems</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_CUT_GEMS_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Cut Gems provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_GOLD_BULLION</Tag>
+    <English>Gold Bullion</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_GOLD_BULLION_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Gold Bullion provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_TEMPLE_INCENSE</Tag>
+    <English>Temple Incense</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_TEMPLE_INCENSE_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Temple Incense provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_IVORY_CARVINGS</Tag>
+    <English>Ivory Carvings</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_IVORY_CARVINGS_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Ivory Carvings provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FINE_SILK</Tag>
+    <English>Fine Silk</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FINE_SILK_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Fine Silk provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_WORKED_SILVER</Tag>
+    <English>Worked Silver</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_WORKED_SILVER_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Worked Silver provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_SPICE_BLENDS</Tag>
+    <English>Spice Blends</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_SPICE_BLENDS_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Spice Blends provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_CONFECTIONS</Tag>
+    <English>Confections</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_CONFECTIONS_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Confections provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_VINTAGE_WINE</Tag>
+    <English>Vintage Wine</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_VINTAGE_WINE_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Vintage Wine provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_LAMP_OIL</Tag>
+    <English>Lamp Oil</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_LAMP_OIL_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Lamp Oil provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_STAGE_PLAYS</Tag>
+    <English>Stage Plays</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_STAGE_PLAYS_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Stage Plays provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_MASTER_RECORDINGS</Tag>
+    <English>Master Recordings</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_MASTER_RECORDINGS_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Master Recordings provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FILM_PRINTS</Tag>
+    <English>Film Prints</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FILM_PRINTS_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Film Prints provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FLOUR</Tag>
+    <English>Flour</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FLOUR_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Flour provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_CURED_MEATS</Tag>
+    <English>Cured Meats</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_CURED_MEATS_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Cured Meats provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_PRESERVED_SEAFOOD</Tag>
+    <English>Preserved Seafood</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_PRESERVED_SEAFOOD_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Preserved Seafood provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FRUIT_PRESERVES</Tag>
+    <English>Fruit Preserves</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_FRUIT_PRESERVES_PEDIA</Tag>
+    <English>Manufactured good produced by industry buildings. Fruit Preserves provides no direct happiness or health by itself, but it can unlock composite industries and power corporations while connected to your trade network.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_DYE_WORKS</Tag>
+    <English>Dye Works</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_DYE_WORKS_PEDIA</Tag>
+    <English>Produces 1 Fine Dyes while active. Building effects: +2 [ICON_CULTURE], +10% [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_DYE_WORKS_STRATEGY</Tag>
+    <English>Produces 1 Fine Dyes while active. Building effects: +2 [ICON_CULTURE], +10% [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FURRIERS_HALL</Tag>
+    <English>Furriers' Hall</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FURRIERS_HALL_PEDIA</Tag>
+    <English>Produces 1 Fine Furs while active. Building effects: +2 [ICON_GOLD], +1 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FURRIERS_HALL_STRATEGY</Tag>
+    <English>Produces 1 Fine Furs while active. Building effects: +2 [ICON_GOLD], +1 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_JEWELERS_QUARTER</Tag>
+    <English>Jeweler's Quarter</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_JEWELERS_QUARTER_PEDIA</Tag>
+    <English>Produces 1 Cut Gems while active. Building effects: +10% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_JEWELERS_QUARTER_STRATEGY</Tag>
+    <English>Produces 1 Cut Gems while active. Building effects: +10% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MINTING_HOUSE</Tag>
+    <English>Minting House</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MINTING_HOUSE_PEDIA</Tag>
+    <English>Produces 1 Gold Bullion while active. Building effects: +15% [ICON_GOLD], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MINTING_HOUSE_STRATEGY</Tag>
+    <English>Produces 1 Gold Bullion while active. Building effects: +15% [ICON_GOLD], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_SANCTUARY</Tag>
+    <English>House of Incense</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_SANCTUARY_PEDIA</Tag>
+    <English>Produces 1 Temple Incense while active. Building effects: +2 [ICON_CULTURE], +1 [ICON_HAPPY], +1 Priest slot.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_SANCTUARY_STRATEGY</Tag>
+    <English>Produces 1 Temple Incense while active. Building effects: +2 [ICON_CULTURE], +1 [ICON_HAPPY], +1 Priest slot.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER</Tag>
+    <English>Ivory Carvers' Atelier</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER_PEDIA</Tag>
+    <English>Produces 1 Ivory Carvings while active. Building effects: +2 [ICON_CULTURE], +10% [ICON_GOLD], +1 Artist slot.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER_STRATEGY</Tag>
+    <English>Produces 1 Ivory Carvings while active. Building effects: +2 [ICON_CULTURE], +10% [ICON_GOLD], +1 Artist slot.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP</Tag>
+    <English>Silk Weaver's Workshop</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP_PEDIA</Tag>
+    <English>Produces 1 Fine Silk while active. Building effects: +2 [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP_STRATEGY</Tag>
+    <English>Produces 1 Fine Silk while active. Building effects: +2 [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SILVERSMITHS_HALL</Tag>
+    <English>Silversmiths' Hall</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SILVERSMITHS_HALL_PEDIA</Tag>
+    <English>Produces 1 Worked Silver while active. Building effects: +10% [ICON_GOLD], +1 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SILVERSMITHS_HALL_STRATEGY</Tag>
+    <English>Produces 1 Worked Silver while active. Building effects: +10% [ICON_GOLD], +1 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SPICE_EXCHANGE</Tag>
+    <English>Spice Exchange</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SPICE_EXCHANGE_PEDIA</Tag>
+    <English>Produces 1 Spice Blends while active. Building effects: +2 [ICON_GOLD], +1 [ICON_HEALTHY], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SPICE_EXCHANGE_STRATEGY</Tag>
+    <English>Produces 1 Spice Blends while active. Building effects: +2 [ICON_GOLD], +1 [ICON_HEALTHY], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_GUILD</Tag>
+    <English>Confectioners' Guild</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_GUILD_PEDIA</Tag>
+    <English>Produces 1 Confections while active. Building effects: +2 [ICON_GOLD], +1 [ICON_HEALTHY], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_GUILD_STRATEGY</Tag>
+    <English>Produces 1 Confections while active. Building effects: +2 [ICON_GOLD], +1 [ICON_HEALTHY], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_VINTNERS_GUILD</Tag>
+    <English>Vintners' Guild</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_VINTNERS_GUILD_PEDIA</Tag>
+    <English>Produces 1 Vintage Wine while active. Building effects: +2 [ICON_GOLD], +1 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_VINTNERS_GUILD_STRATEGY</Tag>
+    <English>Produces 1 Vintage Wine while active. Building effects: +2 [ICON_GOLD], +1 [ICON_CULTURE], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY</Tag>
+    <English>Whale Oil Chandlery</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY_PEDIA</Tag>
+    <English>Produces 1 Lamp Oil while active. Building effects: +1 [ICON_PRODUCTION], +2 [ICON_GOLD], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY_STRATEGY</Tag>
+    <English>Produces 1 Lamp Oil while active. Building effects: +1 [ICON_PRODUCTION], +2 [ICON_GOLD], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD</Tag>
+    <English>Playwrights' Guild</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD_PEDIA</Tag>
+    <English>Produces 1 Stage Plays while active. Building effects: +4 [ICON_CULTURE], +1 [ICON_HAPPY], +1 Artist slot.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD_STRATEGY</Tag>
+    <English>Produces 1 Stage Plays while active. Building effects: +4 [ICON_CULTURE], +1 [ICON_HAPPY], +1 Artist slot.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_RECORDING_HOUSE</Tag>
+    <English>Recording House</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_RECORDING_HOUSE_PEDIA</Tag>
+    <English>Produces 1 Master Recordings while active. Building effects: +3 [ICON_CULTURE], +2 [ICON_GOLD], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_RECORDING_HOUSE_STRATEGY</Tag>
+    <English>Produces 1 Master Recordings while active. Building effects: +3 [ICON_CULTURE], +2 [ICON_GOLD], +1 [ICON_HAPPY].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT</Tag>
+    <English>Film Studio District</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT_PEDIA</Tag>
+    <English>Produces 1 Film Prints while active. Building effects: +3 [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HAPPY], +10% [ICON_GOLD].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT_STRATEGY</Tag>
+    <English>Produces 1 Film Prints while active. Building effects: +3 [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HAPPY], +10% [ICON_GOLD].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MILLERS_GUILD</Tag>
+    <English>Millers' Guild</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MILLERS_GUILD_PEDIA</Tag>
+    <English>Produces 1 Flour while active. Building effects: +1 [ICON_HEALTHY], keeps 10% food after growth.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MILLERS_GUILD_STRATEGY</Tag>
+    <English>Produces 1 Flour while active. Building effects: +1 [ICON_HEALTHY], keeps 10% food after growth.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SMOKEHOUSE</Tag>
+    <English>Smokehouse</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SMOKEHOUSE_PEDIA</Tag>
+    <English>Produces 1 Cured Meats while active. Building effects: +1 [ICON_HEALTHY], +1 [ICON_PRODUCTION].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SMOKEHOUSE_STRATEGY</Tag>
+    <English>Produces 1 Cured Meats while active. Building effects: +1 [ICON_HEALTHY], +1 [ICON_PRODUCTION].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CANNERY</Tag>
+    <English>Cannery</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CANNERY_PEDIA</Tag>
+    <English>Produces 1 Preserved Seafood while active. Building effects: +1 [ICON_HEALTHY], +2 [ICON_GOLD].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CANNERY_STRATEGY</Tag>
+    <English>Produces 1 Preserved Seafood while active. Building effects: +1 [ICON_HEALTHY], +2 [ICON_GOLD].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FRUIT_PRESERVERS</Tag>
+    <English>Fruit Preservers</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FRUIT_PRESERVERS_PEDIA</Tag>
+    <English>Produces 1 Fruit Preserves while active. Building effects: +1 [ICON_HEALTHY], +1 [ICON_GOLD], +1 [ICON_CULTURE].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FRUIT_PRESERVERS_STRATEGY</Tag>
+    <English>Produces 1 Fruit Preserves while active. Building effects: +1 [ICON_HEALTHY], +1 [ICON_GOLD], +1 [ICON_CULTURE].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_GARMENTS_HOUSE</Tag>
+    <English>Royal Garments House</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_GARMENTS_HOUSE_PEDIA</Tag>
+    <English>Requires connected Fine Silk and Fine Dyes. Only one copy may exist in your civilization. Building effects: +25% [ICON_GOLD], +3 [ICON_CULTURE], +1 [ICON_HAPPY], +1 Merchant slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_GARMENTS_HOUSE_STRATEGY</Tag>
+    <English>Requires connected Fine Silk and Fine Dyes. Only one copy may exist in your civilization. Building effects: +25% [ICON_GOLD], +3 [ICON_CULTURE], +1 [ICON_HAPPY], +1 Merchant slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_NOBLE_TAILORS_HALL</Tag>
+    <English>Noble Tailors' Hall</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_NOBLE_TAILORS_HALL_PEDIA</Tag>
+    <English>Requires connected Fine Silk and Fine Furs. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_NOBLE_TAILORS_HALL_STRATEGY</Tag>
+    <English>Requires connected Fine Silk and Fine Furs. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_COURT_REGALIA_ATELIER</Tag>
+    <English>Court Regalia Atelier</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_COURT_REGALIA_ATELIER_PEDIA</Tag>
+    <English>Requires connected Fine Silk and Ivory Carvings. Only one copy may exist in your civilization. Building effects: +15% [ICON_CULTURE], +2 [ICON_GOLD], +1 Artist slot, +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_COURT_REGALIA_ATELIER_STRATEGY</Tag>
+    <English>Requires connected Fine Silk and Ivory Carvings. Only one copy may exist in your civilization. Building effects: +15% [ICON_CULTURE], +2 [ICON_GOLD], +1 Artist slot, +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_DYED_FUR_SALON</Tag>
+    <English>Dyed Fur Salon</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_DYED_FUR_SALON_PEDIA</Tag>
+    <English>Requires connected Fine Dyes and Fine Furs. Only one copy may exist in your civilization. Building effects: +20% [ICON_CULTURE], +2 [ICON_GOLD], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_DYED_FUR_SALON_STRATEGY</Tag>
+    <English>Requires connected Fine Dyes and Fine Furs. Only one copy may exist in your civilization. Building effects: +20% [ICON_CULTURE], +2 [ICON_GOLD], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CROWN_JEWELER</Tag>
+    <English>Crown Jeweler</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CROWN_JEWELER_PEDIA</Tag>
+    <English>Requires connected Gold Bullion and Cut Gems. Only one copy may exist in your civilization. Building effects: +25% [ICON_GOLD], +1 [ICON_HAPPY], +1 Merchant slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CROWN_JEWELER_STRATEGY</Tag>
+    <English>Requires connected Gold Bullion and Cut Gems. Only one copy may exist in your civilization. Building effects: +25% [ICON_GOLD], +1 [ICON_HAPPY], +1 Merchant slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_MINT</Tag>
+    <English>Royal Mint</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_MINT_PEDIA</Tag>
+    <English>Requires connected Gold Bullion and Worked Silver. Only one copy may exist in your civilization. Building effects: +20% [ICON_GOLD], +3 [ICON_GOLD], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_MINT_STRATEGY</Tag>
+    <English>Requires connected Gold Bullion and Worked Silver. Only one copy may exist in your civilization. Building effects: +20% [ICON_GOLD], +3 [ICON_GOLD], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_GEMCUTTERS_EXCHANGE</Tag>
+    <English>Gemcutters' Exchange</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_GEMCUTTERS_EXCHANGE_PEDIA</Tag>
+    <English>Requires connected Worked Silver and Cut Gems. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_GEMCUTTERS_EXCHANGE_STRATEGY</Tag>
+    <English>Requires connected Worked Silver and Cut Gems. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_REGAL_TREASURES_COURT</Tag>
+    <English>Regal Treasures Court</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_REGAL_TREASURES_COURT_PEDIA</Tag>
+    <English>Requires connected Gold Bullion and Ivory Carvings. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +1 Artist slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_REGAL_TREASURES_COURT_STRATEGY</Tag>
+    <English>Requires connected Gold Bullion and Ivory Carvings. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +1 Artist slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_QUARTER</Tag>
+    <English>Aromatics Quarter</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_QUARTER_PEDIA</Tag>
+    <English>Requires connected Temple Incense and Spice Blends. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +15% [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_QUARTER_STRATEGY</Tag>
+    <English>Requires connected Temple Incense and Spice Blends. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +15% [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_GRAND_BANQUET_HALL</Tag>
+    <English>Grand Banquet Hall</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_GRAND_BANQUET_HALL_PEDIA</Tag>
+    <English>Requires connected Vintage Wine and Confections. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_HAPPY], +1 [ICON_HEALTHY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_GRAND_BANQUET_HALL_STRATEGY</Tag>
+    <English>Requires connected Vintage Wine and Confections. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_HAPPY], +1 [ICON_HEALTHY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_EXCHANGE</Tag>
+    <English>Confectioners' Exchange</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_EXCHANGE_PEDIA</Tag>
+    <English>Requires connected Confections and Spice Blends. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +1 [ICON_HAPPY], +1 [ICON_HEALTHY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_EXCHANGE_STRATEGY</Tag>
+    <English>Requires connected Confections and Spice Blends. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +1 [ICON_HAPPY], +1 [ICON_HEALTHY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CEREMONIAL_CELLARS</Tag>
+    <English>Ceremonial Cellars</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CEREMONIAL_CELLARS_PEDIA</Tag>
+    <English>Requires connected Vintage Wine and Temple Incense. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +1 Priest slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CEREMONIAL_CELLARS_STRATEGY</Tag>
+    <English>Requires connected Vintage Wine and Temple Incense. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +1 Priest slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FESTIVAL_MARKET</Tag>
+    <English>Festival Market</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FESTIVAL_MARKET_PEDIA</Tag>
+    <English>Requires connected Vintage Wine and Spice Blends. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FESTIVAL_MARKET_STRATEGY</Tag>
+    <English>Requires connected Vintage Wine and Spice Blends. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_IMPERIAL_OUTFITTERS</Tag>
+    <English>Imperial Outfitters</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_IMPERIAL_OUTFITTERS_PEDIA</Tag>
+    <English>Requires connected Fine Furs and Ivory Carvings. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_IMPERIAL_OUTFITTERS_STRATEGY</Tag>
+    <English>Requires connected Fine Furs and Ivory Carvings. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +10% [ICON_CULTURE], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ADMIRALTY_CURIOS_HOUSE</Tag>
+    <English>Admiralty Curios House</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ADMIRALTY_CURIOS_HOUSE_PEDIA</Tag>
+    <English>Requires connected Lamp Oil and Ivory Carvings. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +1 [ICON_PRODUCTION], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ADMIRALTY_CURIOS_HOUSE_STRATEGY</Tag>
+    <English>Requires connected Lamp Oil and Ivory Carvings. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +1 [ICON_PRODUCTION], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS</Tag>
+    <English>Navigator's Instrument Works</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS_PEDIA</Tag>
+    <English>Requires connected Lamp Oil and Worked Silver. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +1 Engineer slot, +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS_STRATEGY</Tag>
+    <English>Requires connected Lamp Oil and Worked Silver. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +1 Engineer slot, +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_OPERA_HOUSE</Tag>
+    <English>Opera House</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_OPERA_HOUSE_PEDIA</Tag>
+    <English>Requires connected Stage Plays and Master Recordings. Only one copy may exist in your civilization. Building effects: +20% [ICON_CULTURE], +2 [ICON_HAPPY], +1 Artist slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_OPERA_HOUSE_STRATEGY</Tag>
+    <English>Requires connected Stage Plays and Master Recordings. Only one copy may exist in your civilization. Building effects: +20% [ICON_CULTURE], +2 [ICON_HAPPY], +1 Artist slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CINEMA_PALACE</Tag>
+    <English>Cinema Palace</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CINEMA_PALACE_PEDIA</Tag>
+    <English>Requires connected Stage Plays and Film Prints. Only one copy may exist in your civilization. Building effects: +15% [ICON_CULTURE], +10% [ICON_GOLD], +2 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CINEMA_PALACE_STRATEGY</Tag>
+    <English>Requires connected Stage Plays and Film Prints. Only one copy may exist in your civilization. Building effects: +15% [ICON_CULTURE], +10% [ICON_GOLD], +2 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SOUNDSTAGE_COMPLEX</Tag>
+    <English>Soundstage Complex</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SOUNDSTAGE_COMPLEX_PEDIA</Tag>
+    <English>Requires connected Master Recordings and Film Prints. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +10% [ICON_CULTURE], +2 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SOUNDSTAGE_COMPLEX_STRATEGY</Tag>
+    <English>Requires connected Master Recordings and Film Prints. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +10% [ICON_CULTURE], +2 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MASS_ENTERTAINMENT_NETWORK</Tag>
+    <English>Mass Entertainment Network</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MASS_ENTERTAINMENT_NETWORK_PEDIA</Tag>
+    <English>Requires connected Stage Plays, Master Recordings, and Film Prints. Only one copy may exist in your civilization. Building effects: +25% [ICON_CULTURE], +15% [ICON_GOLD], +3 [ICON_HAPPY], +1 Artist slot, +1 Merchant slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MASS_ENTERTAINMENT_NETWORK_STRATEGY</Tag>
+    <English>Requires connected Stage Plays, Master Recordings, and Film Prints. Only one copy may exist in your civilization. Building effects: +25% [ICON_CULTURE], +15% [ICON_GOLD], +3 [ICON_HAPPY], +1 Artist slot, +1 Merchant slot, +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_BAKERS_EXCHANGE</Tag>
+    <English>Bakers' Exchange</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_BAKERS_EXCHANGE_PEDIA</Tag>
+    <English>Requires connected Flour and Spice Blends. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_BAKERS_EXCHANGE_STRATEGY</Tag>
+    <English>Requires connected Flour and Spice Blends. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FESTIVAL_KITCHENS</Tag>
+    <English>Festival Kitchens</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FESTIVAL_KITCHENS_PEDIA</Tag>
+    <English>Requires connected Flour and Vintage Wine. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_FESTIVAL_KITCHENS_STRATEGY</Tag>
+    <English>Requires connected Flour and Vintage Wine. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_KITCHENS</Tag>
+    <English>Royal Kitchens</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_KITCHENS_PEDIA</Tag>
+    <English>Requires connected Cured Meats and Vintage Wine. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ROYAL_KITCHENS_STRATEGY</Tag>
+    <English>Requires connected Cured Meats and Vintage Wine. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SPICED_CARVERY</Tag>
+    <English>Spiced Carvery</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SPICED_CARVERY_PEDIA</Tag>
+    <English>Requires connected Cured Meats and Spice Blends. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +1 [ICON_PRODUCTION], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SPICED_CARVERY_STRATEGY</Tag>
+    <English>Requires connected Cured Meats and Spice Blends. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +1 [ICON_PRODUCTION], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MARITIME_SUPPER_CLUB</Tag>
+    <English>Maritime Supper Club</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MARITIME_SUPPER_CLUB_PEDIA</Tag>
+    <English>Requires connected Preserved Seafood and Vintage Wine. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_MARITIME_SUPPER_CLUB_STRATEGY</Tag>
+    <English>Requires connected Preserved Seafood and Vintage Wine. Only one copy may exist in your civilization. Building effects: +10% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PRESERVES_MARKET</Tag>
+    <English>Preserves Market</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PRESERVES_MARKET_PEDIA</Tag>
+    <English>Requires connected Fruit Preserves and Confections. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PRESERVES_MARKET_STRATEGY</Tag>
+    <English>Requires connected Fruit Preserves and Confections. Only one copy may exist in your civilization. Building effects: +15% [ICON_GOLD], +2 [ICON_CULTURE], +1 [ICON_HEALTHY], +1 [ICON_HAPPY], +3 [ICON_GREATPEOPLE] Great Person Points.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_1</Tag>
+    <English>Continental Provisions Company</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_2</Tag>
+    <English>Grand Hospitality Company</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_3</Tag>
+    <English>Imperial Luxury Exchange</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_4</Tag>
+    <English>Courtly Arts &amp; Regalia Consortium</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_5</Tag>
+    <English>Aromatics &amp; Festival Consortium</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_6</Tag>
+    <English>World Media Syndicate</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_7</Tag>
+    <English>Reserved Charter</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_1_PEDIA</Tag>
+    <English>Founded from active provision and hospitality composites, Continental Provisions Company scales from connected Flour, Cured Meats, Preserved Seafood, and Fruit Preserves.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CORPORATION_1_STRATEGY</Tag>
+    <English>Found this corporation once your empire operates at least two active composite industries from the correct sector; it then scales from connected synthetic goods.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_2_PEDIA</Tag>
+    <English>Founded from active hospitality composites, Grand Hospitality Company scales from connected Vintage Wine, Confections, Temple Incense, and Spice Blends.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CORPORATION_2_STRATEGY</Tag>
+    <English>Found this corporation once your empire operates at least two active composite industries from the correct sector; it then scales from connected synthetic goods.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_3_PEDIA</Tag>
+    <English>Founded from active luxury composites, Imperial Luxury Exchange scales from connected Fine Silk, Fine Dyes, Cut Gems, Gold Bullion, Worked Silver, and Fine Furs.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CORPORATION_3_STRATEGY</Tag>
+    <English>Found this corporation once your empire operates at least two active composite industries from the correct sector; it then scales from connected synthetic goods.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_4_PEDIA</Tag>
+    <English>Founded from active regalia composites, Courtly Arts &amp; Regalia Consortium scales from connected Ivory Carvings, Lamp Oil, Worked Silver, Fine Furs, and Fine Silk.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CORPORATION_4_STRATEGY</Tag>
+    <English>Found this corporation once your empire operates at least two active composite industries from the correct sector; it then scales from connected synthetic goods.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_5_PEDIA</Tag>
+    <English>Founded from active aromatic and festival composites, Aromatics &amp; Festival Consortium scales from connected Temple Incense, Spice Blends, Confections, and Vintage Wine.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CORPORATION_5_STRATEGY</Tag>
+    <English>Found this corporation once your empire operates at least two active composite industries from the correct sector; it then scales from connected synthetic goods.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_6_PEDIA</Tag>
+    <English>Founded from active media composites, World Media Syndicate scales from connected Stage Plays, Master Recordings, and Film Prints.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CORPORATION_6_STRATEGY</Tag>
+    <English>Found this corporation once your empire operates at least two active composite industries from the correct sector; it then scales from connected synthetic goods.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CORPORATION_7_PEDIA</Tag>
+    <English>Reserved corporation slot. This entry is intentionally inactive in the current overhaul.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_CORPORATION_7_STRATEGY</Tag>
+    <English>Unused corporation headquarters slot reserved for future expansion.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXECUTIVE_1</Tag>
+    <English>Provisions Executive</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXECUTIVE_2</Tag>
+    <English>Hospitality Executive</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXECUTIVE_3</Tag>
+    <English>Luxury Exchange Executive</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXECUTIVE_4</Tag>
+    <English>Regalia Envoy</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXECUTIVE_5</Tag>
+    <English>Festival Envoy</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXECUTIVE_6</Tag>
+    <English>Media Executive</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXECUTIVE_7</Tag>
+    <English>Reserved Executive</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CONCEPT_INDUSTRY_SUPPLY_CHAINS</Tag>
+    <English>Industry Supply Chains</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CONCEPT_INDUSTRY_SUPPLY_CHAINS_PEDIA</Tag>
+    <English>[H1]Industry Supply Chains[\H1][NEWLINE][BOLD]How it works[\BOLD][NEWLINE]1. A local processing industry converts a raw resource into a synthetic trade good.[NEWLINE]2. Synthetic goods do not provide direct happiness or health by themselves.[NEWLINE]3. Connected synthetic goods unlock composite industries anywhere in your trade network.[NEWLINE]4. Composite industries turn off if their connected synthetic goods are lost.[NEWLINE]5. Corporations are founded from active composite sectors and powered by synthetic goods.[NEWLINE][BOLD]Luxury processing[\BOLD][NEWLINE]Dye Works: Dye -&gt; Fine Dyes[NEWLINE]Furriers' Hall: Fur -&gt; Fine Furs[NEWLINE]Jeweler's Quarter: Gems -&gt; Cut Gems[NEWLINE]Minting House: Gold -&gt; Gold Bullion[NEWLINE]House of Incense: Incense -&gt; Temple Incense[NEWLINE]Ivory Carvers' Atelier: Ivory -&gt; Ivory Carvings[NEWLINE]Silk Weaver's Workshop: Silk -&gt; Fine Silk[NEWLINE]Silversmiths' Hall: Silver -&gt; Worked Silver[NEWLINE]Spice Exchange: Spices -&gt; Spice Blends[NEWLINE]Confectioners' Guild: Sugar -&gt; Confections[NEWLINE]Vintners' Guild: Wine -&gt; Vintage Wine[NEWLINE]Whale Oil Chandlery: Whale -&gt; Lamp Oil[NEWLINE]Playwrights' Guild: Drama -&gt; Stage Plays[NEWLINE]Recording House: Music -&gt; Master Recordings[NEWLINE]Film Studio District: Movies -&gt; Film Prints[NEWLINE][BOLD]Provision processing[\BOLD][NEWLINE]Millers' Guild: Wheat / Corn / Rice -&gt; Flour[NEWLINE]Smokehouse: Cow / Pig / Sheep / Deer -&gt; Cured Meats[NEWLINE]Cannery: Fish / Clam / Crab -&gt; Preserved Seafood[NEWLINE]Fruit Preservers: Banana -&gt; Fruit Preserves[NEWLINE][BOLD]Composite examples[\BOLD][NEWLINE]Royal Garments House: Fine Silk + Fine Dyes[NEWLINE]Crown Jeweler: Gold Bullion + Cut Gems[NEWLINE]Aromatics Quarter: Temple Incense + Spice Blends[NEWLINE]Grand Banquet Hall: Vintage Wine + Confections[NEWLINE]Bakers' Exchange: Flour + Spice Blends[NEWLINE]Royal Kitchens: Cured Meats + Vintage Wine[NEWLINE]Mass Entertainment Network: Stage Plays + Master Recordings + Film Prints[NEWLINE][BOLD]Icon note[\BOLD][NEWLINE]Synthetic goods use resource-style buttons with a gold star marker to show that they are processed goods rather than raw map bonuses.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CONCEPT_CORPORATIONS_PEDIA</Tag>
+    <English>[H1]Corporations[\H1][NEWLINE]Corporations now represent downstream commercial sectors rather than raw-resource monopolies. To found a corporation, your empire must already operate at least two active composite industries from the correct sector. Once founded, the corporation scales from connected synthetic goods such as Cut Gems, Fine Silk, Flour, or Stage Plays. Synthetic goods remain tradable and can activate or deactivate composite industries and corporate value when trade access changes.</English>
+  </TEXT>
+</Civ4GameText>
