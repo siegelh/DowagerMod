@@ -2,7 +2,7 @@
 <Civ4GameText xmlns="http://www.firaxis.com">
 	<TEXT>
 		<Tag>TXT_KEY_BUILDING_KHMER_BARAY_HELP</Tag>
-		<English>+1 [ICON_FOOD] from Farms worked by this city.</English>
+		<English>+1 [ICON_FOOD] from Farms in this city's radius.</English>
 		<French>+1 [ICON_FOOD] des Fermes exploitees par cette ville.</French>
 		<German>+1 [ICON_FOOD] von Bauernhofen, die von dieser Stadt bearbeitet werden.</German>
 		<Italian>+1 [ICON_FOOD] dalle Fattorie lavorate da questa citta.</Italian>

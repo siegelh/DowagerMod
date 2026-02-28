@@ -754,6 +754,8 @@ public:
 
 	int getImprovementFreeSpecialists(ImprovementTypes eIndex) const;			// Exposed to Python
 	void changeImprovementFreeSpecialists(ImprovementTypes eIndex, int iChange);		// Exposed to Python
+	int getImprovementYieldChange(ImprovementTypes eImprovement, YieldTypes eYield) const;
+	void changeImprovementYieldChange(ImprovementTypes eImprovement, YieldTypes eYield, int iChange);
 
 	int getReligionInfluence(ReligionTypes eIndex) const;													// Exposed to Python
 	void changeReligionInfluence(ReligionTypes eIndex, int iChange);				// Exposed to Python
@@ -926,6 +928,7 @@ public:
 	void invalidateCommerceRankCache(CommerceTypes eCommerce = NO_COMMERCE);
 
 	int getBestYieldAvailable(YieldTypes eYield) const;
+	void updateImprovementCityCommerceFromTraitsAndCivics(bool bUpdateCommerce = true);
 	int getImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const;
 
 protected:
@@ -1083,6 +1086,9 @@ protected:
 	int* m_paiForceSpecialistCount;
 	int* m_paiFreeSpecialistCount;
 	int* m_paiImprovementFreeSpecialists;
+	int** m_ppaiImprovementYieldChange;
+	int m_aiImprovementCityCommerceFromTraitsAndCivicsWorked[NUM_COMMERCE_TYPES];
+	int m_aiImprovementCityCommerceFromTraitsAndCivicsBFC[NUM_COMMERCE_TYPES];
 	int* m_paiReligionInfluence;
 	int* m_paiStateReligionHappiness;
 	int* m_paiUnitCombatFreeExperience;
@@ -1140,6 +1146,7 @@ protected:
 	int getHurryGold(HurryTypes eHurry, int iHurryCost) const;
 	bool canHurryUnit(HurryTypes eHurry, UnitTypes eUnit, bool bIgnoreNew) const;
 	bool canHurryBuilding(HurryTypes eHurry, BuildingTypes eBuilding, bool bIgnoreNew) const;
+	int calculateImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const;
 
 	virtual bool AI_addBestCitizen(bool bWorkers, bool bSpecialists, int* piBestPlot = NULL, SpecialistTypes* peBestSpecialist = NULL) = 0;
 	virtual bool AI_removeWorstCitizen(SpecialistTypes eIgnoreSpecialist = NO_SPECIALIST) = 0;

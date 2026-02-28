@@ -5313,6 +5313,7 @@ void CvPlot::setImprovementType(ImprovementTypes eNewValue)
 				if (pLoopCity != NULL)
 				{
 					pLoopCity->updateFeatureHappiness();
+					pLoopCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
 				}
 			}
 		}
@@ -5867,17 +5868,9 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 	if (ePlayer != NO_PLAYER)
 	{
 		CvCity* pWorkingCity = getWorkingCity();
-		if (pWorkingCity != NULL && pWorkingCity->getOwnerINLINE() == ePlayer)
+		if (pWorkingCity != NULL)
 		{
-			for (iI = 0; iI < GC.getNumBuildingInfos(); ++iI)
-			{
-				const BuildingTypes eBuilding = (BuildingTypes)iI;
-				const int iBuildingCount = pWorkingCity->getNumActiveBuilding(eBuilding);
-				if (iBuildingCount > 0)
-				{
-					iYield += iBuildingCount * GC.getBuildingInfo(eBuilding).getImprovementYieldChange(eImprovement, eYield);
-				}
-			}
+			iYield += pWorkingCity->getImprovementYieldChange(eImprovement, eYield);
 		}
 	}
 

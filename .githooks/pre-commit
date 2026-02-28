@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/test_gate.ps1
+status=$?
+
+if [ "$status" -ne 0 ]; then
+  echo "pre-commit: test_gate failed."
+  exit "$status"
+fi
+
+exit 0

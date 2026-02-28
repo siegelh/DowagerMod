@@ -1,7 +1,8 @@
 param(
     [string]$RepoRoot = "C:\DowagerMod",
     [string]$VsToolsVersion = "14.38.33130",
-    [string]$Target = "Release"
+    [string]$Target = "Release",
+    [switch]$NoDeploy
 )
 
 $ErrorActionPreference = "Stop"
@@ -44,6 +45,12 @@ if (!(Test-Path $builtDll)) {
 }
 
 $targetOutPath = Join-Path $assetsOut "CvGameCoreDLL.dll"
+
+if ($NoDeploy) {
+    Write-Host "Built DLL: $builtDll"
+    Write-Host "NoDeploy enabled. Skipping copy/replace in assets folder."
+    return
+}
 
 if (Test-Path $targetOutPath) {
     $stamp = Get-Date -Format "yyyyMMdd_HHmmss"

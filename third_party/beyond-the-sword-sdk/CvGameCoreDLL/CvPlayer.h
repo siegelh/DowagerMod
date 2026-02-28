@@ -1173,6 +1173,7 @@ protected:
 	int* m_aiCapitalYieldRateModifier;
 	int* m_aiExtraYieldThreshold;
 	int* m_aiTradeYieldModifier;
+	int m_aiTraitGoldenAgeYieldChange[NUM_YIELD_TYPES];
 	int* m_aiFreeCityCommerce;
 	int* m_aiCommercePercent;
 	int* m_aiCommerceRate;
@@ -1278,6 +1279,7 @@ protected:
 	void verifyGoldCommercePercent();
 
 	void processCivics(CivicTypes eCivic, int iChange);
+	void rebuildTraitGoldenAgeYieldChangeCache();
 
 	// for serialization
 	virtual void read(FDataStreamBase* pStream);

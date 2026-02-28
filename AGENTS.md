@@ -29,4 +29,12 @@ A skill is a set of local instructions to follow that is stored in a `SKILL.md` 
   - Avoid deep reference-chasing: prefer opening only files directly linked from `SKILL.md` unless you're blocked.
   - When variants exist (frameworks, providers, domains), pick only the relevant reference file(s) and note that choice.
 - Safety and fallback: If a skill can't be applied cleanly (missing files, unclear instructions), state the issue, pick the next-best approach, and continue.
+
+## Mandatory Test Gate
+- After editing any XML under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML`, run:
+  - `.\tools\test_gate.ps1`
+- After editing DLL source under `third_party/beyond-the-sword-sdk/CvGameCoreDLL`, run:
+  - `.\tools\test_gate.ps1`
+- Do not report XML/DLL edits as complete until the gate passes.
+- If the gate cannot be run, explicitly state that and ask the user whether to proceed anyway.
 </INSTRUCTIONS>

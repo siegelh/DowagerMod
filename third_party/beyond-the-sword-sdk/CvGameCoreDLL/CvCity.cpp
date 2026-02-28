@@ -76,6 +76,7 @@ CvCity::CvCity()
 	m_paiForceSpecialistCount = NULL;
 	m_paiFreeSpecialistCount = NULL;
 	m_paiImprovementFreeSpecialists = NULL;
+	m_ppaiImprovementYieldChange = NULL;
 	m_paiReligionInfluence = NULL;
 	m_paiStateReligionHappiness = NULL;
 	m_paiUnitCombatFreeExperience = NULL;
@@ -309,6 +310,8 @@ void CvCity::init(int iID, PlayerTypes eOwner, int iX, int iY, bool bBumpUnits, 
 		GC.getGameINLINE().updatePlotGroups();
 	}
 
+	updateImprovementCityCommerceFromTraitsAndCivics(true);
+
 	AI_init();
 }
 
@@ -333,6 +336,14 @@ void CvCity::uninit()
 	SAFE_DELETE_ARRAY(m_paiForceSpecialistCount);
 	SAFE_DELETE_ARRAY(m_paiFreeSpecialistCount);
 	SAFE_DELETE_ARRAY(m_paiImprovementFreeSpecialists);
+	if (m_ppaiImprovementYieldChange != NULL)
+	{
+		for (int iI = 0; iI < GC.getNumImprovementInfos(); ++iI)
+		{
+			SAFE_DELETE_ARRAY(m_ppaiImprovementYieldChange[iI]);
+		}
+		SAFE_DELETE_ARRAY(m_ppaiImprovementYieldChange);
+	}
 	SAFE_DELETE_ARRAY(m_paiReligionInfluence);
 	SAFE_DELETE_ARRAY(m_paiStateReligionHappiness);
 	SAFE_DELETE_ARRAY(m_paiUnitCombatFreeExperience);
@@ -487,6 +498,8 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 		m_aiCorporationCommerce[iI] = 0;
 		m_aiCommerceRateModifier[iI] = 0;
 		m_aiCommerceHappinessPer[iI] = 0;
+		m_aiImprovementCityCommerceFromTraitsAndCivicsWorked[iI] = 0;
+		m_aiImprovementCityCommerceFromTraitsAndCivicsBFC[iI] = 0;
 	}
 
 	for (iI = 0; iI < NUM_DOMAIN_TYPES; iI++)
@@ -605,9 +618,15 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 
 		FAssertMsg((0 < GC.getNumImprovementInfos()),  "GC.getNumImprovementInfos() is not greater than zero but an array is being allocated in CvCity::reset");
 		m_paiImprovementFreeSpecialists = new int[GC.getNumImprovementInfos()];
+		m_ppaiImprovementYieldChange = new int*[GC.getNumImprovementInfos()];
 		for (iI = 0; iI < GC.getNumImprovementInfos(); iI++)
 		{
 			m_paiImprovementFreeSpecialists[iI] = 0;
+			m_ppaiImprovementYieldChange[iI] = new int[NUM_YIELD_TYPES];
+			for (int iJ = 0; iJ < NUM_YIELD_TYPES; ++iJ)
+			{
+				m_ppaiImprovementYieldChange[iI][iJ] = 0;
+			}
 		}
 
 		m_paiReligionInfluence = new int[GC.getNumReligionInfos()];
@@ -3613,6 +3632,7 @@ void CvCity::processBonus(BonusTypes eBonus, int iChange)
 void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolete)
 {
 	UnitTypes eGreatPeopleUnit;
+	bool bImprovementYieldChanged = false;
 	int iI, iJ;
 
 	if (!(GET_TEAM(getTeam()).isObsoleteBuilding(eBuilding)) || bObsolete)
@@ -3714,6 +3734,20 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 		for (iI = 0; iI < GC.getNumImprovementInfos(); ++iI)
 		{
 			changeImprovementFreeSpecialists((ImprovementTypes)iI, GC.getBuildingInfo(eBuilding).getImprovementFreeSpecialist(iI) * iChange);
+			for (iJ = 0; iJ < NUM_YIELD_TYPES; ++iJ)
+			{
+				const int iImprovementYieldDelta = GC.getBuildingInfo(eBuilding).getImprovementYieldChange(iI, iJ) * iChange;
+				if (iImprovementYieldDelta != 0)
+				{
+					changeImprovementYieldChange((ImprovementTypes)iI, (YieldTypes)iJ, iImprovementYieldDelta);
+					bImprovementYieldChanged = true;
+				}
+			}
+		}
+
+		if (bImprovementYieldChanged)
+		{
+			updateYield();
 		}
 
 		FAssertMsg((0 < GC.getNumBonusInfos()) && "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvPlotGroup::reset", "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvPlotGroup::reset");
@@ -7970,7 +8004,7 @@ int CvCity::getBaseCommerceRate(CommerceTypes eIndex) const
 	return (getBaseCommerceRateTimes100(eIndex) / 100);
 }
 
-int CvCity::getImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const
+int CvCity::calculateImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const
 {
 	int iTotalChange = 0;
 	const CvPlayer& kPlayer = GET_PLAYER(getOwnerINLINE());
@@ -8026,6 +8060,47 @@ int CvCity::getImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerc
 	}
 
 	return iTotalChange;
+}
+
+void CvCity::updateImprovementCityCommerceFromTraitsAndCivics(bool bUpdateCommerce)
+{
+	bool bChanged = false;
+
+	for (int iCommerce = 0; iCommerce < NUM_COMMERCE_TYPES; ++iCommerce)
+	{
+		const int iWorkedOnly = calculateImprovementCityCommerceFromTraitsAndCivics((CommerceTypes)iCommerce, true);
+		const int iBFC = calculateImprovementCityCommerceFromTraitsAndCivics((CommerceTypes)iCommerce, false);
+
+		if (m_aiImprovementCityCommerceFromTraitsAndCivicsWorked[iCommerce] != iWorkedOnly)
+		{
+			m_aiImprovementCityCommerceFromTraitsAndCivicsWorked[iCommerce] = iWorkedOnly;
+			bChanged = true;
+		}
+
+		if (m_aiImprovementCityCommerceFromTraitsAndCivicsBFC[iCommerce] != iBFC)
+		{
+			m_aiImprovementCityCommerceFromTraitsAndCivicsBFC[iCommerce] = iBFC;
+			bChanged = true;
+		}
+	}
+
+	if (bChanged && bUpdateCommerce)
+	{
+		updateCommerce();
+	}
+}
+
+int CvCity::getImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const
+{
+	FAssertMsg(eCommerce >= 0, "eCommerce expected to be >= 0");
+	FAssertMsg(eCommerce < NUM_COMMERCE_TYPES, "eCommerce expected to be < NUM_COMMERCE_TYPES");
+
+	if (bWorkedOnly)
+	{
+		return m_aiImprovementCityCommerceFromTraitsAndCivicsWorked[eCommerce];
+	}
+
+	return m_aiImprovementCityCommerceFromTraitsAndCivicsBFC[eCommerce];
 }
 
 int CvCity::getBaseCommerceRateTimes100(CommerceTypes eIndex) const
@@ -9698,6 +9773,28 @@ void CvCity::changeImprovementFreeSpecialists(ImprovementTypes eIndex, int iChan
 	}
 }
 
+int CvCity::getImprovementYieldChange(ImprovementTypes eImprovement, YieldTypes eYield) const
+{
+	FAssertMsg(eImprovement >= 0, "eImprovement expected to be >= 0");
+	FAssertMsg(eImprovement < GC.getNumImprovementInfos(), "eImprovement expected to be < GC.getNumImprovementInfos()");
+	FAssertMsg(eYield >= 0, "eYield expected to be >= 0");
+	FAssertMsg(eYield < NUM_YIELD_TYPES, "eYield expected to be < NUM_YIELD_TYPES");
+	return m_ppaiImprovementYieldChange ? m_ppaiImprovementYieldChange[eImprovement][eYield] : 0;
+}
+
+void CvCity::changeImprovementYieldChange(ImprovementTypes eImprovement, YieldTypes eYield, int iChange)
+{
+	FAssertMsg(eImprovement >= 0, "eImprovement expected to be >= 0");
+	FAssertMsg(eImprovement < GC.getNumImprovementInfos(), "eImprovement expected to be < GC.getNumImprovementInfos()");
+	FAssertMsg(eYield >= 0, "eYield expected to be >= 0");
+	FAssertMsg(eYield < NUM_YIELD_TYPES, "eYield expected to be < NUM_YIELD_TYPES");
+
+	if (iChange != 0 && m_ppaiImprovementYieldChange != NULL)
+	{
+		m_ppaiImprovementYieldChange[eImprovement][eYield] += iChange;
+	}
+}
+
 int CvCity::getReligionInfluence(ReligionTypes eIndex) const
 {
 	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
@@ -9890,6 +9987,8 @@ void CvCity::setWorkingPlot(int iIndex, bool bNewValue)
 				pPlot->updateSymbolDisplay();
 			}			
 		}
+
+		updateImprovementCityCommerceFromTraitsAndCivics(true);
 
 		if (isCitySelected())
 		{
@@ -11994,6 +12093,39 @@ void CvCity::read(FDataStreamBase* pStream)
 		pStream->Read(&iChange);
 		m_aBuildingHealthChange.push_back(std::make_pair((BuildingClassTypes)iBuildingClass, iChange));
 	}
+
+	// Rebuild city-local improvement yield modifiers from active buildings.
+	for (int iImprovement = 0; iImprovement < GC.getNumImprovementInfos(); ++iImprovement)
+	{
+		for (int iYield = 0; iYield < NUM_YIELD_TYPES; ++iYield)
+		{
+			m_ppaiImprovementYieldChange[iImprovement][iYield] = 0;
+		}
+	}
+
+	for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)
+	{
+		const BuildingTypes eBuilding = (BuildingTypes)iBuilding;
+		const int iBuildingCount = getNumActiveBuilding(eBuilding);
+		if (iBuildingCount <= 0)
+		{
+			continue;
+		}
+
+		for (int iImprovement = 0; iImprovement < GC.getNumImprovementInfos(); ++iImprovement)
+		{
+			for (int iYield = 0; iYield < NUM_YIELD_TYPES; ++iYield)
+			{
+				const int iChange = GC.getBuildingInfo(eBuilding).getImprovementYieldChange(iImprovement, iYield);
+				if (iChange != 0)
+				{
+					m_ppaiImprovementYieldChange[iImprovement][iYield] += iBuildingCount * iChange;
+				}
+			}
+		}
+	}
+
+	updateImprovementCityCommerceFromTraitsAndCivics(false);
 }
 
 void CvCity::write(FDataStreamBase* pStream)

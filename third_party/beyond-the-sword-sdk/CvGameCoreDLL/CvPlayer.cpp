@@ -302,6 +302,8 @@ void CvPlayer::init(PlayerTypes eID)
 			}
 		}
 
+		rebuildTraitGoldenAgeYieldChangeCache();
+
 		updateMaxAnarchyTurns();
 
 		for (iI = 0; iI < NUM_YIELD_TYPES; iI++)
@@ -598,6 +600,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 		m_aiCapitalYieldRateModifier[iI] = 0;
 		m_aiExtraYieldThreshold[iI] = 0;
 		m_aiTradeYieldModifier[iI] = 0;
+		m_aiTraitGoldenAgeYieldChange[iI] = 0;
 	}
 
 	for (iI = 0; iI < NUM_COMMERCE_TYPES; iI++)
@@ -11682,6 +11685,12 @@ void CvPlayer::setCivics(CivicOptionTypes eIndex, CivicTypes eNewValue)
 			processCivics(getCivics(eIndex), 1);
 		}
 
+		int iLoop = 0;
+		for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+		{
+			pLoopCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
+		}
+
 		GC.getGameINLINE().updateSecretaryGeneral();
 
 		GC.getGameINLINE().AI_makeAssignWorkDirty();
@@ -11914,21 +11923,31 @@ void CvPlayer::changeTraitRouteYieldChange(RouteTypes eIndex1, YieldTypes eIndex
 	}
 }
 
+void CvPlayer::rebuildTraitGoldenAgeYieldChangeCache()
+{
+	for (int iYield = 0; iYield < NUM_YIELD_TYPES; ++iYield)
+	{
+		m_aiTraitGoldenAgeYieldChange[iYield] = 0;
+	}
+
+	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
+	{
+		if (hasTrait((TraitTypes)iTrait))
+		{
+			for (int iYield = 0; iYield < NUM_YIELD_TYPES; ++iYield)
+			{
+				m_aiTraitGoldenAgeYieldChange[iYield] += GC.getTraitInfo((TraitTypes)iTrait).getGoldenAgeYieldChange(iYield);
+			}
+		}
+	}
+}
+
 int CvPlayer::getTraitGoldenAgeYieldChange(YieldTypes eIndex) const
 {
 	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
 	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex expected to be < NUM_YIELD_TYPES");
 
-	int iChange = 0;
-	for (int iI = 0; iI < GC.getNumTraitInfos(); iI++)
-	{
-		if (hasTrait((TraitTypes)iI))
-		{
-			iChange += GC.getTraitInfo((TraitTypes)iI).getGoldenAgeYieldChange(eIndex);
-		}
-	}
-
-	return iChange;
+	return m_aiTraitGoldenAgeYieldChange[eIndex];
 }
 
 
@@ -16406,6 +16425,8 @@ void CvPlayer::read(FDataStreamBase* pStream)
 
 	pStream->Read(&m_iPopRushHurryCount);
 	pStream->Read(&m_iInflationModifier);
+
+	rebuildTraitGoldenAgeYieldChangeCache();
 
 	if (bBackfillTraitDerivedData)
 	{

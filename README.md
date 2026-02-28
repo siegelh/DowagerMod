@@ -16,6 +16,12 @@ Use the canonical build script from repo root:
 .\tools\build_civ4_dll.ps1
 ```
 
+Compile-only (no asset replacement):
+
+```powershell
+.\tools\build_civ4_dll.ps1 -NoDeploy
+```
+
 What it does:
 
 1. Builds `CvGameCoreDLL.dll` from:
@@ -29,6 +35,40 @@ Notes:
 
 - This timestamped DLL is ignored by git via `.gitignore`.
 - Rename/copy it to `CvGameCoreDLL.dll` when you want it to be the active shipped DLL.
+
+## Automated Test Gates
+
+Run these from repo root:
+
+1. Smart changed-file gate:
+
+```powershell
+.\tools\test_gate.ps1
+```
+
+`test_gate.ps1` is XML-focused by default. Add `-CheckDll` to also compile DLL when DLL source changes:
+
+```powershell
+.\tools\test_gate.ps1 -CheckDll
+```
+
+`-CheckDll` uses compile-only mode (`-NoDeploy`) so the gate does not replace files in `CoreFiles`.
+
+2. XML-only full sweep:
+
+```powershell
+.\tools\test_xml.ps1 -All
+```
+
+3. Full gate (all XML + DLL build):
+
+```powershell
+.\tools\test_full.ps1
+```
+
+Details:
+
+- `docs/TESTING_WORKFLOW.md`
 
 ## XML Targeting (Important)
 
