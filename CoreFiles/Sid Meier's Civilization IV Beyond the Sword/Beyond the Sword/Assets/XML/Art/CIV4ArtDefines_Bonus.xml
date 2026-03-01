@@ -417,8 +417,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Dye/Dye.nif</NIF>
 			<KFM>Art/Terrain/Resources/Dye/Dye.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/fine_dyes.dds</Button>
-			<FontButtonIndex>44</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Dye.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,3,15</Button>
+			<FontButtonIndex>20</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_FINE_FURS</Type>
@@ -426,8 +426,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Fur/Fur.nif</NIF>
 			<KFM>Art/Terrain/Resources/Fur/Fur.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/fine_furs.dds</Button>
-			<FontButtonIndex>45</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Fur.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,1,13</Button>
+			<FontButtonIndex>21</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_CUT_GEMS</Type>
@@ -435,8 +435,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Gems/Gems.nif</NIF>
 			<KFM>Art/Terrain/Resources/Gems/Gems.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/cut_gems.dds</Button>
-			<FontButtonIndex>46</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Gems.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,2,13</Button>
+			<FontButtonIndex>22</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_GOLD_BULLION</Type>
@@ -444,8 +444,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Gold/Gold.nif</NIF>
 			<KFM>Art/Terrain/Resources/Gold/Gold.KFM</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/gold_bullion.dds</Button>
-			<FontButtonIndex>47</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Gold.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,3,13</Button>
+			<FontButtonIndex>23</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_TEMPLE_INCENSE</Type>
@@ -453,8 +453,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Incense/Incense.nif</NIF>
 			<KFM>Art/Terrain/Resources/Incense/Incense.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/temple_incense.dds</Button>
-			<FontButtonIndex>48</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Incense.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,5,13</Button>
+			<FontButtonIndex>24</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_IVORY_CARVINGS</Type>
@@ -462,8 +462,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Elephant/Elephant.nif</NIF>
 			<KFM>Art/Terrain/Resources/Elephant/Elephant.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/ivory_carvings.dds</Button>
-			<FontButtonIndex>49</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Ivory.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,7,13</Button>
+			<FontButtonIndex>25</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_FINE_SILK</Type>
@@ -471,8 +471,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Silk/Silk.nif</NIF>
 			<KFM></KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/fine_silk.dds</Button>
-			<FontButtonIndex>50</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Silk.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,3,14</Button>
+			<FontButtonIndex>26</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_WORKED_SILVER</Type>
@@ -480,8 +480,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Silver/Silver.nif</NIF>
 			<KFM>Art/Terrain/Resources/Silver/Silver.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/worked_silver.dds</Button>
-			<FontButtonIndex>51</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Silver.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,4,14</Button>
+			<FontButtonIndex>27</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_SPICE_BLENDS</Type>
@@ -489,8 +489,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Spices/Spices.nif</NIF>
 			<KFM>Art/Terrain/Resources/Spices/Spices.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/spice_blends.dds</Button>
-			<FontButtonIndex>52</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Spices.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,5,14</Button>
+			<FontButtonIndex>28</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_CONFECTIONS</Type>
@@ -498,8 +498,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Sugar/Sugar.nif</NIF>
 			<KFM>Art/Terrain/Resources/Sugar/Sugar.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/confections.dds</Button>
-			<FontButtonIndex>53</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Sugar.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,7,14</Button>
+			<FontButtonIndex>29</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_VINTAGE_WINE</Type>
@@ -507,8 +507,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Wine/Wine.nif</NIF>
 			<KFM>Art/Terrain/Resources/Wine/Wine.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/vintage_wine.dds</Button>
-			<FontButtonIndex>54</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Wine.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,3,16</Button>
+			<FontButtonIndex>30</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_LAMP_OIL</Type>
@@ -516,8 +516,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Whale/Whale.nif</NIF>
 			<KFM>Art/Terrain/Resources/Whale/Whale.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/lamp_oil.dds</Button>
-			<FontButtonIndex>55</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Whale.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,1,16</Button>
+			<FontButtonIndex>31</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_STAGE_PLAYS</Type>
