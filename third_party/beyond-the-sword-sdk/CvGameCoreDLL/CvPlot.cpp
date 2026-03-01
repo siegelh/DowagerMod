@@ -8552,6 +8552,7 @@ void CvPlot::read(FDataStreamBase* pStream)
 	pStream->Read(&m_iX);
 	pStream->Read(&m_iY);
 	pStream->Read(&m_iArea);
+	dllTrace("SAVE", "BEGIN CvPlot::read x=%d y=%d area=%d uiFlag=%u", m_iX, m_iY, m_iArea, uiFlag);
 	// m_pPlotArea not saved
 	pStream->Read(&m_iFeatureVariety);
 	pStream->Read(&m_iOwnershipDuration);
@@ -8761,6 +8762,7 @@ void CvPlot::read(FDataStreamBase* pStream)
 	}
 
 	m_units.Read(pStream);
+	dllTrace("SAVE", "END CvPlot::read x=%d y=%d area=%d", m_iX, m_iY, m_iArea);
 }
 
 //
@@ -8773,6 +8775,7 @@ void CvPlot::write(FDataStreamBase* pStream)
 
 	uint uiFlag=0;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvPlot::write x=%d y=%d area=%d", m_iX, m_iY, m_iArea);
 
 	pStream->Write(m_iX);
 	pStream->Write(m_iY);
@@ -8994,6 +8997,7 @@ void CvPlot::write(FDataStreamBase* pStream)
 	}
 
 	m_units.Write(pStream);
+	dllTrace("SAVE", "END CvPlot::write x=%d y=%d area=%d", m_iX, m_iY, m_iArea);
 }
 
 void CvPlot::setLayoutDirty(bool bDirty)

@@ -207,6 +207,8 @@ namespace python = boost::python;
 #include "CvSelectionGroupAI.h"
 #include "CvUnitAI.h"
 
+void dllTrace(const char* pszCategory, const char* pszFormat, ...);
+
 #ifdef FINAL_RELEASE
 // Undefine OutputDebugString in final release builds
 #undef OutputDebugString

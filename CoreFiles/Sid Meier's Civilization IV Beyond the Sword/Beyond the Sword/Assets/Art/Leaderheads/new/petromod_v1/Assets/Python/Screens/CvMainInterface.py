@@ -7,6 +7,15 @@ import CvScreenEnums
 import CvEventInterface
 import time
 
+g_bIndustryAdvisorAvailable = False
+
+try:
+	import CvIndustryAdvisor
+	g_bIndustryAdvisorAvailable = True
+except:
+	CvIndustryAdvisor = None
+	g_bIndustryAdvisorAvailable = False
+
 # globals
 gc = CyGlobalContext()
 ArtFileMgr = CyArtFileMgr()
@@ -295,6 +304,9 @@ class CvMainInterface:
 		screen.hide( "EspionageAdvisorButton" )
 
 		iBtnX += iBtnAdvance
+		if g_bIndustryAdvisorAvailable:
+			screen.setImageButton( "IndustryAdvisorButton", "Art/Interface/Buttons/Buildings/Industries/exchange_hall.dds", iBtnX, iBtnY, iBtnWidth, iBtnWidth, WidgetTypes.WIDGET_GENERAL, -1, -1 )
+			screen.hide( "IndustryAdvisorButton" )
 		
 		# City Tabs
 		iBtnX = xResolution - 324
@@ -867,6 +879,8 @@ class CvMainInterface:
 			screen.hide( "MilitaryAdvisorButton" )
 			screen.hide( "VictoryAdvisorButton" )
 			screen.hide( "InfoAdvisorButton" )
+			if g_bIndustryAdvisorAvailable:
+				screen.hide( "IndustryAdvisorButton" )
 			
 		elif ( CyInterface().isCityScreenUp() ):
 			screen.show( "InterfaceLeftBackgroundWidget" )
@@ -889,6 +903,8 @@ class CvMainInterface:
 			screen.hide( "MilitaryAdvisorButton" )
 			screen.hide( "VictoryAdvisorButton" )
 			screen.hide( "InfoAdvisorButton" )
+			if g_bIndustryAdvisorAvailable:
+				screen.hide( "IndustryAdvisorButton" )
 			
 		elif ( CyInterface().getShowInterface() == InterfaceVisibility.INTERFACE_HIDE):
 			screen.hide( "InterfaceLeftBackgroundWidget" )
@@ -911,6 +927,8 @@ class CvMainInterface:
 			screen.show( "MilitaryAdvisorButton" )
 			screen.show( "VictoryAdvisorButton" )
 			screen.show( "InfoAdvisorButton" )
+			if g_bIndustryAdvisorAvailable:
+				screen.show( "IndustryAdvisorButton" )
 			screen.moveToFront( "TurnLogButton" )
 			screen.moveToFront( "EspionageAdvisorButton" )
 			screen.moveToFront( "DomesticAdvisorButton" )
@@ -923,6 +941,8 @@ class CvMainInterface:
 			screen.moveToFront( "MilitaryAdvisorButton" )
 			screen.moveToFront( "VictoryAdvisorButton" )
 			screen.moveToFront( "InfoAdvisorButton" )
+			if g_bIndustryAdvisorAvailable:
+				screen.moveToFront( "IndustryAdvisorButton" )
 
 		elif (CyInterface().getShowInterface() == InterfaceVisibility.INTERFACE_ADVANCED_START):		
 			screen.hide( "InterfaceLeftBackgroundWidget" )
@@ -945,6 +965,8 @@ class CvMainInterface:
 			screen.hide( "MilitaryAdvisorButton" )
 			screen.hide( "VictoryAdvisorButton" )
 			screen.hide( "InfoAdvisorButton" )
+			if g_bIndustryAdvisorAvailable:
+				screen.hide( "IndustryAdvisorButton" )
 			
 		elif ( CyEngine().isGlobeviewUp() ):
 			screen.hide( "InterfaceLeftBackgroundWidget" )
@@ -967,6 +989,8 @@ class CvMainInterface:
 			screen.show( "MilitaryAdvisorButton" )
 			screen.show( "VictoryAdvisorButton" )
 			screen.show( "InfoAdvisorButton" )
+			if g_bIndustryAdvisorAvailable:
+				screen.show( "IndustryAdvisorButton" )
 			screen.moveToFront( "TurnLogButton" )
 			screen.moveToFront( "EspionageAdvisorButton" )
 			screen.moveToFront( "DomesticAdvisorButton" )
@@ -979,6 +1003,8 @@ class CvMainInterface:
 			screen.moveToFront( "MilitaryAdvisorButton" )
 			screen.moveToFront( "VictoryAdvisorButton" )
 			screen.moveToFront( "InfoAdvisorButton" )
+			if g_bIndustryAdvisorAvailable:
+				screen.moveToFront( "IndustryAdvisorButton" )
 			
 		else:
 			screen.show( "InterfaceLeftBackgroundWidget" )
@@ -1001,6 +1027,8 @@ class CvMainInterface:
 			screen.show( "MilitaryAdvisorButton" )
 			screen.show( "VictoryAdvisorButton" )
 			screen.show( "InfoAdvisorButton" )
+			if g_bIndustryAdvisorAvailable:
+				screen.show( "IndustryAdvisorButton" )
 			screen.moveToFront( "TurnLogButton" )
 			screen.moveToFront( "EspionageAdvisorButton" )
 			screen.moveToFront( "DomesticAdvisorButton" )
@@ -1013,6 +1041,8 @@ class CvMainInterface:
 			screen.moveToFront( "MilitaryAdvisorButton" )
 			screen.moveToFront( "VictoryAdvisorButton" )
 			screen.moveToFront( "InfoAdvisorButton" )
+			if g_bIndustryAdvisorAvailable:
+				screen.moveToFront( "IndustryAdvisorButton" )
 			
 		screen.updateMinimapVisibility()
 
@@ -3135,6 +3165,10 @@ class CvMainInterface:
 
 	# Will handle the input for this screen...
 	def handleInput (self, inputClass):
+		if ( inputClass.getNotifyCode() == NotifyCode.NOTIFY_CLICKED ):
+			if g_bIndustryAdvisorAvailable and ( inputClass.getFunctionName() == "IndustryAdvisorButton" ):
+				CvIndustryAdvisor.getIndustryAdvisor().interfaceScreen()
+				return 1
 		return 0
 	
 	def update(self, fDelta):

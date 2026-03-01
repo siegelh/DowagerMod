@@ -1878,6 +1878,7 @@ void CvInitCore::read(FDataStreamBase* pStream)
 {
 	uint uiSaveFlag=0;
 	pStream->Read(&uiSaveFlag);		// flags for expansion (see SaveBits)
+	dllTrace("SAVE", "BEGIN CvInitCore::read saveFlag=%u", uiSaveFlag);
 
 	// GAME DATA
 	pStream->Read((int*)&m_eType);
@@ -1978,6 +1979,7 @@ void CvInitCore::read(FDataStreamBase* pStream)
 			GET_PLAYER((PlayerTypes) i).updateTeamType();
 		}
 	}
+	dllTrace("SAVE", "END CvInitCore::read type=%d worldSize=%d era=%d gameTurn=%d", (int)m_eType, (int)m_eWorldSize, (int)m_eEra, m_iGameTurn);
 }
 
 
@@ -1985,6 +1987,7 @@ void CvInitCore::write(FDataStreamBase* pStream)
 {
 	uint uiSaveFlag=1;
 	pStream->Write(uiSaveFlag);		// flag for expansion, see SaveBits)
+	dllTrace("SAVE", "BEGIN CvInitCore::write type=%d worldSize=%d era=%d gameTurn=%d", (int)m_eType, (int)m_eWorldSize, (int)m_eEra, m_iGameTurn);
 
 	// GAME DATA
 	pStream->Write(m_eType);
@@ -2047,4 +2050,5 @@ void CvInitCore::write(FDataStreamBase* pStream)
 
 	pStream->Write(MAX_PLAYERS, m_abPlayableCiv);
 	pStream->Write(MAX_PLAYERS, m_abMinorNationCiv);
+	dllTrace("SAVE", "END CvInitCore::write gameTurn=%d", m_iGameTurn);
 }

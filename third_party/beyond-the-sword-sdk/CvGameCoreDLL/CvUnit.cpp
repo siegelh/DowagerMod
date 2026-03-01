@@ -11416,6 +11416,7 @@ void CvUnit::read(FDataStreamBase* pStream)
 	pStream->Read(&m_iHotKeyNumber);
 	pStream->Read(&m_iX);
 	pStream->Read(&m_iY);
+	dllTrace("SAVE", "BEGIN CvUnit::read id=%d group=%d pos=%d,%d uiFlag=%u", m_iID, m_iGroupID, m_iX, m_iY, uiFlag);
 	pStream->Read(&m_iLastMoveTurn);
 	pStream->Read(&m_iReconX);
 	pStream->Read(&m_iReconY);
@@ -11512,6 +11513,7 @@ void CvUnit::read(FDataStreamBase* pStream)
 	pStream->Read(GC.getNumFeatureInfos(), m_paiExtraFeatureAttackPercent);
 	pStream->Read(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Read(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
+	dllTrace("SAVE", "END CvUnit::read id=%d type=%d pos=%d,%d", m_iID, (int)m_eUnitType, m_iX, m_iY);
 }
 
 
@@ -11519,6 +11521,7 @@ void CvUnit::write(FDataStreamBase* pStream)
 {
 	uint uiFlag=2;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvUnit::write id=%d type=%d pos=%d,%d", m_iID, (int)m_eUnitType, m_iX, m_iY);
 
 	pStream->Write(m_iID);
 	pStream->Write(m_iGroupID);
@@ -11611,6 +11614,7 @@ void CvUnit::write(FDataStreamBase* pStream)
 	pStream->Write(GC.getNumFeatureInfos(), m_paiExtraFeatureAttackPercent);
 	pStream->Write(GC.getNumFeatureInfos(), m_paiExtraFeatureDefensePercent);
 	pStream->Write(GC.getNumUnitCombatInfos(), m_paiExtraUnitCombatModifier);
+	dllTrace("SAVE", "END CvUnit::write id=%d", m_iID);
 }
 
 // Protected Functions...

@@ -927,6 +927,7 @@ void CvArea::read(FDataStreamBase* pStream)
 	pStream->Read(&m_iNumCities);
 	pStream->Read(&m_iTotalPopulation);
 	pStream->Read(&m_iNumStartingPlots);
+	dllTrace("SAVE", "BEGIN CvArea::read id=%d uiFlag=%u tiles=%d cities=%d", m_iID, uiFlag, m_iNumTiles, m_iNumCities);
 
 	pStream->Read(&m_bWater);
 
@@ -967,6 +968,7 @@ void CvArea::read(FDataStreamBase* pStream)
 
 	pStream->Read(GC.getNumBonusInfos(), m_paiNumBonuses);
 	pStream->Read(GC.getNumImprovementInfos(), m_paiNumImprovements);
+	dllTrace("SAVE", "END CvArea::read id=%d tiles=%d cities=%d", m_iID, m_iNumTiles, m_iNumCities);
 }
 
 
@@ -976,6 +978,7 @@ void CvArea::write(FDataStreamBase* pStream)
 
 	uint uiFlag=0;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvArea::write id=%d tiles=%d cities=%d", m_iID, m_iNumTiles, m_iNumCities);
 
 	pStream->Write(m_iID);
 	pStream->Write(m_iNumTiles);
@@ -1024,6 +1027,7 @@ void CvArea::write(FDataStreamBase* pStream)
 	}
 	pStream->Write(GC.getNumBonusInfos(), m_paiNumBonuses);
 	pStream->Write(GC.getNumImprovementInfos(), m_paiNumImprovements);
+	dllTrace("SAVE", "END CvArea::write id=%d", m_iID);
 }
 
 // Protected Functions...

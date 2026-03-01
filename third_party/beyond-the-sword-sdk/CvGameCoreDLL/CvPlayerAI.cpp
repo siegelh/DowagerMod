@@ -12471,6 +12471,7 @@ void CvPlayerAI::AI_doDiplo()
 //
 void CvPlayerAI::read(FDataStreamBase* pStream)
 {
+	dllTrace("SAVE", "BEGIN CvPlayerAI::read");
 	CvPlayer::read(pStream);	// read base class data first
 
 	uint uiFlag=0;
@@ -12539,6 +12540,7 @@ void CvPlayerAI::read(FDataStreamBase* pStream)
 	pStream->Read(GC.getNumUnitClassInfos(), m_aiUnitClassWeights);
 	pStream->Read(GC.getNumUnitCombatInfos(), m_aiUnitCombatWeights);
 	pStream->Read(MAX_PLAYERS, m_aiCloseBordersAttitudeCache);
+	dllTrace("SAVE", "END CvPlayerAI::read id=%d", (int)getID());
 }
 
 
@@ -12548,6 +12550,7 @@ void CvPlayerAI::read(FDataStreamBase* pStream)
 //
 void CvPlayerAI::write(FDataStreamBase* pStream)
 {
+	dllTrace("SAVE", "BEGIN CvPlayerAI::write id=%d", (int)getID());
 	CvPlayer::write(pStream);	// write base class data first
 
 	uint uiFlag=0;
@@ -12612,6 +12615,7 @@ void CvPlayerAI::write(FDataStreamBase* pStream)
 	pStream->Write(GC.getNumUnitClassInfos(), m_aiUnitClassWeights);
 	pStream->Write(GC.getNumUnitCombatInfos(), m_aiUnitCombatWeights);
 	pStream->Write(MAX_PLAYERS, m_aiCloseBordersAttitudeCache);
+	dllTrace("SAVE", "END CvPlayerAI::write id=%d", (int)getID());
 }
 
 

@@ -1263,6 +1263,7 @@ void CvMap::read(FDataStreamBase* pStream)
 	pStream->Read(&m_iTopLatitude);
 	pStream->Read(&m_iBottomLatitude);
 	pStream->Read(&m_iNextRiverID);
+	dllTrace("SAVE", "BEGIN CvMap::read uiFlag=%u size=%dx%d landPlots=%d", uiFlag, m_iGridWidth, m_iGridHeight, m_iLandPlots);
 
 	pStream->Read(&m_bWrapX);
 	pStream->Read(&m_bWrapY);
@@ -1285,6 +1286,7 @@ void CvMap::read(FDataStreamBase* pStream)
 	ReadStreamableFFreeListTrashArray(m_areas, pStream);
 
 	setup();
+	dllTrace("SAVE", "END CvMap::read size=%dx%d plots=%d", m_iGridWidth, m_iGridHeight, numPlotsINLINE());
 }
 
 // save object to a stream
@@ -1294,6 +1296,7 @@ void CvMap::write(FDataStreamBase* pStream)
 {
 	uint uiFlag=0;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvMap::write size=%dx%d plots=%d", m_iGridWidth, m_iGridHeight, numPlotsINLINE());
 
 	pStream->Write(m_iGridWidth);
 	pStream->Write(m_iGridHeight);
@@ -1318,6 +1321,7 @@ void CvMap::write(FDataStreamBase* pStream)
 
 	// call the read of the free list CvArea class allocations
 	WriteStreamableFFreeListTrashArray(m_areas, pStream);
+	dllTrace("SAVE", "END CvMap::write size=%dx%d plots=%d", m_iGridWidth, m_iGridHeight, numPlotsINLINE());
 }
 
 

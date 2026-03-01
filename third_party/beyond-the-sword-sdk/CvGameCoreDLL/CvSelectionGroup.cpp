@@ -4445,9 +4445,11 @@ void CvSelectionGroup::read(FDataStreamBase* pStream)
 	pStream->Read((int*)&m_eOwner);
 	pStream->Read((int*)&m_eActivityType);
 	pStream->Read((int*)&m_eAutomateType);
+	dllTrace("SAVE", "BEGIN CvSelectionGroup::read id=%d owner=%d uiFlag=%u", m_iID, (int)m_eOwner, uiFlag);
 
 	m_units.Read(pStream);
 	m_missionQueue.Read(pStream);
+	dllTrace("SAVE", "END CvSelectionGroup::read id=%d owner=%d", m_iID, (int)m_eOwner);
 }
 
 
@@ -4455,6 +4457,7 @@ void CvSelectionGroup::write(FDataStreamBase* pStream)
 {
 	uint uiFlag=0;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvSelectionGroup::write id=%d owner=%d", m_iID, (int)m_eOwner);
 
 	pStream->Write(m_iID);
 	pStream->Write(m_iMissionTimer);
@@ -4467,6 +4470,7 @@ void CvSelectionGroup::write(FDataStreamBase* pStream)
 
 	m_units.Write(pStream);
 	m_missionQueue.Write(pStream);
+	dllTrace("SAVE", "END CvSelectionGroup::write id=%d owner=%d", m_iID, (int)m_eOwner);
 }
 
 // Protected Functions...

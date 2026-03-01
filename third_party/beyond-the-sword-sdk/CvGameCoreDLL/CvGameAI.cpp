@@ -111,23 +111,27 @@ int CvGameAI::AI_turnsPercent(int iTurns, int iPercent)
 
 void CvGameAI::read(FDataStreamBase* pStream)
 {
+	dllTrace("SAVE", "BEGIN CvGameAI::read");
 	CvGame::read(pStream);
 
 	uint uiFlag=0;
 	pStream->Read(&uiFlag);	// flags for expansion
 
 	pStream->Read(&m_iPad);
+	dllTrace("SAVE", "END CvGameAI::read");
 }
 
 
 void CvGameAI::write(FDataStreamBase* pStream)
 {
+	dllTrace("SAVE", "BEGIN CvGameAI::write");
 	CvGame::write(pStream);
 
 	uint uiFlag=0;
 	pStream->Write(uiFlag);		// flag for expansion
 
 	pStream->Write(m_iPad);
+	dllTrace("SAVE", "END CvGameAI::write");
 }
 
 // Protected Functions...

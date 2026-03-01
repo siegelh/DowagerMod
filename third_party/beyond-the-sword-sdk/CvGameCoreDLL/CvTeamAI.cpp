@@ -2725,6 +2725,7 @@ int CvTeamAI::AI_teamCloseness(TeamTypes eIndex, int iMaxDistance) const
 
 void CvTeamAI::read(FDataStreamBase* pStream)
 {
+	dllTrace("SAVE", "BEGIN CvTeamAI::read");
 	CvTeam::read(pStream);
 
 	uint uiFlag=0;
@@ -2743,11 +2744,13 @@ void CvTeamAI::read(FDataStreamBase* pStream)
 
 	pStream->Read(MAX_TEAMS, (int*)m_aeWarPlan);
 	pStream->Read((int*)&m_eWorstEnemy);
+	dllTrace("SAVE", "END CvTeamAI::read id=%d", (int)getID());
 }
 
 
 void CvTeamAI::write(FDataStreamBase* pStream)
 {
+	dllTrace("SAVE", "BEGIN CvTeamAI::write id=%d", (int)getID());
 	CvTeam::write(pStream);
 
 	uint uiFlag=0;
@@ -2766,6 +2769,7 @@ void CvTeamAI::write(FDataStreamBase* pStream)
 
 	pStream->Write(MAX_TEAMS, (int*)m_aeWarPlan);
 	pStream->Write(m_eWorstEnemy);
+	dllTrace("SAVE", "END CvTeamAI::write id=%d", (int)getID());
 }
 
 // Protected Functions...

@@ -289,15 +289,19 @@ void CvPlotGroup::read(FDataStreamBase* pStream)
 
 	uint uiFlag=0;
 	pStream->Read(&uiFlag);	// flags for expansion
+	dllTrace("SAVE", "BEGIN CvPlotGroup::read uiFlag=%u", uiFlag);
 
 	pStream->Read(&m_iID);
 
 	pStream->Read((int*)&m_eOwner);
+	dllTrace("SAVE", "CvPlotGroup::read identity id=%d owner=%d", m_iID, (int)m_eOwner);
 
 	FAssertMsg((0 < GC.getNumBonusInfos()), "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvPlotGroup::read");
 	pStream->Read(GC.getNumBonusInfos(), m_paiNumBonuses);
+	dllTrace("SAVE", "CvPlotGroup::read bonuses id=%d", m_iID);
 
 	m_plots.Read(pStream);
+	dllTrace("SAVE", "END CvPlotGroup::read id=%d owner=%d", m_iID, (int)m_eOwner);
 }
 
 
@@ -305,6 +309,7 @@ void CvPlotGroup::write(FDataStreamBase* pStream)
 {
 	uint uiFlag=0;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvPlotGroup::write id=%d owner=%d", m_iID, (int)m_eOwner);
 
 	pStream->Write(m_iID);
 
@@ -314,4 +319,5 @@ void CvPlotGroup::write(FDataStreamBase* pStream)
 	pStream->Write(GC.getNumBonusInfos(), m_paiNumBonuses);
 
 	m_plots.Write(pStream);
+	dllTrace("SAVE", "END CvPlotGroup::write id=%d owner=%d", m_iID, (int)m_eOwner);
 }

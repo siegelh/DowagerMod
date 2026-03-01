@@ -7503,6 +7503,7 @@ void CvGame::read(FDataStreamBase* pStream)
 
 	uint uiFlag=0;
 	pStream->Read(&uiFlag);	// flags for expansion
+	dllTrace("SAVE", "BEGIN CvGame::read uiFlag=%u", uiFlag);
 
 	if (uiFlag < 1)
 	{
@@ -7719,6 +7720,7 @@ void CvGame::read(FDataStreamBase* pStream)
 	pStream->Read(GC.getNumBuildingInfos(), m_aiShrineReligion);
 	pStream->Read(&m_iNumCultureVictoryCities);
 	pStream->Read(&m_eCultureVictoryCultureLevel);
+	dllTrace("SAVE", "END CvGame::read turn=%d numCities=%d activePlayer=%d", getGameTurn(), m_iNumCities, (int)getActivePlayer());
 }
 
 
@@ -7728,6 +7730,7 @@ void CvGame::write(FDataStreamBase* pStream)
 
 	uint uiFlag=1;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvGame::write turn=%d numCities=%d activePlayer=%d", getGameTurn(), m_iNumCities, (int)getActivePlayer());
 
 	pStream->Write(m_iElapsedGameTurns);
 	pStream->Write(m_iStartTurn);
@@ -7875,6 +7878,7 @@ void CvGame::write(FDataStreamBase* pStream)
 	pStream->Write(GC.getNumBuildingInfos(), m_aiShrineReligion);
 	pStream->Write(m_iNumCultureVictoryCities);
 	pStream->Write(m_eCultureVictoryCultureLevel);
+	dllTrace("SAVE", "END CvGame::write turn=%d", getGameTurn());
 }
 
 void CvGame::writeReplay(FDataStreamBase& stream, PlayerTypes ePlayer)

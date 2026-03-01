@@ -652,6 +652,7 @@ void CvDeal::write(FDataStreamBase* pStream)
 {
 	uint uiFlag=0;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvDeal::write id=%d first=%d second=%d", m_iID, (int)m_eFirstPlayer, (int)m_eSecondPlayer);
 
 	pStream->Write(m_iID);
 	pStream->Write(m_iInitialGameTurn);
@@ -661,6 +662,7 @@ void CvDeal::write(FDataStreamBase* pStream)
 
 	m_firstTrades.Write(pStream);
 	m_secondTrades.Write(pStream);
+	dllTrace("SAVE", "END CvDeal::write id=%d", m_iID);
 }
 
 void CvDeal::read(FDataStreamBase* pStream)
@@ -673,9 +675,11 @@ void CvDeal::read(FDataStreamBase* pStream)
 
 	pStream->Read((int*)&m_eFirstPlayer);
 	pStream->Read((int*)&m_eSecondPlayer);
+	dllTrace("SAVE", "BEGIN CvDeal::read id=%d uiFlag=%u first=%d second=%d", m_iID, uiFlag, (int)m_eFirstPlayer, (int)m_eSecondPlayer);
 
 	m_firstTrades.Read(pStream);
 	m_secondTrades.Read(pStream);
+	dllTrace("SAVE", "END CvDeal::read id=%d", m_iID);
 }
 
 // Protected Functions...

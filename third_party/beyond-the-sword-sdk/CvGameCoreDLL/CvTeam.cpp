@@ -5918,6 +5918,7 @@ void CvTeam::read(FDataStreamBase* pStream)
 	pStream->Read(&m_bCapitulated);
 
 	pStream->Read((int*)&m_eID);
+	dllTrace("SAVE", "BEGIN CvTeam::read id=%d uiFlag=%u cities=%d", (int)m_eID, uiFlag, m_iNumCities);
 
 	pStream->Read(MAX_TEAMS, m_aiStolenVisibilityTimer);
 	pStream->Read(MAX_TEAMS, m_aiWarWeariness);
@@ -5979,6 +5980,7 @@ void CvTeam::read(FDataStreamBase* pStream)
 		pStream->Read((int*)&eBonus);
 		m_aeRevealedBonuses.push_back(eBonus);
 	}
+	dllTrace("SAVE", "END CvTeam::read id=%d cities=%d population=%d", (int)m_eID, m_iNumCities, m_iTotalPopulation);
 }
 
 
@@ -5988,6 +5990,7 @@ void CvTeam::write(FDataStreamBase* pStream)
 
 	uint uiFlag = 0;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvTeam::write id=%d cities=%d population=%d", (int)m_eID, m_iNumCities, m_iTotalPopulation);
 
 	pStream->Write(m_iNumMembers);
 	pStream->Write(m_iAliveCount);
@@ -6071,6 +6074,7 @@ void CvTeam::write(FDataStreamBase* pStream)
 	{
 		pStream->Write(*it);
 	}
+	dllTrace("SAVE", "END CvTeam::write id=%d", (int)m_eID);
 }
 
 // CACHE: cache frequently used values

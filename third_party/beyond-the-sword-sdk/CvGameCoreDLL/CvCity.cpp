@@ -27,6 +27,32 @@
 #include "CvDLLInterfaceIFaceBase.h"
 #include "CvEventReporter.h"
 
+namespace
+{
+	void logIndustryDebug(const CvString& szMessage)
+	{
+		dllTrace("CITY", "%s", szMessage.c_str());
+	}
+
+	int countTrueEntries(const bool* pabValues, int iCount)
+	{
+		if (pabValues == NULL)
+		{
+			return 0;
+		}
+
+		int iTotal = 0;
+		for (int i = 0; i < iCount; ++i)
+		{
+			if (pabValues[i])
+			{
+				++iTotal;
+			}
+		}
+		return iTotal;
+	}
+}
+
 // Public Functions...
 
 CvCity::CvCity()
@@ -12376,6 +12402,7 @@ void CvCity::read(FDataStreamBase* pStream)
 	pStream->Read(&m_iID);
 	pStream->Read(&m_iX);
 	pStream->Read(&m_iY);
+	logIndustryDebug(CvString::format("CvCity::read begin city=%d coords=%d,%d uiFlag=%u", m_iID, m_iX, m_iY, uiFlag));
 	pStream->Read(&m_iRallyX);
 	pStream->Read(&m_iRallyY);
 	pStream->Read(&m_iGameTurnFounded);
@@ -12535,6 +12562,7 @@ void CvCity::read(FDataStreamBase* pStream)
 	if (uiFlag & 0x1)
 	{
 		pStream->Read(GC.getNumBuildingInfos(), m_pabIndustryBuildingLocallyActive);
+		logIndustryDebug(CvString::format("CvCity::read city=%d loaded industryActiveFlags=%d", m_iID, countTrueEntries(m_pabIndustryBuildingLocallyActive, GC.getNumBuildingInfos())));
 	}
 	else
 	{
@@ -12542,6 +12570,7 @@ void CvCity::read(FDataStreamBase* pStream)
 		{
 			m_pabIndustryBuildingLocallyActive[iI] = false;
 		}
+		logIndustryDebug(CvString::format("CvCity::read city=%d save missing industryActiveFlags", m_iID));
 	}
 
 	pStream->Read(NUM_CITY_PLOTS, m_pabWorkingPlot);
@@ -12555,6 +12584,7 @@ void CvCity::read(FDataStreamBase* pStream)
 	}
 
 	m_orderQueue.Read(pStream);
+	logIndustryDebug(CvString::format("CvCity::read city=%d orderQueue loaded", m_iID));
 
 	pStream->Read(&m_iPopulationRank);
 	pStream->Read(&m_bPopulationRankValid);
@@ -12649,6 +12679,7 @@ void CvCity::read(FDataStreamBase* pStream)
 		// Save data already includes industry local-active state and city totals.
 		// Recomputing activation during deserialization can touch not-yet-stable
 		// map/network state and has been linked to save-load crashes.
+		logIndustryDebug(CvString::format("CvCity::read end city=%d name=%s pop=%d realBuildings=%d industryActiveFlags=%d", m_iID, m_szName.c_str(), m_iPopulation, getNumBuildings(), countTrueEntries(m_pabIndustryBuildingLocallyActive, GC.getNumBuildingInfos())));
 	}
 
 void CvCity::write(FDataStreamBase* pStream)
@@ -12657,6 +12688,7 @@ void CvCity::write(FDataStreamBase* pStream)
 
 	uint uiFlag=0x1;
 	pStream->Write(uiFlag);		// flag for expansion
+	logIndustryDebug(CvString::format("CvCity::write begin city=%d name=%s coords=%d,%d pop=%d industryActiveFlags=%d", m_iID, m_szName.c_str(), m_iX, m_iY, m_iPopulation, countTrueEntries(m_pabIndustryBuildingLocallyActive, GC.getNumBuildingInfos())));
 
 	pStream->Write(m_iID);
 	pStream->Write(m_iX);
@@ -12871,6 +12903,7 @@ void CvCity::write(FDataStreamBase* pStream)
 		pStream->Write((*it).first);
 		pStream->Write((*it).second);
 	}
+	logIndustryDebug(CvString::format("CvCity::write end city=%d", m_iID));
 }
 
 

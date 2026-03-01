@@ -11999,9 +11999,18 @@ void CvPlayer::rebuildTraitGoldenAgeYieldChangeCache()
 		m_aiTraitGoldenAgeYieldChange[iYield] = 0;
 	}
 
+	const LeaderHeadTypes eLeader = getLeaderType();
+	if (eLeader < 0 || eLeader >= GC.getNumLeaderHeadInfos())
+	{
+		dllTrace("SAVE", "CvPlayer::rebuildTraitGoldenAgeYieldChangeCache skipped id=%d leader=%d", (int)getID(), (int)eLeader);
+		return;
+	}
+
+	const CvLeaderHeadInfo& kLeader = GC.getLeaderHeadInfo(eLeader);
+
 	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
 	{
-		if (hasTrait((TraitTypes)iTrait))
+		if (kLeader.hasTrait((TraitTypes)iTrait))
 		{
 			for (int iYield = 0; iYield < NUM_YIELD_TYPES; ++iYield)
 			{
@@ -15973,6 +15982,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 
 	uint uiFlag=0;
 	pStream->Read(&uiFlag);	// flags for expansion
+	dllTrace("SAVE", "BEGIN CvPlayer::read uiFlag=%u", uiFlag);
 
 	pStream->Read(&m_iStartingX);
 	pStream->Read(&m_iStartingY);
@@ -16082,8 +16092,10 @@ void CvPlayer::read(FDataStreamBase* pStream)
 	pStream->Read((int*)&m_eCurrentEra);
 	pStream->Read((int*)&m_eLastStateReligion);
 	pStream->Read((int*)&m_eParent);
+	dllTrace("SAVE", "CvPlayer::read identity id=%d start=%d,%d", (int)m_eID, m_iStartingX, m_iStartingY);
 	updateTeamType(); //m_eTeamType not saved
 	updateHuman();
+	dllTrace("SAVE", "CvPlayer::read identity+team id=%d team=%d human=%d", (int)m_eID, (int)getTeam(), isHuman() ? 1 : 0);
 
 	pStream->Read(NUM_YIELD_TYPES, m_aiSeaPlotYield);
 	pStream->Read(NUM_YIELD_TYPES, m_aiYieldRateModifier);
@@ -16105,6 +16117,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 	pStream->Read(NUM_PLAYEROPTION_TYPES, m_abOptions);
 
 	pStream->ReadString(m_szScriptData);
+	dllTrace("SAVE", "CvPlayer::read basic arrays id=%d", (int)m_eID);
 
 	FAssertMsg((0 < GC.getNumBonusInfos()), "GC.getNumBonusInfos() is not greater than zero but it is expected to be in CvPlayer::read");
 	pStream->Read(GC.getNumBonusInfos(), m_paiBonusExport);
@@ -16126,6 +16139,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 	pStream->Read(GC.getNumCorporationInfos(), m_paiHasCorporationCount);
 	pStream->Read(GC.getNumUpkeepInfos(), m_paiUpkeepCount);
 	pStream->Read(GC.getNumSpecialistInfos(), m_paiSpecialistValidCount);
+	dllTrace("SAVE", "CvPlayer::read info arrays id=%d", (int)m_eID);
 
 	FAssertMsg((0 < GC.getNumTechInfos()), "GC.getNumTechInfos() is not greater than zero but it is expected to be in CvPlayer::read");
 	pStream->Read(GC.getNumTechInfos(), m_pabResearchingTech);
@@ -16146,6 +16160,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 	{
 		pStream->Read(NUM_YIELD_TYPES, m_ppaaiImprovementYieldChange[iI]);
 	}
+	dllTrace("SAVE", "CvPlayer::read civics/specialists/improvements id=%d", (int)m_eID);
 
 	if (uiFlag >= 2)
 	{
@@ -16169,6 +16184,8 @@ void CvPlayer::read(FDataStreamBase* pStream)
 		{
 			pStream->Read(NUM_YIELD_TYPES, m_ppaaiTraitRouteYieldChange[iI]);
 		}
+
+		dllTrace("SAVE", "CvPlayer::read trait-derived arrays id=%d mode=serialized", (int)m_eID);
 	}
 	else
 	{
@@ -16215,10 +16232,14 @@ void CvPlayer::read(FDataStreamBase* pStream)
 				}
 			}
 		}
+
+		dllTrace("SAVE", "CvPlayer::read trait-derived arrays id=%d mode=backfill", (int)m_eID);
 	}
 
 	m_groupCycle.Read(pStream);
+	dllTrace("SAVE", "CvPlayer::read groupCycle id=%d", (int)m_eID);
 	m_researchQueue.Read(pStream);
+	dllTrace("SAVE", "CvPlayer::read researchQueue id=%d", (int)m_eID);
 
 	{
 		m_cityNames.clear();
@@ -16230,13 +16251,24 @@ void CvPlayer::read(FDataStreamBase* pStream)
 			pStream->ReadString(szBuffer);
 			m_cityNames.insertAtEnd(szBuffer);
 		}
+		dllTrace("SAVE", "CvPlayer::read cityNames id=%d count=%u", (int)m_eID, iSize);
 	}
 
+	dllTrace("SAVE", "CvPlayer::read plotGroups begin id=%d", (int)m_eID);
 	ReadStreamableFFreeListTrashArray(m_plotGroups, pStream);
+	dllTrace("SAVE", "CvPlayer::read plotGroups end id=%d", (int)m_eID);
+	dllTrace("SAVE", "CvPlayer::read cities begin id=%d", (int)m_eID);
 	ReadStreamableFFreeListTrashArray(m_cities, pStream);
+	dllTrace("SAVE", "CvPlayer::read cities end id=%d", (int)m_eID);
+	dllTrace("SAVE", "CvPlayer::read units begin id=%d", (int)m_eID);
 	ReadStreamableFFreeListTrashArray(m_units, pStream);
+	dllTrace("SAVE", "CvPlayer::read units end id=%d", (int)m_eID);
+	dllTrace("SAVE", "CvPlayer::read selectionGroups begin id=%d", (int)m_eID);
 	ReadStreamableFFreeListTrashArray(m_selectionGroups, pStream);
+	dllTrace("SAVE", "CvPlayer::read selectionGroups end id=%d", (int)m_eID);
+	dllTrace("SAVE", "CvPlayer::read eventsTriggered begin id=%d", (int)m_eID);
 	ReadStreamableFFreeListTrashArray(m_eventsTriggered, pStream);
+	dllTrace("SAVE", "CvPlayer::read eventsTriggered end id=%d", (int)m_eID);
 
 	{
 		CvMessageQueue::_Alloc::size_type iSize;
@@ -16247,6 +16279,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 			message.read(*pStream);
 			m_listGameMessages.push_back(message);
 		}
+		dllTrace("SAVE", "CvPlayer::read messages id=%d count=%u", (int)m_eID, (unsigned)iSize);
 	}
 
 	{
@@ -16262,6 +16295,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 				m_listPopups.push_back(pInfo);
 			}
 		}
+		dllTrace("SAVE", "CvPlayer::read popups id=%d count=%u", (int)m_eID, (unsigned)iSize);
 	}
 
 	{
@@ -16277,6 +16311,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 				m_listDiplomacy.push_back(pDiplo);
 			}
 		}
+		dllTrace("SAVE", "CvPlayer::read diplomacy id=%d count=%u", (int)m_eID, (unsigned)iSize);
 	}
 
 	{
@@ -16375,6 +16410,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 			m_mapEspionageHistory[iTurn] = iScore;
 		}
 	}
+	dllTrace("SAVE", "CvPlayer::read histories id=%d", (int)m_eID);
 
 	{
 		m_mapEventsOccured.clear();
@@ -16403,6 +16439,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 			m_mapEventCountdown[eEvent] = kData;
 		}
 	}
+	dllTrace("SAVE", "CvPlayer::read event maps id=%d", (int)m_eID);
 
 	{
 		m_aFreeUnitCombatPromotions.clear();
@@ -16459,6 +16496,7 @@ void CvPlayer::read(FDataStreamBase* pStream)
 			m_aUnitExtraCosts.push_back(std::make_pair(eUnit, iCost));
 		}
 	}
+	dllTrace("SAVE", "CvPlayer::read promotions/votes/costs id=%d", (int)m_eID);
 
 	if (uiFlag > 0)
 	{
@@ -16485,20 +16523,23 @@ void CvPlayer::read(FDataStreamBase* pStream)
 			}
 		}
 	}
+	dllTrace("SAVE", "CvPlayer::read triggers id=%d count=%u", (int)m_eID, (unsigned)m_triggersFired.size());
 
 	if (!isBarbarian())
 	{
 		// Get the NetID from the initialization structure
 		setNetID(gDLL->getAssignedNetworkID(getID()));
+		dllTrace("SAVE", "CvPlayer::read netID id=%d net=%d", (int)m_eID, getNetID());
 	}
 
 	pStream->Read(&m_iPopRushHurryCount);
 	pStream->Read(&m_iInflationModifier);
 
 	rebuildTraitGoldenAgeYieldChangeCache();
+	dllTrace("SAVE", "CvPlayer::read final scalars/cache id=%d", (int)m_eID);
 
-	if (bBackfillTraitDerivedData)
-	{
+		if (bBackfillTraitDerivedData)
+		{
 		int iLoop = 0;
 		for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
 		{
@@ -16541,9 +16582,10 @@ void CvPlayer::read(FDataStreamBase* pStream)
 			pLoopCity->updateBuildingCommerce();
 		}
 
-		updateYield();
+			updateYield();
+		}
+		dllTrace("SAVE", "END CvPlayer::read id=%d totalPopulation=%d gold=%d", (int)m_eID, m_iTotalPopulation, m_iGold);
 	}
-}
 
 //
 // save object to a stream
@@ -16555,6 +16597,7 @@ void CvPlayer::write(FDataStreamBase* pStream)
 
 	uint uiFlag = 2;
 	pStream->Write(uiFlag);		// flag for expansion
+	dllTrace("SAVE", "BEGIN CvPlayer::write id=%d totalPopulation=%d gold=%d", (int)m_eID, m_iTotalPopulation, m_iGold);
 
 	pStream->Write(m_iStartingX);
 	pStream->Write(m_iStartingY);
@@ -16982,6 +17025,7 @@ void CvPlayer::write(FDataStreamBase* pStream)
 
 	pStream->Write(m_iPopRushHurryCount);
 	pStream->Write(m_iInflationModifier);
+	dllTrace("SAVE", "END CvPlayer::write id=%d", (int)m_eID);
 }
 
 void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThreshold, bool bIncrementExperience, int iX, int iY)
