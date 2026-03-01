@@ -348,7 +348,7 @@
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Silk/Silk.nif</NIF>
-			<KFM></KFM>
+			<KFM/>
 			<Button>Art/Interface/Buttons/Bonuses/Synthetic/fine_silk.dds</Button>
 		</BonusArtInfo>
 		<BonusArtInfo>
@@ -396,7 +396,7 @@
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
-			<KFM></KFM>
+			<KFM/>
 			<Button>Art/Interface/Buttons/Bonuses/Synthetic/stage_plays.dds</Button>
 		</BonusArtInfo>
 		<BonusArtInfo>
@@ -404,7 +404,7 @@
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
-			<KFM></KFM>
+			<KFM/>
 			<Button>Art/Interface/Buttons/Bonuses/Synthetic/master_recordings.dds</Button>
 		</BonusArtInfo>
 		<BonusArtInfo>
@@ -412,7 +412,7 @@
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
-			<KFM></KFM>
+			<KFM/>
 			<Button>Art/Interface/Buttons/Bonuses/Synthetic/film_prints.dds</Button>
 		</BonusArtInfo>
 		<BonusArtInfo>
@@ -446,6 +446,14 @@
 			<NIF>Art/Terrain/Resources/Banana/Banana.nif</NIF>
 			<KFM>Art/Terrain/Resources/Banana/Banana.kfm</KFM>
 			<Button>Art/Interface/Buttons/Bonuses/Synthetic/fruit_preserves.dds</Button>
+		</BonusArtInfo>
+		<BonusArtInfo>
+			<Type>ART_DEF_BONUS_MARBLE_STATUARY</Type>
+			<fScale>.7</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Marble/Marble.nif</NIF>
+			<KFM>Art/Terrain/Resources/Marble/Marble.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Marble.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,8,13</Button>
 		</BonusArtInfo>
 	</BonusArtInfos>
 </Civ4ArtDefines>

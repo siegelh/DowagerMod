@@ -5871,7 +5871,7 @@
 			<fInterfaceScale>0.5</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Granary/Granary.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/agrarian_board.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildFarm.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,3,7</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_EXCHANGE_HALL</Type>
@@ -5881,7 +5881,7 @@
 			<fInterfaceScale>0.6</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/English Stock Exchange/English_Stock.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/exchange_hall.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildCottage.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,7</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_MINING_BUREAU</Type>
@@ -5891,7 +5891,7 @@
 			<fInterfaceScale>0.47</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Forge/Forge.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/mining_bureau.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildMine.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,6,7</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_MANUFACTORIES_OFFICE</Type>
@@ -5901,7 +5901,7 @@
 			<fInterfaceScale>0.5</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Factory/Factory.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/manufactories_office.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildWorkshop.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,8,8</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_FORESTRY_COMMISSION</Type>
@@ -5911,7 +5911,7 @@
 			<fInterfaceScale>0.61</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Courthouse/Courthouse.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/forestry_commission.dds</Button>
+			<Button>,Art/Interface/Buttons/TerrainFeatures/Forest.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,4,14</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_HYDRAULIC_OFFICE</Type>
@@ -5921,7 +5921,7 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Aqueduct/Pedia_Aqueduct.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/hydraulic_office.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildWaterMill.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,3,8</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_ESTATE_OFFICE</Type>
@@ -5931,7 +5931,7 @@
 			<fInterfaceScale>0.6</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Market/Market.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/estate_office.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildPlantation.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,1,9</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_PASTORAL_BOARD</Type>
@@ -5941,7 +5941,7 @@
 			<fInterfaceScale>0.75</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Stable/Stable.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/pastoral_board.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildPasture.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,8,7</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_FRONTIER_LODGE</Type>
@@ -5951,7 +5951,7 @@
 			<fInterfaceScale>0.75</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Stable/Stable.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/frontier_lodge.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildCamp.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,1,7</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_MARITIME_EXCHANGE</Type>
@@ -5961,7 +5961,7 @@
 			<fInterfaceScale>0.6</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Customs_House/Customs_House.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/maritime_exchange.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildFishingBoats.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,7,7</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_ENERGY_DIRECTORATE</Type>
@@ -5971,7 +5971,7 @@
 			<fInterfaceScale>0.5</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Factory/Factory.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/energy_directorate.dds</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildWell.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,4,8</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_DYE_WORKS</Type>
@@ -5981,7 +5981,7 @@
 			<fInterfaceScale>0.44</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Persian Apothecary/Apothecary.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/dye_works.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/dye_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_FURRIERS_HALL</Type>
@@ -5991,7 +5991,7 @@
 			<fInterfaceScale>0.6</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Market/Market.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/furriers_hall.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/furs_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_JEWELERS_QUARTER</Type>
@@ -6001,7 +6001,7 @@
 			<fInterfaceScale>0.67</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Mali Mint/Mali_mint.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/jewelers_quarter.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/gems_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_MINTING_HOUSE</Type>
@@ -6011,7 +6011,7 @@
 			<fInterfaceScale>0.67</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Mali Mint/Mali_mint.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/minting_house.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/gold_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_PERFUMERS_SANCTUARY</Type>
@@ -6021,7 +6021,7 @@
 			<fInterfaceScale>0.44</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Persian Apothecary/Apothecary.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/perfumers_sanctuary.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/incense_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER</Type>
@@ -6031,7 +6031,7 @@
 			<fInterfaceScale>0.67</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/French Salon/french_salon.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/ivory_carvers_atelier.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/ivory_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP</Type>
@@ -6041,7 +6041,7 @@
 			<fInterfaceScale>0.67</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/French Salon/french_salon.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/silk_weavers_workshop.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/silk_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_SILVERSMITHS_HALL</Type>
@@ -6051,7 +6051,7 @@
 			<fInterfaceScale>0.67</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Mali Mint/Mali_mint.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/silversmiths_hall.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/silver_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_SPICE_EXCHANGE</Type>
@@ -6061,7 +6061,7 @@
 			<fInterfaceScale>0.6</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Market/Market.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/spice_exchange.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/spices_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_CONFECTIONERS_GUILD</Type>
@@ -6071,7 +6071,7 @@
 			<fInterfaceScale>0.87</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Grocer/Grocer.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/confectioners_guild.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/sugar_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_VINTNERS_GUILD</Type>
@@ -6081,7 +6081,7 @@
 			<fInterfaceScale>0.87</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Grocer/Grocer.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/vintners_guild.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/wine_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY</Type>
@@ -6091,7 +6091,7 @@
 			<fInterfaceScale>1.5</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Harbor/Harbor.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/whale_oil_chandlery.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/oil_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD</Type>
@@ -6101,7 +6101,7 @@
 			<fInterfaceScale>1.11</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Theatre/Theatre.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/playwrights_guild.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/hitmusical_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_RECORDING_HOUSE</Type>
@@ -6111,7 +6111,7 @@
 			<fInterfaceScale>0.38</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/BroadcastTower/BroadcastTower.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/recording_house.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/hitsingle_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT</Type>
@@ -6121,7 +6121,7 @@
 			<fInterfaceScale>0.48</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Shopping Mall/Mall.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/film_studio_district.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/hitmovie_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_ROYAL_GARMENTS_HOUSE</Type>
@@ -6332,7 +6332,7 @@
 			<fInterfaceScale>0.87</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Grocer/Grocer.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/millers_guild.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/wheat_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_SMOKEHOUSE</Type>
@@ -6342,7 +6342,7 @@
 			<fInterfaceScale>0.6</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Market/Market.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/smokehouse.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/pig_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_CANNERY</Type>
@@ -6352,7 +6352,7 @@
 			<fInterfaceScale>1.5</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Harbor/Harbor.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/cannery.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/canned_food_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_FRUIT_PRESERVERS</Type>
@@ -6362,7 +6362,7 @@
 			<fInterfaceScale>0.87</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Grocer/Grocer.nif</NIF>
 			<KFM/>
-			<Button>Art/Interface/Buttons/Buildings/Industries/fruit_preservers.dds</Button>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/banana_x64.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_INDUSTRY_BAKERS_EXCHANGE</Type>
@@ -6423,6 +6423,136 @@
 			<NIF>Art/Structures/Buildings/Grocer/Grocer.nif</NIF>
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/Industries/preserves_market.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_SCULPTORS_YARD</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/French Salon/french_salon.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/WorldBuilder/marble_x64.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_HALL_OF_CAMEOS</Type>
+			<LSystem>LSYSTEM_1x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.58</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Bank/Bank.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/hall_of_cameos.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_TRIUMPHAL_COURT</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/French Salon/french_salon.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/triumphal_court.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_GALLERY_OF_ANTIQUITIES</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/French Salon/french_salon.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/gallery_of_antiquities.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_SACRED_PRECINCT</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.44</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Persian Apothecary/Apothecary.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/sacred_precinct.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_PASTRY_HOUSE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.3</fScale>
+			<fInterfaceScale>0.87</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Grocer/Grocer.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/pastry_house.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_VICTUALLERS_EXCHANGE</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.3</fScale>
+			<fInterfaceScale>0.87</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Grocer/Grocer.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/victuallers_exchange.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_SPICED_FISH_MARKET</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Roman Forum/Forum.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/spiced_fish_market.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_DESSERT_CELLARS</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Roman Forum/Forum.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/dessert_cellars.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_PERFUMED_SALON</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/French Salon/french_salon.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/perfumed_salon.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_LANTERN_PROCESSION_WORKS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.5</fScale>
+			<fInterfaceScale>0.44</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Persian Apothecary/Apothecary.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/lantern_procession_works.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_CURIO_AUCTION_HOUSE</Type>
+			<LSystem>LSYSTEM_COAST</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.16</fScale>
+			<fInterfaceScale>0.6</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Customs_House/Customs_House.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/curio_auction_house.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_INDUSTRY_ILLUMINATED_THEATRE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.17</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Odeon/Odeon.nif</NIF>
+			<KFM/>
+			<Button>Art/Interface/Buttons/Buildings/Industries/illuminated_theatre.dds</Button>
 		</BuildingArtInfo>
 	</BuildingArtInfos>
 </Civ4ArtDefines>

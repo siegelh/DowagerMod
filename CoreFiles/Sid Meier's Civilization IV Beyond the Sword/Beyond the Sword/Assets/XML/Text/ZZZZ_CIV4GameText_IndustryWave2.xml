@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_MARBLE_STATUARY</Tag>
+    <English>Marble Statuary</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BONUS_MARBLE_STATUARY_PEDIA</Tag>
+    <English>Manufactured prestige good produced by Sculptors' Yards. Marble Statuary does not provide direct happiness or health, but it can be traded and used as an input for downstream composite industries and corporations.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SCULPTORS_YARD</Tag>
+    <English>Sculptors' Yard</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SCULPTORS_YARD_PEDIA</Tag>
+    <English>Local marble workshops turn quarried stone into carvings, statuary, and ceremonial display pieces for the wider economy.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SCULPTORS_YARD_STRATEGY</Tag>
+    <English>Build in a marble city to produce Marble Statuary for downstream composites.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_HALL_OF_CAMEOS</Tag>
+    <English>Hall of Cameos</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_HALL_OF_CAMEOS_PEDIA</Tag>
+    <English>A fine-arts exchange for carved stone miniatures and gem-set relief work.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_HALL_OF_CAMEOS_STRATEGY</Tag>
+    <English>Prestige composite built from Marble Statuary and Cut Gems.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_TRIUMPHAL_COURT</Tag>
+    <English>Triumphal Court</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_TRIUMPHAL_COURT_PEDIA</Tag>
+    <English>A monumental court complex dedicated to ceremonial display, victory art, and state grandeur.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_TRIUMPHAL_COURT_STRATEGY</Tag>
+    <English>Prestige composite built from Marble Statuary and Gold Bullion.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_GALLERY_OF_ANTIQUITIES</Tag>
+    <English>Gallery of Antiquities</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_GALLERY_OF_ANTIQUITIES_PEDIA</Tag>
+    <English>A curated hall of sculpture, carvings, and rare courtly artifacts.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_GALLERY_OF_ANTIQUITIES_STRATEGY</Tag>
+    <English>Prestige composite built from Marble Statuary and Ivory Carvings.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SACRED_PRECINCT</Tag>
+    <English>Sacred Precinct</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SACRED_PRECINCT_PEDIA</Tag>
+    <English>Temples, courts, and incense-rich sanctuaries converge into a ceremonial district.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SACRED_PRECINCT_STRATEGY</Tag>
+    <English>Religious composite built from Marble Statuary and Temple Incense.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PASTRY_HOUSE</Tag>
+    <English>Pastry House</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PASTRY_HOUSE_PEDIA</Tag>
+    <English>A refined bakery quarter specializing in layered pastries, preserves, and sweet luxuries.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PASTRY_HOUSE_STRATEGY</Tag>
+    <English>Hospitality composite built from Flour and Fruit Preserves.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_VICTUALLERS_EXCHANGE</Tag>
+    <English>Victuallers' Exchange</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_VICTUALLERS_EXCHANGE_PEDIA</Tag>
+    <English>A provisioning market for bread, salted goods, and stored supplies moving through urban trade.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_VICTUALLERS_EXCHANGE_STRATEGY</Tag>
+    <English>Provision composite built from Flour and Cured Meats.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SPICED_FISH_MARKET</Tag>
+    <English>Spiced Fish Market</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SPICED_FISH_MARKET_PEDIA</Tag>
+    <English>Preserved coastal catches are blended with aromatic spices for high-value urban trade.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_SPICED_FISH_MARKET_STRATEGY</Tag>
+    <English>Provision composite built from Preserved Seafood and Spice Blends.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_DESSERT_CELLARS</Tag>
+    <English>Dessert Cellars</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_DESSERT_CELLARS_PEDIA</Tag>
+    <English>Cellared sweets, wines, and preserved fruits supply elite tables and festival circuits.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_DESSERT_CELLARS_STRATEGY</Tag>
+    <English>Hospitality composite built from Fruit Preserves and Vintage Wine.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMED_SALON</Tag>
+    <English>Perfumed Salon</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMED_SALON_PEDIA</Tag>
+    <English>Silks and incense come together in an elite salon of fashion, scent, and display.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMED_SALON_STRATEGY</Tag>
+    <English>Luxury composite built from Temple Incense and Fine Silk.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_LANTERN_PROCESSION_WORKS</Tag>
+    <English>Lantern Procession Works</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_LANTERN_PROCESSION_WORKS_PEDIA</Tag>
+    <English>Oil, incense, and ceremony produce the lighting and pageantry of night processions.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_LANTERN_PROCESSION_WORKS_STRATEGY</Tag>
+    <English>Festival composite built from Temple Incense and Lamp Oil.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CURIO_AUCTION_HOUSE</Tag>
+    <English>Curio Auction House</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CURIO_AUCTION_HOUSE_PEDIA</Tag>
+    <English>Rare carved works and precious stones circulate through a market for collectors and courts.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_CURIO_AUCTION_HOUSE_STRATEGY</Tag>
+    <English>Prestige composite built from Ivory Carvings and Cut Gems.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ILLUMINATED_THEATRE</Tag>
+    <English>Illuminated Theatre</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ILLUMINATED_THEATRE_PEDIA</Tag>
+    <English>Lamp-lit playhouses turn staged performances into a city-defining entertainment trade.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_INDUSTRY_ILLUMINATED_THEATRE_STRATEGY</Tag>
+    <English>Media composite built from Lamp Oil and Stage Plays.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CONCEPT_INDUSTRY_SUPPLY_CHAINS</Tag>
+    <English>Industry Supply Chains</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CONCEPT_INDUSTRY_SUPPLY_CHAINS_PEDIA</Tag>
+    <English>[H1]Industry Supply Chains[\H1][PARAGRAPH:1]Local Processing Industries only count resources and improvements that are both inside a city's workable radius and inside that city's borders. Enemy or neutral tiles in your BFC do not qualify.[PARAGRAPH:1]The chain now runs from Raw Resource to Local Processing Industry to Synthetic Good to Composite Industry to Corporation.[PARAGRAPH:1][BOLD]Marble Branch[\BOLD][PARAGRAPH:1]Marble supports the [LINK=BUILDING_INDUSTRY_SCULPTORS_YARD]Sculptors' Yard[\LINK], which produces [LINK=BONUS_MARBLE_STATUARY]Marble Statuary[\LINK]. Marble Statuary feeds [LINK=BUILDING_INDUSTRY_HALL_OF_CAMEOS]Hall of Cameos[\LINK], [LINK=BUILDING_INDUSTRY_TRIUMPHAL_COURT]Triumphal Court[\LINK], [LINK=BUILDING_INDUSTRY_GALLERY_OF_ANTIQUITIES]Gallery of Antiquities[\LINK], and [LINK=BUILDING_INDUSTRY_SACRED_PRECINCT]Sacred Precinct[\LINK].[PARAGRAPH:1][BOLD]Wave Two Composite Additions[\BOLD][PARAGRAPH:1]Provision and hospitality chains now extend through [LINK=BUILDING_INDUSTRY_PASTRY_HOUSE]Pastry House[\LINK], [LINK=BUILDING_INDUSTRY_VICTUALLERS_EXCHANGE]Victuallers' Exchange[\LINK], [LINK=BUILDING_INDUSTRY_SPICED_FISH_MARKET]Spiced Fish Market[\LINK], and [LINK=BUILDING_INDUSTRY_DESSERT_CELLARS]Dessert Cellars[\LINK].[PARAGRAPH:1]Aromatic, prestige, and performance chains now extend through [LINK=BUILDING_INDUSTRY_PERFUMED_SALON]Perfumed Salon[\LINK], [LINK=BUILDING_INDUSTRY_LANTERN_PROCESSION_WORKS]Lantern Procession Works[\LINK], [LINK=BUILDING_INDUSTRY_CURIO_AUCTION_HOUSE]Curio Auction House[\LINK], and [LINK=BUILDING_INDUSTRY_ILLUMINATED_THEATRE]Illuminated Theatre[\LINK].[PARAGRAPH:1]Composite Industries require connected synthetic goods in the city network, each composite type is limited to one per civilization, and each city may support up to three Composite Industries.[PARAGRAPH:1]Synthetic goods do not provide direct happiness or health on their own. Their value comes from activating composite industries, corporations, and trade opportunities.</English>
+  </TEXT>
+</Civ4GameText>

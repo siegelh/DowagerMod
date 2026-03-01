@@ -168,6 +168,10 @@
 				<BuildingClassType>BUILDINGCLASS_INDUSTRY_IMPERIAL_OUTFITTERS</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_INDUSTRY_ADMIRALTY_CURIOS_HOUSE</BuildingClassType>
 				<BuildingClassType>BUILDINGCLASS_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_HALL_OF_CAMEOS</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_TRIUMPHAL_COURT</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_GALLERY_OF_ANTIQUITIES</BuildingClassType>
+				<BuildingClassType>BUILDINGCLASS_INDUSTRY_SACRED_PRECINCT</BuildingClassType>
 			</FoundingBuildingClasses>
 			<PrereqBonuses>
 				<BonusType>BONUS_IVORY_CARVINGS</BonusType>
@@ -175,6 +179,7 @@
 				<BonusType>BONUS_WORKED_SILVER</BonusType>
 				<BonusType>BONUS_FINE_FURS</BonusType>
 				<BonusType>BONUS_FINE_SILK</BonusType>
+				<BonusType>BONUS_MARBLE_STATUARY</BonusType>
 			</PrereqBonuses>
 			<HeadquarterCommerces>
 				<iHeadquarterCommerce>4</iHeadquarterCommerce>

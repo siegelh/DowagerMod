@@ -470,7 +470,7 @@
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Silk/Silk.nif</NIF>
-			<KFM></KFM>
+			<KFM/>
 			<Button>,Art/Interface/Buttons/WorldBuilder/Silk.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,3,14</Button>
 			<FontButtonIndex>26</FontButtonIndex>
 		</BonusArtInfo>
@@ -524,27 +524,27 @@
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
-			<KFM></KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/stage_plays.dds</Button>
-			<FontButtonIndex>56</FontButtonIndex>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Drama.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,2,15</Button>
+			<FontButtonIndex>32</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_MASTER_RECORDINGS</Type>
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
-			<KFM></KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/master_recordings.dds</Button>
-			<FontButtonIndex>57</FontButtonIndex>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Music.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,4,16</Button>
+			<FontButtonIndex>33</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_FILM_PRINTS</Type>
 			<fScale>1.0</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
-			<KFM></KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/film_prints.dds</Button>
-			<FontButtonIndex>58</FontButtonIndex>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Movies.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,5,15</Button>
+			<FontButtonIndex>34</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_FLOUR</Type>
@@ -552,8 +552,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Wheat/Wheat.nif</NIF>
 			<KFM>Art/Terrain/Resources/Wheat/Wheat.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/flour.dds</Button>
-			<FontButtonIndex>59</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Wheat.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,2,16</Button>
+			<FontButtonIndex>19</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_CURED_MEATS</Type>
@@ -561,8 +561,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Cow/Cow.nif</NIF>
 			<KFM>Art/Terrain/Resources/Cow/Cow.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/cured_meats.dds</Button>
-			<FontButtonIndex>60</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Cow.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,7,12</Button>
+			<FontButtonIndex>12</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_PRESERVED_SEAFOOD</Type>
@@ -570,8 +570,8 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Fish/Fish.nif</NIF>
 			<KFM>Art/Terrain/Resources/Fish/Fish.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/preserved_seafood.dds</Button>
-			<FontButtonIndex>61</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Fish.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,4,15</Button>
+			<FontButtonIndex>15</FontButtonIndex>
 		</BonusArtInfo>
 		<BonusArtInfo>
 			<Type>ART_DEF_BONUS_FRUIT_PRESERVES</Type>
@@ -579,8 +579,17 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Terrain/Resources/Banana/Banana.nif</NIF>
 			<KFM>Art/Terrain/Resources/Banana/Banana.kfm</KFM>
-			<Button>Art/Interface/Buttons/Bonuses/Synthetic/fruit_preserves.dds</Button>
-			<FontButtonIndex>62</FontButtonIndex>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Banana.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,2,12</Button>
+			<FontButtonIndex>9</FontButtonIndex>
+		</BonusArtInfo>
+		<BonusArtInfo>
+			<Type>ART_DEF_BONUS_MARBLE_STATUARY</Type>
+			<fScale>.7</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Terrain/Resources/Marble/Marble.nif</NIF>
+			<KFM>Art/Terrain/Resources/Marble/Marble.kfm</KFM>
+			<Button>,Art/Interface/Buttons/WorldBuilder/Marble.dds,Art/Interface/Buttons/Unit_Resource_Atlas.dds,8,13</Button>
+			<FontButtonIndex>5</FontButtonIndex>
 		</BonusArtInfo>
 	</BonusArtInfos>
 </Civ4ArtDefines>

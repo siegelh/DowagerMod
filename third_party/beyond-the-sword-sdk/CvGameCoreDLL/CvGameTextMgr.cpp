@@ -41,6 +41,485 @@ static char* szErrorMsg;
 
 namespace
 {
+	bool hasIntValue(const std::vector<int>& aiValues, int iValue)
+	{
+		for (size_t i = 0; i < aiValues.size(); ++i)
+		{
+			if (aiValues[i] == iValue)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	void pushUniqueInt(std::vector<int>& aiValues, int iValue)
+	{
+		if (iValue != NO_BUILDING && iValue != NO_BONUS && iValue != NO_CORPORATION && !hasIntValue(aiValues, iValue))
+		{
+			aiValues.push_back(iValue);
+		}
+	}
+
+	CvWString joinBonusDescriptions(const std::vector<int>& aiBonuses, bool bIncludeSymbol = true)
+	{
+		CvWString szResult;
+		for (size_t i = 0; i < aiBonuses.size(); ++i)
+		{
+			const BonusTypes eBonus = (BonusTypes)aiBonuses[i];
+			if (eBonus == NO_BONUS)
+			{
+				continue;
+			}
+
+			if (!szResult.empty())
+			{
+				szResult.append(L", ");
+			}
+
+			if (bIncludeSymbol)
+			{
+				szResult.append(CvWString::format(L"%c ", GC.getBonusInfo(eBonus).getChar()));
+			}
+			szResult.append(GC.getBonusInfo(eBonus).getDescription());
+		}
+
+		return szResult;
+	}
+
+	CvWString joinBuildingDescriptions(const std::vector<int>& aiBuildings)
+	{
+		CvWString szResult;
+		for (size_t i = 0; i < aiBuildings.size(); ++i)
+		{
+			const BuildingTypes eBuilding = (BuildingTypes)aiBuildings[i];
+			if (eBuilding == NO_BUILDING)
+			{
+				continue;
+			}
+
+			if (!szResult.empty())
+			{
+				szResult.append(L", ");
+			}
+			szResult.append(GC.getBuildingInfo(eBuilding).getDescription());
+		}
+
+		return szResult;
+	}
+
+	CvWString joinCorporationDescriptions(const std::vector<int>& aiCorporations)
+	{
+		CvWString szResult;
+		for (size_t i = 0; i < aiCorporations.size(); ++i)
+		{
+			const CorporationTypes eCorporation = (CorporationTypes)aiCorporations[i];
+			if (eCorporation == NO_CORPORATION)
+			{
+				continue;
+			}
+
+			if (!szResult.empty())
+			{
+				szResult.append(L", ");
+			}
+			szResult.append(GC.getCorporationInfo(eCorporation).getDescription());
+		}
+
+		return szResult;
+	}
+
+	CvWString formatYieldChangeList(const int* piYieldChanges, bool bPercent = false)
+	{
+		CvWString szResult;
+		for (int iYield = 0; iYield < NUM_YIELD_TYPES; ++iYield)
+		{
+			const int iChange = piYieldChanges[iYield];
+			if (iChange == 0)
+			{
+				continue;
+			}
+
+			if (!szResult.empty())
+			{
+				szResult.append(L", ");
+			}
+
+			CvWString szPart;
+			if (bPercent)
+			{
+				szPart.Format(L"%+d%%%c", iChange, GC.getYieldInfo((YieldTypes)iYield).getChar());
+			}
+			else
+			{
+				szPart.Format(L"%+d%c", iChange, GC.getYieldInfo((YieldTypes)iYield).getChar());
+			}
+			szResult.append(szPart);
+		}
+
+		return szResult;
+	}
+
+	CvWString formatImprovementYieldChangeList(const CvBuildingInfo& kBuilding, ImprovementTypes eImprovement)
+	{
+		int aiYieldChanges[NUM_YIELD_TYPES];
+		for (int iYield = 0; iYield < NUM_YIELD_TYPES; ++iYield)
+		{
+			aiYieldChanges[iYield] = kBuilding.getImprovementYieldChange(eImprovement, iYield);
+		}
+		return formatYieldChangeList(aiYieldChanges, false);
+	}
+
+	void collectProcessingBuildingsForOutput(BonusTypes eBonus, std::vector<int>& aiBuildings)
+	{
+		for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)
+		{
+			const CvBuildingInfo& kBuilding = GC.getBuildingInfo((BuildingTypes)iBuilding);
+			if (kBuilding.getFreeBonus() == eBonus
+				&& kBuilding.getIndustryCategory() == BUILDING_INDUSTRY_LUXURY)
+			{
+				pushUniqueInt(aiBuildings, iBuilding);
+			}
+		}
+	}
+
+	void collectProcessingBuildingsForRawBonus(BonusTypes eBonus, std::vector<int>& aiBuildings)
+	{
+		for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)
+		{
+			const CvBuildingInfo& kBuilding = GC.getBuildingInfo((BuildingTypes)iBuilding);
+			if (kBuilding.getIndustryCategory() != BUILDING_INDUSTRY_LUXURY)
+			{
+				continue;
+			}
+
+			for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalBonusPrereqs(); ++iPrereq)
+			{
+				const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iPrereq);
+				if (hasIntValue(kPrereq.m_aiBonusTypes, eBonus))
+				{
+					pushUniqueInt(aiBuildings, iBuilding);
+					break;
+				}
+			}
+		}
+	}
+
+	void collectCompositeBuildingsForInput(BonusTypes eBonus, std::vector<int>& aiBuildings)
+	{
+		for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)
+		{
+			const CvBuildingInfo& kBuilding = GC.getBuildingInfo((BuildingTypes)iBuilding);
+			if (kBuilding.getIndustryCategory() != BUILDING_INDUSTRY_COMPOSITE)
+			{
+				continue;
+			}
+
+			for (int iPrereq = 0; iPrereq < kBuilding.getNumConnectedBonusPrereqs(); ++iPrereq)
+			{
+				const BuildingConnectedBonusPrereq& kPrereq = kBuilding.getConnectedBonusPrereq(iPrereq);
+				if (hasIntValue(kPrereq.m_aiBonusTypes, eBonus))
+				{
+					pushUniqueInt(aiBuildings, iBuilding);
+					break;
+				}
+			}
+		}
+	}
+
+	void collectCorporationsForInput(BonusTypes eBonus, std::vector<int>& aiCorporations)
+	{
+		for (int iCorporation = 0; iCorporation < GC.getNumCorporationInfos(); ++iCorporation)
+		{
+			const CvCorporationInfo& kCorporation = GC.getCorporationInfo((CorporationTypes)iCorporation);
+			for (int iBonus = 0; iBonus < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++iBonus)
+			{
+				if (kCorporation.getPrereqBonus(iBonus) == eBonus)
+				{
+					pushUniqueInt(aiCorporations, iCorporation);
+					break;
+				}
+			}
+		}
+	}
+
+	void collectCorporationsFoundedByBuildingClass(BuildingClassTypes eBuildingClass, std::vector<int>& aiCorporations)
+	{
+		for (int iCorporation = 0; iCorporation < GC.getNumCorporationInfos(); ++iCorporation)
+		{
+			const CvCorporationInfo& kCorporation = GC.getCorporationInfo((CorporationTypes)iCorporation);
+			for (int iFounding = 0; iFounding < kCorporation.getNumFoundingBuildingClasses(); ++iFounding)
+			{
+				if (kCorporation.getFoundingBuildingClass(iFounding) == eBuildingClass)
+				{
+					pushUniqueInt(aiCorporations, iCorporation);
+					break;
+				}
+			}
+		}
+	}
+
+	void collectCoreIndustriesForImprovement(ImprovementTypes eImprovement, std::vector<int>& aiBuildings)
+	{
+		for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)
+		{
+			const CvBuildingInfo& kBuilding = GC.getBuildingInfo((BuildingTypes)iBuilding);
+			if (kBuilding.getIndustryCategory() != BUILDING_INDUSTRY_CORE)
+			{
+				continue;
+			}
+
+			for (int iYield = 0; iYield < NUM_YIELD_TYPES; ++iYield)
+			{
+				if (kBuilding.getImprovementYieldChange(eImprovement, iYield) != 0)
+				{
+					pushUniqueInt(aiBuildings, iBuilding);
+					break;
+				}
+			}
+		}
+	}
+
+	void appendIndustryBuildingChainHelp(CvWStringBuffer& szBuffer, BuildingTypes eBuilding, const CvCity* pCity)
+	{
+		const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+		const BuildingIndustryCategoryTypes eCategory = (BuildingIndustryCategoryTypes)kBuilding.getIndustryCategory();
+		if (eCategory == NO_BUILDING_INDUSTRY_CATEGORY)
+		{
+			return;
+		}
+
+		if (eCategory == BUILDING_INDUSTRY_CORE)
+		{
+			for (int iImprovement = 0; iImprovement < GC.getNumImprovementInfos(); ++iImprovement)
+			{
+				const CvWString szYields = formatImprovementYieldChangeList(kBuilding, (ImprovementTypes)iImprovement);
+				if (szYields.empty())
+				{
+					continue;
+				}
+
+				szBuffer.append(NEWLINE);
+				szBuffer.append(CvWString::format(L"Affects %s: %s.", GC.getImprovementInfo((ImprovementTypes)iImprovement).getDescription(), szYields.c_str()));
+			}
+		}
+
+		for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalImprovementCountPrereqs(); ++iPrereq)
+		{
+			const BuildingLocalImprovementCountPrereq& kPrereq = kBuilding.getLocalImprovementCountPrereq(iPrereq);
+			std::vector<int> aiImprovements;
+			for (size_t i = 0; i < kPrereq.m_aiImprovementTypes.size(); ++i)
+			{
+				pushUniqueInt(aiImprovements, kPrereq.m_aiImprovementTypes[i]);
+			}
+
+			CvWString szImprovementList;
+			for (size_t i = 0; i < aiImprovements.size(); ++i)
+			{
+				if (!szImprovementList.empty())
+				{
+					szImprovementList.append(L", ");
+				}
+				szImprovementList.append(GC.getImprovementInfo((ImprovementTypes)aiImprovements[i]).getDescription());
+			}
+
+			szBuffer.append(NEWLINE);
+			if (pCity != NULL)
+			{
+				szBuffer.append(CvWString::format(L"Requires %d %s within this city's owned workable radius (current: %d).", kPrereq.m_iMinCount, szImprovementList.c_str(), pCity->getBuildingLocalImprovementPrereqCount(eBuilding, iPrereq)));
+			}
+			else
+			{
+				szBuffer.append(CvWString::format(L"Requires %d %s within this city's owned workable radius.", kPrereq.m_iMinCount, szImprovementList.c_str()));
+			}
+		}
+
+		for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalBonusPrereqs(); ++iPrereq)
+		{
+			const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iPrereq);
+			const CvWString szBonuses = joinBonusDescriptions(kPrereq.m_aiBonusTypes);
+			szBuffer.append(NEWLINE);
+			if (pCity != NULL)
+			{
+				szBuffer.append(CvWString::format(L"Requires improved, connected %s within this city's owned workable radius (current: %d/%d).", szBonuses.c_str(), pCity->getBuildingLocalBonusPrereqCount(eBuilding, iPrereq), kPrereq.m_iMinCount));
+			}
+			else
+			{
+				szBuffer.append(CvWString::format(L"Requires improved, connected %s within this city's owned workable radius.", szBonuses.c_str()));
+			}
+		}
+
+		if (kBuilding.getFreeBonus() != NO_BONUS)
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(CvWString::format(L"Produces %c %s while active.", GC.getBonusInfo((BonusTypes)kBuilding.getFreeBonus()).getChar(), GC.getBonusInfo((BonusTypes)kBuilding.getFreeBonus()).getDescription()));
+
+			std::vector<int> aiComposites;
+			collectCompositeBuildingsForInput((BonusTypes)kBuilding.getFreeBonus(), aiComposites);
+			if (!aiComposites.empty())
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(CvWString::format(L"Feeds into: %s.", joinBuildingDescriptions(aiComposites).c_str()));
+			}
+		}
+
+		if (kBuilding.getNumConnectedBonusPrereqs() > 0)
+		{
+			std::vector<int> aiRequiredBonuses;
+			for (int iPrereq = 0; iPrereq < kBuilding.getNumConnectedBonusPrereqs(); ++iPrereq)
+			{
+				const BuildingConnectedBonusPrereq& kPrereq = kBuilding.getConnectedBonusPrereq(iPrereq);
+				for (size_t i = 0; i < kPrereq.m_aiBonusTypes.size(); ++i)
+				{
+					pushUniqueInt(aiRequiredBonuses, kPrereq.m_aiBonusTypes[i]);
+				}
+			}
+
+			szBuffer.append(NEWLINE);
+			szBuffer.append(CvWString::format(L"Requires connected %s in this city network.", joinBonusDescriptions(aiRequiredBonuses).c_str()));
+
+			if (pCity != NULL)
+			{
+				for (int iPrereq = 0; iPrereq < kBuilding.getNumConnectedBonusPrereqs(); ++iPrereq)
+				{
+					const BuildingConnectedBonusPrereq& kPrereq = kBuilding.getConnectedBonusPrereq(iPrereq);
+					szBuffer.append(NEWLINE);
+					szBuffer.append(CvWString::format(L"%s connected: %d/%d.", joinBonusDescriptions(kPrereq.m_aiBonusTypes).c_str(), pCity->getBuildingConnectedBonusPrereqCount(eBuilding, iPrereq), kPrereq.m_iMinCount));
+				}
+			}
+
+			std::vector<int> aiSuppliers;
+			for (size_t i = 0; i < aiRequiredBonuses.size(); ++i)
+			{
+				std::vector<int> aiLocalSuppliers;
+				collectProcessingBuildingsForOutput((BonusTypes)aiRequiredBonuses[i], aiLocalSuppliers);
+				for (size_t j = 0; j < aiLocalSuppliers.size(); ++j)
+				{
+					pushUniqueInt(aiSuppliers, aiLocalSuppliers[j]);
+				}
+			}
+
+			if (!aiSuppliers.empty())
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(CvWString::format(L"Typical suppliers: %s.", joinBuildingDescriptions(aiSuppliers).c_str()));
+			}
+		}
+
+		std::vector<int> aiCorporations;
+		collectCorporationsFoundedByBuildingClass((BuildingClassTypes)kBuilding.getBuildingClassType(), aiCorporations);
+		if (!aiCorporations.empty())
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(CvWString::format(L"Supports corporation founding: %s.", joinCorporationDescriptions(aiCorporations).c_str()));
+		}
+	}
+
+	void appendIndustryBonusChainHelp(CvWStringBuffer& szBuffer, BonusTypes eBonus)
+	{
+		std::vector<int> aiProcessors;
+		collectProcessingBuildingsForRawBonus(eBonus, aiProcessors);
+		if (!aiProcessors.empty())
+		{
+			for (size_t i = 0; i < aiProcessors.size(); ++i)
+			{
+				const BuildingTypes eBuilding = (BuildingTypes)aiProcessors[i];
+				const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+				szBuffer.append(NEWLINE);
+				szBuffer.append(CvWString::format(L"Supports %s when improved, connected, and within a city's owned workable radius.", kBuilding.getDescription()));
+				if (kBuilding.getFreeBonus() != NO_BONUS)
+				{
+					szBuffer.append(NEWLINE);
+					szBuffer.append(CvWString::format(L"%s produces %c %s.", kBuilding.getDescription(), GC.getBonusInfo((BonusTypes)kBuilding.getFreeBonus()).getChar(), GC.getBonusInfo((BonusTypes)kBuilding.getFreeBonus()).getDescription()));
+				}
+			}
+		}
+
+		std::vector<int> aiOutputs;
+		collectProcessingBuildingsForOutput(eBonus, aiOutputs);
+		if (!aiOutputs.empty())
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(CvWString::format(L"Produced by: %s.", joinBuildingDescriptions(aiOutputs).c_str()));
+
+			std::vector<int> aiComposites;
+			collectCompositeBuildingsForInput(eBonus, aiComposites);
+			if (!aiComposites.empty())
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(CvWString::format(L"Required by: %s.", joinBuildingDescriptions(aiComposites).c_str()));
+			}
+
+			std::vector<int> aiCorporations;
+			collectCorporationsForInput(eBonus, aiCorporations);
+			if (!aiCorporations.empty())
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(CvWString::format(L"Used by: %s.", joinCorporationDescriptions(aiCorporations).c_str()));
+			}
+		}
+	}
+
+	void appendImprovementIndustryHelp(CvWStringBuffer& szBuffer, ImprovementTypes eImprovement)
+	{
+		std::vector<int> aiBuildings;
+		collectCoreIndustriesForImprovement(eImprovement, aiBuildings);
+		for (size_t i = 0; i < aiBuildings.size(); ++i)
+		{
+			const BuildingTypes eBuilding = (BuildingTypes)aiBuildings[i];
+			const CvWString szYields = formatImprovementYieldChangeList(GC.getBuildingInfo(eBuilding), eImprovement);
+			if (szYields.empty())
+			{
+				continue;
+			}
+
+			szBuffer.append(NEWLINE);
+			szBuffer.append(CvWString::format(L"Affected by %s: %s.", GC.getBuildingInfo(eBuilding).getDescription(), szYields.c_str()));
+		}
+	}
+
+	void appendPlotIndustryHelp(CvWStringBuffer& szBuffer, CvPlot* pPlot, ImprovementTypes eImprovement)
+	{
+		if (pPlot == NULL || eImprovement == NO_IMPROVEMENT)
+		{
+			return;
+		}
+
+		CvCity* pWorkingCity = pPlot->getWorkingCity();
+		if (pWorkingCity == NULL || pPlot->getOwnerINLINE() != pWorkingCity->getOwnerINLINE())
+		{
+			return;
+		}
+
+		std::vector<int> aiBuildings;
+		collectCoreIndustriesForImprovement(eImprovement, aiBuildings);
+		for (size_t i = 0; i < aiBuildings.size(); ++i)
+		{
+			const BuildingTypes eBuilding = (BuildingTypes)aiBuildings[i];
+			const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+			const CvWString szYields = formatImprovementYieldChangeList(kBuilding, eImprovement);
+			if (szYields.empty())
+			{
+				continue;
+			}
+
+			if (pWorkingCity->getNumBuilding(eBuilding) > 0 && pWorkingCity->isIndustryBuildingLocallyActive(eBuilding))
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(CvWString::format(L"%s: %s.", kBuilding.getDescription(), szYields.c_str()));
+			}
+			else if (pWorkingCity->getNumBuilding(eBuilding) <= 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(CvWString::format(L"Potential with %s: %s.", kBuilding.getDescription(), szYields.c_str()));
+			}
+		}
+	}
+}
+
+namespace
+{
 CvWString getIndustryCategoryText(BuildingIndustryCategoryTypes eCategory)
 {
 	switch (eCategory)
@@ -3139,6 +3618,8 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot)
 					szString.append(gDLL->getText("TXT_KEY_PLOT_WORK_TO_UPGRADE", GC.getImprovementInfo((ImprovementTypes) GC.getImprovementInfo(eImprovement).getImprovementUpgrade()).getTextKeyWide()));
 				}
 			}
+
+			appendPlotIndustryHelp(szString, pPlot, eImprovement);
 		}
 
 		if (pPlot->getRevealedRouteType(GC.getGameINLINE().getActiveTeam(), true) != NO_ROUTE)
@@ -7747,6 +8228,8 @@ void CvGameTextMgr::setBuildingHelp(CvWStringBuffer &szBuffer, BuildingTypes eBu
 		szBuffer.append(kBuilding.getHelp());
 	}
 
+	appendIndustryBuildingChainHelp(szBuffer, eBuilding, pCity);
+
 	buildBuildingRequiresString(szBuffer, eBuilding, bCivilopediaText, bTechChooserText, pCity);
 
 	if (pCity != NULL)
@@ -7981,7 +8464,7 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 			szBuffer.append(NEWLINE);
 			if (ePlayer != NO_PLAYER)
 			{
-				szTempBuffer.Format(L"Per-civilization limit: %d (built: %d).", kBuilding.getPlayerMaxInstances(), GET_PLAYER(ePlayer).getBuildingClassCount((BuildingClassTypes)kBuilding.getBuildingClassType()));
+				szTempBuffer.Format(L"Per-civilization limit: %d (built or queued: %d).", kBuilding.getPlayerMaxInstances(), GET_PLAYER(ePlayer).getBuildingClassCountPlusMaking((BuildingClassTypes)kBuilding.getBuildingClassType()));
 			}
 			else
 			{
@@ -8112,14 +8595,14 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 					if (iCurrent < kPrereq.m_iMinCount)
 					{
 						szBuffer.append(NEWLINE);
-						szTempBuffer.Format(L"Requires %d %s in this city radius (current: %d).", kPrereq.m_iMinCount, szImprovementList.c_str(), iCurrent);
+						szTempBuffer.Format(L"Requires %d %s within this city's owned workable radius (current: %d).", kPrereq.m_iMinCount, szImprovementList.c_str(), iCurrent);
 						szBuffer.append(szTempBuffer);
 					}
 				}
 				else
 				{
 					szBuffer.append(NEWLINE);
-					szTempBuffer.Format(L"Requires %d %s in this city radius.", kPrereq.m_iMinCount, szImprovementList.c_str());
+					szTempBuffer.Format(L"Requires %d %s within this city's owned workable radius.", kPrereq.m_iMinCount, szImprovementList.c_str());
 					szBuffer.append(szTempBuffer);
 				}
 			}
@@ -8134,14 +8617,14 @@ void CvGameTextMgr::buildBuildingRequiresString(CvWStringBuffer& szBuffer, Build
 					if (iCurrent < kPrereq.m_iMinCount)
 					{
 						szBuffer.append(NEWLINE);
-						szTempBuffer.Format(L"Requires improved, connected %s in this city radius (current: %d/%d).", szBonusList.c_str(), iCurrent, kPrereq.m_iMinCount);
+						szTempBuffer.Format(L"Requires improved, connected %s within this city's owned workable radius (current: %d/%d).", szBonusList.c_str(), iCurrent, kPrereq.m_iMinCount);
 						szBuffer.append(szTempBuffer);
 					}
 				}
 				else
 				{
 					szBuffer.append(NEWLINE);
-					szTempBuffer.Format(L"Requires improved, connected %s in this city radius.", szBonusList.c_str());
+					szTempBuffer.Format(L"Requires improved, connected %s within this city's owned workable radius.", szBonusList.c_str());
 					szBuffer.append(szTempBuffer);
 				}
 			}
@@ -9552,6 +10035,8 @@ void CvGameTextMgr::setBonusHelp(CvWStringBuffer &szBuffer, BonusTypes eBonus, b
 		szBuffer.append(NEWLINE);
 		szBuffer.append(GC.getBonusInfo(eBonus).getHelp());
 	}
+
+	appendIndustryBonusChainHelp(szBuffer, eBonus);
 }
 
 void CvGameTextMgr::setReligionHelp(CvWStringBuffer &szBuffer, ReligionTypes eReligion, bool bCivilopedia)
@@ -10987,6 +11472,8 @@ void CvGameTextMgr::setImprovementHelp(CvWStringBuffer &szBuffer, ImprovementTyp
 			szBuffer.append(gDLL->getText("TXT_KEY_IMPROVEMENT_PILLAGE_YIELDS", info.getPillageGold()));
 		}
 	}
+
+	appendImprovementIndustryHelp(szBuffer, eImprovement);
 }
 
 

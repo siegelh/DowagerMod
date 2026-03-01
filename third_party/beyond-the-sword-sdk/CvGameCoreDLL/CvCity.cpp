@@ -1423,6 +1423,11 @@ int CvCity::countLocalImprovementTypes(const std::vector<int>& aiImprovementType
 			continue;
 		}
 
+		if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
+		{
+			continue;
+		}
+
 		const ImprovementTypes eImprovement = pLoopPlot->getImprovementType();
 		if (eImprovement == NO_IMPROVEMENT)
 		{
@@ -1451,6 +1456,11 @@ int CvCity::countLocalBonusTypes(const std::vector<int>& aiBonusTypes, bool bImp
 	{
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 		if (pLoopPlot == NULL)
+		{
+			continue;
+		}
+
+		if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
 		{
 			continue;
 		}
@@ -2318,9 +2328,16 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 	{
 		const BuildingIndustryCategoryTypes eIndustryCategory = (BuildingIndustryCategoryTypes)GC.getBuildingInfo(eBuilding).getIndustryCategory();
 		const int iPlayerMaxInstances = GC.getBuildingInfo(eBuilding).getPlayerMaxInstances();
+		const BuildingClassTypes eBuildingClass = (BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType();
 		if (iPlayerMaxInstances > 0 && getNumBuilding(eBuilding) <= 0)
 		{
-			if (GET_PLAYER(getOwnerINLINE()).getBuildingClassCount((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType()) >= iPlayerMaxInstances)
+			int iBuildingClassCountPlusMaking = GET_PLAYER(getOwnerINLINE()).getBuildingClassCountPlusMaking(eBuildingClass);
+			if (bContinue)
+			{
+				iBuildingClassCountPlusMaking--;
+			}
+
+			if (iBuildingClassCountPlusMaking >= iPlayerMaxInstances)
 			{
 				return false;
 			}
