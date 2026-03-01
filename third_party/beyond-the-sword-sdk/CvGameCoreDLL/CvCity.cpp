@@ -1423,11 +1423,6 @@ int CvCity::countLocalImprovementTypes(const std::vector<int>& aiImprovementType
 			continue;
 		}
 
-		if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
-		{
-			continue;
-		}
-
 		const ImprovementTypes eImprovement = pLoopPlot->getImprovementType();
 		if (eImprovement == NO_IMPROVEMENT)
 		{
@@ -1456,11 +1451,6 @@ int CvCity::countLocalBonusTypes(const std::vector<int>& aiBonusTypes, bool bImp
 	{
 		CvPlot* pLoopPlot = getCityIndexPlot(iI);
 		if (pLoopPlot == NULL)
-		{
-			continue;
-		}
-
-		if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
 		{
 			continue;
 		}
@@ -1710,7 +1700,43 @@ bool CvCity::isIndustryBuildingVisible(BuildingTypes eBuilding) const
 		for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalBonusPrereqs(); ++iPrereq)
 		{
 			const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iPrereq);
-			const int iVisibleCount = countLocalBonusTypes(kPrereq.m_aiBonusTypes, false, false, kPrereq.m_bCityRadiusOnly);
+			int iVisibleCount = 0;
+
+			for (int iPlot = 0; iPlot < NUM_CITY_PLOTS; ++iPlot)
+			{
+				CvPlot* pLoopPlot = getCityIndexPlot(iPlot);
+				if (pLoopPlot == NULL)
+				{
+					continue;
+				}
+
+				if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
+				{
+					continue;
+				}
+
+				const BonusTypes eBonus = pLoopPlot->getNonObsoleteBonusType(getTeam());
+				if (eBonus == NO_BONUS)
+				{
+					continue;
+				}
+
+				bool bMatches = false;
+				for (size_t iType = 0; iType < kPrereq.m_aiBonusTypes.size(); ++iType)
+				{
+					if (eBonus == (BonusTypes)kPrereq.m_aiBonusTypes[iType])
+					{
+						bMatches = true;
+						break;
+					}
+				}
+
+				if (bMatches)
+				{
+					++iVisibleCount;
+				}
+			}
+
 			if (iVisibleCount < kPrereq.m_iMinCount)
 			{
 				return false;
@@ -12617,11 +12643,13 @@ void CvCity::read(FDataStreamBase* pStream)
 				}
 			}
 		}
-	}
+		}
 
-	updateImprovementCityCommerceFromTraitsAndCivics(false);
-	updateAllIndustryActivations();
-}
+		updateImprovementCityCommerceFromTraitsAndCivics(false);
+		// Save data already includes industry local-active state and city totals.
+		// Recomputing activation during deserialization can touch not-yet-stable
+		// map/network state and has been linked to save-load crashes.
+	}
 
 void CvCity::write(FDataStreamBase* pStream)
 {
