@@ -58,7 +58,7 @@
 			<Type>CORPORATION_2</Type>
 			<Description>TXT_KEY_CORPORATION_2</Description>
 			<Civilopedia>TXT_KEY_CORPORATION_2_PEDIA</Civilopedia>
-			<TechPrereq>TECH_MEDICINE</TechPrereq>
+			<TechPrereq>TECH_MONARCHY</TechPrereq>
 			<FreeUnitClass>NONE</FreeUnitClass>
 			<iSpreadFactor>180</iSpreadFactor>
 			<iSpreadCost>55</iSpreadCost>

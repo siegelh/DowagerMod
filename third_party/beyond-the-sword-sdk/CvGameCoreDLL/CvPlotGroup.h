@@ -38,6 +38,7 @@ public:
 	int getNumBonuses(BonusTypes eBonus) const;
 	bool hasBonus(BonusTypes eBonus);										
 	void changeNumBonuses(BonusTypes eBonus, int iChange);
+	void rebuildBonusCounts();
 
 	void insertAtEndPlots(XYCoords xy);			
 	CLLNode<XYCoords>* deletePlotsNode(CLLNode<XYCoords>* pNode);

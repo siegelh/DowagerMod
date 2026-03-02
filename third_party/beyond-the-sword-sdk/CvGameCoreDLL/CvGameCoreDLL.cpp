@@ -12,8 +12,66 @@
 namespace
 {
 	char g_szDllTracePath[MAX_PATH] = "";
+	char g_szDllTraceDir[MAX_PATH] = "";
 	volatile LONG g_iDllTraceSequence = 0;
 	LPTOP_LEVEL_EXCEPTION_FILTER g_pPreviousUnhandledExceptionFilter = NULL;
+	bool g_bDllTraceEnabled = false;
+	bool g_bCityTraceEnabled = false;
+
+	bool isEnvVarTruthy(const char* pszName)
+	{
+		char szValue[32];
+		DWORD iLength = GetEnvironmentVariableA(pszName, szValue, sizeof(szValue));
+		if (iLength == 0 || iLength >= sizeof(szValue))
+		{
+			return false;
+		}
+
+		szValue[sizeof(szValue) - 1] = '\0';
+		return (_stricmp(szValue, "1") == 0
+			|| _stricmp(szValue, "true") == 0
+			|| _stricmp(szValue, "yes") == 0
+			|| _stricmp(szValue, "on") == 0);
+	}
+
+	bool fileExists(const char* pszPath)
+	{
+		if (pszPath == NULL || pszPath[0] == '\0')
+		{
+			return false;
+		}
+
+		DWORD dwAttributes = GetFileAttributesA(pszPath);
+		return (dwAttributes != INVALID_FILE_ATTRIBUTES) && !(dwAttributes & FILE_ATTRIBUTE_DIRECTORY);
+	}
+
+	void buildTraceControlPath(char* pszOut, size_t iOutSize, const char* pszFileName)
+	{
+		if (pszOut == NULL || iOutSize == 0)
+		{
+			return;
+		}
+
+		pszOut[0] = '\0';
+		if (g_szDllTraceDir[0] == '\0' || pszFileName == NULL)
+		{
+			return;
+		}
+
+		_snprintf(pszOut, iOutSize - 1, "%s%s", g_szDllTraceDir, pszFileName);
+		pszOut[iOutSize - 1] = '\0';
+	}
+
+	void refreshDllTraceSettings()
+	{
+		char szGlobalToggle[MAX_PATH];
+		char szCityToggle[MAX_PATH];
+		buildTraceControlPath(szGlobalToggle, sizeof(szGlobalToggle), "CvGameCoreDLL_trace.on");
+		buildTraceControlPath(szCityToggle, sizeof(szCityToggle), "CvGameCoreDLL_city_trace.on");
+
+		g_bCityTraceEnabled = isEnvVarTruthy("CIV4_DLL_CITY_TRACE") || fileExists(szCityToggle);
+		g_bDllTraceEnabled = g_bCityTraceEnabled || isEnvVarTruthy("CIV4_DLL_TRACE") || fileExists(szGlobalToggle);
+	}
 
 	void initDllTracePath(HMODULE hModule)
 	{
@@ -21,6 +79,7 @@ namespace
 		if (iLength == 0 || iLength >= MAX_PATH)
 		{
 			lstrcpyA(g_szDllTracePath, "CvGameCoreDLL_trace.log");
+			g_szDllTraceDir[0] = '\0';
 			return;
 		}
 
@@ -28,11 +87,14 @@ namespace
 		if (pszFileName != NULL)
 		{
 			*(pszFileName + 1) = '\0';
+			lstrcpyA(g_szDllTraceDir, g_szDllTracePath);
+			*(pszFileName + 1) = '\0';
 			lstrcatA(g_szDllTracePath, "CvGameCoreDLL_trace.log");
 		}
 		else
 		{
 			lstrcpyA(g_szDllTracePath, "CvGameCoreDLL_trace.log");
+			g_szDllTraceDir[0] = '\0';
 		}
 	}
 
@@ -94,8 +156,24 @@ namespace
 	}
 }
 
+bool isDllTraceEnabled()
+{
+	return g_bDllTraceEnabled;
+}
+
+bool isCityTraceEnabled()
+{
+	return g_bCityTraceEnabled;
+}
+
 void dllTrace(const char* pszCategory, const char* pszFormat, ...)
 {
+	const bool bIsCrashTrace = (pszCategory != NULL && strcmp(pszCategory, "CRASH") == 0);
+	if (!bIsCrashTrace && !g_bDllTraceEnabled)
+	{
+		return;
+	}
+
 	char szMessage[2048];
 	va_list args;
 	va_start(args, pszFormat);
@@ -213,6 +291,7 @@ BOOL APIENTRY DllMain(HANDLE hModule,
 		// The DLL is being loaded into the virtual address space of the current process as a result of the process starting up 
 		OutputDebugString("DLL_PROCESS_ATTACH\n");
 		initDllTracePath((HMODULE)hModule);
+		refreshDllTraceSettings();
 		resetDllTraceLog();
 		g_pPreviousUnhandledExceptionFilter = SetUnhandledExceptionFilter(CvGameCoreUnhandledExceptionFilter);
 		dllTrace("DLL", "PROCESS_ATTACH module=%p", hModule);

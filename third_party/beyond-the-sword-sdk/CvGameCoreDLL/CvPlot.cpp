@@ -5482,12 +5482,15 @@ CvCity* CvPlot::getPlotCity() const
 
 void CvPlot::setPlotCity(CvCity* pNewValue)
 {
-	CvPlotGroup* pPlotGroup;
+	CvCity* pOldCity;
 	CvPlot* pLoopPlot;
 	int iI;
 
 	if (getPlotCity() != pNewValue)
 	{
+		pOldCity = getPlotCity();
+		CvCity::beginDeferredIndustryActivationUpdates();
+
 		if (isCity())
 		{
 			for (iI = 0; iI < NUM_CITY_PLOTS; ++iI)
@@ -5503,19 +5506,6 @@ void CvPlot::setPlotCity(CvCity* pNewValue)
 		}
 
 		updatePlotGroupBonus(false);
-		if (isCity())
-		{
-			pPlotGroup = getPlotGroup(getOwnerINLINE());
-
-			if (pPlotGroup != NULL)
-			{
-				FAssertMsg((0 < GC.getNumBonusInfos()), "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvPlot::setPlotCity");
-				for (iI = 0; iI < GC.getNumBonusInfos(); ++iI)
-				{
-					getPlotCity()->changeNumBonuses(((BonusTypes)iI), -(pPlotGroup->getNumBonuses((BonusTypes)iI)));
-				}
-			}
-		}
 		if (pNewValue != NULL)
 		{
 			m_plotCity = pNewValue->getIDInfo();
@@ -5524,20 +5514,16 @@ void CvPlot::setPlotCity(CvCity* pNewValue)
 		{
 			m_plotCity.reset();
 		}
-		if (isCity())
-		{
-			pPlotGroup = getPlotGroup(getOwnerINLINE());
-
-			if (pPlotGroup != NULL)
-			{
-				FAssertMsg((0 < GC.getNumBonusInfos()), "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvPlot::setPlotCity");
-				for (iI = 0; iI < GC.getNumBonusInfos(); ++iI)
-				{
-					getPlotCity()->changeNumBonuses(((BonusTypes)iI), pPlotGroup->getNumBonuses((BonusTypes)iI));
-				}
-			}
-		}
 		updatePlotGroupBonus(true);
+
+		if (pOldCity != NULL)
+		{
+			pOldCity->syncAllNetworkBonusCounts();
+		}
+		if (getPlotCity() != NULL && getPlotCity() != pOldCity)
+		{
+			getPlotCity()->syncAllNetworkBonusCounts();
+		}
 
 		if (isCity())
 		{
@@ -5557,6 +5543,8 @@ void CvPlot::setPlotCity(CvCity* pNewValue)
 		updateYield();
 
 		updateMinimapColor();
+
+		CvCity::endDeferredIndustryActivationUpdates();
 	}
 }
 
@@ -6485,12 +6473,12 @@ CvPlotGroup* CvPlot::getOwnerPlotGroup() const
 
 void CvPlot::setPlotGroup(PlayerTypes ePlayer, CvPlotGroup* pNewValue)
 {
-	int iI;
-
 	CvPlotGroup* pOldPlotGroup = getPlotGroup(ePlayer);
 
 	if (pOldPlotGroup != pNewValue)
 	{
+		CvCity::beginDeferredIndustryActivationUpdates();
+
 		if (NULL ==  m_aiPlotGroup)
 		{
 			m_aiPlotGroup = new int[MAX_PLAYERS];
@@ -6507,21 +6495,6 @@ void CvPlot::setPlotGroup(PlayerTypes ePlayer, CvPlotGroup* pNewValue)
 			updatePlotGroupBonus(false);
 		}
 
-		if (pOldPlotGroup != NULL)
-		{
-			if (pCity != NULL)
-			{
-				if (pCity->getOwnerINLINE() == ePlayer)
-				{
-					FAssertMsg((0 < GC.getNumBonusInfos()), "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvPlot::setPlotGroup");
-					for (iI = 0; iI < GC.getNumBonusInfos(); ++iI)
-					{
-						pCity->changeNumBonuses(((BonusTypes)iI), -(pOldPlotGroup->getNumBonuses((BonusTypes)iI)));
-					}
-				}
-			}
-		}
-
 		if (pNewValue == NULL)
 		{
 			m_aiPlotGroup[ePlayer] = FFreeList::INVALID_INDEX;
@@ -6531,24 +6504,20 @@ void CvPlot::setPlotGroup(PlayerTypes ePlayer, CvPlotGroup* pNewValue)
 			m_aiPlotGroup[ePlayer] = pNewValue->getID();
 		}
 
-		if (getPlotGroup(ePlayer) != NULL)
-		{
-			if (pCity != NULL)
-			{
-				if (pCity->getOwnerINLINE() == ePlayer)
-				{
-					FAssertMsg((0 < GC.getNumBonusInfos()), "GC.getNumBonusInfos() is not greater than zero but an array is being allocated in CvPlot::setPlotGroup");
-					for (iI = 0; iI < GC.getNumBonusInfos(); ++iI)
-					{
-						pCity->changeNumBonuses(((BonusTypes)iI), getPlotGroup(ePlayer)->getNumBonuses((BonusTypes)iI));
-					}
-				}
-			}
-		}
 		if (ePlayer == getOwnerINLINE())
 		{
 			updatePlotGroupBonus(true);
 		}
+
+		if (pCity != NULL)
+		{
+			if (pCity->getOwnerINLINE() == ePlayer)
+			{
+				pCity->syncAllNetworkBonusCounts();
+			}
+		}
+
+		CvCity::endDeferredIndustryActivationUpdates();
 	}
 }
 

@@ -32011,7 +32011,7 @@
 			<FreeStartEra>NONE</FreeStartEra>
 			<MaxStartEra>NONE</MaxStartEra>
 			<ObsoleteTech>NONE</ObsoleteTech>
-			<PrereqTech>TECH_MEDICINE</PrereqTech>
+			<PrereqTech>TECH_MONARCHY</PrereqTech>
 			<TechTypes>
 				<PrereqTech>TECH_CORPORATION</PrereqTech>
 				<PrereqTech>NONE</PrereqTech>

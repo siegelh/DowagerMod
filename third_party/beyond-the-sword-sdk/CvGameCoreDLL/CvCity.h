@@ -697,6 +697,8 @@ public:
 	int getNumBonuses(BonusTypes eIndex) const;																		// Exposed to Python
 	bool hasBonus(BonusTypes eIndex) const;															// Exposed to Python
 	void changeNumBonuses(BonusTypes eIndex, int iChange);
+	void syncNetworkBonusCount(BonusTypes eIndex, int iNewValue);
+	void syncAllNetworkBonusCounts();
 
 	int getNumCorpProducedBonuses(BonusTypes eIndex) const;
 	bool isCorporationBonus(BonusTypes eBonus) const;
@@ -795,6 +797,8 @@ public:
 	bool isIndustryBuildingLocallyActive(BuildingTypes eBuilding) const;
 	void updateIndustryActivation(BuildingTypes eBuilding);
 	void updateAllIndustryActivations();
+	static void beginDeferredIndustryActivationUpdates();
+	static void endDeferredIndustryActivationUpdates();
 
 	bool isValidBuildingLocation(BuildingTypes eIndex) const;
 
@@ -1041,6 +1045,9 @@ protected:
 	bool m_bInfoDirty;
 	bool m_bLayoutDirty;
 	bool m_bPlundered;
+	bool m_bUpdatingIndustryActivations;
+	bool m_bIndustryActivationDirty;
+	bool m_bIndustryActivationDeferred;
 
 	PlayerTypes m_eOwner;
 	PlayerTypes m_ePreviousOwner;
@@ -1131,6 +1138,9 @@ protected:
 	bool*	m_abYieldRankValid;
 	int*	m_aiCommerceRank;
 	bool*	m_abCommerceRankValid;
+
+	void requestIndustryActivationRefresh();
+	static void flushDeferredIndustryActivationUpdates();
 
 	void doGrowth();
 	void doCulture();

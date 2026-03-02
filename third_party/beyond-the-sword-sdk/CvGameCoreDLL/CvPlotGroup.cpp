@@ -217,6 +217,8 @@ void CvPlotGroup::changeNumBonuses(BonusTypes eBonus, int iChange)
 
 	if (iChange != 0)
 	{
+		CvCity::beginDeferredIndustryActivationUpdates();
+
 		iOldNumBonuses = getNumBonuses(eBonus);
 
 		m_paiNumBonuses[eBonus] = (m_paiNumBonuses[eBonus] + iChange);
@@ -233,13 +235,54 @@ void CvPlotGroup::changeNumBonuses(BonusTypes eBonus, int iChange)
 			{
 				if (pCity->getOwnerINLINE() == getOwnerINLINE())
 				{
-					pCity->changeNumBonuses(eBonus, iChange);
+					pCity->syncNetworkBonusCount(eBonus, getNumBonuses(eBonus));
 				}
 			}
 
 			pPlotNode = nextPlotsNode(pPlotNode);
 		}
+
+		CvCity::endDeferredIndustryActivationUpdates();
 	}
+}
+
+void CvPlotGroup::rebuildBonusCounts()
+{
+	CLLNode<XYCoords>* pPlotNode;
+	CvPlot* pPlot;
+	CvCity* pCity;
+	int iI;
+
+	CvCity::beginDeferredIndustryActivationUpdates();
+
+	for (iI = 0; iI < GC.getNumBonusInfos(); ++iI)
+	{
+		m_paiNumBonuses[iI] = 0;
+	}
+
+	pPlotNode = headPlotsNode();
+	while (pPlotNode != NULL)
+	{
+		pPlot = GC.getMapINLINE().plotSorenINLINE(pPlotNode->m_data.iX, pPlotNode->m_data.iY);
+		if (pPlot != NULL && pPlot->getOwnerINLINE() == getOwnerINLINE())
+		{
+			pPlot->updatePlotGroupBonus(true);
+		}
+		pPlotNode = nextPlotsNode(pPlotNode);
+	}
+
+	pPlotNode = headPlotsNode();
+	while (pPlotNode != NULL)
+	{
+		pCity = GC.getMapINLINE().plotSorenINLINE(pPlotNode->m_data.iX, pPlotNode->m_data.iY)->getPlotCity();
+		if (pCity != NULL && pCity->getOwnerINLINE() == getOwnerINLINE())
+		{
+			pCity->syncAllNetworkBonusCounts();
+		}
+		pPlotNode = nextPlotsNode(pPlotNode);
+	}
+
+	CvCity::endDeferredIndustryActivationUpdates();
 }
 
 

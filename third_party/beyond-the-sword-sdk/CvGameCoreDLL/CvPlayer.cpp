@@ -16538,6 +16538,27 @@ void CvPlayer::read(FDataStreamBase* pStream)
 	rebuildTraitGoldenAgeYieldChangeCache();
 	dllTrace("SAVE", "CvPlayer::read final scalars/cache id=%d", (int)m_eID);
 
+	{
+		int iRebuiltPlotGroups = 0;
+		int iPlotGroupLoop = 0;
+		for (CvPlotGroup* pLoopPlotGroup = firstPlotGroup(&iPlotGroupLoop); pLoopPlotGroup != NULL; pLoopPlotGroup = nextPlotGroup(&iPlotGroupLoop))
+		{
+			pLoopPlotGroup->rebuildBonusCounts();
+			++iRebuiltPlotGroups;
+		}
+
+		int iSyncedCities = 0;
+		CvCity::beginDeferredIndustryActivationUpdates();
+		int iLoop = 0;
+		for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+		{
+			pLoopCity->syncAllNetworkBonusCounts();
+			++iSyncedCities;
+		}
+		CvCity::endDeferredIndustryActivationUpdates();
+		dllTrace("SAVE", "CvPlayer::read network bonus rebuild id=%d plotGroups=%d cities=%d", (int)m_eID, iRebuiltPlotGroups, iSyncedCities);
+	}
+
 		if (bBackfillTraitDerivedData)
 		{
 		int iLoop = 0;

@@ -153,6 +153,8 @@ __forceinline float MaxFloat() { return DWtoF(0x7f7fffff); }
 
 void startProfilingDLL();
 void stopProfilingDLL();
+bool isDllTraceEnabled();
+bool isCityTraceEnabled();
 
 //
 // Boost Python

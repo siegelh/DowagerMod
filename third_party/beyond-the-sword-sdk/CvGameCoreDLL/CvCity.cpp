@@ -29,9 +29,429 @@
 
 namespace
 {
+	int g_iDeferredIndustryActivationDepth = 0;
+	bool g_bFlushingDeferredIndustryActivationUpdates = false;
+
 	void logIndustryDebug(const CvString& szMessage)
 	{
+		if (!isCityTraceEnabled())
+		{
+			return;
+		}
 		dllTrace("CITY", "%s", szMessage.c_str());
+	}
+
+	bool isMatchingBonusType(BonusTypes eBonus, const std::vector<int>& aiBonusTypes)
+	{
+		for (size_t iType = 0; iType < aiBonusTypes.size(); ++iType)
+		{
+			if (eBonus == (BonusTypes)aiBonusTypes[iType])
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	int countOwnedMatchingLocalBonusPlots(const CvCity& kCity, const BuildingLocalBonusPrereq& kPrereq, bool bRequireImproved, bool bRequireConnected)
+	{
+		int iCount = 0;
+		CvPlotGroup* pCityPlotGroup = kCity.plot()->getPlotGroup(kCity.getOwnerINLINE());
+
+		for (int iPlot = 0; iPlot < NUM_CITY_PLOTS; ++iPlot)
+		{
+			CvPlot* pLoopPlot = kCity.getCityIndexPlot(iPlot);
+			if (pLoopPlot == NULL)
+			{
+				continue;
+			}
+
+			if (pLoopPlot->getOwnerINLINE() != kCity.getOwnerINLINE())
+			{
+				continue;
+			}
+
+			const BonusTypes eBonus = pLoopPlot->getNonObsoleteBonusType(kCity.getTeam());
+			if (eBonus == NO_BONUS || !isMatchingBonusType(eBonus, kPrereq.m_aiBonusTypes))
+			{
+				continue;
+			}
+
+			if (bRequireImproved && pLoopPlot->getImprovementType() == NO_IMPROVEMENT)
+			{
+				continue;
+			}
+
+			if (bRequireConnected)
+			{
+				if (!pLoopPlot->isBonusNetwork(kCity.getTeam()))
+				{
+					continue;
+				}
+
+				if (pCityPlotGroup == NULL || pLoopPlot->getPlotGroup(kCity.getOwnerINLINE()) != pCityPlotGroup)
+				{
+					continue;
+				}
+			}
+
+			++iCount;
+		}
+
+	return iCount;
+}
+
+	int getCityPlotGroupID(const CvCity& kCity)
+	{
+		CvPlotGroup* pPlotGroup = kCity.plot()->getPlotGroup(kCity.getOwnerINLINE());
+		return (pPlotGroup != NULL) ? pPlotGroup->getID() : -1;
+	}
+
+	BuildingTypes getSpiceExchangeBuildingType()
+	{
+		static int iCached = -2;
+		if (iCached == -2)
+		{
+			iCached = GC.getInfoTypeForString("BUILDING_INDUSTRY_SPICE_EXCHANGE");
+		}
+		return (BuildingTypes)iCached;
+	}
+
+	BuildingTypes getMillersGuildBuildingType()
+	{
+		static int iCached = -2;
+		if (iCached == -2)
+		{
+			iCached = GC.getInfoTypeForString("BUILDING_INDUSTRY_MILLERS_GUILD");
+		}
+		return (BuildingTypes)iCached;
+	}
+
+	BuildingTypes getSmokehouseBuildingType()
+	{
+		static int iCached = -2;
+		if (iCached == -2)
+		{
+			iCached = GC.getInfoTypeForString("BUILDING_INDUSTRY_SMOKEHOUSE");
+		}
+		return (BuildingTypes)iCached;
+	}
+
+	CvString narrowCityName(const CvCity& kCity)
+	{
+		CvString szName;
+		szName.Format("%S", kCity.getName().GetCString());
+		return szName;
+	}
+
+	bool isScreenshotAuditCity(const CvCity& kCity)
+	{
+		return ((kCity.getX_INLINE() == 10 && kCity.getY_INLINE() == 12)
+			|| (kCity.getX_INLINE() == 14 && kCity.getY_INLINE() == 12));
+	}
+
+	void logFullCityRadiusAudit(const CvCity& kCity)
+	{
+		if (!isCityTraceEnabled())
+		{
+			return;
+		}
+
+		if (!isScreenshotAuditCity(kCity))
+		{
+			return;
+		}
+
+		int iRawSpice = 0;
+		int iEffectiveSpice = 0;
+		int iOwnedEffectiveSpice = 0;
+		const BonusTypes eSpices = (BonusTypes)GC.getInfoTypeForString("BONUS_SPICES");
+		CvPlotGroup* pCityPlotGroup = kCity.plot()->getPlotGroup(kCity.getOwnerINLINE());
+
+		for (int iPlot = 0; iPlot < NUM_CITY_PLOTS; ++iPlot)
+		{
+			CvPlot* pLoopPlot = kCity.getCityIndexPlot(iPlot);
+			if (pLoopPlot == NULL)
+			{
+				continue;
+			}
+
+			const BonusTypes eRawBonus = pLoopPlot->getBonusType();
+			const BonusTypes eEffectiveBonus = pLoopPlot->getNonObsoleteBonusType(kCity.getTeam());
+
+			if (eRawBonus == eSpices)
+			{
+				++iRawSpice;
+			}
+			if (eEffectiveBonus == eSpices)
+			{
+				++iEffectiveSpice;
+				if (pLoopPlot->getOwnerINLINE() == kCity.getOwnerINLINE())
+				{
+					++iOwnedEffectiveSpice;
+				}
+			}
+		}
+
+		logIndustryDebug(CvString::format(
+			"City radius audit owner=%d city=%d name=%s coords=%d,%d plotGroup=%d spiceExchangeCount=%d spiceExchangeReal=%d millersCount=%d millersReal=%d smokehouseCount=%d smokehouseReal=%d rawSpice=%d effectiveSpice=%d ownedEffectiveSpice=%d",
+			kCity.getOwnerINLINE(),
+			kCity.getID(),
+			narrowCityName(kCity).c_str(),
+			kCity.getX_INLINE(),
+			kCity.getY_INLINE(),
+			(pCityPlotGroup != NULL) ? pCityPlotGroup->getID() : -1,
+			kCity.getNumBuilding(getSpiceExchangeBuildingType()),
+			kCity.getNumRealBuilding(getSpiceExchangeBuildingType()),
+			kCity.getNumBuilding(getMillersGuildBuildingType()),
+			kCity.getNumRealBuilding(getMillersGuildBuildingType()),
+			kCity.getNumBuilding(getSmokehouseBuildingType()),
+			kCity.getNumRealBuilding(getSmokehouseBuildingType()),
+			iRawSpice,
+			iEffectiveSpice,
+			iOwnedEffectiveSpice));
+
+		for (int iPlot = 0; iPlot < NUM_CITY_PLOTS; ++iPlot)
+		{
+			CvPlot* pLoopPlot = kCity.getCityIndexPlot(iPlot);
+			if (pLoopPlot == NULL)
+			{
+				logIndustryDebug(CvString::format(
+					"City radius audit plot owner=%d city=%d coords=%d,%d idx=%d plot=NULL",
+					kCity.getOwnerINLINE(),
+					kCity.getID(),
+					kCity.getX_INLINE(),
+					kCity.getY_INLINE(),
+					iPlot));
+				continue;
+			}
+
+			const BonusTypes eRawBonus = pLoopPlot->getBonusType();
+			const BonusTypes eEffectiveBonus = pLoopPlot->getNonObsoleteBonusType(kCity.getTeam());
+			CvPlotGroup* pPlotGroupForCityOwner = pLoopPlot->getPlotGroup(kCity.getOwnerINLINE());
+			CvPlotGroup* pPlotGroupForPlotOwner = (pLoopPlot->getOwnerINLINE() != NO_PLAYER)
+				? pLoopPlot->getPlotGroup(pLoopPlot->getOwnerINLINE())
+				: NULL;
+			const CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
+
+			logIndustryDebug(CvString::format(
+				"City radius audit plot owner=%d city=%d name=%s coords=%d,%d idx=%d plot=%d,%d worked=%d workCity=%d workCityCoords=%d,%d raw=%s effective=%s plotOwner=%d imp=%s route=%s bonusNet=%d cityPlotGroup=%d cityOwnerPlotGroup=%d plotOwnerPlotGroup=%d",
+				kCity.getOwnerINLINE(),
+				kCity.getID(),
+				narrowCityName(kCity).c_str(),
+				kCity.getX_INLINE(),
+				kCity.getY_INLINE(),
+				iPlot,
+				pLoopPlot->getX_INLINE(),
+				pLoopPlot->getY_INLINE(),
+				kCity.isWorkingPlot(iPlot) ? 1 : 0,
+				(pWorkingCity != NULL) ? pWorkingCity->getID() : -1,
+				(pWorkingCity != NULL) ? pWorkingCity->getX_INLINE() : -1,
+				(pWorkingCity != NULL) ? pWorkingCity->getY_INLINE() : -1,
+				(eRawBonus != NO_BONUS) ? GC.getBonusInfo(eRawBonus).getType() : "NONE",
+				(eEffectiveBonus != NO_BONUS) ? GC.getBonusInfo(eEffectiveBonus).getType() : "NONE",
+				pLoopPlot->getOwnerINLINE(),
+				(pLoopPlot->getImprovementType() != NO_IMPROVEMENT) ? GC.getImprovementInfo(pLoopPlot->getImprovementType()).getType() : "NONE",
+				(pLoopPlot->getRouteType() != NO_ROUTE) ? GC.getRouteInfo(pLoopPlot->getRouteType()).getType() : "NONE",
+				pLoopPlot->isBonusNetwork(kCity.getTeam()) ? 1 : 0,
+				(pCityPlotGroup != NULL) ? pCityPlotGroup->getID() : -1,
+				(pPlotGroupForCityOwner != NULL) ? pPlotGroupForCityOwner->getID() : -1,
+				(pPlotGroupForPlotOwner != NULL) ? pPlotGroupForPlotOwner->getID() : -1));
+		}
+	}
+
+	bool shouldLogDetailedSpicePlots(const CvCity& kCity, BuildingTypes eBuilding)
+	{
+		return (eBuilding == getSpiceExchangeBuildingType()
+			&& kCity.getNumBuilding(eBuilding) > 0);
+	}
+
+	void logDetailedLocalBonusPlots(const CvCity& kCity, BuildingTypes eBuilding, const CvBuildingInfo& kBuilding)
+	{
+		if (!isCityTraceEnabled())
+		{
+			return;
+		}
+
+		if (!shouldLogDetailedSpicePlots(kCity, eBuilding))
+		{
+			return;
+		}
+
+		CvPlotGroup* pCityPlotGroup = kCity.plot()->getPlotGroup(kCity.getOwnerINLINE());
+		logIndustryDebug(CvString::format(
+			"Luxury spice detail entered owner=%d city=%d name=%s coords=%d,%d building=%s plotGroup=%d",
+			kCity.getOwnerINLINE(),
+			kCity.getID(),
+			narrowCityName(kCity).c_str(),
+			kCity.getX_INLINE(),
+			kCity.getY_INLINE(),
+			GC.getBuildingInfo(eBuilding).getType(),
+			(pCityPlotGroup != NULL) ? pCityPlotGroup->getID() : -1));
+		bool bLoggedAny = false;
+
+		for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalBonusPrereqs(); ++iPrereq)
+		{
+			const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iPrereq);
+
+			for (int iPlot = 0; iPlot < NUM_CITY_PLOTS; ++iPlot)
+			{
+				CvPlot* pLoopPlot = kCity.getCityIndexPlot(iPlot);
+				if (pLoopPlot == NULL)
+				{
+					continue;
+				}
+
+				const BonusTypes eRawBonus = pLoopPlot->getBonusType();
+				const BonusTypes eEffectiveBonus = pLoopPlot->getNonObsoleteBonusType(kCity.getTeam());
+				const bool bRawMatch = (eRawBonus != NO_BONUS) && isMatchingBonusType(eRawBonus, kPrereq.m_aiBonusTypes);
+				const bool bEffectiveMatch = (eEffectiveBonus != NO_BONUS) && isMatchingBonusType(eEffectiveBonus, kPrereq.m_aiBonusTypes);
+
+				if (!bRawMatch && !bEffectiveMatch)
+				{
+					continue;
+				}
+
+				const bool bOwnerOk = (pLoopPlot->getOwnerINLINE() == kCity.getOwnerINLINE());
+				const bool bImprovedOk = (!kPrereq.m_bImprovedOnly || pLoopPlot->getImprovementType() != NO_IMPROVEMENT);
+				const bool bNetworkOk = (!kPrereq.m_bConnectedOnly || pLoopPlot->isBonusNetwork(kCity.getTeam()));
+				CvPlotGroup* pPlotGroup = pLoopPlot->getPlotGroup(kCity.getOwnerINLINE());
+				const bool bGroupOk = (!kPrereq.m_bConnectedOnly || (pCityPlotGroup != NULL && pPlotGroup == pCityPlotGroup));
+				const bool bCounted = bOwnerOk && bEffectiveMatch && bImprovedOk && bNetworkOk && bGroupOk;
+				const CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
+
+				logIndustryDebug(CvString::format(
+					"Luxury spice plot owner=%d city=%d name=%s coords=%d,%d prereq=%d plot=%d,%d raw=%s effective=%s plotOwner=%d imp=%s route=%s workCity=%d workCityCoords=%d,%d bonusNet=%d cityPlotGroup=%d plotGroup=%d rawMatch=%d effectiveMatch=%d ownerOk=%d improvedOk=%d networkOk=%d groupOk=%d counted=%d",
+					kCity.getOwnerINLINE(),
+					kCity.getID(),
+					narrowCityName(kCity).c_str(),
+					kCity.getX_INLINE(),
+					kCity.getY_INLINE(),
+					iPrereq,
+					pLoopPlot->getX_INLINE(),
+					pLoopPlot->getY_INLINE(),
+					(eRawBonus != NO_BONUS) ? GC.getBonusInfo(eRawBonus).getType() : "NONE",
+					(eEffectiveBonus != NO_BONUS) ? GC.getBonusInfo(eEffectiveBonus).getType() : "NONE",
+					pLoopPlot->getOwnerINLINE(),
+					(pLoopPlot->getImprovementType() != NO_IMPROVEMENT) ? GC.getImprovementInfo(pLoopPlot->getImprovementType()).getType() : "NONE",
+					(pLoopPlot->getRouteType() != NO_ROUTE) ? GC.getRouteInfo(pLoopPlot->getRouteType()).getType() : "NONE",
+					(pWorkingCity != NULL) ? pWorkingCity->getID() : -1,
+					(pWorkingCity != NULL) ? pWorkingCity->getX_INLINE() : -1,
+					(pWorkingCity != NULL) ? pWorkingCity->getY_INLINE() : -1,
+					pLoopPlot->isBonusNetwork(kCity.getTeam()) ? 1 : 0,
+					(pCityPlotGroup != NULL) ? pCityPlotGroup->getID() : -1,
+					(pPlotGroup != NULL) ? pPlotGroup->getID() : -1,
+					bRawMatch ? 1 : 0,
+					bEffectiveMatch ? 1 : 0,
+					bOwnerOk ? 1 : 0,
+					bImprovedOk ? 1 : 0,
+					bNetworkOk ? 1 : 0,
+					bGroupOk ? 1 : 0,
+					bCounted ? 1 : 0));
+				bLoggedAny = true;
+			}
+		}
+
+		if (!bLoggedAny)
+		{
+			logIndustryDebug(CvString::format(
+				"Luxury spice plot owner=%d city=%d name=%s coords=%d,%d no matching raw/effective spice plots found in city radius",
+				kCity.getOwnerINLINE(),
+				kCity.getID(),
+				narrowCityName(kCity).c_str(),
+				kCity.getX_INLINE(),
+				kCity.getY_INLINE()));
+		}
+
+		for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalBonusPrereqs(); ++iPrereq)
+		{
+			const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iPrereq);
+
+			for (int iMapPlot = 0; iMapPlot < GC.getMapINLINE().numPlotsINLINE(); ++iMapPlot)
+			{
+				CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iMapPlot);
+				if (pLoopPlot == NULL)
+				{
+					continue;
+				}
+
+				const BonusTypes eRawBonus = pLoopPlot->getBonusType();
+				const BonusTypes eEffectiveBonus = pLoopPlot->getNonObsoleteBonusType(kCity.getTeam());
+				const bool bRawMatch = (eRawBonus != NO_BONUS) && isMatchingBonusType(eRawBonus, kPrereq.m_aiBonusTypes);
+				const bool bEffectiveMatch = (eEffectiveBonus != NO_BONUS) && isMatchingBonusType(eEffectiveBonus, kPrereq.m_aiBonusTypes);
+
+				if (!bRawMatch && !bEffectiveMatch)
+				{
+					continue;
+				}
+
+				bool bInCityRadius = false;
+				for (int iCityPlot = 0; iCityPlot < NUM_CITY_PLOTS; ++iCityPlot)
+				{
+					if (kCity.getCityIndexPlot(iCityPlot) == pLoopPlot)
+					{
+						bInCityRadius = true;
+						break;
+					}
+				}
+
+				CvPlotGroup* pPlotGroupForCityOwner = pLoopPlot->getPlotGroup(kCity.getOwnerINLINE());
+				CvPlotGroup* pPlotGroupForPlotOwner = (pLoopPlot->getOwnerINLINE() != NO_PLAYER)
+					? pLoopPlot->getPlotGroup(pLoopPlot->getOwnerINLINE())
+					: NULL;
+				const CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
+
+				logIndustryDebug(CvString::format(
+					"Luxury spice global owner=%d city=%d name=%s coords=%d,%d prereq=%d plot=%d,%d inCityRadius=%d raw=%s effective=%s plotOwner=%d imp=%s route=%s workCity=%d workCityCoords=%d,%d bonusNet=%d cityPlotGroup=%d cityOwnerPlotGroup=%d plotOwnerPlotGroup=%d",
+					kCity.getOwnerINLINE(),
+					kCity.getID(),
+					narrowCityName(kCity).c_str(),
+					kCity.getX_INLINE(),
+					kCity.getY_INLINE(),
+					iPrereq,
+					pLoopPlot->getX_INLINE(),
+					pLoopPlot->getY_INLINE(),
+					bInCityRadius ? 1 : 0,
+					(eRawBonus != NO_BONUS) ? GC.getBonusInfo(eRawBonus).getType() : "NONE",
+					(eEffectiveBonus != NO_BONUS) ? GC.getBonusInfo(eEffectiveBonus).getType() : "NONE",
+					pLoopPlot->getOwnerINLINE(),
+					(pLoopPlot->getImprovementType() != NO_IMPROVEMENT) ? GC.getImprovementInfo(pLoopPlot->getImprovementType()).getType() : "NONE",
+					(pLoopPlot->getRouteType() != NO_ROUTE) ? GC.getRouteInfo(pLoopPlot->getRouteType()).getType() : "NONE",
+					(pWorkingCity != NULL) ? pWorkingCity->getID() : -1,
+					(pWorkingCity != NULL) ? pWorkingCity->getX_INLINE() : -1,
+					(pWorkingCity != NULL) ? pWorkingCity->getY_INLINE() : -1,
+					pLoopPlot->isBonusNetwork(kCity.getTeam()) ? 1 : 0,
+					(pCityPlotGroup != NULL) ? pCityPlotGroup->getID() : -1,
+					(pPlotGroupForCityOwner != NULL) ? pPlotGroupForCityOwner->getID() : -1,
+					(pPlotGroupForPlotOwner != NULL) ? pPlotGroupForPlotOwner->getID() : -1));
+			}
+		}
+	}
+
+CvString describeLuxuryLocalBonusState(const CvCity& kCity, const CvBuildingInfo& kBuilding)
+{
+	CvString szSummary;
+		for (int iPrereq = 0; iPrereq < kBuilding.getNumLocalBonusPrereqs(); ++iPrereq)
+		{
+			const BuildingLocalBonusPrereq& kPrereq = kBuilding.getLocalBonusPrereq(iPrereq);
+			const int iOwnedCount = countOwnedMatchingLocalBonusPlots(kCity, kPrereq, false, false);
+			const int iImprovedCount = countOwnedMatchingLocalBonusPlots(kCity, kPrereq, true, false);
+			const int iConnectedCount = countOwnedMatchingLocalBonusPlots(kCity, kPrereq, true, true);
+			const int iEffectiveCount = countOwnedMatchingLocalBonusPlots(
+				kCity,
+				kPrereq,
+				kPrereq.m_bImprovedOnly,
+				kPrereq.m_bConnectedOnly);
+			szSummary += CvString::format(
+				" prereq%d[min=%d owned=%d improved=%d connected=%d effective=%d]",
+				iPrereq,
+				kPrereq.m_iMinCount,
+				iOwnedCount,
+				iImprovedCount,
+				iConnectedCount,
+				iEffectiveCount);
+		}
+		return szSummary;
 	}
 
 	int countTrueEntries(const bool* pabValues, int iCount)
@@ -497,6 +917,9 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_bInfoDirty = true;
 	m_bLayoutDirty = false;
 	m_bPlundered = false;
+	m_bUpdatingIndustryActivations = false;
+	m_bIndustryActivationDirty = false;
+	m_bIndustryActivationDeferred = false;
 
 	m_eOwner = eOwner;
 	m_ePreviousOwner = NO_PLAYER;
@@ -1486,23 +1909,18 @@ int CvCity::countLocalBonusTypes(const std::vector<int>& aiBonusTypes, bool bImp
 			// All current industry prereqs are city-radius scoped; keep the parameter for XML forward compatibility.
 		}
 
+		if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
+		{
+			continue;
+		}
+
 		const BonusTypes eBonus = pLoopPlot->getNonObsoleteBonusType(getTeam());
 		if (eBonus == NO_BONUS)
 		{
 			continue;
 		}
 
-		bool bMatches = false;
-		for (size_t iType = 0; iType < aiBonusTypes.size(); ++iType)
-		{
-			if (eBonus == (BonusTypes)aiBonusTypes[iType])
-			{
-				bMatches = true;
-				break;
-			}
-		}
-
-		if (!bMatches)
+		if (!isMatchingBonusType(eBonus, aiBonusTypes))
 		{
 			continue;
 		}
@@ -1839,6 +2257,40 @@ void CvCity::updateIndustryActivation(BuildingTypes eBuilding)
 	const int iOldActiveCount = getNumActiveBuilding(eBuilding);
 	setIndustryBuildingLocalActive(eBuilding, calculateIndustryBuildingLocalActive(eBuilding));
 	const int iNewActiveCount = getNumActiveBuilding(eBuilding);
+	const CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+
+	if (kBuilding.getIndustryCategory() == BUILDING_INDUSTRY_LUXURY && getNumBuilding(eBuilding) > 0)
+	{
+		if (isCityTraceEnabled())
+		{
+			const BonusTypes eFreeBonus = (BonusTypes)kBuilding.getFreeBonus();
+			CvString szLog = CvString::format(
+				"Luxury activation owner=%d city=%d name=%s coords=%d,%d plotGroup=%d building=%s num=%d oldActive=%d newActive=%d freeBonus=%s cityFreeBonus=%d cityNetworkRaw=%d cityCorpBonus=%d cityTotalBonus=%d",
+				getOwnerINLINE(),
+				getID(),
+				narrowCityName(*this).c_str(),
+				getX_INLINE(),
+				getY_INLINE(),
+				getCityPlotGroupID(*this),
+				kBuilding.getType(),
+				getNumBuilding(eBuilding),
+				iOldActiveCount,
+				iNewActiveCount,
+				(eFreeBonus != NO_BONUS) ? GC.getBonusInfo(eFreeBonus).getType() : "NONE",
+				(eFreeBonus != NO_BONUS) ? getFreeBonus(eFreeBonus) : 0,
+				(eFreeBonus != NO_BONUS) ? m_paiNumBonuses[eFreeBonus] : 0,
+				(eFreeBonus != NO_BONUS) ? getNumCorpProducedBonuses(eFreeBonus) : 0,
+				(eFreeBonus != NO_BONUS) ? getNumBonuses(eFreeBonus) : 0);
+			szLog += describeLuxuryLocalBonusState(*this, kBuilding);
+			logIndustryDebug(szLog);
+			logDetailedLocalBonusPlots(*this, eBuilding, kBuilding);
+			if (isScreenshotAuditCity(*this)
+				&& (eBuilding == getMillersGuildBuildingType() || eBuilding == getSpiceExchangeBuildingType()))
+			{
+				logFullCityRadiusAudit(*this);
+			}
+		}
+	}
 
 	if (iNewActiveCount != iOldActiveCount)
 	{
@@ -1848,10 +2300,91 @@ void CvCity::updateIndustryActivation(BuildingTypes eBuilding)
 
 void CvCity::updateAllIndustryActivations()
 {
-	for (int iI = 0; iI < GC.getNumBuildingInfos(); ++iI)
+	if (m_bUpdatingIndustryActivations)
 	{
-		updateIndustryActivation((BuildingTypes)iI);
+		m_bIndustryActivationDirty = true;
+		return;
 	}
+
+	m_bUpdatingIndustryActivations = true;
+	do
+	{
+		m_bIndustryActivationDirty = false;
+		for (int iI = 0; iI < GC.getNumBuildingInfos(); ++iI)
+		{
+			updateIndustryActivation((BuildingTypes)iI);
+		}
+	}
+	while (m_bIndustryActivationDirty);
+	m_bUpdatingIndustryActivations = false;
+}
+
+void CvCity::beginDeferredIndustryActivationUpdates()
+{
+	++g_iDeferredIndustryActivationDepth;
+}
+
+void CvCity::endDeferredIndustryActivationUpdates()
+{
+	FAssertMsg(g_iDeferredIndustryActivationDepth > 0, "Deferred industry activation depth underflow");
+	if (g_iDeferredIndustryActivationDepth <= 0)
+	{
+		g_iDeferredIndustryActivationDepth = 0;
+		return;
+	}
+
+	--g_iDeferredIndustryActivationDepth;
+	if (g_iDeferredIndustryActivationDepth == 0 && !g_bFlushingDeferredIndustryActivationUpdates)
+	{
+		flushDeferredIndustryActivationUpdates();
+	}
+}
+
+void CvCity::flushDeferredIndustryActivationUpdates()
+{
+	bool bFoundDirty = false;
+	g_bFlushingDeferredIndustryActivationUpdates = true;
+
+	do
+	{
+		bFoundDirty = false;
+
+		for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
+		{
+			CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+			if (!kPlayer.isAlive())
+			{
+				continue;
+			}
+
+			int iLoop = 0;
+			for (CvCity* pLoopCity = kPlayer.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kPlayer.nextCity(&iLoop))
+			{
+				if (!pLoopCity->m_bIndustryActivationDeferred)
+				{
+					continue;
+				}
+
+				pLoopCity->m_bIndustryActivationDeferred = false;
+				pLoopCity->updateAllIndustryActivations();
+				bFoundDirty = bFoundDirty || pLoopCity->m_bIndustryActivationDeferred;
+			}
+		}
+	}
+	while (bFoundDirty);
+
+	g_bFlushingDeferredIndustryActivationUpdates = false;
+}
+
+void CvCity::requestIndustryActivationRefresh()
+{
+	if (g_iDeferredIndustryActivationDepth > 0)
+	{
+		m_bIndustryActivationDeferred = true;
+		return;
+	}
+
+	updateAllIndustryActivations();
 }
 
 
@@ -4140,7 +4673,29 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 
 		if (GC.getBuildingInfo(eBuilding).getFreeBonus() != NO_BONUS)
 		{
-			changeFreeBonus(((BonusTypes)(GC.getBuildingInfo(eBuilding).getFreeBonus())), (GC.getGameINLINE().getNumFreeBonuses(eBuilding) * iChange));
+			const BonusTypes eFreeBonus = (BonusTypes)GC.getBuildingInfo(eBuilding).getFreeBonus();
+			const int iOldFreeBonusCount = getFreeBonus(eFreeBonus);
+			const int iOldNetworkBonusCount = getNumBonuses(eFreeBonus);
+			changeFreeBonus(eFreeBonus, (GC.getGameINLINE().getNumFreeBonuses(eBuilding) * iChange));
+			if (isCityTraceEnabled() && GC.getBuildingInfo(eBuilding).getIndustryCategory() == BUILDING_INDUSTRY_LUXURY)
+			{
+				logIndustryDebug(CvString::format(
+					"Luxury free bonus owner=%d city=%d name=%s coords=%d,%d plotGroup=%d building=%s delta=%d bonus=%s cityFreeOld=%d cityFreeNew=%d cityNetworkOld=%d cityNetworkNew=%d active=%d",
+					getOwnerINLINE(),
+					getID(),
+					narrowCityName(*this).c_str(),
+					getX_INLINE(),
+					getY_INLINE(),
+					getCityPlotGroupID(*this),
+					GC.getBuildingInfo(eBuilding).getType(),
+					iChange,
+					GC.getBonusInfo(eFreeBonus).getType(),
+					iOldFreeBonusCount,
+					getFreeBonus(eFreeBonus),
+					iOldNetworkBonusCount,
+					getNumBonuses(eFreeBonus),
+					getNumActiveBuilding(eBuilding)));
+			}
 		}
 
 		if (GC.getBuildingInfo(eBuilding).getFreePromotion() != NO_PROMOTION)
@@ -9732,9 +10287,62 @@ void CvCity::changeNumBonuses(BonusTypes eIndex, int iChange)
 
 		if (iOldBonusCount != getNumBonuses(eIndex))
 		{
-			updateAllIndustryActivations();
+			requestIndustryActivationRefresh();
 		}
 	}
+}
+
+void CvCity::syncNetworkBonusCount(BonusTypes eIndex, int iNewValue)
+{
+	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
+	FAssertMsg(eIndex < GC.getNumBonusInfos(), "eIndex expected to be < GC.getNumBonusInfos()");
+
+	if (m_paiNumBonuses[eIndex] == iNewValue)
+	{
+		return;
+	}
+
+	const bool bOldHasBonus = hasBonus(eIndex);
+	const int iOldBonusCount = getNumBonuses(eIndex);
+
+	m_paiNumBonuses[eIndex] = iNewValue;
+
+	if (bOldHasBonus != hasBonus(eIndex))
+	{
+		if (hasBonus(eIndex))
+		{
+			processBonus(eIndex, 1);
+		}
+		else
+		{
+			processBonus(eIndex, -1);
+		}
+	}
+
+	if (isCorporationBonus(eIndex))
+	{
+		updateCorporation();
+	}
+
+	if (iOldBonusCount != getNumBonuses(eIndex))
+	{
+		requestIndustryActivationRefresh();
+	}
+}
+
+void CvCity::syncAllNetworkBonusCounts()
+{
+	CvPlotGroup* pPlotGroup = plot()->getPlotGroup(getOwnerINLINE());
+
+	for (int iI = 0; iI < GC.getNumBonusInfos(); ++iI)
+	{
+		const int iNetworkCount = (pPlotGroup != NULL) ? pPlotGroup->getNumBonuses((BonusTypes)iI) : 0;
+		syncNetworkBonusCount((BonusTypes)iI, iNetworkCount);
+	}
+
+	// The serialized corporation-produced bonus cache can drift from the
+	// authoritative network counts. Rebuild it after a full network sync.
+	updateCorporation();
 }
 
 int CvCity::getNumCorpProducedBonuses(BonusTypes eIndex) const
