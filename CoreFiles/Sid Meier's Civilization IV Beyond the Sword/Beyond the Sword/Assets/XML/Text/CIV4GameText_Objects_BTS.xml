@@ -3774,7 +3774,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_CORPORATION_1</Tag>
-		<English>Cereal Mills</English>
+		<English>Continental Provisions Company</English>
 		<French>
 			<Text>Les grands moulins céréaliers</Text>
 			<Gender>Male</Gender>
@@ -3798,7 +3798,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_CORPORATION_3</Tag>
-		<English>Standard Ethanol</English>
+		<English>Imperial Luxury Exchange</English>
 		<French>
 			<Text>Ethanol Inc.</Text>
 			<Gender>Male</Gender>
@@ -3822,7 +3822,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_CORPORATION_4</Tag>
-		<English>Creative Constructions</English>
+		<English>Courtly Arts &amp; Regalia Consortium</English>
 		<French>
 			<Text>Constructions créatives</Text>
 			<Gender>Female</Gender>
@@ -3846,7 +3846,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_CORPORATION_5</Tag>
-		<English>East India Company</English>
+		<English>Aromatics &amp; Festival Consortium</English>
 		<French>
 			<Text>Compagnie d'exploitation minière</Text>
 			<Gender>Female</Gender>
@@ -3870,7 +3870,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_CORPORATION_6</Tag>
-		<English>Aluminum Co</English>
+		<English>World Media Syndicate</English>
 		<French>
 			<Text>Aluminium S.A.</Text>
 			<Gender>Female</Gender>
@@ -3894,7 +3894,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_CORPORATION_7</Tag>
-		<English>Civilized Jewelers Inc</English>
+		<English>Reserved Charter</English>
 		<French>
 			<Text>Bijoutiers associés</Text>
 			<Gender>Male</Gender>
@@ -3918,7 +3918,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_1</Tag>
-		<English>Cereal Mills Executive</English>
+		<English>Provisions Factor</English>
 		<French>
 			<Text>Directeur des Grands moulins céréaliers</Text>
 			<Gender>Male</Gender>
@@ -3942,7 +3942,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_3</Tag>
-		<English>Std Ethanol Executive</English>
+		<English>Luxury Broker</English>
 		<French>
 			<Text>Directeur d'Ethanol Inc.</Text>
 			<Gender>Male</Gender>
@@ -3966,7 +3966,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_4</Tag>
-		<English>CreateCon Executive</English>
+		<English>Regalia Envoy</English>
 		<French>
 			<Text>Directeur de Constructions créatives</Text>
 			<Gender>Male</Gender>
@@ -3990,7 +3990,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_5</Tag>
-		<English>Mining Inc Executive</English>
+		<English>Festival Envoy</English>
 		<French>
 			<Text>Directeur de la Compagnie d'exploitation minière</Text>
 			<Gender>Male</Gender>
@@ -4014,7 +4014,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_6</Tag>
-		<English>AlumCo Executive</English>
+		<English>Syndicate Agent</English>
 		<French>
 			<Text>Directeur d'Aluminium S.A.</Text>
 			<Gender>Male</Gender>
@@ -4038,7 +4038,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_EXECUTIVE_7</Tag>
-		<English>Civ Jewels Executive</English>
+		<English>Reserved Executive</English>
 		<French>
 			<Text>Directeur des Bijoutiers associées</Text>
 			<Gender>Male</Gender>
