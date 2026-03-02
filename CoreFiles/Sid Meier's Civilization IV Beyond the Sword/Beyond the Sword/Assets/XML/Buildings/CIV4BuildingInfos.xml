@@ -32013,7 +32013,7 @@
 			<ObsoleteTech>NONE</ObsoleteTech>
 			<PrereqTech>TECH_MEDICINE</PrereqTech>
 			<TechTypes>
-				<PrereqTech>TECH_CODE_OF_LAWS</PrereqTech>
+				<PrereqTech>TECH_CORPORATION</PrereqTech>
 				<PrereqTech>NONE</PrereqTech>
 				<PrereqTech>NONE</PrereqTech>
 			</TechTypes>
@@ -32367,7 +32367,7 @@
 			<FreeStartEra>NONE</FreeStartEra>
 			<MaxStartEra>NONE</MaxStartEra>
 			<ObsoleteTech>NONE</ObsoleteTech>
-			<PrereqTech>TECH_MASS_MEDIA</PrereqTech>
+			<PrereqTech>TECH_AESTHETICS</PrereqTech>
 			<TechTypes>
 				<PrereqTech>TECH_CORPORATION</PrereqTech>
 				<PrereqTech>NONE</PrereqTech>
@@ -32384,7 +32384,7 @@
 			<FreeBuilding>NONE</FreeBuilding>
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
-			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
+			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
@@ -32545,7 +32545,7 @@
 			<FreeStartEra>NONE</FreeStartEra>
 			<MaxStartEra>NONE</MaxStartEra>
 			<ObsoleteTech>NONE</ObsoleteTech>
-			<PrereqTech>TECH_BANKING</PrereqTech>
+			<PrereqTech>TECH_DRAMA</PrereqTech>
 			<TechTypes>
 				<PrereqTech>TECH_CORPORATION</PrereqTech>
 				<PrereqTech>NONE</PrereqTech>
@@ -32740,7 +32740,7 @@
 			<FreeBuilding>NONE</FreeBuilding>
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
-			<GreatPeopleUnitClass>UNITCLASS_ARTIST</GreatPeopleUnitClass>
+			<GreatPeopleUnitClass>UNITCLASS_MERCHANT</GreatPeopleUnitClass>
 			<iGreatPeopleRateChange>1</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
