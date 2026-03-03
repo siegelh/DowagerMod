@@ -7394,14 +7394,33 @@ bool CvPlayer::hasActiveCorporationFoundingPrereqs(CorporationTypes eCorporation
 
 void CvPlayer::foundCorporation(CorporationTypes eCorporation)
 {
-	CvCity* pLoopCity;
-	CvCity* pBestCity;
-	bool bStarting;
-	int iValue;
-	int iBestValue;
-	int iLoop;
+	FAssertMsg(eCorporation >= 0, "eCorporation is expected to be non-negative");
+	FAssertMsg(eCorporation < GC.getNumCorporationInfos(), "eCorporation is expected to be valid");
+
+	if (eCorporation == NO_CORPORATION)
+	{
+		return;
+	}
 
 	if (GC.getGameINLINE().isCorporationFounded(eCorporation))
+	{
+		return;
+	}
+
+	if (isNoCorporations())
+	{
+		return;
+	}
+
+	const CvCorporationInfo& kCorporation = GC.getCorporationInfo(eCorporation);
+	const TechTypes eCorporationTech = (TechTypes)GC.getInfoTypeForString("TECH_CORPORATION");
+	if (eCorporationTech != NO_TECH && !GET_TEAM(getTeam()).isHasTech(eCorporationTech))
+	{
+		return;
+	}
+
+	const TechTypes eSectorTech = (TechTypes)kCorporation.getTechPrereq();
+	if (eSectorTech != NO_TECH && !GET_TEAM(getTeam()).isHasTech(eSectorTech))
 	{
 		return;
 	}
@@ -7411,54 +7430,29 @@ void CvPlayer::foundCorporation(CorporationTypes eCorporation)
 		return;
 	}
 
-	bStarting = ((GC.getCorporationInfo(eCorporation).getTechPrereq() == NO_TECH) || (GC.getTechInfo((TechTypes) GC.getCorporationInfo(eCorporation).getTechPrereq()).getEra() < GC.getGameINLINE().getStartEra()));
-
-	iBestValue = 0;
-	pBestCity = NULL;
-
-	for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+	BuildingTypes eHeadquartersBuilding = NO_BUILDING;
+	for (int iI = 0; iI < GC.getNumBuildingInfos(); ++iI)
 	{
-		if (!bStarting || !(pLoopCity->isHeadquarters()))
+		if (GC.getBuildingInfo((BuildingTypes)iI).getFoundsCorporation() == eCorporation)
 		{
-			iValue = 10;
-			iValue += pLoopCity->getPopulation();
-
-			for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i)
-			{
-				if (NO_BONUS != GC.getCorporationInfo(eCorporation).getPrereqBonus(i))
-				{
-					const BonusTypes eBonus = (BonusTypes)GC.getCorporationInfo(eCorporation).getPrereqBonus(i);
-					int iBonusCount = pLoopCity->getNumBonuses(eBonus);
-					if (GC.getCorporationInfo(eCorporation).isCountDistinctPrereqBonusesOnly())
-					{
-						iBonusCount = (iBonusCount > 0 ? 1 : 0);
-					}
-					else if (GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType() > 0)
-					{
-						iBonusCount = std::min(iBonusCount, GC.getCorporationInfo(eCorporation).getMaxPrereqBonusCountPerType());
-					}
-
-					iValue += 10 * iBonusCount;
-				}
-			}
-
-			iValue += GC.getGameINLINE().getSorenRandNum(GC.getDefineINT("FOUND_CORPORATION_CITY_RAND"), "Found Corporation");
-
-			iValue /= (pLoopCity->getCorporationCount() + 1);
-
-			iValue = std::max(1, iValue);
-
-			if (iValue > iBestValue)
-			{
-				iBestValue = iValue;
-				pBestCity = pLoopCity;
-			}
+			eHeadquartersBuilding = (BuildingTypes)iI;
+			break;
 		}
 	}
 
-	if (pBestCity != NULL)
+	if (eHeadquartersBuilding == NO_BUILDING)
 	{
-		pBestCity->setHeadquarters(eCorporation);
+		return;
+	}
+
+	int iLoop = 0;
+	for (CvCity* pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+	{
+		if (pLoopCity->getNumRealBuilding(eHeadquartersBuilding) > 0)
+		{
+			pLoopCity->setHeadquarters(eCorporation);
+			return;
+		}
 	}
 }
 

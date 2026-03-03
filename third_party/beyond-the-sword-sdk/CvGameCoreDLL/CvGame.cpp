@@ -5982,62 +5982,7 @@ void CvGame::doHeadquarters()
 
 			if (eBestTeam != NO_TEAM)
 			{
-				iBestValue = MAX_INT;
-				PlayerTypes eBestPlayer = NO_PLAYER;
-
-				for (int iJ = 0; iJ < MAX_PLAYERS; iJ++)
-				{
-					CvPlayer& kLoopPlayer = GET_PLAYER((PlayerTypes)iJ);
-					if (kLoopPlayer.isAlive())
-					{
-						if (kLoopPlayer.getTeam() == eBestTeam)
-						{
-							if (kLoopPlayer.getNumCities() > 0)
-							{
-								bool bHasBonus = false;
-								for (int i = 0; i < GC.getNUM_CORPORATION_PREREQ_BONUSES(); ++i)
-								{
-									if (NO_BONUS != kCorporation.getPrereqBonus(i) && kLoopPlayer.hasBonus((BonusTypes)kCorporation.getPrereqBonus(i)))
-									{
-										bHasBonus = true;
-										break;
-									}
-								}
-
-								if (bHasBonus)
-								{
-									int iValue = getSorenRandNum(10, "Found Religion (Player)");
-
-									if (!kLoopPlayer.isHuman())
-									{
-										iValue += 10;
-									}
-
-									for (int iK = 0; iK < GC.getNumCorporationInfos(); iK++)
-									{
-										int iCorporationCount = GET_PLAYER((PlayerTypes)iJ).getHasCorporationCount((CorporationTypes)iK);
-
-										if (iCorporationCount > 0)
-										{
-											iValue += iCorporationCount * 20;
-										}
-									}
-
-									if (iValue < iBestValue)
-									{
-										iBestValue = iValue;
-										eBestPlayer = ((PlayerTypes)iJ);
-									}
-								}
-							}
-						}
-					}
-				}
-
-				if (eBestPlayer != NO_PLAYER)
-				{
-					GET_PLAYER(eBestPlayer).foundCorporation((CorporationTypes)iI);
-				}
+				// Corporations are founded only by constructing their headquarters with a Great Merchant.
 			}
 		}
 	}

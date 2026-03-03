@@ -278,7 +278,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_DYE_WORKS_PEDIA</Tag>
 
-		<English>The Dye Works converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Dyes in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Culture; +1 Happiness.</English>
+		<English>The Dye Works converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Dyes in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -286,7 +286,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_DYE_WORKS_STRATEGY</Tag>
 
-		<English>Requires Market in this city. Requires improved, connected Dyes in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Culture; +1 Happiness.</English>
+		<English>Requires Market in this city. Requires improved, connected Dyes in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -302,7 +302,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_FURRIERS_HALL_PEDIA</Tag>
 
-		<English>The Furriers' Hall converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Fur in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
+		<English>The Furriers' Hall converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Fur in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -310,7 +310,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_FURRIERS_HALL_STRATEGY</Tag>
 
-		<English>Requires Market in this city. Requires improved, connected Fur in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
+		<English>Requires Market in this city. Requires improved, connected Fur in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -326,7 +326,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_JEWELERS_QUARTER_PEDIA</Tag>
 
-		<English>The Jeweler's Quarter converts a local luxury into a city-defining craft or market. Requires Forge in this city. Requires improved, connected Gems in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Happiness.</English>
+		<English>The Jeweler's Quarter converts a local luxury into a city-defining craft or market. Requires Forge in this city. Requires improved, connected Gems in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -334,7 +334,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_JEWELERS_QUARTER_STRATEGY</Tag>
 
-		<English>Requires Forge in this city. Requires improved, connected Gems in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Happiness.</English>
+		<English>Requires Forge in this city. Requires improved, connected Gems in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -350,7 +350,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_MINTING_HOUSE_PEDIA</Tag>
 
-		<English>The Minting House converts a local luxury into a city-defining craft or market. Requires Forge in this city. Requires improved, connected Gold in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Happiness.</English>
+		<English>The Minting House converts a local luxury into a city-defining craft or market. Requires Forge in this city. Requires improved, connected Gold in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -358,7 +358,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_MINTING_HOUSE_STRATEGY</Tag>
 
-		<English>Requires Forge in this city. Requires improved, connected Gold in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Happiness.</English>
+		<English>Requires Forge in this city. Requires improved, connected Gold in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +15% Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -374,7 +374,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_SANCTUARY_PEDIA</Tag>
 
-		<English>The House of Incense converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Incense in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +1 Happiness; +1 Priest slot.</English>
+		<English>The House of Incense converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Incense in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +1 Happiness; +1 Priest slot.</English>
 
 	</TEXT>
 
@@ -382,7 +382,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_PERFUMERS_SANCTUARY_STRATEGY</Tag>
 
-		<English>Requires Market in this city. Requires improved, connected Incense in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +1 Happiness; +1 Priest slot.</English>
+		<English>Requires Market in this city. Requires improved, connected Incense in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +1 Happiness; +1 Priest slot.</English>
 
 	</TEXT>
 
@@ -398,7 +398,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER_PEDIA</Tag>
 
-		<English>The Ivory Carvers' Atelier converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Ivory in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Artist slot.</English>
+		<English>The Ivory Carvers' Atelier converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Ivory in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Artist slot.</English>
 
 	</TEXT>
 
@@ -406,7 +406,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER_STRATEGY</Tag>
 
-		<English>Requires Market in this city. Requires improved, connected Ivory in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Artist slot.</English>
+		<English>Requires Market in this city. Requires improved, connected Ivory in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Culture; +10% Gold; +1 Artist slot.</English>
 
 	</TEXT>
 
@@ -422,7 +422,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP_PEDIA</Tag>
 
-		<English>The Silk Weaver's Workshop converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Silk in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +2 Culture; +1 Happiness.</English>
+		<English>The Silk Weaver's Workshop converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Silk in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +2 Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -430,7 +430,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP_STRATEGY</Tag>
 
-		<English>Requires Market in this city. Requires improved, connected Silk in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +2 Culture; +1 Happiness.</English>
+		<English>Requires Market in this city. Requires improved, connected Silk in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +2 Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -446,7 +446,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILVERSMITHS_HALL_PEDIA</Tag>
 
-		<English>The Silversmiths' Hall converts a local luxury into a city-defining craft or market. Requires Forge in this city. Requires improved, connected Silver in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Culture; +10% Gold; +1 Happiness.</English>
+		<English>The Silversmiths' Hall converts a local luxury into a city-defining craft or market. Requires Forge in this city. Requires improved, connected Silver in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Culture; +10% Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -454,7 +454,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_SILVERSMITHS_HALL_STRATEGY</Tag>
 
-		<English>Requires Forge in this city. Requires improved, connected Silver in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Culture; +10% Gold; +1 Happiness.</English>
+		<English>Requires Forge in this city. Requires improved, connected Silver in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Culture; +10% Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -470,7 +470,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_SPICE_EXCHANGE_PEDIA</Tag>
 
-		<English>The Spice Exchange converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Spices in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
+		<English>The Spice Exchange converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Spices in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -478,7 +478,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_SPICE_EXCHANGE_STRATEGY</Tag>
 
-		<English>Requires Market in this city. Requires improved, connected Spices in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
+		<English>Requires Market in this city. Requires improved, connected Spices in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -494,7 +494,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_GUILD_PEDIA</Tag>
 
-		<English>The Confectioners' Guild converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Sugar in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
+		<English>The Confectioners' Guild converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Sugar in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -502,7 +502,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_CONFECTIONERS_GUILD_STRATEGY</Tag>
 
-		<English>Requires Market in this city. Requires improved, connected Sugar in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
+		<English>Requires Market in this city. Requires improved, connected Sugar in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Health; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -518,7 +518,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_VINTNERS_GUILD_PEDIA</Tag>
 
-		<English>The Vintners' Guild converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Wine in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
+		<English>The Vintners' Guild converts a local luxury into a city-defining craft or market. Requires Market in this city. Requires improved, connected Wine in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -526,7 +526,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_VINTNERS_GUILD_STRATEGY</Tag>
 
-		<English>Requires Market in this city. Requires improved, connected Wine in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
+		<English>Requires Market in this city. Requires improved, connected Wine in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +1 Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -542,7 +542,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY_PEDIA</Tag>
 
-		<English>The Whale Oil Chandlery converts a local luxury into a city-defining craft or market. Requires Harbor in this city. Requires improved, connected Whale in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Hammer; +2 Gold; +1 Happiness.</English>
+		<English>The Whale Oil Chandlery converts a local luxury into a city-defining craft or market. Requires Harbor in this city. Requires improved, connected Whale in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Hammer; +2 Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -550,7 +550,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY_STRATEGY</Tag>
 
-		<English>Requires Harbor in this city. Requires improved, connected Whale in this city's workable area. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Hammer; +2 Gold; +1 Happiness.</English>
+		<English>Requires Harbor in this city. Requires improved, connected Whale in this city's workable area. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +1 Hammer; +2 Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -566,7 +566,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD_PEDIA</Tag>
 
-		<English>The Playwrights' Guild converts a local luxury into a city-defining craft or market. Requires Theatre in this city. Requires empire access to Drama. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +4 Culture; +1 Happiness; +1 Artist slot.</English>
+		<English>The Playwrights' Guild converts a local luxury into a city-defining craft or market. Requires Theatre in this city. Requires empire access to Drama. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +4 Culture; +1 Happiness; +1 Artist slot.</English>
 
 	</TEXT>
 
@@ -574,7 +574,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD_STRATEGY</Tag>
 
-		<English>Requires Theatre in this city. Requires empire access to Drama. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +4 Culture; +1 Happiness; +1 Artist slot.</English>
+		<English>Requires Theatre in this city. Requires empire access to Drama. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +4 Culture; +1 Happiness; +1 Artist slot.</English>
 
 	</TEXT>
 
@@ -590,7 +590,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_RECORDING_HOUSE_PEDIA</Tag>
 
-		<English>The Recording House converts a local luxury into a city-defining craft or market. Requires Broadcast Tower in this city. Requires empire access to Music. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +3 Culture; +1 Happiness.</English>
+		<English>The Recording House converts a local luxury into a city-defining craft or market. Requires Broadcast Tower in this city. Requires empire access to Music. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +3 Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -598,7 +598,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_RECORDING_HOUSE_STRATEGY</Tag>
 
-		<English>Requires Broadcast Tower in this city. Requires empire access to Music. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +3 Culture; +1 Happiness.</English>
+		<English>Requires Broadcast Tower in this city. Requires empire access to Music. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +2 Gold; +3 Culture; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -614,7 +614,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT_PEDIA</Tag>
 
-		<English>The Film Studio District converts a local luxury into a city-defining craft or market. Requires Broadcast Tower in this city. Requires empire access to Movies. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Gold; +2 Culture; +10% Gold; +1 Happiness.</English>
+		<English>The Film Studio District converts a local luxury into a city-defining craft or market. Requires Broadcast Tower in this city. Requires empire access to Movies. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Gold; +2 Culture; +10% Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -622,7 +622,7 @@
 
 		<Tag>TXT_KEY_BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT_STRATEGY</Tag>
 
-		<English>Requires Broadcast Tower in this city. Requires empire access to Movies. This is a Luxury Industry. Each city can support only 3 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Gold; +2 Culture; +10% Gold; +1 Happiness.</English>
+		<English>Requires Broadcast Tower in this city. Requires empire access to Movies. This is a Luxury Industry. Each city can support only 2 Luxury Industry buildings. Its special effects are only active while the local prerequisites remain satisfied. Building effects: +3 Gold; +2 Culture; +10% Gold; +1 Happiness.</English>
 
 	</TEXT>
 
@@ -1107,5 +1107,6 @@
 	</TEXT>
 
 </Civ4GameText>
+
 
 

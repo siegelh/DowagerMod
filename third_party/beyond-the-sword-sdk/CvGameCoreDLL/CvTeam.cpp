@@ -4870,47 +4870,7 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 							}
 						}
 
-						for (iI = 0; iI < GC.getNumCorporationInfos(); ++iI)
-						{
-							if (GC.getCorporationInfo((CorporationTypes)iI).getTechPrereq() == eIndex)
-							{
-								if (!(GC.getGameINLINE().isCorporationFounded((CorporationTypes)iI)))
-								{
-									iBestValue = MAX_INT;
-									eBestPlayer = NO_PLAYER;
-
-									for (iJ = 0; iJ < MAX_PLAYERS; iJ++)
-									{
-										if (GET_PLAYER((PlayerTypes)iJ).isAlive())
-										{
-											if (GET_PLAYER((PlayerTypes)iJ).getTeam() == getID())
-											{
-												iValue = 10;
-
-												iValue += GC.getGameINLINE().getSorenRandNum(10, "Found Corporation (Player)");
-
-												if (GET_PLAYER((PlayerTypes)iJ).getCurrentResearch() != eIndex)
-												{
-													iValue *= 10;
-												}
-
-												if (iValue < iBestValue)
-												{
-													iBestValue = iValue;
-													eBestPlayer = ((PlayerTypes)iJ);
-												}
-											}
-										}
-									}
-
-									if (eBestPlayer != NO_PLAYER)
-									{
-										GET_PLAYER(eBestPlayer).foundCorporation((CorporationTypes)iI);
-										bFirstBonus = true;
-									}
-								}
-							}
-						}
+						// Corporations are founded only by constructing their headquarters with a Great Merchant.
 					}
 				}
 			}

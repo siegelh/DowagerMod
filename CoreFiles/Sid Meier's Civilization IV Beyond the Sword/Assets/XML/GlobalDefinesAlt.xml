@@ -15,7 +15,7 @@
 	</Define>
 	<Define>
 		<DefineName>LUXURY_INDUSTRY_CITY_LIMIT</DefineName>
-		<iDefineIntVal>3</iDefineIntVal>
+		<iDefineIntVal>2</iDefineIntVal>
 	</Define>
 	<Define>
 		<DefineName>COMPOSITE_INDUSTRY_CITY_LIMIT</DefineName>
