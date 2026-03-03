@@ -305,7 +305,7 @@ class CvMainInterface:
 
 		iBtnX += iBtnAdvance
 		if g_bIndustryAdvisorAvailable:
-			screen.setImageButton( "IndustryAdvisorButton", "Art/Interface/Buttons/Buildings/Industries/exchange_hall.dds", iBtnX, iBtnY, iBtnWidth, iBtnWidth, WidgetTypes.WIDGET_GENERAL, -1, -1 )
+			screen.setImageButton( "IndustryAdvisorButton", "Art/Interface/Buttons/Buildings/Industries/industry_advisor_hud.tga", iBtnX, iBtnY, iBtnWidth, iBtnWidth, WidgetTypes.WIDGET_GENERAL, -1, -1 )
 			screen.hide( "IndustryAdvisorButton" )
 		
 		# City Tabs

@@ -1,6 +1,9 @@
 from CvPythonExtensions import *
 import CvUtil
 import ScreenInput
+import sys
+import CvIndustryFlowData
+import CvIndustryFlowRenderer
 
 # Game globals
 
@@ -24,78 +27,20 @@ CORE_BUILDINGS = (
     'BUILDING_INDUSTRY_ENERGY_DIRECTORATE',
 )
 
-PROCESSING_CHAINS = (
-    ('BUILDING_INDUSTRY_DYE_WORKS', ('BONUS_DYE',), 'BONUS_FINE_DYES'),
-    ('BUILDING_INDUSTRY_FURRIERS_HALL', ('BONUS_FUR',), 'BONUS_FINE_FURS'),
-    ('BUILDING_INDUSTRY_JEWELERS_QUARTER', ('BONUS_GEMS',), 'BONUS_CUT_GEMS'),
-    ('BUILDING_INDUSTRY_MINTING_HOUSE', ('BONUS_GOLD',), 'BONUS_GOLD_BULLION'),
-    ('BUILDING_INDUSTRY_PERFUMERS_SANCTUARY', ('BONUS_INCENSE',), 'BONUS_TEMPLE_INCENSE'),
-    ('BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER', ('BONUS_IVORY',), 'BONUS_IVORY_CARVINGS'),
-    ('BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP', ('BONUS_SILK',), 'BONUS_FINE_SILK'),
-    ('BUILDING_INDUSTRY_SILVERSMITHS_HALL', ('BONUS_SILVER',), 'BONUS_WORKED_SILVER'),
-    ('BUILDING_INDUSTRY_SPICE_EXCHANGE', ('BONUS_SPICES',), 'BONUS_SPICE_BLENDS'),
-    ('BUILDING_INDUSTRY_CONFECTIONERS_GUILD', ('BONUS_SUGAR',), 'BONUS_CONFECTIONS'),
-    ('BUILDING_INDUSTRY_VINTNERS_GUILD', ('BONUS_WINE',), 'BONUS_VINTAGE_WINE'),
-    ('BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY', ('BONUS_WHALE',), 'BONUS_LAMP_OIL'),
-    ('BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD', ('BONUS_DRAMA',), 'BONUS_STAGE_PLAYS'),
-    ('BUILDING_INDUSTRY_RECORDING_HOUSE', ('BONUS_MUSIC',), 'BONUS_MASTER_RECORDINGS'),
-    ('BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT', ('BONUS_MOVIES',), 'BONUS_FILM_PRINTS'),
-    ('BUILDING_INDUSTRY_MILLERS_GUILD', ('BONUS_WHEAT', 'BONUS_CORN', 'BONUS_RICE'), 'BONUS_FLOUR'),
-    ('BUILDING_INDUSTRY_SMOKEHOUSE', ('BONUS_COW', 'BONUS_PIG', 'BONUS_SHEEP', 'BONUS_DEER'), 'BONUS_CURED_MEATS'),
-    ('BUILDING_INDUSTRY_CANNERY', ('BONUS_FISH', 'BONUS_CLAM', 'BONUS_CRAB'), 'BONUS_PRESERVED_SEAFOOD'),
-    ('BUILDING_INDUSTRY_FRUIT_PRESERVERS', ('BONUS_BANANA',), 'BONUS_FRUIT_PRESERVES'),
-    ('BUILDING_INDUSTRY_SCULPTORS_YARD', ('BONUS_MARBLE',), 'BONUS_MARBLE_STATUARY'),
-)
+PROCESSING_CHAINS = []
+for _kChain in CvIndustryFlowData.getProcessingChains():
+    PROCESSING_CHAINS.append((_kChain['building'], _kChain['raws'], _kChain['synthetic']))
+PROCESSING_CHAINS = tuple(PROCESSING_CHAINS)
 
-COMPOSITES = (
-    ('BUILDING_INDUSTRY_ROYAL_GARMENTS_HOUSE', ('BONUS_FINE_SILK', 'BONUS_FINE_DYES')),
-    ('BUILDING_INDUSTRY_NOBLE_TAILORS_HALL', ('BONUS_FINE_SILK', 'BONUS_FINE_FURS')),
-    ('BUILDING_INDUSTRY_COURT_REGALIA_ATELIER', ('BONUS_FINE_SILK', 'BONUS_IVORY_CARVINGS')),
-    ('BUILDING_INDUSTRY_DYED_FUR_SALON', ('BONUS_FINE_DYES', 'BONUS_FINE_FURS')),
-    ('BUILDING_INDUSTRY_CROWN_JEWELER', ('BONUS_GOLD_BULLION', 'BONUS_CUT_GEMS')),
-    ('BUILDING_INDUSTRY_ROYAL_MINT', ('BONUS_GOLD_BULLION', 'BONUS_WORKED_SILVER')),
-    ('BUILDING_INDUSTRY_GEMCUTTERS_EXCHANGE', ('BONUS_WORKED_SILVER', 'BONUS_CUT_GEMS')),
-    ('BUILDING_INDUSTRY_REGAL_TREASURES_COURT', ('BONUS_GOLD_BULLION', 'BONUS_IVORY_CARVINGS')),
-    ('BUILDING_INDUSTRY_PERFUMERS_QUARTER', ('BONUS_TEMPLE_INCENSE', 'BONUS_SPICE_BLENDS')),
-    ('BUILDING_INDUSTRY_GRAND_BANQUET_HALL', ('BONUS_VINTAGE_WINE', 'BONUS_CONFECTIONS')),
-    ('BUILDING_INDUSTRY_CONFECTIONERS_EXCHANGE', ('BONUS_CONFECTIONS', 'BONUS_SPICE_BLENDS')),
-    ('BUILDING_INDUSTRY_CEREMONIAL_CELLARS', ('BONUS_VINTAGE_WINE', 'BONUS_TEMPLE_INCENSE')),
-    ('BUILDING_INDUSTRY_FESTIVAL_MARKET', ('BONUS_VINTAGE_WINE', 'BONUS_SPICE_BLENDS')),
-    ('BUILDING_INDUSTRY_IMPERIAL_OUTFITTERS', ('BONUS_FINE_FURS', 'BONUS_IVORY_CARVINGS')),
-    ('BUILDING_INDUSTRY_ADMIRALTY_CURIOS_HOUSE', ('BONUS_LAMP_OIL', 'BONUS_IVORY_CARVINGS')),
-    ('BUILDING_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS', ('BONUS_LAMP_OIL', 'BONUS_WORKED_SILVER')),
-    ('BUILDING_INDUSTRY_OPERA_HOUSE', ('BONUS_STAGE_PLAYS', 'BONUS_MASTER_RECORDINGS')),
-    ('BUILDING_INDUSTRY_CINEMA_PALACE', ('BONUS_STAGE_PLAYS', 'BONUS_FILM_PRINTS')),
-    ('BUILDING_INDUSTRY_SOUNDSTAGE_COMPLEX', ('BONUS_MASTER_RECORDINGS', 'BONUS_FILM_PRINTS')),
-    ('BUILDING_INDUSTRY_MASS_ENTERTAINMENT_NETWORK', ('BONUS_STAGE_PLAYS', 'BONUS_MASTER_RECORDINGS', 'BONUS_FILM_PRINTS')),
-    ('BUILDING_INDUSTRY_BAKERS_EXCHANGE', ('BONUS_FLOUR', 'BONUS_SPICE_BLENDS')),
-    ('BUILDING_INDUSTRY_FESTIVAL_KITCHENS', ('BONUS_FLOUR', 'BONUS_VINTAGE_WINE')),
-    ('BUILDING_INDUSTRY_ROYAL_KITCHENS', ('BONUS_CURED_MEATS', 'BONUS_VINTAGE_WINE')),
-    ('BUILDING_INDUSTRY_SPICED_CARVERY', ('BONUS_CURED_MEATS', 'BONUS_SPICE_BLENDS')),
-    ('BUILDING_INDUSTRY_MARITIME_SUPPER_CLUB', ('BONUS_PRESERVED_SEAFOOD', 'BONUS_VINTAGE_WINE')),
-    ('BUILDING_INDUSTRY_PRESERVES_MARKET', ('BONUS_FRUIT_PRESERVES', 'BONUS_CONFECTIONS')),
-    ('BUILDING_INDUSTRY_HALL_OF_CAMEOS', ('BONUS_MARBLE_STATUARY', 'BONUS_CUT_GEMS')),
-    ('BUILDING_INDUSTRY_TRIUMPHAL_COURT', ('BONUS_MARBLE_STATUARY', 'BONUS_GOLD_BULLION')),
-    ('BUILDING_INDUSTRY_GALLERY_OF_ANTIQUITIES', ('BONUS_MARBLE_STATUARY', 'BONUS_IVORY_CARVINGS')),
-    ('BUILDING_INDUSTRY_SACRED_PRECINCT', ('BONUS_MARBLE_STATUARY', 'BONUS_TEMPLE_INCENSE')),
-    ('BUILDING_INDUSTRY_PASTRY_HOUSE', ('BONUS_FLOUR', 'BONUS_FRUIT_PRESERVES')),
-    ('BUILDING_INDUSTRY_VICTUALLERS_EXCHANGE', ('BONUS_FLOUR', 'BONUS_CURED_MEATS')),
-    ('BUILDING_INDUSTRY_SPICED_FISH_MARKET', ('BONUS_PRESERVED_SEAFOOD', 'BONUS_SPICE_BLENDS')),
-    ('BUILDING_INDUSTRY_DESSERT_CELLARS', ('BONUS_FRUIT_PRESERVES', 'BONUS_VINTAGE_WINE')),
-    ('BUILDING_INDUSTRY_PERFUMED_SALON', ('BONUS_TEMPLE_INCENSE', 'BONUS_FINE_SILK')),
-    ('BUILDING_INDUSTRY_LANTERN_PROCESSION_WORKS', ('BONUS_TEMPLE_INCENSE', 'BONUS_LAMP_OIL')),
-    ('BUILDING_INDUSTRY_CURIO_AUCTION_HOUSE', ('BONUS_IVORY_CARVINGS', 'BONUS_CUT_GEMS')),
-    ('BUILDING_INDUSTRY_ILLUMINATED_THEATRE', ('BONUS_LAMP_OIL', 'BONUS_STAGE_PLAYS')),
-)
+COMPOSITES = []
+for _kComposite in CvIndustryFlowData.getCompositeRecipes():
+    COMPOSITES.append((_kComposite['building'], _kComposite['goods']))
+COMPOSITES = tuple(COMPOSITES)
 
-CORPORATIONS = (
-    ('CORPORATION_1', ('BONUS_FLOUR', 'BONUS_CURED_MEATS', 'BONUS_PRESERVED_SEAFOOD', 'BONUS_FRUIT_PRESERVES')),
-    ('CORPORATION_2', ('BONUS_VINTAGE_WINE', 'BONUS_CONFECTIONS')),
-    ('CORPORATION_3', ('BONUS_FINE_SILK', 'BONUS_FINE_DYES', 'BONUS_CUT_GEMS', 'BONUS_GOLD_BULLION', 'BONUS_WORKED_SILVER', 'BONUS_FINE_FURS')),
-    ('CORPORATION_4', ('BONUS_IVORY_CARVINGS', 'BONUS_LAMP_OIL', 'BONUS_MARBLE_STATUARY')),
-    ('CORPORATION_5', ('BONUS_TEMPLE_INCENSE', 'BONUS_SPICE_BLENDS')),
-    ('CORPORATION_6', ('BONUS_STAGE_PLAYS', 'BONUS_MASTER_RECORDINGS', 'BONUS_FILM_PRINTS')),
-)
+CORPORATIONS = []
+for _kFamily in CvIndustryFlowData.getCorporationFamilies():
+    CORPORATIONS.append((_kFamily['corporation'], _kFamily['operating_goods']))
+CORPORATIONS = tuple(CORPORATIONS)
 
 
 def getIndustryAdvisor():
@@ -115,10 +60,21 @@ class CvIndustryAdvisor:
         self.MAIN_PANEL_ID = 'IndustryAdvisorMainPanel'
         self.HEADER_ID = 'IndustryAdvisorHeader'
         self.TAB_IDS = ('IndustryTabCities', 'IndustryTabGoods', 'IndustryTabChains')
+        self.CHAINS_VIEW_IDS = ('IndustryChainsViewGraph', 'IndustryChainsViewTable')
+        self.CHAINS_LEGEND_ID = 'IndustryChainsLegend'
         self.iTab = 0
+        self.iChainsView = 0
+        self.szFlowFilter = CvIndustryFlowData.FILTER_ALL
         self.iActivePlayer = -1
+        self.player = None
+        self.team = None
+        self.playerCities = []
         self.widgets = []
         self.typeCache = {}
+        self.buildingStateCache = {}
+        self.bonusStateCache = {}
+        self.corporationStateCache = {}
+        self.flowRenderer = CvIndustryFlowRenderer.CvIndustryFlowRenderer(self._addWidget)
 
     def getScreen(self):
         return CyGInterfaceScreen(self.SCREEN_NAME, INDUSTRY_ADVISOR_SCREEN)
@@ -148,6 +104,14 @@ class CvIndustryAdvisor:
             yRes = 768
         return (xRes, yRes)
 
+    def _collectCities(self, player):
+        cities = []
+        (city, iter) = player.firstCity(False)
+        while city:
+            cities.append(city)
+            (city, iter) = player.nextCity(iter, False)
+        return cities
+
     def interfaceScreen(self, iTab = -1):
         if iTab >= 0:
             self.iTab = iTab
@@ -170,6 +134,13 @@ class CvIndustryAdvisor:
         self._clearWidgets()
         xRes, yRes = self._screenSize()
         screen.setDimensions(0, 0, xRes, yRes)
+
+        self.player = gc.getPlayer(self.iActivePlayer)
+        self.team = gc.getTeam(self.player.getTeam())
+        self.playerCities = self._collectCities(self.player)
+        self.buildingStateCache = {}
+        self.bonusStateCache = {}
+        self.corporationStateCache = {}
 
         panelMargin = 24
         topPanelHeight = 55
@@ -345,6 +316,330 @@ class CvIndustryAdvisor:
                         corps.append(eCorp)
         return corps
 
+    def _buildingSummary(self, eBuilding):
+        if self.buildingStateCache.has_key(eBuilding):
+            return self.buildingStateCache[eBuilding]
+
+        summary = {'built': 0, 'active': 0, 'can_now': 0, 'visible': 0}
+        for city in self.playerCities:
+            iBuilt = city.getNumBuilding(eBuilding)
+            iActive = city.getNumActiveBuilding(eBuilding)
+            if iBuilt > 0:
+                summary['built'] += iBuilt
+            if iActive > 0:
+                summary['active'] += iActive
+            if not summary['can_now'] and city.canConstruct(eBuilding, False, False, True):
+                summary['can_now'] = 1
+            if not summary['visible'] and city.canConstruct(eBuilding, False, True, True):
+                summary['visible'] = 1
+
+        self.buildingStateCache[eBuilding] = summary
+        return summary
+
+    def _bonusPresence(self, eBonus):
+        if self.bonusStateCache.has_key(eBonus):
+            return self.bonusStateCache[eBonus]
+
+        data = {'owned': 0, 'connected': 0}
+        iWidth = CyMap().getGridWidth()
+        iHeight = CyMap().getGridHeight()
+        eTeam = self.player.getTeam()
+        for iX in range(iWidth):
+            for iY in range(iHeight):
+                plot = CyMap().plot(iX, iY)
+                if plot is None or plot.getOwner() != self.iActivePlayer:
+                    continue
+                if plot.getBonusType(eTeam) != eBonus:
+                    continue
+                data['owned'] += 1
+                if plot.getImprovementType() >= 0:
+                    try:
+                        if plot.isBonusNetwork(eTeam):
+                            data['connected'] += 1
+                    except:
+                        data['connected'] += 1
+
+        self.bonusStateCache[eBonus] = data
+        return data
+
+    def _stateForRawBonus(self, eBonus):
+        iAvailable = self.player.getNumAvailableBonuses(eBonus)
+        if iAvailable > 0:
+            return {'state': 'active', 'detail': u'Available: %d' % iAvailable}
+
+        kPresence = self._bonusPresence(eBonus)
+        if kPresence['owned'] > 0:
+            return {'state': 'blocked', 'detail': u'Owned, not connected'}
+        return {'state': 'unavailable', 'detail': u'No local supply'}
+
+    def _stateForBuilding(self, eBuilding):
+        kSummary = self._buildingSummary(eBuilding)
+        if kSummary['active'] > 0:
+            return {'state': 'active', 'detail': u'Active in empire'}
+        if kSummary['built'] > 0:
+            return {'state': 'blocked', 'detail': u'Built but inactive'}
+        if kSummary['can_now']:
+            return {'state': 'ready', 'detail': u'Can build now'}
+        if kSummary['visible']:
+            return {'state': 'blocked', 'detail': u'Visible but blocked'}
+        return {'state': 'unavailable', 'detail': u'Unavailable'}
+
+    def _stateForSynthetic(self, szSynthetic):
+        eBonus = self._infoType(szSynthetic)
+        iAvailable = self.player.getNumAvailableBonuses(eBonus)
+        if iAvailable > 0:
+            return {'state': 'active', 'detail': u'Available: %d' % iAvailable}
+
+        kChain = CvIndustryFlowData.getProcessingChainBySynthetic(szSynthetic)
+        if kChain is None:
+            return {'state': 'unavailable', 'detail': u'Unavailable'}
+
+        eBuilding = self._infoType(kChain['building'])
+        kBuildingState = self._stateForBuilding(eBuilding)
+        if kBuildingState['state'] == 'ready':
+            return {'state': 'ready', 'detail': u'Can produce now'}
+        if kBuildingState['state'] == 'active':
+            return {'state': 'blocked', 'detail': u'Produced, not networked'}
+        if kBuildingState['state'] == 'blocked':
+            return {'state': 'blocked', 'detail': u'Producers blocked'}
+        return {'state': 'unavailable', 'detail': u'No active producers'}
+
+    def _familyHasRequiredTechs(self, kFamily):
+        eCorp = self._infoType(kFamily['corporation'])
+        eTech = gc.getCorporationInfo(eCorp).getTechPrereq()
+        if eTech >= 0 and not self.team.isHasTech(eTech):
+            return False
+
+        eHQ = self._infoType(kFamily['hq_building'])
+        kHQ = gc.getBuildingInfo(eHQ)
+        ePrereq = kHQ.getPrereqAndTech()
+        if ePrereq >= 0 and not self.team.isHasTech(ePrereq):
+            return False
+        for i in range(4):
+            eExtra = kHQ.getPrereqAndTechs(i)
+            if eExtra >= 0 and not self.team.isHasTech(eExtra):
+                return False
+        return True
+
+    def _familyActiveCompositeCount(self, kFamily):
+        iCount = 0
+        for szBuilding in kFamily['composites']:
+            eBuilding = self._infoType(szBuilding)
+            if self._buildingSummary(eBuilding)['active'] > 0:
+                iCount += 1
+        return iCount
+
+    def _stateForCorporation(self, szCorp):
+        if self.corporationStateCache.has_key(szCorp):
+            return self.corporationStateCache[szCorp]
+
+        eCorp = self._infoType(szCorp)
+        if self.player.getHasCorporationCount(eCorp) > 0:
+            kState = {'state': 'active', 'detail': u'Present in empire'}
+            self.corporationStateCache[szCorp] = kState
+            return kState
+
+        if CyGame().isCorporationFounded(eCorp):
+            kState = {'state': 'unavailable', 'detail': u'Founded elsewhere'}
+            self.corporationStateCache[szCorp] = kState
+            return kState
+
+        kFamily = None
+        for kLoopFamily in CvIndustryFlowData.getCorporationFamilies():
+            if kLoopFamily['corporation'] == szCorp:
+                kFamily = kLoopFamily
+                break
+
+        if kFamily is None:
+            kState = {'state': 'unavailable', 'detail': u'Unavailable'}
+            self.corporationStateCache[szCorp] = kState
+            return kState
+
+        bHasTechs = self._familyHasRequiredTechs(kFamily)
+        iActive = self._familyActiveCompositeCount(kFamily)
+        iMin = kFamily['min_active_composites']
+        szProgress = u'%d/%d composites' % (iActive, iMin)
+
+        if bHasTechs and iActive >= iMin:
+            kState = {'state': 'ready', 'detail': u'Ready to found'}
+        elif bHasTechs or iActive > 0:
+            kState = {'state': 'blocked', 'detail': szProgress}
+        else:
+            kState = {'state': 'unavailable', 'detail': u'No founding progress'}
+
+        self.corporationStateCache[szCorp] = kState
+        return kState
+
+    def _bonusBadge(self, szBonus):
+        eBonus = self._infoType(szBonus)
+        if eBonus < 0:
+            return None
+        return {
+            'button': gc.getBonusInfo(eBonus).getButton(),
+            'widgetType': WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS,
+            'data1': eBonus,
+            'data2': 1,
+        }
+
+    def _wrapText(self, szText, iMaxChars, iMaxLines):
+        words = szText.split()
+        if len(words) == 0:
+            return [u'']
+
+        lines = []
+        current = u''
+        iWord = 0
+        while iWord < len(words):
+            word = words[iWord]
+            if current:
+                candidate = current + u' ' + word
+            else:
+                candidate = word
+            if len(candidate) <= iMaxChars:
+                current = candidate
+                iWord += 1
+                continue
+            if not current:
+                current = word
+                iWord += 1
+                if iWord < len(words) and len(current) > iMaxChars - 3:
+                    current = current[:iMaxChars - 3] + u'...'
+                lines.append(current)
+                current = u''
+                if len(lines) >= iMaxLines:
+                    break
+                continue
+            lines.append(current)
+            current = word
+            if len(lines) >= iMaxLines - 1:
+                break
+            iWord += 1
+
+        remaining = iWord < len(words)
+
+        if current:
+            if remaining:
+                if len(current) > iMaxChars - 3:
+                    current = current[:iMaxChars - 3]
+                current += u'...'
+            lines.append(current)
+
+        if len(lines) > iMaxLines:
+            lines = lines[:iMaxLines]
+        return lines
+
+    def _renderNodeData(self, kNode):
+        kRender = {
+            'id': kNode['id'],
+            'gridX': kNode['gridX'],
+            'gridY': kNode['gridY'],
+            'title': u'',
+            'titleLines': [],
+            'titleFont': 2,
+            'subtitle': u'',
+            'subtitleAlign': 'left',
+            'button': u'',
+            'state': 'unavailable',
+            'widgetType': WidgetTypes.WIDGET_GENERAL,
+            'data1': -1,
+            'data2': -1,
+            'metaText': u'',
+            'metaAlign': 'left',
+            'badges': [],
+            'sizeClass': 'normal',
+        }
+
+        if kNode['type'] == CvIndustryFlowData.NODE_TYPE_RAW or kNode['type'] == CvIndustryFlowData.NODE_TYPE_SYNTHETIC:
+            eBonus = self._infoType(kNode['gameType'])
+            kBonus = gc.getBonusInfo(eBonus)
+            kRender['title'] = u'%c %s' % (kBonus.getChar(), kBonus.getDescription())
+            kRender['button'] = kBonus.getButton()
+            kRender['widgetType'] = WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS
+            kRender['data1'] = eBonus
+            kRender['data2'] = 1
+            if kNode['type'] == CvIndustryFlowData.NODE_TYPE_RAW:
+                kState = self._stateForRawBonus(eBonus)
+            else:
+                kState = self._stateForSynthetic(kNode['gameType'])
+        elif kNode['type'] == CvIndustryFlowData.NODE_TYPE_PROCESSOR or kNode['type'] == CvIndustryFlowData.NODE_TYPE_COMPOSITE:
+            eBuilding = self._infoType(kNode['gameType'])
+            kBuilding = gc.getBuildingInfo(eBuilding)
+            kRender['title'] = kBuilding.getDescription()
+            kRender['button'] = kBuilding.getButton()
+            kRender['widgetType'] = WidgetTypes.WIDGET_PEDIA_JUMP_TO_BUILDING
+            kRender['data1'] = eBuilding
+            kRender['data2'] = 1
+            kState = self._stateForBuilding(eBuilding)
+            if kNode['type'] == CvIndustryFlowData.NODE_TYPE_COMPOSITE:
+                kRender['sizeClass'] = 'composite'
+                kRender['titleFont'] = 1
+                kRender['metaAlign'] = 'center'
+                kRecipe = CvIndustryFlowData.getCompositeRecipe(kNode['gameType'])
+                if kRecipe is not None:
+                    kRender['metaText'] = u'Inputs'
+                    for szGood in kRecipe['goods']:
+                        kBadge = self._bonusBadge(szGood)
+                        if kBadge is not None:
+                            kRender['badges'].append(kBadge)
+        else:
+            eCorp = self._infoType(kNode['gameType'])
+            kCorp = gc.getCorporationInfo(eCorp)
+            kRender['title'] = kCorp.getDescription()
+            kRender['button'] = kCorp.getButton()
+            kRender['widgetType'] = WidgetTypes.WIDGET_PEDIA_JUMP_TO_CORPORATION
+            kRender['data1'] = eCorp
+            kRender['data2'] = 1
+            kRender['sizeClass'] = 'corporation'
+            kRender['titleFont'] = 1
+            kRender['subtitleAlign'] = 'center'
+            kRender['metaAlign'] = 'center'
+            kState = self._stateForCorporation(kNode['gameType'])
+            kFamily = CvIndustryFlowData.getCorporationFamily(kNode['filterId'])
+            if kFamily is not None:
+                kRender['metaText'] = u'Found: %d active composites' % kFamily['min_active_composites']
+                for szGood in kFamily['operating_goods']:
+                    kBadge = self._bonusBadge(szGood)
+                    if kBadge is not None:
+                        kRender['badges'].append(kBadge)
+
+        kRender['state'] = kState['state']
+        kRender['subtitle'] = kState['detail']
+        if kRender['sizeClass'] == 'corporation':
+            kRender['titleLines'] = [kRender['title']]
+        elif kRender['sizeClass'] == 'composite':
+            kRender['titleLines'] = self._wrapText(kRender['title'], 18, 2)
+        else:
+            kRender['titleLines'] = self._wrapText(kRender['title'], 22, 2)
+        return kRender
+
+    def _drawChainsControls(self, x, y, w):
+        screen = self.getScreen()
+        labels = ('Graph', 'Table')
+        for i in range(2):
+            if i == self.iChainsView:
+                szStart = u'<color=255,255,0>'
+                szEnd = u'</color>'
+            else:
+                szStart = u''
+                szEnd = u''
+            screen.setText(self._addWidget(self.CHAINS_VIEW_IDS[i]), 'Background', szStart + u'<font=2>%s</font>' % labels[i] + szEnd, CvUtil.FONT_LEFT_JUSTIFY, x + (i * 88), y, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, i, -1)
+
+        self.szFlowFilter = CvIndustryFlowData.FILTER_ALL
+        screen.setText(self._addWidget('IndustryChainsAllChainsLabel'), 'Background', u'<color=255,255,0><font=2>All Chains</font></color>', CvUtil.FONT_LEFT_JUSTIFY, x + 190, y, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+
+    def _drawChainsLegend(self, x, y, w):
+        screen = self.getScreen()
+        szLegend = (
+            u'<font=2>'
+            u'<color=85,150,87>Active</color>   '
+            u'<color=104,158,165>Ready</color>   '
+            u'<color=100,104,160>Blocked</color>   '
+            u'<color=206,65,69>Unavailable</color>'
+            u'   Upper corp paths found, lower paths sustain.'
+            u'</font>'
+        )
+        screen.setText(self._addWidget(self.CHAINS_LEGEND_ID), 'Background', szLegend, CvUtil.FONT_LEFT_JUSTIFY, x, y, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+
     def drawCitiesTab(self, x, y, w, h):
         screen = self.getScreen()
         table = self._addWidget(self.TABLE_ID)
@@ -364,10 +659,8 @@ class CvIndustryAdvisor:
         for i, (label, width) in enumerate(headers):
             screen.setTableColumnHeader(table, i, u'<font=2>%s</font>' % label, width)
 
-        player = gc.getPlayer(self.iActivePlayer)
-        (city, iter) = player.firstCity(False)
         row = 0
-        while city:
+        for city in self.playerCities:
             screen.appendTableRow(table)
             rawBonuses = self._cityRawBonuses(city)
             activeProcessing = self._activeProcessingChains(city)
@@ -392,7 +685,6 @@ class CvIndustryAdvisor:
                 inactiveLabel = u'-'
             screen.setTableText(table, 7, row, inactiveLabel, '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
             row += 1
-            (city, iter) = player.nextCity(iter, False)
 
     def drawGoodsTab(self, x, y, w, h):
         screen = self.getScreen()
@@ -410,7 +702,6 @@ class CvIndustryAdvisor:
         for i, (label, width) in enumerate(headers):
             screen.setTableColumnHeader(table, i, u'<font=2>%s</font>' % label, width)
 
-        player = gc.getPlayer(self.iActivePlayer)
         goods = []
         for buildingType, raws, synthetic in PROCESSING_CHAINS:
             eBonus = self._infoType(synthetic)
@@ -422,16 +713,14 @@ class CvIndustryAdvisor:
         for eBonus in goods:
             screen.appendTableRow(table)
             producedIn = []
-            (city, iter) = player.firstCity(False)
-            while city:
+            for city in self.playerCities:
                 if city.hasBonus(eBonus):
                     for buildingType, raws, synthetic in self._activeProcessingChains(city):
                         if self._infoType(synthetic) == eBonus:
                             producedIn.append(city.getName())
                             break
-                (city, iter) = player.nextCity(iter, False)
             screen.setTableText(table, 0, row, u'%c %s' % (gc.getBonusInfo(eBonus).getChar(), gc.getBonusInfo(eBonus).getDescription()), '', WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, eBonus, 1, CvUtil.FONT_LEFT_JUSTIFY)
-            screen.setTableInt(table, 1, row, u'%d' % player.getNumAvailableBonuses(eBonus), '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+            screen.setTableInt(table, 1, row, u'%d' % self.player.getNumAvailableBonuses(eBonus), '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
             if producedIn:
                 producedInText = u', '.join(producedIn)
             else:
@@ -442,6 +731,31 @@ class CvIndustryAdvisor:
             row += 1
 
     def drawChainsTab(self, x, y, w, h):
+        self._drawChainsControls(x, y, w)
+        if self.iChainsView == 0:
+            self._drawChainsLegend(x, y + 20, w)
+            self.drawChainsGraph(x, y + 44, w, h - 44)
+        else:
+            self.drawChainsTable(x, y + 24, w, h - 24)
+
+    def drawChainsGraph(self, x, y, w, h):
+        screen = self.getScreen()
+        try:
+            kGraph = CvIndustryFlowData.buildFlowGraph(self.szFlowFilter)
+            renderNodes = []
+            for kNode in kGraph['nodes']:
+                renderNodes.append(self._renderNodeData(kNode))
+            renderSections = kGraph.get('sections', [])
+            self.flowRenderer.render(screen, x, y, w, h, 'IndustryFlowGraph', renderNodes, kGraph['edges'], renderSections)
+        except:
+            err = sys.exc_info()[1]
+            CvUtil.pyPrint('Industry graph render failed: %s' % err)
+            panelId = self._addWidget('IndustryFlowGraphErrorPanel')
+            labelId = self._addWidget('IndustryFlowGraphErrorLabel')
+            screen.addPanel(panelId, u'', u'', True, True, x, y, w, h, PanelStyles.PANEL_STYLE_MAIN)
+            screen.setText(labelId, 'Background', u'<font=2>Graph error: %s</font>' % unicode(err), CvUtil.FONT_LEFT_JUSTIFY, x + 12, y + 12, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+
+    def drawChainsTable(self, x, y, w, h):
         screen = self.getScreen()
         table = self._addWidget(self.TABLE_ID)
         screen.addTableControlGFC(table, 5, x, y, w, h, True, False, 24, 24, TableStyles.TABLE_STYLE_STANDARD)
@@ -457,19 +771,40 @@ class CvIndustryAdvisor:
         for i, (label, width) in enumerate(headers):
             screen.setTableColumnHeader(table, i, u'<font=2>%s</font>' % label, width)
 
+        allowedSynthetic = {}
+        allowedComposite = {}
+        allowedCorp = {}
+        if self.szFlowFilter != CvIndustryFlowData.FILTER_ALL:
+            kFamily = CvIndustryFlowData.getCorporationFamily(self.szFlowFilter)
+            if kFamily is not None:
+                for szGood in CvIndustryFlowData.getFamilySyntheticGoods(self.szFlowFilter):
+                    allowedSynthetic[szGood] = 1
+                for szBuilding in kFamily['composites']:
+                    allowedComposite[szBuilding] = 1
+                allowedCorp[kFamily['corporation']] = 1
+
         row = 0
         for buildingType, raws, synthetic in PROCESSING_CHAINS:
+            if self.szFlowFilter != CvIndustryFlowData.FILTER_ALL and not allowedSynthetic.has_key(synthetic):
+                continue
+
             eBuilding = self._infoType(buildingType)
             eSynthetic = self._infoType(synthetic)
             if eBuilding < 0 or eSynthetic < 0:
                 continue
+
             rawBonuses = []
             for raw in raws:
                 eRaw = self._infoType(raw)
                 if eRaw >= 0:
                     rawBonuses.append(eRaw)
+
             enabled = self._goodsEnabledBy(eSynthetic)
             corps = self._corpsUsing(eSynthetic)
+            if self.szFlowFilter != CvIndustryFlowData.FILTER_ALL:
+                enabled = [eLoop for eLoop in enabled if allowedComposite.has_key(gc.getBuildingInfo(eLoop).getType())]
+                corps = [eLoop for eLoop in corps if allowedCorp.has_key(gc.getCorporationInfo(eLoop).getType())]
+
             screen.appendTableRow(table)
             screen.setTableText(table, 0, row, self._bonusChars(rawBonuses), '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
             screen.setTableText(table, 1, row, gc.getBuildingInfo(eBuilding).getDescription(), '', WidgetTypes.WIDGET_PEDIA_JUMP_TO_BUILDING, eBuilding, 1, CvUtil.FONT_LEFT_JUSTIFY)
@@ -491,6 +826,14 @@ class CvIndustryAdvisor:
                 return 1
             if fname == self.TAB_IDS[2]:
                 self.iTab = 2
+                self.drawScreen()
+                return 1
+            if fname == self.CHAINS_VIEW_IDS[0]:
+                self.iChainsView = 0
+                self.drawScreen()
+                return 1
+            if fname == self.CHAINS_VIEW_IDS[1]:
+                self.iChainsView = 1
                 self.drawScreen()
                 return 1
         return 0

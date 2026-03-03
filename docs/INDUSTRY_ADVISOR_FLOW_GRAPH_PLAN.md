@@ -2,15 +2,20 @@
 
 ## Status
 
-This document captures a potential future implementation for replacing the current Industry Advisor
-chains table with a left-to-right flow graph modeled after the technology tree.
+This document captures the current intended implementation for the Industry Advisor chains view.
 
-This is not scheduled work. It is a design note for later.
+An initial graph prototype exists, but the original "draw every dependency edge" approach proved too
+dense for the real industry data. The current design basis is now:
+
+1. keep a left-to-right graph-like overview
+2. draw only the clean base production edges by default
+3. move dense upper-tier dependency information into the node cards themselves
+4. reserve full dependency highlighting for a later focused mode if needed
 
 ## Goal
 
 Improve readability of the Industry Advisor progression view by changing it from a dense table into
-a graph that shows:
+an overview that shows:
 
 1. raw resources
 2. local processing buildings
@@ -18,11 +23,11 @@ a graph that shows:
 4. composite industries
 5. corporations
 
-The target user experience is the same core visual idea as the tech tree:
+The target user experience still borrows the tech tree's strengths:
 
 1. start on the left
-2. follow arrows to the right
-3. understand what each node unlocks or feeds
+2. follow the base production chain to the right
+3. understand upper-tier requirements from card contents instead of tracing spaghetti wiring
 4. see current availability by color
 
 ## Recommendation
@@ -43,6 +48,43 @@ The chooser should not be reused as-is because it is hard-wired to:
 2. research queue state
 3. Advanced Start behavior
 4. the full-screen tech screen shell
+
+The renderer layer should remain generic. It should know how to draw:
+
+1. nodes
+2. edges
+3. colors
+4. labels
+5. buttons
+6. optional badge/icon rows
+7. optional section labels
+
+It should not know what a corporation, synthetic good, or processor actually means.
+
+Implication:
+
+If industries, corporations, or chain relationships change later, the graph should still work as
+long as the flow-data module is updated. The renderer should not need business-rule edits for normal
+content changes.
+
+## Overview-First Rule
+
+The live industry web is denser than the technology tree:
+
+1. one synthetic good can feed many composites
+2. many composites can roll into one corporation
+3. future balance changes will keep moving those relationships
+
+That means a permanent full-edge graph does not scale well. The default player-facing view should be:
+
+1. wired base chain only:
+   raw -> processor -> synthetic
+2. composite cards showing required goods as inline icons
+3. corporation cards showing operating goods as inline icons and founding summary text
+4. family sections stacked vertically in the all-chains view
+
+If a later focused mode is added, that mode can temporarily reveal the denser composite and
+corporation dependency edges for a selected node.
 
 ## Current Relevant Files
 
@@ -75,11 +117,16 @@ Important chooser mechanics to port:
 
 ## Important Constraint
 
-The active repo currently vendors only a small subset of the Python screen stack. The stock
-`CvTechChooser.py` is not present in the mod tree at the moment.
+The active repo currently vendors only a subset of the Python screen stack, while the installed game
+contains the full stock chooser implementation.
 
-If this plan is executed, the first practical step is to vendor the relevant chooser source into the
-mod's Python tree so the renderer can be adapted locally instead of being retyped from memory.
+The recommended approach is:
+
+1. use the installed stock `CvTechChooser.py` as the reference implementation
+2. port only the required rendering primitives into a dedicated industry renderer module
+3. do not vendor the entire chooser into the mod tree as a runtime dependency unless absolutely needed
+
+The goal is to borrow the rendering kernel, not to fork the whole tech chooser screen.
 
 ## Recommended UI Shape
 
@@ -89,14 +136,36 @@ Recommended changes:
 
 1. keep the existing `Cities` and `Goods` tabs
 2. replace `Chains` with a graph-first progression tab
-3. optionally keep the current table behind a `Graph | Table` toggle during transition
+3. keep the current table behind a `Graph | Table` toggle during transition
 
 Recommended tab contents:
 
 1. small legend row
-2. optional filter control
+2. all-chains overview first
 3. large scrollable graph panel
 4. optional detail/help strip for the selected node
+
+The default `All Chains` view should remain the primary shipping view. Family filters can return
+later once they are useful and stable.
+
+## Scope Of Phase 1
+
+Phase 1 should cover only the production progression web:
+
+1. raw bonuses
+2. processor buildings
+3. synthetic goods
+4. composite industries
+5. corporations
+
+Phase 1 should not attempt to graph the core industries that buff improvements such as:
+
+1. `Agrarian Board`
+2. `Mining Bureau`
+3. `Hydraulic Office`
+4. the rest of the improvement-buff building layer
+
+Those buildings are a different kind of system and would make the first graph too noisy.
 
 ## Proposed Data Model
 
@@ -106,7 +175,7 @@ Create a dedicated flow-data module, for example:
 
 - `CvIndustryFlowData.py`
 
-That module should define explicit nodes and edges.
+That module should define explicit nodes, edges, filters, and manual layout coordinates.
 
 ### Node Types
 
@@ -133,7 +202,19 @@ Each node should carry:
 1. raw resource -> processor
 2. processor -> synthetic good
 3. synthetic good -> composite industry
-4. composite industry -> corporation
+4. synthetic good -> corporation
+5. composite industry -> corporation
+
+The last two edge types are intentionally different:
+
+1. synthetic good -> corporation represents ongoing operating inputs
+2. composite industry -> corporation represents empire-level founding-family requirements
+
+The data model should still preserve the fuller edge set for future focused or debug views.
+
+In the default overview, only edge types 1 and 2 should be drawn continuously. Higher-tier
+relationships should be communicated through badges, summaries, and section grouping instead of
+always-on wires.
 
 ### Layout Rule
 
@@ -170,15 +251,24 @@ and enforced in DLL logic in:
 - `third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvPlayer.cpp`
 - `third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvCity.cpp`
 
+The live corporation model is now:
+
+1. `Great Merchant`
+2. `TECH_CORPORATION`
+3. sector tech
+4. minimum `3` distinct active composite industries from the corporation's founding family
+5. synthetic goods as ongoing operating inputs
+
 Implication:
 
-The graph should show corporations as the last stage of the chain, but should also reflect that they
-depend on:
+The graph should show corporations as the last stage of the chain, but should reflect both:
 
 1. empire-level active composite industry presence for founding
 2. synthetic goods for ongoing inputs
 
 This is the biggest place where the current table model is too simple.
+
+`CORPORATION_7` is currently reserved and inactive, so it should be excluded from the first-pass graph.
 
 ## Recommended Architecture
 
@@ -213,6 +303,13 @@ This module should be a port of the tech chooser's rendering kernel, but general
 2. arbitrary edge list
 3. custom per-node widgets
 4. custom color states
+
+It should not contain hard-coded knowledge of:
+
+1. specific corporations
+2. specific resources
+3. industry-family rules
+4. founding logic
 
 ### 3. Keep Screen Ownership In `CvIndustryAdvisor`
 
@@ -286,9 +383,19 @@ Corporation state needs two separate concepts:
 1. founding eligibility
 2. input support
 
-The founding state should reflect real corporation prerequisites, including minimum active founding
-building classes. If the necessary Python accessors are not currently exposed for all of that data,
-the first pass can use a Python-side mirror of the XML setup.
+The founding state should reflect the real corporation prerequisites:
+
+1. `TECH_CORPORATION`
+2. sector tech
+3. Great Merchant founder model
+4. minimum active founding building classes
+
+The first pass does not need to visualize the Great Merchant itself as a node, but tooltips and node
+state text should mention it.
+
+If the necessary Python accessors are not exposed for every rule, the first pass can use a
+Python-side mirror of the XML setup as long as that mirror is derived from current XML rather than
+an old hard-coded tuple table.
 
 ## Filtering
 
@@ -298,7 +405,7 @@ too busy.
 Recommended filters:
 
 1. `All Chains`
-2. one filter per corporation family
+2. one filter per active corporation family
 3. maybe one filter per broad branch later, such as `Food`, `Prestige`, `Performance`, `Stone`
 
 Filtering should prune the node and edge lists before rendering. It should not render the full graph
@@ -330,9 +437,10 @@ The goal is not perfect symmetry. The goal is readable branch identity.
 
 ### Phase 1: Preparation
 
-1. vendor the stock chooser file into the mod tree for local reference
+1. use the installed stock chooser file as reference
 2. identify the chooser code to port directly
 3. define the graph data model
+4. update the corporation-side graph model to match live XML, not the current simplified advisor tuples
 
 ### Phase 2: Data Extraction
 
@@ -340,6 +448,7 @@ The goal is not perfect symmetry. The goal is readable branch identity.
 2. add explicit graph nodes and edges
 3. add hand-authored grid coordinates
 4. add a fuller corporation representation that matches XML rules
+5. make the renderer-facing data generic enough that future content additions only require data updates
 
 ### Phase 3: Renderer
 
@@ -347,13 +456,14 @@ The goal is not perfect symmetry. The goal is readable branch identity.
 2. port chooser geometry helpers
 3. port arrow drawing using the existing arrow art
 4. port node panel construction using `PANEL_STYLE_TECH`
+5. support multiple edge styles if practical, so corporation founding edges and operating-input edges can be distinguished
 
 ### Phase 4: Screen Integration
 
 1. replace the current chains table with the graph panel
 2. add a legend
 3. add filtering
-4. optionally keep a fallback table toggle during transition
+4. keep a fallback table toggle during transition
 
 ### Phase 5: State Wiring
 
@@ -401,6 +511,8 @@ Even with graph rendering, the all-up industry web can get dense. Filtering is n
 3. no attempt to replace the actual tech chooser with a shared engine
 4. no animated routing or fancy transitions
 5. no new XML schema work
+6. no phase-1 graph for core improvement-buff industries
+7. no first-pass use of reserved `CORPORATION_7`
 
 ## Validation Checklist For Future Work
 
@@ -415,6 +527,17 @@ When this is eventually implemented, validate:
 7. corporation node state when composite founding thresholds are and are not met
 8. pedia jump targets from bonus, building, and corporation nodes
 
+## First Deliverable Recommendation
+
+The best first deliverable is:
+
+1. a graph-first `Chains` tab
+2. a `Graph | Table` toggle
+3. one filter per active corporation family
+4. correct graph structure for raw -> processor -> synthetic -> composite -> corporation
+5. corporation founding-family edges plus ongoing operating-input edges
+6. no core-industry graphing yet
+
 ## Bottom Line
 
 This is feasible and should produce a much better explanation of the industry's progression rules.
@@ -425,6 +548,4 @@ The right approach is:
 2. port the tech chooser's graph-rendering mechanics
 3. drive them from industry-specific node and edge data
 4. reflect the real corporation rules, not the simplified current table model
-
-If this work is picked up later, the best first deliverable is a graph-first `Chains` tab with a
-fallback table toggle until the graph is proven stable.
+5. keep the renderer generic so future content changes are data edits, not renderer rewrites
