@@ -303,6 +303,7 @@ class CvEventManager:
 		
 		# allow camera to be updated
 		CvCameraControls.g_CameraControls.onUpdate( fDeltaTime )
+		CvArtMasterpieceSystem.onUpdate( fDeltaTime )
 		
 	def onWindowActivation(self, argsList):
 		'Called when the game window activates or deactivates'

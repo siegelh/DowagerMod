@@ -32,6 +32,17 @@
 #include "CvDLLFAStarIFaceBase.h"
 #include "CvDLLPythonIFaceBase.h"
 
+static bool isArtMasterpieceBonus(BonusTypes eBonus)
+{
+	if (eBonus == NO_BONUS)
+	{
+		return false;
+	}
+
+	const CvString szType = GC.getBonusInfo(eBonus).getType();
+	return (szType.find("BONUS_ART_") == 0);
+}
+
 // Public Functions...
 
 CvPlayer::CvPlayer()
@@ -3975,7 +3986,8 @@ bool CvPlayer::canTradeItem(PlayerTypes eWhoTo, TradeData item, bool bTestDenial
 			if (!GET_TEAM(GET_PLAYER(eWhoTo).getTeam()).isBonusObsolete((BonusTypes) item.m_iData) && !GET_TEAM(getTeam()).isBonusObsolete((BonusTypes) item.m_iData))
 			{
 				bool bCanTradeAll = (isHuman() || getTeam() == GET_PLAYER(eWhoTo).getTeam() || GET_TEAM(getTeam()).isVassal(GET_PLAYER(eWhoTo).getTeam()));
-				if (getNumTradeableBonuses((BonusTypes) item.m_iData) > (bCanTradeAll ? 0 : 1))
+				int iMinCopies = (bCanTradeAll || isArtMasterpieceBonus((BonusTypes)item.m_iData)) ? 0 : 1;
+				if (getNumTradeableBonuses((BonusTypes) item.m_iData) > iMinCopies)
 				{
 					// if (GET_PLAYER(eWhoTo).getNumAvailableBonuses(eBonus) == 0)
 					{
@@ -17959,7 +17971,7 @@ bool CvPlayer::canDoEvent(EventTypes eEvent, const EventTriggeredData& kTriggere
 			return false;
 		}
 
-		if (getNumTradeableBonuses(eBonus) <= 1)
+		if (getNumTradeableBonuses(eBonus) <= (isArtMasterpieceBonus(eBonus) ? 0 : 1))
 		{
 			return false;
 		}

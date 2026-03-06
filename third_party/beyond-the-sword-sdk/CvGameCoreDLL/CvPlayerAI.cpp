@@ -30,6 +30,17 @@
 #define CIVIC_CHANGE_DELAY			(25)
 #define RELIGION_CHANGE_DELAY		(15)
 
+static bool isArtMasterpieceBonus(BonusTypes eBonus)
+{
+	if (eBonus == NO_BONUS)
+	{
+		return false;
+	}
+
+	const CvString szType = GC.getBonusInfo(eBonus).getType();
+	return (szType.find("BONUS_ART_") == 0);
+}
+
 // statics
 
 CvPlayerAI* CvPlayerAI::m_aPlayers = NULL;
@@ -5955,7 +5966,7 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 					case TRADE_RESOURCES:
 						if (!pabBonusDeal[pNode->m_data.m_iData])
 						{
-							if (GET_PLAYER(ePlayer).getNumTradeableBonuses((BonusTypes)(pNode->m_data.m_iData)) > 1)
+							if (GET_PLAYER(ePlayer).getNumTradeableBonuses((BonusTypes)(pNode->m_data.m_iData)) > (isArtMasterpieceBonus((BonusTypes)(pNode->m_data.m_iData)) ? 0 : 1))
 							{
 								if (GET_PLAYER(ePlayer).AI_corporationBonusVal((BonusTypes)(pNode->m_data.m_iData)) == 0)
 								{
@@ -6238,7 +6249,7 @@ bool CvPlayerAI::AI_counterPropose(PlayerTypes ePlayer, const CLinkList<TradeDat
 					case TRADE_RESOURCES:
 						if (!pabBonusDeal[pNode->m_data.m_iData])
 						{
-							if (getNumTradeableBonuses((BonusTypes)(pNode->m_data.m_iData)) > 1)
+							if (getNumTradeableBonuses((BonusTypes)(pNode->m_data.m_iData)) > (isArtMasterpieceBonus((BonusTypes)(pNode->m_data.m_iData)) ? 0 : 1))
 							{
 								iWeight += GET_PLAYER(ePlayer).AI_bonusTradeVal(((BonusTypes)(pNode->m_data.m_iData)), getID(), 1);
 								pabBonusDeal[pNode->m_data.m_iData] = true;
@@ -11109,7 +11120,7 @@ void CvPlayerAI::AI_doDiplo()
 
 								for (iJ = 0; iJ < GC.getNumBonusInfos(); iJ++)
 								{
-									if (getNumTradeableBonuses((BonusTypes)iJ) > 1)
+									if (getNumTradeableBonuses((BonusTypes)iJ) > (isArtMasterpieceBonus((BonusTypes)iJ) ? 0 : 1))
 									{
 										if ((GET_PLAYER((PlayerTypes)iI).AI_bonusTradeVal(((BonusTypes)iJ), getID(), 1) > 0)
 											&& (GET_PLAYER((PlayerTypes)iI).AI_bonusVal((BonusTypes)iJ, 1) > AI_bonusVal((BonusTypes)iJ, -1)))
@@ -11829,7 +11840,7 @@ void CvPlayerAI::AI_doDiplo()
 
 															for (iJ = 0; iJ < GC.getNumBonusInfos(); iJ++)
 															{
-																if (GET_PLAYER((PlayerTypes)iI).getNumTradeableBonuses((BonusTypes)iJ) > 1)
+																if (GET_PLAYER((PlayerTypes)iI).getNumTradeableBonuses((BonusTypes)iJ) > (isArtMasterpieceBonus((BonusTypes)iJ) ? 0 : 1))
 																{
 																	if (AI_bonusTradeVal(((BonusTypes)iJ), ((PlayerTypes)iI), 1) > 0)
 																	{
@@ -12117,7 +12128,7 @@ void CvPlayerAI::AI_doDiplo()
 
 											for (iJ = 0; iJ < GC.getNumBonusInfos(); iJ++)
 											{
-												if (GET_PLAYER((PlayerTypes)iI).getNumTradeableBonuses((BonusTypes)iJ) > 1)
+												if (GET_PLAYER((PlayerTypes)iI).getNumTradeableBonuses((BonusTypes)iJ) > (isArtMasterpieceBonus((BonusTypes)iJ) ? 0 : 1))
 												{
 													if (GET_PLAYER((PlayerTypes)iI).AI_corporationBonusVal((BonusTypes)iJ) == 0)
 													{
@@ -12149,7 +12160,7 @@ void CvPlayerAI::AI_doDiplo()
 												{
 													if (iJ != eBestReceiveBonus)
 													{
-														if (getNumTradeableBonuses((BonusTypes)iJ) > 1)
+														if (getNumTradeableBonuses((BonusTypes)iJ) > (isArtMasterpieceBonus((BonusTypes)iJ) ? 0 : 1))
 														{
 															if (GET_PLAYER((PlayerTypes)iI).AI_bonusTradeVal(((BonusTypes)iJ), getID(), 1) > 0)
 															{

@@ -111,6 +111,7 @@ class CvArtAdvisor:
                 "artType": row[2],
                 "button": row[3],
                 "gallery": row[4],
+                "imports": CvArtMasterpieceSystem.getImportCount(iPlayer, pieceType),
                 "name": self._pieceName(pieceType),
             }
             keyed.append((self._eraIndex(entry["era"]), self._typeLabel(entry["artType"]), entry["name"], entry))
@@ -121,14 +122,17 @@ class CvArtAdvisor:
     def _countOwnedCollections(self, entries):
         eraCounts = {}
         typeCounts = {}
+        iImported = 0
 
         for entry in entries:
             szEra = entry["era"]
             szType = entry["artType"]
             eraCounts[szEra] = eraCounts.get(szEra, 0) + 1
             typeCounts[szType] = typeCounts.get(szType, 0) + 1
+            if entry.get("imports", 0) > 0:
+                iImported += 1
 
-        return len(entries), eraCounts, typeCounts
+        return len(entries), eraCounts, typeCounts, iImported
 
     def _bonusBreakdown(self, eraCounts, typeCounts):
         iEraBonus = 0
@@ -217,7 +221,7 @@ class CvArtAdvisor:
         screen.setDimensions(0, 0, xRes, yRes)
 
         entries = self._collectOwnedEntries(self.iActivePlayer)
-        iOwnedTotal, eraCounts, typeCounts = self._countOwnedCollections(entries)
+        iOwnedTotal, eraCounts, typeCounts, iImported = self._countOwnedCollections(entries)
         iSetTotal, iEraBonus, iTypeBonus = self._bonusBreakdown(eraCounts, typeCounts)
         iBaseBonus = iOwnedTotal
         if iBaseBonus > BASE_HAPPINESS_CAP:
@@ -244,8 +248,8 @@ class CvArtAdvisor:
         iSummaryX = x + 20
         iSummaryY = y + 16
         szPrimary = u"<font=3><color=255,220,120>Art Happiness: +%d</color></font>" % iTotalHappiness
-        szSecondary = u"<font=2>Collected works: %d   Distinct base: +%d   Era sets: +%d   Type sets: +%d</font>" % (iOwnedTotal, iBaseBonus, iEraBonus, iTypeBonus)
-        szHint = u"<font=2>Only collected works are shown. Era sets activate at 3 works from the same age. Type sets activate at 4 works of the same form.</font>"
+        szSecondary = u"<font=2>Available works: %d   Imported loans: %d   Base network: +%d   Era sets: +%d   Type sets: +%d</font>" % (iOwnedTotal, iImported, iBaseBonus, iEraBonus, iTypeBonus)
+        szHint = u"<font=2>This treasury shows works currently available through your trade network. Era sets activate at 3 works from the same age. Type sets activate at 4 works of the same form.</font>"
 
         screen.setLabel(self._addWidget(self.SUMMARY_PRIMARY_ID), "Background", szPrimary, CvUtil.FONT_LEFT_JUSTIFY, iSummaryX, iSummaryY, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
         screen.setLabel(self._addWidget(self.SUMMARY_SECONDARY_ID), "Background", szSecondary, CvUtil.FONT_LEFT_JUSTIFY, iSummaryX, iSummaryY + 28, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
@@ -261,8 +265,8 @@ class CvArtAdvisor:
         if len(entries) == 0:
             emptyId = self._addWidget("ArtAdvisorEmpty")
             emptyId2 = self._addWidget("ArtAdvisorEmptyHint")
-            screen.setTextAt(emptyId, scrollId, u"<font=3>No masterpieces collected yet.</font>", CvUtil.FONT_LEFT_JUSTIFY, 24, 24, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-            screen.setTextAt(emptyId2, scrollId, u"<font=2>Use a Great Artist to Create Masterpiece and begin your treasury.</font>", CvUtil.FONT_LEFT_JUSTIFY, 24, 54, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+            screen.setTextAt(emptyId, scrollId, u"<font=3>No artworks are currently available.</font>", CvUtil.FONT_LEFT_JUSTIFY, 24, 24, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+            screen.setTextAt(emptyId2, scrollId, u"<font=2>Use a Great Artist to Create Masterpiece or import one through diplomacy.</font>", CvUtil.FONT_LEFT_JUSTIFY, 24, 54, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
             screen.setViewMin(scrollId, w, h)
             return
 
@@ -282,7 +286,7 @@ class CvArtAdvisor:
             iCardW = 260
         iImageW = iCardW - 20
         iImageH = (iImageW * 260) / 420
-        iCardH = iImageH + 116
+        iCardH = iImageH + 132
 
         iY = 14
         iIndex = 0
@@ -358,9 +362,9 @@ class CvArtAdvisor:
         iTextY += 18
 
         if iOwnedTotal <= BASE_HAPPINESS_CAP:
-            szBaseLine = u"<font=1>Base collection: +1 Happiness</font>"
+            szBaseLine = u"<font=1>Network base: +1 Happiness</font>"
         else:
-            szBaseLine = u"<font=1>Base collection: part of the +10 cap</font>"
+            szBaseLine = u"<font=1>Network base: part of the +10 cap</font>"
 
         if iEraCount >= 3:
             szEraLine = u"<font=1><color=120,255,120>Era set: Active (+1 Happiness)</color></font>"
@@ -375,9 +379,15 @@ class CvArtAdvisor:
         baseId = self._addWidget("ArtAdvisorCardBase%d" % iIndex)
         eraId = self._addWidget("ArtAdvisorCardEra%d" % iIndex)
         typeId = self._addWidget("ArtAdvisorCardTypeLine%d" % iIndex)
+        loanId = self._addWidget("ArtAdvisorCardLoanLine%d" % iIndex)
         screen.setTextAt(baseId, panelId, szBaseLine, CvUtil.FONT_LEFT_JUSTIFY, iTitleX, iTextY + 2, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
         screen.setTextAt(eraId, panelId, szEraLine, CvUtil.FONT_LEFT_JUSTIFY, iTitleX, iTextY + 18, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
         screen.setTextAt(typeId, panelId, szTypeLine, CvUtil.FONT_LEFT_JUSTIFY, iTitleX, iTextY + 34, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+        if entry.get("imports", 0) > 0:
+            szLoanLine = u"<font=1><color=140,220,255>Trade status: Imported loan</color></font>"
+        else:
+            szLoanLine = u"<font=1>Trade status: Local holding</font>"
+        screen.setTextAt(loanId, panelId, szLoanLine, CvUtil.FONT_LEFT_JUSTIFY, iTitleX, iTextY + 50, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 
     def handleInput(self, inputClass):
         return 0
