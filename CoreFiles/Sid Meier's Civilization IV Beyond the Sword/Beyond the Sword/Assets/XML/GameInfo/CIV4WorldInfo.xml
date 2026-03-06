@@ -59,7 +59,7 @@
 			<Type>WORLDSIZE_SMALL</Type>
 			<Description>TXT_KEY_WORLD_SMALL</Description>
 			<Help>TXT_KEY_WORLD_SMALL_HELP</Help>
-			<iDefaultPlayers>5</iDefaultPlayers>
+			<iDefaultPlayers>15</iDefaultPlayers>
 			<iUnitNameModifier>30</iUnitNameModifier>
 			<iTargetNumCities>5</iTargetNumCities>
 			<iNumFreeBuildingBonuses>3</iNumFreeBuildingBonuses>

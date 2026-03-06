@@ -54,6 +54,17 @@ namespace
 		return false;
 	}
 
+	bool isArtMasterpieceBonus(BonusTypes eBonus)
+	{
+		if (eBonus == NO_BONUS)
+		{
+			return false;
+		}
+
+		const CvString szType = GC.getBonusInfo(eBonus).getType();
+		return (szType.find("BONUS_ART_") == 0);
+	}
+
 	void pushUniqueInt(std::vector<int>& aiValues, int iValue)
 	{
 		if (iValue != NO_BUILDING && iValue != NO_BONUS && iValue != NO_CORPORATION && !hasIntValue(aiValues, iValue))
@@ -15203,9 +15214,18 @@ void CvGameTextMgr::assignFontIds(int iFirstSymbolCode, int iPadAmount)
 	++iCurSymbolID;
 	for (int i = 0; i < GC.getNumBonusInfos(); i++)
 	{
-		int bonusID = bonusBaseID + GC.getBonusInfo((BonusTypes) i).getArtInfo()->getFontButtonIndex();
+		const BonusTypes eBonus = (BonusTypes)i;
+		int bonusID = bonusBaseID + GC.getBonusInfo(eBonus).getArtInfo()->getFontButtonIndex();
+		if (isArtMasterpieceBonus(eBonus))
+		{
+			bonusID = bonusBaseID + 5;
+		}
+
 		GC.getBonusInfo((BonusTypes) i).setChar(bonusID);
-		++iCurSymbolID;
+		if (!isArtMasterpieceBonus(eBonus))
+		{
+			++iCurSymbolID;
+		}
 	}
 
 	do 

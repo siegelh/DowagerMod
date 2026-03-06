@@ -552,5 +552,29 @@
     <Tag>TXT_KEY_BUILDING_FEDERAL_HALL_STRATEGY</Tag>
     <English>Replaces the Courthouse. In addition to normal Courthouse effects, it adds +2 Culture and +2 Espionage.</English>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_LAND_GRANT_COLLEGE</Tag>
+    <English>Land-Grant College</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_LAND_GRANT_COLLEGE_PEDIA</Tag>
+    <English>Lincoln's land-grant colleges tied higher education to agricultural development, applied science, and the free-labor settlement of the interior. They turned rural abundance into institutional capacity rather than leaving universities as purely urban scholarly enclaves.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_LAND_GRANT_COLLEGE_STRATEGY</Tag>
+    <English>Replaces the University. Keeps the normal University effects, adds +1 Production in the city, gives worked Farms and Pastures +1 Commerce, and requires at least 3 Farms or Pastures in the city radius.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_NATIONAL_BANK</Tag>
+    <English>National Bank</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_NATIONAL_BANK_PEDIA</Tag>
+    <English>The Union war state depended on nationally coordinated finance as much as battlefield success. Lincoln's banking legislation created a more uniform currency and a stronger federal fiscal system capable of sustaining large-scale mobilization.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_NATIONAL_BANK_STRATEGY</Tag>
+    <English>Replaces the Bank. Keeps the normal Bank effects, adds +25% Military Production, and provides +1 Happiness.</English>
+  </TEXT>
 </Civ4GameText>
 

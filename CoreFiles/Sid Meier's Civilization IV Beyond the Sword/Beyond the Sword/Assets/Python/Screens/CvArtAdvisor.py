@@ -44,8 +44,10 @@ class CvArtAdvisor:
         self.SUMMARY_SECONDARY_ID = "ArtAdvisorSummarySecondary"
         self.SUMMARY_HINT_ID = "ArtAdvisorSummaryHint"
         self.SCROLL_ID = "ArtAdvisorScroll"
+        self.CIV_BUTTON_PREFIX = "ArtAdvisorCivButton"
         self.widgets = []
         self.iActivePlayer = -1
+        self.iViewPlayer = -1
 
     def getScreen(self):
         return CyGInterfaceScreen(self.SCREEN_NAME, ART_ADVISOR_SCREEN)
@@ -96,6 +98,72 @@ class CvArtAdvisor:
         except:
             return len(CvArtMasterpieceData.ART_ERA_ORDER)
 
+    def _trimLabel(self, szLabel, iMaxChars):
+        if len(szLabel) <= iMaxChars:
+            return szLabel
+        return szLabel[:iMaxChars - 3] + "..."
+
+    def _isGalleryVisible(self, iPlayer):
+        if iPlayer < 0 or iPlayer >= gc.getMAX_PLAYERS():
+            return False
+
+        player = gc.getPlayer(iPlayer)
+        if not player.isAlive():
+            return False
+
+        try:
+            if player.isBarbarian() or player.isMinorCiv():
+                return False
+        except:
+            pass
+
+        if iPlayer == self.iActivePlayer:
+            return True
+
+        activePlayer = gc.getPlayer(self.iActivePlayer)
+        return gc.getTeam(activePlayer.getTeam()).isHasMet(player.getTeam())
+
+    def _visibleGalleryPlayers(self):
+        players = []
+        if self.iActivePlayer >= 0 and self._isGalleryVisible(self.iActivePlayer):
+            players.append(self.iActivePlayer)
+
+        extras = []
+        for iPlayer in range(gc.getMAX_PLAYERS()):
+            if iPlayer == self.iActivePlayer:
+                continue
+            if not self._isGalleryVisible(iPlayer):
+                continue
+            player = gc.getPlayer(iPlayer)
+            extras.append((player.getCivilizationShortDescription(0), iPlayer))
+
+        extras.sort()
+        for row in extras:
+            players.append(row[1])
+        return players
+
+    def _ensureViewPlayer(self):
+        if not self._isGalleryVisible(self.iViewPlayer):
+            self.iViewPlayer = self.iActivePlayer
+
+    def _playerButtonLabel(self, iPlayer):
+        player = gc.getPlayer(iPlayer)
+        return self._trimLabel(player.getCivilizationShortDescription(0), 18)
+
+    def _playerOwnedCount(self, iPlayer):
+        return len(self._collectOwnedEntries(iPlayer))
+
+    def _playerGalleryTitle(self, iPlayer):
+        player = gc.getPlayer(iPlayer)
+        leaderName = gc.getLeaderHeadInfo(player.getLeaderType()).getDescription()
+        civName = player.getCivilizationShortDescription(0)
+        return u"%s - %s" % (civName, leaderName)
+
+    def _galleryHint(self):
+        if self.iViewPlayer == self.iActivePlayer:
+            return u"<font=2>Great Artists add globally unique works to your Art Gallery. You can also browse the galleries of civilizations you have met.</font>"
+        return u"<font=2>You have met this civilization, so its public Art Gallery is visible here. Bonus totals shown below are for that civilization.</font>"
+
     def _collectOwnedEntries(self, iPlayer):
         ownedMap = CvArtMasterpieceSystem.getOwnedPieces(iPlayer)
         keyed = []
@@ -111,7 +179,6 @@ class CvArtAdvisor:
                 "artType": row[2],
                 "button": row[3],
                 "gallery": row[4],
-                "imports": CvArtMasterpieceSystem.getImportCount(iPlayer, pieceType),
                 "name": self._pieceName(pieceType),
             }
             keyed.append((self._eraIndex(entry["era"]), self._typeLabel(entry["artType"]), entry["name"], entry))
@@ -122,17 +189,12 @@ class CvArtAdvisor:
     def _countOwnedCollections(self, entries):
         eraCounts = {}
         typeCounts = {}
-        iImported = 0
 
         for entry in entries:
-            szEra = entry["era"]
-            szType = entry["artType"]
-            eraCounts[szEra] = eraCounts.get(szEra, 0) + 1
-            typeCounts[szType] = typeCounts.get(szType, 0) + 1
-            if entry.get("imports", 0) > 0:
-                iImported += 1
+            eraCounts[entry["era"]] = eraCounts.get(entry["era"], 0) + 1
+            typeCounts[entry["artType"]] = typeCounts.get(entry["artType"], 0) + 1
 
-        return len(entries), eraCounts, typeCounts, iImported
+        return len(entries), eraCounts, typeCounts
 
     def _bonusBreakdown(self, eraCounts, typeCounts):
         iEraBonus = 0
@@ -169,7 +231,6 @@ class CvArtAdvisor:
 
         lines = []
         current = ""
-
         for word in words:
             if current == "":
                 current = word
@@ -183,25 +244,24 @@ class CvArtAdvisor:
 
         if len(lines) < 2 and current != "":
             lines.append(current)
-
         if len(lines) == 0:
             lines = [szTitle[:iMaxChars]]
-
         if len(lines) == 1 and len(lines[0]) > iMaxChars:
             lines = [lines[0][:iMaxChars], lines[0][iMaxChars:]]
-
         if len(lines) > 2:
             lines = lines[:2]
-
         if len(lines) == 2 and len(lines[1]) > iMaxChars:
             lines[1] = lines[1][:iMaxChars - 3] + "..."
-
         return lines
 
     def interfaceScreen(self):
         self.iActivePlayer = CyGame().getActivePlayer()
         if self.iActivePlayer < 0:
             return
+
+        if self.iViewPlayer < 0:
+            self.iViewPlayer = self.iActivePlayer
+        self._ensureViewPlayer()
 
         screen = self.getScreen()
         if not screen.isActive():
@@ -216,12 +276,14 @@ class CvArtAdvisor:
     def drawScreen(self):
         screen = self.getScreen()
         self._clearWidgets()
+        self._ensureViewPlayer()
 
         xRes, yRes = self._screenSize()
         screen.setDimensions(0, 0, xRes, yRes)
 
-        entries = self._collectOwnedEntries(self.iActivePlayer)
-        iOwnedTotal, eraCounts, typeCounts, iImported = self._countOwnedCollections(entries)
+        visiblePlayers = self._visibleGalleryPlayers()
+        entries = self._collectOwnedEntries(self.iViewPlayer)
+        iOwnedTotal, eraCounts, typeCounts = self._countOwnedCollections(entries)
         iSetTotal, iEraBonus, iTypeBonus = self._bonusBreakdown(eraCounts, typeCounts)
         iBaseBonus = iOwnedTotal
         if iBaseBonus > BASE_HAPPINESS_CAP:
@@ -242,20 +304,60 @@ class CvArtAdvisor:
         screen.addPanel(self._addWidget(self.TOP_PANEL_ID), u"", u"", True, False, 0, 0, xRes, topPanelHeight, PanelStyles.PANEL_STYLE_TOPBAR)
         screen.addPanel(self._addWidget(self.BOTTOM_PANEL_ID), u"", u"", True, False, 0, yRes - bottomPanelHeight, xRes, bottomPanelHeight, PanelStyles.PANEL_STYLE_BOTTOMBAR)
         screen.addPanel(self._addWidget(self.MAIN_PANEL_ID), u"", u"", True, True, x, y, w, h, PanelStyles.PANEL_STYLE_MAIN)
-        screen.setLabel(self._addWidget(self.HEADER_ID), "Background", u"<font=4>ART TREASURY</font>", CvUtil.FONT_CENTER_JUSTIFY, xRes / 2, 15, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+        screen.setLabel(self._addWidget(self.HEADER_ID), "Background", u"<font=4>ART GALLERY</font>", CvUtil.FONT_CENTER_JUSTIFY, xRes / 2, 15, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
         screen.setText(self._addWidget(self.EXIT_ID), "Background", localText.getText("TXT_KEY_PEDIA_SCREEN_EXIT", ()).upper(), CvUtil.FONT_RIGHT_JUSTIFY, xRes - 20, yRes - 40, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_CLOSE_SCREEN, -1, -1)
 
-        iSummaryX = x + 20
-        iSummaryY = y + 16
-        szPrimary = u"<font=3><color=255,220,120>Art Happiness: +%d</color></font>" % iTotalHappiness
-        szSecondary = u"<font=2>Available works: %d   Imported loans: %d   Base network: +%d   Era sets: +%d   Type sets: +%d</font>" % (iOwnedTotal, iImported, iBaseBonus, iEraBonus, iTypeBonus)
-        szHint = u"<font=2>This treasury shows works currently available through your trade network. Era sets activate at 3 works from the same age. Type sets activate at 4 works of the same form.</font>"
+        iInnerX = x + 20
+        iTopY = y + 14
+        iSelectorBottom = self._drawPlayerSelector(screen, visiblePlayers, iInnerX, iTopY, w - 40)
 
-        screen.setLabel(self._addWidget(self.SUMMARY_PRIMARY_ID), "Background", szPrimary, CvUtil.FONT_LEFT_JUSTIFY, iSummaryX, iSummaryY, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-        screen.setLabel(self._addWidget(self.SUMMARY_SECONDARY_ID), "Background", szSecondary, CvUtil.FONT_LEFT_JUSTIFY, iSummaryX, iSummaryY + 28, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-        screen.setLabel(self._addWidget(self.SUMMARY_HINT_ID), "Background", szHint, CvUtil.FONT_LEFT_JUSTIFY, iSummaryX, iSummaryY + 52, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+        szPrimary = u"<font=3><color=255,220,120>%s</color></font>" % self._playerGalleryTitle(self.iViewPlayer)
+        szSecondary = u"<font=2>Art Happiness: +%d   Distinct works: %d   Base collection: +%d   Era sets: +%d   Type sets: +%d</font>" % (iTotalHappiness, iOwnedTotal, iBaseBonus, iEraBonus, iTypeBonus)
+        szHint = self._galleryHint()
 
-        self._drawCollectionGallery(screen, entries, x + 16, y + 96, w - 32, h - 112, eraCounts, typeCounts, iOwnedTotal)
+        screen.setLabel(self._addWidget(self.SUMMARY_PRIMARY_ID), "Background", szPrimary, CvUtil.FONT_LEFT_JUSTIFY, iInnerX, iSelectorBottom + 6, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+        screen.setLabel(self._addWidget(self.SUMMARY_SECONDARY_ID), "Background", szSecondary, CvUtil.FONT_LEFT_JUSTIFY, iInnerX, iSelectorBottom + 34, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+        screen.setLabel(self._addWidget(self.SUMMARY_HINT_ID), "Background", szHint, CvUtil.FONT_LEFT_JUSTIFY, iInnerX, iSelectorBottom + 58, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+
+        galleryY = iSelectorBottom + 92
+        self._drawCollectionGallery(screen, entries, x + 16, galleryY, w - 32, h - (galleryY - y) - 14, eraCounts, typeCounts, iOwnedTotal)
+
+    def _drawPlayerSelector(self, screen, visiblePlayers, x, y, w):
+        headerId = self._addWidget("ArtAdvisorGallerySelectorHeader")
+        screen.setLabel(headerId, "Background", u"<font=2><color=255,220,130>Galleries of Met Civilizations</color></font>", CvUtil.FONT_LEFT_JUSTIFY, x, y, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+
+        if len(visiblePlayers) == 0:
+            return y + 22
+
+        iCellW = 180
+        iRowH = 26
+        iButtonsPerRow = w / iCellW
+        if iButtonsPerRow < 1:
+            iButtonsPerRow = 1
+        if iButtonsPerRow > 4:
+            iButtonsPerRow = 4
+
+        iBaseY = y + 24
+        for iIndex in range(len(visiblePlayers)):
+            iPlayer = visiblePlayers[iIndex]
+            iCol = iIndex % iButtonsPerRow
+            iRow = iIndex / iButtonsPerRow
+            iButtonX = x + (iCol * iCellW)
+            iButtonY = iBaseY + (iRow * iRowH)
+
+            if iPlayer == self.iViewPlayer:
+                szColorStart = u"<color=255,220,120>"
+            elif iPlayer == self.iActivePlayer:
+                szColorStart = u"<color=150,255,150>"
+            else:
+                szColorStart = u"<color=220,220,220>"
+            szLabel = szColorStart + u"<font=2>%s (%d)</font></color>" % (self._playerButtonLabel(iPlayer), self._playerOwnedCount(iPlayer))
+            buttonId = self._addWidget(self.CIV_BUTTON_PREFIX + str(iPlayer))
+            screen.setText(buttonId, "Background", szLabel, CvUtil.FONT_LEFT_JUSTIFY, iButtonX, iButtonY, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, iPlayer, -1)
+            screen.setActivation(buttonId, ActivationTypes.ACTIVATE_NORMAL)
+
+        iRows = (len(visiblePlayers) + iButtonsPerRow - 1) / iButtonsPerRow
+        return iBaseY + (iRows * iRowH)
 
     def _drawCollectionGallery(self, screen, entries, x, y, w, h, eraCounts, typeCounts, iOwnedTotal):
         scrollId = self._addWidget(self.SCROLL_ID)
@@ -265,8 +367,12 @@ class CvArtAdvisor:
         if len(entries) == 0:
             emptyId = self._addWidget("ArtAdvisorEmpty")
             emptyId2 = self._addWidget("ArtAdvisorEmptyHint")
-            screen.setTextAt(emptyId, scrollId, u"<font=3>No artworks are currently available.</font>", CvUtil.FONT_LEFT_JUSTIFY, 24, 24, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-            screen.setTextAt(emptyId2, scrollId, u"<font=2>Use a Great Artist to Create Masterpiece or import one through diplomacy.</font>", CvUtil.FONT_LEFT_JUSTIFY, 24, 54, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+            if self.iViewPlayer == self.iActivePlayer:
+                szEmptyHint = u"Use a Great Artist to Curate Masterpiece and begin your gallery."
+            else:
+                szEmptyHint = u"This civilization has not curated any masterpieces yet."
+            screen.setTextAt(emptyId, scrollId, u"<font=3>No masterpieces in this gallery yet.</font>", CvUtil.FONT_LEFT_JUSTIFY, 24, 24, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+            screen.setTextAt(emptyId2, scrollId, u"<font=2>%s</font>" % szEmptyHint, CvUtil.FONT_LEFT_JUSTIFY, 24, 54, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
             screen.setViewMin(scrollId, w, h)
             return
 
@@ -286,7 +392,7 @@ class CvArtAdvisor:
             iCardW = 260
         iImageW = iCardW - 20
         iImageH = (iImageW * 260) / 420
-        iCardH = iImageH + 132
+        iCardH = iImageH + 116
 
         iY = 14
         iIndex = 0
@@ -362,9 +468,9 @@ class CvArtAdvisor:
         iTextY += 18
 
         if iOwnedTotal <= BASE_HAPPINESS_CAP:
-            szBaseLine = u"<font=1>Network base: +1 Happiness</font>"
+            szBaseLine = u"<font=1>Base collection: +1 Happiness</font>"
         else:
-            szBaseLine = u"<font=1>Network base: part of the +10 cap</font>"
+            szBaseLine = u"<font=1>Base collection: part of the +10 cap</font>"
 
         if iEraCount >= 3:
             szEraLine = u"<font=1><color=120,255,120>Era set: Active (+1 Happiness)</color></font>"
@@ -378,22 +484,33 @@ class CvArtAdvisor:
 
         baseId = self._addWidget("ArtAdvisorCardBase%d" % iIndex)
         eraId = self._addWidget("ArtAdvisorCardEra%d" % iIndex)
-        typeId = self._addWidget("ArtAdvisorCardTypeLine%d" % iIndex)
-        loanId = self._addWidget("ArtAdvisorCardLoanLine%d" % iIndex)
+        typeLineId = self._addWidget("ArtAdvisorCardTypeLine%d" % iIndex)
         screen.setTextAt(baseId, panelId, szBaseLine, CvUtil.FONT_LEFT_JUSTIFY, iTitleX, iTextY + 2, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
         screen.setTextAt(eraId, panelId, szEraLine, CvUtil.FONT_LEFT_JUSTIFY, iTitleX, iTextY + 18, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-        screen.setTextAt(typeId, panelId, szTypeLine, CvUtil.FONT_LEFT_JUSTIFY, iTitleX, iTextY + 34, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
-        if entry.get("imports", 0) > 0:
-            szLoanLine = u"<font=1><color=140,220,255>Trade status: Imported loan</color></font>"
-        else:
-            szLoanLine = u"<font=1>Trade status: Local holding</font>"
-        screen.setTextAt(loanId, panelId, szLoanLine, CvUtil.FONT_LEFT_JUSTIFY, iTitleX, iTextY + 50, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+        screen.setTextAt(typeLineId, panelId, szTypeLine, CvUtil.FONT_LEFT_JUSTIFY, iTitleX, iTextY + 34, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 
     def handleInput(self, inputClass):
+        if inputClass.getNotifyCode() == NotifyCode.NOTIFY_CLICKED:
+            fname = inputClass.getFunctionName()
+            if fname.startswith(self.CIV_BUTTON_PREFIX):
+                try:
+                    iPlayer = int(fname[len(self.CIV_BUTTON_PREFIX):])
+                except:
+                    return 0
+                if self._isGalleryVisible(iPlayer):
+                    self.iViewPlayer = iPlayer
+                    self.drawScreen()
+                    return 1
+            iPlayer = inputClass.getData1()
+            if iPlayer >= 0 and iPlayer < gc.getMAX_PLAYERS():
+                if self._isGalleryVisible(iPlayer):
+                    self.iViewPlayer = iPlayer
+                    self.drawScreen()
+                    return 1
         return 0
 
     def update(self, fDelta):
-        return
+        return 0
 
     def onClose(self):
         self._clearWidgets()

@@ -1,11 +1,11 @@
 ## Art Masterpiece system runtime hooks.
-## Native bonus-backed mode:
-## - each masterpiece is a real bonus resource for diplomacy trading
-## - script data only tracks globally claimed pieces and the Python happiness offset
+## Inventory-backed mode:
+## - each masterpiece belongs to a civilization's Art Gallery
+## - script data tracks claimed pieces, per-player ownership, and the applied happiness offset
 
 from CvPythonExtensions import *
 import CvArtMasterpieceData
-import time
+
 
 gc = CyGlobalContext()
 localText = CyTranslator()
@@ -15,9 +15,6 @@ _STATE_END = "__ARTSYS_END__"
 
 _CACHE_TRIGGER_BUILDING = -2
 _BASE_HAPPINESS_CAP = 10
-_REFRESH_INTERVAL_SECONDS = 1.0
-_LAST_UPDATE_AT = 0.0
-
 _BONUS_TYPE_CACHE = {}
 
 _ERA_TO_BUCKET = {
@@ -41,14 +38,31 @@ def _get_trigger_building():
 
 def _get_bonus_type(pieceType):
     if not _BONUS_TYPE_CACHE.has_key(pieceType):
-        _BONUS_TYPE_CACHE[pieceType] = gc.getInfoTypeForString(pieceType)
+        try:
+            _BONUS_TYPE_CACHE[pieceType] = gc.getInfoTypeForString(pieceType)
+        except:
+            _BONUS_TYPE_CACHE[pieceType] = -1
     return _BONUS_TYPE_CACHE[pieceType]
+
+
+def _get_player_owned_map(state, iPlayer):
+    if not state["owned"].has_key(iPlayer):
+        state["owned"][iPlayer] = {}
+    return state["owned"][iPlayer]
+
+
+def _build_claimed_lookup_from_owned(state):
+    claimed = {}
+    for iPlayer in state["owned"].keys():
+        for pieceType in state["owned"][iPlayer].keys():
+            claimed[pieceType] = 1
+    return claimed
 
 
 def _parse_state():
     game = gc.getGame()
     raw = game.getScriptData()
-    state = {"claimed": {}, "happy": {}, "owned": {}, "migrate_claimed": {}}
+    state = {"claimed": {}, "owned": {}, "happy": {}}
 
     if raw is None:
         raw = ""
@@ -59,8 +73,7 @@ def _parse_state():
         return state
 
     block = raw[iStart + len(_STATE_BEGIN):iEnd]
-    lines = block.split("\n")
-    for line in lines:
+    for line in block.split("\n"):
         line = line.strip()
         if line == "":
             continue
@@ -68,8 +81,7 @@ def _parse_state():
         if line.startswith("OWNED="):
             payload = line[len("OWNED="):]
             if payload != "":
-                playerBlocks = payload.split(";")
-                for playerBlock in playerBlocks:
+                for playerBlock in payload.split(";"):
                     playerBlock = playerBlock.strip()
                     if playerBlock == "":
                         continue
@@ -113,17 +125,24 @@ def _parse_state():
                     if token == "":
                         continue
                     pieceType = token.split(":")[0].strip()
-                    if pieceType == "":
-                        continue
-                    state["claimed"][pieceType] = 1
+                    if pieceType != "":
+                        state["claimed"][pieceType] = 1
 
     return state
 
 
 def _build_state_block(state):
-    claimedPieces = state["claimed"].keys()
-    claimedPieces.sort()
-    claimedLine = "CLAIMED=" + ",".join(claimedPieces)
+    ownedPairs = []
+    for iPlayer in state["owned"].keys():
+        pieces = state["owned"][iPlayer].keys()
+        pieces.sort()
+        ownedPairs.append((iPlayer, pieces))
+    ownedPairs.sort()
+
+    ownedParts = []
+    for pair in ownedPairs:
+        ownedParts.append("%d:%s" % (pair[0], "|".join(pair[1])))
+    ownedLine = "OWNED=" + ";".join(ownedParts)
 
     happyPairs = []
     for iPlayer in state["happy"].keys():
@@ -131,7 +150,11 @@ def _build_state_block(state):
     happyPairs.sort()
     happyLine = "HAPPY=" + ",".join(["%d:%d" % (pair[0], pair[1]) for pair in happyPairs])
 
-    return _STATE_BEGIN + "\n" + claimedLine + "\n" + happyLine + "\n" + _STATE_END
+    claimedPieces = state["claimed"].keys()
+    claimedPieces.sort()
+    claimedLine = "CLAIMED=" + ",".join(claimedPieces)
+
+    return _STATE_BEGIN + "\n" + ownedLine + "\n" + happyLine + "\n" + claimedLine + "\n" + _STATE_END
 
 
 def _write_state(state):
@@ -155,96 +178,54 @@ def _write_state(state):
     game.setScriptData(newRaw)
 
 
-def _get_migration_city(player):
-    city = player.getCapitalCity()
-    if city is not None:
-        try:
-            if not city.isNone():
-                return city
-        except:
-            return city
+def _normalize_claimed_from_owned(state):
+    desired = _build_claimed_lookup_from_owned(state)
 
-    iLoop = 0
-    loopCity = player.firstCity(False)[0]
-    if loopCity is not None:
-        try:
-            if not loopCity.isNone():
-                return loopCity
-        except:
-            return loopCity
-    return None
+    if len(desired) != len(state["claimed"]):
+        state["claimed"] = desired
+        return True
+
+    for pieceType in desired.keys():
+        if not state["claimed"].has_key(pieceType):
+            state["claimed"] = desired
+            return True
+
+    return False
 
 
-def _migrate_legacy_inventory_to_bonus_network(state):
+def _migrate_bonus_backed_art_to_inventory(state):
     bChanged = False
-    remainingOwned = {}
+    foundOwnedFromBonus = {}
 
-    if len(state["migrate_claimed"]) > 0:
-        for pieceType in state["migrate_claimed"].keys():
-            if not state["claimed"].has_key(pieceType):
-                state["claimed"][pieceType] = 1
-                bChanged = True
-        state["migrate_claimed"] = {}
-        bChanged = True
-
-    for iPlayer in state["owned"].keys():
-        pieces = state["owned"][iPlayer]
-        if len(pieces) == 0:
-            continue
-
+    for iPlayer in range(gc.getMAX_PLAYERS()):
         player = gc.getPlayer(iPlayer)
         if not player.isAlive():
-            for pieceType in pieces.keys():
-                if not state["claimed"].has_key(pieceType):
-                    state["claimed"][pieceType] = 1
+            continue
+
+        loopCity, iterCity = player.firstCity(False)
+        while loopCity:
+            for row in CvArtMasterpieceData.ART_MASTERPIECES:
+                pieceType = row[0]
+                eBonus = _get_bonus_type(pieceType)
+                if eBonus < 0:
+                    continue
+
+                iFree = loopCity.getFreeBonus(eBonus)
+                if iFree > 0:
+                    if not foundOwnedFromBonus.has_key(iPlayer):
+                        foundOwnedFromBonus[iPlayer] = {}
+                    foundOwnedFromBonus[iPlayer][pieceType] = 1
+                    loopCity.changeFreeBonus(eBonus, -iFree)
                     bChanged = True
-            continue
 
-        city = _get_migration_city(player)
-        if city is None:
-            remainingOwned[iPlayer] = pieces
-            continue
+            loopCity, iterCity = player.nextCity(iterCity, False)
 
-        for pieceType in pieces.keys():
-            if not state["claimed"].has_key(pieceType):
-                state["claimed"][pieceType] = 1
+    for iPlayer in foundOwnedFromBonus.keys():
+        ownedMap = _get_player_owned_map(state, iPlayer)
+        for pieceType in foundOwnedFromBonus[iPlayer].keys():
+            if not ownedMap.has_key(pieceType):
+                ownedMap[pieceType] = 1
                 bChanged = True
-
-            eBonus = _get_bonus_type(pieceType)
-            if eBonus < 0:
-                continue
-            if player.getNumAvailableBonuses(eBonus) > 0 or city.getFreeBonus(eBonus) > 0:
-                continue
-
-            city.changeFreeBonus(eBonus, 1)
-            bChanged = True
-
-    if len(remainingOwned) != len(state["owned"]):
-        bChanged = True
-    state["owned"] = remainingOwned
-    return bChanged
-
-
-def _sync_claimed_from_world(state):
-    bChanged = False
-
-    for row in CvArtMasterpieceData.ART_MASTERPIECES:
-        pieceType = row[0]
-        if state["claimed"].has_key(pieceType):
-            continue
-
-        eBonus = _get_bonus_type(pieceType)
-        if eBonus < 0:
-            continue
-
-        for iPlayer in range(gc.getMAX_PLAYERS()):
-            player = gc.getPlayer(iPlayer)
-            if not player.isAlive():
-                continue
-            if player.getNumAvailableBonuses(eBonus) > 0 or player.getBonusExport(eBonus) > 0:
-                state["claimed"][pieceType] = 1
-                bChanged = True
-                break
 
     return bChanged
 
@@ -295,10 +276,10 @@ def _pick_unclaimed_piece(state, iPlayer = -1):
                 candidates.append(pieceType)
 
     if len(candidates) == 0:
-        for era in CvArtMasterpieceData.ART_ERA_ORDER:
-            if not CvArtMasterpieceData.ART_BY_ERA.has_key(era):
+        for szEra in CvArtMasterpieceData.ART_ERA_ORDER:
+            if not CvArtMasterpieceData.ART_BY_ERA.has_key(szEra):
                 continue
-            for pieceType in CvArtMasterpieceData.ART_BY_ERA[era]:
+            for pieceType in CvArtMasterpieceData.ART_BY_ERA[szEra]:
                 if not state["claimed"].has_key(pieceType):
                     candidates.append(pieceType)
 
@@ -309,7 +290,7 @@ def _pick_unclaimed_piece(state, iPlayer = -1):
     return candidates[iPick]
 
 
-def _count_accessible_art(iPlayer):
+def _count_owned_art_from_state(state, iPlayer):
     eraCounts = {}
     typeCounts = {}
     totalDistinct = 0
@@ -317,14 +298,10 @@ def _count_accessible_art(iPlayer):
     if iPlayer < 0 or iPlayer >= gc.getMAX_PLAYERS():
         return totalDistinct, eraCounts, typeCounts
 
-    player = gc.getPlayer(iPlayer)
-
+    ownedMap = _get_player_owned_map(state, iPlayer)
     for row in CvArtMasterpieceData.ART_MASTERPIECES:
         pieceType = row[0]
-        eBonus = _get_bonus_type(pieceType)
-        if eBonus < 0:
-            continue
-        if player.getNumAvailableBonuses(eBonus) <= 0:
+        if not ownedMap.has_key(pieceType):
             continue
 
         totalDistinct += 1
@@ -334,8 +311,8 @@ def _count_accessible_art(iPlayer):
     return totalDistinct, eraCounts, typeCounts
 
 
-def _compute_set_bonus(iPlayer):
-    totalDistinct, eraCounts, typeCounts = _count_accessible_art(iPlayer)
+def _compute_set_bonus_from_state(state, iPlayer):
+    totalDistinct, eraCounts, typeCounts = _count_owned_art_from_state(state, iPlayer)
     iEraBonus = 0
     iTypeBonus = 0
 
@@ -353,14 +330,12 @@ def _compute_set_bonus(iPlayer):
     return iTotal
 
 
-def _compute_extra_happiness_target(iPlayer):
-    totalDistinct, eraCounts, typeCounts = _count_accessible_art(iPlayer)
-    setBonus = _compute_set_bonus(iPlayer)
-
-    if totalDistinct <= _BASE_HAPPINESS_CAP:
-        return setBonus
-
-    return setBonus - (totalDistinct - _BASE_HAPPINESS_CAP)
+def _compute_happiness_from_state(state, iPlayer):
+    totalDistinct, eraCounts, typeCounts = _count_owned_art_from_state(state, iPlayer)
+    iBaseBonus = totalDistinct
+    if iBaseBonus > _BASE_HAPPINESS_CAP:
+        iBaseBonus = _BASE_HAPPINESS_CAP
+    return iBaseBonus + _compute_set_bonus_from_state(state, iPlayer)
 
 
 def _reconcile_player_happiness(iPlayer, state):
@@ -374,7 +349,7 @@ def _reconcile_player_happiness(iPlayer, state):
             return True
         return False
 
-    target = _compute_extra_happiness_target(iPlayer)
+    target = _compute_happiness_from_state(state, iPlayer)
     delta = target - current
     if delta != 0:
         player.changeExtraHappiness(delta)
@@ -414,49 +389,34 @@ def _notify_player(iPlayer, szMessage, szButton, iX, iY):
 
 
 def getOwnedPieces(iPlayer):
+    state = _parse_state()
     owned = {}
-    if iPlayer < 0 or iPlayer >= gc.getMAX_PLAYERS():
-        return owned
-
-    player = gc.getPlayer(iPlayer)
-    for row in CvArtMasterpieceData.ART_MASTERPIECES:
-        pieceType = row[0]
-        eBonus = _get_bonus_type(pieceType)
-        if eBonus >= 0 and player.getNumAvailableBonuses(eBonus) > 0:
+    if state["owned"].has_key(iPlayer):
+        for pieceType in state["owned"][iPlayer].keys():
             owned[pieceType] = 1
     return owned
 
 
 def getOwnedCount(iPlayer, pieceType):
-    if iPlayer < 0 or iPlayer >= gc.getMAX_PLAYERS():
+    state = _parse_state()
+    if not state["owned"].has_key(iPlayer):
         return 0
-
-    eBonus = _get_bonus_type(pieceType)
-    if eBonus < 0:
-        return 0
-
-    if gc.getPlayer(iPlayer).getNumAvailableBonuses(eBonus) > 0:
+    if state["owned"][iPlayer].has_key(pieceType):
         return 1
     return 0
 
 
 def getImportCount(iPlayer, pieceType):
-    if iPlayer < 0 or iPlayer >= gc.getMAX_PLAYERS():
-        return 0
-
-    eBonus = _get_bonus_type(pieceType)
-    if eBonus < 0:
-        return 0
-    return gc.getPlayer(iPlayer).getBonusImport(eBonus)
+    return 0
 
 
 def _run_full_reconcile():
     state = _parse_state()
     bChanged = False
 
-    if _migrate_legacy_inventory_to_bonus_network(state):
+    if _migrate_bonus_backed_art_to_inventory(state):
         bChanged = True
-    if _sync_claimed_from_world(state):
+    if _normalize_claimed_from_owned(state):
         bChanged = True
 
     for iPlayer in range(gc.getMAX_PLAYERS()):
@@ -479,9 +439,9 @@ def onBeginPlayerTurn(iPlayer):
     state = _parse_state()
     bChanged = False
 
-    if _migrate_legacy_inventory_to_bonus_network(state):
+    if _migrate_bonus_backed_art_to_inventory(state):
         bChanged = True
-    if _sync_claimed_from_world(state):
+    if _normalize_claimed_from_owned(state):
         bChanged = True
     if _reconcile_player_happiness(iPlayer, state):
         bChanged = True
@@ -491,27 +451,7 @@ def onBeginPlayerTurn(iPlayer):
 
 
 def onUpdate(fDeltaTime):
-    global _LAST_UPDATE_AT
-
-    now = time.time()
-    if (now - _LAST_UPDATE_AT) < _REFRESH_INTERVAL_SECONDS:
-        return
-    _LAST_UPDATE_AT = now
-
-    state = _parse_state()
-    bChanged = False
-
-    if _migrate_legacy_inventory_to_bonus_network(state):
-        bChanged = True
-    if _sync_claimed_from_world(state):
-        bChanged = True
-
-    for iPlayer in range(gc.getMAX_PLAYERS()):
-        if _reconcile_player_happiness(iPlayer, state):
-            bChanged = True
-
-    if bChanged:
-        _write_state(state)
+    return
 
 
 def onBuildingBuilt(pCity, iBuildingType):
@@ -523,12 +463,18 @@ def onBuildingBuilt(pCity, iBuildingType):
     pCity.setNumRealBuilding(iTrigger, 0)
 
     state = _parse_state()
-    if _migrate_legacy_inventory_to_bonus_network(state):
-        _write_state(state)
+    bChanged = False
+
+    if _migrate_bonus_backed_art_to_inventory(state):
+        bChanged = True
+    if _normalize_claimed_from_owned(state):
+        bChanged = True
 
     pieceType = _pick_unclaimed_piece(state, iOwner)
     if pieceType is None:
         pCity.changeCulture(iOwner, 2000, True)
+        if bChanged:
+            _write_state(state)
         _notify_player(
             iOwner,
             "Masterpiece archives are exhausted. %s gains +2000 culture." % pCity.getName(),
@@ -538,31 +484,22 @@ def onBuildingBuilt(pCity, iBuildingType):
         )
         return True
 
-    eBonus = _get_bonus_type(pieceType)
-    if eBonus < 0:
-        pCity.changeCulture(iOwner, 2000, True)
-        _notify_player(
-            iOwner,
-            "Masterpiece registration failed for %s. %s gains +2000 culture." % (pieceType, pCity.getName()),
-            "",
-            pCity.getX(),
-            pCity.getY(),
-        )
-        return True
-
-    pCity.changeFreeBonus(eBonus, 1)
+    ownedMap = _get_player_owned_map(state, iOwner)
+    ownedMap[pieceType] = 1
     state["claimed"][pieceType] = 1
 
-    _reconcile_player_happiness(iOwner, state)
+    if _reconcile_player_happiness(iOwner, state):
+        bChanged = True
+
     _write_state(state)
 
-    szMessage = "Masterpiece created in %s: %s" % (pCity.getName(), _piece_name(pieceType))
     szButton = ""
     if CvArtMasterpieceData.ART_BUTTON_BY_BONUS.has_key(pieceType):
         szButton = CvArtMasterpieceData.ART_BUTTON_BY_BONUS[pieceType]
+
     _notify_player(
         iOwner,
-        szMessage,
+        "Masterpiece curated in %s: %s" % (pCity.getName(), _piece_name(pieceType)),
         szButton,
         pCity.getX(),
         pCity.getY(),

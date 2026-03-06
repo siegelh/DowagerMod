@@ -10,6 +10,114 @@
 #include "CvGameAI.h"
 #include "CvGameCoreUtils.h"
 
+namespace
+{
+template <typename T>
+T getInfoTypeOrDefault(const char* szType, T eFallback)
+{
+	const int iInfoType = GC.getInfoTypeForString(szType, true);
+	FAssertMsg(iInfoType != -1, szType);
+	return (iInfoType == -1) ? eFallback : static_cast<T>(iInfoType);
+}
+
+void setVictoryByType(CvInitCore& kInitCore, const char* szVictoryType, bool bEnabled)
+{
+	const int iVictory = GC.getInfoTypeForString(szVictoryType, true);
+	FAssertMsg(iVictory != -1, szVictoryType);
+	if (iVictory != -1)
+	{
+		kInitCore.setVictory((VictoryTypes)iVictory, bEnabled);
+	}
+}
+
+void applyDefaultMultiplayerSlotLayout(CvInitCore& kInitCore)
+{
+	if (kInitCore.getType() != GAME_MP_NEW)
+	{
+		return;
+	}
+
+	const PlayerTypes eActivePlayer = kInitCore.getActivePlayer();
+	int iOpenHumanSlots = (eActivePlayer == NO_PLAYER) ? 4 : 3;
+	int iComputerSlots = 11;
+
+	for (int i = 0; i < MAX_CIV_PLAYERS; ++i)
+	{
+		const PlayerTypes ePlayer = (PlayerTypes)i;
+		SlotStatus eSlotStatus = SS_CLOSED;
+		bool bPlayable = false;
+
+		if (ePlayer == eActivePlayer)
+		{
+			eSlotStatus = SS_TAKEN;
+			bPlayable = true;
+		}
+		else if (iOpenHumanSlots > 0)
+		{
+			eSlotStatus = SS_OPEN;
+			bPlayable = true;
+			--iOpenHumanSlots;
+		}
+		else if (iComputerSlots > 0)
+		{
+			eSlotStatus = SS_COMPUTER;
+			bPlayable = true;
+			--iComputerSlots;
+		}
+
+		kInitCore.setSlotStatus(ePlayer, eSlotStatus);
+		kInitCore.setSlotClaim(ePlayer, (ePlayer == eActivePlayer) ? SLOTCLAIM_ASSIGNED : SLOTCLAIM_UNASSIGNED);
+		kInitCore.setPlayableCiv(ePlayer, bPlayable);
+		kInitCore.setMinorNationCiv(ePlayer, false);
+	}
+}
+
+void applyDefaultMultiplayerLobbySettings(CvInitCore& kInitCore)
+{
+	if (kInitCore.getType() != GAME_MP_NEW)
+	{
+		return;
+	}
+
+	kInitCore.setMapScriptName(L"Highlands");
+	kInitCore.setWorldSize(WORLDSIZE_SMALL);
+	kInitCore.setClimate(getInfoTypeOrDefault("CLIMATE_TEMPERATE", kInitCore.getClimate()));
+	kInitCore.setSeaLevel(getInfoTypeOrDefault("SEALEVEL_LOW", kInitCore.getSeaLevel()));
+	kInitCore.setEra(getInfoTypeOrDefault("ERA_ANCIENT", kInitCore.getEra()));
+	kInitCore.setGameSpeed(getInfoTypeOrDefault("GAMESPEED_QUICK", kInitCore.getGameSpeed()));
+
+	for (int i = 0; i < NUM_GAMEOPTION_TYPES; ++i)
+	{
+		kInitCore.setOption((GameOptionTypes)i, false);
+	}
+	kInitCore.setOption(GAMEOPTION_NO_CITY_FLIPPING, true);
+	kInitCore.setOption(GAMEOPTION_PICK_RELIGION, true);
+	kInitCore.setOption(GAMEOPTION_NO_TECH_TRADING, true);
+	kInitCore.setOption(GAMEOPTION_NO_TECH_BROKERING, true);
+	kInitCore.setOption(GAMEOPTION_NO_VASSAL_STATES, true);
+
+	for (int i = 0; i < kInitCore.getNumVictories(); ++i)
+	{
+		kInitCore.setVictory((VictoryTypes)i, false);
+	}
+	setVictoryByType(kInitCore, "VICTORY_TIME", true);
+	setVictoryByType(kInitCore, "VICTORY_CONQUEST", true);
+	setVictoryByType(kInitCore, "VICTORY_DOMINATION", true);
+	setVictoryByType(kInitCore, "VICTORY_DIPLOMATIC", true);
+
+	if (kInitCore.getNumCustomMapOptions() >= 5)
+	{
+		kInitCore.setCustomMapOption(0, (CustomMapOptionTypes)1);
+		kInitCore.setCustomMapOption(1, (CustomMapOptionTypes)1);
+		kInitCore.setCustomMapOption(2, (CustomMapOptionTypes)2);
+		kInitCore.setCustomMapOption(3, (CustomMapOptionTypes)1);
+		kInitCore.setCustomMapOption(4, (CustomMapOptionTypes)0);
+	}
+
+	applyDefaultMultiplayerSlotLayout(kInitCore);
+}
+}
+
 // Public Functions...
 
 CvInitCore::CvInitCore()
@@ -737,7 +845,17 @@ CvWString CvInitCore::getMapScriptName() const
 
 void CvInitCore::setMapScriptName(const CvWString & szMapScriptName)
 {
-	m_szMapScriptName = szMapScriptName;
+	CvWString szResolvedMapScriptName = szMapScriptName;
+	if (getType() == GAME_MP_NEW)
+	{
+		if (wcsicmp(szResolvedMapScriptName.GetCString(), L"aDebugMap") == 0 ||
+			wcsicmp(szResolvedMapScriptName.GetCString(), L"Highlands.py") == 0)
+		{
+			szResolvedMapScriptName = L"Highlands";
+		}
+	}
+
+	m_szMapScriptName = szResolvedMapScriptName;
 	refreshCustomMapOptions();
 }
 
@@ -1149,6 +1267,8 @@ void CvInitCore::setActivePlayer(PlayerTypes eActivePlayer)
 		// Automatically claim this slot
 		setSlotClaim(m_eActivePlayer, SLOTCLAIM_ASSIGNED);
 	}
+
+	applyDefaultMultiplayerSlotLayout(*this);
 }
 
 void CvInitCore::setType(GameType eType)
@@ -1164,6 +1284,8 @@ void CvInitCore::setType(GameType eType)
 				GET_PLAYER((PlayerTypes)i).updateHuman();
 			}
 		}
+
+		applyDefaultMultiplayerLobbySettings(*this);
 	}
 }
 

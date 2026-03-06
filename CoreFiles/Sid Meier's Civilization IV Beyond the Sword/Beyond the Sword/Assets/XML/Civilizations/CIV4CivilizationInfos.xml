@@ -82,16 +82,15 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
-          <BuildingType>BUILDING_AMERICAN_MALL</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+          <BuildingType>BUILDING_LAND_GRANT_COLLEGE</BuildingType>
+        </Building>
+        <Building>
+          <BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
+          <BuildingType>BUILDING_NATIONAL_BANK</BuildingType>
         </Building>
       </Buildings>
-      <Units>
-        <Unit>
-          <UnitClassType>UNITCLASS_MARINE</UnitClassType>
-          <UnitType>UNIT_AMERICAN_NAVY_SEAL</UnitType>
-        </Unit>
-      </Units>
+      <Units />
       <FreeUnitClasses>
         <FreeUnitClass>
           <UnitClassType>UNITCLASS_SETTLER</UnitClassType>
@@ -113,16 +112,12 @@
           <TechType>TECH_AGRICULTURE</TechType>
           <bFreeTech>1</bFreeTech>
         </FreeTech>
-        <FreeTech>
-          <TechType>TECH_EMANCIPATION</TechType>
-          <bFreeTech>1</bFreeTech>
-        </FreeTech>
       </FreeTechs>
       <DisableTechs />
       <InitialCivics>
         <CivicType>CIVIC_DESPOTISM</CivicType>
         <CivicType>CIVIC_BARBARISM</CivicType>
-        <CivicType>CIVIC_EMANCIPATION</CivicType>
+        <CivicType>CIVIC_TRIBALISM</CivicType>
         <CivicType>CIVIC_DECENTRALIZATION</CivicType>
         <CivicType>CIVIC_PAGANISM</CivicType>
       </InitialCivics>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Civ4GameText xmlns="http://www.firaxis.com">
 	<TEXT><Tag>TXT_KEY_BUILDING_ART_MASTERPIECE_TRIGGER</Tag><English>Curate Masterpiece</English></TEXT>
-	<TEXT><Tag>TXT_KEY_BUILDING_ART_MASTERPIECE_TRIGGER_PEDIA</Tag><English>A hidden trigger used by Great Artists to create unique Masterpiece resources.</English></TEXT>
-	<TEXT><Tag>TXT_KEY_BUILDING_ART_MASTERPIECE_TRIGGER_STRATEGY</Tag><English>Consumes a Great Artist to add a globally unique Masterpiece resource to this city.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BUILDING_ART_MASTERPIECE_TRIGGER_PEDIA</Tag><English>A hidden trigger used by Great Artists to curate a globally unique Masterpiece for their civilization's Art Gallery.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BUILDING_ART_MASTERPIECE_TRIGGER_STRATEGY</Tag><English>Consumes a Great Artist to add a globally unique Masterpiece to your civilization's Art Gallery.</English></TEXT>
 	<TEXT><Tag>TXT_KEY_ART_MASTERPIECE_SET_BONUS_HELP</Tag><English>Art Curation Bonus: +1 global happiness for each era with at least 3 owned Masterpieces and each art type with at least 4 owned Masterpieces.</English></TEXT>
 	<TEXT><Tag>TXT_KEY_BONUS_ART_001</Tag><English>Lion man of the Hohlenstein Stadel</English></TEXT>
 	<TEXT><Tag>TXT_KEY_BONUS_ART_001_PEDIA</Tag><English>Lion man of the Hohlenstein Stadel (38000 BCE), a sculpture from the Antiquity era.</English></TEXT>
