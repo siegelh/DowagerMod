@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT><Tag>TXT_KEY_BUILDING_ART_MASTERPIECE_TRIGGER</Tag><English>Curate Masterpiece</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BUILDING_ART_MASTERPIECE_TRIGGER_PEDIA</Tag><English>A hidden trigger used by Great Artists to create unique Masterpiece resources.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BUILDING_ART_MASTERPIECE_TRIGGER_STRATEGY</Tag><English>Consumes a Great Artist to add a globally unique Masterpiece resource to this city.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_ART_MASTERPIECE_SET_BONUS_HELP</Tag><English>Art Curation Bonus: +1 global happiness for each era with at least 3 owned Masterpieces and each art type with at least 4 owned Masterpieces.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_001</Tag><English>Lion man of the Hohlenstein Stadel</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_001_PEDIA</Tag><English>Lion man of the Hohlenstein Stadel (38000 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_002</Tag><English>Venus of Dolni Vestonice</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_002_PEDIA</Tag><English>Venus of Dolni Vestonice (29000 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_003</Tag><English>The Great Sphinx</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_003_PEDIA</Tag><English>The Great Sphinx (2559 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_004</Tag><English>Phaistos disc</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_004_PEDIA</Tag><English>Phaistos disc (1699 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_005</Tag><English>Mask of Agamemnon</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_005_PEDIA</Tag><English>Mask of Agamemnon (1600 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_006</Tag><English>Trundholm Sun Chariot</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_006_PEDIA</Tag><English>Trundholm Sun Chariot (1399 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_007</Tag><English>Nefertiti Bust</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_007_PEDIA</Tag><English>Nefertiti Bust (1349 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_008</Tag><English>Mesha Stele</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_008_PEDIA</Tag><English>Mesha Stele (839 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_009</Tag><English>Behistun Inscription</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_009_PEDIA</Tag><English>Behistun Inscription (600 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_010</Tag><English>Capitoline Wolf</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_010_PEDIA</Tag><English>Capitoline Wolf (500 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_011</Tag><English>Riace bronzes</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_011_PEDIA</Tag><English>Riace bronzes (459 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_012</Tag><English>Discobolus</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_012_PEDIA</Tag><English>Discobolus (450 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_013</Tag><English>Elgin Marbles</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_013_PEDIA</Tag><English>Elgin Marbles (440 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_014</Tag><English>Statue of Zeus at Olympia</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_014_PEDIA</Tag><English>Statue of Zeus at Olympia (430 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_015</Tag><English>Apollo Belvedere</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_015_PEDIA</Tag><English>Apollo Belvedere (350 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_016</Tag><English>Colossus of Rhodes</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_016_PEDIA</Tag><English>Colossus of Rhodes (283 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_017</Tag><English>Dying Gaul</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_017_PEDIA</Tag><English>Dying Gaul (230 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_018</Tag><English>Rosetta Stone</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_018_PEDIA</Tag><English>Rosetta Stone (195 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_019</Tag><English>Winged Victory of Samothrace</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_019_PEDIA</Tag><English>Winged Victory of Samothrace (175 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_020</Tag><English>Venus de Milo</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_020_PEDIA</Tag><English>Venus de Milo (140 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_021</Tag><English>Laocoon and His Sons</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_021_PEDIA</Tag><English>Laocoon and His Sons (1 BCE), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_022</Tag><English>Trajan's Column</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_022_PEDIA</Tag><English>Trajan's Column (113), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_023</Tag><English>Column of Marcus Aurelius</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_023_PEDIA</Tag><English>Column of Marcus Aurelius (193), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_024</Tag><English>iron pillar of Delhi</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_024_PEDIA</Tag><English>iron pillar of Delhi (500), a sculpture from the Antiquity era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_025</Tag><English>Cyrus cylinder</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_025_PEDIA</Tag><English>Cyrus cylinder (539), a sculpture from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_026</Tag><English>Column of Phocas</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_026_PEDIA</Tag><English>Column of Phocas (608), a sculpture from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_027</Tag><English>Franks Casket</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_027_PEDIA</Tag><English>Franks Casket (701), a sculpture from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_028</Tag><English>Madara Rider</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_028_PEDIA</Tag><English>Madara Rider (710), a sculpture from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_029</Tag><English>Orkhon inscriptions</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_029_PEDIA</Tag><English>Orkhon inscriptions (800), a sculpture from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_030</Tag><English>Leshan Giant Buddha</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_030_PEDIA</Tag><English>Leshan Giant Buddha (803), a sculpture from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_031</Tag><English>Rok Runestone</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_031_PEDIA</Tag><English>Rok Runestone (900), a sculpture from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_032</Tag><English>Along the River During the Qingming Festival</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_032_PEDIA</Tag><English>Along the River During the Qingming Festival (1085), a painting from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_033</Tag><English>Chennakesava Temple</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_033_PEDIA</Tag><English>Chennakesava Temple (1117), a sculpture from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_034</Tag><English>Theotokos of Vladimir</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_034_PEDIA</Tag><English>Theotokos of Vladimir (1125), a painting from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_035</Tag><English>Our Lady of Perpetual Help</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_035_PEDIA</Tag><English>Our Lady of Perpetual Help (1350), a painting from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_036</Tag><English>Black Madonna of Czestochowa</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_036_PEDIA</Tag><English>Black Madonna of Czestochowa (1382), a painting from the Medieval era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_037</Tag><English>Ghent Altarpiece</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_037_PEDIA</Tag><English>Ghent Altarpiece (1432), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_038</Tag><English>Arnolfini Portrait</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_038_PEDIA</Tag><English>Arnolfini Portrait (1434), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_039</Tag><English>Ginevra de' Benci</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_039_PEDIA</Tag><English>Ginevra de' Benci (1476), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_040</Tag><English>Primavera</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_040_PEDIA</Tag><English>Primavera (1480), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_041</Tag><English>Benois Madonna</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_041_PEDIA</Tag><English>Benois Madonna (1480), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_042</Tag><English>Adoration of the Magi</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_042_PEDIA</Tag><English>Adoration of the Magi (1482), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_043</Tag><English>Lamentation of Christ</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_043_PEDIA</Tag><English>Lamentation of Christ (1483), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_044</Tag><English>The Birth of Venus</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_044_PEDIA</Tag><English>The Birth of Venus (1485), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_045</Tag><English>The Last Supper</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_045_PEDIA</Tag><English>The Last Supper (1490), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_046</Tag><English>Lady with an Ermine</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_046_PEDIA</Tag><English>Lady with an Ermine (1490), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_047</Tag><English>The Garden of Earthly Delights</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_047_PEDIA</Tag><English>The Garden of Earthly Delights (1490), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_048</Tag><English>La Belle Ferronniere</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_048_PEDIA</Tag><English>La Belle Ferronniere (1495), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_049</Tag><English>Pieta (Michelangelo)</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_049_PEDIA</Tag><English>Pieta (Michelangelo) (1499), a sculpture from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_050</Tag><English>David</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_050_PEDIA</Tag><English>David (1500), a sculpture from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_051</Tag><English>Salvator Mundi</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_051_PEDIA</Tag><English>Salvator Mundi (1500), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_052</Tag><English>Mona Lisa</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_052_PEDIA</Tag><English>Mona Lisa (1503), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_053</Tag><English>Madonna of Bruges</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_053_PEDIA</Tag><English>Madonna of Bruges (1503), a sculpture from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_054</Tag><English>The Tempest</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_054_PEDIA</Tag><English>The Tempest (1506), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_055</Tag><English>Sistine Chapel ceiling</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_055_PEDIA</Tag><English>Sistine Chapel ceiling (1508), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_056</Tag><English>Sleeping Venus</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_056_PEDIA</Tag><English>Sleeping Venus (1509), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_057</Tag><English>Aztec sun stone</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_057_PEDIA</Tag><English>Aztec sun stone (1510), a sculpture from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_058</Tag><English>Moses</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_058_PEDIA</Tag><English>Moses (1510), a sculpture from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_059</Tag><English>The Creation of Adam</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_059_PEDIA</Tag><English>The Creation of Adam (1511), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_060</Tag><English>The Virgin and Child with Saint Anne</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_060_PEDIA</Tag><English>The Virgin and Child with Saint Anne (1511), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_061</Tag><English>The School of Athens</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_061_PEDIA</Tag><English>The School of Athens (1512), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_062</Tag><English>Sistine Madonna</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_062_PEDIA</Tag><English>Sistine Madonna (1512), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_063</Tag><English>Saint John the Baptist</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_063_PEDIA</Tag><English>Saint John the Baptist (1514), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_064</Tag><English>The Ambassadors</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_064_PEDIA</Tag><English>The Ambassadors (1533), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_065</Tag><English>Venus of Urbino</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_065_PEDIA</Tag><English>Venus of Urbino (1538), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_066</Tag><English>Netherlandish Proverbs</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_066_PEDIA</Tag><English>Netherlandish Proverbs (1559), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_067</Tag><English>The Triumph of Death</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_067_PEDIA</Tag><English>The Triumph of Death (1560), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_068</Tag><English>The Hunters in the Snow</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_068_PEDIA</Tag><English>The Hunters in the Snow (1565), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_069</Tag><English>The Last Judgment</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_069_PEDIA</Tag><English>The Last Judgment (1600), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_070</Tag><English>The Calling of Saint Matthew</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_070_PEDIA</Tag><English>The Calling of Saint Matthew (1609), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_071</Tag><English>Manneken Pis</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_071_PEDIA</Tag><English>Manneken Pis (1619), a sculpture from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_072</Tag><English>Fontana della Barcaccia</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_072_PEDIA</Tag><English>Fontana della Barcaccia (1629), a sculpture from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_073</Tag><English>The Anatomy Lesson of Dr. Nicolaes Tulp</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_073_PEDIA</Tag><English>The Anatomy Lesson of Dr. Nicolaes Tulp (1632), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_074</Tag><English>The Storm on the Sea of Galilee</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_074_PEDIA</Tag><English>The Storm on the Sea of Galilee (1633), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_075</Tag><English>The Surrender of Breda</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_075_PEDIA</Tag><English>The Surrender of Breda (1634), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_076</Tag><English>Four Rivers Fountain</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_076_PEDIA</Tag><English>Four Rivers Fountain (1640), a sculpture from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_077</Tag><English>The Night Watch</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_077_PEDIA</Tag><English>The Night Watch (1642), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_078</Tag><English>Ecstasy of Saint Teresa</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_078_PEDIA</Tag><English>Ecstasy of Saint Teresa (1647), a sculpture from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_079</Tag><English>Las Meninas</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_079_PEDIA</Tag><English>Las Meninas (1656), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_080</Tag><English>The Milkmaid</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_080_PEDIA</Tag><English>The Milkmaid (1660), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_081</Tag><English>View of Delft</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_081_PEDIA</Tag><English>View of Delft (1661), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_082</Tag><English>The Astronomer</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_082_PEDIA</Tag><English>The Astronomer (1664), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_083</Tag><English>Girl with a Pearl Earring</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_083_PEDIA</Tag><English>Girl with a Pearl Earring (1665), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_084</Tag><English>The Jewish Bride</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_084_PEDIA</Tag><English>The Jewish Bride (1667), a painting from the Renaissance era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_085</Tag><English>Holy Trinity Column in Olomouc</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_085_PEDIA</Tag><English>Holy Trinity Column in Olomouc (1715), a sculpture from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_086</Tag><English>Trevi Fountain</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_086_PEDIA</Tag><English>Trevi Fountain (1732), a sculpture from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_087</Tag><English>The Swing</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_087_PEDIA</Tag><English>The Swing (1767), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_088</Tag><English>Bronze Horseman</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_088_PEDIA</Tag><English>Bronze Horseman (1768), a sculpture from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_089</Tag><English>The Blue Boy</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_089_PEDIA</Tag><English>The Blue Boy (1770), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_090</Tag><English>The Oath of the Horatii</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_090_PEDIA</Tag><English>The Oath of the Horatii (1784), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_091</Tag><English>The Death of Socrates</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_091_PEDIA</Tag><English>The Death of Socrates (1787), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_092</Tag><English>The Death of Marat</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_092_PEDIA</Tag><English>The Death of Marat (1793), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_093</Tag><English>La maja desnuda</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_093_PEDIA</Tag><English>La maja desnuda (1795), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_094</Tag><English>The Coronation of Napoleon</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_094_PEDIA</Tag><English>The Coronation of Napoleon (1807), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_095</Tag><English>Grande Odalisque</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_095_PEDIA</Tag><English>Grande Odalisque (1810), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_096</Tag><English>The Third of May 1808</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_096_PEDIA</Tag><English>The Third of May 1808 (1814), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_097</Tag><English>The Raft of the Medusa</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_097_PEDIA</Tag><English>The Raft of the Medusa (1818), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_098</Tag><English>Wanderer above the Sea of Fog</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_098_PEDIA</Tag><English>Wanderer above the Sea of Fog (1818), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_099</Tag><English>Saturn Devouring His Son</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_099_PEDIA</Tag><English>Saturn Devouring His Son (1820), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_100</Tag><English>Liberty Leading the People</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_100_PEDIA</Tag><English>Liberty Leading the People (1830), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_101</Tag><English>Nelson's Column</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_101_PEDIA</Tag><English>Nelson's Column (1840), a sculpture from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_102</Tag><English>A Burial at Ornans</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_102_PEDIA</Tag><English>A Burial at Ornans (1841), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_103</Tag><English>The Ninth Wave</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_103_PEDIA</Tag><English>The Ninth Wave (1850), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_104</Tag><English>Ophelia</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_104_PEDIA</Tag><English>Ophelia (1851), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_105</Tag><English>Luncheon on the Grass</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_105_PEDIA</Tag><English>Luncheon on the Grass (1863), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_106</Tag><English>Olympia</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_106_PEDIA</Tag><English>Olympia (1863), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_107</Tag><English>L'Origine du monde</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_107_PEDIA</Tag><English>L'Origine du monde (1866), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_108</Tag><English>Barge Haulers on the Volga</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_108_PEDIA</Tag><English>Barge Haulers on the Volga (1870), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_109</Tag><English>Impression, Sunrise</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_109_PEDIA</Tag><English>Impression, Sunrise (1872), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_110</Tag><English>Siegessaule</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_110_PEDIA</Tag><English>Siegessaule (1873), a sculpture from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_111</Tag><English>Bal du moulin de la Galette</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_111_PEDIA</Tag><English>Bal du moulin de la Galette (1876), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_112</Tag><English>A Bar at the Folies-Bergere Sharon</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_112_PEDIA</Tag><English>A Bar at the Folies-Bergere Sharon (1882), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_113</Tag><English>A Sunday Afternoon on the Island of La Grande Jatte</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_113_PEDIA</Tag><English>A Sunday Afternoon on the Island of La Grande Jatte (1884), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_114</Tag><English>The Potato Eaters</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_114_PEDIA</Tag><English>The Potato Eaters (1885), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_115</Tag><English>Statue of Liberty</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_115_PEDIA</Tag><English>Statue of Liberty (1886), a sculpture from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_116</Tag><English>72 names on the Eiffel Tower</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_116_PEDIA</Tag><English>72 names on the Eiffel Tower (1887), a sculpture from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_117</Tag><English>Cafe Terrace at Night</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_117_PEDIA</Tag><English>Cafe Terrace at Night (1888), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_118</Tag><English>Starry Night Over the Rhone</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_118_PEDIA</Tag><English>Starry Night Over the Rhone (1888), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_119</Tag><English>The Night Cafe</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_119_PEDIA</Tag><English>The Night Cafe (1888), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_120</Tag><English>The Red Vineyard</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_120_PEDIA</Tag><English>The Red Vineyard (1888), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_121</Tag><English>The Yellow House</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_121_PEDIA</Tag><English>The Yellow House (1888), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_122</Tag><English>The Starry Night</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_122_PEDIA</Tag><English>The Starry Night (1889), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_123</Tag><English>Irises</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_123_PEDIA</Tag><English>Irises (1889), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_124</Tag><English>Wheatfield with Crows</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_124_PEDIA</Tag><English>Wheatfield with Crows (1890), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_125</Tag><English>The Church at Auvers</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_125_PEDIA</Tag><English>The Church at Auvers (1890), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_126</Tag><English>Reply of the Zaporozhian Cossacks</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_126_PEDIA</Tag><English>Reply of the Zaporozhian Cossacks (1891), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_127</Tag><English>Jet d'Eau</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_127_PEDIA</Tag><English>Jet d'Eau (1891), a sculpture from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_128</Tag><English>Where Do We Come From? What Are We? Where Are We Going?</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_128_PEDIA</Tag><English>Where Do We Come From? What Are We? Where Are We Going? (1897), a painting from the Industrial era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_129</Tag><English>Judith I</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_129_PEDIA</Tag><English>Judith I (1901), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_130</Tag><English>The Wounded Angel</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_130_PEDIA</Tag><English>The Wounded Angel (1903), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_131</Tag><English>Havis Amanda</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_131_PEDIA</Tag><English>Havis Amanda (1906), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_132</Tag><English>Les Grandes Baigneuses (The Large Bathers)</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_132_PEDIA</Tag><English>Les Grandes Baigneuses (The Large Bathers) (1906), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_133</Tag><English>The Kiss</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_133_PEDIA</Tag><English>The Kiss (1907), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_134</Tag><English>Portrait of Adele Bloch-Bauer I</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_134_PEDIA</Tag><English>Portrait of Adele Bloch-Bauer I (1907), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_135</Tag><English>Vigeland installation</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_135_PEDIA</Tag><English>Vigeland installation (1907), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_136</Tag><English>Danae</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_136_PEDIA</Tag><English>Danae (1907), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_137</Tag><English>The Little Mermaid</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_137_PEDIA</Tag><English>The Little Mermaid (1913), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_138</Tag><English>Black Square (1915)</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_138_PEDIA</Tag><English>Black Square (1915) (1915), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_139</Tag><English>Fountain</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_139_PEDIA</Tag><English>Fountain (1917), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_140</Tag><English>Christ the Redeemer</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_140_PEDIA</Tag><English>Christ the Redeemer (1920), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_141</Tag><English>Pobednik</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_141_PEDIA</Tag><English>Pobednik (1928), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_142</Tag><English>The Treachery of Images</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_142_PEDIA</Tag><English>The Treachery of Images (1929), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_143</Tag><English>Magic Fountain of Montjuic</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_143_PEDIA</Tag><English>Magic Fountain of Montjuic (1929), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_144</Tag><English>American Gothic</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_144_PEDIA</Tag><English>American Gothic (1930), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_145</Tag><English>Ecce Homo</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_145_PEDIA</Tag><English>Ecce Homo (1930), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_146</Tag><English>Guernica</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_146_PEDIA</Tag><English>Guernica (1937), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_147</Tag><English>Worker and Kolkhoz Woman</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_147_PEDIA</Tag><English>Worker and Kolkhoz Woman (1937), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_148</Tag><English>Kroller-Muller Museum</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_148_PEDIA</Tag><English>Kroller-Muller Museum (1938), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_149</Tag><English>Nighthawks</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_149_PEDIA</Tag><English>Nighthawks (1942), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_150</Tag><English>Bronze Soldier of Tallinn</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_150_PEDIA</Tag><English>Bronze Soldier of Tallinn (1947), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_151</Tag><English>Crazy Horse Memorial</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_151_PEDIA</Tag><English>Crazy Horse Memorial (1948), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_152</Tag><English>Soviet War Memorial</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_152_PEDIA</Tag><English>Soviet War Memorial (1949), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_153</Tag><English>Netherlands Antillean guilder</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_153_PEDIA</Tag><English>Netherlands Antillean guilder (1952), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_154</Tag><English>Madurodam</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_154_PEDIA</Tag><English>Madurodam (1952), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_155</Tag><English>Marine Corps War Memorial</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_155_PEDIA</Tag><English>Marine Corps War Memorial (1954), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_156</Tag><English>Kartlis Deda</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_156_PEDIA</Tag><English>Kartlis Deda (1958), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_157</Tag><English>Louisiana Museum of Modern Art</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_157_PEDIA</Tag><English>Louisiana Museum of Modern Art (1958), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_158</Tag><English>The Motherland Calls</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_158_PEDIA</Tag><English>The Motherland Calls (1959), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_159</Tag><English>Ica stones</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_159_PEDIA</Tag><English>Ica stones (1960), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_160</Tag><English>Campbell's Soup Cans</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_160_PEDIA</Tag><English>Campbell's Soup Cans (1962), a painting from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_161</Tag><English>Unisphere</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_161_PEDIA</Tag><English>Unisphere (1964), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_162</Tag><English>We Are Our Mountains</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_162_PEDIA</Tag><English>We Are Our Mountains (1967), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_163</Tag><English>Norra skenet</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_163_PEDIA</Tag><English>Norra skenet (1969), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_164</Tag><English>Gron eld, Umea</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_164_PEDIA</Tag><English>Gron eld, Umea (1970), a sculpture from the Modern era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_165</Tag><English>Fallen Astronaut</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_165_PEDIA</Tag><English>Fallen Astronaut (1971), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_166</Tag><English>Mother Albania</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_166_PEDIA</Tag><English>Mother Albania (1971), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_167</Tag><English>The Sphere</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_167_PEDIA</Tag><English>The Sphere (1971), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_168</Tag><English>Pioneer plaque</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_168_PEDIA</Tag><English>Pioneer plaque (1972), a painting from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_169</Tag><English>Merlion</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_169_PEDIA</Tag><English>Merlion (1972), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_170</Tag><English>Hirshhorn Museum and Sculpture Garden</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_170_PEDIA</Tag><English>Hirshhorn Museum and Sculpture Garden (1974), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_171</Tag><English>The Dinner Party</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_171_PEDIA</Tag><English>The Dinner Party (1979), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_172</Tag><English>King Fahd's Fountain</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_172_PEDIA</Tag><English>King Fahd's Fountain (1980), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_173</Tag><English>Juche Tower</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_173_PEDIA</Tag><English>Juche Tower (1982), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_174</Tag><English>Dona i Ocell</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_174_PEDIA</Tag><English>Dona i Ocell (1983), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_175</Tag><English>Jeanneke Pis</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_175_PEDIA</Tag><English>Jeanneke Pis (1985), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_176</Tag><English>Charging Bull</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_176_PEDIA</Tag><English>Charging Bull (1989), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_177</Tag><English>Goddess of Democracy</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_177_PEDIA</Tag><English>Goddess of Democracy (1989), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_178</Tag><English>Tian Tan Buddha</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_178_PEDIA</Tag><English>Tian Tan Buddha (1990), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_179</Tag><English>My God, Help Me to Survive This Deadly Love</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_179_PEDIA</Tag><English>My God, Help Me to Survive This Deadly Love (1990), a painting from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_180</Tag><English>Kryptos</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_180_PEDIA</Tag><English>Kryptos (1990), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_181</Tag><English>Ushiku Daibutsu</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_181_PEDIA</Tag><English>Ushiku Daibutsu (1993), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_182</Tag><English>Memento Park</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_182_PEDIA</Tag><English>Memento Park (1993), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_183</Tag><English>Umedalens Skulpturpark</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_183_PEDIA</Tag><English>Umedalens Skulpturpark (1994), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_184</Tag><English>Angel of the North</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_184_PEDIA</Tag><English>Angel of the North (1998), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_185</Tag><English>Maman</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_185_PEDIA</Tag><English>Maman (1999), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_186</Tag><English>Miniatur Wunderland</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_186_PEDIA</Tag><English>Miniatur Wunderland (2000), a painting from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_187</Tag><English>Landscape with the Fall of Icarus</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_187_PEDIA</Tag><English>Landscape with the Fall of Icarus (2000), a painting from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_188</Tag><English>Grutas Park</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_188_PEDIA</Tag><English>Grutas Park (2001), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_189</Tag><English>Spire of Dublin</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_189_PEDIA</Tag><English>Spire of Dublin (2003), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_190</Tag><English>Sea organ</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_190_PEDIA</Tag><English>Sea organ (2005), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_191</Tag><English>Shoes on the Danube Bank</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_191_PEDIA</Tag><English>Shoes on the Danube Bank (2005), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_192</Tag><English>Victims of Communism Memorial</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_192_PEDIA</Tag><English>Victims of Communism Memorial (2007), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_193</Tag><English>Spring Temple Buddha</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_193_PEDIA</Tag><English>Spring Temple Buddha (2008), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_194</Tag><English>African Renaissance Monument</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_194_PEDIA</Tag><English>African Renaissance Monument (2008), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_195</Tag><English>Genghis Khan Equestrian Statue</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_195_PEDIA</Tag><English>Genghis Khan Equestrian Statue (2008), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_196</Tag><English>Great Buddha of Thailand</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_196_PEDIA</Tag><English>Great Buddha of Thailand (2008), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_197</Tag><English>Laykyun Sekkya</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_197_PEDIA</Tag><English>Laykyun Sekkya (2008), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_198</Tag><English>Christ the King statue</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_198_PEDIA</Tag><English>Christ the King statue (2010), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_199</Tag><English>Wikipedia Monument</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_199_PEDIA</Tag><English>Wikipedia Monument (2014), a sculpture from the Contemporary era.</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_200</Tag><English>Statue of Unity</English></TEXT>
+	<TEXT><Tag>TXT_KEY_BONUS_ART_200_PEDIA</Tag><English>Statue of Unity (2018), a sculpture from the Contemporary era.</English></TEXT>
+</Civ4GameText>

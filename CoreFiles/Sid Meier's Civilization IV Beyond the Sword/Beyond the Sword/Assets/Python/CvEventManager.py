@@ -20,6 +20,7 @@ import sys
 import CvWorldBuilderScreen
 import CvAdvisorUtils
 import CvTechChooser
+import CvArtMasterpieceSystem
 
 gc = CyGlobalContext()
 localText = CyTranslator()
@@ -321,6 +322,7 @@ class CvEventManager:
 
 	def onLoadGame(self, argsList):
 		CvAdvisorUtils.resetNoLiberateCities()
+		CvArtMasterpieceSystem.onLoadGame()
 		return 0
 
 	def onGameStart(self, argsList):
@@ -346,7 +348,8 @@ class CvEventManager:
 					popupInfo.addPopup(iPlayer)
 
 		CvAdvisorUtils.resetNoLiberateCities()
-																	
+		CvArtMasterpieceSystem.onGameStart()
+																
 	def onGameEnd(self, argsList):
 		'Called at the End of the game'
 		print("Game is ending")
@@ -364,6 +367,7 @@ class CvEventManager:
 	def onBeginPlayerTurn(self, argsList):
 		'Called at the beginning of a players turn'
 		iGameTurn, iPlayer = argsList
+		CvArtMasterpieceSystem.onBeginPlayerTurn(iPlayer)
 
 	def onEndPlayerTurn(self, argsList):
 		'Called at the end of a players turn'
@@ -536,6 +540,8 @@ class CvEventManager:
 	def onBuildingBuilt(self, argsList):
 		'Building Completed'
 		pCity, iBuildingType = argsList
+		if CvArtMasterpieceSystem.onBuildingBuilt(pCity, iBuildingType):
+			return
 		game = gc.getGame()
 		if ((not gc.getGame().isNetworkMultiPlayer()) and (pCity.getOwner() == gc.getGame().getActivePlayer()) and isWorldWonderClass(gc.getBuildingInfo(iBuildingType).getBuildingClassType())):
 			# If this is a wonder...

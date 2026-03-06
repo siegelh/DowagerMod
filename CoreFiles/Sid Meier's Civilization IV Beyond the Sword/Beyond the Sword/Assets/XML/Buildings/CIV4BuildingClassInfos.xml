@@ -2624,5 +2624,19 @@
 			<DefaultBuilding>BUILDING_INDUSTRY_ILLUMINATED_THEATRE</DefaultBuilding>
 			<VictoryThresholds/>
 		</BuildingClassInfo>
+<!-- ART_MASTERPIECE_BUILDINGCLASS_BEGIN -->
+		<BuildingClassInfo>
+			<Type>BUILDINGCLASS_ART_MASTERPIECE_TRIGGER</Type>
+			<Description>TXT_KEY_BUILDING_ART_MASTERPIECE_TRIGGER</Description>
+			<iMaxGlobalInstances>-1</iMaxGlobalInstances>
+			<iMaxTeamInstances>-1</iMaxTeamInstances>
+			<iMaxPlayerInstances>-1</iMaxPlayerInstances>
+			<iExtraPlayerInstances>0</iExtraPlayerInstances>
+			<bNoLimit>0</bNoLimit>
+			<bMonument>0</bMonument>
+			<DefaultBuilding>BUILDING_ART_MASTERPIECE_TRIGGER</DefaultBuilding>
+			<VictoryThresholds/>
+		</BuildingClassInfo>
+<!-- ART_MASTERPIECE_BUILDINGCLASS_END -->
 	</BuildingClassInfos>
 </Civ4BuildingClassInfos>

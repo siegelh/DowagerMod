@@ -26140,7 +26140,14 @@
           <bGreatPeople>1</bGreatPeople>
         </GreatPeople>
       </GreatPeoples>
-      <Buildings />
+      <!-- ART_ARTIST_BUILDINGS_BEGIN -->
+      <Buildings>
+        <Building>
+          <BuildingType>BUILDING_ART_MASTERPIECE_TRIGGER</BuildingType>
+          <bBuilding>1</bBuilding>
+        </Building>
+      </Buildings>
+      <!-- ART_ARTIST_BUILDINGS_END -->
       <ForceBuildings />
       <HolyCity>NONE</HolyCity>
       <ReligionType>NONE</ReligionType>
@@ -28541,7 +28548,6 @@
     </UnitInfo>
   </UnitInfos>
 </Civ4UnitInfos>
-
 
 
 
