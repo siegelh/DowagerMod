@@ -3480,17 +3480,17 @@
       <iBasePeaceWeight>2</iBasePeaceWeight>
       <iPeaceWeightRand>3</iPeaceWeightRand>
       <iWarmongerRespect>2</iWarmongerRespect>
-      <iEspionageWeight>150</iEspionageWeight>
+      <iEspionageWeight>130</iEspionageWeight>
       <iRefuseToTalkWarThreshold>6</iRefuseToTalkWarThreshold>
       <iNoTechTradeThreshold>15</iNoTechTradeThreshold>
       <iTechTradeKnownPercent>20</iTechTradeKnownPercent>
       <iMaxGoldTradePercent>5</iMaxGoldTradePercent>
       <iMaxGoldPerTurnTradePercent>10</iMaxGoldPerTurnTradePercent>
-      <iMaxWarRand>100</iMaxWarRand>
+      <iMaxWarRand>85</iMaxWarRand>
       <iMaxWarNearbyPowerRatio>90</iMaxWarNearbyPowerRatio>
       <iMaxWarDistantPowerRatio>40</iMaxWarDistantPowerRatio>
       <iMaxWarMinAdjacentLandPercent>1</iMaxWarMinAdjacentLandPercent>
-      <iLimitedWarRand>80</iLimitedWarRand>
+      <iLimitedWarRand>65</iLimitedWarRand>
       <iLimitedWarPowerRatio>110</iLimitedWarPowerRatio>
       <iDogpileWarRand>25</iDogpileWarRand>
       <iMakePeaceRand>10</iMakePeaceRand>
@@ -3498,7 +3498,7 @@
       <iDemandRebukedSneakProb>80</iDemandRebukedSneakProb>
       <iDemandRebukedWarProb>0</iDemandRebukedWarProb>
       <iRazeCityProb>0</iRazeCityProb>
-      <iBuildUnitProb>25</iBuildUnitProb>
+      <iBuildUnitProb>30</iBuildUnitProb>
       <iBaseAttackOddsChange>2</iBaseAttackOddsChange>
       <iAttackOddsChangeRand>8</iAttackOddsChangeRand>
       <iWorseRankDifferenceAttitudeChange>-2</iWorseRankDifferenceAttitudeChange>
@@ -3546,7 +3546,7 @@
       <VassalRefuseAttitudeThreshold>ATTITUDE_ANNOYED</VassalRefuseAttitudeThreshold>
       <iVassalPowerModifier>-20</iVassalPowerModifier>
       <iFreedomAppreciation>10</iFreedomAppreciation>
-      <FavoriteCivic>CIVIC_HEREDITARY_RULE</FavoriteCivic>
+      <FavoriteCivic>CIVIC_BUREAUCRACY</FavoriteCivic>
       <FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
       <Traits>
         <Trait>
@@ -3557,11 +3557,15 @@
       <Flavors>
         <Flavor>
           <FlavorType>FLAVOR_CULTURE</FlavorType>
-          <iFlavor>5</iFlavor>
+          <iFlavor>6</iFlavor>
         </Flavor>
         <Flavor>
           <FlavorType>FLAVOR_MILITARY</FlavorType>
-          <iFlavor>2</iFlavor>
+          <iFlavor>4</iFlavor>
+        </Flavor>
+        <Flavor>
+          <FlavorType>FLAVOR_GOLD</FlavorType>
+          <iFlavor>5</iFlavor>
         </Flavor>
       </Flavors>
       <ContactRands>
@@ -19877,7 +19881,7 @@
       <iEspionageWeight>120</iEspionageWeight>
       <iRefuseToTalkWarThreshold>8</iRefuseToTalkWarThreshold>
       <iNoTechTradeThreshold>15</iNoTechTradeThreshold>
-      <iTechTradeKnownPercent>10</iTechTradeKnownPercent>
+      <iTechTradeKnownPercent>20</iTechTradeKnownPercent>
       <iMaxGoldTradePercent>10</iMaxGoldTradePercent>
       <iMaxGoldPerTurnTradePercent>10</iMaxGoldPerTurnTradePercent>
       <iMaxWarRand>100</iMaxWarRand>
@@ -19941,7 +19945,7 @@
       <iVassalPowerModifier>0</iVassalPowerModifier>
       <iFreedomAppreciation>10</iFreedomAppreciation>
       <FavoriteCivic>CIVIC_BUREAUCRACY</FavoriteCivic>
-      <FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
+      <FavoriteReligion>NONE</FavoriteReligion>
       <Traits>
         <Trait>
           <TraitType>TRAIT_PETER</TraitType>
@@ -19951,11 +19955,19 @@
       <Flavors>
         <Flavor>
           <FlavorType>FLAVOR_SCIENCE</FlavorType>
-          <iFlavor>5</iFlavor>
+          <iFlavor>6</iFlavor>
+        </Flavor>
+        <Flavor>
+          <FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+          <iFlavor>4</iFlavor>
+        </Flavor>
+        <Flavor>
+          <FlavorType>FLAVOR_CULTURE</FlavorType>
+          <iFlavor>2</iFlavor>
         </Flavor>
         <Flavor>
           <FlavorType>FLAVOR_GROWTH</FlavorType>
-          <iFlavor>2</iFlavor>
+          <iFlavor>1</iFlavor>
         </Flavor>
       </Flavors>
       <ContactRands>

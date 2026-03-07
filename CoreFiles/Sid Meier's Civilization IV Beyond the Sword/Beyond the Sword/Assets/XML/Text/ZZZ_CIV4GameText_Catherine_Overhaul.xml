@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_IMPERIAL_RUSSIA_NOBLE_ASSEMBLY</Tag>
+    <English>Noble Assembly</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_IMPERIAL_RUSSIA_NOBLE_ASSEMBLY_PEDIA</Tag>
+    <English>Catherine's Noble Assembly turns the courthouse into a provincial arm of imperial rule, tying elite privilege, local administration, court culture, and surveillance together under the crown.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_IMPERIAL_RUSSIA_NOBLE_ASSEMBLY_STRATEGY</Tag>
+    <English>Imperial Russia unique Courthouse replacement. Keeps the normal maintenance reduction and adds 1 Gold, 1 Culture, 2 Espionage, 1 Artist slot, and 1 Spy slot.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_IMPERIAL_RUSSIA_BLACK_SEA_HUSSAR</Tag>
+    <English>Black Sea Hussar</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_IMPERIAL_RUSSIA_BLACK_SEA_HUSSAR_PEDIA</Tag>
+    <English>The Black Sea Hussar represents Catherine's fast southern campaigning against the Ottomans and across the steppe, where mobility, scouting, and sustained mounted pressure mattered more than heavy battlefield staying power.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_IMPERIAL_RUSSIA_BLACK_SEA_HUSSAR_STRATEGY</Tag>
+    <English>Imperial Russia unique Cuirassier replacement. Moves 1 tile faster, costs 115, needs Horse but not Iron, and starts with Flanking I and Sentry.</English>
+  </TEXT>
+</Civ4GameText>

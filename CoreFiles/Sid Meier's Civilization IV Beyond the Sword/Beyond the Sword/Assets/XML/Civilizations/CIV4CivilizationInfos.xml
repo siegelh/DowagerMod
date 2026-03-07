@@ -6043,16 +6043,15 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_LABORATORY</BuildingClassType>
-          <BuildingType>BUILDING_RUSSIAN_RESEARCH_INSTITUTE</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_HARBOR</BuildingClassType>
+          <BuildingType>BUILDING_PETER_ADMIRALTY</BuildingType>
+        </Building>
+        <Building>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS</BuildingType>
         </Building>
       </Buildings>
-      <Units>
-        <Unit>
-          <UnitClassType>UNITCLASS_CAVALRY</UnitClassType>
-          <UnitType>UNIT_RUSSIA_COSSACK</UnitType>
-        </Unit>
-      </Units>
+      <Units />
       <FreeUnitClasses>
         <FreeUnitClass>
           <UnitClassType>UNITCLASS_SETTLER</UnitClassType>
@@ -6147,14 +6146,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_LABORATORY</BuildingClassType>
-          <BuildingType>BUILDING_RUSSIAN_RESEARCH_INSTITUTE</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_IMPERIAL_RUSSIA_NOBLE_ASSEMBLY</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_CAVALRY</UnitClassType>
-          <UnitType>UNIT_RUSSIA_COSSACK</UnitType>
+          <UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
+          <UnitType>UNIT_IMPERIAL_RUSSIA_BLACK_SEA_HUSSAR</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>

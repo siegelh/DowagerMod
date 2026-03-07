@@ -39,6 +39,8 @@ Use this section to track actual implementation status and avoid duplicate/parti
 
 ### Planned (Not Started)
 - Fill per planning sessions. Keep entries leader-specific and civ-specific.
+- `LEADER_BRENNUS` / `CIVILIZATION_GAULIC_CONFEDERATION`
+  - Saved draft: `docs/BRENNUS_GAUL_OVERHAUL_DRAFT.md`
 
 ## Per-Leader Checklist (Required)
 For each overhaul, record a short design brief with:

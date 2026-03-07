@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_PETER</Tag>
+    <English>Westernizer</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_PETER_SHORT</Tag>
+    <English>Westernizer</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PETER_ADMIRALTY</Tag>
+    <English>Admiralty</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PETER_ADMIRALTY_PEDIA</Tag>
+    <English>Peter's Admiralty turned the harbor into a state arm for Baltic trade, naval administration, foreign technical import, and a western-facing court centered on St. Petersburg.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PETER_ADMIRALTY_STRATEGY</Tag>
+    <English>Petrine Russia unique Harbor replacement. Keeps the Harbor's trade and seafood health benefits while adding 1 Trade Route, 10% Research, and 1 Culture.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS</Tag>
+    <English>Collegium of Foreign Affairs</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS_PEDIA</Tag>
+    <English>The Collegium of Foreign Affairs reflects Peter's shift from old chancery habits toward a westernized bureaucracy that handled diplomacy, translation, intelligence, and elite state service.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS_STRATEGY</Tag>
+    <English>Petrine Russia unique Courthouse replacement. Keeps the normal maintenance reduction and improves espionage, research, culture, and Spy capacity.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_PEDIA</Tag>
+    <English>Petrine Russia under Peter I represents an early eighteenth-century drive to westernize elite culture, restructure administration, expand diplomatic reach, and open the empire to the Baltic. This variant emphasizes courtly modernization, foreign affairs, and maritime reorientation.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_PETER_PEDIA</Tag>
+    <English>Peter I forced Russia toward a westernized court, a more disciplined service bureaucracy, and a Baltic-facing state built around foreign expertise, diplomacy, and maritime access. His rule tied elite culture to state modernization rather than leaving it as courtly ornament alone.</English>
+  </TEXT>
+</Civ4GameText>

@@ -1066,7 +1066,7 @@
   <iMaxAnarchy>-1</iMaxAnarchy>
   <iUpkeepModifier>0</iUpkeepModifier>
   <iLevelExperienceModifier>0</iLevelExperienceModifier>
-  <iGreatPeopleRateModifier>20</iGreatPeopleRateModifier>
+  <iGreatPeopleRateModifier>50</iGreatPeopleRateModifier>
   <iGreatGeneralRateModifier>50</iGreatGeneralRateModifier>
   <iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
   <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
@@ -2626,6 +2626,46 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
+  <ImprovementYieldChanges />
+  <ImprovementTerrainYieldChanges />
+  <ImprovementFeatureYieldChanges />
+  <ImprovementCityCommerceChangesWorked />
+  <ImprovementCityCommerceChangesBFC />
+  <BuildingYieldChanges />
+  <BuildingCommerceChanges>
+    <BuildingCommerceChange>
+      <BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+      <BuildingCommerces>
+        <iCommerce>0</iCommerce>
+        <iCommerce>0</iCommerce>
+        <iCommerce>1</iCommerce>
+        <iCommerce>0</iCommerce>
+      </BuildingCommerces>
+    </BuildingCommerceChange>
+    <BuildingCommerceChange>
+      <BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+      <BuildingCommerces>
+        <iCommerce>0</iCommerce>
+        <iCommerce>0</iCommerce>
+        <iCommerce>1</iCommerce>
+        <iCommerce>0</iCommerce>
+      </BuildingCommerces>
+    </BuildingCommerceChange>
+  </BuildingCommerceChanges>
+  <SpecialistYieldChanges />
+  <SpecialistCommerceChanges>
+    <SpecialistCommerceChange>
+      <SpecialistType>SPECIALIST_SPY</SpecialistType>
+      <SpecialistCommerces>
+        <iCommerce>0</iCommerce>
+        <iCommerce>1</iCommerce>
+        <iCommerce>0</iCommerce>
+        <iCommerce>0</iCommerce>
+      </SpecialistCommerces>
+    </SpecialistCommerceChange>
+  </SpecialistCommerceChanges>
+  <BonusYieldChanges />
+  <RouteYieldChanges />
   <FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
