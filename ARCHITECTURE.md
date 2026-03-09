@@ -7,10 +7,11 @@ This document describes the repository as implemented now. It is intentionally c
 ### Confirmed from code/config
 
 - This repo is a `Sid Meier's Civilization IV: Beyond the Sword` mod workspace, not a web/service application.
-- `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is an intentional full mirror of the local game install and the payload copied by the installer.
+- `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is an intentional mirror of the local game install and the payload copied by the installer.
 - The default modding target is the BtS assets root: `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets`.
 - The main implementation layers are XML gameplay/data under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML`, Python runtime/UI under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Python`, custom DLL source under `third_party/beyond-the-sword-sdk/CvGameCoreDLL`, and local installer/build/test tooling under `CoreFiles/install.py` and `tools/`.
-- The full mirror also contains base `Assets`, `Warlords`, stock scenario mods, binaries, and media for installer completeness. Those mirrored files exist on purpose, but they are not all default edit targets.
+- The mirror also contains base `Assets`, `Warlords`, stock scenario mods, binaries, and media for installer completeness. Those mirrored files exist on purpose, but they are not all default edit targets.
+- A few oversized stock archives are intentionally excluded from git, so the repo mirror should be treated as operationally complete for mod work, not as a byte-for-byte stock backup.
 
 ### Inferred but likely
 

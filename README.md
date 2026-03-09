@@ -1,6 +1,6 @@
 # DowagerMod
 
-DowagerMod is a `Sid Meier's Civilization IV: Beyond the Sword` mod workspace built around a full mirrored install tree plus local XML, Python, DLL, art, and installer tooling.
+DowagerMod is a `Sid Meier's Civilization IV: Beyond the Sword` mod workspace built around an intentional mirrored install tree plus local XML, Python, DLL, art, and installer tooling.
 
 ## Start Here
 
@@ -44,7 +44,8 @@ See:
 
 ## Repo Notes
 
-- `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is an intentional full mirror of the local game install.
+- `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is an intentional mirror of the local game install.
+- A few oversized stock archives are intentionally excluded from git and may be absent from the repo workspace.
 - BtS is the default edit target. Base `Assets` and `Warlords` may still matter for inherited files, but they are not the default place to start editing.
 - Historical plans, drafts, and dated debug notes now live under [docs/archive/](docs/archive/).
 - Repo-local task aids live under [skills/](skills/).

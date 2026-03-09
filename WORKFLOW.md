@@ -14,7 +14,8 @@ This file defines the expected working method for future agents in this repo. It
 - Existing docs are secondary and must be corroborated when they affect implementation.
 - Historical plans, specs, notes, and artifacts are not authoritative unless still reflected in code/config.
 - When docs and code disagree, code wins unless a human explicitly says otherwise.
-- The full mirror under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is intentional installer payload, but the default edit target is the BtS assets root: `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets`.
+- The mirror under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is intentional installer payload, but the default edit target is the BtS assets root: `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets`.
+- A few oversized stock archives are intentionally excluded from git; do not treat their absence as task-created deltas.
 - Every significant change should update both implementation and corresponding documentation.
 - Agents must record assumptions, open questions, and residual risks.
 

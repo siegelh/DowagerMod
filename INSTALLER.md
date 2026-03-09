@@ -6,6 +6,7 @@ This document describes the installer behavior as implemented now. If this file 
 
 - Installer source of truth: `CoreFiles/install.py`
 - Installer payload root: `CoreFiles/Sid Meier's Civilization IV Beyond the Sword`
+- The repo mirror intentionally omits a few oversized stock archives that are not carried in git.
 
 ## What the installer does now
 
@@ -23,6 +24,7 @@ This document describes the installer behavior as implemented now. If this file 
 - Install is copy-based, not sync/prune-based.
 - Deleting a file from the repo does not remove it from the live game install.
 - That means stale files can survive in the live install until removed manually.
+- The repo mirror is not a byte-for-byte stock installer image. Large stock archives such as `Assets0.fpk`, `Assets1.fpk`, `Assets2.fpk`, and `Art/Movies/Intros/intro.bik` are intentionally excluded from git.
 
 ## Important path caveat
 

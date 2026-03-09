@@ -3,7 +3,7 @@
 ## Repository Purpose
 
 - This repo is a source workspace for a `Sid Meier's Civilization IV: Beyond the Sword` mod.
-- `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is an intentional full mirror of the local game install and the payload copied by the installer.
+- `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is an intentional mirror of the local game install and the payload copied by the installer.
 - The default gameplay edit target is the BtS assets root:
   - `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets`
 - The main implementation surfaces are:
@@ -74,7 +74,8 @@
 
 ## Important Repo Realities
 
-- The full install mirror under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is intentional. Do not assume everything inside it is equally relevant to the current task.
+- The install mirror under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is intentional. Do not assume everything inside it is equally relevant to the current task.
+- A few oversized stock archives are intentionally excluded from git. Their absence in the repo mirror is not itself a mod change.
 - The current branch may still show many untracked stock files in the mirror. Review `git status --short` early and do not treat every untracked file as intentional new work.
 - BtS is the default edit target. Do not update base `Assets` or `Warlords` unless the task proves they matter.
 - Current working assumption: runtime behaves as a BtS overlay plus some inherited base Python support files, not as a fully self-contained BtS Python tree.
