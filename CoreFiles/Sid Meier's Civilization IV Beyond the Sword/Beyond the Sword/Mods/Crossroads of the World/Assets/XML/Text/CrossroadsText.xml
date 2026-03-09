@@ -1,0 +1,2840 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<!-- CIVS -->
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ARABIA_DESC</Tag>
+		<English>
+			<Text>Kingdom of the Rasulids</Text>
+		</English>
+		<French>Royaume des Rassoulides</French>
+		<German>
+			<Text>Rasuliden-Sultanat:Rasuliden-Sultanat:Rasuliden-Sultanat</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Regno dei Rasulidi</Italian>
+		<Spanish>Reino de los Ras&#250;lidas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ARABIA_SHORT_DESC</Tag>
+		<English>
+			<Text>Rasulid</Text>
+		</English>
+		<French>Rassoulide</French>
+		<German>
+			<Text>Rasulidenland</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Rasulidi</Italian>
+		<Spanish>Rasul</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ARABIA_ADJECTIVE</Tag>
+		<English>
+			<Text>Rasulid:Rasulids</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>rassoulide:rassoulide:rassoulides:rassoulides</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Rasulidisch:rasulidischen:rasulidische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>rasulide:rasulidi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>ras&#250;lida:ras&#250;lida:ras&#250;lidas:ras&#250;lidas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_EGYPT_DESC</Tag>
+		<English>
+			<Text>Mamluk Sultanate</Text>
+		</English>
+		<French>Sultanat mamelouk</French>
+		<German>
+			<Text>Mameluken-Sultanat:Mameluken-Sultanat:Mameluken-Sultanat</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Sultanato dei Mamelucchi</Italian>
+		<Spanish>Sultanato Mameluco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_EGYPT_SHORT_DESC</Tag>
+		<English>
+			<Text>Egypt</Text>
+		</English>
+		<French>Egypte</French>
+		<German>
+			<Text>&#196;gypten</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Egitto</Italian>
+		<Spanish>Egipto</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_EGYPT_ADJECTIVE</Tag>
+		<English>
+			<Text>Mamluk:Mamlukes</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>mamelouk:mamelouke:mamelouks:mameloukes</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Mamelukisch:mamelukischen:mamelukische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>dei Mamelucchi:dei Mamelucchi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>mameluco:mameluca:mamelucos:mamelucas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MONGOL_DESC</Tag>
+		<English>
+			<Text>Khanate of the Timurids</Text>
+		</English>
+		<French>Khanat des Timurides</French>
+		<German>
+			<Text>Timuridenreich:Timuridenreich:Timuridenreich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Khanato dei Timuridi</Italian>
+		<Spanish>Kanato de los Tim&#250;ridas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MONGOL_SHORT_DESC</Tag>
+		<English>
+			<Text>Timurids</Text>
+		</English>
+		<French>Timurides</French>
+		<German>
+			<Text>Timuridien</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Timuridi</Italian>
+		<Spanish>Timur</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MONGOL_ADJECTIVE</Tag>
+		<English>
+			<Text>Timurid:Timurids</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>timuride:timuride:timurides:timurides</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Timuridisch:timuridischen:timuridische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>timuride:timuridi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>tim&#250;rida:tim&#250;rida:tim&#250;ridas:tim&#250;ridas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_HOLY_ROMAN_DESC</Tag>
+		<English>
+			<Text>Kingdom of Cyprus</Text>
+		</English>
+		<French>Royaume de Chypre</French>
+		<German>
+			<Text>K&#246;nigreich Zypern:K&#246;nigreich Zypern:K&#246;nigreich Zypern</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Regno di Cipro</Italian>
+		<Spanish>Reino de Chipre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_HOLY_ROMAN_SHORT_DESC</Tag>
+		<English>
+			<Text>Cyprus</Text>
+		</English>
+		<French>Chypre</French>
+		<German>
+			<Text>Zypern</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cipro</Italian>
+		<Spanish>Chipre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_HOLY_ROMAN_ADJECTIVE</Tag>
+		<English>
+			<Text>Cypriot:Cypriots</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>chypriote:chypriotes:hypriote:chypriotes</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Zypriotisch:zypriotischen:zypriotische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>di Cipro:di Cipro</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>chipriota:chipriota:chipriotas:chipriotas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_GERMANY_DESC</Tag>
+		<English>
+			<Text>Trade Houses of Venice</Text>
+		</English>
+		<French>Comptoirs commerciaux v&#233;nitiens</French>
+		<German>
+			<Text>Venezianisches Handelsreich:Venezianische Handelsreich:Venezianischen Handelsreich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Repubblica di Venezia</Italian>
+		<Spanish>Imperio comercial veneciano</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_GERMANY_SHORT_DESC</Tag>
+		<English>
+			<Text>Venice</Text>
+		</English>
+		<French>Venise</French>
+		<German>
+			<Text>Venedig</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Venezia</Italian>
+		<Spanish>Venecia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_GERMANY_ADJECTIVE</Tag>
+		<English>
+			<Text>Venitian:Venitians</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>v&#233;nitien:v&#233;nitiens:v&#233;nitienne:v&#233;nitiennes</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Venezianisch:venezianischen:venezianische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>di Venezia:di Venezia</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>veneciano:veneciana:venecianos:venecianas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_FRANCE_DESC</Tag>
+		<English>
+			<Text>Trade Houses of Genoa</Text>
+		</English>
+		<French>Comptoirs commerciaux g&#233;nois</French>
+		<German>
+			<Text>Genuesisches Handelsreich:Genuesische Handelsreich:Genuesischen Handelsreich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Repubblica di Genova</Italian>
+		<Spanish>Imperio comercial genov&#233;s</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_FRANCE_SHORT_DESC</Tag>
+		<English>
+			<Text>Genoa</Text>
+		</English>
+		<French>G&#234;nes</French>
+		<German>
+			<Text>Genua</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Genova</Italian>
+		<Spanish>G&#233;nova</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_FRANCE_ADJECTIVE</Tag>
+		<English>
+			<Text>Genoan:Genoans</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>g&#233;nois:g&#233;noisg&#233;noise:g&#233;noises</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Genuesisch:genuesischen:genuesische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>di Genova:di Genova</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>genov&#233;s:genovesa:genoveses:genovesas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MALI_DESC</Tag>
+		<English>
+			<Text>Kanem - Borno Empire</Text>
+		</English>
+		<French>Empire de Kanem-Bornou</French>
+		<German>
+			<Text>Kanem-Bornu-Reich:Kanem-Bornu-Reich:Kanem-Bornu-Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Impero di Kanem-Bornu</Italian>
+		<Spanish>Imperio de Kanem-Borno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MALI_SHORT_DESC</Tag>
+		<English>
+			<Text>Kanem - Borno</Text>
+		</English>
+		<French>Kanem-Bornou</French>
+		<German>
+			<Text>Kanem-Bornu</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Kanem-Bornu</Italian>
+		<Spanish>Kanem-Borno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MALI_ADJECTIVE</Tag>
+		<English>
+			<Text>Kanem:Kanem</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>de Kanem:de Kanem:de Kanem:de Kanem</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Kanem-bornuesisch:kanem-bornuesischen:kanem-bornuesische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>di Kanem-Bornu:di Kanem-Bornu</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>de Kanem:de Kanem:de Kanem:de Kanem</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_INDIA_DESC</Tag>
+		<English>
+			<Text>Sultanate of Delhi</Text>
+		</English>
+		<French>Sultanat de Delhi</French>
+		<German>
+			<Text>Delhi-Sultanat:Delhi-Sultanat:Delhi-Sultanat</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Sultanato di Delhi</Italian>
+		<Spanish>Sultanato de Delhi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_INDIA_SHORT_DESC</Tag>
+		<English>
+			<Text>Delhi</Text>
+		</English>
+		<French>Delhi</French>
+		<German>
+			<Text>Delhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Delhi</Italian>
+		<Spanish>Delhi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_INDIA_ADJECTIVE</Tag>
+		<English>
+			<Text>Delhi:Delhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>de Delhi:de Delhi:de Delhi:de Delhi</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Delhisch:delhischen:delhische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>di Delhi:di Delhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>de Delhi:de Delhi:de Delhi:de Delhi</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_CHINA_DESC</Tag>
+		<English>
+			<Text>Ming Dynasty</Text>
+		</English>
+		<French>Dynastie Ming</French>
+		<German>
+			<Text>Ming-Reich:Ming-Reich:Ming-Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Dinastia Ming</Italian>
+		<Spanish>Dominio de la Dinast&#237;a Ming</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_CHINA_SHORT_DESC</Tag>
+		<English>
+			<Text>Ming</Text>
+		</English>
+		<French>Ming</French>
+		<German>
+			<Text>Ming</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Ming</Italian>
+		<Spanish>Ming</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_CHINA_ADJECTIVE</Tag>
+		<English>
+			<Text>Ming:Ming</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>Ming:Ming:Ming:Ming</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Mingisch:mingischen:mingische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>dei Ming:dei Ming</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>ming:ming:ming:ming</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_CARTHAGE_DESC</Tag>
+		<English>
+			<Text>Sultanate of Adal</Text>
+		</English>
+		<French>Sultanat d'Adal</French>
+		<German>
+			<Text>Adal-Sultanat:Adal-Sultanat:Adal-Sultanat</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Sultanato di Adal</Italian>
+		<Spanish>Sultanato de Adal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_CARTHAGE_SHORT_DESC</Tag>
+		<English>
+			<Text>Adal</Text>
+		</English>
+		<French>Adal</French>
+		<German>
+			<Text>Adal</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Adal</Italian>
+		<Spanish>Adal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_CARTHAGE_ADJECTIVE</Tag>
+		<English>
+			<Text>Adalan:Adalans</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>d'Adal:d'Adal:d'Adal:d'Adal</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Adalanisch:adalanischen:adalanische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>di Adal:di Adal</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>de Adal:de Adal:de Adal:de Adal</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_PERSIA_DESC</Tag>
+		<English>
+			<Text>The Ilkhanate</Text>
+		</English>
+		<French>L'ilkhanat</French>
+		<German>
+			<Text>Ilchanenreich:Ilchanenreich:Ilchanenreich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Ilkhanato</Italian>
+		<Spanish>Reino de Ilkhanate</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_PERSIA_SHORT_DESC</Tag>
+		<English>
+			<Text>Ilkhanate</Text>
+		</English>
+		<French>Ilkhanat</French>
+		<German>
+			<Text>Ilchane</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Ilkhanato</Italian>
+		<Spanish>Ilkhanate</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_PERSIA_ADJECTIVE</Tag>
+		<English>
+			<Text>Mongolian:Mongolians</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>mongol:mongols:mongole:mongoles</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Ilchanisch:ilchanischen:ilchanische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>dei Mongoli:dei Mongoli</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>mongol:mongola:mongoles:mongolas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ZULU_DESC</Tag>
+		<English>
+			<Text>Kingdom of Makuria</Text>
+		</English>
+		<French>Royaume de Makourie</French>
+		<German>
+			<Text>K&#246;nigreich Makuria:K&#246;nigreich Makuria:K&#246;nigreich Makuria</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Regno di Makuria</Italian>
+		<Spanish>Reino de Makuria</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ZULU_SHORT_DESC</Tag>
+		<English>
+			<Text>Makuria</Text>
+		</English>
+		<French>Makourie</French>
+		<German>
+			<Text>Makuria</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Makuria</Italian>
+		<Spanish>Makuria</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ZULU_ADJECTIVE</Tag>
+		<English>
+			<Text>Makurian:Makurians</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</English>
+		<French>
+			<Text>de Makourie:de Makourie:de Makourie:de Makourie</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+			<Text>Makurianisch:makurianischen:makurianische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>di Makuria:di Makuria</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>de Makuria:de Makuria:de Makuria:de Makuria</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<!-- LEADERS -->
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_ASOKA</Tag>
+		<English>
+			<Text>Muhammad Tughluq</Text>
+		</English>
+		<French>Muhammad Tughluq</French>
+		<German>
+			<Text>Muhammad Tughluq</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Muhammad Tughluq</Italian>
+		<Spanish>Muhammad Tughluq</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_CHARLEMAGNE</Tag>
+		<English>
+			<Text>Guy of Lusignan</Text>
+		</English>
+		<French>Guy de Lusignan</French>
+		<German>
+			<Text>Guy de Lusignan</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Guy di Lusignan</Italian>
+		<Spanish>Guido de Lusignan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_FREDERICK</Tag>
+		<English>
+			<Text>Andrea Dandolo</Text>
+		</English>
+		<French>Andrea Dandolo</French>
+		<German>
+			<Text>Andrea Dandolo</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Andrea Dandolo</Italian>
+		<Spanish>Andrea Dandolo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_GENGHIS_KHAN</Tag>
+		<English>
+			<Text>Hulegu Khan</Text>
+		</English>
+		<French>Hulagu Khan</French>
+		<German>
+			<Text>F&#252;rst H&#252;l&#228;g&#252;</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Hulegu Khan</Italian>
+		<Spanish>Hulegu kan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_HANNIBAL</Tag>
+		<English>
+			<Text>Baibars</Text>
+		</English>
+		<French>Baybars</French>
+		<German>
+			<Text>Baibars</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Baibars</Italian>
+		<Spanish>Baibars</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_JOAO</Tag>
+		<English>
+			<Text>Henry the Navigator</Text>
+		</English>
+		<French>Henri le Navigateur</French>
+		<German>
+			<Text>Heinrich, der Seefahrer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Enrico il Navigatore</Italian>
+		<Spanish>Enrique el Navegante</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_KUBLAI_KHAN</Tag>
+		<English>
+			<Text>Tamerlane</Text>
+		</English>
+		<French>Tamerlan</French>
+		<German>
+			<Text>Tamerlan</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tamerlano</Italian>
+		<Spanish>Tamerl&#225;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_MANSA_MUSA</Tag>
+		<English>
+			<Text>Idris Alooma</Text>
+		</English>
+		<French>Idris Alouma</French>
+		<German>
+			<Text>Idris Alooma</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Idris Alooma</Italian>
+		<Spanish>Idris Alooma</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_NAPOLEON</Tag>
+		<English>
+			<Text>Simone Boccanegra</Text>
+		</English>
+		<French>Simone Boccanegra</French>
+		<German>
+			<Text>Simone Boccanegra</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Simone Boccanegra</Italian>
+		<Spanish>Sim&#243;n Boccanegra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_QIN_SHI_HUANG</Tag>
+		<English>
+			<Text>Zhu Di</Text>
+		</English>
+		<French>Zhu Di</French>
+		<German>
+			<Text>Zhu Di</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Zhu Di</Italian>
+		<Spanish>Zhu Di</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_SALADIN</Tag>
+		<English>
+			<Text>Rasul</Text>
+		</English>
+		<French>Rassoul</French>
+		<German>
+			<Text>Rasul</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Rasul</Italian>
+		<Spanish>Rasul</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_SHAKA</Tag>
+		<English>
+			<Text>Amai</Text>
+		</English>
+		<French>Amai</French>
+		<German>
+			<Text>Amai</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Amai</Italian>
+		<Spanish>Amai</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_SULEIMAN</Tag>
+		<English>
+			<Text>Ahmed Gurey</Text>
+		</English>
+		<French>Ahmed Gurey</French>
+		<German>
+			<Text>Ahmed Gurey</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Ahmed Gurey</Italian>
+		<Spanish>Ahmed Gurey</Spanish>
+	</TEXT>
+	<!-- CORPORATIONS -->
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_11</Tag>
+		<English>
+			<Text>Smiths of Cyprus</Text>
+		</English>
+		<French>Forgerons de Chypre</French>
+		<German>
+			<Text>Schmiedemeister von Zypern</Text>
+		</German>
+		<Italian>Fabbri di Cipro</Italian>
+		<Spanish>Herreros de Chipre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_2</Tag>
+		<English>
+			<Text>Portuguese Tradesmen Guild</Text>
+		</English>
+		<French>Guilde des marchands portugais</French>
+		<German>
+			<Text>Portugiesische Handelsgilde</Text>
+		</German>
+		<Italian>Gilda dei commercianti portoghesi</Italian>
+		<Spanish>Gremio Portugu&#233;s de Artesanos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_3</Tag>
+		<English>
+			<Text>Merchants of Venice</Text>
+		</English>
+		<French>Marchands v&#233;nitiens</French>
+		<German>
+			<Text>Kaufleute von Venedig</Text>
+		</German>
+		<Italian>Mercanti di Venezia</Italian>
+		<Spanish>Mercaderes de Venecia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_4</Tag>
+		<English>
+			<Text>Genoan Guilds</Text>
+		</English>
+		<French>Guildes de G&#234;nes</French>
+		<German>
+			<Text>Genuesische Gilden</Text>
+		</German>
+		<Italian>Gilde genovesi</Italian>
+		<Spanish>Gremios Genoveses</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_5</Tag>
+		<English>
+			<Text>Craftsmen of Kanem - Borno</Text>
+		</English>
+		<French>Artisans de Kanem-Bornou</French>
+		<German>
+			<Text>Handwerker von Kanem-Bornu</Text>
+		</German>
+		<Italian>Artigiani del Kanem-Bornu</Italian>
+		<Spanish>Artesanos de Kanem-Borno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_6</Tag>
+		<English>
+			<Text>Artisans of Delhi</Text>
+		</English>
+		<French>Artisans de Delhi</French>
+		<German>
+			<Text>Kunsthandwerker von Delhi</Text>
+		</German>
+		<Italian>Artigiani di Delhi</Italian>
+		<Spanish>Artesanos de Delhi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_7</Tag>
+		<English>
+			<Text>Imperial Ming Merchants</Text>
+		</English>
+		<French>Marchands imp&#233;riaux Ming</French>
+		<German>
+			<Text>Kaiserliche Ming-H&#228;ndler</Text>
+		</German>
+		<Italian>Mercanti imperiali Ming</Italian>
+		<Spanish>Mercaderes del Imperio Ming</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_8</Tag>
+		<English>
+			<Text>Caravans of Adal</Text>
+		</English>
+		<French>Caravanes d'Adal</French>
+		<German>
+			<Text>Karawanen von Adal</Text>
+		</German>
+		<Italian>Carovane di Adal</Italian>
+		<Spanish>Caravanas de Adal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_9</Tag>
+		<English>
+			<Text>Traders of the Ilkhanate</Text>
+		</English>
+		<French>Marchands de l'ilkhanat</French>
+		<German>
+			<Text>H&#228;ndler von Ilchane</Text>
+		</German>
+		<Italian>Commercianti dell'Ilkhanato</Italian>
+		<Spanish>Comerciantes del Ilkhanate</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_10</Tag>
+		<English>
+			<Text>Elders of Makuria</Text>
+		</English>
+		<French>Anciens de Makourie</French>
+		<German>
+			<Text>&#196;lteste von Makuria</Text>
+		</German>
+		<Italian>Anziani di Makuria</Italian>
+		<Spanish>Ancianos de Makuria</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_1</Tag>
+		<English>Guildmaster of Cyprus </English>
+		<French>
+			<Text>Ma&#238;tre de guilde chypriote</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Zypern</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni di Cipro:Agenti delle associazioni di Cipro</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de Chipre:Maestres del gremio de Chipre</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_2</Tag>
+		<English>Guildmaster of Portugal</English>
+		<French>
+			<Text>Ma&#238;tre de guilde portugais</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Portugal</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni portoghesi:Agenti delle associazioni portoghesi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de Portugal:Maestres del gremio de Portugal</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_3</Tag>
+		<English>Guildmaster of Venice</English>
+		<French>
+			<Text>Ma&#238;tre de guilde v&#233;nitien</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Venedig</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni veneziane:Agenti delle associazioni veneziane</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de Venecia:Maestres del gremio de Venecia</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_4</Tag>
+		<English>Guildmaster of Genoa</English>
+		<French>
+			<Text>Ma&#238;tre de guilde g&#233;nois</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Genua</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni genovesi:Agenti delle associazioni genovesi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de G&#233;nova:Maestres del gremio de G&#233;nova</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_5</Tag>
+		<English>Guildmaster of Kanem</English>
+		<French>
+			<Text>Ma&#238;tre de guilde de Kanem</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Kanem-Bornu</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni di Kanem-Bornu:Agenti delle associazioni di Kanem-Bornu</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de Kanem:Maestres del gremio de Kanem</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_6</Tag>
+		<English>Guildmaster of Delhi</English>
+		<French>
+			<Text>Ma&#238;tre de guilde de Delhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Delhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni di Delhi:Agenti delle associazioni di Delhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de Delhi:Maestres del gremio de Delhi</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_7</Tag>
+		<English>Guildmaster of the Ming</English>
+		<French>
+			<Text>Ma&#238;tre de guilde des Ming</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Ming</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni dei Ming:Agenti delle associazioni dei Ming</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de Ming:Maestres del gremio de Ming</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_8</Tag>
+		<English>Guildmaster of Adal</English>
+		<French>
+			<Text>Ma&#238;tre de guilde d'Adal</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Adal</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni di Adal:Agenti delle associazioni di Adal</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de Adal:Maestres del gremio de Adal</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_9</Tag>
+		<English>Guildmaster of the Ilkhanate</English>
+		<French>
+			<Text>Ma&#238;tre de guilde de l'Ilkhanat</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Ilchane</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni dell'Ilkhanato:Agenti delle associazioni dell'Ilkhanato</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de Ilkhanate:Maestres del gremio de Ilkhanate</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EXECUTIVE_10</Tag>
+		<English>Guildmaster of Makuria</English>
+		<French>
+			<Text>Ma&#238;tre de guilde de Makourie</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gildenmeister von Makuria</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Agente delle associazioni di Makuria:Agenti delle associazioni di Makuria</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Maestre del gremio de Makuria:Maestres del gremio de Makuria</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<!--TIMURID CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_HERAT</Tag>
+		<English>
+			<Text>Herat</Text>
+		</English>
+		<French>Herat</French>
+		<German>
+			<Text>Herat</Text>
+		</German>
+		<Italian>Herat</Italian>
+		<Spanish>Herat</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KABUL</Tag>
+		<English>
+			<Text>Kabul</Text>
+		</English>
+		<French>Kaboul</French>
+		<German>
+			<Text>Kabul</Text>
+		</German>
+		<Italian>Kabul</Italian>
+		<Spanish>Kabul</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KANDAHAR</Tag>
+		<English>
+			<Text>Kandahar</Text>
+		</English>
+		<French>Kandahar</French>
+		<German>
+			<Text>Kandahar</Text>
+		</German>
+		<Italian>Kandahar</Italian>
+		<Spanish>Kandahar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ASKABAD</Tag>
+		<English>
+			<Text>Askabad</Text>
+		</English>
+		<French>Achgabat</French>
+		<German>
+			<Text>Askabad</Text>
+		</German>
+		<Italian>Askabad</Italian>
+		<Spanish>Askabad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_MERV</Tag>
+		<English>
+			<Text>Merv</Text>
+		</English>
+		<French>Merv</French>
+		<German>
+			<Text>Merw</Text>
+		</German>
+		<Italian>Merv</Italian>
+		<Spanish>Merv</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_TASHKENT</Tag>
+		<English>
+			<Text>Tashkent</Text>
+		</English>
+		<French>Tachkent</French>
+		<German>
+			<Text>Tashkent</Text>
+		</German>
+		<Italian>Tashkent</Italian>
+		<Spanish>Tashkent</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_HYCANIA</Tag>
+		<English>
+			<Text>Hycania</Text>
+		</English>
+		<French>Hycania</French>
+		<German>
+			<Text>Hycania</Text>
+		</German>
+		<Italian>Hycania</Italian>
+		<Spanish>Hycania</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KHURAM</Tag>
+		<English>
+			<Text>Khuram</Text>
+		</English>
+		<French>Khuram</French>
+		<German>
+			<Text>Khuram</Text>
+		</German>
+		<Italian>Khuram</Italian>
+		<Spanish>Juram</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_BALKH</Tag>
+		<English>
+			<Text>Balkh</Text>
+		</English>
+		<French>Balkh</French>
+		<German>
+			<Text>Balkh</Text>
+		</German>
+		<Italian>Balkh</Italian>
+		<Spanish>Balkh</Spanish>
+	</TEXT>
+	<!--CYPRIOT CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_NICOSIA</Tag>
+		<English>
+			<Text>Nicosia</Text>
+		</English>
+		<French>Nicosie</French>
+		<German>
+			<Text>Nikosia</Text>
+		</German>
+		<Italian>Nicosia</Italian>
+		<Spanish>Nicosia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_LIMASSOL</Tag>
+		<English>
+			<Text>Limassol</Text>
+		</English>
+		<French>Limassol</French>
+		<German>
+			<Text>Limassol</Text>
+		</German>
+		<Italian>Limassol</Italian>
+		<Spanish>Limassol</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_LARNACA</Tag>
+		<English>
+			<Text>Larnaca</Text>
+		</English>
+		<French>Larnaka</French>
+		<German>
+			<Text>Larnaka</Text>
+		</German>
+		<Italian>Larnaca</Italian>
+		<Spanish>Larnaca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_FAMAGUSTA</Tag>
+		<English>
+			<Text>Famagusta</Text>
+		</English>
+		<French>Famagouste</French>
+		<German>
+			<Text>Famagusta</Text>
+		</German>
+		<Italian>Famagosta</Italian>
+		<Spanish>Famagusta</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KYRENIA</Tag>
+		<English>
+			<Text>Kyrenia</Text>
+		</English>
+		<French>Kyrenia</French>
+		<German>
+			<Text>Kyrenia</Text>
+		</German>
+		<Italian>Kyrenia</Italian>
+		<Spanish>Kyrenia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_LEFKA</Tag>
+		<English>
+			<Text>Lefka</Text>
+		</English>
+		<French>Lefka</French>
+		<German>
+			<Text>Lefka</Text>
+		</German>
+		<Italian>Lefka</Italian>
+		<Spanish>Lefka</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_PAPHOS</Tag>
+		<English>
+			<Text>Paphos</Text>
+		</English>
+		<French>Paphos</French>
+		<German>
+			<Text>Paphos</Text>
+		</German>
+		<Italian>Pafo</Italian>
+		<Spanish>P&#225;fos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_AMATHUS</Tag>
+		<English>
+			<Text>Amathus</Text>
+		</English>
+		<French>Amathonte</French>
+		<German>
+			<Text>Amathus</Text>
+		</German>
+		<Italian>Amathus</Italian>
+		<Spanish>Amathus</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KARPASIA</Tag>
+		<English>
+			<Text>Karpasia</Text>
+		</English>
+		<French>Carpas</French>
+		<German>
+			<Text>Karpasia</Text>
+		</German>
+		<Italian>Karpasia</Italian>
+		<Spanish>Karpasha</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_YEROSKIPOU</Tag>
+		<English>
+			<Text>Yeroskipou</Text>
+		</English>
+		<French>Geroskipou</French>
+		<German>
+			<Text>Yeroskipou</Text>
+		</German>
+		<Italian>Yeroskipou</Italian>
+		<Spanish>Yeroskipos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_TEMPLOS</Tag>
+		<English>
+			<Text>Templos</Text>
+		</English>
+		<French>Templos</French>
+		<German>
+			<Text>Templos</Text>
+		</German>
+		<Italian>Templos</Italian>
+		<Spanish>Templos</Spanish>
+	</TEXT>
+	<!--PORTUGUESE CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SOCOTRA</Tag>
+		<English>
+			<Text>Socotra</Text>
+		</English>
+		<French>Socotra</French>
+		<German>
+			<Text>Socotra</Text>
+		</German>
+		<Italian>Socotra</Italian>
+		<Spanish>Socotra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_BOJADOR</Tag>
+		<English>
+			<Text>Bojador</Text>
+		</English>
+		<French>Bojador</French>
+		<German>
+			<Text>Bojador</Text>
+		</German>
+		<Italian>Bojador</Italian>
+		<Spanish>Bojador</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_FERNANDO_PO</Tag>
+		<English>
+			<Text>Fernando Po</Text>
+		</English>
+		<French>Fernando Poo</French>
+		<German>
+			<Text>Fernando Po</Text>
+		</German>
+		<Italian>Fernando Po</Italian>
+		<Spanish>Fernando P&#243;o</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ANNOBON</Tag>
+		<English>
+			<Text>Annobon</Text>
+		</English>
+		<French>Annobon</French>
+		<German>
+			<Text>Annobon</Text>
+		</German>
+		<Italian>Annobon</Italian>
+		<Spanish>Annob&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_PORTO_SANTO</Tag>
+		<English>
+			<Text>Porto Santo</Text>
+		</English>
+		<French>Porto Santo</French>
+		<German>
+			<Text>Porto Santo</Text>
+		</German>
+		<Italian>Porto Santo</Italian>
+		<Spanish>Porto Santo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_BRAVA</Tag>
+		<English>
+			<Text>Brava</Text>
+		</English>
+		<French>Brava</French>
+		<German>
+			<Text>Brava</Text>
+		</German>
+		<Italian>Brava</Italian>
+		<Spanish>Brava</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_BOA_ESPERANCA</Tag>
+		<English>
+			<Text>Boa Esperanca</Text>
+		</English>
+		<French>Bonne-Esp&#233;rance</French>
+		<German>
+			<Text>Boa Esperanca</Text>
+		</German>
+		<Italian>Buona Speranza</Italian>
+		<Spanish>Boa Esperan&#231;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_HORMUZ</Tag>
+		<English>
+			<Text>Homruz</Text>
+		</English>
+		<French>Ormuz</French>
+		<German>
+			<Text>Homruz</Text>
+		</German>
+		<Italian>Hormuz</Italian>
+		<Spanish>Ormuz</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ANGRA_DO_HEROISMO</Tag>
+		<English>
+			<Text>Angra do Heroismo</Text>
+		</English>
+		<French>Angra do Hero&#239;smo</French>
+		<German>
+			<Text>Angra do Heroismo</Text>
+		</German>
+		<Italian>Angra do Hero&#237;smo</Italian>
+		<Spanish>Angra do Heroismo</Spanish>
+	</TEXT>
+	<!--VENETIAN CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_TANA</Tag>
+		<English>
+			<Text>Tana</Text>
+		</English>
+		<French>Tana</French>
+		<German>
+			<Text>Tana</Text>
+		</German>
+		<Italian>Tana</Italian>
+		<Spanish>Tana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_VERONA</Tag>
+		<English>
+			<Text>Verona</Text>
+		</English>
+		<French>V&#233;rone</French>
+		<German>
+			<Text>Verona</Text>
+		</German>
+		<Italian>Verona</Italian>
+		<Spanish>Verona</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ROVIGO</Tag>
+		<English>
+			<Text>Rovigo</Text>
+		</English>
+		<French>Rovigo</French>
+		<German>
+			<Text>Rovigo</Text>
+		</German>
+		<Italian>Rovigo</Italian>
+		<Spanish>Rovigo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_PADOVA</Tag>
+		<English>
+			<Text>Padova</Text>
+		</English>
+		<French>Padoue</French>
+		<German>
+			<Text>Padua</Text>
+		</German>
+		<Italian>Padova</Italian>
+		<Spanish>Padua</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_TRESVISO</Tag>
+		<English>
+			<Text>Tresviso</Text>
+		</English>
+		<French>Tr&#233;vise</French>
+		<German>
+			<Text>Tresviso</Text>
+		</German>
+		<Italian>Treviso</Italian>
+		<Spanish>Treviso</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_VINCENZA</Tag>
+		<English>
+			<Text>Vincenza</Text>
+		</English>
+		<French>Vicence</French>
+		<German>
+			<Text>Vincenza</Text>
+		</German>
+		<Italian>Vicenza</Italian>
+		<Spanish>Vicenza</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_BELLUNO</Tag>
+		<English>
+			<Text>Belluno</Text>
+		</English>
+		<French>Belluno</French>
+		<German>
+			<Text>Belluno</Text>
+		</German>
+		<Italian>Belluno</Italian>
+		<Spanish>Belluno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_MURANO</Tag>
+		<English>
+			<Text>Murano</Text>
+		</English>
+		<French>Murano</French>
+		<German>
+			<Text>Murano</Text>
+		</German>
+		<Italian>Murano</Italian>
+		<Spanish>Murano</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_LIDO</Tag>
+		<English>
+			<Text>Lido</Text>
+		</English>
+		<French>Lido</French>
+		<German>
+			<Text>Lido</Text>
+		</German>
+		<Italian>Lido</Italian>
+		<Spanish>Lido</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_MESTRE</Tag>
+		<English>
+			<Text>Mestre</Text>
+		</English>
+		<French>Mestre</French>
+		<German>
+			<Text>Mestre</Text>
+		</German>
+		<Italian>Mestre</Italian>
+		<Spanish>Mestre</Spanish>
+	</TEXT>
+	<!--GENOAN CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_TREBIZOND</Tag>
+		<English>
+			<Text>Trebizond</Text>
+		</English>
+		<French>Tr&#233;bizonde</French>
+		<German>
+			<Text>Trapezunt</Text>
+		</German>
+		<Italian>Trebisonda</Italian>
+		<Spanish>Trebisonda</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_OLD_PHOKAIA</Tag>
+		<English>
+			<Text>Old Phokaia</Text>
+		</English>
+		<French>Phoc&#233;e</French>
+		<German>
+			<Text>Phokaia</Text>
+		</German>
+		<Italian>Phokaia vecchia</Italian>
+		<Spanish>Antigua Fokaia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KAFFA</Tag>
+		<English>
+			<Text>Kaffa</Text>
+		</English>
+		<French>Caffa</French>
+		<German>
+			<Text>Kaffa</Text>
+		</German>
+		<Italian>Kaffa</Italian>
+		<Spanish>Kaffa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KILIA</Tag>
+		<English>
+			<Text>Kilia</Text>
+		</English>
+		<French>Kilia</French>
+		<German>
+			<Text>Kilia</Text>
+		</German>
+		<Italian>Kilia</Italian>
+		<Spanish>Kilia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_CRIMEA</Tag>
+		<English>
+			<Text>Crimea</Text>
+		</English>
+		<French>Crim&#233;e</French>
+		<German>
+			<Text>Crimea</Text>
+		</German>
+		<Italian>Crimea</Italian>
+		<Spanish>Crimea</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SINOP</Tag>
+		<English>
+			<Text>Sinop</Text>
+		</English>
+		<French>Sinope</French>
+		<German>
+			<Text>Sinop</Text>
+		</German>
+		<Italian>Sinop</Italian>
+		<Spanish>Sinop</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ODESSA</Tag>
+		<English>
+			<Text>Odessa</Text>
+		</English>
+		<French>Odessa</French>
+		<German>
+			<Text>Odessa</Text>
+		</German>
+		<Italian>Odessa</Italian>
+		<Spanish>Odesa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_YALTA</Tag>
+		<English>
+			<Text>Yalta</Text>
+		</English>
+		<French>Yalta</French>
+		<German>
+			<Text>Yalta</Text>
+		</German>
+		<Italian>Yalta</Italian>
+		<Spanish>Yalta</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_VARNA</Tag>
+		<English>
+			<Text>Varna</Text>
+		</English>
+		<French>Varna</French>
+		<German>
+			<Text>Varna</Text>
+		</German>
+		<Italian>Varna</Italian>
+		<Spanish>Varna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_BONIFACIO</Tag>
+		<English>
+			<Text>Bonifacio</Text>
+		</English>
+		<French>Bonifacio</French>
+		<German>
+			<Text>Bonifacio</Text>
+		</German>
+		<Italian>Bonifacio</Italian>
+		<Spanish>Bonifacio</Spanish>
+	</TEXT>
+	<!--KANEM CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KANEM</Tag>
+		<English>
+			<Text>Kanem</Text>
+		</English>
+		<French>Kanem</French>
+		<German>
+			<Text>Kanem</Text>
+		</German>
+		<Italian>Kanem</Italian>
+		<Spanish>Kanem</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_BORNO</Tag>
+		<English>
+			<Text>Borno</Text>
+		</English>
+		<French>Bornou</French>
+		<German>
+			<Text>Bornu</Text>
+		</German>
+		<Italian>Bornu</Italian>
+		<Spanish>Borno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_NJIMI</Tag>
+		<English>
+			<Text>Njimi</Text>
+		</English>
+		<French>Njimi</French>
+		<German>
+			<Text>Njimi</Text>
+		</German>
+		<Italian>Njimi</Italian>
+		<Spanish>Njimi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_NGAZARGAMU</Tag>
+		<English>
+			<Text>Ngazargamu</Text>
+		</English>
+		<French>Ngazargamu</French>
+		<German>
+			<Text>Ngazargamu</Text>
+		</German>
+		<Italian>Ngazargamu</Italian>
+		<Spanish>Ngazargamu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KANO</Tag>
+		<English>
+			<Text>Kano</Text>
+		</English>
+		<French>Kano</French>
+		<German>
+			<Text>Kano</Text>
+		</German>
+		<Italian>Kano</Italian>
+		<Spanish>Kano</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_OUADDI</Tag>
+		<English>
+			<Text>Ouaddi</Text>
+		</English>
+		<French>Ouaddi</French>
+		<German>
+			<Text>Ouaddi</Text>
+		</German>
+		<Italian>Ouaddi</Italian>
+		<Spanish>Ouaddai</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ABECHE</Tag>
+		<English>
+			<Text>Abeche</Text>
+		</English>
+		<French>Ab&#233;ch&#233;</French>
+		<German>
+			<Text>Abeche</Text>
+		</German>
+		<Italian>Abeche</Italian>
+		<Spanish>Ab&#233;ch&#233;</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_MURZUK</Tag>
+		<English>
+			<Text>Murzuk</Text>
+		</English>
+		<French>Mourzouk</French>
+		<German>
+			<Text>Murzuk</Text>
+		</German>
+		<Italian>Murzuk</Italian>
+		<Spanish>Murzuq</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KUKAWA</Tag>
+		<English>
+			<Text>Kukawa</Text>
+		</English>
+		<French>Kukawa</French>
+		<German>
+			<Text>Kukawa</Text>
+		</German>
+		<Italian>Kukawa</Italian>
+		<Spanish>Kukawa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KIRINA</Tag>
+		<English>
+			<Text>Kirina</Text>
+		</English>
+		<French>Kirina</French>
+		<German>
+			<Text>Kirina</Text>
+		</German>
+		<Italian>Kirina</Italian>
+		<Spanish>Kirina</Spanish>
+	</TEXT>
+	<!--DELHI CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_DAULATABAD</Tag>
+		<English>
+			<Text>Daulatabad</Text>
+		</English>
+		<French>Daulatabad</French>
+		<German>
+			<Text>Daulatabad</Text>
+		</German>
+		<Italian>Daulatabad</Italian>
+		<Spanish>Daulatabad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_LAKHNAUTI</Tag>
+		<English>
+			<Text>Lakhnauti</Text>
+		</English>
+		<French>Lakhnauti</French>
+		<German>
+			<Text>Lakhnauti</Text>
+		</German>
+		<Italian>Lakhnauti</Italian>
+		<Spanish>Lakhnauti</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SALGAUN</Tag>
+		<English>
+			<Text>Salgaun</Text>
+		</English>
+		<French>Salgaun</French>
+		<German>
+			<Text>Salgaun</Text>
+		</German>
+		<Italian>Salgaun</Italian>
+		<Spanish>Salugan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_DARULIISLAM</Tag>
+		<English>
+			<Text>Darul-I-Islam</Text>
+		</English>
+		<French>Darul-I-Islam</French>
+		<German>
+			<Text>Darul-I-Islam</Text>
+		</German>
+		<Italian>Darul-I-Islam</Italian>
+		<Spanish>Darul-I-Islam</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SULTANPUR</Tag>
+		<English>
+			<Text>Sultanpur</Text>
+		</English>
+		<French>Sultanpur</French>
+		<German>
+			<Text>Sultanpur</Text>
+		</German>
+		<Italian>Sultanpur</Italian>
+		<Spanish>Sultanpur</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_TUGHLAQPUR</Tag>
+		<English>
+			<Text>Tughlaqpur</Text>
+		</English>
+		<French>Tughlaqpur</French>
+		<German>
+			<Text>Tughlaqpur</Text>
+		</German>
+		<Italian>Tughlaqpur</Italian>
+		<Spanish>Tughlaqpur</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_MULKITILANG</Tag>
+		<English>
+			<Text>Mulk-I-Tilang</Text>
+		</English>
+		<French>Mulk-I-Tilang</French>
+		<German>
+			<Text>Mulk-I-Tilang</Text>
+		</German>
+		<Italian>Mulk-I-Tilang</Italian>
+		<Spanish>Mulk-I-Tilang</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_HISAR</Tag>
+		<English>
+			<Text>Hisar</Text>
+		</English>
+		<French>Hisar</French>
+		<German>
+			<Text>Hisar</Text>
+		</German>
+		<Italian>Hisar</Italian>
+		<Spanish>Hisar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SEVI</Tag>
+		<English>
+			<Text>Sevi</Text>
+		</English>
+		<French>Sevi</French>
+		<German>
+			<Text>Sevi</Text>
+		</German>
+		<Italian>Sevi</Italian>
+		<Spanish>Sevi</Spanish>
+	</TEXT>
+	<!--ADAL CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ADAL</Tag>
+		<English>
+			<Text>Adal</Text>
+		</English>
+		<French>Adal</French>
+		<German>
+			<Text>Adal</Text>
+		</German>
+		<Italian>Adal</Italian>
+		<Spanish>Adal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SHEWA</Tag>
+		<English>
+			<Text>Shewa</Text>
+		</English>
+		<French>Shewa</French>
+		<German>
+			<Text>Shewa</Text>
+		</German>
+		<Italian>Shewa</Italian>
+		<Spanish>Shewa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_IFAT</Tag>
+		<English>
+			<Text>Ifat</Text>
+		</English>
+		<French>Ifat</French>
+		<German>
+			<Text>Ifat</Text>
+		</German>
+		<Italian>Ifat</Italian>
+		<Spanish>Ifat</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ZEILA</Tag>
+		<English>
+			<Text>Zeila</Text>
+		</English>
+		<French>Zeila</French>
+		<German>
+			<Text>Zeila</Text>
+		</German>
+		<Italian>Zeila</Italian>
+		<Spanish>Zeila</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_BERBERA</Tag>
+		<English>
+			<Text>Berbera</Text>
+		</English>
+		<French>Berbera</French>
+		<German>
+			<Text>Berbera</Text>
+		</German>
+		<Italian>Berbera</Italian>
+		<Spanish>Berbera</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_BOSASO</Tag>
+		<English>
+			<Text>Bosaso</Text>
+		</English>
+		<French>Bosaso</French>
+		<German>
+			<Text>Bosaso</Text>
+		</German>
+		<Italian>Bosaso</Italian>
+		<Spanish>Bosaso</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_GAROOWE</Tag>
+		<English>
+			<Text>Garoowe</Text>
+		</English>
+		<French>Garoe</French>
+		<German>
+			<Text>Garoowe</Text>
+		</German>
+		<Italian>Garoowe</Italian>
+		<Spanish>Garoowe</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_HARAR</Tag>
+		<English>
+			<Text>Harar</Text>
+		</English>
+		<French>Harar</French>
+		<German>
+			<Text>Harar</Text>
+		</German>
+		<Italian>Harar</Italian>
+		<Spanish>Harar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_MAIT</Tag>
+		<English>
+			<Text>Mait</Text>
+		</English>
+		<French>Mait</French>
+		<German>
+			<Text>Mait</Text>
+		</German>
+		<Italian>Mait</Italian>
+		<Spanish>Mait</Spanish>
+	</TEXT>
+	<!--ILKHAN CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_AMOL</Tag>
+		<English>
+			<Text>Amol</Text>
+		</English>
+		<French>Amol</French>
+		<German>
+			<Text>Amol</Text>
+		</German>
+		<Italian>Amol</Italian>
+		<Spanish>Amol</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_NISHAPUR</Tag>
+		<English>
+			<Text>Nishapur</Text>
+		</English>
+		<French>Nichapour</French>
+		<German>
+			<Text>Nishapur</Text>
+		</German>
+		<Italian>Nishapur</Italian>
+		<Spanish>Nishapur</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ISFAHAN</Tag>
+		<English>
+			<Text>Isfahan</Text>
+		</English>
+		<French>Ispahan</French>
+		<German>
+			<Text>Isfahan</Text>
+		</German>
+		<Italian>Isfahan</Italian>
+		<Spanish>Isfah&#225;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SUGURLUKH</Tag>
+		<English>
+			<Text>Sugurlukh</Text>
+		</English>
+		<French>Sugurlukh</French>
+		<German>
+			<Text>Sugurlukh</Text>
+		</German>
+		<Italian>Sugurlukh</Italian>
+		<Spanish>Sugurlukh</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SULTANYYA</Tag>
+		<English>
+			<Text>Sultanyya</Text>
+		</English>
+		<French>Sultaniyya</French>
+		<German>
+			<Text>Sultanyya</Text>
+		</German>
+		<Italian>Sultanyya</Italian>
+		<Spanish>Sultaniyya</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ARRAN</Tag>
+		<English>
+			<Text>Arran</Text>
+		</English>
+		<French>Arran</French>
+		<German>
+			<Text>Arran</Text>
+		</German>
+		<Italian>Arran</Italian>
+		<Spanish>Arr&#225;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_TABRIZ</Tag>
+		<English>
+			<Text>Tabriz</Text>
+		</English>
+		<French>Tabriz</French>
+		<German>
+			<Text>Tabriz</Text>
+		</German>
+		<Italian>Tabriz</Italian>
+		<Spanish>Tabriz</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_MARAGHA</Tag>
+		<English>
+			<Text>Maragha</Text>
+		</English>
+		<French>Maragheh</French>
+		<German>
+			<Text>Maragha</Text>
+		</German>
+		<Italian>Maragha</Italian>
+		<Spanish>Maragha</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KONYA</Tag>
+		<English>
+			<Text>Konya</Text>
+		</English>
+		<French>Konya</French>
+		<German>
+			<Text>Konya</Text>
+		</German>
+		<Italian>Konya</Italian>
+		<Spanish>Konya</Spanish>
+	</TEXT>
+	<!--MAKURIAN CITIES-->
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_DONGOLA</Tag>
+		<English>
+			<Text>Dongola</Text>
+		</English>
+		<French>Dongola</French>
+		<German>
+			<Text>Dongola</Text>
+		</German>
+		<Italian>Dongola</Italian>
+		<Spanish>Dongola</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_FARAS</Tag>
+		<English>
+			<Text>Faras</Text>
+		</English>
+		<French>Faras</French>
+		<German>
+			<Text>Faras</Text>
+		</German>
+		<Italian>Faras</Italian>
+		<Spanish>Faras</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SWENET</Tag>
+		<English>
+			<Text>Swenet</Text>
+		</English>
+		<French>Sy&#232;ne</French>
+		<German>
+			<Text>Swenet</Text>
+		</German>
+		<Italian>Swenet</Italian>
+		<Spanish>Swenet</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_TAIFA</Tag>
+		<English>
+			<Text>Taifa</Text>
+		</English>
+		<French>Taifa</French>
+		<German>
+			<Text>Taifa</Text>
+		</German>
+		<Italian>Taifa</Italian>
+		<Spanish>Taifa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_QASR_IBRIM</Tag>
+		<English>
+			<Text>Qasr Ibrim</Text>
+		</English>
+		<French>Qasr Ibrim</French>
+		<German>
+			<Text>Qasr Ibrim</Text>
+		</German>
+		<Italian>Qasr Ibrim</Italian>
+		<Spanish>Qasr Ibrim</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_HALLANGA</Tag>
+		<English>
+			<Text>Hallanga</Text>
+		</English>
+		<French>Hallanga</French>
+		<German>
+			<Text>Hallanga</Text>
+		</German>
+		<Italian>Hallanga</Italian>
+		<Spanish>Halang&#225;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_KORH</Tag>
+		<English>
+			<Text>Korh</Text>
+		</English>
+		<French>Korh</French>
+		<German>
+			<Text>Korh</Text>
+		</German>
+		<Italian>Korh</Italian>
+		<Spanish>Jor</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_MOSLIO</Tag>
+		<English>
+			<Text>Moslio</Text>
+		</English>
+		<French>Moslio</French>
+		<German>
+			<Text>Moslio</Text>
+		</German>
+		<Italian>Moslio</Italian>
+		<Spanish>Moslio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_SOGOUT</Tag>
+		<English>
+			<Text>Sogout</Text>
+		</English>
+		<French>Sogut</French>
+		<German>
+			<Text>Sogout</Text>
+		</German>
+		<Italian>Sogout</Italian>
+		<Spanish>Sogot</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_TAKA</Tag>
+		<English>
+			<Text>Taka</Text>
+		</English>
+		<French>Taka</French>
+		<German>
+			<Text>Taka</Text>
+		</German>
+		<Italian>Taka</Italian>
+		<Spanish>Taka</Spanish>
+	</TEXT>
+	<!-- MISC -->
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TOBACCO</Tag>
+		<English>
+			<Text>Tea</Text>
+		</English>
+		<French>Th&#233;</French>
+		<German>
+			<Text>Tea</Text>
+		</German>
+		<Italian>T&#232;</Italian>
+		<Spanish>T&#233;</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ZAFA</Tag>
+		<English>
+			<Text>Zafa</Text>
+		</English>
+		<French>Zafa</French>
+		<German>
+			<Text>Zafa</Text>
+		</German>
+		<Italian>Zafa</Italian>
+		<Spanish>Zafa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MAMLUK</Tag>
+		<English>
+			<Text>Mamluk</Text>
+		</English>
+		<French>Mamelouk</French>
+		<German>
+			<Text>Mameluke</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Mamelucco</Italian>
+		<Spanish>Mameluco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MARISTAN</Tag>
+		<English>
+			<Text>Maristan</Text>
+		</English>
+		<French>Maristan</French>
+		<German>
+			<Text>Maristan</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Maristan</Italian>
+		<Spanish>Maristan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AMBA</Tag>
+		<English>
+			<Text>Amba</Text>
+		</English>
+		<French>Amba</French>
+		<German>
+			<Text>Amba</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Amba</Italian>
+		<Spanish>Amba</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_CAIRO</Tag>
+		<English>Cairo</English>
+		<French>Caire</French>
+		<German>Kairo</German>
+		<Italian>Il Cairo</Italian>
+		<Spanish>Cairo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_COMMERCE</Tag>
+		<English>Commerce</English>
+		<French>Commerce</French>
+		<German>Wirtschaft</German>
+		<Italian>Commercio</Italian>
+		<Spanish>Comercio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_CROSSROADS</Tag>
+		<English>Crossroads of the World Concepts</English>
+		<French>Carrefours des concepts mondiaux</French>
+		<German>Crossroads Of The World-Konzepte</German>
+		<Italian>Nozioni di Crocevia del mondo</Italian>
+		<Spanish>Conceptos de Crossroads of the World</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_2</Tag>
+		<English>
+			<Text>Portuguese Tradesmen's Guild</Text>
+		</English>
+		<French>Guilde des marchands portugais</French>
+		<German>
+			<Text>Portugiesische Handelsgilde</Text>
+		</German>
+		<Italian>Gilda dei commercianti portoghesi</Italian>
+		<Spanish>Gremio Portugu&#233;s de Artesanos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_1</Tag>
+		<English>
+			<Text>Fishermongers of Cyprus</Text>
+		</English>
+		<French>Poissonniers de Chypre</French>
+		<German>
+			<Text>Fischh&#228;ndler von Zypern</Text>
+		</German>
+		<Italian>Fishermongers of Cyprus</Italian>
+		<Spanish>Pescaderos de Chipre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_DARIUS</Tag>
+		<English>
+			<Text>Hashem of Hejaz</Text>
+		</English>
+		<French>Hashem de Hejaz</French>
+		<German>
+			<Text>Haschem von Hedschas</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Hashem di Hejaz</Italian>
+		<Spanish>Hashem de Hejaz</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_JUSTINIAN_I</Tag>
+		<English>
+			<Text>Bohemond</Text>
+		</English>
+		<French>Bohemond</French>
+		<German>
+			<Text>Bohemund</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bohemond</Italian>
+		<Spanish>Bohemundo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_HAMMURABI</Tag>
+		<English>
+			<Text>Al-Musta'sim</Text>
+		</English>
+		<French>Al-Musta'sim</French>
+		<German>
+			<Text>Al-Musta'sim</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Al-Musta'sim</Italian>
+		<Spanish>Al-Musta'sim</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_SUMERIA_DESC</Tag>
+		<English>
+			<Text>Jiddah</Text>
+		</English>
+		<French>Djeddah</French>
+		<German>
+			<Text>Dschidda-Reich:Dschidda-Reich:Dschidda-Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Jiddah</Italian>
+		<Spanish>Dominio de Jiddah</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_SUMERIA_SHORT_DESC</Tag>
+		<English>
+			<Text>Jiddah</Text>
+		</English>
+		<French>Djeddah</French>
+		<German>
+			<Text>Dschidda</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Jiddah</Italian>
+		<Spanish>Jiddah</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_SUMERIA_ADJECTIVE</Tag>
+		<English>
+			<Text>Jiddan:Jiddans</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>de Djeddah</Text>
+			<Gender>Male:Male:Female:Female</Gender>
+			<Plural>0:1:0:1</Plural>
+		</French>
+		<German>
+			<Text>Dschiddaisch:dschiddaischen:dschiddaische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>di Jiddah:di Jiddah</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>jiddense:jiddense:jiddenses:jiddenses</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_BABYLON_DESC</Tag>
+		<English>
+			<Text>Baghdad</Text>
+		</English>
+		<French>Bagdad</French>
+		<German>
+			<Text>Bagdad-Reich:Bagdad-Reich:Bagdad-Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Baghdad</Italian>
+		<Spanish>Dominio de Bagdad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_BABYLON_SHORT_DESC</Tag>
+		<English>
+			<Text>Baghdad</Text>
+		</English>
+		<French>Bagdad</French>
+		<German>
+			<Text>Bagdad</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Baghdad</Italian>
+		<Spanish>Bagdad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_BABYLON_ADJECTIVE</Tag>
+		<English>
+			<Text>Persian:Persians</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>perse:perses:perse:perses</Text>
+			<Gender>Male:Male:Female:Female</Gender>
+			<Plural>0:1:0:1</Plural>
+		</French>
+		<German>
+			<Text>Persisch:persischen:persische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>della Persia:della Persia</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>persa:persa:persas:persas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_BYZANTIUM_DESC</Tag>
+		<English>
+			<Text>Antioch</Text>
+		</English>
+		<French>Antioche</French>
+		<German>
+			<Text>F&#252;rstentum Antiochia:F&#252;rstentum Antiochia:F&#252;rstentum Antiochia</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Antiochia</Italian>
+		<Spanish>Dominio de Antioqu&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_BYZANTIUM_SHORT_DESC</Tag>
+		<English>
+			<Text>Antioch</Text>
+		</English>
+		<French>Antioche</French>
+		<German>
+			<Text>Antiochia</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Antioch</Italian>
+		<Spanish>Antioqu&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_BYZANTIUM_ADJECTIVE</Tag>
+		<English>
+			<Text>Antioch:Antioch</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>d'Antioche:d'Antioche:d'Antioche:d'Antioche</Text>
+			<Gender>Male:Male:Female:Female</Gender>
+			<Plural>0:1:0:1</Plural>
+		</French>
+		<German>
+			<Text>Antiochisch:antiochischen:antiochische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>
+			<Text>di Antiochia:di Antiochia</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>de Antioqu&#237;a:de Antioqu&#237;a:de Antioqu&#237;a:de Antioqu&#237;a</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_RAIDERS</Tag>
+		<English>Raider</English>
+		<French>Pillard</French>
+		<German>
+			<Text>R&#228;uber</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Razziatore</Italian>
+		<Spanish>Bandido</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_ZARA_YAQOB</Tag>
+		<English>Zara Yaqob (Major)</English>
+		<French>Zara Yaqob (majeur)</French>
+		<German>
+			<Text>Zara Yaqob (Bedeutend)</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Zara Yaqob (Principale)</Italian>
+		<Spanish>Zara Yakub (Principal)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_MEHMED</Tag>
+		<English>Mehmed II (Major)</English>
+		<French>Mehmed II (majeur)</French>
+		<German>
+			<Text>Mehmet II. (Bedeutend)</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Mehmed II (Principale)</Italian>
+		<Spanish>Mehmet II (Principal)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_KUBLAI_KHAN_SR</Tag>
+		<English>Tamerlane (Major)</English>
+		<French>Tamerlan (majeur)</French>
+		<German>
+			<Text>Tamerlan (Bedeutend)</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tamerlano (Principale)</Italian>
+		<Spanish>Tamerl&#225;n (Principal)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_HANNIBAL_SR</Tag>
+		<English>Baibars (Major)</English>
+		<French>Ba&#239;bars (majeur)</French>
+		<German>
+			<Text>Baibars (Bedeutend)</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Baibars (Principale)</Italian>
+		<Spanish>Baibars (Principal)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_SALADIN_SR</Tag>
+		<English>Rasul (Major)</English>
+		<French>Rasul (majeur)</French>
+		<German>
+			<Text>Rasul (Bedeutend)</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Rasul (Principale)</Italian>
+		<Spanish>Rasul (Principal)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_RAIDERS_I</Tag>
+		<English>Raider II</English>
+		<French>Pillard II</French>
+		<German>
+			<Text>R&#228;uber II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Razziatore II</Italian>
+		<Spanish>Bandido II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_RAIDERS_II</Tag>
+		<English>Raider III</English>
+		<French>Pillard III</French>
+		<German>
+			<Text>R&#228;uber III</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Razziatore III</Italian>
+		<Spanish>Bandido III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_RAIDERS_III</Tag>
+		<English>Raider IV</English>
+		<French>Pillard IV</French>
+		<German>
+			<Text>R&#228;uber IV</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Razziatore IV</Italian>
+		<Spanish>Bandido IV</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_JIDDAH</Tag>
+		<English>Jiddah</English>
+		<French>Djeddah</French>
+		<German>Dschidda</German>
+		<Italian>Jiddah</Italian>
+		<Spanish>Dominio de Jiddah</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ZEBID</Tag>
+		<English>Zebid</English>
+		<French>Zebid</French>
+		<German>Zabid</German>
+		<Italian>Zebid</Italian>
+		<Spanish>Zebid</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_ASTRABAD</Tag>
+		<English>Astrabad</English>
+		<French>Astrabad</French>
+		<German>Astrabad</German>
+		<Italian>Astrabad</Italian>
+		<Spanish>Astrabad</Spanish>
+	</TEXT>
+</Civ4GameText>

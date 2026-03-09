@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - New -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<!--Please place any new text entries into this file-->
+	<TEXT>
+		<Tag>TXT_KEY_UHV_CAR1</Tag>
+		<English>Secure through trade or take control of 3 dye resources by 350 AD (Turn 138)</English>
+		<French>Se procurer par le commerce ou prendre le contrôle de 3 ressources de teinture avant 350 ap. J.-C. (Tour 138)</French>
+		<German>Sichern Sie sich bis zum Jahr 350 n. Chr. (Runde 138) 3 Färbemittel-Ressourcen über den Handel oder bringen Sie sie unter Ihre Kontrolle</German>
+		<Italian>Conquista o controlla con le rotte commerciali 3 fonti di tintura entro il 350 d.C. (turno 138)</Italian>
+		<Spanish>Hacerse con el control de 3 recursos de tintura o controlarlos mediante el intercambio en el 350 d. C. (turno 138)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_CAR2</Tag>
+		<English>Control 5 coastal cities in the Mediterranean in 350 AD (Turn 138)</English>
+		<French>Contrôler 5 villes côtières en Méditerranée en 350 ap. J.-C. (Tour 138)</French>
+		<German>Bringen Sie bis zum Jahr 350 n. Chr. (Runde 138) 7 Küstenstädte im Mittelmeerraum unter Ihre Kontrolle</German>
+		<Italian>Controlla 5 città costiere sul Mediterraneo entro il 350 d.C. (turno 138)</Italian>
+		<Spanish>Controlar 5 ciudades costeras del Mediterráneo en el 350 d. C. (turno 138)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_TUR2</Tag>
+		<English>Control the Balkans, the Black Sea and Mesopotamia in 1700 AD</English>
+		<French>Contrôler les Balkans, la Mer Noire et la Mésopotamie en 1700 ap. J.-C.</French>
+		<German>Bringen Sie bis zum Jahr 1700 n. Chr. den Balkan, das Schwarze Meer und Mesopotamien unter Ihre Kontrolle</German>
+		<Italian>Controlla Balcani, Mar Nero e Mesopotamia entro il 1700 d.C.</Italian>
+		<Spanish>Controlar los Balcanes, el Mar Negro y Mesopotamia en el 1700 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_TUR3</Tag>
+		<English>Have at least three vassal states in 1870 AD</English>
+		<French>Avoir au moins trois états vassaux en 1870 ap. J.-C.</French>
+		<German>Unterwerfen Sie bis zum Jahr 1870 n. Chr. mindestens 3 Vasallenstaaten</German>
+		<Italian>Devi avere almeno tre stati vassalli entro il 1870 d.C.</Italian>
+		<Spanish>Tener al menos tres estados vasallos en el 1870 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ETH2</Tag>
+		<English>Ensure there are no European colonies in East and Subequatorial Africa in 1500 AD</English>
+		<French>Aucune colonie européenne en Afrique orientale et subéquatoriale en 1500 ap. J.-C.</French>
+		<German>Lassen Sie vor 1500 n. Chr. keine europäischen Kolonien im östlichen und subäquatorialen Afrika zu</German>
+		<Italian>Non permettere alcuna colonia europea nell'Africa orientale e subequatoriale nel 1500 d.C.</Italian>
+		<Spanish>Asegurarse de que no existan colonias europeas en África ecuatorial y oriental en el 1500 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ETH3</Tag>
+		<English>Ensure there are no European colonies in East and Subequatorial Africa in 1910 AD</English>
+		<French>Aucune colonie européenne en Afrique orientale et subéquatoriale en 1910 ap. J.-C.</French>
+		<German>Lassen Sie vor 1910 n. Chr. keine europäischen Kolonien im östlichen und subäquatorialen Afrika zu</German>
+		<Italian>Non permettere alcuna colonia europea nell'Africa orientale e subequatoriale nel 1910 d.C.</Italian>
+		<Spanish>Asegurarse de que no existan colonias europeas en África ecuatorial y oriental en el 1910 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_KHM1</Tag>
+		<English>Have more than 12000 Culture in 1450 AD</English>
+		<French>Avoir plus de 12000 en Culture en 1450 ap. J.-C.</French>
+		<German>Erzielen Sie bis zum Jahr 1450 n. Chr. mehr als 12.000 Kulturpunkte</German>
+		<Italian>Devi avere più di 12.000 cultura entro il 1450 d.C.</Italian>
+		<Spanish>Conseguir una cultura superior a 12.000 en el 1450 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_HOL1</Tag>
+		<English>Be the Civ with the most revealed territory on your map in 1600 AD</English>
+		<French>Avoir la carte du monde la plus étendue en 1600 ap. J.-C.</French>
+		<German>Weisen Sie bis zum Jahr 1600 n. Ch. die am weitesten aufgedeckte Gebietskarte vor</German>
+		<Italian>Devi essere la civiltà con più terreno svelato sulla mappa nel 1600 d.C.</Italian>
+		<Spanish>Ser la civilización con más terreno del mapa revelado en el 1600 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_POR1</Tag>
+		<English>Be the Civ with the most revealed territory on your map in 1500 AD</English>
+		<French>Avoir la carte du monde la plus étendue en 1500 ap. J.-C.</French>
+		<German>Weisen Sie bis zum Jahr 1500 n. Ch. die am weitesten aufgedeckte Gebietskarte vor</German>
+		<Italian>Devi essere la civiltà con più terreno svelato sulla mappa nel 1500 d.C.</Italian>
+		<Spanish>Ser la civilización con más terreno del mapa revelado en el 1500 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_POR2</Tag>
+		<English>Have open borders agreement with 11 other civs in 1650 AD</English>
+		<French>Avoir un accord de libre passage avec 11 autres civilisations en 1650 ap. J.-C.</French>
+		<German>Schließen Sie bis zum Jahr 1650 n. Chr. Offene-Grenzen-Abkommen mit 11 anderen Zivilisationen</German>
+		<Italian>Devi aver abilitato il diritto di passaggio con altre 11 civiltà entro il 1650 d.C.</Italian>
+		<Spanish>Tener un acuerdo de apertura de fronteras con otras 11 civilizaciones en el 1650 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_AME1</Tag>
+		<English>Allow no European colonies in the North and Central America and in the Caribbean in 1900 AD</English>
+		<French>Aucune colonie européenne en Amérique septentrionale et centrale ou dans les Caraïbes en 1900 ap. J.-C.</French>
+		<German>Lassen Sie vor 1900 n. Chr. keine europäischen Städte in Nord- und Zentralamerika und in der Karibik zu</German>
+		<Italian>Non permettere alcuna colonia europea in Nord e Centro America e nei Caraibi nel 1900 d.C.</Italian>
+		<Spanish>No permitir colonias europeas en Norte y Centro America y el Caribe en el 1900 d.C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_INC1</Tag>
+		<English>Ensure there are no European settlements in South America (except Brazil) in 1600 AD</English>
+		<French>Aucune colonie européenne en Amérique du sud (sauf le Brésil) en 1600 ap. J.-C.</French>
+		<German>Lassen Sie vor 1600 n. Chr. keine europäischen Siedlungen in Südamerika (mit Ausnahme von Brasilien) zu</German>
+		<Italian>Non permettere alcuna colonia europea nel Sud America (eccetto il Brasile) nel 1600 d.C.</Italian>
+		<Spanish>Asegurarse de que no haya colonias europeas en América del Sur (excepto el Brasil) en el 1600 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_INC3</Tag>
+		<English>Ensure there are no European settlements in South America (except Brazil)  in 1800 AD</English>
+		<French>Aucune colonie européenne en Amérique du sud  (sauf le Brésil) en 1800 ap. J.-C.</French>
+		<German>Lassen Sie vor 1800 n. Chr. keine europäischen Siedlungen in Südamerika (mit Ausnahme von Brasilien) zu</German>
+		<Italian>Non permettere alcuna colonia europea nel Sud America (eccetto il Brasile)  nel 1800 d.C.</Italian>
+		<Spanish>Asegurarse de que no haya colonias europeas en América del Sur  (excepto el Brasil) en el 1800 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_MAL1</Tag>
+		<English>Have the most gold in the world in 1300 AD</English>
+		<French>Avoir le plus d'or en 1300 ap. J.-C.</French>
+		<German>Erwirtschaften Sie bis zum Jahr 1300 n. Chr. weltweit das meiste Gold</German>
+		<Italian>Devi avere la più grossa quantità di oro al mondo nel 1300 d.C.</Italian>
+		<Spanish>Tener más oro que nadie en el 1300 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_MAL2</Tag>
+		<English>Have 4000 gold in 1500 AD</English>
+		<French>Avoir 4000 en or en 1500 ap. J.-C.</French>
+		<German>Erwirtschaften Sie bis zum Jahr 1500 n. Chr. 4.000 Gold</German>
+		<Italian>Devi avere 4.000 oro nel 1500 d.C.</Italian>
+		<Spanish>Tener 4.000 monedas de oro en el 1500 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_MAL3</Tag>
+		<English>Have 16000 gold in 1700 AD</English>
+		<French>Avoir 16000 en or en 1700 ap. J.-C.</French>
+		<German>Erwirtschaften Sie bis zum Jahr 1700 n. Chr. 16.000 Gold</German>
+		<Italian>Devi avere 16.000 oro nel 1700 d.C.</Italian>
+		<Spanish>Tener 16.000 monedas de oro en el 1700 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_GER1</Tag>
+		<English>Control Rome, Greece and France in 1870 AD</English>
+		<French>Contrôler Rome, la Grèce et la France en 1870 ap. J.-C.</French>
+		<German>Bringen Sie bis zum Jahr 1870 n. Chr. Rom, Griechenland und Frankreich unter Ihre Kontrolle</German>
+		<Italian>Controlla Roma, Grecia e Francia nel 1870 d.C.</Italian>
+		<Spanish>Controlar Roma, Grecia y Francia en el 1870 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_GER2</Tag>
+		<English>Control Scandinavia, England and Russia in 1940 AD</English>
+		<French>Contrôler la Scandinavie, l'Angleterre et la Russie en 1940 ap. J.-C.</French>
+		<German>Bringen Sie bis zum Jahr 1940 n. Chr. Skandinavien, England und Russland unter Ihre Kontrolle</German>
+		<Italian>Controlla Scandinavia, Inghilterra e Russia nel 1940 d.C.</Italian>
+		<Spanish>Controlar Escandinavia, Inglaterra y Rusia en el 1940 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_FRA1</Tag>
+		<English>Make Paris the city with the highest culture in the world in 1700 AD</English>
+		<French>Faire de Paris la ville avec la culture la plus importante en 1700 ap. J.-C.</French>
+		<German>Machen Sie Paris bis zum Jahr 1700 n. Chr. zur kulturell bedeutendsten Stadt</German>
+		<Italian>Rendi Parigi la città con la cultura più alta nel mondo nel 1700 d.C.</Italian>
+		<Spanish>Convertir París en la ciudad con la mayor cultura del mundo en el 1700 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_SPA2</Tag>
+		<English>Ensure there are no English, French or Dutch colonies in the Americas in 1700 AD</English>
+		<French>Aucune ville anglaise, française ou n&#233;erlandaise construite en Amérique en 1700 ap. J.-C.</French>
+		<German>Lassen Sie im Jahr 1700 n. Chr. keine englischen, französischen oder holl&#228;ndischen Städte in Nordamerika zu</German>
+		<Italian>Non permettere alcuna colonia inglese, francese o olandese nel Nord America nel 1700 d.C.</Italian>
+		<Spanish>Asegurarse de que no haya ciudades inglesas, francesas o holandesas en América del Norte en el 1700 d.C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_SPA3</Tag>
+		<English>Control all Aztec and Incan territory in 1760 AD</English>
+		<French>Contrôler tous les territoires aztèques et incas en 1760 ap. J.-C.</French>
+		<German>Bringen Sie bis zum Jahr 1760 n. Chr.  das gesamte Territorium der Azteken und der Inka unter Ihre Kontrolle</German>
+		<Italian>Controlla tutti i territori inca e aztechi nel 1760 d.C.</Italian>
+		<Spanish>Controlar todo el territorio azteca e inca en el 1760 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ARA1</Tag>
+		<English>Control 3 Holy Cities in 1300 AD</English>
+		<French>Contrôler 3 villes saintes en 1300 ap. J.-C.</French>
+		<German>Bringen Sie bis zum Jahr 1300 n. Chr. 3 Heilige Städte unter Ihre Kontrolle</German>
+		<Italian>Controlla 3 Città Sante nel 1300 d.C.</Italian>
+		<Spanish>Controlar 3 ciudades santas en el 1300 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ROM1</Tag>
+		<English>Build 5 Barracks, 5 Aqueducts and 5 Amphitheatres by 450 AD (Turn 143)</English>
+		<French>Construire 5 Casernes, 5 Aqueducs, 5 amphithéâtres avant 450 ap. J.-C. (Tour 143)</French>
+		<German>Bauen Sie bis zum Jahr 450 n. Chr. (Runde 143) 5 Kasernen, 5 Aquädukten und 5 Amphitheatern</German>
+		<Italian>Devi costruire 5 caserme, 5 acquedotti e 5 anfiteatri entro il 450 d.C. (turno 143)</Italian>
+		<Spanish>Construir 5 cuarteles, 5 acueductos y 5 anfiteatros antes del 450 d. C. (turno 143)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_PER3</Tag>
+		<English>Control 2 holy city shrines in 700 AD (Turn 161)</English>
+		<French>Contrôler 2 autels de villes saintes en 700 ap. J.-C. (Tour 161)</French>
+		<German>Bringen Sie bis zum Jahr 700 n. Chr. (Runde 161) 2 Städte mit heiligen Schreinen unter Ihre Kontrolle</German>
+		<Italian>Devi controllare 2 santuari della Città Santa nel 700 d.C. (turno 161)</Italian>
+		<Spanish>Controlar 2 santuarios de ciudades santas en el 700 d. C. (turno 161)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWCIV_MESSAGE1</Tag>
+		<English>Do you wish to take permanent control of the </English>
+		<French>Voulez-vous prendre le contrôle permanent de la</French>
+		<German>Wollt Ihr die permanente Kontrolle über </German>
+		<Italian>Vuoi assumere il controllo permanente di </Italian>
+		<Spanish>¿Deseas tener el control permanente sobre </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_PLAYER_GOLDEN_AGE_BEGINS</Tag>
+		<English>The %s1_PlyrAdject Golden Age begins</English>
+		<French>L'âge d'or %s1:1_PlyrAdject commence</French>
+		<German>Für das %s1:3_PlyrAdject Reich beginnt ein Goldenes Zeitalter</German>
+		<Italian>L'Età dell'oro %s1_PlyrAdject inizia</Italian>
+		<Spanish>Empieza la edad de oro de %s1_PlyrAdject.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_PLAYER_GOLDEN_AGE_HAS_BEGUN</Tag>
+		<English>The %s1_PlyrAdject Golden Age has begun!!!</English>
+		<French>L'âge d'or %s1:1_PlyrAdject vient de commencer !</French>
+		<German>Für das %s1:3_PlyrAdject Reich hat das Goldene Zeitalter begonnen!!!</German>
+		<Italian>L'Età dell'oro %s1_PlyrAdject è iniziata!!!</Italian>
+		<Spanish>¡Ha empezado la edad de oro %s1_PlyrAdject!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_PLAYER_GOLDEN_AGE_ENDED</Tag>
+		<English>The %s1_PlyrAdject Golden Age has ended...</English>
+		<French>L'âge d'or %s1:1_PlyrAdject a pris fin...</French>
+		<German>Für das %s1:3_PlyrAdject Reich endet das Goldene Zeitalter ...</German>
+		<Italian>L'Età dell'oro %s1:2_PlyrAdject è finita...</Italian>
+		<Spanish>Ha terminado la edad de oro %s1_PlyrAdject...</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONGRESS_NOTIFY_YES</Tag>
+		<English>is passing under %s1 control</English>
+		<French>passe sous contrôle %s1</French>
+		<German>wird dem %s1:2 Volk übereignet</German>
+		<Italian>sta passando sotto il controllo di %s1</Italian>
+		<Spanish>pasa al control de %s1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWCIV_MESSAGE</Tag>
+		<English>Do you wish to take permanent control of the %s1 civilization?</English>
+		<French>Voulez-vous prendre le contrôle permanent de la civilisation %s1:2</French>
+		<German>Wollt Ihr die permanente Kontrolle über das %s1:3 Volk übernehmen?</German>
+		<Italian>Vuoi assumere il controllo permanente della civilt&#224; %s1:2?</Italian>
+		<Spanish>¿Deseas tomar el control permanente de la civilizaci&#243;n %s1:2?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_REBELLION_TEXT</Tag>
+		<English>%s1 cities have declared their independence from us and expelled our garrisons. Shall we leave them free?</English>
+		<French>Les villes %s1 ont déclaré leur indépendance et attaquent nos garnisons. Devons-nous les laisser libres ?</French>
+		<German>%s1:3 St&#228;dte haben ihre Unabh&#228;ngigkeit von uns erkl&#228;rt und unsere Garnisonen vertrieben. Sollen wir sie gewähren lassen?</German>
+		<Italian>Le citt&#224; %s1:4 hanno dichiarato la propria indipendenza, espellendo le nostre guarnigioni. Dobbiamo lasciarle libere?</Italian>
+		<Spanish>Las ciudades %s1:4 han declarado su independencia de nosotros y han expulsado a nuestras guarniciones. ¿Debemos permitir su libertad?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INDEPENDENCE_TEXT</Tag>
+		<English>%s1 cities have declared their independence from their foreign domination!</English>
+		<French>Les villes %s1 ont déclaré leur indépendance par rapport à la domination étrangère !</French>
+		<German>%s1:3 St&#228;dte haben ihre Unabh&#228;ngigkeit von der Fremdherrschaft erkl&#228;rt!</German>
+		<Italian>Le citt&#224; %s1:4 hanno dichiarato la propria indipendenza dal dominio straniero!</Italian>
+		<Spanish>Las ciudades %s1:4 han declarado su independencia del dominio extranjero.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EXILE_TEXT</Tag>
+		<English>You have been captured by the %s1:2 and exiled to the unimportant lands of %s2. You have a short period of time for retaking your capital and gain back your position.</English>
+		<French>Vous avez été capturé par les %s1 et exilé dans les terres inintéressantes de %s2. Vous avez peu de temps pour reprendre votre capitale et récupérer votre situation.</French>
+		<German>Ihr wurdet vom %s1:2 Volk gefangen genommen und seid ins Exil geschickt worden - in das unbedeutende %s2:3 Reich. Es bleibt Euch nur wenig Zeit, um Eure Hauptstadt zur&#252;ckzuerobern und Eure Position wiederzuerlangen.</German>
+		<Italian>Sei stato catturato dai %s1:3 ed esiliato nelle insignificanti terre di %s2. Hai un breve periodo di tempo per riprendere la tua capitale e riguadagnare la tua posizione.</Italian>
+		<Spanish>Habéis sido capturado por los %s1:3 y exiliado a las insignificantes tierras de %s2. Disponéis de un breve periodo de tiempo para recuperar vuestra capital y vuestra posición.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESCAPE_TEXT</Tag>
+		<English>You have escaped and regained control of %s1 territory. Now let's teach our enemies a lesson!</English>
+		<French>Vous vous êtes échappé et avez regagné le contrôle du territoire %s1. A présent, donnons une leçon à nos ennemis !</French>
+		<German>Ihr seid entkommen und habt die Kontrolle über das %s1:3 Gebiet wiedererlangt. Nun sollten wir unseren Feinden eine Lektion erteilen!</German>
+		<Italian>Sei riuscito a fuggire e a riguadagnare il controllo del territorio %s1. Ora diamo una bella lezione ai nostri nemici!</Italian>
+		<Spanish>Habéis escapado y recuperado el control del territorio %s1:1. ¡Démosles una lección a nuestros enemigos!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_STABILITY_GREAT_DEPRESSION_INFLUENCE</Tag>
+		<English>The period of Great Depression in the %s1 is negatively influencing our economy!</English>
+		<French>La période de Grande Dépression en %s1influence négativement notre économie ! </French>
+		<German>Die Phase der Gro&#223;en Depression im %s1:2 Reich hat negative Auswirkungen auf unsere Wirtschaft!</German>
+		<Italian>Il periodo di Grande Depressione nell'%s1 sta influenzando negativamente la nostra economia!</Italian>
+		<Spanish>¡El periodo de Gran Depresión de %s1 está afectando negativamente a nuestra economía!</Spanish>
+	</TEXT>
+</Civ4GameText>

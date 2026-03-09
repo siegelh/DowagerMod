@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ed Piper (Firaxis Games) -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_TEMPLE_PEDIA</Tag>
+		<English>[TAB]Ki, the Earth Mother, was the personification of the land and all its bounty. Drawing comfort from the mother earth, new temples of Ki provide a happiness bonus for access to Stone, Coal and Marble.</English>
+		<French>[TAB]Ki, la Grande M&#232;re, personnifiait la terre et toutes ses richesses. Gr&#226;ce aux bienfaits de la terre nourrici&#232;re, les nouveaux temples de Ki procurent un bonus de bonheur en donnant acc&#232;s &#224; la Pierre, au Charbon et au Marbre.</French>
+		<German>[TAB]Ki, die Erdmutter, verk&#246;rperte das Land und all dessen Reichtum. Neue Tempel der Ki spenden den Trost der Erde und bieten einen Zufriedenheitsbonus f&#252;r Zugriff auf Stein, Kohle und Marmor.</German>
+		<Italian>[TAB]Ki, la madre terra, era la personificazione della terra e dei suoi frutti. Ottenendo conforto dalla madre terra, i nuovi templi di Ki forniscono un bonus di felicit&#224; per l'accesso a Pietra, Carbone e Marmo.</Italian>
+		<Spanish>[TAB]Ki, la Madre tierra, era la personificaci&#243;n de la tierra y de sus dones. Al extraer consuelo de ella, los templos nuevos de Ki proporcionan una bonificaci&#243;n a la felicidad si cuentan con acceso a piedra, carb&#243;n y m&#225;rmol.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]Those that construct a cathedral to Ki, the Earth Goddess, will find the protective nature of the Earth Mother mustered to their side, providing them with a hefty defense bonus. </English>
+		<French>[TAB]Ceux qui construisent une cath&#233;drale d&#233;di&#233;e &#224; Ki, la d&#233;esse de la terre, se retrouvent plac&#233;s sous la protection de la Grande M&#232;re et b&#233;n&#233;ficient d'un important bonus de d&#233;fense.</French>
+		<German>[TAB]Wer Ki, der Erdg&#246;ttin, eine Kathedrale errichtet, wird den Schutz der Erdmutter auf seiner Seite wissen und einen bedeutsamen Defensivbonus erhalten.</German>
+		<Italian>[TAB]Coloro che costruiscono una cattedrale per Ki, la dea della terra, scopriranno la sua natura protettiva al proprio fianco, che fornisce loro un notevole bonus difensivo. </Italian>
+		<Spanish>[TAB]Quienes construyan una catedral consagrada a Ki, diosa de la tierra, recibir&#225;n una importante bonificaci&#243;n defensiva proporcionada por la naturaleza protectora de esta deidad. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_TEMPLE_PEDIA</Tag>
+		<English>[TAB]The primary temple to Enki, the Water God, was built on the edge of a vast swamp known as the Abzu, thought to be birthplace of humanity. New temples to Enki continue this tradition of connection to the waters by providing an experience bonus to all naval units.</English>
+		<French>[TAB]Le plus grand temple d&#233;di&#233; &#224; Enki, le dieu de l'eau, fut construit au bord d'un grand marais appel&#233; Aps&#251;, qui aurait &#233;t&#233; le berceau de l'humanit&#233;. Les nouveaux temples d'Enki entretiennent ce lien avec l'eau et procurent un bonus d'exp&#233;rience &#224; toutes les unit&#233;s navales.</French>
+		<German>[TAB]Der Haupttempel Enkis, des Wassergottes, wurde am Rand eines gewaltigen Sumpfes, genannt Abzu, errichtet und galt als Geburtsort der Menschheit. Neue Enki-Tempel setzen diese Tradition der N&#228;he zum Wasser fort, indem sie allen Marineeinheiten einen Erfahrungsbonus gew&#228;hren.</German>
+		<Italian>[TAB]Il tempio principale di Enki, il dio dell'acqua, era costruito al limitare di una vasta palude conosciuta come Abzu, che si pensava essere il luogo d'origine dell'umanit&#224;. I nuovi templi di Enki continuano questa tradizione di legame con le acque, dando un bonus di esperienza a tutte le unit&#224; navali.</Italian>
+		<Spanish>[TAB]El templo originario de Enki, dios del agua, se levantaba en el linde de una vasta ci&#233;naga conocida como el Abzu, a la que se consideraba el lugar de origen de la humanidad. Los templos nuevos de Enki prolongan esta tradici&#243;n de conexi&#243;n con las aguas, y proporcionan una bonificaci&#243;n de experiencia a todas las unidades navales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]Wherever Lord Enki, God of Fertility, steps, abundant growth follows. Those who build a cathedral to Enki will find that their city's water tiles provide an extra food.</English>
+		<French>[TAB]Partout o&#249; passe Enki, le dieu de la fertilit&#233;, les r&#233;coltes sont plus abondantes. Ceux qui construiront une cath&#233;drale d&#233;di&#233;e &#224; Enki d&#233;couvriront que les cases d'eau de leur ville produisent plus de nourriture.</French>
+		<German>[TAB]Wo immer F&#252;rst Enki, der Gott der Fruchtbarkeit, seinen Fu&#223; auf den Boden setzte, folgte &#252;ppiges Wachstum. Wer Enki eine Kathedrale errichtet, wird feststellen, dass die Wasser-Gel&#228;ndefelder zus&#228;tzliche Nahrung produzieren.</German>
+		<Italian>[TAB]Ovunque vada il signore Enki, dio della fertilit&#224;, lo segue un abbondante raccolto. Coloro che costruiscono una cattedrale a Enki scopriranno che le caselle di acqua delle loro citt&#224; producono un cibo extra.</Italian>
+		<Spanish>[TAB]All&#237; donde pone el pie lord Enki, dios de la fertilidad, la tierra se torna generosa. Quienes construyan una catedral consagrada a Enki recibir&#225;n una unidad de comida adicional en todas las casillas de agua de la ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_TEMPLE_PEDIA</Tag>
+		<English>[TAB]Those who construct a temple to Enlil, the Wind God, will discover that their arrows find their targets more easily, as all archers built in this city receive an experience bonus.</English>
+		<French>[TAB]Ceux qui construiront un temple d&#233;di&#233; &#224; Enlil, le dieu du vent, s'apercevront que leurs fl&#232;ches touchent plus souvent leurs cibles, car tous les archers form&#233;s dans cette ville b&#233;n&#233;ficieront d'un bonus d'exp&#233;rience.</French>
+		<German>[TAB]Wer Enlil, dem Windgott, einen Tempel baut, wird feststellen dass seine Pfeile ihr Ziel leichter finden, da alle in dieser Stadt gebauten Bogensch&#252;tzen einen Erfahrungsbonus erhalten.</German>
+		<Italian>[TAB]Coloro che costruiscono un tempio a Enlil, il dio del vento, scopriranno che le loro frecce trovano pi&#249; facilmente il bersaglio, visto che tutti gli arcieri costruiti in questa citt&#224; riceveranno un bonus di esperienza.</Italian>
+		<Spanish>[TAB]Quienes levanten un templo a Enlil, dios del viento, ver&#225;n que sus arqueros se vuelven m&#225;s certeros, puesto que todas las unidades de ese tipo construidas en esta ciudad recibir&#225;n una bonificaci&#243;n de experiencia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]For the truly devout, Enlil, God of the Winds, has been known to bend and twist the air, making flight nigh impossible for those who oppose his chosen. Cities with a cathedral dedicated to Enlil suffer significantly less damage from Air units.</English>
+		<French>[TAB]Enlil, le dieu du vent, peut manipuler l'air pour ceux qui ont foi en lui et rendre le vol presque impossible pour ceux qui s'opposent &#224; ses prot&#233;g&#233;s. Les unit&#233;s a&#233;riennes infligent bien moins de d&#233;g&#226;ts aux villes qui disposent d'une cath&#233;drale d&#233;di&#233;e &#224; Enlil.</French>
+		<German>[TAB]F&#252;r seine wahrhaft Gl&#228;ubigen, so wusste man, verbog und verdrehte Enlil, der Gott der Winde, die Luft und machte es jenen, die seine St&#228;dte bedrohten, nahezu unm&#246;glich zu fliehen. St&#228;dte mit einer Enlil-Kathedrale erleiden bedeutend weniger Schaden durch Lufteinheiten</German>
+		<Italian>[TAB]Si sa che Enlil, il dio dei venti, per i veri devoti &#232; pronto a piegare e agitare l'aria, rendendo impossibile il volo a coloro che si oppongono ai suoi prescelti. Le citt&#224; con una cattedrale dedicata a Enlil subiscono molti meno danni dalle unit&#224; aeree.</Italian>
+		<Spanish>[TAB]Tambi&#233;n se dice que Enlil, dios de los vientos, ha llegado a retorcer el aire mismo para sus seguidores m&#225;s devotos, haciendo que volar resultara casi imposible para sus enemigos. Las ciudades con una catedral consagrada a Enlil reciben mucho menos da&#241;o de los ataques realizados por unidades a&#233;reas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_TEMPLE_PEDIA</Tag>
+		<English>[TAB]The most prominent houses of worship dedicated to Inanna, the Goddess of Love and War, were constructed in Uruk, a city from which some of Sumeria's greatest heroes would rise, among them King Gilgamesh. Building a new temple to Inanna will tap into this warrior tradition and grant an experience bonus to all troops created in your city.</English>
+		<French>[TAB]Les plus grands lieux de culte d&#233;di&#233;s &#224; Inanna, d&#233;esse de l'amour et de la guerre, furent &#233;difi&#233;s &#224; Uruk. Cette ville vit na&#238;tre certains des plus grands h&#233;ros de Sumer, dont le roi Gilgamesh. En b&#226;tissant un nouveau temple d&#233;di&#233; &#224; Inanna, vous entretiendrez cette tradition guerri&#232;re et vous procurerez un bonus d'exp&#233;rience &#224; toutes les troupes form&#233;es dans votre ville.</French>
+		<German>[TAB]Die bedeutendsten Andachtsh&#228;user, die Inanna, der G&#246;ttin der Liebe und des Krieges, geweiht waren, wurden in Uruk gebaut, einer Stadt, aus der einiger der gr&#246;&#223;ten sumerischen Helden sich erheben sollten, darunter K&#246;nig Gilgamesch. Der Bau eines neuen Inanna-Tempels wird sich diese kriegerische Tradition zu Nutze machen und allen Truppen Eurer Stadt einen Erfahrungsbonus gew&#228;hren.</German>
+		<Italian>[TAB]Le pi&#249; importanti case di culto dedicate a Inanna, dea dell'amore e della guerra, furono costruite a Uruk, citt&#224; che vide nascere alcuni dei pi&#249; grandi eroi della Sumeria, tra cui re Gilgamesh. Costruendo un nuovo tempio a Inanna catturerai questa tradizione marziale e assicurerai un bonus di esperienza a tutte le truppe prodotte nella tua citt&#224;.</Italian>
+		<Spanish>[TAB]Las m&#225;s importantes casas de culto de Inanna, diosa del amor y la guerra, se encontraban en Uruk, ciudad de la que saldr&#237;an algunos de los mayores h&#233;roes de S&#250;mer, como por ejemplo el rey Gilgamesh. La construcci&#243;n de un templo consagrado a Inanna, heredero de esta tradici&#243;n guerrera, otorga una bonificaci&#243;n de experiencia a todas las tropas creadas en la ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]Inanna, Goddess of both Love and War, can calm or charge the hearts of her followers as she sees fit, decreasing war weariness in cities which construct a cathedral dedicated to her.</English>
+		<French>[TAB]Inanna, la d&#233;esse de l'amour et de la guerre, peut apaiser ses adorateurs ou leur donner du courage et ainsi r&#233;duire la lassitude due &#224; la guerre dans les villes &#233;rigeant une cath&#233;drale d&#233;di&#233;e &#224; son nom.</French>
+		<German>[TAB]Inanna, die G&#246;ttin der Liebe wie des Krieges, kann die Herzen ihrer Anh&#228;nger nach ihrem Gutd&#252;nken bes&#228;nftigen oder erz&#252;rnen, und mildert so die Kriegsm&#252;digkeit in St&#228;dten, die ihr eine Kathedrale errichten.</German>
+		<Italian>[TAB]Inanna, dea dell'amore e della guerra, pu&#242; calmare o infiammare a piacere i cuori dei suoi seguaci, diminuendo la Stanchezza della guerra nelle citt&#224; che le dedicano la costruzione di una cattedrale.</Italian>
+		<Spanish>[TAB]Inanna, diosa tanto del amor como de la guerra, puede calmar o inflamar los corazones de sus devotos, por lo que cualquier ciudad con una catedral consagrada a ella reducir&#225; el hast&#237;o b&#233;lico.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_TEMPLE_PEDIA</Tag>
+		<English>[TAB]Nanna, the Moon God, was known for his predictable nature, moving through the same series of phases with practiced regularity as he journeyed across the Heavens each evening. New temples to Nanna carry with them an aura of order, reducing city maintenance significantly.</English>
+		<French>[TAB]Nanna, le dieu de la lune, &#233;tait r&#233;put&#233; pour son temp&#233;rament pr&#233;visible, toujours identique suivant la phase de son voyage dans le ciel chaque soir. Les nouveaux temples d&#233;di&#233;s &#224; Nanna favorisent l'ordre et r&#233;duisent sensiblement les co&#251;ts d'entretien des villes.</French>
+		<German>[TAB]Nanna, der Mondgott, war f&#252;r seine vorhersehbare Natur bekannt, da er mit gewohnter Regelm&#228;&#223;igkeit auf seiner allabendlichen Reise &#252;ber den Himmel stets dieselben Phasen durchlief. Neue Nanna-Tempel bringen eine Aura der Ordnung mit sich und senken den Stadtunterhalt bedeutend.</German>
+		<Italian>[TAB]Nanna, il dio della luna, era conosciuto per la sua natura prevedibile, visto che passava attraverso le stesse fasi con regolarit&#224;, mentre viaggiava nei cieli ogni notte. I nuovi templi di Nanna portano con s&#233; un'aura di ordine, riducendo significativamente i costi di mantenimento della citt&#224;.</Italian>
+		<Spanish>[TAB]A Nanna, dios de la luna, se lo conoc&#237;a por su naturaleza predecible, que se manifestaba en la repetici&#243;n regular de las mismas fases en sus nocturnos periplos por el firmamento. Los nuevos templos de Nanna generan un aura de orden, lo que reduce de manera significativa los costes de mantenimiento de la ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]Followers of Nanna, constantly guiding their eyes skywards, were often more familiar with the movement of the heavens than most. Those fervent enough to construct a cathedral in the name of the Moon God will receive an ample science bonus, thanks to their dedication to the study of the skies.</English>
+		<French>[TAB]Les adorateurs de Nanna, constamment les yeux tourn&#233;s vers le ciel, connaissaient souvent mieux que quiconque le mouvement des astres dans les cieux. Ceux qui auront assez de ferveur pour construire une cath&#233;drale d&#233;di&#233;e au dieu de la lune recevront un important bonus de science, gr&#226;ce &#224; leur observation du ciel.</French>
+		<German>[TAB]Anh&#228;nger Nannas, die ihre Augen stets zum Himmel richteten, waren mit den Bewegungen am Firmament vertrauter als die Meisten. Jene, die eifrig genug im Glauben sind, um im Namen des Mondgottes eine Kathedrale zu errichten, erhalten einen gro&#223;z&#252;gigen Wissenschaftsbonus, dank ihrer Hingabe an die Erforschung des Himmels.</German>
+		<Italian>[TAB]I seguaci di Nanna, con gli occhi costantemente puntati al cielo, spesso avevano pi&#249; familiarit&#224; degli altri coi movimenti del cielo. Coloro abbastanza ferventi da costruire una cattedrale nel nome del dio della luna riceveranno un grande bonus di scienza, grazie alla loro dedizione allo studio dei cieli.</Italian>
+		<Spanish>[TAB]Los seguidores de Nanna estaban m&#225;s familiarizados que los dem&#225;s con los movimientos celestes, pues dirig&#237;an constantemente su mirada hacia las alturas. Quienes sean lo suficientemente fervorosos como para levantar una catedral en el nombre del dios de la luna recibir&#225;n una importante bonificaci&#243;n cient&#237;fica gracias a su dedicaci&#243;n al estudio de los cielos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_TEMPLE_PEDIA</Tag>
+		<English>[TAB]Utu, the Sun God and child of the Moon God, Nanna, took from his father a penchant for order, rising each morning and setting each night with practiced regularity. Continuing the family tradition of order, temples to Utu significantly reduce city maintenance.</English>
+		<French>[TAB]Utu, Dieu du soleil et fils de Nanna, le dieu de la lune, a h&#233;rit&#233; de son p&#232;re un certain go&#251;t de l'ordre. C'est pourquoi il se l&#232;ve tous les matins et se couche tous les soirs avec une grande r&#233;gularit&#233;. Perp&#233;tuant la tradition familiale pour l'ordre, les temples d'Utu r&#233;duisent sensiblement le co&#251;t d'entretien des villes.</French>
+		<German>[TAB]Utu, der Sonnengott, das Kind des Mondgottes Nanna, erbte von seinem Vater eine Vorliebe f&#252;r Ordnung, und ging regelm&#228;&#223;ig jeden Morgen auf und jeden Abend unter. Utu setzt die Familientradition der Ordnung durch und senkt den Stadtunterhalt betr&#228;chtlich.</German>
+		<Italian>[TAB]Utu, dio del sole e figlio del dio della luna, Nanna, eredit&#242; dal padre la passione per l'ordine, alzandosi cos&#236; ogni mattina e tornando a riposare ogni sera con regolarit&#224;. Continuando la tradizione familiari di ordine, i templi di Utu riducono significativamente il mantenimento delle citt&#224;.</Italian>
+		<Spanish>[TAB]Utu, dios del sol e hijo del dios de la luna, Nanna, hered&#243; de su padre el aprecio por el orden, que lo llevaba a levantarse cada ma&#241;ana y a ponerse cada noche con regularidad. Seguidores de esta tradici&#243;n del orden, los templos de Utu reducen de manera significativa los costes de mantenimiento de las ciudades.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]Utu was known to shine the light of knowledge down upon those who proved their devotion to him. Building a cathedral in the name of the Sun God will provide a significant science bonus to the city in which it is built.</English>
+		<French>[TAB]Utu &#233;tait connu pour transmettre la lumi&#232;re du savoir &#224; ceux qui lui prouvaient leur d&#233;votion. Une cath&#233;drale d&#233;di&#233;e au dieu du soleil procure un bonus de science important &#224; la ville dans laquelle elle est construite.</French>
+		<German>[TAB]Utu war daf&#252;r bekannt, dass er sein alle mit Wissen erleuchtete, die ihre Hingabe an ihn unter Beweis stellten. Eine Kathedrale im Namen des Sonnengottes verleiht jeder Stadt, in der sie gebaut wird, einen bedeutsamen Wissenschaftsbonus.</German>
+		<Italian>[TAB]Utu era conosciuto perch&#233; faceva risplendere la luce della conoscenza su coloro che gli dimostravano la propria devozione. Costruire una cattedrale in nome del dio del sole dar&#224; un importante bonus di scienza alla citt&#224; in cui sar&#224; costruita.</Italian>
+		<Spanish>[TAB]Se dec&#237;a que Utu iluminaba con los rayos del conocimientos a quienes le ofrec&#237;an su devoci&#243;n. Una catedral consagrada al dios del sol otorgar&#225; una importante bonificaci&#243;n cient&#237;fica a su ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_TEMPLE_PEDIA</Tag>
+		<English>[TAB]An, Lord of the Heavens, was originally worshipped in the city of Uruk, known for its impressive defenses and excellent warriors. Tapping into that tradition, new temples to An provide a bonus to units while defending.</English>
+		<French>[TAB]Souverain du ciel, An &#233;tait ador&#233; &#224; l'origine dans la ville d'Uruk, r&#233;put&#233;e pour ses d&#233;fenses impressionnantes et ses excellents guerriers. Dans cette tradition, les nouveaux temples d&#233;di&#233;s &#224; An procurent un bonus aux unit&#233;s quand elles se d&#233;fendent.</French>
+		<German>[TAB]An, der Herr des Himmels, wurde urspr&#252;nglich in der Stadt Uruk verehrt, die f&#252;r ihre beeindruckenden Verteidigungsanlagen und hervorragenden Krieger bekannt war. Im Anschluss an diese Tradition bieten neue An-Tempel verteidigenden Einheiten einen Bonus.</German>
+		<Italian>[TAB]An, signore dei cieli, era originariamente adorato nella citt&#224; di Uruk, conosciuta per le impressionanti difese e gli eccellenti guerrieri. Attingendo a quella tradizione, i nuovi templi di An danno bonus alle unit&#224; in difesa.</Italian>
+		<Spanish>[TAB]An, se&#241;or de los cielos, era originariamente un dios de la ciudad de Uruk, conocida por sus impresionantes defensas y sus formidables guerreros. Herederos de esta tradici&#243;n, los nuevos templos de An proporcionan una bonificaci&#243;n defensiva en el combate.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_CATHEDRAL_PEDIA</Tag>
+		<English>[TAB]An, Controller of the Heavens, assured for his most dedicated followers a blessed birth under only the most auspicious of heavenly signs. Building a cathedral in the name of An will increase the birth rate of Great People significantly.</English>
+		<French>[TAB]Ma&#238;tre du ciel, An veillait &#224; ce que les enfants de ses plus fervents adorateurs naissent sous les auspices c&#233;lestes les plus favorables. En construisant une cath&#233;drale d&#233;di&#233;e &#224; An, vous augmenterez sensiblement le taux de natalit&#233; des personnages illustres.</French>
+		<German>[TAB]An, Lenker des Himmels, versicherte seinen treuesten Anh&#228;ngern eine gesegnete Geburt unter den allerg&#252;nstigsten himmlischen Vorzeichen. Die Errichtung einer Kathedrale im Namen Ans erh&#246;ht die Geburtenrate Gro&#223;er V&#246;lker betr&#228;chtlich.</German>
+		<Italian>[TAB]An, sovrano dei cieli, assicurava ai propri seguaci pi&#249; assidui una nascita benedetta sotto i migliori auspici celesti. Costruire una cattedrale in nome di An far&#224; aumentare in maniera significativa il tasso di natalit&#224; del popolo.</Italian>
+		<Spanish>[TAB]An, amo de los cielos, aseguraba a sus m&#225;s devotos seguidores un nacimiento bajo los signos celestes m&#225;s favorables. La construcci&#243;n de una catedral en el nombre de An incrementa de manera significativa la tasa de natalidad de los grandes personajes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MONASTERY_PEDIA</Tag>
+		<English>[TAB]Building a monastery dedicated to a specific god allows for the construction of Missionaries in that god's name, as well as the construction of their dreaded Inquisitors. As an added bonus, monasteries also increase by ten percent the science output of the city in which they are built.</English>
+		<French>[TAB]En construisant un monast&#232;re d&#233;di&#233; &#224; un dieu pr&#233;cis, vous pourrez former des missionnaires au nom de ce dieu, et aussi former leurs redoutables inquisiteurs. Les monast&#232;res augmentent aussi la production scientifique de 10% dans la ville o&#249; ils sont construits.</French>
+		<German>[TAB]Der Bau eines einer bestimmten Gottheit gewidmeten Klosters erm&#246;glicht den Bau von Missionaren dieser Gottheit, sowie ihrer gef&#252;rchteten Inquisitoren. Als weiterer Bonus erh&#246;hen Kl&#246;ster auch den Wissenschaftsaussto&#223; der Stadt, in der sie gebaut werden, um zehn Prozent.</German>
+		<Italian>[TAB]Costruire un monastero dedicato a una specifica divinit&#224; permette di produrre Missionari nel nome di quel dio, cos&#236; come i temuti Inquisitori. Come bonus aggiuntivo, i monasteri aumentano anche del dieci percento la resa scientifica della citt&#224; in cui vengono costruiti.</Italian>
+		<Spanish>[TAB]Los monasterios dedicados a una deidad espec&#237;fica permiten construir misioneros de ese dios, as&#237; como sus temidos inquisidores. Adem&#225;s, los monasterios tambi&#233;n proporcionan un incremento del diez por ciento a la producci&#243;n cient&#237;fica de su ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SHRINE_PEDIA</Tag>
+		<English>[TAB]Building a shrine is an act of fervent devotion, one which any god will look upon with great favor. Constructing a shrine in a city immediately makes that city the Holy City of the god to which the shrine is dedicated. You may have only one shrine in a city.</English>
+		<French>[TAB]Construire un sanctuaire est un acte de grande d&#233;votion, consid&#233;r&#233; avec beaucoup de bienveillance par n'importe quel dieu. Si vous construisez un sanctuaire dans une ville, elle deviendra imm&#233;diatement la ville sainte du dieu auquel le sanctuaire est d&#233;di&#233;. Vous ne pouvez construire qu'un sanctuaire par ville.</French>
+		<German>[TAB]Die Errichtung eines Schreins ist ein Akt eifrigen Glaubens, und jede Gottheit wird mit gro&#223;en Wohlwollen darauf blicken. Die Errichtung eines Schreins in einer Stadt macht diese Stadt sofort zur Heiligen Stadt der Gottheit, der der Schrein geweiht ist. Sie k&#246;nnen nur einen Schrein pro Stadt haben.</German>
+		<Italian>[TAB]Costruire un santuario &#232; un atto di fervente devozione, su cui ogni divinit&#224; posa lo sguardo con piacere. Costruire un santuario in una citt&#224; la rende automaticamente la Citt&#224; santa del dio a cui &#232; dedicato. Puoi avere un solo santuario, in una citt&#224;.</Italian>
+		<Spanish>[TAB]La construcci&#243;n de un santuario es un acto de devoci&#243;n fervorosa que agradar&#225; a cualquier dios. La presencia de un santuario en una ciudad convierte inmediatamente a dicha urbe en la ciudad santa del dios al que est&#225; dedicado. Solo se puede tener un santuario por ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_TEMPLE_STRATEGY</Tag>
+		<English>All [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. [COLOR_BUILDING_TEXT]Temples of Ki[COLOR_REVERT] give more happiness from [COLOR_HIGHLIGHT_TEXT]Stone[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Coal[COLOR_REVERT], and [COLOR_HIGHLIGHT_TEXT]Marble[COLOR_REVERT].</English>
+		<French>Tous les [COLOR_BUILDING_TEXT]temples[COLOR_REVERT] am&#233;liorent le bonheur et la culture des villes. Les [COLOR_BUILDING_TEXT]temples de Ki[COLOR_REVERT] donnent plus de bonheur avec la [COLOR_HIGHLIGHT_TEXT]Pierre[COLOR_REVERT], le [COLOR_HIGHLIGHT_TEXT]Charbon[COLOR_REVERT] et le [COLOR_HIGHLIGHT_TEXT]Marbre[COLOR_REVERT].</French>
+		<German>Alle [COLOR_BUILDING_TEXT]Tempel[COLOR_REVERT] erh&#246;hen die Zufriedenheit und Kultur einer Stadt. [COLOR_BUILDING_TEXT]Ki-Tempel[COLOR_REVERT] gew&#228;hren mehr Zufriedenheit durch [COLOR_HIGHLIGHT_TEXT]Stein[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Kohle[COLOR_REVERT] und [COLOR_HIGHLIGHT_TEXT]Marmor[COLOR_REVERT].</German>
+		<Italian>Tutti i [COLOR_BUILDING_TEXT]templi[COLOR_REVERT] aumentano felicit&#224; e cultura di una citt&#224;. I [COLOR_BUILDING_TEXT]templi di Ki[COLOR_REVERT] danno pi&#249; felicit&#224; da [COLOR_HIGHLIGHT_TEXT]Pietra[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]Carbone[COLOR_REVERT] e [COLOR_HIGHLIGHT_TEXT]Marmo[COLOR_REVERT].</Italian>
+		<Spanish>Todos los [COLOR_BUILDING_TEXT]templos[COLOR_REVERT] aumentan la felicidad y la cultura de la ciudad. Los [COLOR_BUILDING_TEXT]templos de Ki[COLOR_REVERT] aumentan la felicidad si la ciudad cuenta con [COLOR_HIGHLIGHT_TEXT]piedra[COLOR_REVERT], [COLOR_HIGHLIGHT_TEXT]carb&#243;n[COLOR_REVERT] y [COLOR_HIGHLIGHT_TEXT]m&#225;rmol[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_CATHEDRAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Cathedral of Ki[COLOR_REVERT] greatly increases a city's cultural output. It makes a city's citizens happy (if the [COLOR_HIGHLIGHT_TEXT]Kian Religion[COLOR_REVERT] is the state religion). It will also provide +25% defensive bonus to the city.</English>
+		<French>La [COLOR_BUILDING_TEXT]Cath&#233;drale de Ki[COLOR_REVERT] augmente nettement la production de culture d'une ville. Elle rend les citoyens de la ville heureux (si le [COLOR_HIGHLIGHT_TEXT]Culte de Ki[COLOR_REVERT] est la religion d'Etat). Elle procure aussi un bonus d&#233;fensif de 25% &#224; la ville.</French>
+		<German>Die [COLOR_BUILDING_TEXT]Ki-Kathedrale[COLOR_REVERT] vergr&#246;&#223;ert den Kulturaussto&#223; einer Stadt betr&#228;chtlich. Sie macht die B&#252;rger einer Stadt gl&#252;cklich (wenn der [COLOR_HIGHLIGHT_TEXT]Ki-Glaube[COLOR_REVERT] Staatsreligion ist). Die Stadt erh&#228;lt au&#223;erdem einen Defensivbonus von +25%%.</German>
+		<Italian>La [COLOR_BUILDING_TEXT]cattedrale di Ki[COLOR_REVERT] aumenta notevolmente la produzione culturale della citt&#224;. Genera felicit&#224; tra i cittadini (se la [COLOR_HIGHLIGHT_TEXT]religione di Ki[COLOR_REVERT] &#232; quella di stato). Inoltre d&#224; +25% di bonus difensivo alla citt&#224;.</Italian>
+		<Spanish>La [COLOR_BUILDING_TEXT]catedral de Ki[COLOR_REVERT] aumenta mucho la producci&#243;n cultural de la ciudad. Tambi&#233;n hace felices a los habitantes (si el [COLOR_HIGHLIGHT_TEXT]culto de Ki[COLOR_REVERT] es la religi&#243;n oficial). Adem&#225;s, proporciona una bonificaci&#243;n defensiva de +25%% a la ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_MONASTERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Monasteries[COLOR_REVERT] allow you to create [COLOR_UNIT_TEXT]Missionaries[COLOR_REVERT] and [COLOR_UNIT_TEXT]Inquisitors[COLOR_REVERT]. They also provide culture and a slight boost to research.</English>
+		<French>Les [COLOR_BUILDING_TEXT]monast&#232;res[COLOR_REVERT] vous permettent de former des [COLOR_UNIT_TEXT]Missionnaires[COLOR_REVERT] et des [COLOR_UNIT_TEXT]Inquisiteurs[COLOR_REVERT]. Ils g&#233;n&#232;rent &#233;galement de la culture et acc&#233;l&#232;rent l&#233;g&#232;rement la recherche.</French>
+		<German>[COLOR_BUILDING_TEXT]Kl&#246;ster[COLOR_REVERT] erm&#246;glichen Ihnen den Einsatz von [COLOR_UNIT_TEXT]Missionaren[COLOR_REVERT] und [COLOR_UNIT_TEXT]Inquisitoren[COLOR_REVERT]. Sie bieten au&#223;erdem Kultur und einen kleinen Bonus auf Forschung.</German>
+		<Italian>I [COLOR_BUILDING_TEXT]monasteri[COLOR_REVERT] permettono la realizzazione di [COLOR_UNIT_TEXT]Missionari[COLOR_REVERT] e [COLOR_UNIT_TEXT]Inquisitori[COLOR_REVERT]. Inoltre, forniscono cultura e un piccolo aumento di ricerca.</Italian>
+		<Spanish>Los [COLOR_BUILDING_TEXT]monasterios[COLOR_REVERT] te permiten crear [COLOR_UNIT_TEXT]misioneros[COLOR_REVERT] e [COLOR_UNIT_TEXT]inquisidores[COLOR_REVERT]. Tambi&#233;n proporcionan cultura y un cierto empuje a la investigaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_SHRINE_STRATEGY</Tag>
+		<English>Building the [COLOR_BUILDING_TEXT]Techtonic Citadel[COLOR_REVERT] will cause the [COLOR_HIGHLIGHT_TEXT]Kian Religion[COLOR_REVERT] to be founded.</English>
+		<French>Construisez la [COLOR_BUILDING_TEXT]Citadelle tectonique[COLOR_REVERT] pour fonder le [COLOR_HIGHLIGHT_TEXT]Culte de Ki[COLOR_REVERT].</French>
+		<German>Der Bau der [COLOR_BUILDING_TEXT]Tektonischen Zitadelle[COLOR_REVERT] f&#252;hrt zur Entdeckung des[COLOR_HIGHLIGHT_TEXT]Ki-Glaubens[COLOR_REVERT].</German>
+		<Italian>Costruendo la [COLOR_BUILDING_TEXT]Roccaforte tettonica[COLOR_REVERT] verr&#224; fondata la [COLOR_HIGHLIGHT_TEXT]religione di Ki[COLOR_REVERT].</Italian>
+		<Spanish>La construcci&#243;n de la [COLOR_BUILDING_TEXT]ciudadela tect&#243;nica[COLOR_REVERT] provoca la aparici&#243;n del [COLOR_HIGHLIGHT_TEXT]culto de Ki[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_TEMPLE_STRATEGY</Tag>
+		<English>All [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. [COLOR_BUILDING_TEXT]Temples of Enki[COLOR_REVERT] provide +2 experience to Naval units.</English>
+		<French>Tous les [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] am&#233;liorent le bonheur et la culture des villes. Les [COLOR_BUILDING_TEXT]Temples d'Enki[COLOR_REVERT] procurent +2 points d'exp&#233;rience aux unit&#233;s navales.</French>
+		<German>Alle [COLOR_BUILDING_TEXT]Tempel[COLOR_REVERT] erh&#246;hen die Zufriedenheit und Kultur einer Stadt.[COLOR_BUILDING_TEXT]Enki-Tempel[COLOR_REVERT] gew&#228;hren Marineeinheiten +2 Erfahrung.</German>
+		<Italian>Tutti i [COLOR_BUILDING_TEXT]templi[COLOR_REVERT] aumentano felicit&#224; e cultura di una citt&#224;. I [COLOR_BUILDING_TEXT]templi di Enki[COLOR_REVERT] danno +2 esperienza alle unit&#224; navali.</Italian>
+		<Spanish>Todos los [COLOR_BUILDING_TEXT]templos[COLOR_REVERT] aumentan la felicidad y la cultura de la ciudad. Los [COLOR_BUILDING_TEXT]templos de Enki[COLOR_REVERT] conceden +2 puntos de experiencia a las unidades navales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_CATHEDRAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Cathedral of Enki[COLOR_REVERT] greatly increases a city's cultural output. It makes a city's citizens happy (if the [COLOR_HIGHLIGHT_TEXT]Enkian Religion[COLOR_REVERT] is the state religion). It will also provide additional food to water tiles.</English>
+		<French>La [COLOR_BUILDING_TEXT]Cath&#233;drale d'Enki[COLOR_REVERT] augmente nettement la production de culture d'une ville. Elle rend les citoyens de la ville heureux (si le [COLOR_HIGHLIGHT_TEXT]Culte d'Enki[COLOR_REVERT] est la religion d'Etat). Elle procure aussi de la nourriture suppl&#233;mentaire aux cases d'eau.</French>
+		<German>Die [COLOR_BUILDING_TEXT]Enki-Kathedrale[COLOR_REVERT] erh&#246;ht den Kulturaussto&#223; einer Stadt betr&#228;chtlich. Sie macht die B&#252;rger einer Stadt gl&#252;cklich (wenn der [COLOR_HIGHLIGHT_TEXT]Enki-Glaube[COLOR_REVERT] Staatsreligion ist). Sie verleiht au&#223;erdem Wasser-Gel&#228;ndefeldern zus&#228;tzliche Nahrung.</German>
+		<Italian>La [COLOR_BUILDING_TEXT]cattedrale di Enki[COLOR_REVERT] aumenta notevolmente la produzione culturale della citt&#224;. Genera felicit&#224; tra i cittadini (se la [COLOR_HIGHLIGHT_TEXT]religione di Enki[COLOR_REVERT] &#232; quella di stato). Inoltre d&#224; cibo aggiuntivo alle caselle di acqua.</Italian>
+		<Spanish>La [COLOR_BUILDING_TEXT]catedral de Enki[COLOR_REVERT] aumenta mucho la producci&#243;n cultural de la ciudad. Tambi&#233;n hace felices a los habitantes (si el [COLOR_HIGHLIGHT_TEXT]culto de Enki[COLOR_REVERT] es la religi&#243;n oficial). Adem&#225;s proporciona comida adicional a las casillas de agua.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_MONASTERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Monasteries[COLOR_REVERT] allow you to create [COLOR_UNIT_TEXT]Missionaries[COLOR_REVERT] and [COLOR_UNIT_TEXT]Inquisitors[COLOR_REVERT]. They also provide culture and a slight boost to research.</English>
+		<French>Les [COLOR_BUILDING_TEXT]Monast&#232;res[COLOR_REVERT] vous permettent de former des [COLOR_UNIT_TEXT]Missionnaires[COLOR_REVERT] et des [COLOR_UNIT_TEXT]Inquisiteurs[COLOR_REVERT]. Ils g&#233;n&#232;rent &#233;galement de la culture et acc&#233;l&#232;rent l&#233;g&#232;rement la recherche.</French>
+		<German>[COLOR_BUILDING_TEXT]Kl&#246;ster[COLOR_REVERT] erm&#246;glichen Ihnen den Einsatz von [COLOR_UNIT_TEXT]Missionaren[COLOR_REVERT] und [COLOR_UNIT_TEXT]Inquisitoren[COLOR_REVERT]. Sie bieten au&#223;erdem Kultur und einen kleinen Bonus auf Forschung.</German>
+		<Italian>I [COLOR_BUILDING_TEXT]monasteri[COLOR_REVERT] permettono la realizzazione di [COLOR_UNIT_TEXT]Missionari[COLOR_REVERT] e [COLOR_UNIT_TEXT]Inquisitori[COLOR_REVERT]. Inoltre, forniscono cultura e un piccolo aumento di ricerca.</Italian>
+		<Spanish>Los [COLOR_BUILDING_TEXT]monasterios[COLOR_REVERT] te permiten crear [COLOR_UNIT_TEXT]misioneros[COLOR_REVERT] e [COLOR_UNIT_TEXT]inquisidores[COLOR_REVERT]. Tambi&#233;n proporcionan cultura y un cierto empuje a la investigaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_SHRINE_STRATEGY</Tag>
+		<English>Building the [COLOR_BUILDING_TEXT]Everliving Oasis[COLOR_REVERT] will cause the [COLOR_HIGHLIGHT_TEXT]Enkian Religion[COLOR_REVERT] to be founded.</English>
+		<French>Construisez l'[COLOR_BUILDING_TEXT]Oasis &#233;ternelle[COLOR_REVERT] pour fonder le [COLOR_HIGHLIGHT_TEXT]Culte d'Enki[COLOR_REVERT].</French>
+		<German>Der Bau der [COLOR_BUILDING_TEXT]Immergr&#252;nen Oase[COLOR_REVERT] f&#252;hrt zur Entdeckung des [COLOR_HIGHLIGHT_TEXT]Enki-Glaubens[COLOR_REVERT].</German>
+		<Italian>Costruendo l'[COLOR_BUILDING_TEXT]Oasi eterna[COLOR_REVERT] verr&#224; fondata la [COLOR_HIGHLIGHT_TEXT]religione di Enki[COLOR_REVERT].</Italian>
+		<Spanish>La construcci&#243;n del [COLOR_BUILDING_TEXT]oasis perenne[COLOR_REVERT] provoca la aparici&#243;n del [COLOR_HIGHLIGHT_TEXT]culto de Enki[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_TEMPLE_STRATEGY</Tag>
+		<English>All [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. [COLOR_BUILDING_TEXT]Temples of Enlil[COLOR_REVERT] provide +2 experience to archers.</English>
+		<French>Tous les [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] am&#233;liorent le bonheur et la culture des villes. Les [COLOR_BUILDING_TEXT]Temples d'Enlil[COLOR_REVERT] procurent +2 points d'exp&#233;rience aux archers.</French>
+		<German>Alle [COLOR_BUILDING_TEXT]Tempel[COLOR_REVERT] erh&#246;hen die Zufriedenheit und Kultur einer Stadt. [COLOR_BUILDING_TEXT]Enlil-Tempel[COLOR_REVERT] gew&#228;hren Bogensch&#252;tzen +2 Erfahrung.</German>
+		<Italian>Tutti i [COLOR_BUILDING_TEXT]templi[COLOR_REVERT] aumentano felicit&#224; e cultura di una citt&#224;. I [COLOR_BUILDING_TEXT]templi di Enlil[COLOR_REVERT] danno +2 esperienza agli arcieri.</Italian>
+		<Spanish>Todos los [COLOR_BUILDING_TEXT]templos[COLOR_REVERT] aumentan la felicidad y la cultura de la ciudad. Los [COLOR_BUILDING_TEXT]templos de Enlil[COLOR_REVERT] conceden +2 puntos de experiencia a los arqueros.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_CATHEDRAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Cathedral of Enlil[COLOR_REVERT] greatly increases a city's cultural output. It makes a city's citizens happy (if the [COLOR_HIGHLIGHT_TEXT]Enlilist Religion[COLOR_REVERT] is the state religion). It will also provide -25% damage from air units.</English>
+		<French>La [COLOR_BUILDING_TEXT]Cath&#233;drale d'Enlil[COLOR_REVERT] augmente nettement la production de culture d'une ville. Elle rend les citoyens de la ville heureux (si le [COLOR_HIGHLIGHT_TEXT]Culte d'Enlil[COLOR_REVERT] est la religion d'Etat). Elle r&#233;duit aussi de 25% les d&#233;g&#226;ts des unit&#233;s a&#233;riennes.</French>
+		<German>Die [COLOR_BUILDING_TEXT]Enlil-Kathedrale[COLOR_REVERT] erh&#246;ht den Kulturaussto&#223; einer Stadt betr&#228;chtlich. Sie macht die B&#252;rger gl&#252;cklich (wenn der [COLOR_HIGHLIGHT_TEXT]Enlil-Glaube[COLOR_REVERT] Staatsreligion ist). Sie reduziert au&#223;erdem den Schaden durch Lufteinheiten um 25%%.</German>
+		<Italian>La [COLOR_BUILDING_TEXT]cattedrale di Enlil[COLOR_REVERT] aumenta notevolmente la produzione culturale della citt&#224;. Genera felicit&#224; tra i cittadini (se la [COLOR_HIGHLIGHT_TEXT]religione di Enlil[COLOR_REVERT] &#232; quella di stato). Inoltre riduce del 25% i danni subiti dalle unit&#224; aeree.</Italian>
+		<Spanish>La [COLOR_BUILDING_TEXT]catedral de Enlil[COLOR_REVERT] aumenta mucho la producci&#243;n cultural de la ciudad. Tambi&#233;n hace felices a los habitantes (si el [COLOR_HIGHLIGHT_TEXT]culto de Enlil[COLOR_REVERT] es la religi&#243;n oficial). Adem&#225;s, proporciona una bonificaci&#243;n de -25%% al da&#241;o recibido por ataques a&#233;reos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_MONASTERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Monasteries[COLOR_REVERT] allow you to create [COLOR_UNIT_TEXT]Missionaries[COLOR_REVERT] and [COLOR_UNIT_TEXT]Inquisitors[COLOR_REVERT]. They also provide culture and a slight boost to research.</English>
+		<French>Les [COLOR_BUILDING_TEXT]Monast&#232;res[COLOR_REVERT] vous permettent de former des [COLOR_UNIT_TEXT]Missionnaires[COLOR_REVERT] et des [COLOR_UNIT_TEXT]Inquisiteurs[COLOR_REVERT]. Ils g&#233;n&#232;rent &#233;galement de la culture et acc&#233;l&#232;rent l&#233;g&#232;rement la recherche.</French>
+		<German>[COLOR_BUILDING_TEXT]Kl&#246;ster[COLOR_REVERT] erm&#246;glichen Ihnen den Einsatz von [COLOR_UNIT_TEXT]Missionaren[COLOR_REVERT] und [COLOR_UNIT_TEXT]Inquisitoren[COLOR_REVERT]. Sie bieten au&#223;erdem Kultur und einen kleinen Bonus auf Forschung</German>
+		<Italian>I [COLOR_BUILDING_TEXT]monasteri[COLOR_REVERT] permettono la realizzazione di [COLOR_UNIT_TEXT]Missionari[COLOR_REVERT] e [COLOR_UNIT_TEXT]Inquisitori[COLOR_REVERT]. Inoltre, forniscono cultura e un piccolo aumento di ricerca.</Italian>
+		<Spanish>Los [COLOR_BUILDING_TEXT]monasterios[COLOR_REVERT] te permiten crear [COLOR_UNIT_TEXT]misioneros[COLOR_REVERT] e [COLOR_UNIT_TEXT]inquisidores[COLOR_REVERT]. Tambi&#233;n proporcionan cultura y un cierto empuje a la investigaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_SHRINE_STRATEGY</Tag>
+		<English>Building the [COLOR_BUILDING_TEXT]Church of the Tempest[COLOR_REVERT] will cause the [COLOR_HIGHLIGHT_TEXT]Enlilist Religion[COLOR_REVERT] to be founded.</English>
+		<French>Construisez l'[COLOR_BUILDING_TEXT]Eglise de la temp&#234;te[COLOR_REVERT] pour fonder le [COLOR_HIGHLIGHT_TEXT]Culte d'Enlil[COLOR_REVERT].</French>
+		<German>Der Bau der [COLOR_BUILDING_TEXT]Kirche des Sturms[COLOR_REVERT] f&#252;hrt zur Entdeckung des [COLOR_HIGHLIGHT_TEXT]Enlil-Glaubens[COLOR_REVERT].</German>
+		<Italian>Costruendo la [COLOR_BUILDING_TEXT]Chiesa della tempesta[COLOR_REVERT] verr&#224; fondata la [COLOR_HIGHLIGHT_TEXT]religione di Enlil[COLOR_REVERT].</Italian>
+		<Spanish>La construcci&#243;n de la [COLOR_BUILDING_TEXT]iglesia de la tempestad[COLOR_REVERT] provoca la aparici&#243;n del [COLOR_HIGHLIGHT_TEXT]culto de Enlil[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_TEMPLE_STRATEGY</Tag>
+		<English>All [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. [COLOR_BUILDING_TEXT]Temples of Inanna[COLOR_REVERT] provide +1 experience to all units.</English>
+		<French>Tous les [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] am&#233;liorent le bonheur et la culture des villes. Les [COLOR_BUILDING_TEXT]Temples d'Inanna[COLOR_REVERT] procurent +1 point d'exp&#233;rience &#224; toutes les unit&#233;s.</French>
+		<German>Alle [COLOR_BUILDING_TEXT]Tempel[COLOR_REVERT] erh&#246;hen die Zufriedenheit und Kultur einer Stadt. [COLOR_BUILDING_TEXT]Inanna-Tempel[COLOR_REVERT] gew&#228;hren allen Einheiten +1 Erfahrung.</German>
+		<Italian>Tutti i [COLOR_BUILDING_TEXT]templi[COLOR_REVERT] aumentano felicit&#224; e cultura di una citt&#224;. I [COLOR_BUILDING_TEXT]templi di Inanna[COLOR_REVERT] danno +1 esperienza a tutte le unit&#224;.</Italian>
+		<Spanish>Todos los [COLOR_BUILDING_TEXT]templos[COLOR_REVERT] aumentan la felicidad y la cultura de la ciudad. Los [COLOR_BUILDING_TEXT]templos de Inanna[COLOR_REVERT] conceden +1 punto de experiencia a todas las unidades.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_CATHEDRAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Cathedral of Inanna[COLOR_REVERT] greatly increases a city's cultural output. It makes a city's citizens happy (if the [COLOR_HIGHLIGHT_TEXT]Inannan Religion[COLOR_REVERT] is the state religion). It will also provide -25% war weariness.</English>
+		<French>La [COLOR_BUILDING_TEXT]Cath&#233;drale d'Inanna[COLOR_REVERT] augmente nettement la production de culture d'une ville. Elle rend les citoyens de la ville heureux (si le [COLOR_HIGHLIGHT_TEXT]Culte d'Inanna[COLOR_REVERT] est la religion d'Etat). Elle r&#233;duit aussi de 25% la lassitude de la guerre.</French>
+		<German>Die [COLOR_BUILDING_TEXT]Inanna-Kathedrale[COLOR_REVERT] erh&#246;ht den Kulturaussto&#223; einer Stadt betr&#228;chtlich. Sie macht die B&#252;rger gl&#252;cklich (wenn der [COLOR_HIGHLIGHT_TEXT]Inanna-Glaube[COLOR_REVERT] Staatsreligion ist). Sie reduziert au&#223;erdem die Kriegsm&#252;digkeit um 25%%.</German>
+		<Italian>La [COLOR_BUILDING_TEXT]cattedrale di Inanna[COLOR_REVERT] aumenta notevolmente la produzione culturale della citt&#224;. Genera felicit&#224; tra i cittadini (se la [COLOR_HIGHLIGHT_TEXT]religione di Inanna[COLOR_REVERT] &#232; quella di stato). Inoltre riduce del 25% la Stanchezza della guerra.</Italian>
+		<Spanish>La [COLOR_BUILDING_TEXT]catedral de Inanna[COLOR_REVERT] aumenta mucho la producci&#243;n cultural de la ciudad. Tambi&#233;n hace felices a los habitantes (si el [COLOR_HIGHLIGHT_TEXT]culto de Inanna[COLOR_REVERT] es la religi&#243;n oficial). Adem&#225;s, proporciona un -25%% al hast&#237;o b&#233;lico.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_MONASTERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Monasteries[COLOR_REVERT] allow you to create [COLOR_UNIT_TEXT]Missionaries[COLOR_REVERT] and [COLOR_UNIT_TEXT]Inquisitors[COLOR_REVERT]. They also provide culture and a slight boost to research.</English>
+		<French>Les [COLOR_BUILDING_TEXT]Monast&#232;res[COLOR_REVERT] vous permettent de former des [COLOR_UNIT_TEXT]Missionnaires[COLOR_REVERT] et des [COLOR_UNIT_TEXT]Inquisiteurs[COLOR_REVERT]. Ils g&#233;n&#232;rent &#233;galement de la culture et acc&#233;l&#232;rent l&#233;g&#232;rement la recherche.</French>
+		<German>[COLOR_BUILDING_TEXT]Kl&#246;ster[COLOR_REVERT] erm&#246;glichen Ihnen den Einsatz von [COLOR_UNIT_TEXT]Missionaren[COLOR_REVERT] und [COLOR_UNIT_TEXT]Inquisitoren[COLOR_REVERT]. Sie bieten au&#223;erdem Kultur und einen kleinen Bonus auf Forschung</German>
+		<Italian>I [COLOR_BUILDING_TEXT]monasteri[COLOR_REVERT] permettono la realizzazione di [COLOR_UNIT_TEXT]Missionari[COLOR_REVERT] e [COLOR_UNIT_TEXT]Inquisitori[COLOR_REVERT]. Inoltre, forniscono cultura e un piccolo aumento di ricerca.</Italian>
+		<Spanish>Los [COLOR_BUILDING_TEXT]monasterios[COLOR_REVERT] te permiten crear [COLOR_UNIT_TEXT]misioneros[COLOR_REVERT] e [COLOR_UNIT_TEXT]inquisidores[COLOR_REVERT]. Tambi&#233;n proporcionan cultura y un cierto empuje a la investigaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_SHRINE_STRATEGY</Tag>
+		<English>Building [COLOR_BUILDING_TEXT]Inanna's Stronghold[COLOR_REVERT] will cause the [COLOR_HIGHLIGHT_TEXT]Inannan Religion[COLOR_REVERT] to be founded.</English>
+		<French>Construisez la [COLOR_BUILDING_TEXT]Forteresse d'Inanna[COLOR_REVERT] pour fonder le [COLOR_HIGHLIGHT_TEXT]Culte d'Inanna[COLOR_REVERT].</French>
+		<German>Der Bau von [COLOR_BUILDING_TEXT]Inannas Festung[COLOR_REVERT] f&#252;hrt zur Entdeckung des [COLOR_HIGHLIGHT_TEXT]Inanna-Glaubens[COLOR_REVERT].</German>
+		<Italian>Costruendo la [COLOR_BUILDING_TEXT]Fortezza di Inanna[COLOR_REVERT] verr&#224; fondata la [COLOR_HIGHLIGHT_TEXT]religione di Inanna[COLOR_REVERT].</Italian>
+		<Spanish>La construcci&#243;n de la [COLOR_BUILDING_TEXT]fortaleza de Inanna[COLOR_REVERT] provoca la aparici&#243;n del [COLOR_HIGHLIGHT_TEXT]culto de Inanna[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_TEMPLE_STRATEGY</Tag>
+		<English>All [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. [COLOR_BUILDING_TEXT]Temples of Nanna[COLOR_REVERT] provide -10% maintenance.</English>
+		<French>Tous les [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] augmentent le bonheur et la culture des villes. Les [COLOR_BUILDING_TEXT]Temples de Nanna[COLOR_REVERT] augmentent de 10% les co&#251;ts d'entretien.</French>
+		<German>Alle [COLOR_BUILDING_TEXT]Tempel[COLOR_REVERT] erh&#246;hen die Zufriedenheit und Kultur einer Stadt. [COLOR_BUILDING_TEXT]Nanna-Tempel[COLOR_REVERT] gew&#228;hren -10%% Unterhalt.</German>
+		<Italian>Tutti i [COLOR_BUILDING_TEXT]templi[COLOR_REVERT] aumentano felicit&#224; e cultura di una citt&#224;. I [COLOR_BUILDING_TEXT]templi di Nanna[COLOR_REVERT] danno -10% mantenimento.</Italian>
+		<Spanish>Todos los [COLOR_BUILDING_TEXT]templos[COLOR_REVERT] aumentan la felicidad y la cultura de la ciudad. Los [COLOR_BUILDING_TEXT]templos de Nanna[COLOR_REVERT] proporcionan -10%% al mantenimiento.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_CATHEDRAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Cathedral of Nanna[COLOR_REVERT] greatly increases a city's cultural output. It makes a city's citizens happy (if the [COLOR_HIGHLIGHT_TEXT]Nannan Religion[COLOR_REVERT] is the state religion). It will also provide a slight boost to research.</English>
+		<French>La [COLOR_BUILDING_TEXT]Cath&#233;drale de Nanna[COLOR_REVERT] augmente nettement la production de culture d'une ville. Elle rend les citoyens de la ville heureux (si le [COLOR_HIGHLIGHT_TEXT]Culte de Nanna[COLOR_REVERT] est la religion d'Etat). Elle acc&#233;l&#232;re aussi l&#233;g&#232;rement la recherche.</French>
+		<German>Die [COLOR_BUILDING_TEXT]Nanna-Kathedrale[COLOR_REVERT] erh&#246;ht den Kulturaussto&#223; einer Stadt betr&#228;chtlich. Sie macht die B&#252;rger gl&#252;cklich (wenn der [COLOR_HIGHLIGHT_TEXT]Nanna-Glaube[COLOR_REVERT] Staatsreligion ist). Sie bietet au&#223;erdem einen kleinen Bonus auf Forschung.</German>
+		<Italian>La [COLOR_BUILDING_TEXT]cattedrale di Nanna[COLOR_REVERT] aumenta notevolmente la produzione culturale della citt&#224;. Genera felicit&#224; tra i cittadini (se la [COLOR_HIGHLIGHT_TEXT]religione di Nanna[COLOR_REVERT] &#232; quella di stato). Inoltre, fornisce un piccolo aumento della ricerca.</Italian>
+		<Spanish>La [COLOR_BUILDING_TEXT]catedral de Nanna[COLOR_REVERT] aumenta mucho la producci&#243;n cultural de la ciudad. Tambi&#233;n hace felices a los habitantes (si el [COLOR_HIGHLIGHT_TEXT]culto de Nanna[COLOR_REVERT] es la religi&#243;n oficial). Adem&#225;s, proporciona un ligero empuje a la investigaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_MONASTERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Monasteries[COLOR_REVERT] allow you to create [COLOR_UNIT_TEXT]Missionaries[COLOR_REVERT] and [COLOR_UNIT_TEXT]Inquisitors[COLOR_REVERT]. They also provide culture and a slight boost to research.</English>
+		<French>Les [COLOR_BUILDING_TEXT]Monast&#232;res[COLOR_REVERT] vous permettent de former des [COLOR_UNIT_TEXT]Missionnaires[COLOR_REVERT] et des [COLOR_UNIT_TEXT]Inquisiteurs[COLOR_REVERT]. Ils g&#233;n&#232;rent &#233;galement de la culture et acc&#233;l&#232;rent l&#233;g&#232;rement la recherche.</French>
+		<German>[COLOR_BUILDING_TEXT]Kl&#246;ster[COLOR_REVERT] erm&#246;glichen Ihnen den Einsatz von [COLOR_UNIT_TEXT]Missionaren[COLOR_REVERT] und [COLOR_UNIT_TEXT]Inquisitoren[COLOR_REVERT]. Sie bieten au&#223;erdem Kultur und einen kleinen Bonus auf Forschung</German>
+		<Italian>I [COLOR_BUILDING_TEXT]monasteri[COLOR_REVERT] permettono la realizzazione di [COLOR_UNIT_TEXT]Missionari[COLOR_REVERT] e [COLOR_UNIT_TEXT]Inquisitori[COLOR_REVERT]. Inoltre, forniscono cultura e un piccolo aumento di ricerca.</Italian>
+		<Spanish>Los [COLOR_BUILDING_TEXT]monasterios[COLOR_REVERT] te permiten crear [COLOR_UNIT_TEXT]misioneros[COLOR_REVERT] e [COLOR_UNIT_TEXT]inquisidores[COLOR_REVERT]. Tambi&#233;n proporcionan cultura y un cierto empuje a la investigaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_SHRINE_STRATEGY</Tag>
+		<English>Building the [COLOR_BUILDING_TEXT]Twilight Observatory[COLOR_REVERT] will cause the [COLOR_HIGHLIGHT_TEXT]Nannan Religion[COLOR_REVERT] to be founded.</English>
+		<French>Construisez l'[COLOR_BUILDING_TEXT]Observatoire du cr&#233;puscule[COLOR_REVERT] pour fonder le [COLOR_HIGHLIGHT_TEXT]Culte de Nanna[COLOR_REVERT].</French>
+		<German>Der Bau des [COLOR_BUILDING_TEXT]Observatoriums des Zwielichts[COLOR_REVERT] f&#252;hrt zur Entdeckung des [COLOR_HIGHLIGHT_TEXT]Nanna-Glaubens[COLOR_REVERT].</German>
+		<Italian>Costruendo l'[COLOR_BUILDING_TEXT]Osservatorio del tramonto[COLOR_REVERT] verr&#224; fondata la [COLOR_HIGHLIGHT_TEXT]religione di Nanna[COLOR_REVERT].</Italian>
+		<Spanish>La construcci&#243;n del [COLOR_BUILDING_TEXT]observatorio crepuscular[COLOR_REVERT] provoca la aparici&#243;n del [COLOR_HIGHLIGHT_TEXT]culto de Nanna[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_TEMPLE_STRATEGY</Tag>
+		<English>All [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. [COLOR_BUILDING_TEXT]Temples of Utu[COLOR_REVERT] provide a 10% reduction in maintenance.</English>
+		<French>Tous les [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] am&#233;liorent le bonheur et la culture des villes. Les [COLOR_BUILDING_TEXT]Temples d'Utu[COLOR_REVERT] r&#233;duisent de 10% les co&#251;ts d'entretien.</French>
+		<German>Alle [COLOR_BUILDING_TEXT]Tempel[COLOR_REVERT] erh&#246;hen die Zufriedenheit und Kultur einer Stadt. [COLOR_BUILDING_TEXT]Utu-Tempel[COLOR_REVERT] reduzieren den Unterhalt um 10%%.</German>
+		<Italian>Tutti i [COLOR_BUILDING_TEXT]templi[COLOR_REVERT] aumentano felicit&#224; e cultura di una citt&#224;. I [COLOR_BUILDING_TEXT]templi di Utu[COLOR_REVERT] riducono del 10% i costi di mantenimento.</Italian>
+		<Spanish>Todos los [COLOR_BUILDING_TEXT]templos[COLOR_REVERT] aumentan la felicidad y la cultura de la ciudad. Los [COLOR_BUILDING_TEXT]templos de Utu[COLOR_REVERT] otorgan una reducci&#243;n del 10%% de los gastos de mantenimiento.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_CATHEDRAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Cathedral of Utu[COLOR_REVERT] greatly increases a city's cultural output. It makes a city's citizens happy (if the [COLOR_HIGHLIGHT_TEXT]Utuan Religion[COLOR_REVERT] is the state religion). It will also provide a slight boost to research.</English>
+		<French>La [COLOR_BUILDING_TEXT]Cath&#233;drale d'Utu[COLOR_REVERT] augmente nettement la production de culture d'une ville. Elle rend les citoyens de la ville heureux (si le [COLOR_HIGHLIGHT_TEXT]Culte d'Utu[COLOR_REVERT] est la religion d'Etat). Elle acc&#233;l&#232;re aussi l&#233;g&#232;rement la recherche.</French>
+		<German>Die [COLOR_BUILDING_TEXT]Utu-Kathedrale[COLOR_REVERT] erh&#246;ht den Kulturaussto&#223; einer Stadt betr&#228;chtlich. Sie macht die B&#252;rger gl&#252;cklich (wenn der [COLOR_HIGHLIGHT_TEXT]Utu-Glaube[COLOR_REVERT] Staatsreligion ist). Sie bietet auch einen kleinen Bonus auf Forschung.</German>
+		<Italian>La [COLOR_BUILDING_TEXT]cattedrale di Utu[COLOR_REVERT] aumenta notevolmente la produzione culturale della citt&#224;. Genera felicit&#224; tra i cittadini (se la [COLOR_HIGHLIGHT_TEXT]religione di Utu[COLOR_REVERT] &#232; quella di stato). Inoltre, fornisce un piccolo aumento della ricerca.</Italian>
+		<Spanish>La [COLOR_BUILDING_TEXT]catedral de Utu[COLOR_REVERT] aumenta mucho la producci&#243;n cultural de la ciudad. Tambi&#233;n hace felices a los habitantes (si el [COLOR_HIGHLIGHT_TEXT]culto de Utu[COLOR_REVERT] es la religi&#243;n oficial). Adem&#225;s, proporciona un ligero empuje a la investigaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_MONASTERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Monasteries[COLOR_REVERT] allow you to create [COLOR_UNIT_TEXT]Missionaries[COLOR_REVERT] and [COLOR_UNIT_TEXT]Inquisitors[COLOR_REVERT]. They also provide culture and a slight boost to research.</English>
+		<French>Les [COLOR_BUILDING_TEXT]Monast&#232;res[COLOR_REVERT] vous permettent de former des [COLOR_UNIT_TEXT]Missionnaires[COLOR_REVERT] et des [COLOR_UNIT_TEXT]Inquisiteurs[COLOR_REVERT]. Ils g&#233;n&#232;rent &#233;galement de la culture et acc&#233;l&#232;rent l&#233;g&#232;rement la recherche.</French>
+		<German>[COLOR_BUILDING_TEXT]Kl&#246;ster[COLOR_REVERT] erm&#246;glichen Ihnen den Einsatz von [COLOR_UNIT_TEXT]Missionaren[COLOR_REVERT] und [COLOR_UNIT_TEXT]Inquisitoren[COLOR_REVERT]. Sie bieten au&#223;erdem Kultur und einen kleinen Bonus auf Forschung.</German>
+		<Italian>I [COLOR_BUILDING_TEXT]monasteri[COLOR_REVERT] permettono la realizzazione di [COLOR_UNIT_TEXT]Missionari[COLOR_REVERT] e [COLOR_UNIT_TEXT]Inquisitori[COLOR_REVERT]. Inoltre, forniscono cultura e un piccolo aumento di ricerca.</Italian>
+		<Spanish>Los [COLOR_BUILDING_TEXT]monasterios[COLOR_REVERT] te permiten crear [COLOR_UNIT_TEXT]misioneros[COLOR_REVERT] e [COLOR_UNIT_TEXT]inquisidores[COLOR_REVERT]. Tambi&#233;n proporcionan cultura y un cierto empuje a la investigaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_SHRINE_STRATEGY</Tag>
+		<English>Building the [COLOR_BUILDING_TEXT]Temple of the Sun[COLOR_REVERT] will cause the [COLOR_HIGHLIGHT_TEXT]Utuan Religion[COLOR_REVERT] to be founded.</English>
+		<French>Construisez le [COLOR_BUILDING_TEXT]Temple du soleil[COLOR_REVERT] pour fonder le [COLOR_HIGHLIGHT_TEXT]Culte d'Utu[COLOR_REVERT].</French>
+		<German>Der Bau des [COLOR_BUILDING_TEXT]Sonnentempels[COLOR_REVERT] f&#252;hrt zur Entdeckung des [COLOR_HIGHLIGHT_TEXT]Utu-Glaubens[COLOR_REVERT].</German>
+		<Italian>Costruendo il [COLOR_BUILDING_TEXT]Tempio del sole[COLOR_REVERT] verr&#224; fondata la [COLOR_HIGHLIGHT_TEXT]religione di Utu[COLOR_REVERT].</Italian>
+		<Spanish>La construcci&#243;n del [COLOR_BUILDING_TEXT]templo del sol[COLOR_REVERT] provoca la aparici&#243;n del [COLOR_HIGHLIGHT_TEXT]culto de Utu[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_TEMPLE_STRATEGY</Tag>
+		<English>All [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] increase a city's happiness and culture. [COLOR_BUILDING_TEXT]Temples of Ki[COLOR_REVERT] provide +15% defensive bonus.</English>
+		<French>Tous les [COLOR_BUILDING_TEXT]Temples[COLOR_REVERT] am&#233;liorent le bonheur et la culture des villes. Les [COLOR_BUILDING_TEXT]Temples d'An[COLOR_REVERT] procurent un bonus d&#233;fensif de 15%.</French>
+		<German>Alle [COLOR_BUILDING_TEXT]Tempel[COLOR_REVERT] erh&#246;hen die Zufriedenheit und Kultur einer Stadt. [COLOR_BUILDING_TEXT]Ki-Tempel[COLOR_REVERT] gew&#228;hren einen Defensivbonus von +15%%.</German>
+		<Italian>Tutti i [COLOR_BUILDING_TEXT]templi[COLOR_REVERT] aumentano felicit&#224; e cultura di una citt&#224;. I [COLOR_BUILDING_TEXT]templi di An[COLOR_REVERT] danno un bonus difensivo del 15%.</Italian>
+		<Spanish>Todos los [COLOR_BUILDING_TEXT]templos[COLOR_REVERT] aumentan la felicidad y la cultura de la ciudad. Los [COLOR_BUILDING_TEXT]templos de An[COLOR_REVERT] proporcionan una bonificaci&#243;n defensiva de +15%%.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_CATHEDRAL_STRATEGY</Tag>
+		<English>The [COLOR_BUILDING_TEXT]Cathedral of An[COLOR_REVERT] greatly increases a city's cultural output. It makes a city's citizens happy (if the [COLOR_HIGHLIGHT_TEXT]Anist Religion[COLOR_REVERT] is the state religion). It will also provide an increase to [COLOR_HIGHLIGHT_TEXT]Great Person[COLOR_REVERT] birth rate.</English>
+		<French>La [COLOR_BUILDING_TEXT]Cath&#233;drale d'An[COLOR_REVERT] augmente nettement la production de culture d'une ville. Elle rend les citoyens de la ville heureux (si le [COLOR_HIGHLIGHT_TEXT]Culte d'An[COLOR_REVERT] est la religion d'Etat). Elle augmente aussi le taux de natalit&#233; des [COLOR_HIGHLIGHT_TEXT]Personnages illustres[COLOR_REVERT].</French>
+		<German>Die [COLOR_BUILDING_TEXT]An-Kathedrale[COLOR_REVERT] erh&#246;ht den Kulturaussto&#223; einer Stadt betr&#228;chtlich. Sie macht die B&#252;rger gl&#252;cklich (wenn der [COLOR_HIGHLIGHT_TEXT]An-Glaube[COLOR_REVERT] Staatsreligion ist). Sie steigert auch die Geburtenrate  [COLOR_HIGHLIGHT_TEXT]Gro&#223;er Pers&#246;nlichkeiten[COLOR_REVERT].</German>
+		<Italian>La [COLOR_BUILDING_TEXT]cattedrale di An[COLOR_REVERT] aumenta notevolmente la produzione culturale della citt&#224;. Genera felicit&#224; tra i cittadini (se la [COLOR_HIGHLIGHT_TEXT]religione di An[COLOR_REVERT] &#232; quella di stato). Inoltre aumenta il tasso di nascita dei [COLOR_HIGHLIGHT_TEXT]Grandi Personaggi[COLOR_REVERT].</Italian>
+		<Spanish>La [COLOR_BUILDING_TEXT]catedral de An[COLOR_REVERT] aumenta mucho la producci&#243;n cultural de la ciudad. Tambi&#233;n hace felices a los habitantes (si el [COLOR_HIGHLIGHT_TEXT]culto de An[COLOR_REVERT] es la religi&#243;n oficial). Adem&#225;s, aumenta la tasa de natalidad de los [COLOR_HIGHLIGHT_TEXT]grandes personajes[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_MONASTERY_STRATEGY</Tag>
+		<English>[COLOR_BUILDING_TEXT]Monasteries[COLOR_REVERT] allow you to create [COLOR_UNIT_TEXT]Missionaries[COLOR_REVERT] and [COLOR_UNIT_TEXT]Inquisitors[COLOR_REVERT]. They also provide culture and a slight boost to research.</English>
+		<French>Les [COLOR_BUILDING_TEXT]Monast&#232;res[COLOR_REVERT] vous permettent de former des [COLOR_UNIT_TEXT]Missionnaires[COLOR_REVERT] et des [COLOR_UNIT_TEXT]Inquisiteurs[COLOR_REVERT]. Ils g&#233;n&#232;rent &#233;galement de la culture et acc&#233;l&#232;rent l&#233;g&#232;rement la recherche.</French>
+		<German>[COLOR_BUILDING_TEXT]Kl&#246;ster[COLOR_REVERT] erm&#246;glichen Ihnen den Einsatz von [COLOR_UNIT_TEXT]Missionaren[COLOR_REVERT] und [COLOR_UNIT_TEXT]Inquisitoren[COLOR_REVERT]. Sie bieten au&#223;erdem Kultur und einen kleinen Bonus auf Forschung.</German>
+		<Italian>I [COLOR_BUILDING_TEXT]monasteri[COLOR_REVERT] permettono la realizzazione di [COLOR_UNIT_TEXT]Missionari[COLOR_REVERT] e [COLOR_UNIT_TEXT]Inquisitori[COLOR_REVERT]. Inoltre, forniscono cultura e un piccolo aumento di ricerca.</Italian>
+		<Spanish>Los [COLOR_BUILDING_TEXT]monasterios[COLOR_REVERT] te permiten crear [COLOR_UNIT_TEXT]misioneros[COLOR_REVERT] e [COLOR_UNIT_TEXT]inquisidores[COLOR_REVERT]. Tambi&#233;n proporcionan cultura y un cierto empuje a la investigaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_SHRINE_STRATEGY</Tag>
+		<English>Building the [COLOR_BUILDING_TEXT]Bastion of An[COLOR_REVERT] will cause the [COLOR_HIGHLIGHT_TEXT]Anist Religion[COLOR_REVERT] to be founded.</English>
+		<French>Construisez le [COLOR_BUILDING_TEXT]Bastion d'An[COLOR_REVERT] pour fonder le [COLOR_HIGHLIGHT_TEXT]Culte d'An[COLOR_REVERT].</French>
+		<German>Der Bau der [COLOR_BUILDING_TEXT]Bastion von An[COLOR_REVERT] f&#252;hrt zur Entdeckung des [COLOR_HIGHLIGHT_TEXT]An-Glaubens[COLOR_REVERT].</German>
+		<Italian>Costruendo il [COLOR_BUILDING_TEXT]Bastione di An[COLOR_REVERT] verr&#224; fondata la [COLOR_HIGHLIGHT_TEXT]religione di An[COLOR_REVERT].</Italian>
+		<Spanish>La construcci&#243;n del [COLOR_BUILDING_TEXT]basti&#243;n de An[COLOR_REVERT] provoca la aparici&#243;n del [COLOR_HIGHLIGHT_TEXT]culto de An[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_KI_MISSIONARY_STRATEGY</Tag>
+		<English>Use this missionary to actively spread the [COLOR_HIGHLIGHT_TEXT]Kian Religion[COLOR_REVERT] in friendly cities (or rival cities with whom you have [COLOR_HIGHLIGHT_TEXT]Open Borders[COLOR_REVERT]). This increases your income if you have the [COLOR_BUILDING_TEXT]Techtonic Citadel[COLOR_REVERT].</English>
+		<French>Utilisez le missionnaire pour propager le [COLOR_HIGHLIGHT_TEXT]Culte de Ki[COLOR_REVERT] dans les villes alli&#233;es (ou les villes rivales avec lesquelles vous avez un accord de [COLOR_HIGHLIGHT_TEXT]Libre passage[COLOR_REVERT]). Cela augmente vos revenus si vous avez construit la [COLOR_BUILDING_TEXT]Citadelle tectonique[COLOR_REVERT].</French>
+		<German>Benutzen Sie diesen Missionar, um aktiv den [COLOR_HIGHLIGHT_TEXT]Ki-Glauben[COLOR_REVERT] in befreundeten St&#228;dten zu verbreiten (oder in gegnerischen St&#228;dten, mit denen Sie ein Abkommen &#252;ber [COLOR_HIGHLIGHT_TEXT]Offene Grenzen[COLOR_REVERT] haben). Dies erh&#246;ht Ihr Einkommen, wenn Sie &#252;ber die [COLOR_BUILDING_TEXT]Tektonische Zitadelle[COLOR_REVERT] verf&#252;gen.</German>
+		<Italian>Usa questo missionario per diffondere attivamente la [COLOR_HIGHLIGHT_TEXT]religione di Ki[COLOR_REVERT] nelle citt&#224; amiche (o nelle citt&#224; rivali con le quali si ha [COLOR_HIGHLIGHT_TEXT]diritto di passaggio[COLOR_REVERT]). Aumentano le entrate se si possiede la [COLOR_BUILDING_TEXT]Roccaforte tettonica[COLOR_REVERT].</Italian>
+		<Spanish>Este misionero sirve para propagar el [COLOR_HIGHLIGHT_TEXT]culto de Ki[COLOR_REVERT] por ciudades amigas (o civilizaciones rivales con las que se tenga una [COLOR_HIGHLIGHT_TEXT]apertura de fronteras[COLOR_REVERT]). Eso aumentar&#225; los ingresos si se posee la [COLOR_BUILDING_TEXT]ciudadela tect&#243;nica[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ENKI_MISSIONARY_STRATEGY</Tag>
+		<English>Use this missionary to actively spread the [COLOR_HIGHLIGHT_TEXT]Enkian Religion[COLOR_REVERT] in friendly cities (or rival cities with whom you have [COLOR_HIGHLIGHT_TEXT]Open Borders[COLOR_REVERT]). This increases your income if you have the [COLOR_BUILDING_TEXT]Everliving Oasis[COLOR_REVERT].</English>
+		<French>Utilisez le missionnaire pour propager le [COLOR_HIGHLIGHT_TEXT]Culte d'Enki[COLOR_REVERT] dans les villes alli&#233;es (ou les villes rivales avec lesquelles vous avez un accord de [COLOR_HIGHLIGHT_TEXT]Libre passage[COLOR_REVERT]). Cela augmente vos revenus si vous avez construit l'[COLOR_BUILDING_TEXT]Oasis &#233;ternelle[COLOR_REVERT].</French>
+		<German>Benutzen Sie diesen Missionar, um aktiv den [COLOR_HIGHLIGHT_TEXT]Enki-Glauben[COLOR_REVERT] in befreundeten St&#228;dten zu verbreiten (oder in gegnerischen St&#228;dten, mit denen Sie ein Abkommen &#252;ber [COLOR_HIGHLIGHT_TEXT]Offene Grenzen[COLOR_REVERT] haben). Dies erh&#246;ht Ihr Einkommen, wenn Sie &#252;ber die [COLOR_BUILDING_TEXT]Immergr&#252;ne Oase[COLOR_REVERT] verf&#252;gen.</German>
+		<Italian>Usa questo missionario per diffondere attivamente la [COLOR_HIGHLIGHT_TEXTEnkian]religione di Enki[COLOR_REVERT] nelle citt&#224; amiche (o nelle citt&#224; rivali con le quali si ha [COLOR_HIGHLIGHT_TEXT]diritto di passaggio[COLOR_REVERT]). Aumentano le entrate se si possiede l'[COLOR_BUILDING_TEXT]Oasi eterna[COLOR_REVERT].</Italian>
+		<Spanish>Este misionero sirve para propagar el [COLOR_HIGHLIGHT_TEXT]culto de Enki[COLOR_REVERT] por ciudades amigas (o civilizaciones rivales con las que se tenga una [COLOR_HIGHLIGHT_TEXT]apertura de fronteras[COLOR_REVERT]). Eso aumentar&#225; los ingresos si se posee el [COLOR_BUILDING_TEXT]jard&#237;n perenne[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ENLIL_MISSIONARY_STRATEGY</Tag>
+		<English>Use this missionary to actively spread the [COLOR_HIGHLIGHT_TEXT]Enlilist Religion[COLOR_REVERT] in friendly cities (or rival cities with whom you have [COLOR_HIGHLIGHT_TEXT]Open Borders[COLOR_REVERT]). This increases your income if you have the [COLOR_BUILDING_TEXT]Church of the Tempest[COLOR_REVERT].</English>
+		<French>Utilisez le missionnaire pour propager le [COLOR_HIGHLIGHT_TEXT]Culte d'Enlil[COLOR_REVERT] dans les villes alli&#233;es (ou les villes rivales avec lesquelles vous avez un accord de [COLOR_HIGHLIGHT_TEXT]Libre passage[COLOR_REVERT]). Cela augmente vos revenus si vous avez construit l'[COLOR_BUILDING_TEXT]Eglise de la temp&#234;te[COLOR_REVERT].</French>
+		<German>Benutzen Sie diesen Missionar, um aktiv den [COLOR_HIGHLIGHT_TEXT]Enlil-Glauben[COLOR_REVERT] in befreundeten St&#228;dten zu verbreiten (oder in gegnerischen St&#228;dten, mit denen Sie ein Abkommen &#252;ber [COLOR_HIGHLIGHT_TEXT]Offene Grenzen[COLOR_REVERT] haben). Dies erh&#246;ht Ihr Einkommen, wenn Sie &#252;ber die [COLOR_BUILDING_TEXT]Kirche des Sturms[COLOR_REVERT] verf&#252;gen.</German>
+		<Italian>Usa questo missionario per diffondere attivamente la [COLOR_HIGHLIGHT_TEXT]religione di Enlil[COLOR_REVERT] nelle citt&#224; amiche (o nelle citt&#224; rivali con le quali si ha [COLOR_HIGHLIGHT_TEXT]diritto di passaggio[COLOR_REVERT]). Aumentano le entrate se si possiede la [COLOR_BUILDING_TEXT]Chiesa della tempesta[COLOR_REVERT].</Italian>
+		<Spanish>Este misionero sirve para propagar el [COLOR_HIGHLIGHT_TEXT]culto de Enlil[COLOR_REVERT] por ciudades amigas (o civilizaciones rivales con las que se tenga una [COLOR_HIGHLIGHT_TEXT]apertura de fronteras[COLOR_REVERT]). Eso aumentar&#225; los ingresos si se posee la [COLOR_BUILDING_TEXT]iglesia de la tempestad[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_INANNA_MISSIONARY_STRATEGY</Tag>
+		<English>Use this missionary to actively spread the [COLOR_HIGHLIGHT_TEXT]Inannan Religion[COLOR_REVERT] in friendly cities (or rival cities with whom you have [COLOR_HIGHLIGHT_TEXT]Open Borders[COLOR_REVERT]). This increases your income if you have the [COLOR_BUILDING_TEXT]Inanna's Stronghold[COLOR_REVERT].</English>
+		<French>Utilisez le missionnaire pour propager le [COLOR_HIGHLIGHT_TEXT]Culte d'Inanna[COLOR_REVERT] dans les villes alli&#233;es (ou les villes rivales avec lesquelles vous avez un accord de [COLOR_HIGHLIGHT_TEXT]Libre passage[COLOR_REVERT]). Cela augmente vos revenus si vous avez construit la [COLOR_BUILDING_TEXT]Forteresse d'Inanna[COLOR_REVERT].</French>
+		<German>Benutzen Sie diesen Missionar, um aktiv den [COLOR_HIGHLIGHT_TEXT]Inanna-Glauben[COLOR_REVERT] in befreundeten St&#228;dten zu verbreiten (oder in gegnerischen St&#228;dten, mit denen Sie ein Abkommen &#252;ber [COLOR_HIGHLIGHT_TEXT]Offene Grenzen[COLOR_REVERT] haben). Dies erh&#246;ht Ihr Einkommen, wenn Sie &#252;ber [COLOR_BUILDING_TEXT]Inannas Festung[COLOR_REVERT] verf&#252;gen.</German>
+		<Italian>Usa questo missionario per diffondere attivamente la [COLOR_HIGHLIGHT_TEXT]religione di Inanna[COLOR_REVERT] nelle citt&#224; amiche (o nelle citt&#224; rivali con le quali si ha [COLOR_HIGHLIGHT_TEXT]diritto di passaggio[COLOR_REVERT]). Aumentano le entrate se si possiede la [COLOR_BUILDING_TEXT]Fortezza di Inanna[COLOR_REVERT].</Italian>
+		<Spanish>Este misionero sirve para propagar el [COLOR_HIGHLIGHT_TEXT]culto de Inanna[COLOR_REVERT] por ciudades amigas (o de civilizaciones rivales con las que se tenga una [COLOR_HIGHLIGHT_TEXT]apertura de fronteras[COLOR_REVERT]). Eso aumentar&#225; los ingresos si se posee la [COLOR_BUILDING_TEXT]fortaleza de Inanna[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_NANNA_MISSIONARY_STRATEGY</Tag>
+		<English>Use this missionary to actively spread the [COLOR_HIGHLIGHT_TEXT]Nannan Religion[COLOR_REVERT] in friendly cities (or rival cities with whom you have [COLOR_HIGHLIGHT_TEXT]Open Borders[COLOR_REVERT]). This increases your income if you have the [COLOR_BUILDING_TEXT]Twilight Observatory[COLOR_REVERT].</English>
+		<French>Utilisez le missionnaire pour propager le [COLOR_HIGHLIGHT_TEXT]Culte de Nanna[COLOR_REVERT] dans les villes alli&#233;es (ou les villes rivales avec lesquelles vous avez un accord de [COLOR_HIGHLIGHT_TEXT]Libre passage[COLOR_REVERT]). Cela augmente vos revenus si vous avez construit l'[COLOR_BUILDING_TEXT]Observatoire du cr&#233;puscule[COLOR_REVERT].</French>
+		<German>Benutzen Sie diesen Missionar, um aktiv den [COLOR_HIGHLIGHT_TEXT]Nanna-Glauben[COLOR_REVERT] in befreundeten St&#228;dten zu verbreiten (oder in gegnerischen St&#228;dten, mit denen Sie ein Abkommen &#252;ber [COLOR_HIGHLIGHT_TEXT]Offene Grenzen[COLOR_REVERT] haben). Dies erh&#246;ht Ihr Einkommen, wenn Sie &#252;ber das [COLOR_BUILDING_TEXT]Observatorium des Zwielichts[COLOR_REVERT] verf&#252;gen.</German>
+		<Italian>Usa questo missionario per diffondere attivamente la [COLOR_HIGHLIGHT_TEXT]religione di Nanna[COLOR_REVERT] nelle citt&#224; amiche (o nelle citt&#224; rivali con le quali si ha [COLOR_HIGHLIGHT_TEXT]diritto di passaggio[COLOR_REVERT]). Aumentano le entrate se si possiede l'[COLOR_BUILDING_TEXT]Osservatorio del tramonto[COLOR_REVERT].</Italian>
+		<Spanish>Este misionero sirve para propagar el [COLOR_HIGHLIGHT_TEXT]culto de Nanna[COLOR_REVERT] por ciudades amigas (o civilizaciones rivales con las que se tenga una [COLOR_HIGHLIGHT_TEXT]apertura de fronteras[COLOR_REVERT]). Eso aumentar&#225; los ingresos si se posee el [COLOR_BUILDING_TEXT]observatorio crepuscular[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_UTU_MISSIONARY_STRATEGY</Tag>
+		<English>Use this missionary to actively spread the [COLOR_HIGHLIGHT_TEXT]Utuan Religion[COLOR_REVERT] in friendly cities (or rival cities with whom you have [COLOR_HIGHLIGHT_TEXT]Open Borders[COLOR_REVERT]). This increases your income if you have the [COLOR_BUILDING_TEXT]Temple of the Sun[COLOR_REVERT].</English>
+		<French>Utilisez le missionnaire pour propager le [COLOR_HIGHLIGHT_TEXT]Culte d'Utu[COLOR_REVERT] dans les villes alli&#233;es (ou les villes rivales avec lesquelles vous avez un accord de [COLOR_HIGHLIGHT_TEXT]Libre passage[COLOR_REVERT]). Cela augmente vos revenus si vous avez construit le [COLOR_BUILDING_TEXT]Temple du soleil[COLOR_REVERT].</French>
+		<German>Benutzen Sie diesen Missionar, um aktiv den [COLOR_HIGHLIGHT_TEXT]Utu-Glauben[COLOR_REVERT] in befreundeten St&#228;dten zu verbreiten (oder in gegnerischen St&#228;dten, mit denen Sie ein Abkommen &#252;ber [COLOR_HIGHLIGHT_TEXT]Offene Grenzen[COLOR_REVERT] haben). Dies erh&#246;ht Ihr Einkommen, wenn Sie &#252;ber den [COLOR_BUILDING_TEXT]Sonnentempel[COLOR_REVERT] verf&#252;gen.</German>
+		<Italian>Usa questo missionario per diffondere attivamente la [COLOR_HIGHLIGHT_TEXT]religione di Utu[COLOR_REVERT] nelle citt&#224; amiche (o nelle citt&#224; rivali con le quali si ha [COLOR_HIGHLIGHT_TEXT]diritto di passaggio[COLOR_REVERT]). Aumentano le entrate se si possiede il [COLOR_BUILDING_TEXT]Tempio del sole[COLOR_REVERT].</Italian>
+		<Spanish>Este misionero sirve para propagar el [COLOR_HIGHLIGHT_TEXT]culto de Utu[COLOR_REVERT] por ciudades amigas (o civilizaciones rivales con las que se tenga una [COLOR_HIGHLIGHT_TEXT]apertura de fronteras[COLOR_REVERT]). Eso aumentar&#225; los ingresos si se posee la [COLOR_BUILDING_TEXT]iglesia del sol[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AN_MISSIONARY_STRATEGY</Tag>
+		<English>Use this missionary to actively spread the [COLOR_HIGHLIGHT_TEXT]Anist Religion[COLOR_REVERT] in friendly cities (or rival cities with whom you have [COLOR_HIGHLIGHT_TEXT]Open Borders[COLOR_REVERT]). This increases your income if you have the [COLOR_BUILDING_TEXT]Bastion of An[COLOR_REVERT].</English>
+		<French>Utilisez le missionnaire pour propager le [COLOR_HIGHLIGHT_TEXT]Culte d'An[COLOR_REVERT] dans les villes alli&#233;es (ou les villes rivales avec lesquelles vous avez un accord de [COLOR_HIGHLIGHT_TEXT]Libre passage[COLOR_REVERT]). Cela augmente vos revenus si vous avez construit le [COLOR_BUILDING_TEXT]Bastion d'An[COLOR_REVERT].</French>
+		<German>Benutzen Sie diesen Missionar, um aktiv den [COLOR_HIGHLIGHT_TEXT]An-Glauben[COLOR_REVERT] in befreundeten St&#228;dten zu verbreiten (oder in gegnerischen St&#228;dten, mit denen Sie ein Abkommen &#252;ber [COLOR_HIGHLIGHT_TEXT]Offene Grenzen[COLOR_REVERT] haben). Dies erh&#246;ht Ihr Einkommen, wenn Sie &#252;ber die [COLOR_BUILDING_TEXT]Bastion von An[COLOR_REVERT] verf&#252;gen.</German>
+		<Italian>Usa questo missionario per diffondere attivamente la [COLOR_HIGHLIGHT_TEXT]religione di An[COLOR_REVERT] nelle citt&#224; amiche (o nelle citt&#224; rivali con le quali si ha [COLOR_HIGHLIGHT_TEXT]diritto di passaggio[COLOR_REVERT]). Aumentano le entrate se si possiede la [COLOR_BUILDING_TEXT]Bastione di An[COLOR_REVERT].</Italian>
+		<Spanish>Este misionero sirve para propagar el [COLOR_HIGHLIGHT_TEXT]culto de An[COLOR_REVERT] por ciudades amigas (o civilizaciones rivales con las que se tenga una [COLOR_HIGHLIGHT_TEXT]apertura de fronteras[COLOR_REVERT]). Eso aumentar&#225; los ingresos si se posee el [COLOR_BUILDING_TEXT]basti&#243;n de An[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_UNIT_INQUISITOR_PEDIA</Tag>
+		<English>[TAB]While Missionaries often focus on extolling the glories of their respective gods to spread their religion, the Inquisitor focuses instead on pointing out the fallacies of all religions but his own. Ardent in the belief that all other religions are wrong, the Inquisitor lives to destroy the beliefs of others. You may expend an Inquisitor inside a city to remove all religions from that city except your own.</English>
+		<French>[TAB]Les missionnaires se contentent souvent de glorifier leurs dieux respectifs pour propager leur religion, alors que l'inquisiteur s'efforce de d&#233;montrer les aberrations de toutes les autres religions. Convaincu que toutes les autres religions sont dans l'erreur, l'inquisiteur vit pour d&#233;truire les croyances des autres. Vous pouvez envoyer un inquisiteur dans une ville pour l'expurger de toutes les religions sauf la v&#244;tre.</French>
+		<German>[TAB]W&#228;hrend Missionare sich oft darauf konzentrieren, die Tugenden ihrer jeweiligen G&#246;tter zu &#252;bertreiben, um ihre Religion zu verbreiten, konzentriert sich der Inquisitor stattdessen darauf, die Fehler aller anderen Religionen au&#223;er seiner eigenen aufzuzeigen. Der Inquisitor brennt vor &#220;berzeugung, dass alle anderen Religionen falsch sind, und lebt daf&#252;r, den Glauben aller anderen zu zerst&#246;ren. Sie k&#246;nnen einen Inquisitor in eine Stadt entsenden, um aus dieser Stadt alle Religionen au&#223;er Ihrer zu entfernen.</German>
+		<Italian>[TAB]Mentre i missionari si concentrano sulle lodi delle rispettive divinit&#224; per diffondere la propria religione, gli inquisitori mettono in risalto gli errori delle altre religioni. Credono ardentemente che le altre religioni si sbaglino e vivono per distruggere la fede degli altri. Puoi usare un Inquisitore in una citt&#224; per rimuoverne tutte le religioni tranne la tua.</Italian>
+		<Spanish>[TAB]Mientras que los misioneros suelen concentrarse en cantar las glorias de sus respectivos dioses para difundir su fe, los inquisidores se dedican a poner de manifiesto las falacias de todas las dem&#225;s religiones. Ferviente convencido de que todas las dem&#225;s religiones se equivocan, El inquisidor vive para socavar las creencias de los dem&#225;s. Puedes gastar un inquisidor dentro de una ciudad para eliminar todas las religiones salvo la tuya.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_UNIT_INQUISITOR_STRATEGY</Tag>
+		<English>Use [COLOR_UNIT_TEXT]Inquisitors[COLOR_REVERT] to eliminate non-state religions from a city. Doing so will destroy the [COLOR_UNIT_TEXT]Inquisitor[COLOR_REVERT].</English>
+		<French>Utilisez un [COLOR_UNIT_TEXT]Inquisiteur[COLOR_REVERT] pour faire dispara&#238;tre d'une ville les religions non officielles. En accomplissant sa mission, l'[COLOR_UNIT_TEXT]Inquisiteur[COLOR_REVERT] donnera sa vie.</French>
+		<German>Benutzen Sie [COLOR_UNIT_TEXT]Inquisitoren[COLOR_REVERT], um Religionen, die nicht Staatsreligion sind, aus einer Stadt zu eliminieren. Dadurch wird der [COLOR_UNIT_TEXT]Inquisitor[COLOR_REVERT] vernichtet.</German>
+		<Italian>Usa l'[COLOR_UNIT_TEXT]Inquisitore[COLOR_REVERT] per eliminare da una citt&#224; tutte le religioni non di stato. Cos&#236; facendo l'[COLOR_UNIT_TEXT]Inquisitore[COLOR_REVERT] verr&#224; distrutto.</Italian>
+		<Spanish>Usa a los [COLOR_UNIT_TEXT]inquisidores[COLOR_REVERT] para eliminar todas las religiones no oficiales de una ciudad. Al hacerlo, el [COLOR_UNIT_TEXT]inquisidor[COLOR_REVERT] ser&#225; destruido.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_EARTHQUAKE_CITY_TITLE</Tag>
+		<English>%s1_city loses population from an earthquake.</English>
+		<French>Des citoyens de la ville : %s1_city ont p&#233;ri dans un s&#233;isme.</French>
+		<German>%s1_city verliert durch ein Erdbeben an Bev&#246;lkerung.</German>
+		<Italian>%s1_city ha perso degli abitanti a causa di un terremoto.</Italian>
+		<Spanish>%s1_city pierde parte de su poblaci&#243;n por culpa de un terremoto.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_EARTHQUAKE_BUILDING_TITLE</Tag>
+		<English>An earthquake has destroyed the %s1_build in %s2_city .</English>
+		<French>Un s&#233;isme a d&#233;truit un b&#226;timent de %s2_city : %s1_build.</French>
+		<German>Ein Erdbeben hat das Geb&#228;ude %s1_build in %s2_city zerst&#246;rt.</German>
+		<Italian>Un terremoto ha distrutto [NUM1:il:la] %s1_build a %s2_city .</Italian>
+		<Spanish>Un terremoto ha destruido el siguiente edificio en %s2_city: %s1_build.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_EARTHQUAKE_TOWN_REDUCTION_TITLE</Tag>
+		<English>An earthquake has reduced a %s1_imp to a %s2_imp . </English>
+		<French>Un s&#233;isme a ramen&#233; 1 %s1_imp &#224; l'&#233;tat de %s2_imp.</French>
+		<German>Es gab ein Erdbeben! Die Modernisierung %s1_imp wurde zur Modernisierung %s2_imp herabgestuft.</German>
+		<Italian>Un terremoto ha ridotto %s1_imp a %s2_imp . </Italian>
+		<Spanish>Un terremoto ha convertido la mejora %s1_imp en %s2_imp. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_EARTHQUAKE_IMP_DESTRUCTION_TITLE</Tag>
+		<English>An earthquake has destroyed a %s1_imp. </English>
+		<French>Un s&#233;isme a d&#233;truit 1 %s1_imp.</French>
+		<German>Die Modernisierung %s1_imp wurde bei einem Erdbeben zerst&#246;rt.</German>
+		<Italian>Un terremoto ha distrutto [NUM1:un:una] %s1_imp. </Italian>
+		<Spanish>Un terremoto ha destruido la siguiente mejora: %s1_imp. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_MINOR_METEOR_STRIKE_CITY</Tag>
+		<English>A meteor has hit %s1_city , killing half its population.</English>
+		<French>Une m&#233;t&#233;orite a frapp&#233; %s1_city et tu&#233; la moiti&#233; de sa population.</French>
+		<German>Ein Meteorit hat die Stadt %s1_city getroffen und die H&#228;lfte der Bev&#246;lkerung ausgel&#246;scht.</German>
+		<Italian>Un meteorite ha colpito %s1_city , uccidendone met&#224; della popolazione.</Italian>
+		<Spanish>Ha ca&#237;do un meteorito en %s1_city que ha matado a la mitad de su poblaci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_MINOR_METEOR_STRIKE_IMPROVEMENT</Tag>
+		<English>A meteor has destroyed a %s1_imp . </English>
+		<French>Une m&#233;t&#233;orite a d&#233;truit 1 %s1_imp.</French>
+		<German>Ein Meteorit hat die Modernisierung %s1_imp zerst&#246;rt.</German>
+		<Italian>Un meteorite ha distrutto [NUM1:un:una] %s1_imp . </Italian>
+		<Spanish>Un meteorito ha destruido la siguiente mejora: %s1_imp. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_MINOR_METEOR_STRIKE_UNIT</Tag>
+		<English>%s1_unit was killed by a meteor strike. </English>
+		<French>%s1_unit : unit&#233; tu&#233;e par la chute d'une m&#233;t&#233;orite.</French>
+		<German>Die Einheit %s1_unit wurde von einem Meteoriten get&#246;tet.</German>
+		<Italian>L'unit&#224; %s1_unit &#232; stata annientata da un meteorite. </Italian>
+		<Spanish>Un meteorito ha destruido la siguiente unidad: %s1_unit. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_BLIGHT_BONUS</Tag>
+		<English>%s1_bonus was destroyed by blight. </English>
+		<French>La rouille a d&#233;truit : %s1_bonus.</French>
+		<German>%s1_bonus durch D&#252;rre vernichtet. </German>
+		<Italian>%s1_bonus &#232; [NUM1:andato distrutto:andata distrutta]. </Italian>
+		<Spanish>La peste ha destruido la siguiente bonificaci&#243;n: %s1_bonus. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_BLIGHT_FEATURE</Tag>
+		<English>%s1_feature was destroyed by blight. </English>
+		<French>La rouille a d&#233;truit : %s1_feature.</French>
+		<German>%s1_feature durch D&#252;rre vernichtet. </German>
+		<Italian>%s1_feature &#232; [NUM1:andato distrutto:andata distrutta]. </Italian>
+		<Spanish>La peste ha destruido el siguiente accidente: %s1_feature. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_PLAGUE_START</Tag>
+		<English>A plague has erupted in the city of %s1_city</English>
+		<French>Une &#233;pid&#233;mie a &#233;clat&#233; dans la ville : %s1_city.</French>
+		<German>Die Stadt %s1_city wird von der Pest heimgesucht.</German>
+		<Italian>&#200; scoppiata una pestilenza nella citt&#224; di %s1_city.</Italian>
+		<Spanish>Se ha abatido la peste sobre la ciudad de %s1_city</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_PLAGUE_SPREAD</Tag>
+		<English>The plague has spread to the city of %s1_city</English>
+		<French>L'&#233;pid&#233;mie s'est &#233;tendue &#224; la ville : %s1_city.</French>
+		<German>Die Pest hat sich auf die Stadt %s1_city ausgebreitet.</German>
+		<Italian>La pestilenza si &#232; diffusa fino alla citt&#224; di %s1_city.</Italian>
+		<Spanish>La peste se ha propagado desde la ciudad de %s1_city</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_PLAGUE_DECAY</Tag>
+		<English>The plague no longer infects the city of %s1_city</English>
+		<French>L'&#233;pid&#233;mie a &#233;t&#233; enray&#233;e dans la ville : %s1_city.</French>
+		<German>Die Pest grassiert nicht l&#228;nger in %s1_city</German>
+		<Italian>La pestilenza &#232; stata debellata nella citt&#224; di %s1_city.</Italian>
+		<Spanish>La peste ha remitido en la ciudad de %s1_city</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TSUNAMI_CITY_TITLE</Tag>
+		<English>%s1_city loses population from an tsunami.</English>
+		<French>Des citoyens de la ville : %s1_city ont &#233;t&#233; tu&#233;s par un tsunami.</French>
+		<German>%s1_city verliert durch einen Tsunami an Bev&#246;lkerung.</German>
+		<Italian>%s1_city ha perso degli abitanti a causa di uno tsunami.</Italian>
+		<Spanish>%s1_city pierde parte de su poblaci&#243;n por culpa de un maremoto.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TSUNAMI_BUILDING_TITLE</Tag>
+		<English>A tsunami has destroyed the %s1_build in %s2_city .</English>
+		<French>Un tsunami a d&#233;truit un b&#226;timent de %s2_city : %s1_build.</French>
+		<German>Ein Tsunami hat das Geb&#228;ude %s1_build in  %s2_city zerst&#246;rt.</German>
+		<Italian>Uno tsunami ha distrutto [NUM1:il:la] %s1_build a %s2_city .</Italian>
+		<Spanish>Un maremoto ha destruido el siguiente edificio en %s2_city: %s1_build.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TSUNAMI_TOWN_REDUCTION_TITLE</Tag>
+		<English>A tsunami has reduced a %s1_imp to a %s2_imp . </English>
+		<French>Un tsunami a ramen&#233; 1 %s1_imp &#224; l'&#233;tat de %s2_imp.</French>
+		<German>Durch einen Tsunami wurde die Modernisierung %s1_imp zur Modernisierung %s2_imp herabgestuft. </German>
+		<Italian>Uno tsunami ha ridotto %s1_imp a %s2_imp . </Italian>
+		<Spanish>Un maremoto ha convertido la mejora %s1_imp en %s2_imp. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TSUNAMI_IMP_DESTRUCTION_TITLE</Tag>
+		<English>A tsunami has destroyed a %s1_imp. </English>
+		<French>Un tsunami a d&#233;truit 1 %s1_imp.</French>
+		<German>Ein Tsunami hat die Modernisierung %s1_imp zerst&#246;rt. </German>
+		<Italian>Uno tsunami ha distrutto [NUM1:un:una] %s1_imp. </Italian>
+		<Spanish>Un maremoto ha destruido la siguiente mejora: %s1_imp. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_ENKI_BAD_PLOT_PICKED</Tag>
+		<English>You can only cause a tsunami on a costal plot.</English>
+		<French>Vous ne pouvez provoquer un tsunami que sur une case c&#244;ti&#232;re.</French>
+		<German>Ihr k&#246;nnt einen Tsunami nur auf einem K&#252;sten-Gel&#228;ndefeld ausl&#246;sen.</German>
+		<Italian>Puoi causare uno tsunami solo su una casella costiera.</Italian>
+		<Spanish>Los maremotos solo pueden usarse en casillas costeras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_SCREEN_RELIGION_DESTROY</Tag>
+		<English>Eliminate All Rival Holy Cities</English>
+		<French>D&#233;truisez toutes les villes saintes ennemies</French>
+		<German>Vernichtet alle gegnerischen Heiligen St&#228;dte</German>
+		<Italian>Elimina tutte le Citt&#224; Sante rivali.</Italian>
+		<Spanish>Elimina todas las ciudades santas rivales</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_SCREEN_HOLY_CITIES_LEFT</Tag>
+		<English>Holy Cities Left:</English>
+		<French>Villes saintes restantes :</French>
+		<German>&#220;brige Heilige St&#228;dte:</German>
+		<Italian>Citt&#224; Sante rimaste:</Italian>
+		<Spanish>Ciudades santas restantes:</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_KI_PEDIA</Tag>
+		<English>[TAB]Ki was the Sumerian Goddess of Fertility. Also known as Ninhursag, Ki was literally mother to the gods, with almost a half-dozen divine offspring owing their existence to her. With her husband An, God of the Heavens, Ki gave birth to some of the most important gods in the Sumerian pantheon - Utu, the Sun God, Nanna, the Moon God and Enlil, the Wind God. She also once fell prey to the lusts of Enki, the male fertility god, which led to the creation of an entire string of new gods - Ninsar, Lady of the Verdant Lands, Ninkurra, Mistress of the Fields and Uttu, the Spinster. Although one of the founding Sumerian gods, Ki eventually fell from prominence among the pantheon, in the end only occasionally acknowledged as mother to more important gods. [PARAGRAPH:2]In Gods of Old, Ki's connection to the earth allows her followers more mobility across rough terrain as well as defensive bonuses. But like a lioness protecting her cubs, Ki can be roused to great anger when her followers are threatened, unleashing awesome displays of power.</English>
+		<French>[TAB]Ki &#233;tait la d&#233;esse sum&#233;rienne de la fertilit&#233;. Aussi appel&#233;e Ninhursag, elle &#233;tait la m&#232;re des dieux, pr&#232;s d'une demi-douzaine de divinit&#233;s lui devant la vie. Avec son mari An, le dieu du ciel, Ki donna naissance &#224; quelques-uns des plus importants dieux du panth&#233;on sum&#233;rien : Utu, le dieu du soleil, Nanna, le dieu de la lune, et Enlil, le dieu du vent. Elle fut aussi une fois la proie des d&#233;sirs d'Enki, le dieu de la fertilit&#233; masculine, ce qui eut pour cons&#233;quence l'apparition de toute une s&#233;rie de nouveaux dieux : Ninsar, la dame des terres verdoyantes, Ninkurra, la ma&#238;tresse des champs, et Uttu, la tisseuse. Ki &#233;tait l'une des divinit&#233;s sum&#233;riennes primordiales mais perdit peu &#224; peu de son importance au sein du panth&#233;on et finit par ne plus &#234;tre reconnue que comme la m&#232;re de dieux plus importants. [PARAGRAPH:2]Dans "Dieux de l'Antiquit&#233;", les liens de Ki avec la terre permettent &#224; ses adorateurs de se d&#233;placer plus vite sur les terrains difficiles et leur conf&#232;rent des bonus d&#233;fensifs. Toutefois, comme une lionne d&#233;fendant ses petits, Ki peut devenir une vraie furie quand ses adorateurs sont menac&#233;s. Elle donne alors la preuve de ses pouvoirs d&#233;vastateurs.</French>
+		<German>[TAB]Ki war die sumerische G&#246;ttin der Fruchtbarkeit. Ki, die auch als Ninhursag bekannt war, war wortw&#246;rtlich die Mutter der G&#246;tter, von denen ihr beinahe ein halbes Dutzend ihre Existenz verdankten. Mit ihrem Gemahl An, dem Gott des Himmels, zeugte Ki einige der wichtigsten G&#246;tter des sumerischen Pantheons - Utu, den Sonnengott, Nanna, den Mondgott, und Enlil, den Windgott. Einmal wurde sie auch Opfer der Gel&#252;ste Enkis, des m&#228;nnlichen Fruchtbarkeitsgottes, was zum Entstehen einer ganzen Reihe neuer G&#246;tter f&#252;hrte - Ninsar, Herrin der Gr&#252;nenden Lande, Ninkurra, Herrin der Felder, und Uttu, der Unverm&#228;hlten. Obwohl sie zu den sumerischen Gr&#252;ndungsgottheiten geh&#246;rte, nahm Kis Bedeutung innerhalb des Pantheons immer mehr ab und schlie&#223;lich wurde sie nur noch als Mutter wichtigerer Gottheiten anerkannt.[PARAGRAPH:2]In Gods of Old gew&#228;hrt Kis Verbindung zur Erde ihren Anh&#228;ngern mehr Mobilit&#228;t in unebenem Gel&#228;nde sowie Defensivboni. Doch wie eine L&#246;win, die ihre Jungen besch&#252;tzt, kann Ki in gro&#223;en Zorn geraten, wenn ihre Anh&#228;nger bedroht werden, und zeigt dann beeindruckende Macht.</German>
+		<Italian>[TAB]Ki era la dea sumera della fertilit&#224;. Conosciuta anche come Ninhursag, Ki era letteralmente la madre degli dei, con una mezza dozzina di divinit&#224; che le dovevano la vita. Col marito An, dio dei cieli, Ki diede alla luce alcuni tra i pi&#249; importanti dei del pantheon sumero: Utu, il dio del sole, Nanna, il dio della luna, ed Enlil, il dio del vento. Una volta cadde anche vittima del desiderio di Enki, il dio della fertilit&#224; maschile, e questo port&#242; a tutta un'altra serie di nuovi dei: Ninsar, la signora delle terre verdeggianti, Ninkurra, signora dei campi e Uttu, la zitella. Anche se si tratta di una delle divinit&#224; originarie sumere, Ki perse progressivamente importanza, fino a essere ricordata solamente come madre di divinit&#224; pi&#249; importanti. [PARAGRAPH:2]In Antiche divinit&#224;, il legame di Ki con la terra d&#224; pi&#249; mobilit&#224; ai suoi seguaci sul terreno accidentato, assieme a dei bonus difensivi. Ma, come una leonessa che protegge i propri cuccioli, se i suoi fedeli sono minacciati Ki si pu&#242; infuriare, scatenando i suoi grandi poteri.</Italian>
+		<Spanish>[TAB]Ki era la diosa sumeria de la fertilidad. Conocida tambi&#233;n como Ninhursag, Ki era, literalmente, la madre de los dioses, con casi media docena de v&#225;stagos divinos. Junto a su marido An, dios de los cielos, Ki engendr&#243; a algunas de las deidades m&#225;s importantes del pante&#243;n sumerio: Utu, dios del sol, Nanna, dios de la luna y Enlil, dios del viento. Adem&#225;s, en una ocasi&#243;n sucumbi&#243; a los encantos de Enki, dios de la fertilidad, circunstancia de la que deriv&#243; un linaje entero de dioses diferentes: Ninsar, dama de las tierras feraces, Ninkurra, dama de los campos, y Uttu la solterona. Aunque era una de las diosas fundadoras del pante&#243;n, Ki fue perdiendo relevancia y, al final, acab&#243; reducida a su papel como madre de dioses m&#225;s importantes. [PARAGRAPH:2]En Gods of Old, la conexi&#243;n de Ki con la tierra permite a sus seguidores moverse mejor por terrenos escabrosos, adem&#225;s de proporcionarles bonificaciones defensivas. Pero, al igual que una leona que defiende a sus cachorros, Ki puede llegar a enfurecerse de verdad cuando se amenaza a sus seguidores, y responder con asombrosas demostraciones de poder.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ENKI_PEDIA</Tag>
+		<English>[TAB]Son of An and Lord of the Earth, Enki was the Sumerian God of Water and Fertility. While renowned for fathering many minor gods and goddesses, Enki's creative tendencies were not isolated to the begetting of offspring. He was also known as the god of crafts and skills, and is often considered the bringer of civilization to man. Among his works were an enormous barge known as "The Stag of Abzu," which cruised the waters of the Euphrates River, powered by a throng of rowers. The singing of these rowers was said to have a pacifying effect on those that heard their melodious calls.[PARAGRAPH:2]In Gods of Old, Enki's fertility and naval prowess carry on, providing an extra food to every city where his is the state religion as well as increased movement to naval units. But beware the Water God's wrath, as followers of Enki can call down tsunamis upon their foes.</English>
+		<French>[TAB]Fils d'An et souverain de la terre, Enki &#233;tait le dieu sum&#233;rien de l'eau et de la fertilit&#233;. M&#234;me s'il &#233;tait r&#233;put&#233; pour avoir engendr&#233; beaucoup de divinit&#233;s mineures, Enki n'eut pas qu'un pouvoir cr&#233;atif de g&#233;niteur. Il &#233;tait aussi connu pour &#234;tre le dieu de l'artisanat et on consid&#232;re souvent que c'est lui qui a apport&#233; la civilisation &#224; l'Homme. Parmi ses ouvrages se trouve une barque gigantesque, le "Cerf de l'Aps&#251;", qui navigua sur les eaux de l'Euphrate, propuls&#233; par une arm&#233;e de rameurs. Le chant de ces rameurs aurait eu un effet apaisant sur tous ceux qui entendaient ses airs m&#233;lodieux.[PARAGRAPH:2]Dans "Dieux de l'Antiquit&#233;", la fertilit&#233; et les prouesses maritimes d'Enki perdurent et, dans chaque ville o&#249; son culte est la religion d'Etat, la production de nourriture augmente et les unit&#233;s navales sont plus rapides. Prenez garde au courroux du dieu de l'eau, toutefois, car les adorateurs d'Enki peuvent lancer des tsunamis contre leurs adversaires.</French>
+		<German>[TAB]Enki, der Sohn von An und Herr der Erde, war der sumerische Gott des Wassers und der Fruchtbarkeit. Obwohl Enki als der Vater vieler niederer G&#246;tter und G&#246;ttinnen ber&#252;hmt ist, beschr&#228;nkte sich seine Sch&#246;pfungskraft nicht auf das Zeugen von Nachwuchs. Er war auch als der Gott des Handwerks bekannt und gilt oft als derjenige, der den Menschen die Zivilisation brachte. Zu seinen Werken z&#228;hlen eine riesige Barke, "Der Hirsch von Abzu", die dank einer Heerschar Ruderer auf den Wassern des Euphrat kreuzte. Dem Gesang dieser Ruderer sagte man nach, die melodischen Rufe h&#228;tte eine bes&#228;nftigende Wirkung auf die Zuh&#246;rer.[PARAGRAPH:2]In Gods of Old setzen sich Enkis Fruchtbarkeit und Seet&#252;chtigkeit fort und jede Stadt, in der sein Glaube Staatsreligion ist, erh&#228;lt zus&#228;tzliche Nahrung und eine gesteigerte Bewegungsreichweite f&#252;r Marineeinheiten. Doch nehmen Sie sich vor dem Zorn des Wassergottes in Acht, da Enki-Anh&#228;nger Tsunamis &#252;ber ihre Feinde hereinbrechen lassen k&#246;nnen.</German>
+		<Italian>[TAB]Figlio di An e signore della terra, Enki era il dio sumero dell'acqua e della fertilit&#224;. Pur essendo conosciuto per aver dato vita a dei e dee minori, le abilit&#224; di Enki non erano solo relative alla creazione di altri dei. Era anche conosciuto come il dio dei mestieri e delle arti, e spesso &#232; considerato il portatore della civilt&#224; agli uomini. Tra le sue creazioni c'era un'enorme barca, il "Cervo di Abzu", che navigava le acque dell'Eufrate mossa da una marea di rematori. Si dice che il canto di questi rematori avesse un effetto calmante su coloro che ne udivano il melodioso richiamo.[PARAGRAPH:2]In Antiche divinit&#224; la fertilit&#224; e l'abilit&#224; navale di Enki prosperano, fornendo cibo aggiuntivo a ogni citt&#224; in cui la sua &#232; la religione di stato e movimento addizionale alle unit&#224; navali. Ma attento alla rabbia del dio dell'acqua: i seguaci di Enki possono evocare tsunami contro i propri nemici.</Italian>
+		<Spanish>[TAB]Hijo de An y se&#241;or de la Tierra, Enki era el dios sumerio del agua y la fertilidad. Aunque se hizo famoso por engendrar a muchos dioses y diosas menores, las tendencias creativas de Enki no se limitaban a su propia descendencia. Tambi&#233;n se le consideraba el dios de los oficios y las habilidades, y el que regal&#243; la civilizaci&#243;n al hombre. Entre sus obras se contaba una enorme barcaza conocida como "el ciervo de Abzu", que recorr&#237;a las aguas del &#201;ufrates impulsada por los brazos de una hueste de remeros. Se dec&#237;a que los cantos de estos remeros ten&#237;an un efecto pacificador sobre aquellos que o&#237;an sus melodiosas voces.[PARAGRAPH:2]En Gods of Old, los v&#237;nculos de Enki con la fertilidad y la destreza marinera proporcionan comida adicional a las ciudades que practican su culto como religi&#243;n oficial, as&#237; como capacidad de movimiento adicional a las unidades navales. Pero cuidado con la c&#243;lera del dios del agua, pues sus seguidores pueden desencadenar maremotos sobre sus enemigos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ENLIL_PEDIA</Tag>
+		<English>[TAB]Enlil, the Wind God, was the most prominent of the Sumerian deities, second only to An in seniority. His position as head of the Anunaki, the Council of the Gods, granted Enlil dominance over even the great An. Known as the "God Between Worlds," Enlil represented the intangible connection between the Earth and the Heavens. Thanks to his ethereal nature, Enlil was more familiarly known as the God of the Winds. In Gods of Old, Enlil lends his power over the breezes and gales to his followers, making their arrows fly straighter or causing pestilent winds to whip through enemy cities.</English>
+		<French>[TAB]Enlil, le dieu du vent &#233;tait la plus importante des divinit&#233;s sum&#233;riennes, apr&#232;s An. En tant que chef de l'Anounaki, le conseil des dieux, Enlil avait de l'autorit&#233; m&#234;me sur le grand An. Connu sous le nom de "dieu entre les mondes", Enlil repr&#233;sentait le lien insaisissable entre la terre et les cieux. En raison de sa nature &#233;th&#233;r&#233;e, Enlil &#233;tait connu plus commun&#233;ment comme le dieu du vent. Dans "Dieux de l'Antiquit&#233;", Enlil exerce son pouvoir sur les brises et les rafales &#224; ses adorateurs, en faisant voler leurs fl&#232;ches plus droit ou en balayant les villes ennemies de vents pestilentiels.</French>
+		<German>[TAB]Enlil, der Windgott, war der wichtigste sumerische Gott und stand an Alter nur An nach. Seine Position als Oberhaupt des Anunakim, des Rates der G&#246;tter, gab Enlil sogar Macht &#252;ber den gro&#223;en An. Enlil, der als der "Gott zwischen den Welten" bekannt war, stellte die unber&#252;hrbare Verbindung zwischen Himmel und Erde dar. Dank seines &#228;therischen Wesens war Enlil &#252;blicherweise als der Gott der Winde bekannt. In Gods of Old verleit Enlil seinen Anh&#228;ngern Macht &#252;ber die Winde und St&#252;rme, wodurch ihre Pfeile gerader fliegen und sie pestbringende Winde anfachen k&#246;nnen, die feindliche St&#228;dte verheeren.</German>
+		<Italian>[TAB]Enlil, il dio del vento, era il pi&#249; importante dio sumero, secondo solo ad An come anzianit&#224;. La sua posizione quale capo dell'Anunaki, il consiglio degli dei, gli garantiva potere anche sul grande An. Conosciuto anche come il "dio tra i mondi", Enlil rappresentava l'intangibile collegamento tra la Terra e i cieli. Grazie alla sua natura eterea, Enlil era pi&#249; conosciuto come il dio dei venti. In Antiche divinit&#224;, Enlil concede ai suoi seguaci il potere su venti e burrasche, facendo volare meglio le loro frecce o provocando venti funesti da scatenare sulle citt&#224; nemiche.</Italian>
+		<Spanish>[TAB]Enlil, dios del viento, era la m&#225;s importante de las deidades sumerias, adem&#225;s de la segunda m&#225;s antigua (superada solo por An). Su posici&#243;n a la cabeza del Anunaki, el consejo de los dioses, le otorgaba precedencia incluso sobre el gran An. Conocido como el "dios entre mundos", Enlil representaba la intangible conexi&#243;n entre la Tierra y los cielos. A causa de su naturaleza et&#233;rea, a Enlil se le conoc&#237;a familiarmente como el dios de los vientos. En Gods of Old, Enlil otorga a sus seguidores poder sobre las brisas y las tormentas, lo que permite que sus flechas vuelen mejor y que se desencadenen vientos perniciosos sobre las ciudades enemigas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_INANNA_PEDIA</Tag>
+		<English>[TAB]Inanna was the Goddess of Love and War, present when man both entered and exited the mortal world. An ambitious female figure, tales of Inanna often revolve around her unending search for power, each ending with varied levels of success. In episode, Inanna enters into a drinking contest with her father, Enki, God of Civilization. After drinking her father under the proverbial table, Inanna coaxes from her father domain over everything from copper-smithing to prostitution. She similarly attempted to exert her dominance over the underworld, only to be slain by one of the guardians of the nether realm.[PARAGRAPH:2]In Gods of Old, Inanna's fighting skills flow directly into her followers, who gain bonuses to attacking and experience and are more likely to become Great Generals.</English>
+		<French>[TAB]D&#233;esse de l'amour et de la guerre, Inanna &#233;tait pr&#233;sente aux c&#244;t&#233;s des hommes quand ils venaient au monde et quand ils le quittaient. Elle &#233;tait r&#233;put&#233;e pour son ambition ; son incessante qu&#234;te de pouvoir est au centre de nombreux r&#233;cits qui lui attribuent une r&#233;ussite plus ou moins grande. Dans l'un de ces r&#233;cits, Inanna fait un concours de boisson avec son p&#232;re Enki, le dieu de la civilisation, et, apr&#232;s l'avoir fait rouler sous la table, s'empare de tout ce qui lui appartient, depuis la forge jusqu'&#224; la prostitution. Inanna tenta aussi de dominer les enfers mais fut tu&#233;e par un des gardiens du royaume souterrain.[PARAGRAPH:2]Dans "Dieux de l'Antiquit&#233;", les comp&#233;tences martiales d'Inanna sont directement transmises &#224; ses adorateurs, qui b&#233;n&#233;ficient de bonus d'attaque et d'exp&#233;rience et ont plus de chances de devenir de grands g&#233;n&#233;raux.</French>
+		<German>[TAB]Inanna war die G&#246;ttin der Liebe und des Krieges. Sie war zugegen, wenn die Menschen die sterbliche Welt betraten und auch wenn sie diese wieder verlie&#223;en. Sie ist eine zweideutige weibliche Figur, und Legenden Inannas haben oft ihre niemals endende Suche nach Macht zum Gegenstand, die sie jeweils mehr oder weniger erfolgreich abschlie&#223;t. In einer Episode fordert Inanna ihren Vater Enki, den Gott der Zivilisation, zu einem Wetttrinken auf. Nachdem sie ihren Vater unter den sprichw&#246;rtlichen Tisch getrunken hat, schmeichelt Inanna ihrem Vater, bis er ihr die Herrschaft &#252;ber alles M&#246;gliche, vom Kupferschmieden bis zur Prostitution gew&#228;hrt. Auf die gleiche Weise wollte sie ihren Einfluss auf die Unterwelt ausdehnen, doch einer der W&#228;chter dieses tiefgelegenen Reiches erschlug sie.[PARAGRAPH:2]In Gods of Old beeinflussen Inannas Kampff&#228;higkeiten direkt die ihrer Anh&#228;nger, die einen Bonus auf Angriff und Erfahrung erhalten und mit h&#246;herer Wahrscheinlichkeit Gro&#223;e Gener&#228;le werden.</German>
+		<Italian>[TAB]Inanna era la dea dell'amore e della guerra, presente all'ingresso e all'uscita di un uomo dal mondo dei mortali. Era una figura femminile ambiziosa e i racconti su di lei sono incentrati sulla sua infinita ricerca di potere, e ognuno termina con un diverso grado di successo. In un episodio Inanna fa una gara di bevute col padre, Enki, dio della civilt&#224;. Dopo averlo fatto finire sotto il tavolo gli estorce il potere su tutto, dalla lavorazione del rame alla prostituzione. Prov&#242; ad esercitare il proprio dominio anche sull'aldil&#224;, ma fin&#236; per essere uccisa da uno dei guardiani degli inferi.[PARAGRAPH:2]In Antiche divinit&#224;, le abilit&#224; marziali di Inanna si trasferiscono direttamente ai suoi fedeli, che ottengono bonus in attacco ed esperienza e diventano pi&#249; facilmente Grandi Generali.</Italian>
+		<Spanish>[TAB]Inanna era la diosa de la guerra y del amor, el ser que estaba presente cuando los hombres entraban en el mundo y cuando lo abandonaban. Figura femenina caracterizada por su ambici&#243;n, sus relatos suelen centrarse en su eterna b&#250;squeda de poder, coronada en cada caso por un resultado diferente. En uno de ellos, Inanna reta a beber a su propio padre, Enki, dios de la civilizaci&#243;n. Tras conseguir que su progenitor acabe debajo de la proverbial mesa, Inanna le arrebata el poder sobre un mont&#243;n de cosas, desde el trabajo del cobre a la prostituci&#243;n. En otro episodio intenta hacerse con el poder del otro mundo, pero acaba muerta a manos de uno de los guardianes de los reinos et&#233;reos.[PARAGRAPH:2]En Gods of Old, las habilidades marciales de Inanna se transmiten directamente a sus seguidores, quienes reciben bonificaciones a la experiencia y tienen m&#225;s probabilidades de convertirse en grandes generales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_NANNA_PEDIA</Tag>
+		<English>[TAB]Nanna was the Sumerian Moon God. Son of Enlil and father of Utu, Nanna was ruler of the Underworld, a position which he shared with his son. Each night, while Utu kept a watchful eye over the land of the dead, Nanna (as the moon) would cross the heavens before mooring in the Underworld to decree the fates of the recently deceased. Nanna also acted as a guide for his son Utu (who was the sun god), carving a path through the sky each night that his son could use the following day. In Gods of Old, Nanna's protective powers give his followers a defensive bonus in the woods and jungle and well as bonuses depending on the alignment of the stars. Further, Nanna's power in the heavens also allows his followers to summon furious meteor strikes against those who oppose them.</English>
+		<French>[TAB]Nanna &#233;tait le dieu de la lune des Sum&#233;riens. Fils d'Enlil et p&#232;re d'Utu, il &#233;tait le souverain des enfers, r&#244;le qu'il partageait avec son fils. Chaque nuit, pendant qu'Utu surveillait le royaume des morts, Nanna traversait le ciel sous l'apparence de la lune avant de regagner les enfers pour annoncer le destin de ceux d&#233;c&#233;d&#233;s r&#233;cemment. Nanna jouait aussi le r&#244;le de guide pour Utu, le dieu du soleil, en tra&#231;ant chaque nuit dans le ciel un chemin que son fils pourrait suivre le lendemain. Dans "Dieux de l'Antiquit&#233;", les pouvoirs protecteurs de Nanna conf&#232;rent un bonus d&#233;fensif &#224; ses adorateurs dans les bois et la jungle, ainsi que des bonus en fonction de l'alignement des &#233;toiles. De plus, le pouvoir de Nanna dans le ciel permet &#224; ses adorateurs de lancer des frappes de m&#233;t&#233;orites contre leurs ennemis.</French>
+		<German>[TAB]Nanna war der sumerische Mondgott. Als Sohn Enlils und Vater Utus war Nanna der Herrscher der Unterwelt, eine Aufgabe, die er mit seinem Sohn teilte. Jede Nacht, w&#228;hrend Utu ein wachsames Auge auf das Totenreich hatte, durchquerte Nanna (als der Mond) den Himmel und legte in der Unterwelt an, um &#252;ber das Schicksal der k&#252;rzlich Verstorbenen zu entscheiden. Nanna trat auch als Wegweiser f&#252;r seinen Sohn Utu (den Sonnengott) auf, dem er jede Nacht einen Weg &#252;ber den Himmel absteckte, den Utu am folgenden Tag benutzen konnte. In Gods of Old gew&#228;hrt Nannas besch&#252;tzende Macht seinen Anh&#228;ngern einen Defensivbonus in Wald und Dschungel sowie verschiedene Boni je nach dem Stand der Gestirne. Des Weiteren erm&#246;glicht es Nannas Macht im Himmel seinen Anh&#228;ngern, gewaltige Meteoriten auf ihre Gegner herabfallen zu lassen.</German>
+		<Italian>[TAB]Nanna era il dio sumero della luna. Figlio di Enlil e padre di Utu, Nanna era il signore dell'aldil&#224;, una posizione che condivideva col figlio. Ogni notte, mentre Utu teneva d'occhio la terra dei morti, Nanna (nelle spoglie della luna) viaggiava nel cielo, prima di tornare nell'aldil&#224; per decidere il fato dei defunti. Nanna fungeva anche da guida per il figlio Utu (che era il dio del sole), creando un sentiero in cielo, durante la notte, in modo che il figlio potesse usarlo il giorno dopo. In Antiche divinit&#224; i poteri protettivi di Nanna danno ai suoi seguaci un bonus difensivo nei boschi e nella giungla, oltre che dei bonus secondo l'allineamento delle stelle. Inoltre i poteri celesti di Nanna permettono ai suoi fedeli di fare precipitare meteoriti su coloro che li ostacolano.</Italian>
+		<Spanish>[TAB]Nanna es el dios sumerio de la luna. Hijo de Enlil y padre de Utu, Nanna era el se&#241;or del otro mundo, posici&#243;n que compart&#237;a con su hijo. Cada noche, mientras Utu montaba guardia sobre la tierra de los muertos, Nanna (en forma de luna) cruzaba el firmamento de un lado a otro, antes de recalar de nuevo en el otro mundo para decretar el destino de los que acababan de morir. Nanna tambi&#233;n era el protector de su hijo Utu (dios del sol), y cada noche abr&#237;a un camino por el cielo para que su v&#225;stago pudiera utilizarlo al d&#237;a siguiente. En Gods of Old, los poderes protectores de Nanna otorgan a sus seguidores una bonificaci&#243;n defensiva en bosques y junglas, as&#237; como otras ventajas en funci&#243;n de la posici&#243;n de las estrellas. Adem&#225;s, el poder de Nanna en los cielos permite a sus seguidores lanzar lluvias de meteoritos sobre sus enemigos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_UTU_PEDIA</Tag>
+		<English>[TAB]Utu was the Sumerian Sun God. Son of Nanna and Ningal, Utu's domain reached beyond that of a simple sun god. Utu was also god of justice, seeker of the verdicts of the gods and keeper of the Underworld. Utu was said to be a striking figure, with a beard made completely out of lapis-lazuli. He also had a powerful effect over bulls, one of his many symbols, causing them to breed at an alarming rate in his presence.[PARAGRAPH:2]Much like his own domains, in Gods of Old, Utu's abilities are of a wide scope. Followers of Utu may blight enemy plots, receive bonuses based upon the stars, increase treasure from pillaging and gain protection against revolts.</English>
+		<French>[TAB]Utu &#233;tait le dieu du soleil des Sum&#233;riens. Fils de Nanna et de Ningal, il avait plus de pouvoir qu'un simple dieu du soleil. Il &#233;tait aussi dieu de la justice, gardien des enfers et charg&#233; des verdicts divins. Utu &#233;tait d&#233;crit comme un personnage impressionnant avec une barbe enti&#232;rement en lapis-lazuli. Il avait aussi un effet impressionnant sur les taureaux, un de ses nombreux symboles, qui se reproduisaient &#224; une vitesse inqui&#233;tante en sa pr&#233;sence.[PARAGRAPH:2]Dans "Dieux de l'Antiquit&#233;", les capacit&#233;s d'Utu sont &#233;galement tr&#232;s &#233;tendues. Ses adorateurs peuvent provoquer la rouille sur les parcelles ennemies, recevoir des bonus en fonction des &#233;toiles, obtenir plus de tr&#233;sors lors des pillages et &#234;tre prot&#233;g&#233;s contre les r&#233;voltes.</French>
+		<German>[TAB]Utu war der sumerische Sonnengott. Utu war der Sohn von Nanna und Ningal, und sein Einflussgebiet reichte weit &#252;ber das eines einfachen Sonnengottes hinaus. Utu war auch der Gott der Gerechtigkeit, der Urteilsfinder der G&#246;tter und Bewahrer der Unterwelt. Utu galt als beeindruckende Erscheinung, mit einem Bart, der g&#228;nzlich aus Lapislazuli geschaffen war. Er hatte auch gro&#223;e Macht &#252;ber Stiere, eines seiner vielen Symbole, die sich in seiner Gegenwart mit furchteinfl&#246;&#223;ender Schnelligkeit vermehren konnten.[PARAGRAPH:2]In Gods of Old sind Utus F&#228;higkeiten so vielf&#228;ltig wie sein Einflussbereich. Anh&#228;nger Utus k&#246;nnen feindliche Gel&#228;ndefelder mit D&#252;rre heimsuchen, von den Gestirnen abh&#228;ngige Boni erhalten, den aus Pl&#252;nderungen gewonnenen Schatz vermehren und Schutz gegen Aufst&#228;nde erhalten.</German>
+		<Italian>[TAB]Utu era il dio sumero del sole, figlio di Nanna e Ningal e il suo dominio si estendeva ben oltre quello di un semplice dio del sole. Utu era anche il dio della giustizia, cercatore dei verdetti degli dei e dio dell'aldil&#224;. Si diceva che avesse un aspetto straordinario, con una barba composta interamente di lapislazzuli. Aveva anche un potente effetto sui tori, uno dei suoi molti simboli, che in sua presenza si riproducevano a un ritmo allarmante.[PARAGRAPH:2]Proprio come accade per i suoi domini, le abilit&#224; di Utu in Antiche divinit&#224; sono molto varie. I seguaci di Utu possono distruggere le caselle nemiche, ricevere bonus basati sulle stelle, aumentare il tesoro saccheggiando ed essere protetti dalle rivolte.</Italian>
+		<Spanish>[TAB]Utu era el dios sumerio del sol. Hijo de Nanna y Ningal, el &#225;mbito de su poder llegaba m&#225;s all&#225; que el de una simple deidad solar. Era tambi&#233;n el se&#241;or de la justicia, el custodio de los veredictos divinos y el guardi&#225;n del m&#225;s all&#225;. Se dec&#237;a que su figura resultaba imponente, con una barba hecha completamente de lapisl&#225;zuli. Tambi&#233;n ejerc&#237;a un notable influjo sobre los toros (uno de sus muchos s&#237;mbolos), que se reproduc&#237;an a una velocidad alarmante en su presencia.[PARAGRAPH:2]Al igual que su &#225;mbito de actuaci&#243;n, las habilidades de Utu en Gods of Old son bastante amplias. Sus seguidores pueden arruinar las cosechas enemigas, reciben bonificaciones en funci&#243;n de la posici&#243;n de las estrellas, obtienen m&#225;s beneficios del pillaje y sufren menos revueltas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_AN_PEDIA</Tag>
+		<English>[TAB]The father of the Gods, An was the mover of the constellations and the Lord of the Heavens. Father to much of the Sumerian pantheon, An was often thanked in prayers to other gods for bringing Enlil, Nanna and other divine children into existence. The original King of the gods, An was slowly replaced by Enlil as the most highly-regarded among the pantheon. Over time, the thanks for bringing the younger gods into the world became his only acknowledgement by Sumerian worshippers.[PARAGRAPH:2]In Gods of Old, An is a protective father figure, guarding his followers against the upstart powers of other gods, increasing culture and healing those in need.</English>
+		<French>[TAB]P&#232;re des dieux, An &#233;tait souverain du ciel et d&#233;pla&#231;ait les constellations. G&#233;niteur d'une grande partie du panth&#233;on sum&#233;rien, il &#233;tait souvent remerci&#233; dans les pri&#232;res adress&#233;es &#224; d'autres dieux pour avoir donn&#233; naissance &#224; Enlil, Nanna et d'autres enfants divins. Roi originel des dieux, An fut lentement supplant&#233; par Enlil en tant que dieu le plus v&#233;n&#233;r&#233; du panth&#233;on. Avec le temps, les adorateurs sum&#233;riens finirent par ne plus le remercier que pour avoir engendr&#233; les dieux les plus jeunes.[PARAGRAPH:2]Dans "Dieux de l'Antiquit&#233;", An incarne l'image du p&#232;re protecteur, qui d&#233;fend ses adorateurs contre les pouvoirs des autres dieux, am&#233;liore la culture et soigne les n&#233;cessiteux.</French>
+		<German>[TAB]An, der Vater der G&#246;tter, war der Beweger der Gestirne und der Herr des Himmels. Als Vater des Gro&#223;teils des sumerischen Pantheons wurde An in Gebeten an andere G&#246;tter oft f&#252;r die Zeugung von Enlil, Nanna und anderen g&#246;ttlichen Kindern gedankt. Als urspr&#252;nglicher G&#246;tterk&#246;nig wurde An als der Gott mit dem h&#246;chsten Ansehen im Pantheon allm&#228;hlich durch Enlil ersetzt. Mit der Zeit wurde der Dank f&#252;r seine Zeugung der anderen G&#246;tter zur einzigen Form der Anerkennung, die sumerische Verehrer noch leisteten.[PARAGRAPH:2]In Gods of Old ist An eine beh&#252;tende Vaterfigur, die ihre Anh&#228;nger gegen empork&#246;mmlerische M&#228;chte anderer G&#246;tter besch&#252;tzt, die Kultur f&#246;rdert und jene heilt, die in Not sind.</German>
+		<Italian>[TAB]Il padre degli dei, An era colui che sposta le costellazioni, il signore dei cieli. Padre di gran parte del pantheon sumero, An veniva spesso ringraziato anche nelle preghiere rivolte ad altri dei per aver fatto nascere Enlil, Nanna e altri figli divini. An era l'originario re degli dei ma venne lentamente soppiantato da Enlil nella posizione pi&#249; importante. Col tempo, i ringraziamenti per aver creato gli dei pi&#249; giovani divennero l'unico riconoscimento da parte dei fedeli sumeri.[PARAGRAPH:2]In Antiche divinit&#224;, An &#232; una figura paterna protettiva che protegge i propri fedeli dai poteri degli altri dei, aumentando la cultura e guarendo coloro che ne hanno bisogno.</Italian>
+		<Spanish>[TAB]Padre de los dioses y se&#241;or de los cielos, An era quien dispon&#237;a las constelaciones en el firmamento. Como progenitor de gran parte del pante&#243;n sumerio, recib&#237;a a menudo la gratitud de los seguidores de otros dioses en sus plegarias por haber engendrado a Enlil, a Nanna y a otras deidades. Primer rey de los dioses, An fue reemplazado poco a poco por Enlil como entidad principal del pante&#243;n. Con el paso del tiempo, el agradecimiento por haber creado a los dioses j&#243;venes se convertir&#237;a en el &#250;nico motivo de reconocimiento para su figura entre los fieles sumerios.[PARAGRAPH:2]En Gods of Old, An es una figura paternal que protege a sus seguidores contra los poderes de otras deidades, incrementa su cultura y cura a los necesitados.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_AN_PEDIA</Tag>
+		<English>[TAB]The father of the Gods, An was the mover of the constellations and the Lord of the Heavens. Father to much of the Sumerian pantheon, An was often thanked in prayers to other gods for bringing Enlil, Nanna and other divine children into existence. The original King of the gods, An was slowly replaced by Enlil as the most highly-regarded among the pantheon. Over time, the thanks for bringing the younger gods into the world became his only acknowledgement by Sumerian worshippers.[PARAGRAPH:2]In Gods of Old, An is a protective father figure, guarding his followers against the upstart powers of other gods, increasing culture and healing those in need.</English>
+		<French>[TAB]P&#232;re des dieux, An &#233;tait le souverain du ciel et celui qui d&#233;pla&#231;ait les constellations. G&#233;niteur d'une grande partie du panth&#233;on sum&#233;rien, il &#233;tait souvent remerci&#233; dans les pri&#232;res adress&#233;es &#224; d'autres dieux pour avoir donn&#233; naissance &#224; Enlil, Nanna et d'autres enfants divins. Roi originel des dieux, An fut lentement supplant&#233; par Enlil &#224; la place de dieu le plus v&#233;n&#233;r&#233; du panth&#233;on. Avec le temps, les adorateurs sum&#233;riens finirent par ne plus le remercier que pour avoir engendr&#233; les dieux les plus jeunes.[PARAGRAPH:2]Dans "Dieux de l'Antiquit&#233;", An incarne l'image du p&#232;re protecteur, qui d&#233;fend ses adorateurs contre les pouvoirs des autres dieux, am&#233;liore la culture et soigne les n&#233;cessiteux.</French>
+		<German>[TAB]An, der Vater der G&#246;tter, war der Beweger der Gestirne und der Herr des Himmels. Als Vater des Gro&#223;teils des sumerischen Pantheons wurde An in Gebeten an andere G&#246;tter oft f&#252;r die Zeugung von Enlil, Nanna und anderen g&#246;ttlichen Kindern gedankt. Als urspr&#252;nglicher G&#246;tterk&#246;nig wurde An als der Gott mit dem h&#246;chsten Ansehen im Pantheon allm&#228;hlich durch Enlil ersetzt. Mit der Zeit, wurde der Dank f&#252;r seine Zeugung der anderen G&#246;tter zur einzigen Form der Anerkennung, die sumerische Verehrer noch leisteten.[PARAGRAPH:2]In Gods of Old ist An eine beh&#252;tende Vaterfigur, die ihre Anh&#228;nger gegen empork&#246;mmlerische M&#228;chte anderer G&#246;tter besch&#252;tzt, die Kultur f&#246;rdert und jene heilt, die in Not sind.</German>
+		<Italian>[TAB]Il padre degli dei, An era colui che sposta le costellazioni, il signore dei cieli. Padre di gran parte del pantheon sumero, An veniva spesso ringraziato anche nelle preghiere rivolte ad altri dei per aver fatto nascere Enlil, Nanna e altri figli divini. An era l'originario re degli dei ma venne lentamente soppiantato da Enlil nella posizione pi&#249; importante. Col tempo, i ringraziamenti per aver creato gli dei pi&#249; giovani divennero l'unico riconoscimento da parte dei fedeli sumeri.[PARAGRAPH:2]In Antiche divinit&#224;, An &#232; una figura paterna protettiva che protegge i propri fedeli dai poteri degli altri dei, aumentando la cultura e guarendo coloro che ne hanno bisogno.</Italian>
+		<Spanish>[TAB]Padre de los dioses y se&#241;or de los cielos, An era quien dispon&#237;a las constelaciones en el firmamento. Como progenitor de gran parte del pante&#243;n sumerio, recib&#237;a a menudo la gratitud de los seguidores de otros dioses en sus plegarias por haber engendrado a Enlil, a Nanna y a otras deidades. Primer rey de los dioses, An fue reemplazado poco a poco por Enlil como entidad principal del pante&#243;n. Con el paso del tiempo, el agradecimiento por haber creado a los dioses j&#243;venes se convertir&#237;a en el &#250;nico motivo de reconocimiento para su figura entre los fieles sumerios.[PARAGRAPH:2]En Gods of Old, An es una figura paternal que protege a sus seguidores contra los poderes de otras deidades, incrementa su cultura y cura a los necesitados.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_VICTORY_PEDIA</Tag>
+		<English>[PARAGRAPH:2][BOLD]Religious Victory[\BOLD][PARAGRAPH:2]The game will end if only one Holy City remains. The controller of that city will be the winner. Please note that 2 Holy Cities must be exist before the Religious Victory is available.[PARAGRAPH:2]All other core game victory conditions are also possible in this scenerio.</English>
+		<French>[PARAGRAPH:2][BOLD]Victoire religieuse[\BOLD][PARAGRAPH:2]La partie prendra fin s'il ne reste qu'une ville sainte. Le vainqueur sera celui qui contr&#244;lera cette ville. A noter qu'une victoire religieuse n'est possible que s'il existe plus d'une ville sainte auparavant.[PARAGRAPH:2]Toutes les autres conditions de victoire du jeu sont possibles dans ce sc&#233;nario.</French>
+		<German>[PARAGRAPH:2][BOLD]Religi&#246;ser Sieg[\BOLD][PARAGRAPH:2]Das Spiel endet, wenn nur eine einzige Heilige Stadt &#252;brig ist. Bitte beachten Sie, dass es mindestens zwei Heilige St&#228;dte geben muss, ehe ein Religi&#246;ser Sieg m&#246;glich ist.[PARAGRAPH:2]In diesem Szenario sind auch alle anderen Siegbedingungen m&#246;glich.</German>
+		<Italian>[PARAGRAPH:2][BOLD]Vittoria religiosa[\BOLD][PARAGRAPH:2]La partita termina se rimane solo una Citt&#224; Santa e chi la controlla sar&#224; il vincitore. Nota bene che devono esistere almeno 2 Citt&#224; Sante, prima che sia disponibile una Vittoria religiosa.[PARAGRAPH:2]In questo scenario sono anche disponibili tutte le altre condizioni di vittoria.</Italian>
+		<Spanish>[PARAGRAPH:2][BOLD]Victoria religiosa[\BOLD][PARAGRAPH:2]La partida terminar&#225; cuando solo quede una ciudad santa. El bando que la controle ser&#225; el ganador. Ten en cuenta que deben existir al menos 2 ciudades santas para que est&#233; disponible la victoria religiosa.[PARAGRAPH:2]En este escenario tambi&#233;n est&#225;n disponibles todas las condiciones de victoria generales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_EARTHQUAKE_MOUSE_OVER</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Earthquake[COLOR_REVERT][NEWLINE]Causes an earthquake which damages cities and the surrounding land.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher un s&#233;isme[COLOR_REVERT][NEWLINE]D&#233;clenche un s&#233;isme qui endommage les villes et les terrains &#224; proximit&#233;.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Erdbeben verursachen[COLOR_REVERT][NEWLINE]Verursacht ein Erdbeben, welches St&#228;dte und ihre Umgebung besch&#228;digt.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa terremoto[COLOR_REVERT][NEWLINE]Causa un terremoto che danneggia le citt&#224; e la terra circostante.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar terremoto[COLOR_REVERT][NEWLINE]Provoca un terremoto que da&#241;a las ciudades y la tierra circundante.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TSUNAMI_MOUSE_OVER</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Tsunami[COLOR_REVERT][NEWLINE]Causes a gigantic wave that damages cities and lands along coastlines.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher un tsunami[COLOR_REVERT][NEWLINE]D&#233;clenche une vague gigantesque qui endommage les villes et les terrains c&#244;tiers.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Tsunami verursachen[COLOR_REVERT][NEWLINE]Verursacht eine gewaltige Welle, die St&#228;dte und L&#228;ndereien entlang der K&#252;stenlinie besch&#228;digt.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa tsunami[COLOR_REVERT][NEWLINE]Causa una gigantesca ondata che danneggia citt&#224; e territori lungo la costa.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar tsunami[COLOR_REVERT][NEWLINE]Causa una ola gigante que da&#241;a las ciudades y las tierras costeras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_PLAGUE_MOUSE_OVER</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Plague[COLOR_REVERT][NEWLINE]Causes a Plague that will spread along trade routes.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher une &#233;pid&#233;mie[COLOR_REVERT][NEWLINE]D&#233;clenche une &#233;pid&#233;mie qui se r&#233;pandra le long des routes commerciales.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Pest verursachen[COLOR_REVERT][NEWLINE]L&#228;sst die Pest ausbrechen, die sich entlang der Handelswege ausbreitet.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa pestilenza[COLOR_REVERT][NEWLINE]Causa una pestilenza che si diffonde lungo le rotte commerciali.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar peste[COLOR_REVERT][NEWLINE]Provoca una peste que se propaga por las rutas comerciales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_METEOR_MOUSE_OVER</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Meteorstrike[COLOR_REVERT][NEWLINE]Causes a Meteor to strike a tile, decimating it.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher une chute de m&#233;t&#233;orite[COLOR_REVERT][NEWLINE]D&#233;clenche la chute d'une m&#233;t&#233;orite sur une case pour la d&#233;truire.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Meteoritenschlag verursachen[COLOR_REVERT][NEWLINE]L&#228;sst einen Meteoriten auf einem Gel&#228;ndefeld einschlagen und es dezimieren.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa caduta meteoriti[COLOR_REVERT][NEWLINE]Fa in modo che un meteorite colpisca una casella, distruggendola.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar impacto de meteoro[COLOR_REVERT][NEWLINE]Convoca un meteorito que impacta sobre una casilla y siembra la destrucci&#243;n en ella.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_BLIGHT_MOUSE_OVER</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Blight[COLOR_REVERT][NEWLINE]Causes a blight to target an area, permanently destroying resources and weakening food production of tiles.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher une rouille[COLOR_REVERT][NEWLINE]D&#233;clenche une rouille sur une zone qui d&#233;truit de fa&#231;on permanente les ressources et affaiblit la production de nourriture des cases.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]D&#252;rre verursachen[COLOR_REVERT][NEWLINE]Verursacht eine D&#252;rre im Zielgebiet, die dauerhaft Ressourcen vernichtet und die Nahrungsproduktion der Gel&#228;ndefelder schw&#228;cht.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa distruzione[COLOR_REVERT][NEWLINE]Si distruggono in maniera permanente le risorse dell'area bersaglio, riducendo la produzione di cibo delle caselle.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar desolaci&#243;n[COLOR_REVERT][NEWLINE]Provoca un accidente sobre una zona, de modo que destruye permanentemente los recursos y da&#241;a la producci&#243;n de alimento de las casillas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_INQUISTOR_CLEANSE_MOUSE_OVER</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Religious Persecution[COLOR_REVERT][NEWLINE]Removes all religions except the state religion from this city.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Pers&#233;cution religieuse[COLOR_REVERT][NEWLINE]Supprime toutes les religions d'une ville &#224; l'exception de la religion d'&#233;tat.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Religi&#246;se Verfolgung[COLOR_REVERT][NEWLINE]Entfernt alle Religionen aus der Stadt, bis auf die Staatsreligion.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Persecuzione religiosa[COLOR_REVERT][NEWLINE]Rimuove da questa citt&#224; tutte le religioni tranne quella di stato.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Persecuci&#243;n religiosa[COLOR_REVERT][NEWLINE]Elimina todas las religiones salvo la religi&#243;n oficial de esta ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_DAWN_OF_MAN_TEXT</Tag>
+		<English>Rule Changes:[NEWLINE][COLOR_HIGHLIGHT_TEXT]Founding Religions[COLOR_REVERT][NEWLINE]Rather than being founded through technologies, Religions in gods of Old are founded by building a Shrine to a specific god in a city.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Religious Victory[COLOR_REVERT][NEWLINE]For a religious victory to be obtained a player must control the last remaining Holy City. Holy Cities can be eliminated though use of Inquisitors. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisitors[COLOR_REVERT][NEWLINE]Inquisitors are able to eliminate all non-state religions from a city; this includes Holy Cities.  [NEWLINE][COLOR_HIGHLIGHT_TEXT]Natural Disasters[COLOR_REVERT][NEWLINE]Great Prophets of some gods allow you to sacrifice the Prophet in order to call Natural Disasters upon your enemies. Prophets of Ki call Earthquakes, Prophets of Enki call Tsunamis, Prophets of Enlil cause Plagues, Prophets of Nanna bring down Meteor Strikes, and Prophets of Utu can cause Blight on an opponents land. Prophets of An offer protection from Natural Disasters and are automatically sacrificed to absorb the any disasters that target their player's land. Prophets of Inanna can cause no disasters.[NEWLINE][NEWLINE]The sun rises on the year %s1_year. Since time immemorial, the %s2_civ people have lived a nomadic life. [NEWLINE][NEWLINE]After years of wandering, they are ready to settle down and found your first city. [NEWLINE]%s3_leader, your people have vested absolute power in you, trusting that you can build a Civilization to stand the test of time!</English>
+		<French>Changements de r&#232;gles :[NEWLINE][COLOR_HIGHLIGHT_TEXT]Fonder des religions[COLOR_REVERT][NEWLINE]Plut&#244;t que d'&#234;tre fond&#233;es par les technologies, les religions des Dieux de l'Ancien Temps sont fond&#233;es en construisant dans une ville un autel sp&#233;cifique &#224; un dieu.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Victoire religieuse[COLOR_REVERT][NEWLINE]Pour remporter une victoire religieuse, un joueur doit contr&#244;ler la derni&#232;re Ville Sainte qui subsiste. Les Villes Saintes peuvent &#234;tre &#233;limin&#233;es par les inquisiteurs. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisiteurs[COLOR_REVERT][NEWLINE]Les inquisiteurs ont la possibilit&#233; d'&#233;liminer toutes les religions d'une ville qui ne sont pas des religions d'&#233;tat, y compris dans les Villes Saintes. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Catastrophes naturelles[COLOR_REVERT][NEWLINE]Les grands proph&#232;tes de certains dieux peuvent &#234;tre sacrifi&#233;s pour invoquer des catastrophes naturelles sur vos ennemis. Les proph&#232;tes de Ki invoquent des s&#233;ismes, les proph&#232;tes d'Enki invoquent des tsunamis, les proph&#232;tes d'Enlil provoquent des &#233;pid&#233;mies, les proph&#232;tes de Nanna font pleuvoir des m&#233;t&#233;orites et les proph&#232;tes d'Utu peuvent provoquer la rouille sur les territoires adverses. Les proph&#232;tes d'An offrent une protection contre les catastrophes naturelles et sont automatiquement sacrifi&#233;s pour contrer toute catastrophe qui frappe les terres du joueur. Les proph&#232;tes d'Inanna ne peuvent pas invoquer de catastrophes.[NEWLINE][NEWLINE]Le soleil se l&#232;ve sur l'an %s1_year. Depuis des temps imm&#233;moriaux, le peuple %s2_civ menait une vie nomade. [NEWLINE][NEWLINE]Apr&#232;s des ann&#233;es d'errance, il est pr&#234;t &#224; se s&#233;dentariser et &#224; fonder votre premi&#232;re ville. [NEWLINE]%s3_leader, votre peuple vous a investi du pouvoir absolu et vous fait confiance pour b&#226;tir une civilisation qui r&#233;sistera au cours du temps !</French>
+		<German>Regel&#228;nderungen:[NEWLINE][COLOR_HIGHLIGHT_TEXT]Religion gr&#252;nden[COLOR_REVERT][NEWLINE]Statt durch Technologien gegr&#252;ndet zu werden, werden die Religionen in Gods of Old gegr&#252;ndet, indem in einer Stadt ein Schrein einer bestimmten Gottheit errichtet wird.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Religi&#246;ser Sieg[COLOR_REVERT][NEWLINE]Um den Religi&#246;sen Sieg zu erringen, muss ein Spieler die letzte verbliebene Heilige Stadt kontrollieren. Heilige St&#228;dte k&#246;nnen mit der Hilfe von Inquisitoren vernichtet werden. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisitoren[COLOR_REVERT][NEWLINE]Inquisitoren k&#246;nnen in einer Stadt alle Religionen eliminieren, die nicht Staatsreligion sind; dies gilt auch f&#252;r Heilige St&#228;dte.  [NEWLINE][COLOR_HIGHLIGHT_TEXT]Naturkatastrophen[COLOR_REVERT][NEWLINE]Gro&#223;e Propheten einiger G&#246;tter erm&#246;glichen es, den Propheten zu opfern, um Naturkatastrophen &#252;ber Eure Feinde zu bringen. Ki-Propheten rufen Erdbeben hervor, Enki-Propheten rufen Tsunamis hervor, Enlil-Propheten rufen die Pest hervor, Nanna-Propheten verursachen Meteoritenschl&#228;ge und Utu-Propheten verursachen eine D&#252;rre auf gegnerischem Land. An-Propheten bieten Schutz vor Naturkatastrophen und werden automatisch geopfert, um Naturkatastrophen abzuwenden, die gegen das Land ihres Spielers gerichtet sind. Inanna-Propheten k&#246;nnen keine Katastrophen verursachen.[NEWLINE][NEWLINE]Die Sonne erhellt das Jahr %s1_year. Das %s2:3_civ Volk f&#252;hrt seit uralter Zeit ein Nomadenleben. [NEWLINE][NEWLINE]Doch nun, nach so vielen Jahren des Umherziehens, sind die Menschen bereit, sich niederzulassen und Eure erste Stadt zu gr&#252;nden. [NEWLINE]%s3_leader, Euer Volk hat Euch absolute Macht verliehen und vertraut darauf, dass Ihr eine Zivilisation errichtet, welche die Zeit &#252;berdauern wird!</German>
+		<Italian>Cambiamenti nelle regole:[NEWLINE][COLOR_HIGHLIGHT_TEXT]Fondare religioni[COLOR_REVERT][NEWLINE]In Antiche divinit&#224; le religioni, invece di essere fondate con le tecnologie, si fondano costruendo in una citt&#224; un santuario dedicato a una specifica divinit&#224;.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Vittoria religiosa[COLOR_REVERT][NEWLINE]Per ottenere una vittoria religiosa &#232; necessario controllare l'ultima Citt&#224; Santa che rimane. Le Citt&#224; Sante possono essere eliminate usando gli inquisitori. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisitori[COLOR_REVERT][NEWLINE]Gli inquisitori sono in grado di eliminare da una citt&#224; tutte le religioni non di stato, anche nelle Citt&#224; Sante.  [NEWLINE][COLOR_HIGHLIGHT_TEXT]Disastri naturali[COLOR_REVERT][NEWLINE]I Grandi Profeti di alcune divinit&#224; permettono di scatenare disastri naturali sui nemici, a patto di sacrificare il profeta stesso. I profeti di Ki scatenano terremoti, quelli di Enki tsunami, quelli di Enlil pestilenze, quelli di Nanna fanno cadere meteoriti e i profeti di Utu possono distruggere le terre di un avversario. I profeti di An offrono protezione dai disastri naturali e vengono sacrificati automaticamente per assorbire i disastri che colpiscono i loro territori. I profeti di Inanna non possono causare disastri.[NEWLINE][NEWLINE]Il sole sorge nell'anno %s1_year. Da tempi immemori, la popolazione %s2_civ ha condotto una vita nomade. [NEWLINE][NEWLINE]Dopo anni di vagabondaggi, sono infine pronti a stabilirsi e a fondare la tua prima citt&#224;. [NEWLINE]%s3_leader, il tuo popolo ti ha conferito potere assoluto, credendo che tu possa sviluppare una civilt&#224; in grado di resistere alle prove del tempo!</Italian>
+		<Spanish>Cambios de reglas:[NEWLINE][COLOR_HIGHLIGHT_TEXT]Fundaci&#243;n de religiones[COLOR_REVERT][NEWLINE]En lugar de fundarse gracias a las tecnolog&#237;as, las religiones en "Gods of Old" se fundan al construir un santuario a un dios espec&#237;fico en una ciudad.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Victoria religiosa[COLOR_REVERT][NEWLINE]Para obtener una victoria religiosa, el jugador debe controlar la &#250;ltima ciudad santa restante. Las ciudades santas se pueden eliminar con los inquisidores. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisidores[COLOR_REVERT][NEWLINE]Los inquisidores pueden eliminar todas las religiones no oficiales de una ciudad, incluyendo las ciudades santas.  [NEWLINE][COLOR_HIGHLIGHT_TEXT]Desastres naturales[COLOR_REVERT][NEWLINE]Los grandes profetas de algunos dioses pueden sacrificarse para provocar desastres naturales a tus enemigos. Los profetas de Ki convocan terremotos, los de Enki convocan tsunamis, los de Enlil causan pestes, los de Nanna atraen meteoritos y los de Utu pueden provocar accidentes sobre las tierras de los rivales. Los profetas de An ofrecen protecci&#243;n frente a los desastres naturales y se sacrifican autom&#225;ticamente para absorber los desastres que afecten a la tierra de su jugador. Los profetas de Inanna no pueden provocar desastres.[NEWLINE][NEWLINE]El sol se alza en el a&#241;o %s1_year. Desde tiempos inmemoriales, los %s2:3_civ han llevado una vida n&#243;mada. [NEWLINE][NEWLINE]Tras a&#241;os de deambular, est&#225;n listos para asentarse y fundar vuestra primera ciudad. [NEWLINE]%s3_leader, vuestro pueblo os ha conferido poder absoluto, confiando en que pod&#225;is desarrollar una civilizaci&#243;n que supere los retos del tiempo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_STARS_NONE</Tag>
+		<English>The stars grant no bonuses.</English>
+		<French>Les &#233;toiles n'accordent aucun bonus.</French>
+		<German>Die Sterne gew&#228;hren keine Boni.</German>
+		<Italian>Le stelle non concedono bonus.</Italian>
+		<Spanish>Las estrellas no conceden bonificaciones.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_STARS_UTU_PRODUCTION</Tag>
+		<English>The stars grant Utu worshippers increased production.</English>
+		<French>Les &#233;toiles accordent une production accrue aux adorateurs d'Utu.</French>
+		<German>Die Sterne gew&#228;hren Utu-Anh&#228;ngern gesteigerte Produktion.</German>
+		<Italian>Le stelle concedono un incremento nella produzione agli adoratori di Utu.</Italian>
+		<Spanish>Las estrellas conceden a los adoradores de Utu un aumento en la producci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_STARS_NANNA_PRODUCTION</Tag>
+		<English>The stars grant Nanna worshippers increased production.</English>
+		<French>Les &#233;toiles accordent une production accrue aux adorateurs de Nanna.</French>
+		<German>Die Sterne gew&#228;hren Nanna-Anh&#228;ngern gesteigerte Produktion.</German>
+		<Italian>Le stelle concedono un incremento nella produzione agli adoratori di Nanna.</Italian>
+		<Spanish>Las estrellas conceden a los adoradores de Nanna un aumento en la producci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_STARS_UTU_WEALTH</Tag>
+		<English>The stars grant Utu worshippers wealth.</English>
+		<French>Les &#233;toiles accordent des richesses aux adorateurs d'Utu.</French>
+		<German>Die Sterne gew&#228;hren Utu-Anh&#228;ngern Wohlstand.</German>
+		<Italian>Le stelle concedono ricchezza agli adoratori di Utu.</Italian>
+		<Spanish>Las estrellas conceden riqueza a los adoradores de Utu.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_STARS_NANNA_WEALTH</Tag>
+		<English>The stars grant Nanna worshippers wealth.</English>
+		<French>Les &#233;toiles accordent des richesses aux adorateurs de Nanna.</French>
+		<German>Die Sterne gew&#228;hren Nanna-Anh&#228;ngern Wohlstand.</German>
+		<Italian>Le stelle concedono ricchezza agli adoratori di Nanna.</Italian>
+		<Spanish>Las estrellas conceden riqueza a los adoradores de Nanna.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_STARS_UTU_GROWTH</Tag>
+		<English>The stars grant Utu worshippers increased growth.</English>
+		<French>Les &#233;toiles accordent une croissance accrue aux adorateurs d'Utu.</French>
+		<German>Die Sterne gew&#228;hren Utu-Anh&#228;ngern gesteigertes Wachstum.</German>
+		<Italian>Le stelle concedono un incremento nella crescita agli adoratori di Utu.</Italian>
+		<Spanish>Las estrellas conceden a los adoradores de Utu un aumento en el crecimiento.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_STARS_NANNA_GROWTH</Tag>
+		<English>The stars grant Nanna worshippers increased growth.</English>
+		<French>Les &#233;toiles accordent une croissance accrue aux adorateurs de Nanna.</French>
+		<German>Die Sterne gew&#228;hren Nanna-Anh&#228;ngern gesteigertes Wachstum.</German>
+		<Italian>Le stelle concedono un incremento nella crescita agli adoratori di Nanna.</Italian>
+		<Spanish>Las estrellas conceden a los adoradores de Nanna un aumento en el crecimiento.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_STARS_UTU_CULTURE</Tag>
+		<English>The stars grant Utu worshippers increased culture.</English>
+		<French>Les &#233;toiles accordent une culture accrue aux adorateurs d'Utu.</French>
+		<German>Die Sterne gew&#228;hren Utu-Anh&#228;ngern mehr Kultur.</German>
+		<Italian>Le stelle concedono un incremento nella cultura agli adoratori di Utu.</Italian>
+		<Spanish>Las estrellas conceden a los adoradores de Utu un aumento en la cultura.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_STARS_NANNA_CULTURE</Tag>
+		<English>The stars grant Nanna worshippers increased culture.</English>
+		<French>Les &#233;toiles accordent une culture accrue aux adorateurs de Nanna.</French>
+		<German>Die Sterne gew&#228;hren Nanna-Anh&#228;ngern mehr Kultur.</German>
+		<Italian>Le stelle concedono un incremento nella cultura agli adoratori di Nanna.</Italian>
+		<Spanish>Las estrellas conceden a los adoradores de Nanna un aumento en la cultura.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TECH_MEDITATION_STRATEGY</Tag>
+		<English>[COLOR_TECH_TEXT]Meditation[COLOR_REVERT] allows you to build the [COLOR_BUILDING_TEXT]Monastery[COLOR_REVERT] city improvement.</English>
+		<French>La [COLOR_TECH_TEXT]M&#233;ditation[COLOR_REVERT] vous permet de construire le [COLOR_BUILDING_TEXT]Monast&#232;re[COLOR_REVERT].</French>
+		<German>[COLOR_TECH_TEXT]Meditation[COLOR_REVERT] erm&#246;glicht den Bau der Stadt-Modernisierung [COLOR_BUILDING_TEXT]Kloster[COLOR_REVERT].</German>
+		<Italian>La [COLOR_TECH_TEXT]Meditazione[COLOR_REVERT] permette la costruzione del miglioramento cittadino [COLOR_BUILDING_TEXT]Monastero[COLOR_REVERT].</Italian>
+		<Spanish>La [COLOR_TECH_TEXT]Meditaci&#243;n[COLOR_REVERT] tambi&#233;n permite construir la mejora urbana del [COLOR_BUILDING_TEXT]Monasterio[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TECH_POLYTHEISM_STRATEGY</Tag>
+		<English>[COLOR_TECH_TEXT]Polytheism[COLOR_REVERT] enables you to build the [COLOR_BUILDING_TEXT]Parthenon[COLOR_REVERT] wonder.</English>
+		<French>Le [COLOR_TECH_TEXT]Polyth&#233;isme[COLOR_REVERT] vous permet de construire le [COLOR_BUILDING_TEXT]Parth&#233;non[COLOR_REVERT].</French>
+		<German>[COLOR_TECH_TEXT]Polytheismus[COLOR_REVERT] erm&#246;glicht den Bau des Wunders [COLOR_BUILDING_TEXT]Parthenon[COLOR_REVERT].</German>
+		<Italian>Il [COLOR_TECH_TEXT]Politeismo[COLOR_REVERT] permette la costruzione della Meraviglia [COLOR_BUILDING_TEXT]Partenone[COLOR_REVERT].</Italian>
+		<Spanish>El [COLOR_TECH_TEXT]Polite&#237;smo[COLOR_REVERT] tambi&#233;n permite construir la maravilla del [COLOR_BUILDING_TEXT]Parten&#243;n[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TECH_THEOLOGY_STRATEGY</Tag>
+		<English>[COLOR_TECH_TEXT]Theology[COLOR_REVERT] enables the [COLOR_HIGHLIGHT_TEXT]Theocracy[COLOR_REVERT] civic and allows construction of the [COLOR_BUILDING_TEXT]Sistine Chapel[COLOR_REVERT] wonder.</English>
+		<French>La [COLOR_TECH_TEXT]Th&#233;ologie[COLOR_REVERT] permet d'instaurer la [COLOR_HIGHLIGHT_TEXT]Th&#233;ocratie[COLOR_REVERT] et de construire la [COLOR_BUILDING_TEXT]Chapelle Sixtine[COLOR_REVERT].</French>
+		<German>[COLOR_TECH_TEXT]Theologie[COLOR_REVERT] erm&#246;glicht die Staatsform [COLOR_HIGHLIGHT_TEXT]Theokratie[COLOR_REVERT] und erlaubt den Bau des Wunders [COLOR_BUILDING_TEXT]Sixtinische Kapelle[COLOR_REVERT].</German>
+		<Italian>La [COLOR_TECH_TEXT]Teologia[COLOR_REVERT] permette la forma di governo [COLOR_HIGHLIGHT_TEXT]Teocrazia[COLOR_REVERT], e permette la costruzione della Meraviglia [COLOR_BUILDING_TEXT]Cappella Sistina[COLOR_REVERT].</Italian>
+		<Spanish>La [COLOR_TECH_TEXT]Teolog&#237;a[COLOR_REVERT] activa el principio de [COLOR_HIGHLIGHT_TEXT]Teocracia[COLOR_REVERT] y permite la construcci&#243;n de la maravilla de la [COLOR_BUILDING_TEXT]Capilla Sixtina[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TECH_CODE_OF_LAWS_STRATEGY</Tag>
+		<English>[COLOR_TECH_TEXT]Code of Laws[COLOR_REVERT] enables the [COLOR_HIGHLIGHT_TEXT]Caste System[COLOR_REVERT] civic and allows construction of [COLOR_BUILDING_TEXT]Courthouses[COLOR_REVERT] and the [COLOR_BUILDING_TEXT]Chichen Itza[COLOR_REVERT] wonder.</English>
+		<French>Le [COLOR_TECH_TEXT]Livre des lois[COLOR_REVERT]permet d'instaurer le [COLOR_HIGHLIGHT_TEXT]Syst&#232;me de castes[COLOR_REVERT] et de construire les [COLOR_BUILDING_TEXT]Tribunaux[COLOR_REVERT] ainsi que la merveille [COLOR_BUILDING_TEXT]Chichen Itza[COLOR_REVERT].</French>
+		<German>[COLOR_TECH_TEXT]Gesetzgebung[COLOR_REVERT] erm&#246;glicht die Staatsform [COLOR_HIGHLIGHT_TEXT]Kastensystem[COLOR_REVERT] und erlaubt den Bau von [COLOR_BUILDING_TEXT]Gerichtsgeb&#228;uden[COLOR_REVERT] und des Wunders [COLOR_BUILDING_TEXT]Chichen Itza[COLOR_REVERT].</German>
+		<Italian>Il [COLOR_TECH_TEXT]Codice di leggi[COLOR_REVERT] permette la forma di governo [COLOR_HIGHLIGHT_TEXT]Sistema a caste[COLOR_REVERT], la costruzione di [COLOR_BUILDING_TEXT]Palazzi di giustizia[COLOR_REVERT] e della Meraviglia [COLOR_BUILDING_TEXT]Chichen Itza[COLOR_REVERT].</Italian>
+		<Spanish>La [COLOR_TECH_TEXT]Legislaci&#243;n[COLOR_REVERT] activa el principio del [COLOR_HIGHLIGHT_TEXT]Sistema de castas[COLOR_REVERT] y permite la construcci&#243;n de [COLOR_BUILDING_TEXT]Delegaciones[COLOR_REVERT] y de la maravilla de [COLOR_BUILDING_TEXT]Chichen Itz&#225;[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TECH_MONOTHEISM_STRATEGY</Tag>
+		<English>[COLOR_TECH_TEXT]Monotheism[COLOR_REVERT] enables the [COLOR_HIGHLIGHT_TEXT]Organized Religion[COLOR_REVERT] civic. </English>
+		<French>Le [COLOR_TECH_TEXT]Monoth&#233;isme[COLOR_REVERT] permet d'instaurer la [COLOR_HIGHLIGHT_TEXT]Religion organis&#233;e[COLOR_REVERT].</French>
+		<German>[COLOR_TECH_TEXT]Monotheismus[COLOR_REVERT] erm&#246;glicht die Staatsform [COLOR_HIGHLIGHT_TEXT]Organisierte Religion[COLOR_REVERT]. </German>
+		<Italian>Il [COLOR_TECH_TEXT]Monoteismo[COLOR_REVERT] permette la forma di governo [COLOR_HIGHLIGHT_TEXT]Religione organizzata[COLOR_REVERT]. </Italian>
+		<Spanish>El [COLOR_TECH_TEXT]Monote&#237;smo[COLOR_REVERT] activa el principio de la [COLOR_HIGHLIGHT_TEXT]Religi&#243;n organizada[COLOR_REVERT]. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TECH_PHILOSOPHY_STRATEGY</Tag>
+		<English>[COLOR_TECH_TEXT]Philosophy[COLOR_REVERT] enables the [COLOR_HIGHLIGHT_TEXT]Pacifism[COLOR_REVERT] civic and allows construction of the [COLOR_BUILDING_TEXT]Angkor Wat[COLOR_REVERT] wonder. </English>
+		<French>La [COLOR_TECH_TEXT]Philosophie[COLOR_REVERT] permet d'instaurer le [COLOR_HIGHLIGHT_TEXT]Pacifisme[COLOR_REVERT] et de construire la merveille [COLOR_BUILDING_TEXT]Angkor Vat[COLOR_REVERT].</French>
+		<German>[COLOR_TECH_TEXT]Philosophie[COLOR_REVERT] erm&#246;glicht die Staatsform [COLOR_HIGHLIGHT_TEXT]Pazifismus[COLOR_REVERT] und erlaubt den Bau des Wunders [COLOR_BUILDING_TEXT]Angkor Wat[COLOR_REVERT]. </German>
+		<Italian>La [COLOR_TECH_TEXT]Filosofia[COLOR_REVERT] permette la forma di governo [COLOR_HIGHLIGHT_TEXT]Pacifismo[COLOR_REVERT] e la costruzione della Meraviglia [COLOR_BUILDING_TEXT]Angkor Wat[COLOR_REVERT]. </Italian>
+		<Spanish>La [COLOR_TECH_TEXT]Filosof&#237;a[COLOR_REVERT] activa el principio del [COLOR_HIGHLIGHT_TEXT]Pacifismo[COLOR_REVERT] y permite la construcci&#243;n de la maravilla de [COLOR_BUILDING_TEXT]Angkor Wat[COLOR_REVERT]. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TECH_DIVINE_RIGHT_STRATEGY</Tag>
+		<English>[COLOR_TECH_TEXT]Divine Right[COLOR_REVERT] also allows construction of the [COLOR_BUILDING_TEXT]Versailles[COLOR_REVERT] and [COLOR_BUILDING_TEXT]Spiral Minaret[COLOR_REVERT] wonders.</English>
+		<French>Le [COLOR_TECH_TEXT]Droit divin[COLOR_REVERT] vous permet de construire le palais de [COLOR_BUILDING_TEXT]Versailles[COLOR_REVERT] et le [COLOR_BUILDING_TEXT]Minaret en Spirale[COLOR_REVERT].</French>
+		<German>[COLOR_TECH_TEXT]G&#246;ttliches Recht[COLOR_REVERT] erlaubt auch den Bau der Wunder [COLOR_BUILDING_TEXT]Versailles[COLOR_REVERT] und [COLOR_BUILDING_TEXT]Spiralminarett[COLOR_REVERT].</German>
+		<Italian>Il [COLOR_TECH_TEXT]Diritto divino[COLOR_REVERT] permette inoltre la costruzione delle meraviglie [COLOR_BUILDING_TEXT]Versailles[COLOR_REVERT] e [COLOR_BUILDING_TEXT]Minareto a spirale[COLOR_REVERT].</Italian>
+		<Spanish>El [COLOR_TECH_TEXT]Derecho divino[COLOR_REVERT] tambi&#233;n permite construir las maravillas de [COLOR_BUILDING_TEXT]Versalles[COLOR_REVERT] y del [COLOR_BUILDING_TEXT]Minarete Helicoidal[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_UNIT_GREAT_PROPHET_STRATEGY</Tag>
+		<English>[COLOR_UNIT_TEXT]Great Prophets[COLOR_REVERT] allow you to immediately construct a religious [COLOR_BUILDING_TEXT]Shrine[COLOR_REVERT]. They can also call different [COLOR_HIGHLIGHT_TEXT]Natural Disasters[COLOR_REVERT], dependent upon the owner's [COLOR_HIGHLIGHT_TEXT]State Religion[COLOR_REVERT]</English>
+		<French>Les [COLOR_UNIT_TEXT]Proph&#232;tes illustres[COLOR_REVERT] vous permettent de construire imm&#233;diatement un [COLOR_BUILDING_TEXT]Sanctuaire[COLOR_REVERT] religieux. Ils peuvent &#233;galement d&#233;clencher diverses [COLOR_HIGHLIGHT_TEXT]Catastrophes naturelles[COLOR_REVERT], selon la [COLOR_HIGHLIGHT_TEXT]Religion d'Etat[COLOR_REVERT] du joueur.</French>
+		<German>[COLOR_UNIT_TEXT]Gro&#223;e Propheten[COLOR_REVERT] erlauben den sofortigen Bau eines religi&#246;sen [COLOR_BUILDING_TEXT]Schreins[COLOR_REVERT]. Sie k&#246;nnen abh&#228;ngig von der [COLOR_HIGHLIGHT_TEXT]Staatsreligion[COLOR_REVERT] des Eigent&#252;mers auch verschiedene [COLOR_HIGHLIGHT_TEXT]Naturkatastrophen[COLOR_REVERT] hervorrufen.</German>
+		<Italian>I [COLOR_UNIT_TEXT]Grandi Profeti[COLOR_REVERT] ti permettono di costruire immediatamente un [COLOR_BUILDING_TEXT]Santuario[COLOR_REVERT] religioso. Possono inoltre evocare diversi [COLOR_HIGHLIGHT_TEXT]Disastri naturali[COLOR_REVERT], a seconda della [COLOR_HIGHLIGHT_TEXT]Religione ufficiale[COLOR_REVERT] del padrone.</Italian>
+		<Spanish>Los [COLOR_UNIT_TEXT]Grandes profetas[COLOR_REVERT] permiten construir un [COLOR_BUILDING_TEXT]Santuario[COLOR_REVERT] religioso. Tambi&#233;n pueden invocar diferentes [COLOR_HIGHLIGHT_TEXT]Desastres naturales[COLOR_REVERT], dependiendo de la [COLOR_HIGHLIGHT_TEXT]religi&#243;n oficial[COLOR_REVERT] de su due&#241;o.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_EARTHQUAKE_MOUSE_OVER_CHANGED</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Earthquake[COLOR_REVERT][NEWLINE]Causes an earthquake which damages cities and the surrounding land. This will consume the Prophet.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher un s&#233;isme[COLOR_REVERT][NEWLINE]D&#233;clenche un s&#233;isme qui d&#233;truit les villes et terrains environnants. Cet ordre d&#233;truira le proph&#232;te.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Erdbeben verursachen[COLOR_REVERT][NEWLINE]Verursacht ein Erdbeben, welches St&#228;dte und ihre Umgebung verw&#252;stet. Der Prophet wird dabei geopfert.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa terremoto[COLOR_REVERT][NEWLINE]Causa un terremoto che danneggia la citt&#224; e la terra circostante. In quest'operazione il Profeta verr&#224; sacrificato.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar terremoto[COLOR_REVERT][NEWLINE]Provoca un terremoto que da&#241;a las ciudades y la tierra circundante. Esto consumir&#225; al profeta.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_TSUNAMI_MOUSE_OVER_CHANGED</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Tsunami[COLOR_REVERT][NEWLINE]Causes a gigantic wave that damages cities and lands along coastlines. This will consume the Prophet.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher un tsunami[COLOR_REVERT][NEWLINE]D&#233;clenche une vague gigantesque qui d&#233;truit les villes et terrains c&#244;tiers. Cet ordre d&#233;truira le proph&#232;te.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Tsunami verursachen[COLOR_REVERT][NEWLINE]Verursacht eine gewaltige Welle, die St&#228;dte und L&#228;ndereien entlang der K&#252;stenlinie besch&#228;digt. Der Prophet wird dabei geopfert.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa tsunami[COLOR_REVERT][NEWLINE]Causa una gigantesca ondata che danneggia citt&#224; e territori lungo la costa. In questa operazione il Profeta verr&#224; sacrificato.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar tsunami[COLOR_REVERT][NEWLINE]Causa una ola gigante que da&#241;a las ciudades y las tierras costeras. Esto consumir&#225; al profeta.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_PLAGUE_MOUSE_OVER_CHANGED</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Plague[COLOR_REVERT][NEWLINE]Causes a Plague that will spread along trade routes. This will consume the Prophet.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher une &#233;pid&#233;mie[COLOR_REVERT][NEWLINE]D&#233;clenche une &#233;pid&#233;mie qui se r&#233;pandra le long des routes commerciales. Cet ordre d&#233;truira le proph&#232;te.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Pest verursachen[COLOR_REVERT][NEWLINE]L&#228;sst die Pest ausbrechen, die sich entlang der Handelswege ausbreitet. Der Prophet wird dabei geopfert.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa pestilenza[COLOR_REVERT][NEWLINE]Causa una pestilenza che si diffonde lungo le rotte commerciali. In questa operazione il Profeta verr&#224; sacrificato.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar peste[COLOR_REVERT][NEWLINE]Provoca una peste que se propaga por las rutas comerciales. Esto consumir&#225; al profeta.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_METEOR_MOUSE_OVER_CHANGED</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Meteorstrike[COLOR_REVERT][NEWLINE]Causes a Meteor to strike a tile, decimating it. This will consume the Prophet.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher une chute de m&#233;t&#233;orite[COLOR_REVERT][NEWLINE]D&#233;clenche la chute d'une m&#233;t&#233;orite sur une case pour la d&#233;truire. Cet ordre d&#233;truira le proph&#232;te.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Meteoritenschlag verursachen[COLOR_REVERT][NEWLINE]L&#228;sst einen Meteoriten auf einem Gel&#228;ndefeld einschlagen und es dezimieren. Der Prophet wird dabei geopfert.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa caduta meteoriti[COLOR_REVERT][NEWLINE]Fa in modo che un meteorite colpisca una casella, distruggendola. In questa operazione il Profeta verr&#224; sacrificato.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar impacto de meteoro[COLOR_REVERT][NEWLINE]Convoca un meteorito que impacta sobre una casilla y siembra la destrucci&#243;n en ella. Esto consumir&#225; al profeta.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_BLIGHT_MOUSE_OVER_CHANGED</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Cause Blight[COLOR_REVERT][NEWLINE]Causes a blight to target an area, permanently destroying resources and weakening food production of tiles. This will consume the Prophet.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]D&#233;clencher une rouille[COLOR_REVERT][NEWLINE]D&#233;clenche une rouille sur une zone, d&#233;truisant de fa&#231;on permanente les ressources et affaiblissant la production de nourriture des cases. Cet ordre d&#233;truira le proph&#232;te.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]D&#252;rre verursachen[COLOR_REVERT][NEWLINE]Verursacht eine D&#252;rre im Zielgebiet, die dauerhaft Ressourcen vernichtet und die Nahrungsproduktion der Gel&#228;ndefelder schw&#228;cht. Der Prophet wird dabei geopfert.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Causa distruzione[COLOR_REVERT][NEWLINE]Si distruggono in maniera permanente le risorse dell'area bersaglio, riducendo la produzione di cibo delle caselle. In questa operazione il Profeta verr&#224; sacrificato.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Causar desolaci&#243;n[COLOR_REVERT][NEWLINE]Provoca un accidente sobre una zona, de modo que destruye permanentemente los recursos y da&#241;a la producci&#243;n de alimento de las casillas. Esto consumir&#225; al profeta.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_INQUISTOR_CLEANSE_MOUSE_OVER</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Religious Persecution[COLOR_REVERT][NEWLINE]Removes all religions except the state religion from this city. This will consume the Inquisitor.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Pers&#233;cution religieuse[COLOR_REVERT][NEWLINE]Supprime toutes les religions d'une ville &#224; l'exception de la religion d'&#233;tat. Cet ordre d&#233;truira l'inquisiteur.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Religi&#246;se Verfolgung[COLOR_REVERT][NEWLINE]Entfernt alle Religionen aus der Stadt, bis auf die Staatsreligion.Der Inquisitor wird dabei geopfert.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Persecuzione religiosa[COLOR_REVERT][NEWLINE]Rimuove da questa citt&#224; tutte le religioni tranne quella di stato. In questa operazione l'Inquisitore verr&#224; sacrificato.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Persecuci&#243;n religiosa[COLOR_REVERT][NEWLINE]Elimina todas las religiones salvo la religi&#243;n oficial de esta ciudad. Esto consumir&#225; al inquisidor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_DISASTER_ANGER</Tag>
+		<English>The %s1_civ suspect the %s2_civ of calling a disaster down upon them and are angry.</English>
+		<French>Les %s1_civ soup&#231;onnent les %s2_civ d'invoquer une catastrophe naturelle contre eux et sont furieux.</French>
+		<German>Das %s1:3_civ Volk verd&#228;chtigt das %s2:3_civ Volk, eine Katastrophe bei ihnen herbeigerufen zu haben, und sie sind ver&#228;rgert.</German>
+		<Italian>I %s1_civ sospettano che %s2_civ abbiano evocato un disastro su di loro, e sono arrabbiati.</Italian>
+		<Spanish>El %s1_civ sospecha que el %s2_civ es responsable de invocar un desastre sobre ellos y est&#225; enojado.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_DISASTER_ANGER_BLOCKED</Tag>
+		<English>The %s1_civ suspect the %s2_civ of attempting  to calling a disaster down upon them and are angry. An's power protected them from the attack. </English>
+		<French>Les %s1_civ soup&#231;onnent les %s2_civ d'avoir invoqu&#233; une catastrophe naturelle contre eux et sont furieux. La puissance d'An les a prot&#233;g&#233;s de cette attaque.</French>
+		<German>Das %s1:3_civ Volk verd&#228;chtigt das %s2:3_civ Volk, versucht zu haben, eine Katastrophe bei ihnen herbeizurufen, und sie sind ver&#228;rgert. Ans Macht hat sie vor dem Angriff bewahrt. </German>
+		<Italian>L'%s1_civ sospetta che %s2_civ abbia tentato di evocare un disastro su di loro, e sono arrabbiati. Il potere di An li ha protetti dall'attacco. </Italian>
+		<Spanish>El %s1_civ sospecha que el %s2_civ ha intentado invocar un desastre sobre ellos y est&#225; enojado. El poder de An le ha protegido del ataque. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_DISASTER_HUMAN</Tag>
+		<English>The %s1_civ suspect the %s2_civ of calling a disaster down upon them.</English>
+		<French>Les %s1_civ soup&#231;onnent les %s2_civ d'invoquer une catastrophe naturelle contre eux et sont furieux.</French>
+		<German>Das %s1:3_civ Volk verd&#228;chtigt das %s2:3_civ Volk, eine Katastrophe bei ihnen herbeigerufen zu haben.</German>
+		<Italian>L'%s1_civ sospetta che %s2_civ abbia evocato un disastro su di loro.</Italian>
+		<Spanish>El %s1_civ sospecha que el %s2_civ es responsable de invocar un desastre sobre &#233;l.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_DISASTER_HUMAN_BLOCKED</Tag>
+		<English>The %s1_civ suspect the %s2_civ of attempting  to calling a disaster down upon them. An's power protected them from the attack. </English>
+		<French>Les %s1_civ soup&#231;onnent les %s2_civ d'avoir invoqu&#233; une catastrophe naturelle contre eux et sont furieux. La puissance d'An les a prot&#233;g&#233;s de cette attaque.</French>
+		<German>Das %s1:3_civ Volk verd&#228;chtigt das %s2:3_civ Volk, versucht zu haben, eine Katastrophe bei ihnen herbeizurufen. Ans Macht hat sie vor dem Angriff bewahrt. </German>
+		<Italian>L'%s1_civ sospettano che %s2_civ abbia tentato di evocare un disastro su di loro. Il potere di An li ha protetti dall'attacco. </Italian>
+		<Spanish>El %s1_civ sospecha que el %s2_civ es responsable de intentar invocar un desastre sobre &#233;l. El poder de An le ha protegido del ataque. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_KI_POPUP_TITLE</Tag>
+		<English>The Religion of Ki</English>
+		<French>Le culte de Ki</French>
+		<German>Die Ki-Religion</German>
+		<Italian>La religione di Ki</Italian>
+		<Spanish>La religi&#243;n de Ki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_KI_POPUP_BODY</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Founding the Religion of Ki:[COLOR_REVERT][NEWLINE]In order to found the Religion of Ki you must build the [COLOR_BUILDING_TEXT]Techtonic Citadel[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Special abilities of Ki:[COLOR_REVERT][NEWLINE]Prophets of Ki can cause Earthquakes to occur.[NEWLINE][NEWLINE]Followers of Ki have access to Earthen Defense, Earthen Aid, and Ki's Strength Promotions.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Fonder le culte de Ki :[COLOR_REVERT][NEWLINE]Pour fonder le culte de Ki, vous devez construire la [COLOR_BUILDING_TEXT]Citadelle tectonique[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Pouvoirs sp&#233;ciaux de Ki :[COLOR_REVERT][NEWLINE]Les proph&#232;tes de Ki peuvent provoquer des s&#233;ismes.[NEWLINE][NEWLINE]Les adeptes de Ki ont acc&#232;s &#224; la d&#233;fense et &#224; l'aide telluriques, ainsi qu'&#224; la Force de Ki.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Gr&#252;ndung der Ki-Religion:[COLOR_REVERT][NEWLINE]Um die Ki-Religion zu gr&#252;nden, m&#252;ssen Sie die  [COLOR_BUILDING_TEXT]Tektonische Zitadelle[COLOR_REVERT] bauen.[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Besondere F&#228;higkeiten von Ki:[COLOR_REVERT][NEWLINE]Propheten Kis k&#246;nnen Erdbeben verursachen.[NEWLINE][NEWLINE]Anh&#228;nger von Ki haben Zugriff auf die Bef&#246;rderungen irdischer Schutz, irdische Hilfe und St&#228;rke des Ki.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Fondare la Religione di Ki:[COLOR_REVERT][NEWLINE]Per poter fondare la Religione di Ki devi costruire la [COLOR_BUILDING_TEXT]Roccaforte tettonica[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Abilit&#224; speciali di Ki:[COLOR_REVERT][NEWLINE]I Profeti di Ki possono scatenare terremoti.[NEWLINE][NEWLINE]I seguaci di Ki possono accedere alle promozioni Difesa di terra, Aiuto di terra e Forza di Ki.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Fundaci&#243;n de la religi&#243;n de Ki:[COLOR_REVERT][NEWLINE]Para fundar la religi&#243;n de Ki se ha de construir la [COLOR_BUILDING_TEXT]Ciudadela tect&#243;nica[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Capacidades especiales de Ki:[COLOR_REVERT][NEWLINE]Los profetas de Ki pueden provocar terremotos.[NEWLINE][NEWLINE]Los seguidores de Ki tienen acceso a los ascensos Defensa de la tierra, Ayuda de la tierra y Fuerza de Ki.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_ENKI_POPUP_TITLE</Tag>
+		<English>The Religion of Enki</English>
+		<French>Le culte d'Enki</French>
+		<German>Die Enki-Religion</German>
+		<Italian>La religione di Enki</Italian>
+		<Spanish>La religi&#243;n de Enki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_ENKI_POPUP_BODY</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Founding the Religion of Enki:[COLOR_REVERT][NEWLINE]In order to found the Religion of Enki you must build the [COLOR_BUILDING_TEXT]Everliving Oasis[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Special abilities of Enki:[COLOR_REVERT][NEWLINE]Prophets of Enki can cause Tsunamis to occur along coast lines.[NEWLINE][NEWLINE]Followers of Enki have access to Enki's Escort, and Tidal Blessing Promotions.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Fonder le culte d'Enki :[COLOR_REVERT][NEWLINE]Pour fonder le culte d'Enki, vous devez construire l'[COLOR_BUILDING_TEXT]Oasis &#233;ternelle[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Pouvoirs sp&#233;ciaux d'Enki :[COLOR_REVERT][NEWLINE]Les proph&#232;tes d'Enki peuvent provoquer des tsunami le long des c&#244;tes.[NEWLINE][NEWLINE]Les adeptes d'Enki ont acc&#232;s &#224; l'Escorte d'Enki ainsi qu'&#224; la B&#233;n&#233;diction des eaux.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Gr&#252;ndung der Enki-Religion:[COLOR_REVERT][NEWLINE]Um die Enki-Religion zu gr&#252;nden, m&#252;ssen Sie die [COLOR_BUILDING_TEXT]Immergr&#252;ne Oase[COLOR_REVERT] bauen.[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Besondere F&#228;higkeiten von Enki:[COLOR_REVERT][NEWLINE]Propheten Enkis k&#246;nnen Tsunamis an den K&#252;stenlinien verursachen.[NEWLINE][NEWLINE]Anh&#228;nger von Enki haben Zugriff auf die Bef&#246;rderungen Enkis Geleit und Segen der Gezeiten.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Fondare la Religione di Enki:[COLOR_REVERT][NEWLINE]Per poter fondare la Religione di Enki devi costruire l'[COLOR_BUILDING_TEXT]Oasi eterna[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Abilit&#224; speciali di Enki:[COLOR_REVERT][NEWLINE]I Profeti di Enki possono scatenare tsunami lungo le coste.[NEWLINE][NEWLINE]I seguaci di Enki possono accedere alle promozioni Scorta di Enki e Benedizione del mare.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Fundaci&#243;n de la religi&#243;n de Enki:[COLOR_REVERT][NEWLINE]Para fundar la religi&#243;n de Enki se ha de construir el [COLOR_BUILDING_TEXT]Jard&#237;n perenne[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Capacidades especiales de Enki:[COLOR_REVERT][NEWLINE]Los profetas de Enki pueden hacer que se den tsunamis en las costas.[NEWLINE][NEWLINE]Los seguidores de Enki tienen acceso a los ascensos Escolta de Enki y Bendici&#243;n de la marea.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_ENLIL_POPUP_TITLE</Tag>
+		<English>The Religion of Enlil</English>
+		<French>Le culte d'Enlil</French>
+		<German>Die Enlil-Religion</German>
+		<Italian>La religione di Enlil</Italian>
+		<Spanish>La religi&#243;n de Enlil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_ENLIL_POPUP_BODY</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Founding the Religion of Enlil:[COLOR_REVERT][NEWLINE]In order to found the Religion of Enlil you must build the [COLOR_BUILDING_TEXT]Church of the Tempest[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Special abilities of Enlil:[COLOR_REVERT][NEWLINE]Prophets of Enlil can cause Plagues to occur in cities. But beware, plagues travel along trade routes and once unleashed can spread anywhere.[NEWLINE][NEWLINE]Followers of Enlil have access to Enlil's Guidance, Enlil's Windfall and Protection of Wind Promotions.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Fonder le culte d'Enlil :[COLOR_REVERT][NEWLINE]Pour fonder le culte d'Enlil, vous devez construire l'[COLOR_BUILDING_TEXT]Eglise de la temp&#234;te[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Pouvoirs sp&#233;ciaux d'Enlil :[COLOR_REVERT][NEWLINE]Les proph&#232;tes d'Enlil peuvent provoquer des &#233;pid&#233;mies dans les villes. Mais attention, les &#233;pid&#233;mies voyagent le long des routes commerciales et peuvent se propager n'importe o&#249;.[NEWLINE][NEWLINE]Les adeptes d'Enlil ont acc&#232;s aux Conseils et au Secours d'Ennlil, ainsi qu'&#224; la Protection du vent.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Gr&#252;ndung der Enlil-Religion:[COLOR_REVERT][NEWLINE]Um die Enlil-Religion zu gr&#252;nden, m&#252;ssen Sie die [COLOR_BUILDING_TEXT]Kirche des Sturms[COLOR_REVERT] bauen.[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Besondere F&#228;higkeiten von Enlil:[COLOR_REVERT][NEWLINE]Propheten Enlils k&#246;nnen die Pest in St&#228;dten ausbrechen lassen. Aber h&#252;ten Sie sich, die Pest breitet sich &#252;ber Handelswege aus und kann &#252;berall hin gelangen.[NEWLINE][NEWLINE]Anh&#228;nger von Enlil haben Zugriff auf die Bef&#246;rderungen Enlils F&#252;hrung, Enlils Windhauch und Schutz des Windes.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Fondare la Religione di Enlil:[COLOR_REVERT][NEWLINE]Per poter fondare la Religione di Enlil devi costruire la [COLOR_BUILDING_TEXT]Chiesa della tempesta[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Abilit&#224; speciali di Enlil:[COLOR_REVERT][NEWLINE]I Profeti di Enlil possono provocare pestilenze nelle citt&#224;. Presta attenzione, tuttavia: le pestilenze si propagano lungo le rotte commerciali, e una volta scatenate possono diffondersi ovunque.[NEWLINE][NEWLINE]I seguaci di Enlil possono accedere alle promozioni Guida di Enlil, Manna di Enlil e Protezione del vento.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Fundaci&#243;n de la religi&#243;n de Enlil:[COLOR_REVERT][NEWLINE]Para fundar la religi&#243;n de Enlil se ha de construir la [COLOR_BUILDING_TEXT]Iglesia de la tempestad[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Capacidades especiales de Enlil:[COLOR_REVERT][NEWLINE]Los profetas de Enlil pueden hacer que aparezca la peste en las ciudades. Pero cuidado, la peste viaja por las rutas comerciales y, una vez se desata, puede propagarse por doquier.[NEWLINE][NEWLINE]Los seguidores de Enlil tienen acceso a los ascensos Consejos de Enlil, Golpe de suerte de Enlil y Protecci&#243;n del viento.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_INANNA_POPUP_TITLE</Tag>
+		<English>The Religion of Inanna</English>
+		<French>Le culte d'Inanna</French>
+		<German>Die Inanna-Religion</German>
+		<Italian>La Religione di Inanna</Italian>
+		<Spanish>La religi&#243;n de Inanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_INANNA_POPUP_BODY</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Founding the Religion of Inanna:[COLOR_REVERT][NEWLINE]In order to found the Religion of Inanna you must build the [COLOR_BUILDING_TEXT]Inanna's Stronghold[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Special abilities of Inanna:[COLOR_REVERT][NEWLINE]Prophets of Inanna have no ability to call down the wrath of Inanna. Inanna's wrath is carried in the sword arm of her followers[NEWLINE][NEWLINE]Followers of Inanna have access to Inanna's Teaching and Unbridled Fury Promotions.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Fonder le culte d'Inanna :[COLOR_REVERT][NEWLINE]Pour fonder le culte d'Inanna, vous devez construire la [COLOR_BUILDING_TEXT]Forteresse d'Inanna[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Pouvoirs sp&#233;ciaux d'Inanna :[COLOR_REVERT][NEWLINE]Les proph&#232;tes d'Inanna n'ont pas la facult&#233; d'invoquer la col&#232;re d'Inanna. La col&#232;re d'Inanna r&#233;side dans le bras de ses adeptes.[NEWLINE][NEWLINE]Les adeptes d'Inanna ont acc&#232;s aux Enseignements et au D&#233;cha&#238;nement de fureur d'Innana.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Gr&#252;ndung der Inanna-Religion:[COLOR_REVERT][NEWLINE]Um die Inanna-Religion zu gr&#252;nden, m&#252;ssen Sie [COLOR_BUILDING_TEXT]Inannas Festung[COLOR_REVERT] bauen.[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Besondere F&#228;higkeiten von Inanna:[COLOR_REVERT][NEWLINE]Propheten Inannas haben nicht die F&#228;higkeit, Innanas Zorn herbeizurufen. Inannas Zorn wird im Schwertarm ihrer Anh&#228;nger getragen.[NEWLINE][NEWLINE]Anh&#228;nger von Inanna haben Zugriff auf die Bef&#246;rderungen Inannas Lehren und Ungez&#252;gelte Wut.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Fondare la Religione di Inanna:[COLOR_REVERT][NEWLINE]Per poter fondare la Religione di Inanna devi costruire la [COLOR_BUILDING_TEXT]Fortezza di Inanna[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Abilit&#224; speciali di Inanna:[COLOR_REVERT][NEWLINE]I profeti di Inanna non possono scatenare la sua furia, che viene invece provocata dal braccio armato dei suoi seguaci.[NEWLINE][NEWLINE]I seguaci di Inanna possono accedere alle promozioni Insegnamento di Inanna e Furia cieca.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Fundaci&#243;n de la religi&#243;n de Inanna:[COLOR_REVERT][NEWLINE]Para fundar la religi&#243;n de Inanna se ha de construir la [COLOR_BUILDING_TEXT]Fortaleza de Inanna[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Capacidades especiales de Inanna:[COLOR_REVERT][NEWLINE]Los profetas de Inanna no tienen la capacidad de invocar la c&#243;lera de Inanna. La c&#243;lera de Inanna la llevan sus seguidores en el brazo con el que empu&#241;an la espada.[NEWLINE][NEWLINE]Los seguidores de Inanna tienen acceso a los ascensos Ense&#241;anzas de Inanna y Furia desenfrenada.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_NANNA_POPUP_TITLE</Tag>
+		<English>The Religion of Nanna</English>
+		<French>Le culte de Nanna</French>
+		<German>Die Nanna-Religion</German>
+		<Italian>La Religione di Nanna</Italian>
+		<Spanish>La religi&#243;n de Nanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_NANNA_POPUP_BODY</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Founding the Religion of Nanna:[COLOR_REVERT][NEWLINE]In order to found the Religion of Nanna you must build the [COLOR_BUILDING_TEXT]Twilight Obsevatory[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Special abilities of Nanna:[COLOR_REVERT][NEWLINE]Prophets of Nanna can call Meteor strike down upon their enemies.[NEWLINE][NEWLINE]Followers of Nanna have access to the Nanna's Cloak Promotion.[NEWLINE][NEWLINE]Followers of Nanna gain random bonuses depending on the alignment of the stars.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Fonder le culte de Nanna :[COLOR_REVERT][NEWLINE]Pour fonder le culte de Nanna, vous devez construire l'[COLOR_BUILDING_TEXT]Observatoire du cr&#233;puscule[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Pouvoirs sp&#233;ciaux de Nanna :[COLOR_REVERT][NEWLINE]Les proph&#232;tes de Nanna peuvent provoquer la chute d'une m&#233;t&#233;orite sur leurs ennemis.[NEWLINE][NEWLINE]Les adeptes de Nanna ont acc&#232;s &#224; la Cape de Nanna.[NEWLINE][NEWLINE]Les adeptes de Nanna b&#233;n&#233;ficient de bonus al&#233;atoires en fonction de l'alignement des &#233;toiles.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Gr&#252;ndung der Nanna-Religion:[COLOR_REVERT][NEWLINE]Um die Nanna-Religion zu gr&#252;nden, m&#252;ssen Sie das [COLOR_BUILDING_TEXT]Observatorium des Zwielichts[COLOR_REVERT] bauen.[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Besondere F&#228;higkeiten von Nanna:[COLOR_REVERT][NEWLINE]Propheten Nannas k&#246;nnen Meteroitenschl&#228;ge auf ihre Feinde herbeirufen.[NEWLINE][NEWLINE]Anh&#228;nger von Nanna haben Zugriff auf die Bef&#246;rderung Nannas Umhang.[NEWLINE][NEWLINE]Anh&#228;nger von Nanna erhalten Zufallsboni abh&#228;ngig von der Sternenkonstellation.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Fondare la Religione di Nanna:[COLOR_REVERT][NEWLINE]Per poter fondare la Religione di Nanna devi costruire l'[COLOR_BUILDING_TEXT]Osservatorio del tramonto[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Abilit&#224; speciali di Nanna:[COLOR_REVERT][NEWLINE]I Profeti di Nanna possono far cadere meteoriti sui propri nemici.[NEWLINE][NEWLINE]I seguaci di Nanna possono accedere alla promozione Manto di Nanna.[NEWLINE][NEWLINE]I seguaci di Nanna possono ottenere bonus casuali in base all'allineamento delle stelle.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Fundaci&#243;n de la religi&#243;n de Nanna:[COLOR_REVERT][NEWLINE]Para fundar la religi&#243;n de Nanna se ha de construir el [COLOR_BUILDING_TEXT]Observatorio crepuscular[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Capacidades especiales de Nanna:[COLOR_REVERT][NEWLINE]Los profetas de Nanna pueden hacer que un meteorito caiga sobre sus enemigos.[NEWLINE][NEWLINE]Los seguidores de Nanna tienen acceso al ascenso Manto de Nanna.[NEWLINE][NEWLINE]Los seguidores de Nanna ganan bonificaciones al azar en funci&#243;n de la posici&#243;n de las estrellas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_UTU_POPUP_TITLE</Tag>
+		<English>The Religion of Utu</English>
+		<French>Le culte d'Utu</French>
+		<German>Die Utu-Religion</German>
+		<Italian>La Religione di Utu</Italian>
+		<Spanish>La religi&#243;n de Utu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_UTU_POPUP_BODY</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Founding the Religion of Utu:[COLOR_REVERT][NEWLINE]In order to found the Religion of Utu you must build the [COLOR_BUILDING_TEXT]Temple of the Sun[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Special abilities of Utu:[COLOR_REVERT][NEWLINE]Prophets of Utu can Blight the land, permanantly turning it to desert.[NEWLINE][NEWLINE]Followers of Utu have access to Utu's Allegiance and Utu's Retribution Promotions.[NEWLINE][NEWLINE]Followers of Utu gain random bonuses depending on the alignment of the stars.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Fonder le culte d'Utu :[COLOR_REVERT][NEWLINE]Pour fonder le culte d'Utu, vous devez construire le [COLOR_BUILDING_TEXT]Temple du Soleil[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Pouvoirs sp&#233;ciaux d'Utu :[COLOR_REVERT][NEWLINE]Les proph&#232;tes d'Utu peuvent provoquer la rouille sur les territoires ennemis et les transformer en d&#233;serts.[NEWLINE][NEWLINE]Les adeptes d'Utu ont acc&#232;s au Serment et au Ch&#226;timent d'Utu.[NEWLINE][NEWLINE]Les adeptes d'Utu b&#233;n&#233;ficient de bonus al&#233;atoires en fonction de l'alignement des &#233;toiles.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Gr&#252;ndung der Utu-Religion:[COLOR_REVERT][NEWLINE]Um die Utu-Religion zu gr&#252;nden, m&#252;ssen Sie den [COLOR_BUILDING_TEXT]Sonnentempel[COLOR_REVERT] bauen.[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Besondere F&#228;higkeiten von Utu:[COLOR_REVERT][NEWLINE]Propheten Utus k&#246;nnen D&#252;rre &#252;ber das Land bringen und es dauerhaft in W&#252;ste verwandeln.[NEWLINE][NEWLINE]Anh&#228;nger von Utu haben Zugriff auf die Bef&#246;rderungen Utus Treue und Utus Vergeltung.[NEWLINE][NEWLINE]Anh&#228;nger von Utu erhalten Zufallsboni abh&#228;ngig von der Sternenkonstellation.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Fondare la Religione di Utu:[COLOR_REVERT][NEWLINE]Per poter fondare la Religione di Utu devi costruire il [COLOR_BUILDING_TEXT]Tempio del sole[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Abilit&#224; speciali di Utu:[COLOR_REVERT][NEWLINE]I Profeti di Utu possono inaridire le terre, trasformandole per sempre in deserto.[NEWLINE][NEWLINE]I seguaci di Utu possono accedere alle promozioni Devozione di Utu e Punizione di Utu.[NEWLINE][NEWLINE]I seguaci di Utu possono ottenere bonus casuali in base all'allineamento delle stelle.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Fundaci&#243;n de la religi&#243;n de Utu:[COLOR_REVERT][NEWLINE]Para fundar la religi&#243;n de Utu se ha de construir el [COLOR_BUILDING_TEXT]Templo del sol[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Capacidades especiales de Utu:[COLOR_REVERT][NEWLINE]Los profetas de Utu pueden desolar la tierra, lo cual la convierte permanentemente en un desierto.[NEWLINE][NEWLINE]Los seguidores de Utu tienen acceso a los ascensos Lealtad de Utu y Justo castigo de Utu.[NEWLINE][NEWLINE]Los seguidores de Utu ganan bonificaciones al azar en funci&#243;n de la posici&#243;n de las estrellas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_AN_POPUP_TITLE</Tag>
+		<English>The Religion of An</English>
+		<French>Le culte d'An</French>
+		<German>Die An-Religion</German>
+		<Italian>La Religione di An</Italian>
+		<Spanish>La religi&#243;n de An</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_AN_POPUP_BODY</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Founding the Religion of An:[COLOR_REVERT][NEWLINE]In order to found the Religion of An you must build the [COLOR_BUILDING_TEXT]Bastion of An[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Special abilities of An:[COLOR_REVERT][NEWLINE]Prophets of An sacrifice themselves to protect their followers from the Disasters called down by other gods. This is done automatically[NEWLINE][NEWLINE]Followers of An have access to  the An's Comfort Promotion.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Fonder le culte d'An :[COLOR_REVERT][NEWLINE]Pour fonder le culte d'An, vous devez construire le [COLOR_BUILDING_TEXT]Bastion d'An[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Pouvoirs sp&#233;ciaux d'An :[COLOR_REVERT][NEWLINE]Les proph&#232;tes d'An peuvent se sacrifier pour prot&#233;ger leurs adeptes des catastrophes naturelles invoqu&#233;es par les autres dieux. Ceci a lieu automatiquement.[NEWLINE][NEWLINE]Les adeptes d'An ont acc&#232;s au r&#233;confort d'An.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Gr&#252;ndung der An-Religion:[COLOR_REVERT][NEWLINE]Um die An-Religion zu gr&#252;nden, m&#252;ssen Sie die [COLOR_BUILDING_TEXT]Bastion des An[COLOR_REVERT] bauen.[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Besondere F&#228;higkeiten von An:[COLOR_REVERT][NEWLINE]Propheten Ans opfern sich selbst, um die Anh&#228;nger vor Katastrophen zu sch&#252;tzen, die von anderen G&#246;ttern herbeigerufen wurden. Dies geschieht automatisch.[NEWLINE][NEWLINE]Anh&#228;nger von An haben Zugriff auf die Bef&#246;rderung Ans Trost.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Fondare la Religione di An:[COLOR_REVERT][NEWLINE]Per poter fondare la Religione di An devi costruire il [COLOR_BUILDING_TEXT]Bastione di An[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Abilit&#224; speciali di An:[COLOR_REVERT][NEWLINE]I Profeti di An sacrificano se stessi per proteggere i loro seguaci dai disastri evocati da altre divinit&#224;. Quest'operazione avviene automaticamente.[NEWLINE][NEWLINE]I seguaci di An possono accedere alla promozione Conforto di An.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Fundaci&#243;n de la religi&#243;n de An:[COLOR_REVERT][NEWLINE]Para fundar la religi&#243;n de An se ha de construir el [COLOR_BUILDING_TEXT]Basti&#243;n de An[COLOR_REVERT].[NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Capacidades especiales de An:[COLOR_REVERT][NEWLINE]Los profetas de An se sacrifican para proteger a sus seguidores de los desastres invocados por otros dioses. Esto se hace autom&#225;ticamente.[NEWLINE][NEWLINE]Los seguidores de An tienen acceso al ascenso Consuelo de An.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_METEOR_BUILDING_TITLE</Tag>
+		<English>A Meteor Strike has destroyed the %s1_build in %s2_city .</English>
+		<French>La chute d'une m&#233;t&#233;orite a d&#233;truit [NUM1:Le :La :L']%s1_build de la ville : %s2_city</French>
+		<German>Das Geb&#228;ude %s1_build wurde in %s2_city durch einen Meteoritenschlag zerst&#246;rt.</German>
+		<Italian>Un meteorite ha distrutto %s1_build in %s2_city .</Italian>
+		<Spanish>Un incendio ha destruido el siguiente edificio en %s2_city: %s1_build.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_DAWN_OF_MAN_TEXT_CHANGED_AGAIN</Tag>
+		<English>Rule Changes:[NEWLINE][COLOR_HIGHLIGHT_TEXT]Founding Religions[COLOR_REVERT][NEWLINE]Rather than being founded through technologies, Religions in Gods of Old are founded by building a Shrine to a specific god in a city.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Religious Victory[COLOR_REVERT][NEWLINE]For a religious victory to be obtained a player must control the last remaining Holy City. Holy Cities can be eliminated through use of Inquisitors. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisitors[COLOR_REVERT][NEWLINE]Inquisitors are able to eliminate all non-state religions from a city; this includes Holy Cities.  [NEWLINE][COLOR_HIGHLIGHT_TEXT]Natural Disasters[COLOR_REVERT][NEWLINE]Great Prophets of some gods allow you to sacrifice the Prophet in order to call Natural Disasters upon your enemies. Prophets of Ki call Earthquakes, Prophets of Enki call Tsunamis, Prophets of Enlil cause Plagues, Prophets of Nanna bring down Meteor Strikes, and Prophets of Utu can cause Blight on an opponents land. Prophets of An offer protection from Natural Disasters and are automatically sacrificed to absorb any disasters that target their player's land. Prophets of Inanna can cause no disasters.[NEWLINE][NEWLINE]The sun rises on the year %s1_year. Since time immemorial, the %s2_civ people have lived a nomadic life. [NEWLINE][NEWLINE]After years of wandering, they are ready to settle down and found your first city. [NEWLINE]%s3_leader, your people have vested absolute power in you, trusting that you can build a Civilization to stand the test of time!</English>
+		<French>Modifications des r&#232;gles :[NEWLINE][COLOR_HIGHLIGHT_TEXT]Fonder des religions[COLOR_REVERT][NEWLINE]Plut&#244;t que d'&#234;tre fond&#233;es par les technologies, les religions des Dieux de l'Ancien Temps sont fond&#233;es en construisant dans une ville un autel sp&#233;cifique &#224; un dieu.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Victoire religieuse[COLOR_REVERT][NEWLINE]Pour remporter une victoire religieuse, un joueur doit contr&#244;ler la derni&#232;re ville sainte qui subsiste. Les villes saintes peuvent &#234;tre &#233;limin&#233;es par les inquisiteurs.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisiteurs[COLOR_REVERT][NEWLINE]Les inquisiteurs ont la possibilit&#233; d'&#233;liminer toutes les religions d'une ville qui ne sont pas des religions d'Etat, y compris dans les villes saintes. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Catastrophes naturelles[COLOR_REVERT][NEWLINE]Les proph&#232;tes illustres de certains dieux peuvent &#234;tre sacrifi&#233;s pour invoquer des catastrophes naturelles sur vos ennemis. Les proph&#232;tes de Ki invoquent des s&#233;ismes, les proph&#232;tes d'Enki invoquent des tsunamis, les proph&#232;tes d'Enlil provoquent des &#233;pid&#233;mies, les proph&#232;tes de Nanna font pleuvoir des m&#233;t&#233;orites et les proph&#232;tes d'Utu peuvent provoquer la rouille sur les territoires adverses. Les proph&#232;tes d'An offrent une protection contre les catastrophes naturelles et sont automatiquement sacrifi&#233;s pour contrer toute catastrophe qui frappe les terres du joueur. Les proph&#232;tes d'Inanna ne peuvent pas invoquer de catastrophes.[NEWLINE][NEWLINE]Le soleil se l&#232;ve sur l'an %s1_year. Depuis des temps imm&#233;moriaux, le peuple %s2_civ menait une vie nomade. [NEWLINE][NEWLINE]Apr&#232;s des ann&#233;es d'errance, il est pr&#234;t &#224; se s&#233;dentariser et &#224; fonder votre premi&#232;re ville.[NEWLINE]%s3_leader, votre peuple vous a confi&#233; le pouvoir absolu et s'en remet &#224; vous pour b&#226;tir une civilisation qui r&#233;sistera &#224; l'&#233;preuve du temps !</French>
+		<German>Regel&#228;nderungen:[NEWLINE][COLOR_HIGHLIGHT_TEXT]Religion gr&#252;nden[COLOR_REVERT][NEWLINE]Statt durch Technologien gegr&#252;ndet zu werden, werden die Religionen in Gods of Old gegr&#252;ndet, indem in einer Stadt ein Schrein einer bestimmten Gottheit errichtet wird.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Religi&#246;ser Sieg[COLOR_REVERT][NEWLINE]Um den Religi&#246;sen Sieg zu erringen, muss ein Spieler die letzte verbliebene Heilige Stadt kontrollieren. Heilige St&#228;dte k&#246;nnen mit der Hilfe von Inquisitoren vernichtet werden. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisitoren[COLOR_REVERT][NEWLINE]Inquisitoren k&#246;nnen in einer Stadt alle Religionen eliminieren, die nicht Staatsreligion sind; dies gilt auch f&#252;r Heilige St&#228;dte.  [NEWLINE][COLOR_HIGHLIGHT_TEXT]Naturkatastrophen[COLOR_REVERT][NEWLINE]Gro&#223;e Propheten einiger G&#246;tter erm&#246;glichen es, den Propheten zu opfern, um Naturkatastrophen &#252;ber Ihre Feinde zu bringen. Ki-Propheten rufen Erdbeben hervor, Enki-Propheten rufen Tsunamis hervor, Enlil-Propheten rufen die Pest hervor, Nanna-Propheten verursachen Meteoritenschl&#228;ge und Utu-Propheten verursachen eine D&#252;rre auf gegnerischem Land. An-Propheten bieten Schutz vor Naturkatastrophen und werden automatisch geopfert, um Naturkatastrophen abzuwenden, die gegen das Land ihres Spielers gerichtet sind. Inanna-Propheten k&#246;nnen keine Katastrophen verursachen.[NEWLINE][NEWLINE]Die Sonne erhellt das Jahr %s1_year. Das %s2:3_civ Volk f&#252;hrt seit uralter Zeit ein Nomadenleben. [NEWLINE][NEWLINE]Doch nun, nach so vielen Jahren des Umherziehens, sind die Menschen bereit, sich niederzulassen und Eure erste Stadt zu gr&#252;nden. [NEWLINE]%s3_leader, Euer Volk hat Euch absolute Macht verliehen und vertraut darauf, dass Ihr eine Zivilisation errichtet, welche die Zeit &#252;berdauern wird!</German>
+		<Italian>Cambiamenti nelle regole:[NEWLINE][COLOR_HIGHLIGHT_TEXT]Fondare religioni[COLOR_REVERT][NEWLINE]In Antiche divinit&#224; le religioni, invece di essere fondate con le tecnologie, si fondano costruendo in una citt&#224; un santuario dedicato a una specifica divinit&#224;.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Vittoria religiosa[COLOR_REVERT][NEWLINE]Per ottenere una vittoria religiosa &#232; necessario controllare l'ultima Citt&#224; Santa che rimane. Le Citt&#224; Sante possono essere eliminate usando gli inquisitori. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisitori[COLOR_REVERT][NEWLINE]Gli inquisitori sono in grado di eliminare da una citt&#224; tutte le religioni non di stato, anche nelle Citt&#224; Sante.  [NEWLINE][COLOR_HIGHLIGHT_TEXT]Disastri naturali[COLOR_REVERT][NEWLINE]I Grandi Profeti di alcune divinit&#224; permettono di scatenare disastri naturali sui nemici, a patto di sacrificare il profeta stesso. I profeti di Ki scatenano terremoti, quelli di Enki tsunami, quelli di Enlil pestilenze, quelli di Nanna fanno cadere meteoriti e i profeti di Utu possono distruggere le terre di un avversario. I profeti di An offrono protezione dai disastri naturali e vengono sacrificati automaticamente per assorbire i disastri che colpiscono i loro territori. I profeti di Inanna non possono causare disastri.[NEWLINE][NEWLINE]Il sole sorge nell'anno %s1_year. Da tempi immemori, la popolazione %s2_civ ha condotto una vita nomade. [NEWLINE][NEWLINE]Dopo anni di vagabondaggi, sono infine pronti a stabilirsi e a fondare la tua prima citt&#224;. [NEWLINE]%s3_leader, il tuo popolo ti ha conferito potere assoluto, credendo che tu possa sviluppare una civilt&#224; in grado di resistere alle prove del tempo!</Italian>
+		<Spanish>Cambios de reglas:[NEWLINE][COLOR_HIGHLIGHT_TEXT]Fundaci&#243;n de religiones[COLOR_REVERT][NEWLINE]En lugar de fundarse gracias a las tecnolog&#237;as, las religiones en "Gods of Old" se fundan al construir un santuario a un dios espec&#237;fico en una ciudad.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Victoria religiosa[COLOR_REVERT][NEWLINE]Para obtener una victoria religiosa, el jugador debe controlar la &#250;ltima ciudad santa restante. Las ciudades santas se pueden eliminar con los inquisidores. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Inquisidores[COLOR_REVERT][NEWLINE]Los inquisidores pueden eliminar todas las religiones no oficiales de una ciudad, incluyendo las ciudades santas.  [NEWLINE][COLOR_HIGHLIGHT_TEXT]Desastres naturales[COLOR_REVERT][NEWLINE]Los grandes profetas de algunos dioses pueden sacrificarse para provocar desastres naturales a tus enemigos. Los profetas de Ki convocan terremotos, los de Enki convocan tsunamis, los de Enlil causan pestes, los de Nanna atraen meteoritos y los de Utu pueden provocar accidentes sobre las tierras de los rivales. Los profetas de An ofrecen protecci&#243;n frente a los desastres naturales y se sacrifican autom&#225;ticamente para absorber los desastres que afecten a la tierra de su jugador. Los profetas de Inanna no pueden provocar desastres.[NEWLINE][NEWLINE]El sol se alza en el a&#241;o %s1_year. Desde tiempos inmemoriales, los %s2:3_civ han llevado una vida n&#243;mada. [NEWLINE][NEWLINE]Tras a&#241;os de deambular, est&#225;n listos para asentarse y fundar vuestra primera ciudad. [NEWLINE]%s3_leader, vuestro pueblo os ha conferido poder absoluto, confiando en que pod&#225;is desarrollar una civilizaci&#243;n que supere los retos del tiempo.</Spanish>
+	</TEXT>
+</Civ4GameText>

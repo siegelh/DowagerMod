@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- -->
+<!-- Game Text - Unit Upgrades for Civilopedia -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_HISTORICAL</Tag>
+		<English>Historical</English>
+		<French>
+			<Text>Historique</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Historisch</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Storica</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Hist&#243;rica</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_GOALS</Tag>
+		<English>Historical Victory goals</English>
+		<French>Objectifs de victoire historique</French>
+		<German>Historische Siegbedingungen</German>
+		<Italian>Obiettivi per le vittorie storiche</Italian>
+		<Spanish>Objetivos de la victoria hist&#243;rica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ICON_BULLET</Tag>
+		<English>[ICON_BULLET]</English>
+		<French>[ICON_BULLET]</French>
+		<German>[ICON_BULLET]</German>
+		<Italian>[ICON_BULLET]</Italian>
+		<Spanish>[ICON_BULLET]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_SCREEN_ACCOMPLISHED</Tag>
+		<English>Accomplished:</English>
+		<French>Accompli :</French>
+		<German>Erfüllt:</German>
+		<Italian>Raggiunti:</Italian>
+		<Spanish>Cumplidos:</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_SCREEN_YES</Tag>
+		<English>YES</English>
+		<French>OUI</French>
+		<German>JA</German>
+		<Italian>SÌ</Italian>
+		<Spanish>SÍ</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_SCREEN_NO</Tag>
+		<English>NO</English>
+		<French>NON</French>
+		<German>NEIN</German>
+		<Italian>NO</Italian>
+		<Spanish>NO</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_SCREEN_NOTYET</Tag>
+		<English>Not yet</English>
+		<French>Pas encore</French>
+		<German>Noch nicht</German>
+		<Italian>Non ancora</Italian>
+		<Spanish>Aún no</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_INTERMEDIATE</Tag>
+		<English>We have accomplished 2 Historical Goals out of 3. A Triumphal Arch has been built in our capital</English>
+		<French>Nous avons accompli 2 objectifs historiques sur 3. Un Arc de Triomphe a été construit dans notre capitale</French>
+		<German>Wir haben 2 von 3 Historischen Siegbedingungen erfüllt. In unserer Hauptstadt wurde ein Triumphbogen erbaut.</German>
+		<Italian>Abbiamo raggiunto 2 obiettivi storici su 3. &#200; stato costruito un arco di trionfo nella nostra capitale</Italian>
+		<Spanish>Hemos conseguido 2 de los 3 objetivos hist&#243;ricos. Se ha erigido un Arco de Triunfo en nuestra capital</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NATIONAL_EPIC</Tag>
+		<English>Triumphal Arch</English>
+		<French>
+			<Text>Arc de Triomphe</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Triumphbogen</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Arco di trionfo</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Arco de Triunfo</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MIN_LATITUDE</Tag>
+		<English>[COLOR_WARNING_TEXT]Is automatically built on achievement of 2 Historical Goals out of 3[COLOR_REVERT]</English>
+		<French>[COLOR_WARNING_TEXT]Est automatiquement construit lorsque 2 objectifs historiques sur 3 sont atteints[COLOR_REVERT]</French>
+		<German>[COLOR_WARNING_TEXT]Wird bei Erfüllung von 2 von 3 Historischen Siegbedingungen automatisch erbaut[COLOR_REVERT]</German>
+		<Italian>[COLOR_WARNING_TEXT]Viene automaticamente costruito al raggiungimento di 2 obiettivi storici su 3[COLOR_REVERT]</Italian>
+		<Spanish>[COLOR_WARNING_TEXT]Se construye autom&#225;ticamente tras la consecuci&#243;n de 2 de los 3 objetivos hist&#243;ricos[COLOR_REVERT]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_EGY1</Tag>
+		<English>Have more than 500 Culture in 700 BC (Turn 86)</English>
+		<French>Avoir plus de 500 en Culture en 700 av. J.-C. (Tour 86)</French>
+		<German>Erzielen Sie bis zum Jahr 700 v. Chr. (Runde 86) mehr als 500 Kulturpunkte</German>
+		<Italian>Devi avere più di 500 cultura nel 700 a.C. (turno 86)</Italian>
+		<Spanish>Conseguir una cultura superior a 500 en el 700 a. C. (turno 86)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_EGY2</Tag>
+		<English>Build the Pyramids, the Great Library, and the Great Lighthouse by 250 AD (Turn 133)</English>
+		<French>Construire les Pyramides, la Grande Bibliothèque et le Phare avant 250 ap. J.-C.(Tour 133)</French>
+		<German>Bauen Sie bis zum Jahr 250 n. Chr. (Runde 133) die Pyramiden, die Große Bibliothek und den Großen Leuchtturm</German>
+		<Italian>Devi costruire le Piramidi, la Grande Biblioteca e il Grande Faro entro il 250 d.C. (turno 133)</Italian>
+		<Spanish>Construir las Pir&#225;mides, la Gran Biblioteca y el Gran Faro antes del 250 d. C. (turno 133)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_EGY3</Tag>
+		<English>Have more than 5000 Culture in 450 AD (Turn 143)</English>
+		<French>Avoir plus de 5000 en Culture en 450 ap. J.-C. (Tour 143)</French>
+		<German>Erzielen Sie bis zum Jahr 450 n. Chr. (Runde 143) mehr als 5.000 Kulturpunkte</German>
+		<Italian>Devi avere più di 5000 cultura nel 450 d.C. (turno 143)</Italian>
+		<Spanish>Conseguir una cultura superior a 5.000 en el 450 d. C. (turno 143)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_IND1</Tag>
+		<English>Found Buddhism and Hinduism</English>
+		<French>Fonder le Bouddhisme et l'Hindouisme</French>
+		<German>Begründen Sie die Religionen Buddhismus und Hinduismus</German>
+		<Italian>Fonda buddismo e induismo</Italian>
+		<Spanish>Fundar el Budismo y el Hinduismo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_IND2</Tag>
+		<English>Found at least 5 religions</English>
+		<French>Fonder au moins 5 religions</French>
+		<German>Begründen Sie mindestens 5 Religionen</German>
+		<Italian>Fonda almeno 5 religioni</Italian>
+		<Spanish>Fundar al menos 5 religiones</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_IND3</Tag>
+		<English>Have the world's highest population in 1200 AD</English>
+		<French>Avoir la population la plus nombreuse en 1200 ap. J.-C.</French>
+		<German>Erzielen Sie bis zum Jahr 1200 n. Chr. die weltweit höchste Bevölkerungszahl</German>
+		<Italian>Devi avere la più grande popolazione al mondo entro il 1200 d.C.</Italian>
+		<Spanish>Tener la mayor poblaci&#243;n del mundo en el 1200 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_CHI1</Tag>
+		<English>Build 2 Confucian Academies and 2 Taoist Pagodas by 1000 AD</English>
+		<French>Construire 2 académies confucianistes et 2 pagodes taoïstes avant 1000 ap. J.-C.</French>
+		<German>Bauen Sie bis zum Jahr 1000 n. Chr. 2 Konfuzianische Akademien und 2 Taoistische Pagoden</German>
+		<Italian>Costruisci due Accademie Confuciane e due Pagode Taoiste entro il 1000 d.C.</Italian>
+		<Spanish>Construir 2 academias confucianas y 2 pagodas tao&#237;stas antes del 1000 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_CHI2</Tag>
+		<English>No cities lost to barbarians or to Mongols before 1400 AD</English>
+		<French>Ne perdre aucune ville aux barbares ou aux Mongols avant 1400 ap. J.-C.</French>
+		<German>Verlieren Sie bis zum Jahr 1400 n. Chr. keine Stadt an die Barbaren oder Mongolen</German>
+		<Italian>Barbari o Mongoli non devono conquistare alcuna tua citt&#224; prima del 1400 d.C.</Italian>
+		<Spanish>No perder ciudades ante los b&#225;rbaros ni los mongoles antes del 1400 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_CHI3</Tag>
+		<English>Control an army of 120 units in 1600 AD</English>
+		<French>Contrôler une armée de 120 unités en 1600 ap. J.-C.</French>
+		<German>Befehligen Sie bis zum Jahr 1600 n. Chr. eine Armee mit 120 Einheiten</German>
+		<Italian>Comanda un esercito di 120 unit&#224; nel 1600 d.C.</Italian>
+		<Spanish>Controlar un ej&#233;rcito de 120 unidades en el 1600 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_GRE1</Tag>
+		<English>Be the first to discover Literature, Drama and Philosophy</English>
+		<French>Etre le premier à découvrir la Littérature, le Théâtre et la Philosophie</French>
+		<German>Erforschen Sie vor allen anderen Zivilisationen die Technologien Literatur, Drama und Philosophie</German>
+		<Italian>Devi essere il primo a scoprire letteratura, drammaturgia e filosofia</Italian>
+		<Spanish>Ser el primero en descubrir la Literatura, el Drama y la Filosof&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_GRE2</Tag>
+		<English>Build the Oracle, the Parthenon, the Colossus, and the Temple of Artemis by 50 AD (Turn 123)</English>
+		<French>Construire l'Oracle, le Parthénon, le Colosse et le Temple d'Artémis avant 50 ap. J.-C. (Tour 123)</French>
+		<German>Bauen Sie bis zum Jahr 50 n. Chr. (Runde 123) das Orakel, den Parthenon, den Koloss und den Artemis-Tempel</German>
+		<Italian>Devi costruire l'Oracolo, il Partenone, il Colosso e il Tempio di Artemide entro il 50 d.C. (turno 123)</Italian>
+		<Spanish>Construir el Or&#225;culo, el Parten&#243;n, el Coloso y el Templo de Artemisa antes del 50 d. C. (turno 123)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_GRE3</Tag>
+		<English>Be the first to circumnavigate the globe</English>
+		<French>Etre le premier à faire le tour du monde</French>
+		<German>Umsegeln Sie vor allen anderen Zivilisationen die Welt</German>
+		<Italian>Devi essere il primo a circumnavigare il pianeta</Italian>
+		<Spanish>Ser el primero en circunnavegar el globo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_PER1</Tag>
+		<English>Control 8% of world territory in 600 AD (Turn 151)</English>
+		<French>Contrôler 8% du territoire mondial avant 600 ap. J.-C. (Tour 151)</French>
+		<German>Bringen Sie bis zum Jahr 600 n. Chr. (Runde 151) 8%% der Weltkarte unter Ihre Kontrolle</German>
+		<Italian>Devi controllare l'8% del territorio mondiale entro il 600 d.C. (turno 151)</Italian>
+		<Spanish>Controlar el 8% del territorio mundial en el 600 d. C. (turno 151)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_PER2</Tag>
+		<English>Control 7 world wonders in 700 AD (Turn 161)</English>
+		<French>Contrôler 7 merveilles du monde avant 700 ap. J.-C. (Tour 161)</French>
+		<German>Bringen Sie bis zum Jahr 700 n. Chr. (Runde 161) 7 Weltwunder unter Ihre Kontrolle</German>
+		<Italian>Devi controllare 7 Grandi Meraviglie entro il 700 d.C. (turno 161)</Italian>
+		<Spanish>Controlar 7 grandes maravillas del mundo en el 700 d. C. (turno 161)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ROM2</Tag>
+		<English>Control in 450 AD (Turn 143) all the area historically known as the Western Roman Empire</English>
+		<French>Contrôler tout le territoire connu historiquement comme l'Empire romain d'Occident en 450 ap. J.-C. (Tour 143)</French>
+		<German>Bringen Sie bis zum Jahr 450 n. Chr. (Runde 143) das gesamte historische Gebiet des Weströmischen Reiches unter Ihre Kontrolle</German>
+		<Italian>Devi controllare, nel 450 d.C. (turno 143), tutta l'area storicamente conosciuta come Impero Romano d'Occidente</Italian>
+		<Spanish>Controlar toda la zona conocida hist&#243;ricamente como Imperio Romano de occidente en el 450 d. C. (turno 143)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ROM3</Tag>
+		<English>Never lose a city to barbarians before 1400 AD</English>
+		<French>Ne perdre aucune ville aux barbares avant 1400 ap. J.-C.</French>
+		<German>Verlieren Sie bis zum Jahr 1400 n. Chr. keine einzige Stadt an die Barbaren</German>
+		<Italian>I barbari non devono conquistare alcuna tua citt&#224; prima del 1400 d.C.</Italian>
+		<Spanish>No perder una ciudad a manos de los b&#225;rbaros antes del 1400 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_JAP1</Tag>
+		<English>Be 1st in score in 1500 AD</English>
+		<French>Avoir le meilleur score en 1500 ap. J.-C.</French>
+		<German>Erzielen Sie bis zum Jahr 1500 n. Chr. den ersten Platz in der Punktewertung</German>
+		<Italian>Devi avere il punteggio più alto nel 1500 d.C.</Italian>
+		<Spanish>Tener la puntuaci&#243;n m&#225;s alta en el 1500 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_JAP2</Tag>
+		<English>No foreign culture in any plot of Honshu (Japanese main island) in 1700 AD</English>
+		<French>Pas de culture étrangère dans les cases de Honshu (île principale du Japon) en 1700 ap. J.-C.</French>
+		<German>Keine fremde Kultur auf dem Territorium von Honshu (japanisches Kernland) bis zum Jahr 1700 n. Chr.</German>
+		<Italian>Non ci deve essere cultura straniera su alcuna casella di Honshu (isola principale giapponese) nel 1700 d.C.</Italian>
+		<Spanish>No permitir cultura extranjera en ninguna casilla de Honshu (isla principal de Jap&#243;n) en el 1700 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_JAP3</Tag>
+		<English>Never lose a city before 1850 AD</English>
+		<French>Ne perdre aucune ville avant 1850 ap. J.-C.</French>
+		<German>Verlieren Sie vor 1850 n. Chr. keine einzige Stadt</German>
+		<Italian>Non farti conquistare alcuna citt&#224; prima del 1850 d.C.</Italian>
+		<Spanish>No perder una ciudad antes del 1850 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ARA2</Tag>
+		<English>Control or make vassal states of Egypt, Spain and Carthage by 1300 AD</English>
+		<French>Contrôler ou vassaliser l'Egypte, l'Espagne et Carthage avant 1300 ap. J.-C.</French>
+		<German>Bringen Sie bis zum Jahr 1300 n. Chr. Ägypten, Spanien und Karthago unter Ihre Kontrolle oder machen Sie sie zu Vasallenstaaten</German>
+		<Italian>Entro il 1300 d.C. devi controllare o aver reso stati vassalli Egitto, Spagna e Cartagine</Italian>
+		<Spanish>Controlar o convertir en estados vasallos a Egipto, Espa&#241;a y Cartago en el 1300 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ARA3</Tag>
+		<English>Spread Islam to 40% of the cities in the world</English>
+		<French>Répandre l'Islam à 40% des villes du monde</French>
+		<German>Sorgen Sie für eine weltweit 40%%-ige Verbreitung des Islam</German>
+		<Italian>Diffondi l'Islam nel 40% delle citt&#224; mondiali</Italian>
+		<Spanish>Propagar el Islam al 40% de las ciudades del mundo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_SPA1</Tag>
+		<English>Be the first to found a city in America</English>
+		<French>Etre le premier à fonder une ville en Amérique</French>
+		<German>Gründen Sie vor allen anderen Zivilisationen die erste Stadt in Amerika</German>
+		<Italian>Devi essere il primo a fondare una citt&#224; in America</Italian>
+		<Spanish>Ser el primero en fundar una ciudad en Am&#233;rica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_FRA2</Tag>
+		<English>Colonize Quebec, the Hudson Bay and Louisiana by 1760 AD</English>
+		<French>Coloniser le Québec, la baie d'Hudson et la Louisiane avant 1760 ap. J.-C.</French>
+		<German>Kolonisieren Sie bis zum Jahr 1760 n. Chr. Quebec, die Hudson Bay und Louisiana</German>
+		<Italian>Colonizza Quebec, Baia di Hudson e Louisiana entro il 1760 d.C.</Italian>
+		<Spanish>Colonizar Quebec, la Bah&#237;a de Hudson y Louisiana antes del 1760 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_FRA3</Tag>
+		<English>Build Notre Dame, the Statue of Liberty and the Eiffel Tower by 1900 AD</English>
+		<French>Construire Notre Dame, la Statue de la Liberté et la Tour Eiffel avant 1900 ap. J.-C.</French>
+		<German>Bauen Sie bis zum Jahr 1900 n. Chr. Notre Dame, die Freiheitsstatue und den Eiffelturm</German>
+		<Italian>Devi costruire Notre Dame, la Statua della Libert&#224; e la Torre Eiffel entro il 1900 d.C.</Italian>
+		<Spanish>Construir Notre Dame, la Estatua de la Libertad y la Torre Eiffel antes del 1900 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ENG1</Tag>
+		<English>Be the first to circumnavigate the globe</English>
+		<French>Etre le premier à faire le tour du monde</French>
+		<German>Umsegeln Sie vor allen anderen Zivilisationen die Welt</German>
+		<Italian>Devi essere il primo a circumnavigare il pianeta</Italian>
+		<Spanish>Ser el primero en circunnavegar el globo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ENG2</Tag>
+		<English>Found at least 3 cities in every continent by 1730 AD</English>
+		<French>Fonder au moins 3 villes sur chaque continent avant 1650 ap. J.-C.</French>
+		<German>Gründen Sie bis zum Jahr 1650 n. Chr. mindestens 3 Städte auf jedem Kontinent</German>
+		<Italian>Fonda almeno 3 citt&#224; in ciascun continente entro il 1650 d.C.</Italian>
+		<Spanish>Fundar al menos 3 ciudades en cada continente antes del 1650 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_ENG3</Tag>
+		<English>Be the first to enter Industrial and Modern eras</English>
+		<French>Etre le premier à entrer dans les ères industrielle et moderne</French>
+		<German>Erreichen Sie vor allen anderen Zivilisationen das Industriezeitalter und die Moderne</German>
+		<Italian>Devi essere il primo a entrare nell'et&#224; industriale e in quella moderna</Italian>
+		<Spanish>Ser el primero en entrar en las eras Industrial y Moderna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_GER3</Tag>
+		<English>Be the first to complete the tech tree</English>
+		<French>Etre le premier à compléter l'arbre technologique</French>
+		<German>Erforschen Sie vor allen anderen Zivilisationen sämtliche Technologien des Technologiebaums</German>
+		<Italian>Devi essere il primo a completare l'albero delle tecnologie</Italian>
+		<Spanish>Ser el primero en completar el &#225;rbol tecnol&#243;gico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_RUS1</Tag>
+		<English>Colonize Siberia by 1700 AD</English>
+		<French>Coloniser la Sibérie avant 1700 ap. J.-C.</French>
+		<German>Kolonisieren Sie bis zum Jahr 1700 n. Chr. Sibirien</German>
+		<Italian>Colonizza la Siberia entro il 1700 d.C.</Italian>
+		<Spanish>Colonizar Siberia antes del 1700 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_RUS2</Tag>
+		<English>Build the Apollo Program by 1950 AD</English>
+		<French>Construire le programme Apollo avant 1950 ap. J.-C.</French>
+		<German>Errichten Sie bis zum Jahr 1950 n. Chr. das Apollo-Programm</German>
+		<Italian>Costruisci il Programma Apollo entro il 1950 d.C.</Italian>
+		<Spanish>Concluir el Programa Apollo antes del 1950 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_RUS3</Tag>
+		<English>Never lose a city until 1950 AD</English>
+		<French>Ne perdre aucune ville avant 1950 ap. J.-C.</French>
+		<German>Verlieren Sie bis zum Jahr 1950 n. Chr. keine einzige Stadt</German>
+		<Italian>Non farti conquistare alcuna citt&#224; fino al 1950 d.C.</Italian>
+		<Spanish>No perder una ciudad hasta el 1950 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_INC2</Tag>
+		<English>Have 3000 gold in 1700 AD</English>
+		<French>Avoir 3000 en or en 1700 ap. J.-C.</French>
+		<German>Erwirtschaften Sie bis zum Jahr 1700 n. Chr. 3.000 Gold</German>
+		<Italian>Devi avere 3000 oro nel 1700 d.C.</Italian>
+		<Spanish>Tener 3.000 monedas de oro en el 1700 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_MON1</Tag>
+		<English>Control China by 1300 AD</English>
+		<French>Contrôler la Chine avant 1300 ap. J.-C.</French>
+		<German>Bringen Sie bis zum Jahr 1300 n. Chr. China unter Ihre Kontrolle</German>
+		<Italian>Controlla la Cina entro il 1300 d.C.</Italian>
+		<Spanish>Controlar China en el 1300 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_MON2</Tag>
+		<English>Raze at least 7 cities</English>
+		<French>Raser au moins 7 villes</French>
+		<German>Zerstören Sie mindestens 7 Städte</German>
+		<Italian>Distruggi almeno 7 citt&#224;</Italian>
+		<Spanish>Arrasar al menos 7 ciudades</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_MON3</Tag>
+		<English>Control 10% of world territory by 1500 AD</English>
+		<French>Contrôler 10% du territoire mondial avant 1500 ap. J.-C.</French>
+		<German>Bringen Sie bis zum Jahr 1500 n. Chr. 10%% der Weltkarte unter Ihre Kontrolle</German>
+		<Italian>Devi controllare il 10% del territorio mondiale entro il 1500 d.C.</Italian>
+		<Spanish>Controlar el 10% del territorio mundial en el 1500 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_AZT1</Tag>
+		<English>Enslave 5 European units</English>
+		<French>Asservir 5 unités européennes</French>
+		<German>Versklaven Sie mindestens 5 europäische Einheiten</German>
+		<Italian>Schiavizza 5 unit&#224; europee</Italian>
+		<Spanish>Esclavizar 5 unidades europeas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_AZT2</Tag>
+		<English>Allow no European colonies in Central America, Southern USA and the Caribbean in 1700 AD</English>
+		<French>Aucune colonie européenne en Amérique centrale, dans le sud des Etats-Unis ou dans les Caraïbes en 1700 ap. J.-C.</French>
+		<German>Lassen Sie vor 1700 n. Chr. keine europäischen Städte in Zentralamerika, im Süden der USA und in der Karibik zu</German>
+		<Italian>Non permettere colonie europee in America Centrale, USA meridionale e nei Caraibi nel 1700 d.C.</Italian>
+		<Spanish>No permitir colonias europeas en Centroam&#233;rica, el sur de Estados Unidos y el Caribe en el 1700 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_AZT3</Tag>
+		<English>Enter the Industrial era by 1860 AD</English>
+		<French>Entrer dans l'ère industrielle avant 1860 ap. J.-C.</French>
+		<German>Erreichen Sie bis zum Jahr 1860 n. Chr. das Industriezeitalter</German>
+		<Italian>Entra nell'et&#224; industriale entro il 1860 d.C.</Italian>
+		<Spanish>Entrar en la Era Industrial antes del 1860 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_AME2</Tag>
+		<English>Build the UN, the Statue of Liberty and the Pentagon by 2000 AD</English>
+		<French>Construire l'ONU, la Statue de la Liberté et le Pentagone avant 2000 ap. J.-C.</French>
+		<German>Errichten Sie bis zum Jahr 2000 n. Chr. die Vereinten Nationen, die Freiheitsstatue und das Pentagon</German>
+		<Italian>Devi costruire le Nazioni Unite, la Statua della Libert&#224; e il Pentagono entro il 2000 d.C.</Italian>
+		<Spanish>Construir las Naciones Unidas, la Estatua de la Libertad y el Pent&#225;gono antes del 2000 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_AME3</Tag>
+		<English>Secure 10 oil resources by 2000 AD</English>
+		<French>Sécuriser 10 gisements de pétrole avant 2000 ap. J.-C.</French>
+		<German>Sichern Sie sich bis zum Jahr 2000 n. Chr. 10 Öl-Vorkommen</German>
+		<Italian>Assicurati 10 fonti di petrolio entro il 2000 d.C.</Italian>
+		<Spanish>Controlar 10 recursos petrol&#237;feros en el 2000 d. C.</Spanish>
+	</TEXT>
+</Civ4GameText>

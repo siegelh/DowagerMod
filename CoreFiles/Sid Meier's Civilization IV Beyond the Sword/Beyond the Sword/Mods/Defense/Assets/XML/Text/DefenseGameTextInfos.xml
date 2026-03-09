@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ed Piper (Firaxis Games) -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_JUNGLE_WARRIOR_PEDIA</Tag>
+		<English>Build Jungle Warriors to protect Jungle tiles.</English>
+		<French>Produisez des guerriers de la jungle pour prot&#233;ger les cases de jungle.</French>
+		<German>Bilden Sie Dschungelkrieger aus, um Ihre Dschungel-Gel&#228;ndefelder zu sichern.</German>
+		<Italian>Costruisci guerrieri della giungla per proteggere la giungla.</Italian>
+		<Spanish>Crea guerreros de la selva para proteger las casillas de selva.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_JUNGLE_WARRIOR_STRATEGY</Tag>
+		<English>Build Jungle Warriors to protect Jungle tiles.</English>
+		<French>Produisez des guerriers de la jungle pour prot&#233;ger les cases de jungle.</French>
+		<German>Bilden Sie Dschungelkrieger aus, um Ihre Dschungel-Gel&#228;ndefelder zu sichern.</German>
+		<Italian>Costruisci guerrieri della giungla per proteggere la giungla.</Italian>
+		<Spanish>Crea guerreros de la selva para proteger las casillas de selva.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HILL_FIGHTER_PEDIA</Tag>
+		<English>Build Hill Fighters to protect Hill tiles.</English>
+		<French>Produisez des combattants des collines pour prot&#233;ger les cases de collines.</French>
+		<German>Bilden Sie H&#252;gelk&#228;mpfer aus, um Ihre H&#252;gel-Gel&#228;ndefelder zu sichern.</German>
+		<Italian>Costruisci guerrieri delle colline per proteggere le colline.</Italian>
+		<Spanish>Crea guerreros de las colinas para proteger las casillas de colinas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HILL_FIGHTER_STRATEGY</Tag>
+		<English>Build Hill Fighters to protect Hill tiles.</English>
+		<French>Produisez des combattants des collines pour prot&#233;ger les cases de collines.</French>
+		<German>Bilden Sie H&#252;gelk&#228;mpfer aus, um Ihre H&#252;gel-Gel&#228;ndefelder zu sichern.</German>
+		<Italian>Costruisci guerrieri delle colline per proteggere le colline.</Italian>
+		<Spanish>Crea guerreros de las colinas para proteger las casillas de colinas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TUNDRA_FIGHTER_PEDIA</Tag>
+		<English>Build Tundra Fighters to protect Tundra tiles.</English>
+		<French>Produisez des combattants de la toundra pour prot&#233;ger les cases de toundra.</French>
+		<German>Bilden Sie Tundrak&#228;mpfer aus, um Ihre Tundra-Gel&#228;ndefelder zu sichern.</German>
+		<Italian>Costruisci guerrieri della tundra per proteggere la tundra.</Italian>
+		<Spanish>Crea guerreros de la tundra para proteger las casillas de tundra.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TUNDRA_FIGHTER_STRATEGY</Tag>
+		<English>Build Tundra Fighters to protect Tundra tiles.</English>
+		<French>Produisez des combattants de la toundra pour prot&#233;ger les cases de toundra.</French>
+		<German>Bilden Sie Tundrak&#228;mpfer aus, um Ihre Tundra-Gel&#228;ndefelder zu sichern.</German>
+		<Italian>Costruisci guerrieri della tundra per proteggere la tundra.</Italian>
+		<Spanish>Crea guerreros de la tundra para proteger las casillas de tundra.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FOREST_WARRIOR_PEDIA</Tag>
+		<English>Build Forest Warriors to protect Forest tiles.</English>
+		<French>Produisez des guerriers des for&#234;ts pour prot&#233;ger les cases de for&#234;t.</French>
+		<German>Bilden Sie Waldk&#228;mpfer aus, um Ihre Wald-Gel&#228;ndefelder zu sichern.</German>
+		<Italian>Costruisci guerrieri della foresta per proteggere la foresta.</Italian>
+		<Spanish>Crea guerreros del bosque para proteger las casillas de bosque.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FOREST_WARRIOR_STRATEGY</Tag>
+		<English>Build Forest Warriors to protect Forest tiles.</English>
+		<French>Produisez des guerriers des for&#234;ts pour prot&#233;ger les cases de for&#234;t.</French>
+		<German>Bilden Sie Waldk&#228;mpfer aus, um Ihre Wald-Gel&#228;ndefelder zu sichern.</German>
+		<Italian>Costruisci guerrieri della foresta per proteggere la foresta.</Italian>
+		<Spanish>Crea guerreros del bosque para proteger las casillas de bosque.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_COMBAT_CHARIOT_PEDIA</Tag>
+		<English>Build Combat Chariots for a fast, if basic, unit.</English>
+		<French>Produisez des chars de guerre pour avoir une unit&#233; de base rapide.</French>
+		<German>Bilden Sie Kampfstreitwagen als schnelle, einfache Grundeinheiten aus.</German>
+		<Italian>Costruisci bighe da guerra per avere unit&#224; veloci, anche se semplici.</Italian>
+		<Spanish>Construye carros de guerra para tener unidades r&#225;pidas, si bien b&#225;sicas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_COMBAT_CHARIOT_STRATEGY</Tag>
+		<English>Build Combat Chariots for a fast, if basic, unit.</English>
+		<French>Produisez des chars de guerre pour avoir une unit&#233; de base rapide.</French>
+		<German>Ein Kampfstreitwagen ist eine schnelle, jedoch einfache Einheit.</German>
+		<Italian>Costruisci bighe da guerra per avere unit&#224; veloci, anche se semplici.</Italian>
+		<Spanish>Construye carros de guerra para tener unidades r&#225;pidas, si bien b&#225;sicas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BOWMAN_PEDIA</Tag>
+		<English>Build Bowman for a physically weak unit which can bombard units.</English>
+		<French>Produisez des archers pour avoir une unit&#233; faible d'attaque &#224; distance.</French>
+		<German>Ein Kampfbogensch&#252;tze ist eine physisch schwache Einheit, die benachbarte Gel&#228;ndefelder unter Beschuss nehmen kann.</German>
+		<Italian>Costruisci arcieri per avere un'unit&#224; debole che pu&#242; bombardare le altre unit&#224;.</Italian>
+		<Spanish>Crea saeteros para tener una unidad d&#233;bil f&#237;sicamente pero capaz de atacar a unidades situadas a distancia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BOWMAN_STRATEGY</Tag>
+		<English>Build Bowman for a physically weak unit which can bombard units.</English>
+		<French>Produisez des archers pour avoir une unit&#233; faible d'attaque &#224; distance.</French>
+		<German>Ein Kampfbogensch&#252;tze ist eine physisch schwache Einheit, die benachbarte Gel&#228;ndefelder unter Beschuss nehmen kann.</German>
+		<Italian>Costruisci arcieri per avere un'unit&#224; debole che pu&#242; bombardare le altre unit&#224;.</Italian>
+		<Spanish>Crea saeteros para tener una unidad d&#233;bil f&#237;sicamente pero capaz de atacar a unidades situadas a distancia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SCOUT_PEDIA</Tag>
+		<English>Scouting will allow you to build Scouts.</English>
+		<French>Reconnaissance vous permet de produire des &#233;claireurs.</French>
+		<German>Die Technologie Sp&#228;hen erm&#246;glicht Ihnen die Ausbildung von Sp&#228;hern.</German>
+		<Italian>Esplorazione ti permette di produrre scout.</Italian>
+		<Spanish>Exploraci&#243;n te permite crear batidores.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SCOUT_STRATEGY</Tag>
+		<English>Scouting will allow you to build Scouts.</English>
+		<French>Reconnaissance vous permet de produire des &#233;claireurs.</French>
+		<German>Die Technologie Sp&#228;hen erm&#246;glicht Ihnen die Ausbildung von Sp&#228;hern.</German>
+		<Italian>Esplorazione ti permette di produrre scout.</Italian>
+		<Spanish>Exploraci&#243;n te permite crear batidores.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_SCOUT_PEDIA</Tag>
+		<English>Scouts can detect invisible enemy units.</English>
+		<French>Les &#233;claireurs peuvent d&#233;tecter des unit&#233;s ennemies invisibles.</French>
+		<German>Sp&#228;her k&#246;nnen unsichtbare gegnerische Einheiten aufsp&#252;ren.</German>
+		<Italian>Gli scout possono individuare le unit&#224; nemiche invisibili.</Italian>
+		<Spanish>Los batidores pueden detectar unidades enemigas invisibles.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_SCOUT_STRATEGY</Tag>
+		<English>Scouts can detect invisible enemy units.</English>
+		<French>Les &#233;claireurs peuvent d&#233;tecter des unit&#233;s ennemies invisibles.</French>
+		<German>Sp&#228;her k&#246;nnen unsichtbare gegnerische Einheiten aufsp&#252;ren.</German>
+		<Italian>Gli scout possono individuare le unit&#224; nemiche invisibili.</Italian>
+		<Spanish>Los batidores pueden detectar unidades enemigas invisibles.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_SPY_PEDIA</Tag>
+		<English>Spies are invisible units that can detect invisible enemy units.</English>
+		<French>Les espions sont des unit&#233;s invisibles qui peuvent d&#233;tecter les unit&#233;s ennemies invisibles.</French>
+		<German>Spione sind unsichtbare Einheiten, die gegnerische unsichtbare Einheiten aufsp&#252;ren k&#246;nnen.</German>
+		<Italian>Le spie sono unit&#224; invisibili che possono individuare unit&#224; nemiche invisibili.</Italian>
+		<Spanish>Los esp&#237;as son unidades invisibles capaces de detectar unidades enemigas invisibles.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_SPY_STRATEGY</Tag>
+		<English>Spies are invisible units that can detect invisible enemy units.</English>
+		<French>Les espions sont des unit&#233;s invisibles qui peuvent d&#233;tecter les unit&#233;s ennemies invisibles.</French>
+		<German>Spione sind unsichtbare Einheiten, die gegnerische unsichtbare Einheiten aufsp&#252;ren k&#246;nnen.</German>
+		<Italian>Le spie sono unit&#224; invisibili che possono individuare unit&#224; nemiche invisibili.</Italian>
+		<Spanish>Los esp&#237;as son unidades invisibles capaces de detectar unidades enemigas invisibles.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SPY_PEDIA</Tag>
+		<English>Spying will allow you to build Spies.</English>
+		<French>Espionnage vous permet de produire des espions.</French>
+		<German>Die Technologie Spionage erm&#246;glicht Ihnen die Ausbildung von Spionen.</German>
+		<Italian>Spionaggio ti permette di produrre spie.</Italian>
+		<Spanish>Espionaje te permite crear esp&#237;as.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SPY_STRATEGY</Tag>
+		<English>Spying will allow you to build Spies.</English>
+		<French>Espionnage vous permet de produire des espions.</French>
+		<German>Die Technologie Spionage erm&#246;glicht Ihnen die Ausbildung von Spionen.</German>
+		<Italian>Spionaggio ti permette di produrre spie.</Italian>
+		<Spanish>Espionaje te permite crear esp&#237;as.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_CATAPULT_PEDIA</Tag>
+		<English>Catapults are short ranged units that cannot move.</English>
+		<French>Les catapultes sont des unit&#233;s fixes de faible port&#233;e.</French>
+		<German>Katapulte sind unbewegliche Kurzstreckeneinheiten.</German>
+		<Italian>Le catapulte sono unit&#224; non mobili a corto raggio.</Italian>
+		<Spanish>Las catapultas son unidades de corto alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_CATAPULT_STRATEGY</Tag>
+		<English>Catapults are short ranged units that cannot move.</English>
+		<French>Les catapultes sont des unit&#233;s fixes de faible port&#233;e.</French>
+		<German>Katapulte sind unbewegliche Kurzstreckeneinheiten.</German>
+		<Italian>Le catapulte sono unit&#224; non mobili a corto raggio.</Italian>
+		<Spanish>Las catapultas son unidades de corto alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CATAPULT_PEDIA</Tag>
+		<English>Catapults will allow you to build Catapults.</English>
+		<French>Catapultes vous permet de produire des catapultes.</French>
+		<German>Die Technologie Katapulte erm&#246;glicht Ihnen den Bau von Katapulten.</German>
+		<Italian>Catapulte ti permette di costruire catapulte.</Italian>
+		<Spanish>Catapultas te permite crear catapultas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CATAPULT_STRATEGY</Tag>
+		<English>Catapults will allow you to build Catapults.</English>
+		<French>Catapultes vous permet de produire des catapultes.</French>
+		<German>Die Technologie Katapulte erm&#246;glicht Ihnen den Bau von Katapulten.</German>
+		<Italian>Catapulte ti permette di costruire catapulte.</Italian>
+		<Spanish>Catapultas te permite crear catapultas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_TREBUCHET_PEDIA</Tag>
+		<English>Trebuchets are long ranged units that cannot move.</English>
+		<French>Les tr&#233;buchets sont des unit&#233;s fixes de longue port&#233;e.</French>
+		<German>Triboke sind unbewegliche Langstreckeneinheiten.</German>
+		<Italian>I trabocchi sono unit&#224; non mobili a lungo raggio.</Italian>
+		<Spanish>Los trabuquetes son unidades de largo alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_TREBUCHET_STRATEGY</Tag>
+		<English>Trebuchets are long ranged units that cannot move.</English>
+		<French>Les tr&#233;buchets sont des unit&#233;s fixes de longue port&#233;e.</French>
+		<German>Triboke sind unbewegliche Langstreckeneinheiten.</German>
+		<Italian>I trabocchi sono unit&#224; non mobili a lungo raggio.</Italian>
+		<Spanish>Los trabuquetes son unidades de largo alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_TREBUCHET_PEDIA</Tag>
+		<English>Trebuchets will allow you to build Trebuchets.</English>
+		<French>Tr&#233;buchets vous permet de produire des tr&#233;buchets.</French>
+		<German>Die Technologie Triboke erm&#246;glicht Ihnen den Bau von Triboken.</German>
+		<Italian>Trabocchi ti permette di costruire trabocchi.</Italian>
+		<Spanish>Trabuquetes te permite crear trabuquetes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_TREBUCHET_STRATEGY</Tag>
+		<English>Trebuchets will allow you to build Trebuchets.</English>
+		<French>Tr&#233;buchets vous permet de produire des tr&#233;buchets.</French>
+		<German>Die Technologie Triboke erm&#246;glicht Ihnen den Bau von Triboken.</German>
+		<Italian>Trabocchi ti permette di costruire trabocchi.</Italian>
+		<Spanish>Trabuquetes te permite crear trabuquetes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_LEVEL_COMPLETED</Tag>
+		<English>You have completed the level! Prepare for the next assault!</English>
+		<French>Vous avez termin&#233; le niveau ! Pr&#233;parez-vous pour le prochain assaut !</French>
+		<German>Level abgeschlossen! Bereiten Sie sich auf den n&#228;chsten Angriff vor!</German>
+		<Italian>Hai completato il livello! Preparati per il prossimo assalto!</Italian>
+		<Spanish>&#161;Hab&#233;is completado el nivel! &#161;Preparaos para el siguiente asalto!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SAVAGE_PEDIA</Tag>
+		<English>Savages are a moderately powerful threat, which receive a bonus against melee units.</English>
+		<French>Les sauvages repr&#233;sentent une menace de puissance moyenne. Ils re&#231;oivent un bonus contre les unit&#233;s de combat rapproch&#233;.</French>
+		<German>Wilde sind mittelstarke Einheiten, die einen Bonus gegen Nahkampfeinheiten erhalten.</German>
+		<Italian>I selvaggi sono una minaccia moderata, che ha un bonus contro le unit&#224; da mischia.</Italian>
+		<Spanish>Los salvajes son unidades moderadamente poderosas que reciben una bonificaci&#243;n contra unidades de cuerpo a cuerpo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SAVAGE_STRATEGY</Tag>
+		<English>Savages are good against melee units.</English>
+		<French>Les sauvages sont utiles contre les unit&#233;s de combat rapproch&#233;.</French>
+		<German>Wilde sind gut gegen Nahkampfeinheiten.</German>
+		<Italian>I selvaggi sono potenti contro le unit&#224; da mischia.</Italian>
+		<Spanish>Los salvajes son buenos contra unidades de cuerpo a cuerpo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CHARGER_PEDIA</Tag>
+		<English>Chargers are moderately powerful, fast moving threats.</English>
+		<French>Les chevaux de combat repr&#233;sentent une menace rapide de puissance moyenne.</French>
+		<German>Streitr&#246;sser sind mittelstarke, schnelle Einheiten.</German>
+		<Italian>I destrieri sono una minaccia abbastanza potente e veloce.</Italian>
+		<Spanish>Los soldados de carga son unidades de potencia moderada y movimiento r&#225;pido.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CHARGER_STRATEGY</Tag>
+		<English>Chargers are moderately powerful, fast moving threats.</English>
+		<French>Les chevaux de combat repr&#233;sentent une menace rapide de puissance moyenne.</French>
+		<German>Streitr&#246;sser sind mittelstarke, schnelle Einheiten.</German>
+		<Italian>I destrieri sono una minaccia abbastanza potente e veloce.</Italian>
+		<Spanish>Los soldados de carga son unidades de potencia moderada y movimiento r&#225;pido.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_GALLEY_PEDIA</Tag>
+		<English>Galleys are weak short range ocean units.</English>
+		<French>Les gal&#232;res sont des unit&#233;s navales de faible port&#233;e et de faible puissance.</French>
+		<German>Galeeren sind schwache Kurzstrecken-Seeeinheiten.</German>
+		<Italian>Le galee sono unit&#224; marittime deboli e a corto raggio.</Italian>
+		<Spanish>Las galeras son unidades oce&#225;nicas d&#233;biles de corto alcance.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_TRIREME_PEDIA</Tag>
+		<English>Triremes are weak long range ocean units.</English>
+		<French>Les trir&#232;mes sont des unit&#233;s navales de longue port&#233;e et de faible puissance.</French>
+		<German>Trieren sind schwache Langstrecken-Seeeinheiten.</German>
+		<Italian>I triremi sono unit&#224; marittime deboli e a lungo raggio.</Italian>
+		<Spanish>Los trirremes son unidades oce&#225;nicas d&#233;biles de largo alcance.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_GALLEY_STRATEGY</Tag>
+		<English>Galleys are weak short range ocean units.</English>
+		<French>Les gal&#232;res sont des unit&#233;s navales de faible port&#233;e et de faible puissance.</French>
+		<German>Galeeren sind schwache Kurzstrecken-Seeeinheiten.</German>
+		<Italian>Le galee sono unit&#224; marittime deboli e a corto raggio.</Italian>
+		<Spanish>Las galeras son unidades oce&#225;nicas d&#233;biles de corto alcance.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_TRIREME_STRATEGY</Tag>
+		<English>Triremes are weak long range ocean units.</English>
+		<French>Les trir&#232;mes sont des unit&#233;s navales de longue port&#233;e et de faible puissance.</French>
+		<German>Trieren sind schwache Langstrecken-Seeeinheiten.</German>
+		<Italian>I triremi sono unit&#224; marittime deboli e a lungo raggio.</Italian>
+		<Spanish>Los trirremes son unidades oce&#225;nicas d&#233;biles de largo alcance.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_GALLEY_PEDIA</Tag>
+		<English>Galleys allows you to build Galleys.</English>
+		<French>Gal&#232;res vous permet de produire des gal&#232;res.</French>
+		<German>Die Technologie Galeeren erm&#246;glicht Ihnen den Bau von Galeeren.</German>
+		<Italian>Galee ti permette di costruire galee.</Italian>
+		<Spanish>Galeras te permite crear galeras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_TRIREME_PEDIA</Tag>
+		<English>Triremes allows you to build Triremes.</English>
+		<French>Trir&#232;mes vous permet de produire des trir&#232;mes.</French>
+		<German>Die Technologie Trieren erm&#246;glicht Ihnen den Bau von Trieren.</German>
+		<Italian>Triremi ti permette di costruire triremi.</Italian>
+		<Spanish>Trirremes te permite crear trirremes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_GALLEY_STRATEGY</Tag>
+		<English>Galleys allows you to build Galleys.</English>
+		<French>Gal&#232;res vous permet de produire des gal&#232;res.</French>
+		<German>Die Technologie Galeeren erm&#246;glicht Ihnen den Bau von Galeeren.</German>
+		<Italian>Galee ti permette di costruire galee.</Italian>
+		<Spanish>Galeras te permite crear galeras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_TRIREME_STRATEGY</Tag>
+		<English>Triremes allows you to build Triremes.</English>
+		<French>Trir&#232;mes vous permet de produire des trir&#232;mes.</French>
+		<German>Die Technologie Trieren erm&#246;glicht Ihnen den Bau von Trieren.</German>
+		<Italian>Triremi ti permette di costruire triremi.</Italian>
+		<Spanish>Trirremes te permite crear trirremes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_FRIGATE_PEDIA</Tag>
+		<English>Frigates are moderately powerful short range ocean units</English>
+		<French>Les fr&#233;gates sont des unit&#233;s navales de faible port&#233;e et de puissance moyenne.</French>
+		<German>Fregatten sind mittelstarke Kurzstrecken-Seeeinheiten.</German>
+		<Italian>Le fregate sono unit&#224; marittime a corto raggio abbastanza potenti.</Italian>
+		<Spanish>Las fragatas son unidades oce&#225;nicas moderadamente poderosas de corto alcance.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_SHIP_OF_THE_LINE_PEDIA</Tag>
+		<English>Ships of the Line are moderately powerful long range ocean units</English>
+		<French>Les galions de guerre sont des unit&#233;s navales de longue port&#233;e et de puissance moyenne.</French>
+		<German>Linienschiffe sind mittelstarke Langstrecken-Seeeinheiten.</German>
+		<Italian>Le navi da prima linea sono unit&#224; marittime a lungo raggio abbastanza potenti.</Italian>
+		<Spanish>Los buques de guerra son unidades oce&#225;nicas moderadamente poderosas de largo alcance.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_FRIGATE_STRATEGY</Tag>
+		<English>Frigates are moderately powerful short range ocean units</English>
+		<French>Les fr&#233;gates sont des unit&#233;s navales de faible port&#233;e et de puissance moyenne.</French>
+		<German>Fregatten sind mittelstarke Kurzstrecken-Seeeinheiten.</German>
+		<Italian>Le fregate sono unit&#224; marittime a corto raggio abbastanza potenti.</Italian>
+		<Spanish>Las fragatas son unidades oce&#225;nicas moderadamente poderosas de corto alcance.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_SHIP_OF_THE_LINE_STRATEGY</Tag>
+		<English>Ships of the Line are moderately powerful long range ocean units</English>
+		<French>Les galions de guerre sont des unit&#233;s navales de longue port&#233;e et de puissance moyenne.</French>
+		<German>Linienschiffe sind mittelstarke Langstrecken-Seeeinheiten.</German>
+		<Italian>Le navi da prima linea sono unit&#224; marittime a lungo raggio abbastanza potenti.</Italian>
+		<Spanish>Los buques de guerra son unidades oce&#225;nicas moderadamente poderosas de largo alcance.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_FRIGATE_PEDIA</Tag>
+		<English>Frigates allows you to build frigates.</English>
+		<French>Fr&#233;gates vous permet de produire des fr&#233;gates.</French>
+		<German>Die Technologie Fregatten erm&#246;glicht Ihnen den Bau von Fregatten.</German>
+		<Italian>Fregate ti permette di costruire fregate.</Italian>
+		<Spanish>Fragatas te permite crear fragatas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SHIP_OF_THE_LINE_PEDIA</Tag>
+		<English>Ship of the Line allows you to build Ships of the Line.</English>
+		<French>Galions de guerre vous permet de produire des galions de guerre.</French>
+		<German>Die Technologie Linienschiff erm&#246;glicht Ihnen den Bau von Linienschiffen.</German>
+		<Italian>Navi da prima linea ti permette di costruire navi da prima linea.</Italian>
+		<Spanish>Buques de guerra te permite crear buques de guerra.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_FRIGATE_STRATEGY</Tag>
+		<English>Frigates allows you to build frigates.</English>
+		<French>Fr&#233;gates vous permet de produire des fr&#233;gates.</French>
+		<German>Die Technologie Fregatten erm&#246;glicht Ihnen den Bau von Fregatten.</German>
+		<Italian>Fregate ti permette di costruire fregate.</Italian>
+		<Spanish>Fragatas te permite crear fragatas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SHIP_OF_THE_LINE_STRATEGY</Tag>
+		<English>Ship of the Line allows you to build Ships of the Line.</English>
+		<French>Galions de guerre vous permet de produire des galions de guerre.</French>
+		<German>Die Technologie Linienschiff erm&#246;glicht Ihnen den Bau von Linienschiffen.</German>
+		<Italian>Navi da prima linea ti permette di costruire navi da prima linea.</Italian>
+		<Spanish>Buques de guerra te permite crear buques de guerra.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ZOMBIE_PEDIA</Tag>
+		<English>Zombies are a moderately powerful threat. Any non-mechanical unit killed by Zombies spawns additional Zombies.</English>
+		<French>Les zombis repr&#233;sentent une menace de puissance moyenne. Toute unit&#233; non-m&#233;canis&#233;e tu&#233;e par des zombis engendre des zombis suppl&#233;mentaires.</French>
+		<German>Zombies sind mittelstarke Einheiten. Alle durch einen Zombie get&#246;teten nicht-mechanischen Einheiten erschaffen weitere Zombies.</German>
+		<Italian>Gli zombi sono una minaccia moderata. Qualsiasi unit&#224; non meccanica uccisa dagli zombi genera altri zombi.</Italian>
+		<Spanish>Los zombis constituyen una amenaza moderadamente peligrosa. Todas las unidades no mec&#225;nicas que mueran a manos de zombis generan nuevos zombis.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ZOMBIE_STRATEGY</Tag>
+		<English>Zombies are a moderately powerful threat. Any non-mechanical unit killed by Zombies spawns additional Zombies.</English>
+		<French>Les zombis repr&#233;sentent une menace de puissance moyenne. Toute unit&#233; non-m&#233;canis&#233;e tu&#233;e par des zombis engendre des zombis suppl&#233;mentaires.</French>
+		<German>Zombies sind mittelstarke Einheiten. Alle durch einen Zombie get&#246;teten nicht-mechanischen Einheiten erschaffen weitere Zombies.</German>
+		<Italian>Gli zombi sono una minaccia moderata. Qualsiasi unit&#224; non meccanica uccisa dagli zombi genera altri zombi.</Italian>
+		<Spanish>Los zombis constituyen una amenaza moderadamente peligrosa. Todas las unidades no mec&#225;nicas que mueran a manos de zombis generan nuevos zombis.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ELEPHANT_RIDER_PEDIA</Tag>
+		<English>Elephant Riders are a powerful threat that deal collateral damage.</English>
+		<French>Les chevaucheurs d'&#233;l&#233;phants repr&#233;sentent une menace de puissance &#233;lev&#233;e qui provoque des dommages collat&#233;raux.</French>
+		<German>Elefantenreiter sind m&#228;chtige Einheiten, die Kollateralsch&#228;den verursachen.</German>
+		<Italian>I cavalieri di elefanti sono una potente minaccia che infligge danni collaterali.</Italian>
+		<Spanish>Los jinetes de elefantes constituyen una poderosa amenaza que inflige da&#241;os colaterales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ELEPHANT_RIDER_STRATEGY</Tag>
+		<English>Elephant Riders are a powerful threat that deal collateral damage.</English>
+		<French>Les chevaucheurs d'&#233;l&#233;phants repr&#233;sentent une menace de puissance &#233;lev&#233;e qui provoque des dommages collat&#233;raux.</French>
+		<German>Elefantenreiter sind m&#228;chtige Einheiten, die Kollateralsch&#228;den verursachen.</German>
+		<Italian>I cavalieri di elefanti sono una potente minaccia che infligge danni collaterali.</Italian>
+		<Spanish>Los jinetes de elefantes constituyen una poderosa amenaza que inflige da&#241;os colaterales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SAMURAI_PEDIA</Tag>
+		<English>Psycho Samurai are a powerful threat that deal damage to tiles adjacent to target.</English>
+		<French>Les samoura&#239;s psychiques repr&#233;sentent une menace de puissance &#233;lev&#233;e qui provoque des dommages aux cases adjacentes &#224; la cible.</French>
+		<German>Psycho-Samurai sind m&#228;chtige Einheiten, die neben dem Ziel befindliche Gel&#228;ndefelder besch&#228;digen.</German>
+		<Italian>Gli psico-samurai sono una potente minaccia che danneggia le caselle adiacenti al bersaglio.</Italian>
+		<Spanish>Los samur&#225;is psic&#243;ticos constituyen una poderosa amenaza que inflige da&#241;os a las casillas adyacentes a su objetivo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SAMURAI_STRATEGY</Tag>
+		<English>Psycho Samurai are a powerful threat that deal damage to tiles adjacent to target.</English>
+		<French>Les samoura&#239;s psychiques repr&#233;sentent une menace de puissance &#233;lev&#233;e qui provoque des dommages aux cases adjacentes &#224; la cible.</French>
+		<German>Psycho-Samurai sind m&#228;chtige Einheiten, die neben dem Ziel befindliche Gel&#228;ndefelder besch&#228;digen.</German>
+		<Italian>Gli psico-samurai sono una potente minaccia che danneggia le caselle adiacenti al bersaglio.</Italian>
+		<Spanish>Los samur&#225;is psic&#243;ticos constituyen una poderosa amenaza que inflige da&#241;os a las casillas adyacentes a su objetivo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SUICIDE_GRENADIER_STRATEGY</Tag>
+		<English>Suicide Grenadiers are weak units that deal a deadly sacrificial attack.</English>
+		<French>Les grenadiers suicide sont des unit&#233;s faibles qui effectuent une attaque suicide.</French>
+		<German>Selbstmord-Grenadiere sind schwache Einheiten, die einen t&#246;dlichen Selbstmordangriff durchf&#252;hren.</German>
+		<Italian>I granatieri suicidi sono unit&#224; deboli con un letale attacco sacrificale.</Italian>
+		<Spanish>Los granaderos suicidas son unidades d&#233;biles que disponen de un ataque de sacrificio mortal.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SUICIDE_GRENADIER_PEDIA</Tag>
+		<English>Suicide Grenadiers are weak units that deal a deadly sacrificial attack.</English>
+		<French>Les grenadiers suicide sont des unit&#233;s faibles qui effectuent une attaque suicide.</French>
+		<German>Selbstmord-Grenadiere sind schwache Einheiten, die einen t&#246;dlichen Selbstmordangriff durchf&#252;hren.</German>
+		<Italian>I granatieri suicidi sono unit&#224; deboli con un letale attacco sacrificale.</Italian>
+		<Spanish>Los granaderos suicidas son unidades d&#233;biles que disponen de un ataque de sacrificio mortal.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DOOM_ROLLER_PEDIA</Tag>
+		<English>Doom Rollers are strong fast units that deal collateral damage.</English>
+		<French>Les Chars d'Apocalypse sont des unit&#233;s rapides de puissance &#233;lev&#233;e qui provoquent des dommages collat&#233;raux.</French>
+		<German>Todeswalzen sind schnelle, starke Einheiten, die Kollateralsch&#228;den verursachen.</German>
+		<Italian>I cilindri del fato sono potenti e veloci unit&#224; che infliggono danni collaterali.</Italian>
+		<Spanish>Los rodillos mortales son unidades fuertes y r&#225;pidas que infligen da&#241;os colaterales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DOOM_ROLLER_STRATEGY</Tag>
+		<English>Doom Rollers are strong fast units that deal collateral damage.</English>
+		<French>Les Char d'Apocalypse sont des unit&#233;s rapides de puissance &#233;lev&#233;e qui provoquent des dommages collat&#233;raux.</French>
+		<German>Todeswalzen sind schnelle, starke Einheiten, die Kollateralsch&#228;den verursachen.</German>
+		<Italian>I cilindri del fato sono potenti e veloci unit&#224; che infliggono danni collaterali.</Italian>
+		<Spanish>Los rodillos mortales son unidades fuertes y r&#225;pidas que infligen da&#241;os colaterales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEATH_TRACK_PEDIA</Tag>
+		<English>Death Tracks are extremely strong units that deal collateral damage.</English>
+		<French>Les Morts en marche sont des unit&#233;s extr&#234;mement puissantes qui provoquent des dommages collat&#233;raux.</French>
+		<German>Todesraupen sind &#228;u&#223;erst starke Einheiten, die Kollateralsch&#228;den verursachen.</German>
+		<Italian>I cingoli della morte sono unit&#224; molto forti che infliggono danni collaterali.</Italian>
+		<Spanish>Las ruedas mortales son unidades muy fuertes que infligen da&#241;os colaterales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEATH_TRACK_STRATEGY</Tag>
+		<English>Death Tracks are extremely strong units that deal collateral damage.</English>
+		<French>Les Morts en marche sont des unit&#233;s extr&#234;mement puissantes qui provoquent des dommages collat&#233;raux.</French>
+		<German>Todesraupen sind &#228;u&#223;erst starke Einheiten, die Kollateralsch&#228;den verursachen.</German>
+		<Italian>I cingoli della morte sono unit&#224; molto forti che infliggono danni collaterali.</Italian>
+		<Spanish>Las ruedas mortales son unidades muy fuertes que infligen da&#241;os colaterales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MONSTER_TANK_PEDIA</Tag>
+		<English>RUN!</English>
+		<French>FUYEZ !</French>
+		<German>FLIEHT!</German>
+		<Italian>CORRI!</Italian>
+		<Spanish>&#161;CORRED!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MONSTER_TANK_STRATEGY</Tag>
+		<English>RUN!</English>
+		<French>FUYEZ !</French>
+		<German>FLIEHT!</German>
+		<Italian>CORRI!</Italian>
+		<Spanish>&#161;CORRED!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ROCKET_CART_PEDIA</Tag>
+		<English>Rocket Carts are short ranged medium powered units that cannot move.</English>
+		<French>Les canons mobiles sont des unit&#233;s fixes de faible port&#233;e et de puissance moyenne.</French>
+		<German>Raketenwagen sind mittelstarke, unbewegliche Kurzstreckeneinheiten.</German>
+		<Italian>I carri lanciarazzi sono unit&#224; non mobili mediamente potenti a corto raggio.</Italian>
+		<Spanish>Los carros de cohetes son unidades de potencia media y corto alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ANTI_TANK_GUN_PEDIA</Tag>
+		<English>Anti-Tank Guns are short ranged high powered units that cannot move.</English>
+		<French>Les canons antichars sont des unit&#233;s fixes de faible port&#233;e et de grande puissance.</French>
+		<German>Panzerabwehrkanonen sind starke, unbewegliche Kurzstreckeneinheiten.</German>
+		<Italian>I cannoni anticarro sono unit&#224; non mobili molto potenti a corto raggio.</Italian>
+		<Spanish>Los ca&#241;ones antitanque son unidades de elevada potencia y corto alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ROCKET_CART_STRATEGY</Tag>
+		<English>Rocket Carts are short ranged medium powered units that cannot move.</English>
+		<French>Les canons mobiles sont des unit&#233;s fixes de faible port&#233;e et de puissance moyenne.</French>
+		<German>Raketenwagen sind mittelstarke, unbewegliche Kurzstreckeneinheiten.</German>
+		<Italian>I carri lanciarazzi sono unit&#224; non mobili mediamente potenti a corto raggio.</Italian>
+		<Spanish>Los carros de cohetes son unidades de potencia media y corto alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ANTI_TANK_GUN_STRATEGY</Tag>
+		<English>Anti-Tank Guns are short ranged high powered units that cannot move.</English>
+		<French>Les canons antichars sont des unit&#233;s fixes de faible port&#233;e et de grande puissance.</French>
+		<German>Panzerabwehrkanonen sind starke, unbewegliche Kurzstreckeneinheiten.</German>
+		<Italian>I cannoni anticarro sono unit&#224; non mobili molto potenti a corto raggio.</Italian>
+		<Spanish>Los ca&#241;ones antitanque son unidades de elevada potencia y corto alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_CANNON_PEDIA</Tag>
+		<English>Cannons are long ranged medium powered units that cannot move.</English>
+		<French>Les canons sont des unit&#233;s fixes de longue port&#233;e de puissance moyenne.</French>
+		<German>Kanonen sind mittelstarke, unbewegliche Langstreckeneinheiten.</German>
+		<Italian>I cannoni sono unit&#224; non mobili mediamente potenti a medio raggio.</Italian>
+		<Spanish>Los ca&#241;ones son unidades de potencia media y largo alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_ARTILLERY_PEDIA</Tag>
+		<English>Anti-Tank Guns are long ranged high powered units that cannot move.</English>
+		<French>Les canons antichars sont des unit&#233;s fixes de longue port&#233;e et de puissance &#233;lev&#233;e.</French>
+		<German>Artillerieeinheiten sind starke, unbewegliche Langstreckeneinheiten.</German>
+		<Italian>I cannoni anticarro sono unit&#224; non mobili molto potenti a lungo raggio.</Italian>
+		<Spanish>Los ca&#241;ones antitanque son unidades de elevada potencia y largo alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_CANNON_STRATEGY</Tag>
+		<English>Cannons are long ranged medium powered units that cannot move.</English>
+		<French>Les canons sont des unit&#233;s fixes de longue port&#233;e de puissance moyenne.</French>
+		<German>Kanonen sind mittelstarke, unbewegliche Langstreckeneinheiten.</German>
+		<Italian>I cannoni sono unit&#224; non mobili mediamente potenti a medio raggio.</Italian>
+		<Spanish>Los ca&#241;ones son unidades de potencia media y largo alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_ARTILLERY_STRATEGY</Tag>
+		<English>Anti-Tank Guns are long ranged high powered units that cannot move.</English>
+		<French>Les canons antichars sont des unit&#233;s fixes de longue port&#233;e et de puissance &#233;lev&#233;e.</French>
+		<German>Artillerieeinheiten sind starke, unbewegliche Langstreckeneinheiten.</German>
+		<Italian>I cannoni anticarro sono unit&#224; non mobili molto potenti a lungo raggio.</Italian>
+		<Spanish>Los ca&#241;ones antitanque son unidades de elevada potencia y largo alcance que no pueden moverse.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_MUSKETMAN_PEDIA</Tag>
+		<English>Build Musketmen for a physically weak unit which can bombard units with a medium strength attack.</English>
+		<French>Produisez des arquebusiers pour avoir une unit&#233; faible d'attaque &#224; distance avec une puissance moyenne.</French>
+		<German>Ein Kampfbogensch&#252;tze ist eine physisch schwache Einheit, die Einheiten mit einem mittelstarken Angriff unter Beschuss nehmen kann.</German>
+		<Italian>Costruisci soldati con moschetto per avere un'unit&#224; debole che pu&#242; bombardare le altre unit&#224; con un attacco di forza media.</Italian>
+		<Spanish>Crea soldados con mosquete para tener una unidad d&#233;bil f&#237;sicamente pero capaz de lanzar ataques de potencia media a unidades situadas a distancia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_MUSKETMAN_STRATEGY</Tag>
+		<English>Build Musketmen for a physically weak unit which can bombard units with a medium strength attack.</English>
+		<French>Produisez des arquebusiers pour avoir une unit&#233; faible d'attaque &#224; distance avec une puissance moyenne.</French>
+		<German>Ein Musketier ist eine physisch schwache Einheit, die Einheiten mit einem mittelstarken Angriff unter Beschuss nehmen kann.</German>
+		<Italian>Costruisci soldati con moschetto per avere un'unit&#224; debole che pu&#242; bombardare le altre unit&#224; con un attacco di forza media.</Italian>
+		<Spanish>Crea soldados con mosquete para tener una unidad d&#233;bil f&#237;sicamente pero capaz de lanzar ataques de potencia media a unidades situadas a distancia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_INFANTRY_PEDIA</Tag>
+		<English>Build Infantry for a physically weak unit which can bombard units with a high strength attack.</English>
+		<French>Produisez de l'infanterie pour avoir une unit&#233; faible d'attaque &#224; distance avec une puissance &#233;lev&#233;e.</French>
+		<German>Ein Infanterist ist eine physisch schwache Einheit, die Einheiten mit einem starken Angriff unter Beschuss nehmen kann.</German>
+		<Italian>Costruisci fanteria per avere un'unit&#224; debole che pu&#242; bombardare le altre unit&#224; con un forte attacco.</Italian>
+		<Spanish>Crea infanter&#237;a para tener una unidad d&#233;bil f&#237;sicamente pero capaz de lanzar ataques de potencia elevada a unidades situadas a distancia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_INFANTRY_STRATEGY</Tag>
+		<English>Build Infantry for a physically weak unit which can bombard units with a high strength attack.</English>
+		<French>Produisez de l'infanterie pour avoir une unit&#233; faible d'attaque &#224; distance avec une puissance &#233;lev&#233;e.</French>
+		<German>Ein Infanterist ist eine physisch schwache Einheit, die Einheiten mit einem starken Angriff unter Beschuss nehmen kann.</German>
+		<Italian>Costruisci fanteria per avere un'unit&#224; debole che pu&#242; bombardare le altre unit&#224; con un forte attacco.</Italian>
+		<Spanish>Crea infanter&#237;a para tener una unidad d&#233;bil f&#237;sicamente pero capaz de lanzar ataques de potencia elevada a unidades situadas a distancia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_ROCKETMAN_PEDIA</Tag>
+		<English>Build Rocketmen for a physically weak unit which can bombard units with an extremely high strength attack.</English>
+		<French>Produisez des artilleurs pour avoir une unit&#233; faible d'attaque &#224; distance avec une puissance extr&#234;mement &#233;lev&#233;e.</French>
+		<German>Ein Raketensoldat ist eine physisch schwache Einheit, die Einheiten mit einem &#228;u&#223;erst starken Angriff unter Beschuss nehmen kann.</German>
+		<Italian>Costruisci soldati con lanciarazzi per avere un'unit&#224; debole che pu&#242; bombardare le altre unit&#224; con un attacco molto forte.</Italian>
+		<Spanish>Crea soldados con cohetes para tener una unidad d&#233;bil f&#237;sicamente pero capaz de lanzar ataques de potencia extremadamente elevada a unidades situadas a distancia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_ROCKETMAN_STRATEGY</Tag>
+		<English>Build Rocketmen for a physically weak unit which can bombard units with an extremely high strength attack.</English>
+		<French>Produisez des artilleurs pour avoir une unit&#233; faible d'attaque &#224; distance avec une puissance extr&#234;mement &#233;lev&#233;e.</French>
+		<German>Ein Raketensoldat ist eine physisch schwache Einheit, die Einheiten mit einem &#228;u&#223;erst starken Angriff unter Beschuss nehmen kann.</German>
+		<Italian>Costruisci soldati con lanciarazzi per avere un'unit&#224; debole che pu&#242; bombardare le altre unit&#224; con un attacco molto forte.</Italian>
+		<Spanish>Crea soldados con cohetes para tener una unidad d&#233;bil f&#237;sicamente pero capaz de lanzar ataques de potencia extremadamente elevada a unidades situadas a distancia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_RIDER_PEDIA</Tag>
+		<English>Riders are fast medium powered units.</English>
+		<French>Les cavaliers sont des unit&#233;s rapides de puissance moyenne.</French>
+		<German>Reiter sind schnelle, mittelstarke Einheiten.</German>
+		<Italian>I cavalieri sono unit&#224; veloci e mediamente potenti.</Italian>
+		<Spanish>Los jinetes son unidades r&#225;pidas de potencia media.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_RIDER_STRATEGY</Tag>
+		<English>Riders are fast medium powered units.</English>
+		<French>Les cavaliers sont des unit&#233;s rapides de puissance moyenne.</French>
+		<German>Reiter sind schnelle, mittelstarke Einheiten.</German>
+		<Italian>I cavalieri sono unit&#224; veloci e mediamente potenti.</Italian>
+		<Spanish>Los jinetes son unidades r&#225;pidas de potencia media.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_MACEMAN_PEDIA</Tag>
+		<English>Macemen are powerful melee units.</English>
+		<French>Les soldats avec masse sont de puissantes unit&#233;s de combat rapproch&#233;.</French>
+		<German>Streitkolbentr&#228;ger sind m&#228;chtige Nahkampfeinheiten.</German>
+		<Italian>I guerrieri con mazza sono potenti unit&#224; da mischia.</Italian>
+		<Spanish>Los maceros son potentes unidades de cuerpo a cuerpo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEFENSE_MACEMAN_STRATEGY</Tag>
+		<English>Macemen are powerful melee units.</English>
+		<French>Les soldats avec masse sont de puissantes unit&#233;s de combat rapproch&#233;.</French>
+		<German>Streitkolbentr&#228;ger sind m&#228;chtige Nahkampfeinheiten.</German>
+		<Italian>I guerrieri con mazza sono potenti unit&#224; da mischia.</Italian>
+		<Spanish>Los maceros son potentes unidades de cuerpo a cuerpo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ROCKET_CART_PEDIA</Tag>
+		<English>Rocket Carts allow you to build Rocket Carts.</English>
+		<French>Canons mobiles vous permet de produire des canons mobiles.</French>
+		<German>Die Technologie Raketenwagen erm&#246;glicht Ihnen den Bau von Raketenwagen.</German>
+		<Italian>Carri lanciarazzi ti permette di costruire carri lanciarazzi.</Italian>
+		<Spanish>Carros de cohetes te permite crear carros de cohetes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ANTI_TANK_GUN_PEDIA</Tag>
+		<English>Anti-Tank Guns allow you to build Anti-Tank Guns.</English>
+		<French>Canons antichars vous permet de produire des canons antichars.</French>
+		<German>Die Technologie Panzerabwehrkanonen erm&#246;glicht Ihnen den Bau von Panzerabwehrkanonen.</German>
+		<Italian>Cannoni anticarro ti permette di costruire cannoni anticarro.</Italian>
+		<Spanish>Ca&#241;ones antitanque te permite crear ca&#241;ones antitanque.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CANNON_PEDIA</Tag>
+		<English>Cannons allow you to build Cannons.</English>
+		<French>Canons vous permet de produire des canons.</French>
+		<German>Die Technologie Kanonen erm&#246;glicht Ihnen den Bau von Kanonen.</German>
+		<Italian>Cannoni ti permette di costruire cannoni.</Italian>
+		<Spanish>Ca&#241;ones te permite crear ca&#241;ones.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ARTILLERY_PEDIA</Tag>
+		<English>Artillery allows you to build Artillery.</English>
+		<French>Artillerie vous permet de produire de l'artillerie.</French>
+		<German>Die Technologie Artillerie erm&#246;glicht Ihnen den Bau von Artillerie.</German>
+		<Italian>Artiglieria ti permette di costruire unit&#224; d'artiglieria</Italian>
+		<Spanish>Artiller&#237;a te permite crear artiller&#237;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MUSKETMAN_PEDIA</Tag>
+		<English>Musketmen allow you to build Musketmen.</English>
+		<French>Arquebusiers vous permet de produire des arquebusiers.</French>
+		<German>Die Technologie Musketiere erm&#246;glicht Ihnen die Ausbildung von Musketieren.</German>
+		<Italian>Soldati con moschetto ti permette di costruire soldati con moschetto.</Italian>
+		<Spanish>Soldados con mosquete te permite crear soldados con mosquete.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_INFANTRY_PEDIA</Tag>
+		<English>Infantry allow you to build Infantry.</English>
+		<French>Infanterie vous permet de produire de l'infanterie.</French>
+		<German>Die Technologie Infanterie erm&#246;glicht Ihnen die Ausbildung von Infanteristen.</German>
+		<Italian>Fanteria ti permette di costruire fanteria.</Italian>
+		<Spanish>Infanter&#237;a te permite crear infanter&#237;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ROCKETMAN_PEDIA</Tag>
+		<English>Rocketmen allow you to build Rocketmen.</English>
+		<French>Canonniers vous permet de produire des canonniers.</French>
+		<German>Die Technologie Raketensoldaten erm&#246;glicht Ihnen die Ausbildung von Raketensoldaten.</German>
+		<Italian>Soldati con lanciarazzi ti permette di costruire soldati con lanciarazzi.</Italian>
+		<Spanish>Soldados con cohetes te permite crear soldados con cohetes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_RIDER_PEDIA</Tag>
+		<English>Riders allow you to build Riders.</English>
+		<French>Cavaliers vous permet de produire des cavaliers.</French>
+		<German>Die Technologie Reiter erm&#246;glicht Ihnen die Ausbildung von Reitern.</German>
+		<Italian>Cavalieri ti permette di costruire cavalieri.</Italian>
+		<Spanish>Jinetes te permite crear jinetes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MACEMAN_PEDIA</Tag>
+		<English>Macemen allow you to build Macemen.</English>
+		<French>Soldats avec masse vous permet de produire des soldats avec masse.</French>
+		<German>Die Technologie Streitkolbentr&#228;ger erm&#246;glicht Ihnen die Ausbildung von Streitkolbentr&#228;gern.</German>
+		<Italian>Guerrieri con mazza ti permette di costruire guerrieri con mazza.</Italian>
+		<Spanish>Maceros te permite crear maceros.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ROCKET_CART_STRATEGY</Tag>
+		<English>Rocket Carts allow you to build Rocket Carts.</English>
+		<French>Lance-roquettes vous permet de produire des lance-roquettes.</French>
+		<German>Die Technologie Raketenwagen erm&#246;glicht Ihnen den Bau von Raketenwagen.</German>
+		<Italian>Carri lanciarazzi ti permette di costruire carri lanciarazzi.</Italian>
+		<Spanish>Carros de cohetes te permite crear carros de cohetes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ANTI_TANK_GUN_STRATEGY</Tag>
+		<English>Anti-Tank Guns allow you to build Anti-Tank Guns.</English>
+		<French>Canons antichars vous permet de produire des canons antichars.</French>
+		<German>Die Technologie Panzerabwehrkanonen erm&#246;glicht Ihnen den Bau von Panzerabwehrkanonen.</German>
+		<Italian>Cannoni anticarro ti permette di costruire cannoni anticarro.</Italian>
+		<Spanish>Ca&#241;ones antitanque te permite crear ca&#241;ones antitanque.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CANNON_STRATEGY</Tag>
+		<English>Cannons allow you to build Cannons.</English>
+		<French>Canons vous permet de produire des canons.</French>
+		<German>Die Technologie Kanonen erm&#246;glicht Ihnen den Bau von Kanonen.</German>
+		<Italian>Cannoni ti permette di costruire cannoni.</Italian>
+		<Spanish>Ca&#241;ones te permite crear ca&#241;ones.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ARTILLERY_STRATEGY</Tag>
+		<English>Artillery allows you to build Artillery.</English>
+		<French>Artillerie vous permet de produire de l'artillerie.</French>
+		<German>Die Technologie Artillerie erm&#246;glicht Ihnen den Bau von Artillerie.</German>
+		<Italian>Artiglieria ti permette di costruire unit&#224; d'artiglieria</Italian>
+		<Spanish>Artiller&#237;a te permite crear artiller&#237;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MUSKETMAN_STRATEGY</Tag>
+		<English>Musketmen allow you to build Musketmen.</English>
+		<French>Arquebusiers vous permet de produire des arquebusiers.</French>
+		<German>Die Technologie Musketiere erm&#246;glicht Ihnen die Ausbildung von Musketieren.</German>
+		<Italian>Soldati con moschetto ti permette di costruire soldati con moschetto.</Italian>
+		<Spanish>Soldados con mosquete te permite crear soldados con mosquete.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_INFANTRY_STRATEGY</Tag>
+		<English>Infantry allow you to build Infantry.</English>
+		<French>Infanterie vous permet de produire de l'infanterie.</French>
+		<German>Die Technologie Infanterie erm&#246;glicht Ihnen die Ausbildung von Infanteristen.</German>
+		<Italian>Fanteria ti permette di costruire fanteria.</Italian>
+		<Spanish>Infanter&#237;a te permite crear infanter&#237;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ROCKETMAN_STRATEGY</Tag>
+		<English>Rocketmen allow you to build Rocketmen.</English>
+		<French>Canonniersvous permet de produire des canonniers.</French>
+		<German>Die Technologie Raketensoldaten erm&#246;glicht Ihnen die Ausbildung von Raketensoldaten.</German>
+		<Italian>Soldati con lanciarazzi ti permette di costruire soldati con lanciarazzi.</Italian>
+		<Spanish>Soldados con cohetes te permite crear soldados con cohetes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_RIDER_STRATEGY</Tag>
+		<English>Riders allow you to build Riders.</English>
+		<French>Cavaliers vous permet de produire des cavaliers.</French>
+		<German>Die Technologie Reiter erm&#246;glicht Ihnen die Ausbildung von Reitern.</German>
+		<Italian>Cavalieri ti permette di costruire cavalieri.</Italian>
+		<Spanish>Jinetes te permite crear jinetes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MACEMAN_STRATEGY</Tag>
+		<English>Macemen allow you to build Macemen.</English>
+		<French>Soldats avec masse vous permet de produire des soldats avec masse.</French>
+		<German>Die Technologie Streitkolbentr&#228;ger erm&#246;glicht Ihnen die Ausbildung von Streitkolbentr&#228;gern.</German>
+		<Italian>Guerrieri con mazza ti permette di costruire guerrieri con mazza.</Italian>
+		<Spanish>Maceros te permite crear maceros.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_RULES_OF_GAME_SCREEN_TITLE</Tag>
+		<English>Rules of the Game</English>
+		<French>R&#232;gles du jeu</French>
+		<German>Spielregeln</German>
+		<Italian>Regole di gioco</Italian>
+		<Spanish>Reglas del juego</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_RULES_TEXT</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Building Phase[COLOR_REVERT][NEWLINE]You will be able to build your empire and place units at the begining of each round.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Defend All Cities[COLOR_REVERT][NEWLINE]Destroy all enemies in each wave to advance to the next round. For every city that survives you will be awarded 200 gold.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Find All Goodie Huts[COLOR_REVERT][NEWLINE]Every round 5 Goodie Huts will spawn at random over the map. Capture these Huts for gold.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Cramped Spaces[COLOR_REVERT][NEWLINE]Stacking units on the same tile decreases the power of these units by 10%% per unit past the first. A units power can only be reduced 90%% in this way.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Research[COLOR_REVERT][NEWLINE]Technologies can only be obtained during the Building Phase. Research will not occur turn-to-turn. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Turn Timer[COLOR_REVERT][NEWLINE]You will have a time limit to complete each turn. If you do not complete the turn in the alotted time, the turn will end and the next turn will begin. The turn timer is not active in the build phase.</English>
+		<French>[COLOR_HIGHLIGHT_TEXT]Phase de construction[COLOR_REVERT][NEWLINE]Vous pouvez construire votre empire et placer des unit&#233;s au d&#233;but de chaque tour.[NEWLINE][COLOR_HIGHLIGHT_TEXT]D&#233;fendez toutes les villes[COLOR_REVERT][NEWLINE]D&#233;truisez tous les ennemis de chaque vague pour passer au tour suivant. Vous gagnez 200 pi&#232;ces d'or par ville survivante.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Trouvez toutes les huttes &#224; bonus[COLOR_REVERT][NEWLINE]A chaque tour, 5 huttes &#224; bonus apparaissent au hasard sur la carte. Capturez ces huttes pour gagner de l'or.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Espaces &#233;troits[COLOR_REVERT][NEWLINE]Amasser des unit&#233;s sur une m&#234;me case affaiblit leur puissance de 10%% par unit&#233; apr&#232;s la premi&#232;re. La puissance d'une unit&#233; peut ainsi &#234;tre r&#233;duite jusqu'&#224; 90%%.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Recherche[COLOR_REVERT][NEWLINE]Vous ne pouvez obtenir les technologies que durant la phase de construction. La recherche ne se d&#233;roule pas au tour par tour. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Chronom&#232;tre[COLOR_REVERT][NEWLINE]Vous avez un temps limit&#233; &#224; chaque tour. Si vous ne terminez pas le tour dans le temps imparti, il s'ach&#232;vera et le tour suivant commencera. Ce chronom&#232;tre n'est pas actif durant la phase de construction.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Bauphase[COLOR_REVERT][NEWLINE]Zu Beginn jeder Runde k&#246;nnen Sie Ihr Imperium aufbauen und Einheiten platzieren.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Verteidigen Sie alle St&#228;dte[COLOR_REVERT][NEWLINE]Zerst&#246;ren Sie in jeder Welle alle Gegner, um eine Runde weiter zu kommen. Sie erhalten 200 Goldm&#252;nzen f&#252;r jede verteidigte Stadt.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Finden Sie alle Bonush&#252;tten[COLOR_REVERT][NEWLINE]Jede Runde werden 5 Bonush&#252;tten zuf&#228;llig auf der Karte verteilt. Nehmen Sie diese H&#252;tten ein, um Gold zu erhalten.[NEWLINE][COLOR_HIGHLIGHT_TEXT]&#220;berf&#252;llte Felder[COLOR_REVERT][NEWLINE]Wenn Sie mehrere Einheiten auf demselben Gel&#228;ndefeld platzieren, verringert sich die St&#228;rke dieser Einheiten um je 10%% f&#252;r jede Einheit, die zus&#228;tzlich zur ersten dort platziert wird. Die St&#228;rke einer Einheit kann so jedoch h&#246;chstens um 90%% reduziert werden.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Forschung[COLOR_REVERT][NEWLINE]Technologien k&#246;nnen nur w&#228;hrend der Bauphase errungen werden. Sie k&#246;nnen nicht in jeder Runde forschen. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Runden-Timer[COLOR_REVERT][NEWLINE]Jede Runde ist zeitlich begrenzt. Wenn Sie die Runde nicht in der vorgegebenen Zeit abschlie&#223;en k&#246;nnen, wird die Runde automatisch beendet und die n&#228;chste Runde beginnt. In der Bauphase ist der Runden-Timer nicht aktiv.</German>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Fase di costruzione[COLOR_REVERT][NEWLINE]Potrai costruire il tuo impero e posizionare le unit&#224; all'inizio di ogni turno.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Difendi tutte le citt&#224;[COLOR_REVERT][NEWLINE]Distruggi tutti i nemici di ciascuna ondata per passare al turno successivo. Per ogni citt&#224; che sopravvive otterrai 200 oro.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Trova tutte le capanne utili[COLOR_REVERT][NEWLINE]Ogni turno compariranno 5 capanne utili in posizioni casuali sulla mappa. Catturale per ottenere oro.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Spazi ristretti[COLOR_REVERT][NEWLINE]Accumulare unit&#224; sulla stessa casella diminuisce la potenza del 10%% per ogni unit&#224; oltre la prima. &#200; possibile ridurre il potere di un'unit&#224; solo fino al 90%%, in questo modo.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Ricerca[COLOR_REVERT][NEWLINE]&#200; possibile ottenere tecnologie solamente durante la fase di costruzione. Le ricerche non avverranno turno per turno. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Timer dei turni[COLOR_REVERT][NEWLINE]C'&#232; un limite di tempo per completare ogni turno. Se non completi il turno nel tempo assegnato questo finir&#224;, e comincer&#224; quello successivo. Il timer dei turni non &#232; attivo nella fase di costruzione.</Italian>
+		<Spanish>[COLOR_HIGHLIGHT_TEXT]Fase de construcci&#243;n[COLOR_REVERT][NEWLINE]Al comienzo de cada ronda podr&#225;s construir tu imperio y desplegar tus unidades.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Defensa de todas las ciudades[COLOR_REVERT][NEWLINE]Destruye a todos los enemigos de cada oleada para pasar a la siguiente ronda. Se te recompensar&#225; con 200 de oro por cada ciudad que sobreviva.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Encuentra todas las "golosinas"[COLOR_REVERT][NEWLINE]Todas las rondas aparecer&#225;n 5 aldeas de "golosinas" al azar sobre el mapa. Capt&#250;ralas para conseguir oro.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Espacios reducidos[COLOR_REVERT][NEWLINE]Al apilar unidades en la misma casilla se reducir&#225; la potencia de esas unidades en un 10%% por cada unidad adicional a la primera. Una unidad solo puede sufrir una reducci&#243;n de hasta el 90%% de su potencia como consecuencia de esta circunstancia.[NEWLINE][COLOR_HIGHLIGHT_TEXT]Investigaci&#243;n[COLOR_REVERT][NEWLINE]Solo se pueden obtener tecnolog&#237;as durante la fase de construcci&#243;n. No habr&#225; investigaci&#243;n turno a turno. [NEWLINE][COLOR_HIGHLIGHT_TEXT]Contador del turno[COLOR_REVERT][NEWLINE]Existe un l&#237;mite de tiempo para realizar cada turno. Si no terminas el turno antes de que acabe el tiempo, &#233;ste finalizar&#225; autom&#225;ticamente y comenzar&#225; el siguiente. El contador del turno no est&#225; activado durante la fase de construcci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_LION_PEDIA</Tag>
+		<English>Lions are weak units early units </English>
+		<French>Les lions sont des unit&#233;s initiales de faible puissance.</French>
+		<German>L&#246;wen sind schwache Anfangsgegner.</German>
+		<Italian>I leoni sono deboli unit&#224; base. </Italian>
+		<Spanish>Los leones son unidades tempranas d&#233;biles. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_BEAR_PEDIA</Tag>
+		<English>Bears are moderately powerful early enemies.</English>
+		<French>Les ours sont des ennemis initiaux de puissance moyenne.</French>
+		<German>B&#228;ren sind mittelstarke Anfangsgegner.</German>
+		<Italian>Gli orsi sono unit&#224; base moderatamente potenti.</Italian>
+		<Spanish>Los osos son enemigos tempranos de potencia moderada.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_WOLF_PEDIA</Tag>
+		<English>Wolves are fast early units that die surprisingly easily. Lucky you.</English>
+		<French>Les loups sont des unit&#233;s initiales rapides qui meurent facilement. Chanceux !</French>
+		<German>W&#246;lfe sind schnelle Anfangsgegner, die &#252;berraschend schnell sterben. Ihr Gl&#252;ck.</German>
+		<Italian>I lupi sono veloci unit&#224; base che muoiono con incredibile facilit&#224;. Sei fortunato.</Italian>
+		<Spanish>Los lobos son unidades tempranas r&#225;pidas que mueren con una facilidad sorprendente. Est&#225;s de suerte.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_PANTHER_PEDIA</Tag>
+		<English>Panthers are weak stealth units. Panthers can only be seen by Scouts and Spies</English>
+		<French>Les panth&#232;res sont des unit&#233;s camoufl&#233;es faibles. Elles ne peuvent &#234;tre rep&#233;r&#233;es que par des &#233;claireurs ou des espions.</French>
+		<German>Panter sind schwache, unsichtbare Einheiten. Panther k&#246;nnen nur von Sp&#228;hern und Spionen gesehen werden.</German>
+		<Italian>Le pantere sono deboli unit&#224; invisibili. Possono essere individuate solo da scout e spie.</Italian>
+		<Spanish>Las panteras son unidades invisibles d&#233;biles. Las panteras solo pueden ser detectadas por batidores y esp&#237;as.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_TIME_REMAINING</Tag>
+		<English>Time Remaining:</English>
+		<French>Temps restant :</French>
+		<German>Verbleibende Zeit:</German>
+		<Italian>Tempo rimanente:</Italian>
+		<Spanish>Tiempo restante:</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ENEMY_COUNTER</Tag>
+		<English>Enemies Remaining:</English>
+		<French>Ennemis restants :</French>
+		<German>&#220;brige Feinde:</German>
+		<Italian>Nemici rimasti:</Italian>
+		<Spanish>Enemigos restantes:</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_LEVEL_COMPLETED_CHANGED</Tag>
+		<English>You have completed the level! Prepare for the next assault! [NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Cities Remaining:[COLOR_REVERT] %d1_city  x  200 gold  =  %d2_gold gold</English>
+		<French>Vous avez r&#233;ussi ce niveau, pr&#233;parez-vous au nouvel assaut ! [NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Villes restantes :[COLOR_REVERT] %d1_city x 200 or = %d2_gold or</French>
+		<German>Sie haben den ersten Level geschafft! Machen Sie sich f&#252;r den n&#228;chsten Angriff bereit![NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Verbleibende St&#228;dte:[COLOR_REVERT] %d1_city  x  200 Gold  =  %d2_gold Gold</German>
+		<Italian>Hai completato il livello! Preparati per il prossimo assalto! [NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Citt&#224; rimanenti:[COLOR_REVERT] %d1_city  x  200 oro  =  %d2_gold oro</Italian>
+		<Spanish>&#161;Hab&#233;is completado el nivel! &#161;Preparaos para el siguiente asalto! [NEWLINE][NEWLINE][COLOR_HIGHLIGHT_TEXT]Ciudades restantes:[COLOR_REVERT] %d1_city x 200 de oro = %d2_gold de oro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ARATHNID_PEDIA</Tag>
+		<English>Arathnid are cunning forest dwellers. It is best to face them on open land.</English>
+		<French>Les arathnides habitent la for&#234;t et sont redoutables sur leur terrain ; mieux vaut les affronter sur terrain d&#233;couvert.</French>
+		<German>Arathniden sind listige Waldbewohner. Man stellt sich ihnen am besten auf freiem Gel&#228;nde.</German>
+		<Italian>Gli Arathnidi sono scaltri abitanti della foresta. &#200; meglio affrontarli in terreno aperto.</Italian>
+		<Spanish>Los ar&#225;thnidos son unos moradores de los bosques muy arteros. Es mejor enfrentarse a ellos en campo abierto.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ARATHNID_STRATEGY</Tag>
+		<English>Arathnid are cunning forest dwellers. It is best to face them on open land.</English>
+		<French>Les arathnides habitent la for&#234;t et sont redoutables sur leur terrain ; mieux vaut les affronter sur terrain d&#233;couvert.</French>
+		<German>Arathniden sind listige Waldbewohner. Man stellt sich ihnen am besten auf freiem Gel&#228;nde.</German>
+		<Italian>Gli Arathnidi sono scaltri abitanti della foresta. &#200; meglio affrontarli in terreno aperto.</Italian>
+		<Spanish>Los ar&#225;thnidos son unos moradores de los bosques muy arteros. Es mejor enfrentarse a ellos en campo abierto.</Spanish>
+	</TEXT>
+</Civ4GameText>

@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TARASCANS_DESC</Tag>
+		<English>Tzintzuntzan</English>
+		<French>Tzintzuntzan</French>
+		<German>Tzintzuntzan</German>
+		<Italian>Tzintzuntzán</Italian>
+		<Spanish>Imperio de Tzintzuntzan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TARASCANS_SHORT_DESC</Tag>
+		<English>Tzintzuntzan</English>
+		<French>Tzintzuntzan</French>
+		<German>Tzintzuntzan</German>
+		<Italian>Tzintzuntzán</Italian>
+		<Spanish>Tzintzuntzan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TARASCANS_ADJECTIVE</Tag>
+		<English>
+			<Text>Tarascan:Tarascans</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>Tarasque:Tarasque:Tarasques:Tarasques</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Taraskisch:taraskischen:taraskische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Tarascan:Tarascan</Italian>
+		<Spanish>tarascano:tarascana:tarascanos:tarascanas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TLAXCALAN_DESC</Tag>
+		<English>Tlaxcala</English>
+		<French>Tlaxcala</French>
+		<German>Tlaxcala</German>
+		<Italian>Tlaxcala</Italian>
+		<Spanish>Imperio de Tlaxcala</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TLAXCALAN_SHORT_DESC</Tag>
+		<English>Tlaxcala</English>
+		<French>Tlaxcala</French>
+		<German>Tlaxcala</German>
+		<Italian>Tlaxcala</Italian>
+		<Spanish>Tlaxcala</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TLAXCALAN_ADJECTIVE</Tag>
+		<English>
+			<Text>Tlaxcalan:Tlaxcalans</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>de Tlaxcala:de Tlaxcala:de Tlaxcala:de Tlaxcala</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Tlaxcaltekisch:tlaxcaltekischen:tlaxcaltekische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Tlaxcalteco:Tlaxcaltechi</Italian>
+		<Spanish>tlaxcalano:tlaxcalana:tlaxcalanos:tlaxcalanas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TENOCHTITLANIAN_DESC</Tag>
+		<English>Tenochtitlan</English>
+		<French>Tenochtitlan</French>
+		<German>Tenochtitlan</German>
+		<Italian>Tenochtitlan</Italian>
+		<Spanish>Imperio de Tenochtitlán</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TENOCHTITLANIAN_SHORT_DESC</Tag>
+		<English>Tenochtitlan</English>
+		<French>Tenochtitlan</French>
+		<German>Tenochtitlan</German>
+		<Italian>Tenochtitlan</Italian>
+		<Spanish>Tenochtitlán</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TENOCHTITLANIAN_ADJECTIVE</Tag>
+		<English>
+			<Text>Tenochtitlanian:Tenochtitlanians</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>de Tenochtitlan:de Tenochtitlan:de Tenochtitlan:de Tenochtitlan</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Tenochtitlanisch:tenochtitlanischen:tenochtitlanische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Tenochtitlteco:Tenochtitltechi</Italian>
+		<Spanish>tenochtitlano:tenochtitlana:tenochtitlanos:tenochtitlanas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MAYAPANIAN_DESC</Tag>
+		<English>Mayapan</English>
+		<French>Mayapan</French>
+		<German>Mayapan</German>
+		<Italian>Mayapan</Italian>
+		<Spanish>Imperio de Mayapán</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MAYAPANIAN_SHORT_DESC</Tag>
+		<English>Mayapan</English>
+		<French>Mayapan</French>
+		<German>Mayapan</German>
+		<Italian>Mayapan</Italian>
+		<Spanish>Mayapán</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_MAYAPANIAN_ADJECTIVE</Tag>
+		<English>
+			<Text>Mayapanian:Mayapanians</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>de Mayapan:de Mayapan:de Mayapan:de Mayapan</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Mayapanisch:mayapanischen:mayapanische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Mayapanteco:Mayapantechi</Italian>
+		<Spanish>mayapano:mayapana:mayapanos:mayapanas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_UXMALIAN_DESC</Tag>
+		<English>Uxmala</English>
+		<French>Uxmala</French>
+		<German>Uxmal</German>
+		<Italian>Uxmal</Italian>
+		<Spanish>Imperio de Uxmala</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_UXMALIAN_SHORT_DESC</Tag>
+		<English>Uxmala</English>
+		<French>Uxmala</French>
+		<German>Uxmal</German>
+		<Italian>Uxmal</Italian>
+		<Spanish>Uxmala</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_UXMALIAN_ADJECTIVE</Tag>
+		<English>
+			<Text>Uxmalian:Uxmalians</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>d'Uxmala:d'Uxmala:d'Uxmala:d'Uxmala</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Uxmalisch:uxmalischen:uxmalische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Uxmaliano:Uxmaliani</Italian>
+		<Spanish>uxmalano:uxmalana:uxmalanos:uxmalanas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_CALAKMULIAN_DESC</Tag>
+		<English>Calakmul</English>
+		<French>Calakmul</French>
+		<German>Calakmul</German>
+		<Italian>Calakmul</Italian>
+		<Spanish>Imperio de Calakmul</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_CALAKMULIAN_SHORT_DESC</Tag>
+		<English>Calakmul</English>
+		<French>Calakmul</French>
+		<German>Calakmul</German>
+		<Italian>Calakmul</Italian>
+		<Spanish>Calakmul</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_CALAKMULIAN_ADJECTIVE</Tag>
+		<English>
+			<Text>Calakmulian:Calakmulians</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>de Calakmul:de Calakmul:de Calakmul:de Calakmul</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Calakmulisch:calakmulischen:calakmulische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Calakmuliano:Calakmuliani</Italian>
+		<Spanish>calakmulano:calakmulana:calakmulanos:calakmulanas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_TARIACURI</Tag>
+		<English>Tariacuri</English>
+		<French>Tariacuri</French>
+		<German>Tariacuri</German>
+		<Italian>Tariacuri</Italian>
+		<Spanish>Tariacuri</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_XICOHTENCATL</Tag>
+		<English>Xicohtencatl</English>
+		<French>Xicohtencatl</French>
+		<German>Xicohtencatl</German>
+		<Italian>Xicohtencatl</Italian>
+		<Spanish>Xicohtencatl</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_COCOM</Tag>
+		<English>Cocom</English>
+		<French>Cocom</French>
+		<German>Cocom</German>
+		<Italian>Cocom</Italian>
+		<Spanish>Cocom</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_HUNVITZIL</Tag>
+		<English>Hun Vitzil Ziu</English>
+		<French>Hun Vitzil Ziu</French>
+		<German>Hun Vitzil Ziu</German>
+		<Italian>Hun Vitzil Ziu</Italian>
+		<Spanish>Hun Vitzil Ziu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_YUKNOOM</Tag>
+		<English>Yuknoom</English>
+		<French>Yuknoom</French>
+		<German>Yuknoom</German>
+		<Italian>Yuknoom</Italian>
+		<Spanish>Yuknoom</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_MAYAN</Tag>
+		<English>Mayan religion</English>
+		<French>Religion maya</French>
+		<German>Maya-Glaube</German>
+		<Italian>Religione maya</Italian>
+		<Spanish>Culto maya</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_AZTEC_ADJECTIVE</Tag>
+		<English>
+			<Text>Maya:Mayan</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>maya:maya:mayas:mayas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Mayaisch:mayaischen:mayaische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Maya:Maya</Italian>
+		<Spanish>maya:maya:mayas:mayas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_AZTEC</Tag>
+		<English>Aztec religion</English>
+		<French>Religion aztèque</French>
+		<German>Azteken-Glaube</German>
+		<Italian>Religione azteca</Italian>
+		<Spanish>Culto azteca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_AZTEC_ADJECTIVE</Tag>
+		<English>
+			<Text>Aztec:Aztec</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>aztèque:aztèque:aztèques:aztèques</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Aztekisch:aztekischen:aztekische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Azteco:Aztechi</Italian>
+		<Spanish>azteca:azteca:aztecas:aztecas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MAYAN_MISSIONARY</Tag>
+		<English>Mayan missionary</English>
+		<French>Missionnaire maya</French>
+		<German>Maya-Missionar</German>
+		<Italian>Missionario maya</Italian>
+		<Spanish>Misionero maya</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AZTEC_MISSIONARY</Tag>
+		<English>Aztec missionary</English>
+		<French>Missionnaire aztèque</French>
+		<German>Azteken-Missionar</German>
+		<Italian>Missionario azteco</Italian>
+		<Spanish>Misionero azteca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_MAYAN_ADJECTIVE</Tag>
+		<English>
+			<Text>Mayan:Mayans</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>maya:maya:mayas:mayas</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Mayaisch:mayaischen:mayaische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Maya:Maya</Italian>
+		<Spanish>maya:maya:mayas:mayas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_AZTEC_ADJECTIVE</Tag>
+		<English>
+			<Text>Aztec:Aztecs</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</English>
+		<French>
+			<Text>aztèque:aztèque:aztèques:aztèques</Text>
+			<Gender>Male:Female:Male:Female</Gender>
+			<Plural>0:0:1:1</Plural>
+		</French>
+		<German>
+  			<Text>Aztekisch:aztekischen:aztekische</Text> 
+  			<Gender>Neuter:Neuter:Neuter</Gender> 
+  			<Plural>0:0:0</Plural> 
+  	</German>
+		<Italian>Azteco:Aztechi</Italian>
+		<Spanish>azteca:azteca:aztecas:aztecas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AZTEC_TEMPLE</Tag>
+		<English>Aztec Temple</English>
+		<French>Temple aztèque</French>
+		<German>Azteken-Tempel</German>
+		<Italian>Tempio azteco</Italian>
+		<Spanish>Templo azteca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AZTEC_SHRINE</Tag>
+		<English>Aztec Shrine</English>
+		<French>Sanctuaire aztèque</French>
+		<German>Azteken-Schrein</German>
+		<Italian>Santuario azteco</Italian>
+		<Spanish>Santuario azteca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AZTEC_MONASTERY</Tag>
+		<English>Aztec Monastery</English>
+		<French>Monastère aztèque</French>
+		<German>Azteken-Kloster</German>
+		<Italian>Monastero azteco</Italian>
+		<Spanish>Monasterio azteca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AZTEC_CATHEDRAL</Tag>
+		<English>Aztec Cathedral</English>
+		<French>Cathédrale aztèque</French>
+		<German>Azteken-Kathedrale</German>
+		<Italian>Cattedrale azteca</Italian>
+		<Spanish>Catedral azteca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MAYAN_TEMPLE</Tag>
+		<English>Mayan Temple</English>
+		<French>Temple maya</French>
+		<German>Maya-Tempel</German>
+		<Italian>Tempio maya</Italian>
+		<Spanish>Templo maya</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MAYAN_SHRINE</Tag>
+		<English>Mayan Shrine</English>
+		<French>Sanctuaire maya</French>
+		<German>Maya-Schrein</German>
+		<Italian>Santuario maya</Italian>
+		<Spanish>Santuario maya</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MAYAN_MONASTERY</Tag>
+		<English>Mayan Monastery</English>
+		<French>Monastère Maya</French>
+		<German>Maya-Kloster</German>
+		<Italian>Monastero maya</Italian>
+		<Spanish>Monasterio maya</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_MAYAN_CATHEDRAL</Tag>
+		<English>Mayan Cathedral</English>
+		<French>Cathédrale maya</French>
+		<German>Maya-Kathedrale</German>
+		<Italian>Cattedralo maya</Italian>
+		<Spanish>Catedral maya</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_THE_WHEEL</Tag>
+		<English>Road Building</English>
+		<French>Construction de routes</French>
+		<German>Straßenbau</German>
+		<Italian>Costruzione stradale</Italian>
+		<Spanish>Construcción de vías</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_DISEASE</Tag>
+		<English>Disease</English>
+		<French>Maladie</French>
+		<German>Krankheit</German>
+		<Italian>Malattie</Italian>
+		<Spanish>Enfermedad</Spanish>
+	</TEXT>
+</Civ4GameText>

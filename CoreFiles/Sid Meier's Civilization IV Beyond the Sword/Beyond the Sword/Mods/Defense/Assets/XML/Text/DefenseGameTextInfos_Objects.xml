@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_JUNGLE_WARRIOR</Tag>
+		<English>Jungle Warrior</English>
+		<French>Guerrier de la jungle</French>
+		<German>Dschungelkrieger</German>
+		<Italian>Guerriero della giungla</Italian>
+		<Spanish>Guerrero de la selva</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HILL_FIGHTER</Tag>
+		<English>Hill Fighter</English>
+		<French>Combattant des collines</French>
+		<German>H&#252;gelk&#228;mpfer</German>
+		<Italian>Guerriero delle colline</Italian>
+		<Spanish>Guerrero de las colinas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TUNDRA_FIGHTER</Tag>
+		<English>Tundra Fighter</English>
+		<French>Combattant de la toundra</French>
+		<German>Tundrak&#228;mpfer</German>
+		<Italian>Guerriero della tundra</Italian>
+		<Spanish>Guerrero de la tundra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FOREST_WARRIOR</Tag>
+		<English>Forest Warrior</English>
+		<French>Guerrier des for&#234;ts</French>
+		<German>Waldk&#228;mpfer</German>
+		<Italian>Guerriero della foresta</Italian>
+		<Spanish>Guerrero del bosque</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_COMBAT_CHARIOT</Tag>
+		<English>Combat Chariot</English>
+		<French>Char de combat</French>
+		<German>Kampfstreitwagen</German>
+		<Italian>Biga da guerra</Italian>
+		<Spanish>Carro de guerra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BOWMAN</Tag>
+		<English>Bowman</English>
+		<French>Archer</French>
+		<German>Kampfbogensch&#252;tze</German>
+		<Italian>Arciere</Italian>
+		<Spanish>Saetero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SCOUT</Tag>
+		<English>Scouting</English>
+		<French>Reconnaissance</French>
+		<German>Sp&#228;hen</German>
+		<Italian>Esplorazione</Italian>
+		<Spanish>Exploraci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SPY</Tag>
+		<English>Spying</English>
+		<French>Espionnage</French>
+		<German>Spionage</German>
+		<Italian>Spionaggio</Italian>
+		<Spanish>Espionaje</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CATAPULT</Tag>
+		<English>Catapults</English>
+		<French>Catapultes</French>
+		<German>Katapulte</German>
+		<Italian>Catapulte</Italian>
+		<Spanish>Catapultas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_TREBUCHET</Tag>
+		<English>Trebuchets</English>
+		<French>Tr&#233;buchets</French>
+		<German>Triboke</German>
+		<Italian>Trabocchi</Italian>
+		<Spanish>Trabuquetes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_LEVEL_CONGRATULATIONS</Tag>
+		<English>Congratulations!</English>
+		<French>F&#233;licitations !</French>
+		<German>Gl&#252;ckwunsch!</German>
+		<Italian>Congratulazioni!</Italian>
+		<Spanish>&#161;Felicidades!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SAVAGE</Tag>
+		<English>Savage</English>
+		<French>Sauvage</French>
+		<German>Wilder</German>
+		<Italian>Selvaggio</Italian>
+		<Spanish>Salvaje</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CHARGER</Tag>
+		<English>Charger</English>
+		<French>Cheval de combat</French>
+		<German>Streitross</German>
+		<Italian>Destriero</Italian>
+		<Spanish>Soldado de carga</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_GALLEY</Tag>
+		<English>Galleys</English>
+		<French>Gal&#232;res</French>
+		<German>Galeeren</German>
+		<Italian>Galee</Italian>
+		<Spanish>Galeras</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_TRIREME</Tag>
+		<English>Triremes</English>
+		<French>Trir&#232;mes</French>
+		<German>Trieren</German>
+		<Italian>Triremi</Italian>
+		<Spanish>Trirremes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_FRIGATE</Tag>
+		<English>Frigates</English>
+		<French>Fr&#233;gates</French>
+		<German>Fregatten</German>
+		<Italian>Fregate</Italian>
+		<Spanish>Fragatas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SHIP_OF_THE_LINE</Tag>
+		<English>Ship of the Line</English>
+		<French>Galion de guerre</French>
+		<German>Linienschiff</German>
+		<Italian>Nave da prima linea</Italian>
+		<Spanish>Buques de guerra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ZOMBIE</Tag>
+		<English>Zombie</English>
+		<French>Zombi</French>
+		<German>Zombie</German>
+		<Italian>Zombi</Italian>
+		<Spanish>Zombi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ELEPHANT_RIDER</Tag>
+		<English>Elephant Rider</English>
+		<French>Chevaucheur d'&#233;l&#233;phant</French>
+		<German>Elefantenreiter</German>
+		<Italian>Cavaliere di elefanti</Italian>
+		<Spanish>Jinete de elefante</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SAMURAI</Tag>
+		<English>Psycho Samurai</English>
+		<French>Samoura&#239; psychique</French>
+		<German>Psycho-Samurai</German>
+		<Italian>Psico-samurai</Italian>
+		<Spanish>Samur&#225;i psic&#243;tico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SUICIDE_GRENADIER</Tag>
+		<English>Suicide Grenadier</English>
+		<French>Grenadier suicide</French>
+		<German>Selbstmord-Grenadier</German>
+		<Italian>Granatiere suicida</Italian>
+		<Spanish>Granadero suicida</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DOOM_ROLLER</Tag>
+		<English>Doom Roller</English>
+		<French>Char d'Apocalypse</French>
+		<German>Todeswalze</German>
+		<Italian>Cilindro del fato</Italian>
+		<Spanish>Rodillo mortal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DEATH_TRACK</Tag>
+		<English>Death Track</English>
+		<French>Mort en marche</French>
+		<German>Todesraupe</German>
+		<Italian>Cingolo della morte</Italian>
+		<Spanish>Rueda mortal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MONSTER_TANK</Tag>
+		<English>Monster Tank</English>
+		<French>Char colossal</French>
+		<German>Riesenpanzer</German>
+		<Italian>Carro mostruoso</Italian>
+		<Spanish>Tanque monstruoso</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ROCKET_CART</Tag>
+		<English>Rocket Cart</English>
+		<French>Canon mobile</French>
+		<German>Raketenwagen</German>
+		<Italian>Carro lanciarazzi</Italian>
+		<Spanish>Carro de cohetes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ANTI_TANK_GUN</Tag>
+		<English>Anti-Tank Gun</English>
+		<French>Canon antichar</French>
+		<German>Panzerabwehrkanone</German>
+		<Italian>Cannone anticarro</Italian>
+		<Spanish>Ca&#241;&#243;n antitanque</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ROCKETMAN</Tag>
+		<English>Rocketman</English>
+		<French>Cannonier</French>
+		<German>Raketensoldat</German>
+		<Italian>Soldato con lanciarazzi</Italian>
+		<Spanish>Soldado con cohetes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_RIDER</Tag>
+		<English>Rider</English>
+		<French>Cavalier</French>
+		<German>Reiter</German>
+		<Italian>Cavaliere</Italian>
+		<Spanish>Jinete</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ROCKET_CART</Tag>
+		<English>Rocket Carts</English>
+		<French>Canons mobiles</French>
+		<German>Raketenwagen</German>
+		<Italian>Carri lanciarazzi</Italian>
+		<Spanish>Carros de cohetes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ANTI_TANK_GUN</Tag>
+		<English>Anti-Tank Guns</English>
+		<French>Canons antichar</French>
+		<German>Panzerabwehrkanonen</German>
+		<Italian>Cannoni anticarro</Italian>
+		<Spanish>Ca&#241;ones antitanque</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CANNON</Tag>
+		<English>Cannons</English>
+		<French>Canons</French>
+		<German>Kanonen</German>
+		<Italian>Cannoni</Italian>
+		<Spanish>Ca&#241;ones</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ARTILLERY</Tag>
+		<English>Artillery</English>
+		<French>Artillerie</French>
+		<German>Artillerie</German>
+		<Italian>Artiglieria</Italian>
+		<Spanish>Artiller&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MUSKETMAN</Tag>
+		<English>Musketmen</English>
+		<French>Arquebusiers</French>
+		<German>Musketiere</German>
+		<Italian>Soldati con moschetto</Italian>
+		<Spanish>Soldados con mosquete</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_INFANTRY</Tag>
+		<English>Infantry</English>
+		<French>Infanterie</French>
+		<German>Infanterie</German>
+		<Italian>Fanteria</Italian>
+		<Spanish>Infanter&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ROCKETMAN</Tag>
+		<English>Rocketmen</English>
+		<French>Cannoniers</French>
+		<German>Raketensoldaten</German>
+		<Italian>Soldati con lanciarazzi</Italian>
+		<Spanish>Soldados con cohetes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_RIDER</Tag>
+		<English>Riders</English>
+		<French>Cavaliers</French>
+		<German>Reiter</German>
+		<Italian>Cavalieri</Italian>
+		<Spanish>Jinetes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MACEMAN</Tag>
+		<English>Macemen</English>
+		<French>Soldats avec masse</French>
+		<German>Streitkolbentr&#228;ger</German>
+		<Italian>Guerrieri con mazza</Italian>
+		<Spanish>Maceros</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_ONE</Tag>
+		<English>Round 1</English>
+		<French>Tour 1</French>
+		<German>Runde 1</German>
+		<Italian>Turno 1</Italian>
+		<Spanish>Ronda 1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_ONE_TITLE</Tag>
+		<English>Lion Tamer</English>
+		<French>Dresseur de lion</French>
+		<German>L&#246;wenb&#228;ndiger</German>
+		<Italian>Domatore di leoni</Italian>
+		<Spanish>Domador de leones</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_TWO</Tag>
+		<English>Round 2</English>
+		<French>Tour 2</French>
+		<German>Runde 2</German>
+		<Italian>Turno 2</Italian>
+		<Spanish>Ronda 2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_TWO_TITLE</Tag>
+		<English>Who's afraid of the Big Bad Wolf</English>
+		<French>Qui a peur du Grand M&#233;chant Loup ?</French>
+		<German>Wer hat Angst vorm b&#246;sen Wolf?</German>
+		<Italian>Chi ha paura del lupo cattivo</Italian>
+		<Spanish>&#191;Qui&#233;n teme al lobo feroz?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_THREE</Tag>
+		<English>Round 3</English>
+		<French>Tour 3</French>
+		<German>Runde 3</German>
+		<Italian>Turno 3</Italian>
+		<Spanish>Ronda 3</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_THREE_TITLE</Tag>
+		<English>Number 1 threat to America: Bears</English>
+		<French>Menace num&#233;ro 1 en Am&#233;rique : les ours</French>
+		<German>Die gr&#246;&#223;te Gefahr f&#252;r Amerika: B&#228;ren</German>
+		<Italian>Minaccia numero 1 per l'America: gli orsi</Italian>
+		<Spanish>La peor amenaza de Am&#233;rica: el oso</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_FOUR</Tag>
+		<English>Round 4</English>
+		<French>Tour 4</French>
+		<German>Runde 4</German>
+		<Italian>Turno 4</Italian>
+		<Spanish>Ronda 4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_FOUR_TITLE</Tag>
+		<English>Lions, Wolves and Bears, oh my!</English>
+		<French>Des lions, des loups et des ours, eh ben !</French>
+		<German>L&#246;wen, W&#246;lfe, B&#228;ren, meine G&#252;te!</German>
+		<Italian>Leoni, lupi e orsi, oh perbacco!</Italian>
+		<Spanish>Leones, lobos y osos... &#161;Mi madre!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_FIVE</Tag>
+		<English>Round 5</English>
+		<French>Tour 5</French>
+		<German>Runde 5</German>
+		<Italian>Turno 5</Italian>
+		<Spanish>Ronda 5</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_FIVE_TITLE</Tag>
+		<English>Natives are restless</English>
+		<French>Les autochtones s'agitent</French>
+		<German>Rastlose Ureinwohner</German>
+		<Italian>Nativi inquieti</Italian>
+		<Spanish>Los nativos se impacientan.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_SIX</Tag>
+		<English>Round 6</English>
+		<French>Tour 6</French>
+		<German>Runde 6</German>
+		<Italian>Turno 6</Italian>
+		<Spanish>Ronda 6</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_SIX_TITLE</Tag>
+		<English>Charge!</English>
+		<French>Chargez !</French>
+		<German>Attacke!</German>
+		<Italian>Carica!</Italian>
+		<Spanish>&#161;A la carga!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_SEVEN</Tag>
+		<English>Round 7</English>
+		<French>Tour 7</French>
+		<German>Runde 7</German>
+		<Italian>Turno 7</Italian>
+		<Spanish>Ronda 7</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_SEVEN_TITLE</Tag>
+		<English>Sneaky, sneaky</English>
+		<French>Pas de bruit !</French>
+		<German>Still und heimlich</German>
+		<Italian>Spia, spia</Italian>
+		<Spanish>Artero, artero.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_EIGHT</Tag>
+		<English>Round 8</English>
+		<French>Tour 8</French>
+		<German>Runde 8</German>
+		<Italian>Turno 8</Italian>
+		<Spanish>Ronda 8</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_EIGHT_TITLE</Tag>
+		<English>Resistance is Futile</English>
+		<French>Toute r&#233;sistance est vaine</French>
+		<German>Widerstand ist zwecklos</German>
+		<Italian>La resistenza &#232; inutile</Italian>
+		<Spanish>La resistencia es f&#250;til.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_NINE</Tag>
+		<English>Round 9</English>
+		<French>Tour 9</French>
+		<German>Runde 9</German>
+		<Italian>Turno 9</Italian>
+		<Spanish>Ronda 9</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_NINE_TITLE</Tag>
+		<English>The Gauntlet</English>
+		<French>Le gant</French>
+		<German>Der Spie&#223;rutenlauf</German>
+		<Italian>Il guanto</Italian>
+		<Spanish>El desaf&#237;o.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_TEN</Tag>
+		<English>Round 10</English>
+		<French>Tour 10</French>
+		<German>Runde 10</German>
+		<Italian>Turno 10</Italian>
+		<Spanish>Ronda 10</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_TEN_TITLE</Tag>
+		<English>I'm not dead yet!</English>
+		<French>Je suis encore l&#224; !</French>
+		<German>Noch bin ich nicht tot!</German>
+		<Italian>Non sono ancora morto!</Italian>
+		<Spanish>&#161;A&#250;n no he muerto!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_ELEVEN</Tag>
+		<English>Round 11</English>
+		<French>Tour 11</French>
+		<German>Runde 11</German>
+		<Italian>Turno 11</Italian>
+		<Spanish>Ronda 11</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_ELEVEN_TITLE</Tag>
+		<English>Seppuku</English>
+		<French>Seppuku</French>
+		<German>Seppuku</German>
+		<Italian>Seppuku</Italian>
+		<Spanish>Seppuku.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_TWELVE</Tag>
+		<English>Round 12</English>
+		<French>Tour 12</French>
+		<German>Runde 12</German>
+		<Italian>Turno 12</Italian>
+		<Spanish>Ronda 12</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_TWELVE_TITLE</Tag>
+		<English>Big Bada-BOOM</English>
+		<French>BOUM BADABOUM</French>
+		<German>Der gro&#223;e Knall</German>
+		<Italian>Grosso ba-BOOM</Italian>
+		<Spanish>La gran explosi&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_THIRTEEN</Tag>
+		<English>Round 13</English>
+		<French>Tour 13</French>
+		<German>Runde 13</German>
+		<Italian>Turno 13</Italian>
+		<Spanish>Ronda 13</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_THIRTEEN_TITLE</Tag>
+		<English>Only mostly dead</English>
+		<French>Pas encore tout &#224; fait mort</French>
+		<German>Nur so gut wie tot</German>
+		<Italian>Morto solo in gran parte</Italian>
+		<Spanish>Solo muertos, mayormente.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_FOURTEEN</Tag>
+		<English>Round 14</English>
+		<French>Tour 14</French>
+		<German>Runde 14</German>
+		<Italian>Turno 14</Italian>
+		<Spanish>Ronda 14</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_FOURTEEN_TITLE</Tag>
+		<English>How he got in my pajamas I'll never know.</English>
+		<French>Comment il s'est retrouv&#233; &#224; ma place, je ne sais pas !</French>
+		<German>Wie ist er nur in meinen Pyjama gekommen?</German>
+		<Italian>Non sapr&#242; mai come ha fatto a entrare nel mio pigiama.</Italian>
+		<Spanish>No s&#233; c&#243;mo se habr&#225; colado en mi pijama.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_FIFTEEN</Tag>
+		<English>Round 15</English>
+		<French>Tour 15</French>
+		<German>Runde 15</German>
+		<Italian>Turno 15</Italian>
+		<Spanish>Ronda 15</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_FIFTEEN_TITLE</Tag>
+		<English>Mine field</English>
+		<French>Champ de mines</French>
+		<German>Minenfeld</German>
+		<Italian>Campo minato</Italian>
+		<Spanish>Campo de minas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_SIXTEEN</Tag>
+		<English>Round 16</English>
+		<French>Tour 16</French>
+		<German>Runde 16</German>
+		<Italian>Turno 16</Italian>
+		<Spanish>Ronda 16</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_SIXTEEN_TITLE</Tag>
+		<English>Tanks for the memories</English>
+		<French>Chars pour le souvenir</French>
+		<German>Panzer zur Erinnerung</German>
+		<Italian>Carri di memorie</Italian>
+		<Spanish>Tanques de recuerdo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_SEVENTEEN</Tag>
+		<English>Round 17</English>
+		<French>Tour 17</French>
+		<German>Runde 17</German>
+		<Italian>Turno 17</Italian>
+		<Spanish>Ronda 17</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_SEVENTEEN_TITLE</Tag>
+		<English>Tank and Spank</English>
+		<French>Un contre tous</French>
+		<German>Panzer und Ohrfeigen</German>
+		<Italian>Carri e mazzate</Italian>
+		<Spanish>Tanques y tortas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_EIGHTEEN</Tag>
+		<English>Round 18</English>
+		<French>Tour 18</French>
+		<German>Runde 18</German>
+		<Italian>Turno 18</Italian>
+		<Spanish>Ronda 18</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_EIGHTEEN_TITLE</Tag>
+		<English>Terrible twos</English>
+		<French>Le duo terrible</French>
+		<German>Die Trotzphase</German>
+		<Italian>Coppie terribili</Italian>
+		<Spanish>Los dos terribles.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_NINETEEN</Tag>
+		<English>Round 19</English>
+		<French>Tour 19</French>
+		<German>Runde 19</German>
+		<Italian>Turno 19</Italian>
+		<Spanish>Ronda 19</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_NINETEEN_TITLE</Tag>
+		<English>The Calm</English>
+		<French>Le calme</French>
+		<German>Die Stille</German>
+		<Italian>La calma</Italian>
+		<Spanish>La calma.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_TWENTY</Tag>
+		<English>Round 20</English>
+		<French>Tour 20</French>
+		<German>Runde 20</German>
+		<Italian>Turno 20</Italian>
+		<Spanish>Ronda 20</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_ROUND_TWENTY_TITLE</Tag>
+		<English>The Storm</English>
+		<French>La temp&#234;te</French>
+		<German>Der Sturm</German>
+		<Italian>La tempesta</Italian>
+		<Spanish>La tempestad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ARATHNID</Tag>
+		<English>Arathnid</English>
+		<French>Arathnide</French>
+		<German>Arathnide</German>
+		<Italian>Arathnidi</Italian>
+		<Spanish>Ar&#225;thnido</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DEFENSE_UNIT_ENEMY</Tag>
+		<English>Enemy</English>
+		<French>Ennemies</French>
+		<German>Einheiten</German>
+		<Italian>Nemiche</Italian>
+		<Spanish>Enemigas</Spanish>
+	</TEXT>
+</Civ4GameText>

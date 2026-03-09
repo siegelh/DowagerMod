@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Will Miller (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>MOD_TXT_KEY_SCENARIO_TITLE</Tag>
+		<English>Mesoamerica</English>
+		<French>Mésoamérique</French>
+		<German>Mesoamerika</German>
+		<Italian>Mesoamerica</Italian>
+		<Spanish>Centroamérica</Spanish>
+	</TEXT>
+</Civ4GameText>

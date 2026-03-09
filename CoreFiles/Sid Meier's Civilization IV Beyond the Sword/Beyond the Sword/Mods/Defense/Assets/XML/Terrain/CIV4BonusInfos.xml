@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ed Piper (Firaxis Games) -->
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by Soren Johnson (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Bonus Infos -->
+<!-- WARNING: It is not recommended that you remove Bonuses due to complications with the LSystem -->
+<Civ4BonusInfos xmlns="x-schema:CIV4TerrainSchema.xml">
+	<BonusInfos>
+		<BonusInfo>
+			<Type>BONUS_ALUMINUM</Type>
+			<Description>TXT_KEY_BONUS_ALUMINUM</Description>
+			<Civilopedia>TXT_KEY_BONUS_ALUMINUM_PEDIA</Civilopedia>
+			<BonusClassType>BONUSCLASS_MODERN</BonusClassType>
+			<ArtDefineTag>ART_DEF_BONUS_ALUMINUM</ArtDefineTag>
+			<TechReveal>NONE</TechReveal>
+			<TechCityTrade>NONE</TechCityTrade>
+			<TechObsolete>NONE</TechObsolete>
+			<YieldChanges>
+				<iYieldChange>0</iYieldChange>
+				<iYieldChange>1</iYieldChange>
+				<iYieldChange>0</iYieldChange>
+			</YieldChanges>
+			<iAITradeModifier>10</iAITradeModifier>
+			<iAIObjective>0</iAIObjective>
+			<iHealth>0</iHealth>
+			<iHappiness>0</iHappiness>
+			<iPlacementOrder>2</iPlacementOrder>
+			<iConstAppearance>100</iConstAppearance>
+			<iMinAreaSize>3</iMinAreaSize>
+			<iMinLatitude>0</iMinLatitude>
+			<iMaxLatitude>90</iMaxLatitude>
+			<Rands>
+				<iRandApp1>10</iRandApp1>
+				<iRandApp2>10</iRandApp2>
+				<iRandApp3>0</iRandApp3>
+				<iRandApp4>0</iRandApp4>
+			</Rands>
+			<iPlayer>100</iPlayer>
+			<iTilesPer>0</iTilesPer>
+			<iMinLandPercent>0</iMinLandPercent>
+			<iUnique>0</iUnique>
+			<iGroupRange>0</iGroupRange>
+			<iGroupRand>0</iGroupRand>
+			<bArea>0</bArea>
+			<bHills>1</bHills>
+			<bFlatlands>0</bFlatlands>
+			<bNoRiverSide>0</bNoRiverSide>
+			<bNormalize>0</bNormalize>
+			<TerrainBooleans>
+				<TerrainBoolean>
+					<TerrainType>TERRAIN_PLAINS</TerrainType>
+					<bTerrain>1</bTerrain>
+				</TerrainBoolean>
+				<TerrainBoolean>
+					<TerrainType>TERRAIN_DESERT</TerrainType>
+					<bTerrain>1</bTerrain>
+				</TerrainBoolean>
+				<TerrainBoolean>
+					<TerrainType>TERRAIN_TUNDRA</TerrainType>
+					<bTerrain>1</bTerrain>
+				</TerrainBoolean>
+			</TerrainBooleans>
+			<FeatureBooleans/>
+			<FeatureTerrainBooleans/>
+		</BonusInfo>
+	</BonusInfos>
+</Civ4BonusInfos>

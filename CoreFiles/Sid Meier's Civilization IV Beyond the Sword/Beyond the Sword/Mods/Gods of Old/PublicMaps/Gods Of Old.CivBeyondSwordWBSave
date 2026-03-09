@@ -1,0 +1,6 @@
+Version=11
+BeginGame
+	Description=TXT_KEY_GODS_OF_OLD_WB_DESC
+	ModPath=Mods\Gods of Old\
+	Random=1
+EndGame

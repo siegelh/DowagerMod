@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- -->
+<!-- Game Text - Unit Upgrades for Civilopedia -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_UHV_BAB1</Tag>
+		<English>Be the first to discover Writing, Code of Laws and Monarchy</English>
+		<French>Etre le premier à découvrir l'Ecriture, le Livre des Lois et la Monarchie</French>
+		<German>Erforschen Sie vor allen anderen Zivilisationen die Technologien Schrift, Gesetzgebung und Monarchie</German>
+		<Italian>Devi essere il primo a scoprire scrittura, codice di leggi e monarchia</Italian>
+		<Spanish>Ser el primero en descubrir la Escritura, la Legislaci&#243;n y la Monarqu&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_BAB2</Tag>
+		<English>Make Babylon the most culturally advanced city in the world by 700 BC (Turn 86)</English>
+		<French>Faire de Babylone la ville la plus avancée culturellement avant 700 av. J.-C. (Tour 86)</French>
+		<German>Machen Sie Babylon bis zum Jahr 700 v. Chr. (Runde 86) zur kulturell bedeutendsten Stadt</German>
+		<Italian>Rendi Babilonia la citt&#224; culturalmente più avanzata del mondo entro il 700 a.C. (turno 86)</Italian>
+		<Spanish>Conseguir que Babilonia sea la ciudad m&#225;s adelantada del mundo en t&#233;rminos de cultura en el 700 a. C. (turno 86)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_BAB3</Tag>
+		<English>Make Babylon the most populous city in the world in 700 BC (Turn 86)</English>
+		<French>Faire de Babylone la ville la plus peuplée avant 700 av. J.-C. (Tour 86)</French>
+		<German>Machen Sie Babylon bis zum Jahr 700 v. Chr. (Runde 86) zur größten Stadt der Welt</German>
+		<Italian>Rendi Babilonia la citt&#224; più popolosa del mondo entro il 700 a.C. (turno 86)</Italian>
+		<Spanish>Conseguir que Babilonia sea la ciudad m&#225;s poblada del mundo en el 700 a. C. (turno 86)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_CAR3</Tag>
+		<English>Be the first to circumnavigate the globe</English>
+		<French>Etre le premier à faire le tour du monde</French>
+		<German>Führen Sie vor allen anderen Zivilisationen die erste Weltumsegelung durch</German>
+		<Italian>Devi essere il primo a circumnavigare il pianeta</Italian>
+		<Spanish>Ser el primero en circunnavegar el globo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_VIK1</Tag>
+		<English>Have 5000 gold in 1500 AD</English>
+		<French>Avoir 5000 en or en 1500 ap. J.-C.</French>
+		<German>Erwirtschaften Sie bis zum Jahr 1500 n. Chr. 5.000 Gold</German>
+		<Italian>Devi avere 5000 oro nel 1500 d.C.</Italian>
+		<Spanish>Tener 5.000 monedas de oro en el 1500 d. C.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_VIK2</Tag>
+		<English>Sink 25 ships</English>
+		<French>Couler 25 navires</French>
+		<German>Versenken Sie 25 Schiffe</German>
+		<Italian>Affonda 25 navi</Italian>
+		<Spanish>Hundir 25 barcos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_VIK3</Tag>
+		<English>Be the first to found a city in America</English>
+		<French>Etre le premier à fonder une ville en Amérique</French>
+		<German>Gründen Sie vor allen anderen Zivilisationen die erste Stadt in Amerika</German>
+		<Italian>Devi essere il primo a fondare una citt&#224; in America</Italian>
+		<Spanish>Ser el primero en fundar una ciudad en Am&#233;rica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UHV_TUR1</Tag>
+		<English>Control the Bosporus (the Istanbul Strait) by 1500 AD</English>
+		<French>Contrôler le Bosphore (détroit d'Istanbul) avant 1500 ap. J.-C.</French>
+		<German>Bringen Sie bis zum Jahr 1500 n. Chr. den Bosporus (die Meerenge um Istanbul) unter Ihre Kontrolle</German>
+		<Italian>Controlla il Bosforo (lo stretto di Istanbul) entro il 1500 d.C.</Italian>
+		<Spanish>Controlar el B&#243;sforo (el estrecho de Estambul) en el 1500 d. C.</Spanish>
+	</TEXT>
+</Civ4GameText>

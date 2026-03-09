@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_KI</Tag>
+		<English>Ki</English>
+		<French>Ki</French>
+		<German>Ki</German>
+		<Italian>Ki</Italian>
+		<Spanish>Culto de Ki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ENKI</Tag>
+		<English>Enki</English>
+		<French>Enki</French>
+		<German>Enki</German>
+		<Italian>Enki</Italian>
+		<Spanish>Culto de Enki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ENLIL</Tag>
+		<English>Enlil</English>
+		<French>Enlil</French>
+		<German>Enlil</German>
+		<Italian>Enlil</Italian>
+		<Spanish>Culto de Enlil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_INANNA</Tag>
+		<English>Inanna</English>
+		<French>Inanna</French>
+		<German>Inanna</German>
+		<Italian>Inanna</Italian>
+		<Spanish>Culto de Inanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_NANNA</Tag>
+		<English>Nanna</English>
+		<French>Nanna</French>
+		<German>Nanna</German>
+		<Italian>Nanna</Italian>
+		<Spanish>Culto de Nanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_UTU</Tag>
+		<English>Utu</English>
+		<French>Utu</French>
+		<German>Utu</German>
+		<Italian>Utu</Italian>
+		<Spanish>Culto de Utu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_AN</Tag>
+		<English>An</English>
+		<French>An</French>
+		<German>An</German>
+		<Italian>An</Italian>
+		<Spanish>Culto de An</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_TEMPLE</Tag>
+		<English>Temple of Ki</English>
+		<French>Temple de Ki</French>
+		<German>
+			<Text>Ki-Tempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tempio di Ki</Italian>
+		<Spanish>Templo de Ki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_CATHEDRAL</Tag>
+		<English>Cathedral of Ki</English>
+		<French>Cathédrale de Ki</French>
+		<German>
+			<Text>Ki-Kathedrale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cattedrale di Ki</Italian>
+		<Spanish>Catedral de Ki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_MONASTERY</Tag>
+		<English>Monastery of Ki</English>
+		<French>Monastère de Ki</French>
+		<German>
+			<Text>Ki-Kloster</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Monastero di Ki</Italian>
+		<Spanish>Monasterio de Ki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KI_SHRINE</Tag>
+		<English>Techtonic Citadel</English>
+		<French>Citadelle tectonique</French>
+		<German>
+			<Text>Tektonische Zitadelle</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Roccaforte tettonica</Italian>
+		<Spanish>Ciudadela tect&#243;nica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_TEMPLE</Tag>
+		<English>Temple of Enki</English>
+		<French>Temple d'Enki</French>
+		<German>
+			<Text>Enki-Tempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tempio di Enki</Italian>
+		<Spanish>Templo de Enki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_CATHEDRAL</Tag>
+		<English>Cathedral of Enki</English>
+		<French>Cathédrale d'Enki</French>
+		<German>
+			<Text>Enki-Kathedrale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cattedrale di Enki</Italian>
+		<Spanish>Catedral de Enki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_MONASTERY</Tag>
+		<English>Monastery of Enki</English>
+		<French>Monastère d'Enki</French>
+		<German>
+			<Text>Enki-Kloster</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Monastero di Enki</Italian>
+		<Spanish>Monasterio de Enki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENKI_SHRINE</Tag>
+		<English>Everliving Oasis</English>
+		<French>Oasis éternelle</French>
+		<German>
+			<Text>Immergrüne Oase</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Oasi eterna</Italian>
+		<Spanish>Jard&#237;n perenne</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_TEMPLE</Tag>
+		<English>Temple of Enlil</English>
+		<French>Temple d'Enlil</French>
+		<German>
+			<Text>Enlil-Tempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tempio di Enlil</Italian>
+		<Spanish>Templo de Enlil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_CATHEDRAL</Tag>
+		<English>Cathedral of Enlil</English>
+		<French>Cathédrale d'Enlil</French>
+		<German>
+			<Text>Enlil-Kathedrale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cattedrale di Enlil</Italian>
+		<Spanish>Catedral de Enlil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_MONASTERY</Tag>
+		<English>Monastery of Enlil</English>
+		<French>Monastère d'Enlil</French>
+		<German>
+			<Text>Enlil-Kloster</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Monastero di Enlil</Italian>
+		<Spanish>Monasterio de Enlil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ENLIL_SHRINE</Tag>
+		<English>Church of the Tempest</English>
+		<French>Eglise de la tempête</French>
+		<German>
+			<Text>Kirche des Sturms</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Chiesa della tempesta</Italian>
+		<Spanish>Iglesia de la tempestad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_TEMPLE</Tag>
+		<English>Temple of Inanna</English>
+		<French>Temple d'Inanna</French>
+		<German>
+			<Text>Inanna-Tempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tempio di Inanna</Italian>
+		<Spanish>Templo de Inanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_CATHEDRAL</Tag>
+		<English>Cathedral of Inanna</English>
+		<French>Cathédrale d'Inanna</French>
+		<German>
+			<Text>Inanna-Kathedrale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cattedrale di Inanna</Italian>
+		<Spanish>Catedral de Inanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_MONASTERY</Tag>
+		<English>Monastery of Inanna</English>
+		<French>Monastère d'Inanna</French>
+		<German>
+			<Text>Inanna-Kloster</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Monastero di Inanna</Italian>
+		<Spanish>Monasterio de Inanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INANNA_SHRINE</Tag>
+		<English>Inanna's Stronghold</English>
+		<French>Forteresse d'Inanna</French>
+		<German>
+			<Text>Inannas Festung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fortezza di Inanna</Italian>
+		<Spanish>Fortaleza de Inanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_TEMPLE</Tag>
+		<English>Temple of Nanna</English>
+		<French>Temple de Nanna</French>
+		<German>
+			<Text>Nanna-Tempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tempio di Nanna</Italian>
+		<Spanish>Templo de Nanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_CATHEDRAL</Tag>
+		<English>Cathedral of Nanna</English>
+		<French>Cathédrale de Nanna</French>
+		<German>
+			<Text>Nanna-Kathedrale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cattedrale di Nanna</Italian>
+		<Spanish>Catedral de Nanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_MONASTERY</Tag>
+		<English>Monastery of Nanna</English>
+		<French>Monastère de Nanna</French>
+		<German>
+			<Text>Nanna-Kloster</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Monastero di Nanna</Italian>
+		<Spanish>Monasterio de Nanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_NANNA_SHRINE</Tag>
+		<English>Twilight Observatory</English>
+		<French>Observatoire du crépuscule</French>
+		<German>
+			<Text>Observatorium des Zwielichts</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Osservatorio del tramonto</Italian>
+		<Spanish>Observatorio crepuscular</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_TEMPLE</Tag>
+		<English>Temple of Utu</English>
+		<French>Temple d'Utu</French>
+		<German>
+			<Text>Utu-Tempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tempio di Utu</Italian>
+		<Spanish>Templo de Utu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_CATHEDRAL</Tag>
+		<English>Cathedral of Utu</English>
+		<French>Cathédrale d'Utu</French>
+		<German>
+			<Text>Utu-Kathedrale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cattedrale di Utu</Italian>
+		<Spanish>Catedral de Utu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_MONASTERY</Tag>
+		<English>Monastery of Utu</English>
+		<French>Monastère d'Utu</French>
+		<German>
+			<Text>Utu-Kloster</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Monastero di Utu</Italian>
+		<Spanish>Monasterio de Utu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_UTU_SHRINE</Tag>
+		<English>Temple of the Sun</English>
+		<French>Temple du soleil</French>
+		<German>
+			<Text>Sonnentempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tempio del sole</Italian>
+		<Spanish>Templo del sol</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_TEMPLE</Tag>
+		<English>Temple of An</English>
+		<French>Temple d'An</French>
+		<German>
+			<Text>An-Tempel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tempio di An</Italian>
+		<Spanish>Templo de An</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_CATHEDRAL</Tag>
+		<English>Cathedral of An</English>
+		<French>Cathédrale d'An</French>
+		<German>
+			<Text>An-Kathedrale</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cattedrale di An</Italian>
+		<Spanish>Catedral de An</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_MONASTERY</Tag>
+		<English>Monastery of An</English>
+		<French>Monastère d'An</French>
+		<German>
+			<Text>An-Kloster</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Monastero di An</Italian>
+		<Spanish>Monasterio de An</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AN_SHRINE</Tag>
+		<English>Bastion of An</English>
+		<French>Bastion d'An</French>
+		<German>
+			<Text>Bastion des An</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bastione di An</Italian>
+		<Spanish>Basti&#243;n de An</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_KI_MISSIONARY</Tag>
+		<English>Ki Missionary</English>
+		<French>Missionnaire de Ki</French>
+		<German>
+			<Text>Ki-Missionar</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missionario di Ki</Italian>
+		<Spanish>Misionero de Ki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ENKI_MISSIONARY</Tag>
+		<English>Enki Missionary</English>
+		<French>Missionnaire d'Enki</French>
+		<German>
+			<Text>Enki-Missionar</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missionario di Enki</Italian>
+		<Spanish>Misionero de Enki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ENLIL_MISSIONARY</Tag>
+		<English>Enlil Missionary</English>
+		<French>Missionnaire d'Enlil</French>
+		<German>
+			<Text>Enlil-Missionar</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missionario di Enlil</Italian>
+		<Spanish>Misionero de Enlil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_INANNA_MISSIONARY</Tag>
+		<English>Inanna Missionary</English>
+		<French>Missionnaire d'Inanna</French>
+		<German>
+			<Text>Inanna-Missionar</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missionario di Inanna</Italian>
+		<Spanish>Misionero de Inanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_NANNA_MISSIONARY</Tag>
+		<English>Nanna Missionary</English>
+		<French>Missionnaire de Nanna</French>
+		<German>
+			<Text>Nanna-Missionar</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missionario di Nanna</Italian>
+		<Spanish>Misionero de Nanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_UTU_MISSIONARY</Tag>
+		<English>Utu Missionary</English>
+		<French>Missionnaire d'Utu</French>
+		<German>
+			<Text>Utu-Missionar</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missionario di Utu</Italian>
+		<Spanish>Misionero de Utu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AN_MISSIONARY</Tag>
+		<English>An Missionary</English>
+		<French>Missionnaire d'An</French>
+		<German>
+			<Text>An-Missionar</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missionario di An</Italian>
+		<Spanish>Misionero de An</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_KI_STRENGTH</Tag>
+		<English>Ki's Strength</English>
+		<French>Force de Ki</French>
+		<German>
+			<Text>Stärke der Ki</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Forza di Ki</Italian>
+		<Spanish>Fuerza de Ki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_KI_AID</Tag>
+		<English>Earthen Aid</English>
+		<French>Aide tellurique</French>
+		<German>
+			<Text>Irdische Hilfe</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Aiuto terrestre</Italian>
+		<Spanish>Ayuda de la tierra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_KI_DEFENSE</Tag>
+		<English>Earthen Defense</English>
+		<French>Défense tellurique</French>
+		<German>
+			<Text>Irdischer Schutz</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Difesa terrestre</Italian>
+		<Spanish>Defensa de la tierra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_ENKI_BLESSING</Tag>
+		<English>Tidal Blessing</English>
+		<French>Bénédiction des eaux</French>
+		<German>
+			<Text>Segen der Gezeiten</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Benedizione della marea</Italian>
+		<Spanish>Bendici&#243;n de la marea</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_ENKI_ESCORT</Tag>
+		<English>Enki's Escort</English>
+		<French>Escorte d'Enki</French>
+		<German>
+			<Text>Enkis Geleit</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Scorta di Enki</Italian>
+		<Spanish>Escolta de Enki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_ENLIL_GUIDANCE</Tag>
+		<English>Enlil's Guidance</English>
+		<French>Conseils d'Enlil</French>
+		<German>
+			<Text>Enlils Führung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Guida di Enlil</Italian>
+		<Spanish>Consejos de Enlil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_ENLIL_PROTECTION</Tag>
+		<English>Protection of Wind</English>
+		<French>Protection du vent</French>
+		<German>
+			<Text>Schutz des Windes</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Protezione del vento</Italian>
+		<Spanish>Protecci&#243;n del viento</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_ENLIL_WINDFALL</Tag>
+		<English>Enlil's Windfall</English>
+		<French>Secours d'Enlil</French>
+		<German>
+			<Text>Enlils Windhauch</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Manna di Enlil</Italian>
+		<Spanish>Golpe de suerte de Enlil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_INANNA_TEACHING</Tag>
+		<English>Inanna's Teachings</English>
+		<French>Enseignements d'Inanna</French>
+		<German>
+			<Text>Inannas Lehren</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Insegnamento di Inanna</Italian>
+		<Spanish>Enseñanzas de Inanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_INANNA_FURY</Tag>
+		<English>Unbridled Fury</English>
+		<French>Déchaînement de fureur</French>
+		<German>
+			<Text>Ungezügelte Wut</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Furia incontrollata</Italian>
+		<Spanish>Furia desenfrenada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_NANNA_CLOAK</Tag>
+		<English>Nanna's Cloak</English>
+		<French>Cape de Nanna</French>
+		<German>
+			<Text>Nannas Umhang</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Mantello di Nanna</Italian>
+		<Spanish>Manto de Nanna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_UTU_RETRIBUTION</Tag>
+		<English>Utu's Retribution</English>
+		<French>Châtiment d'Utu</French>
+		<German>
+			<Text>Utus Vergeltung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Giustizia di Utu</Italian>
+		<Spanish>Justo castigo de Utu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_UTU_ALLEGIANCE</Tag>
+		<English>Utu's Allegiance</English>
+		<French>Serment d'Utu</French>
+		<German>
+			<Text>Utus Treue</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fedelt&#224; di Utu</Italian>
+		<Spanish>Lealtad de Utu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GOO_AN_COMFORT</Tag>
+		<English>An's Comfort</English>
+		<French>Réconfort d'An</French>
+		<German>
+			<Text>Ans Trost</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Conforto di An</Italian>
+		<Spanish>Consuelo de An</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GODS_UNIT_INQUISITOR</Tag>
+		<English>Inquisitor</English>
+		<French>Inquisiteur</French>
+		<German>
+			<Text>Inquisitor</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Inquisitore</Italian>
+		<Spanish>Inquisidor</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VICTORY_RELIGIOUS</Tag>
+		<English>Religious</English>
+		<French>Religieuse</French>
+		<German>
+			<Text>Religion</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Religiosa</Italian>
+		<Spanish>Religiosa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_KI_ADJECTIVE</Tag>
+		<English>
+			<Text>Kian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</English>
+		<French>de Ki</French>
+		<German>
+			<Text>Kianisch:kianischen:kianische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>di Ki</Italian>
+		<Spanish>kiano:kiana:kianos:kianas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ENKI_ADJECTIVE</Tag>
+		<English>
+			<Text>Enkian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</English>
+		<French>d'Enki</French>
+		<German>
+			<Text>Enkianisch:enkianischen:enkianische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>di Enki</Italian>
+		<Spanish>enkiano:enkiana:enkianos:enkianas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ENLIL_ADJECTIVE</Tag>
+		<English>
+			<Text>Enlilist</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</English>
+		<French>d'Enlil</French>
+		<German>
+			<Text>Enlilistisch:enlilistischen:enlilistische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>di Enlil</Italian>
+		<Spanish>enlilio:enlilia:enlilios:enlilias</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_INANNA_ADJECTIVE</Tag>
+		<English>
+			<Text>Inannan</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</English>
+		<French>d'Inanna</French>
+		<German>
+			<Text>Innananisch:innananischen:innananische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>di Inanna</Italian>
+		<Spanish>inanniano:inanniana:inannianos:inannianas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_NANNA_ADJECTIVE</Tag>
+		<English>
+			<Text>Nannan</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</English>
+		<French>de Nanna</French>
+		<German>
+			<Text>Nannanisch:nannanischen:nannanische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>di Nanna</Italian>
+		<Spanish>Nannan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_UTU_ADJECTIVE</Tag>
+		<English>
+			<Text>Utuan</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</English>
+		<French>d'Utu</French>
+		<German>
+			<Text>Utuanisch:utuanischen:utuanische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>di Utu</Italian>
+		<Spanish>utuano:utuana:utuanos:utuanas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_AN_ADJECTIVE</Tag>
+		<English>
+			<Text>Anist</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</English>
+		<French>d'An</French>
+		<German>
+			<Text>Anistisch:anistischen:anistische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>di An</Italian>
+		<Spanish>anista:anista:anistas:anistas</Spanish>
+	</TEXT>
+</Civ4GameText>

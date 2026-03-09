@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Global Defines -->
+<Civ4Defines xmlns="x-schema:CIV4GlobalDefinesSchema.xml">
+	<!-- Unit health bar positioning, formerly controlled by UNIT_INFO_Z_OFFSET, is now controlled by the UNIT_HEALTH_BILLBOARD_* faders in CIV4DetailManager.xml -->
+	<Define>
+		<DefineName>CORPORATION_FOREIGN_SPREAD_COST_PERCENT</DefineName>
+		<iDefineIntVal>100</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>VICTORY_SOUNDTRACK_AVAILABLE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+</Civ4Defines>

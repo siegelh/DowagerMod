@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by Soren Johnson (Firaxis Games) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ed Piper (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4: Beyond the Sword -->
+<!-- Copyright Firaxis Games 2006 -->
+<!-- -->
+<!-- Event Infos -->
+<Civ4EventInfos xmlns="x-schema:CIV4EventSchema.xml">
+	<EventInfos/>
+</Civ4EventInfos>

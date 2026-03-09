@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Alex Mantzaris (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- EraInfo - This structure describes the name and soundtracks for each era. -->
+<!-- -->
+<!-- MODDERS: Removing ERA's can cause problems if you are not careful. If you must remove them, you need to do the following: -->
+<!-- 1. Clean up the references to the ERA's in CIV4BuildingInfos -->
+<!-- 2. Clean up the references to the ERA's in CIV4TechInfos -->
+<!-- 3. Clean up the references to the ERA's in CIV4LeaderHeadInfos -->
+<!-- 4. Clean up the references to the ERA's in CIV4CityLSystem -->
+<!-- 5. Clean up the references to the ERA's in CIV4PlotLSystem -->
+<!-- Good luck! -->
+<Civ4EraInfos xmlns="x-schema:CIV4GameInfoSchema.xml">
+	<EraInfos>
+		<EraInfo>
+			<Type>ERA_ANCIENT</Type>
+			<Description>TXT_KEY_ERA_ANCIENT</Description>
+			<Strategy>TXT_KEY_ERA_ANCIENT_STRATEGY</Strategy>
+			<bNoGoodies>0</bNoGoodies>
+			<bNoAnimals>0</bNoAnimals>
+			<bNoBarbUnits>0</bNoBarbUnits>
+			<bNoBarbCities>0</bNoBarbCities>
+			<iAdvancedStartPoints>500</iAdvancedStartPoints>
+			<iStartingUnitMultiplier>1</iStartingUnitMultiplier>
+			<iStartingDefenseUnits>0</iStartingDefenseUnits>
+			<iStartingWorkerUnits>0</iStartingWorkerUnits>
+			<iStartingExploreUnits>1</iStartingExploreUnits>
+			<iStartingGold>0</iStartingGold>
+			<iFreePopulation>0</iFreePopulation>
+			<iStartPercent>0</iStartPercent>
+			<iGrowthPercent>100</iGrowthPercent>
+			<iTrainPercent>100</iTrainPercent>
+			<iConstructPercent>100</iConstructPercent>
+			<iCreatePercent>100</iCreatePercent>
+			<iResearchPercent>100</iResearchPercent>
+			<iBuildPercent>100</iBuildPercent>
+			<iImprovementPercent>100</iImprovementPercent>
+			<iGreatPeoplePercent>100</iGreatPeoplePercent>
+			<iCulturePercent>100</iCulturePercent>
+			<iAnarchyPercent>50</iAnarchyPercent>
+			<iEventChancePerTurn>0</iEventChancePerTurn>
+			<iSoundtrackSpace>0</iSoundtrackSpace>
+			<bFirstSoundtrackFirst>1</bFirstSoundtrackFirst>
+			<EraInfoSoundtracks>
+				<EraInfoSoundtrack>AS2D_DEFENDER</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_ANCIENT_SOUNDTRACK_1</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_ANCIENT_SOUNDTRACK_2</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_ANCIENT_SOUNDTRACK_3</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_ANCIENT_SOUNDTRACK_4</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_ALEXANDER</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_BARBARIAN</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_CONQUESTS_ROMAN</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_DIP_EC_EARLY_WAR</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_DIP_GR_EARLY_WAR</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_DIP_NA_EARLY_WAR</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_OMENS</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_PELOPONNESIAN</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_ROME</EraInfoSoundtrack>
+				<EraInfoSoundtrack>AS2D_SONG_VIKING</EraInfoSoundtrack>
+			</EraInfoSoundtracks>
+			<CitySoundscapes>
+				<CitySoundscape>
+					<CitySizeType>CITYSIZE_SMALL</CitySizeType>
+					<SoundscapeScript>ASSS_CITY_ANCIENT_SMALL_SELECT_AMB</SoundscapeScript>
+				</CitySoundscape>
+				<CitySoundscape>
+					<CitySizeType>CITYSIZE_MEDIUM</CitySizeType>
+					<SoundscapeScript>ASSS_CITY_ANCIENT_SMALL_SELECT_AMB</SoundscapeScript>
+				</CitySoundscape>
+				<CitySoundscape>
+					<CitySizeType>CITYSIZE_LARGE</CitySizeType>
+					<SoundscapeScript>ASSS_CITY_ANCIENT_LARGE_SELECT_AMB</SoundscapeScript>
+				</CitySoundscape>
+			</CitySoundscapes>
+			<AudioUnitVictoryScript>AS2D_VICTORY_EARLY</AudioUnitVictoryScript>
+			<AudioUnitDefeatScript>AS2D_LOSS_EARLY</AudioUnitDefeatScript>
+		</EraInfo>
+	</EraInfos>
+</Civ4EraInfos>
