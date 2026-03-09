@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Tim McCracken (Firaxis Games) -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<!-- UNIT STUFF -->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AFTERWORLD</Tag>
+		<English>Afterworld Unit</English>
+		<French>Unité post-apocalyptique</French>
+		<German>Afterworld-Einheit</German>
+		<Italian>Unità oltremondo</Italian>
+		<Spanish>Unidad del Más Allá</Spanish>
+	</TEXT>
+	<!-- OTHER STUFF -->
+	<TEXT>
+		<Tag>TXT_KEY_MACHINERYPOPUP</Tag>
+		<English>Consoles </English>
+		<French>Consoles</French>
+		<German>Konsolen</German>
+		<Italian>Console </Italian>
+		<Spanish>Consolas </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_BLASTWALLS</Tag>
+		<English>Blast Walls</English>
+		<French>Murs détruits</French>
+		<German>Schutzmauern</German>
+		<Italian>Muri corazzati</Italian>
+		<Spanish>Paredes blindadas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM_I</Tag>
+		<English>Combat Integrity  I</English>
+		<French>Intégrité de combat I</French>
+		<German>Kampfintegrität I</German>
+		<Italian>Integrità di combattimento I</Italian>
+		<Spanish>Integridad en combate I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM_II</Tag>
+		<English>Combat Integrity II</English>
+		<French>Intégrité de combat II</French>
+		<German>Kampfintegrität II</German>
+		<Italian>Integrità di combattimento II</Italian>
+		<Spanish>Integridad en combate II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM_III</Tag>
+		<English>Combat Integrity III</English>
+		<French>Intégrité de combat III</French>
+		<German>Kampfintegrität III</German>
+		<Italian>Integrità di combattimento III</Italian>
+		<Spanish>Integridad en combate III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IFD_I</Tag>
+		<English>Field Detonator I</English>
+		<French>Détonateur I</French>
+		<German>Feldzünder I</German>
+		<Italian>Detonatore I</Italian>
+		<Spanish>Detonador de campaña I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IFD_II</Tag>
+		<English>Field Detonator II</English>
+		<French>Détonateur II</French>
+		<German>Feldzünder II</German>
+		<Italian>Detonatore II</Italian>
+		<Spanish>Detonador de campaña II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IFD_III</Tag>
+		<English>Field Detonator III</English>
+		<French>Détonateur III</French>
+		<German>Feldzünder III</German>
+		<Italian>Detonatore III</Italian>
+		<Spanish>Detonador de campaña III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AC_I</Tag>
+		<English>Acceleration I</English>
+		<French>Accélération I</French>
+		<German>Beschleunigung I</German>
+		<Italian>Accelerazione I</Italian>
+		<Spanish>Aceleración I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AC_II</Tag>
+		<English>Acceleration II</English>
+		<French>Accélération II</French>
+		<German>Beschleunigung II</German>
+		<Italian>Accelerazione II</Italian>
+		<Spanish>Aceleración II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AC_III</Tag>
+		<English>Acceleration III</English>
+		<French>Accélération III</French>
+		<German>Beschleunigung III</German>
+		<Italian>Accelerazione III</Italian>
+		<Spanish>Aceleración III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IDA_I</Tag>
+		<English>Shadow Walk</English>
+		<French>Marche de l'ombre</French>
+		<German>Schattenwandeln</German>
+		<Italian>Camminaombre</Italian>
+		<Spanish>Caminar en las sombras</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IDA_II</Tag>
+		<English>Shadow Walk II</English>
+		<French>Marche de l'ombre II</French>
+		<German>Schattenwandeln II</German>
+		<Italian>Camminaombre II</Italian>
+		<Spanish>Caminar en las sombras II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IDA_III</Tag>
+		<English>Shadow Walk III</English>
+		<French>Marche de l'ombre III</French>
+		<German>Schattenwandeln III</German>
+		<Italian>Camminaombre III</Italian>
+		<Spanish>Caminar en las sombras III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SILENCE</Tag>
+		<English>Silence</English>
+		<French>Silence</French>
+		<German>Schweigen</German>
+		<Italian>Silenzio</Italian>
+		<Spanish>Silencio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PM_I</Tag>
+		<English>Perception Module I</English>
+		<French>Module de perception I</French>
+		<German>Wahrnehmungsmodul I</German>
+		<Italian>Modulo percettivo I</Italian>
+		<Spanish>Módulo de percepción I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PM_II</Tag>
+		<English>Perception Module II</English>
+		<French>Module de perception II</French>
+		<German>Wahrnehmungsmodul II</German>
+		<Italian>Modulo percettivo II</Italian>
+		<Spanish>Módulo de percepción II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PM_III</Tag>
+		<English>Perception Module III</English>
+		<French>Module de perception III</French>
+		<German>Wahrnehmungsmodul III</German>
+		<Italian>Modulo percettivo III</Italian>
+		<Spanish>Módulo de percepción III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IRM_I</Tag>
+		<English>Repair I</English>
+		<French>Réparation I</French>
+		<German>Reparatur I</German>
+		<Italian>Riparazione I</Italian>
+		<Spanish>Reparar I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IRM_II</Tag>
+		<English>Repair II</English>
+		<French>Réparation II</French>
+		<German>Reparatur II</German>
+		<Italian>Riparazione II</Italian>
+		<Spanish>Reparar II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IRM_III</Tag>
+		<English>Repair III</English>
+		<French>Réparation III</French>
+		<German>Reparatur III</German>
+		<Italian>Riparazione III</Italian>
+		<Spanish>Reparar III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FS_I</Tag>
+		<English>Far Sight I</English>
+		<French>Vision à distance I</French>
+		<German>Weitsicht I</German>
+		<Italian>Lungo occhio I</Italian>
+		<Spanish>Ultravisión I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FS_II</Tag>
+		<English>Far Sight II</English>
+		<French>Vision à distance II</French>
+		<German>Weitsicht II</German>
+		<Italian>Lungo occhio II</Italian>
+		<Spanish>Ultravisión II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FS_III</Tag>
+		<English>Far Sight III</English>
+		<French>Vision à distance III</French>
+		<German>Weitsicht III</German>
+		<Italian>Lungo occhio III</Italian>
+		<Spanish>Ultravisión III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WM_I</Tag>
+		<English>Projection Module I</English>
+		<French>Module de projection I</French>
+		<German>Projektionsmodul I</German>
+		<Italian>Modulo proiezione I</Italian>
+		<Spanish>Módulo de proyección I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WM_II</Tag>
+		<English>Projection Module II</English>
+		<French>Module de projection II</French>
+		<German>Projektionsmodul II</German>
+		<Italian>Modulo proiezione II</Italian>
+		<Spanish>Módulo de proyección II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WM_III</Tag>
+		<English>Projection Module III</English>
+		<French>Module de projection III</French>
+		<German>Projektionsmodul III</German>
+		<Italian>Modulo proiezione III</Italian>
+		<Spanish>Módulo de proyección III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MDA</Tag>
+		<English>MDA</English>
+		<French>ADM</French>
+		<German>GDW</German>
+		<Italian>MDA</Italian>
+		<Spanish>ADM</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MDA_I</Tag>
+		<English>MDA I</English>
+		<French>ADM I</French>
+		<German>GDW I</German>
+		<Italian>MDA I</Italian>
+		<Spanish>ADM I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MDA_II</Tag>
+		<English>MDA II</English>
+		<French>ADM II</French>
+		<German>GDW II</German>
+		<Italian>MDA II</Italian>
+		<Spanish>ADM II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MDA_III</Tag>
+		<English>MDA III</English>
+		<French>ADM III</French>
+		<German>GDW III</German>
+		<Italian>MDA III</Italian>
+		<Spanish>ADM III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MAUL</Tag>
+		<English>MAUL</English>
+		<French>LAM</French>
+		<German>MAE</German>
+		<Italian>MAUL</Italian>
+		<Spanish>GLUA</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MAUL_I</Tag>
+		<English>MAUL I</English>
+		<French>LAM I</French>
+		<German>MAE I</German>
+		<Italian>MAUL I</Italian>
+		<Spanish>GLUA I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MAUL_II</Tag>
+		<English>MAUL II</English>
+		<French>LAM II</French>
+		<German>MAE II</German>
+		<Italian>MAUL II</Italian>
+		<Spanish>GLUA II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MAUL_III</Tag>
+		<English>MAUL III</English>
+		<French>LAM III</French>
+		<German>MAE III</German>
+		<Italian>MAUL III</Italian>
+		<Spanish>GLUA III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PRECISION_I</Tag>
+		<English>Precision I</English>
+		<French>Précision I</French>
+		<German>Präzision I</German>
+		<Italian>Precisione I</Italian>
+		<Spanish>Precisión I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PRECISION_II</Tag>
+		<English>Precision II</English>
+		<French>Précision II</French>
+		<German>Präzision II</German>
+		<Italian>Precisione II</Italian>
+		<Spanish>Precisión II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PRECISION_III</Tag>
+		<English>Precision III</English>
+		<French>Précision III</French>
+		<German>Präzision III</German>
+		<Italian>Precisione III</Italian>
+		<Spanish>Precisión III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVADE_I</Tag>
+		<English>Evade I</English>
+		<French>Evasion I</French>
+		<German>Ausweichen I</German>
+		<Italian>Schivata I</Italian>
+		<Spanish>Evasión I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVADE_II</Tag>
+		<English>Evade II</English>
+		<French>Evasion II</French>
+		<German>Ausweichen II</German>
+		<Italian>Schivata II</Italian>
+		<Spanish>Evasión II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVADE_III</Tag>
+		<English>Evade III</English>
+		<French>Evasion III</French>
+		<German>Ausweichen III</German>
+		<Italian>Schivata III</Italian>
+		<Spanish>Evasión III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMMOBILIZE_I</Tag>
+		<English>Immobilize I</English>
+		<French>Immobilisation I</French>
+		<German>Ruhigstellen I</German>
+		<Italian>Immobilizzatore I</Italian>
+		<Spanish>Inmovilización I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMMOBILIZE_II</Tag>
+		<English>Immobilize II</English>
+		<French>Immobilisation II</French>
+		<German>Ruhigstellen II</German>
+		<Italian>Immobilizzatore II</Italian>
+		<Spanish>Inmovilización II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMMOBILIZE_III</Tag>
+		<English>Immobilize III</English>
+		<French>Immobilisation III</French>
+		<German>Ruhigstellen III</German>
+		<Italian>Immobilizzatore III</Italian>
+		<Spanish>Inmovilización III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BARRIER</Tag>
+		<English>Barrier </English>
+		<French>Barrière</French>
+		<German>Barriere </German>
+		<Italian>Barriera </Italian>
+		<Spanish>Barrera </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BARRIER_I</Tag>
+		<English>Barrier I</English>
+		<French>Barrière I</French>
+		<German>Barriere I</German>
+		<Italian>Barriera I</Italian>
+		<Spanish>Barrera I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BARRIER_II</Tag>
+		<English>Barrier II</English>
+		<French>Barrière II</French>
+		<German>Barriere II</German>
+		<Italian>Barriera II</Italian>
+		<Spanish>Barrera II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BARRIER_III</Tag>
+		<English>Barrier III</English>
+		<French>Barrière III</French>
+		<German>Barriere III</German>
+		<Italian>Barriera III</Italian>
+		<Spanish>Barrera III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INHIBITOR_I</Tag>
+		<English>Inhibitor I</English>
+		<French>Inhibiteur I</French>
+		<German>Zerebralhemmer I</German>
+		<Italian>Inibitore I</Italian>
+		<Spanish>Inhibidor I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INHIBITOR_II</Tag>
+		<English>Inhibitor II</English>
+		<French>Inhibiteur II</French>
+		<German>Zerebralhemmer II</German>
+		<Italian>Inibitore II</Italian>
+		<Spanish>Inhibidor II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INHIBITOR_III</Tag>
+		<English>Inhibitor III</English>
+		<French>Inhibiteur III</French>
+		<German>Zerebralhemmer III</German>
+		<Italian>Inibitore III</Italian>
+		<Spanish>Inhibidor III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENH_AC</Tag>
+		<English>Enhance Acceleration</English>
+		<French>Accélération améliorée</French>
+		<German>Beschleunigung verbessern</German>
+		<Italian>Aumento accelerazione</Italian>
+		<Spanish>Mejorar aceleración</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENH_AC_I</Tag>
+		<English>Enhance Acceleration I</English>
+		<French>Accélération améliorée I</French>
+		<German>Beschleunigung verbessern I</German>
+		<Italian>Aumento accelerazione I</Italian>
+		<Spanish>Mejorar aceleración I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENH_AC_II</Tag>
+		<English>Enhance Acceleration II</English>
+		<French>Accélération améliorée II</French>
+		<German>Beschleunigung verbessern II</German>
+		<Italian>Aumento accelerazione II</Italian>
+		<Spanish>Mejorar aceleración II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENH_AC_III</Tag>
+		<English>Enhance Acceleration III</English>
+		<French>Accélération améliorée III</French>
+		<German>Beschleunigung verbessern III</German>
+		<Italian>Aumento accelerazione III</Italian>
+		<Spanish>Mejorar aceleración III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENH_AM</Tag>
+		<English>Enhance Combat Integrity</English>
+		<French>Intégrité de combat améliorée</French>
+		<German>Kampfintegrität verbessern</German>
+		<Italian>Aumento integrità di combattimento</Italian>
+		<Spanish>Mejorar integridad en combate</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENH_AM_I</Tag>
+		<English>Enhance Combat Integrity I</English>
+		<French>Intégrité de combat améliorée I</French>
+		<German>Kampfintegrität verbessern I</German>
+		<Italian>Aumento integrità di combattimento I</Italian>
+		<Spanish>Mejorar integridad en combate I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENH_AM_II</Tag>
+		<English>Enhance Combat Integrity II</English>
+		<French>Intégrité de combat améliorée II</French>
+		<German>Kampfintegrität verbessern II</German>
+		<Italian>Aumento integrità di combattimento II</Italian>
+		<Spanish>Mejorar integridad en combate II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENH_AM_III</Tag>
+		<English>Enhance Combat Integrity III</English>
+		<French>Intégrité de combat améliorée III</French>
+		<German>Kampfintegrität verbessern III</German>
+		<Italian>Aumento integrità di combattimento III</Italian>
+		<Spanish>Mejorar integridad en combate III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPAWN_I</Tag>
+		<English>Spawn I</English>
+		<French>Engeance I</French>
+		<German>Erzeugen I</German>
+		<Italian>Crea I</Italian>
+		<Spanish>Generación I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPAWN_II</Tag>
+		<English>Spawn II</English>
+		<French>Engeance II</French>
+		<German>Erzeugen II</German>
+		<Italian>Crea II</Italian>
+		<Spanish>Generación II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPAWN_III</Tag>
+		<English>Spawn III</English>
+		<French>Engeance III</French>
+		<German>Erzeugen III</German>
+		<Italian>Crea III</Italian>
+		<Spanish>Generación III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONTROL1</Tag>
+		<English>Control</English>
+		<French>Contrôle</French>
+		<German>Kontrolle</German>
+		<Italian>Controllo</Italian>
+		<Spanish>Controlar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONTROL2</Tag>
+		<English>Control II</English>
+		<French>Contrôle II</French>
+		<German>Kontrolle II</German>
+		<Italian>Controllo II</Italian>
+		<Spanish>Controlar II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONTROL3</Tag>
+		<English>Control III</English>
+		<French>Contrôle III</French>
+		<German>Kontrolle III</German>
+		<Italian>Controllo III</Italian>
+		<Spanish>Controlar III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_TREE2</Tag>
+		<English>Tree 2</English>
+		<French>Arbre 2</French>
+		<German>Baum 2</German>
+		<Italian>Albero 2</Italian>
+		<Spanish>Árbol 2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_TREE3</Tag>
+		<English>Tree 3</English>
+		<French>Arbre 3</French>
+		<German>Baum 3</German>
+		<Italian>Albero 3</Italian>
+		<Spanish>Árbol 3</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_FLOOR1</Tag>
+		<English>Floor 1</English>
+		<French>Sol 1</French>
+		<German>Boden 1</German>
+		<Italian>Piano 1</Italian>
+		<Spanish>Suelo 1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_FLOOR2</Tag>
+		<English>Floor 2</English>
+		<French>Sol 2</French>
+		<German>Boden 2</German>
+		<Italian>Piano 2</Italian>
+		<Spanish>Suelo 2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_GROUND1</Tag>
+		<English>Ground 1</English>
+		<French>Terre 1</French>
+		<German>Untergrund 1</German>
+		<Italian>Terreno 1</Italian>
+		<Spanish>Terreno 1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_GROUND2</Tag>
+		<English>Ground 2</English>
+		<French>Terre 2</French>
+		<German>Untergrund 2</German>
+		<Italian>Terreno 2</Italian>
+		<Spanish>Terreno 2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_RUBBLE1</Tag>
+		<English>Rubble 1</English>
+		<French>Décombres 1</French>
+		<German>Trümmer 1</German>
+		<Italian>Detriti 1</Italian>
+		<Spanish>Escombros 1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_RUBBLE2</Tag>
+		<English>Rubble 2</English>
+		<French>Décombres 2</French>
+		<German>Trümmer 2</German>
+		<Italian>Detriti 2</Italian>
+		<Spanish>Escombros 2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_RUBBLE3</Tag>
+		<English>Rubble 3</English>
+		<French>Décombres 3</French>
+		<German>Trümmer 3</German>
+		<Italian>Detriti 3</Italian>
+		<Spanish>Escombros 3</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_ROAD</Tag>
+		<English>Road</English>
+		<French>Route</French>
+		<German>Straße</German>
+		<Italian>Strada</Italian>
+		<Spanish>Carretera</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_SKELETAL1</Tag>
+		<English>Skeletal Building 1</English>
+		<French>Bâtiment en ruine 1</French>
+		<German>Ruine 1</German>
+		<Italian>Edificio diroccato 1</Italian>
+		<Spanish>Ruinas de edificio 1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_SKELETAL2</Tag>
+		<English>Skeletal Building 2</English>
+		<French>Bâtiment en ruine 2</French>
+		<German>Ruine 2</German>
+		<Italian>Edificio diroccato 2</Italian>
+		<Spanish>Ruinas de edificio 2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_MACHINERY1</Tag>
+		<English>Machinery 1</English>
+		<French>Mécanique 1</French>
+		<German>Maschinerie 1</German>
+		<Italian>Macchinari 1</Italian>
+		<Spanish>Maquinaria 1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_MACHINERY2</Tag>
+		<English>Machinery 2</English>
+		<French>Mécanique 2</French>
+		<German>Maschinerie 2</German>
+		<Italian>Macchinari 2</Italian>
+		<Spanish>Maquinaria 2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_MACHINERY3</Tag>
+		<English>Machinery 3</English>
+		<French>Mécanique 3</French>
+		<German>Maschinerie 3</German>
+		<Italian>Macchinari 3</Italian>
+		<Spanish>Maquinaria 3</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_GLOW</Tag>
+		<English>Strange Glow</English>
+		<French>Lueur étrange</French>
+		<German>Seltsames Leuchten</German>
+		<Italian>Strano bagliore</Italian>
+		<Spanish>Brillo extraño</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_BROKEN_WALL2</Tag>
+		<English>Broken Wall</English>
+		<French>Mur détruit</French>
+		<German>Eingestürzte Mauer</German>
+		<Italian>Muro abbattuto</Italian>
+		<Spanish>Muro en ruinas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SAVAGE_BLEEDER</Tag>
+		<English>Savage Bleeder</English>
+		<French>Sanguin sauvage</French>
+		<German>Grausamer Bluter</German>
+		<Italian>Sanguisuga selvaggia</Italian>
+		<Spanish>Desangrador salvaje</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RABID_BLEEDER</Tag>
+		<English>Rabid Bleeder</English>
+		<French>Sanguin enragé</French>
+		<German>Rasender Bluter</German>
+		<Italian>Sanguisuga rabbiosa</Italian>
+		<Spanish>Desangrador rabioso</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_COMBAT_SENTINEL</Tag>
+		<English>Combat Sentinel I</English>
+		<French>Sentinelle de combat I</French>
+		<German>Kampfsentinel I</German>
+		<Italian>Sentinella di combattimento I</Italian>
+		<Spanish>Centinela de combate I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_COMBAT_SENTINEL2</Tag>
+		<English>Combat Sentinel II</English>
+		<French>Sentinelle de combat II</French>
+		<German>Kampfsentinel II</German>
+		<Italian>Sentinella di combattimento II</Italian>
+		<Spanish>Centinela de combate II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_COMBAT_SENTINEL3</Tag>
+		<English>Combat Sentinel III</English>
+		<French>Sentinelle de combat III</French>
+		<German>Kampfsentinel III</German>
+		<Italian>Sentinella di combattimento III</Italian>
+		<Spanish>Centinela de combate III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BODYTANK</Tag>
+		<English>Bodytank</English>
+		<French>Coque</French>
+		<German>Körperpanzer</German>
+		<Italian>Mezzo corazzato</Italian>
+		<Spanish>Tanque corporal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MODULES</Tag>
+		<English>Modules</English>
+		<French>Modules</French>
+		<German>Module</German>
+		<Italian>Moduli</Italian>
+		<Spanish>Módulos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MODULE</Tag>
+		<English>Module</English>
+		<French>Module</French>
+		<German>Modul</German>
+		<Italian>Modulo</Italian>
+		<Spanish>Modulo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MODULESYSTEMS</Tag>
+		<English>Module Systems</English>
+		<French>Systèmes de modules</French>
+		<German>Modulsysteme</German>
+		<Italian>Sistemi modulari</Italian>
+		<Spanish>Sistemas del módulo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_REPSYSTEM</Tag>
+		<English>Repair System</English>
+		<French>Système de réparation</French>
+		<German>Reparatursystem</German>
+		<Italian>Sistema di riparazione</Italian>
+		<Spanish>Sistema de reparación</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUARDIANSYSTEM</Tag>
+		<English>Guardian System</English>
+		<French>Système de surveillance</French>
+		<German>Wächtersystem</German>
+		<Italian>Sistema di guardia</Italian>
+		<Spanish>Sistema de vigilancia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ASSAULTSYSTEM</Tag>
+		<English>Assault System</English>
+		<French>Système d'assaut</French>
+		<German>Angriffssystem</German>
+		<Italian>Sistema d'assalto</Italian>
+		<Spanish>Sistema de asalto</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_WALLS</Tag>
+		<English>Afterworld Walls</English>
+		<French>Murs post-apocalyptiques</French>
+		<German>Afterworld-Mauern</German>
+		<Italian>Mura oltremondo</Italian>
+		<Spanish>Muros del Más Allá</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_CLOSED_DOOR</Tag>
+		<English>Closed Door</English>
+		<French>Porte fermée</French>
+		<German>Geschlossene Tür</German>
+		<Italian>Porta chiusa</Italian>
+		<Spanish>Puerta cerrada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_AFTERWORLD_OPEN_DOOR</Tag>
+		<English>Open Door</English>
+		<French>Porte ouverte</French>
+		<German>Offene Tür</German>
+		<Italian>Porta aperta</Italian>
+		<Spanish>Puerta abierta</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_JAL</Tag>
+		<English>Jal</English>
+		<French>Jal</French>
+		<German>Jal</German>
+		<Italian>Jal</Italian>
+		<Spanish>Jal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SEVER</Tag>
+		<English>Sever</English>
+		<French>Sever</French>
+		<German>Sever</German>
+		<Italian>Sever</Italian>
+		<Spanish>Sever</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RAGAH</Tag>
+		<English>Ragah</English>
+		<French>Ragah</French>
+		<German>Ragah</German>
+		<Italian>Ragah</Italian>
+		<Spanish>Ragah</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ATTICUS</Tag>
+		<English>Atticus</English>
+		<French>Atticus</French>
+		<German>Atticus</German>
+		<Italian>Atticus</Italian>
+		<Spanish>Atticus</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RIEST</Tag>
+		<English>Riest</English>
+		<French>Riest</French>
+		<German>Riest</German>
+		<Italian>Riest</Italian>
+		<Spanish>Riest</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_REMAINING_ARMOR</Tag>
+		<English>Remaining Armor</English>
+		<French>Armure restante</French>
+		<German>Verbleibende Panzerung</German>
+		<Italian>Corazza rimanente</Italian>
+		<Spanish>Armadura restante</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_REMAINING_ACTIONS</Tag>
+		<English>Remaining Actions</English>
+		<French>Actions restantes</French>
+		<German>Verbleibende Aktionen</German>
+		<Italian>Azioni rimanenti</Italian>
+		<Spanish>Acciones restantes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ARMOR</Tag>
+		<English>Armor</English>
+		<French>Armure</French>
+		<German>Panzerung</German>
+		<Italian>Corazza</Italian>
+		<Spanish>Armadura</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACTIONS</Tag>
+		<English>Actions</English>
+		<French>Actions</French>
+		<German>Aktionen</German>
+		<Italian>Azioni</Italian>
+		<Spanish>Acciones</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_OLDRECON_DEVICE</Tag>
+		<English>Reconnaissance device</English>
+		<French>Dispositif de reconnaissance</French>
+		<German>Erkundungsgerät</German>
+		<Italian>Apparecchio da ricognizione</Italian>
+		<Spanish>Dispositivo de reconocimiento</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TERMINAL</Tag>
+		<English>Transfer link Terminal</English>
+		<French>Terminal de liaison de transfert</French>
+		<German>Transferlink-Terminal</German>
+		<Italian>Terminale di connessione</Italian>
+		<Spanish>Terminal de la consola de transferencia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DETONATOR</Tag>
+		<English>Detonator</English>
+		<French>Détonateur</French>
+		<German>Zünder</German>
+		<Italian>Detonatore</Italian>
+		<Spanish>Detonador</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BLEEDER</Tag>
+		<English>Bleeder</English>
+		<French>Sanguin</French>
+		<German>Bluter</German>
+		<Italian>Sanguisuga</Italian>
+		<Spanish>Desangrador</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FERAL</Tag>
+		<English>Feral</English>
+		<French>Sauvage</French>
+		<German>Bestie</German>
+		<Italian>Selvaggio</Italian>
+		<Spanish>Fiera</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ENTITY</Tag>
+		<English>Entity</English>
+		<French>Entité</French>
+		<German>Wesen</German>
+		<Italian>Entità</Italian>
+		<Spanish>Entidad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SHADOW</Tag>
+		<English>Shadow walk</English>
+		<French>Marche de l'ombre</French>
+		<German>Schattenwandeln</German>
+		<Italian>Camminaombre</Italian>
+		<Spanish>Caminar en las sombras</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCLUDE</Tag>
+		<English>Conclude Turn</English>
+		<French>Conclure tour</French>
+		<German>Runde abschließen</German>
+		<Italian>Termina turno</Italian>
+		<Spanish>Terminar turno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INVESTIGATE</Tag>
+		<English>Investigate</English>
+		<French>Enquêter</French>
+		<German>Untersuchen</German>
+		<Italian>Investiga</Italian>
+		<Spanish>Investigar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEVEL</Tag>
+		<English>Level </English>
+		<French>Niveau</French>
+		<German>Stufe </German>
+		<Italian>Livello </Italian>
+		<Spanish>Nivel </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RANGE_DAMAGE</Tag>
+		<English>Range Damage</English>
+		<French>Dégâts de zone</French>
+		<German>Fernkampfschaden</German>
+		<Italian>Danno a distanza</Italian>
+		<Spanish>Daño a distancia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MELEE_DAMAGE</Tag>
+		<English>Melee Damage</English>
+		<French>Dégâts de corps à corps</French>
+		<German>Nahkampfschaden</German>
+		<Italian>Danno ravvicinato</Italian>
+		<Spanish>Daño cuerpo a cuerpo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EXPERIENCE</Tag>
+		<English>Experience</English>
+		<French>Expérience</French>
+		<German>Erfahrung</German>
+		<Italian>Esperienza</Italian>
+		<Spanish>Experiencia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INFINITY_SKIRMISH</Tag>
+		<English>Infinity Skirmish</English>
+		<French>Fusillade infinie</French>
+		<German>Endlos-Scharmützel</German>
+		<Italian>Schermaglia infinita</Italian>
+		<Spanish>Escaramuza infinita</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BODY_TANK</Tag>
+		<English>Body Tank</English>
+		<French>Coque</French>
+		<German>Körperpanzer</German>
+		<Italian>Mezzo corazzato</Italian>
+		<Spanish>Tanque corporal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FD</Tag>
+		<English>Field Detonator</English>
+		<French>Détonateur</French>
+		<German>Feldzünder</German>
+		<Italian>Detonatore</Italian>
+		<Spanish>Detonador de campaña</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM</Tag>
+		<English>Armor Module</English>
+		<French>Module d'armure</French>
+		<German>Panzerungsmodul</German>
+		<Italian>Modulo corazza</Italian>
+		<Spanish>Módulo de armadura</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACM</Tag>
+		<English>Acceleration Module</English>
+		<French>Module d'accélération</French>
+		<German>Beschleunigungsmodul</German>
+		<Italian>Modulo acceleratore</Italian>
+		<Spanish>Módulo de aceleración</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IDA</Tag>
+		<English>Isogen Displacement Accelerator</English>
+		<French>Accélérateur de déplacement isogénique</French>
+		<German>Isogen-Verdrängungsbeschleuniger</German>
+		<Italian>Acceleratore di spostamento isogeno</Italian>
+		<Spanish>Acelerador isogénico de desplazamiento</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PM</Tag>
+		<English>Perception Module</English>
+		<French>Module de perception</French>
+		<German>Wahrnehmungsmodul</German>
+		<Italian>Modulo percettivo</Italian>
+		<Spanish>Módulo de percepción</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IRM</Tag>
+		<English>Isogen Reconstructive Module</English>
+		<French>Module de reconstruction isogénique</French>
+		<German>Isogen-Rekonstruktionsmodul</German>
+		<Italian>Modulo ricostruzione isogena</Italian>
+		<Spanish>Módulo isogénico de reconstrucción</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FS</Tag>
+		<English>Far Sight</English>
+		<French>Viseur à distance</French>
+		<German>Weitsicht</German>
+		<Italian>Lungo occhio</Italian>
+		<Spanish>Ultravisión</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MDA</Tag>
+		<English>Metabaric Detonating Aura</English>
+		<French>Aura détonante metabaric</French>
+		<German>Metabaric Detonationswolke</German>
+		<Italian>Metabaric Detonating Aura (MDA)</Italian>
+		<Spanish>Aura de detonación metabaric</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CI</Tag>
+		<English>Cerebral Inhibitor</English>
+		<French>Inhibiteur cérébral</French>
+		<German>Zerebralhemmer</German>
+		<Italian>Inibitore cerebrale</Italian>
+		<Spanish>Inhibidor cerebral</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RWF</Tag>
+		<English>Recurrent Fusion Weapon</English>
+		<French>Arme de fusion conventionnelle</French>
+		<German>Intervall-Fusionswaffe</German>
+		<Italian>Recurrent Fusion Weapon (RFW)</Italian>
+		<Spanish>Arma de fusión recurrente</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RFW_I</Tag>
+		<English>Improved RFW I</English>
+		<French>AFC améliorée I</French>
+		<German>Fortgeschrittene IFW I</German>
+		<Italian>RFW migliorata I</Italian>
+		<Spanish>AFR mejorada I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RFW_II</Tag>
+		<English>Improved RFW II</English>
+		<French>AFC améliorée II</French>
+		<German>Fortgeschrittene IFW II</German>
+		<Italian>RFW migliorata II</Italian>
+		<Spanish>AFR mejorada II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RFW_III</Tag>
+		<English>Improved RFW III</English>
+		<French>AFC améliorée III</French>
+		<German>Fortgeschrittene IFW III</German>
+		<Italian>RFW migliorata III</Italian>
+		<Spanish>AFR mejorada III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM_I</Tag>
+		<English>Armor Module I</English>
+		<French>Module d'armure I</French>
+		<German>Panzerungsmodul I</German>
+		<Italian>Modulo corazza I</Italian>
+		<Spanish>Módulo de armadura I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM_II</Tag>
+		<English>Armor Module II</English>
+		<French>Module d'armure II</French>
+		<German>Panzerungsmodul II</German>
+		<Italian>Modulo corazza II</Italian>
+		<Spanish>Módulo de armadura II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM_III</Tag>
+		<English>Armor Module III</English>
+		<French>Module d'armure III</French>
+		<German>Panzerungsmodul III</German>
+		<Italian>Modulo corazza III</Italian>
+		<Spanish>Módulo de armadura III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM_IV</Tag>
+		<English>Armor Module IV</English>
+		<French>Module d'armure IV</French>
+		<German>Panzerungsmodul IV</German>
+		<Italian>Modulo corazza IV</Italian>
+		<Spanish>Módulo de armadura IV</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM_V</Tag>
+		<English>Armor Module V</English>
+		<French>Module d'armure V</French>
+		<German>Panzerungsmodul V</German>
+		<Italian>Modulo corazza V</Italian>
+		<Spanish>Módulo de armadura V</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AM_VI</Tag>
+		<English>Armor Module VI</English>
+		<French>Module d'armure VI</French>
+		<German>Panzerungsmodul VI</German>
+		<Italian>Modulo corazza VI</Italian>
+		<Spanish>Módulo de armadura VI</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IFD_I</Tag>
+		<English>Increased Field Detonator I</English>
+		<French>Détonateur amélioré I</French>
+		<German>Verstärkter Feldzünder I</German>
+		<Italian>Detonatore aumentato I</Italian>
+		<Spanish>Detonador de campaña aumentado I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IFD_II</Tag>
+		<English>Increased Field Detonator II</English>
+		<French>Détonateur amélioré II</French>
+		<German>Verstärkter Feldzünder II</German>
+		<Italian>Detonatore aumentato II</Italian>
+		<Spanish>Detonador de campaña aumentado II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IFD_III</Tag>
+		<English>Increased Field Detonator III</English>
+		<French>Détonateur amélioré III</French>
+		<German>Verstärkter Feldzünder III</German>
+		<Italian>Detonatore aumentato III</Italian>
+		<Spanish>Detonador de campaña aumentado III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACM_I</Tag>
+		<English>Acceleration Module I</English>
+		<French>Module d'accélération I</French>
+		<German>Beschleunigungsmodul I</German>
+		<Italian>Modulo acceleratore I</Italian>
+		<Spanish>Módulo de aceleración I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACM_II</Tag>
+		<English>Acceleration Module II</English>
+		<French>Module d'accélération II</French>
+		<German>Beschleunigungsmodul II</German>
+		<Italian>Modulo acceleratore II</Italian>
+		<Spanish>Módulo de aceleración II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACM_III</Tag>
+		<English>Acceleration Module III</English>
+		<French>Module d'accélération III</French>
+		<German>Beschleunigungsmodul III</German>
+		<Italian>Modulo acceleratore III</Italian>
+		<Spanish>Módulo de aceleración III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACM_IV</Tag>
+		<English>Acceleration Module IV</English>
+		<French>Module d'accélération IV</French>
+		<German>Beschleunigungsmodul IV</German>
+		<Italian>Modulo acceleratore IV</Italian>
+		<Spanish>Módulo de aceleración IV</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACM_V</Tag>
+		<English>Acceleration Module V</English>
+		<French>Module d'accélération V</French>
+		<German>Beschleunigungsmodul V</German>
+		<Italian>Modulo acceleratore V</Italian>
+		<Spanish>Módulo de aceleración V</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ACM_VI</Tag>
+		<English>Acceleration Module VI</English>
+		<French>Module d'accélération VI</French>
+		<German>Beschleunigungsmodul VI</German>
+		<Italian>Modulo acceleratore VI</Italian>
+		<Spanish>Módulo de aceleración VI</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IDA_I</Tag>
+		<English>Isogen Displacement Accelerator I</English>
+		<French>Accélérateur de déplacement isogénique I</French>
+		<German>Isogen-Verdrängungsbeschleuniger I</German>
+		<Italian>Acceleratore di spostamento isogeno I</Italian>
+		<Spanish>Acelerador isogénico de desplazamiento I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IDA_II</Tag>
+		<English>Isogen Displacement Accelerator II</English>
+		<French>Accélérateur de déplacement isogénique II</French>
+		<German>Isogen-Verdrängungsbeschleuniger II</German>
+		<Italian>Acceleratore di spostamento isogeno II</Italian>
+		<Spanish>Acelerador isogénico de desplazamiento II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IDA_III</Tag>
+		<English>Isogen Displacement Accelerator III</English>
+		<French>Accélérateur de déplacement isogénique III</French>
+		<German>Isogen-Verdrängungsbeschleuniger III</German>
+		<Italian>Acceleratore di spostamento isogeno III</Italian>
+		<Spanish>Acelerador isogénico de desplazamiento III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PM_I</Tag>
+		<English>Perception Module I</English>
+		<French>Module de perception I</French>
+		<German>Wahrnehmungsmodul I</German>
+		<Italian>Modulo percettivo I</Italian>
+		<Spanish>Módulo de percepción I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PM_II</Tag>
+		<English>Perception Module II</English>
+		<French>Module de perception II</French>
+		<German>Wahrnehmungsmodul II</German>
+		<Italian>Modulo percettivo II</Italian>
+		<Spanish>Módulo de percepción II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PM_III</Tag>
+		<English>Perception Module III</English>
+		<French>Module de perception III</French>
+		<German>Wahrnehmungsmodul III</German>
+		<Italian>Modulo percettivo III</Italian>
+		<Spanish>Módulo de percepción III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IRM_I</Tag>
+		<English>Isogen Reconstructive Module I</English>
+		<French>Module de reconstruction isogénique I</French>
+		<German>Isogen-Rekonstruktionsmodul I</German>
+		<Italian>Modulo ricostruzione isogena I</Italian>
+		<Spanish>Módulo isogénico de reconstrucción I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IRM_II</Tag>
+		<English>Isogen Reconstructive Module II</English>
+		<French>Module de reconstruction isogénique II</French>
+		<German>Isogen-Rekonstruktionsmodul II</German>
+		<Italian>Modulo ricostruzione isogena II</Italian>
+		<Spanish>Módulo isogénico de reconstrucción II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IRM_III</Tag>
+		<English>Isogen Reconstructive Module III</English>
+		<French>Module de reconstruction isogénique III</French>
+		<German>Isogen-Rekonstruktionsmodul III</German>
+		<Italian>Modulo ricostruzione isogena III</Italian>
+		<Spanish>Módulo isogénico de reconstrucción III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FS_I</Tag>
+		<English>Far Sight I</English>
+		<French>Viseur à distance I</French>
+		<German>Weitsicht I</German>
+		<Italian>Lungo occhio I</Italian>
+		<Spanish>Ultravisión I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FS_II</Tag>
+		<English>Far Sight II</English>
+		<French>Viseur à distance II</French>
+		<German>Weitsicht II</German>
+		<Italian>Lungo occhio II</Italian>
+		<Spanish>Ultravisión II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FS_III</Tag>
+		<English>Far Sight III</English>
+		<French>Viseur à distance III</French>
+		<German>Weitsicht III</German>
+		<Italian>Lungo occhio III</Italian>
+		<Spanish>Ultravisión III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WM_I</Tag>
+		<English>Warp Module I</English>
+		<French>Module de téléportation I</French>
+		<German>Warpmodul I</German>
+		<Italian>Modulo warp I</Italian>
+		<Spanish>Módulo de curvatura I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WM_II</Tag>
+		<English>Warp Module II</English>
+		<French>Module de téléportation II</French>
+		<German>Warpmodul II</German>
+		<Italian>Modulo warp II</Italian>
+		<Spanish>Módulo de curvatura II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WM_III</Tag>
+		<English>Warp Module III</English>
+		<French>Module de téléportation III</French>
+		<German>Warpmodul III</German>
+		<Italian>Modulo warp III</Italian>
+		<Spanish>Módulo de curvatura III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TACTICALSYSTEM</Tag>
+		<English>Tactical System</English>
+		<French>Système tactique</French>
+		<German>Taktiksystem</German>
+		<Italian>Sistema tattico</Italian>
+		<Spanish>Sistema táctico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_NEWOBJECTIVE</Tag>
+		<English>New Objective</English>
+		<French>Nouvel objectif</French>
+		<German>Neues Ziel</German>
+		<Italian>Nuovo obiettivo</Italian>
+		<Spanish>Nuevo objetivo</Spanish>
+	</TEXT>
+</Civ4GameText>

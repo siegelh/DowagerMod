@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Global Defines -->
+<Civ4Defines xmlns="x-schema:CIV4GlobalDefinesSchema.xml">
+	<Define>
+		<DefineName>USE_UNIT_CANNOT_MOVE_INTO_CALLBACK</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+</Civ4Defines>

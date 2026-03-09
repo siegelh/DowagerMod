@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Tim McCracken (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Hints Infos -->
+<Civ4Hints xmlns="x-schema:CIV4GameInfoSchema.xml">
+	<HintInfos>
+		<HintInfo>
+			<Description>TXT_KEY_GBLOADINGSCREEN</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_GLM_DESC</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_AUGUST_DESC</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_IDA_DESC</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_MDA_DESC</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_HINT_6</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_IRM_DESC</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_CI_DESC</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_MDA_DESC</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_AM_DESC</Description>
+		</HintInfo>
+		<HintInfo>
+			<Description>TXT_KEY_GATE_DESC</Description>
+		</HintInfo>
+	</HintInfos>
+</Civ4Hints>
