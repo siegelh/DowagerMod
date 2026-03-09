@@ -1,0 +1,30 @@
+<application
+	title="Sid Meier's Civilization IV: Beyond The Sword"
+	id="{EF3B66FA-537F-449b-9A30-26A75691AA3D}"
+	companyName="Firaxis Games"
+>
+	<entrypoint
+    		id="{D33A1D3C-15CB-4c82-84F4-9FA15FAAD752}"
+    		run=".\Civ4BtS-MCE.lnk"
+    		title="Sid Meier's Civilization IV: Beyond The Sword"
+    		nowPlayingDirective=""
+    		description="Play Sid Meier's Civilization IV: Beyond The Sword"
+    		imageUrl=".\Assets\res\BeyondTheSword_BoxArt.jpg"
+    		inactiveImageURL=".\Assets\res\BeyondTheSword_BoxArt.jpg"
+    		context=""
+    		UiFlags="HideTransportToolbar"
+	>
+		<capabilitiesRequired
+        		directX="true"
+        		audio="false"
+        		video="false"
+        		intensiveRendering="true"
+        		console="false"
+		>
+		</capabilitiesRequired>
+		<category
+    			category="Services\Games"
+		>
+		</category>
+	</entrypoint>
+</application>
