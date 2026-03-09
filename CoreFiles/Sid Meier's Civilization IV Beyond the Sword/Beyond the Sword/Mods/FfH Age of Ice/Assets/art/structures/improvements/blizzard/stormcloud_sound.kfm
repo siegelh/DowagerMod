@@ -1,0 +1,10 @@
+;Gamebryo KFM File Version 1.0
+
+DEFAULTPATHS#1#
+DEFAULTNIFPATH#NULL#
+DEFAULTKFPATH#NULL#
+MODEL#stormcloud_sound.nif#stormcloud_parent#
+
+ANIMATION#EVENTCODE 0#stormcloud#stormcloud_sound_stormcloud_parent_stormcloud.kf#INDEX 0#
+
+END_KFM_FILE

@@ -1,0 +1,5 @@
+
+1. Fixed the graphics bug on Caerbulin's Assassin form.
+2. The Doviello won't surrender if Lugh is alive.
+3. Converted to the new DeclareWar func.
+4. Converted to the new Civ4TerrainPlaneInfos.xml.

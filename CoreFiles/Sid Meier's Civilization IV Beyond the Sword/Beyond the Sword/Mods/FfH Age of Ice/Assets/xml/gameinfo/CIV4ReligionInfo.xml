@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Mark Cromer (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Religion -->
+<Civ4ReligionInfo xmlns="x-schema:CIV4GameInfoSchema.xml">
+	<ReligionInfos>
+		<ReligionInfo>
+			<Type>RELIGION_THE_WHITE_HAND</Type>
+			<Description>TXT_KEY_RELIGION_THE_WHITE_HAND</Description>
+			<Adjective>TXT_KEY_RELIGION_THE_WHITE_HAND_ADJECTIVE</Adjective>
+			<Civilopedia>TXT_KEY_RELIGION_THE_WHITE_HAND_PEDIA</Civilopedia>
+			<TechPrereq>NONE</TechPrereq>
+			<FreeUnitClass>NONE</FreeUnitClass>
+			<iFreeUnits>0</iFreeUnits>
+			<iSpreadFactor>0</iSpreadFactor>
+			<GlobalReligionCommerces>
+				<iGlobalReligionCommerce>1</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>0</iGlobalReligionCommerce>
+				<iGlobalReligionCommerce>0</iGlobalReligionCommerce>
+			</GlobalReligionCommerces>
+			<HolyCityCommerces>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
+				<iHolyCityCommerce>3</iHolyCityCommerce>
+			</HolyCityCommerces>
+			<StateReligionCommerces>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>0</iStateReligionCommerce>
+				<iStateReligionCommerce>1</iStateReligionCommerce>
+			</StateReligionCommerces>
+			<Button>Art/Interface/Buttons/Religions/Thewhitehand.dds</Button>
+			<TechButton>Art/Interface/Buttons/Religions/Thewhitehand.dds</TechButton>
+			<GenericTechButton>Art/Interface/Buttons/Religions/Thewhitehand.dds</GenericTechButton>
+			<MovieFile>Art/Movies/Religion/Judaism/Jud_Found.nif</MovieFile>
+			<MovieSound>AS2D_BUILD_JEWISH_MOVIE</MovieSound>
+			<Sound>AS2D_BUILD_JEWISH</Sound>
+		</ReligionInfo>
+	</ReligionInfos>
+</Civ4ReligionInfo>

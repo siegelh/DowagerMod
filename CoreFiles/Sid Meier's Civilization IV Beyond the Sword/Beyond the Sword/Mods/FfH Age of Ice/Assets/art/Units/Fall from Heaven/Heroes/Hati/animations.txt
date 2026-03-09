@@ -1,0 +1,1 @@
+you may rename the "aztec_jaguar_md_idle.kf WARRIOR" to "aztec_jaguar_md_idle.kf" to switch the idle animation, if you think the Beast should be in a more aggressive pose.

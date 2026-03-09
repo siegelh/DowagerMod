@@ -1,0 +1,1629 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Created with the FfH editor by Kael -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text - Units -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ARCHERY_RANGE</Tag>
+		<English>Archery Range</English>
+		<French>Champ de tir</French>
+		<German>Bogenschie&#223;platz</German>
+		<Italian>Poligono per arcieri</Italian>
+		<Spanish>Campo de tiro con arco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BEAR_TOTEM</Tag>
+		<English>Bear Totem</English>
+		<French>Totem Ours</French>
+		<German>B&#228;rentotem</German>
+		<Italian>Totem dell'orso</Italian>
+		<Spanish>T&#243;tem oso</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BURIAL_MOUND</Tag>
+		<English>Burial Mound</English>
+		<French>Mont Fun&#233;raire</French>
+		<German>Grabh&#252;gel</German>
+		<Italian>Tumulo funerario</Italian>
+		<Spanish>T&#250;mulo funerario</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_CODEX_EDDA</Tag>
+		<English>Codex Edda</English>
+		<French>Codex Edda</French>
+		<German>Codex Edda</German>
+		<Italian>Codex Edda</Italian>
+		<Spanish>C&#243;dice Edda</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_DANCING_BEAR</Tag>
+		<English>Dancing Bear</English>
+		<French>Ours dansant</French>
+		<German>Tanzb&#228;r</German>
+		<Italian>Orso danzante</Italian>
+		<Spanish>Oso bailar&#237;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ELDER_COUNCIL</Tag>
+		<English>Elder Council</English>
+		<French>Conseil des Anciens</French>
+		<German>&#196;ltestenrat</German>
+		<Italian>Consiglio degli anziani</Italian>
+		<Spanish>Consejo de ancianos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HERBALIST</Tag>
+		<English>Herbalist</English>
+		<French>Herboriste</French>
+		<German>Kr&#228;uterkundler</German>
+		<Italian>Erbalista</Italian>
+		<Spanish>Herbolario</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HERMETIC_SANCTUARY</Tag>
+		<English>Hermetic Sanctuary</English>
+		<French>Sanctuaire D&#233;rob&#233;</French>
+		<German>Abgeriegeltes Heiligtum</German>
+		<Italian>Santuario ermetico</Italian>
+		<Spanish>Santuario herm&#233;tico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HUNTING_LODGE</Tag>
+		<English>Hunting Lodge</English>
+		<French>Pavillon de chasse</French>
+		<German>Jagdh&#252;tte</German>
+		<Italian>Capanno da caccia</Italian>
+		<Spanish>Pabell&#243;n de caza</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INFIRMARY</Tag>
+		<English>Infirmary</English>
+		<French>Infirmerie</French>
+		<German>Krankenhaus</German>
+		<Italian>Lazzaretto</Italian>
+		<Spanish>Enfermer&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_PALACE_AMURITES</Tag>
+		<English>Amurite Palace</English>
+		<French>Palais amurite</French>
+		<German>Amuritenpalast</German>
+		<Italian>Palazzo amurita</Italian>
+		<Spanish>Palacio amurita</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SIEGE_WORKSHOP</Tag>
+		<English>Siege Workshop</English>
+		<French>Atelier de si&#232;ge</French>
+		<German>Belagerungswerkst&#228;tte</German>
+		<Italian>Laboratorio da assedio</Italian>
+		<Spanish>Taller de armas de asedio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SMOKEHOUSE</Tag>
+		<English>Smokehouse</English>
+		<French>Fumoir</French>
+		<German>R&#228;ucherkammer</German>
+		<Italian>Affumicatoio</Italian>
+		<Spanish>Casa del humo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_SPIDER_PEN</Tag>
+		<English>Spider Pen</English>
+		<French>Cage &#224;  araign&#233;e</French>
+		<German>Spinnenpferch</German>
+		<Italian>Recinto dei ragni</Italian>
+		<Spanish>Jaula de ara&#241;as</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STABLE</Tag>
+		<English>Stable</English>
+		<French>Etable</French>
+		<German>Stall</German>
+		<Italian>Stalla</Italian>
+		<Spanish>Establo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_STAG_HIDE</Tag>
+		<English>The Great Stag Hide</English>
+		<French>La peau du Grand cerf</French>
+		<German>Unterstand des Gro&#223;en Hirschen</German>
+		<Italian>Pelle del Grande cervo</Italian>
+		<Spanish>Piel del gran ciervo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TEMPLE_OF_THE_HAND</Tag>
+		<English>Temple of the Hand</English>
+		<French>Temple de la Main</French>
+		<German>Tempel der Hand</German>
+		<Italian>Tempio della Mano</Italian>
+		<Spanish>Templo de la mano</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TOMB_OF_SUCELLUS</Tag>
+		<English>Tomb of Sucellus</English>
+		<French>Tombe de Sucellus</French>
+		<German>Sucellus-Grab</German>
+		<Italian>Tomba di Sucellus</Italian>
+		<Spanish>Tumba de Sucellus</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TRAINING_YARD</Tag>
+		<English>Training Yard</English>
+		<French>Cour d'entra&#238;nement</French>
+		<German>&#220;bungsplatz</German>
+		<Italian>Campo da addestramento</Italian>
+		<Spanish>Campo de entrenamiento</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_TROPHY_HALLS</Tag>
+		<English>Trophy Halls</English>
+		<French>Salles des Troph&#233;es</French>
+		<German>Troph&#228;enhalle</German>
+		<Italian>Sale dei trofei</Italian>
+		<Spanish>Sala de trofeos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WELL</Tag>
+		<English>Well</English>
+		<French>Puits</French>
+		<German>Brunnen</German>
+		<Italian>Pozzo</Italian>
+		<Spanish>Pozo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WOLF_PEN</Tag>
+		<English>Wolf Pen</English>
+		<French>Cage &#224; loup</French>
+		<German>Wolfspferch</German>
+		<Italian>Recinto dei lupi</Italian>
+		<Spanish>Jaula de lobos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_AMURITES_ADJECTIVE</Tag>
+		<English>Amurite</English>
+		<French>Amurite</French>
+		<German>
+			<Text>Amuritisch:amuritischen:amuritische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>degli Amuriti</Italian>
+		<Spanish>de los amuritas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_AMURITES_DESC</Tag>
+		<English>Amurites Empire</English>
+		<French>Empire des Amurites</French>
+		<German>
+			<Text>Amuritisches Reich:Amuritische Reich:Amuritischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Impero amurita</Italian>
+		<Spanish>Imperio de los amuritas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_AMURITES_SHORT_DESC</Tag>
+		<English>Amurites</English>
+		<French>Amurites</French>
+		<German>
+			<Text>Amuritenland</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Amuriti</Italian>
+		<Spanish>Tierra Amurita</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_DOVIELLO_ADJECTIVE</Tag>
+		<English>Doviello</English>
+		<French>Doviello</French>
+		<German>
+			<Text>Doviellisch:doviellischen:doviellische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>dei Doviello</Italian>
+		<Spanish>de los doviellos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_DOVIELLO_DESC</Tag>
+		<English>Doviello Empire</English>
+		<French>Empire des Doviellos</French>
+		<German>
+			<Text>Doviello-Reich:Doviello-Reich:Doviello-Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Impero doviello</Italian>
+		<Spanish>Imperio de los doviellos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_DOVIELLO_SHORT_DESC</Tag>
+		<English>Doviello</English>
+		<French>Doviello</French>
+		<German>
+			<Text>Doviello</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Doviello</Italian>
+		<Spanish>Tierra Doviella</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ILLIANS_ADJECTIVE</Tag>
+		<English>Illian</English>
+		<French>Illian</French>
+		<German>
+			<Text>Illianisch:illianischen:illianische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>degli Illian</Italian>
+		<Spanish>de los ilios</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ILLIANS_DESC</Tag>
+		<English>Illians Empire</English>
+		<French>Empire des Illians</French>
+		<German>
+			<Text>Illianisches Reich:Illianische Reich:Illianischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Impero degli Illian</Italian>
+		<Spanish>Imperio de los ilios</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ILLIANS_SHORT_DESC</Tag>
+		<English>Illians</English>
+		<French>Illians</French>
+		<German>
+			<Text>Illian</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Illian</Italian>
+		<Spanish>Tierra Ilia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_APPRENTICESHIP</Tag>
+		<English>Apprenticeship</English>
+		<French>Apprentissage</French>
+		<German>Ausbildung</German>
+		<Italian>Apprendistato</Italian>
+		<Spanish>Aprendizaje</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_FINAL_BATTLE</Tag>
+		<English>Final Battle</English>
+		<French>Bataille finale</French>
+		<German>Letzte Schlacht</German>
+		<Italian>Battaglia finale</Italian>
+		<Spanish>Batalla final</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_RITES_OF_REMEMBERANCE</Tag>
+		<English>Rites of Rememberance</English>
+		<French>Rites du souvenir</French>
+		<German>Riten der Erinnerung</German>
+		<Italian>Riti di commemorazione</Italian>
+		<Spanish>Rituales de conmemoraci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_BONES</Tag>
+		<English>Bones</English>
+		<French>Os</French>
+		<German>Knochen</German>
+		<Italian>Ossa</Italian>
+		<Spanish>Tabas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_CHANCEL</Tag>
+		<English>Chancel</English>
+		<French>Choeur d'&#233;glise</French>
+		<German>Altarraum</German>
+		<Italian>Presbiterio</Italian>
+		<Spanish>Presbiterio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_CRATER</Tag>
+		<English>Crater</English>
+		<French>Crat&#232;re</French>
+		<German>Krater</German>
+		<Italian>Cratere</Italian>
+		<Spanish>Cr&#225;ter</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_FROST_GIANT_CASTLE</Tag>
+		<English>Utgard</English>
+		<French>Utgard</French>
+		<German>Utgard</German>
+		<Italian>Utgard</Italian>
+		<Spanish>Utgard</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_FROZEN_SHIP</Tag>
+		<English>Frozen Ship</English>
+		<French>Navire gel&#233;</French>
+		<German>Gefrorenes Schiff</German>
+		<Italian>Nave ghiacciata</Italian>
+		<Spanish>Nave atrapada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_GEYSER</Tag>
+		<English>Geyser</English>
+		<French>Geyser</French>
+		<German>Geysir</German>
+		<Italian>Geyser</Italian>
+		<Spanish>G&#233;iser</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_HUT</Tag>
+		<English>Frostling Hut</English>
+		<French>Hutte de Cr&#233;ature de gel</French>
+		<German>Frostling-H&#252;tte</German>
+		<Italian>Capanna degli Ibernati</Italian>
+		<Spanish>Choza de engendros de la escarcha</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_LETUM_FRIGUS</Tag>
+		<English>Letum Frigus</English>
+		<French>Letum Frigus</French>
+		<German>Letum Frigus</German>
+		<Italian>Letum Frigus</Italian>
+		<Spanish>Letum Frigus</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_ROCK_ARCH</Tag>
+		<English>Rock Arch</English>
+		<French>Arche de roc</French>
+		<German>Felsbogen</German>
+		<Italian>Arco di roccia</Italian>
+		<Spanish>Arco de piedra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_TOWER</Tag>
+		<English>Tower</English>
+		<French>Tour</French>
+		<German>Turm</German>
+		<Italian>Torre</Italian>
+		<Spanish>Torre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_TRAP</Tag>
+		<English>Trap</English>
+		<French>Pi&#232;ge</French>
+		<German>Falle</German>
+		<Italian>Trappola</Italian>
+		<Spanish>Trampa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_VOLCANO</Tag>
+		<English>Volcano</English>
+		<French>Volcan</French>
+		<German>Vulkan</German>
+		<Italian>Vulcano</Italian>
+		<Spanish>Volc&#225;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_BLIZZARD</Tag>
+		<English>Blizzard</English>
+		<French>Blizzard</French>
+		<German>Schneesturm</German>
+		<Italian>Tempesta di neve</Italian>
+		<Spanish>Ventisca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IMPROVEMENT_MAMMOTH_CAMP</Tag>
+		<English>Mammoth Camp</English>
+		<French>Camp de mammouths</French>
+		<German>Mammutlager</German>
+		<Italian>Campo per mammut</Italian>
+		<Spanish>Campamento de mamuts</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INVISIBLE_ANIMAL</Tag>
+		<English>Hidden Animals</English>
+		<French>Animaux cach&#233;s</French>
+		<German>Verborgene Tiere</German>
+		<Italian>Animali nascosti</Italian>
+		<Spanish>Animales ocultos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_CHARADON</Tag>
+		<English>Charadon</English>
+		<French>Charadon</French>
+		<German>
+			<Text>Caradon</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Charadon</Italian>
+		<Spanish>Charadon</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_KYLORIN</Tag>
+		<English>Kylorin</English>
+		<French>Kylorin</French>
+		<German>
+			<Text>Kylorin</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Kylorin</Italian>
+		<Spanish>Kylorin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_MULCARN</Tag>
+		<English>Mulcarn, God of Winter</English>
+		<French>Mulcarn, Dieu de l'hiver</French>
+		<German>
+			<Text>Mulcarn, Gott des Winters</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Mulcarn, Dio dell'Inverno</Italian>
+		<Spanish>Mulcarn, dios del invierno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_AGE_OF_ICE</Tag>
+		<English>Fall from Heaven: Age of Ice</English>
+		<French>Fall from Heaven: L'Age de Glace</French>
+		<German>Fall from Heaven: Age of Ice</German>
+		<Italian>Fall from Heaven: l'Era Glaciale</Italian>
+		<Spanish>Fall from Heaven: Age of Ice</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_COVER2</Tag>
+		<English>Cover II</English>
+		<French>Couvert II</French>
+		<German>
+			<Text>Deckung II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Copertura II</Italian>
+		<Spanish>Cobertura II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_FORMATION2</Tag>
+		<English>Formation II</English>
+		<French>Formation II</French>
+		<German>
+			<Text>Formation II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Formazione II</Italian>
+		<Spanish>Formaci&#243;n II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GODSLAYER_BLADE</Tag>
+		<English>Godslayer Blade</English>
+		<French>Lame de la Tueuse de dieux</French>
+		<German>
+			<Text>Klinge des G&#246;tterschl&#228;chters</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Lama della Castigadei</Italian>
+		<Spanish>Hoja de la Asesina de Dioses</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GODSLAYER_CROSSGUARD</Tag>
+		<English>Godslayer Crossguard</English>
+		<French>Garde de la Tueuse de dieux</French>
+		<German>
+			<Text>Parierstange des G&#246;tterschl&#228;chters</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Guardia della Castigadei</Italian>
+		<Spanish>Guarda de la Asesina de Dioses</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_GODSLAYER_HILT</Tag>
+		<English>Godslayer Hilt</English>
+		<French>PoignC)e de la Tueuse de dieux</French>
+		<German>
+			<Text>Heft des G&#246;tterschl&#228;chters</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Elsa della Castigadei</Italian>
+		<Spanish>Empu&#241;adura de la Asesina de Dioses</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_HAMSTRUNG</Tag>
+		<English>Hamstrung</English>
+		<French>Paralys&#233;</French>
+		<German>
+			<Text>Gel&#228;hmt</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Azzoppato</Italian>
+		<Spanish>Desjarretado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_HAS_CASTED</Tag>
+		<English>Has Casted</English>
+		<French>A lanc&#233;</French>
+		<German>
+			<Text>Zauber gewirkt</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Ha lanciato</Italian>
+		<Spanish>Ha conjurado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_HASTED</Tag>
+		<English>Hasted</English>
+		<French>H&#226;te</French>
+		<German>
+			<Text>Gehetzt</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Velocizzato</Italian>
+		<Spanish>Acelerado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARK_OF_THE_BAT</Tag>
+		<English>Mark of the Bat</English>
+		<French>Marque de la chauve-souris</French>
+		<German>
+			<Text>Zeichen der Fledermaus</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Marchio del Pipistrello</Italian>
+		<Spanish>Marca del murci&#233;lago</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARK_OF_THE_DOG</Tag>
+		<English>Mark of the Dog</English>
+		<French>Marque du chien</French>
+		<German>
+			<Text>Zeichen des Hundes</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Marchio del Cane</Italian>
+		<Spanish>Marca del perro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARK_OF_THE_HORSE</Tag>
+		<English>Mark of the Horse</English>
+		<French>Marque du cheval</French>
+		<German>
+			<Text>Zeichen des Pferdes</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Marchio del Cavallo</Italian>
+		<Spanish>Marca del caballo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARK_OF_THE_RABBIT</Tag>
+		<English>Mark of the Rabbit</English>
+		<French>Marque du lapin</French>
+		<German>
+			<Text>Zeichen des Hasen</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Marchio del Coniglio</Italian>
+		<Spanish>Marca del conejo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARK_OF_THE_RAT</Tag>
+		<English>Mark of the Rat</English>
+		<French>Marque du rat</French>
+		<German>
+			<Text>Zeichen der Ratte</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Marchio del Ratto</Italian>
+		<Spanish>Marca de la rata</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARK_OF_THE_RAVEN</Tag>
+		<English>Mark of the Raven</English>
+		<French>Marque du corbeau</French>
+		<German>
+			<Text>Zeichen des Raben</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Marchio del Corvo</Italian>
+		<Spanish>Marca del cuervo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_MARK_OF_THE_SCORPION</Tag>
+		<English>Mark of the Scorpion</English>
+		<French>Marque du scorpion</French>
+		<German>
+			<Text>Zeichen des Skorpions</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Marchio dello Scorpione</Italian>
+		<Spanish>Marca del escorpi&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_ORB_OF_SUCELLUS</Tag>
+		<English>Orb of Sucellus</English>
+		<French>Orbe de Sucellus</French>
+		<German>
+			<Text>Kugel des Sucellus</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Sfera di Sucellus</Italian>
+		<Spanish>Orbe de Sucellus</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_RESIST_COLD</Tag>
+		<English>Resist Cold</English>
+		<French>Resistance au froid</French>
+		<German>
+			<Text>K&#228;lteresistenz</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Resistenza al freddo</Italian>
+		<Spanish>Resistir el fr&#237;o</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SHOCK2</Tag>
+		<English>Shock II</English>
+		<French>Choc II</French>
+		<German>
+			<Text>Schock II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Shock II</Italian>
+		<Spanish>Choque II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SUBDUE_ANIMAL</Tag>
+		<English>Subdue Animal</English>
+		<French>Dompter Animal</French>
+		<German>
+			<Text>Tierb&#228;ndigung</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Sottomettere animali</Italian>
+		<Spanish>Domar animales</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_THE_WHITE_HAND</Tag>
+		<English>The White Hand</English>
+		<French>La Main Blanche</French>
+		<German>
+			<Text>Die Wei&#223;e Hand</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>La Mano Bianca</Italian>
+		<Spanish>Culto de la Mano Blanca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALIST_ARTIST</Tag>
+		<English>Bard</English>
+		<French>Barde</French>
+		<German>
+			<Text>Barde</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bardo</Italian>
+		<Spanish>Bardo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALIST_GREAT_ARTIST</Tag>
+		<English>Great Bard</English>
+		<French>Grand barde</French>
+		<German>
+			<Text>Gro&#223;er Barde</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Grande Bardo</Italian>
+		<Spanish>Gran bardo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALIST_GREAT_SCIENTIST</Tag>
+		<English>Great Sage</English>
+		<French>Grand sage</French>
+		<German>
+			<Text>Gro&#223;er Weiser</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Grande Saggio</Italian>
+		<Spanish>Gran sabio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALIST_SCIENTIST</Tag>
+		<English>Sage</English>
+		<French>Sage</French>
+		<German>
+			<Text>Weiser</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Saggio</Italian>
+		<Spanish>Sabio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ANCIENT_CHANTS</Tag>
+		<English>Ancient Chants</English>
+		<French>Chants anciens</French>
+		<German>
+			<Text>Antike Ges&#228;nge</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Canti antichi</Italian>
+		<Spanish>Cantos antiguos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ANIMAL_HANDLING</Tag>
+		<English>Animal Handling</English>
+		<French>Domptage</French>
+		<German>
+			<Text>Tierumgang</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Trattamento animali</Italian>
+		<Spanish>Trato con animales</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_BOWYERS</Tag>
+		<English>Bowyers</English>
+		<French>Fabricants d'arcs</French>
+		<German>
+			<Text>Bogenfertigung</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Creatori d'archi</Italian>
+		<Spanish>Arqueros</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_DOMESTICATE_MAMMOTHS</Tag>
+		<English>Domesticate Mammoths</English>
+		<French>Domestiquer mammouths</French>
+		<German>
+			<Text>Mammut-Domestizierung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Addomesticare mammut</Italian>
+		<Spanish>Domesticar mamuts</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_EXPLORATION</Tag>
+		<English>Exploration</English>
+		<French>Exploration</French>
+		<German>
+			<Text>Erkundung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Esplorazione</Italian>
+		<Spanish>Exploraci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_KNOWLEDGE_OF_THE_ETHER</Tag>
+		<English>Knowledge of the Ether</English>
+		<French>Connaissance de l'Ether</French>
+		<German>
+			<Text>&#196;therwissen</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Conoscenza dell'Etere</Italian>
+		<Spanish>Conocimiento del &#233;ter</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MILITARY_STRATEGY</Tag>
+		<English>Military Strategy</English>
+		<French>Strat&#233;gie militaire</French>
+		<German>
+			<Text>Milit&#228;rstrategie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Strategia militare</Italian>
+		<Spanish>Estrategia militar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_SMELTING</Tag>
+		<English>Smelting</English>
+		<French>Fonte</French>
+		<German>
+			<Text>Schmieden</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fusione</Italian>
+		<Spanish>Fundici&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_STEALTH</Tag>
+		<English>Stealth</English>
+		<French>Furtivit&#233;</French>
+		<German>
+			<Text>Unauff&#228;lligkeit</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Furtivit&#224;</Italian>
+		<Spanish>Sigilo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_TRACKING</Tag>
+		<English>Tracking</English>
+		<French>Pistage</French>
+		<German>
+			<Text>F&#228;hrtenlesen</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Seguire tracce</Italian>
+		<Spanish>Rastreo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WINTER_TECH_I</Tag>
+		<English>Winter Tech I</English>
+		<French>Tech Hiver I</French>
+		<German>
+			<Text>Wintertechnologie I</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tecnologia invernale I</Italian>
+		<Spanish>Tecnolog&#237;a de invierno I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WINTER_TECH_II</Tag>
+		<English>Winter Tech II</English>
+		<French>Tech Hiver II</French>
+		<German>
+			<Text>Wintertechnologie II</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tecnologia invernale II</Italian>
+		<Spanish>Tecnolog&#237;a de invierno II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WINTER_TECH_III</Tag>
+		<English>Winter Tech III</English>
+		<French>Tech Hiver III</French>
+		<German>
+			<Text>Wintertechnologie III</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tecnologia invernale III</Italian>
+		<Spanish>Tecnolog&#237;a de invierno III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WINTER_TECH_IV</Tag>
+		<English>Winter Tech IV</English>
+		<French>Tech Hiver IV</French>
+		<German>
+			<Text>Wintertechnologie IV</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tecnologia invernale IV</Italian>
+		<Spanish>Tecnolog&#237;a de invierno IV</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TERRAIN_COAST_FROZEN</Tag>
+		<English>Frozen Coast</English>
+		<French>C&#244;te gel&#233;e</French>
+		<German>
+			<Text>Gefrorene K&#252;ste</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Costa ghiacciata</Italian>
+		<Spanish>Costa helada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TIME_AD</Tag>
+		<English>Age of Ice, yr %d1_Date</English>
+		<French>Age de glace, an %d1_Date</French>
+		<German>Age of Ice, anno %d1_Date</German>
+		<Italian>L'Era Glaciale, anno %d1_Date</Italian>
+		<Spanish>Edad de Hielo, a&#241;o %d1_Date</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ASSASSIN</Tag>
+		<English>Assassin</English>
+		<French>Assassin</French>
+		<German>
+			<Text>Meuchler</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Assassino</Italian>
+		<Spanish>Asesino</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BELENUS</Tag>
+		<English>Belenus the Swordsman</English>
+		<French>Belenus l'Escrimeur</French>
+		<German>
+			<Text>Belenus der Schwertk&#228;mpfer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Belenus lo spadaccino</Italian>
+		<Spanish>Belenus, el soldado con espada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BELENUS_MACEMAN</Tag>
+		<English>Belenus (Maceman)</English>
+		<French>Belenus (avec masse)</French>
+		<German>
+			<Text>Belenus (Streitkolbentr&#228;ger)</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Belenus (guerriero con mazza)</Italian>
+		<Spanish>Belenus (macero)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_BELENUS_PIKEMAN</Tag>
+		<English>Belenus (Pikeman)</English>
+		<French>Belenus (piquier)</French>
+		<German>
+			<Text>Belenus (Pikenier)</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Belenus (picchiere)</Italian>
+		<Spanish>Belenus (piquero)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CAERBULIN</Tag>
+		<English>Caerbulin the Hunter</English>
+		<French>Caerbulin le Chasseur</French>
+		<German>
+			<Text>Caerbulin der J&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Caerbulin il cacciatore</Italian>
+		<Spanish>Caerbulin, el cazador</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CAERBULIN_ASSASSIN</Tag>
+		<English>Caerbulin (Assassin)</English>
+		<French>Caerbulin (Assassin)</French>
+		<German>
+			<Text>Caerbulin (Meuchler)</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Caerbulin (assassino)</Italian>
+		<Spanish>Caerbulin (asesino)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CAERBULIN_RANGER</Tag>
+		<English>Caerbulin (Ranger)</English>
+		<French>Caerbulin (Ranger)</French>
+		<German>
+			<Text>Caerbulin (Waldl&#228;ufer)</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Caerbulin (ranger)</Italian>
+		<Spanish>Caerbulin (montaraz)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_CHILDREN_OF_KYLORIN</Tag>
+		<English>Children of Kylorin</English>
+		<French>Enfants de Kylorin</French>
+		<German>
+			<Text>Kinder des Kylorin</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Figli di Kylorin</Italian>
+		<Spanish>Hijos de Kylorin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DISCIPLE_OF_MULCARN</Tag>
+		<English>Disciple of Mulcarn</English>
+		<French>Disciple de Mulcarn</French>
+		<German>
+			<Text>J&#252;nger Mulcarns</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Discepolo di Mulcarn</Italian>
+		<Spanish>Disc&#237;pulo de Mulcarn</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_DRIFA</Tag>
+		<English>Drifa, the White Dragon</English>
+		<French>Drifa, le Dragon blanc</French>
+		<German>
+			<Text>Drifa der Wei&#223;e Drache</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Drifa, il Drago bianco</Italian>
+		<Spanish>Drifa, el drag&#243;n blanco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EPONA</Tag>
+		<English>Epona the Mystic</English>
+		<French>Epona la Mystique</French>
+		<German>
+			<Text>Epona die Mystikerin</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Epona la mistica</Italian>
+		<Spanish>Epona, la m&#237;stica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EPONA_SORCERESS</Tag>
+		<English>Epona (Sorceress)</English>
+		<French>Epona (Enchanteresse)</French>
+		<German>
+			<Text>Epona (Zauberin)</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Epona (maga)</Italian>
+		<Spanish>Epona (hechicera)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_EPONA_WITCH</Tag>
+		<English>Epona (Witch)</English>
+		<French>Epona (Sorci&#232;re)</French>
+		<German>
+			<Text>Epona (Hexe)</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Epona (strega)</Italian>
+		<Spanish>Epona (bruja)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FIACRA</Tag>
+		<English>Fiacra the North Wind</English>
+		<French>Fiacra le Vent Septentrional</French>
+		<German>
+			<Text>Fiacra der Nordwind</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fiacra, il Vento del nord</Italian>
+		<Spanish>Fiacra, el viento del Norte</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FIREBALL</Tag>
+		<English>Fireball</English>
+		<French>Boule de feu</French>
+		<German>
+			<Text>Feuerball</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Palla di fuoco</Italian>
+		<Spanish>Bola de fuego</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FLOATING_EYE</Tag>
+		<English>Floating Eye</English>
+		<French>Oeil flottant</French>
+		<German>
+			<Text>Schwebendes Auge</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Occhio volante</Italian>
+		<Spanish>Ojo flotante</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FROST_GIANT</Tag>
+		<English>Frost Giant</English>
+		<French>G&#233;ant de glace</French>
+		<German>
+			<Text>Frostriese</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Gigante di ghiaccio</Italian>
+		<Spanish>Gigante de la escarcha</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FROSTLING</Tag>
+		<English>Frostling</English>
+		<French>Cr&#233;ature de gel</French>
+		<German>
+			<Text>Frostling</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Ibernato</Italian>
+		<Spanish>Engendro de la escarcha</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FROSTLING_ARCHER</Tag>
+		<English>Frostling Archer</English>
+		<French>Cr&#233;ature de gel avec arc</French>
+		<German>
+			<Text>Frostling-Bogensch&#252;tze</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Arciere ibernato</Italian>
+		<Spanish>Engendro de la escarcha arquero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FROSTLING_HUNTER</Tag>
+		<English>Frostling Hunter</English>
+		<French>Cr&#233;ature de gel chasseur</French>
+		<German>
+			<Text>Frostling-J&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cacciatore ibernato</Italian>
+		<Spanish>Engendro de la escarcha cazador</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GIANT_SPIDER</Tag>
+		<English>Giant Spider</English>
+		<French>Araign&#233;e g&#233;ante</French>
+		<German>
+			<Text>Riesenspinne</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Ragno gigante</Italian>
+		<Spanish>Ara&#241;a gigante</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GODSLAYER_BLADE</Tag>
+		<English>Godslayer, Blade</English>
+		<French>Tueuse de dieux, lame</French>
+		<German>
+			<Text>G&#246;tterschl&#228;chter, Klinge</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Castigadei, lama</Italian>
+		<Spanish>Asesina de Dioses, hoja</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GODSLAYER_CROSSGUARD</Tag>
+		<English>Godslayer, Crossguard</English>
+		<French>Tueuse de dieux, garde</French>
+		<German>
+			<Text>G&#246;tterschl&#228;chter, Parierstange</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Castigadei, guardia</Italian>
+		<Spanish>Asesina de Dioses, guarda</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GODSLAYER_HILT</Tag>
+		<English>Godslayer, Hilt</English>
+		<French>Tueuse de dieux, poign&#233;e</French>
+		<German>
+			<Text>G&#246;tterschl&#228;chter, Heft</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Castigadei, elsa</Italian>
+		<Spanish>Asesina de Dioses, empu&#241;adura</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HATI</Tag>
+		<English>Hati</English>
+		<French>Hati</French>
+		<German>
+			<Text>Hati</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Hati</Italian>
+		<Spanish>Hati</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HORSEMAN</Tag>
+		<English>Horseman</English>
+		<French>Cavalier</French>
+		<German>
+			<Text>Reiter</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cavaliere</Italian>
+		<Spanish>Jinete</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HUNTER</Tag>
+		<English>Hunter</English>
+		<French>Chasseur</French>
+		<German>
+			<Text>J&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cacciatore</Italian>
+		<Spanish>Cazador</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ICE_GOLEM</Tag>
+		<English>Ice Golem</English>
+		<French>Golem de glace</French>
+		<German>
+			<Text>Eisgolem</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Golem di ghiaccio</Italian>
+		<Spanish>G&#243;lem de hielo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_JAVELIN_THROWER</Tag>
+		<English>Javelin Thrower</English>
+		<French>Lanceur de javelot</French>
+		<German>
+			<Text>Speerwerfer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Lanciatore di giavellotto</Italian>
+		<Spanish>Lanzador de jabalinas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_KYLORIN</Tag>
+		<English>Kylorin</English>
+		<French>Kylorin</French>
+		<German>
+			<Text>Kylorin</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Kylorin</Italian>
+		<Spanish>Kylorin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_LUGH</Tag>
+		<English>Lugh the Wolf</English>
+		<French>Lugh le Loup</French>
+		<German>
+			<Text>Lugh der Wolf</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Lugh il Lupo</Italian>
+		<Spanish>Lugh, el Lobo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MALUS</Tag>
+		<English>Malus of the Five</English>
+		<French>Malus des cinq</French>
+		<German>
+			<Text>Malus von den F&#252;nf</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Malus dei Cinque</Italian>
+		<Spanish>Malus de los Cinco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MAMMOTH</Tag>
+		<English>Mammoth</English>
+		<French>Mammouth</French>
+		<German>
+			<Text>Mammut</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Mammut</Italian>
+		<Spanish>Mamut</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MAMMOTH_RIDER</Tag>
+		<English>Mammoth Rider</English>
+		<French>Chevaucheur de mammouth</French>
+		<German>
+			<Text>Mammutreiter</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cavaliere di mammut</Italian>
+		<Spanish>Jinete de mamuts</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MOKKA</Tag>
+		<English>Mokka</English>
+		<French>Mokka</French>
+		<German>
+			<Text>Mokka</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Mokka</Italian>
+		<Spanish>Mokka</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MULCARN</Tag>
+		<English>Mulcarn, God of Winter</English>
+		<French>Mulcarn, Dieu de l'hiver</French>
+		<German>
+			<Text>Mulcarn, Gott des Winters</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Mulcarn, Dio dell'Inverno</Italian>
+		<Spanish>Mulcarn, dios del invierno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_OGRE</Tag>
+		<English>Ogre</English>
+		<French>Ogre</French>
+		<German>
+			<Text>Oger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Orco</Italian>
+		<Spanish>Ogro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_OGRE_WARCHIEF</Tag>
+		<English>Ogre Warchief</English>
+		<French>Chef de guerre ogre</French>
+		<German>
+			<Text>Oger-Kriegsh&#228;uptling</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Capoguerriero orco</Italian>
+		<Spanish>Caudillo ogro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ORB_OF_SUCELLUS</Tag>
+		<English>Orb of Sucellus</English>
+		<French>Orbe de Sucellus</French>
+		<German>
+			<Text>Kugel des Sucellus</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Sfera di Sucellus</Italian>
+		<Spanish>Orbe de Sucellus</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_PIT_BEAST</Tag>
+		<English>Pit Beast</English>
+		<French>Cr&#233;ature des abysses</French>
+		<German>
+			<Text>Grubentier</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bestia infernale</Italian>
+		<Spanish>Bestia del foso</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_RANGER</Tag>
+		<English>Ranger</English>
+		<French>Ranger</French>
+		<German>
+			<Text>Waldl&#228;ufer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Ranger</Italian>
+		<Spanish>Montaraz</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SKELETON</Tag>
+		<English>Skeleton</English>
+		<French>Squelette</French>
+		<German>
+			<Text>Skelett</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Scheletro</Italian>
+		<Spanish>Esqueleto</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STAG</Tag>
+		<English>The Great Stag</English>
+		<French>Le Grand cerf</French>
+		<German>
+			<Text>Der Gro&#223;e Hirsch</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Il Grande cervo</Italian>
+		<Spanish>Gran ciervo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STONESKIN_OGRE</Tag>
+		<English>Stoneskin Ogre</English>
+		<French>Ogre coriace</French>
+		<German>
+			<Text>Steinhaut-Oger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Orco Pelle di pietra</Italian>
+		<Spanish>Ogro de piel p&#233;trea</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TARANIS</Tag>
+		<English>Taranis</English>
+		<French>Taranis</French>
+		<German>
+			<Text>Taranis</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Taranis</Italian>
+		<Spanish>Taranis</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WOLF_RIDER</Tag>
+		<English>Wolf Rider</English>
+		<French>Chevaucheur de loup</French>
+		<German>
+			<Text>Wolfsreiter</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cavaliere di lupi</Italian>
+		<Spanish>Jinete de lobos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_KENNEL</Tag>
+		<English>Kennel</English>
+		<French>Chenil</French>
+		<German>Zwinger</German>
+		<Italian>Canile</Italian>
+		<Spanish>Madriguera</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_EPONAS_HEARTH</Tag>
+		<English>Epona's Hearth</English>
+		<French>Domaine d'Epona</French>
+		<German>Eponas Herd</German>
+		<Italian>Crogiolo di Epona</Italian>
+		<Spanish>Hogar de Epona</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_AGRARIANISM</Tag>
+		<English>Agrarianism</English>
+		<French>Agriculture</French>
+		<German>Ackerbau</German>
+		<Italian>Agrarianesimo</Italian>
+		<Spanish>Agrarismo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_MAGEOCRACY</Tag>
+		<English>Mageocracy</English>
+		<French>Mageocratie</French>
+		<German>Magokratie</German>
+		<Italian>Magocrazia</Italian>
+		<Spanish>Magocracia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_MILITARY_DISCIPLINE</Tag>
+		<English>Military Discipline</English>
+		<French>Discipline militaire</French>
+		<German>Milit&#228;rische Disziplin</German>
+		<Italian>Disciplina militare</Italian>
+		<Spanish>Disciplina militar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_NOMADIC</Tag>
+		<English>Nomadic</English>
+		<French>Nomadisme</French>
+		<German>Nomaden</German>
+		<Italian>Nomade</Italian>
+		<Spanish>Nomadismo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_RITES_OF_REMEMBRANCE</Tag>
+		<English>Rites of Remembrance</English>
+		<French>Rites du souvenir</French>
+		<German>Ged&#228;chtnisriten</German>
+		<Italian>Riti di commemorazione</Italian>
+		<Spanish>Rituales de conmemoraci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_FFH_ARCHERY_BARRAGE</Tag>
+		<English>Fall from Heaven Archery Barrage</English>
+		<French>Barrage de fl&#232;ches de Fall from Heaven</French>
+		<German>Fall from Heaven-Pfeilsperrfeuer</German>
+		<Italian>Fuoco di fila degli arcieri di Fall from Heaven</Italian>
+		<Spanish>Lluvia de flechas de Fall from Heaven</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_FFH_CLIMATE</Tag>
+		<English>Fall from Heaven Climate</English>
+		<French>Climat de Fall from Heaven</French>
+		<German>Fall from Heaven-Klima</German>
+		<Italian>Clima di Fall from Heaven</Italian>
+		<Spanish>Clima de Fall from Heaven</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_FFH_HEROES</Tag>
+		<English>Fall from Heaven Heroes</English>
+		<French>H&#233;ros de Fall from Heaven</French>
+		<German>Fall from Heaven-Helden</German>
+		<Italian>Eroi di Fall from Heaven</Italian>
+		<Spanish>H&#233;roes de Fall from Heaven</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_FFH_ITEMS</Tag>
+		<English>Fall from Heaven Items</English>
+		<French>Objets de Fall from Heaven</French>
+		<German>Fall from Heaven-Gegenst&#228;nde</German>
+		<Italian>Oggetti di Fall from Heaven</Italian>
+		<Spanish>Objetos de Fall from Heaven</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_FFH_MONSTER_LAIRS</Tag>
+		<English>Fall from Heaven Monster Lairs</English>
+		<French>Repaires de monstres de Fall from Heaven</French>
+		<German>Fall from Heaven-Monsterverstecke</German>
+		<Italian>Tane dei mostri di Fall from Heaven</Italian>
+		<Spanish>Guaridas de monstruos de Fall from Heaven</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_FFH_SPELLS</Tag>
+		<English>Fall from Heaven Spells</English>
+		<French>Sorts de Fall from Heaven</French>
+		<German>Fall from Heaven-Zauberspr&#252;che</German>
+		<Italian>Incantesimi di Fall from Heaven</Italian>
+		<Spanish>Conjuros de Fall from Heaven</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_HUT_1</Tag>
+		<English>Frostling Den</English>
+		<French>Antre de Cr&#233;atures de gel</French>
+		<German>Frostlingbau</German>
+		<Italian>Tana degli Ibernati</Italian>
+		<Spanish>Guarida de engendros de la escarcha</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNITCOMBAT_ANIMAL</Tag>
+		<English>Animal Units</English>
+		<French>Unit&#233;s animales</French>
+		<German>Tiereinheiten</German>
+		<Italian>Unit&#224; animali</Italian>
+		<Spanish>Unidades de animales</Spanish>
+	</TEXT>
+</Civ4GameText>
