@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text Cities -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_DCM_TITLE</Tag>
+		<English>Dale's Combat Mod!</English>
+		<French>Dale's Combat Mod!</French>
+		<German>Dale's Combat Mod!</German>
+		<Italian>Dale's Combat Mod!</Italian>
+		<Spanish>Dale's Combat Mod!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_DCM_TEXT</Tag>
+		<English>Welcome to Dale's Combat Mod! To turn components on or off please edit the value in GlobalDefinesAlt.xml for that components global tag. The following components are turned on.</English>
+		<French>Welcome to Dale's Combat Mod! To turn components on or off please edit the value in GlobalDefinesAlt.xml for that components global tag. The following components are turned on.</French>
+		<German>Welcome to Dale's Combat Mod! To turn components on or off please edit the value in GlobalDefinesAlt.xml for that components global tag. The following components are turned on.</German>
+		<Italian>Welcome to Dale's Combat Mod! To turn components on or off please edit the value in GlobalDefinesAlt.xml for that components global tag. The following components are turned on.</Italian>
+		<Spanish>Welcome to Dale's Combat Mod! To turn components on or off please edit the value in GlobalDefinesAlt.xml for that components global tag. The following components are turned on.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PEDIA_CATEGORY_CONCEPT_DCM</Tag>
+		<English>DCM Concepts</English>
+		<French>DCM Concepts</French>
+		<German>DCM Concepts</German>
+		<Italian>DCM Concepts</Italian>
+		<Spanish>DCM Concepts</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_AIR_BOMBING_TEXT</Tag>
+		<English>Airbomb Missions</English>
+		<French>Missions de bombardement a&#233;rien</French>
+		<German>
+			<Text>Luftbombardierungsmissionen</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missioni di bombardamento</Italian>
+		<Spanish>Misiones de bombardeo a&#233;reo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB1</Tag>
+		<English>Airbomb Defenses</English>
+		<French>Bombardement de d&#233;fenses</French>
+		<German>Luftbombardierung Verteidigungen</German>
+		<Italian>Bombarda difese</Italian>
+		<Spanish>Bombardear defensas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB2</Tag>
+		<English>Airbomb Buildings</English>
+		<French>Bombardement de b&#226;timents</French>
+		<German>Luftbombardierung Geb&#228;ude</German>
+		<Italian>Bombarda edifici</Italian>
+		<Spanish>Bombardear edificios</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB3</Tag>
+		<English>Airbomb Factories</English>
+		<French>Bombardement d'usines</French>
+		<German>Luftbombardierung Fabriken</German>
+		<Italian>Bombarda fabbriche</Italian>
+		<Spanish>Bombardear f&#225;bricas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB4</Tag>
+		<English>Port Airbomb</English>
+		<French>Port Airbomb</French>
+		<German>Port Airbomb</German>
+		<Italian>Port Airbomb</Italian>
+		<Spanish>Port Airbomb</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB5</Tag>
+		<English>Strategic Airbomb</English>
+		<French>Strategic Airbomb</French>
+		<German>Strategic Airbomb</German>
+		<Italian>Strategic Airbomb</Italian>
+		<Spanish>Strategic Airbomb</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB1</Tag>
+		<English>Airbomb Defenses</English>
+		<French>Bombardement de d&#233;fenses</French>
+		<German>Luftbombardierung Verteidigungen</German>
+		<Italian>Bombarda difese</Italian>
+		<Spanish>Bombardear defensas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB2</Tag>
+		<English>Airbomb Buildings</English>
+		<French>Bombardement de b&#226;timents</French>
+		<German>Luftbombardierung Geb&#228;ude</German>
+		<Italian>Bombarda edifici</Italian>
+		<Spanish>Bombardear edificios</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB3</Tag>
+		<English>Airbomb Factories</English>
+		<French>Bombardement d'usines</French>
+		<German>Luftbombardierung Fabriken</German>
+		<Italian>Bombarda fabbriche</Italian>
+		<Spanish>Bombardear f&#225;bricas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB4</Tag>
+		<English>Port Airbomb</English>
+		<French>Port Airbomb</French>
+		<German>Port Airbomb</German>
+		<Italian>Port Airbomb</Italian>
+		<Spanish>Port Airbomb</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB5</Tag>
+		<English>Strategic Airbomb</English>
+		<French>Strategic Airbomb</French>
+		<German>Strategic Airbomb</German>
+		<Italian>Strategic Airbomb</Italian>
+		<Spanish>Strategic Airbomb</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_AIR_BOMBING_PEDIA</Tag>
+		<English>[H1]Airbomb Missions[\H1][PARAGRAPH:2]There are five different air-bombing missions for air units. "Airbomb defenses" allows you to bombard plot improvements or city defense percentage. "Airbomb buildings" allows you to attempt to destroy one of the city's buildings. "Airbomb Factories" allows you to attempt to destroy one of the city's production buildings. "Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her. "Strategic Airbomb" allows you to attempt to damage the current production project of the city.  The airbomb missions are all subject to air interceptions.[PARAGRAPH:2]</English>
+		<French>[H1]Airbomb Missions[\H1][PARAGRAPH:2]There are five different air-bombing missions for air units. "Airbomb defenses" allows you to bombard plot improvements or city defense percentage. "Airbomb buildings" allows you to attempt to destroy one of the city's buildings. "Airbomb Factories" allows you to attempt to destroy one of the city's production buildings. "Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her. "Strategic Airbomb" allows you to attempt to damage the current production project of the city.  The airbomb missions are all subject to air interceptions.[PARAGRAPH:2]</French>
+		<German>[H1]Airbomb Missions[\H1][PARAGRAPH:2]There are five different air-bombing missions for air units. "Airbomb defenses" allows you to bombard plot improvements or city defense percentage. "Airbomb buildings" allows you to attempt to destroy one of the city's buildings. "Airbomb Factories" allows you to attempt to destroy one of the city's production buildings. "Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her. "Strategic Airbomb" allows you to attempt to damage the current production project of the city.  The airbomb missions are all subject to air interceptions.[PARAGRAPH:2]</German>
+		<Italian>[H1]Airbomb Missions[\H1][PARAGRAPH:2]There are five different air-bombing missions for air units. "Airbomb defenses" allows you to bombard plot improvements or city defense percentage. "Airbomb buildings" allows you to attempt to destroy one of the city's buildings. "Airbomb Factories" allows you to attempt to destroy one of the city's production buildings. "Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her. "Strategic Airbomb" allows you to attempt to damage the current production project of the city.  The airbomb missions are all subject to air interceptions.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Airbomb Missions[\H1][PARAGRAPH:2]There are five different air-bombing missions for air units. "Airbomb defenses" allows you to bombard plot improvements or city defense percentage. "Airbomb buildings" allows you to attempt to destroy one of the city's buildings. "Airbomb Factories" allows you to attempt to destroy one of the city's production buildings. "Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her. "Strategic Airbomb" allows you to attempt to damage the current production project of the city.  The airbomb missions are all subject to air interceptions.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB1_HELP</Tag>
+		<English>"Airbomb defenses" allows you to bombard plot improvements or city defense percentage.</English>
+		<French>"Airbomb defenses" allows you to bombard plot improvements or city defense percentage.</French>
+		<German>"Airbomb defenses" allows you to bombard plot improvements or city defense percentage.</German>
+		<Italian>"Airbomb defenses" allows you to bombard plot improvements or city defense percentage.</Italian>
+		<Spanish>"Airbomb defenses" allows you to bombard plot improvements or city defense percentage.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB2_HELP</Tag>
+		<English>"Airbomb buildings" allows you to attempt to destroy one of the city's buildings.</English>
+		<French>"Airbomb buildings" allows you to attempt to destroy one of the city's buildings.</French>
+		<German>"Airbomb buildings" allows you to attempt to destroy one of the city's buildings.</German>
+		<Italian>"Airbomb buildings" allows you to attempt to destroy one of the city's buildings.</Italian>
+		<Spanish>"Airbomb buildings" allows you to attempt to destroy one of the city's buildings.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB3_HELP</Tag>
+		<English>"Airbomb Factories" allows you to attempt to destroy one of the city's production buildings.</English>
+		<French>"Airbomb Factories" allows you to attempt to destroy one of the city's production buildings.</French>
+		<German>"Airbomb Factories" allows you to attempt to destroy one of the city's production buildings.</German>
+		<Italian>"Airbomb Factories" allows you to attempt to destroy one of the city's production buildings.</Italian>
+		<Spanish>"Airbomb Factories" allows you to attempt to destroy one of the city's production buildings.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB4_HELP</Tag>
+		<English>"Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her.</English>
+		<French>"Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her.</French>
+		<German>"Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her.</German>
+		<Italian>"Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her.</Italian>
+		<Spanish>"Port airbomb" allows you to attempt to damage a ship in the port, with a chance to sink her.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_AIRBOMB5_HELP</Tag>
+		<English>"Strategic Airbomb" allows you to attempt to damage the current production project of the city.</English>
+		<French>"Strategic Airbomb" allows you to attempt to damage the current production project of the city.</French>
+		<German>"Strategic Airbomb" allows you to attempt to damage the current production project of the city.</German>
+		<Italian>"Strategic Airbomb" allows you to attempt to damage the current production project of the city.</Italian>
+		<Spanish>"Strategic Airbomb" allows you to attempt to damage the current production project of the city.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB1_HELP</Tag>
+		<English>Select an air unit that can airbomb, select the airbomb defense mission, then click on the target city to reduce defense, or target improvement to destroy it.</English>
+		<French>Sélectionnez une unité aérienne capable de bombarder, puis la mission de bombardement de défenses. Cliquez ensuite sur la cible pour réduire son pourcentage de défense ou ciblez une amélioration de terrain pour la détruire.</French>
+		<German>Wählen Sie eine Lufteinheit, die Luftbombardierungen durchführen kann, aktivieren Sie die Mission "Luftbombardierung Verteidigungen" und klicken Sie dann auf die Zielstadt, um deren Verteidigung zu schwächen, oder auf eine Modernisierung, um diese zu zerstören.</German>
+		<Italian>Seleziona un'unità aerea in grado di bombardare, quindi Bombarda difese e poi clicca sulla città bersaglio per ridurne le difese, oppure sul miglioramento bersaglio per distruggerlo.</Italian>
+		<Spanish>Se elige una unidad que pueda realizar bombardeos aéreos, la misión de bombardear defensas y se hace clic en la ciudad objetivo (para reducir su defensa) o en la mejora objetivo (para destruirla).</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB2_HELP</Tag>
+		<English>Select an air unit that can airbomb, select the airbomb building mission, then click on the target city to attempt to destroy one civil building.</English>
+		<French>Sélectionnez une unité aérienne capable de bombarder, puis la mission de bombardement de bâtiments civils. Cliquez ensuite sur la cible pour tenter de détruire un bâtiment civil.</French>
+		<German>Wählen Sie eine Lufteinheit, die Luftbombardierungen durchführen kann, wählen Sie die Mission "Luftbombardierung Zivile Gebäude" und klicken Sie dann auf die Zielstadt, um zu versuchen, dort ein ziviles Gebäude zu zerstören.</German>
+		<Italian>Seleziona un'unità aerea in grado di bombardare, quindi Bombarda edifici civili, poi clicca sulla città bersaglio per cercare di distruggere un edificio civile.</Italian>
+		<Spanish>Se elige una unidad que pueda realizar bombardeos aéreos, la misión de bombardear edificios civiles y se hace clic en la ciudad objetivo para intentar destruir un edificio civil.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB3_HELP</Tag>
+		<English>Select an air unit that can airbomb, select the airbomb production mission, then click on the target city to attempt to destroy one factory.</English>
+		<French>Sélectionnez une unité aérienne capable de bombarder, puis la mission de bombardement d'infrastructure de production. Cliquez ensuite sur la cible pour tenter de détruire une usine.</French>
+		<German>Wählen Sie eine Lufteinheit, die Luftbombardierungen durchführen kann, aktivieren Sie die Mission "Luftbombardierung Produktion" und klicken Sie dann auf die Zielstadt, um zu versuchen, dort eine Fabrik zu zerstören.</German>
+		<Italian>Seleziona un'unità aerea in grado di bombardare, quindi Bombarda produzione, poi clicca sulla città bersaglio per cercare di distruggere una fabbrica.</Italian>
+		<Spanish>Se elige una unidad que pueda realizar bombardeos aéreos, la misión de bombardear fábricas y se hace clic en la ciudad objetivo para intentar destruir una fábrica.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB4_HELP</Tag>
+		<English>Select an air unit that can airbomb, select the port airbomb mission, then click on the target city to damage and attempt to sink a ship.</English>
+		<French>Select an air unit that can airbomb, select the port airbomb mission, then click on the target city to damage and attempt to sink a ship.</French>
+		<German>Select an air unit that can airbomb, select the port airbomb mission, then click on the target city to damage and attempt to sink a ship.</German>
+		<Italian>Select an air unit that can airbomb, select the port airbomb mission, then click on the target city to damage and attempt to sink a ship.</Italian>
+		<Spanish>Select an air unit that can airbomb, select the port airbomb mission, then click on the target city to damage and attempt to sink a ship.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_AIRBOMB5_HELP</Tag>
+		<English>Select an air unit that can airbomb, select the strategic airbomb mission, then click on the target city to damage the current production project.</English>
+		<French>Select an air unit that can airbomb, select the strategic airbomb mission, then click on the target city to damage the current production project.</French>
+		<German>Select an air unit that can airbomb, select the strategic airbomb mission, then click on the target city to damage the current production project.</German>
+		<Italian>Select an air unit that can airbomb, select the strategic airbomb mission, then click on the target city to damage the current production project.</Italian>
+		<Spanish>Select an air unit that can airbomb, select the strategic airbomb mission, then click on the target city to damage the current production project.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_AIRBOMB2SUCCESS</Tag>
+		<English>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</English>
+		<French>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</French>
+		<German>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</German>
+		<Italian>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</Italian>
+		<Spanish>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_AIRBOMB2SUCCESS</Tag>
+		<English>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</English>
+		<French>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</French>
+		<German>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</German>
+		<Italian>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</Italian>
+		<Spanish>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_AIRBOMB2FAIL</Tag>
+		<English>You failed to destroy a building in %s1_CityName.</English>
+		<French>You failed to destroy a building in %s1_CityName.</French>
+		<German>You failed to destroy a building in %s1_CityName.</German>
+		<Italian>You failed to destroy a building in %s1_CityName.</Italian>
+		<Spanish>You failed to destroy a building in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_AIRBOMB2FAIL</Tag>
+		<English>The enemy has failed to destroy a building in %s1_CityName.</English>
+		<French>The enemy has failed to destroy a building in %s1_CityName.</French>
+		<German>The enemy has failed to destroy a building in %s1_CityName.</German>
+		<Italian>The enemy has failed to destroy a building in %s1_CityName.</Italian>
+		<Spanish>The enemy has failed to destroy a building in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_AIRBOMB3SUCCESS</Tag>
+		<English>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</English>
+		<French>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</French>
+		<German>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</German>
+		<Italian>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</Italian>
+		<Spanish>You have destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_AIRBOMB3SUCCESS</Tag>
+		<English>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</English>
+		<French>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</French>
+		<German>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</German>
+		<Italian>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</Italian>
+		<Spanish>The enemy has destroyed a [COLOR_BUILDING_TEXT]%s1_BldgName[COLOR_REVERT] in %s2_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_AIRBOMB3FAIL</Tag>
+		<English>You have failed to destroy a production building in %s1_CityName.</English>
+		<French>You have failed to destroy a production building in %s1_CityName.</French>
+		<German>You have failed to destroy a production building in %s1_CityName.</German>
+		<Italian>You have failed to destroy a production building in %s1_CityName.</Italian>
+		<Spanish>You have failed to destroy a production building in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_AIRBOMB3FAIL</Tag>
+		<English>The enemy has failed to destroy a production building in %s1_CityName.</English>
+		<French>The enemy has failed to destroy a production building in %s1_CityName.</French>
+		<German>The enemy has failed to destroy a production building in %s1_CityName.</German>
+		<Italian>The enemy has failed to destroy a production building in %s1_CityName.</Italian>
+		<Spanish>The enemy has failed to destroy a production building in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_AIRBOMB4SUCCESS</Tag>
+		<English>You have bombed a ship.</English>
+		<French>You have bombed a ship.</French>
+		<German>You have bombed a ship.</German>
+		<Italian>You have bombed a ship.</Italian>
+		<Spanish>You have bombed a ship.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_AIRBOMB4SUCCESS</Tag>
+		<English>The enemy has bombed a ship.</English>
+		<French>The enemy has bombed a ship.</French>
+		<German>The enemy has bombed a ship.</German>
+		<Italian>The enemy has bombed a ship.</Italian>
+		<Spanish>The enemy has bombed a ship.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOUSINK_AIRBOMB4SUCCESS</Tag>
+		<English>You have SUNK a %s1_UnitName.</English>
+		<French>You have SUNK a %s1_UnitName.</French>
+		<German>You have SUNK a %s1_UnitName.</German>
+		<Italian>You have SUNK a %s1_UnitName.</Italian>
+		<Spanish>You have SUNK a %s1_UnitName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMYSINK_AIRBOMB4SUCCESS</Tag>
+		<English>The enemy has SUNK a %s1_UnitName.</English>
+		<French>The enemy has SUNK a %s1_UnitName.</French>
+		<German>The enemy has SUNK a %s1_UnitName.</German>
+		<Italian>The enemy has SUNK a %s1_UnitName.</Italian>
+		<Spanish>The enemy has SUNK a %s1_UnitName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_AIRBOMB4FAIL</Tag>
+		<English>You have failed to bomb a ship in %s1_CityName.</English>
+		<French>You have failed to bomb a ship in %s1_CityName.</French>
+		<German>You have failed to bomb a ship in %s1_CityName.</German>
+		<Italian>You have failed to bomb a ship in %s1_CityName.</Italian>
+		<Spanish>You have failed to bomb a ship in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_AIRBOMB4FAIL</Tag>
+		<English>The enemy has failed to bomb a ship in %s1_CityName.</English>
+		<French>The enemy has failed to bomb a ship in %s1_CityName.</French>
+		<German>The enemy has failed to bomb a ship in %s1_CityName.</German>
+		<Italian>The enemy has failed to bomb a ship in %s1_CityName.</Italian>
+		<Spanish>The enemy has failed to bomb a ship in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_AIRBOMB_POP</Tag>
+		<English>Your bombs fell astray and killed some civilians!</English>
+		<French>Your bombs fell astray and killed some civilians!</French>
+		<German>Your bombs fell astray and killed some civilians!</German>
+		<Italian>Your bombs fell astray and killed some civilians!</Italian>
+		<Spanish>Your bombs fell astray and killed some civilians!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_AIRBOMB_POP</Tag>
+		<English>The enemy's bombs fell astray and killed some civilians!</English>
+		<French>The enemy's bombs fell astray and killed some civilians!</French>
+		<German>The enemy's bombs fell astray and killed some civilians!</German>
+		<Italian>The enemy's bombs fell astray and killed some civilians!</Italian>
+		<Spanish>The enemy's bombs fell astray and killed some civilians!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_AIRBOMB5SUCCESS</Tag>
+		<English>You have successfully damaged production in %s1_CityName.</English>
+		<French>You have successfully damaged production in %s1_CityName.</French>
+		<German>You have successfully damaged production in %s1_CityName.</German>
+		<Italian>You have successfully damaged production in %s1_CityName.</Italian>
+		<Spanish>You have successfully damaged production in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_AIRBOMB5SUCCESS</Tag>
+		<English>Production has been damaged in %s1_CityName.</English>
+		<French>Production has been damaged in %s1_CityName.</French>
+		<German>Production has been damaged in %s1_CityName.</German>
+		<Italian>Production has been damaged in %s1_CityName.</Italian>
+		<Spanish>Production has been damaged in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_AIRBOMB5FAIL</Tag>
+		<English>You have failed to damage production in %s1_CityName.</English>
+		<French>You have failed to damage production in %s1_CityName.</French>
+		<German>You have failed to damage production in %s1_CityName.</German>
+		<Italian>You have failed to damage production in %s1_CityName.</Italian>
+		<Spanish>You have failed to damage production in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_AIRBOMB5FAIL</Tag>
+		<English>Production has not been damaged in %s1_CityName.</English>
+		<French>Production has not been damaged in %s1_CityName.</French>
+		<German>Production has not been damaged in %s1_CityName.</German>
+		<Italian>Production has not been damaged in %s1_CityName.</Italian>
+		<Spanish>Production has not been damaged in %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_BATTLE1</Tag>
+		<English>Battlefield - open</English>
+		<French>Battlefield - open</French>
+		<German>Battlefield - open</German>
+		<Italian>Battlefield - open</Italian>
+		<Spanish>Battlefield - open</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_BATTLE2</Tag>
+		<English>Battlefield - ice</English>
+		<French>Battlefield - ice</French>
+		<German>Battlefield - ice</German>
+		<Italian>Battlefield - ice</Italian>
+		<Spanish>Battlefield - ice</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_BATTLE3</Tag>
+		<English>Battlefield - jungle</English>
+		<French>Battlefield - jungle</French>
+		<German>Battlefield - jungle</German>
+		<Italian>Battlefield - jungle</Italian>
+		<Spanish>Battlefield - jungle</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_BATTLE4</Tag>
+		<English>Battlefield - oasis</English>
+		<French>Battlefield - oasis</French>
+		<German>Battlefield - oasis</German>
+		<Italian>Battlefield - oasis</Italian>
+		<Spanish>Battlefield - oasis</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_BATTLE5</Tag>
+		<English>Battlefield - flood plain</English>
+		<French>Battlefield - flood plain</French>
+		<German>Battlefield - flood plain</German>
+		<Italian>Battlefield - flood plain</Italian>
+		<Spanish>Battlefield - flood plain</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_BATTLE6</Tag>
+		<English>Battlefield - forest</English>
+		<French>Battlefield - forest</French>
+		<German>Battlefield - forest</German>
+		<Italian>Battlefield - forest</Italian>
+		<Spanish>Battlefield - forest</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_BATTLE7</Tag>
+		<English>Battlefield - fallout</English>
+		<French>Battlefield - fallout</French>
+		<German>Battlefield - fallout</German>
+		<Italian>Battlefield - fallout</Italian>
+		<Spanish>Battlefield - fallout</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_BATTLE_EFFECTS_TEXT</Tag>
+		<English>Battle Effects</English>
+		<French>Battle Effects</French>
+		<German>Battle Effects</German>
+		<Italian>Battle Effects</Italian>
+		<Spanish>Battle Effects</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_BATTLE_EFFECTS_PEDIA</Tag>
+		<English>[H1]Battle Effects[\H1][PARAGRAPH:2]Battle Effects are effects that occur on the map due to combat.  When combat occurs on a plot, a Battle Effect will begin.  This effect will be retained for a few turns and affects how much gold and food a plot can produce.  The Battle Effect disipates after a couple of turns, but subsequent combats will increase the time before the effects disappear.[PARAGRAPH:2]</English>
+		<French>[H1]Battle Effects[\H1][PARAGRAPH:2]Battle Effects are effects that occur on the map due to combat.  When combat occurs on a plot, a Battle Effect will begin.  This effect will be retained for a few turns and affects how much gold and food a plot can produce.  The Battle Effect disipates after a couple of turns, but subsequent combats will increase the time before the effects disappear.[PARAGRAPH:2]</French>
+		<German>[H1]Battle Effects[\H1][PARAGRAPH:2]Battle Effects are effects that occur on the map due to combat.  When combat occurs on a plot, a Battle Effect will begin.  This effect will be retained for a few turns and affects how much gold and food a plot can produce.  The Battle Effect disipates after a couple of turns, but subsequent combats will increase the time before the effects disappear.[PARAGRAPH:2]</German>
+		<Italian>[H1]Battle Effects[\H1][PARAGRAPH:2]Battle Effects are effects that occur on the map due to combat.  When combat occurs on a plot, a Battle Effect will begin.  This effect will be retained for a few turns and affects how much gold and food a plot can produce.  The Battle Effect disipates after a couple of turns, but subsequent combats will increase the time before the effects disappear.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Battle Effects[\H1][PARAGRAPH:2]Battle Effects are effects that occur on the map due to combat.  When combat occurs on a plot, a Battle Effect will begin.  This effect will be retained for a few turns and affects how much gold and food a plot can produce.  The Battle Effect disipates after a couple of turns, but subsequent combats will increase the time before the effects disappear.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_CIV_CUSTOMISER_TEXT</Tag>
+		<English>Civ Customiser</English>
+		<French>Civ Customiser</French>
+		<German>Civ Customiser</German>
+		<Italian>Civ Customiser</Italian>
+		<Spanish>Civ Customiser</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_CIV_CUSTOMISER_PEDIA</Tag>
+		<English>[H1]Civ Customiser[\H1][PARAGRAPH:2]Civ Customiser allows players to customise their Civs before play begins. You can choose what Leaderhead, Traits, Technologies, Unique Units and Unique Buildings will apply to your Civ. Some of the options allow for random attributes to be applied, such as random traits.[PARAGRAPH:2]</English>
+		<French>[H1]Civ Customiser[\H1][PARAGRAPH:2]Civ Customiser allows players to customise their Civs before play begins. You can choose what Leaderhead, Traits, Technologies, Unique Units and Unique Buildings will apply to your Civ. Some of the options allow for random attributes to be applied, such as random traits.[PARAGRAPH:2]</French>
+		<German>[H1]Civ Customiser[\H1][PARAGRAPH:2]Civ Customiser allows players to customise their Civs before play begins. You can choose what Leaderhead, Traits, Technologies, Unique Units and Unique Buildings will apply to your Civ. Some of the options allow for random attributes to be applied, such as random traits.[PARAGRAPH:2]</German>
+		<Italian>[H1]Civ Customiser[\H1][PARAGRAPH:2]Civ Customiser allows players to customise their Civs before play begins. You can choose what Leaderhead, Traits, Technologies, Unique Units and Unique Buildings will apply to your Civ. Some of the options allow for random attributes to be applied, such as random traits.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Civ Customiser[\H1][PARAGRAPH:2]Civ Customiser allows players to customise their Civs before play begins. You can choose what Leaderhead, Traits, Technologies, Unique Units and Unique Buildings will apply to your Civ. Some of the options allow for random attributes to be applied, such as random traits.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IS_RANGE_BOMBARD</Tag>
+		<English>[ICON_BULLET]Range: %d1_BombRange</English>
+		<French>[ICON_BULLET]Range: %d1_BombRange</French>
+		<German>[ICON_BULLET]Range: %d1_BombRange</German>
+		<Italian>[ICON_BULLET]Range: %d1_BombRange</Italian>
+		<Spanish>[ICON_BULLET]Range: %d1_BombRange</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IS_ACCURACY_BOMBARD</Tag>
+		<English>[ICON_BULLET]Accuracy: %d1_BombAccuracy</English>
+		<French>[ICON_BULLET]Accuracy: %d1_BombAccuracy</French>
+		<German>[ICON_BULLET]Accuracy: %d1_BombAccuracy</German>
+		<Italian>[ICON_BULLET]Accuracy: %d1_BombAccuracy</Italian>
+		<Spanish>[ICON_BULLET]Accuracy: %d1_BombAccuracy</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_RBOMBARD_TEXT</Tag>
+		<English>Ranged Bombardment</English>
+		<French>Bombardement à distance</French>
+		<German>Fernbombardierung</German>
+		<Italian>Bombardamento ad area</Italian>
+		<Spanish>Cañoneo de alcance</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_RBOMBARD_PEDIA</Tag>
+		<English>[H1]Ranged Bombardment[\H1][PARAGRAPH:2]Ranged Bombardment allows siege units to bombard in the field (as opposed to only bombarding cities). By selecting the bombard icon you can select whether to bombard units, improvements or cities. As well, bombarding is possible from a range. Thus in Road to War, standard artillery will be able to bombard into adjacent plots, whilst heavy artillery can bombard into plots up to 2 plots away.[PARAGRAPH:2]</English>
+		<French>[H1]Bombardement à distance [\H1][PARAGRAPH:2]Un bombardement à distance permet aux unités de siège d'effectuer des bombardements de terrain (par opposition aux bombardements de cités). En sélectionnant l'icone Bombardement, vous pouvez choisir de bombarder des unités, des améliorations de terrain ou des villes. Vous pouvez également bombarder à distance. Dans "Sentiers de la guerre", l'artillerie standard peut bombarder des cases adjacentes tandis que l'artillerie lourde est autorisée à tirer jusqu'à une distance de deux cases.[PARAGRAPH:2]</French>
+		<German>[H1]Fernbombardierung[\H1][PARAGRAPH:2]Die Fernbombardierung ermöglicht Belagerungseinheiten, auch offenes Gelände zu bombardieren (statt ausschließlich Städte). Durch Auswahl des Symbols Bombardierung können Sie wählen, ob Einheiten, Modernisierungen oder Städte bombardiert werden sollen. Darüber hinaus sind auch Bombardierungsangriffe aus der Ferne möglich: In Road to War kann die Standardartillerie benachbarte Geländefelder und die schwere Artillerie bis zu 2 Geländefelder entfernt bombardieren.[PARAGRAPH:2]</German>
+		<Italian>[H1]Bombardamento ad area[\H1][PARAGRAPH:2]Il bombardamento ad area permette alle unità d'assedio di bombardare anche sul campo (invece che solo sulle città). Selezionando l'icona apposita puoi decidere se bombardare unità, miglioramenti o città. Inoltre è possibile bombardare dalla distanza. Così ne La strada per la guerra l'artiglieria sarà in grado di bombardare nelle caselle adiacenti, mentre l'artiglieria pesante potrà farlo fino a una distanza di 2 caselle.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Cañoneo de alcance[\H1][PARAGRAPH:2]El cañoneo de alcance permite a las unidades de asedio cañonear el campo de batalla (al contrario que bombardear solo ciudades). Si se selecciona el icono de cañoneo, se puede elegir entre bombardear unidades, mejoras o ciudades. También se puede cañonear desde una distancia. Por lo tanto, en &quot;The Road to War&quot;, la artillería estándar podrá bombardear casillas adyacentes, mientras que la pesada podrá hacerlo hasta a 2 casillas de distancia.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_BOMBARD_HELP</Tag>
+		<English>[H1]Ranged Bombardment[\H1][PARAGRAPH:2]Ranged Bombardment allows siege units to bombard in the field (as opposed to only bombarding cities). By selecting the bombard icon you can select whether to bombard units, improvements or cities. As well, bombarding is possible from a range. Thus in Road to War, standard artillery will be able to bombard into adjacent plots, whilst heavy artillery can bombard into plots up to 2 plots away.[PARAGRAPH:2]</English>
+		<French>[H1]Bombardement à distance [\H1][PARAGRAPH:2]Le bombardement à distance permet aux unités de siège d'effectuer des bombardements de terrain (par opposition aux bombardements de cités). En sélectionnant l'icone Bombardement vous pouvez choisir de bombarder des unités, des améliorations de terrain ou des villes. Le bombardement à distance est également possible. Dans "Les sentiers de la guerre", l'artillerie standard peut bombarder des cases adjacentes tandis que l'artillerie lourde est autorisée à tirer jusqu'à une distance de deux cases.[PARAGRAPH:2]</French>
+		<German>[H1]Fernbombardierung[\H1][PARAGRAPH:2]Die Fernbombardierung ermöglicht Belagerungseinheiten, auch offenes Gelände zu bombardieren (statt ausschließlich Städte). Durch Auswahl des Symbols Bombardierung können Sie wählen, ob Einheiten, Modernisierungen oder Städte bombardiert werden sollen. Darüber hinaus sind auch Bombardierungsangriffe aus der Ferne möglich: In Road to War kann die Standardartillerie benachbarte Geländefelder und die schwere Artillerie bis zu 2 Geländefelder entfernt bombardieren.[PARAGRAPH:2]</German>
+		<Italian>[H1]Bombardamento ad area[\H1][PARAGRAPH:2]Il bombardamento ad area permette alle unità d'assedio di bombardare anche sul campo (invece che solo sulle città). Selezionando l'icona apposita puoi decidere se bombardare unità, miglioramenti o città. Inoltre è possibile bombardare dalla distanza. Così ne La strada per la guerra l'artiglieria sarà in grado di bombardare nelle caselle adiacenti, mentre l'artiglieria pesante potrà farlo fino a una distanza di 2 caselle.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Cañoneo de alcance[\H1][PARAGRAPH:2]El cañoneo de alcance permite a las unidades de asedio cañonear el campo de batalla (al contrario que bombardear solo ciudades). Si se selecciona el icono de cañoneo, se puede elegir entre bombardear unidades, mejoras o ciudades. También se puede cañonear desde una distancia. Por lo tanto, en &quot;The Road to War&quot;, la artillería estándar podrá bombardear casillas adyacentes, mientras que la pesada podrá hacerlo hasta a 2 casillas de distancia.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_RBOMBARD</Tag>
+		<English>Ranged Bombardment</English>
+		<French>Bombardement à distance</French>
+		<German>Fernbombardierung</German>
+		<Italian>Bombardamento ad area</Italian>
+		<Spanish>Cañoneo de alcance</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_RBOMBARD_HELP</Tag>
+		<English>Select an artillery unit, select the bombard mission, then click on the plot to bombard.</English>
+		<French>Sélectionnez une unité d'artillerie puis une mission de bombardement. Cliquez ensuite sur la case à bombarder.</French>
+		<German>Wählen Sie eine Artillerieeinheit, aktivieren Sie die Mission "Bombardierung" und klicken Sie dann auf das Geländefeld, das bombardiert werden soll.</German>
+		<Italian>Seleziona un'unità di artiglieria, seleziona il bombardamento, quindi clicca sulla casella da bombardare.</Italian>
+		<Spanish>Se elige una unidad de artillería, una misión de bombardeo y se hace clic en la casilla a bombardear.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHANGECIV_TITLE</Tag>
+		<English>Change Nation</English>
+		<French>Change Nation</French>
+		<German>Change Nation</German>
+		<Italian>Change Nation</Italian>
+		<Spanish>Change Nation</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHANGECIV_TEXT</Tag>
+		<English>Select the nation to take control of.</English>
+		<French>Select the nation to take control of.</French>
+		<German>Select the nation to take control of.</German>
+		<Italian>Select the nation to take control of.</Italian>
+		<Spanish>Select the nation to take control of.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHANGECIV_CANCEL</Tag>
+		<English>DO NOT CHANGE NATION</English>
+		<French>DO NOT CHANGE NATION</French>
+		<German>DO NOT CHANGE NATION</German>
+		<Italian>DO NOT CHANGE NATION</Italian>
+		<Spanish>DO NOT CHANGE NATION</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHANGECIV_TITLE2</Tag>
+		<English>Change Amount Exceeded</English>
+		<French>Change Amount Exceeded</French>
+		<German>Change Amount Exceeded</German>
+		<Italian>Change Amount Exceeded</Italian>
+		<Spanish>Change Amount Exceeded</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CHANGECIV_TEXT2</Tag>
+		<English>You have changed Civ too many times. You will not be able to change Civ again.</English>
+		<French>You have changed Civ too many times. You will not be able to change Civ again.</French>
+		<German>You have changed Civ too many times. You will not be able to change Civ again.</German>
+		<Italian>You have changed Civ too many times. You will not be able to change Civ again.</Italian>
+		<Spanish>You have changed Civ too many times. You will not be able to change Civ again.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_CHANGECIV_TEXT</Tag>
+		<English>Civ Changer</English>
+		<French>Civ Changer</French>
+		<German>Civ Changer</German>
+		<Italian>Civ Changer</Italian>
+		<Spanish>Civ Changer</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_CHANGECIV_PEDIA</Tag>
+		<English>[H1]Civ Changer[\H1][PARAGRAPH:2]Civ Changer allows you to change the Civ you are playing in-game. Depending on the options set in GlobalDefinesAlt.xml determines what Civs are available to change with, and how many times per game you can change. By default, you can change twice with Civs which you have contact with. Other options include being restricted to Civs on your continent, Team members, or just every Civ in play.[PARAGRAPH:2]</English>
+		<French>[H1]Civ Changer[\H1][PARAGRAPH:2]Civ Changer allows you to change the Civ you are playing in-game. Depending on the options set in GlobalDefinesAlt.xml determines what Civs are available to change with, and how many times per game you can change. By default, you can change twice with Civs which you have contact with. Other options include being restricted to Civs on your continent, Team members, or just every Civ in play.[PARAGRAPH:2]</French>
+		<German>[H1]Civ Changer[\H1][PARAGRAPH:2]Civ Changer allows you to change the Civ you are playing in-game. Depending on the options set in GlobalDefinesAlt.xml determines what Civs are available to change with, and how many times per game you can change. By default, you can change twice with Civs which you have contact with. Other options include being restricted to Civs on your continent, Team members, or just every Civ in play.[PARAGRAPH:2]</German>
+		<Italian>[H1]Civ Changer[\H1][PARAGRAPH:2]Civ Changer allows you to change the Civ you are playing in-game. Depending on the options set in GlobalDefinesAlt.xml determines what Civs are available to change with, and how many times per game you can change. By default, you can change twice with Civs which you have contact with. Other options include being restricted to Civs on your continent, Team members, or just every Civ in play.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Civ Changer[\H1][PARAGRAPH:2]Civ Changer allows you to change the Civ you are playing in-game. Depending on the options set in GlobalDefinesAlt.xml determines what Civs are available to change with, and how many times per game you can change. By default, you can change twice with Civs which you have contact with. Other options include being restricted to Civs on your continent, Team members, or just every Civ in play.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_OPP_FIRE</Tag>
+		<English>Your %s1_UnitName has gained opportunity fire on a %s2_EnUName!</English>
+		<French>Your %s1_UnitName has gained opportunity fire on a %s2_EnUName!</French>
+		<German>Your %s1_UnitName has gained opportunity fire on a %s2_EnUName!</German>
+		<Italian>Your %s1_UnitName has gained opportunity fire on a %s2_EnUName!</Italian>
+		<Spanish>Your %s1_UnitName has gained opportunity fire on a %s2_EnUName!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_OPP_FIRE</Tag>
+		<English>A %s1_EnUName has gained opportunity fire on your %s2_UnitName!</English>
+		<French>A %s1_EnUName has gained opportunity fire on your %s2_UnitName!</French>
+		<German>A %s1_EnUName has gained opportunity fire on your %s2_UnitName!</German>
+		<Italian>A %s1_EnUName has gained opportunity fire on your %s2_UnitName!</Italian>
+		<Spanish>A %s1_EnUName has gained opportunity fire on your %s2_UnitName!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_STACK_ATTACK_TEXT</Tag>
+		<English>Combined Arms Stack Attack</English>
+		<French>Combined Arms Stack Attack</French>
+		<German>Combined Arms Stack Attack</German>
+		<Italian>Combined Arms Stack Attack</Italian>
+		<Spanish>Combined Arms Stack Attack</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_STACK_ATTACK_PEDIA</Tag>
+		<English>[H1]Combined Arms Stack Attack[\H1][PARAGRAPH:2]Combined Arms Stack Attack allows a full stack of units to engage an enemy stack of units. It replaces the one-on-one combat concept and allows a full stack to work together to elliminate an enemy stack.[PARAGRAPH:2]When a stack engages another stack, air units on location will fly sorties, bombard capable units will barrage the enemy, ranged (eg: archers) units will rain arrows from behind lines whilst melee troops will engage the enemy front line.[PARAGRAPH:2]</English>
+		<French>[H1]Combined Arms Stack Attack[\H1][PARAGRAPH:2]Combined Arms Stack Attack allows a full stack of units to engage an enemy stack of units. It replaces the one-on-one combat concept and allows a full stack to work together to elliminate an enemy stack.[PARAGRAPH:2]When a stack engages another stack, air units on location will fly sorties, bombard capable units will barrage the enemy, ranged (eg: archers) units will rain arrows from behind lines whilst melee troops will engage the enemy front line.[PARAGRAPH:2]</French>
+		<German>[H1]Combined Arms Stack Attack[\H1][PARAGRAPH:2]Combined Arms Stack Attack allows a full stack of units to engage an enemy stack of units. It replaces the one-on-one combat concept and allows a full stack to work together to elliminate an enemy stack.[PARAGRAPH:2]When a stack engages another stack, air units on location will fly sorties, bombard capable units will barrage the enemy, ranged (eg: archers) units will rain arrows from behind lines whilst melee troops will engage the enemy front line.[PARAGRAPH:2]</German>
+		<Italian>[H1]Combined Arms Stack Attack[\H1][PARAGRAPH:2]Combined Arms Stack Attack allows a full stack of units to engage an enemy stack of units. It replaces the one-on-one combat concept and allows a full stack to work together to elliminate an enemy stack.[PARAGRAPH:2]When a stack engages another stack, air units on location will fly sorties, bombard capable units will barrage the enemy, ranged (eg: archers) units will rain arrows from behind lines whilst melee troops will engage the enemy front line.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Combined Arms Stack Attack[\H1][PARAGRAPH:2]Combined Arms Stack Attack allows a full stack of units to engage an enemy stack of units. It replaces the one-on-one combat concept and allows a full stack to work together to elliminate an enemy stack.[PARAGRAPH:2]When a stack engages another stack, air units on location will fly sorties, bombard capable units will barrage the enemy, ranged (eg: archers) units will rain arrows from behind lines whilst melee troops will engage the enemy front line.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_OPP_FIRE_TEXT</Tag>
+		<English>Opportunity Fire</English>
+		<French>Opportunity Fire</French>
+		<German>Opportunity Fire</German>
+		<Italian>Opportunity Fire</Italian>
+		<Spanish>Opportunity Fire</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_OPP_FIRE_PEDIA</Tag>
+		<English>[H1]Opportunity Fire[\H1][PARAGRAPH:2]Opportunity Fire allows fortified bombard capable units (such as artillery) to automatically barrage enemy units which close on the fortified unit's location. This process is undertaken at the start of that unit's turn.[PARAGRAPH:2]</English>
+		<French>[H1]Opportunity Fire[\H1][PARAGRAPH:2]Opportunity Fire allows fortified bombard capable units (such as artillery) to automatically barrage enemy units which close on the fortified unit's location. This process is undertaken at the start of that unit's turn.[PARAGRAPH:2]</French>
+		<German>[H1]Opportunity Fire[\H1][PARAGRAPH:2]Opportunity Fire allows fortified bombard capable units (such as artillery) to automatically barrage enemy units which close on the fortified unit's location. This process is undertaken at the start of that unit's turn.[PARAGRAPH:2]</German>
+		<Italian>[H1]Opportunity Fire[\H1][PARAGRAPH:2]Opportunity Fire allows fortified bombard capable units (such as artillery) to automatically barrage enemy units which close on the fortified unit's location. This process is undertaken at the start of that unit's turn.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Opportunity Fire[\H1][PARAGRAPH:2]Opportunity Fire allows fortified bombard capable units (such as artillery) to automatically barrage enemy units which close on the fortified unit's location. This process is undertaken at the start of that unit's turn.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_ACTIVE_DEFENSE_TEXT</Tag>
+		<English>Active Defense</English>
+		<French>Active Defense</French>
+		<German>Active Defense</German>
+		<Italian>Active Defense</Italian>
+		<Spanish>Active Defense</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_ACTIVE_DEFENSE_PEDIA</Tag>
+		<English>[H1]Active Defense[\H1][PARAGRAPH:2]Active Defense allows patrolling fighters to engage enemy troops closing on them. This includes fighters on patrol in any location (city, carrier, etc). They will automatically engage the enemy in an airstrike when the enemy comes within 2 plots of the aircraft.[PARAGRAPH:2]</English>
+		<French>[H1]Active Defense[\H1][PARAGRAPH:2]Active Defense allows patrolling fighters to engage enemy troops closing on them. This includes fighters on patrol in any location (city, carrier, etc). They will automatically engage the enemy in an airstrike when the enemy comes within 2 plots of the aircraft.[PARAGRAPH:2]</French>
+		<German>[H1]Active Defense[\H1][PARAGRAPH:2]Active Defense allows patrolling fighters to engage enemy troops closing on them. This includes fighters on patrol in any location (city, carrier, etc). They will automatically engage the enemy in an airstrike when the enemy comes within 2 plots of the aircraft.[PARAGRAPH:2]</German>
+		<Italian>[H1]Active Defense[\H1][PARAGRAPH:2]Active Defense allows patrolling fighters to engage enemy troops closing on them. This includes fighters on patrol in any location (city, carrier, etc). They will automatically engage the enemy in an airstrike when the enemy comes within 2 plots of the aircraft.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Active Defense[\H1][PARAGRAPH:2]Active Defense allows patrolling fighters to engage enemy troops closing on them. This includes fighters on patrol in any location (city, carrier, etc). They will automatically engage the enemy in an airstrike when the enemy comes within 2 plots of the aircraft.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_ABOMBARD_TEXT</Tag>
+		<English>Archer Bombard</English>
+		<French>Archer Bombard</French>
+		<German>Archer Bombard</German>
+		<Italian>Archer Bombard</Italian>
+		<Spanish>Archer Bombard</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_ABOMBARD_PEDIA</Tag>
+		<English>[H1]Archer Bombard[\H1][PARAGRAPH:2]Archer Bombard allows archer units to bombard enemy units in adjacent plots. Similar to Ranged Bombardment, Archer Bombard also damages the enemy unit.[PARAGRAPH:2]</English>
+		<French>[H1]Archer Bombard[\H1][PARAGRAPH:2]Archer Bombard allows archer units to bombard enemy units in adjacent plots. Similar to Ranged Bombardment, Archer Bombard also damages the enemy unit.[PARAGRAPH:2]</French>
+		<German>[H1]Archer Bombard[\H1][PARAGRAPH:2]Archer Bombard allows archer units to bombard enemy units in adjacent plots. Similar to Ranged Bombardment, Archer Bombard also damages the enemy unit.[PARAGRAPH:2]</German>
+		<Italian>[H1]Archer Bombard[\H1][PARAGRAPH:2]Archer Bombard allows archer units to bombard enemy units in adjacent plots. Similar to Ranged Bombardment, Archer Bombard also damages the enemy unit.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Archer Bombard[\H1][PARAGRAPH:2]Archer Bombard allows archer units to bombard enemy units in adjacent plots. Similar to Ranged Bombardment, Archer Bombard also damages the enemy unit.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_ABOMBARD_TEXT</Tag>
+		<English>Archer Bombard</English>
+		<French>Archer Bombard</French>
+		<German>Archer Bombard</German>
+		<Italian>Archer Bombard</Italian>
+		<Spanish>Archer Bombard</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_ABOMBARD_HELP</Tag>
+		<English>"Archer Bombard" allows you to bombard an adjacent plot with your archers to damage enemy units.</English>
+		<French>"Archer Bombard" allows you to bombard an adjacent plot with your archers to damage enemy units.</French>
+		<German>"Archer Bombard" allows you to bombard an adjacent plot with your archers to damage enemy units.</German>
+		<Italian>"Archer Bombard" allows you to bombard an adjacent plot with your archers to damage enemy units.</Italian>
+		<Spanish>"Archer Bombard" allows you to bombard an adjacent plot with your archers to damage enemy units.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_ABOMBARD</Tag>
+		<English>Archer Bombard</English>
+		<French>Archer Bombard</French>
+		<German>Archer Bombard</German>
+		<Italian>Archer Bombard</Italian>
+		<Spanish>Archer Bombard</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_ABOMBARD_HELP</Tag>
+		<English>Select an archer unit, select the archer bombard mission and then select the enemy unit to fire at.</English>
+		<French>Select an archer unit, select the archer bombard mission and then select the enemy unit to fire at.</French>
+		<German>Select an archer unit, select the archer bombard mission and then select the enemy unit to fire at.</German>
+		<Italian>Select an archer unit, select the archer bombard mission and then select the enemy unit to fire at.</Italian>
+		<Spanish>Select an archer unit, select the archer bombard mission and then select the enemy unit to fire at.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ATOMIC_STRATEGY</Tag>
+		<English>Use the A-Bomb to decimate an enemy city.</English>
+		<French>Utiliser la bombe A pour anéantir une ville ennemie.</French>
+		<German>Setzen Sie eine Atombombe ein, um die Bevölkerung einer feindlichen Stadt zu dezimieren.</German>
+		<Italian>Usa la bomba atomica per distruggere una città nemica.</Italian>
+		<Spanish>Usa la bomba A para diezmar una ciudad enemiga.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ATOMIC</Tag>
+		<English>A-Bomb</English>
+		<French>Bombe A</French>
+		<German>
+			<Text>Atombombe</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bomba atomica</Italian>
+		<Spanish>Bomba A</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_YOU_BOMB_MISSED</Tag>
+		<English>Your %s1_UnitName has missed its target.</English>
+		<French>Your %s1_UnitName has missed its target.</French>
+		<German>Your %s1_UnitName has missed its target.</German>
+		<Italian>Your %s1_UnitName has missed its target.</Italian>
+		<Spanish>Your %s1_UnitName has missed its target.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_ENEMY_BOMB_MISSED</Tag>
+		<English>An enemy %s1_EnUName has missed its target.</English>
+		<French>An enemy %s1_EnUName has missed its target.</French>
+		<German>An enemy %s1_EnUName has missed its target.</German>
+		<Italian>An enemy %s1_EnUName has missed its target.</Italian>
+		<Spanish>An enemy %s1_EnUName has missed its target.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_FENGAGE_TEXT</Tag>
+		<English>Fighter Engagement</English>
+		<French>Fighter Engagement</French>
+		<German>Fighter Engagement</German>
+		<Italian>Fighter Engagement</Italian>
+		<Spanish>Fighter Engagement</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_FENGAGE_PEDIA</Tag>
+		<English>[H1]Fighter Engagement[\H1][PARAGRAPH:2]Fighter Engagement allows fighters to attack enemy fighters in the air or on the ground.[PARAGRAPH:2]</English>
+		<French>[H1]Fighter Engagement[\H1][PARAGRAPH:2]Fighter Engagement allows fighters to attack enemy fighters in the air or on the ground.[PARAGRAPH:2]</French>
+		<German>[H1]Fighter Engagement[\H1][PARAGRAPH:2]Fighter Engagement allows fighters to attack enemy fighters in the air or on the ground.[PARAGRAPH:2]</German>
+		<Italian>[H1]Fighter Engagement[\H1][PARAGRAPH:2]Fighter Engagement allows fighters to attack enemy fighters in the air or on the ground.[PARAGRAPH:2]</Italian>
+		<Spanish>[H1]Fighter Engagement[\H1][PARAGRAPH:2]Fighter Engagement allows fighters to attack enemy fighters in the air or on the ground.[PARAGRAPH:2]</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_FENGAGE_TEXT</Tag>
+		<English>Fighter Engagement</English>
+		<French>Fighter Engagement</French>
+		<German>Fighter Engagement</German>
+		<Italian>Fighter Engagement</Italian>
+		<Spanish>Fighter Engagement</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_FENGAGE</Tag>
+		<English>Fighter Engagement</English>
+		<French>Fighter Engagement</French>
+		<German>Fighter Engagement</German>
+		<Italian>Fighter Engagement</Italian>
+		<Spanish>Fighter Engagement</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_FENGAGE_HELP</Tag>
+		<English>"Fighter Engagement" allows fighters to attack enemy fighters in the air or on the ground.</English>
+		<French>"Fighter Engagement" allows fighters to attack enemy fighters in the air or on the ground.</French>
+		<German>"Fighter Engagement" allows fighters to attack enemy fighters in the air or on the ground.</German>
+		<Italian>"Fighter Engagement" allows fighters to attack enemy fighters in the air or on the ground.</Italian>
+		<Spanish>"Fighter Engagement" allows fighters to attack enemy fighters in the air or on the ground.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_FENGAGE</Tag>
+		<English>Fighter Engagement</English>
+		<French>Fighter Engagement</French>
+		<German>Fighter Engagement</German>
+		<Italian>Fighter Engagement</Italian>
+		<Spanish>Fighter Engagement</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_FENGAGE_HELP</Tag>
+		<English>Select a fighter unit, select the fighter engagement mission and then select the enemy unit to attack.</English>
+		<French>Select a fighter unit, select the fighter engagement mission and then select the enemy unit to attack.</French>
+		<German>Select a fighter unit, select the fighter engagement mission and then select the enemy unit to attack.</German>
+		<Italian>Select a fighter unit, select the fighter engagement mission and then select the enemy unit to attack.</Italian>
+		<Spanish>Select a fighter unit, select the fighter engagement mission and then select the enemy unit to attack.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_IS_FIGHTER_ENGAGE</Tag>
+		<English>Can perform Fighter Engagement mission.</English>
+		<French>Can perform Fighter Engagement mission.</French>
+		<German>Can perform Fighter Engagement mission.</German>
+		<Italian>Can perform Fighter Engagement mission.</Italian>
+		<Spanish>Can perform Fighter Engagement mission.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_WW2_JAN1_1936_TEXT2</Tag>
+		<English>Welcome to the Road to War! Exclusive Road to War content, only available through http://www.DalesZone.com will include new Leaders, a new Pacific map starting in 1941, event movies and a new global map starting in 1936![NEWLINE][NEWLINE]I hope you enjoy the Road to War as much as I enjoyed making it.[NEWLINE]Dale[NEWLINE][NEWLINE]Dale Kent - Designer and Developer[NEWLINE]David Sobotka - Movies and Interface[NEWLINE]Tony Kiehl - Unit/Leader/Terrain Artwork[NEWLINE]Thank you to the unit makers of CivFanatics.</English>
+		<French>Welcome to the Road to War! Exclusive Road to War content, only available through http://www.DalesZone.com will include new Leaders, a new Pacific map starting in 1941, event movies and a new global map starting in 1936![NEWLINE][NEWLINE]I hope you enjoy the Road to War as much as I enjoyed making it.[NEWLINE]Dale[NEWLINE][NEWLINE]Dale Kent - Designer and Developer[NEWLINE]David Sobotka - Movies and Interface[NEWLINE]Tony Kiehl - Unit/Leader/Terrain Artwork[NEWLINE]Thank you to the unit makers of CivFanatics.</French>
+		<German>Welcome to the Road to War! Exclusive Road to War content, only available through http://www.DalesZone.com will include new Leaders, a new Pacific map starting in 1941, event movies and a new global map starting in 1936![NEWLINE][NEWLINE]I hope you enjoy the Road to War as much as I enjoyed making it.[NEWLINE]Dale[NEWLINE][NEWLINE]Dale Kent - Designer and Developer[NEWLINE]David Sobotka - Movies and Interface[NEWLINE]Tony Kiehl - Unit/Leader/Terrain Artwork[NEWLINE]Thank you to the unit makers of CivFanatics.</German>
+		<Italian>Welcome to the Road to War! Exclusive Road to War content, only available through http://www.DalesZone.com will include new Leaders, a new Pacific map starting in 1941, event movies and a new global map starting in 1936![NEWLINE][NEWLINE]I hope you enjoy the Road to War as much as I enjoyed making it.[NEWLINE]Dale[NEWLINE][NEWLINE]Dale Kent - Designer and Developer[NEWLINE]David Sobotka - Movies and Interface[NEWLINE]Tony Kiehl - Unit/Leader/Terrain Artwork[NEWLINE]Thank you to the unit makers of CivFanatics.</Italian>
+		<Spanish>Welcome to the Road to War! Exclusive Road to War content, only available through http://www.DalesZone.com will include new Leaders, a new Pacific map starting in 1941, event movies and a new global map starting in 1936![NEWLINE][NEWLINE]I hope you enjoy the Road to War as much as I enjoyed making it.[NEWLINE]Dale[NEWLINE][NEWLINE]Dale Kent - Designer and Developer[NEWLINE]David Sobotka - Movies and Interface[NEWLINE]Tony Kiehl - Unit/Leader/Terrain Artwork[NEWLINE]Thank you to the unit makers of CivFanatics.</Spanish>
+	</TEXT>
+</Civ4GameText>

@@ -1,0 +1,52 @@
+Change Log:
+
+Code Breaker (improved C3I & logistics)
+Anti Tank Gun (early artillery)
+Tank Destroyer (tank guns & destroyers)
+Chiang Kai-shek added
+USSR invades Poland! (fortnight 2 September 1939)
+UU graphics (most, some units don't have any)
+Captured cities gain 500 culture
+Settlers for "Open Play" mode & random maps
+Can now play random maps & pre-made maps
+BtS events converted to RtW
+Can now play ALL nations
+Moved intro text before Dawn of Man (instead of turn 1)
+Moved mode chooser to turn 1 (instead of turn 2)
+Infantry get bonus versus siege units
+Siege get bonus versus armor
+Armor get no bonus versus other types
+Anti Air get bonus versus air
+Iberia now called Nationalist Iberia
+China now called Peoples Republic of China
+Unit costs (EG: tanks more expense)
+PzIV's slightly nerfed
+Cavalry moves = 3 (was 2)
+Medium Tanks moves = 3 (was 4)
+Broadcast towers gives loads of espionage benefits now (and generate Great Spys)
+Bitter Winter affected area increased (as intended originally, but with turn-speed slowdown)
+Nations don't speak American any longer, speak their language (or closest)
+Great People from the era
+Bombers no longer carry units
+City/colony/distance maintenance costs reduced
+Finland-German open borders for Continuation War
+War Weariness nerfed
+Tweaked artillery bombardment
+AI will build a lot more fighters
+English infantry now Commonwealth infantry
+AI more aggressive and handles naval invasions
+Paras and Marines strength to 20
+Fascist industry now supports 100 units
+Spies now invisible (including GS)
+Sea trade routes fixed (oil fix)
+People's Republic of China now Republic of China (with correct flag)
+BF-109 fighter now before FW-190
+Chairman Zedong now Chairman Mao
+Anti Air units can now be put into Interception mode correctly
+Anti Air units can no longer bombard
+Destroyers cannot bombard
+Winter terrains fixed
+All processes now convert production at a rate of 100%
+Spelling/grammar mistakes
+Losing ability to build nukes fixed
+AI Airbombing (AI will now actually factory and civil bomb!)

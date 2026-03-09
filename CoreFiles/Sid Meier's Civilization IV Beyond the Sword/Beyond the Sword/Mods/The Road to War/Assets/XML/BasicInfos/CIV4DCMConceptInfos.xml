@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Basic Infos -->
+<Civ4DCMConceptInfos xmlns="x-schema:CIV4BasicInfoSchema.xml">
+	<DCMConceptInfos>
+		<DCMConceptInfo>
+			<Type>CONCEPT_AIR_BOMBING</Type>
+			<Description>TXT_KEY_CONCEPT_AIR_BOMBING_TEXT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_AIR_BOMBING_PEDIA</Civilopedia>
+		</DCMConceptInfo>
+		<DCMConceptInfo>
+			<Type>CONCEPT_BATTLE_EFFECTS</Type>
+			<Description>TXT_KEY_CONCEPT_BATTLE_EFFECTS_TEXT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_BATTLE_EFFECTS_PEDIA</Civilopedia>
+		</DCMConceptInfo>
+		<DCMConceptInfo>
+			<Type>CONCEPT_CIV_CUSTOMISER</Type>
+			<Description>TXT_KEY_CONCEPT_CIV_CUSTOMISER_TEXT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_CIV_CUSTOMISER_PEDIA</Civilopedia>
+		</DCMConceptInfo>
+		<DCMConceptInfo>
+			<Type>CONCEPT_RBOMBARD</Type>
+			<Description>TXT_KEY_CONCEPT_RBOMBARD_TEXT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_RBOMBARD_PEDIA</Civilopedia>
+		</DCMConceptInfo>
+		<DCMConceptInfo>
+			<Type>CONCEPT_CHANGECIV</Type>
+			<Description>TXT_KEY_CONCEPT_CHANGECIV_TEXT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_CHANGECIV_PEDIA</Civilopedia>
+		</DCMConceptInfo>
+		<DCMConceptInfo>
+			<Type>CONCEPT_STACK_ATTACK</Type>
+			<Description>TXT_KEY_CONCEPT_STACK_ATTACK_TEXT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_STACK_ATTACK_PEDIA</Civilopedia>
+		</DCMConceptInfo>
+		<DCMConceptInfo>
+			<Type>CONCEPT_OPP_FIRE</Type>
+			<Description>TXT_KEY_CONCEPT_OPP_FIRE_TEXT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_OPP_FIRE_PEDIA</Civilopedia>
+		</DCMConceptInfo>
+		<DCMConceptInfo>
+			<Type>CONCEPT_ACTIVE_DEFENSE</Type>
+			<Description>TXT_KEY_CONCEPT_ACTIVE_DEFENSE_TEXT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ACTIVE_DEFENSE_PEDIA</Civilopedia>
+		</DCMConceptInfo>
+		<DCMConceptInfo>
+			<Type>CONCEPT_ARCHER_BOMBARD</Type>
+			<Description>TXT_KEY_CONCEPT_ABOMBARD_TEXT</Description>
+			<Civilopedia>TXT_KEY_CONCEPT_ABOMBARD_PEDIA</Civilopedia>
+		</DCMConceptInfo>
+	</DCMConceptInfos>
+</Civ4DCMConceptInfos>

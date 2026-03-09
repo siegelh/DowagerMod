@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Bart Muzzin (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Global Defines -->
+<Civ4Defines xmlns="x-schema:CIV4GlobalDefinesSchema.xml">
+	<Define>
+		<DefineName>DCM_BATTLE_EFFECTS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>NUM_GAME_FEATURES</DefineName>
+		<iDefineIntVal>8</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>NUM_BATTLE_FEATURES</DefineName>
+		<iDefineIntVal>5</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_AIR_BOMBING</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_CIV_CUSTOMISER</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_RANGE_BOMBARD</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_CIV_CHANGER</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_CIV_CHANGER_MODE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_CIV_CHANGER_CHANGES</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_STACK_ATTACK</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_OPP_FIRE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_ACTIVE_DEFENSE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_ARCHER_BOMBARD</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>DCM_FIGHTER_ENGAGE</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+</Civ4Defines>

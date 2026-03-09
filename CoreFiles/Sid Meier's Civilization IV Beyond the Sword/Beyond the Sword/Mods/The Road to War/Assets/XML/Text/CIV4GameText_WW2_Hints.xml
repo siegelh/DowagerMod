@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text Strategy -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_HINT_1</Tag>
+		<English>The Road to War took 12 months to create, and introduces new concepts to the game. Make sure you know how to use them... the AI does.</English>
+		<French>Un an de développement nous a été nécessaire pour vous apporter "Les sentiers de la guerre". Nous y avons ajouté de nouveaux concepts. Assurez-vous que vous savez vous en servir... parce que l'IA, elle, saura.</French>
+		<German>The Road to War wurde innerhalb von 12 Monaten fertig gestellt und beinhaltet einige neue Spielkonzepte, mit denen Sie sich unbedingt vertraut machen sollten ... denn die KI ist es auch.</German>
+		<Italian>Ci sono voluti 12 mesi per creare La strada per la guerra, e introdurre nuovi concetti nel gioco. Assicurati di sapere come usarli... L'IA sa come fare.</Italian>
+		<Spanish>&quot;The Road to War&quot; se ha creado en 12 meses e introduce nuevos conceptos al juego. Es conveniente saber cómo usarlos... porque la IA lo sabe.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_2</Tag>
+		<English>The Maginot Line bunkers may seem impregnable, but don't rely on them to hold back the Germans for long.</English>
+		<French>Les bunkers de la Ligne Maginot semblent inexpugnables, mais ne comptez pas sur eux pour contenir les Allemands éternellement.</French>
+		<German>Die Bunker der Maginot-Linie mögen uneinnehmbar erscheinen, dennoch sollten Sie sich nicht darauf verlassen, dass sie die Deutschen allzu lange fernhalten können.</German>
+		<Italian>I bunker della Linea Maginot possono sembrare inespugnabili, ma non aspettarti che fermino i tedeschi troppo a lungo.</Italian>
+		<Spanish>La línea Maginot parece inexpugnable, pero no conviene confiar en que mantenga a raya a los alemanes durante mucho tiempo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_7</Tag>
+		<English>Ensure you gain air superiority early.</English>
+		<French>Faites en sorte d'obtenir rapidement la supériorité aérienne.</French>
+		<German>Sichern Sie sich frühzeitig im Spiel die Lufthoheit.</German>
+		<Italian>Assicurati di ottenere presto la superiorità aerea.</Italian>
+		<Spanish>Es importante obtener pronto la superioridad aérea.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_8</Tag>
+		<English>Never despair in the face of a large stack of units. Artillery may not beat tanks, but you can still do a lot of damage to a stack with enough of them.</English>
+		<French>Ne vous découragez pas face à un grand nombre d'unités ennemies. L'artillerie est peu efficace contre les blindés mais elle peut tout de même occasionner de sérieux dommages.</French>
+		<German>Verlieren Sie angesichts einer größeren Ansammlung feindlicher Einheiten nicht gleich den Mut. Ihre Artillerie mag zwar keine Panzer bezwingen können, wenn sie umfangreich genug ist, kann sie ihnen aber dennoch erheblichen Schaden zufügen.</German>
+		<Italian>Non spaventarti davanti a un gran numero di unità. L'artiglieria non potrà battere i carri armati, ma infligge comunque ingenti danni.</Italian>
+		<Spanish>Nunca desesperéis ante un gran apilamiento de unidades. Quizá la artillería no derrote a los tanques, pero aún puede hacerle mucho daño a un apilamiento si se tiene la suficiente.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_11</Tag>
+		<English>Sometimes it is better to retreat to face your enemies another day. Try not to engage in pointless combat.</English>
+		<French>Parfois la retraite est préférable pour préserver vos troupes pour des combats ultérieurs. Ne vous engagez pas dans un combat désespéré.</French>
+		<German>Manchmal ist es klüger, den Rückzug anzutreten und sich dem Feind zu einem späteren Zeitpunkt zu stellen. Lassen Sie sich nach Möglichkeit nicht auf aussichtslose Gefechte ein.</German>
+		<Italian>Alle volte conviene ritirarsi, per poter affrontare il nemico un altro giorno. Cerca di non impegnarti in combattimenti inutili.</Italian>
+		<Spanish>A veces es mejor replegarse para enfrentarse al enemigo otro día. No es recomendable entablar luchas absurdas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_12</Tag>
+		<English>Watch out for fast-moving enemy medium tanks. They can move across open land deep into your territory in a small number of turns.</English>
+		<French>Prenez garde aux capacités de mouvement des chars ennemis moyens. Ils peuvent s'enfoncer profondément dans votre territoire en quelques tours.</French>
+		<German>Achten Sie auf schnell vorrückende feindliche Panzer mittlerer Größe. Auf offenem Gelände können sie innerhalb weniger Runden tief in Ihr Territorium vordringen.</German>
+		<Italian>Attento ai carri armati medi dei nemici, sono molto veloci. Possono spostarsi rapidamente sul terreno aperto e penetrare a fondo nel tuo territorio in pochi turni.</Italian>
+		<Spanish>Cuidado con la rapidez de movimiento de los tanques medios enemigos. Pueden cruzar terreno despejado y penetrar en el territorio en un escaso número de turnos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_15</Tag>
+		<English>Don't neglect your empire's culture - a high cultural influence boosts defense for all eras.</English>
+		<French>Ne négligez pas le niveau culturel de votre empire. Une influence culturelle élevée renforce les défenses, quelle que soit l'époque.</French>
+		<German>Achten Sie auf die kulturelle Entwicklung Ihrer Zivilisation: Starker kultureller Einfluss sorgt in allen Zeitaltern für eine bessere Verteidigungsfähigkeit.</German>
+		<Italian>Non trascurare la cultura del tuo Impero: una grande influenza culturale migliora la difesa in qualsiasi epoca.</Italian>
+		<Spanish>No se debe renegar de la cultura del imperio. Una gran influencia cultural mejorará las defensas en todas las épocas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_24</Tag>
+		<English>If playing a non-Fascist nation, concentrating on industry techs will pay huge dividends.</English>
+		<French>Si vous jouez une nation non-fasciste, il est payant de se concentrer sur les techniques industrielles.</French>
+		<German>Sofern Ihre Zivilisation nicht faschistisch ist, können Sie enorme Gewinne erwirtschaften, wenn Sie sich auf Industrietechnologien konzentrieren.</German>
+		<Italian>Se giochi con una nazione non fascista, otterrai grandi risultati concentrandoti sulle tecnologie industriali.</Italian>
+		<Spanish>Si se juega con una nación que no sea fascista, conviene concentrarse en las tecnologías de la industria, que reportarán grandes dividendos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_25</Tag>
+		<English>Weigh up your options. For example, do you pursue nuclear weapons or advanced conventional weapons?</English>
+		<French>Pesez consciencieusement vos choix. Par exemple, est-il plus judicieux de poursuivre la recherche d'armes atomiques ou de développer l'armement conventionnel avancé ?</French>
+		<German>Wägen Sie Ihre Möglichkeiten ab. Wollen Sie zum Beispiel Atomwaffen oder fortschrittliche konventionelle Waffen einsetzen?</German>
+		<Italian>Considera bene le tue opzioni. Per esempio: ricerchi le armi nucleari o quelle convenzionali avanzate?</Italian>
+		<Spanish>Siempre hay que considerar las opciones disponibles. Por ejemplo, ¿interesa más investigar armas nucleares o armas convencionales avanzadas?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_26</Tag>
+		<English>Open Borders agreements are invitations for your propaganda - spread your state ideology quickly and take advantage of the espionage benefits! If your ideology spreads widely enough, your neighbors may convert to your belief, which can boost relations.</English>
+		<French>Les traités d'ouverture des frontières sont une occasion de répandre votre propagande d'Etat et de récolter les bénéfices de vos actions d'espionnage ! Si votre idéologie se répand suffisamment, vos voisins peuvent se ranger à vos côtés, ce qui améliore vos relations.</French>
+		<German>Grenzöffnungsvereinbarungen öffnen Tür und Tor für Ihre Propaganda. Sorgen Sie für die schnelle Verbreitung Ihrer Staatsideologie und nutzen Sie sich bietende Spionagegelegenheiten zu Ihrem Vorteil! Sind Ihre Überzeugungen erst einmal hinreichend propagiert, können sich benachbarte Zivilisationen Ihrer Weltanschauung anschließen, wodurch sich Ihre Beziehung zu diesen Nationen erheblich verbessert.</German>
+		<Italian>Il diritto di passaggio è un invito per la tua propaganda: diffondi rapidamente l'ideologia del tuo Stato e trai vantaggio dallo spionaggio! Se la tua ideologia si diffonde abbastanza ampiamente, i tuoi vicini potrebbero convertirsi, cosa che può migliorare le relazioni.</Italian>
+		<Spanish>Los acuerdos de apertura de fronteras son invitaciones a la introducción de propaganda. Conviene propagar rápidamente la ideología del estado y aprovecharse de los beneficios del espionaje. Si la ideología propia se propaga lo suficiente, los vecinos pueden convertirse a esas creencias, lo que puede mejorar las relaciones con ellos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_HINT_37</Tag>
+		<English>Protect your coastal assets and units as enemy ships can bombard them.</English>
+		<French>Protégez vos installations côtières et vos unités car elles sont susceptibles d'être la cible de bombardements navals.</French>
+		<German>Schützen Sie Ihre Besitztümer und Einheiten an der Küste vor Bombardierungen durch feindliche Schiffe.</German>
+		<Italian>Proteggi i tuoi insediamenti e unità sulla costa, perché le navi nemiche possono bombardarli.</Italian>
+		<Spanish>Hay que proteger los activos y las unidades de la costa, ya que los barcos enemigos pueden cañonearlos.</Spanish>
+	</TEXT>
+</Civ4GameText>

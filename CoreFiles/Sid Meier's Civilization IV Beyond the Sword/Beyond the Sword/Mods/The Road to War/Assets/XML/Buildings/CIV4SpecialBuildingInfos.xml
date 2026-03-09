@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Jesse Smith (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Special Building -->
+<Civ4SpecialBuildingInfos xmlns="x-schema:CIV4BuildingsSchema.xml">
+	<SpecialBuildingInfos>
+		<SpecialBuildingInfo>
+			<Type>SPECIALBUILDING_WW2_BUILD02</Type>
+			<Description>TXT_KEY_SPECIALBUILDING_WW2_BUILD02</Description>
+			<ObsoleteTech>NONE</ObsoleteTech>
+			<TechPrereq>NONE</TechPrereq>
+			<TechPrereqAnyone>NONE</TechPrereqAnyone>
+			<bValid>0</bValid>
+			<ProductionTraits/>
+			<Button>Art/Interface/Buttons/Buildings/BombShelters.dds</Button>
+		</SpecialBuildingInfo>
+		<SpecialBuildingInfo>
+			<Type>SPECIALBUILDING_WW2_BUILD04</Type>
+			<Description>TXT_KEY_SPECIALBUILDING_WW2_BUILD04</Description>
+			<ObsoleteTech>NONE</ObsoleteTech>
+			<TechPrereq>NONE</TechPrereq>
+			<TechPrereqAnyone>NONE</TechPrereqAnyone>
+			<bValid>0</bValid>
+			<ProductionTraits/>
+			<Button>Art/Interface/Buttons/Buildings/BombShelters.dds</Button>
+		</SpecialBuildingInfo>
+	</SpecialBuildingInfos>
+</Civ4SpecialBuildingInfos>

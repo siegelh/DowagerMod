@@ -1,0 +1,6160 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by lcollins (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Text Cities -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_ARC</Tag>
+		<English>Arc de Triomphe</English>
+		<French>Arc de Triomphe</French>
+		<German>Triumphbogen</German>
+		<Italian>Arco di Trionfo</Italian>
+		<Spanish>El Arco del Triunfo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BIGBEN</Tag>
+		<English>Big Ben</English>
+		<French>Big Ben</French>
+		<German>Big Ben</German>
+		<Italian>Big Ben</Italian>
+		<Spanish>El Big Ben</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_PISA</Tag>
+		<English>Leaning Tower of Pisa</English>
+		<French>Tour de Pise</French>
+		<German>Schiefer Turm von Pisa</German>
+		<Italian>Torre pendente di Pisa</Italian>
+		<Spanish>La Torre Inclinada de Pisa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_REICHSTAG</Tag>
+		<English>Reichstag</English>
+		<French>Reichstag</French>
+		<German>Reichstag</German>
+		<Italian>Reichstag</Italian>
+		<Spanish>El Reichstag</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_TORII</Tag>
+		<English>Torii</English>
+		<French>Torii</French>
+		<German>Torii</German>
+		<Italian>Torii</Italian>
+		<Spanish>La puerta Torii</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_WHOUSE</Tag>
+		<English>White House</English>
+		<French>Maison Blanche</French>
+		<German>Wei&#223;es Haus</German>
+		<Italian>Casa Bianca</Italian>
+		<Spanish>La Casa Blanca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD01</Tag>
+		<English>Laboratory</English>
+		<French>Laboratoire</French>
+		<German>Labor</German>
+		<Italian>Laboratorio</Italian>
+		<Spanish>Laboratorio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD02</Tag>
+		<English>Chain Reactor</English>
+		<French>R&#233;acteur nucl&#233;aire</French>
+		<German>Fusionsreaktor</German>
+		<Italian>Reattore a catena</Italian>
+		<Spanish>Reactor nuclear en cadena</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD03</Tag>
+		<English>Bomb Shelter</English>
+		<French>Abri anti-bombardement</French>
+		<German>Luftschutzkeller</German>
+		<Italian>Rifugio antiaereo</Italian>
+		<Spanish>Refugio antia&#233;reo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD04</Tag>
+		<English>Nuclear Shelter</English>
+		<French>Abri anti-atomique</French>
+		<German>Atomschutzbunker</German>
+		<Italian>Rifugio antiatomico</Italian>
+		<Spanish>Refugio nuclear</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD05</Tag>
+		<English>Airforce Base</English>
+		<French>Base a&#233;rienne</French>
+		<German>Luftwaffenst&#252;tzpunkt</German>
+		<Italian>Base aerea</Italian>
+		<Spanish>Base de la fuerza a&#233;rea</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD06</Tag>
+		<English>Sewer</English>
+		<French>Egout</French>
+		<German>Kanalisation</German>
+		<Italian>Fognature</Italian>
+		<Spanish>Alcantarillado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD07</Tag>
+		<English>Bank</English>
+		<French>Banque</French>
+		<German>Bank</German>
+		<Italian>Banca</Italian>
+		<Spanish>Banco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD08</Tag>
+		<English>Army Barracks</English>
+		<French>Caserne</French>
+		<German>Armeekaserne</German>
+		<Italian>Caserme</Italian>
+		<Spanish>Cuartel del ej&#233;rcito</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD09</Tag>
+		<English>Radio Station</English>
+		<French>Station de radio</French>
+		<German>Rundfunkstation</German>
+		<Italian>Stazione radio</Italian>
+		<Spanish>Emisora de radio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD10</Tag>
+		<English>Coal Plant</English>
+		<French>Centrale &#224; charbon</French>
+		<German>Kohlekraftwerk</German>
+		<Italian>Centrale a carbone</Italian>
+		<Spanish>Central t&#233;rmica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD11</Tag>
+		<English>Courthouse</English>
+		<French>Tribunal</French>
+		<German>Gerichtsgeb&#228;ude</German>
+		<Italian>Palazzo di giustizia</Italian>
+		<Spanish>Tribunal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD12</Tag>
+		<English>Naval Dock</English>
+		<French>Installation portuaire</French>
+		<German>Marinedock</German>
+		<Italian>Molo</Italian>
+		<Spanish>Muelle naval</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD13</Tag>
+		<English>Wheat Silo</English>
+		<French>Silo &#224; bl&#233;</French>
+		<German>Weizensilo</German>
+		<Italian>Silo</Italian>
+		<Spanish>Silo de trigo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD14</Tag>
+		<English>Grocer</English>
+		<French>Marchand</French>
+		<German>Kr&#228;mer</German>
+		<Italian>Droghiere</Italian>
+		<Spanish>Colmado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD15</Tag>
+		<English>Hospital</English>
+		<French>H&#244;pital</French>
+		<German>Krankenhaus</German>
+		<Italian>Ospedale</Italian>
+		<Spanish>Hospital</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD16</Tag>
+		<English>Jail</English>
+		<French>Prison</French>
+		<German>Gef&#228;ngnis</German>
+		<Italian>Prigione</Italian>
+		<Spanish>C&#225;rcel</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD17</Tag>
+		<English>Military Academy</English>
+		<French>Acad&#233;mie militaire</French>
+		<German>Milit&#228;rakademie</German>
+		<Italian>Accademia militare</Italian>
+		<Spanish>Academia militar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD18</Tag>
+		<English>Stock Exchange</English>
+		<French>Bourse</French>
+		<German>B&#246;rse</German>
+		<Italian>Borsa</Italian>
+		<Spanish>Bolsa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD19</Tag>
+		<English>Theatre</English>
+		<French>Th&#233;&#226;tre</French>
+		<German>Theater</German>
+		<Italian>Teatro</Italian>
+		<Spanish>Teatro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD20</Tag>
+		<English>University</English>
+		<French>Universit&#233;</French>
+		<German>Universit&#228;t</German>
+		<Italian>Universit&#224;</Italian>
+		<Spanish>Universidad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD21</Tag>
+		<English>Vehicle Factory</English>
+		<French>Usine de v&#233;hicules</French>
+		<German>Fahrzeugfabrik</German>
+		<Italian>Fabbrica di veicoli</Italian>
+		<Spanish>F&#225;brica de veh&#237;culos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD22</Tag>
+		<English>Aircraft Factory</English>
+		<French>Usine a&#233;ronautique</French>
+		<German>Flugzeugfabrik</German>
+		<Italian>Fabbrica di aerei</Italian>
+		<Spanish>F&#225;brica de aeronaves</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD23</Tag>
+		<English>Naval Factory</English>
+		<French>Chantier naval</French>
+		<German>Marinewerft</German>
+		<Italian>Fabbrica navale</Italian>
+		<Spanish>Astillero de la Marina</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_WW2_BUILD24</Tag>
+		<English>Goods Factory</English>
+		<French>Usine de biens d'&#233;quipement</French>
+		<German>Warenfabrik</German>
+		<Italian>Fabbrica di beni</Italian>
+		<Spanish>F&#225;brica de mercanc&#237;as</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALBUILDING_WW2_BUILD02</Tag>
+		<English>Chain Reactor</English>
+		<French>R&#233;acteur nucl&#233;aire</French>
+		<German>Fusionsreaktor</German>
+		<Italian>Reattore a catena</Italian>
+		<Spanish>Reactor nuclear en cadena</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALBUILDING_WW2_BUILD04</Tag>
+		<English>Manhattan Project</English>
+		<French>Projet Manhattan</French>
+		<German>Manhattan-Projekt</German>
+		<Italian>Manhattan Project</Italian>
+		<Spanish>Proyecto Manhattan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROJECT_CHAIN_REACTOR</Tag>
+		<English>Chain Reactor</English>
+		<French>R&#233;acteur nucl&#233;aire</French>
+		<German>Fusionsreaktor</German>
+		<Italian>Reattore a catena</Italian>
+		<Spanish>Reactor nuclear en cadena</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROJECT_MANHATTAN_PROJECT</Tag>
+		<English>Manhattan Project</English>
+		<French>Projet Manhattan</French>
+		<German>Manhattan-Projekt</German>
+		<Italian>Manhattan Project</Italian>
+		<Spanish>Proyecto Manhattan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND1</Tag>
+		<English>London</English>
+		<French>Londres</French>
+		<German>London</German>
+		<Italian>Londra</Italian>
+		<Spanish>Londres</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND2</Tag>
+		<English>Plymouth</English>
+		<French>Plymouth</French>
+		<German>Plymouth</German>
+		<Italian>Plymouth</Italian>
+		<Spanish>Plymouth</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND3</Tag>
+		<English>Liverpool</English>
+		<French>Liverpool</French>
+		<German>Liverpool</German>
+		<Italian>Liverpool</Italian>
+		<Spanish>Liverpool</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND4</Tag>
+		<English>Edinburgh</English>
+		<French>Edimbourg</French>
+		<German>Edinburgh</German>
+		<Italian>Edimburgo</Italian>
+		<Spanish>Edimburgo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND5</Tag>
+		<English>Inverness</English>
+		<French>Inverness</French>
+		<German>Inverness</German>
+		<Italian>Inverness</Italian>
+		<Spanish>Inverness</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND6</Tag>
+		<English>Belfast</English>
+		<French>Belfast</French>
+		<German>Belfast</German>
+		<Italian>Belfast</Italian>
+		<Spanish>Belfast</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND7</Tag>
+		<English>Gibraltar</English>
+		<French>Gibraltar</French>
+		<German>Gibraltar</German>
+		<Italian>Gibilterra</Italian>
+		<Spanish>Gibraltar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND8</Tag>
+		<English>Malta</English>
+		<French>Malte</French>
+		<German>Malta</German>
+		<Italian>Malta</Italian>
+		<Spanish>Malta</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND9</Tag>
+		<English>St John's</English>
+		<French>St John's</French>
+		<German>St. John's</German>
+		<Italian>St John's</Italian>
+		<Spanish>St. John's</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND10</Tag>
+		<English>Charlottetown</English>
+		<French>Charlottetown</French>
+		<German>Charlottetown</German>
+		<Italian>Charlottetown</Italian>
+		<Spanish>Charlottetown</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND11</Tag>
+		<English>Halifax</English>
+		<French>Halifax</French>
+		<German>Halifax</German>
+		<Italian>Halifax</Italian>
+		<Spanish>Halifax</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND12</Tag>
+		<English>Sydney</English>
+		<French>Sydney</French>
+		<German>Sydney</German>
+		<Italian>Sydney</Italian>
+		<Spanish>Sydney</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND13</Tag>
+		<English>Fredericton</English>
+		<French>Fredericton</French>
+		<German>Fredericton</German>
+		<Italian>Fredericton</Italian>
+		<Spanish>Fredericton</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND14</Tag>
+		<English>Alexandria</English>
+		<French>Alexandrie</French>
+		<German>Alexandria</German>
+		<Italian>Alessandria</Italian>
+		<Spanish>Alejandr&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND15</Tag>
+		<English>Matruh</English>
+		<French>Matruh</French>
+		<German>Matruh</German>
+		<Italian>Matruh</Italian>
+		<Spanish>Matruh</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND16</Tag>
+		<English>Port Said</English>
+		<French>Port Sa&#239;d</French>
+		<German>Port Said</German>
+		<Italian>Port Said</Italian>
+		<Spanish>Port Said</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND17</Tag>
+		<English>Cairo</English>
+		<French>Le Caire</French>
+		<German>Kairo</German>
+		<Italian>Il Cairo</Italian>
+		<Spanish>El Cairo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND18</Tag>
+		<English>Nicosia</English>
+		<French>Nicosie</French>
+		<German>Nikosia</German>
+		<Italian>Nicosia</Italian>
+		<Spanish>Nicosia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND19</Tag>
+		<English>Kuwait</English>
+		<French>Koweit</French>
+		<German>Kuwait</German>
+		<Italian>Kuwait</Italian>
+		<Spanish>Kuwait</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND20</Tag>
+		<English>Baghdad</English>
+		<French>Bagdad</French>
+		<German>Bagdad</German>
+		<Italian>Baghdad</Italian>
+		<Spanish>Bagdad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND21</Tag>
+		<English>Singapore</English>
+		<French>Singapour</French>
+		<German>Singapur</German>
+		<Italian>Singapore</Italian>
+		<Spanish>Singapur</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND22</Tag>
+		<English>Kuala Lumpur</English>
+		<French>Kuala Lumpur</French>
+		<German>Kuala Lumpur</German>
+		<Italian>Kuala Lumpur</Italian>
+		<Spanish>Kuala Lumpur</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND23</Tag>
+		<English>Hong Kong</English>
+		<French>Hong Kong</French>
+		<German>Hongkong</German>
+		<Italian>Hong Kong</Italian>
+		<Spanish>Hong Kong</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND24</Tag>
+		<English>Jesselton</English>
+		<French>Jesselton</French>
+		<German>Jesselton</German>
+		<Italian>Jesselton</Italian>
+		<Spanish>Jesselton</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND25</Tag>
+		<English>Miri</English>
+		<French>Miri</French>
+		<German>Miri</German>
+		<Italian>Miri</Italian>
+		<Spanish>Miri</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND26</Tag>
+		<English>Guadalcanal</English>
+		<French>Guadalcanal</French>
+		<German>Guadalcanal</German>
+		<Italian>Guadalcanal</Italian>
+		<Spanish>Guadalcanal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND27</Tag>
+		<English>Santa Cruz Islands</English>
+		<French>Iles Santa Cruz</French>
+		<German>Santa-Cruz-Inseln</German>
+		<Italian>Isole di Santa Cruz</Italian>
+		<Spanish>Islas Santa Cruz</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND28</Tag>
+		<English>Fiji</English>
+		<French>Fidji</French>
+		<German>Fidschi</German>
+		<Italian>Fiji</Italian>
+		<Spanish>Islas Fiji</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND29</Tag>
+		<English>Nauru</English>
+		<French>Nauru</French>
+		<German>Nauru</German>
+		<Italian>Nauru</Italian>
+		<Spanish>Nauru</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND30</Tag>
+		<English>Maiana</English>
+		<French>Maiana</French>
+		<German>Maiana</German>
+		<Italian>Maiana</Italian>
+		<Spanish>Maiana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND31</Tag>
+		<English>Tamana</English>
+		<French>Tamana</French>
+		<German>Tamana</German>
+		<Italian>Tamana</Italian>
+		<Spanish>Tamana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND32</Tag>
+		<English>Christmas Island</English>
+		<French>Kiritimati</French>
+		<German>Weihnachtsinsel</German>
+		<Italian>Isola di Natale</Italian>
+		<Spanish>Isla Christmas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND33</Tag>
+		<English>Moulmein</English>
+		<French>Moulmein</French>
+		<German>Moulmein</German>
+		<Italian>Moulmein</Italian>
+		<Spanish>Moulmein</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND34</Tag>
+		<English>Rangoon</English>
+		<French>Rangoon</French>
+		<German>Rangoon</German>
+		<Italian>Rangoon</Italian>
+		<Spanish>Rang&#250;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND35</Tag>
+		<English>Chittagong</English>
+		<French>Chittagong</French>
+		<German>Chittagong</German>
+		<Italian>Chittagong</Italian>
+		<Spanish>Chittagong</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND36</Tag>
+		<English>Calcutta</English>
+		<French>Calcutta</French>
+		<German>Kalkutta</German>
+		<Italian>Calcutta</Italian>
+		<Spanish>Calcuta</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND37</Tag>
+		<English>Madras</English>
+		<French>Madras</French>
+		<German>Madras</German>
+		<Italian>Madras</Italian>
+		<Spanish>Madr&#225;s</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND38</Tag>
+		<English>Shan States</English>
+		<French>Etat Shan</French>
+		<German>Shan-Staat</German>
+		<Italian>Stati Shan</Italian>
+		<Spanish>Estados Shan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND39</Tag>
+		<English>Fort Hetz</English>
+		<French>Fort Hertz</French>
+		<German>Fort Hetz</German>
+		<Italian>Forte Hetz</Italian>
+		<Spanish>Fort Hetz</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND40</Tag>
+		<English>Rangpur</English>
+		<French>Rangpur</French>
+		<German>Rangpur</German>
+		<Italian>Rangpur</Italian>
+		<Spanish>Rangpur</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ENGLAND41</Tag>
+		<English>Lucknow</English>
+		<French>Lucknow</French>
+		<German>Lucknow</German>
+		<Italian>Lucknow</Italian>
+		<Spanish>Lucknow</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_POLAND1</Tag>
+		<English>Warsaw</English>
+		<French>Varsovie</French>
+		<German>Warschau</German>
+		<Italian>Varsavia</Italian>
+		<Spanish>Varsovia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_POLAND2</Tag>
+		<English>Krakow</English>
+		<French>Cracovie</French>
+		<German>Krakau</German>
+		<Italian>Cracovia</Italian>
+		<Spanish>Cracovia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_POLAND3</Tag>
+		<English>Danzig</English>
+		<French>Dantzig</French>
+		<German>Danzig</German>
+		<Italian>Danzica</Italian>
+		<Spanish>Danzig</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_POLAND4</Tag>
+		<English>L'viv</English>
+		<French>L'viv</French>
+		<German>L'viv</German>
+		<Italian>L'viv</Italian>
+		<Spanish>Le&#243;polis</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_POLAND5</Tag>
+		<English>Rzeszow</English>
+		<French>Rzeszow</French>
+		<German>Rzeszow</German>
+		<Italian>Rzeszow</Italian>
+		<Spanish>Rzeszow</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_POLAND6</Tag>
+		<English>Pinsk</English>
+		<French>Pinsk</French>
+		<German>Pinsk</German>
+		<Italian>Pinsk</Italian>
+		<Spanish>Pinsk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_POLAND7</Tag>
+		<English>Vilnius</English>
+		<French>Vilnius</French>
+		<German>Vilnius</German>
+		<Italian>Vilnius</Italian>
+		<Spanish>Vilna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALTIC1</Tag>
+		<English>Riga</English>
+		<French>Riga</French>
+		<German>Riga</German>
+		<Italian>Riga</Italian>
+		<Spanish>Riga</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALTIC2</Tag>
+		<English>Tallinn</English>
+		<French>Tallinn</French>
+		<German>Tallinn</German>
+		<Italian>Tallinn</Italian>
+		<Spanish>Tallin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_LOWLANDS1</Tag>
+		<English>Amsterdam</English>
+		<French>Amsterdam</French>
+		<German>Amsterdam</German>
+		<Italian>Amsterdam</Italian>
+		<Spanish>Amsterdam</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_LOWLANDS2</Tag>
+		<English>Brussels</English>
+		<French>Bruxelles</French>
+		<German>Br&#252;ssel</German>
+		<Italian>Bruxelles</Italian>
+		<Spanish>Bruselas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_LOWLANDS3</Tag>
+		<English>Luxemburg</English>
+		<French>Luxembourg</French>
+		<German>Luxemburg</German>
+		<Italian>Lussemburgo</Italian>
+		<Spanish>Luxemburgo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_IBERIA1</Tag>
+		<English>Madrid</English>
+		<French>Madrid</French>
+		<German>Madrid</German>
+		<Italian>Madrid</Italian>
+		<Spanish>Madrid</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_IBERIA2</Tag>
+		<English>Barcelona</English>
+		<French>Barcelone</French>
+		<German>Barcelona</German>
+		<Italian>Barcellona</Italian>
+		<Spanish>Barcelona</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_IBERIA3</Tag>
+		<English>Oviedo</English>
+		<French>Oviedo</French>
+		<German>Oviedo</German>
+		<Italian>Oviedo</Italian>
+		<Spanish>Oviedo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_IBERIA4</Tag>
+		<English>Vigo</English>
+		<French>Vigo</French>
+		<German>Vigo</German>
+		<Italian>Vigo</Italian>
+		<Spanish>Vigo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_IBERIA5</Tag>
+		<English>Lisbon</English>
+		<French>Lisbonne</French>
+		<German>Lissabon</German>
+		<Italian>Lisbona</Italian>
+		<Spanish>Lisboa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_IBERIA6</Tag>
+		<English>Cadiz</English>
+		<French>Cadix</French>
+		<German>Cadiz</German>
+		<Italian>Cadice</Italian>
+		<Spanish>C&#225;diz</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_IBERIA7</Tag>
+		<English>Cartagena</English>
+		<French>Carthag&#232;ne</French>
+		<German>Cartagena</German>
+		<Italian>Cartagena</Italian>
+		<Spanish>Cartagena</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_IBERIA8</Tag>
+		<English>Mallorca</English>
+		<French>Mallorca</French>
+		<German>Mallorca</German>
+		<Italian>Maiorca</Italian>
+		<Spanish>Mallorca</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_IBERIA9</Tag>
+		<English>Granada</English>
+		<French>Grenade</French>
+		<German>Granada</German>
+		<Italian>Granada</Italian>
+		<Spanish>Granada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA1</Tag>
+		<English>Oslo</English>
+		<French>Oslo</French>
+		<German>Oslo</German>
+		<Italian>Oslo</Italian>
+		<Spanish>Oslo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA2</Tag>
+		<English>Bergen</English>
+		<French>Bergen</French>
+		<German>Bergen</German>
+		<Italian>Bergen</Italian>
+		<Spanish>Bergen</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA3</Tag>
+		<English>Trondheim</English>
+		<French>Trondheim</French>
+		<German>Trondheim</German>
+		<Italian>Trondheim</Italian>
+		<Spanish>Trondheim</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA4</Tag>
+		<English>Mo i Rana</English>
+		<French>Mo i Rana</French>
+		<German>Mo i Rana</German>
+		<Italian>Mo i Rana</Italian>
+		<Spanish>Mo i Rana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA5</Tag>
+		<English>Narvik</English>
+		<French>Narvik</French>
+		<German>Narvik</German>
+		<Italian>Narvik</Italian>
+		<Spanish>Narvik</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA6</Tag>
+		<English>Hammerfest</English>
+		<French>Hammerfest</French>
+		<German>Hammerfest</German>
+		<Italian>Hammerfest</Italian>
+		<Spanish>Hammerfest</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA7</Tag>
+		<English>Stockholm</English>
+		<French>Stockholm</French>
+		<German>Stockholm</German>
+		<Italian>Stoccolma</Italian>
+		<Spanish>Estocolmo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA8</Tag>
+		<English>Kalmar</English>
+		<French>Kalmar</French>
+		<German>Kalmar</German>
+		<Italian>Kalmar</Italian>
+		<Spanish>Kalmar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA9</Tag>
+		<English>Umea</English>
+		<French>Umea</French>
+		<German>Umea</German>
+		<Italian>Umea</Italian>
+		<Spanish>Umea</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA10</Tag>
+		<English>Kiruna</English>
+		<French>Kiruna</French>
+		<German>Kiruna</German>
+		<Italian>Kiruna</Italian>
+		<Spanish>Kiruna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA16</Tag>
+		<English>Copenhagen</English>
+		<French>Copenhague</French>
+		<German>Kopenhagen</German>
+		<Italian>Copenaghen</Italian>
+		<Spanish>Copenhague</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA17</Tag>
+		<English>Karlstad</English>
+		<French>Karlstad</French>
+		<German>Karlstad</German>
+		<Italian>Karlstad</Italian>
+		<Spanish>Karlstad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA18</Tag>
+		<English>Ostersund</English>
+		<French>&#214;stersund</French>
+		<German>Ostersund</German>
+		<Italian>Ostersund</Italian>
+		<Spanish>Ostersund</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA19</Tag>
+		<English>Storuman</English>
+		<French>Storuman</French>
+		<German>Storuman</German>
+		<Italian>Storuman</Italian>
+		<Spanish>Storuman</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SCANDINAVIA20</Tag>
+		<English>Vardo</English>
+		<French>Vardo</French>
+		<German>Vardo</German>
+		<Italian>Vardo</Italian>
+		<Spanish>Vardo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALKAN1</Tag>
+		<English>Belgrade</English>
+		<French>Belgrade</French>
+		<German>Belgrad</German>
+		<Italian>Belgrado</Italian>
+		<Spanish>Belgrado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALKAN2</Tag>
+		<English>Ljubljana</English>
+		<French>Ljubljana</French>
+		<German>Ljubljana</German>
+		<Italian>Ljubljana</Italian>
+		<Spanish>Liubliana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALKAN3</Tag>
+		<English>Podgorica</English>
+		<French>Podgorica</French>
+		<German>Podgorica</German>
+		<Italian>Podgorica</Italian>
+		<Spanish>Podgorica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALKAN4</Tag>
+		<English>Budapest</English>
+		<French>Budapest</French>
+		<German>Budapest</German>
+		<Italian>Budapest</Italian>
+		<Spanish>Budapest</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALKAN5</Tag>
+		<English>Bucharest</English>
+		<French>Bucarest</French>
+		<German>Bukarest</German>
+		<Italian>Bucarest</Italian>
+		<Spanish>Bucarest</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALKAN6</Tag>
+		<English>Chisinau</English>
+		<French>Chisinau</French>
+		<German>Chisnau</German>
+		<Italian>Chisnau</Italian>
+		<Spanish>Chisnau</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALKAN8</Tag>
+		<English>Athens</English>
+		<French>Ath&#232;nes</French>
+		<German>Athen</German>
+		<Italian>Atene</Italian>
+		<Spanish>Atenas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_BALKAN9</Tag>
+		<English>Irakleion</English>
+		<French>Irakleion</French>
+		<German>Heraklion</German>
+		<Italian>Irakleion</Italian>
+		<Spanish>Heraklion</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA1</Tag>
+		<English>Washington DC</English>
+		<French>Washington DC</French>
+		<German>Washington D.C.</German>
+		<Italian>Washington</Italian>
+		<Spanish>Washington DC</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA2</Tag>
+		<English>New York</English>
+		<French>New York</French>
+		<German>New York</German>
+		<Italian>New York</Italian>
+		<Spanish>Nueva York</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA3</Tag>
+		<English>Philadelphia</English>
+		<French>Philadelphie</French>
+		<German>Philadelphia</German>
+		<Italian>Filadelfia</Italian>
+		<Spanish>Filadelfia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA4</Tag>
+		<English>Raleigh</English>
+		<French>Raleigh</French>
+		<German>Raleigh</German>
+		<Italian>Raleigh</Italian>
+		<Spanish>Raleigh</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA5</Tag>
+		<English>Charleston</English>
+		<French>Charleston</French>
+		<German>Charleston</German>
+		<Italian>Charleston</Italian>
+		<Spanish>Charleston</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA6</Tag>
+		<English>Savannah</English>
+		<French>Savannah</French>
+		<German>Savannah</German>
+		<Italian>Savannah</Italian>
+		<Spanish>Savannah</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA7</Tag>
+		<English>Orlando</English>
+		<French>Orlando</French>
+		<German>Orlando</German>
+		<Italian>Orlando</Italian>
+		<Spanish>Orlando</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA8</Tag>
+		<English>Miami</English>
+		<French>Miami</French>
+		<German>Miami</German>
+		<Italian>Miami</Italian>
+		<Spanish>Miami</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA9</Tag>
+		<English>Boston</English>
+		<French>Boston</French>
+		<German>Boston</German>
+		<Italian>Boston</Italian>
+		<Spanish>Boston</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA10</Tag>
+		<English>Augusta</English>
+		<French>Augusta</French>
+		<German>Augusta</German>
+		<Italian>Augusta</Italian>
+		<Spanish>Augusta</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA11</Tag>
+		<English>Reykjavik</English>
+		<French>Reykjavik</French>
+		<German>Reykjavik</German>
+		<Italian>Reykjavik</Italian>
+		<Spanish>Reykjav&#237;k</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA12</Tag>
+		<English>Richmond</English>
+		<French>Richmond</French>
+		<German>Richmond</German>
+		<Italian>Richmond</Italian>
+		<Spanish>Richmond</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA13</Tag>
+		<English>San Francisco</English>
+		<French>San Francisco</French>
+		<German>San Francisco</German>
+		<Italian>San Francisco</Italian>
+		<Spanish>San Francisco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA14</Tag>
+		<English>Seattle</English>
+		<French>Seattle</French>
+		<German>Seattle</German>
+		<Italian>Seattle</Italian>
+		<Spanish>Seattle</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA15</Tag>
+		<English>Portland</English>
+		<French>Portland</French>
+		<German>Portland</German>
+		<Italian>Portland</Italian>
+		<Spanish>Portland</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA16</Tag>
+		<English>Los Angeles</English>
+		<French>Los Angeles</French>
+		<German>Los Angeles</German>
+		<Italian>Los Angeles</Italian>
+		<Spanish>Los &#193;ngeles</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA17</Tag>
+		<English>Pearl Harbour</English>
+		<French>Pearl Harbour</French>
+		<German>Pearl Harbor</German>
+		<Italian>Pearl Harbor</Italian>
+		<Spanish>Pearl Harbour</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA18</Tag>
+		<English>Midway Island</English>
+		<French>Iles Midway</French>
+		<German>Midway Island</German>
+		<Italian>Isola di Midway</Italian>
+		<Spanish>Islas Midway</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA19</Tag>
+		<English>Wake Island</English>
+		<French>Ile de Wake</French>
+		<German>Wake Island</German>
+		<Italian>Isola di Wake</Italian>
+		<Spanish>Isla Wake</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA20</Tag>
+		<English>Guam</English>
+		<French>Guam</French>
+		<German>Guam</German>
+		<Italian>Guam</Italian>
+		<Spanish>Guam</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA21</Tag>
+		<English>Jarvis Island</English>
+		<French>Ile Jarvis</French>
+		<German>Jarvis Island</German>
+		<Italian>Isola Jarvis</Italian>
+		<Spanish>Isla Jarvis</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA22</Tag>
+		<English>Phoenix Island</English>
+		<French>Iles Phoenix</French>
+		<German>Phoenix Island</German>
+		<Italian>Isola Phoenix</Italian>
+		<Spanish>Islas Phoenix</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA23</Tag>
+		<English>Samoa</English>
+		<French>Samoa</French>
+		<German>Samoa</German>
+		<Italian>Samoa</Italian>
+		<Spanish>Samoa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA24</Tag>
+		<English>Fresno</English>
+		<French>Fresno</French>
+		<German>Fresno</German>
+		<Italian>Fresno</Italian>
+		<Spanish>Fresno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USA25</Tag>
+		<English>Spokane</English>
+		<French>Spokane</French>
+		<German>Spokane</German>
+		<Italian>Spokane</Italian>
+		<Spanish>Spokane</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY1</Tag>
+		<English>Rome</English>
+		<French>Rome</French>
+		<German>Rom</German>
+		<Italian>Roma</Italian>
+		<Spanish>Roma</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY2</Tag>
+		<English>Cagliari</English>
+		<French>Cagliari</French>
+		<German>Cagliari</German>
+		<Italian>Cagliari</Italian>
+		<Spanish>Cagliari</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY3</Tag>
+		<English>Olbia</English>
+		<French>Olbia</French>
+		<German>Olbia</German>
+		<Italian>Olbia</Italian>
+		<Spanish>Olbia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY4</Tag>
+		<English>Brindisi</English>
+		<French>Brindisi</French>
+		<German>Brindisi</German>
+		<Italian>Brindisi</Italian>
+		<Spanish>Brindisi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY5</Tag>
+		<English>Naples</English>
+		<French>Naples</French>
+		<German>Neapel</German>
+		<Italian>Napoli</Italian>
+		<Spanish>N&#225;poles</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY6</Tag>
+		<English>Palermo</English>
+		<French>Palerme</French>
+		<German>Palermo</German>
+		<Italian>Palermo</Italian>
+		<Spanish>Palermo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY7</Tag>
+		<English>Venice</English>
+		<French>Venise</French>
+		<German>Venedig</German>
+		<Italian>Venezia</Italian>
+		<Spanish>Venecia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY8</Tag>
+		<English>Turin</English>
+		<French>Turin</French>
+		<German>Turin</German>
+		<Italian>Torino</Italian>
+		<Spanish>Tur&#237;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY9</Tag>
+		<English>Bologna</English>
+		<French>Bologne</French>
+		<German>Bologna</German>
+		<Italian>Bologna</Italian>
+		<Spanish>Bolonia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY10</Tag>
+		<English>Tripoli</English>
+		<French>Tripoli</French>
+		<German>Tripoli</German>
+		<Italian>Tripoli</Italian>
+		<Spanish>Tr&#237;poli</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY11</Tag>
+		<English>Misratah</English>
+		<French>Misratah</French>
+		<German>Misratah</German>
+		<Italian>Misratah</Italian>
+		<Spanish>Misurata</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY12</Tag>
+		<English>Banghazi</English>
+		<French>Benghazi</French>
+		<German>Banghazi</German>
+		<Italian>Bengazi</Italian>
+		<Spanish>Benghazi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY13</Tag>
+		<English>Tubruq</English>
+		<French>Tobrouk</French>
+		<German>Tubruq</German>
+		<Italian>Tobruk</Italian>
+		<Spanish>Tubruq</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_ITALY14</Tag>
+		<English>Albania</English>
+		<French>Albanie</French>
+		<German>Albania</German>
+		<Italian>Albania</Italian>
+		<Spanish>Albania</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE1</Tag>
+		<English>Paris</English>
+		<French>Paris</French>
+		<German>Paris</German>
+		<Italian>Parigi</Italian>
+		<Spanish>Par&#237;s</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE2</Tag>
+		<English>Calais</English>
+		<French>Calais</French>
+		<German>Calais</German>
+		<Italian>Calais</Italian>
+		<Spanish>Calais</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE3</Tag>
+		<English>Metz</English>
+		<French>Metz</French>
+		<German>Metz</German>
+		<Italian>Metz</Italian>
+		<Spanish>Metz</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE4</Tag>
+		<English>Nice</English>
+		<French>Nice</French>
+		<German>Nizza</German>
+		<Italian>Nizza</Italian>
+		<Spanish>Niza</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE5</Tag>
+		<English>Montpellier</English>
+		<French>Montpellier</French>
+		<German>Montpellier</German>
+		<Italian>Montpellier</Italian>
+		<Spanish>Montpellier</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE6</Tag>
+		<English>Bordeaux</English>
+		<French>Bordeaux</French>
+		<German>Bordeaux</German>
+		<Italian>Bordeaux</Italian>
+		<Spanish>Burdeos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE7</Tag>
+		<English>Brest</English>
+		<French>Brest</French>
+		<German>Brest</German>
+		<Italian>Brest</Italian>
+		<Spanish>Brest</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE8</Tag>
+		<English>Le Havre</English>
+		<French>Le Havre</French>
+		<German>Le Havre</German>
+		<Italian>Le Havre</Italian>
+		<Spanish>El Havre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE9</Tag>
+		<English>Dijon</English>
+		<French>Dijon</French>
+		<German>Dijon</German>
+		<Italian>Digione</Italian>
+		<Spanish>Dijon</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE10</Tag>
+		<English>Tours</English>
+		<French>Tours</French>
+		<German>Tours</German>
+		<Italian>Tours</Italian>
+		<Spanish>Tours</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE11</Tag>
+		<English>Rabat</English>
+		<French>Rabat</French>
+		<German>Rabat</German>
+		<Italian>Rabat</Italian>
+		<Spanish>Rabat</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE12</Tag>
+		<English>Agadir</English>
+		<French>Agadir</French>
+		<German>Agadir</German>
+		<Italian>Agadir</Italian>
+		<Spanish>Agadir</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE13</Tag>
+		<English>Oran</English>
+		<French>Oran</French>
+		<German>Oran</German>
+		<Italian>Oran</Italian>
+		<Spanish>Or&#225;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE14</Tag>
+		<English>Algiers</English>
+		<French>Alger</French>
+		<German>Algier</German>
+		<Italian>Algeri</Italian>
+		<Spanish>Argel</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE15</Tag>
+		<English>Skikda</English>
+		<French>Skikda</French>
+		<German>Skikda</German>
+		<Italian>Skikda</Italian>
+		<Spanish>Skikda</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE16</Tag>
+		<English>Tunis</English>
+		<French>Tunis</French>
+		<German>Tunis</German>
+		<Italian>Tunisi</Italian>
+		<Spanish>T&#250;nez</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE17</Tag>
+		<English>Gabes</English>
+		<French>Gabes</French>
+		<German>Gabes</German>
+		<Italian>Gabes</Italian>
+		<Spanish>Gabes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE18</Tag>
+		<English>Jerusalem</English>
+		<French>J&#233;rusalem</French>
+		<German>Jerusalem</German>
+		<Italian>Gerusalemme</Italian>
+		<Spanish>Jerusal&#233;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE19</Tag>
+		<English>Tartus</English>
+		<French>Tartus</French>
+		<German>Tartus</German>
+		<Italian>Tartus</Italian>
+		<Spanish>Tartus</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE20</Tag>
+		<English>Al Hasakah</English>
+		<French>Al Hasakah</French>
+		<German>Al Hasakah</German>
+		<Italian>Al Hasakah</Italian>
+		<Spanish>Al-Hasakah</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE21</Tag>
+		<English>Saigon</English>
+		<French>Sa&#239;gon</French>
+		<German>Saigon</German>
+		<Italian>Saigon</Italian>
+		<Spanish>Saig&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE22</Tag>
+		<English>Da Nang</English>
+		<French>Da Nang</French>
+		<German>Da Nang</German>
+		<Italian>Da Nang</Italian>
+		<Spanish>Da Nang</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE23</Tag>
+		<English>Hanoi</English>
+		<French>Hano&#239;</French>
+		<German>Hanoi</German>
+		<Italian>Hanoi</Italian>
+		<Spanish>Hanoi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE24</Tag>
+		<English>Tahiti</English>
+		<French>Tahiti</French>
+		<German>Tahiti</German>
+		<Italian>Tahiti</Italian>
+		<Spanish>Tahit&#237;</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FRANCE25</Tag>
+		<English>Noumea</English>
+		<French>Noum&#233;a</French>
+		<German>Noumea</German>
+		<Italian>Noumea</Italian>
+		<Spanish>Noumea</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR1</Tag>
+		<English>Moscow</English>
+		<French>Moscou</French>
+		<German>Moskau</German>
+		<Italian>Mosca</Italian>
+		<Spanish>Mosc&#250;</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR2</Tag>
+		<English>Murmansk</English>
+		<French>Mourmansk</French>
+		<German>Murmansk</German>
+		<Italian>Murmansk</Italian>
+		<Spanish>M&#250;rmansk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR3</Tag>
+		<English>Karelia</English>
+		<French>Car&#233;lie</French>
+		<German>Karelia</German>
+		<Italian>Karelia</Italian>
+		<Spanish>Carelia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR4</Tag>
+		<English>Petrozavodsk</English>
+		<French>Petrozavodsk</French>
+		<German>Petrozavodsk</German>
+		<Italian>Petrozavodsk</Italian>
+		<Spanish>Petrozavodsk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR5</Tag>
+		<English>Leningrad</English>
+		<French>Leningrad</French>
+		<German>Leningrad</German>
+		<Italian>Leningrado</Italian>
+		<Spanish>Leningrado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR6</Tag>
+		<English>Minsk</English>
+		<French>Minsk</French>
+		<German>Minsk</German>
+		<Italian>Minsk</Italian>
+		<Spanish>Minsk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR7</Tag>
+		<English>Pskov</English>
+		<French>Pskov</French>
+		<German>Pleskau</German>
+		<Italian>Pskov</Italian>
+		<Spanish>Pskov</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR8</Tag>
+		<English>Kiev</English>
+		<French>Kiev</French>
+		<German>Kiew</German>
+		<Italian>Kiev</Italian>
+		<Spanish>Kiev</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR9</Tag>
+		<English>Mazyr</English>
+		<French>Mazyr</French>
+		<German>Masyr</German>
+		<Italian>Mazyr</Italian>
+		<Spanish>Mazyr</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR10</Tag>
+		<English>Sevastopal</English>
+		<French>S&#233;bastopol</French>
+		<German>Sewastopol</German>
+		<Italian>Sebastopoli</Italian>
+		<Spanish>Sebastopol</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR11</Tag>
+		<English>Rostov</English>
+		<French>Rostov</French>
+		<German>Rostow</German>
+		<Italian>Rostov</Italian>
+		<Spanish>Rostov</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR12</Tag>
+		<English>Stavropol</English>
+		<French>Stavropol</French>
+		<German>Stawropol</German>
+		<Italian>Stavropoli</Italian>
+		<Spanish>St&#225;vropol</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR13</Tag>
+		<English>Stalingrad</English>
+		<French>Stalingrad</French>
+		<German>Stalingrad</German>
+		<Italian>Stalingrado</Italian>
+		<Spanish>Stalingrado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR14</Tag>
+		<English>Astrakhan</English>
+		<French>Astrakhan</French>
+		<German>Astrakhan</German>
+		<Italian>Astrakhan</Italian>
+		<Spanish>Astrac&#225;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR15</Tag>
+		<English>Tambov</English>
+		<French>Tambov</French>
+		<German>Tambow</German>
+		<Italian>Tambov</Italian>
+		<Spanish>Tambov</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR16</Tag>
+		<English>Kursk</English>
+		<French>Koursk</French>
+		<German>Kursk</German>
+		<Italian>Kursk</Italian>
+		<Spanish>Kursk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR17</Tag>
+		<English>Smolensk</English>
+		<French>Smolensk</French>
+		<German>Smolensk</German>
+		<Italian>Smolensk</Italian>
+		<Spanish>Smolensko</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR18</Tag>
+		<English>Kharkov</English>
+		<French>Kharkov</French>
+		<German>Charkiw</German>
+		<Italian>Kharkov</Italian>
+		<Spanish>Kharkov</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR19</Tag>
+		<English>Luhans'k</English>
+		<French>Luhans'k</French>
+		<German>Luhans'k</German>
+		<Italian>Luhans'k</Italian>
+		<Spanish>Luhansk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR20</Tag>
+		<English>Vologda</English>
+		<French>Vologda</French>
+		<German>Wologda</German>
+		<Italian>Vologda</Italian>
+		<Spanish>Vologda</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR21</Tag>
+		<English>Arkhangelsk</English>
+		<French>Arkhangelsk</French>
+		<German>Arkhangelsk</German>
+		<Italian>Archangelsk</Italian>
+		<Spanish>Arkhangelsk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR22</Tag>
+		<English>Vladivostok</English>
+		<French>Vladivostok</French>
+		<German>Wladiwostok</German>
+		<Italian>Vladivostok</Italian>
+		<Spanish>Vladivostok</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR23</Tag>
+		<English>Iman</English>
+		<French>Iman</French>
+		<German>Iman</German>
+		<Italian>Iman</Italian>
+		<Spanish>Iman</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR24</Tag>
+		<English>Khabarovsk</English>
+		<French>Khabarovsk</French>
+		<German>Khabarowsk</German>
+		<Italian>Khabarovsk</Italian>
+		<Spanish>Jab&#225;rovsk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR25</Tag>
+		<English>Ocha</English>
+		<French>Ocha</French>
+		<German>Ocha</German>
+		<Italian>Ocha</Italian>
+		<Spanish>Oja</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR26</Tag>
+		<English>Chumikan</English>
+		<French>Chumikan</French>
+		<German>Chumikan</German>
+		<Italian>Chumikan</Italian>
+		<Spanish>Chumikan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR27</Tag>
+		<English>Tynda</English>
+		<French>Tynda</French>
+		<German>Tynda</German>
+		<Italian>Tynda</Italian>
+		<Spanish>Tinda</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR28</Tag>
+		<English>Okhotsk</English>
+		<French>Okhotsk</French>
+		<German>Okhotsk</German>
+		<Italian>Okhotsk</Italian>
+		<Spanish>Ojotsk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR29</Tag>
+		<English>Borzya</English>
+		<French>Borzya</French>
+		<German>Borzya</German>
+		<Italian>Borzya</Italian>
+		<Spanish>Borzia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR30</Tag>
+		<English>Ulan-Ude</English>
+		<French>Ulan-Ude</French>
+		<German>Ulan-Ude</German>
+		<Italian>Ulan-Ude</Italian>
+		<Spanish>Ulan-Ude</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR31</Tag>
+		<English>Irkutsk</English>
+		<French>Irkutsk</French>
+		<German>Irkutsk</German>
+		<Italian>Irkutsk</Italian>
+		<Spanish>Irkutsk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_USSR32</Tag>
+		<English>Mogocha</English>
+		<French>Mogocha</French>
+		<German>Mogocha</German>
+		<Italian>Mogocha</Italian>
+		<Spanish>Mogocha</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY1</Tag>
+		<English>Berlin</English>
+		<French>Berlin</French>
+		<German>Berlin</German>
+		<Italian>Berlino</Italian>
+		<Spanish>Berl&#237;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY2</Tag>
+		<English>Konigsberg</English>
+		<French>Koenigsbourg</French>
+		<German>K&#246;nigsberg</German>
+		<Italian>Konigsberg</Italian>
+		<Spanish>K&#246;nigsberg</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY3</Tag>
+		<English>Koszalin</English>
+		<French>Koszalin</French>
+		<German>Koszalin</German>
+		<Italian>Koszalin</Italian>
+		<Spanish>Koszalin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY4</Tag>
+		<English>Gorzow Wielkopolski</English>
+		<French>Gorzow Wielkopolski</French>
+		<German>Gorzow Wielkopolski</German>
+		<Italian>Gorzow Wielkopolski</Italian>
+		<Spanish>Gorz&#243;w Wielkopolski</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY5</Tag>
+		<English>Wroclaw</English>
+		<French>Wroclaw</French>
+		<German>Breslau</German>
+		<Italian>Wroclaw</Italian>
+		<Spanish>Wroclaw</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY6</Tag>
+		<English>Rostock</English>
+		<French>Rostock</French>
+		<German>Rostock</German>
+		<Italian>Rostock</Italian>
+		<Spanish>Rostock</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY7</Tag>
+		<English>Kiel</English>
+		<French>Kiel</French>
+		<German>Kiel</German>
+		<Italian>Kiel</Italian>
+		<Spanish>Kiel</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY8</Tag>
+		<English>Bremen</English>
+		<French>Br&#234;me</French>
+		<German>Bremen</German>
+		<Italian>Brema</Italian>
+		<Spanish>Bremen</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY9</Tag>
+		<English>Hannover</English>
+		<French>Hannovre</French>
+		<German>Hannover</German>
+		<Italian>Hannover</Italian>
+		<Spanish>Hannover</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY10</Tag>
+		<English>Essen</English>
+		<French>Essen</French>
+		<German>Essen</German>
+		<Italian>Essen</Italian>
+		<Spanish>Essen</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY11</Tag>
+		<English>Stuttgart</English>
+		<French>Stuttgart</French>
+		<German>Stuttgart</German>
+		<Italian>Stoccarda</Italian>
+		<Spanish>Stuttgart</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY12</Tag>
+		<English>Rhine</English>
+		<French>Rhin</French>
+		<German>Rhein</German>
+		<Italian>Rhine</Italian>
+		<Spanish>Rin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY13</Tag>
+		<English>Munich</English>
+		<French>Munich</French>
+		<German>M&#252;nchen</German>
+		<Italian>Monaco</Italian>
+		<Spanish>Munich</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_GERMANY14</Tag>
+		<English>Dresden</English>
+		<French>Dresde</French>
+		<German>Dresden</German>
+		<Italian>Dresda</Italian>
+		<Spanish>Dresde</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_TURKEY1</Tag>
+		<English>Ankara</English>
+		<French>Ankara</French>
+		<German>Ankara</German>
+		<Italian>Ankara</Italian>
+		<Spanish>Ankara</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_TURKEY2</Tag>
+		<English>Trabzon</English>
+		<French>Trabzon</French>
+		<German>Trabzon</German>
+		<Italian>Trabzon</Italian>
+		<Spanish>Trabzon</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_TURKEY3</Tag>
+		<English>Antalya</English>
+		<French>Antalya</French>
+		<German>Antalya</German>
+		<Italian>Antalya</Italian>
+		<Spanish>Antalya</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_TURKEY4</Tag>
+		<English>Gaziantep</English>
+		<French>Gaziantep</French>
+		<German>Gaziantep</German>
+		<Italian>Gaziantep</Italian>
+		<Spanish>Gaziantep</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_TURKEY5</Tag>
+		<English>Van</English>
+		<French>Van</French>
+		<German>Van</German>
+		<Italian>Van</Italian>
+		<Spanish>Van</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_TURKEY6</Tag>
+		<English>Istanbul</English>
+		<French>Istanbul</French>
+		<German>Istanbul</German>
+		<Italian>Istanbul</Italian>
+		<Spanish>Estambul</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FINLAND1</Tag>
+		<English>Helsinki</English>
+		<French>Helsinki</French>
+		<German>Helsinki</German>
+		<Italian>Helsinki</Italian>
+		<Spanish>Helsinki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FINLAND2</Tag>
+		<English>Kuopio</English>
+		<French>Kuopio</French>
+		<German>Kuopio</German>
+		<Italian>Kuopio</Italian>
+		<Spanish>Kuopio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FINLAND3</Tag>
+		<English>Pori</English>
+		<French>Pori</French>
+		<German>Pori</German>
+		<Italian>Pori</Italian>
+		<Spanish>Pori</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FINLAND4</Tag>
+		<English>Oulu</English>
+		<French>Oulu</French>
+		<German>Oulu</German>
+		<Italian>Oulu</Italian>
+		<Spanish>Oulu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FINLAND5</Tag>
+		<English>Rovaniemi</English>
+		<French>Rovaniemi</French>
+		<German>Rovaniemi</German>
+		<Italian>Rovaniemi</Italian>
+		<Spanish>Rovaniemi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FINLAND6</Tag>
+		<English>Ivalo</English>
+		<French>Ivalo</French>
+		<German>Ivalo</German>
+		<Italian>Ivalo</Italian>
+		<Spanish>Ivalo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_FINLAND7</Tag>
+		<English>Vaasa</English>
+		<French>Vaasa</French>
+		<German>Vaasa</German>
+		<Italian>Vaasa</Italian>
+		<Spanish>Vaasa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN1</Tag>
+		<English>Tokyo</English>
+		<French>Tokyo</French>
+		<German>Tokio</German>
+		<Italian>Tokyo</Italian>
+		<Spanish>Tokio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN2</Tag>
+		<English>Nagasaki</English>
+		<French>Nagasaki</French>
+		<German>Nagasaki</German>
+		<Italian>Nagasaki</Italian>
+		<Spanish>Nagasaki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN3</Tag>
+		<English>Hiroshima</English>
+		<French>Hiroshima</French>
+		<German>Hiroshima</German>
+		<Italian>Hiroshima</Italian>
+		<Spanish>Hiroshima</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN4</Tag>
+		<English>Kyoto</English>
+		<French>Kyoto</French>
+		<German>Kyoto</German>
+		<Italian>Kyoto</Italian>
+		<Spanish>Kioto</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN5</Tag>
+		<English>Sapporo</English>
+		<French>Sapporo</French>
+		<German>Sapporo</German>
+		<Italian>Sapporo</Italian>
+		<Spanish>Sapporo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN6</Tag>
+		<English>Hirosaki</English>
+		<French>Hirosaki</French>
+		<German>Hirosaki</German>
+		<Italian>Hirosaki</Italian>
+		<Spanish>Hirosaki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN7</Tag>
+		<English>Naha</English>
+		<French>Naha</French>
+		<German>Naha</German>
+		<Italian>Naha</Italian>
+		<Spanish>Naha</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN8</Tag>
+		<English>Seoul</English>
+		<French>S&#233;oul</French>
+		<German>Seoul</German>
+		<Italian>Seul</Italian>
+		<Spanish>Se&#250;l</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN9</Tag>
+		<English>Busan</English>
+		<French>Busan</French>
+		<German>Busan</German>
+		<Italian>Busan</Italian>
+		<Spanish>Busan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN10</Tag>
+		<English>Pyongyang</English>
+		<French>Pyongyang</French>
+		<German>Pj&#246;ngjang</German>
+		<Italian>Pyongyang</Italian>
+		<Spanish>Pyongyang</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN11</Tag>
+		<English>Kilchu</English>
+		<French>Kilchu</French>
+		<German>Kilchu</German>
+		<Italian>Kilchu</Italian>
+		<Spanish>Kilchu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN12</Tag>
+		<English>Toyohara</English>
+		<French>Toyohara</French>
+		<German>Toyohara</German>
+		<Italian>Toyohara</Italian>
+		<Spanish>Toyohara</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN13</Tag>
+		<English>Iwo Jima</English>
+		<French>Iwo Jima</French>
+		<German>Iwojima</German>
+		<Italian>Iwo Jima</Italian>
+		<Spanish>Iwo Jima</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN14</Tag>
+		<English>Palau</English>
+		<French>Palau</French>
+		<German>Palau</German>
+		<Italian>Palau</Italian>
+		<Spanish>Palau</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN15</Tag>
+		<English>Yap</English>
+		<French>Yap</French>
+		<German>Yap</German>
+		<Italian>Yap</Italian>
+		<Spanish>Yap</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN16</Tag>
+		<English>Truk</English>
+		<French>Truk</French>
+		<German>Truk</German>
+		<Italian>Truk</Italian>
+		<Spanish>Truk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN17</Tag>
+		<English>Marcus Island</English>
+		<French>Ile Marcus</French>
+		<German>Marcusinsel</German>
+		<Italian>Isola Marcus</Italian>
+		<Spanish>Isla Marcus</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN18</Tag>
+		<English>Eniwetok</English>
+		<French>Eniwetok</French>
+		<German>Eniwetok</German>
+		<Italian>Eniwetok</Italian>
+		<Spanish>Eniwetok</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN19</Tag>
+		<English>Bikini</English>
+		<French>Bikini</French>
+		<German>Bikini</German>
+		<Italian>Bikini</Italian>
+		<Spanish>Bikini</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN20</Tag>
+		<English>Kwajalein</English>
+		<French>Kwajalein</French>
+		<German>Kwajalein</German>
+		<Italian>Kwajalein</Italian>
+		<Spanish>Kwajalein</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN21</Tag>
+		<English>Majuro</English>
+		<French>Majuro</French>
+		<German>Majuro</German>
+		<Italian>Majuro</Italian>
+		<Spanish>Majuro</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN22</Tag>
+		<English>Ponape</English>
+		<French>Ponape</French>
+		<German>Ponape</German>
+		<Italian>Ponape</Italian>
+		<Spanish>Ponape</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN23</Tag>
+		<English>Dalian</English>
+		<French>Dalian</French>
+		<German>Dalian</German>
+		<Italian>Dalian</Italian>
+		<Spanish>Dalian</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN24</Tag>
+		<English>Tangshan</English>
+		<French>Tangshan</French>
+		<German>Tangshan</German>
+		<Italian>Tangshan</Italian>
+		<Spanish>Tangshan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_JAPAN25</Tag>
+		<English>Changde</English>
+		<French>Changde</French>
+		<German>Changde</German>
+		<Italian>Changde</Italian>
+		<Spanish>Changde</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MANCHURIA1</Tag>
+		<English>Kyzyl</English>
+		<French>Kyzyl</French>
+		<German>Kyzyl</German>
+		<Italian>Kyzyl</Italian>
+		<Spanish>Kizil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA1</Tag>
+		<English>Canberra</English>
+		<French>Canberra</French>
+		<German>Canberra</German>
+		<Italian>Canberra</Italian>
+		<Spanish>Canberra</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA2</Tag>
+		<English>Sydney</English>
+		<French>Sydney</French>
+		<German>Sydney</German>
+		<Italian>Sydney</Italian>
+		<Spanish>Sydney</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA3</Tag>
+		<English>Brisbane</English>
+		<French>Brisbane</French>
+		<German>Brisbane</German>
+		<Italian>Brisbane</Italian>
+		<Spanish>Brisbane</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA4</Tag>
+		<English>Cairns</English>
+		<French>Cairns</French>
+		<German>Cairns</German>
+		<Italian>Cairns</Italian>
+		<Spanish>Cairns</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA5</Tag>
+		<English>Darwin</English>
+		<French>Darwin</French>
+		<German>Darwin</German>
+		<Italian>Darwin</Italian>
+		<Spanish>Darwin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA6</Tag>
+		<English>Broome</English>
+		<French>Broome</French>
+		<German>Broome</German>
+		<Italian>Broome</Italian>
+		<Spanish>Broome</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA7</Tag>
+		<English>Carnarvon</English>
+		<French>Carnarvon</French>
+		<German>Carnarvon</German>
+		<Italian>Carnarvon</Italian>
+		<Spanish>Carnarvon</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA8</Tag>
+		<English>Perth</English>
+		<French>Perth</French>
+		<German>Perth</German>
+		<Italian>Perth</Italian>
+		<Spanish>Perth</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA9</Tag>
+		<English>Penong</English>
+		<French>Penong</French>
+		<German>Penong</German>
+		<Italian>Penong</Italian>
+		<Spanish>Penong</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA10</Tag>
+		<English>Adelaide</English>
+		<French>Adelaide</French>
+		<German>Adelaide</German>
+		<Italian>Adelaide</Italian>
+		<Spanish>Adelaida</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA11</Tag>
+		<English>Melbourne</English>
+		<French>Melbourne</French>
+		<German>Melbourne</German>
+		<Italian>Melbourne</Italian>
+		<Spanish>Melbourne</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA12</Tag>
+		<English>East Timor</English>
+		<French>Timor oriental</French>
+		<German>Timor-Leste</German>
+		<Italian>Timor Est</Italian>
+		<Spanish>Timor oriental</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA13</Tag>
+		<English>Port Morseby</English>
+		<French>Port Morseby</French>
+		<German>Port Morseby</German>
+		<Italian>Porto Morseby</Italian>
+		<Spanish>Port Morseby</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA14</Tag>
+		<English>Lae</English>
+		<French>Lae</French>
+		<German>Lae</German>
+		<Italian>Lae</Italian>
+		<Spanish>Lae</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA15</Tag>
+		<English>Admiralty Island</English>
+		<French>Ile Amiraut&#233;</French>
+		<German>Admiralty Island</German>
+		<Italian>Isola Admiralty</Italian>
+		<Spanish>Isla Almirantazgo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA16</Tag>
+		<English>Bouganville</English>
+		<French>Bougainville</French>
+		<German>Bougainville</German>
+		<Italian>Bouganville</Italian>
+		<Spanish>Isla de Bouganville</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_AUSTRALIA17</Tag>
+		<English>Normanton</English>
+		<French>Normanton</French>
+		<German>Normanton</German>
+		<Italian>Normanton</Italian>
+		<Spanish>Normanton</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SIAM1</Tag>
+		<English>Bangkok</English>
+		<French>Bangkok</French>
+		<German>Bangkok</German>
+		<Italian>Bangkok</Italian>
+		<Spanish>Bangkok</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SIAM2</Tag>
+		<English>Khon Kaen</English>
+		<French>Khon Kaen</French>
+		<German>Khon Kaen</German>
+		<Italian>Khon Kaen</Italian>
+		<Spanish>Jon Kaen</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SIAM3</Tag>
+		<English>Chiang Rai</English>
+		<French>Chiang Rai</French>
+		<German>Chiang Rai</German>
+		<Italian>Chiang Rai</Italian>
+		<Spanish>Chiang Rai</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_PHILIPPINES1</Tag>
+		<English>Manila</English>
+		<French>Manille</French>
+		<German>Manila</German>
+		<Italian>Manila</Italian>
+		<Spanish>Manila</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_PHILIPPINES2</Tag>
+		<English>Appari</English>
+		<French>Appari</French>
+		<German>Appari</German>
+		<Italian>Appari</Italian>
+		<Spanish>Aparri</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_PHILIPPINES3</Tag>
+		<English>Palawan</English>
+		<French>Palawan</French>
+		<German>Palawan</German>
+		<Italian>Palawan</Italian>
+		<Spanish>Palawan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_PHILIPPINES4</Tag>
+		<English>Davao</English>
+		<French>Davao</French>
+		<German>Davao</German>
+		<Italian>Davao</Italian>
+		<Spanish>Davao</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH1</Tag>
+		<English>Djokjakarta</English>
+		<French>Djokjakarta</French>
+		<German>Djokjakarta</German>
+		<Italian>Djokjakarta</Italian>
+		<Spanish>Djokjakarta</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH2</Tag>
+		<English>Padang</English>
+		<French>Padang</French>
+		<German>Padang</German>
+		<Italian>Padang</Italian>
+		<Spanish>Padang</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH3</Tag>
+		<English>Pontianak</English>
+		<French>Pontianak</French>
+		<German>Pontianak</German>
+		<Italian>Pontianak</Italian>
+		<Spanish>Pontianak</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH4</Tag>
+		<English>Samarinda</English>
+		<French>Samarinda</French>
+		<German>Samarinda</German>
+		<Italian>Samarinda</Italian>
+		<Spanish>Samarinda</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH5</Tag>
+		<English>Medan</English>
+		<French>Medan</French>
+		<German>Medan</German>
+		<Italian>Medan</Italian>
+		<Spanish>Medan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH6</Tag>
+		<English>Palu</English>
+		<French>Palu</French>
+		<German>Palu</German>
+		<Italian>Palu</Italian>
+		<Spanish>Palu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH7</Tag>
+		<English>Bali</English>
+		<French>Bali</French>
+		<German>Bali</German>
+		<Italian>Bali</Italian>
+		<Spanish>Bali</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH8</Tag>
+		<English>Helmahera</English>
+		<French>Helmahera</French>
+		<German>Helmahera</German>
+		<Italian>Helmahera</Italian>
+		<Spanish>Helmahera</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH9</Tag>
+		<English>Kokonau</English>
+		<French>Kokonau</French>
+		<German>Kokonau</German>
+		<Italian>Kokonau</Italian>
+		<Spanish>Kokonau</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_DUTCH10</Tag>
+		<English>Ceram</English>
+		<French>Ceram</French>
+		<German>Ceram</German>
+		<Italian>Ceram</Italian>
+		<Spanish>Ceram</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA1</Tag>
+		<English>Nanjing</English>
+		<French>Nanjing</French>
+		<German>Nanjing</German>
+		<Italian>Nanchino</Italian>
+		<Spanish>Nanjing</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA2</Tag>
+		<English>Hainan</English>
+		<French>Hainan</French>
+		<German>Hainan</German>
+		<Italian>Hainan</Italian>
+		<Spanish>Hainan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA3</Tag>
+		<English>Kunming</English>
+		<French>Kunming</French>
+		<German>Kunming</German>
+		<Italian>Kunming</Italian>
+		<Spanish>Kunming</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA4</Tag>
+		<English>Baoshan</English>
+		<French>Baoshan</French>
+		<German>Baoshan</German>
+		<Italian>Baoshan</Italian>
+		<Spanish>Boshan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA5</Tag>
+		<English>Quamdo</English>
+		<French>Quamdo</French>
+		<German>Quamdo</German>
+		<Italian>Quamdo</Italian>
+		<Spanish>Qamdo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA6</Tag>
+		<English>Gar</English>
+		<French>Gar</French>
+		<German>Gar</German>
+		<Italian>Gar</Italian>
+		<Spanish>Gua</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA7</Tag>
+		<English>Nagqu</English>
+		<French>Nagqu</French>
+		<German>Nagqu</German>
+		<Italian>Nagqu</Italian>
+		<Spanish>Nagqu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA8</Tag>
+		<English>Golmud</English>
+		<French>Golmud</French>
+		<German>Golmud</German>
+		<Italian>Golmud</Italian>
+		<Spanish>Golmud</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA9</Tag>
+		<English>Bayan Nir</English>
+		<French>Bayan Nir</French>
+		<German>Bayan Nir</German>
+		<Italian>Bayan Nir</Italian>
+		<Spanish>Bayan Nur</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA10</Tag>
+		<English>Hohhot</English>
+		<French>Hohhot</French>
+		<German>Hohhot</German>
+		<Italian>Hohhot</Italian>
+		<Spanish>Hohhot</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA11</Tag>
+		<English>Baoding</English>
+		<French>Baoding</French>
+		<German>Baoding</German>
+		<Italian>Baoding</Italian>
+		<Spanish>Baoding</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA12</Tag>
+		<English>Tianjin</English>
+		<French>Tianjin</French>
+		<German>Tianjin</German>
+		<Italian>Tianjin</Italian>
+		<Spanish>Tianjin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA13</Tag>
+		<English>Qingdao</English>
+		<French>Qingdao</French>
+		<German>Qingdao</German>
+		<Italian>Qingdao</Italian>
+		<Spanish>Qingdao</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA14</Tag>
+		<English>Xiamen</English>
+		<French>Xiamen</French>
+		<German>Xiamen</German>
+		<Italian>Xiamen</Italian>
+		<Spanish>Xiamen</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA15</Tag>
+		<English>Guangzhou</English>
+		<French>Guangzhou</French>
+		<German>Guangzhou</German>
+		<Italian>Guangzhou</Italian>
+		<Spanish>Guangzhou</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA16</Tag>
+		<English>Nanchang</English>
+		<French>Nanchang</French>
+		<German>Nanchang</German>
+		<Italian>Nanchang</Italian>
+		<Spanish>Nanchang</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA17</Tag>
+		<English>Taiyuan</English>
+		<French>Taiyuan</French>
+		<German>Taiyuan</German>
+		<Italian>Taiyuan</Italian>
+		<Spanish>Taiyuan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA18</Tag>
+		<English>Lanzhou</English>
+		<French>Lanzhou</French>
+		<German>Lanzhou</German>
+		<Italian>Lanzhou</Italian>
+		<Spanish>Lanzhou</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_CHINA19</Tag>
+		<English>Chengdu</English>
+		<French>Chengdu</French>
+		<German>Chengdu</German>
+		<Italian>Chengdu</Italian>
+		<Spanish>Chengdu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SINKIANG1</Tag>
+		<English>Urumqi</English>
+		<French>Urumqi</French>
+		<German>Urumqi</German>
+		<Italian>Urumqi</Italian>
+		<Spanish>&#220;r&#252;mqi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SINKIANG2</Tag>
+		<English>Hotan</English>
+		<French>Hotan</French>
+		<German>Hotan</German>
+		<Italian>Hotan</Italian>
+		<Spanish>Hotan</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SINKIANG3</Tag>
+		<English>Qumul</English>
+		<French>Qumul</French>
+		<German>Qumul</German>
+		<Italian>Qumul</Italian>
+		<Spanish>Qumul</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_SINKIANG4</Tag>
+		<English>Altay</English>
+		<French>Altay</French>
+		<German>Altay</German>
+		<Italian>Altay</Italian>
+		<Spanish>Alt&#225;i</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MONGOLIA1</Tag>
+		<English>Ulan Bator</English>
+		<French>Oulan-Bator</French>
+		<German>Ulan Bator</German>
+		<Italian>Ulan Bator</Italian>
+		<Spanish>Ulan-Bator</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MONGOLIA2</Tag>
+		<English>Bayan Tumen</English>
+		<French>Bayan Tumen</French>
+		<German>Bayan Tumen</German>
+		<Italian>Bayan Tumen</Italian>
+		<Spanish>Baian Tumen</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MONGOLIA3</Tag>
+		<English>Muren</English>
+		<French>Muren</French>
+		<German>Muren</German>
+		<Italian>Muren</Italian>
+		<Spanish>Muren</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MONGOLIA4</Tag>
+		<English>Kyzyl</English>
+		<French>Kyzyl</French>
+		<German>Kyzyl</German>
+		<Italian>Kyzyl</Italian>
+		<Spanish>Kizil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MANCHURIA1</Tag>
+		<English>Xinjing</English>
+		<French>Xinjing</French>
+		<German>Xinjing</German>
+		<Italian>Xinjing</Italian>
+		<Spanish>Xinjing</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MANCHURIA2</Tag>
+		<English>Jiamusi</English>
+		<French>Jiamusi</French>
+		<German>Jiamusi</German>
+		<Italian>Jiamusi</Italian>
+		<Spanish>Jiamusi</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MANCHURIA3</Tag>
+		<English>Mohe</English>
+		<French>Mohe</French>
+		<German>Mohe</German>
+		<Italian>Mohe</Italian>
+		<Spanish>Mohe</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MANCHURIA4</Tag>
+		<English>Xilinhot</English>
+		<French>Xilinhot</French>
+		<German>Xilinhot</German>
+		<Italian>Xilinhot</Italian>
+		<Spanish>Xilin Hot</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MANCHURIA5</Tag>
+		<English>Jilin</English>
+		<French>Jilin</French>
+		<German>Jilin</German>
+		<Italian>Jilin</Italian>
+		<Spanish>Jilin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CITY_NAME_WW2_MANCHURIA6</Tag>
+		<English>Hailar</English>
+		<French>Hailar</French>
+		<German>Hailar</German>
+		<Italian>Hailar</Italian>
+		<Spanish>Hailar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_FASCISM</Tag>
+		<English>Fascist</English>
+		<French>Fasciste</French>
+		<German>Faschismus</German>
+		<Italian>Fascista</Italian>
+		<Spanish>Fascista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_FASCISM_STRATEGY</Tag>
+		<English>Fascist</English>
+		<French>Fasciste</French>
+		<German>Faschismus</German>
+		<Italian>Fascismo</Italian>
+		<Spanish>Fascista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_COMMUNISM</Tag>
+		<English>Communist</English>
+		<French>Communiste</French>
+		<German>Kommunismus</German>
+		<Italian>Comunista</Italian>
+		<Spanish>Comunista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_COMMUNISM_STRATEGY</Tag>
+		<English>Communist</English>
+		<French>Communiste</French>
+		<German>Kommunismus</German>
+		<Italian>Comunismo</Italian>
+		<Spanish>Comunista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_DEMOCRACY</Tag>
+		<English>Democratic</English>
+		<French>D&#233;mocratique</French>
+		<German>Demokratie</German>
+		<Italian>Democratica</Italian>
+		<Spanish>Democr&#225;tico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_DEMOCRACY_STRATEGY</Tag>
+		<English>Democracy</English>
+		<French>D&#233;mocratie</French>
+		<German>Demokratie</German>
+		<Italian>Democrazia</Italian>
+		<Spanish>Democracia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_JUDICIAL</Tag>
+		<English>Judicial</English>
+		<French>Judiciaire</French>
+		<German>Rechtsstaat</German>
+		<Italian>Giudiziale</Italian>
+		<Spanish>Poder judicial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_AUTHORITARIAN</Tag>
+		<English>Authoritarian</English>
+		<French>Autoritaire</French>
+		<German>Autorit&#228;res System</German>
+		<Italian>Autoritaria</Italian>
+		<Spanish>Autoritario</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_POLICESTATE</Tag>
+		<English>Police State</English>
+		<French>Etat policier</French>
+		<German>Polizeistaat</German>
+		<Italian>Stato di polizia</Italian>
+		<Spanish>Estado policial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_SKILLED</Tag>
+		<English>Skilled Labor</English>
+		<French>Travail qualifi&#233;</French>
+		<German>Facharbeit</German>
+		<Italian>Lavoro specializzato</Italian>
+		<Spanish>Trabajo cualificado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_FORCED</Tag>
+		<English>Forced Labor</English>
+		<French>Travail forc&#233;</French>
+		<German>Zwangsarbeit</German>
+		<Italian>Lavoro forzato</Italian>
+		<Spanish>Trabajos forzados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_FREEMARKET</Tag>
+		<English>Free Market</English>
+		<French>March&#233; libre</French>
+		<German>Freie Marktwirtschaft</German>
+		<Italian>Libero mercato</Italian>
+		<Spanish>Mercado libre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_REGULATED</Tag>
+		<English>Regulated Market</English>
+		<French>March&#233; r&#233;gul&#233;</French>
+		<German>Regulierte Marktwirtschaft</German>
+		<Italian>Mercato regolamentato</Italian>
+		<Spanish>Mercado regulado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_STATE</Tag>
+		<English>State Market</English>
+		<French>March&#233; d'Etat</French>
+		<German>Planwirtschaft</German>
+		<Italian>Mercato di stato</Italian>
+		<Spanish>Mercado planificado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_US_USSR_INDUSTRY1</Tag>
+		<English>Industry Level 1</English>
+		<French>Industrie niveau 1</French>
+		<German>Industriestufe 1</German>
+		<Italian>Industria livello 1</Italian>
+		<Spanish>Nivel industrial 1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_US_USSR_INDUSTRY2</Tag>
+		<English>Industry Level 2</English>
+		<French>Industrie niveau 2</French>
+		<German>Industriestufe 2</German>
+		<Italian>Industria livello 2</Italian>
+		<Spanish>Nivel industrial 2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_US_USSR_INDUSTRY3</Tag>
+		<English>Industry Level 3</English>
+		<French>Industrie niveau 3</French>
+		<German>Industriestufe 3</German>
+		<Italian>Industria livello 3</Italian>
+		<Spanish>Nivel industrial 3</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_US_USSR_INDUSTRY4</Tag>
+		<English>Industry Level 4</English>
+		<French>Industrie niveau 4</French>
+		<German>Industriestufe 4</German>
+		<Italian>Industria livello 4</Italian>
+		<Spanish>Nivel industrial 4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_US_USSR_INDUSTRY5</Tag>
+		<English>Fascist Industry</English>
+		<French>Industrie fasciste</French>
+		<German>Faschistische Industrie</German>
+		<Italian>Industria fascista</Italian>
+		<Spanish>Industria fascista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVICOPTION_INDUSTRY</Tag>
+		<English>Industry</English>
+		<French>Industrie </French>
+		<German>Industrie</German>
+		<Italian>Industria</Italian>
+		<Spanish>Industria</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_GERMANY_DESC</Tag>
+		<English>Germany</English>
+		<French>Allemagne</French>
+		<German>Deutsches Reich</German>
+		<Italian>Germania</Italian>
+		<Spanish>Alemania</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_GERMANY_SHORT_DESC</Tag>
+		<English>Germany</English>
+		<French>Allemagne</French>
+		<German>Deutschland</German>
+		<Italian>Germania</Italian>
+		<Spanish>Alemania</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_GERMANY_ADJECTIVE</Tag>
+		<English>German</English>
+		<French>Allemands</French>
+		<German>Deutsch</German>
+		<Italian>della Germania</Italian>
+		<Spanish>de Alemania</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_ITALY_DESC</Tag>
+		<English>Italy</English>
+		<French>Italie</French>
+		<German>Italienisches Reich</German>
+		<Italian>Italia</Italian>
+		<Spanish>Italia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_ITALY_SHORT_DESC</Tag>
+		<English>Italy</English>
+		<French>Italie</French>
+		<German>Italien</German>
+		<Italian>Italia</Italian>
+		<Spanish>Italia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_ITALY_ADJECTIVE</Tag>
+		<English>Italian</English>
+		<French>Italiens</French>
+		<German>Italienisch</German>
+		<Italian>dell'Italia</Italian>
+		<Spanish>de Italia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_JAPAN_DESC</Tag>
+		<English>Japan</English>
+		<French>Japon</French>
+		<German>Japanisches Reich</German>
+		<Italian>Giappone</Italian>
+		<Spanish>Jap&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_JAPAN_SHORT_DESC</Tag>
+		<English>Japan</English>
+		<French>Japon</French>
+		<German>Japan</German>
+		<Italian>Giappone</Italian>
+		<Spanish>Jap&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_JAPAN_ADJECTIVE</Tag>
+		<English>Japanese</English>
+		<French>Japonais</French>
+		<German>Japanisch</German>
+		<Italian>del Giappone</Italian>
+		<Spanish>de Jap&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_ENGLAND_DESC</Tag>
+		<English>United Kingdom</English>
+		<French>Royaume-Uni</French>
+		<German>Britisches Reich</German>
+		<Italian>Regno Unito</Italian>
+		<Spanish>Gran Breta&#241;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_ENGLAND_SHORT_DESC</Tag>
+		<English>United Kingdom</English>
+		<French>Royaume-Uni</French>
+		<German>Gro&#223;britannien</German>
+		<Italian>Regno Unito</Italian>
+		<Spanish>Gran Breta&#241;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_ENGLAND_ADJECTIVE</Tag>
+		<English>United Kingdom</English>
+		<French>Britanniques</French>
+		<German>Britisch</German>
+		<Italian>del Regno Unito</Italian>
+		<Spanish>de Gran Breta&#241;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_USSR_DESC</Tag>
+		<English>USSR</English>
+		<French>U.R.S.S.</French>
+		<German>Sowjetisches Reich</German>
+		<Italian>URSS</Italian>
+		<Spanish>URSS</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_USSR_SHORT_DESC</Tag>
+		<English>USSR</English>
+		<French>U.R.S.S.</French>
+		<German>Russland</German>
+		<Italian>URSS</Italian>
+		<Spanish>URSS</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_USSR_ADJECTIVE</Tag>
+		<English>Russian</English>
+		<French>Russes</French>
+		<German>Russisch</German>
+		<Italian>dell'URSS</Italian>
+		<Spanish>de la URSS</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_FRANCE_DESC</Tag>
+		<English>France</English>
+		<French>France</French>
+		<German>Franz&#246;sisches Reich</German>
+		<Italian>Francia</Italian>
+		<Spanish>Francia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_FRANCE_SHORT_DESC</Tag>
+		<English>France</English>
+		<French>France</French>
+		<German>Frankreich</German>
+		<Italian>Francia</Italian>
+		<Spanish>Francia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_FRANCE_ADJECTIVE</Tag>
+		<English>French</English>
+		<French>Fran&#231;ais</French>
+		<German>Franz&#246;sisch</German>
+		<Italian>della Francia</Italian>
+		<Spanish>de Francia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_VICHY_DESC</Tag>
+		<English>Vichy France</English>
+		<French>R&#233;gime de Vichy</French>
+		<German>Vichy-Franz&#246;sisches Reich</German>
+		<Italian>Repubblica di Vichy</Italian>
+		<Spanish>Francia de Vichy</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_VICHY_SHORT_DESC</Tag>
+		<English>Vichy France</English>
+		<French>R&#233;gime de Vichy</French>
+		<German>Vichy-Frankreich</German>
+		<Italian>Repubblica di Vichy</Italian>
+		<Spanish>Francia de Vichy</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_VICHY_ADJECTIVE</Tag>
+		<English>Vichy French</English>
+		<French>Vichystes</French>
+		<German>Vichy-franz&#246;sisch</German>
+		<Italian>della Repubblica di Vichy</Italian>
+		<Spanish>de la Francia de Vichy</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_USA_DESC</Tag>
+		<English>USA</English>
+		<French>Etats-Unis</French>
+		<German>U.S.-Amerikanisches Reich</German>
+		<Italian>USA</Italian>
+		<Spanish>EE. UU.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_USA_SHORT_DESC</Tag>
+		<English>USA</English>
+		<French>Etats-Unis</French>
+		<German>Amerika</German>
+		<Italian>USA</Italian>
+		<Spanish>EE. UU.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_USA_ADJECTIVE</Tag>
+		<English>American</English>
+		<French>Am&#233;ricain</French>
+		<German>Amerikanisch</German>
+		<Italian>degli USA</Italian>
+		<Spanish>de EE. UU.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_CHINA_DESC</Tag>
+		<English>Peoples Republic of China</English>
+		<French>Peoples Republic of China</French>
+		<German>Peoples Republic of China</German>
+		<Italian>Peoples Republic of China</Italian>
+		<Spanish>Peoples Republic of China</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_CHINA_SHORT_DESC</Tag>
+		<English>China</English>
+		<French>Chine</French>
+		<German>China</German>
+		<Italian>Cina</Italian>
+		<Spanish>China</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_CHINA_ADJECTIVE</Tag>
+		<English>Chinese</English>
+		<French>Chinois</French>
+		<German>Chinesisch</German>
+		<Italian>della Cina</Italian>
+		<Spanish>de China</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_POLAND_DESC</Tag>
+		<English>Poland</English>
+		<French>Pologne</French>
+		<German>Polnisches Reich</German>
+		<Italian>Polonia</Italian>
+		<Spanish>Polonia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_POLAND_SHORT_DESC</Tag>
+		<English>Poland</English>
+		<French>Pologne</French>
+		<German>Polen</German>
+		<Italian>Polonia</Italian>
+		<Spanish>Polonia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_POLAND_ADJECTIVE</Tag>
+		<English>Polish</English>
+		<French>Polonais</French>
+		<German>Polnisch</German>
+		<Italian>della Polonia</Italian>
+		<Spanish>de Polonia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_BALKAN_DESC</Tag>
+		<English>East Balkan</English>
+		<French>Balkans orientaux</French>
+		<German>Ostbalkan-Reich</German>
+		<Italian>Balcani orientali</Italian>
+		<Spanish>Este de los Balcanes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_BALKAN_SHORT_DESC</Tag>
+		<English>East Balkan</English>
+		<French>Balkans orientaux</French>
+		<German>Ostbalkanland</German>
+		<Italian>Balcani orientali</Italian>
+		<Spanish>Este de los Balcanes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_BALKAN_ADJECTIVE</Tag>
+		<English>East Balkan</English>
+		<French>Habitants des Balkans orientaux</French>
+		<German>Ostbalkanisch</German>
+		<Italian>dei Balcani orientali</Italian>
+		<Spanish>del Este de los Balcanes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_WBALKAN_DESC</Tag>
+		<English>West Balkan</English>
+		<French>Balkans occidentaux</French>
+		<German>Westbalkan-Reich</German>
+		<Italian>Balcani occidentali</Italian>
+		<Spanish>Oeste de los Balcanes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_WBALKAN_SHORT_DESC</Tag>
+		<English>West Balkan</English>
+		<French>Balkans occidentaux</French>
+		<German>Westbalkanland</German>
+		<Italian>Balcani occidentali</Italian>
+		<Spanish>Oeste de los Balcanes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_WBALKAN_ADJECTIVE</Tag>
+		<English>West Balkan</English>
+		<French>Habitants des Balkans occidentaux</French>
+		<German>Westbalkanisch</German>
+		<Italian>dei Balcani occidentali</Italian>
+		<Spanish>del Oeste de los Balcanes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_TURKEY_DESC</Tag>
+		<English>Turkey</English>
+		<French>Turquie</French>
+		<German>T&#252;rkisches Reich</German>
+		<Italian>Turchia</Italian>
+		<Spanish>Turqu&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_TURKEY_SHORT_DESC</Tag>
+		<English>Turkey</English>
+		<French>Turquie</French>
+		<German>T&#252;rkisch-Osmanien</German>
+		<Italian>Turchia</Italian>
+		<Spanish>Turqu&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_TURKEY_ADJECTIVE</Tag>
+		<English>Turkish</English>
+		<French>Turcs</French>
+		<German>
+			<Text>T&#252;rkisch:t&#252;rkischen:t&#252;rkische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>della Turchia</Italian>
+		<Spanish>de Turqu&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SCANDINAVIA_DESC</Tag>
+		<English>Norway</English>
+		<French>Norv&#232;ge </French>
+		<German>
+			<Text>Norwegisches Reich:Norwegische Reich:Norwegischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Norvegia</Italian>
+		<Spanish>Noruega</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SCANDINAVIA_SHORT_DESC</Tag>
+		<English>Norway</English>
+		<French>Norv&#232;ge </French>
+		<German>
+			<Text>Norwegen</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Norvegia</Italian>
+		<Spanish>Noruega</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SCANDINAVIA_ADJECTIVE</Tag>
+		<English>Norwegian</English>
+		<French>Norv&#233;giens</French>
+		<German>
+			<Text>Norwegisch:norwegischen:norwegische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>della Norvegia</Italian>
+		<Spanish>de Noruega</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SWEDEN_DESC</Tag>
+		<English>Sweden</English>
+		<French>Su&#232;de</French>
+		<German>
+			<Text>Schwedisches Reich:Schwedische Reich:Schwedischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Svezia</Italian>
+		<Spanish>Suecia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SWEDEN_SHORT_DESC</Tag>
+		<English>Sweden</English>
+		<French>Su&#232;de</French>
+		<German>
+			<Text>Schweden</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Svezia</Italian>
+		<Spanish>Suecia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SWEDEN_ADJECTIVE</Tag>
+		<English>Swedish</English>
+		<French>Su&#233;dois</French>
+		<German>
+			<Text>Schwedisch:schwedischen:schwedische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>della Svezia</Italian>
+		<Spanish>de Suecia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_FINLAND_DESC</Tag>
+		<English>Finland</English>
+		<French>Finlande </French>
+		<German>
+			<Text>Finnisches Reich:Finnische Reich:Finnischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Finlandia</Italian>
+		<Spanish>Finlandia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_FINLAND_SHORT_DESC</Tag>
+		<English>Finland</English>
+		<French>Finlande </French>
+		<German>
+			<Text>Finnland</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Finlandia</Italian>
+		<Spanish>Finlandia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_FINLAND_ADJECTIVE</Tag>
+		<English>Finnish</English>
+		<French>Finlandais</French>
+		<German>
+			<Text>Finnisch:finnischen:finnische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>della Finlandia</Italian>
+		<Spanish>de Finlandia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_LOWLANDS_DESC</Tag>
+		<English>Low Countries</English>
+		<French>Pays-Bas</French>
+		<German>
+			<Text>Niederl&#228;ndisches Reich:Niederl&#228;ndische Reich:Niederl&#228;ndischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Paesi Bassi</Italian>
+		<Spanish>Pa&#237;ses Bajos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_LOWLANDS_SHORT_DESC</Tag>
+		<English>Low Countries</English>
+		<French>Pays-Bas</French>
+		<German>
+			<Text>Holland</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Paesi Bassi</Italian>
+		<Spanish>Pa&#237;ses Bajos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_LOWLANDS_ADJECTIVE</Tag>
+		<English>Low Countries</English>
+		<French>N&#233;erlandais</French>
+		<German>
+			<Text>Niederl&#228;ndisch:niederl&#228;ndischen:niederl&#228;ndische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>dei Paesi Bassi</Italian>
+		<Spanish>de los Pa&#237;ses Bajos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_IBERIA_DESC</Tag>
+		<English>Iberia</English>
+		<French>Ib&#233;rie</French>
+		<German>
+			<Text>Iberisches Reich:Iberische Reich:Iberischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Spagna</Italian>
+		<Spanish>Iberia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_IBERIA_SHORT_DESC</Tag>
+		<English>Iberia</English>
+		<French>Ib&#233;rie</French>
+		<German>
+			<Text>Iberien</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Spagna</Italian>
+		<Spanish>Iberia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_IBERIA_ADJECTIVE</Tag>
+		<English>Iberian</English>
+		<French>Ib&#233;riques</French>
+		<German>
+			<Text>Iberisch:iberischen:iberische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>della Spagna</Italian>
+		<Spanish>de Iberia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_BALTIC_DESC</Tag>
+		<English>Baltic</English>
+		<French>Baltique</French>
+		<German>
+			<Text>Baltisches Reich:Baltische Reich:Baltischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Stati Baltici</Italian>
+		<Spanish>B&#225;ltico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_BALTIC_SHORT_DESC</Tag>
+		<English>Baltic</English>
+		<French>Baltique</French>
+		<German>
+			<Text>Baltikumland</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Stati Baltici</Italian>
+		<Spanish>B&#225;ltico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_BALTIC_ADJECTIVE</Tag>
+		<English>Baltic</English>
+		<French>Baltes</French>
+		<German>
+			<Text>Baltisch:baltischen:baltische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>degli Stati baltici</Italian>
+		<Spanish>del B&#225;ltico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_MONGOLIA_DESC</Tag>
+		<English>Mongolia</English>
+		<French>Mongolie</French>
+		<German>
+			<Text>Mongolisches Reich:Mongolische Reich:Mongolischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Mongolia</Italian>
+		<Spanish>Mongolia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_MONGOLIA_SHORT_DESC</Tag>
+		<English>Mongolia</English>
+		<French>Mongolie</French>
+		<German>
+			<Text>Mongolenland</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Mongolia</Italian>
+		<Spanish>Mongolia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_MONGOLIA_ADJECTIVE</Tag>
+		<English>Mongolian</English>
+		<French>Mongols</French>
+		<German>
+			<Text>Mongolisch:mongolischen:mongolische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>della Mongolia</Italian>
+		<Spanish>de Mongolia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_PHILIPPINES_DESC</Tag>
+		<English>Philippines</English>
+		<French>Philippines</French>
+		<German>
+			<Text>Philippinisches Reich:Philippinische Reich:Philippinischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Filippine</Italian>
+		<Spanish>Filipinas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_PHILIPPINES_SHORT_DESC</Tag>
+		<English>Philippines</English>
+		<French>Philippines</French>
+		<German>
+			<Text>Philippinenland</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Filippine</Italian>
+		<Spanish>Filipinas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_PHILIPPINES_ADJECTIVE</Tag>
+		<English>Philippines</English>
+		<French>Philippins</French>
+		<German>
+			<Text>Philippinisch:philippinischen:philippinische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>delle Filippine</Italian>
+		<Spanish>de Filipinas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SIAM_DESC</Tag>
+		<English>Siam</English>
+		<French>Tha&#239;lande </French>
+		<German>
+			<Text>Siamesisches Reich:Siamesische Reich:Siamesischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Siam</Italian>
+		<Spanish>Siam</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SIAM_SHORT_DESC</Tag>
+		<English>Siam</English>
+		<French>Tha&#239;lande </French>
+		<German>
+			<Text>Siam</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Siam</Italian>
+		<Spanish>Siam</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SIAM_ADJECTIVE</Tag>
+		<English>Siamese</English>
+		<French>Tha&#239;landais</French>
+		<German>
+			<Text>Siamesisch:siamesischen:siamesische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>del Siam</Italian>
+		<Spanish>de Siam</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SINKIANG_DESC</Tag>
+		<English>Xinjiang</English>
+		<French>Xinjiang</French>
+		<German>
+			<Text>Xinjiang-Reich:Xinjiang-Reich:Xinjiang-Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Xinjiang</Italian>
+		<Spanish>Xinjiang</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SINKIANG_SHORT_DESC</Tag>
+		<English>Xinjiang</English>
+		<French>Xinjiang</French>
+		<German>
+			<Text>Xinjiang</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Xinjiang</Italian>
+		<Spanish>Xinjiang</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_SINKIANG_ADJECTIVE</Tag>
+		<English>Xinjiang</English>
+		<French>Habitants du Xinjiang</French>
+		<German>
+			<Text>Xinjiangisch:xinjiangischen:xinjiangische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>dello Xinjiang</Italian>
+		<Spanish>de Xinjiang</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_DUTCH_DESC</Tag>
+		<English>Dutch East Indies</English>
+		<French>Indes n&#233;erlandaises</French>
+		<German>
+			<Text>Niederl&#228;ndisch-Ostindisches-Reich:Niederl&#228;ndisch-Ostindische-Reich:Niederl&#228;ndisch-Ostindischen-Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Indie orientali olandesi</Italian>
+		<Spanish>Antillas Holandesas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_DUTCH_SHORT_DESC</Tag>
+		<English>Dutch East Indies</English>
+		<French>Indes n&#233;erlandaises</French>
+		<German>
+			<Text>Niederl&#228;ndisch-Ostindien</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Indie orientali olandesi</Italian>
+		<Spanish>Antillas Holandesas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_DUTCH_ADJECTIVE</Tag>
+		<English>Dutch East Indies</English>
+		<French>Habitants des Indes n&#233;erlandaises</French>
+		<German>
+			<Text>Niederl&#228;ndisch-ostindisch:niederl&#228;ndisch-ostindischen:niederl&#228;ndisch-ostindische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>delle Indie orientali olandesi</Italian>
+		<Spanish>de las Antillas Holandesas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_AUSTRALIA_DESC</Tag>
+		<English>Australia</English>
+		<French>Australie </French>
+		<German>
+			<Text>Australisches Reich:Australische Reich:Australischen Reich</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>Australia</Italian>
+		<Spanish>Australia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_AUSTRALIA_SHORT_DESC</Tag>
+		<English>Australia</English>
+		<French>Australie </French>
+		<German>
+			<Text>Australien</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Australia</Italian>
+		<Spanish>Australia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_WW2_AUSTRALIA_ADJECTIVE</Tag>
+		<English>Australian</English>
+		<French>Australiens </French>
+		<German>
+			<Text>Australisch:australischen:australische</Text>
+			<Gender>Neuter:Neuter:Neuter</Gender>
+			<Plural>0:0:0</Plural>
+		</German>
+		<Italian>dell'Australia</Italian>
+		<Spanish>de Australia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_GERMANY</Tag>
+		<English>Vice-Chancellor von Papen</English>
+		<French>Vice-chancelier Von Papen</French>
+		<German>
+			<Text>Vizekanzler von Papen</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Vice-cancelliere von Papen</Italian>
+		<Spanish>Vicecanciller von Papen</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_ITALY</Tag>
+		<English>President Mussolini</English>
+		<French>Pr&#233;sident Mussolini</French>
+		<German>
+			<Text>Pr&#228;sident Mussolini</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente Mussolini</Italian>
+		<Spanish>Presidente Mussolini</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_JAPAN</Tag>
+		<English>Admiral Yamamoto</English>
+		<French>Amiral Yamamoto</French>
+		<German>
+			<Text>Admiral Yamamoto</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Ammiraglio Yamamoto</Italian>
+		<Spanish>Almirante Yamamoto</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_ENGLAND</Tag>
+		<English>Prime Minister Churchill</English>
+		<French>Premier ministre Churchill</French>
+		<German>
+			<Text>Premierminister Churchill</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Primo ministro Churchill</Italian>
+		<Spanish>Primer Ministro Churchill</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_USSR</Tag>
+		<English>General Secretary Stalin</English>
+		<French>Secr&#233;taire g&#233;n&#233;ral Staline</French>
+		<German>
+			<Text>Generalsekret&#228;r Stalin</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Segretario generale Stalin</Italian>
+		<Spanish>Secretario General Stalin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_FRANCE</Tag>
+		<English>President de Gaulle</English>
+		<French>Pr&#233;sident De Gaulle</French>
+		<German>
+			<Text>Pr&#228;sident de Gaulle</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente de Gaulle</Italian>
+		<Spanish>Presidente De Gaulle</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_VICHY</Tag>
+		<English>Marshal Petain</English>
+		<French>Mar&#233;chal P&#233;tain</French>
+		<German>
+			<Text>Marschall P&#233;tain</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Maresciallo Petain</Italian>
+		<Spanish>Mariscal P&#233;tain</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_USA</Tag>
+		<English>President Roosevelt</English>
+		<French>Pr&#233;sident Roosevelt</French>
+		<German>
+			<Text>Pr&#228;sident Roosevelt</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente Roosevelt</Italian>
+		<Spanish>Presidente Roosevelt</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_POLAND</Tag>
+		<English>President Moscicki</English>
+		<French>Pr&#233;sident Moscicki</French>
+		<German>
+			<Text>Pr&#228;sident Moscicki</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente Moscicki</Italian>
+		<Spanish>Presidente Moscicki</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_BALKAN</Tag>
+		<English>King Michael I</English>
+		<French>Roi Michel 1er</French>
+		<German>
+			<Text>K&#246;nig Michael I.</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Re Michele I</Italian>
+		<Spanish>Rey Miguel I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_WBALKAN</Tag>
+		<English>King Peter II</English>
+		<French>Roi Pierre II</French>
+		<German>
+			<Text>K&#246;nig Peter II.</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Re Pietro II</Italian>
+		<Spanish>Rey Pedro II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_TURKEY</Tag>
+		<English>President Inonu</English>
+		<French>Pr&#233;sident Inonu</French>
+		<German>
+			<Text>Pr&#228;sident In&#246;n&#252;</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente Inonu</Italian>
+		<Spanish>Presidente In&#246;n&#252;</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_SCANDINAVIA</Tag>
+		<English>King Haakon VII</English>
+		<French>Roi Haakon VII</French>
+		<German>
+			<Text>K&#246;nig Haakon VII.</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Re Haakon VII</Italian>
+		<Spanish>Rey Haakon VII</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_SWEDEN</Tag>
+		<English>King Gustaf V</English>
+		<French>Roi Gustave V</French>
+		<German>
+			<Text>K&#246;nig Gustaf V.</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Re Gustavo V</Italian>
+		<Spanish>Rey Gustavo V</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_FINLAND</Tag>
+		<English>President Ryti</English>
+		<French>Pr&#233;sident Ryti</French>
+		<German>
+			<Text>Pr&#228;sident Ryti</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente Ryti</Italian>
+		<Spanish>Presidente Ryti</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_LOWLANDS</Tag>
+		<English>Queen Wilhelmina</English>
+		<French>Reine Wilhelmina</French>
+		<German>
+			<Text>K&#246;nigin Wilhelmina</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Regina Guglielmina</Italian>
+		<Spanish>Reina Guillermina</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_IBERIA</Tag>
+		<English>Generalisimo Franco</English>
+		<French>G&#233;n&#233;ralissime Franco</French>
+		<German>
+			<Text>Generalissimus Franco</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Generalissimo Franco</Italian>
+		<Spanish>General&#237;simo Franco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_BALTIC</Tag>
+		<English>President Ulmanis</English>
+		<French>Pr&#233;sident Ulmanis</French>
+		<German>
+			<Text>Pr&#228;sident Ulmanis</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente Ulmanis</Italian>
+		<Spanish>Presidente Ulmanis</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_CHINA</Tag>
+		<English>Chairman Mao</English>
+		<French>Pr&#233;sident Mao</French>
+		<German>
+			<Text>Vorsitzender Mao</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente Mao</Italian>
+		<Spanish>Presidente Mao</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_MONGOLIA</Tag>
+		<English>Chairman Bumtsend</English>
+		<French>Pr&#233;sident Bumtsend</French>
+		<German>
+			<Text>Staatsoberhaupt Bumtsend</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente Bumtsend</Italian>
+		<Spanish>Presidente Bumtsend</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_PHILIPPINES</Tag>
+		<English>President Quezon</English>
+		<French>Pr&#233;sident Quezon</French>
+		<German>
+			<Text>Pr&#228;sident Quezon</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Presidente Quezon</Italian>
+		<Spanish>Presidente Quez&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_SIAM</Tag>
+		<English>Prime Minister Pibulsonggram</English>
+		<French>Premier ministre Pibulsonggram</French>
+		<German>
+			<Text>Premierminister Pibulsonggram</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Primo ministro Pibulsonggram</Italian>
+		<Spanish>Primer Ministro Pibulsonggram</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_SINKIANG</Tag>
+		<English>Warlord Shicai</English>
+		<French>Warlord Shicai</French>
+		<German>
+			<Text>Kriegsherr Shi-tsai</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Signore della guerra Shicai</Italian>
+		<Spanish>Caudillo Shicai</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WW2_AUSTRALIA</Tag>
+		<English>Prime Minister Curtin</English>
+		<French>Premier ministre Curtin</French>
+		<German>
+			<Text>Premierminister Curtin</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Primo ministro Curtin</Italian>
+		<Spanish>Primer Ministro Curtin</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_BATTLE</Tag>
+		<English>Battlefield</English>
+		<French>Champ de bataille </French>
+		<German>
+			<Text>Schlachtfeld</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Campo di battaglia</Italian>
+		<Spanish>Campo de batalla</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_WW2_RBOMBARD_TEXT</Tag>
+		<English>Ranged Bombardment</English>
+		<French>Bombardement &#224; distance</French>
+		<German>
+			<Text>Fernbombardierung</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bombardamento ad area</Italian>
+		<Spanish>Ca&#241;oneo de alcance</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_WW2_PARATROOP_TEXT</Tag>
+		<English>Paratrooper</English>
+		<French>Parachutiste</French>
+		<German>
+			<Text>Fallschirmj&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Paracadutista</Italian>
+		<Spanish>Paracaidista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_WW2_FACTORIES_TEXT</Tag>
+		<English>Factories</English>
+		<French>Usines</French>
+		<German>
+			<Text>Fabriken</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fabbriche</Italian>
+		<Spanish>F&#225;bricas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CONCEPT_WW2_BITTERWINTER_TEXT</Tag>
+		<English>Bitter Winter</English>
+		<French>Hiver de glace</French>
+		<German>
+			<Text>Harter Kriegswinter</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Duro inverno</Italian>
+		<Spanish>Invierno glacial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNITCOMBAT_PARATROOP</Tag>
+		<English>Paratrooper</English>
+		<French>Parachutiste</French>
+		<German>
+			<Text>Fallschirmj&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Paracadutista</Italian>
+		<Spanish>Paracaidista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNITCOMBAT_ANTIAIR</Tag>
+		<English>Anti-Air Gun</English>
+		<French>Canon anti-a&#233;rien</French>
+		<German>
+			<Text>Luftabwehrgesch&#252;tz</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Batteria antiaerea</Italian>
+		<Spanish>Ca&#241;&#243;n antia&#233;reo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_WW2_FASCISM</Tag>
+		<English>Fascism</English>
+		<French>Fascisme</French>
+		<German>
+			<Text>Faschismus</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fascismo</Italian>
+		<Spanish>Fascismo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_WW2_COMMUNISM</Tag>
+		<English>Communism</English>
+		<French>Communisme</French>
+		<German>
+			<Text>Kommunismus</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Comunismo</Italian>
+		<Spanish>Comunismo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_WW2_DEMOCRACY</Tag>
+		<English>Democracy</English>
+		<French>D&#233;mocratie</French>
+		<German>
+			<Text>Demokratie</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Democrazia</Italian>
+		<Spanish>Estado democr&#225;tico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_WW2_NEUTRAL</Tag>
+		<English>Neutral</English>
+		<French>Neutre</French>
+		<German>
+			<Text>Neutral</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Neutrale</Italian>
+		<Spanish>Estado Neutral</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_BOMBARD</Tag>
+		<English>Ranged Bombardment</English>
+		<French>Bombardement &#224; distance</French>
+		<German>Fernbombardierung</German>
+		<Italian>Bombardamento ad area</Italian>
+		<Spanish>Ca&#241;oneo de alcance</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_INTERFACEMODE_PARATROOP</Tag>
+		<English>Paradrop</English>
+		<French>Parachutage</French>
+		<German>Fallschirmsprung</German>
+		<Italian>Lancio col paracadute</Italian>
+		<Spanish>Desembarco a&#233;reo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_RBOMBARD</Tag>
+		<English>Ranged Bombardment</English>
+		<French>Bombardement &#224; distance</French>
+		<German>Fernbombardierung</German>
+		<Italian>Bombardamento ad area</Italian>
+		<Spanish>Ca&#241;oneo de alcance</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_PARATROOP</Tag>
+		<English>Paradrop</English>
+		<French>Parachutage</French>
+		<German>Fallschirmsprung</German>
+		<Italian>Lancio col paracadute</Italian>
+		<Spanish>Desembarco a&#233;reo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_PARATROOP</Tag>
+		<English>Paratrooper</English>
+		<French>Parachutiste</French>
+		<German>
+			<Text>Fallschirmj&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Paracadutista</Italian>
+		<Spanish>Paracaidista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_SEARCHLIGHTS</Tag>
+		<English>Searchlights</English>
+		<French>Projecteurs</French>
+		<German>
+			<Text>Suchscheinwerfer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Riflettori</Italian>
+		<Spanish>Focos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_WINTERWARFARE</Tag>
+		<English>Winter Warfare</English>
+		<French>Guerre hivernale</French>
+		<German>
+			<Text>Winterkampf</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Guerra invernale</Italian>
+		<Spanish>Guerra de invierno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TERRAIN_WINTERGRASS</Tag>
+		<English>Bitter Winter Grassland</English>
+		<French>Prairies (Hiver de glace)</French>
+		<German>
+			<Text>Harter Kriegswinter - Grasland</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Prateria invernale</Italian>
+		<Spanish>Pradera del invierno glacial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TERRAIN_WINTERPLAINS</Tag>
+		<English>Bitter Winter Plains</English>
+		<French>Plaines (Hiver de glace)</French>
+		<German>
+			<Text>Harter Kriegswinter - Ebene</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Pianure invernali</Italian>
+		<Spanish>Llanura del invierno glacial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TERRAIN_WINTERTUNDRA</Tag>
+		<English>Bitter Winter Tundra</English>
+		<French>Tundra (Hiver de glace)</French>
+		<German>
+			<Text>Harter Kriegswinter - Tundra</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Tundra invernale</Italian>
+		<Spanish>Tundra del invierno glacial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TERRAIN_WINTERHILL</Tag>
+		<English>Bitter Winter Hill</English>
+		<French>Colline (Hiver de glace)</French>
+		<German>
+			<Text>Harter Kriegswinter - H&#252;gel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Collina invernale</Italian>
+		<Spanish>Colina del invierno glacial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TERRAIN_WINTERPEAK</Tag>
+		<English>Bitter Winter Peak</English>
+		<French>Pic (Hiver de glace)</French>
+		<German>
+			<Text>Harter Kriegswinter - Gipfel</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Monte invernale</Italian>
+		<Spanish>Pico del invierno glacial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_FEATURE_WINTERFOREST</Tag>
+		<English>Bitter Winter Forest</English>
+		<French>For&#234;t (Hiver de glace)</French>
+		<German>
+			<Text>Harter Kriegswinter - Wald</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Foresta invernale</Italian>
+		<Spanish>Bosque del invierno glacial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_INITIAL1</Tag>
+		<English>Acquired Knowledge</English>
+		<French>Connaissance acquise</French>
+		<German>Erworbenes Wissen</German>
+		<Italian>Conoscenza acquisita</Italian>
+		<Spanish>Conocimiento adquirido</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_INITIAL2</Tag>
+		<English>Acquired Knowledge (Open Play Only)</English>
+		<French>Connaissance acquise (Mode Libre uniquement)</French>
+		<German>Erworbenes Wissen (nur Freies Spiel)</German>
+		<Italian>Conoscenza acquisita (solo Gioco libero)</Italian>
+		<Spanish>Conocimiento adquirido (solo juego abierto)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH00</Tag>
+		<English>Fascism</English>
+		<French>Fascisme</French>
+		<German>
+			<Text>Faschismus</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fascismo</Italian>
+		<Spanish>Fascismo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH01</Tag>
+		<English>Basic Weapons</English>
+		<French>Armement standard</French>
+		<German>
+			<Text>Einfache Waffen</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</German>
+		<Italian>Armi base</Italian>
+		<Spanish>Armamento b&#225;sico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH02</Tag>
+		<English>Basic Tank</English>
+		<French>Blind&#233; standard </French>
+		<German>
+			<Text>Einfacher Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Carro armato base</Italian>
+		<Spanish>Tanque b&#225;sico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH03</Tag>
+		<English>Basic Fighter</English>
+		<French>Chasseur standard</French>
+		<German>
+			<Text>Einfacher J&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Caccia base</Italian>
+		<Spanish>Caza b&#225;sico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH04</Tag>
+		<English>Propaganda</English>
+		<French>Propagande</French>
+		<German>
+			<Text>Propaganda</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Propaganda</Italian>
+		<Spanish>Propaganda</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH05</Tag>
+		<English>Basic Artillery</English>
+		<French>Artillerie standard</French>
+		<German>
+			<Text>Einfache Artillerie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Artiglieria base</Italian>
+		<Spanish>Artiller&#237;a b&#225;sica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH06</Tag>
+		<English>Basic Warships</English>
+		<French>Navires de guerre standard</French>
+		<German>
+			<Text>Einfaches Kriegsschiff</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Nave da guerra base</Italian>
+		<Spanish>Barco de guerra b&#225;sico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH07</Tag>
+		<English>Basic Submarine</English>
+		<French>Sous-marin standard</French>
+		<German>
+			<Text>Einfaches U-Boot</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Sottomarino base</Italian>
+		<Spanish>Submarino b&#225;sico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH08</Tag>
+		<English>Basic Bomber</English>
+		<French>Bombardier standard</French>
+		<German>
+			<Text>Einfacher Bomber</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bombardiere base</Italian>
+		<Spanish>Bombardero b&#225;sico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH09</Tag>
+		<English>Basic Rocket Design</English>
+		<French>Conception de Fus&#233;e standard</French>
+		<German>
+			<Text>Einfaches Raketendesign</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Progetto razzo base</Italian>
+		<Spanish>Dise&#241;o de cohete b&#225;sico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH10</Tag>
+		<English>Plastics</English>
+		<French>Plasturgie</French>
+		<German>
+			<Text>Plastik</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Plastica</Italian>
+		<Spanish>Pl&#225;stico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH11</Tag>
+		<English>Medical Service</English>
+		<French>Service m&#233;dical</French>
+		<German>
+			<Text>Sanit&#228;tswesen</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Servizio medico</Italian>
+		<Spanish>Asistencia m&#233;dica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH12</Tag>
+		<English>Light Tank</English>
+		<French>Blind&#233; l&#233;ger</French>
+		<German>
+			<Text>Leichter Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Carro armato leggero</Italian>
+		<Spanish>Tanque ligero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH13</Tag>
+		<English>Amphibious Warfare</English>
+		<French>Guerre amphibie</French>
+		<German>
+			<Text>Amphibische Kriegsf&#252;hrung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Guerra anfibia</Italian>
+		<Spanish>Guerra anfibia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH14</Tag>
+		<English>Basic Anti-Air</English>
+		<French>D&#233;fense anti-a&#233;rienne standard</French>
+		<German>
+			<Text>Einfache Luftabwehr</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Antiaerea base</Italian>
+		<Spanish>Antia&#233;reo b&#225;sico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH15</Tag>
+		<English>Laboratory</English>
+		<French>Laboratoire</French>
+		<German>
+			<Text>Labor</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Laboratorio</Italian>
+		<Spanish>Laboratorio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH16</Tag>
+		<English>Household Goods</English>
+		<French>Biens d'&#233;quipement m&#233;nager</French>
+		<German>
+			<Text>Haushaltswaren</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Prodotti per la casa</Italian>
+		<Spanish>Bienes para el hogar</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH17</Tag>
+		<English>Improved Weapons</English>
+		<French>Armement am&#233;lior&#233;</French>
+		<German>
+			<Text>Verbesserte Waffen</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</German>
+		<Italian>Armi migliorate</Italian>
+		<Spanish>Armamento mejorado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH18</Tag>
+		<English>Assault Guns and Tank Destroyers</English>
+		<French>Canons d'assaut et tueurs de char </French>
+		<German>
+			<Text>Angriffswaffen und Panzerzerst&#246;rer</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</German>
+		<Italian>Armi d'assalto e Cacciacarri</Italian>
+		<Spanish>Ca&#241;ones de asalto y anticarros</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH19</Tag>
+		<English>Airborne Warfare</English>
+		<French>Guerre a&#233;rienne</French>
+		<German>
+			<Text>Luftkriegsf&#252;hrung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Guerra aviotrasportata</Italian>
+		<Spanish>Guerra aerotransportada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH20</Tag>
+		<English>Jet Engine</English>
+		<French>Moteur &#224; r&#233;action</French>
+		<German>
+			<Text>D&#252;senantrieb</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Motore jet</Italian>
+		<Spanish>Motor a reacci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH21</Tag>
+		<English>Polymerisation</English>
+		<French>Polym&#233;risation</French>
+		<German>
+			<Text>Polymerisation</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Polimerizzazione</Italian>
+		<Spanish>Polimerizaci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH22</Tag>
+		<English>Sloped Armour</English>
+		<French>Blindage inclin&#233;</French>
+		<German>
+			<Text>Schr&#228;gpanzerung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Corazza inclinata</Italian>
+		<Spanish>Blindaje inclinado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH23</Tag>
+		<English>Improved Fighter</English>
+		<French>Chasseur am&#233;lior&#233;</French>
+		<German>
+			<Text>Verbesserter J&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Caccia migliorato</Italian>
+		<Spanish>Caza mejorado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH24</Tag>
+		<English>Chain Reactor</English>
+		<French>R&#233;acteur nucl&#233;aire</French>
+		<German>
+			<Text>Fusionsreaktor</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Reattore a catena</Italian>
+		<Spanish>Reactor nuclear en cadena</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH25</Tag>
+		<English>Mass-Production</English>
+		<French>Production de masse</French>
+		<German>
+			<Text>Massenfertigung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Produzione di massa</Italian>
+		<Spanish>Producci&#243;n en masa</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH26</Tag>
+		<English>Civil Awareness</English>
+		<French>S&#233;curit&#233; civile</French>
+		<German>
+			<Text>&#214;ffentliche Aufmerksamkeit</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Consapevolezza civile</Italian>
+		<Spanish>Concienciaci&#243;n civil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH27</Tag>
+		<English>Improved C3I and Logistics</English>
+		<French>C3I et logistique am&#233;lior&#233;s</French>
+		<German>
+			<Text>Verbesserte C3I-Systeme und -Logistik</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>C3I e logistica migliorate</Italian>
+		<Spanish>Sistemas de C3I y log&#237;stica mejorados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH28</Tag>
+		<English>Improved Submarine</English>
+		<French>Sous-marin am&#233;lior&#233;</French>
+		<German>
+			<Text>Verbessertes U-Boot</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Sottomarino migliorato</Italian>
+		<Spanish>Submarino mejorado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH29</Tag>
+		<English>Improved Bomber</English>
+		<French>Bombardier am&#233;lior&#233;</French>
+		<German>
+			<Text>Verbesserter Bomber</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bombardiere migliorato</Italian>
+		<Spanish>Bombardero mejorado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH30</Tag>
+		<English>Hydroforming</English>
+		<French>Hydroforming</French>
+		<German>
+			<Text>Hydroformen</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Idroforming</Italian>
+		<Spanish>Hidrogenaci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH31</Tag>
+		<English>Advanced Weapons</English>
+		<French>Armement avanc&#233;</French>
+		<German>
+			<Text>Fortgeschrittene Waffen</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</German>
+		<Italian>Armi avanzate</Italian>
+		<Spanish>Armamento avanzado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH32</Tag>
+		<English>Heavy Tanks</English>
+		<French>Blind&#233;s lourds</French>
+		<German>
+			<Text>Schwerer Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Carri pesanti</Italian>
+		<Spanish>Tanque pesado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH33</Tag>
+		<English>Improved Anti-Air</English>
+		<French>D&#233;fense anti-a&#233;rienne am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte Luftabwehr</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Antiaerea migliorata</Italian>
+		<Spanish>Antia&#233;reo mejorado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH34</Tag>
+		<English>Catalytic Polymerisation</English>
+		<French>Polym&#233;risation catalytique</French>
+		<German>
+			<Text>Katalytische Polymerisation</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Polimerizzazione catalitica</Italian>
+		<Spanish>Polimerizaci&#243;n catal&#237;tica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH35</Tag>
+		<English>Heavy Artillery</English>
+		<French>Artillerie lourde</French>
+		<German>
+			<Text>Schwere Artillerie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Artiglieria pesante</Italian>
+		<Spanish>Artiller&#237;a pesada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH36</Tag>
+		<English>Advanced Warships</English>
+		<French>Navires de guerre avanc&#233;s</French>
+		<German>
+			<Text>Fortgeschrittenes Kriegsschiff</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Navi da guerra avanzate</Italian>
+		<Spanish>Barco de guerra avanzado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH37</Tag>
+		<English>Flying Bomb</English>
+		<French>Bombe volante</French>
+		<German>
+			<Text>Flugbombe</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bomba volante</Italian>
+		<Spanish>Bomba volante</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH38</Tag>
+		<English>Modular Assembly</English>
+		<French>Assemblage modulaire</French>
+		<German>
+			<Text>Baukastensystem</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Montaggio modulare</Italian>
+		<Spanish>Montaje modular</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH39</Tag>
+		<English>Advanced C3I and Logistics</English>
+		<French>C3I et logistique avanc&#233;s</French>
+		<German>
+			<Text>Fortgeschrittene C3I-Systeme und -Logistik</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>C3I e logistica avanzate</Italian>
+		<Spanish>Sistemas de C3I y log&#237;stica avanzados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH40</Tag>
+		<English>Atomic Bomb</English>
+		<French>Bombe atomique</French>
+		<German>
+			<Text>Atombombe</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bomba atomica</Italian>
+		<Spanish>Bomba at&#243;mica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH41</Tag>
+		<English>Fluid Catalytic Cracking</English>
+		<French>Proc&#233;d&#233; de craquage catalytique fluide</French>
+		<German>
+			<Text>Fluid-Catalytic-Cracken</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Piroscissione catalitica fluida</Italian>
+		<Spanish>Craqueo catal&#237;tico fluido</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH42</Tag>
+		<English>Modern Weapons</English>
+		<French>Armements modernes</French>
+		<German>
+			<Text>Moderne Waffen</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</German>
+		<Italian>Armi moderne</Italian>
+		<Spanish>Armamento moderno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH43</Tag>
+		<English>Modern Fighter</English>
+		<French>Chasseur moderne</French>
+		<German>
+			<Text>Moderner J&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Caccia moderno</Italian>
+		<Spanish>Caza moderno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH44</Tag>
+		<English>Nuclear Bomb Delivery</English>
+		<French>Possession de bombe nucl&#233;aire</French>
+		<German>
+			<Text>Atombombenlieferung</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Lancio bomba nucleare</Italian>
+		<Spanish>Lanzamiento de la bomba nuclear</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH45</Tag>
+		<English>Cold Polymerisation</English>
+		<French>Polym&#233;risation &#224; froid</French>
+		<German>
+			<Text>Kaltpolymerisation</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Polimerizzazione a freddo</Italian>
+		<Spanish>Polimerizaci&#243;n en fr&#237;o</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH46</Tag>
+		<English>Cold War Awareness</English>
+		<French>S&#233;curit&#233; Guerre Froide</French>
+		<German>
+			<Text>Erkenntnis des Kalten Krieges</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Conspevolezza della guerra fredda</Italian>
+		<Spanish>Concienciaci&#243;n de guerra fr&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH47</Tag>
+		<English>Modern Artillery</English>
+		<French>Artillerie moderne</French>
+		<German>
+			<Text>Moderne Artillerie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Artiglieria moderna</Italian>
+		<Spanish>Artiller&#237;a moderna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH48</Tag>
+		<English>Modern Tank</English>
+		<French>Blind&#233; moderne</French>
+		<German>
+			<Text>Moderner Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Carro moderno</Italian>
+		<Spanish>Tanque moderno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH49</Tag>
+		<English>Modern Warships</English>
+		<French>Navires de guerre moderne</French>
+		<German>
+			<Text>Modernes Kriegsschiff</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Navi da guerra moderne</Italian>
+		<Spanish>Barco de guerra moderno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH50</Tag>
+		<English>Nuclear Submarine</English>
+		<French>Sous-marin nucl&#233;aire</French>
+		<German>
+			<Text>Atom-U-Boot</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Sottomarino nucleare</Italian>
+		<Spanish>Submarino nuclear</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH51</Tag>
+		<English>Modern Bomber</English>
+		<French>Bombardier moderne</French>
+		<German>
+			<Text>Moderner Bomber</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bombardiere moderno</Italian>
+		<Spanish>Bombardero moderno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH52</Tag>
+		<English>Ballistic Missile</English>
+		<French>Missile balistique</French>
+		<German>
+			<Text>Rakete</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missile balistico</Italian>
+		<Spanish>Misil bal&#237;stico</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_WW2_TECH53</Tag>
+		<English>Nuclear Power</English>
+		<French>Energie nucl&#233;aire</French>
+		<German>
+			<Text>Atomenergie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Energia nucleare</Italian>
+		<Spanish>Energ&#237;a nuclear</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_CAVALRY</Tag>
+		<English>Cavalry</English>
+		<French>Cavalerie</French>
+		<German>
+			<Text>Kavallerie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cavalleria</Italian>
+		<Spanish>Caballer&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_EARLY_INFANTRY</Tag>
+		<English>Infantry</English>
+		<French>Infanterie</French>
+		<German>
+			<Text>Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria</Italian>
+		<Spanish>Infanter&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_IMPROVED_INFANTRY</Tag>
+		<English>Improved Infantry</English>
+		<French>Infanterie am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria migliorata</Italian>
+		<Spanish>Infanter&#237;a mejorada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_ADVANCED_INFANTRY</Tag>
+		<English>Advanced Infantry</English>
+		<French>Infanterie avanc&#233;e</French>
+		<German>
+			<Text>Fortgeschrittene Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria avanzata</Italian>
+		<Spanish>Infanter&#237;a avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_MODERN_INFANTRY</Tag>
+		<English>Modern Infantry</English>
+		<French>Infanterie moderne</French>
+		<German>
+			<Text>Moderne Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria moderna</Italian>
+		<Spanish>Infanter&#237;a moderna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_MARINE</Tag>
+		<English>Marine</English>
+		<French>Marine</French>
+		<German>
+			<Text>Marine</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Marine</Italian>
+		<Spanish>Marine</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_PARATROOPER</Tag>
+		<English>Paratrooper</English>
+		<French>Parachutiste</French>
+		<German>
+			<Text>Fallschirmj&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Paracadutista</Italian>
+		<Spanish>Paracaidista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TANK</Tag>
+		<English>Tank</English>
+		<French>Blind&#233;</French>
+		<German>
+			<Text>Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Carro armato</Italian>
+		<Spanish>Tanque</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_LIGHT_TANK</Tag>
+		<English>Light Tank</English>
+		<French>Blind&#233; l&#233;ger</French>
+		<German>
+			<Text>Leichter Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Carro armato leggero</Italian>
+		<Spanish>Tanque ligero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_HEAVY_TANK</Tag>
+		<English>Heavy Tank</English>
+		<French>Blind&#233; lourd</French>
+		<German>
+			<Text>Schwerer Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Carro pesante</Italian>
+		<Spanish>Tanque pesado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_MODERN_TANK</Tag>
+		<English>Modern Tank</English>
+		<French>Blind&#233; moderne</French>
+		<German>
+			<Text>Moderner Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Carro moderno</Italian>
+		<Spanish>Tanque moderno</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_ARTILLERY</Tag>
+		<English>Artillery</English>
+		<French>Artillerie </French>
+		<German>
+			<Text>Artillerie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Artiglieria</Italian>
+		<Spanish>Artiller&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_HEAVY_ARTILLERY</Tag>
+		<English>Heavy Artillery</English>
+		<French>Artillerie lourde</French>
+		<German>
+			<Text>Schwere Artillerie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Artiglieria pesante</Italian>
+		<Spanish>Artiller&#237;a pesada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_MODERN_ARTILLERY</Tag>
+		<English>Modern Artillery</English>
+		<French>Artillerie moderne</French>
+		<German>
+			<Text>Moderne Artillerie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Artiglieria moderna</Italian>
+		<Spanish>Artiller&#237;a moderna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_ANTI-AIR</Tag>
+		<English>Anti-Air Gun</English>
+		<French>Canon anti-a&#233;rien</French>
+		<German>
+			<Text>Luftabwehrgesch&#252;tz</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Batteria antiaerea</Italian>
+		<Spanish>Ca&#241;&#243;n antia&#233;reo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_IMPROVED_ANTI-AIR</Tag>
+		<English>Improved Anti-Air Gun</English>
+		<French>Canon anti-a&#233;rien am&#233;lior&#233;</French>
+		<German>
+			<Text>Verbessertes Luftabwehrgesch&#252;tz</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Batteria antiaerea migliorata</Italian>
+		<Spanish>Ca&#241;&#243;n antia&#233;reo mejorado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIGHTER</Tag>
+		<English>Fighter</English>
+		<French>Chasseur</French>
+		<German>
+			<Text>J&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Caccia</Italian>
+		<Spanish>Caza</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_IMPROVED_FIGHTER</Tag>
+		<English>Improved Fighter</English>
+		<French>Chasseur am&#233;lior&#233;</French>
+		<German>
+			<Text>Verbesserter J&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Caccia migliorato</Italian>
+		<Spanish>Caza mejorado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_JET_FIGHTER</Tag>
+		<English>Jet Fighter</English>
+		<French>Chasseur &#224; r&#233;action</French>
+		<German>
+			<Text>D&#252;senj&#228;ger</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Jet da combattimento</Italian>
+		<Spanish>Caza a reacci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOMBER</Tag>
+		<English>Bomber</English>
+		<French>Bombardier</French>
+		<German>
+			<Text>Bomber</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bombardiere</Italian>
+		<Spanish>Bombardero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_IMPROVED_BOMBER</Tag>
+		<English>Improved Bomber</English>
+		<French>Bombardier am&#233;lior&#233;</French>
+		<German>
+			<Text>Verbesserter Bomber</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bombardiere migliorato</Italian>
+		<Spanish>Bombardero mejorado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_JET_BOMBER</Tag>
+		<English>Jet Bomber</English>
+		<French>Bombardier &#224; r&#233;action</French>
+		<German>
+			<Text>Kampfbomber</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Jet da bombardamento</Italian>
+		<Spanish>Bombardero a reacci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_MISSILE</Tag>
+		<English>Missile</English>
+		<French>Missile</French>
+		<German>
+			<Text>Rakete</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Missile</Italian>
+		<Spanish>Misil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_ATOMIC</Tag>
+		<English>A-Bomb</English>
+		<French>Bombe A</French>
+		<German>
+			<Text>Atombombe</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Bomba atomica</Italian>
+		<Spanish>Bomba A</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_ICBM</Tag>
+		<English>ICBM</English>
+		<French>MBIC</French>
+		<German>
+			<Text>ICBM</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>ICBM</Italian>
+		<Spanish>ICBM</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BATTLESHIP</Tag>
+		<English>Battleship</English>
+		<French>Cuirass&#233;</French>
+		<German>
+			<Text>Kriegsschiff</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Corazzata</Italian>
+		<Spanish>Acorazado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_CARRIER</Tag>
+		<English>Aircraft Carrier</English>
+		<French>Porte-avions</French>
+		<German>
+			<Text>Flugzeugtr&#228;ger</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Portaerei</Italian>
+		<Spanish>Portaaviones</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_CRUISER</Tag>
+		<English>Cruiser</English>
+		<French>Croiseur</French>
+		<German>
+			<Text>Kreuzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Incrociatore</Italian>
+		<Spanish>Crucero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_DESTROYER</Tag>
+		<English>Destroyer</English>
+		<French>Destroyer</French>
+		<German>
+			<Text>Zerst&#246;rer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Cacciatorpediniere</Italian>
+		<Spanish>Destructor</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FRIGATE</Tag>
+		<English>Frigate</English>
+		<French>Fr&#233;gate</French>
+		<German>
+			<Text>Fregatte</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fregata</Italian>
+		<Spanish>Fragata</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TRANSPORT</Tag>
+		<English>Landing Craft</English>
+		<French>Barge de d&#233;barquement</French>
+		<German>
+			<Text>Landungsboot</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Nave da sbarco</Italian>
+		<Spanish>Buque anfibio</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_SUBMARINE</Tag>
+		<English>Submarine</English>
+		<French>Sous-marin</French>
+		<German>
+			<Text>U-Boot</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Sottomarino</Italian>
+		<Spanish>Submarino</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_IMPROVED_SUBMARINE</Tag>
+		<English>Improved Submarine</English>
+		<French>Sous-marin am&#233;lior&#233;</French>
+		<German>
+			<Text>Verbessertes U-Boot</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Sottomarino migliorato</Italian>
+		<Spanish>Submarino mejorado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_NUCLEAR_SUBMARINE</Tag>
+		<English>Nuclear Submarine</English>
+		<French>Sous-marin nucl&#233;aire</French>
+		<German>
+			<Text>Atom-U-Boot</Text>
+			<Gender>Neuter</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Sottomarino nucleare</Italian>
+		<Spanish>Submarino nuclear</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_SPY</Tag>
+		<English>Spy</English>
+		<French>Espion</French>
+		<German>
+			<Text>Spion</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Spia</Italian>
+		<Spanish>Esp&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_PROPAGANDA1</Tag>
+		<English>Fascist Propaganda</English>
+		<French>Propagande fasciste</French>
+		<German>
+			<Text>Faschistischer Propagandist</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Propaganda fascista</Italian>
+		<Spanish>Propaganda fascista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_PROPAGANDA2</Tag>
+		<English>Communist Propaganda</English>
+		<French>Propagande communiste</French>
+		<German>
+			<Text>Kommunistischer Propagandist</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Propaganda comunista</Italian>
+		<Spanish>Propaganda comunista</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_PROPAGANDA3</Tag>
+		<English>Democratic Propaganda</English>
+		<French>Propagande d&#233;mocratique</French>
+		<German>
+			<Text>Demokratischer Propagandist</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Propaganda democratica</Italian>
+		<Spanish>Propaganda democr&#225;tica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_PROPAGANDA4</Tag>
+		<English>Neutral Propaganda</English>
+		<French>Propagande pays neutre</French>
+		<German>
+			<Text>Neutraler Propagandist</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Propaganda neutrale</Italian>
+		<Spanish>Propaganda neutral</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF0_GER</Tag>
+		<English>German early infantry</English>
+		<French>Infanterie allemande standard</French>
+		<German>
+			<Text>Fr&#252;he deutsche Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria tedesca base</Italian>
+		<Spanish>Infanter&#237;a alemana temprana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF1_GER</Tag>
+		<English>German improved infantry</English>
+		<French>Infanterie allemande am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte deutsche Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria tedesca migliorata</Italian>
+		<Spanish>Infanter&#237;a alemana mejorada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF2_GER</Tag>
+		<English>German advanced infantry</English>
+		<French>Infanterie allemande avanc&#233;e</French>
+		<German>
+			<Text>Fortgeschrittene deutsche Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria tedesca avanzata</Italian>
+		<Spanish>Infanter&#237;a alemana avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF0_ITA</Tag>
+		<English>Italian early infantry</English>
+		<French>Infanterie italienne standard</French>
+		<German>
+			<Text>Fr&#252;he italienische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria italiana base</Italian>
+		<Spanish>Infanter&#237;a italiana temprana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF1_ITA</Tag>
+		<English>Italian improved infantry</English>
+		<French>Infanterie italienne am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte italienische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria italiana migliorata</Italian>
+		<Spanish>Infanter&#237;a italiana mejorada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF2_ITA</Tag>
+		<English>Italian advanced infantry</English>
+		<French>Infanterie italienne avanc&#233;e</French>
+		<German>
+			<Text>Fortgeschrittene italienische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria italiana avanzata</Italian>
+		<Spanish>Infanter&#237;a italiana avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF0_ENG</Tag>
+		<English>Commonwealth early infantry</English>
+		<French>Infanterie britannique standard</French>
+		<German>
+			<Text>Fr&#252;he britische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria inglese base</Italian>
+		<Spanish>Infanter&#237;a brit&#225;nica temprana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF1_ENG</Tag>
+		<English>Commonwealth improved infantry</English>
+		<French>Infanterie britannique am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte britische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria inglese migliorata</Italian>
+		<Spanish>Infanter&#237;a brit&#225;nica mejorada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF2_ENG</Tag>
+		<English>Commonwealth advanced infantry</English>
+		<French>Infanterie britannique avanc&#233;e</French>
+		<German>
+			<Text>Fortgeschrittene britische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria inglese avanzata</Italian>
+		<Spanish>Infanter&#237;a brit&#225;nica avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF0_FRA</Tag>
+		<English>French early infantry</English>
+		<French>Infanterie fran&#231;aise standard</French>
+		<German>
+			<Text>Fr&#252;he franz&#246;sische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria francese base</Italian>
+		<Spanish>Infanter&#237;a francesa temprana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF1_FRA</Tag>
+		<English>French improved infantry</English>
+		<French>Infanterie fran&#231;aise am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte franz&#246;sische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria francese migliorata</Italian>
+		<Spanish>Infanter&#237;a francesa mejorada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF2_FRA</Tag>
+		<English>French advanced infantry</English>
+		<French>Infanterie fran&#231;aise avanc&#233;e</French>
+		<German>
+			<Text>Fortgeschrittene franz&#246;sische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria francese avanzata</Italian>
+		<Spanish>Infanter&#237;a francesa avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF0_USA</Tag>
+		<English>American early infantry</English>
+		<French>Infanterie am&#233;ricaine standard</French>
+		<German>
+			<Text>Fr&#252;he amerikanische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria americana base</Italian>
+		<Spanish>Infanter&#237;a estadounidense temprana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF1_USA</Tag>
+		<English>American improved infantry</English>
+		<French>Infanterie am&#233;ricaine am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte amerikanische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria americana migliorata</Italian>
+		<Spanish>Infanter&#237;a estadounidense mejorada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF2_USA</Tag>
+		<English>American advanced infantry</English>
+		<French>Infanterie am&#233;ricaine avanc&#233;e</French>
+		<German>
+			<Text>Fortgeschrittene amerikanische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria americana avanzata</Italian>
+		<Spanish>Infanter&#237;a estadounidense avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF0_RUS</Tag>
+		<English>Russian early infantry</English>
+		<French>Infanterie russe standard</French>
+		<German>
+			<Text>Fr&#252;he russische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria russa base</Italian>
+		<Spanish>Infanter&#237;a sovi&#233;tica temprana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF1_RUS</Tag>
+		<English>Russian improved infantry</English>
+		<French>Infanterie russe am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte russische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria russa migliorata</Italian>
+		<Spanish>Infanter&#237;a sovi&#233;tica mejorada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF2_RUS</Tag>
+		<English>Russian advanced infantry</English>
+		<French>Infanterie russe avanc&#233;e</French>
+		<German>
+			<Text>Fortgeschrittene russische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria russa avanzata</Italian>
+		<Spanish>Infanter&#237;a sovi&#233;tica avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF0_JAP</Tag>
+		<English>Japanese early infantry</English>
+		<French>Infanterie japonaise standard</French>
+		<German>
+			<Text>Fr&#252;he japanische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria giapponese base</Italian>
+		<Spanish>Infanter&#237;a japonesa temprana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF1_JAP</Tag>
+		<English>Japanese improved infantry</English>
+		<French>Infanterie japonaise am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte japanische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria giapponese migliorata</Italian>
+		<Spanish>Infanter&#237;a japonesa mejorada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF2_JAP</Tag>
+		<English>Japanese advanced infantry</English>
+		<French>Infanterie japonaise avanc&#233;e</French>
+		<German>
+			<Text>Fortgeschrittene japanische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria giapponese avanzata</Italian>
+		<Spanish>Infanter&#237;a japonesa avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF0_CHI</Tag>
+		<English>Chinese early infantry</English>
+		<French>Infanterie chinoise standard</French>
+		<German>
+			<Text>Fr&#252;he chinesische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria cinese base</Italian>
+		<Spanish>Infanter&#237;a china temprana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF1_CHI</Tag>
+		<English>Chinese improved infantry</English>
+		<French>Infanterie chinoise am&#233;lior&#233;e</French>
+		<German>
+			<Text>Verbesserte chinesische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria cinese migliorata</Italian>
+		<Spanish>Infanter&#237;a china mejorada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_INF2_CHI</Tag>
+		<English>Chinese advanced infantry</English>
+		<French>Infanterie chinoise avanc&#233;e</French>
+		<German>
+			<Text>Fortgeschrittene chinesische Infanterie</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>Fanteria cinese avanzata</Italian>
+		<Spanish>Infanter&#237;a china avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN0_GER</Tag>
+		<English>PzKw II Light Tank</English>
+		<French>Char l&#233;ger PzKw II </French>
+		<German>PzKw II-Leichtpanzer</German>
+		<Italian>Carro leggero PzKw II</Italian>
+		<Spanish>Tanque ligero PzKw II</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN1_GER</Tag>
+		<English>PzKw IV Medium Tank</English>
+		<French>Char moyen PzKw IV </French>
+		<German>PzKw IV-Mittelpanzer</German>
+		<Italian>Carro medio PzKw IV</Italian>
+		<Spanish>Tanque medio PzKw IV</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN2_GER</Tag>
+		<English>PzKw VI Tiger Tank</English>
+		<French>Char Tigre PzKw VI</French>
+		<German>PzKw VI Tiger-Panzer</German>
+		<Italian>Carro PzKw VI Tiger</Italian>
+		<Spanish>Tanque Tiger PzKw VI</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN0_ITA</Tag>
+		<English>L3/35 Tankette</English>
+		<French>Tankette L3/35</French>
+		<German>L3/35-Tankette</German>
+		<Italian>L3/35 Tankette</Italian>
+		<Spanish>Tanqueta L3/35</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN1_ITA</Tag>
+		<English>M11/39 Medium Tank</English>
+		<French>Char moyen M11/39 </French>
+		<German>M11/39-Mittelpanzer</German>
+		<Italian>Carro medio M11/39</Italian>
+		<Spanish>Tanque medio M11/39</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN2_ITA</Tag>
+		<English>P26/40 Heavy Tank</English>
+		<French>Char lourd P26/40</French>
+		<German>P26/40-Schwerpanzer</German>
+		<Italian>Carro pesante P26/40</Italian>
+		<Spanish>Tanque pesado P26/40</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN0_ENG</Tag>
+		<English>Mark VI Light Tank</English>
+		<French>Char l&#233;ger Mark VI</French>
+		<German>Mark VI-Leichtpanzer</German>
+		<Italian>Carro leggero Mark VI</Italian>
+		<Spanish>Tanque ligero Mark VI</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN1_ENG</Tag>
+		<English>Crusader III Tank</English>
+		<French>Char Crusader III</French>
+		<German>Crusader III-Panzer</German>
+		<Italian>Carro Crusader III</Italian>
+		<Spanish>Tanque Crusader III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN2_ENG</Tag>
+		<English>Mark IV Churchill Tank</English>
+		<French>Char Mark IV Churchill </French>
+		<German>Mark IV Churchill-Panzer</German>
+		<Italian>Carro Mark IV Churchill</Italian>
+		<Spanish>Tanque Churchill Mark IV</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN0_FRA</Tag>
+		<English>Renault R-35 Tank</English>
+		<French>Char Renault R-35 </French>
+		<German>Renault R-35-Panzer</German>
+		<Italian>Carro Renault R-35</Italian>
+		<Spanish>Tanque Renault R-35</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN1_FRA</Tag>
+		<English>Bataille B1-bis Tank</English>
+		<French>Char lourd  B1-bis</French>
+		<German>Bataille B1-Panzer</German>
+		<Italian>Carro Bataille B1-bis</Italian>
+		<Spanish>Tanque Char de Bataille B1-bis</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN2_FRA</Tag>
+		<English>FCM Char 2C Tank</English>
+		<French>Char FCM 2C</French>
+		<German>FCM Char 2C-Panzer</German>
+		<Italian>Carro FCM Char 2C</Italian>
+		<Spanish>Tanque FCM Char 2C</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN0_USA</Tag>
+		<English>M2 Light Tank</English>
+		<French>Char l&#233;ger M2</French>
+		<German>M2-Leichtpanzer</German>
+		<Italian>Carro leggero M2</Italian>
+		<Spanish>Tanqueta M2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN1_USA</Tag>
+		<English>M4 Sherman Tank</English>
+		<French>Char Sherman M4</French>
+		<German>M4 Sherman-Panzer</German>
+		<Italian>Carro M4 Sherman</Italian>
+		<Spanish>Tanque Sherman M4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN2_USA</Tag>
+		<English>M26 Pershing Tank</English>
+		<French>Char Pershing M26</French>
+		<German>M26 Pershing-Panzer</German>
+		<Italian>Carro M26 Pershing</Italian>
+		<Spanish>Tanque Pershing M26</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN0_RUS</Tag>
+		<English>T-26 Light Tank</English>
+		<French>Char l&#233;ger T-26</French>
+		<German>T-26-Leichtpanzer</German>
+		<Italian>Carro leggero T-26</Italian>
+		<Spanish>Tanqueta T-26</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN1_RUS</Tag>
+		<English>T-34 Medium Tank</English>
+		<French>Char moyen T-34</French>
+		<German>T-34-Mittelpanzer</German>
+		<Italian>Carro medio T-34</Italian>
+		<Spanish>Tanque medio T-34</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN2_RUS</Tag>
+		<English>KV-1 Heavy Tank</English>
+		<French>Char lourd KV-1</French>
+		<German>KV-1-Schwerpanzer</German>
+		<Italian>Carro pesante KV-1</Italian>
+		<Spanish>Tanque pesado KV-1</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN0_JAP</Tag>
+		<English>Type 95 Ha-Go Tank</English>
+		<French>Char Type 95 Ha-Go </French>
+		<German>Typ 95 Ha-Go-Panzer</German>
+		<Italian>Carro modello 95 Ha-Go</Italian>
+		<Spanish>Tanque Ha-Go tipo 95</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN1_JAP</Tag>
+		<English>Type 97 Chi-Ha Tank</English>
+		<French>Char Type 97 Chi-Ha</French>
+		<German>Typ 97 Chi-Ha-Panzer</German>
+		<Italian>Carro modello 97 Chi-Ha</Italian>
+		<Spanish>Tanque Chi-Ha tipo 97</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN2_JAP</Tag>
+		<English>Type 4 Chi-To Tank</English>
+		<French>Char Type 4 Chi-To</French>
+		<German>Typ 4 Chi-To-Panzer</German>
+		<Italian>Carro modello 4 Chi-To</Italian>
+		<Spanish>Tanque Chi-To tipo 4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN0_CHI</Tag>
+		<English>L3/35 Light Tank</English>
+		<French>Char l&#233;ger L3/35</French>
+		<German>L3/35-Leichtpanzer</German>
+		<Italian>Carro leggero L3/35</Italian>
+		<Spanish>Tanqueta L3/35</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN1_CHI</Tag>
+		<English>T-26 Tank</English>
+		<French>Char T-26</French>
+		<German>T-26-Panzer</German>
+		<Italian>Carro T-26</Italian>
+		<Spanish>Tanque T-26</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_TAN2_CHI</Tag>
+		<English>M4 Sherman Tank</English>
+		<French>Char Sherman M4</French>
+		<German>M4 Sherman-Panzer</German>
+		<Italian>Carro M4 Sherman</Italian>
+		<Spanish>Tanque Sherman M4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG1_GER</Tag>
+		<English>Focke FW190</English>
+		<French>Focke FW190</French>
+		<German>Focke FW190</German>
+		<Italian>Focke FW190</Italian>
+		<Spanish>Focke FW190</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG0_GER</Tag>
+		<English>Me BF109 Fighter</English>
+		<French>Chasseur Me BF109</French>
+		<German>Me BF109-J&#228;ger</German>
+		<Italian>Caccia Me BF109</Italian>
+		<Spanish>Caza Me BF109</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG2_GER</Tag>
+		<English>Me 262 Jet Fighter</English>
+		<French>Chasseur &#224; r&#233;action Me 262 </French>
+		<German>Me 262-D&#252;senj&#228;ger</German>
+		<Italian>Jet da combattimento Me 262</Italian>
+		<Spanish>Caza a reacci&#243;n Me 262</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG0_ITA</Tag>
+		<English>Fiat CR-42 Fighter</English>
+		<French>Chasseur Fiat CR-42</French>
+		<German>Fiat CR-42-J&#228;ger</German>
+		<Italian>Caccia Fiat CR-42</Italian>
+		<Spanish>Caza Fiat CR-42</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG1_ITA</Tag>
+		<English>Fiat G.55 Fighter</English>
+		<French>Chasseur Fiat G.55</French>
+		<German>Fiat G.55-J&#228;ger</German>
+		<Italian>Caccia Fiat G.55</Italian>
+		<Spanish>Caza Fiat G.55</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG2_ITA</Tag>
+		<English>Caproni Campini NI</English>
+		<French>Caproni Campini NI</French>
+		<German>Caproni Campini NI</German>
+		<Italian>Caproni Campini NI</Italian>
+		<Spanish>Caproni Campini NI</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG0_ENG</Tag>
+		<English>Hawker Hurricane</English>
+		<French>Hurricane Hawker </French>
+		<German>Hawker Hurricane</German>
+		<Italian>Hawker Hurricane</Italian>
+		<Spanish>Hawker Hurricane</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG1_ENG</Tag>
+		<English>Supermarine Spitfire</English>
+		<French>Spitfire Supermarine</French>
+		<German>Supermarine Spitfire</German>
+		<Italian>Supermarine Spitfire</Italian>
+		<Spanish>Supermarine Spitfire</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG2_ENG</Tag>
+		<English>Gloster Meteor Jet Fighter</English>
+		<French>Chasseur &#224; r&#233;action Gloster Meteor</French>
+		<German>Gloster Meteor-D&#252;senj&#228;ger</German>
+		<Italian>Jet da combattimento Gloster Meteor</Italian>
+		<Spanish>Caza a reacci&#243;n Gloster Meteor</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG0_FRA</Tag>
+		<English>MS.406 Fighter</English>
+		<French>Chasseur MS.406 </French>
+		<German>MS.406-J&#228;ger</German>
+		<Italian>Caccia MS.406</Italian>
+		<Spanish>Caza MS.406</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG1_FRA</Tag>
+		<English>Dewoitine D.520 Fighter</English>
+		<French>Chasseur Dewoitine D.520</French>
+		<German>Dewoitine D.520-J&#228;ger</German>
+		<Italian>Caccia Dewoitine D.520</Italian>
+		<Spanish>Caza Dewoitine D.520</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG2_FRA</Tag>
+		<English>Breguet 693</English>
+		<French>Breguet 693</French>
+		<German>Breguet 693</German>
+		<Italian>Breguet 693</Italian>
+		<Spanish>Breguet 693</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG0_USA</Tag>
+		<English>P-40 Tomahawk</English>
+		<French>P-40 Tomahawk</French>
+		<German>P-40 Tomahawk</German>
+		<Italian>P-40 Tomahawk</Italian>
+		<Spanish>P-40 Tomahawk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG1_USA</Tag>
+		<English>P-51 Mustang Fighter</English>
+		<French>Chasseur P-51 Mustang</French>
+		<German>P-51 Mustang-J&#228;ger</German>
+		<Italian>Caccia P-51 Mustang</Italian>
+		<Spanish>Caza P-51 Mustang</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG2_USA</Tag>
+		<English>P-59 Aerocomet</English>
+		<French>P-59 Aerocomet</French>
+		<German>P-59 Aerocomet</German>
+		<Italian>P-59 Aerocomet</Italian>
+		<Spanish>Aerocomet P-59</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG0_RUS</Tag>
+		<English>I-153 Chaika Fighter</English>
+		<French>Chasseur I-153 Chaika</French>
+		<German>I-153 Chaika-J&#228;ger</German>
+		<Italian>Caccia I-153 Chaika</Italian>
+		<Spanish>Caza I-153 Chaika</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG1_RUS</Tag>
+		<English>Il-2 Fighter</English>
+		<French>Chasseur Il-2</French>
+		<German>Il-2-J&#228;ger</German>
+		<Italian>Caccia Il-2</Italian>
+		<Spanish>Caza Il-2</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG2_RUS</Tag>
+		<English>Mig 15 Fighter</English>
+		<French>Chasseur Mig 15</French>
+		<German>Mig 15-J&#228;ger</German>
+		<Italian>Caccia Mig 15</Italian>
+		<Spanish>Caza Mig 15</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG0_JAP</Tag>
+		<English>Ki 27 Fighter</English>
+		<French>Chasseur Ki 27 </French>
+		<German>Ki 27-J&#228;ger</German>
+		<Italian>Caccia Ki 27</Italian>
+		<Spanish>Caza Ki 27</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG1_JAP</Tag>
+		<English>A6M Zero Fighter</English>
+		<French>Chasseur A6M Zero</French>
+		<German>A6M Zero-J&#228;ger</German>
+		<Italian>Caccia A6M Zero</Italian>
+		<Spanish>Caza Zero A6M</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG2_JAP</Tag>
+		<English>Ki 84 Fighter</English>
+		<French>Chasseur Ki 84 </French>
+		<German>Ki 84-J&#228;ger</German>
+		<Italian>Caccia Ki 84</Italian>
+		<Spanish>Caza Ki 84</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG0_CHI</Tag>
+		<English>Curtiss Hawk 75</English>
+		<French>Curtiss Hawk 75</French>
+		<German>Curtiss Hawk 75</German>
+		<Italian>Curtiss Hawk 75</Italian>
+		<Spanish>Curtiss Hawk 75</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG1_CHI</Tag>
+		<English>Polikarpov I 16</English>
+		<French>Polikarpov I 16</French>
+		<German>Polikarpov I 16</German>
+		<Italian>Polikarpov I 16</Italian>
+		<Spanish>Polikarpov I 16</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_FIG2_CHI</Tag>
+		<English>Vultee V-48C</English>
+		<French>Vultee V-48C</French>
+		<German>Vultee V-48C</German>
+		<Italian>Vultee V-48C</Italian>
+		<Spanish>Vultee V-48C</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM0_GER</Tag>
+		<English>Ju 87 Stuka</English>
+		<French>Ju 87 Stuka</French>
+		<German>Ju 87 Stuka</German>
+		<Italian>Ju 87 Stuka</Italian>
+		<Spanish>Ju 87 Stuka</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM1_GER</Tag>
+		<English>Junkers Ju 88 Bomber</English>
+		<French>Bombardier Junkers Ju 88</French>
+		<German>Junkers Ju 88-Bomber</German>
+		<Italian>Bombardiere Junkers Ju 88</Italian>
+		<Spanish>Bombardero Junkers Ju 88</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM2_GER</Tag>
+		<English>Ar 234 Jet Bomber</English>
+		<French>Bombardier Ar 234 Jet</French>
+		<German>Ar 234-Kampfbomber</German>
+		<Italian>Jet da bombardamento Ar 234</Italian>
+		<Spanish>Bombardero a reacci&#243;n Ar 234</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM0_ITA</Tag>
+		<English>Ba.88 Bomber</English>
+		<French>Bombardier Ba.88 </French>
+		<German>Ba.88-Bomber</German>
+		<Italian>Bombardiere Ba.88</Italian>
+		<Spanish>Bombardero Ba.88</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM1_ITA</Tag>
+		<English>SM.79 Bomber</English>
+		<French>Bombardier SM.79</French>
+		<German>SM.79-Bomber</German>
+		<Italian>Bombardiere SM.79</Italian>
+		<Spanish>Bombardero SM.79</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM2_ITA</Tag>
+		<English>Ar 234 Jet Bomber</English>
+		<French>Bombardier Ar 234 Jet</French>
+		<German>Ar 234-Kampfbomber</German>
+		<Italian>Jet da bombardamento Ar 234</Italian>
+		<Spanish>Bombardero a reacci&#243;n Ar 234</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM0_ENG</Tag>
+		<English>Vickers Wellington Bomber</English>
+		<French>Bombardier Vickers Wellington</French>
+		<German>Vickers Wellington-Bomber</German>
+		<Italian>Bombardiere Vickers Wellington</Italian>
+		<Spanish>Bombardero Vickers Wellington</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM1_ENG</Tag>
+		<English>Lancaster Bomber</English>
+		<French>Bombardier Lancaster</French>
+		<German>Lancaster-Bomber</German>
+		<Italian>Bombardiere Lancaster</Italian>
+		<Spanish>Bombardero Lancaster</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM2_ENG</Tag>
+		<English>Mosquito Bomber</English>
+		<French>Bombardier Mosquito</French>
+		<German>Mosquito-Bomber</German>
+		<Italian>Bombardiere Mosquito</Italian>
+		<Spanish>Bombardero Mosquito</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM0_FRA</Tag>
+		<English>Amiet 143</English>
+		<French>Amiet 143</French>
+		<German>Amiet 143</German>
+		<Italian>Amiet 143</Italian>
+		<Spanish>Amiet 143</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM1_FRA</Tag>
+		<English>Amiet 340</English>
+		<French>Amiet 340</French>
+		<German>Amiet 340</German>
+		<Italian>Amiet 340</Italian>
+		<Spanish>Amiet 340</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM2_FRA</Tag>
+		<English>Amiet 354</English>
+		<French>Amiet 354</French>
+		<German>Amiet 354</German>
+		<Italian>Amiet 354</Italian>
+		<Spanish>Amiet 354</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM0_USA</Tag>
+		<English>B-18 Bolo</English>
+		<French>B-18 Bolo</French>
+		<German>B-18 Bolo</German>
+		<Italian>B-18 Bolo</Italian>
+		<Spanish>B-18 Bolo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM1_USA</Tag>
+		<English>B-17 Flying Fortress</English>
+		<French>B-17 Forteresse volante</French>
+		<German>B-17 Flying Fortress</German>
+		<Italian>B-17 Flying Fortress</Italian>
+		<Spanish>B-17 Flying Fortress</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM2_USA</Tag>
+		<English>B-29 Superfortress</English>
+		<French>B-29 Superfortress </French>
+		<German>B-29 Superfortress</German>
+		<Italian>B-29 Superfortress</Italian>
+		<Spanish>B-29 Superfortress</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM0_RUS</Tag>
+		<English>Tupolev TB-4</English>
+		<French>Tupolev TB-4</French>
+		<German>Tupolev TB-4</German>
+		<Italian>Tupolev TB-4</Italian>
+		<Spanish>Tupolev TB-4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM1_RUS</Tag>
+		<English>Ilyushin Il 4</English>
+		<French>Ilyushin Il 4</French>
+		<German>Ilyushin Il 4</German>
+		<Italian>Ilyushin Il 4</Italian>
+		<Spanish>Ilyushin Il 4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM2_RUS</Tag>
+		<English>Tupolev TU-4</English>
+		<French>Tupolev TU-4</French>
+		<German>Tupolev TU-4</German>
+		<Italian>Tupolev TU-4</Italian>
+		<Spanish>Tupolev TU-4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM0_JAP</Tag>
+		<English>Mitsubishi G4M</English>
+		<French>Mitsubishi G4M</French>
+		<German>Mitsubishi G4M</German>
+		<Italian>Mitsubishi G4M</Italian>
+		<Spanish>Mitsubishi G4M</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM1_JAP</Tag>
+		<English>Kawasaki KI-32</English>
+		<French>Kawasaki KI-32</French>
+		<German>Kawasaki KI-32</German>
+		<Italian>Kawasaki KI-32</Italian>
+		<Spanish>Kawasaki KI-32</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM2_JAP</Tag>
+		<English>Nakajima Kikka</English>
+		<French>Nakajima Kikka</French>
+		<German>Nakajima Kikka</German>
+		<Italian>Nakajima Kikka</Italian>
+		<Spanish>Nakajima Kikka</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM0_CHI</Tag>
+		<English>Tupolev TB-4</English>
+		<French>Tupolev TB-4</French>
+		<German>Tupolev TB-4</German>
+		<Italian>Tupolev TB-4</Italian>
+		<Spanish>Tupolev TB-4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM1_CHI</Tag>
+		<English>Ilyushin Il 4</English>
+		<French>Ilyushin Il 4</French>
+		<German>Ilyushin Il 4</German>
+		<Italian>Ilyushin Il 4</Italian>
+		<Spanish>Ilyushin Il 4</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BOM2_CHI</Tag>
+		<English>B-17 Flying Fortress</English>
+		<French>B-17 Forteresse volante</French>
+		<German>B-17 Flying Fortress</German>
+		<Italian>B-17 Flying Fortress</Italian>
+		<Spanish>B-17 Flying Fortress</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_WW2_BUNKER</Tag>
+		<English>Maginot Fortifications</English>
+		<French>Ligne Maginot</French>
+		<German>Maginot-Verteidigungssystem</German>
+		<Italian>Fortificazioni Maginot</Italian>
+		<Spanish>Fortificaciones Maginot</Spanish>
+	</TEXT>
+</Civ4GameText>
