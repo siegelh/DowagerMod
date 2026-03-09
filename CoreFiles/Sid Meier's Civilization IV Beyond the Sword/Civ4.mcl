@@ -1,0 +1,21 @@
+<application
+	Title = "Sid Meier's Civilization IV"
+	ID = ""
+	Run = ".\Civ4-MCE.lnk"
+	BGColor = "RGB(0,0,0)" 
+	Name = "Sid Meier's Civilization IV"
+	CompanyName = "Firaxis Games"
+	StartImage = ".\Assets\res\Civ4.jpg" 
+	ThumbnailImage = ".\Assets\res\Civ4.jpg" 
+	SharedViewport = ""
+	NowPlayingDirective = ""
+>
+    <capabilitiesRequired
+        directX="True"
+        audio="False" <!-- Set false even if your game uses audio -->
+        video="False" <!-- Set false even if your game uses video -->
+        intensiveRendering="True"
+        console="False"
+    />
+</application>
+

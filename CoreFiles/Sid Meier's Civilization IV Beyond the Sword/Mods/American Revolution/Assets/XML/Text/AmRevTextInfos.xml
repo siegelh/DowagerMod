@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by Soren Johnson (Firaxis Games) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Jesse Smith (Firaxis Games) -->
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<!-- AMERICAN REVOLUTION TEXT -->
+	<!-- GENERAL EVENT TEXT -->
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_TITLE</Tag>
+		<English>The American Revolution</English>
+		<French>La R&#233;volution am&#233;ricaine</French>
+		<German>Die Amerikanische Revolution</German>
+		<Italian>La Rivoluzione Americana</Italian>
+		<Spanish>La Guerra de Independencia Americana</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_DESCRIPTION</Tag>
+		<English>In 1775 the 13 British Colonies in North America broke out in open revolution against the empire and sought to forge their own path alone as an independent nation. Citing exploitive practices by the British Empire, the Colonists were angered over what they saw as unjust taxation, lack of representation in the British government, and in the case of some, loss of potential fortunes which could be made trading with other parts of the world.[NEWLINE][NEWLINE]Following the Battles at Lexington, Concord and Bunker Hill the British are bottled up in Boston  by the newly formed Colonial Continental Army led by General George Washington. However, the Colonies are fragile and have nowhere near the resources of a worldwide empire, so the situation is dangerous for both sides.  Shall you help lead the Colonies into freedom or fight to keep the Empire intact?</English>
+		<French>En 1775, les 13 colonies britanniques d'Am&#233;rique du Nord se soul&#232;vent contre l'empire et cherchent &#224; tracer leur propre voie en tant que nation ind&#233;pendante. Se sentant exploit&#233;s par l'empire britannique, les colons se r&#233;voltent contre les taxes consid&#233;r&#233;es comme abusives, l'absence de repr&#233;sentation au sein du gouvernement britannique et, pour certains, la perte de fortunes potentielles qui auraient pu &#234;tres b&#226;ties en commer&#231;ant avec d'autres parties du monde.[NEWLINE][NEWLINE]Suite aux batailles de Lexington, Concord et Bunker Hill, les troupes britanniques se retrouvent accul&#233;es dans la ville de Boston par la jeune Arm&#233;e Coloniale Continentale conduite par le G&#233;n&#233;ral George Washington. Mais les colonies sont encore fragiles et ne disposent pas des vastes ressources de l'empire mondial auquel elles s'opposent. La situation est donc tendue pour les deux camps. Aiderez-vous les colonies &#224; atteindre la libert&#233; ou combattrez-vous pour pr&#233;server l'unit&#233; de l'empire ?</French>
+		<German>Im Jahr 1775 verliehen die 13 britischen Kolonien in Nordamerika ihrer Forderung, sich als unabh&#228;ngige Nation zu etablieren, durch eine offene Revolution gegen das Britische Empire Nachdruck. Angesichts der ausbeuterischen Praktiken des Empires lamentierten die Kolonisten &#252;ber die ungerechte Besteuerungspolitik, die mangelnde Vertretung ihrer Interessen in der britischen Regierung und die Vorenthaltung von Ums&#228;tzen, die ihrer Ansicht nach durch Handelsbeziehungen mit anderen L&#228;ndern der Welt h&#228;tten erzielt werden k&#246;nnen.[NEWLINE][NEWLINE]Nach den Schlachten von Lexington, Concord und Bunker Hill ist es der soeben etablierten kolonialen Kontinentalarmee unter der F&#252;hrung von General George Washington gelungen, die Briten in Boston einzukesseln. Die Situation der Kolonien ist jedoch instabil und sie verf&#252;gen auch nicht ann&#228;hernd &#252;ber die Ressourcen, die einem Weltreich zur Verf&#252;gung stehen. Führen Sie die Kolonisten in die Freiheit oder k&#228;mpfen Sie f&#252;r den Erhalt des Empires?</German>
+		<Italian>Nel 1775, le 13 colonie inglesi del Nord America si rivoltarono apertamente contro l'impero e cercarono di creare da soli la propria strada verso una nazione indipendente. Citando i documenti amministrativi dell'Impero Inglese, i coloniali erano infuriati dalle tassazioni ingiuste, da una mancanza di rappresentanza nel governo britannico e, in alcuni casi, dalla perdita di profitto ottenibile tramite il commercio con altre parti del mondo.[NEWLINE][NEWLINE]Dopo le battaglie di Lexington, Concord e Bunker Hill, gli Inglesi si ritrovarono intrappolati a Boston dal nuovo Esercito Continentale dei coloniali, guidato da George Washington. Tuttavia, i coloniali erano instabili e non disponevano di risorse paragonabili a quelle di un impero mondiale, perci&#242; la situazione era pericolosa per entrambe le fazioni. Vuoi guidare i coloniali verso l'indipendenza oppure lottare per mantenere intatto l'Impero Inglese?</Italian>
+		<Spanish>En 1775, las trece colonias brit&#225;nicas en Norteam&#233;rica se levantaron en una revoluci&#243;n abierta contra el imperio con la intenci&#243;n de recorrer su propio camino como naci&#243;n independiente. Clamando contra las pr&#225;cticas explotadoras de la metr&#243;poli, los colonos estaban enojados por lo que percib&#237;an como un sistema tributario injusto, falta de representaci&#243;n en el gobierno brit&#225;nico y, en algunos casos, p&#233;rdida de fortunas potenciales que podr&#237;an ganarse comerciando con otros lugares del mundo.[NEWLINE][NEWLINE]Tras las batallas de Lexington, Concord y Bunker Hill, los brit&#225;nicos se encuentran atrapados en Boston por el ej&#233;rcito continental, reci&#233;n fundado, que lidera el general George Washington. No obstante, las colonias son fr&#225;giles y los recursos que tienen no pueden comparase ni por asomo con los de una potencia mundial, por lo que la situaci&#243;n es peligrosa para ambos bandos.  &#191;Ayudar&#233;is a conducir a las colonias a la libertad? &#191;O luchar&#233;is por mantener el imperio intacto?</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_STARTUP_SCREEN_COLONIAL</Tag>
+		<English>It is the hot July summer of 1775 and war is upon us![NEWLINE][NEWLINE]The British Empire has long oppressed its colonies in North America through harsh taxes and lack of representation in the British government. Forever second-class citizens, the time has come for the Colonies to sever their long-standing tie with the Motherland to begin a new path alone and become the 'City on a Hill' which the rest of the world will aspire to be.[NEWLINE][NEWLINE]The British have the upper hand in the conflict with abundant resources from Europe, a well-trained army and a powerful navy. We may lack these but we are fighting for our home and have the determination to remove the unjust from these lands! Should enemy units approach our cities the alarm will be sounded and the local Militia will rise up to fight. They will not stay for long though, so use their help wisely. Also beware, as there are traitors among us who are still loyal to Britain and might rise up to fight our forces instead![NEWLINE][NEWLINE]To do well enough to achieve victory we need to retain as many Colonial cities as possible while inflicting as much damage to the enemy forces as possible. We may be able to acquire French and Spanish help in defeating Britain if we show we are capable of victory in this conflict.  Let us fight for freedom and drive the enemy back to Europe!</English>
+		<French>Nous sommes en juillet 1775 ; c'est sous un soleil de plomb que la guerre a &#233;clat&#233; ![NEWLINE][NEWLINE]L'empire britannique a trop longtemps oppress&#233; ses colonies d'Am&#233;rique du Nord par des taxes abusives et par son refus d'accepter une repr&#233;sentation coloniale au sein de son gouvernement. Consid&#233;r&#233;s comme des citoyens de second classe, les colons doivent &#224; pr&#233;sent couper le cordon ombilical qui les lie &#224; la patrie de leurs anc&#234;tres pour suivre leur propre voie et devenir la 'Ville sur la Colline' qui sera un exemple pour le reste du monde.[NEWLINE][NEWLINE]Les Anglais ont l'avantage dans ce conflit : abondantes ressources en provenance d'Europe, arm&#233;e bien entra&#238;n&#233;e et puissante marine de guerre. Nous n'avons peut-&#234;tre pas tous ces atouts mais nous nous battons pour notre pays et notre d&#233;termination a faire dispara&#238;tre l'injustice de ces terres est sans faille ! Que des unit&#233;s ennemies s'approchent de nos villes et l'alarme retentira pour appeler la Milice locale au combat. Elle ne restera h&#233;las pas longtemps, alors utilisez-la avec sagesse. Et n'oubliez pas non plus que des tra&#238;tres toujours fid&#232;les &#224; l'empire se cachent parmi nous ; ils attendent la bonne occasion pour tomber le masque et affronter nos forces ![NEWLINE][NEWLINE]Pour atteindre la victoire, nous devons conserver autant de cit&#233;s coloniales que possible tout en infligeant de lourdes pertes aux forces ennemies. Les Fran&#231;ais et les Espagnols nous soutiendront peut-&#234;tre si nous parvenons &#224; prouver que nous sommes capables de remporter ce conflit. Battons-nous pour la libert&#233; et repoussons l'ennemi jusqu'en Europe !</French>
+		<German>Es ist ein hei&#223;er Juli im Sommer 1775 und es herrscht Krieg![NEWLINE][NEWLINE]Das Britische Empire hat seine Kolonien in Nordamerika lange Zeit durch hohe Besteuerung und mangelnde Interessenvertretung in der britischen Regierung an der kurzen Leine gehalten. Nach den langen Jahren als B&#252;rger zweiter Klasse ist die Zeit nun reif, dass die Kolonien die Fesseln der Obrigkeit l&#246;sen und sich allein einen Weg an die Spitze bahnen, zu der die restliche Welt aufsieht.[NEWLINE][NEWLINE]Die Briten haben in diesem Konflikt die Oberhand, denn sie verf&#252;gen &#252;ber eine F&#252;lle an Ressourcen aus Europa, eine gut ausgebildete Armee und eine schlagkr&#228;ftige Marine. Uns mangelt es an all diesen Dingen, aber wir k&#228;mpfen f&#252;r unsere Heimat und sind entschlossen, das Unrecht aus diesem Land zu vertreiben! Sollten sich unseren St&#228;dten feindliche Einheiten n&#228;hern, wird Alarm geschlagen und die &#246;rtliche Miliz wird sich zum Kampf erheben. Da sie allerdings nicht allzu lange vor Ort bleiben wird, m&#252;ssen Sie sie klug einsetzen. Au&#223;erdem ist Vorsicht geboten, denn es sind Verr&#228;ter unter uns, die dem Britischen Empire noch immer treu ergeben sind und sich gegen unsere Truppen stellen k&#246;nnten![NEWLINE][NEWLINE]Um den Sieg zu erringen, m&#252;ssen wir so viele Kolonialst&#228;dte wie m&#246;glich halten und gleichzeitig den feindlichen Truppen so viel Schaden wie m&#246;glich zuf&#252;gen. M&#246;glicherweise gew&#228;hren uns Frankreich und Spanien in unserem Kampf gegen die Briten ihre Unterst&#252;tzung, wenn wir in dieser Schlacht beweisen, dass wir siegf&#228;hig sind. Lasst uns f&#252;r die Freiheit k&#228;mpfen und den Feind nach Europa zur&#252;ckschlagen!</German>
+		<Italian>&#200; il caldo luglio dell_estate del 1775 e la guerra &#232; alle porte![NEWLINE][NEWLINE]L_Impero Britannico a lungo ha oppresso le sue colonie in Nord America con dure tasse e una mancanza di rappresentanza nel governo britannico. Da sempre cittadini di secondo ordine, &#232; giunto il momento che le colonie taglino ogni legame con la madrepatria, per iniziare da soli un nuovo percorso e divenire la _citt&#224; su una collina_, che il resto del mondo aspira a divenire.[NEWLINE][NEWLINE]Gli Inglesi hanno il vantaggio di disporre di abbondanti risorse provenienti dall_Europa, di un esercito ben addestrato e di una potente flotta navale. Noi non abbiamo tutto questo, ma combattiamo per le nostre famiglie e abbiamo la ferma determinazione di cacciare via l_iniquit&#224; da queste terre! Se il nemico si avviciner&#224; alle nostre citt&#224;, suoneranno sempre le campane d_allarme e la milizia locale sorger&#224; ad affrontarlo. Ma non resisteranno a lungo, perci&#242; sfrutta con saggezza il loro aiuto. Inoltre, fai attenzione ai traditori ancora leali all_Inghilterra, che potrebbero insorgere per combattere le nostre forze![NEWLINE][NEWLINE]Per raggiungere la vittoria, dobbiamo mantenere il controllo su quante pi&#249; citt&#224; coloniali possibile, infliggendo quanti pi&#249; danni alle forze nemiche. Se dimostriamo di essere in grado di vincere il conflitto contro gli Inglesi, potremo ottenere l_aiuto di Francia e Spagna. Combattiamo per la libert&#224; e ricacciamo il nemico in Europa!</Italian>
+		<Spanish>Corre el caluroso verano de julio de 1775 y la guerra se cierne sobre nosotros.[NEWLINE][NEWLINE]Hace mucho que el imperio brit&#225;nico oprime a las colonias de Norteam&#233;rica con impuestos abusivos y falta de representantes en el gobierno. Ha llegado la hora de que los colonos, relegados desde siempre a ciudadanos de segunda clase, corten los viejos lazos con la Madre Patria para recorrer solos un nuevo camino y convertirse en 'la ciudad en la colina', la ciudad en la que aspire a convertirse el resto del mundo.[NEWLINE][NEWLINE]Los brit&#225;nicos tienen ventaja en el conflicto, con recursos abundantes de Europa, un ej&#233;rcito bien entrenado y una armada poderosa. Puede que nosotros no tengamos eso, pero luchamos por nuestra patria y estamos decididos a desterrar la injusticia de estas tierras. Si las unidades enemigas se acercan a nuestras ciudades, sonar&#225; la alarma y la milicia del lugar se levantar&#225; para luchar. Pero no aguantar&#225; mucho, as&#237; que usadla con prudencia. Y adem&#225;s, deber&#233;is ir con cuidado, ya que entre nosotros hay traidores que permanecen leales a los brit&#225;nicos y podr&#237;an sublevarse contra nuestras fuerzas.[NEWLINE][NEWLINE]Para lograr la victoria debemos conservar tantas ciudades de las colonias como podamos e infligir tanto da&#241;o como sea posible a las fuerzas enemigas. Es posible que los espa&#241;oles y franceses nos ayuden a derrotar a Gran Breta&#241;a si demostramos ser capaces de ganar este conflicto.  &#161;Luchemos por la libertad y expulsemos al enemigo de vuelta a Europa!</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_STARTUP_SCREEN_BRITISH</Tag>
+		<English>The time that we all have feared has at last arrived![NEWLINE][NEWLINE]The troublesome colonists on the North American continent have once and for all severed their tie with us and have embarked on a path to their own destruction. Not long ago they attacked a British force outside Boston and our army there is now besieged. With our navy we can pick and choose where to fight, so make sure to take advantage of our advantage on the sea. Parliament has given us full authorization to take whatever means necessary to defeat the colonists and their armies and restore control to the Crown.[NEWLINE][NEWLINE]To accomplish this task, we will be supplied frequently with soldiers and material from Europe with which we may do as we please. Most of the army of our enemy is composed of weak Militia units which are unreliable and will disperse after time goes by. We do have supporters among their ranks however, so we should use the support of our allies well in this land where we will be surrounded by enemies. Now that we have become entangled in this conflict it is likely that France and Spain may wish to take advantage of our situation, so beware of their possible involvement. To achieve victory we need to defeat the rebel armies and capture and hold the land. With our advantages we should not have any trouble in putting the rebel scum back in their place!</English>
+		<French>Ce que nous craignions a fini par se produire ![NEWLINE][NEWLINE]Les colons du continent nord am&#233;ricain ont d&#233;cid&#233; de couper une fois pour toute les liens qui nous unissent et se sont engag&#233;es sur la voie de leur destruction. Ils ont r&#233;cemment attaqu&#233; des forces britanniques non loin de Boston et notre arm&#233;e y est &#224; pr&#233;sent assi&#233;g&#233;e. Notre marine nous permet de choisir o&#249; porter le combat ; sachez exploiter au mieux notre avantage naval. Le Parlement nous a donn&#233; l'autorisation de prendre toutes les mesures n&#233;cessaire pour vaincre les colons et leurs arm&#233;es afin de r&#233;tablir l'autorit&#233; de la Couronne.[NEWLINE][NEWLINE]Nous recevrons r&#233;guli&#232;rement pour cela des soldats et du mat&#233;riel en provenance d'Europe dont nous pourrons disposer &#224; notre guise. Le plus gros de l'arm&#233;e de notre ennemi est compos&#233;e de miliciens peu s&#251;rs qui se disperseront au fil du temps. Nous avons aussi des partisans dans leurs rangs ; &#224; nous d'utiliser nos alli&#233;s au mieux dans ce pays hostile. Maintenant que nous sommes emp&#234;tr&#233;s dans ce conflit, il est probable que la France et l'Espagne tentent de tirer avantage de notre situation. M&#233;fiez-vous d'eux ! Pour remporter la victoire, nous devons vaincre les arm&#233;es rebelles afin de capturer et tenir le pays. Nos multiples avantages nous permettront de balayer cette vermine sans trop de difficult&#233; !</French>
+		<German>Unsere Bef&#252;rchtungen haben sich best&#228;tigt![NEWLINE][NEWLINE]Die rebellischen Kolonisten auf dem nordamerikanischen Kontinent haben sich ein f&#252;r allemal von uns abgewandt und einen selbstzerst&#246;rerischen Weg eingeschlagen. Vor kurzem haben sie in der N&#228;he von Boston eine britische Streitmacht angegriffen und die Folge ist, dass unsere dort stationierten Truppen nun belagert werden. Da wir uns angesichts unserer Marineeinheiten aussuchen k&#246;nnen, an welchen Standorten wir k&#228;mpfen wollen, sollten Sie dies zu Ihrem Vorteil nutzen. Das Parlament hat uns erm&#228;chtigt, alles zu unternehmen, was n&#246;tig ist, um die Kolonisten und ihre Truppen zu besiegen und sie wieder vollst&#228;ndig der Herrschaft der Krone zu unterstellen.[NEWLINE][NEWLINE]Zur Bew&#228;ltigung dieser Aufgabe werden wir h&#228;ufiger personellen wie materiellen Nachschub aus Europa erhalten. Die feindlichen Truppen bestehen gr&#246;&#223;tenteils aus schwachen Milizeinheiten, die nicht nur unzuverl&#228;ssig sind, sondern nach einer Weile auch wieder weiterziehen werden. Au&#223;erdem gibt es Sympathisanten f&#252;r unsere Sache in den gegnerischen Reihen, deren Unterst&#252;tzung im Kampf gegen unsere Widersacher sehr hilfreich sein k&#246;nnte. Da wir in diesem Konflikt von feindlichen Kr&#228;ften umringt sind, ist es wahrscheinlich, dass Frankreich und Spanien versuchen werden, unsere Situation auszunutzen - es ist also mit ihrer m&#246;glichen Beteiligung an diesem Konflikt zu rechnen. Um den Sieg zu erringen, m&#252;ssen wir die Rebellentruppen schlagen und unser Territorium verteidigen. Aber angesichts der vielen Vorteile auf unserer Seite sollten wir eigentlich keine Schwierigkeiten haben, das Rebellenpack wieder in die Schranken zu weisen!</German>
+		<Italian>Il momento a lungo temuto &#232; infine giunto![NEWLINE][NEWLINE]I noiosi coloniali del Nord America hanno tagliato una volta per tutte ogni legame con noi e si sono avviati verso la loro stessa distruzione. Qualche giorno fa, hanno attaccato un reggimento inglese vicino a Boston e ora il nostro esercito si trova assediato all_interno della citt&#224;. Grazie alla nostra flotta navale possiamo scegliere dove colpire, perci&#242; assicurati di sfruttare il vantaggio offerto dal controllo navale. Il parlamento ci ha concesso l_autorizzazione a prendere qualsiasi decisione necessaria a sconfiggere l_esercito coloniale e a riportare il controllo del paese nelle mani della Corona.[NEWLINE][NEWLINE]Per riuscire in quest_impresa, ci verranno forniti frequenti rinforzi di soldati e materiali provenienti dall_Europa, da gestire come pi&#249; riteniamo opportuno. La maggior parte dell_esercito nemico &#232; composta da deboli unit&#224; di milizia, le quali sono inaffidabili e si disperderanno con il passare del tempo. Inoltre, abbiamo dei sostenitori tra le loro file e, se coglieremo la possibilit&#224;, potremo sfruttare il loro aiuto per circondare il nemico. Ora che siamo rimasti coinvolti in questo conflitto, &#232; probabile che Francia e Spagna approfittino della situazione, perci&#242; fai attenzione a un loro possibile coinvolgimento. Per vincere, dovremo sconfiggere le armate ribelli e conquistare e controllare il territorio. Con il nostro vantaggio, non dovremmo avere problemi nel rimettere in riga questa feccia ribelle!</Italian>
+		<Spanish>&#161;Por fin ha llegado el momento que todos tem&#237;amos![NEWLINE][NEWLINE]Los problem&#225;ticos colonos del continente norteamericano han roto de una vez por todas sus v&#237;nculos con nosotros y se han embarcado rumbo a su propia destrucci&#243;n. No hace mucho que atacaron a una fuerza brit&#225;nica en las afueras de Boston y ahora nuestro ej&#233;rcito se encuentra asediado. Con nuestra armada podemos buscar y elegir el lugar donde luchar, as&#237; que aseguraos de sacar partido de nuestra ventaja en el mar. El parlamento nos ha dado carta blanca para usar todos los medios necesarios para derrotar a los colonos y sus ej&#233;rcitos y restablecer el control por parte de la Corona.[NEWLINE][NEWLINE]Para lograr este cometido, se nos suministrar&#225;n con frecuencia soldados y material de Europa, con los que podremos hacer lo que nos plazca. La mayor parte del ej&#233;rcito enemigo se compone de d&#233;biles unidades de la milicia, que son poco de fiar y se ir&#225;n dispersando a medida que pase el tiempo. Adem&#225;s, tenemos simpatizantes entre sus filas, as&#237; que debemos utilizar bien el apoyo de nuestros aliados en esas tierras all&#225; donde nos veamos rodeados por enemigos. Ahora que nos hemos enzarzado en este conflicto, es probable que Francia y Espa&#241;a quieran aprovecharse de nuestra situaci&#243;n, as&#237; que vigilad su posible participaci&#243;n. Para alcanzar la victoria, debemos derrotar a los ej&#233;rcitos rebeldes y capturar y conservar la tierra. Con la ventaja que tenemos, no deber&#237;a suponernos ning&#250;n problema poner en su sitio a esa escoria rebelde.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PLURAL</Tag>
+		<English>%s1:2_NamePlural</English>
+		<French>%s1:2_NamePlural</French>
+		<German>%s1:2_NamePlural</German>
+		<Italian>%s1:2_NamePlural</Italian>
+		<Spanish>%s1:2_NamePlural</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_UNIT_APPEARS_IN_CITY_RESULT</Tag>
+		<English>%d1_Num %s2_CivAdj [NUM1:%s3_UnitName:%s4_UnitNamePlural] [NUM1:appears:appear] in %s5_CityName</English>
+		<French>%d1_Num %s2_CivAdj [NUM1:%s3_UnitName:%s4_UnitNamePlural] [NUM1:est disponible:sont disponibles] &#224; %s5_CityName</French>
+		<German>In %s4_CityName [NUM1:steht:stehen] %d1_Num %s2:3_CivAdj [NUM1:Einheit %s3_UnitName:Einheiten %s4_UnitNamePlural] zur Verf&#252;gung</German>
+		<Italian>%d1_Num unit&#224; [NUM1:%s3_UnitName:%s4_UnitNamePlural] %s2_CivAdj [NUM1:&#232; apparsa:sono apparse] a %s5_CityName</Italian>
+		<Spanish>[NUM1:Aparece:Aparecen] %d1_Num [NUM1:%s3_UnitName:%s4_UnitNamePlural] de los %s2:3_CivAdj en %s5_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_UNIT_APPEARS_NEAR_CITY_RESULT</Tag>
+		<English>%d1_Num %s2_CivAdj [NUM1:%s3_UnitName:%s4_UnitNamePlural] [NUM1:appears:appear] near %s5_CityName</English>
+		<French>%d1_Num %s2_CivAdj [NUM1:%s3_UnitName:%s4_UnitNamePlural] [NUM1:est disponible:sont disponibles] pr&#232;s de %s5_CityName</French>
+		<German>In der N&#228;he von %s4_CityName [NUM1:steht:stehen] %d1_Num %s2:3_CivAdj [NUM1:Einheit %s3_UnitName:Einheiten %s4_UnitNamePlural] zur Verf&#252;gung</German>
+		<Italian>%d1_Num unit&#224; [NUM1:%s3_UnitName:%s4_UnitNamePlural] %s2_CivAdj [NUM1:&#232; apparsa:sono apparse] vicino a %s5_CityName</Italian>
+		<Spanish>[NUM1:Aparece:Aparecen] %d1_Num [NUM1:%s3_UnitName:%s4_UnitNamePlural] de los %s2:3_CivAdj cerca de %s5_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_FRANCE_AND_SPAIN_ALIGN</Tag>
+		<English>%D1_FrChange Alignment for France and %D2_SpChange for Spain</English>
+		<French>%D1_FrChange Alignement pour la France et %D2_SpChange pour l'Espagne</French>
+		<German>%D1_FrChange Ann&#228;herung f&#252;r Frankreich und %D2_SpChange f&#252;r Spanien</German>
+		<Italian>%D1_FrChange allineamento per la Francia e %D2_SpChange per la Spagna</Italian>
+		<Spanish>%D1_FrChange a la simpat&#237;a por Francia y %D2_SpChange a la simpat&#237;a por Espa&#241;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_FRANCE_ALIGN</Tag>
+		<English>%D1_Change Alignment for France</English>
+		<French>%D1_Change Alignement pour la France</French>
+		<German>%D1_Change Ann&#228;herung f&#252;r Frankreich</German>
+		<Italian>%D1_Change allineamento per la Francia</Italian>
+		<Spanish>%D1_FrChange a la simpat&#237;a por Francia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_FRANCE_DECLARES_WAR</Tag>
+		<English>France declares war on Britain!  As the war dragged on, France eventually saw that the Colonists were capable of defeating the British and decided that the opportunity to assist in the defeat of their long-time rival was too great to pass up. The French support would tip the balance and allow the Colonists to achieve victory.</English>
+		<French>La France d&#233;clare la guerre &#224; l'Angleterre ! Le conflit s'&#233;ternisant, la France a fini par r&#233;aliser que les colons sont capables de vaincre les Britanniques et a d&#233;cid&#233; de profiter de cette opportunit&#233; pour acc&#233;l&#233;rer la d&#233;faite de leur rival de toujours. Le soutien fran&#231;ais va faire pencher la balance en faveur des colons et leur offrir la victoire.</French>
+		<German>Frankreich erkl&#228;rt Gro&#223;britannien den Krieg! Je weiter der Konflikt voranschritt, desto &#252;berzeugter waren die Franzosen, dass die Kolonisten die Briten tats&#228;chlich besiegen konnten. Also beschlossen sie, die Chance, an der Niederschlagung ihres Erzfeindes beteiligt sein zu k&#246;nnen, nicht ungenutzt vor&#252;bergehen zu lassen und gew&#228;hrten den Kolonisten ihre Unterst&#252;tzung, um ihnen den Sieg zu erm&#246;glichen.</German>
+		<Italian>La Francia ha dichiarato guerra alla Gran Bretagna! Con il protrarsi della guerra, la Francia ha visto che i coloniali erano in grado di sconfiggere gli Inglesi e ha deciso di sfruttare quest'occasione per contribuire alla sconfitta dei loro antichi rivali. L'aiuto della Francia sposter&#224; l'ago della bilancia a favore dei coloniali.</Italian>
+		<Spanish>&#161;Francia declara la guerra a Gran Breta&#241;a!  A medida que la guerra se prolongaba, Francia se convenci&#243; de que los colonos podr&#237;an derrotar a los brit&#225;nicos, y decidi&#243; que la ocasi&#243;n de ayudar a derrotar a su viejo rival era demasiado buena como para dejarla pasar. El apoyo franc&#233;s decantar&#237;a la balanza y permitir&#237;a a los colonos conseguir la victoria.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_SPAIN_DECLARES_WAR</Tag>
+		<English>Spain declares war on Britain!  While Spain did not side as actively with the Colonists as the French, they too wanted a piece of the spoils and when the odds began to tip against the British, Spain saw its chance to acquire territory. Their actions took place far from the Colonies, draining British forces from American battlefields.</English>
+		<French>L'Espagne d&#233;clare la guerre &#224; l'Angleterre ! Bien que l'Espagne n'ait pas soutenu les colons aussi activement que la France, elle veut aussi sa part du g&#226;teau. Les chances des britanniques commen&#231;ant &#224; d&#233;cro&#238;tre, elle voit l&#224; une chance de s'emparer d'une partie du territoire. Leurs actions prennent place loin des colonies, d&#233;tournant ainsi les forces britanniques des champs de batailles am&#233;ricains.</French>
+		<German>Spanien erkl&#228;rt Gro&#223;britannien den Krieg! Wenngleich sich Spanien nicht wie Frankreich aktiv auf die Seite der Kolonisten schlug, wollte es sich dennoch einen Teil der Kriegsbeute sichern. Als sich das Blatt gegen Gro&#223;britannien zu wenden begann, erkannten die Spanier ihre Chance, neue Territorialgebiete zu erobern, indem sie die britischen Truppen von den amerikanischen Schlachtfeldern lockten und sie fernab der Kolonien bek&#228;mpften.</German>
+		<Italian>La Spagna ha dichiarato guerra alla Gran Bretagna! Sebbene gli Spagnoli non parteggino n&#233; per i coloniali, n&#233; per la Francia, vogliono anch'essi una parte del bottino e, non appena gli Inglesi hanno cominciato a essere in difficolt&#224;, hanno deciso di sfruttare quest'occasione per conquistare del territorio. Le loro azioni militari si svolgono lontane dai coloniali, riducendo il numero di forze britanniche sul territorio americano.</Italian>
+		<Spanish>&#161;Espa&#241;a declara la guerra a Gran Breta&#241;a!  Aunque Espa&#241;a no se aline&#243; activamente con los colonos, a diferencia de Francia, tambi&#233;n quer&#237;a su parte del pastel y, cuando las tornas empezaron a volverse contra los brit&#225;nicos, vio una oportunidad de conseguir territorio. Sus acciones tuvieron lugar muy lejos de las colonias, pero redujeron las fuerzas brit&#225;nicas de los campos de batalla norteamericanos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_SPAIN_ALIGN</Tag>
+		<English>%D1_Change Alignment for Spain</English>
+		<French>%D1_Change Alignement pour l'Espagne</French>
+		<German>%D1_Change Ann&#228;herung f&#252;r Spanien</German>
+		<Italian>%D1_Change allineamento per la Spagna</Italian>
+		<Spanish>%D1_Change a la simpat&#237;a por Espa&#241;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_BRITISH_REINFORCE_TEXT</Tag>
+		<English>The British would regularly receive new units from Europe to reinforce the land and naval forces already present in the Colonial theater of war.</English>
+		<French>Les Anglais re&#231;oivent r&#233;guli&#232;rement de nouvelles unit&#233;s en provenance d'Europe pour renforcer leur pr&#233;sence terrestre et navale sur le th&#233;&#226;tre d'op&#233;ration colonial.</French>
+		<German>Die Briten erhielten zur Unterst&#252;tzung der Boden- und Marinetruppen, die bereits am Kolonialkrieg beteiligt waren, regelm&#228;&#223;ig Verst&#228;rkung aus Europa.</German>
+		<Italian>Gli Inglesi riceveranno regolarmente nuove unit&#224; dall'Europa per rinforzare le forze terrestri e navali presenti nel teatro di guerra coloniale.</Italian>
+		<Spanish>Los brit&#225;nicos sol&#237;an recibir regularmente nuevas unidades de Europa para reforzar las fuerzas terrestres y navales que ya se encontraban en el escenario de la guerra colonial.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_BRITISH_REINFORCE_RESULT</Tag>
+		<English>New land and naval units appear near Halifax</English>
+		<French>De nouvelles unit&#233;s terrestres et navales sont disponibles pr&#232;s de Halifax</French>
+		<German>In der N&#228;he von Halifax stehen neue Boden- und Marineeinheiten zur Verf&#252;gung</German>
+		<Italian>Apparse nuove unit&#224; terrestri e navali vicino a Halifax</Italian>
+		<Spanish>Aparecen nuevas unidades terrestres y navales cerca de Halifax.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_SPAWN_MILITIA_TEXT</Tag>
+		<English>When British forces approached Colonial cities the local Militia would often rise up to help repel the invaders.</English>
+		<French>Lorsque les forces britanniques approchent des villes coloniales, la Milice locale se dresse r&#233;guli&#232;rement pour aider &#224; repousser les envahisseurs.</French>
+		<German>Die britischen Truppen stie&#223;en bei der Ann&#228;herung an die Kolonialst&#228;dte h&#228;ufig auf den Widerstand &#246;rtlicher Milizen, die den Einwohnern halfen, die Invasoren zur&#252;ckzuschlagen.</German>
+		<Italian>Quando le forze inglesi si sono avvicinate alle citt&#224; coloniali, la milizia locale &#232; spesso insorta per respingere gli invasori.</Italian>
+		<Spanish>Cuando las fuerzas brit&#225;nicas se acercaban a las ciudades coloniales, la milicia local sol&#237;a levantarse en armas para ayudar a rechazar a los invasores.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_SPAWN_MILITIA_RESULT</Tag>
+		<English>+1 Colonial Militia appears near %s1_CityName</English>
+		<French>+1 Milice Coloniale appara&#238;t pr&#232;s de %s1_CityName</French>
+		<German>In der N&#228;he von %s1_CityName steht +1 Kolonialmiliz zur Verf&#252;gung</German>
+		<Italian>Apparsa +1 milizia coloniale vicino a %s1_CityName</Italian>
+		<Spanish>Aparece +1 milicia colonial cerca de %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_SPAWN_LOYALIST_TEXT</Tag>
+		<English>While there were those who wished to split from Britain, there were others who remained loyal to the Crown and were willing to fight in its favor.</English>
+		<French>Bien que certains d&#233;sirent couper les ponts avec l'Angleterre, d'autres restent loyaux &#224; la Couronne et sont pr&#234;ts &#224; se battre pour elle.</French>
+		<German>Ein Teil der Kolonisten wollte sich von Gro&#223;britannien abspalten, ein anderer Teil war der Krone dagegen treu ergeben und bereit, aus &#220;berzeugung f&#252;r sie zu k&#228;mpfen.</German>
+		<Italian>Sebbene vi fossero persone favorevoli all'indipendenza dalla Gran Bretagna, c'era anche chi restava fedele alla Corona ed era disposto a combattere per essa.</Italian>
+		<Spanish>Aunque unos quer&#237;an separarse de Gran Breta&#241;a, hab&#237;a algunos otros que permanec&#237;an fieles a la Corona y deseaban luchar a favor de ella.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_SPAWN_LOYALIST_RESULT</Tag>
+		<English>+1 British Loyalist Irregular appears near %s1_CityName</English>
+		<French>+1 Loyaliste Irr&#233;gulier Anglais appara&#238;t pr&#232;s de %s1_CityName</French>
+		<German>In der N&#228;he von %s1_CityName steht +1 britischer Regierungstreuer zur Verf&#252;gung</German>
+		<Italian>Apparso +1 soldato irregolare lealista vicino a %s1_CityName</Italian>
+		<Spanish>Aparece +1 irregular leal a Gran Breta&#241;a cerca de %s1_CityName.</Spanish>
+	</TEXT>
+	<!-- DATE EVENT TEXT -->
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_NOV_1775_TEXT</Tag>
+		<English>In November of 1775 the Colonial Continental Congress approved a measure to found a Colonial Navy. While its resources were scarce and it was totally unable to meet the British Navy in battle, the young Colonial navy wrecked havoc among the British merchant shipping, causing major headaches for the Brits.</English>
+		<French>Le Congr&#232;s Colonial Continental approuve la cr&#233;ation d'une Marine Coloniale en novembre 1775. Bien que ses ressources sont insuffisantes pour affronter la puissance de la Marine Britannique, la jeune Marine Coloniale est tout de m&#234;me capable infliger de gros d&#233;g&#226;ts aux navires marchants anglais, donnant ainsi &#224; la Couronne de s&#233;rieux soucis.</French>
+		<German>Im November 1775 beschloss der koloniale Kontinentalkongress die Errichtung einer eigenen Marineflotte. Trotz Ressourcenmangels und deutlicher Unterlegenheit gegen&#252;ber der britischen Marine gelang es den neu erschaffenen kolonialen Marinestreitkr&#228;ften, die britische Handelsschifffahrt lahm zu legen und den Briten reichlich Kopfzerbrechen zu bereiten.</German>
+		<Italian>Nel novembre del 1775, il Congresso Continentale Coloniale approv&#242; una delibera per la costruzione di una flotta navale coloniale. Sebbene le sue risorse fossero scarse e non potesse competere in battaglia con la flotta inglese, la giovane flotta coloniale semin&#242; il caos tra le navi mercantili inglesi, causando un continuo disturbo per i Britannici.</Italian>
+		<Spanish>En noviembre de 1775, el Congreso Continental aprob&#243; una medida para fundar la armada colonial. Aunque contaba con pocos recursos y era completamente incapaz de rivalizar con la armada brit&#225;nica, la joven armada colonial caus&#243; grandes estragos entre las naves mercantes brit&#225;nicas, provocando al enemigo graves quebraderos de cabeza.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_JAN_1776_TEXT</Tag>
+		<English>In January of 1776 Thomas Paine, a Colonial writer, published his famous pamphlet 'Common Sense' which became an instant bestseller. "We have it in our power to make the world anew ... America shall make a stand, not for herself alone, but for the world." His inspirational words caused a surge in support for the Colonial cause.</English>
+		<French>Thomas Paine, un &#233;crivain colonial, publie en janvier 1776 son fameux pamphlet 'Le Sens Commun' qui devient imm&#233;diatement un best-seller. "Nous avons le pouvoir de r&#233;g&#233;n&#233;rer le monde... L'Am&#233;rique doit se dresser, non pas pour elle-m&#234;me, mais pour le monde." Ses paroles inspir&#233;es provoquent une vaste vague de soutien &#224; la cause Coloniale.</French>
+		<German>Im Januar 1776 ver&#246;ffentlichte der Kolonialschriftsteller Thomas Paine sein ber&#252;hmtes Pamphlet 'Common Sense' (Gesunder Menschenverstand), das innerhalb k&#252;rzester Zeit zum Bestseller wurde. "Es steht in unserer Macht, die Welt neu zu gestalten ... Amerika wird seinen Standpunkt vertreten, nicht nur f&#252;r sich selbst, sondern f&#252;r die ganze Welt." Seine inspirierenden Worte l&#246;sten eine Welle der Unterst&#252;tzung f&#252;r die koloniale Sache aus.</German>
+		<Italian>Nel gennaio del 1776, Thomas Paine, uno scrittore coloniale, pubblic&#242; il suo famoso manifesto "il buonsenso", che divenne presto un best seller. "Abbiamo il potere di creare un nuovo mondo... l'America dovr&#224; insorgere, non solo per se stessa, ma per il mondo intero." Le sue parole ispirarono la popolazione e causarono un'ondata di supporto alla causa coloniale.</Italian>
+		<Spanish>En enero de 1776, Thomas Paine, un escritor colono, public&#243; su famoso panfleto 'El sentido com&#250;n', que se convirti&#243; en un &#233;xito casi al instante. 'Est&#225; en nuestras manos crear un mundo nuevo... Am&#233;rica ha de levantarse, no solo por ella, sino por el mundo.' Sus inspiradoras palabras aumentaron extraordinariamente el apoyo a la causa de los colonos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_MAY_1776_TEXT_1</Tag>
+		<English>In May of 1776 the Colonial cause received a much-needed boost when France pledged one million dollars in arms and munitions, while Spain also promised to support the rebels against the British.</English>
+		<French>En mai 1776, les colons re&#231;oivent de la France un million de dollars en armes et munitions tandis que l'Espagne promet de soutenir les rebelles contre les Anglais.</French>
+		<German>Im Mai 1776 erhielten die Kolonien den dringend ben&#246;tigten Auftrieb: Frankreich sagte ihnen Waffen und Munition im Wert von einer Million Dollar zu und Spanien versprach, die Rebellen gegen die Briten zu unterst&#252;tzen.</German>
+		<Italian>Nel maggio del 1776, la causa coloniale ricevette il tanto necessario aiuto da parte della Francia, che invi&#242; un milione di dollari in armi e munizioni, e della Spagna, che promise di aiutare i ribelli contro gli Inglesi.</Italian>
+		<Spanish>En mayo de 1776, la causa colonial recibi&#243; un empuje muy necesario: Francia le prest&#243; un mill&#243;n de d&#243;lares en armas y munici&#243;n, mientras que Espa&#241;a tambi&#233;n prometi&#243; apoyar a los rebeldes contra los brit&#225;nicos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_MAY_1776_RESULT_1</Tag>
+		<English>Colonies receive +25 Gold; 2 Continental Regulars appear in %s1_CityName; +20 Alignment for France; +15 Alignment for Spain</English>
+		<French>Les colonies re&#231;oivent 25 pi&#232;ces d'or ; 2 Soldats Continentaux apparaissent &#224; %s1_CityName ; +20 Alignement pour la France ; +15 Alignement pour l'Espagne</French>
+		<German>Die Kolonien erhalten +25 Gold; in %s1_CityName stehen 2 Kontinentalsoldaten zur Verf&#252;gung; +20 Ann&#228;herung f&#252;r Frankreich; +15 Ann&#228;herung f&#252;r Spanien</German>
+		<Italian>I coloniali ricevono +25 oro; apparsi 2 soldati continentali vicino a %s1_CityName; +20 allineamento per la Francia; +15 allineamento per la Spagna</Italian>
+		<Spanish>Las colonias reciben +25 de oro; aparecen 2 regulares continentales en %s1_CityName; +20 a la simpat&#237;a por Francia y +15 a la simpat&#237;a por Espa&#241;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_MAY_1776_TEXT_2</Tag>
+		<English>Additionally, the Continental Congress approved a measure to allow the Colonies to form provincial governments.</English>
+		<French>Le Congr&#232;s Continental approuve en outre une mesure permettant aux colonies de fonder des gouvernements provinciaux.</French>
+		<German>Au&#223;erdem beschloss der Kontinentalkongress, dass es den Kolonien gestattet sein sollte, eigene Bezirksregierungen zu errichten.</German>
+		<Italian>Inoltre, il Congresso Continentale approv&#242; un decreto che permise ai coloniali di fondare dei governi provinciali.</Italian>
+		<Spanish>Adem&#225;s, el Congreso Continental aprob&#243; una medida que permit&#237;a a las colonias formar gobiernos provinciales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_MAY_1776_RESULT_2</Tag>
+		<English>Provincial Seat Building appears in Boston, New York City, Philadelphia, Richmond and Charleston</English>
+		<French>Des Parlements provinciaux apparaissent &#224; Boston, New York, Philadelphie, Richmond et Charleston</French>
+		<German>In Boston, New York City, Philadelphia, Richmond und Charleston stehen Bezirksregierungsgeb&#228;ude zur Verf&#252;gung</German>
+		<Italian>Sedi provinciali comparvero a Boston, New York, Filadelfia, Richmond e Charleston.</Italian>
+		<Spanish>Aparecen los edificios de las sedes provinciales de Boston, ciudad de Nueva York, Filadelfia, Richmond y Charleston.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_JULY_1776_TEXT</Tag>
+		<English>On July 4th, 1776 the American Colonies officially declared their independence from the British Empire. Worldwide reaction varied from excitement to ambivalence to disgust. France and Spain cared little for the Colonists' cause, but saw the conflict as an opportunity for their own gain at Britain's expense.</English>
+		<French>Le 4 juillet 1776, les colonies am&#233;ricaines d&#233;clarent officiellement leur ind&#233;pendance vis-&#224;-vis de l'empire britannique. Dans le monde, les r&#233;actions vont de l'enthousiasme au d&#233;go&#251;t en passant par l'ambivalence. La France et l'Espagne ne s'int&#233;ressent gu&#232;re &#224; la cause des colons mais toutes deux voient dans ce conflit une occasion de profiter des difficult&#233;s anglaises.</French>
+		<German>Am 4. Juli 1776 erkl&#228;rten die amerikanischen Kolonien offiziell ihre Unabh&#228;ngigkeit vom Britischen Empire. Die weltweiten Reaktionen reichten von Ereiferung &#252;ber Ambivalenz bis hin zur Verachtung. Frankreich und Spanien hatten im Grunde nur wenig Interesse an der Sache der Kolonisten, erkannten in dem Konflikt aber eine Gelegenheit, sich auf Kosten Gro&#223;britanniens eigene Vorteile zu verschaffen.</German>
+		<Italian>Il 4 luglio 1776, i coloniali americani dichiararono ufficialmente la propria indipendenza dall'Impero Britannico. Le reazioni mondiali variarono dall'agitazione, all'ambivalenza, fino al disgusto. A Francia e Spagna poco importava della causa coloniale, ma videro il conflitto come un'opportunit&#224; per guadagnare alle spalle degli Inglesi.</Italian>
+		<Spanish>El 4 de julio de 1776, las colonias norteamericanas declararon oficialmente su independencia del imperio brit&#225;nico. En el mundo se produjeron todo tipo de reacciones: desde la emoci&#243;n a la ambivalencia pasando por la repugnancia. A Francia y Espa&#241;a les importaba bien poco la causa de los colonos, pero vieron el conflicto como una oportunidad de obtener provecho a costa de Gran Breta&#241;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_JULY_1776_RESULT</Tag>
+		<English>+35 Alignment for France and Spain</English>
+		<French>+35 Alignement pour la France et l'Espagne</French>
+		<German>+35 Ann&#228;herung f&#252;r Frankreich und Spanien</German>
+		<Italian>+35 allineamento per la Francia e la Spagna</Italian>
+		<Spanish>+35 a la simpat&#237;a por Francia y Espa&#241;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_OCT_1777_TEXT</Tag>
+		<English>In October of 1777 France officially recognized the American Colonies as independent from Britain. While they did not officially join the war yet, this was a decisive precursor to such a move.</English>
+		<French>En octobre 1777, la France reconna&#238;t officiellement l'ind&#233;pendance des colonies am&#233;ricaines. Bien qu'elle ne s'engage pas encore officiellement dans la guerre, cette d&#233;claration en est le signe avant-coureur.</French>
+		<German>Im Oktober 1777 erkannte Frankreich offiziell die Unabh&#228;ngigkeit der amerikanischen Kolonien von Gro&#223;britannien an. Zu diesem Zeitpunkt waren die Franzosen noch nicht offiziell am Krieg beteiligt, aber die Anerkennung war ein ma&#223;geblicher Schritt in diese Richtung.</German>
+		<Italian>Nell'ottobre del 1777, la Francia riconobbe ufficialmente i coloniali americani come indipendenti dalla Gran Bretagna. Sebbene non ufficialmente in guerra, questa fu una decisione foriera di tale politica.</Italian>
+		<Spanish>En octubre de 1777, Francia reconoci&#243; oficialmente a las colonias norteamericanas como independientes de Gran Breta&#241;a. Aunque oficialmente a&#250;n no se hab&#237;a unido a la guerra, esto fue un precursor decisivo de dicho movimiento.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_OCT_1777_RESULT</Tag>
+		<English>+40 Alignment for France</English>
+		<French>+40 Alignement pour la France</French>
+		<German>+40 Ann&#228;herung f&#252;r Frankreich</German>
+		<Italian>+40 allineamento per la Francia</Italian>
+		<Spanish>+40 a la simpat&#237;a por Francia.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_NOV_1777_TEXT</Tag>
+		<English>In November 1777, the Continental Congress approved the Articles of Confederation, the first American constitution. While it would later be replaced by a more famous and longer-lasting document, the Articles was the first document binding all of the Colonies into a single nation.</English>
+		<French>En novembre 1777, le Congr&#232;s Continental approuve les Articles de la Conf&#233;d&#233;ration, premi&#232;re constitution Am&#233;ricaine. Bien que remplac&#233;s ult&#233;rieurement par un document plus c&#233;l&#232;bre et plus durable, ces Articles constituent le premier protocole liant toutes les colonies au sein d'une m&#234;me nation.</French>
+		<German>Im November 1777 verabschiedete der Kontinentalkongress die Artikel der Konf&#246;deration, die erste amerikanische Verfassung. Diese wurden zwar sp&#228;ter durch ein weitaus ber&#252;hmteres und nachhaltigeres Verfassungswerk ersetzt, aber mit den Artikeln lag erstmals ein Schriftst&#252;ck vor, das alle Kolonien zu einer einzigen, unabh&#228;ngigen Nation vereinte.</German>
+		<Italian>Nel novembre del 1777, il Congresso Continentale approv&#242; gli Articoli della Confederazione, la prima costituzione americana. Sebbene in seguito sostituiti da un altro documento pi&#249; famoso e duraturo, gli Articoli furono il primo documento a legare tutti i coloniali in una singola nazione.</Italian>
+		<Spanish>En noviembre de 1777, el Congreso Continental aprob&#243; los Art&#237;culos de la Confederaci&#243;n, la primera constituci&#243;n norteamericana. Aunque ser&#237;an derogados posteriormente por un instrumento mucho m&#225;s duradero y famoso, fueron el primer documento que uni&#243; a todas las colonias en una sola naci&#243;n.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_NOV_1777_RESULT</Tag>
+		<English>+25 Gold; 1 Continental Regular in %s1_CityName</English>
+		<French>+25 pi&#232;ces d'or ; 1 Soldat Continental &#224; %s1_CityName</French>
+		<German>+25 Gold; 1 Kontinentalsoldat in %s1_CityName</German>
+		<Italian>+25 oro; apparso +1 soldato continentale a %s1_CityName</Italian>
+		<Spanish>+25 de oro; aparece 1 regular continental en %s1_CityName.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_FEB_1778_TEXT</Tag>
+		<English>In February of 1778 the Prussian general Baron von Steuben offered General Washington his support. Washington eagerly accepted, knowing that an army which could fight in the European style would be necessary to defeat Britain and that the Prussians were said to have the best-drilled army in Europe. The training Steuben provided made the Continental Army a much more formidable force.</English>
+		<French>En f&#233;vrier 1778, le g&#233;n&#233;ral Prussien von Steuben offre son soutien au G&#233;n&#233;ral Washington. Ce dernier l'accepte avec empressement sachant qu'une arm&#233;e capable de se battre &#224; l'europ&#233;enne est n&#233;cessaire pour vaincre l'Angleterre. Les Prussiens sont en outre connus pour avoir l'arm&#233;e la mieux entra&#238;n&#233;e d'Europe. La formation fournie par Steuben transforme l'Arm&#233;e Continentale en une force redoutable.</French>
+		<German>Im Februar 1778 bot der preu&#223;ische General Baron von Steuben dem amerikanischen General Washington seine Unterst&#252;tzung an. Washington nahm dieses Angebot dankbar an, denn er wusste, dass sein Heer den europ&#228;ischen Kampfstil beherrschen musste, um Gro&#223;britannien besiegen zu k&#246;nnen und die Preu&#223;en standen in dem Ruf, die am besten ausgebildete Armee Europas zu unterhalten. Von Steubens Ausbildungsmethoden machten aus der eher amateurhaften Kontinentalarmee eine wesentlich eindrucksvollere Streitmacht.</German>
+		<Italian>Nel febbraio del 1778, il generale prussiano Baron von Steuben offr&#236; al generale Washington il proprio aiuto. Washington accett&#242; con gratitudine, sapendo che sarebbe stato necessario un esercito che sapesse combattere come gli europei per sconfiggere gli Inglesi, ed era noto che la Prussia possedesse l'esercito meglio addestrato di tutta Europa. L'addestramento fornito da Steuben rese l'esercito continentale un nemico formidabile.</Italian>
+		<Spanish>En febrero de 1778, el bar&#243;n von Steuben, un general prusiano, ofreci&#243; su apoyo al general Washington. &#201;ste acept&#243; inmediatamente, pues era consciente de que les har&#237;a falta un ej&#233;rcito capaz de luchar al modo europeo para poder derrotar a los brit&#225;nicos, y los prusianos eran famosos por tener el ej&#233;rcito mejor instruido de Europa. El entrenamiento proporcionado por von Steuben convirti&#243; el ej&#233;rcito continental en una fuerza mucho m&#225;s formidable.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_FEB_1778_RESULT</Tag>
+		<English>+1-2 promotions for every Continental Regular on the map</English>
+		<French>+1-2 promotions pour chaque Soldat Continental sur la carte</French>
+		<German>+1-2 Bef&#246;rderungen f&#252;r jeden Kontinentalsoldaten auf der Karte</German>
+		<Italian>+1-2 promozioni per ogni soldato continentale sulla mappa</Italian>
+		<Spanish>+1-2 ascensos a cada Regular continental que haya en el mapa.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_AUG_1779_TEXT</Tag>
+		<English>In August 1779 the Colonies offered terms of peace to Britain - demanding full independence, all British troops to leave former-Colonial soil and unimpeded access to the Mississippi River and trade from it. Britain rejected these terms, believing that victory was still in their grasp. </English>
+		<French>En ao&#251;t 1779, les colonies font des propositions de paix &#224; l'Angleterre - en &#233;change de leur ind&#233;pendance, du d&#233;part des troupes britanniques de l'ex-sol colonial et de l'acc&#232;s sans entrave au Mississippi afin d'y commercer. L'Angleterre rejette cette offre, persuad&#233;e que la victoire est toujours &#224; sa port&#233;e.</French>
+		<German>Im August 1779 teilten die Kolonien Gro&#223;britannien ihre Friedensbedingungen mit - sie forderten vollst&#228;ndige Unabh&#228;ngigkeit, den Abzug aller britischen Truppen aus dem fr&#252;heren Kolonialterritorium sowie dauerhafte Zugangs- und Nutzungsrechte am Mississippi und den darauf ausgef&#252;hrten Handelsaktivit&#228;ten. Die Briten waren jedoch &#252;berzeugt, sie k&#246;nnten die Kolonien besiegen und wiesen ihre Forderungen zur&#252;ck.</German>
+		<Italian>Nell'agosto del 1779, i coloniali presentarono le proprie condizioni di pace agli Inglesi: chiedevano la completa indipendenza, il ritiro di tutte le truppe inglesi dal territorio coloniale e il libero accesso al fiume Mississipi e ai suoi scambi commerciali. I Britannici rifiutarono queste condizioni, credendo di avere la vittoria in pugno.</Italian>
+		<Spanish>En agosto de 1779, las colonias ofrecieron sus condiciones de paz a Gran Breta&#241;a: independencia total, abandono de todas las tropas brit&#225;nicas del territorio de las antiguas colonias y un acceso libre al r&#237;o Mississippi y al comercio procedente de &#233;l. Gran Breta&#241;a rechaz&#243; estas condiciones, pues cre&#237;a que ya ten&#237;a la victoria al alcance de la mano. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_JUL_1780_TEXT</Tag>
+		<English>In July of 1780 the French navy managed to slip past the British and land 6,000 soldiers on the coast of Rhode Island. However the British closed in quickly and were able to keep this force pinned in this area where it could cause no harm.</English>
+		<French>En juillet 1780, la marine fran&#231;aise r&#233;ussit &#224; d&#233;jouer la surveillance anglaise et d&#233;barque 6000 soldats sur la c&#244;te de Rhode Island. Mais les Anglais s'en aper&#231;oivent et parviennent &#224; clouer ces troupes dans cette zone o&#249; ils ne peuvent faire aucun mal.</French>
+		<German>Im Juli 1780 gelang es der franz&#246;sischen Marine, sich an den Briten vorbeizuschleichen und 6.000 Soldaten an der K&#252;ste von Rhode Island zu postieren. Die Briten kesselten das Heer jedoch schnell ein und schafften es, die gegnerischen Truppen dort festzuhalten, wo sie keinen Schaden anrichten konnten.</German>
+		<Italian>Nel luglio del 1780, la flotta navale francese riusc&#236; a oltrepassare quella inglese e sbarc&#242; 6.000 soldati sulle coste di Rhode Island. Tuttavia, gli Inglesi avanzarono velocemente e riuscirono a contenere i nemici in quest'area, dove non potevano causare danni.</Italian>
+		<Spanish>En julio de 1780, la armada francesa consigui&#243; burlar a la brit&#225;nica y desembarcar seis mil soldados en la costa de Rhode Island. Sin embargo, los brit&#225;nicos los rodearon r&#225;pidamente y consiguieron mantenerlos inmovilizados en esa zona, donde no podr&#237;an causar ning&#250;n da&#241;o.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_JUL_1780_RESULT</Tag>
+		<English>3 French Regulars appear south of Boston</English>
+		<French>3 Soldats Fran&#231;ais apparaissent au sud de Boston</French>
+		<German>S&#252;dlich von Boston stehen 3 franz&#246;sische Soldaten zur Verf&#252;gung</German>
+		<Italian>Apparsi +3 soldati francesi a sud di Boston</Italian>
+		<Spanish>Aparecen 3 Regulares franceses al sur de Boston.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_AUG_1780_TEXT</Tag>
+		<English>The Colonial general Benedict Arnold betrayed the American cause in August of 1780. He attempted to hand the fortress of West Point over to the British but was discovered in the act. He escaped capture and joined the British forces. He would later become a commander for them and would go on a number of raids into his former home colony of Connecticut.</English>
+		<French>Le g&#233;n&#233;ral colonial Benedict Arnold trahit la cause am&#233;ricaine en ao&#251;t 1780. Il tente de livrer la forteresse de West Point aux anglais mais se fait prendre sur le fait. Il parvient toutefois &#224; s'&#233;chapper pour rejoindre les forces anglaises. Il devint plus tard un de leurs commandants et organisa de nombreux raids contre son ancienne colonie du Connecticut.</French>
+		<German>Im August 1780 wurde der Kolonialgeneral Benedict Arnold zum Verr&#228;ter der amerikanischen Sache, als er versuchte, Fort West Point an die Briten zu &#252;bergeben. Obwohl sein Plan noch rechtzeitig aufgeflogen war, konnte er sich der Gefangennahme durch Flucht entziehen und desertierte zu den britischen Truppen. Dort stieg er sp&#228;ter zum F&#252;hrungsoffizier auf und leitete in dieser Eigenschaft eine Reihe von Angriffen auf seine fr&#252;here Heimatkolonie Connecticut.</German>
+		<Italian>Nell'agosto del 1780, il generale coloniale Benedict Arnold trad&#236; la causa americana, tentando di consegnare la fortezza di West Point nelle mani degli Inglesi. Tuttavia, venne scoperto, sfugg&#236; alla cattura e si un&#236; alle forze britanniche. In seguito, divenne un loro comandante, guidando una serie di incursioni contro la sua citt&#224; natale di Connecticut.</Italian>
+		<Spanish>El general colonial Benedict Arnold abandon&#243; la causa norteamericana en agosto de 1780. Intent&#243; entregar la fortaleza de West Point a los brit&#225;nicos, pero lo descubrieron en el intento. Logr&#243; escapar antes de que lo capturaran y se uni&#243; a las fuerzas brit&#225;nicas. M&#225;s adelante se convertir&#237;a en su oficial y protagonizar&#237;a muchas incursiones contra su colonia, Connecticut.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_AUG_1780_RESULT</Tag>
+		<English>1 British Regular appears in central New York</English>
+		<French>1 Soldat Anglais appara&#238;t au centre de New York</French>
+		<German>In New York steht 1 britischer Soldat zur Verf&#252;gung</German>
+		<Italian>Apparso +1 soldato inglese a New York</Italian>
+		<Spanish>Aparece un 1 Regular brit&#225;nico en el centro de Nueva York.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_AUG_1781_TEXT</Tag>
+		<English>By August of 1781 the tides had begun to turn in North America. After many years of war the British had failed to achieve a decisive victory over the Colonies and unrest at home was increasing. Disaster was soon to follow when a powerful French naval force appeared off of the North American coast. The French would go on to defeat the British navy and pin down a large British army at Yorktown, forcing it to surrender to the besieging Colonists - leading to the end of the war.</English>
+		<French>C'est en ao&#251;t 1781 que la situation commence &#224; changer en Am&#233;rique du Nord. Malgr&#233; de nombreux ann&#233;es de guerre, les Anglais ne sont jamais parvenu &#224; obtenir une victoire d&#233;cisive sur les colonies et des troubles se d&#233;veloppent en Angleterre. Le d&#233;sastre ne tarde pas &#224; se produire lorsque qu'une puissante force navale fran&#231;aise appara&#238;t le long des c&#244;tes nord-am&#233;ricaines. Les Fran&#231;ais infligent de s&#233;rieux revers &#224; la marine anglaise et isolent un important d&#233;tachement anglais &#224; Yorktown, le for&#231;ant &#224; se rendre aux colons qui assi&#232;gent la ville - c'est cet &#233;pisode qui met fin &#224; la guerre.</French>
+		<German>Im August des Jahres 1781 hatte sich das Blatt zugunsten der Nordamerikaner gewendet. Da es den Briten auch nach so vielen Kriegsjahren nicht gelungen war, den entscheidenden Sieg &#252;ber die Kolonien herbeizuf&#252;hren, regte sich in der Heimat vermehrt Aufruhr. Als bald darauf eine gro&#223;e franz&#246;sische Seestreitmacht vor der nordamerikanischen K&#252;ste Stellung bezog, war die Katastrophe komplett. Die Franzosen besiegten die britischen Marinetruppen und unterwarfen in der Schlacht von Yorktown ein gro&#223;es britisches Heer, das schlie&#223;lich gezwungen war, sich den Kolonisten zu ergeben. Dies f&#252;hrte zur Beendigung des Krieges.</German>
+		<Italian>Nell'agosto del 1781, la situazione in Nord America aveva iniziato a mutare: dopo molti anni di guerra, gli Inglesi non erano riusciti a ottenere una vittoria decisiva sui coloniali e la tensione in patria andava crescendo. Il disastro li travolse quando una potente flotta navale francese apparve sulle coste del Nord America, sconfiggendo la flotta inglese e tenendo bloccato il grosso esercito britannico a Yorktown, costringendolo infine alla resa e portando alla fine della guerra.</Italian>
+		<Spanish>Para agosto de 1781, algo hab&#237;a empezado a cambiar en Norteam&#233;rica. Tras muchos a&#241;os de guerra, los brit&#225;nicos no hab&#237;an conseguido una victoria decisiva contra las colonias y el malestar en su patria era creciente. El desastre estaba a punto de caer sobre ellos al aparecer una poderosa fuerza naval francesa por la costa de Norteam&#233;rica. Los franceses no parar&#237;an hasta derrotar a la armada brit&#225;nica y asfixiar a un gran ej&#233;rcito brit&#225;nico en Yorktown, oblig&#225;ndole a rendirse a los colonos que lo rodeaban, lo que condujo al final de la guerra.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_AMREV_AUG_1781_RESULT</Tag>
+		<English>2 French Ships of the Line and 6 French Frigates appear east of the Chesapeake Bay</English>
+		<French>2 galions de guerre et 6 fr&#233;gates fran&#231;aises apparaissent &#224; l'est de la baie de Chesapeake</French>
+		<German>&#214;stlich von Chesapeake Bay stehen 2 franz&#246;sische Kriegsschiffe und 6 franz&#246;sische Fregatten zur Verf&#252;gung</German>
+		<Italian>Apparse +2 navi di linea francesi e +6 fregate francesi a est di Chesapeake Bay</Italian>
+		<Spanish>2 Buques de guerra franceses y 6 Fragatas francesas aparecen al este de la Bah&#237;a de Chesapeake.</Spanish>
+	</TEXT>
+</Civ4GameText>

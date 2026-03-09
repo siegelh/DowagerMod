@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Bart Muzzin (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Global Defines -->
+<Civ4Defines xmlns="x-schema:CIV4GlobalDefinesSchema.xml">
+	<Define>
+		<DefineName>CAPITAL_BUILDINGCLASS</DefineName>
+		<DefineTextVal>BUILDINGCLASS_COMMANDHQ</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>STANDARD_ERA</DefineName>
+		<DefineTextVal>ERA_INDUSTRIAL</DefineTextVal>
+	</Define>
+	<Define>
+		<DefineName>MAX_CIVIC_OPTIONS</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>BASE_GOLDEN_AGE_UNITS</DefineName>
+		<iDefineIntVal>1</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>WW_CAPTURED_CITY</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>RAZING_CULTURAL_PERCENT_THRESHOLD</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>MAX_EXPERIENCE_AFTER_UPGRADE</DefineName>
+		<iDefineIntVal>20</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>INITIAL_STATE_RELIGION_HAPPINESS</DefineName>
+		<iDefineIntVal>0</iDefineIntVal>
+	</Define>
+</Civ4Defines>

@@ -1,0 +1,42 @@
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by XMLSPY 2004 Professional Ed. Release 2, Installed Multi + SMP for 3 users (Firaxis Games) -->
+<Schema xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes">
+	<ElementType name="Type" content="textOnly"/>
+	<ElementType name="Description" content="textOnly"/>
+	<ElementType name="TutorialMessageText" content="textOnly"/>
+	<ElementType name="TutorialMessageImage" content="textOnly"/>
+	<ElementType name="TutorialMessageSound" content="textOnly"/>
+	<ElementType name="TutorialScript" content="textOnly"/>
+	<ElementType name="TargetScriptData" content="textOnly"/>
+	<ElementType name="fXCoord" content="textOnly"/>
+	<ElementType name="fYCoord" content="textOnly"/>
+	<ElementType name="fZCoord" content="textOnly"/>
+	<ElementType name="NextTutorialInfoType" content="textOnly"/>
+	<ElementType name="Civ4TutorialInfos" content="eltOnly">
+		<element type="TutorialInfo" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="TutorialInfo" content="eltOnly">
+		<element type="Type" minOccurs="0" maxOccurs="*"/>
+		<element type="Description" minOccurs="0" maxOccurs="*"/>
+		<element type="NextTutorialInfoType" minOccurs="0" maxOccurs="*"/>
+		<element type="TutorialMessages" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="TutorialMessages" content="eltOnly">
+		<element type="TutorialMessage" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="TutorialScripts" content="eltOnly">
+		<element type="TutorialScript" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="CameraPos" content="eltOnly">
+		<element type="TargetScriptData" minOccurs="0" maxOccurs="1"/>
+		<element type="fXCoord" minOccurs="0" maxOccurs="1"/>
+		<element type="fYCoord" minOccurs="0" maxOccurs="1"/>
+		<element type="fZCoord" minOccurs="0" maxOccurs="1"/>
+	</ElementType>
+	<ElementType name="TutorialMessage" content="eltOnly">
+		<element type="TutorialMessageText" minOccurs="0" maxOccurs="*"/>
+		<element type="TutorialMessageImage" minOccurs="0" maxOccurs="*"/>
+		<element type="TutorialMessageSound" minOccurs="0" maxOccurs="*"/>
+		<element type="TutorialScripts" minOccurs="0" maxOccurs="*"/>
+		<element type="CameraPos" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+</Schema>

@@ -1,0 +1,1311 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<!--BEGIN WW2-NA entries-->
+	<!--WW2 - Specialist-->
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALIST_GREAT_COMMANDER</Tag>
+		<English>Great Commander</English>
+		<French>
+			<Text>Chef illustre</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Gro&#223;er Kommandant</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Grande Comandante:Grandi Comandanti</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>mando:mandos</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<!--WW2 - Promotions-->
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_REPAIR</Tag>
+		<English>Repair</English>
+		<French>
+			<Text>R&#233;paration</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Reparatur</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Riparazione</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Reparar</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_DESERTMAN1</Tag>
+		<English>Desert Combat I</English>
+		<French>
+			<Text>Combat en milieu d&#233;sertique I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>W&#252;stenkampf I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Combattente del deserto I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Combate en el desierto I</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_PROMOTION_DESERTMAN2</Tag>
+		<English>Desert Combat II</English>
+		<French>
+			<Text>Combat en milieu d&#233;sertique II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>W&#252;stenkampf II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Combattente del deserto II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Combate en el desierto II</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+	<!--WW2 - Unit Combats-->
+	<TEXT>
+		<Tag>TXT_KEY_UNITCOMBAT_LIGHTTANK</Tag>
+		<English>Light Tanks</English>
+		<French>
+			<Text>Blind&#233;s l&#233;gers</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Leichte Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Carro armato leggero:Carri armati leggeri</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>tanqueta:tanquetas</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNITCOMBAT_HEAVYTANK</Tag>
+		<English>Heavy Tanks</English>
+		<French>
+			<Text>Blind&#233;s lourds</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Schwere Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Carro armato pesante:Carri armati pesanti</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>tanque pesado:tanques pesados</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNITCOMBAT_ADVTANK</Tag>
+		<English>Advanced Tanks</English>
+		<French>
+			<Text>Blind&#233;s sophistiqu&#233;s</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Fortgeschrittene Panzer</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Carro armato avanzato:Carri armati avanzati</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>tanque avanzado:tanques avanzados</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNITCOMBAT_ANTITANK</Tag>
+		<English>Anti-Tank Units</English>
+		<French>
+			<Text>Unit&#233;s antichars</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Panzerabwehreinheiten</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Unit&#224; anti-carro</Text>
+			<Gender>Female</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>unidad antitanque:unidades antitanque</Text>
+			<Gender>Female</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<!--WW2 - SpecialUnits-->
+	<TEXT>
+		<Tag>TXT_KEY_SPECIALUNIT_FIGHTER</Tag>
+		<English>Airplanes</English>
+		<French>
+			<Text>Avions</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Flugzeuge</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Aeroplano:Aeroplani</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>avi&#243;n:aviones</Text>
+			<Gender>Male</Gender>
+			<Plural>0:1</Plural>
+		</Spanish>
+	</TEXT>
+	<!--WW2 - Units-->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AMEINFANTRY</Tag>
+		<English>Allied Infantry</English>
+		<French>Infanterie alli&#233;e</French>
+		<German>Alliierte Infanterie</German>
+		<Italian>Fanteria Alleata</Italian>
+		<Spanish>infanter&#237;a aliada:infanter&#237;as aliadas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ENGINFANTRY</Tag>
+		<English>British Infantry</English>
+		<French>Infanterie britannique</French>
+		<German>Britische Infanterie</German>
+		<Italian>Fanteria Britannica</Italian>
+		<Spanish>infanter&#237;a brit&#225;nica:infanter&#237;as brit&#225;nicas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FRAINFANTRY</Tag>
+		<English>Vichy Infantry</English>
+		<French>Infanterie du R&#233;gime de Vichy</French>
+		<German>Vichy-Infanterie</German>
+		<Italian>Fanteria di Vichy</Italian>
+		<Spanish>infanter&#237;a de Vichy:infanter&#237;as de Vichy</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_PERINFANTRY</Tag>
+		<English>Free French Infantry</English>
+		<French>Infanterie de la France Libre</French>
+		<German>Freie franz&#246;sische Infanterie</German>
+		<Italian>Fanteria libera Francese</Italian>
+		<Spanish>infanter&#237;a de la Francia libre:infanter&#237;as de la Francia libre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GERINFANTRY</Tag>
+		<English>German Infantry</English>
+		<French>Infanterie allemande</French>
+		<German>Deutsche Infanterie</German>
+		<Italian>Fanteria Tedesca</Italian>
+		<Spanish>infanter&#237;a alemana:infanter&#237;as alemanas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GREINFANTRY</Tag>
+		<English>Turkish Infantry</English>
+		<French>Infanterie turque</French>
+		<German>T&#252;rkische Infanterie</German>
+		<Italian>Fanteria Turca</Italian>
+		<Spanish>infanter&#237;a turca:infanter&#237;as turcas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ROMINFANTRY</Tag>
+		<English>Italian Infantry</English>
+		<French>Infanterie italienne</French>
+		<German>Italienische Infanterie</German>
+		<Italian>Fanteria Italiana</Italian>
+		<Spanish>infanter&#237;a italiana:infanter&#237;as italianas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SPAINFANTRY</Tag>
+		<English>Spanish Infantry</English>
+		<French>Infanterie espagnole</French>
+		<German>Spanische Infanterie</German>
+		<Italian>Fanteria Spagnola</Italian>
+		<Spanish>infanter&#237;a espa&#241;ola:infanter&#237;as espa&#241;olas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AMETANK</Tag>
+		<English>Vickers Tank</English>
+		<French>Blind&#233; Vickers</French>
+		<German>Vickers-Panzer</German>
+		<Italian>Carro armato Vickers</Italian>
+		<Spanish>tanque Vickers:tanques Vickers</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ENGTANK</Tag>
+		<English>Crusader Tank</English>
+		<French>Char Crusader</French>
+		<German>Crusader-Panzer</German>
+		<Italian>Carro armato Crusader</Italian>
+		<Spanish>tanque Crusader:tanques Crusader</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FRATANK</Tag>
+		<English>Renault R35</English>
+		<French>Renault R 35</French>
+		<German>Renault R35</German>
+		<Italian>Renault R35</Italian>
+		<Spanish>Renault R35:Renault R35</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GERTANK</Tag>
+		<English>Panzer III</English>
+		<French>Panzer III</French>
+		<German>Panzer III</German>
+		<Italian>Panzer III</Italian>
+		<Spanish>Panzer III:Panzer III</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ROMTANK</Tag>
+		<English>L3 Light Tank</English>
+		<French>Blind&#233; l&#233;ger L3</French>
+		<German>L3-Leichtpanzer</German>
+		<Italian>Carro armato leggero L3</Italian>
+		<Spanish>tanqueta L3:tanquetas L3</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SPATANK</Tag>
+		<English>Verdeja Light Tank</English>
+		<French>Blind&#233; l&#233;ger Verdeja</French>
+		<German>Verdeja-Leichtpanzer</German>
+		<Italian>Carro armato leggero Verdeja</Italian>
+		<Spanish>tanqueta Verdeja:tanquetas Verdeja</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEAVY_TANK</Tag>
+		<English>Heavy Tank</English>
+		<French>Blind&#233; lourd</French>
+		<German>Schwerer Panzer</German>
+		<Italian>Carro armato pesante</Italian>
+		<Spanish>tanque pesado:tanques pesados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SHERMAN_TANK</Tag>
+		<English>Sherman Tank</English>
+		<French>Char Sherman</French>
+		<German>Sherman-Panzer</German>
+		<Italian>Carro armato Sherman</Italian>
+		<Spanish>tanque Sherman:tanques Sherman</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MATILDA_TANK</Tag>
+		<English>Matilda Tank</English>
+		<French>Char Matilda</French>
+		<German>Matilda-Panzer</German>
+		<Italian>Carro armato Matilda</Italian>
+		<Spanish>tanque Matilda:tanques Matilda </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GERMAN_PANZERIV</Tag>
+		<English>Panzer IV</English>
+		<French>Panzer IV</French>
+		<German>Panzer IV</German>
+		<Italian>Panzer IV</Italian>
+		<Spanish>Panzer IV:Panzer IV</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TIGER</Tag>
+		<English>Tiger I</English>
+		<French>Tigre I</French>
+		<German>Tiger I</German>
+		<Italian>Tiger I</Italian>
+		<Spanish>Tiger I:Tiger I</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GERTRANSPORT</Tag>
+		<English>German Transport</English>
+		<French>Transport allemand</French>
+		<German>Deutsches Transportschiff</German>
+		<Italian>Trasporto Tedesco</Italian>
+		<Spanish>transporte alem&#225;n:transportes alemanes</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ALLIESTRANSPORT</Tag>
+		<English>Allies Transport</English>
+		<French>Transport alli&#233;</French>
+		<German>Alliiertes Transportschiff</German>
+		<Italian>Trasporto Alleato</Italian>
+		<Spanish>transporte aliado:transportes aliados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ALLIESCARRIER</Tag>
+		<English>Allies Carrier</English>
+		<French>Porte-avions alli&#233;</French>
+		<German>Alliierter Flugzeugtr&#228;ger</German>
+		<Italian>Portaerei Alleata</Italian>
+		<Spanish>portaaviones aliado:portaaviones aliados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ALLIESFIGHTER</Tag>
+		<English>Allies Fighter</English>
+		<French>Chasseur alli&#233;</French>
+		<German>Alliierter J&#228;ger</German>
+		<Italian>Caccia Alleato</Italian>
+		<Spanish>caza aliado:cazas aliados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STRATEGIC_BOMBER</Tag>
+		<English>Strategic Bomber</English>
+		<French>Bombardier strat&#233;gique</French>
+		<German>Strategischer Bomber</German>
+		<Italian>Bombardiere strategico</Italian>
+		<Spanish>bombardero estrat&#233;gico:bombarderos estrat&#233;gicos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ALLIESBOMBER</Tag>
+		<English>Allies Strategic Bomber</English>
+		<French>Bombardier strat&#233;gique alli&#233;</French>
+		<German>Alliierter strategischer Bomber</German>
+		<Italian>Bombardiere strategico Alleato</Italian>
+		<Spanish>bombardero estrat&#233;gico aliado:bombarderos estrat&#233;gicos aliados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_LRB</Tag>
+		<English>Avro Lancaster Bomber</English>
+		<French>Bombardier Avro Lancaster</French>
+		<German>Avro-Lancaster-Bomber</German>
+		<Italian>Bombardiere Avro Lancaster</Italian>
+		<Spanish>bombardero Avro Lancaster:bombarderos Avro Lancaster</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TACTICAL_BOMBER</Tag>
+		<English>Tactical Bomber</English>
+		<French>Bombardier tactique</French>
+		<German>Taktischer Bomber</German>
+		<Italian>Bombardiere tattico</Italian>
+		<Spanish>bombardero t&#225;ctico:bombarderos t&#225;cticos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ALLIESTACTICAL_BOMBER</Tag>
+		<English>Allies Tactical Bomber</English>
+		<French>Bombardier tactique alli&#233;</French>
+		<German>Alliierter taktischer Bomber</German>
+		<Italian>Bombardiere tattico Alleato</Italian>
+		<Spanish>bombardero t&#225;ctico aliado:bombarderos t&#225;cticos aliados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GREAT_COMMANDER</Tag>
+		<English>Great Commander</English>
+		<French>Commandant en chef</French>
+		<German>Gro&#223;er Kommandant</German>
+		<Italian>Grande Comandante</Italian>
+		<Spanish>mando:mandos</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AXIS_SPY</Tag>
+		<English>Axis Spy</English>
+		<French>Espion de l'Axe</French>
+		<German>Achsenspion</German>
+		<Italian>Spia dell'Asse</Italian>
+		<Spanish>esp&#237;a del Eje:esp&#237;as del Eje</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ALLIES_SPY</Tag>
+		<English>Allied Spy</English>
+		<French>Espion alli&#233;</French>
+		<German>Alliierter Spion</German>
+		<Italian>Spia Alleata</Italian>
+		<Spanish>esp&#237;a aliado:esp&#237;as aliados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ANTITANK_IMMOBILE</Tag>
+		<English>Anti-Tank Gun</English>
+		<French>Canon antichar</French>
+		<German>Panzerabwehrkanone</German>
+		<Italian>Artiglieria anti-carro</Italian>
+		<Spanish>ca&#241;&#243;n antitanque:ca&#241;ones antitanques</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FIGHTER_ENG</Tag>
+		<English>Hawker Hurricane</English>
+		<French>Hawker Hurricane</French>
+		<German>Hawker Hurricane</German>
+		<Italian>Hawker Hurricane</Italian>
+		<Spanish>Hawker Hurricane:Hawker Hurricane</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FIGHTER_AME</Tag>
+		<English>Curtiss P-40 Tomahawk</English>
+		<French>Tomahawk Curtis P-40</French>
+		<German>Curtiss P-40 Tomahawk</German>
+		<Italian>Curtiss P-40 Tomahawk</Italian>
+		<Spanish>Curtiss P-40 Tomahawk:Curtiss P-40 Tomahawk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FIGHTER_GER</Tag>
+		<English>Messerschmitt Bf 109</English>
+		<French>Messerschmitt Bf 109</French>
+		<German>Messerschmitt Bf 109</German>
+		<Italian>Messerschmitt Bf 109</Italian>
+		<Spanish>Messerschmitt Bf 109:Messerschmitt Bf 109</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FIGHTER_ITA</Tag>
+		<English>Fiat CR.42 Falco</English>
+		<French>Fiat CR 42 Falco</French>
+		<German>Fiat CR.42 Falco</German>
+		<Italian>Fiat CR.42 Falco</Italian>
+		<Spanish>Fiat CR.42 Falco:Fiat CR.42 Falco</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FIGHTER_VIC</Tag>
+		<English>Dewoitine D.520</English>
+		<French>Dewoitine 520</French>
+		<German>Dewoitine D.520</German>
+		<Italian>Dewoitine D.520</Italian>
+		<Spanish>Dewoitine D.520:Dewoitine D.520</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_FIGHTER_SPA</Tag>
+		<English>Polikarpov I-15</English>
+		<French>Polikarpov I-15</French>
+		<German>Polikarpow I-15</German>
+		<Italian>Polikarpov I-15</Italian>
+		<Spanish>Polikarpov I-15:Polikarpov I-15</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TACTICAL_BOMBER_ENG</Tag>
+		<English>Bristol Blenheim</English>
+		<French>Bristol Blenheim</French>
+		<German>Bristol Blenheim</German>
+		<Italian>Bristol Blenheim</Italian>
+		<Spanish>Bristol Blenheim:Bristol Blenheim</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TACTICAL_BOMBER_AME</Tag>
+		<English>B-25 Mitchell</English>
+		<French>B-25 Mitchell</French>
+		<German>B-25 Mitchell</German>
+		<Italian>B-25 Mitchell</Italian>
+		<Spanish>B-25 Mitchell:B-25 Mitchell</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TACTICAL_BOMBER_GER</Tag>
+		<English>Junker Ju 87 Stuka</English>
+		<French>Junker Ju 87 Stuka</French>
+		<German>Junker Ju 87 Stuka</German>
+		<Italian>Junker Ju 87 Stuka</Italian>
+		<Spanish>Junker Ju 87 Stuka:Junker Ju 87 Stuka</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TACTICAL_BOMBER_ITA</Tag>
+		<English>Fiat BR.20 Cicogna</English>
+		<French>Fiat BR 20 Cigogna</French>
+		<German>Fiat BR.20 Cicogna</German>
+		<Italian>Fiat BR.20 Cicogna</Italian>
+		<Spanish>Fiat BR.20 Cicogna:Fiat BR.20 Cicogna</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TACTICAL_BOMBER_VIC</Tag>
+		<English>Glenn Martin 167 Maryland</English>
+		<French>Glenn Martin Maryland mod. 167</French>
+		<German>Glenn Martin 167 Maryland</German>
+		<Italian>Glenn Martin 167 Maryland</Italian>
+		<Spanish>Glenn Martin 167 Maryland:Glenn Martin 167 Maryland</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TACTICAL_BOMBER_SPA</Tag>
+		<English>Breguet Bre 19</English>
+		<French>Breguet Bre 19</French>
+		<German>Breguet Bre 19</German>
+		<Italian>Breguet Bre 19</Italian>
+		<Spanish>Breguet Bre 19:Breguet Bre 19</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STRATEGIC_BOMBER_ENG</Tag>
+		<English>Vickers Wellington</English>
+		<French>Vickers Wellington</French>
+		<German>Vickers Wellington</German>
+		<Italian>Vickers Wellington</Italian>
+		<Spanish>Vickers Wellington:Vickers Wellington</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STRATEGIC_BOMBER_AME</Tag>
+		<English>B-17 Flying Fortress</English>
+		<French>Forteresse volante B-17</French>
+		<German>B-17 Flying Fortress</German>
+		<Italian>B-17 Fortezza Volante</Italian>
+		<Spanish>B-17 Flying Fortress:B-17 Flying Fortress</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STRATEGIC_BOMBER_FRA</Tag>
+		<English>Douglas Boston</English>
+		<French>Douglas Boston</French>
+		<German>Douglas Boston</German>
+		<Italian>Douglas Boston</Italian>
+		<Spanish>Douglas Boston:Douglas Boston</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STRATEGIC_BOMBER_GER</Tag>
+		<English>Junker Ju 88</English>
+		<French>Junker Ju 88</French>
+		<German>Junker Ju 88</German>
+		<Italian>Junker Ju 88</Italian>
+		<Spanish>Junker Ju 88:Junker Ju 88</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STRATEGIC_BOMBER_ITA</Tag>
+		<English>SM.79 Sparviero</English>
+		<French>Sparviero SM-79</French>
+		<German>SM.79 Sparviero</German>
+		<Italian>SM.79 Sparviero</Italian>
+		<Spanish>SM.79 Sparviero:SM.79 Sparviero</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STRATEGIC_BOMBER_VIC</Tag>
+		<English>Lior&#233;-et-Olivier LeO.451</English>
+		<French>Lior&#233;-et-Olivier LeO.451</French>
+		<German>Lior&#233;-et-Olivier LeO.451</German>
+		<Italian>Lior&#232;-et-Olivier LeO.451</Italian>
+		<Spanish>Lior&#233;-et-Olivier LeO.451:Lior&#233;-et-Olivier LeO.451</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STRATEGIC_BOMBER_SPA</Tag>
+		<English>Heinkel He-111</English>
+		<French>Heinkel He-111</French>
+		<German>Heinkel He-111</German>
+		<Italian>Heinkel He-111</Italian>
+		<Spanish>Heinkel He-111:Heinkel He-111</Spanish>
+	</TEXT>
+	<!--WW2 - Techs-->
+	<TEXT>
+		<Tag>TXT_KEY_TECH_DESERT_FOX</Tag>
+		<English>The Desert Fox</English>
+		<French>Le Renard du D&#233;sert</French>
+		<German>Der W&#252;stenluchs</German>
+		<Italian>Volpe del deserto</Italian>
+		<Spanish>Zorro del Desierto</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_DDAY</Tag>
+		<English>D-Day</English>
+		<French>Jour J</French>
+		<German>D-Day</German>
+		<Italian>D-Day</Italian>
+		<Spanish>D&#237;a D</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_COMBUSTIONWW2</Tag>
+		<English>Advanced Combustion</English>
+		<French>Combustion am&#233;lior&#233;e</French>
+		<German>Erweiterter Verbrennungsmotor</German>
+		<Italian>Combustione avanzata</Italian>
+		<Spanish>Combusti&#243;n avanzada</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_PEARL_HARBOR</Tag>
+		<English>Pearl Harbor</English>
+		<French>Pearl Harbor</French>
+		<German>Pearl Harbor</German>
+		<Italian>Pearl Harbor</Italian>
+		<Spanish>Pearl Harbor</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ELECTRONICS</Tag>
+		<English>Electronics</English>
+		<French>Electronique</French>
+		<German>Elektronik</German>
+		<Italian>Elettronica</Italian>
+		<Spanish>Electr&#243;nica</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_BARBAROSSA</Tag>
+		<English>Operation Barbarossa</English>
+		<French>Op&#233;ration Barbarossa</French>
+		<German>Unternehmen Barbarossa</German>
+		<Italian>Operazione Barbarossa</Italian>
+		<Spanish>Operaci&#243;n Barbarroja</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MOBILIZATION</Tag>
+		<English>Mobilization</English>
+		<French>Mobilisation</French>
+		<German>Mobilisierung</German>
+		<Italian>Mobilitazione</Italian>
+		<Spanish>Movilizaci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_NATIONALISMWW2</Tag>
+		<English>Nationalism</English>
+		<French>Nationalisme</French>
+		<German>Nationalismus</German>
+		<Italian>Nazionalismo</Italian>
+		<Spanish>Nacionalismo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_PLASMA_TRANSFUSION</Tag>
+		<English>Mobile Blood Banks</English>
+		<French>Banques de sang mobiles</French>
+		<German>Mobile Blutbank</German>
+		<Italian>Banca del sangue mobile</Italian>
+		<Spanish>Bancos de sangre m&#243;viles</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_OPERATION_TORCH</Tag>
+		<English>Operation Torch</English>
+		<French>Op&#233;ration Torch</French>
+		<German>Operation Torch</German>
+		<Italian>Operazione Torch</Italian>
+		<Spanish>Operaci&#243;n Antorcha</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MOBILE_WARFARE</Tag>
+		<English>Mobile Warfare</English>
+		<French>Guerre mobile</French>
+		<German>Mobile Kriegsf&#252;hrung</German>
+		<Italian>Guerra dinamica</Italian>
+		<Spanish>Guerra m&#243;vil</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_STALINGRAD</Tag>
+		<English>Battle for Stalingrad</English>
+		<French>Bataille de Stalingrad</French>
+		<German>Schlacht von Stalingrad</German>
+		<Italian>Battaglia di Stalingrado</Italian>
+		<Spanish>Batalla de Stalingrado</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MECHANIZATION</Tag>
+		<English>Mechanization</English>
+		<French>M&#233;canisation</French>
+		<German>Mechanisierung</German>
+		<Italian>Meccanizzazione</Italian>
+		<Spanish>Mecanizaci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_INTELLIGENCE</Tag>
+		<English>Intelligence Agencies</English>
+		<French>Agences de renseignement</French>
+		<German>Geheimdienste</German>
+		<Italian>Agenzie informative</Italian>
+		<Spanish>Agencias de inteligencia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CLOSURE_TECH</Tag>
+		<English>Closure Tech</English>
+		<French>Technologie de restriction</French>
+		<German>Verschlusstechnik</German>
+		<Italian>Tecnologia di chiusura</Italian>
+		<Spanish>Tecnolog&#237;a de cierre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ALLIES</Tag>
+		<English>Allies</English>
+		<French>Alli&#233;s</French>
+		<German>Alliierte</German>
+		<Italian>Alleati</Italian>
+		<Spanish>Los Aliados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_AXIS</Tag>
+		<English>Axis</English>
+		<French>Axe</French>
+		<German>Achse</German>
+		<Italian>Asse</Italian>
+		<Spanish>El Eje</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ARMY_SUPPORT</Tag>
+		<English>Army Support</English>
+		<French>Soutien logistique</French>
+		<German>Truppenversorgung</German>
+		<Italian>Supporto militare</Italian>
+		<Spanish>Abastecimiento del ej&#233;rcito</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_OPERATION_BREVITY</Tag>
+		<English>Operation Brevity</English>
+		<French>Op&#233;ration Brevity</French>
+		<German>Operation Brevity</German>
+		<Italian>Operazione Brevity</Italian>
+		<Spanish>Operaci&#243;n Brevedad</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_COUNTEROFFENSIVE</Tag>
+		<English>Counter-Offensive</English>
+		<French>Contre-attaque</French>
+		<German>Gegenoffensive</German>
+		<Italian>Controffensiva</Italian>
+		<Spanish>Contraofensiva</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MONTGOMERY</Tag>
+		<English>Arrival of Montgomery</English>
+		<French>Arriv&#233;e de Montgomery</French>
+		<German>Montgomerys Ankunft</German>
+		<Italian>Arrivo di Montgomery</Italian>
+		<Spanish>Llegada de Montgomery</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_KASSERINE_PASS</Tag>
+		<English>Battle of Kasserine Pass</English>
+		<French>Bataille du col de Kasserine</French>
+		<German>Die Schlacht am Kasserinenpass</German>
+		<Italian>Battaglia del Passo Kasserine</Italian>
+		<Spanish>Batalla del Paso de Kasserine</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MARETH_LINE</Tag>
+		<English>Mareth Line</English>
+		<French>Ligne Mareth</French>
+		<German>Mareth-Linie</German>
+		<Italian>Linea Mareth</Italian>
+		<Spanish>L&#237;nea Mareth</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ITALY_INVASION</Tag>
+		<English>Invasion of Italy</English>
+		<French>Invasion de l'Italie</French>
+		<German>Invasion in Italien</German>
+		<Italian>Invasione dell'Italia</Italian>
+		<Spanish>Invasi&#243;n de Italia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_NAPLES_CAPTURED</Tag>
+		<English>Naples Captured</English>
+		<French>Capture de Naples</French>
+		<German>Eroberung von Neapel</German>
+		<Italian>Conquista di Napoli</Italian>
+		<Spanish>N&#225;poles capturada</Spanish>
+	</TEXT>
+	<!--WW2 - Civics-->
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_ALLIEDGOVT</Tag>
+		<English>Universal Suffrage</English>
+		<French>Suffrage universel</French>
+		<German>Allgemeines Wahlrecht</German>
+		<Italian>Suffragio universale</Italian>
+		<Spanish>Sufragio universal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_AXISGOVT</Tag>
+		<English>Police State</English>
+		<French>Etat policier</French>
+		<German>Polizeistaat</German>
+		<Italian>Stato di polizia</Italian>
+		<Spanish>Estado policial</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_GUERRILLA</Tag>
+		<English>Guerrilla</English>
+		<French>Gu&#233;rilla</French>
+		<German>Guerilla</German>
+		<Italian>Guerriglia</Italian>
+		<Spanish>Guerra de guerrillas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_LABOR_UNION</Tag>
+		<English>Labor Union</English>
+		<French>Syndicat ouvrier</French>
+		<German>Arbeitergewerkschaft</German>
+		<Italian>Sindacato operaio</Italian>
+		<Spanish>Sindicatos laborales</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_MOBILIZATION</Tag>
+		<English>Mobilization</English>
+		<French>Mobilisation</French>
+		<German>Mobilisierung</German>
+		<Italian>Mobilitazione</Italian>
+		<Spanish>Movilizaci&#243;n</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_COLLECTIVISM</Tag>
+		<English>Collectivism</English>
+		<French>Collectivisme</French>
+		<German>Kollektivismus</German>
+		<Italian>Collettivismo</Italian>
+		<Spanish>Colectivismo</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_ALLIEDECO</Tag>
+		<English>Free Market</English>
+		<French>March&#233; libre</French>
+		<German>Freier Markt</German>
+		<Italian>Mercato libero</Italian>
+		<Spanish>Mercado libre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_AXISECO</Tag>
+		<English>State Property</English>
+		<French>Propri&#233;t&#233; d'&#233;tat</French>
+		<German>Staatseigentum</German>
+		<Italian>Propriet&#224; statale</Italian>
+		<Spanish>Propiedad estatal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_CORPORATISM</Tag>
+		<English>Corporatism</English>
+		<French>Corporatisme</French>
+		<German>Gro&#223;unternehmertum</German>
+		<Italian>Corporativismo</Italian>
+		<Spanish>Ingerencia de las empresas</Spanish>
+	</TEXT>
+	<!--WW2 - Civilizations-->
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ALLIES_DESC</Tag>
+		<English>Allied Nations</English>
+		<French>Alli&#233;s</French>
+		<German>Alliierte Nationen</German>
+		<Italian>Nazioni Alleate</Italian>
+		<Spanish>pa&#237;ses aliados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ALLIES_SHORT_DESC</Tag>
+		<English>Allies</English>
+		<French>Alli&#233;s</French>
+		<German>Alliierte</German>
+		<Italian>Gli Alleati:gli Alleati:degli Alleati:degli Alleati</Italian>
+		<Spanish>aliados</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ALLIES_ADJECTIVE</Tag>
+		<English>Allied</English>
+		<French>Alli&#233;s</French>
+		<German>Alliiert:allierten:allierte</German>
+		<Italian>Alleato:Alleata:Alleati:Alleate</Italian>
+		<Spanish>aliado:aliada:aliados:aliadas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_BRITAIN_DESC</Tag>
+		<English>United Kingdom</English>
+		<French>Royaume-Uni</French>
+		<German>Gro&#223;britannien</German>
+		<Italian>Regno Unito</Italian>
+		<Spanish>Gran Breta&#241;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_BRITAIN_SHORT_DESC</Tag>
+		<English>UK</English>
+		<French>GB</French>
+		<German>GB</German>
+		<Italian>Il Regno Unito:il Regno Unito:del Regno Unito:del Regno Unito</Italian>
+		<Spanish>G. B.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_BRITAIN_ADJECTIVE</Tag>
+		<English>British</English>
+		<French>Britanniques</French>
+		<German>Britisch:britischen:britische</German>
+		<Italian>Britannico:Britannica:Britannici:Britanniche</Italian>
+		<Spanish>brit&#225;nico:brit&#225;nica:brit&#225;nicos:brit&#225;nicas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_FREE_FRANCE_DESC</Tag>
+		<English>Free France</English>
+		<French>France Libre</French>
+		<German>Freies Frankreich</German>
+		<Italian>Francia libera</Italian>
+		<Spanish>la Francia libre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_FREE_FRANCE_SHORT_DESC</Tag>
+		<English>Free France</English>
+		<French>France Libre</French>
+		<German>Freies Frankreich</German>
+		<Italian>La Francia libera:la Francia libera:della Francia libera</Italian>
+		<Spanish>la Francia libre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_FREE_FRANCE_ADJECTIVE</Tag>
+		<English>Free French</English>
+		<French>Fran&#231;ais libres</French>
+		<German>Frei-franz&#246;sisch:frei-franz&#246;sischen:frei-franz&#246;sische</German>
+		<Italian>Francese libero:Francese libera:Francesi liberi:Francesi libere</Italian>
+		<Spanish>de la Francia libre</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_VICHY_DESC</Tag>
+		<English>Vichy France</English>
+		<French>France de Vichy</French>
+		<German>Vichy-Frankreich</German>
+		<Italian>Francia di Vichy</Italian>
+		<Spanish>la Francia de Vichy</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_VICHY_SHORT_DESC</Tag>
+		<English>Vichy France</English>
+		<French>France de Vichy</French>
+		<German>Vichy-Frankreich</German>
+		<Italian>La Francia di Vichy:la Francia di Vichy:della Francia di Vichy:della Francia di Vichy</Italian>
+		<Spanish>la Francia de Vichy</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_VICHY_ADJECTIVE</Tag>
+		<English>Vichy French</English>
+		<French>Fran&#231;ais de Vichy</French>
+		<German>Vichy-franz&#246;sisch:Vichy-franz&#246;sischen:Vichy-franz&#246;sische</German>
+		<Italian>Francese di Vichy:Francese di Vichy:Francesi di Vichy:Francese di Vichy</Italian>
+		<Spanish>de la Francia de Vichy</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_REICH_DESC</Tag>
+		<English>Third Reich</English>
+		<French>Troisi&#232;me Reich</French>
+		<German>Deutsches Reich</German>
+		<Italian>Terzo Reich</Italian>
+		<Spanish>el Tercer Reich</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_REICH_SHORT_DESC</Tag>
+		<English>Germany</English>
+		<French>Allemagne</French>
+		<German>Deutschland</German>
+		<Italian>La Germania:la Germania:della Germania:di Germania</Italian>
+		<Spanish>Alemania</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_REICH_ADJECTIVE</Tag>
+		<English>German</English>
+		<French>Allemands</French>
+		<German>Deutsch:deutschen:deutsche</German>
+		<Italian>Tedesco:Tedesca:Tedeschi:Tedesche</Italian>
+		<Spanish>alem&#225;n:alemana:alemanes:alemanas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TURKEY_DESC</Tag>
+		<English>Republic of Turkey</English>
+		<French>R&#233;publique de Turquie</French>
+		<German>T&#252;rkische Republik</German>
+		<Italian>Repubblica Turca</Italian>
+		<Spanish>la Rep&#250;blica de Turqu&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TURKEY_SHORT_DESC</Tag>
+		<English>Turkey</English>
+		<French>Turquie</French>
+		<German>T&#252;rkei</German>
+		<Italian>La Turchia:la Turchia:della Turchia:di Turchia</Italian>
+		<Spanish>Turqu&#237;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_TURKEY_ADJECTIVE</Tag>
+		<English>Turk</English>
+		<French>Turcs</French>
+		<German>T&#252;rkisch:t&#252;rkischen:t&#252;rkische</German>
+		<Italian>Turco:Turca:Turchi:Turche</Italian>
+		<Spanish>turco:turca:turcos:turcas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ITALY_DESC</Tag>
+		<English>Kingdom of Italy</English>
+		<French>Royaume italien</French>
+		<German>Italienisches K&#246;nigreich</German>
+		<Italian>Regno d'Italia</Italian>
+		<Spanish>Italia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ITALY_SHORT_DESC</Tag>
+		<English>Italy</English>
+		<French>Italie</French>
+		<German>Italien</German>
+		<Italian>L'Italia:l'Italia:dell'Italia:d'Italia</Italian>
+		<Spanish>Italia</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ITALY_ADJECTIVE</Tag>
+		<English>Italian</English>
+		<French>Italiens</French>
+		<German>Italienisch:italienischen:italienische</German>
+		<Italian>Italiano:Italiana:Italiani:Italiane</Italian>
+		<Spanish>italiano:italiana:italianos:italianas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ESPANA_DESC</Tag>
+		<English>Kingdom of Spain</English>
+		<French>Royaume d'Espagne</French>
+		<German>Spanisches K&#246;nigreich</German>
+		<Italian>Regno di Spagna</Italian>
+		<Spanish>Espa&#241;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ESPANA_SHORT_DESC</Tag>
+		<English>Spain</English>
+		<French>Espagne</French>
+		<German>Spanien</German>
+		<Italian>La Spagna:la Spagna:della Spagna:di Spagna</Italian>
+		<Spanish>Espa&#241;a</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIV_ESPANA_ADJECTIVE</Tag>
+		<English>Spanish</English>
+		<French>Espagnols</French>
+		<German>Spanisch:spanischen:spanische</German>
+		<Italian>Spagnolo:Spagnola:Spagnoli:Spagnole</Italian>
+		<Spanish>espa&#241;ol:espa&#241;ola:espa&#241;oles:espa&#241;olas</Spanish>
+	</TEXT>
+	<!--WW2 - Leaders-->
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_EISENHOWER</Tag>
+		<English>General Eisenhower</English>
+		<French>G&#233;n&#233;ral Eisenhower</French>
+		<German>General Eisenhower</German>
+		<Italian>Generale Eisenhower</Italian>
+		<Spanish>General Eisenhower</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_MONTY</Tag>
+		<English>General Montgomery</English>
+		<French>G&#233;n&#233;ral Montgomery</French>
+		<German>General Montgomery</German>
+		<Italian>Generale Montgomery</Italian>
+		<Spanish>General Montgomery</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_DEGAULLE</Tag>
+		<English>General De Gaulle</English>
+		<French>G&#233;n&#233;ral de Gaulle</French>
+		<German>General De Gaulle</German>
+		<Italian>Generale De Gaulle</Italian>
+		<Spanish>General De Gaulle</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_WEYGAND</Tag>
+		<English>General Weygand</English>
+		<French>G&#233;n&#233;ral Weygand</French>
+		<German>General Weygand</German>
+		<Italian>Generale Weygand</Italian>
+		<Spanish>General Weygand</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_ROMMEL</Tag>
+		<English>Feldmarschall Rommel</English>
+		<French>Mar&#233;chal Rommel</French>
+		<German>Feldmarschall R&#246;mmel</German>
+		<Italian>Maresciallo Rommel</Italian>
+		<Spanish>Feldmarschall Rommel</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_INONU</Tag>
+		<English>General Inonu</English>
+		<French>G&#233;n&#233;ral In&#246;n&#252;</French>
+		<German>General Inonu</German>
+		<Italian>Generale Inonu</Italian>
+		<Spanish>General Inonu</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_GRAZIANI</Tag>
+		<English>Marshal Graziani</English>
+		<French>Mar&#233;chal Graziani</French>
+		<German>Marschall Graziani</German>
+		<Italian>Maresciallo Graziani</Italian>
+		<Spanish>Mariscal Graziani</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_LEADER_FRANCO</Tag>
+		<English>General Franco</English>
+		<French>G&#233;n&#233;ral Franco</French>
+		<German>General Franco</German>
+		<Italian>Generale Franco</Italian>
+		<Spanish>General Franco</Spanish>
+	</TEXT>
+	<!--WW2 - Buildings-->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_COMMANDHQ</Tag>
+		<English>Command HQ</English>
+		<French>QG de commandement</French>
+		<German>Kommandozentrale</German>
+		<Italian>Centro di comando</Italian>
+		<Spanish>cuartel general:cuarteles generales</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FORTIFICATION</Tag>
+		<English>Fortifications</English>
+		<French>Fortifications</French>
+		<German>Befestigungen</German>
+		<Italian>Fortificazioni</Italian>
+		<Spanish>fortificaci&#243;n:fortificaciones</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BASE</Tag>
+		<English>Base of Operations</English>
+		<French>Base d'op&#233;rations</French>
+		<German>Leitstelle</German>
+		<Italian>Base operativa</Italian>
+		<Spanish>base de operaciones:bases de operaciones</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BARRACKSWW2</Tag>
+		<English>Barracks</English>
+		<French>Caserne</French>
+		<German>Kaserne</German>
+		<Italian>Caserma</Italian>
+		<Spanish>cuartel:cuarteles</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AIRPORTWW2</Tag>
+		<English>Airbase</English>
+		<French>Base a&#233;rienne</French>
+		<German>Flughafen</German>
+		<Italian>Base aerea</Italian>
+		<Spanish>base a&#233;rea:bases a&#233;reas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEROIC_EPIC_AXIS</Tag>
+		<English>Ghost Division</English>
+		<French>Division fant&#244;me</French>
+		<German>Geisterdivision</German>
+		<Italian>Divisione fantasma</Italian>
+		<Spanish>Divisi&#243;n Fantasma:Divisiones Fantasmas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEROIC_EPIC_ALLIES</Tag>
+		<English>Rats of Tobruk</English>
+		<French>Rats de Tobrouk</French>
+		<German>Ratten von Tobruk</German>
+		<Italian>Topi di Tobruk</Italian>
+		<Spanish>Ratas de Tobruk:Ratas de Tobruk</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_RED_CROSSWW2</Tag>
+		<English>Red Cross</English>
+		<French>Croix rouge</French>
+		<German>Rotes Kreuz</German>
+		<Italian>Croce Rossa</Italian>
+		<Spanish>la Cruz Roja:las Cruces Rojas</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INTELLIGENCE_CENTER</Tag>
+		<English>Intelligence Center</English>
+		<French>Centre de renseignement</French>
+		<German>Geheimdienstzentrale</German>
+		<Italian>Centro informativo</Italian>
+		<Spanish>centro de inteligencia:centros de inteligencia</Spanish>
+	</TEXT>
+	<!--WW2 - Terrain-->
+	<TEXT>
+		<Tag>TXT_KEY_TERRAIN_QUICKSAND</Tag>
+		<English>Quicksand</English>
+		<French>
+			<Text>Sables mouvants</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Treibsand</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Sabbie mobili</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Arenas movedizas</Text>
+			<Gender>Female</Gender>
+			<Plural>1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_ALLIES</Tag>
+		<English>Allies</English>
+		<French>
+			<Text>Alli&#233;s</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</French>
+		<German>
+			<Text>Alliierte</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Alleati</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</Italian>
+		<Spanish>
+			<Text>Los aliados</Text>
+			<Gender>Male</Gender>
+			<Plural>1</Plural>
+		</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_RELIGION_AXIS</Tag>
+		<English>Axis</English>
+		<French>
+			<Text>Axe</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</French>
+		<German>
+			<Text>Achse</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</German>
+		<Italian>
+			<Text>Asse</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Italian>
+		<Spanish>
+			<Text>El Eje</Text>
+			<Gender>Male</Gender>
+			<Plural>0</Plural>
+		</Spanish>
+	</TEXT>
+</Civ4GameText>

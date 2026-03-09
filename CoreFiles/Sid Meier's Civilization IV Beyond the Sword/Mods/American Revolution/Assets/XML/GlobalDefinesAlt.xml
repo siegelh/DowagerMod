@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Bart Muzzin (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Global Defines -->
+<Civ4Defines xmlns="x-schema:CIV4GlobalDefinesSchema.xml">
+	<Define>
+		<DefineName>INITIAL_FREE_UNITS_POPULATION_PERCENT</DefineName>
+		<iDefineIntVal>6</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>INITIAL_FREE_MILITARY_UNITS_POPULATION_PERCENT</DefineName>
+		<iDefineIntVal>3</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>INITIAL_GOLD_PER_UNIT</DefineName>
+		<iDefineIntVal>4</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>BASE_CITY_GROWTH_THRESHOLD</DefineName>
+		<iDefineIntVal>40</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>GAME_CITY_SIZE_METHOD</DefineName>
+		<DefineTextVal>METHOD_EXPONENTIAL</DefineTextVal>
+	</Define>
+	<Define>
+		<!-- the maximum percentage of a city that can be wonders, regular buildings, etc -->
+		<DefineName>GAME_CITY_SIZE_MAX_PERCENT_UNIQUE</DefineName>
+		<fDefineFloatVal>0.5</fDefineFloatVal>
+	</Define>
+	<!-- this is the way to tweak city size when METHOD_EXPONENTIAL is chosen in the above define -->
+	<Define>
+		<DefineName>GAME_CITY_SIZE_EXP_MODIFIER</DefineName>
+		<fDefineFloatVal>1.2</fDefineFloatVal>
+	</Define>
+</Civ4Defines>

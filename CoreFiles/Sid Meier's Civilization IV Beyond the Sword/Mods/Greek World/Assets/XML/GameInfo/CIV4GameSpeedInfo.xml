@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Jesse Smith (Firaxis Games) -->
+<!-- Sid Meier's Civilization 4 -->
+<!-- Copyright Firaxis Games 2005 -->
+<!-- -->
+<!-- Game Speed -->
+<Civ4GameSpeedInfo xmlns="x-schema:CIV4GameInfoSchema.xml">
+	<GameSpeedInfos>
+		<GameSpeedInfo>
+			<Type>GAMESPEED_NORMAL</Type>
+			<Description>TXT_KEY_GAMESPEED_NORMAL</Description>
+			<Help>TXT_KEY_GAMESPEED_NORMAL_HELP</Help>
+			<iGrowthPercent>100</iGrowthPercent>
+			<iTrainPercent>100</iTrainPercent>
+			<iConstructPercent>100</iConstructPercent>
+			<iCreatePercent>100</iCreatePercent>
+			<iResearchPercent>500</iResearchPercent>
+			<iBuildPercent>100</iBuildPercent>
+			<iImprovementPercent>100</iImprovementPercent>
+			<iGreatPeoplePercent>100</iGreatPeoplePercent>
+			<iCulturePercent>100</iCulturePercent>
+			<iAnarchyPercent>100</iAnarchyPercent>
+			<iBarbPercent>100</iBarbPercent>
+			<iFeatureProductionPercent>100</iFeatureProductionPercent>
+			<iUnitDiscoverPercent>100</iUnitDiscoverPercent>
+			<iUnitHurryPercent>100</iUnitHurryPercent>
+			<iUnitTradePercent>100</iUnitTradePercent>
+			<iUnitGreatWorkPercent>100</iUnitGreatWorkPercent>
+			<iGoldenAgePercent>100</iGoldenAgePercent>
+			<iHurryPercent>100</iHurryPercent>
+			<iHurryConscriptAngerPercent>100</iHurryConscriptAngerPercent>
+			<iInflationPercent>27</iInflationPercent>
+			<iInflationOffset>-100</iInflationOffset>
+			<GameTurnInfos>
+				<GameTurnInfo>
+					<iYearIncrement>5</iYearIncrement>
+					<iTurnsPerIncrement>120</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iYearIncrement>10</iYearIncrement>
+					<iTurnsPerIncrement>19</iTurnsPerIncrement>
+				</GameTurnInfo>
+				<GameTurnInfo>
+					<iYearIncrement>12</iYearIncrement>
+					<iTurnsPerIncrement>36</iTurnsPerIncrement>
+				</GameTurnInfo>
+			</GameTurnInfos>
+		</GameSpeedInfo>
+	</GameSpeedInfos>
+</Civ4GameSpeedInfo>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<!-- UNITINFO - STRATEGY -->
+	<!-- Technologies should be colored COLOR_TECH_TEXT (example: [COLOR_TECH_TEXT]Bronze Working[COLOR_REVERT]) -->
+	<!-- Unit should be colored COLOR_UNIT_TEXT (example: [COLOR_UNIT_TEXT]Archers[COLOR_REVERT]) -->
+	<!-- Buildings should be colored COLOR_BUILDING_TEXT (example: [COLOR_BUILDING_TEXT]Theatre[COLOR_REVERT]) -->
+	<!-- Projects should be colored COLOR_PROJECT_TEXT (example: [COLOR_PROJECT_TEXT]SS Engine[COLOR_REVERT]) -->
+	<!-- Anything else official (that should be capitalized) should be colored COLOR_HIGHLIGHT_TEXT (example: [COLOR_HIGHLIGHT_TEXT]Trade Mission[COLOR_HIGHLIGHT_TEXT] or [COLOR_HIGHLIGHT_TEXT]Islam[COLOR_HIGHLIGHT_TEXT]) -->
+	<!--BEGIN WW2-NA Entries-->
+	<!--WW2 - Units-->
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GENERIC_INF_STRATEGY</Tag>
+		<English>Infantry units are versatile and form the backbone of your army</English>
+		<French>Les unit&#233;s d'infanterie sont polyvalentes et forment la colonne vert&#233;brale de votre arm&#233;e.</French>
+		<German>Infantereeinheiten sind wendig und bilden das R&#252;ckgrat Ihrer Armee.</German>
+		<Italian>La fanteria &#232; un'unit&#224; versatile e la colonna portante del tuo esercito.</Italian>
+		<Spanish>Las unidades de infanter&#237;a son vers&#225;tiles y conforman la espina dorsal del ej&#233;rcito.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GENERIC_TANK_STRATEGY</Tag>
+		<English>Light Tanks are fast and can attack twice a turn</English>
+		<French>Les blind&#233;s l&#233;gers sont rapides et peuvent attaquer deux fois par tour.</French>
+		<German>Leichte Panzer sind schnell und k&#246;nnen zwei Angriffe pro Runde ausf&#252;hren.</German>
+		<Italian>I carri armati leggeri sono veloci e possono attaccare due volte per turno.</Italian>
+		<Spanish>Las tanquetas son r&#225;pidas y atacan dos veces por turno.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_HEAVY_TANK_STRATEGY</Tag>
+		<English>Heavy Tanks are heavy and powerful, designed to follow along with regular Infantry, as support against other vehicles and heavy firearms.</English>
+		<French>Les blind&#233;s lourds sont tr&#232;s puissants, con&#231;us pour progresser en soutien de l'infanterie, afin de faire face aux menaces des v&#233;hicules et armes lourdes ennemies.</French>
+		<German>Schwere Panzer sind leistungsstark und widerstandsf&#228;hig. Sie k&#246;nnen als Begleitschutz f&#252;r die regul&#228;re Infanterie sowie gegen andere Fahrzeuge und schwere Schussfeuerwaffen eingesetzt werden.</German>
+		<Italian>I carri armati pesanti sono corazzati e potenti, studiati per seguire la normale fanteria e per offrire supporto contro gli altri veicoli e le armi pesanti.</Italian>
+		<Spanish>Los tanques pesados son unos blindados poderosos y est&#225;n dise&#241;ados para avanzar junto con la infanter&#237;a regular, como apoyo contra otros veh&#237;culos y armas pesadas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_SHERMAN_TANK_STRATEGY</Tag>
+		<English>The Sherman Tank is a powerful offensive weapon with a movement of two, and attacks twice a turn. It can be repaired, even while moving.</English>
+		<French>Le char Sherman est une arme offensive puissante qui se d&#233;place de deux et attaque deux fois par tour. Il peut &#234;tre r&#233;par&#233; m&#234;me en mouvement.</French>
+		<German>Sherman-Panzer sind leistungsstarke Offensivwaffen. Sie haben einen Fortbewegungsradius von zwei Feldern und k&#246;nnen zwei Angriffe pro Runde ausf&#252;hren. Au&#223;erdem k&#246;nnen sie unterwegs repariert werden.</German>
+		<Italian>Il carro armato Sherman &#232; una potente arma d'attacco dotata di movimento di 2 e di due attacchi per turno. Pu&#242; essere riparato, anche durante il movimento.</Italian>
+		<Spanish>El tanque Sherman es una potente arma ofensiva con 2 de movimiento que ataca dos veces por turno. Puede repararse aunque est&#233; en movimiento.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_MATILDA_TANK_STRATEGY</Tag>
+		<English>Matilda Tanks are powerful offensive weapons with a movement of two, and can attack twice a turn. They also get an extra First Strike chance.</English>
+		<French>Le char Matilda est une arme offensive puissante qui se d&#233;place de deux et attaque deux fois par tour. En outre, il a une chance suppl&#233;mentaire d'obtenir la premi&#232;re attaque.</French>
+		<German>Matilda-Panzer sind leistungsstarke Offensivwaffen. Sie haben einen Fortbewegungsradius von zwei Feldern und k&#246;nnen zwei Angriffe pro Runde ausf&#252;hren. Au&#223;erdem verf&#252;gen sie &#252;ber eine zus&#228;tzliche Erstangriffschance.</German>
+		<Italian>Il carro armato Matilda &#232; una potente arma d'attacco dotata di movimento di 2 e di due attacchi per turno. Inoltre, ottiene una possibilit&#224; extra di Attacco improvviso.</Italian>
+		<Spanish>Los tanques Matilda son unas potentes armas ofensivas con 2 de movimiento que atacan dos veces por turno. Tambi&#233;n tienen una posibilidad de ataque de iniciativa adicional.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GERMAN_PANZERIV_STRATEGY</Tag>
+		<English>The German Panzer is a powerful offensive weapon with a movement of two, and attacks twice a turn. It receives a bonus when fighting any infantry units</English>
+		<French>Le Panzer IV allemand est une arme offensive puissante qui se d&#233;place de deux et attaque deux fois par tour. Il b&#233;n&#233;ficie d'un bonus contre l'infanterie.</French>
+		<German>Deutsche Panzer sind leistungsstarke Offensivwaffen. Sie haben einen Fortbewegungsradius von zwei Feldern und k&#246;nnen zwei Angriffe pro Runde ausf&#252;hren. Au&#223;erdem verf&#252;gen sie bei K&#228;mpfen gegen Infanterieeinheiten &#252;ber einen Bonus.</German>
+		<Italian>Il Panzer tedesco &#232; una potente arma d'attacco dotata di movimento di 2 e di due attacchi per turno. Riceve un bonus quando affronta qualsiasi unit&#224; di fanteria.</Italian>
+		<Spanish>El Panzer alem&#225;n es una potente arma ofensiva con 2 de movimiento que ataca dos veces por turno. Recibe una bonificaci&#243;n cuando lucha contra cualquier unidad de infanter&#237;a.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TIGER_STRATEGY</Tag>
+		<English>The Tiger Tank is slow, but very powerful, attacking twice a turn. It also causes collateral damage.</English>
+		<French>Le char Tigre est lent mais terriblement puissant et attaque deux fois par tour. Il provoque &#233;galement des d&#233;g&#226;ts collat&#233;raux.</French>
+		<German>Tiger-Panzer bewegen sich nur langsam fort, sind aber sehr leistungsstark und k&#246;nnen zwei Angriffe pro Runde ausf&#252;hren. Au&#223;erdem verursachen sie Kollateralsch&#228;den.</German>
+		<Italian>Il carro armato Tiger &#232; lento ma molto potente e attacca due volte per turno. Inoltre, causa danni collaterali.</Italian>
+		<Spanish>El tanque Tiger es lento pero muy potente y ataca dos veces por turno. Tambi&#233;n causa da&#241;os colaterales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_STRATEGIC_BOMBER_STRATEGY</Tag>
+		<English>Strategic Bombers are land-based aircraft. They can attack enemy land units (and sea units, but not very effectively), and they can weaken enemy city fortifications. Bombers cause collateral damage when attacking.</English>
+		<French>Les bombardiers strat&#233;giques sont des avions bas&#233;s &#224; terre. Ils peuvent attaquer des unit&#233;s ennemies terrestres (et maritimes mais avec une efficacit&#233; bien moindre) et affaiblir les fortifications des villes adverses. Les frappes de bombardiers provoquent des d&#233;g&#226;ts collat&#233;raux.</French>
+		<German>Strategische Bomber sind an eine Bodenstation gekoppelt und k&#246;nnen feindliche Bodentruppen angreifen (auch Marineeinheiten, jedoch weniger effektiv) und feindliche Stadtbefestigungen schw&#228;chen. Bomber-Angriffe verursachen Kollateralsch&#228;den.</German>
+		<Italian>I bombardieri strategici sono degli aerei studiati per colpire gli obiettivi al suolo. Possono attaccare le unit&#224; terrestri (e navali, ma non molto efficacemente) e indebolire le fortificazioni cittadine. I bombardieri causano danni collaterali durante l'attacco.</Italian>
+		<Spanish>Los bombarderos estrat&#233;gicos son aviones de utilidad principalmente terrestre. Pueden atacar a las unidades terrestres enemigas (y a las mar&#237;timas, aunque no con mucha eficacia) y debilitar las fortificaciones de las ciudades. Los bombarderos infligen da&#241;os colaterales cuando atacan.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_LRB_STRATEGY</Tag>
+		<English>Lancaster bombers have an increased bombing range, and inflict massive damage, but at the cost of higher vulnerability to enemy fighters.</English>
+		<French>Les bombardiers Lancaster offrent une port&#233;e de bombardement accrue et infligent des d&#233;g&#226;ts massifs. En contrepartie, ils sont tr&#232;s vuln&#233;rables face aux chasseurs ennemis.</French>
+		<German>Lancaster-Bomber verf&#252;gen &#252;ber eine erweiterte Bombardierungsreichweite und verursachen erhebliche Sch&#228;den. Andererseits sind sie selbst schadensanf&#228;llig f&#252;r Angriffe durch feindliche J&#228;ger.</German>
+		<Italian>I bombardieri Lancaster possiedono un raggio di bombardamento aumentato e infliggono ingenti danni, ma sono particolarmente vulnerabili ai caccia nemici.</Italian>
+		<Spanish>Los bombarderos Lancaster tienen aumentado el alcance de bombardeo e infligen un da&#241;o masivo, pero a costa de ser m&#225;s vulnerables a los cazas enemigos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_TACTICAL_BOMBER_STRATEGY</Tag>
+		<English>Tactical bombers are short ranged bombers, designed to attack enemy land units (and sea units, but less effectively). They can weaken enemy city fortifications more effectively than Strategic Bombers. When attacking they cause collateral damage. </English>
+		<French>Les bombardiers tactiques sont des bombardiers de faible port&#233;e, con&#231;us pour attaquer des unit&#233;s ennemies terrestres (et maritimes au prix d'une efficacit&#233; moindre). Ils peuvent affaiblir les fortifications des villes adverses plus efficacement que les bombardiers strat&#233;giques. Leurs attaques provoquent des d&#233;g&#226;ts collat&#233;raux.</French>
+		<German>Taktische Bomber sind Kurzstreckenflugzeuge f&#252;r Angriffe auf feindliche Bodentruppen (auch Marineeinheiten, jedoch weniger effektiv). Sie k&#246;nnen feindlichen Stadtbefestigungen gr&#246;&#223;eren Schaden zuf&#252;gen als die strategischen Bomber und verursachen Kollateralsch&#228;den.</German>
+		<Italian>I bombardieri tattici sono dei bombardieri a corto raggio, progettati per attaccare le unit&#224; terrestri (e navali, ma meno efficacemente). Possono indebolire le fortificazioni cittadine con pi&#249; efficacia rispetto al bombardiere strategico. Il loro attacco causa danni collaterali.</Italian>
+		<Spanish>Los bombarderos t&#225;cticos son aviones de corto alcance dise&#241;ados para atacar a las unidades terrestres enemigas (y tambi&#233;n a las mar&#237;timas, aunque con menor eficacia). Pueden debilitar las fortificaciones de las ciudades enemigas m&#225;s eficazmente que los bombarderos estrat&#233;gicos. Infligen da&#241;os colaterales cuando atacan. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_COMMANDER_STRATEGY</Tag>
+		<English>Great Commanders can build [COLOR_BUILDING_TEXT]Bases[COLOR_REVERT] and [COLOR_BUILDING_TEXT]Hospitals[COLOR_REVERT], take residence in cities to offer increased output, research new technology or start a [COLOR_HIGHLIGHT_TEXT]golden age[COLOR_REVERT] with other commanders.</English>
+		<French>Les chefs illustres peuvent b&#226;tir des [COLOR_BUILDING_TEXT]bases[COLOR_REVERT] et des [COLOR_BUILDING_TEXT]h&#244;pitaux[COLOR_REVERT], s'installer dans une ville pour y accro&#238;tre le rendement, rechercher de nouvelles technologies ou d&#233;clencher un nouvel [COLOR_HIGHLIGHT_TEXT]&#226;ge d'or[COLOR_REVERT] avec d'autres chefs.</French>
+		<German>Gro&#223;e Kommandanten k&#246;nnen [COLOR_BUILDING_TEXT]Leitstellen[COLOR_REVERT] und [COLOR_BUILDING_TEXT]Krankenh&#228;user[COLOR_REVERT] errichten, die Produktion der St&#228;dte erh&#246;hen, in denen sie sich einquartieren, neue Technologien erforschen oder gemeinsam mit anderen Kommandanten ein [COLOR_HIGHLIGHT_TEXT]Goldenes Zeitalter[COLOR_REVERT] einl&#228;uten.</German>
+		<Italian>I Grandi Comandanti possono costruire [COLOR_BUILDING_TEXT]basi[COLOR_REVERT] e [COLOR_BUILDING_TEXT]ospedali[COLOR_REVERT], stabilirsi in una citt&#224; per potenziarne il rendimento, ricercare una nuova tecnologia o dare inizio a un'[COLOR_HIGHLIGHT_TEXT]et&#224; dell'oro[COLOR_REVERT] insieme ad altri comandanti.</Italian>
+		<Spanish>Los mandos pueden construir [COLOR_BUILDING_TEXT]bases[COLOR_REVERT] y [COLOR_BUILDING_TEXT]hospitales[COLOR_REVERT], establecerse en ciudades para aumentar su rendimiento, investigar nuevas tecnolog&#237;as o empezar una [COLOR_HIGHLIGHT_TEXT]edad de oro[COLOR_REVERT] con otros mandos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GREAT_COMMANDER_STRATEGY</Tag>
+		<English>Great Commanders can build [COLOR_BUILDING_TEXT]Bases[COLOR_REVERT] and [COLOR_BUILDING_TEXT]Hospitals[COLOR_REVERT], take residence in cities to offer increased output, research new technology or start a [COLOR_HIGHLIGHT_TEXT]golden age[COLOR_REVERT] with other commanders.</English>
+		<French>Les chefs illustres peuvent b&#226;tir des [COLOR_BUILDING_TEXT]bases[COLOR_REVERT] et des [COLOR_BUILDING_TEXT]h&#244;pitaux[COLOR_REVERT], s'installer dans une ville pour y accro&#238;tre le rendement, rechercher de nouvelles technologies ou d&#233;clencher un nouvel [COLOR_HIGHLIGHT_TEXT]&#226;ge d'or[COLOR_REVERT] avec d'autres chefs.</French>
+		<German>Gro&#223;e Kommandanten k&#246;nnen [COLOR_BUILDING_TEXT]Leitstellen[COLOR_REVERT] und [COLOR_BUILDING_TEXT]Krankenh&#228;user[COLOR_REVERT] errichten, die Produktion der St&#228;dte erh&#246;hen, in denen sie sich einquartieren, neue Technologien erforschen oder gemeinsam mit anderen Kommandanten ein [COLOR_HIGHLIGHT_TEXT]Goldenes Zeitalter[COLOR_REVERT] einl&#228;uten.</German>
+		<Italian>I Grandi Comandanti possono costruire [COLOR_BUILDING_TEXT]basi[COLOR_REVERT] e [COLOR_BUILDING_TEXT]ospedali[COLOR_REVERT], stabilirsi in una citt&#224; per potenziarne il rendimento, ricercare una nuova tecnologia o dare inizio a un'[COLOR_HIGHLIGHT_TEXT]et&#224; dell'oro[COLOR_REVERT] insieme ad altri comandanti.</Italian>
+		<Spanish>Los mandos pueden construir [COLOR_BUILDING_TEXT]bases[COLOR_REVERT] y [COLOR_BUILDING_TEXT]hospitales[COLOR_REVERT], afincarse en ciudades para aumentar el rendimiento de estas, investigar nuevas tecnolog&#237;a o empezar una [COLOR_HIGHLIGHT_TEXT]edad de oro[COLOR_REVERT] con otros mandos.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ALLIES_SPY_STRATEGY</Tag>
+		<English>Spies are invisible. They can explore rival territory and expose rival spies.</English>
+		<French>Les espions sont invisibles. Ils peuvent explorer les territoires ennemis et d&#233;masquer les espions des nations rivales. </French>
+		<German>Spione sind unsichtbar. Sie k&#246;nnen feindliches Territorium erkunden und gegnerische Spione entlarven.</German>
+		<Italian>Le spie sono invisibili. Possono esplorare il territorio nemico e individuare le spie rivali.</Italian>
+		<Spanish>Los esp&#237;as son invisibles. Pueden explorar el territorio enemigo y descubrir a los esp&#237;as de las civilizaciones rivales.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_AXIS_SPY_STRATEGY</Tag>
+		<English>Spies are invisible. They can explore rival territory and expose rival spies.</English>
+		<French>Les espions sont invisibles. Ils peuvent explorer les territoires ennemis et d&#233;masquer les espions des nations rivales.</French>
+		<German>Spione sind unsichtbar. Sie k&#246;nnen feindliches Territorium erkunden und gegnerische Spione entlarven.</German>
+		<Italian>Le spie sono invisibili. Possono esplorare il territorio nemico e individuare le spie rivali.</Italian>
+		<Spanish>Los esp&#237;as son invisibles. Pueden explorar el territorio enemigo y descubrir a los esp&#237;as de las civilizaciones rivales.</Spanish>
+	</TEXT>
+	<!--WW2 - Technologies-->
+	<TEXT>
+		<Tag>TXT_KEY_TECH_DESERT_FOX_STRATEGY</Tag>
+		<English>Only available to [COLOR_HIGHLIGHT_TEXT]Axis Nations[COLOR_REVERT]; Allows construction of the [COLOR_BUILDING_TEXT]Ghost Division[COLOR_REVERT] national wonder; Germany can now build [COLOR_UNIT_TEXT]Transports[COLOR_REVERT]</English>
+		<French>Disponible seulement pour les [COLOR_HIGHLIGHT_TEXT]nations de l'Axe[COLOR_REVERT]. Permet la construction de la merveille nationale : [COLOR_BUILDING_TEXT]division fant&#244;me[COLOR_REVERT]. L'Allemagne peut d&#233;sormais produire des [COLOR_UNIT_TEXT]transports[COLOR_REVERT].</French>
+		<German>Nur f&#252;r die [COLOR_HIGHLIGHT_TEXT]Achsenm&#228;chte[COLOR_REVERT] verf&#252;gbar. Erm&#246;glicht die Errichtung des Nationalen Wunders [COLOR_BUILDING_TEXT]Geisterdivision[COLOR_REVERT]. Deutschland kann nun [COLOR_UNIT_TEXT]Transportschiffe[COLOR_REVERT] bauen.</German>
+		<Italian>Disponibile soltanto per le [COLOR_HIGHLIGHT_TEXT]nazioni dell'Asse[COLOR_REVERT]. Permette la costruzione della Meraviglia Nazionale [COLOR_BUILDING_TEXT]Divisione Fantasma[COLOR_REVERT]. La Germania pu&#242; realizzare i [COLOR_UNIT_TEXT]trasporti[COLOR_REVERT].</Italian>
+		<Spanish>Solo est&#225; disponible para los [COLOR_HIGHLIGHT_TEXT]pa&#237;ses del Eje[COLOR_REVERT]. Permite construir la maravilla nacional de la [COLOR_BUILDING_TEXT]Divisi&#243;n Fantasma[COLOR_REVERT]. Alemania ya puede construir [COLOR_UNIT_TEXT]transportes[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_DDAY_STRATEGY</Tag>
+		<English>This technology can not be researched, but is granted when [COLOR_HIGHLIGHT_TEXT]D-Day[COLOR_REVERT] occurs</English>
+		<French>Cette technologie ne peut pas &#234;tre d&#233;couverte, elle est accord&#233;e lors du [COLOR_HIGHLIGHT_TEXT]Jour J[COLOR_REVERT].</French>
+		<German>Diese Technologie kann nicht erforscht werden, sondern wird gew&#228;hrt, sobald der [COLOR_HIGHLIGHT_TEXT]D-Day[COLOR_REVERT] gekommen ist.</German>
+		<Italian>Questa tecnologia non pu&#242; essere ricercata, ma verr&#224; concessa al raggiungimento del [COLOR_HIGHLIGHT_TEXT]D-Day[COLOR_REVERT].</Italian>
+		<Spanish>Esta tecnolog&#237;a no puede investigarse, pero tendr&#225; lugar cuando llegue el [COLOR_HIGHLIGHT_TEXT]D&#237;a D[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_COMBUSTIONWW2_STRATEGY</Tag>
+		<English>[COLOR_HIGHLIGHT_TEXT]Allied Nations[COLOR_REVERT] can build superior Bombers; [COLOR_HIGHLIGHT_TEXT]Germany[COLOR_REVERT] can build superior Tanks</English>
+		<French>Les [COLOR_HIGHLIGHT_TEXT]Alli&#233;s[COLOR_REVERT] peuvent produire de meilleurs bombardiers ; l'[COLOR_HIGHLIGHT_TEXT]Allemagne[COLOR_REVERT] peut produire de meilleurs blind&#233;s.</French>
+		<German>[COLOR_HIGHLIGHT_TEXT]Alliierte Nationen[COLOR_REVERT] k&#246;nnen &#252;berlegene Bomber bauen. [COLOR_HIGHLIGHT_TEXT]Deutschland[COLOR_REVERT] kann &#252;berlegene Panzer bauen.</German>
+		<Italian>Le [COLOR_HIGHLIGHT_TEXT]Nazioni Alleate[COLOR_REVERT] possono costruire dei bombardieri superiori. La [COLOR_HIGHLIGHT_TEXT]Germania[COLOR_REVERT] pu&#242; costruire dei carri armati superiori.</Italian>
+		<Spanish>Los [COLOR_HIGHLIGHT_TEXT]pa&#237;ses aliados[COLOR_REVERT] construyen mejores bombarderos. [COLOR_HIGHLIGHT_TEXT]Alemania[COLOR_REVERT] construye mejores tanques.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_BARBAROSSA_STRATEGY</Tag>
+		<English>Enables trading of Technology; Open Borders agreements; Exchange of gold</English>
+		<French>Permet les &#233;changes de technologies. Donne le coup d'envoi des accords frontaliers ; &#233;changes d'or.</French>
+		<German>Erm&#246;glicht den Technologiehandel, Grenz&#246;ffnungsvereinbarungen und den Austausch von Gold.</German>
+		<Italian>Permette lo scambio di tecnologie, d'oro e il diritto di passaggio.</Italian>
+		<Spanish>Permite el intercambio de tecnolog&#237;a y de oro, as&#237; como los acuerdos de apertura de fronteras.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_PEARL_HARBOR_STRATEGY</Tag>
+		<English>Only available to [COLOR_HIGHLIGHT_TEXT]Allied Nations[/COLOR_HIGHLIGHT_TEXT]; Allows the construction of the [COLOR_BUILDING_TEXT]Rats of Tobruk[/COLOR_BUILDING_TEXT] national wonder; [COLOR_HIGHLIGHT_TEXT]Allies[COLOR_REVERT] can build Aircraft and [COLOR_UNIT_TEXT]Carriers[COLOR_REVERT]</English>
+		<French>Disponible seulement pour les [COLOR_HIGHLIGHT_TEXT]Alli&#233;s[COLOR_REVERT] ; permet la construction de la merveille nationale : [COLOR_BUILDING_TEXT]les Rats de Tobrouk[COLOR_REVERT]. Les Alli&#233;s peuvent d&#233;sormais produire des avions et des [COLOR_UNIT_TEXT]porte-avions[COLOR_REVERT]</French>
+		<German>Nur f&#252;r die [COLOR_HIGHLIGHT_TEXT]alliierten Nationen[/COLOR_HIGHLIGHT_TEXT] verf&#252;gbar. Erm&#246;glicht die Errichtung des Nationalen Wunders [COLOR_BUILDING_TEXT]Ratten von Tobruk[/COLOR_BUILDING_TEXT]. Die [COLOR_HIGHLIGHT_TEXT]Alliierten[COLOR_REVERT] k&#246;nnen Flugzeuge und [COLOR_UNIT_TEXT]Flugzeugtr&#228;ger[COLOR_REVERT] bauen.</German>
+		<Italian>Disponibile soltanto per le [COLOR_HIGHLIGHT_TEXT]Nazioni Alleate[COLOR_REVERT]. Permette la costruzione della Meraviglia Nazionale [COLOR_BUILDING_TEXT]Topi di Tobruk[COLOR_REVERT]. Gli [COLOR_HIGHLIGHT_TEXT]Alleati[COLOR_REVERT] possono realizzare aeroplani e [COLOR_UNIT_TEXT]portaerei[COLOR_REVERT].</Italian>
+		<Spanish>Solo est&#225; disponible para los [COLOR_HIGHLIGHT_TEXT]pa&#237;ses aliados[/COLOR_HIGHLIGHT_TEXT]. Permite la construcci&#243;n de la maravilla nacional de las [COLOR_BUILDING_TEXT]Ratas de Tobruk[/COLOR_BUILDING_TEXT]. Los [COLOR_HIGHLIGHT_TEXT]aliados[COLOR_REVERT] pueden construir aviones y [COLOR_UNIT_TEXT]portaaviones[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ELECTRONICS_STRATEGY</Tag>
+		<English>Allows the construction of [COLOR_BUILDING_TEXT]Broadcast Towers[COLOR_REVERT], which reduce unhappiness while at war, and allows each City to employ 2 artists</English>
+		<French>Permet la construction de [COLOR_BUILDING_TEXT]tours de radiodiffusion[COLOR_REVERT] qui r&#233;duisent le m&#233;contentement en temps de guerre, et permet le recrutement de deux artistes par ville.</French>
+		<German>Erm&#246;glicht die Errichtung von [COLOR_BUILDING_TEXT]Funkt&#252;rmen[COLOR_REVERT] zur Senkung der Kriegsverdrossenheit und die Einstellung von 2 K&#252;nstlern in jeder Stadt.</German>
+		<Italian>Permette la costruzione dei [COLOR_BUILDING_TEXT]ripetitori[COLOR_REVERT], i quali riducono l'infelicit&#224; durante la guerra. Inoltre, permette a ogni citt&#224; di impiegare 2 artisti.</Italian>
+		<Spanish>Permite la construcci&#243;n de las [COLOR_BUILDING_TEXT]torres de radiodifusi&#243;n[COLOR_REVERT], que reducen la infelicidad mientras se est&#225; en guerra y permiten que cada ciudad emplee a dos artistas.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MOBILIZATION_STRATEGY</Tag>
+		<English>Allows your Nation to employ the [COLOR_HIGHLIGHT_TEXT]Mobilization[COLOR_REVERT] civic type</English>
+		<French>Permet &#224; votre nation d'opter pour la [COLOR_HIGHLIGHT_TEXT]Mobilisation[COLOR_REVERT] comme type de doctrine.</French>
+		<German>Erm&#246;glicht die Nutzung der Staatsform [COLOR_HIGHLIGHT_TEXT]Mobilisierung[COLOR_REVERT].</German>
+		<Italian>Permette lo sviluppo della forma di governo [COLOR_HIGHLIGHT_TEXT]Mobilitazione[COLOR_REVERT].</Italian>
+		<Spanish>Permite a vuestro pa&#237;s emplear el principio de [COLOR_HIGHLIGHT_TEXT]movilizaci&#243;n[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_NATIONALISMWW2_STRATEGY</Tag>
+		<English>Nationalism gives [COLOR_HIGHLIGHT_TEXT]Vichy France[COLOR_REVERT] and [COLOR_HIGHLIGHT_TEXT]Free France[COLOR_REVERT] access to employing the Guerrilla civic type, suitable for small nations at war on many fronts</English>
+		<French>Le nationalisme permet &#224; la [COLOR_HIGHLIGHT_TEXT]France de Vichy[COLOR_REVERT] et &#224; la [COLOR_HIGHLIGHT_TEXT]France Libre[COLOR_REVERT] d'opter pour la gu&#233;rilla, bien adapt&#233;e &#224; la situation de petites nations luttant sur de nombreux fronts.</French>
+		<German>Durch den Nationalismus haben [COLOR_HIGHLIGHT_TEXT]Vichy-Frankreich[COLOR_REVERT] und [COLOR_HIGHLIGHT_TEXT]Freies Frankreich[COLOR_REVERT] Zugriff auf die Staatsform Guerilla, die sich f&#252;r kleinere Nationen eignet, welche an mehreren Fronten Krieg f&#252;hren.</German>
+		<Italian>Permette alla [COLOR_HIGHLIGHT_TEXT]Francia di Vichy[COLOR_REVERT] e alla [COLOR_HIGHLIGHT_TEXT]Francia libera[COLOR_REVERT] di sviluppare la forma di governo Guerriglia, adatta alle piccole nazioni in guerra su pi&#249; fronti.</Italian>
+		<Spanish>El nacionalismo permite que la [COLOR_HIGHLIGHT_TEXT]Francia de Vichy[COLOR_REVERT] y la [COLOR_HIGHLIGHT_TEXT]Francia Libre[COLOR_REVERT] puedan usar el principio de guerra de guerrillas, apropiado para los peque&#241;os pa&#237;ses que est&#225;n en guerra en varios frentes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_PLASMA_TRANSFUSION_STRATEGY</Tag>
+		<English>Allows the construction of [COLOR_BUILDING_TEXT]Hospitals[COLOR_REVERT] and the [COLOR_BUILDING_TEXT]Red Cross[COLOR_REVERT] National Wonder</English>
+		<French>Permet la construction des [COLOR_BUILDING_TEXT]h&#244;pitaux[COLOR_REVERT] et de la merveille nationale : [COLOR_BUILDING_TEXT]Croix rouge[COLOR_REVERT].</French>
+		<German>Erm&#246;glicht die Errichtung von [COLOR_BUILDING_TEXT]Krankenh&#228;usern[COLOR_REVERT] und des Nationalen Wunders [COLOR_BUILDING_TEXT]Rotes Kreuz[COLOR_REVERT].</German>
+		<Italian>Permette la costruzione di [COLOR_BUILDING_TEXT]ospedali[COLOR_REVERT] e della Meraviglia Nazionale [COLOR_BUILDING_TEXT]Croce Rossa[COLOR_REVERT].</Italian>
+		<Spanish>Permite la construcci&#243;n de [COLOR_BUILDING_TEXT]hospitales[COLOR_REVERT] y de la maravilla nacional de la [COLOR_BUILDING_TEXT]Cruz Roja[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_ALLIES_STRATEGY</Tag>
+		<English>Signfies the influence your home country has on the campaign. This is given to all [COLOR_HIGHLIGHT_TEXT]Allied Nations[COLOR_REVERT], and can not be achieved in any other way</English>
+		<French>Refl&#232;te l'influence de votre partie d'origine sur la campagne. Offert &#224; tous les [COLOR_HIGHLIGHT_TEXT]Alli&#233;s[COLOR_REVERT], ne peut &#234;tre obtenu de quelque autre fa&#231;on.</French>
+		<German>Kennzeichnet den Einfluss Ihres Heimatlandes auf die Kampagne. Der Einflusswert wird allen [COLOR_HIGHLIGHT_TEXT]alliierten Nationen[COLOR_REVERT] zugewiesen und kann nicht auf andere Weise erworben werden.</German>
+		<Italian>Visualizza l'influenza della tua nazione sulla campagna. Viene assegnata a tutte le [COLOR_HIGHLIGHT_TEXT]Nazioni Alleate[COLOR_REVERT] e non pu&#242; essere ottenuta in altro modo.</Italian>
+		<Spanish>Representa la influencia que vuestra patria tiene en la campa&#241;a. Esto se les otorga a todos los [COLOR_HIGHLIGHT_TEXT]pa&#237;ses aliados[COLOR_REVERT] y no se puede conseguir de ning&#250;n otro modo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_AXIS_STRATEGY</Tag>
+		<English>Signfies the influence your home country has on the campaign. This is given to all [COLOR_HIGHLIGHT_TEXT]Axis Nations[COLOR_REVERT], and can not be achieved in any other way</English>
+		<French>Refl&#232;te l'influence de votre partie d'origine sur la campagne. Offert &#224; toutes les nations de l'[COLOR_HIGHLIGHT_TEXT]Axe[COLOR_REVERT], ne peut &#234;tre obtenu de quelque autre fa&#231;on.</French>
+		<German>Kennzeichnet den Einfluss Ihres Heimatlandes auf die Kampagne. Der Einflusswert wird allen [COLOR_HIGHLIGHT_TEXT]Achsenm&#228;chten[COLOR_REVERT] zugewiesen und kann nicht auf andere Weise erworben werden.</German>
+		<Italian>Visualizza l'influenza della tua nazione sulla campagna. Viene assegnata a tutte le [COLOR_HIGHLIGHT_TEXT]Nazioni dell'Asse[COLOR_REVERT] e non pu&#242; essere ottenuta in altro modo.</Italian>
+		<Spanish>Representa la influencia que vuestra patria tiene en la campa&#241;a. Esto se les otorga a todos los [COLOR_HIGHLIGHT_TEXT]pa&#237;ses del Eje[COLOR_REVERT] y no se puede conseguir de ning&#250;n otro modo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_STALINGRAD_STRATEGY</Tag>
+		<English>Allows employment of the [COLOR_HIGHLIGHT_TEXT]Corporatism[COLOR_REVERT] civic type</English>
+		<French>Permet la mise en oeuvre de la doctrine [COLOR_HIGHLIGHT_TEXT]Corporatisme[COLOR_REVERT].</French>
+		<German>Erm&#246;glicht die Nutzung der Staatsform [COLOR_HIGHLIGHT_TEXT]Gro&#223;unternehmertum[COLOR_REVERT].</German>
+		<Italian>Permette lo sviluppo della forma di governo [COLOR_HIGHLIGHT_TEXT]Corporativismo[COLOR_REVERT].</Italian>
+		<Spanish>Permite usar el principio de la [COLOR_HIGHLIGHT_TEXT]ingerencia de las empresas[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_OPERATION_TORCH_STRATEGY</Tag>
+		<English>This technology can not be researched, but is granted when [COLOR_HIGHLIGHT_TEXT]Operation Torch[COLOR_REVERT] is initiated.</English>
+		<French>Cette technologie ne peut &#234;tre recherch&#233;e, elle est automatiquement accord&#233;e lorsque l'[COLOR_HIGHLIGHT_TEXT]op&#233;ration Torch[COLOR_REVERT] est lanc&#233;e.</French>
+		<German>Diese Technologie kann nicht erforscht werden, sondern wird mit Beginn der [COLOR_HIGHLIGHT_TEXT]Operation Torch[COLOR_REVERT] zur Verf&#252;gung gestellt.</German>
+		<Italian>Questa tecnologia non pu&#242; essere ricercata, ma verr&#224; concessa all'inizio dell'[COLOR_HIGHLIGHT_TEXT]Operazione Torch[COLOR_REVERT].</Italian>
+		<Spanish>Esta tecnolog&#237;a no puede investigarse, pero tendr&#225; lugar cuando se inicie la [COLOR_HIGHLIGHT_TEXT]Operaci&#243;n Antorcha[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MOBILE_WARFARE_STRATEGY</Tag>
+		<English>Increases movement on roads, and allows construction of [COLOR_HIGHLIGHT_TEXT]Heavy Tanks[COLOR_REVERT]</English>
+		<French>Acc&#233;l&#232;re les d&#233;placements sur route et permet la production de [COLOR_HIGHLIGHT_TEXT]blind&#233;s lourds[COLOR_REVERT].</French>
+		<German>Erh&#246;ht die Fortbewegung auf Stra&#223;en und erm&#246;glicht den Bau von [COLOR_HIGHLIGHT_TEXT]Schweren Panzern[COLOR_REVERT].</German>
+		<Italian>Aumenta il movimento su strada e permette la costruzione dei [COLOR_HIGHLIGHT_TEXT]carri armati pesanti[COLOR_REVERT].</Italian>
+		<Spanish>Aumenta el movimiento por carretera y permite la construcci&#243;n de [COLOR_HIGHLIGHT_TEXT]tanques pesados[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_MECHANIZATION_STRATEGY</Tag>
+		<English>Allows research of [COLOR_HIGHLIGHT_TEXT]Mobile Warfare[COLOR_REVERT]</English>
+		<French>Permet de rechercher la [COLOR_HIGHLIGHT_TEXT]guerre mobile[COLOR_REVERT].</French>
+		<German>Erm&#246;glicht die Erforschung der [COLOR_HIGHLIGHT_TEXT]Mobilen Kriegsf&#252;hrung[COLOR_REVERT].</German>
+		<Italian>Permette la ricerca della [COLOR_HIGHLIGHT_TEXT]Guerra dinamica[COLOR_REVERT].</Italian>
+		<Spanish>Permite investigar la [COLOR_HIGHLIGHT_TEXT]guerra m&#243;vil[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_INTELLIGENCE_STRATEGY</Tag>
+		<English>Allows the construction of [COLOR_BUILDING_TEXT]Intelligence Centers[COLOR_REVERT], which are required to train [COLOR_UNIT_TEXT]Spies[COLOR_REVERT]</English>
+		<French>Permet la construction des [COLOR_BUILDING_TEXT]centres de renseignements'[COLOR_REVERT] n&#233;cessaires &#224; la formation des [COLOR_UNIT_TEXT]espions[COLOR_REVERT]. </French>
+		<German>Erm&#246;glicht die Errichtung von [COLOR_BUILDING_TEXT]Geheimdiensten[COLOR_REVERT], die f&#252;r die Ausbildung von [COLOR_UNIT_TEXT]Spionen[COLOR_REVERT] ben&#246;tigt werden.</German>
+		<Italian>Permette la costruzione dei [COLOR_BUILDING_TEXT]centri informativi[COLOR_REVERT], necessari alla realizzazione delle [COLOR_UNIT_TEXT]spie[COLOR_REVERT].</Italian>
+		<Spanish>Permite construir los [COLOR_BUILDING_TEXT]centros de inteligencia[COLOR_REVERT], que son necesarios para entrenar a los [COLOR_UNIT_TEXT]esp&#237;as[COLOR_REVERT].</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_TECH_CLOSURE_TECH_STRATEGY</Tag>
+		<English>World War II is drawing nearer to the end. This increases [COLOR_HIGHLIGHT_TEXT]health[COLOR_REVERT] and [COLOR_HIGHLIGHT_TEXT]happiness[COLOR_REVERT] in your cities.</English>
+		<French>La Deuxi&#232;me Guerre mondiale touche &#224; sa fin. Cela am&#233;liore la [COLOR_HIGHLIGHT_TEXT]sant&#233;[COLOR_REVERT] et le [COLOR_HIGHLIGHT_TEXT]bonheur[COLOR_REVERT] dans vos villes.</French>
+		<German>Der 2. Weltkrieg geht dem Ende zu. Dadurch erh&#246;ht sich die [COLOR_HIGHLIGHT_TEXT]Gesundheit[COLOR_REVERT] und die [COLOR_HIGHLIGHT_TEXT]Zufriedenheit[COLOR_REVERT] in Ihren St&#228;dten.</German>
+		<Italian>La Seconda Guerra Mondiale sta per finire. Ci&#242; aumenter&#224; la [COLOR_HIGHLIGHT_TEXT]salute[COLOR_REVERT] e la [COLOR_HIGHLIGHT_TEXT]felicit&#224;[COLOR_REVERT] nelle tue citt&#224;.</Italian>
+		<Spanish>La Segunda Guerra Mundial ya casi toca a su fin. Esto aumenta la [COLOR_HIGHLIGHT_TEXT]salud[COLOR_REVERT] y la [COLOR_HIGHLIGHT_TEXT]felicidad[COLOR_REVERT] en vuestras ciudades.</Spanish>
+	</TEXT>
+	<!--WW2 - Civics-->
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_ALLIEDGOVT_STRATEGY</Tag>
+		<English>The only type of government available to Allies and Britain, reflecting the state of affairs in Britain, Australia and the US.</English>
+		<French>Le seul type de gouvernement envisageable par les Alli&#233;s et la Grande-Bretagne, en raison de la situation politique en Grande-Bretagne, en Australie et aux Etats-Unis.</French>
+		<German>Die einzige Regierungsform, die f&#252;r die Alliierten und Gro&#223;britannien zur Verf&#252;gung steht und die aktuelle Lage in Gro&#223;britannien, Australien und den Vereinigten Staaten von Amerika widerspiegelt.</German>
+		<Italian>L'unico tipo di governo disponibile per Alleati e Gran Bretagna, riflette lo stato degli affari in Inghilterra, Australia e America.</Italian>
+		<Spanish>El &#250;nico tipo de gobierno disponible para los aliados y Gran Breta&#241;a, lo cual refleja el estado de la cuesti&#243;n en Gran Breta&#241;a, Australia y los EE. UU.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_AXISGOVT_STRATEGY</Tag>
+		<English>The only type of government available to Germany and Italy, reflecting the state of affairs in those countries.</English>
+		<French>Le seul type de gouvernement envisageable par l'Allemagne et l'Italie, en raison de leur situation politique.</French>
+		<German>Die einzige Regierungsform, die f&#252;r Deutschland und Italien zur Verf&#252;gung steht und deren aktuelle Lage widerspiegelt.</German>
+		<Italian>L'unico tipo di governo disponibile per Germania e Italia, riflette lo stato degli affari in questi paesi.</Italian>
+		<Spanish>El &#250;nico tipo de gobierno disponible para Alemania e Italia, lo cual refleja el estado de la cuesti&#243;n en dichos pa&#237;ses.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_GUERRILLA_STRATEGY</Tag>
+		<English>For a small nation, close to being overpowered, ferocious resistance may be the only way to fend off the enemy.</English>
+		<French>Pour une petite nation proche de l'asphyxie, une r&#233;sistance acharn&#233;e peut &#234;tre le seul moyen de continuer la lutte.</French>
+		<German>F&#252;r eine kleine Nation, die kurz vor der Unterwerfung steht, kann vehementer Widerstand der einzige Ausweg sein, um den Feind noch abzuwehren.</German>
+		<Italian>Per una piccola nazione sull'orlo della conquista, una feroce resistenza &#232; l'unico modo per respingere i nemici.</Italian>
+		<Spanish>Para un peque&#241;o pa&#237;s que est&#233; a punto de ser derrotado por superioridad num&#233;rica, una resistencia encarnizada representa la &#250;nica manera de repeler al enemigo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_LABOR_UNION_STRATEGY</Tag>
+		<English>Gathering in Unions, your workers improve efficiency and hone their skills.</English>
+		<French>Au sein de syndicats, vos ouvriers am&#233;liorent leur savoir-faire et du m&#234;me coup leur productivit&#233;.</French>
+		<German>Durch den Zusammenschluss in Gewerkschaften verbessern sich die F&#228;higkeiten und die Effizienz Ihrer Arbeiter.</German>
+		<Italian>Riunendosi in sindacati, i tuoi lavoratori aumentano la propria efficienza e migliorano le proprie abilit&#224;.</Italian>
+		<Spanish>Al unirse en sindicatos, los trabajadores mejorar&#225;n en eficacia y perfeccionar&#225;n sus habilidades.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_COLLECTIVISM_STRATEGY</Tag>
+		<English>Your people believe in the state coming before the individual, and willingly sacrifice themselves for those beliefs</English>
+		<French>Vos citoyens sont convaincus que le bien de l'&#233;tat passe avant le bien des individus,et sont pr&#234;ts &#224; se sacrifier en cons&#233;quence.</French>
+		<German>Ihr Volk stellt das Wohl des Staates &#252;ber das Wohl des Einzelnen und opfert sich bereitwillig f&#252;r diese &#220;berzeugung auf.</German>
+		<Italian>Il tuo popolo crede che lo stato venga prima dell'individuo ed &#232; pronto a sacrificarsi per le proprie convinzioni.</Italian>
+		<Spanish>Vuestro pueblo cree en el Estado antes que el individuo y est&#225; dispuesto a sacrificarse por ello.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_MOBILIZATION_STRATEGY</Tag>
+		<English>All members of the workforce and all industry is geared towards providing for the war machine.</English>
+		<French>Toute la main d'oeuvre et toute l'industrie se transforment en une formidable machine de guerre.</French>
+		<German>Alle Mitglieder der Arbeiterschaft und die gesamte Industrie konzentrieren sich auf die Kriegsmaschinerie.</German>
+		<Italian>Tutti i membri della forza lavoro e tutte le industrie sono rivolte alla produzione per la macchina bellica.</Italian>
+		<Spanish>Toda la mano de obra y toda la industria se dedican a alimentar la maquinaria b&#233;lica.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_ALLIEDECO_STRATEGY</Tag>
+		<English>On the free market, everything can be bought and sold ... and everything is.</English>
+		<French>Dans un march&#233; libre, tout peut se vendre et s'acheter... et tout est vendu et achet&#233;...</French>
+		<German>Auf dem freien Markt kann alles ge- und verkauft werden ... und das wird es auch.</German>
+		<Italian>In un mercato libero, tutto pu&#242; essere comprato e venduto... e, in effetti, si verifica ogni tipo di scambio.</Italian>
+		<Spanish>En el mercado libre todo se puede comprar y vender... y todo se compra y se vende.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_AXISECO_STRATEGY</Tag>
+		<English>The state owns everything but leaves the industry in control, saving on maintenance but still reaping some of the profits.</English>
+		<French>L'&#233;tat poss&#232;de tout mais accorde une certaine latitude aux industriels, &#233;conomisant sur l'entretien mais s'accaparant une partie des b&#233;n&#233;fices.</French>
+		<German>Der Staat besitzt alles, &#252;berl&#228;sst die Kontrolle jedoch der Industrie. So spart er die Unterhaltskosten, streicht aber dennoch einige Gewinne ein.</German>
+		<Italian>Lo stato possiede tutto quanto, ma ne lascia il comando all'industria, risparmiando i costi di mantenimento e prendendo parte dei profitti.</Italian>
+		<Spanish>El Estado es due&#241;o de todo, pero se permite a las industrias mantener el control de s&#237; mismas, lo cual le ahorra al primero los costes de mantenimiento pero le permite recoger parte de los beneficios.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CIVIC_CORPORATISM_STRATEGY</Tag>
+		<English>Large corporations are allowed to heavily influence economical legislation and other government matters, bringing their expertise but also their own agendas.</English>
+		<French>Les grandes entreprises p&#232;sent sur la l&#233;gislation &#233;conomique et sur les autres affaires du gouvernement, faisant profiter celui-ci de leur savoir-faire mais lui imposant leur rythme.</French>
+		<German>Gro&#223;e Kapitalgesellschaften haben weit gehenden Einfluss auf die Wirtschaftsgesetzgebung und andere Regierungsangelegenheiten. Sie bringen also ihre Kompetenz ein, verfolgen aber auch ihre eigenen Interessen.</German>
+		<Italian>Le grosse corporazioni possono influenzare fortemente la legislazione economica e gli altri affari di stato, portando la loro perizia ma anche i loro scopi.</Italian>
+		<Spanish>Se permite a las grandes empresas influir en gran medida en la legislaci&#243;n econ&#243;mica y otras cuestiones de gobierno, lo cual permite que aporten sus propios conocimientos pero tambi&#233;n sus propios intereses.</Spanish>
+	</TEXT>
+	<!--WW2 - Buildings-->
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_COMMANDHQ_STRATEGY</Tag>
+		<English>Makes its city the centre of command of your forces. Corruption is decreased in cities near to the Command HQ. The HQ's city's defenses are improved.</English>
+		<French>Installe dans la ville le centre de commandement de vos forces. La corruption dans les villes proches est r&#233;duite. Les d&#233;fenses de la ville abritant le centre de commandement sont am&#233;lior&#233;es.</French>
+		<German>Macht die Stadt, in der sie sich befindet, zum zentralen Anlaufpunkt f&#252;r Ihre Truppen und verbessert ihre Verteidigung. Au&#223;erdem sinkt durch die Kommandozentrale die Korruption in den umliegenden St&#228;dten.</German>
+		<Italian>Rende la citt&#224; il centro di comando delle tue forze. La corruzione viene ridotta in tutte le citt&#224; circostanti e le difese cittadine vengono migliorate.</Italian>
+		<Spanish>Convierte su ciudad en el centro de mando de vuestras fuerzas. La corrupci&#243;n disminuye en todas las ciudades que est&#233;n cerca de un cuartel general. Adem&#225;s, mejorar&#225;n las defensas de su ciudad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_FORTIFICATION_STRATEGY</Tag>
+		<English>Fortifications increase a city's defenses against attacking enemy units. Build in cities bordering on enemy territory.</English>
+		<French>Les fortifications am&#233;liorent les d&#233;fenses d'une ville contre les assaillants ennemis. Construisez-les dans les villes proches du territoire ennemi.</French>
+		<German>Festungen erh&#246;hen die Verteidigung einer Stadt gegen feindliche Einheiten. Sie sollten in St&#228;dten errichtet werden, die an feindliches Gebiet angrenzen.</German>
+		<Italian>Aumentano le difese cittadine contro le unit&#224; nemiche. Costruiscile nelle citt&#224; confinanti con il territorio nemico.</Italian>
+		<Spanish>Las fortificaciones aumentan las defensas de la ciudad contra el ataque de las unidades enemigas. Construidlas en ciudades que linden con el territorio enemigo.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BASE_STRATEGY</Tag>
+		<English>A base reduces maintenance costs in the city, and increases the city's defenses. Build in cities far from your Command HQ, but close to the enemy borders.</English>
+		<French>Une base r&#233;duit les co&#251;ts d'entretien dans la ville et am&#233;liore sa d&#233;fense. Construisez-la plut&#244;t dans les villes &#233;loign&#233;es de votre QG de commandement tout en &#233;tant assez proches des fronti&#232;res ennemies.</French>
+		<German>Eine Leitstelle reduziert die Unterhaltskosten in einer Stadt und erh&#246;ht ihre Verteidigung. Sie sollte in St&#228;dten errichtet werden, die weit von St&#228;dten mit Kommandozentralen entfernt sind, aber in der N&#228;he von feindlichen Grenzen liegen.</German>
+		<Italian>Riduce i costi di mantenimento della citt&#224; e aumenta le difese cittadine. Costruiscila nelle citt&#224; lontane dal tuo centro di comando, ma vicine ai confini.</Italian>
+		<Spanish>Las bases reducen los costes de mantenimiento de sus ciudades y aumentan sus defensas. Construidlas en las ciudades que se encuentren lejos de vuestro cuartel general y cerca del enemigo. </Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_BARRACKSWW2_STRATEGY</Tag>
+		<English>Barracks train troops built in their cities. Build them fairly early everywhere.</English>
+		<French>C'est dans la caserne que s'entra&#238;nent les troupes produites dans une ville. Construisez-en assez t&#244;t dans la partie &#224; peu pr&#232;s partout.</French>
+		<German>Kasernen bilden die in derselben Stadt errichteten Truppen aus. Man sollte sie m&#246;glichst fr&#252;hzeitig und an m&#246;glichst allen Standorten errichten.</German>
+		<Italian>Addestra le truppe realizzate nella citt&#224;. Costruiscile dappertutto e abbastanza in fretta.</Italian>
+		<Spanish>Los cuarteles entrenan a las tropas que se crean en las ciudades. Construidlos en cuanto pod&#225;is, y por todas partes.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_AIRPORTWW2_STRATEGY</Tag>
+		<English>Air units built at cities with airports begin with 4 experience points. Airports increase a city's income from trade agreements (open borders).</English>
+		<French>Les unit&#233;s a&#233;riennes produites dans des villes dot&#233;es d'un a&#233;roport commencent avec 4 points d'exp&#233;rience. Dans sa ville, un a&#233;roport augmente le revenu li&#233; aux accords commerciaux (libre passage).</French>
+		<German>Lufteinheiten, die in St&#228;dten mit einem Flughafen gebaut werden, verf&#252;gen zu Beginn &#252;ber 4 Erfahrungspunkte. Flugh&#228;fen erh&#246;hen die Einnahmen einer Stadt aus Handelsvereinbarungen (offene Grenzen).</German>
+		<Italian>Le unit&#224; aeree realizzate negli aeroporti iniziano con 4 punti esperienza. Gli aeroporti aumentano gli introiti della citt&#224; derivanti dagli scambi commerciali (diritto di passaggio).</Italian>
+		<Spanish>Las unidades a&#233;reas que se construyan en ciudades con aeropuertos empezar&#225;n con 4 puntos de experiencia. Los aeropuertos aumentan los ingresos de las ciudades provenientes de los acuerdos de intercambio (apertura de fronteras).</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEROIC_EPIC_AXIS_STRATEGY</Tag>
+		<English>The Ghost Division doubles the city's production when creating military units. It also increases its city's chances of generating a great commander</English>
+		<French>La Division fant&#244;me double la production de la ville lorsque celle-ci g&#233;n&#232;re des unit&#233;s militaires. Elle augmente &#233;galement les chances d'une ville de voir appara&#238;tre un chef illustre.</French>
+		<German>Die Geisterdivision verdoppelt die Produktion einer Stadt bei der Errichtung von Milit&#228;reinheiten. Au&#223;erdem erh&#246;ht sie die Wahrscheinlichkeit, dass in der betreffenden Stadt ein Gro&#223;er Kommandant errichtet wird.</German>
+		<Italian>Raddoppia la produzione della citt&#224; per realizzare unit&#224; militari. Inoltre, aumenta le probabilit&#224; di generare un Grande Comandante.</Italian>
+		<Spanish>La Divisi&#243;n Fantasma dobla la producci&#243;n de su ciudad a la hora de crear unidades militares. Tambi&#233;n aumenta sus posibilidades de generar a un mando.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HEROIC_EPIC_ALLIES_STRATEGY</Tag>
+		<English>The Rats of Tobruk doubles the city's production when creating military units. It also increases its city's chances of generating a great commander</English>
+		<French>Les Rats de Tobrouk doublent la production de la ville lorsque celle-ci g&#233;n&#232;re des unit&#233;s militaires. Ils augmentent &#233;galement les chances d'une ville de voir appara&#238;tre un chef illustre.</French>
+		<German>Die Ratten von Tobruk verdoppeln die Produktion einer Stadt bei der Errichtung von Milit&#228;reinheiten. Au&#223;erdem erh&#246;hen sie die Wahrscheinlichkeit, dass in der betreffenden Stadt ein Gro&#223;er Kommandant errichtet wird.</German>
+		<Italian>Raddoppia la produzione della citt&#224; per realizzare unit&#224; militari. Inoltre, aumenta le probabilit&#224; di generare un Grande Comandante.</Italian>
+		<Spanish>Las Ratas de Tobruk doblan la producci&#243;n de su ciudad a la hora de crear unidades militares. Tambi&#233;n aumentan sus posibilidades de generar a un mando.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_RED_CROSSWW2_STRATEGY</Tag>
+		<English>The Red Cross gives all units built in its city the Medic I promotion, and it increases health in all cities.</English>
+		<French>La Croix rouge fait b&#233;n&#233;ficier toutes les unit&#233;s produites dans sa ville de la promotion Infirmier I et am&#233;liore la sant&#233; globale dans toutes les villes.</French>
+		<German>Das Rote Kreuz bef&#246;rdert alle in der betreffenden Stadt errichteten Einheiten zum Arzt I und erh&#246;ht die Gesundheit in allen St&#228;dten.</German>
+		<Italian>Concede a tutte le unit&#224; realizzate nella citt&#224; la promozione Medico I e aumenta la salute di tutte le citt&#224;.</Italian>
+		<Spanish>La Cruz Roja otorga el ascenso de "M&#233;dica I" a todas las unidades que se construyan en su ciudad y tambi&#233;n aumenta la salud en todas las ciudades.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INTELLIGENCE_CENTER_STRATEGY</Tag>
+		<English>The Intelligence Center allows you to train the special spy unit, which is good for scouting out enemy cities and territory.</English>
+		<French>Le Centre de renseignements permet d'entra&#238;ner l'unit&#233; sp&#233;ciale Espion, particuli&#232;rement adapt&#233;e pour la reconnaissance en territoire hostile et dans les villes ennemies.</French>
+		<German>Der Geheimdienst erm&#246;glicht die Ausbildung der Spezialeinheit Spion, die zur Erkundung feindlicher St&#228;dte und Territorien eingesetzt werden kann.</German>
+		<Italian>Permette la realizzazione dell'unit&#224; speciale spia, indicata per esplorare il territorio e le citt&#224; nemiche.</Italian>
+		<Spanish>El centro de inteligencia os permite entrenar a la unidad especial de esp&#237;a, que es ideal para explorar las ciudades y el territorio del enemigo.</Spanish>
+	</TEXT>
+</Civ4GameText>

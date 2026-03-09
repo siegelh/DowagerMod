@@ -1,0 +1,65 @@
+"InstallScript"
+{
+       "Registry"
+       {
+               	"HKEY_LOCAL_MACHINE\\SOFTWARE\\Firaxis Games\\Sid Meier's Civilization 4 - Beyond the Sword"
+               	{
+                       "string"
+                       {
+                              	"INSTALLDIR"			"%INSTALLDIR%\\Beyond the Sword"
+                       }
+
+                       "dword"
+                       {
+                               "english"
+                               {
+                                       "DEFAULT_LANGUAGE"		"9"
+                               }
+                               "french"
+                               {
+                                       "DEFAULT_LANGUAGE"		"12"
+                               }
+                               "german"
+                               {
+                                       "DEFAULT_LANGUAGE"	   	"7"
+                               }
+                               "italian"
+                               {
+                                       "DEFAULT_LANGUAGE"   		"16"
+                               }
+                               "spanish"
+                               {
+                                       "DEFAULT_LANGUAGE"   		"10"
+                               }
+                       }
+               }
+
+               	"HKEY_LOCAL_MACHINE\\SOFTWARE\\Firaxis Games\\Sid Meier's Civilization 4 - Beyond the Sword\\3.00"
+		{
+		}
+
+               	"HKEY_LOCAL_MACHINE\\SOFTWARE\\Firaxis Games\\Sid Meier's Civilization 4 - Beyond the Sword\\3.02"
+		{
+		}
+
+               	"HKEY_LOCAL_MACHINE\\SOFTWARE\\Firaxis Games\\Sid Meier's Civilization 4 - Beyond the Sword\\3.03"
+		{
+		}
+               	"HKEY_LOCAL_MACHINE\\SOFTWARE\\Firaxis Games\\Sid Meier's Civilization 4 - Beyond the Sword\\3.13"
+		{
+		}
+		"HKEY_LOCAL_MACHINE\\Software\\Firaxis Games\\Sid Meier's Civilization 4"
+		{
+			"string"
+			{
+				"INSTALLDIR"				"%INSTALLDIR%"
+			}
+		}
+		
+		"HKEY_LOCAL_MACHINE\\Software\\Firaxis Games\\Sid Meier's Civilization 4\\1.74"
+		{
+		}
+       }
+}
+
+
