@@ -5,7 +5,7 @@ Accepted as the default methodology for all future leader+civilization overhauls
 
 ## Invocation Protocol (Use Every Overhaul Request)
 When starting an overhaul task, use this exact opener:
-- `Follow docs/LEADER_OVERHAUL_PLAN_OF_RECORD.md and README.md strictly before proposing or implementing.`
+- `Follow docs/LEADER_OVERHAUL_PLAN_OF_RECORD.md, AGENTS.md, and WORKFLOW.md before proposing or implementing.`
 
 Before making changes, provide:
 - a checklist echo of exactly which plan-of-record items will be applied.
@@ -16,7 +16,7 @@ After making changes, provide:
 ## Overhaul Prompt Template (Copy/Paste)
 Use this prompt to enforce process:
 ```text
-Follow docs/LEADER_OVERHAUL_PLAN_OF_RECORD.md and README.md strictly before proposing or implementing.
+Follow docs/LEADER_OVERHAUL_PLAN_OF_RECORD.md, AGENTS.md, and WORKFLOW.md before proposing or implementing.
 
 Target leader/civ: <LEADER> / <CIV>
 Phase: <Planning|Implementation>
@@ -40,7 +40,7 @@ Use this section to track actual implementation status and avoid duplicate/parti
 ### Planned (Not Started)
 - Fill per planning sessions. Keep entries leader-specific and civ-specific.
 - `LEADER_BRENNUS` / `CIVILIZATION_GAULIC_CONFEDERATION`
-  - Saved draft: `docs/BRENNUS_GAUL_OVERHAUL_DRAFT.md`
+  - Saved draft: `docs/archive/plans/BRENNUS_GAUL_OVERHAUL_DRAFT.md`
 
 ## Per-Leader Checklist (Required)
 For each overhaul, record a short design brief with:
@@ -169,6 +169,8 @@ Use these to keep designs differentiated and high-flavor:
 - Mandatory search locations:
 - `C:\DowagerMod` workspace art paths.
 - `C:\Users\Harrison\Downloads\civ4mods-code` external source library.
+- `C:\Users\Harrison\Downloads\BTG_237` external art/reference library.
+- `C:\Users\Harrison\Downloads\Caveman2Cosmos_v43` external art/reference library.
 - If an asset is selected from outside the workspace, copy it into the correct workspace path first.
 - XML may only reference assets that already exist inside the workspace.
 - Never point XML directly at `C:\Users\Harrison\Downloads\civ4mods-code`.

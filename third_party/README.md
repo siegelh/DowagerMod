@@ -1,4 +1,5 @@
 # Third-Party Notes
 
-- Civ4 SDK build instructions: `third_party/beyond-the-sword-sdk/BUILDING_CVGAMECOREDLL.md`
-- Canonical build command from repo root: `.\tools\build_civ4_dll.ps1`
+- Canonical DLL build command from repo root: `.\tools\build_civ4_dll.ps1`
+- Supplemental DLL build notes: `third_party/beyond-the-sword-sdk/BUILDING_CVGAMECOREDLL.md`
+- If the build notes and the script disagree, trust `tools/build_civ4_dll.ps1`.

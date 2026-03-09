@@ -1,4 +1,5 @@
 **/__pycache__/ 
+**/*.pyc
 third_party/**/.vs/
 third_party/**/temp_files/
 third_party/**/Debug/
@@ -10,3 +11,11 @@ third_party/**/*.sdf
 third_party/**/*.VC.db
 third_party/**/.git/
 CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/CvGameCoreDLL_*.dll
+CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/CvGameCoreDLL_backup_*.dll
+CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Assets/Art/Movies/Intros/intro.bik
+CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Assets/Assets0.fpk
+CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Assets/Assets1.fpk
+CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Assets/Assets2.fpk
+CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/ThemeParseLog.txt
+CoreFiles/dist/
+tmp/**

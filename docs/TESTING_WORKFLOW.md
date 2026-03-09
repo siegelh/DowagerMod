@@ -40,6 +40,7 @@ Run from repo root.
 - In default mode, skips DLL build for fast XML-focused feedback.
 - With `-CheckDll`, compiles `CvGameCoreDLL.dll` only when DLL source files changed.
 - DLL compile runs in non-destructive mode (`build_civ4_dll.ps1 -NoDeploy`).
+- Changed-file selection is based on git diff plus untracked files, so noisy worktrees can widen the validation set.
 
 `test_xml.ps1 -All`
 - Validates all BTS XML files under:
@@ -53,6 +54,12 @@ Run from repo root.
 - XML failures report file, line, column, and parser reason.
 - Any XML validation failure fails the gate.
 - Any DLL build failure fails the gate.
+
+## Required manual smoke test for gameplay changes
+
+- Gate scripts are necessary but not sufficient for gameplay-affecting work.
+- After any gameplay change, also run the minimum smoke test in [`MANUAL_SMOKE_TESTS.md`](MANUAL_SMOKE_TESTS.md).
+- Gameplay changes include XML, Python, DLL, UI, art-reference, entrypoint, and persistence changes that can alter in-game behavior.
 
 ## Optional: enforce locally with pre-commit hook
 
