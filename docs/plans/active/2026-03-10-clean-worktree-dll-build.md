@@ -1,6 +1,6 @@
 # Clean Worktree DLL Build
 
-- Status: `in_progress`
+- Status: `complete`
 - Owner / agent: `Codex`
 - Last updated: `2026-03-10`
 
@@ -99,7 +99,7 @@
 ## Documentation Updates Required
 
 - Docs to update with the implementation:
-  - `ARCHITECTURE.md` or `BUILDING_CVGAMECOREDLL.md` only if the tracked-input rule needs to be called out
+  - `third_party/beyond-the-sword-sdk/BUILDING_CVGAMECOREDLL.md`
 - Docs/plans to mark stale, historical, or superseded:
   - none yet
 
@@ -123,17 +123,28 @@
 
 ## Completion Checklist
 
-- [ ] Required ignored third-party source inputs were identified.
-- [ ] Ignore rules were updated only as much as needed.
-- [ ] Required files were tracked in git.
-- [ ] `.\tools\test_gate.ps1 -CheckDll` passed in the main repo.
-- [ ] The DLL gate also passed in a fresh clean worktree.
-- [ ] Issue `#43` was unblocked and rerun if validation became reproducible.
+- [x] Required ignored third-party source inputs were identified.
+- [x] Ignore rules were updated only as much as needed.
+- [x] Required files were tracked in git.
+- [x] `.\tools\test_gate.ps1 -CheckDll` passed in the main repo.
+- [x] The DLL gate also passed in a fresh clean worktree.
+- [x] Issue `#43` was unblocked and rerun if validation became reproducible.
 
 ## Final Outcome Summary
 
 - What changed:
+  - Root and SDK ignore rules were narrowed so nested Boost `debug/` source folders are no longer suppressed on Windows.
+  - Required Boost debug headers under `CvGameCoreDLL/Boost-1.32.0/include/boost/preprocessor/debug/` and `boost/spirit/debug/` are now tracked.
+  - Symphony issue `#43` was rerun from a clean baseline worktree after the reproducibility fix landed on `agent-baseline`.
 - Validation performed:
+  - `.\tools\test_gate.ps1 -CheckDll` passed in `C:\DowagerMod`.
+  - `.\tools\test_gate.ps1 -RepoRoot C:\sw\repro2 -All -SkipXml` passed in a fresh detached worktree.
+  - Symphony reran issue `#43`, passed `test_gate.ps1 -CheckDll` inside `C:\sw\gh-43`, committed the branch, pushed it, opened draft PR `#44`, and moved the issue to `Human Review`.
 - Docs updated:
+  - `third_party/beyond-the-sword-sdk/BUILDING_CVGAMECOREDLL.md` already reflects the current build script; no additional doc change was required beyond this plan record.
 - Remaining risks:
+  - Other ignored-but-required SDK inputs could still exist outside the now-proven Boost debug headers.
+  - The DLL gate still emits a trailing `The system cannot find the path specified.` line after success; it exits `0`, but that should be explained or cleaned up later.
 - Follow-up tasks:
+  - Audit the remaining ignored files under `third_party/beyond-the-sword-sdk/CvGameCoreDLL` for other hidden required inputs.
+  - Add failure classification / bounded retry to Symphony so environment failures can become explicit remediation work instead of a generic block.
