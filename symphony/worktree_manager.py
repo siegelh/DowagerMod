@@ -42,7 +42,7 @@ class WorktreeManager:
         branch_name = f"{self._branch_prefix}/{issue_number}-{slug}"
         return WorktreeInfo(
             branch_name=branch_name,
-            path=(self._workspace_root / f"{issue_number}-{slug}").resolve(),
+            path=(self._workspace_root / f"gh-{issue_number}").resolve(),
             created_now=False,
         )
 

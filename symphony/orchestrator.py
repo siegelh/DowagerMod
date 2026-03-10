@@ -46,14 +46,14 @@ class SymphonyService:
             base_branch=self._config.workspace.base_branch,
             branch_prefix=self._config.workspace.branch_prefix,
         )
+        worktree_target = worktree_manager.describe_target(issue.number, issue.title)
 
         if dry_run:
-            worktree = worktree_manager.describe_target(issue.number, issue.title)
             summary = RunSummary(
                 issue_number=issue.number,
                 issue_title=issue.title,
-                branch_name=worktree.branch_name,
-                workspace_path=str(worktree.path),
+                branch_name=worktree_target.branch_name,
+                workspace_path=str(worktree_target.path),
                 started_at=started_at,
                 finished_at=datetime.now(timezone.utc),
                 outcome="dry_run",
@@ -66,46 +66,46 @@ class SymphonyService:
                 "Dry run selected issue",
                 event="dry_run_selected",
                 issue_number=issue.number,
-                branch_name=worktree.branch_name,
-                workspace_path=str(worktree.path),
+                branch_name=worktree_target.branch_name,
+                workspace_path=str(worktree_target.path),
             )
             return summary
 
-        self._github.update_status(issue, self._config.github.planning_state)
-        log_event(
-            self._logger,
-            "Moved issue to Planning",
-            event="status_transition",
-            issue_number=issue.number,
-            new_status=self._config.github.planning_state,
-        )
-
-        worktree = worktree_manager.ensure_worktree(issue.number, issue.title)
-        self._github.update_status(issue, self._config.github.in_progress_state)
-        log_event(
-            self._logger,
-            "Moved issue to In Progress",
-            event="status_transition",
-            issue_number=issue.number,
-            new_status=self._config.github.in_progress_state,
-            branch_name=worktree.branch_name,
-            workspace_path=str(worktree.path),
-            created_worktree=worktree.created_now,
-        )
-
-        prompt = render_prompt(
-            self._workflow,
-            {
-                "issue": issue.template_context(),
-                "attempt": None,
-                "branch_name": worktree.branch_name,
-                "workspace_path": str(worktree.path),
-                "repo_root": str(self._repo_root),
-                "workflow_path": str(self._workflow.path),
-            },
-        )
-
         try:
+            self._github.update_status(issue, self._config.github.planning_state)
+            log_event(
+                self._logger,
+                "Moved issue to Planning",
+                event="status_transition",
+                issue_number=issue.number,
+                new_status=self._config.github.planning_state,
+            )
+
+            worktree = worktree_manager.ensure_worktree(issue.number, issue.title)
+            self._github.update_status(issue, self._config.github.in_progress_state)
+            log_event(
+                self._logger,
+                "Moved issue to In Progress",
+                event="status_transition",
+                issue_number=issue.number,
+                new_status=self._config.github.in_progress_state,
+                branch_name=worktree.branch_name,
+                workspace_path=str(worktree.path),
+                created_worktree=worktree.created_now,
+            )
+
+            prompt = render_prompt(
+                self._workflow,
+                {
+                    "issue": issue.template_context(),
+                    "attempt": None,
+                    "branch_name": worktree.branch_name,
+                    "workspace_path": str(worktree.path),
+                    "repo_root": str(self._repo_root),
+                    "workflow_path": str(self._workflow.path),
+                },
+            )
+
             result = AgentRunner(self._config.codex, worktree.path).run_turn(prompt)
             self._github.update_status(issue, self._config.github.human_review_state)
             log_event(
@@ -135,7 +135,16 @@ class SymphonyService:
             self._write_summary(summary)
             return summary
         except Exception as exc:
-            self._github.update_status(issue, self._config.github.blocked_state)
+            try:
+                self._github.update_status(issue, self._config.github.blocked_state)
+            except Exception as status_exc:  # pragma: no cover
+                log_event(
+                    self._logger,
+                    "Failed to move issue to Blocked after run failure",
+                    event="status_transition_failed",
+                    issue_number=issue.number,
+                    error=str(status_exc),
+                )
             log_event(
                 self._logger,
                 "Agent turn failed",
@@ -147,8 +156,8 @@ class SymphonyService:
             summary = RunSummary(
                 issue_number=issue.number,
                 issue_title=issue.title,
-                branch_name=worktree.branch_name,
-                workspace_path=str(worktree.path),
+                branch_name=worktree_target.branch_name,
+                workspace_path=str(worktree_target.path),
                 started_at=started_at,
                 finished_at=datetime.now(timezone.utc),
                 outcome="blocked",

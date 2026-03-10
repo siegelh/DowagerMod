@@ -19,7 +19,7 @@ class WorktreeManagerTests(unittest.TestCase):
             target = manager.describe_target(42, "Fix Main Interface Loader")
 
         self.assertEqual(target.branch_name, "symphony/42-fix-main-interface-loader")
-        self.assertTrue(str(target.path).endswith("42-fix-main-interface-loader"))
+        self.assertTrue(str(target.path).endswith("gh-42"))
 
 
 if __name__ == "__main__":
