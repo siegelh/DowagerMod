@@ -6,6 +6,10 @@ third_party/**/Debug/
 third_party/**/Release/
 third_party/**/x64/
 third_party/**/ipch/
+!third_party/beyond-the-sword-sdk/CvGameCoreDLL/Boost-1.32.0/include/boost/preprocessor/debug/
+!third_party/beyond-the-sword-sdk/CvGameCoreDLL/Boost-1.32.0/include/boost/preprocessor/debug/**
+!third_party/beyond-the-sword-sdk/CvGameCoreDLL/Boost-1.32.0/include/boost/spirit/debug/
+!third_party/beyond-the-sword-sdk/CvGameCoreDLL/Boost-1.32.0/include/boost/spirit/debug/**
 third_party/**/*.suo
 third_party/**/*.sdf
 third_party/**/*.VC.db

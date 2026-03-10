@@ -1,12 +1,12 @@
-Release/
-Release-fast/
-Assert/
-Assert-fast/
-Debug/
-Profile/
+/CvGameCoreDLL/Release/
+/CvGameCoreDLL/Release-fast/
+/CvGameCoreDLL/Assert/
+/CvGameCoreDLL/Assert-fast/
+/CvGameCoreDLL/Debug/
+/CvGameCoreDLL/Profile/
 
-obj/
-temp_files/
+/CvGameCoreDLL/obj/
+/CvGameCoreDLL/temp_files/
 
 *.dll
 *.opensdf
