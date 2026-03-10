@@ -6,9 +6,18 @@ from pathlib import Path
 
 from .agent_runner import AgentRunner
 from .config import SymphonyConfig
+from .git_manager import GitManager
 from .github_client import GitHubClient
+from .handoff import (
+    build_blocked_issue_comment,
+    build_commit_message,
+    build_pull_request_body,
+    build_pull_request_title,
+    build_success_issue_comment,
+)
 from .logging_utils import log_event
-from .models import RunSummary, WorkflowDefinition
+from .models import ChangeSet, RunSummary, WorkflowDefinition
+from .validation_runner import ValidationRunner
 from .workflow_loader import render_prompt
 from .worktree_manager import WorktreeManager
 
@@ -71,6 +80,17 @@ class SymphonyService:
             )
             return summary
 
+        empty_change_set = ChangeSet(
+            files=(),
+            plan_paths=(),
+            requires_xml_gate=False,
+            requires_dll_gate=False,
+        )
+        change_set = None
+        validation = None
+        commit_sha = None
+        pull_request = None
+        issue_comment_url = None
         try:
             self._github.update_status(issue, self._config.github.planning_state)
             log_event(
@@ -107,6 +127,43 @@ class SymphonyService:
             )
 
             result = AgentRunner(self._config.codex, worktree.path).run_turn(prompt)
+            git_manager = GitManager(worktree.path)
+            change_set = git_manager.collect_changes()
+            if not change_set.files:
+                raise RuntimeError("Agent turn completed without producing any reviewable file changes.")
+
+            validation = ValidationRunner(worktree.path).run(change_set)
+            log_event(
+                self._logger,
+                "Validation completed",
+                event="validation_completed",
+                issue_number=issue.number,
+                validation_required=validation.required,
+                validation_passed=validation.passed,
+                validation_command=(" ".join(validation.command) if validation.command else None),
+            )
+            if not validation.passed:
+                raise RuntimeError("Repo-native validation failed.")
+
+            commit_sha = git_manager.commit_all(build_commit_message(issue, change_set.plan_paths))
+            git_manager.push_branch(worktree.branch_name)
+            pull_request = self._github.get_or_create_draft_pull_request(
+                branch_name=worktree.branch_name,
+                base_branch=self._config.workspace.base_branch,
+                title=build_pull_request_title(issue),
+                body=build_pull_request_body(issue, worktree.branch_name, change_set, validation),
+            )
+            issue_comment_url = self._github.create_issue_comment(
+                issue.number,
+                build_success_issue_comment(
+                    issue,
+                    worktree.branch_name,
+                    str(worktree.path),
+                    pull_request,
+                    change_set,
+                    validation,
+                ),
+            )
             self._github.update_status(issue, self._config.github.human_review_state)
             log_event(
                 self._logger,
@@ -117,6 +174,9 @@ class SymphonyService:
                 new_status=self._config.github.human_review_state,
                 thread_id=result.thread_id,
                 turn_id=result.turn_id,
+                commit_sha=commit_sha,
+                pull_request_url=pull_request.url,
+                issue_comment_url=issue_comment_url,
             )
             summary = RunSummary(
                 issue_number=issue.number,
@@ -130,11 +190,41 @@ class SymphonyService:
                 thread_id=result.thread_id,
                 turn_id=result.turn_id,
                 turn_status=result.status,
-                note="Stopped at Human Review. PR creation is intentionally deferred in this slice.",
+                commit_sha=commit_sha,
+                pull_request_number=pull_request.number,
+                pull_request_url=pull_request.url,
+                issue_comment_url=issue_comment_url,
+                changed_files=change_set.files,
+                plan_paths=change_set.plan_paths,
+                validation_required=validation.required,
+                validation_passed=validation.passed,
+                validation_command=" ".join(validation.command),
+                note="Validated, pushed, and handed off via draft PR for human review.",
             )
             self._write_summary(summary)
             return summary
         except Exception as exc:
+            if issue_comment_url is None:
+                try:
+                    issue_comment_url = self._github.create_issue_comment(
+                        issue.number,
+                        build_blocked_issue_comment(
+                            issue,
+                            worktree_target.branch_name,
+                            str(worktree_target.path),
+                            change_set or empty_change_set,
+                            str(exc),
+                            validation,
+                        ),
+                    )
+                except Exception as comment_exc:  # pragma: no cover
+                    log_event(
+                        self._logger,
+                        "Failed to post blocked issue comment",
+                        event="issue_comment_failed",
+                        issue_number=issue.number,
+                        error=str(comment_exc),
+                    )
             try:
                 self._github.update_status(issue, self._config.github.blocked_state)
             except Exception as status_exc:  # pragma: no cover
@@ -152,6 +242,9 @@ class SymphonyService:
                 issue_number=issue.number,
                 error=str(exc),
                 new_status=self._config.github.blocked_state,
+                commit_sha=commit_sha,
+                pull_request_url=(pull_request.url if pull_request is not None else None),
+                issue_comment_url=issue_comment_url,
             )
             summary = RunSummary(
                 issue_number=issue.number,
@@ -162,6 +255,15 @@ class SymphonyService:
                 finished_at=datetime.now(timezone.utc),
                 outcome="blocked",
                 project_status=self._config.github.blocked_state,
+                commit_sha=commit_sha,
+                pull_request_number=(pull_request.number if pull_request is not None else None),
+                pull_request_url=(pull_request.url if pull_request is not None else None),
+                issue_comment_url=issue_comment_url,
+                changed_files=(change_set.files if change_set is not None else ()),
+                plan_paths=(change_set.plan_paths if change_set is not None else ()),
+                validation_required=(validation.required if validation is not None else False),
+                validation_passed=(validation.passed if validation is not None else None),
+                validation_command=(" ".join(validation.command) if validation is not None and validation.command else None),
                 note=str(exc),
             )
             self._write_summary(summary)

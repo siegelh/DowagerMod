@@ -133,7 +133,7 @@ def build_config(workflow: WorkflowDefinition, repo_root: Path) -> SymphonyConfi
             token=token,
         ),
         workspace=WorkspaceConfig(
-            root=_resolve_path(str(workspace_cfg.get("root", r"$LOCALAPPDATA\Symphony\workspaces\DowagerMod"))),
+            root=_resolve_path(str(workspace_cfg.get("root", r"C:\sw"))),
             base_branch=str(workspace_cfg.get("base_branch", "agent-baseline")),
             branch_prefix=str(workspace_cfg.get("branch_prefix", "symphony")),
         ),

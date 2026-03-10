@@ -152,12 +152,13 @@ This document describes the repository as implemented now. It is intentionally c
 - `tools/build_civ4_dll.ps1` builds the DLL from `third_party/beyond-the-sword-sdk/CvGameCoreDLL` and deploys it to the BtS assets folder unless `-NoDeploy` is used.
 - `CoreFiles/install.py` copies the mirrored game tree under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` into the live install.
 - No repo CI configuration is present under a root `.github/` directory.
-- `symphony/main.py` provides the first local CLI slice for GitHub issue pickup, worktree creation, and one-turn Codex execution using `symphony/WORKFLOW.md`.
+- `symphony/main.py` provides the current local CLI slice for GitHub issue pickup, worktree creation, one-turn Codex execution, repo-native validation, and draft-PR handoff using `symphony/WORKFLOW.md`.
 
 ### Inferred but likely
 
 - The real quality gates are local XML schema validation, local DLL compile, and manual in-game smoke testing.
 - The current branch may contain broad untracked mirror content, so git-based changed-file validation can widen unexpectedly until the branch baseline is normalized.
+- Symphony can now enforce the repo-native gate before handoff for DLL or BtS XML changes, but manual gameplay smoke testing remains a human step.
 
 ### Unknown / requires human confirmation
 
@@ -196,6 +197,7 @@ This document describes the repository as implemented now. It is intentionally c
 - Current owner guidance is to focus on BtS and not intentionally keep base `Assets` or `Warlords` in sync unless a task proves it is necessary.
 - Current owner guidance is to treat `third_party/beyond-the-sword-sdk/CvGameCoreDLL` as the only DLL build source and not recreate a duplicate source tree under `CoreFiles/`.
 - Current owner guidance is to tolerate `petromod_v1` as a live dependency for now rather than force an immediate HUD migration.
+- Current Symphony guidance is to treat issue delivery, PR review, issue triage, and repo hygiene as distinct future job types rather than one monolithic background agent.
 
 ## What Appears Legacy Or Transitional
 
@@ -223,6 +225,7 @@ These items may still be useful, but they should not be treated as primary archi
 - Installer/deploy behavior: `CoreFiles/install.py`
 - Validation behavior: `tools/test_gate.ps1`, `tools/test_xml.ps1`, `tools/build_civ4_dll.ps1`
 - Repo automation: `symphony/main.py`, `symphony/WORKFLOW.md`, `SYMPHONY_SPEC.md`, `SYMPHONY_REPO_DELTA.md`
+- Planned Symphony job types: issue delivery first, then PR review, issue triage, and hygiene/audit jobs
 - Generated Art Masterpiece content: `tools/generate_art_masterpieces.py`, `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Python/CvArtMasterpieceData.py`, `docs/art_masterpiece_sources.csv`
 - Industry content generation: `tools/apply_supply_chain_overhaul.py`, `tools/apply_industry_wave2.py`, `tools/rebuild_industry_buttons_v2.py`
 

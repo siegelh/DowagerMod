@@ -108,6 +108,64 @@ class GitHubClientTests(unittest.TestCase):
         self.assertEqual(issue.project_status, "Ready")
         self.assertEqual(issue.labels, ("needs-human",))
 
+    def test_get_or_create_draft_pull_request_reuses_existing_open_pr(self) -> None:
+        client = GitHubClient(
+            GitHubConfig(
+                owner="siegelh",
+                owner_type="user",
+                repo="DowagerMod",
+                project_number=1,
+                status_field="Status",
+                ready_state="Ready",
+                planning_state="Planning",
+                in_progress_state="In Progress",
+                blocked_state="Blocked",
+                human_review_state="Human Review",
+                done_state="Done",
+                blocker_labels=(),
+                token="x",
+            )
+        )
+        with mock.patch.object(
+            client,
+            "find_open_pull_request",
+            return_value=mock.Mock(number=12, url="https://example.com/pr/12", title="Existing", is_draft=True, existing=True),
+        ) as find_pr, mock.patch.object(client, "_rest") as rest:
+            pull_request = client.get_or_create_draft_pull_request(
+                branch_name="symphony/43-test",
+                base_branch="agent-baseline",
+                title="Test",
+                body="Body",
+            )
+
+        self.assertEqual(pull_request.number, 12)
+        find_pr.assert_called_once_with("symphony/43-test")
+        rest.assert_not_called()
+
+    def test_create_issue_comment_uses_rest_endpoint(self) -> None:
+        client = GitHubClient(
+            GitHubConfig(
+                owner="siegelh",
+                owner_type="user",
+                repo="DowagerMod",
+                project_number=1,
+                status_field="Status",
+                ready_state="Ready",
+                planning_state="Planning",
+                in_progress_state="In Progress",
+                blocked_state="Blocked",
+                human_review_state="Human Review",
+                done_state="Done",
+                blocker_labels=(),
+                token="x",
+            )
+        )
+        with mock.patch.object(client, "_rest", return_value={"html_url": "https://example.com/comment/1"}) as rest:
+            url = client.create_issue_comment(43, "Hello")
+
+        self.assertEqual(url, "https://example.com/comment/1")
+        rest.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()

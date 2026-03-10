@@ -2,7 +2,7 @@
 
 - Status: `complete`
 - Owner / agent: `Codex`
-- Last updated: `2026-03-09`
+- Last updated: `2026-03-10`
 
 ## Problem Statement
 
@@ -65,6 +65,9 @@
 - Item: assuming generic empty workspaces
   - Why it may be stale: this repo should use git worktrees from `agent-baseline`.
   - What code/config overrode or verified it: confirmed repo delta policy.
+- Item: using a long `%LOCALAPPDATA%` worktree root
+  - Why it may be stale: a live issue run failed on Windows with `Filename too long` while checking out long tracked art paths.
+  - What code/config overrode or verified it: Symphony now uses a short worktree root at `C:\sw`.
 
 ## Affected Files / Directories
 
@@ -204,7 +207,7 @@
   - `symphony/README.md`
 - Remaining risks:
   - PR creation, issue comments, and daemon polling are still deferred
-  - real end-to-end project-state movement still needs a live `Ready` issue test
+  - live issue execution on Windows required shortening the worktree root to `C:\sw`; future runtime environments must preserve a short checkout prefix or enable long-path support
 - Follow-up tasks:
   - add PR creation and issue-comment ownership in a later Symphony slice
   - add daemon/poll loop behavior after the one-shot path is proven against a real issue

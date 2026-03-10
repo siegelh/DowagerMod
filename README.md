@@ -50,4 +50,4 @@ See:
 - BtS is the default edit target. Base `Assets` and `Warlords` may still matter for inherited files, but they are not the default place to start editing.
 - Historical plans, drafts, and dated debug notes now live under [docs/archive/](docs/archive/).
 - Repo-local task aids live under [skills/](skills/).
-- The repo now includes a local GitHub-backed orchestration tool under [symphony/](symphony/) for agent issue pickup and worktree execution.
+- The repo now includes a local GitHub-backed orchestration tool under [symphony/](symphony/) for agent issue pickup, worktree execution, validation, and draft-PR handoff.

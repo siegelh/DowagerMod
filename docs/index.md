@@ -26,7 +26,7 @@
 - [`../SYMPHONY_SPEC.md`](../SYMPHONY_SPEC.md) - `Current design spec`. Base service design for Symphony.
 - [`../SYMPHONY_REPO_DELTA.md`](../SYMPHONY_REPO_DELTA.md) - `Current repo delta`. DowagerMod-specific adaptation of the base Symphony spec.
 - [`../symphony/WORKFLOW.md`](../symphony/WORKFLOW.md) - `Current runtime config`. Machine-readable Symphony workflow and prompt template.
-- [`../symphony/README.md`](../symphony/README.md) - `Current`. Scope and usage for the implemented Symphony vertical slice.
+- [`../symphony/README.md`](../symphony/README.md) - `Current`. Scope and usage for the implemented Symphony delivery slice.
 
 ### Engineering / Runbooks
 
@@ -41,6 +41,7 @@
 - [`LEADER_OVERHAUL_PLAN_OF_RECORD.md`](LEADER_OVERHAUL_PLAN_OF_RECORD.md) - `Current process doc`. Overhaul methodology and guardrails. Use it with live XML/DLL verification, not as architecture truth.
 - [`plans/README.md`](plans/README.md) - `Current`. Standard location, naming, and expectations for checked-in plan docs.
 - [`plans/active/TEMPLATE.md`](plans/active/TEMPLATE.md) - `Current`. Reusable task plan template for non-trivial agent work.
+- [`plans/active/2026-03-10-symphony-pr-handoff.md`](plans/active/2026-03-10-symphony-pr-handoff.md) - `Current active plan`. Next Symphony milestone for validated PR handoff and future job-type evolution.
 
 ### Repo-Local Skills
 

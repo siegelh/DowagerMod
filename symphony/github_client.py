@@ -3,10 +3,11 @@ from __future__ import annotations
 import json
 from datetime import datetime
 from typing import Any
+from urllib import parse
 from urllib import error, request
 
 from .config import GitHubConfig
-from .models import GitHubIssue, ProjectStatusField
+from .models import GitHubIssue, ProjectStatusField, PullRequestInfo
 
 
 class GitHubClientError(RuntimeError):
@@ -15,6 +16,7 @@ class GitHubClientError(RuntimeError):
 
 class GitHubClient:
     GRAPHQL_ENDPOINT = "https://api.github.com/graphql"
+    REST_ENDPOINT = "https://api.github.com"
 
     def __init__(self, config: GitHubConfig):
         self._config = config
@@ -187,6 +189,63 @@ class GitHubClient:
             },
         )
 
+    def create_issue_comment(self, issue_number: int, body: str) -> str:
+        payload = self._rest(
+            "POST",
+            f"/repos/{self._config.owner}/{self._config.repo}/issues/{issue_number}/comments",
+            {"body": body},
+        )
+        return str(payload.get("html_url", ""))
+
+    def get_or_create_draft_pull_request(
+        self,
+        branch_name: str,
+        base_branch: str,
+        title: str,
+        body: str,
+    ) -> PullRequestInfo:
+        existing = self.find_open_pull_request(branch_name)
+        if existing is not None:
+            return existing
+
+        payload = self._rest(
+            "POST",
+            f"/repos/{self._config.owner}/{self._config.repo}/pulls",
+            {
+                "title": title,
+                "head": branch_name,
+                "base": base_branch,
+                "body": body,
+                "draft": True,
+            },
+        )
+        return PullRequestInfo(
+            number=int(payload["number"]),
+            url=payload["html_url"],
+            title=payload["title"],
+            is_draft=bool(payload.get("draft", True)),
+            existing=False,
+        )
+
+    def find_open_pull_request(self, branch_name: str) -> PullRequestInfo | None:
+        query = parse.urlencode(
+            {
+                "state": "open",
+                "head": f"{self._config.owner}:{branch_name}",
+            }
+        )
+        payload = self._rest("GET", f"/repos/{self._config.owner}/{self._config.repo}/pulls?{query}")
+        if not payload:
+            return None
+        pull = payload[0]
+        return PullRequestInfo(
+            number=int(pull["number"]),
+            url=pull["html_url"],
+            title=pull["title"],
+            is_draft=bool(pull.get("draft", False)),
+            existing=True,
+        )
+
     def _normalize_issue_node(self, node: dict[str, Any]) -> GitHubIssue | None:
         content = node.get("content")
         if not content or content.get("__typename") != "Issue":
@@ -266,6 +325,35 @@ class GitHubClient:
             messages = ", ".join(err.get("message", "unknown error") for err in decoded["errors"])
             raise GitHubClientError(f"GitHub GraphQL error: {messages}")
         return decoded["data"]
+
+    def _rest(self, method: str, path: str, body: dict[str, Any] | None = None) -> Any:
+        payload = None
+        if body is not None:
+            payload = json.dumps(body).encode("utf-8")
+
+        req = request.Request(
+            f"{self.REST_ENDPOINT}{path}",
+            data=payload,
+            headers={
+                "Authorization": f"Bearer {self._config.token}",
+                "Accept": "application/vnd.github+json",
+                "Content-Type": "application/json",
+                "User-Agent": "dowagermod-symphony/0.1",
+            },
+            method=method,
+        )
+        try:
+            with request.urlopen(req, timeout=30) as response:
+                raw_body = response.read().decode("utf-8")
+        except error.HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace") if exc.fp is not None else ""
+            raise GitHubClientError(f"GitHub REST HTTP error: {exc.code} {detail}".strip()) from exc
+        except error.URLError as exc:
+            raise GitHubClientError(f"GitHub REST connection error: {exc.reason}") from exc
+
+        if not raw_body:
+            return None
+        return json.loads(raw_body)
 
 
 def _parse_datetime(raw_value: str) -> datetime:

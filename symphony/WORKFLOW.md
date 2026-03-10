@@ -19,7 +19,7 @@ tracker:
     - do-not-touch
     - design-needed
 workspace:
-  root: $LOCALAPPDATA\Symphony\workspaces\DowagerMod
+  root: C:\sw
   base_branch: agent-baseline
   branch_prefix: symphony
 runtime:

@@ -27,7 +27,7 @@ class ConfigTests(unittest.TestCase):
                         "project_number": 1,
                     },
                     "workspace": {
-                        "root": r"$LOCALAPPDATA\Symphony\workspaces\DowagerMod",
+                        "root": r"C:\sw",
                         "base_branch": "agent-baseline",
                         "branch_prefix": "symphony",
                     },
@@ -44,7 +44,7 @@ class ConfigTests(unittest.TestCase):
             config = build_config(workflow, repo_root)
 
         self.assertEqual(config.github.token, "test-token")
-        self.assertTrue(str(config.workspace.root).endswith(r"localappdata\Symphony\workspaces\DowagerMod"))
+        self.assertEqual(config.workspace.root, Path(r"C:\sw"))
         self.assertEqual(config.codex.command, ("codex", "app-server"))
 
 

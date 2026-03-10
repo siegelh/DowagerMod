@@ -70,6 +70,31 @@ class AgentRunResult:
 
 
 @dataclass(frozen=True)
+class ChangeSet:
+    files: tuple[str, ...]
+    plan_paths: tuple[str, ...]
+    requires_xml_gate: bool
+    requires_dll_gate: bool
+
+
+@dataclass(frozen=True)
+class ValidationResult:
+    required: bool
+    passed: bool
+    command: tuple[str, ...]
+    output: str
+
+
+@dataclass(frozen=True)
+class PullRequestInfo:
+    number: int
+    url: str
+    title: str
+    is_draft: bool
+    existing: bool
+
+
+@dataclass(frozen=True)
 class RunSummary:
     issue_number: int
     issue_title: str
@@ -82,6 +107,15 @@ class RunSummary:
     thread_id: str | None = None
     turn_id: str | None = None
     turn_status: str | None = None
+    commit_sha: str | None = None
+    pull_request_number: int | None = None
+    pull_request_url: str | None = None
+    issue_comment_url: str | None = None
+    changed_files: tuple[str, ...] = field(default_factory=tuple)
+    plan_paths: tuple[str, ...] = field(default_factory=tuple)
+    validation_required: bool = False
+    validation_passed: bool | None = None
+    validation_command: str | None = None
     note: str | None = None
 
     def to_dict(self) -> dict[str, Any]:

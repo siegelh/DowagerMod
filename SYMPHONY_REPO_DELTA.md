@@ -187,7 +187,14 @@ An issue should be dispatch-eligible only if all are true:
 
 ### Recommended workspace root
 
-- `%LOCALAPPDATA%\\Symphony\\workspaces\\DowagerMod`
+- `C:\\sw`
+
+### Why the root is intentionally short
+
+- This repo contains a mirrored Civ4 install tree with some very long tracked asset paths.
+- A longer worktree root under `%LOCALAPPDATA%` caused live issue runs to fail on Windows with `Filename too long` during `git worktree add`.
+- Keeping the worktree root very short is the current repo-level mitigation.
+- Runtime logs and summaries can still live under `%LOCALAPPDATA%`; only the worktree checkout itself needs the short root.
 
 ### Worktree lifecycle
 
@@ -289,6 +296,7 @@ The repo-specific Symphony workflow prompt should reinforce:
   - open or update a PR
   - move the issue/project item to `Human Review`
 - Symphony should not auto-merge in v1.
+- The current implementation direction is to treat `Human Review` as "validated branch + draft PR + issue summary comment exist," not merely "an agent turn finished."
 
 ### Issue closure recommendation
 
@@ -418,7 +426,7 @@ This is not an implementation instruction set yet. It is a recommended shape for
 - logs/state:
   - `%LOCALAPPDATA%\\Symphony\\DowagerMod`
 - worktrees:
-  - `%LOCALAPPDATA%\\Symphony\\workspaces\\DowagerMod`
+  - `C:\\sw`
 
 ### Reason
 
@@ -458,20 +466,38 @@ No hard platform blocker remains before implementation.
 
 The remaining practical prerequisites are:
 
-- create one or more real GitHub Issues for Symphony to work against
-- move a clearly scoped issue into `Ready`
-- keep this delta and the implementation plan checked into the repo
+- continue hardening the delivery slice against real issues
+- add background PR-review, triage, and hygiene job types after the delivery loop is stable
 
 ## 19. Recommended Next Step
 
-Before implementation, create a short checked-in implementation plan that locks down:
+Continue the implementation in this order:
 
-- branch naming
-- worktree root
-- review/merge policy
-- cleanup policy
+- validated delivery handoff
+- PR review agent
+- issue triage agent
+- hygiene/audit agent
 
-After that, implementation can begin against:
+Keep using:
 
 - `SYMPHONY_SPEC.md` as the base service spec
 - `SYMPHONY_REPO_DELTA.md` as the DowagerMod adaptation layer
+
+## 20. Planned Symphony Job Types
+
+The intended production shape for this repo is not one monolithic "coding bot." It is a small set of job types sharing one orchestration layer:
+
+- `implement_issue`
+  - Trigger: issue/project item moves to `Ready`
+  - Output: validated branch, draft PR, issue summary comment, `Human Review`
+- `review_pr`
+  - Trigger: PR opened or updated
+  - Output: review comments or a structured review summary
+- `triage_issue`
+  - Trigger: new issue enters `Inbox`
+  - Output: suggested labels, readiness classification, and routing
+- `hygiene_scan`
+  - Trigger: scheduled local run
+  - Output: repo-health issues, stale-doc findings, validation-gap findings, and cleanup recommendations
+
+This split keeps delivery, review, and maintenance concerns separate while reusing the same GitHub/project/runtime foundation.
