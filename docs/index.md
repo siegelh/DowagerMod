@@ -21,6 +21,13 @@
 - [`../ARCHITECTURE.md`](../ARCHITECTURE.md) - `Current`. Code-first architecture-as-implemented map.
 - [`../INSTALLER.md`](../INSTALLER.md) - `Current`. Canonical installer behavior and packaging caveats centered on `CoreFiles/install.py`.
 
+### Automation
+
+- [`../SYMPHONY_SPEC.md`](../SYMPHONY_SPEC.md) - `Current design spec`. Base service design for Symphony.
+- [`../SYMPHONY_REPO_DELTA.md`](../SYMPHONY_REPO_DELTA.md) - `Current repo delta`. DowagerMod-specific adaptation of the base Symphony spec.
+- [`../symphony/WORKFLOW.md`](../symphony/WORKFLOW.md) - `Current runtime config`. Machine-readable Symphony workflow and prompt template.
+- [`../symphony/README.md`](../symphony/README.md) - `Current`. Scope and usage for the implemented Symphony vertical slice.
+
 ### Engineering / Runbooks
 
 - [`TESTING_WORKFLOW.md`](TESTING_WORKFLOW.md) - `Current`. Local XML and DLL validation flow. Matches [`../tools/test_gate.ps1`](../tools/test_gate.ps1), [`../tools/test_xml.ps1`](../tools/test_xml.ps1), and [`../tools/test_full.ps1`](../tools/test_full.ps1).

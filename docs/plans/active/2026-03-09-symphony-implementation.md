@@ -1,6 +1,6 @@
 # Symphony Implementation
 
-- Status: `draft`
+- Status: `complete`
 - Owner / agent: `Codex`
 - Last updated: `2026-03-09`
 
@@ -84,12 +84,12 @@
 
 ## Assumptions That Need Human Confirmation
 
-- Assumption: the first implementation slice should stop at branch/prompt/workspace/issue-selection/project-status capability, not full autonomous merge flow.
+- Assumption: the first implementation slice should stop at branch/prompt/workspace/issue-selection/project-status capability plus a single Codex app-server turn, not full autonomous merge flow.
   - Why it matters: it constrains v1 complexity and keeps review in the loop.
   - What changes if false: the first implementation would need much stronger PR, merge, and issue-close automation.
-- Assumption: Symphony should create PRs directly in v1.
-  - Why it matters: it affects GitHub client scope and the agent/orchestrator responsibility split.
-  - What changes if false: PR creation would need to remain agent-owned or deferred.
+- Assumption: PR creation should be deferred until after the first end-to-end GitHub/worktree/agent loop is stable.
+  - Why it matters: it keeps milestone one focused on issue pickup, worktree creation, Codex execution, and deterministic project-state transitions.
+  - What changes if false: the first implementation would need extra git/PR logic and stricter post-run validation.
 
 ## Proposed Implementation Steps
 
@@ -120,16 +120,19 @@
    - eligibility logic
    - worktree path creation
 8. Stop the first milestone at:
-   - fetch `Ready` issue
-   - create worktree
-   - launch agent
-   - update project state
+   - fetch the oldest eligible `Ready` issue
+   - move it through `Planning` and `In Progress`
+   - create or reuse a git worktree from `agent-baseline`
+   - launch one Codex app-server turn in that worktree
+   - record a structured local run summary outside the repo tree
+   - move the project item to `Human Review` on success or `Blocked` on failure
+   - explicitly defer PR creation and issue comments to a later slice
 
 ## Validation Plan
 
 - Required automated checks:
   - unit tests for Symphony modules
-  - smoke test against the real `DowagerMod` GitHub project using a safe test issue
+  - a local CLI smoke test for workflow loading, GitHub selection, and worktree creation
 - Required repo scripts:
   - only if the implementation task edits BtS XML or DLL files; otherwise not required for pure Python service work
 - Required manual smoke test:
@@ -169,30 +172,39 @@
 
 ## Open Questions
 
-- Should the first code milestone include PR creation, or defer PR creation until after the first worktree/agent loop works?
-- Should Symphony write issue comments directly in milestone one, or leave narrative output to the agent initially?
+- Should Symphony add deterministic issue comments in milestone two, or continue to leave narrative summaries to the coding agent?
+- Should a later slice own PR creation directly in the orchestrator, or trigger it only after a successful tracked commit exists?
 
 ## Completion Checklist
 
-- [ ] Trusted sources of truth were verified from code/config/scripts.
-- [ ] Existing docs/plans in this area were reviewed and classified for trustworthiness.
-- [ ] Assumptions needing human confirmation were recorded.
-- [ ] Implementation steps were completed or explicitly deferred.
-- [ ] Required validation ran and results were recorded.
-- [ ] Required manual smoke test ran, or the blocker was escalated.
-- [ ] Related docs were updated or explicitly deferred with reason.
-- [ ] Residual risks and open questions were summarized.
+- [x] Trusted sources of truth were verified from code/config/scripts.
+- [x] Existing docs/plans in this area were reviewed and classified for trustworthiness.
+- [x] Assumptions needing human confirmation were recorded.
+- [x] Implementation steps were completed or explicitly deferred.
+- [x] Required validation ran and results were recorded.
+- [x] Required manual smoke test ran, or the blocker was escalated.
+- [x] Related docs were updated or explicitly deferred with reason.
+- [x] Residual risks and open questions were summarized.
 
 ## Final Outcome Summary
 
 - What changed:
-  - added an implementation-ready plan for the first Symphony build slice
+  - implemented a Python `symphony/` package with workflow loading, config/env resolution, GitHub Project v2 issue selection, git worktree management, Codex app-server execution, local JSON run summaries, and a `run-once` CLI
+  - added a machine-readable runtime workflow at `symphony/WORKFLOW.md`
+  - added unit tests for workflow parsing, config loading, GitHub selection, and worktree target generation
 - Validation performed:
-  - planning review only
+  - `python -m unittest discover -s tests -p "test_symphony_*.py"`
+  - `python -m symphony.main --workflow symphony/WORKFLOW.md run-once --dry-run`
+  - direct `AgentRunner` smoke test against live `codex app-server`
 - Docs updated:
   - `docs/plans/active/2026-03-09-symphony-implementation.md`
+  - `docs/index.md`
+  - `README.md`
+  - `ARCHITECTURE.md`
+  - `symphony/README.md`
 - Remaining risks:
-  - milestone-one scope still needs to be fixed before coding
+  - PR creation, issue comments, and daemon polling are still deferred
+  - real end-to-end project-state movement still needs a live `Ready` issue test
 - Follow-up tasks:
-  - convert this plan into the implementation prompt
-  - build the first vertical slice under `symphony/`
+  - add PR creation and issue-comment ownership in a later Symphony slice
+  - add daemon/poll loop behavior after the one-shot path is proven against a real issue

@@ -10,6 +10,7 @@ This document describes the repository as implemented now. It is intentionally c
 - `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` is an intentional mirror of the local game install and the payload copied by the installer.
 - The default modding target is the BtS assets root: `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets`.
 - The main implementation layers are XML gameplay/data under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML`, Python runtime/UI under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Python`, custom DLL source under `third_party/beyond-the-sword-sdk/CvGameCoreDLL`, and local installer/build/test tooling under `CoreFiles/install.py` and `tools/`.
+- Repo-side development automation now also includes a local Python orchestration tool under `symphony/`. It is not part of the Civ4 runtime; it exists to drive GitHub-backed agent work on this repository.
 - The mirror also contains base `Assets`, `Warlords`, stock scenario mods, binaries, and media for installer completeness. Those mirrored files exist on purpose, but they are not all default edit targets.
 - A few oversized stock archives are intentionally excluded from git, so the repo mirror should be treated as operationally complete for mod work, not as a byte-for-byte stock backup.
 
@@ -90,6 +91,7 @@ This document describes the repository as implemented now. It is intentionally c
 ### Confirmed from code/config
 
 - There is no separate backend service, API server, database, or frontend web app.
+- There is now a repo-local automation service implementation under `symphony/`, but it is a developer tool, not a gameplay/runtime backend.
 - "Frontend" in this repo means in-game Python screens plus 2D/3D assets under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art`.
 - "Backend" means Civ4 engine behavior driven by XML plus the custom `CvGameCoreDLL.dll`.
 - All runtime code executes inside the Civ4 process.
@@ -150,6 +152,7 @@ This document describes the repository as implemented now. It is intentionally c
 - `tools/build_civ4_dll.ps1` builds the DLL from `third_party/beyond-the-sword-sdk/CvGameCoreDLL` and deploys it to the BtS assets folder unless `-NoDeploy` is used.
 - `CoreFiles/install.py` copies the mirrored game tree under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` into the live install.
 - No repo CI configuration is present under a root `.github/` directory.
+- `symphony/main.py` provides the first local CLI slice for GitHub issue pickup, worktree creation, and one-turn Codex execution using `symphony/WORKFLOW.md`.
 
 ### Inferred but likely
 
@@ -219,6 +222,7 @@ These items may still be useful, but they should not be treated as primary archi
 - DLL-backed XML capability work: `third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvInfos.cpp`, `CvCity.cpp`, `CvGameTextMgr.cpp`
 - Installer/deploy behavior: `CoreFiles/install.py`
 - Validation behavior: `tools/test_gate.ps1`, `tools/test_xml.ps1`, `tools/build_civ4_dll.ps1`
+- Repo automation: `symphony/main.py`, `symphony/WORKFLOW.md`, `SYMPHONY_SPEC.md`, `SYMPHONY_REPO_DELTA.md`
 - Generated Art Masterpiece content: `tools/generate_art_masterpieces.py`, `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Python/CvArtMasterpieceData.py`, `docs/art_masterpiece_sources.csv`
 - Industry content generation: `tools/apply_supply_chain_overhaul.py`, `tools/apply_industry_wave2.py`, `tools/rebuild_industry_buttons_v2.py`
 
