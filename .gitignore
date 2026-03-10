@@ -19,3 +19,4 @@ CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Assets/Assets2.fpk
 CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/ThemeParseLog.txt
 CoreFiles/dist/
 tmp/**
+.env
