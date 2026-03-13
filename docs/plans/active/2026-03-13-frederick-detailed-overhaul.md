@@ -5,164 +5,144 @@
 - Status: `design complete`
 - Last updated: 2026-03-13
 
-## Plan-of-Record Checklist (docs/LEADER_OVERHAUL_PLAN_OF_RECORD.md)
-- Historical thesis: "Frederick II fused a militarized canton system with enlightened absolutism, turning Silesia’s wealth and refugee talent into a drill-and-reform machine." ✔
-- Gameplay thesis: "Hybrid pressure civ that spikes in mid-game wars through disciplined line infantry and industry-backed bureaucracy, then transitions into late-game science/gold scaling." ✔
-- Power budget thesis: `Hybrid` (trait delivers map economy; UU/UB deliver military + admin spikes). ✔
-- Trait channels evaluated: scalar modifiers, ImprovementYieldChanges, ImprovementCityCommerceChangesWorked, BuildingCommerceChanges (selected subset noted below). ✔
-- UU decision: `REPLACE` vanilla Panzer with `Frederician Fusilier` (Musketman-class) for era fidelity and to avoid overlap with other German leaders. ✔
-- UB decision: `REPLACE` vanilla Assembly Plant with `Generaldirektorium` (Courthouse-class) to foreground Frederick’s administrative reforms. ✔
-- Unique improvement decision: `None` (per issue constraint) – documented rationale in spec. ✔
-- Art sourcing plan: Searched workspace `CIV4ArtDefines_Unit.xml` (found `ART_DEF_UNIT_FREDERICK_BARBAROSSA`) and external library `C:\Users\Harrison\Downloads\civ4mods-code` for "Fusilier" assets (multiple unit meshes/buttons such as `Art/Units/Unique/Austria/Fusilier Austria`). Identified viable donor meshes for a Prussian blue fusilier variant; future implementation will copy chosen asset into `CoreFiles/.../Assets/Art/Units/PrussianFusilier/`. ✔
-- UI clarity plan: Trait text will list each tile/class effect in bullet form; UU/UB Civilopedia entries describe conditional bonuses (worked-tile vs. BFC, canton reserve counter) in first paragraph per UI standard; diplo text updated for new playstyle cues. ✔
-- AI impact notes: Documented evaluation logic for canton reserve meter, UU target selection, and admin economies in Implementation Plan. ✔
-
 ## 1) Historical Summary (Plain English)
-Frederick II seized the Prussian throne in 1740 and immediately invaded Austrian Silesia, exploiting a newly drilled standing army trained through the canton system; his surprise victories at Mollwitz and Hohenfriedberg turned Prussia into a European power and yielded the rich textile and mining base that financed further reforms. citeturn0search0turn0search3turn0search13 After the Silesian Wars he codified enlightened absolutism by centralizing the General Directory, demanding that provincial war and finance colleges report to Berlin, and writing marginalia on bureaucratic memos to enforce austerity, canal building, and land reclamation programs that resettled refugees and introduced potatoes and clover rotations. citeturn0search3turn1search2turn1search9 Frederick simultaneously cultivated cameralist economics—rewarding silk weaving, porcelain works, and state credit banks—while also acting as "philosopher-king": he corresponded with Voltaire, reformed education, and enforced limited religious toleration to attract Huguenots, Silesian Protestants, and Salzburgers as skilled settlers. citeturn0search3turn0search8 During the Seven Years’ War (1756–1763) he weaponized oblique-order tactics, mobile artillery, and rapid forced marches to survive encirclement by Austria, Russia, and France; despite catastrophic losses such as Kunersdorf, the drilled reserve and British subsidies kept Prussia afloat until Peter III’s accession removed Russia from the war. citeturn0search0turn0search2 After 1763 Frederick doubled down on canals (e.g., Finow, Bromberg), draining marshes, and enforcing agricultural inspection tours, creating grain surpluses that supported cheap bread in Berlin while his officer corps supervised both civil works and regimental depots. citeturn1search2turn0search3 Late in his reign he institutionalized a dual identity: relentless military readiness plus measured patronage of philosophy, opera, and architecture at Sanssouci, aiming for a disciplined yet prosperous society tightly managed from the top. citeturn0search3turn0search8
+Frederick II inherited the Prussian throne in 1740, immediately seized Silesia from Austria, and spent the next two decades executing rapid campaigns that fused his father’s drilled army with his own flair for maneuver warfare; victories at Hohenfriedberg, Rossbach, and the oblique-order masterpiece at Leuthen convinced Europe that Prussia could survive against larger coalitions if its logistics and staff kept pace with Frederick’s operational audacity.[^1][^5] The army that carried those campaigns rested on the canton system formalized only a few years earlier, which bound each regiment to specific recruiting districts so that peasant households could rotate into three-month training blocks before returning to farms, giving Frederick a reserve pool that could be mobilized quickly when the front collapsed or new regiments had to be raised.[^3] While campaigning, Frederick also tightened central administration: he expanded the General Directory with new commerce, mining, and forestry departments so that tax enforcement, war finance, and provincial development all reported through a single audit chain that he annotated personally.[^2]
+
+After the traumatic Seven Years’ War he doubled down on cameralist economic fixes: new indirect taxes, protected tariffs, and a school-reform program anchored by the 1763 general school law modernized bureaucracy while keeping Junker nobles loyal through continued control of the officer corps.[^2][^4] Frederick’s self-described “peopling policy” drained the Oderbruch marshes, built the Finow and Bromberg canal links, and invited more than 300,000 immigrants—Huguenots, Salzburg Protestants, Jesuit educators, and Jewish merchants—to settle reclaimed land so that grain surpluses and workshops could fund future mobilizations without crushing urban populations.[^4] This hybrid of canton militarism, centralized paper trails, industrial patronage, and selective toleration defines the historical pillars for his overhaul: Prussia’s military resiliency depended on drilled reserves tied to districts, civil servants who could micromanage industrial quotas, canal-fed workshops, and a propaganda narrative that Frederick was the “first servant of the state.”
 
 ## 2) Sources
-1. Encyclopedia Britannica, “Frederick II | Biography, Accomplishments, & Facts.” citeturn0search0
-2. Encyclopedia Britannica, “History of Europe – The Seven Years’ War.” citeturn0search3
-3. Encyclopedia Britannica, “Prussia – Military and the Canton System.” citeturn0search13
-4. Encyclopedia Britannica, “Agriculture and Industry Under Frederick the Great.” citeturn1search2
-5. German History in Documents and Images, “Frederick II’s Instructions for his Provincial Officials (1763).” citeturn1search9
-6. Encyclopedia Britannica, “Frederick the Great – Cultural Patronage and Enlightenment.” citeturn0search8
+1. Matthew S. Anderson, “Frederick II,” *Encyclopaedia Britannica*, updated February 27, 2026.[^1]
+2. Matthew S. Anderson, “Frederick II – Domestic Policies,” *Encyclopaedia Britannica*, updated February 27, 2026.[^2]
+3. “Introduction of the Brandenburg-Prussian Canton System of Military Recruitment,” German History in Documents and Images.[^3]
+4. “Prussia Under Frederick the Great,” *History of Western Civilization II* (Lumen Learning).[^4]
+5. Vince Hawkins, “Frederick the Great at Leuthen: The Oblique Order,” *Warfare History Network*.[^5]
 
 ## 3) Salient Pillars
-1. **Canton-Made Line Infantry** – Militarized provinces fed drilled regiments that executed oblique-order assaults even while marching under extreme attrition.
-2. **Centralized General Directory** – Frederick’s handwritten directives enforced a single budget office spanning war, finance, and infrastructure.
-3. **Cameralist Industrial Patronage** – State capital built silk, porcelain, and metal industries in Silesia tied to canals and refugee craft guilds.
-4. **Refuge Toleration and Enlightened Schools** – Huguenots, Salzburgers, and domestic minorities gained freedom to settle, boosting artisan/scientific output.
-5. **War-Ready Logistics with Lean Treasury** – Frederick hoarded cash, audited depots, and kept reserve battalions ready to redeploy within days.
+1. **Cantonist Machine** – Regiment-linked districts rotating peasants into short-service training created a rapid mobilization backbone.[^3]
+2. **General Directory Oversight** – Frederick’s habit of annotating fiscal and provincial dossiers tied war, finance, and infrastructure under one office.[^2]
+3. **Canal-Backed Cameralism** – Finow/Oderbruch drainage and Bromberg links tied industrial workshops to crown supervision and grain reserves.[^4]
+4. **Refugee Toleration for Talent** – Promoting Jesuits, Huguenots, and Jewish bankers into Prussian towns accelerated artisan and scientific capacity.[^4]
+5. **Oblique-Order Professionalism** – Regiment-level drilling plus staff discipline let Frederick pivot entire armies at Leuthen for local superiority.[^1][^5]
 
 ## 4) History → Mechanics Mapping
-- **Canton-Made Line Infantry** → Trait grants free Drill I to Gunpowder units built in cities with Barracks; UU replaces Musketman with stronger first-strike fusiliers; civic-style scaling via `ImprovementCityCommerceChangesWorked` on Villages/Towns to reward developed provinces feeding the army.
-- **Centralized General Directory** → UB (Generaldirektorium) replaces Courthouse, increasing maintenance reduction, adding science/espionage commerce, and granting +25% production toward Industry-category buildings to reflect paperwork routing.
-- **Cameralist Industrial Patronage** → Trait uses `ImprovementYieldChanges` to add +1  to Workshops on river/plains plus +1  to Watermills; UB adds Merchant slot and Gold% when Core Industry buildings are active (implemented via BuildingCommerceChanges and XML check for IndustryCategory tag on local buildings).
-- **Refuge Toleration & Schools** → Trait grants +1  for Specialists in cities with at least two religions (via `SpecialistCommerceChanges` scoped by new text key) and +10% Great People rate globally; UB adds +2  Great Person Points and +1 Scientist slot to model academies.
-- **War-Ready Logistics** → Novel mechanic `Canton Reserve Meter` accumulates charges whenever a city with Barracks finishes a land unit; charges can be consumed (button on city screen) to instantly draft a 6 XP Frederician Fusilier in that city without anarchy once every 10 turns, modeling rapid reserve mobilization.
+- **Cantonist Machine** → Leader trait grants worked-Town science commerce and Plains/Grassland Workshop hammers, while the Canton Reserve novel mechanic (see §6) stores charges whenever Barracks cities finish land units, enabling instant fusilier mobilization to simulate regimental depots.
+- **General Directory Oversight** → Courthouse-class UB (Generaldirektorium) adds stronger maintenance reduction, specialist slots, and +25% production toward buildings flagged with `IndustryCategory`, representing paperwork-driven acceleration of core industries.
+- **Canal-Backed Cameralism** → Trait river-farm commerce and water mill production bonuses reward canal corridors; UB grants conditional gold bonus when Core Industry requirements are met, nudging players to pair canals, industries, and bureaucrats.
+- **Refugee Toleration for Talent** → Trait gives +1 gold to all specialists in cities containing at least two religions plus +25% Great Person Rate to mirror Frederick’s pragmatic toleration; UB adds +2 GPP and mixed specialist slots to represent Jesuit-led academies.
+- **Oblique-Order Professionalism** → UU (Frederician Fusilier) replaces Musketman with Drill I and new Oblique Order promotion (first strike + withdrawal) plus +15% vs Gunpowder, while Barracks-trained gunpowder units receive free Drill I to propagate Frederick’s drill schools.
 
 ## 4b) Novel Mechanic Candidates and Decision Log
-| Candidate | Historical Anchor | Prototype Mechanic & History-to-Formula | XML/DLL Touchpoints | AI Plan | Decision |
-| --- | --- | --- | --- | --- | --- |
-| **Canton Reserve Meter** | 1733 canton reform tying adult males to regimental districts. citeturn0search13 | Add new `iCantonReserve` player value. Each time a city with Barracks completes a Gunpowder or Melee unit, +1 charge (cap 3). City button “Mobilize Canton” consumes 1 charge to spawn a 6 XP Frederician Fusilier (or contemporary Land unit) with +15% maintenance for 5 turns. | New DLL hooks: player-level counter, city action, UI help text; XML flag on trait to enable; `CvCity::canTrain` gating; `CvPlayer::changeCantonReserve`. | AI monitors war prep; when planning offensive, ensures at least 2 charges and triggers mobilization near target; defensive AI uses when enemy stack within 6 tiles. | **Selected** – passes traceability, introduces unique decision (saving charges), AI path described, fallback is manual unit builds if hook unavailable. |
-| **Industry Audit Switch** | Frederick’s marginalia on industrial subsidies (1763 instructions). citeturn1search9 | Proposed city toggle that, when enabled, grants +10%  in a city per active Core Industry but cuts 2  if local resource quota fails. | Would require new building state machine referencing `IndustryCategory`. | AI would need to monitor tile counts per city; complexity high. | **Rejected** – heavy new UI for marginal payoff; baseline UB bonuses already model oversight. |
-| **Sanssouci Patronage Track** | Frederick’s patronage of philosophers and musicians. citeturn0search8 | Global meter fills via Artist/Musician specialists, unlocking empire-wide +1  per University for 20 turns. | Would need DLL player event + new text. | AI evaluation unclear; duplicates existing golden age pattern. | **Rejected** – benefits replicate Golden Ages; better handled via existing GP/trait buffs. |
-
-Fallback for Canton Reserve: if DLL hook slips, trait gains `iMaxPlayerBuildingProductionModifier +10%` for Barracks and `+2 XP` on Gunpowder units to keep intended theme albeit with lower ceiling.
+| Candidate | Historical Anchor & History-to-Formula | XML/DLL Touchpoints | AI Plan | Decision |
+| --- | --- | --- | --- | --- |
+| **Canton Reserve Meter** (Selected) | 1733 canton orders plus Leuthen-era depots → player stores up to 3 charges; each qualifying land unit built in a Barracks/Armory city adds 1; consuming a charge via new city button instantly spawns a 6 XP Frederician Fusilier with 1-turn immobility and adds +25% city maintenance for 5 turns.[^3][^5] | New `bEnableCantonReserve` trait flag, `CvPlayer::m_iCantonReserve`, serialized save data, Python city command hook, UI pip in HUD. | Tactical AI saves 2 charges before offensive DoW, reaction AI fires when hostile stack ≤6 tiles. | **Selected** – satisfies traceability, distinct decision layer, AI spec, emergent gameplay, and has a clear fallback (+2 XP to Barracks gunpowder units) if DLL work slips. |
+| **State Canal Edict** | 1760s Oderbruch/Bromberg program → toggle in canal-adjacent cities to push +15% building production but -1 food until a Core Industry completes, simulating forced labor on waterways.[^4] | Would require city-level state toggle referencing `FeatureRiver` adjacency and `IndustryCategory`; new UI states. | AI would need to predict surplus food and industry backlog. | **Rejected** – micromanagement-heavy, food penalty punishes AI more than players, and UB already covers canal incentives. |
+| **Royal Refugee Lottery** | Frederick’s mass immigration edicts promising land regardless of faith → empire project that, once every 30 turns, converts 2 population in capital into 2 free Specialists plus +2 happiness empire-wide.[^4] | Project entry + DLL to spawn specialists empire-wide. | Hard to teach AI to time growth vs whip; overlaps with Golden Age economy. | **Rejected** – effect duplicates existing specialist bursts and destabilizes tall cities. |
 
 ## 5) Mechanics Coverage Check
-| Entry | Key Mechanics Reviewed | Used? | Reason if Not Used | Source Mode |
+| Entry | Key Mechanics Reviewed | Used? | Reason if not used | Source Mode |
 | --- | --- | --- | --- | --- |
-| Civ4BuildingInfos | Cost, BuildingClass, Commerce/Yield modifiers, Specialist slots, `BuildingClassProductionModifiers`, `IndustryCategory`. | Yes | UB relies on Courthouse class plus IndustryCategory-aware production bonus. | Web (Modiki) |
-| Civ4CivilizationInfos | Leader slots, free techs/units, art/flag, diplomacy text. | Yes | Personality tuning + new UU/UB references documented. | Web (Modiki) |
-| Civ4TraitInfos | Scalar modifiers, mapped channels, ImprovementCityCommerceChangesWorked/BFC. | Yes | Trait leverages scalar GP mods, Specialist commerce, Improvement yields, free promotions. | Web (Modiki) + repo schema |
-| Civ4ImprovementInfos | Base yields, tech reveals, upgrade chains. | Partial | No unique improvement per constraint; still reviewed for farm/workshop tuning interplay. | Web (Modiki) |
-| Civ4SpecialUnitInfos | Unique worker builds & replacement locks. | No | No new SpecialUnit classes introduced; UU uses existing Musketman class. | Web (Modiki) |
-| Civ4PromotionInfos | Drill/formation effects, prerequisites. | Yes | UU introduces `PROMOTION_OBLIQUE_ORDER` (new entry) offering +1 first strike & +10% vs Gunpowder. | Web (Modiki) |
-| Civ4UnitClassInfos | Determines Musketman replacement mapping. | Yes | `UNITCLASS_MUSKETMAN` remapped to Frederician Fusilier for Frederick-only leader/civ combo. | Web (Modiki) |
-| Civ4UnitInfos | Strength, cost, upgrade tree, XP, default promotions. | Yes | UU stats defined here; fallback unit references recorded. | Web (Modiki) |
-| Trait-level improvement yield/commerce hooks | `ImprovementYieldChanges`, `ImprovementCityCommerceChangesWorked/BFC`. | Yes | Trait uses +1  on Workshops (plains/river) and +1  on Town science (worked). | Repo scan |
-| Trait-level building/specialist/bonus/route hooks | `BuildingCommerceChanges`, `SpecialistCommerceChanges`. | Yes | Specialist commerce bonus for multi-religion cities; UB synergy via BuildingCommerceChanges. | Repo scan |
-| Civic-level improvement commerce hooks | `ImprovementCityCommerceChangesWorked/BFC` inside civics. | No | Scope is leader trait, not civic; future civics rework can reuse. | Repo scan |
-| Civ-specific unique improvement framework | Custom Improvement + Build + cap system. | No | Explicitly avoided per issue constraint; nearest effect delivered via trait/UB. | Repo scan |
-| Rare improvement caps | Per-player cap enforcement. | No | Not applicable without unique improvement. | Repo scan |
-| IndustryCategory / Supply Chain schema (New) | `IndustryCategory` tag plus Core/Luxury/Composite caps and prerequisite text flows in `CIV4BuildingsSchema`. | Yes | UB production bonus references IndustryCategory to accelerate Core & Composite industries. | Repo scan |
+| Civ4BuildingInfos | Costs, BuildingClass replacements, specialist slots, `BuildingClassProductionModifiers`, `IndustryCategory` tags. | Yes | UB relies on Courthouse class swap and IndustryCategory-aware production. | Web |
+| Civ4CivilizationInfos | Leader slots, free units/tech, unit art, diplomacy text. | Yes | Need to remap Frederick to new trait/UU/UB and update diplo text. | Web |
+| Civ4TraitInfos | Scalar modifiers, Improvement yield hooks, `SpecialistCommerceChanges`, free promotions. | Yes | Trait drives tile buffs, specialist gold, upkeep, Drill I gating, and Canton flag. | Web |
+| Civ4ImprovementInfos | Base yields, tech prereqs, upgrade chains. | Partial | No new improvement created per constraint; only referenced to balance workshop/farm buffs. | Web |
+| Civ4SpecialUnitInfos | Replacement limits for workers/missionaries. | No | UU shares existing Musketman class; no unique special unit required. | Web |
+| Civ4PromotionInfos | Combat modifiers, first strikes, prerequisites. | Yes | Adds `PROMOTION_OBLIQUE_ORDER` for UU and upgrade path. | Web |
+| Civ4UnitClassInfos | Determines Musketman replacement mapping. | Yes | Map `UNITCLASS_MUSKETMAN` → `UNIT_FREDERICIAN_FUSILIER` for Frederick’s civ only. | Web |
+| Civ4UnitInfos | Strength, cost, XP, default promotions. | Yes | Defines UU stats, art, and Canton synergy. | Web |
+| Trait-level Improvement Yield hooks | `ImprovementYieldChanges`, `ImprovementCityCommerceChangesWorked/BFC`. | Yes | Trait uses Town science bonus and Plains/Grassland Workshop hammer boosts. | Repo |
+| Trait-level building/specialist/bonus hooks | `BuildingCommerceChanges`, `SpecialistCommerceChanges`. | Yes | Multi-religion specialist gold and UB-dependent gold bonus. | Repo |
+| Civic-level improvement commerce hooks | Civic `ImprovementCityCommerceChanges`. | No | Scope limited to leader trait this issue; civics untouched. | Repo |
+| Civ-specific unique improvement framework | Custom `ImprovementInfo`, Build button, cap handlers. | No | User forbade new UI; economy covered via trait/UB instead. | Repo |
+| Rare improvement caps | Per-player cap elements. | No | Not applicable without unique improvement. | Repo |
+| IndustryCategory & local prereq schema | `IndustryCategory`, `bRequiresActiveLocalPrereqs`, `iPlayerMaxInstances` tags in `CIV4BuildingsSchema`. | Yes | UB references IndustryCategory to accelerate Core/Composite industries while respecting prereqs. | Repo |
 
 **Newly Discovered Since Last Scan**
-- `IndustryCategory` element in `CIV4BuildingsSchema.xml` (lines 366, 487) enabling Core/Luxury/Composite tagging – leveraged for UB targeting.
-- Composite industry help-text gating (see `CIV4GameText_IndustryBuildings.xml`), reminding us to surface per-city Core/Composite caps in UB tooltip.
+- `bRequiresActiveLocalPrereqs` (CIV4BuildingsSchema.xml lines 367-489) clarifies that Industry bonuses must check local resource fulfillment; UB design assumes this gating when adding conditional +10% gold.
+- `iPlayerMaxInstances` (same schema block) offers optional per-player cap if future balancing requires limiting Generaldirektorium per civ (not needed now but recorded).
 
 ## 6) Final Overhaul Spec
 ### Leader Trait – `TRAIT_PHILOSOPHER_GENERAL`
 - `+25%` Great People Rate (`iGreatPeopleRateModifier`).
-- `+25%` Domestic Great General Rate (`iDomesticGreatGeneralRateModifier`).
-- Free `PROMOTION_DRILL1` for Gunpowder land units built in cities with Barracks (trait-level FreePromotion + UnitCombat filter + BuildingPrereq tag already supported in repo).
-- `ImprovementYieldChanges`: Workshops on Plains or Grassland tiles gain +1  (hammer). River Farms gain +1  (commerce) representing canalized agronomy.
-- `ImprovementCityCommerceChangesWorked`: Towns worked by this player yield +1  (science).
-- `SpecialistCommerceChanges`: Specialists in cities containing ≥2 religions yield +1  (gold) due to toleration edicts (implementation detail: city script checks building religions, toggles trait commerce bonus through custom DLL hook already in repo for SpecialistCommerceChanges).
-- `iUpkeepModifier -20%` to model frugal budgets.
+- `+20%` Domestic Great General Rate.
+- `-20%` empire upkeep (`iUpkeepModifier`).
+- Worked Towns yield `+1` science via `ImprovementCityCommerceChangesWorked`.
+- Workshops on Plains or Grassland gain `+1` hammer through `ImprovementYieldChanges`; Farms adjacent to rivers gain `+1` commerce.
+- Specialists in cities containing at least two religions receive `+1` gold (`SpecialistCommerceChanges` plus DLL check for `iMinReligionsInCity=2`).
+- Gunpowder land units built in cities with a Barracks receive free `PROMOTION_DRILL1` and unlock `PROMOTION_OBLIQUE_ORDER` if the city also has a Canton Reserve charge.
+- Trait flag `bEnableCantonReserve=1` activates the novel mechanic described below.
 
-### Unique Unit – `UNIT_FREDERICIAN_FUSILIER` (replaces Musketman)
-- Cost: 90  (vs 80 Musketman) to reflect elite training.
-- Strength: 10 (base) + `+15%` vs Gunpowder units (intrinsic modifier) and `+10%` City Attack.
-- Starts with new promotion `PROMOTION_OBLIQUE_ORDER`: `+1 First Strike`, `+10% Withdraw`, unlocks Drill line.
-- Gains `March` upon reaching Level 4 (scripting via promotion prereq) to reward sustained campaigns.
-- When produced in a city with Canton Reserve charge available, consumes 0.5 charge (rounded) and spawns with `+2 XP` extra (DLL tie-in) – synergy with novel mechanic.
-- Art: Recolor Grenadier mesh to Prussian blue using asset from `civ4mods-code/realism/bts/trunk/Art/Units/Unique/Austria/Fusilier Austria/Hungarian Grenadier.nif`; copy into workspace `CoreFiles/.../Assets/Art/Units/PrussianFusilier/` with new button derived from `Art/interface/buttons/units/heroes/frederick_barbarossa.dds` palette.
-- Text: Civilopedia entry explains linear tactics, references recruitment districts.
+### Unique Unit – `UNIT_FREDERICIAN_FUSILIER` (Musketman replacement)
+- Cost 90 hammers (vanilla Musketman 80) but Strength 10 with innate `+15%` vs Gunpowder and `+10%` City Attack.
+- Starts with `PROMOTION_OBLIQUE_ORDER`: `+1` first strike, `+10%` withdrawal, counts as prerequisite for Drill II-IV without additional XP.
+- Gains `+2` XP if trained while a Canton Reserve charge is available in the producing city (charge not consumed unless Mobilize Canton command used).
+- Art: reuse recolored Grenadier mesh (Prussian blue) added under `Art/Units/PrussianFusilier/` with new button; hook in `CIV4ArtDefines_Unit.xml`.
 
-### Unique Building – `BUILDING_GENERALDIREKTORIUM` (replaces Courthouse)
-- Base maintenance reduction: -55% (vs -50%).
-- Additional effects when city hosts ≥1 Core Industry building: +10%  (gold) and +1  (merchant slot). Implementation: add BuildingCommerceChanges +1 Gold +10% Gold, and Python/DLL check toggles +10% only while `bHasCoreIndustry` bool true (hook exists via industry system toggles used by local processing buildings).
-- Flat bonuses: +1  (espionage), +2  Great Person Points (all types), +1 Scientist slot to represent audit colleges.
-- Grants +25% production toward buildings tagged with `IndustryCategory` (all categories) using `BuildingClassProductionModifier` entries for each relevant class (documented in Implementation Plan) or new DLL to apply category-based mod (preferred to avoid enumerating dozens of classes).
-- Requires Courthouse tech prerequisites plus a new requirement: city must have either a Barracks or Custom House (mirrors interplay between war/fiscal boards).
-- Art: Reskin existing Courthouse model with Prussian green trim; candidate resources exist under `CoreFiles/.../Assets/Art/CityBuildings/Ger_Courthouse/` (verify) or import from `civ4mods-code/realism/.../Buildings/Prussian_Court`.
+### Unique Building – `BUILDING_GENERALDIREKTORIUM` (Courthouse replacement)
+- Base effects: -55% city maintenance (vs -50%), +1 espionage, +2 Great Person Points (all), +1 Merchant slot, +1 Scientist slot.
+- Conditional bonus: if city has ≥1 building flagged with `IndustryCategory` and meets local resource prerequisites, gain +10% gold and +1 flat gold via `BuildingCommerceChanges`.
+- Production kicker: +25% production toward buildings with `IndustryCategory` (Core, Composite, Luxury) implemented either via enumerated `BuildingClassProductionModifiers` or new DLL helper that checks the category tag each build.
+- Synergy requirement: requires Courthouse tech prereqs plus Barracks or Custom House to reflect dual military-fiscal oversight.
 
 ### Novel Mechanic – Canton Reserve Meter
-- Trait flag `bEnableCantonReserve=1`.
-- Player stores up to 3 charges (UI pip near flag). Each time a city with Barracks, Armory, or Generals’ Staff finishes a Melee or Gunpowder unit, add 1 charge (cap). Charges decay by 1 if unused for 25 turns to encourage tempo.
-- City command `cmdMobilizeCanton` (button on city screen & unit panel). Costs 1 charge + +25% city maintenance for 5 turns, instantly produces a Frederician Fusilier with 6 XP and Oblique Order promotion, placed in city with 1 turn of immobility.
-- AI heuristics: define `AI_isThreatened()` to trigger defensive mobilization when enemy stack within 6 tiles; offensive AI uses charges before DoW when power ratio >0.9.
-- UI text: `TXT_KEY_TRAIT_FREDERICK_CANTON_COUNTER`, `TXT_KEY_MISC_CANTON_CONSUMED`.
+- Player stores up to 3 charges (UI pips near top bar). Each time a city with Barracks, Armory, or West Point finishes a Melee or Gunpowder unit, add 1 charge (cap 3). Charges decay by 1 if unused for 25 turns.
+- City screen gains `Mobilize Canton` command (cooldown 10 turns per city). Consuming 1 charge instantly produces a Frederician Fusilier with 6 XP, Oblique Order promotion, and 1-turn immobility; city suffers +25% maintenance for 5 turns to simulate provisioning costs.
+- DLL touchpoints: `CvPlayer::changeCantonReserve`, `CvCity::canMobilizeCanton`, mission handling in `CvUnit`, Python/UI update in `CvMainInterface`.
+- Fallback (if DLL hook deferred): trait instead grants +2 XP to Gunpowder units in cities with Barracks and +10% military unit production, without reserve UI.
 
-### Personality / Diplomacy
-- Higher flavors: Military = 9, Production = 7, Science = 7, Culture = 4, Religion = 2.
-- Builds Barracks/Armory earlier; values Industry buildings 20% more than baseline.
-- War declaration probability moderate but improves when Canton reserve ≥2.
-- Favorite civic: Bureaucracy; shuns Theocracy to reflect toleration.
+### Personality & Diplomacy
+- Flavors: Military 9, Production 7, Science 7, Gold 6, Religion 2.
+- Favorite civic: Bureaucracy; disliked civic: Theocracy (conflicts with toleration narrative).
+- Higher weight on Industry-category building flavors so AI pursues UB synergy.
+- New diplo text references “canton reserves” when threatening war and “canal inspectors” when complimenting infrastructure.
 
-### Text / Localization
-- New trait text enumerates: "+25% Great People Rate; +25% Domestic Great General Rate; Towns (worked) +1 Science; Workshops on Plains/Grassland +1 Hammer; Farms on Rivers +1 Commerce; Specialists in multi-religion cities +1 Gold; Gunpowder units built in cities with Barracks start with Drill I; Upkeep -20%; stores Canton Reserve charges." Ensure bullet format.
+### No Unique Improvement (per constraint)
+Econ identity is satisfied through trait tile buffs and the Generaldirektorium’s industry hooks; no new `ImprovementInfo` objects introduced.
 
 ## 6b) Quantified Balance Table
 | Mechanic | Numeric Effect | Target / Scope | Trigger / Condition | Era Timing | Impact | Counterplay / Constraint |
 | --- | --- | --- | --- | --- | --- | --- |
-| Philosophical Drill (trait) | +25%  GPP; +25% Domestic GG rate | Player-wide | Always on | Medieval+ | Medium | Competes with empire-wide happiness via maintenance focus; GP surge requires specialist investment |
-| Canton Commerce (trait) | Towns +1  Science (worked) | Town improvements empire-wide | Citizen must work tile | Renaissance spike | Medium | Needs time to grow cottages; pillaging towns removes bonus |
-| Agrarian Workshops (trait) | Workshops on Plains/Grassland +1  Hammer | Tile improvement | Requires workshop & Chemistry | Renaissance | Medium-High | Costs food; enemy can pillage |
-| River Farm Canals (trait) | River-adjacent Farms +1  Commerce | Tile improvement | River farm worked | Medieval | Low | Only on river farms; limited by terrain |
-| Multi-Faith Ledger (trait) | Specialists +1  Gold in ≥2-religion cities | Specialists | Requires 2 religions present | Medieval | Low | Spread religions or use espionage to remove |
-| Canton Reserve Meter | Stores up to 3 charges; Mobilize consumes 1 to spawn 6 XP UU, +25% maintenance for 5 turns | Player/city | City with Barracks/Armory finishes qualifying unit; button usage limited to 1 per 10 turns per city | Medieval–Industrial | High | Charges decay; mobilization raises maintenance and cannot be used while city is occupied/besieged |
-| Frederician Fusilier UU | +15% vs Gunpowder; +10% City Attack; starts with Oblique Order; synergy with Canton charges | Gunpowder unit | Built/raised by Frederick | Renaissance | High | Slightly higher cost; lacks bonus vs melee/cavalry; counter with cavalry/flanking |
-| Oblique Order Promotion | +1 First Strike; +10% Withdraw; unlocks Drill line | Promotion | Granted to UU or upgrade path | Renaissance | Medium | Counts toward promotion slots; XP-heavy units can counter |
-| Generaldirektorium UB | -55% maintenance; +10% Gold & +1 Merchant slot when Core Industry present; +1 Scientist slot; +2 GPP; +1 Espionage; +25% Industry building production | City building | Requires Code of Laws, Courthouse class, Barracks or Custom House; Industry bonus only active when city meets Core Industry prereqs | Medieval | Medium-High | Needs Industry infrastructure; Industry bonus can deactivate if tile quotas fail |
+| Town Science Census | Worked Towns +1 science | Improvement (Town) | Citizen must work tile | Renaissance+ | Medium | Pillaging or spying on towns suppresses bonus |
+| Canton Workshops | +1 hammer on Plains/Grassland Workshops | Improvement | Requires Workshop + Chemistry | Renaissance | Medium-High | Consumes food; pillage to slow |
+| River Farm Canals | +1 commerce on river Farms | Improvement | Farm must touch river | Medieval | Low | Limited by terrain; pillage |
+| Multi-Faith Ledgers | Specialists +1 gold in ≥2-religion cities | City specialists | City houses at least two religions | Medieval | Medium | Missionary/spy pressure can deny second religion |
+| Drill Patronage | Gunpowder units gain free Drill I in Barracks cities | Units (Gunpowder) | Built where Barracks present | Renaissance | Medium | Target Barracks with espionage; traitless civs still pay higher costs |
+| Canton Reserve Meter | Stores up to 3 charges; Mobilize spawns 6 XP Fusilier, +25% city maintenance for 5 turns | Player/city | Charges earned via land-unit builds; command cooldown 10 turns | Renaissance–Industrial | High | Charges decay; high maintenance discourages spam; siege prevents mobilization |
+| Frederician Fusilier | 90h, Str 10, +15% vs Gunpowder, +10% City Attack, Oblique Order | Unit | Available with Gunpowder | Renaissance | High | Costs more than Musketman; counter with Cavalry/flanking |
+| Oblique Order Promotion | +1 first strike, +10% withdraw, unlocks Drill line | Promotion | Granted to UU/eligible upgrades | Renaissance | Medium | Requires Drill path; vulnerable to anti-first-strike promos |
+| Generaldirektorium | -55% maintenance, +2 GPP, +1 Merch +1 Sci slot, +1 espionage, +10%/+1 gold with active IndustryCategory, +25% Industry building production | City building | Requires Code of Laws + Barracks/Custom House | Medieval | Medium-High | Bonus turns off without Core Industry; higher hammer cost than Courthouse |
 
 ## 7) Implementation Plan
-1. **XML Edits**
-   - `CoreFiles/.../Assets/XML/Civilizations/CIV4LeaderHeadInfos.xml`: Update Frederick’s trait reference, AI flavors, favorite civic, diplomacy texts.
-   - `CIV4TraitInfos.xml`: Replace `TRAIT_FREDERICK` definition with `TRAIT_PHILOSOPHER_GENERAL` entries described above (scalar modifiers + mapped channels + Canton flag + new UI text keys).
-   - `CIV4UnitClassInfos.xml` & `CIV4CivilizationInfos.xml`: Map `UNITCLASS_MUSKETMAN` to `UNIT_FREDERICIAN_FUSILIER` for Frederick-specific civ entries; ensure other German leaders keep existing uniques.
-   - `CIV4UnitInfos.xml`: Add new unit entry with stats/promotions, upgrade path, build prerequisites.
-   - `CIV4PromotionInfos.xml`: Introduce `PROMOTION_OBLIQUE_ORDER` with modifiers and icon.
-   - `CIV4BuildingInfos.xml`: Add `BUILDING_GENERALDIREKTORIUM` entry (Courthouse class) including IndustryCategory production modifiers; consider new schema hook to apply category-based percentage by referencing `IndustryCategory` element rather than enumerating each class.
-   - `CIV4GameText_Leader_Civilopedia.xml` (and localized files): Update trait/unit/building text.
-   - `CIV4ArtDefines_Unit.xml` & `CIV4ArtDefines_Building.xml`: Point to copied art assets.
-2. **DLL / Schema**
-   - Extend `CvTraitInfo` with `bEnableCantonReserve`; extend `CvPlayer` with `m_iCantonReserve`, serialization, getter/setter, UI exposure via Python.
-   - Add `CvCity::canMobilizeCanton` and new mission command processed in `CvUnit::command`. Update city interface Python to show button + help text.
-   - Implement IndustryCategory-based production bonus for UB either via new building tag (preferred) or enumerated list (temporary).
-   - Ensure `SpecialistCommerceChanges` respects multi-religion condition (existing hook may already support conditional logic; otherwise add boolean/threshold fields to trait info).
-3. **Python / UI**
-   - Update `CvMainInterface` or dedicated city screen helper to display Canton Reserve charges.
-   - Add help text functions (Trait, UB, UU) referencing new TXT keys.
-4. **Art / Assets**
-   - Copy chosen fusilier NIF/KFM/button into workspace; update shader references.
-   - Identify/prepare new courthouse button/reskin; ensure mipmaps.
-5. **Testing**
-   - Run `.	ools	est_gate.ps1` after XML edits; `.	ools	est_gate.ps1 -CheckDll` after DLL work.
-   - Manual smoke test per docs: verify Canton command, UB industry condition toggling, UU promotions, AI mobilization.
-6. **AI Tuning**
-   - `CvPlayerAI::AI_bestTech` weight adjustments for Chemistry/Military Tradition.
-   - `CvCityAI::AI_buildUnit` to account for Canton charges (avoid overshoot) and to value UB in high-industry cities.
+1. **Data audit** – Snapshot current Frederick trait/UU/UB definitions in `CIV4LeaderHeadInfos.xml`, `CIV4TraitInfos.xml`, `CIV4CivilizationInfos.xml`, `CIV4UnitInfos.xml`, and `CIV4BuildingInfos.xml` for regression diffing.
+2. **XML updates**
+   - Add `TRAIT_PHILOSOPHER_GENERAL` definition with modifiers listed above.
+   - Create `BUILDING_GENERALDIREKTORIUM` entry, update `BuildingClassInfos` to map German civ to UB, and add text keys.
+   - Create `UNIT_FREDERICIAN_FUSILIER`, remap `UNITCLASS_MUSKETMAN` for Frederick’s civ entry, update ArtDefines.
+   - Add `PROMOTION_OBLIQUE_ORDER` entry in `CIV4PromotionInfos.xml` and tie to UU.
+   - Update `CIV4GameText_Leader_Civilopedia.xml` (trait text, unit/building pedia) and diplomacy lines referencing new mechanics.
+3. **DLL/schema work**
+   - Extend `CvTraitInfo`/schema for `bEnableCantonReserve` plus optional `iMultiReligionSpecialistCommerce` threshold.
+   - Implement Canton Reserve counters, serialization, mission handling, cooldown logic, and UI pip.
+   - Add helper for checking `IndustryCategory` when applying UB production modifier if enumerations prove too brittle.
+4. **Python/UI**
+   - Update `CvMainInterface.py` (or petromod_v1 delegate) to render Canton Reserve pips and tooltips.
+   - Add city-screen button + help text for Mobilize Canton.
+5. **Art**
+   - Import/recolor fusilier models/buttons into repo tree and reference in ArtDefines; create UB button using existing Courthouse art with Prussian crest overlay.
+6. **Validation**
+   - Run `.\tools\test_gate.ps1` after XML edits (expect trait/unit/building schema touch).
+   - Run `.\tools\test_gate.ps1 -CheckDll` once DLL mechanic implemented.
+   - Manual smoke test per `docs/MANUAL_SMOKE_TESTS.md`: start new game, verify trait text, build Canton charges, test Mobilize command, confirm UB conditional gold, and ensure AI behavior (WorldBuilder) consumes charges when threatened.
+7. **Docs**
+   - Update `docs/index.md` if referencing this design elsewhere; append to `LEADER_OVERHAUL_PLAN_OF_RECORD.md` if needed.
 
 ## 8) Distinctiveness Audit
-- Trait mixes town science + workshop hammers + multi-faith specialist gold—a combination not used by Washington, Tokugawa, or Hatshepsut—while overlaying a new reserve-meter mechanic to enforce tempo decisions unique to Frederick.
-- UU shifts German identity away from late Industrial armor (Panzer) toward mid-game precision infantry, avoiding overlap with any civ currently fielding musket-class uniques.
-- UB interacts with the mod’s IndustryCategory system rather than generic courthouse buffs, making Frederick the only leader who accelerates Core/Composite industry construction without creating new improvements.
-- Refused to add unique improvements or broad class buffs, keeping focus on drilled armies + bureaucracy synergy; other civs emphasize religion, corporations, or naval power, so Frederick’s asymmetry remains clear.
+- Trait combines Town science, workshop hammers, multi-faith specialist gold, and upkeep reduction—no other leader in this mod ties mixed tile economies to religious pluralism plus a reserve meter, differentiating Frederick from existing economic/military hybrids.
+- UU shifts Germany’s military identity from late-game armor (Panzer) to mid-game disciplined infantry with bespoke promotion gating, avoiding overlap with any other musket-class unique.
+- UB leverages the repo’s IndustryCategory schema and maintenance scaling rather than generic courthouse buffs; Frederick becomes the only civ that speeds Core/Composite industry builds without introducing a unique improvement.
+- Novel Canton Reserve introduces a discrete tempo resource that rewards planning instead of flat stat inflation, reinforcing Frederick’s historical logistics without simply giving cheaper units.
 
-## Residual Questions / Follow-Ups
-- Confirm whether IndustryCategory-based production bonus can be implemented through existing tags or needs a DLL helper (preferred approach documented above).
-- Determine final fusilier art source (workspace vs. imported) before implementation; record provenance per art protocol when copied.
+[^1]: Matthew S. Anderson, “Frederick II,” *Encyclopaedia Britannica*, https://www.britannica.com/biography/Frederick-II-king-of-Prussia (accessed March 12, 2026).
+[^2]: Matthew S. Anderson, “Frederick II – Domestic Policies,” *Encyclopaedia Britannica*, https://www.britannica.com/biography/Frederick-II-king-of-Prussia/Domestic-policies (accessed March 12, 2026).
+[^3]: “Introduction of the Brandenburg-Prussian Canton System of Military Recruitment [Kantonreglement]” (May 1, 1733), German History in Documents and Images, https://germanhistorydocs.org/en/the-holy-roman-empire-1648-1815/ghdi:document-3581 (accessed March 12, 2026).
+[^4]: “Prussia Under Frederick the Great,” *History of Western Civilization II* (Lumen Learning), https://courses.lumenlearning.com/suny-hccc-worldhistory2/chapter/prussia-under-frederick-the-great/ (accessed March 12, 2026).
+[^5]: Vince Hawkins, “Frederick the Great at Leuthen: The Oblique Order,” *Warfare History Network*, https://warfarehistorynetwork.com/article/frederick-the-great-at-leuthen-the-oblique-order/ (accessed March 12, 2026).

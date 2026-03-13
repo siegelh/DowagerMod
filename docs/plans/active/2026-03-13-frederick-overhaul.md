@@ -1,6 +1,6 @@
 # Frederick Overhaul Detailed Design
 
-- Status: `in_progress`
+- Status: `completed`
 - Owner / agent: Symphony (issue #45)
 - Last updated: `2026-03-13`
 
@@ -103,18 +103,18 @@
 
 ## Open Questions
 
-- Question: Does the repo owner expect the Frederick design doc to live under `docs/plans/active/` or a dedicated `docs/leaders/` path? (Default: keep under `docs/plans/active/` for now.)
+- Resolved: Design doc lives under `docs/plans/active/2026-03-13-frederick-detailed-overhaul.md`; no separate directory required unless future maintainer requests it.
 
 ## Completion Checklist
 
-- [ ] Trusted sources verified.
-- [ ] Existing docs/plans classified.
-- [ ] Assumptions recorded.
-- [ ] Implementation steps executed.
-- [ ] Validation status recorded (design-only).
-- [ ] Docs updated.
-- [ ] Residual risks/open questions summarized.
+- [x] Trusted sources verified.
+- [x] Existing docs/plans classified.
+- [x] Assumptions recorded.
+- [x] Implementation steps executed.
+- [x] Validation status recorded (design-only).
+- [x] Docs updated.
+- [x] Residual risks/open questions summarized.
 
 ## Final Outcome Summary
 
-- To be filled after completing the design deliverable.
+- Created `docs/plans/active/2026-03-13-frederick-detailed-overhaul.md`, which delivers the complete Detailed Overhaul V4 spec (history, mechanics inventory, novel mechanic log, trait/UU/UB details, balance table, and implementation plan) per issue #45; no gameplay/code changes were made in this task, so validation remains deferred to the future implementation issue.
