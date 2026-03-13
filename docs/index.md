@@ -48,6 +48,7 @@
 - [`plans/active/2026-03-10-symphony-pr-handoff.md`](plans/active/2026-03-10-symphony-pr-handoff.md) - `Current active plan`. Next Symphony milestone for validated PR handoff and future job-type evolution.
 - [`plans/active/2026-03-12-symphony-local-server.md`](plans/active/2026-03-12-symphony-local-server.md) - `Current active plan`. Local background-worker mode, status reporting, and start/stop controls for modding sessions.
 - [`plans/active/2026-03-12-symphony-worktree-cleanup.md`](plans/active/2026-03-12-symphony-worktree-cleanup.md) - `Current active plan`. Conservative cleanup flow for merged/completed Symphony worktrees.
+- [`plans/active/2026-03-13-frederick-detailed-overhaul.md`](plans/active/2026-03-13-frederick-detailed-overhaul.md) - `Current active plan`. Detailed Overhaul V4 design for Frederick (trait, UU, UB, canton reserve mechanic).
 
 ### Repo-Local Skills
 
