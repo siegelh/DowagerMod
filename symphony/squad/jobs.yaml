@@ -1,0 +1,36 @@
+jobs:
+  implement_issue:
+    kind: issue
+    enabled: true
+    roles:
+      - lead
+      - implementer
+      - reviewer
+    concurrency: heavy
+    priority: 100
+    source_statuses:
+      - Ready
+  triage_issue:
+    kind: issue
+    enabled: true
+    roles:
+      - triage
+    concurrency: light
+    priority: 80
+    source_statuses:
+      - Inbox
+  review_pr:
+    kind: pull_request
+    enabled: true
+    roles:
+      - reviewer
+    concurrency: light
+    priority: 60
+  hygiene_scan:
+    kind: scheduled
+    enabled: true
+    roles:
+      - hygiene
+    concurrency: light
+    priority: 40
+    schedule_key: hygiene_scan

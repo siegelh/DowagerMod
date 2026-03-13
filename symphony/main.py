@@ -30,6 +30,8 @@ def build_parser() -> argparse.ArgumentParser:
     run_once = subparsers.add_parser("run-once", help="Fetch one Ready issue and run one Codex turn.")
     run_once.add_argument("--dry-run", action="store_true", help="Select and report an issue without mutating GitHub or git.")
     run_once.add_argument("--issue-number", type=int, help="Limit processing to one Ready issue number.")
+    run_once.add_argument("--job", help="Run one explicit squad job name.")
+    run_once.add_argument("--pull-request-number", type=int, help="Limit processing to one pull request number.")
 
     serve = subparsers.add_parser("serve", help="Run Symphony as a local polling worker.")
     serve.add_argument(
@@ -45,6 +47,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     status = subparsers.add_parser("status", help="Show the local Symphony worker status.")
     status.add_argument("--json", action="store_true", help="Print status as JSON.")
+    status.add_argument("--verbose", action="store_true", help="Print all available status fields.")
 
     stop = subparsers.add_parser("stop", help="Request that the local Symphony worker stop.")
     stop.add_argument(
@@ -79,18 +82,24 @@ def main(argv: list[str] | None = None) -> int:
         service = SymphonyService(
             repo_root=repo_root,
             workflow=workflow,
-            config=config,
-            github=GitHubClient(config.github),
-            logger=logger,
-        )
+                config=config,
+                github=GitHubClient(config.github),
+                logger=logger,
+            )
         if args.command == "run-once":
-            summary = service.run_once(issue_number=args.issue_number, dry_run=args.dry_run)
+            summary = service.run_once(
+                issue_number=args.issue_number,
+                pull_request_number=getattr(args, "pull_request_number", None),
+                job_name=getattr(args, "job", None),
+                dry_run=args.dry_run,
+            )
             if summary is None:
                 return 0
             log_event(
                 logger,
                 "Run completed",
                 event="run_summary",
+                job_name=summary.job_name,
                 issue_number=summary.issue_number,
                 outcome=summary.outcome,
                 project_status=summary.project_status,
@@ -120,7 +129,7 @@ def main(argv: list[str] | None = None) -> int:
             if args.json:
                 print(json.dumps(status, indent=2))
             else:
-                print(_format_status(status))
+                print(_format_status(status, verbose=args.verbose))
             return 0
         if args.command == "stop":
             status = runtime.read_status().payload
@@ -179,7 +188,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Symphony run failed: {exc}", file=sys.stderr)
         return 2
 
-def _format_status(status: dict[str, object]) -> str:
+def _format_status(status: dict[str, object], *, verbose: bool = False) -> str:
     lines = [
         f"running: {status.get('is_running', False)}",
         f"state: {status.get('state', 'unknown')}",
@@ -193,10 +202,20 @@ def _format_status(status: dict[str, object]) -> str:
         "started_at",
         "heartbeat_at",
         "stopped_at",
+        "last_job_name",
+        "current_job_name",
+        "current_role",
         "last_issue_number",
+        "current_issue_number",
+        "current_pull_request_number",
         "last_issue_title",
         "last_outcome",
         "last_project_status",
+        "last_issue_comment_url",
+        "last_validation_command",
+        "last_validation_passed",
+        "current_branch_name",
+        "current_workspace_path",
         "last_pull_request_url",
         "note",
         "status_path",
@@ -204,6 +223,39 @@ def _format_status(status: dict[str, object]) -> str:
         value = status.get(key)
         if value not in (None, ""):
             lines.append(f"{key}: {value}")
+    if verbose:
+        for key in sorted(status):
+            if key in {
+                "is_running",
+                "state",
+                "mode",
+                "pid",
+                "last_pid",
+                "started_at",
+                "heartbeat_at",
+                "stopped_at",
+                "last_job_name",
+                "current_job_name",
+                "current_role",
+                "last_issue_number",
+                "current_issue_number",
+                "current_pull_request_number",
+                "last_issue_title",
+                "last_outcome",
+                "last_project_status",
+                "last_issue_comment_url",
+                "last_validation_command",
+                "last_validation_passed",
+                "current_branch_name",
+                "current_workspace_path",
+                "last_pull_request_url",
+                "note",
+                "status_path",
+            }:
+                continue
+            value = status.get(key)
+            if value not in (None, ""):
+                lines.append(f"{key}: {value}")
     return "\n".join(lines)
 
 

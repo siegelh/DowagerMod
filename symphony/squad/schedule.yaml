@@ -1,0 +1,3 @@
+schedules:
+  hygiene_scan:
+    interval_seconds: 21600

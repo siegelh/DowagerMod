@@ -87,6 +87,7 @@ class AgentRunner:
                     status=status,
                     notifications=notifications,
                     final_turn=turn,
+                    final_message=_extract_final_message(notifications),
                 )
 
             deadline = time.time() + (self._config.turn_timeout_ms / 1000.0)
@@ -112,6 +113,7 @@ class AgentRunner:
                 status=status,
                 notifications=notifications,
                 final_turn=final_turn,
+                final_message=_extract_final_message(notifications),
             )
         finally:
             rpc.close()
@@ -214,3 +216,17 @@ def _build_turn_sandbox_policy(value: str) -> dict[str, Any]:
         "workspace-write": {"type": "workspaceWrite"},
     }
     return mapping.get(value, {"type": "dangerFullAccess"})
+
+
+def _extract_final_message(notifications: list[dict[str, Any]]) -> str | None:
+    messages: list[str] = []
+    for notification in notifications:
+        if notification.get("method") != "item/completed":
+            continue
+        item = notification.get("params", {}).get("item", {})
+        if item.get("type") != "agentMessage":
+            continue
+        text = str(item.get("text", "")).strip()
+        if text:
+            messages.append(text)
+    return "\n\n".join(messages).strip() or None

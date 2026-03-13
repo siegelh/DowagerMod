@@ -14,6 +14,39 @@ class WorkflowDefinition:
 
 
 @dataclass(frozen=True)
+class SquadRole:
+    name: str
+    path: Path
+    charter: str
+
+
+@dataclass(frozen=True)
+class JobDefinition:
+    name: str
+    kind: str
+    roles: tuple[str, ...]
+    concurrency: str
+    priority: int
+    source_statuses: tuple[str, ...] = field(default_factory=tuple)
+    enabled: bool = True
+    schedule_key: str | None = None
+
+
+@dataclass(frozen=True)
+class ScheduleEntry:
+    name: str
+    interval_seconds: int
+
+
+@dataclass(frozen=True)
+class JobCandidate:
+    job_name: str
+    issue: "GitHubIssue | None" = None
+    pull_request: "PullRequestInfo | None" = None
+    scheduled: bool = False
+
+
+@dataclass(frozen=True)
 class ProjectStatusField:
     project_id: str
     field_id: str
@@ -67,6 +100,7 @@ class AgentRunResult:
     status: str
     notifications: list[dict[str, Any]] = field(default_factory=list)
     final_turn: dict[str, Any] | None = None
+    final_message: str | None = None
 
 
 @dataclass(frozen=True)
@@ -92,8 +126,31 @@ class PullRequestInfo:
     title: str
     is_draft: bool
     existing: bool
+    head_ref_name: str = ""
+    base_ref_name: str = ""
+    body: str = ""
+    created_at: datetime | None = None
+    updated_at: datetime | None = None
     state: str = "OPEN"
     merged: bool = False
+
+
+@dataclass(frozen=True)
+class PullRequestFile:
+    filename: str
+    status: str
+    additions: int
+    deletions: int
+    patch: str
+
+
+@dataclass(frozen=True)
+class IssueComment:
+    id: int
+    url: str
+    body: str
+    created_at: datetime
+    updated_at: datetime
 
 
 @dataclass(frozen=True)
@@ -113,6 +170,7 @@ class CleanupCandidate:
 
 @dataclass(frozen=True)
 class RunSummary:
+    job_name: str
     issue_number: int
     issue_title: str
     branch_name: str
@@ -133,6 +191,8 @@ class RunSummary:
     validation_required: bool = False
     validation_passed: bool | None = None
     validation_command: str | None = None
+    current_role: str | None = None
+    role_sequence: tuple[str, ...] = field(default_factory=tuple)
     note: str | None = None
 
     def to_dict(self) -> dict[str, Any]:

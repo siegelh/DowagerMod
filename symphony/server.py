@@ -47,7 +47,7 @@ class SymphonyServer:
 
                 lease.write_status(state="polling")
                 try:
-                    summary = self._service.run_once()
+                    summary = self._service.run_once(status_hook=lambda **fields: self._update_lease(lease, **fields))
                 except KeyboardInterrupt:
                     lease.write_status(state="stopping", note="Interrupted by keyboard signal")
                     log_event(self._logger, "Symphony local worker interrupted", event="service_interrupted")
@@ -70,7 +70,7 @@ class SymphonyServer:
                 if summary is None:
                     lease.write_status(
                         state="idle",
-                        last_outcome="no_ready_issue",
+                        last_outcome="no_job_candidate",
                         last_polled_at=_utc_now(),
                         last_error=None,
                     )
@@ -79,6 +79,7 @@ class SymphonyServer:
 
                 lease.write_status(
                     state="idle",
+                    last_job_name=summary.job_name,
                     last_issue_number=summary.issue_number,
                     last_issue_title=summary.issue_title,
                     last_outcome=summary.outcome,
@@ -86,6 +87,10 @@ class SymphonyServer:
                     last_branch_name=summary.branch_name,
                     last_workspace_path=summary.workspace_path,
                     last_pull_request_url=summary.pull_request_url,
+                    last_issue_comment_url=summary.issue_comment_url,
+                    last_validation_command=summary.validation_command,
+                    last_validation_passed=summary.validation_passed,
+                    last_role=summary.current_role,
                     last_run_finished_at=summary.finished_at.isoformat(),
                     last_error=None,
                 )
@@ -103,6 +108,10 @@ class SymphonyServer:
             time.sleep(sleep_seconds)
             remaining -= sleep_seconds
             lease.heartbeat(state=state)
+
+    def _update_lease(self, lease, **fields) -> None:
+        state = str(fields.pop("state", lease._payload.get("state", "running")))
+        lease.write_status(state=state, **fields)
 
 
 def _utc_now() -> str:

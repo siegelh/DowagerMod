@@ -51,6 +51,7 @@ See:
 - Historical plans, drafts, and dated debug notes now live under [docs/archive/](docs/archive/).
 - Repo-local task aids live under [skills/](skills/).
 - The repo now includes a local GitHub-backed orchestration tool under [symphony/](symphony/) for agent issue pickup, worktree execution, validation, and draft-PR handoff.
+- Symphony now also supports a squad-style local workflow with explicit triage, implementation, PR review, and hygiene jobs routed through GitHub.
 - Symphony can also run as a local background worker for a modding session via:
   - `.\tools\Start-Symphony.ps1`
   - `.\tools\Symphony-Status.ps1`
