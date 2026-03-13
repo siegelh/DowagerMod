@@ -34,6 +34,12 @@ class ConfigTests(unittest.TestCase):
                     "runtime": {
                         "state_root": r"$LOCALAPPDATA\Symphony\DowagerMod",
                     },
+                    "squad": {
+                        "enabled": True,
+                        "team_path": "symphony/squad/team.md",
+                        "jobs_path": "symphony/squad/jobs.yaml",
+                        "schedule_path": "symphony/squad/schedule.yaml",
+                    },
                     "codex": {
                         "command": ["codex", "app-server"],
                     },
@@ -48,6 +54,8 @@ class ConfigTests(unittest.TestCase):
         self.assertEqual(config.codex.command, ("codex", "app-server"))
         self.assertEqual(config.runtime.poll_interval_seconds, 60)
         self.assertEqual(config.runtime.error_backoff_seconds, 120)
+        self.assertTrue(config.squad.enabled)
+        self.assertEqual(config.squad.team_path, (repo_root / "symphony" / "squad" / "team.md").resolve())
 
 
 if __name__ == "__main__":

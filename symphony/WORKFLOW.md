@@ -26,6 +26,17 @@ runtime:
   state_root: $LOCALAPPDATA\Symphony\DowagerMod
   poll_interval_seconds: 60
   error_backoff_seconds: 120
+squad:
+  enabled: true
+  team_path: symphony/squad/team.md
+  jobs_path: symphony/squad/jobs.yaml
+  schedule_path: symphony/squad/schedule.yaml
+  max_heavy_jobs: 1
+  max_light_jobs: 1
+  kickoff_comments_enabled: true
+  review_comments_enabled: true
+  triage_comments_enabled: true
+  hygiene_issue_title: Symphony hygiene report
 codex:
   command:
     - codex

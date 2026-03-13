@@ -7,7 +7,7 @@ from urllib import parse
 from urllib import error, request
 
 from .config import GitHubConfig
-from .models import GitHubIssue, ProjectStatusField, PullRequestInfo
+from .models import GitHubIssue, IssueComment, ProjectStatusField, PullRequestFile, PullRequestInfo
 
 
 class GitHubClientError(RuntimeError):
@@ -143,14 +143,25 @@ class GitHubClient:
         return issues
 
     def pick_next_ready_issue(self, issue_number: int | None = None) -> GitHubIssue | None:
+        return self.pick_next_issue_by_status((self._config.ready_state,), issue_number=issue_number, honor_blockers=True)
+
+    def pick_next_inbox_issue(self, issue_number: int | None = None) -> GitHubIssue | None:
+        return self.pick_next_issue_by_status(("Inbox",), issue_number=issue_number, honor_blockers=False)
+
+    def pick_next_issue_by_status(
+        self,
+        statuses: tuple[str, ...],
+        issue_number: int | None = None,
+        honor_blockers: bool = True,
+    ) -> GitHubIssue | None:
         blockers = set(self._config.blocker_labels)
         candidates = []
         for issue in self.list_project_issues():
-            if issue.project_status != self._config.ready_state:
+            if issue.project_status not in statuses:
                 continue
             if issue.state.upper() != "OPEN":
                 continue
-            if blockers.intersection(issue.labels):
+            if honor_blockers and blockers.intersection(issue.labels):
                 continue
             if issue_number is not None and issue.number != issue_number:
                 continue
@@ -195,6 +206,42 @@ class GitHubClient:
             },
         )
 
+    def add_issue_to_project(self, issue: GitHubIssue, initial_state: str = "Inbox") -> GitHubIssue:
+        status_field = self.get_status_field()
+        added = self._graphql(
+            """
+            mutation($projectId:ID!, $contentId:ID!) {
+              addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
+                item {
+                  id
+                }
+              }
+            }
+            """,
+            {
+                "projectId": status_field.project_id,
+                "contentId": issue.node_id,
+            },
+        )
+        project_item_id = added["addProjectV2ItemById"]["item"]["id"]
+        projected = GitHubIssue(
+            node_id=issue.node_id,
+            project_item_id=project_item_id,
+            repository_full_name=issue.repository_full_name,
+            number=issue.number,
+            title=issue.title,
+            body=issue.body,
+            state=issue.state,
+            url=issue.url,
+            created_at=issue.created_at,
+            updated_at=issue.updated_at,
+            labels=issue.labels,
+            assignees=issue.assignees,
+            project_status=initial_state,
+        )
+        self.update_status(projected, initial_state)
+        return projected
+
     def create_issue_comment(self, issue_number: int, body: str) -> str:
         payload = self._rest(
             "POST",
@@ -202,6 +249,50 @@ class GitHubClient:
             {"body": body},
         )
         return str(payload.get("html_url", ""))
+
+    def list_issue_comments(self, issue_number: int) -> tuple[IssueComment, ...]:
+        payload = self._rest(
+            "GET",
+            f"/repos/{self._config.owner}/{self._config.repo}/issues/{issue_number}/comments?per_page=100",
+        )
+        comments = []
+        for comment in payload or []:
+            comments.append(
+                IssueComment(
+                    id=int(comment["id"]),
+                    url=comment["html_url"],
+                    body=comment.get("body", "") or "",
+                    created_at=_parse_datetime(comment["created_at"]),
+                    updated_at=_parse_datetime(comment["updated_at"]),
+                )
+            )
+        return tuple(comments)
+
+    def create_issue(self, title: str, body: str, labels: tuple[str, ...] = ()) -> GitHubIssue:
+        payload = self._rest(
+            "POST",
+            f"/repos/{self._config.owner}/{self._config.repo}/issues",
+            {"title": title, "body": body, "labels": list(labels)},
+        )
+        return self._normalize_repo_issue(payload)
+
+    def update_issue(self, issue_number: int, *, body: str | None = None, state: str | None = None) -> GitHubIssue:
+        payload: dict[str, Any] = {}
+        if body is not None:
+            payload["body"] = body
+        if state is not None:
+            payload["state"] = state
+        updated = self._rest("PATCH", f"/repos/{self._config.owner}/{self._config.repo}/issues/{issue_number}", payload)
+        return self._normalize_repo_issue(updated)
+
+    def find_open_issue_by_title(self, title: str) -> GitHubIssue | None:
+        payload = self._rest("GET", f"/repos/{self._config.owner}/{self._config.repo}/issues?state=open&per_page=100")
+        for item in payload or []:
+            if "pull_request" in item:
+                continue
+            if str(item.get("title", "")).strip() == title:
+                return self._normalize_repo_issue(item)
+        return None
 
     def get_or_create_draft_pull_request(
         self,
@@ -231,12 +322,52 @@ class GitHubClient:
             title=payload["title"],
             is_draft=bool(payload.get("draft", True)),
             existing=False,
+            head_ref_name=str(payload.get("head", {}).get("ref", branch_name)),
+            base_ref_name=str(payload.get("base", {}).get("ref", base_branch)),
+            body=payload.get("body", "") or "",
+            created_at=_parse_datetime(payload["created_at"]) if payload.get("created_at") else None,
+            updated_at=_parse_datetime(payload["updated_at"]) if payload.get("updated_at") else None,
             state=str(payload.get("state", "open")).upper(),
             merged=bool(payload.get("merged_at")),
         )
 
     def find_open_pull_request(self, branch_name: str) -> PullRequestInfo | None:
         return self.find_pull_request(branch_name, state="open")
+
+    def get_pull_request(self, pull_request_number: int) -> PullRequestInfo:
+        payload = self._rest("GET", f"/repos/{self._config.owner}/{self._config.repo}/pulls/{pull_request_number}")
+        return self._normalize_pull_request(payload, existing=True)
+
+    def list_open_symphony_pull_requests(self, branch_prefix: str, base_branch: str) -> tuple[PullRequestInfo, ...]:
+        payload = self._rest("GET", f"/repos/{self._config.owner}/{self._config.repo}/pulls?state=open&per_page=100")
+        pull_requests: list[PullRequestInfo] = []
+        for item in payload or []:
+            info = self._normalize_pull_request(item, existing=True)
+            if not info.head_ref_name.startswith(f"{branch_prefix}/"):
+                continue
+            if info.base_ref_name != base_branch:
+                continue
+            pull_requests.append(info)
+        pull_requests.sort(key=lambda pull_request: pull_request.created_at or datetime.min)
+        return tuple(pull_requests)
+
+    def list_pull_request_files(self, pull_request_number: int) -> tuple[PullRequestFile, ...]:
+        payload = self._rest(
+            "GET",
+            f"/repos/{self._config.owner}/{self._config.repo}/pulls/{pull_request_number}/files?per_page=100",
+        )
+        files = []
+        for item in payload or []:
+            files.append(
+                PullRequestFile(
+                    filename=item["filename"],
+                    status=str(item.get("status", "modified")),
+                    additions=int(item.get("additions", 0)),
+                    deletions=int(item.get("deletions", 0)),
+                    patch=item.get("patch", "") or "",
+                )
+            )
+        return tuple(files)
 
     def find_pull_request(self, branch_name: str, state: str = "all") -> PullRequestInfo | None:
         query = parse.urlencode(
@@ -250,13 +381,7 @@ class GitHubClient:
             return None
         pull = payload[0]
         return PullRequestInfo(
-            number=int(pull["number"]),
-            url=pull["html_url"],
-            title=pull["title"],
-            is_draft=bool(pull.get("draft", False)),
-            existing=True,
-            state=str(pull.get("state", "open")).upper(),
-            merged=bool(pull.get("merged_at")),
+            **self._normalize_pull_request(pull, existing=True).__dict__,
         )
 
     def _normalize_issue_node(self, node: dict[str, Any]) -> GitHubIssue | None:
@@ -291,6 +416,41 @@ class GitHubClient:
             labels=tuple(sorted(label["name"].strip().lower() for label in content["labels"]["nodes"])),
             assignees=tuple(sorted(assignee["login"] for assignee in content["assignees"]["nodes"])),
             project_status=project_status,
+        )
+
+    def _normalize_repo_issue(self, payload: dict[str, Any]) -> GitHubIssue:
+        labels = tuple(sorted((label.get("name", "") or "").strip().lower() for label in payload.get("labels", [])))
+        assignees = tuple(sorted((assignee.get("login", "") or "").strip() for assignee in payload.get("assignees", [])))
+        return GitHubIssue(
+            node_id=str(payload.get("node_id", "")),
+            project_item_id="",
+            repository_full_name=f"{self._config.owner}/{self._config.repo}",
+            number=int(payload["number"]),
+            title=payload.get("title", "") or "",
+            body=payload.get("body", "") or "",
+            state=str(payload.get("state", "OPEN")).upper(),
+            url=payload.get("html_url") or payload.get("url") or "",
+            created_at=_parse_datetime(payload["created_at"]) if payload.get("created_at") else datetime.min,
+            updated_at=_parse_datetime(payload["updated_at"]) if payload.get("updated_at") else datetime.min,
+            labels=labels,
+            assignees=assignees,
+            project_status="",
+        )
+
+    def _normalize_pull_request(self, payload: dict[str, Any], *, existing: bool) -> PullRequestInfo:
+        return PullRequestInfo(
+            number=int(payload["number"]),
+            url=payload["html_url"],
+            title=payload["title"],
+            is_draft=bool(payload.get("draft", False)),
+            existing=existing,
+            head_ref_name=str(payload.get("head", {}).get("ref", "")),
+            base_ref_name=str(payload.get("base", {}).get("ref", "")),
+            body=payload.get("body", "") or "",
+            created_at=_parse_datetime(payload["created_at"]) if payload.get("created_at") else None,
+            updated_at=_parse_datetime(payload["updated_at"]) if payload.get("updated_at") else None,
+            state=str(payload.get("state", "open")).upper(),
+            merged=bool(payload.get("merged_at")),
         )
 
     def _query_owner_project(self, query: str, after: str | None = None) -> dict[str, Any]:

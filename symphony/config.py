@@ -45,6 +45,20 @@ class RuntimeConfig:
 
 
 @dataclass(frozen=True)
+class SquadConfig:
+    enabled: bool
+    team_path: Path
+    jobs_path: Path
+    schedule_path: Path
+    max_heavy_jobs: int
+    max_light_jobs: int
+    kickoff_comments_enabled: bool
+    review_comments_enabled: bool
+    triage_comments_enabled: bool
+    hygiene_issue_title: str
+
+
+@dataclass(frozen=True)
 class CodexConfig:
     command: tuple[str, ...]
     approval_policy: str
@@ -65,6 +79,7 @@ class SymphonyConfig:
     github: GitHubConfig
     workspace: WorkspaceConfig
     runtime: RuntimeConfig
+    squad: SquadConfig
     codex: CodexConfig
 
 
@@ -112,6 +127,7 @@ def build_config(workflow: WorkflowDefinition, repo_root: Path) -> SymphonyConfi
 
     workspace_cfg = _require_object(workflow.config, "workspace")
     runtime_cfg = _require_object(workflow.config, "runtime")
+    squad_cfg = _require_object(workflow.config, "squad")
     codex_cfg = _require_object(workflow.config, "codex")
 
     command_value = codex_cfg.get("command", ["codex", "app-server"])
@@ -143,6 +159,21 @@ def build_config(workflow: WorkflowDefinition, repo_root: Path) -> SymphonyConfi
             state_root=_resolve_path(str(runtime_cfg.get("state_root", r"$LOCALAPPDATA\Symphony\DowagerMod"))),
             poll_interval_seconds=max(5, int(runtime_cfg.get("poll_interval_seconds", 60))),
             error_backoff_seconds=max(5, int(runtime_cfg.get("error_backoff_seconds", 120))),
+        ),
+        squad=SquadConfig(
+            enabled=bool(squad_cfg.get("enabled", False)),
+            team_path=_resolve_repo_relative_path(repo_root, str(squad_cfg.get("team_path", "symphony/squad/team.md"))),
+            jobs_path=_resolve_repo_relative_path(repo_root, str(squad_cfg.get("jobs_path", "symphony/squad/jobs.yaml"))),
+            schedule_path=_resolve_repo_relative_path(
+                repo_root, str(squad_cfg.get("schedule_path", "symphony/squad/schedule.yaml"))
+            ),
+            max_heavy_jobs=max(1, int(squad_cfg.get("max_heavy_jobs", 1))),
+            max_light_jobs=max(1, int(squad_cfg.get("max_light_jobs", 1))),
+            kickoff_comments_enabled=bool(squad_cfg.get("kickoff_comments_enabled", True)),
+            review_comments_enabled=bool(squad_cfg.get("review_comments_enabled", True)),
+            triage_comments_enabled=bool(squad_cfg.get("triage_comments_enabled", True)),
+            hygiene_issue_title=str(squad_cfg.get("hygiene_issue_title", "Symphony hygiene report")).strip()
+            or "Symphony hygiene report",
         ),
         codex=CodexConfig(
             command=command,
@@ -200,3 +231,10 @@ def _coerce_command(value: Any) -> tuple[str, ...]:
 def _resolve_path(raw_value: str) -> Path:
     expanded = os.path.expanduser(os.path.expandvars(raw_value))
     return Path(expanded).resolve()
+
+
+def _resolve_repo_relative_path(repo_root: Path, raw_value: str) -> Path:
+    candidate = Path(os.path.expanduser(os.path.expandvars(raw_value)))
+    if candidate.is_absolute():
+        return candidate.resolve()
+    return (repo_root / candidate).resolve()

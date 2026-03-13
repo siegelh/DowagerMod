@@ -140,6 +140,15 @@ class ActiveServiceLease:
 
     def mark_stopped(self, *, state: str = "stopped", note: str | None = None) -> None:
         payload = dict(self._payload)
+        for key in (
+            "current_job_name",
+            "current_role",
+            "current_issue_number",
+            "current_pull_request_number",
+            "current_branch_name",
+            "current_workspace_path",
+        ):
+            payload.pop(key, None)
         payload.update(
             {
                 "mode": self._mode,

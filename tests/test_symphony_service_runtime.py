@@ -14,7 +14,7 @@ class FakeService:
         self._runtime = runtime
         self.calls = 0
 
-    def run_once(self):
+    def run_once(self, **_kwargs):
         self.calls += 1
         self._runtime.request_stop()
         return None
@@ -59,6 +59,7 @@ class ServiceRuntimeTests(unittest.TestCase):
         self.assertEqual(service.calls, 1)
         self.assertFalse(status.is_running)
         self.assertEqual(status.payload["state"], "stopped")
+        self.assertNotIn("current_job_name", status.payload)
 
 
 if __name__ == "__main__":

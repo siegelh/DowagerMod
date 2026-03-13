@@ -11,6 +11,7 @@ This document describes the repository as implemented now. It is intentionally c
 - The default modding target is the BtS assets root: `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets`.
 - The main implementation layers are XML gameplay/data under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML`, Python runtime/UI under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Python`, custom DLL source under `third_party/beyond-the-sword-sdk/CvGameCoreDLL`, and local installer/build/test tooling under `CoreFiles/install.py` and `tools/`.
 - Repo-side development automation now also includes a local Python orchestration tool under `symphony/`. It is not part of the Civ4 runtime; it exists to drive GitHub-backed agent work on this repository.
+- Symphony now has a checked-in squad layer under `symphony/squad/` that defines functional roles (`Lead`, `Implementer`, `Reviewer`, `Research`, `Triage`, `Hygiene`) and job routing over GitHub Issues, PRs, and scheduled hygiene work.
 - The mirror also contains base `Assets`, `Warlords`, stock scenario mods, binaries, and media for installer completeness. Those mirrored files exist on purpose, but they are not all default edit targets.
 - A few oversized stock archives are intentionally excluded from git, so the repo mirror should be treated as operationally complete for mod work, not as a byte-for-byte stock backup.
 
@@ -154,6 +155,7 @@ This document describes the repository as implemented now. It is intentionally c
 - No repo CI configuration is present under a root `.github/` directory.
 - `symphony/main.py` provides the current local CLI slice for GitHub issue pickup, worktree creation, one-turn Codex execution, repo-native validation, and draft-PR handoff using `symphony/WORKFLOW.md`.
 - `symphony/main.py` now also provides a local `serve` mode so Symphony can run as a background polling worker on the modding machine.
+- `symphony/orchestrator.py`, `symphony/router.py`, `symphony/role_prompt_builder.py`, and `symphony/squad_registry.py` now implement the squad-oriented job model on top of the original delivery flow.
 
 ### Inferred but likely
 
@@ -161,6 +163,11 @@ This document describes the repository as implemented now. It is intentionally c
 - The current branch may contain broad untracked mirror content, so git-based changed-file validation can widen unexpectedly until the branch baseline is normalized.
 - Symphony can now enforce the repo-native gate before handoff for DLL or BtS XML changes, but manual gameplay smoke testing remains a human step.
 - Symphony is currently designed as a local worker, not a hosted service. GitHub is the control plane; the Windows modding machine is the execution environment.
+- Symphony now treats GitHub as the visible collaboration surface for:
+  - issue triage
+  - issue implementation
+  - PR review summaries
+  - hygiene issue creation
 
 ### Unknown / requires human confirmation
 
@@ -200,6 +207,7 @@ This document describes the repository as implemented now. It is intentionally c
 - Current owner guidance is to treat `third_party/beyond-the-sword-sdk/CvGameCoreDLL` as the only DLL build source and not recreate a duplicate source tree under `CoreFiles/`.
 - Current owner guidance is to tolerate `petromod_v1` as a live dependency for now rather than force an immediate HUD migration.
 - Current Symphony guidance is to treat issue delivery, PR review, issue triage, and repo hygiene as distinct future job types rather than one monolithic background agent.
+- Current Symphony guidance is now implemented as a squad model where one heavy implementation job runs at a time, while lighter triage/review/hygiene jobs are routed separately.
 - Current Symphony worktrees are intentionally persistent after PR creation and merge so humans can still rebuild/test candidate branches locally until explicit cleanup policy is added.
 
 ## What Appears Legacy Or Transitional

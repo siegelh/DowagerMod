@@ -10,6 +10,28 @@ def build_commit_message(issue: GitHubIssue, plan_paths: tuple[str, ...]) -> str
     return "\n".join(lines)
 
 
+def build_lead_kickoff_comment(issue: GitHubIssue, branch_name: str, workspace_path: str, plan_hint: str | None = None) -> str:
+    lines = [
+        "<!-- symphony:lead-kickoff -->",
+        f"**Lead kickoff for #{issue.number}**",
+        "",
+        f"- Branch: `{branch_name}`",
+        f"- Worktree: `{workspace_path}`",
+        f"- Current project status: `{issue.project_status}`",
+    ]
+    if plan_hint:
+        lines.append(f"- Plan: `{plan_hint}`")
+    lines.extend(
+        [
+            "",
+            "TLDR:",
+            "- Symphony has claimed this issue and is preparing an implementation handoff.",
+            "- The next step is implementation plus repo-native validation before review.",
+        ]
+    )
+    return "\n".join(lines).strip()
+
+
 def build_pull_request_title(issue: GitHubIssue) -> str:
     return issue.title
 
@@ -79,6 +101,56 @@ def build_success_issue_comment(
             ]
         )
     return "\n".join(lines).strip()
+
+
+def build_reviewer_issue_comment(
+    issue: GitHubIssue,
+    branch_name: str,
+    workspace_path: str,
+    pull_request: PullRequestInfo,
+    change_set: ChangeSet,
+    validation: ValidationResult,
+) -> str:
+    lines = [
+        "<!-- symphony:reviewer-handoff -->",
+        f"**Reviewer handoff for #{issue.number}**",
+        "",
+        f"- Branch: `{branch_name}`",
+        f"- Worktree: `{workspace_path}`",
+        f"- Draft PR: {pull_request.url}",
+        f"- Validation: {_render_validation_summary(validation)}",
+    ]
+    if change_set.plan_paths:
+        lines.append(f"- Plan docs: {', '.join(f'`{path}`' for path in change_set.plan_paths)}")
+    lines.extend(["", "Review focus:", "- Confirm the diff matches the issue scope.", "- Confirm any gameplay changes are smoke-tested locally before merge."])
+    if change_set.files:
+        lines.extend(["", "Changed files:"])
+        lines.extend(_render_paths(change_set.files))
+    return "\n".join(lines).strip()
+
+
+def build_triage_comment(issue: GitHubIssue, action: str, summary: str, missing: tuple[str, ...]) -> str:
+    lines = [
+        "<!-- symphony:triage -->",
+        f"**Triage for #{issue.number}**",
+        "",
+        f"- Recommended state: `{action}`",
+        "",
+        "TLDR:",
+        f"- {summary}",
+    ]
+    if missing:
+        lines.extend(["", "Missing information:"])
+        lines.extend(f"- {item}" for item in missing)
+    return "\n".join(lines).strip()
+
+
+def build_pr_review_comment(markdown: str) -> str:
+    return "<!-- symphony:review-pr -->\n" + markdown.strip()
+
+
+def build_hygiene_issue_body(markdown: str) -> str:
+    return "<!-- symphony:hygiene -->\n" + markdown.strip()
 
 
 def build_blocked_issue_comment(
