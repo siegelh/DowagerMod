@@ -77,7 +77,9 @@ namespace
 				continue;
 			}
 
-			if (bRequireImproved && pLoopPlot->getImprovementType() == NO_IMPROVEMENT)
+			const bool bIsCityCenterPlot = (pLoopPlot == kCity.plot());
+
+			if (bRequireImproved && !bIsCityCenterPlot && pLoopPlot->getImprovementType() == NO_IMPROVEMENT)
 			{
 				continue;
 			}
