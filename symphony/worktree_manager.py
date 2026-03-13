@@ -46,6 +46,30 @@ class WorktreeManager:
             created_now=False,
         )
 
+    def list_issue_worktrees(self) -> tuple[WorktreeInfo, ...]:
+        worktrees: list[WorktreeInfo] = []
+        result = self._git("worktree", "list", "--porcelain")
+        current_path: Path | None = None
+        current_branch: str | None = None
+        for line in result.splitlines():
+            if line.startswith("worktree "):
+                current_path = Path(line.split(" ", 1)[1])
+                current_branch = None
+            elif line.startswith("branch "):
+                current_branch = line.split(" ", 1)[1].removeprefix("refs/heads/")
+            elif not line.strip():
+                _append_issue_worktree(worktrees, current_path, current_branch, self._branch_prefix)
+                current_path = None
+                current_branch = None
+        _append_issue_worktree(worktrees, current_path, current_branch, self._branch_prefix)
+        return tuple(worktrees)
+
+    def remove_worktree(self, path: Path) -> None:
+        self._git("worktree", "remove", "--force", str(path))
+
+    def delete_branch(self, branch_name: str) -> None:
+        self._git("branch", "-D", branch_name)
+
     def _branch_exists(self, branch_name: str) -> bool:
         result = subprocess.run(
             ["git", "show-ref", "--verify", "--quiet", f"refs/heads/{branch_name}"],
@@ -102,3 +126,22 @@ class WorktreeManager:
 def _slugify(value: str) -> str:
     cleaned = re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-._").lower()
     return cleaned or "issue"
+
+
+def _append_issue_worktree(
+    worktrees: list[WorktreeInfo],
+    current_path: Path | None,
+    current_branch: str | None,
+    branch_prefix: str,
+) -> None:
+    if current_path is None or current_branch is None:
+        return
+    if not current_branch.startswith(f"{branch_prefix}/"):
+        return
+    worktrees.append(
+        WorktreeInfo(
+            branch_name=current_branch,
+            path=current_path.resolve(),
+            created_now=False,
+        )
+    )

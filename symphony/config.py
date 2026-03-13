@@ -40,6 +40,8 @@ class WorkspaceConfig:
 @dataclass(frozen=True)
 class RuntimeConfig:
     state_root: Path
+    poll_interval_seconds: int
+    error_backoff_seconds: int
 
 
 @dataclass(frozen=True)
@@ -139,6 +141,8 @@ def build_config(workflow: WorkflowDefinition, repo_root: Path) -> SymphonyConfi
         ),
         runtime=RuntimeConfig(
             state_root=_resolve_path(str(runtime_cfg.get("state_root", r"$LOCALAPPDATA\Symphony\DowagerMod"))),
+            poll_interval_seconds=max(5, int(runtime_cfg.get("poll_interval_seconds", 60))),
+            error_backoff_seconds=max(5, int(runtime_cfg.get("error_backoff_seconds", 120))),
         ),
         codex=CodexConfig(
             command=command,

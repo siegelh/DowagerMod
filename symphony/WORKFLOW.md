@@ -24,6 +24,8 @@ workspace:
   branch_prefix: symphony
 runtime:
   state_root: $LOCALAPPDATA\Symphony\DowagerMod
+  poll_interval_seconds: 60
+  error_backoff_seconds: 120
 codex:
   command:
     - codex

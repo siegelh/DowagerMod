@@ -56,7 +56,11 @@ class SymphonyOrchestratorTests(unittest.TestCase):
                     base_branch="agent-baseline",
                     branch_prefix="symphony",
                 ),
-                runtime=RuntimeConfig(state_root=repo_root / "runtime"),
+                runtime=RuntimeConfig(
+                    state_root=repo_root / "runtime",
+                    poll_interval_seconds=60,
+                    error_backoff_seconds=120,
+                ),
                 codex=CodexConfig(
                     command=("codex", "app-server"),
                     approval_policy="never",
@@ -181,7 +185,11 @@ class SymphonyOrchestratorTests(unittest.TestCase):
                     base_branch="agent-baseline",
                     branch_prefix="symphony",
                 ),
-                runtime=RuntimeConfig(state_root=repo_root / "runtime"),
+                runtime=RuntimeConfig(
+                    state_root=repo_root / "runtime",
+                    poll_interval_seconds=60,
+                    error_backoff_seconds=120,
+                ),
                 codex=CodexConfig(
                     command=("codex", "app-server"),
                     approval_policy="never",

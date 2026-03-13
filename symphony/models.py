@@ -92,6 +92,23 @@ class PullRequestInfo:
     title: str
     is_draft: bool
     existing: bool
+    state: str = "OPEN"
+    merged: bool = False
+
+
+@dataclass(frozen=True)
+class CleanupCandidate:
+    issue_number: int
+    issue_title: str
+    issue_state: str
+    project_status: str
+    branch_name: str
+    workspace_path: str
+    has_open_pull_request: bool
+    merged_pull_request_url: str | None
+    is_clean: bool
+    eligible: bool
+    reasons: tuple[str, ...]
 
 
 @dataclass(frozen=True)

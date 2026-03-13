@@ -26,7 +26,11 @@
 - [`../SYMPHONY_SPEC.md`](../SYMPHONY_SPEC.md) - `Current design spec`. Base service design for Symphony.
 - [`../SYMPHONY_REPO_DELTA.md`](../SYMPHONY_REPO_DELTA.md) - `Current repo delta`. DowagerMod-specific adaptation of the base Symphony spec.
 - [`../symphony/WORKFLOW.md`](../symphony/WORKFLOW.md) - `Current runtime config`. Machine-readable Symphony workflow and prompt template.
-- [`../symphony/README.md`](../symphony/README.md) - `Current`. Scope and usage for the implemented Symphony delivery slice.
+- [`../symphony/README.md`](../symphony/README.md) - `Current`. Scope and usage for the implemented Symphony delivery slice and local worker mode.
+- [`../tools/Start-Symphony.ps1`](../tools/Start-Symphony.ps1) - `Current`. Start the local Symphony worker for a modding session.
+- [`../tools/Symphony-Status.ps1`](../tools/Symphony-Status.ps1) - `Current`. Show local Symphony worker status.
+- [`../tools/Stop-Symphony.ps1`](../tools/Stop-Symphony.ps1) - `Current`. Request or force-stop the local Symphony worker.
+- [`../tools/Cleanup-Symphony.ps1`](../tools/Cleanup-Symphony.ps1) - `Current`. Dry-run or prune completed Symphony worktrees and local branches.
 
 ### Engineering / Runbooks
 
@@ -42,6 +46,8 @@
 - [`plans/README.md`](plans/README.md) - `Current`. Standard location, naming, and expectations for checked-in plan docs.
 - [`plans/active/TEMPLATE.md`](plans/active/TEMPLATE.md) - `Current`. Reusable task plan template for non-trivial agent work.
 - [`plans/active/2026-03-10-symphony-pr-handoff.md`](plans/active/2026-03-10-symphony-pr-handoff.md) - `Current active plan`. Next Symphony milestone for validated PR handoff and future job-type evolution.
+- [`plans/active/2026-03-12-symphony-local-server.md`](plans/active/2026-03-12-symphony-local-server.md) - `Current active plan`. Local background-worker mode, status reporting, and start/stop controls for modding sessions.
+- [`plans/active/2026-03-12-symphony-worktree-cleanup.md`](plans/active/2026-03-12-symphony-worktree-cleanup.md) - `Current active plan`. Conservative cleanup flow for merged/completed Symphony worktrees.
 
 ### Repo-Local Skills
 

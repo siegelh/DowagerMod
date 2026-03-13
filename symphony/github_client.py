@@ -158,6 +158,12 @@ class GitHubClient:
         candidates.sort(key=lambda issue: issue.created_at)
         return candidates[0] if candidates else None
 
+    def get_project_issue(self, issue_number: int) -> GitHubIssue | None:
+        for issue in self.list_project_issues():
+            if issue.number == issue_number:
+                return issue
+        return None
+
     def update_status(self, issue: GitHubIssue, new_state: str) -> None:
         status_field = self.get_status_field()
         option_id = status_field.options.get(new_state)
@@ -225,12 +231,17 @@ class GitHubClient:
             title=payload["title"],
             is_draft=bool(payload.get("draft", True)),
             existing=False,
+            state=str(payload.get("state", "open")).upper(),
+            merged=bool(payload.get("merged_at")),
         )
 
     def find_open_pull_request(self, branch_name: str) -> PullRequestInfo | None:
+        return self.find_pull_request(branch_name, state="open")
+
+    def find_pull_request(self, branch_name: str, state: str = "all") -> PullRequestInfo | None:
         query = parse.urlencode(
             {
-                "state": "open",
+                "state": state,
                 "head": f"{self._config.owner}:{branch_name}",
             }
         )
@@ -244,6 +255,8 @@ class GitHubClient:
             title=pull["title"],
             is_draft=bool(pull.get("draft", False)),
             existing=True,
+            state=str(pull.get("state", "open")).upper(),
+            merged=bool(pull.get("merged_at")),
         )
 
     def _normalize_issue_node(self, node: dict[str, Any]) -> GitHubIssue | None:

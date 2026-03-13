@@ -48,6 +48,9 @@ class GitManager:
     def diff_stat(self) -> str:
         return self._git("diff", "--stat")
 
+    def is_clean(self) -> bool:
+        return not any(self._list_changed_paths())
+
     def _list_changed_paths(self) -> tuple[str, ...]:
         paths = []
         paths.extend(self._git_lines("diff", "--name-only", "--diff-filter=ACMRTUXB"))

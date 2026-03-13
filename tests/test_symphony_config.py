@@ -46,6 +46,8 @@ class ConfigTests(unittest.TestCase):
         self.assertEqual(config.github.token, "test-token")
         self.assertEqual(config.workspace.root, Path(r"C:\sw"))
         self.assertEqual(config.codex.command, ("codex", "app-server"))
+        self.assertEqual(config.runtime.poll_interval_seconds, 60)
+        self.assertEqual(config.runtime.error_backoff_seconds, 120)
 
 
 if __name__ == "__main__":

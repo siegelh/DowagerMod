@@ -18,6 +18,7 @@ This file defines the expected working method for future agents in this repo. It
 - A few oversized stock archives are intentionally excluded from git; do not treat their absence as task-created deltas.
 - Every significant change should update both implementation and corresponding documentation.
 - Agents must record assumptions, open questions, and residual risks.
+- When Symphony is used, the intended automated handoff point is a validated draft PR plus GitHub issue/project update to `Human Review`, not a silent branch-only change.
 
 ## Task Lifecycle
 
