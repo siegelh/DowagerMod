@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_FREDERICK</Tag>
+    <English>Soldier-Philosopher[NEWLINE]-35% civic upkeep costs.[NEWLINE]+40% Great Person birth rate and +25% Great General emergence.[NEWLINE]Workshops and Watermills each yield +1 [ICON_PRODUCTION].[NEWLINE]Worked Watermills and Windmills provide +1 [ICON_RESEARCH] to their city.[NEWLINE]Scientists yield +1 [ICON_PRODUCTION]; Engineers produce +1 [ICON_RESEARCH].</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_FREDERICK_SHORT</Tag>
+    <English>Soldier-Philosopher</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PRUSSIAN_GENERAL_DIRECTORY</Tag>
+    <English>General Directory</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PRUSSIAN_GENERAL_DIRECTORY_PEDIA</Tag>
+    <English>Frederick II folded finance, logistics, and provincial justice into the 1723 General Directory, squeezing every thaler and recruit from Prussia&#39;s cameralist state. District chambers, tax colleges, and garrison intendancies answered to a single military-bureaucratic staff that kept barracks filled, magazines stocked, and informants paid.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PRUSSIAN_GENERAL_DIRECTORY_STRATEGY</Tag>
+    <English>German unique Courthouse replacement. Keeps the normal unlocking tech and maintenance role but improves it to -60% city maintenance, adds +2 [ICON_ESPIONAGE] and +25% Espionage Defense, +15% unit production in the city, +1 Engineer specialist slot, and grants +2 XP to all Gunpowder units trained there.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PRUSSIAN_FUSILIER</Tag>
+    <English>Prussian Fusilier</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PRUSSIAN_FUSILIER_PEDIA</Tag>
+    <English>Frederick&#39;s canton system rotated male peasants through year-round drill, creating fusilier regiments that combined iron discipline, relentless volley fire, and quick concentration on the threatened front. Their cadet schools and centralized depots let Prussia mobilize faster than larger neighbors.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PRUSSIAN_FUSILIER_STRATEGY</Tag>
+    <English>German unique Rifleman replacement. Strength 15, drafted for 4 population, starts with Drill I and Pinch, and receives +25% vs. Mounted and +25% vs. Gunpowder units along with +10% City Attack and +10% City Defense.</English>
+  </TEXT>
+</Civ4GameText>

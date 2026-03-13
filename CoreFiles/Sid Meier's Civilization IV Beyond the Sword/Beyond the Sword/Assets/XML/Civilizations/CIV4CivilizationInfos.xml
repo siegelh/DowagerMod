@@ -7373,18 +7373,26 @@
         <City>TXT_KEY_CITY_NAME_HILDESHEIM</City>
         <City>TXT_KEY_CITY_NAME_ERLANGEN</City>
       </Cities>
-      <Buildings>
-        <Building>
-          <BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
-          <BuildingType>BUILDING_GERMAN_ASSEMBLY_PLANT</BuildingType>
-        </Building>
-      </Buildings>
-      <Units>
-        <Unit>
-          <UnitClassType>UNITCLASS_TANK</UnitClassType>
-          <UnitType>UNIT_GERMAN_PANZER</UnitType>
-        </Unit>
-      </Units>
+		<Buildings>
+			<Building>
+				<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
+				<BuildingType>BUILDING_GERMAN_ASSEMBLY_PLANT</BuildingType>
+			</Building>
+			<Building>
+				<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+				<BuildingType>BUILDING_PRUSSIAN_GENERAL_DIRECTORY</BuildingType>
+			</Building>
+		</Buildings>
+		<Units>
+			<Unit>
+				<UnitClassType>UNITCLASS_TANK</UnitClassType>
+				<UnitType>UNIT_GERMAN_PANZER</UnitType>
+			</Unit>
+			<Unit>
+				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitType>UNIT_PRUSSIAN_FUSILIER</UnitType>
+			</Unit>
+		</Units>
       <FreeUnitClasses>
         <FreeUnitClass>
           <UnitClassType>UNITCLASS_SETTLER</UnitClassType>
@@ -7492,18 +7500,26 @@
         <City>TXT_KEY_CITY_NAME_HILDESHEIM</City>
         <City>TXT_KEY_CITY_NAME_ERLANGEN</City>
       </Cities>
-      <Buildings>
-        <Building>
-          <BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
-          <BuildingType>BUILDING_GERMAN_ASSEMBLY_PLANT</BuildingType>
-        </Building>
-      </Buildings>
-      <Units>
-        <Unit>
-          <UnitClassType>UNITCLASS_TANK</UnitClassType>
-          <UnitType>UNIT_GERMAN_PANZER</UnitType>
-        </Unit>
-      </Units>
+		<Buildings>
+			<Building>
+				<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
+				<BuildingType>BUILDING_GERMAN_ASSEMBLY_PLANT</BuildingType>
+			</Building>
+			<Building>
+				<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+				<BuildingType>BUILDING_PRUSSIAN_GENERAL_DIRECTORY</BuildingType>
+			</Building>
+		</Buildings>
+		<Units>
+			<Unit>
+				<UnitClassType>UNITCLASS_TANK</UnitClassType>
+				<UnitType>UNIT_GERMAN_PANZER</UnitType>
+			</Unit>
+			<Unit>
+				<UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+				<UnitType>UNIT_PRUSSIAN_FUSILIER</UnitType>
+			</Unit>
+		</Units>
       <FreeUnitClasses>
         <FreeUnitClass>
           <UnitClassType>UNITCLASS_SETTLER</UnitClassType>
