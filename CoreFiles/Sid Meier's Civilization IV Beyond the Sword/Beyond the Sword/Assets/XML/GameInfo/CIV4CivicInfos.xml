@@ -1619,6 +1619,62 @@
 					<BuildingType>BUILDINGCLASS_PUBLIC_TRANSPORTATION</BuildingType>
 					<iHealthChange>3</iHealthChange>
 				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_JEWISH_TEMPLE</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_ISLAMIC_TEMPLE</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_HINDU_TEMPLE</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_BUDDHIST_TEMPLE</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_CONFUCIAN_TEMPLE</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_TAOIST_TEMPLE</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_JEWISH_MONASTERY</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_CHRISTIAN_MONASTERY</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_ISLAMIC_MONASTERY</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_HINDU_MONASTERY</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_BUDDHIST_MONASTERY</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_CONFUCIAN_MONASTERY</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
+				<BuildingHealthChange>
+					<BuildingType>BUILDINGCLASS_TAOIST_MONASTERY</BuildingType>
+					<iHealthChange>5</iHealthChange>
+				</BuildingHealthChange>
 			</BuildingHealthChanges>
 			<FeatureHappinessChanges>
 				<FeatureHappinessChange>
@@ -1631,6 +1687,14 @@
 				</FeatureHappinessChange>
 			</FeatureHappinessChanges>
 			<ImprovementYieldChanges>
+				<ImprovementYieldChange>
+					<ImprovementType>IMPROVEMENT_FARM</ImprovementType>
+					<ImprovementYields>
+						<iYield>1</iYield>
+						<iYield>0</iYield>
+						<iYield>0</iYield>
+					</ImprovementYields>
+				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
 					<ImprovementYields>

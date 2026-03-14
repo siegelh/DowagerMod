@@ -1493,7 +1493,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_CIVIC_ENVIRONMENTALISM_STRATEGY</Tag>
-		<English>Can spread Environmental ideology; Extra health in all cities; nearby forests and jungles make citizens happier</English>
+		<English>Can spread Environmental ideology; farms gain +1[ICON_FOOD], temples and monasteries gain +5[ICON_HEALTHY], and nearby forests and jungles make citizens happier</English>
 		<French>Meilleure sant&#233; dans toutes les villes. Les for&#234;ts et jungles &#224; proximit&#233; des villes rendent les citoyens heureux.</French>
 		<German>Gr&#246;&#223;ere Gesundheit in allen St&#228;dten. Nahe gelegene W&#228;lder und Dschungel steigern die Zufriedenheit.</German>
 		<Italian>Salute extra nelle citt&#224;; le foreste e le giungle vicine rendono felici gli abitanti</Italian>
