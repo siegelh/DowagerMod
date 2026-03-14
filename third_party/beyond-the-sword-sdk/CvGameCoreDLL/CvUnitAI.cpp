@@ -24,6 +24,21 @@
 
 #define FOUND_RANGE				(7)
 
+namespace
+{
+	BuildTypes getReefWorksBuildType()
+	{
+		static BuildTypes eReefBuild = (BuildTypes)GC.getInfoTypeForString("BUILD_POLYNESIA_REEF_WORKS_BTG", true);
+		return eReefBuild;
+	}
+
+	ImprovementTypes getReefWorksImprovementType()
+	{
+		static ImprovementTypes eReefImprovement = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG", true);
+		return eReefImprovement;
+	}
+}
+
 // Public Functions...
 
 CvUnitAI::CvUnitAI()
@@ -4042,7 +4057,12 @@ void CvUnitAI::AI_workerSeaMove()
 	{
 		return;
 	}
-	
+
+	if (AI_buildReefWorks())
+	{
+		return;
+	}
+
 	if (isHuman())
 	{
 		FAssert(isAutomated());
@@ -13952,6 +13972,117 @@ bool CvUnitAI::AI_improveBonus(int iMinValue, CvPlot** ppBestPlot, BuildTypes* p
 		{
 			FAssert(false);
 		}
+	}
+
+	return false;
+}
+
+bool CvUnitAI::AI_buildReefWorks()
+{
+	const BuildTypes eReefBuild = getReefWorksBuildType();
+	if (eReefBuild == NO_BUILD)
+	{
+		return false;
+	}
+
+	if (!GC.getUnitInfo(getUnitType()).getBuilds(eReefBuild))
+	{
+		return false;
+	}
+
+	const ImprovementTypes eReefImprovement = getReefWorksImprovementType();
+
+	CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
+	CvPlot* pBestPlot = NULL;
+	int iBestValue = 0;
+
+	int iLoop;
+	for (CvCity* pLoopCity = kOwner.firstCity(&iLoop); pLoopCity != NULL; pLoopCity = kOwner.nextCity(&iLoop))
+	{
+		if (pLoopCity->waterArea() == NULL)
+		{
+			continue;
+		}
+
+		for (int iIndex = 0; iIndex < NUM_CITY_PLOTS; ++iIndex)
+		{
+			if (iIndex == CITY_HOME_PLOT)
+			{
+				continue;
+			}
+
+			CvPlot* pLoopPlot = plotCity(pLoopCity->getX_INLINE(), pLoopCity->getY_INLINE(), iIndex);
+			if (pLoopPlot == NULL)
+			{
+				continue;
+			}
+
+			if (!pLoopPlot->isWater())
+			{
+				continue;
+			}
+
+			if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
+			{
+				continue;
+			}
+
+			if (pLoopPlot->getBonusType(getTeam()) != NO_BONUS)
+			{
+				continue;
+			}
+
+			if (pLoopCity->AI_getBestBuild(iIndex) != eReefBuild)
+			{
+				continue;
+			}
+
+			if (pLoopCity->AI_getBestBuildValue(iIndex) <= 0)
+			{
+				continue;
+			}
+
+			ImprovementTypes eImprovement = pLoopPlot->getImprovementType();
+			if ((eImprovement != NO_IMPROVEMENT) && (eImprovement != eReefImprovement))
+			{
+				continue;
+			}
+
+			if (!canBuild(pLoopPlot, eReefBuild))
+			{
+				continue;
+			}
+
+			int iPathTurns;
+			if (!generatePath(pLoopPlot, 0, true, &iPathTurns))
+			{
+				continue;
+			}
+
+			int iValue = pLoopCity->AI_getBestBuildValue(iIndex);
+			if (pLoopPlot->isBeingWorked())
+			{
+				iValue = (iValue * 4) / 3;
+			}
+			if (atPlot(pLoopPlot))
+			{
+				iValue *= 2;
+			}
+
+			iValue *= 1000;
+			iValue /= (1 + iPathTurns);
+
+			if (iValue > iBestValue)
+			{
+				iBestValue = iValue;
+				pBestPlot = pLoopPlot;
+			}
+		}
+	}
+
+	if (pBestPlot != NULL)
+	{
+		return AI_improvePlot(pBestPlot, eReefBuild);
 	}
 
 	return false;
