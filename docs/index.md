@@ -42,6 +42,7 @@
 - [`DLL_TRACING_WORKFLOW.md`](DLL_TRACING_WORKFLOW.md) - `Current`. DLL tracing and logging workflow for [`../third_party/beyond-the-sword-sdk/CvGameCoreDLL/`](../third_party/beyond-the-sword-sdk/CvGameCoreDLL/).
 - [`CIV4_UNIT_ART_CRASH_PLAYBOOK.md`](CIV4_UNIT_ART_CRASH_PLAYBOOK.md) - `Current`. Art/XML crash triage workflow.
 - [`INDUSTRY_ICON_PIPELINE.md`](INDUSTRY_ICON_PIPELINE.md) - `Current`. Live icon pipeline reference for industry buttons and `GameFont` glyph usage.
+- [`leaderhead_pipeline.md`](leaderhead_pipeline.md) - `Current`. End-to-end workflow for generating Civ IV BTS leaderheads from photo references, plus prototype tracking.
 
 ### Process / Planning
 

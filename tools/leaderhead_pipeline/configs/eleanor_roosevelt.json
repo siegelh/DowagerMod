@@ -1,0 +1,23 @@
+{
+  "name": "Eleanor Roosevelt",
+  "slug": "eleanor_roosevelt",
+  "art_def": "ART_DEF_LEADER_ELEANOR_ROOSEVELT",
+  "leader_type": "LEADER_ELEANOR_ROOSEVELT",
+  "base_art_def": "ART_DEF_LEADER_VICTORIA",
+  "created_at": "2026-03-20T04:32:05.735067+00:00",
+  "paths": {
+    "nif": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt.nif",
+    "nif_noshader": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt_noshader.nif",
+    "kfm": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt.kfm",
+    "background_nif": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt_bg.nif",
+    "background_kfm": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt_bg.kfm",
+    "button": "art/LeaderHeads/eleanor_roosevelt_button.dds",
+    "textures": {
+      "diffuse": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt_diff.dds",
+      "normal": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt_nrml.dds",
+      "specular": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt_spec.dds",
+      "env": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt_env.dds",
+      "env_mask": "art/LeaderHeads/eleanor_roosevelt/eleanor_roosevelt_env_mask.dds"
+    }
+  }
+}
