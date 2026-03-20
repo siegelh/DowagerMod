@@ -13,11 +13,16 @@ class FakeService:
     def __init__(self, runtime: ServiceRuntime):
         self._runtime = runtime
         self.calls = 0
+        self.cleanup_calls = 0
 
     def run_once(self, **_kwargs):
         self.calls += 1
         self._runtime.request_stop()
         return None
+
+    def apply_automatic_cleanup(self):
+        self.cleanup_calls += 1
+        return ()
 
 
 class ServiceRuntimeTests(unittest.TestCase):
@@ -57,6 +62,7 @@ class ServiceRuntimeTests(unittest.TestCase):
 
         self.assertEqual(exit_code, 0)
         self.assertEqual(service.calls, 1)
+        self.assertEqual(service.cleanup_calls, 1)
         self.assertFalse(status.is_running)
         self.assertEqual(status.payload["state"], "stopped")
         self.assertNotIn("current_job_name", status.payload)

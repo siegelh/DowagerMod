@@ -48,6 +48,7 @@ When the local worker is running, it may pick up:
 - runs repo-native validation when DLL or BtS XML changes are detected
 - commits and pushes the issue branch after successful implementation validation
 - creates or reuses a draft PR targeting `agent-baseline`
+- auto-cleans clean local issue worktrees during polling once the associated Symphony PR is merged and the GitHub issue is closed
 - writes local JSON run summaries outside the repo tree
 - updates GitHub comments and project state for handoff
 - supports a local polling worker so Symphony can run during a modding session
@@ -95,7 +96,7 @@ Worktree lifecycle right now:
 
 - Symphony creates one local git worktree per issue under `C:\sw\gh-<issue-number>`.
 - The corresponding branch is named `symphony/<issue-number>-<short-slug>`.
-- Worktrees persist after PR creation and even after merge unless they are explicitly cleaned up.
-- This is intentional for now so you can inspect, rebuild, and manually test candidate branches locally.
+- Worktrees persist after PR creation so you can inspect, rebuild, and manually test candidate branches locally.
+- When the local worker is polling, Symphony now auto-cleans clean local worktrees only after the associated PR is merged and the GitHub issue is closed.
 - `cleanup` is conservative and dry-run-first. It only removes clean local worktrees/branches when the issue is clearly done and there is no open PR.
 - Cleanup can also move the GitHub Project item to `Done` when the merged/closed work is confirmed during pruning.

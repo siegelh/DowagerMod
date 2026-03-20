@@ -52,6 +52,7 @@
 - [`plans/active/2026-03-12-symphony-local-server.md`](plans/active/2026-03-12-symphony-local-server.md) - `Current active plan`. Local background-worker mode, status reporting, and start/stop controls for modding sessions.
 - [`plans/active/2026-03-12-symphony-worktree-cleanup.md`](plans/active/2026-03-12-symphony-worktree-cleanup.md) - `Current active plan`. Conservative cleanup flow for merged/completed Symphony worktrees.
 - [`plans/active/2026-03-13-symphony-squad-integration.md`](plans/active/2026-03-13-symphony-squad-integration.md) - `Current active plan`. Squad roles, GitHub-facing job routing, observability, and human workflow for Symphony.
+- [`plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md`](plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md) - `Current active plan`. Auto-prune clean Symphony worktrees only after merged PR plus closed issue.
 
 ### Repo-Local Skills
 

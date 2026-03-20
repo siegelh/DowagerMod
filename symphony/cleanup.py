@@ -88,6 +88,15 @@ class CleanupManager:
         candidates.sort(key=lambda candidate: candidate.issue_number)
         return tuple(candidates)
 
+    def scan_auto_cleanup_candidates(self, issue_number: int | None = None) -> tuple[CleanupCandidate, ...]:
+        return tuple(
+            candidate
+            for candidate in self.scan(issue_number=issue_number)
+            if candidate.eligible
+            and candidate.issue_state.upper() == "CLOSED"
+            and candidate.merged_pull_request_url is not None
+        )
+
     def apply(self, candidates: tuple[CleanupCandidate, ...]) -> tuple[CleanupCandidate, ...]:
         cleaned: list[CleanupCandidate] = []
         for candidate in candidates:

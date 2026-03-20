@@ -12,6 +12,80 @@ from symphony.models import CleanupCandidate, GitHubIssue, PullRequestInfo, Work
 
 
 class CleanupManagerTests(unittest.TestCase):
+    def test_scan_auto_cleanup_candidates_requires_closed_issue_and_merged_pr(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            repo_root = Path(tmp)
+            github_config = GitHubConfig(
+                owner="siegelh",
+                owner_type="user",
+                repo="DowagerMod",
+                project_number=1,
+                status_field="Status",
+                ready_state="Ready",
+                planning_state="Planning",
+                in_progress_state="In Progress",
+                blocked_state="Blocked",
+                human_review_state="Human Review",
+                done_state="Done",
+                blocker_labels=(),
+                token="x",
+            )
+            workspace_config = WorkspaceConfig(
+                root=repo_root / "workspaces",
+                base_branch="agent-baseline",
+                branch_prefix="symphony",
+            )
+            manager = CleanupManager(repo_root, github_config, workspace_config)
+
+            with mock.patch.object(
+                manager,
+                "scan",
+                return_value=(
+                    CleanupCandidate(
+                        issue_number=43,
+                        issue_title="closed and merged",
+                        issue_state="CLOSED",
+                        project_status="Human Review",
+                        branch_name="symphony/43-fix",
+                        workspace_path=str(repo_root / "workspaces" / "gh-43"),
+                        has_open_pull_request=False,
+                        merged_pull_request_url="https://example.com/pr/43",
+                        is_clean=True,
+                        eligible=True,
+                        reasons=(),
+                    ),
+                    CleanupCandidate(
+                        issue_number=44,
+                        issue_title="closed but no merged pr",
+                        issue_state="CLOSED",
+                        project_status="Done",
+                        branch_name="symphony/44-fix",
+                        workspace_path=str(repo_root / "workspaces" / "gh-44"),
+                        has_open_pull_request=False,
+                        merged_pull_request_url=None,
+                        is_clean=True,
+                        eligible=True,
+                        reasons=(),
+                    ),
+                    CleanupCandidate(
+                        issue_number=45,
+                        issue_title="merged but issue still open",
+                        issue_state="OPEN",
+                        project_status="Done",
+                        branch_name="symphony/45-fix",
+                        workspace_path=str(repo_root / "workspaces" / "gh-45"),
+                        has_open_pull_request=False,
+                        merged_pull_request_url="https://example.com/pr/45",
+                        is_clean=True,
+                        eligible=True,
+                        reasons=(),
+                    ),
+                ),
+            ):
+                candidates = manager.scan_auto_cleanup_candidates()
+
+        self.assertEqual([candidate.issue_number for candidate in candidates], [43])
+
     def test_scan_marks_merged_clean_issue_as_eligible(self) -> None:
         now = datetime.now(timezone.utc)
         issue = GitHubIssue(

@@ -67,6 +67,16 @@ class SymphonyServer:
                     self._sleep_with_heartbeat(lease, self._error_backoff_seconds, state="backoff")
                     continue
 
+                try:
+                    self._service.apply_automatic_cleanup()
+                except Exception as cleanup_exc:
+                    log_event(
+                        self._logger,
+                        "Symphony auto cleanup failed",
+                        event="auto_cleanup_failed",
+                        error=str(cleanup_exc),
+                    )
+
                 if summary is None:
                     lease.write_status(
                         state="idle",

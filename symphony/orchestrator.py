@@ -107,6 +107,25 @@ class SymphonyService:
 
         raise RuntimeError(f"Unsupported squad job: {candidate.job_name}")
 
+    def apply_automatic_cleanup(self, issue_number: int | None = None) -> tuple[CleanupCandidate, ...]:
+        candidates = self._cleanup.scan_auto_cleanup_candidates(issue_number=issue_number)
+        if not candidates:
+            return ()
+
+        cleaned = self._cleanup.apply(candidates)
+        for candidate in cleaned:
+            log_event(
+                self._logger,
+                "Auto-cleaned completed Symphony worktree",
+                event="auto_cleanup_applied",
+                issue_number=candidate.issue_number,
+                branch_name=candidate.branch_name,
+                workspace_path=candidate.workspace_path,
+                merged_pull_request_url=candidate.merged_pull_request_url,
+                job_name="auto_cleanup",
+            )
+        return cleaned
+
     def _run_implement_issue(self, issue: GitHubIssue, *, status_hook: StatusHook | None) -> RunSummary:
         started_at = datetime.now(timezone.utc)
         worktree_manager = self._build_worktree_manager()
