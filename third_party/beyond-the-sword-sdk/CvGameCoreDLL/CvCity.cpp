@@ -53,6 +53,16 @@ namespace
 		return false;
 	}
 
+	bool isLocalBonusPlotImprovedForCity(const CvCity& kCity, const CvPlot* pPlot)
+	{
+		if (pPlot == NULL)
+		{
+			return false;
+		}
+
+		return (pPlot == kCity.plot()) || (pPlot->getImprovementType() != NO_IMPROVEMENT);
+	}
+
 	int countOwnedMatchingLocalBonusPlots(const CvCity& kCity, const BuildingLocalBonusPrereq& kPrereq, bool bRequireImproved, bool bRequireConnected)
 	{
 		int iCount = 0;
@@ -77,9 +87,7 @@ namespace
 				continue;
 			}
 
-			const bool bIsCityCenterPlot = (pLoopPlot == kCity.plot());
-
-			if (bRequireImproved && !bIsCityCenterPlot && pLoopPlot->getImprovementType() == NO_IMPROVEMENT)
+			if (bRequireImproved && !isLocalBonusPlotImprovedForCity(kCity, pLoopPlot))
 			{
 				continue;
 			}
@@ -315,7 +323,7 @@ namespace
 				}
 
 				const bool bOwnerOk = (pLoopPlot->getOwnerINLINE() == kCity.getOwnerINLINE());
-				const bool bImprovedOk = (!kPrereq.m_bImprovedOnly || pLoopPlot->getImprovementType() != NO_IMPROVEMENT);
+				const bool bImprovedOk = (!kPrereq.m_bImprovedOnly || isLocalBonusPlotImprovedForCity(kCity, pLoopPlot));
 				const bool bNetworkOk = (!kPrereq.m_bConnectedOnly || pLoopPlot->isBonusNetwork(kCity.getTeam()));
 				CvPlotGroup* pPlotGroup = pLoopPlot->getPlotGroup(kCity.getOwnerINLINE());
 				const bool bGroupOk = (!kPrereq.m_bConnectedOnly || (pCityPlotGroup != NULL && pPlotGroup == pCityPlotGroup));
@@ -1927,7 +1935,7 @@ int CvCity::countLocalBonusTypes(const std::vector<int>& aiBonusTypes, bool bImp
 			continue;
 		}
 
-		if (bImprovedOnly && pLoopPlot->getImprovementType() == NO_IMPROVEMENT)
+		if (bImprovedOnly && !isLocalBonusPlotImprovedForCity(*this, pLoopPlot))
 		{
 			continue;
 		}
