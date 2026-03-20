@@ -38,6 +38,27 @@
 #define BUILDINGFOCUS_CAPITAL				(1 << 17)
 
 
+namespace
+{
+	BuildTypes getReefWorksBuildType()
+	{
+		static BuildTypes eReefBuild = (BuildTypes)GC.getInfoTypeForString("BUILD_POLYNESIA_REEF_WORKS_BTG", true);
+		return eReefBuild;
+	}
+
+	ImprovementTypes getReefWorksImprovementType()
+	{
+		static ImprovementTypes eReefImprovement = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG", true);
+		return eReefImprovement;
+	}
+
+	UnitClassTypes getWorkBoatClassType()
+	{
+		static UnitClassTypes eClass = (UnitClassTypes)GC.getInfoTypeForString("UNITCLASS_WORKBOAT");
+		return eClass;
+	}
+}
+
 
 // Public Functions...
 
@@ -4338,6 +4359,73 @@ int CvCityAI::AI_neededSeaWorkers()
 	}
 
 	iNeededSeaWorkers += GET_PLAYER(getOwnerINLINE()).countUnimprovedBonuses(pWaterArea, plot());
+
+	const BuildTypes eReefBuild = getReefWorksBuildType();
+	if (eReefBuild != NO_BUILD)
+	{
+		const UnitClassTypes eWorkBoatClass = getWorkBoatClassType();
+		bool bHasReefWorkBoat = false;
+		if (eWorkBoatClass != NO_UNITCLASS)
+		{
+			const UnitTypes eWorkBoat = (UnitTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eWorkBoatClass);
+			if (eWorkBoat != NO_UNIT)
+			{
+				bHasReefWorkBoat = GC.getUnitInfo(eWorkBoat).getBuilds(eReefBuild);
+			}
+		}
+
+		if (bHasReefWorkBoat)
+		{
+			const ImprovementTypes eReefImprovement = getReefWorksImprovementType();
+			int iReefTargets = 0;
+
+			for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI)
+			{
+				if (iI == CITY_HOME_PLOT)
+				{
+					continue;
+				}
+
+				CvPlot* pLoopPlot = getCityIndexPlot(iI);
+				if (pLoopPlot == NULL)
+				{
+					continue;
+				}
+
+				if (!pLoopPlot->isWater())
+				{
+					continue;
+				}
+
+				if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
+				{
+					continue;
+				}
+
+				if (pLoopPlot->getBonusType(getTeam()) != NO_BONUS)
+				{
+					continue;
+				}
+
+				if (AI_getBestBuild(iI) != eReefBuild || AI_getBestBuildValue(iI) <= 0)
+				{
+					continue;
+				}
+
+				if (pLoopPlot->getImprovementType() == eReefImprovement)
+				{
+					continue;
+				}
+
+				++iReefTargets;
+			}
+
+			if (iReefTargets > 0)
+			{
+				iNeededSeaWorkers += std::max(1, (iReefTargets + 1) / 3);
+			}
+		}
+	}
 
 	return iNeededSeaWorkers;
 }
