@@ -1195,7 +1195,25 @@ void CvGame::handleAction(int iAction)
 
 	if (GC.getActionInfo(iAction).getMissionType() != NO_MISSION)
 	{
-		selectionListGameNetMessage(GAMEMESSAGE_PUSH_MISSION, GC.getActionInfo(iAction).getMissionType(), GC.getActionInfo(iAction).getMissionData(), -1, 0, false, bShift);
+		// If the selected group already has queued missions, force append so that
+		// clicking action buttons after a shift-queued move chains onto the queue
+		// tail (matching the action bar resolver's queue-tail plot context).
+		bool bAppendMission = bShift;
+		CvUnit* pHeadActionUnit = gDLL->getInterfaceIFace()->getHeadSelectedUnit();
+		if (pHeadActionUnit != NULL)
+		{
+			CvSelectionGroup* pActionGroup = pHeadActionUnit->getGroup();
+			if (pActionGroup != NULL && pActionGroup->getLengthMissionQueue() > 0)
+			{
+				bAppendMission = true;
+				if (pHeadActionUnit->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer())
+				{
+					dllTrace("SHIFTQ", "handleAction auto-append iAction=%d bShift=%d qlen=%d",
+						iAction, (int)bShift, pActionGroup->getLengthMissionQueue());
+				}
+			}
+		}
+		selectionListGameNetMessage(GAMEMESSAGE_PUSH_MISSION, GC.getActionInfo(iAction).getMissionType(), GC.getActionInfo(iAction).getMissionData(), -1, 0, false, bAppendMission);
 	}
 
 	if (GC.getActionInfo(iAction).getCommandType() != NO_COMMAND)
