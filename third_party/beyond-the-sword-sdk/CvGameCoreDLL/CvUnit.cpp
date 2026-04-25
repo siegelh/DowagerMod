@@ -6354,6 +6354,13 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible)
 	}
 	if (!(m_pUnitInfo->getBuilds(eBuild)))
 	{
+		if (getOwnerINLINE() != NO_PLAYER && getOwnerINLINE() == GC.getGameINLINE().getActivePlayer() && pPlot != plot())
+		{
+			dllTrace("SHIFTQE", "canBuild EXIT FALSE @6357 reason=!unitInfo.getBuilds eBuild=%d plot=(%d,%d) curPlot=(%d,%d)",
+				(int)eBuild,
+				pPlot ? pPlot->getX_INLINE() : -1, pPlot ? pPlot->getY_INLINE() : -1,
+				plot() ? plot()->getX_INLINE() : -1, plot() ? plot()->getY_INLINE() : -1);
+		}
 		return false;
 	}
 
@@ -6504,14 +6511,37 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible)
 
 	if (!(GET_PLAYER(getOwnerINLINE()).canBuild(pPlot, eBuild, false, bTestVisible)))
 	{
+		if (getOwnerINLINE() != NO_PLAYER && getOwnerINLINE() == GC.getGameINLINE().getActivePlayer() && pPlot != plot())
+		{
+			dllTrace("SHIFTQE", "canBuild EXIT FALSE @6507 reason=PlayerCanBuildFalse eBuild=%d plot=(%d,%d) curPlot=(%d,%d) bTestVisible=%d",
+				(int)eBuild,
+				pPlot ? pPlot->getX_INLINE() : -1, pPlot ? pPlot->getY_INLINE() : -1,
+				plot() ? plot()->getX_INLINE() : -1, plot() ? plot()->getY_INLINE() : -1,
+				(int)bTestVisible);
+		}
 		return false;
 	}
 
 	if (!pPlot->isValidDomainForAction(*this))
 	{
+		if (getOwnerINLINE() != NO_PLAYER && getOwnerINLINE() == GC.getGameINLINE().getActivePlayer() && pPlot != plot())
+		{
+			dllTrace("SHIFTQE", "canBuild EXIT FALSE @6512 reason=!isValidDomainForAction eBuild=%d plot=(%d,%d) curPlot=(%d,%d)",
+				(int)eBuild,
+				pPlot ? pPlot->getX_INLINE() : -1, pPlot ? pPlot->getY_INLINE() : -1,
+				plot() ? plot()->getX_INLINE() : -1, plot() ? plot()->getY_INLINE() : -1);
+		}
 		return false;
 	}
 
+	if (getOwnerINLINE() != NO_PLAYER && getOwnerINLINE() == GC.getGameINLINE().getActivePlayer() && pPlot != plot())
+	{
+		dllTrace("SHIFTQE", "canBuild EXIT TRUE eBuild=%d plot=(%d,%d) curPlot=(%d,%d) bTestVisible=%d",
+			(int)eBuild,
+			pPlot ? pPlot->getX_INLINE() : -1, pPlot ? pPlot->getY_INLINE() : -1,
+			plot() ? plot()->getX_INLINE() : -1, plot() ? plot()->getY_INLINE() : -1,
+			(int)bTestVisible);
+	}
 	return true;
 }
 

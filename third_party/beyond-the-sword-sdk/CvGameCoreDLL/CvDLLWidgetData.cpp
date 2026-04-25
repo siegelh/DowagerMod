@@ -1947,12 +1947,15 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct &widgetDataStruct, CvWS
 	{
 		if (GC.getActionInfo(widgetDataStruct.m_iData1).getMissionType() != NO_MISSION)
 		{
-			if (bShift && gDLL->getInterfaceIFace()->mirrorsSelectionGroup())
+			CvSelectionGroup* pSelectedGroupHelp = pHeadSelectedUnit->getGroup();
+			bool bUseQueueTail = (pSelectedGroupHelp != NULL && pSelectedGroupHelp->getLengthMissionQueue() > 0);
+			if ((bShift || bUseQueueTail) && gDLL->getInterfaceIFace()->mirrorsSelectionGroup())
 			{
-				pMissionPlot = pHeadSelectedUnit->getGroup()->lastMissionPlot();
+				pMissionPlot = pSelectedGroupHelp->lastMissionPlot();
 				if (pHeadSelectedUnit->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer())
 				{
-					dllTrace("SHIFTQ", "parseActionHelp BRANCH=lastMissionPlot bShift=1 mirrors=1 unit=%d action=%d resolvedPlot=(%d,%d) curPlot=(%d,%d) qlen=%d",
+					dllTrace("SHIFTQ", "parseActionHelp BRANCH=lastMissionPlot bShift=%d mirrors=1 unit=%d action=%d resolvedPlot=(%d,%d) curPlot=(%d,%d) qlen=%d",
+						(int)bShift,
 						pHeadSelectedUnit->getID(), widgetDataStruct.m_iData1,
 						pMissionPlot ? pMissionPlot->getX_INLINE() : -1,
 						pMissionPlot ? pMissionPlot->getY_INLINE() : -1,

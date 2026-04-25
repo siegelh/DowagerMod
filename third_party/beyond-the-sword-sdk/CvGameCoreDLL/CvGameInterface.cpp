@@ -1091,7 +1091,7 @@ bool CvGame::canHandleAction(int iAction, CvPlot* pPlot, bool bTestVisible, bool
 						{
 							pMissionPlot = pPlot;
 						}
-						else if (bShift)
+						else if (bShift || (pSelectedGroup != NULL && pSelectedGroup->getLengthMissionQueue() > 0))
 						{
 							pMissionPlot = pSelectedGroup->lastMissionPlot();
 						}
@@ -1109,6 +1109,19 @@ bool CvGame::canHandleAction(int iAction, CvPlot* pPlot, bool bTestVisible, bool
 					else
 					{
 						pMissionPlot = pSelectedInterfaceList->plot();
+					}
+
+					if (pHeadSelectedUnit->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer())
+					{
+						dllTrace("SHIFTQ", "canHandleAction iAction=%d bShift=%d mirrors=%d pPlotIn=(%d,%d) qlen=%d resolvedPlot=(%d,%d) curPlot=(%d,%d) bTestVisible=%d",
+							iAction, (int)bShift, (int)gDLL->getInterfaceIFace()->mirrorsSelectionGroup(),
+							pPlot ? pPlot->getX_INLINE() : -1, pPlot ? pPlot->getY_INLINE() : -1,
+							pSelectedGroup ? pSelectedGroup->getLengthMissionQueue() : -1,
+							pMissionPlot ? pMissionPlot->getX_INLINE() : -1,
+							pMissionPlot ? pMissionPlot->getY_INLINE() : -1,
+							pHeadSelectedUnit->plot() ? pHeadSelectedUnit->plot()->getX_INLINE() : -1,
+							pHeadSelectedUnit->plot() ? pHeadSelectedUnit->plot()->getY_INLINE() : -1,
+							(int)bTestVisible);
 					}
 
 					if (pSelectedInterfaceList->canStartMission(GC.getActionInfo(iAction).getMissionType(), GC.getActionInfo(iAction).getMissionData(), -1, pMissionPlot, bTestVisible, bUseCache))
