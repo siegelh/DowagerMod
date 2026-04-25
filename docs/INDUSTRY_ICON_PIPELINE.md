@@ -71,6 +71,16 @@ Current implication:
 
 ## How to give a refined resource its own inline glyph later
 
+> **IMPORTANT (regression note, agent-baseline-fix-worker-bugs):** any
+> BtS-override `GameFont.tga` / `GameFont_75.tga` MUST be a strict superset of
+> the base game's glyph cells — same dimensions, same alpha layout, and every
+> base-game cell present at the same X/Y. A stale or hand-edited copy at
+> `…/Beyond the Sword/Assets/res/Fonts/` shadows the vanilla atlas and causes
+> all `%c` symbols (inline resource icons in text **and** religion badges on
+> city bars) to render blank. If you only need to alias new resources to
+> existing base glyphs, the override files are redundant and should not exist
+> — let the engine fall through to the vanilla atlas.
+
 1. Pick an unused `FontButtonIndex` in `CIV4ArtDefines_Bonus.xml`.
 2. Change the resource's `<FontButtonIndex>` to that new slot.
 3. Edit both `GameFont.tga` and `GameFont_75.tga`.
