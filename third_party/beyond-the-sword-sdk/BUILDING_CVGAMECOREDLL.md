@@ -35,8 +35,29 @@ Compile-only validation:
   - `C:\Program Files (x86)\Civ4SDK\WindowsSDK`
 - VS2022 `nmake.exe` / `cvtres.exe` under:
   - `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\<version>\bin\Hostx64\x86`
+  - The script's default `-VsToolsVersion` is `14.38.33130`, but if that exact
+    folder is not present and the `MSVC` root has any installed toolset, the
+    script auto-falls-back to the highest-numbered one found there. Override
+    with `-VsToolsVersion <version>` if you need a specific build.
 
 The build script writes `Makefile.settings` with the `(x86)` toolkit paths before building.
+
+## First-time machine setup
+
+If `C:\Program Files (x86)\Civ4SDK\` is missing, install in this order:
+
+1. **Visual Studio 2022 Community + Desktop development with C++ workload**:
+   ```powershell
+   winget install --id Microsoft.VisualStudio.2022.Community --accept-source-agreements --accept-package-agreements `
+     --override "--add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait --norestart"
+   ```
+2. **Civ4 SDK toolkit** (legacy MS VC++ Toolkit 2003 + Platform SDK,
+   no longer hosted by Microsoft). Download Nightinggale's SDK installer
+   from CivFanatics:
+   - Forum thread: `https://forums.civfanatics.com/threads/sdk-installer.649662/`
+   - Run the installer interactively (it elevates and writes to
+     `C:\Program Files (x86)\Civ4SDK\`).
+3. Verify install with `.\tools\build_civ4_dll.ps1 -NoDeploy`.
 
 ## Expected output
 

@@ -10,8 +10,19 @@ $ErrorActionPreference = "Stop"
 $sdkRoot = Join-Path $RepoRoot "third_party\beyond-the-sword-sdk\CvGameCoreDLL"
 $assetsOut = Join-Path $RepoRoot "CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Assets"
 
-$nmake = "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\$VsToolsVersion\bin\Hostx64\x86\nmake.exe"
-$cvtresDir = "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\$VsToolsVersion\bin\Hostx64\x86"
+$msvcRoot = "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC"
+$pinnedDir = Join-Path $msvcRoot $VsToolsVersion
+if (!(Test-Path $pinnedDir) -and (Test-Path $msvcRoot)) {
+    $detected = Get-ChildItem $msvcRoot -Directory -ErrorAction SilentlyContinue |
+        Sort-Object Name -Descending |
+        Select-Object -First 1
+    if ($detected) {
+        Write-Host "[build_civ4_dll] Pinned MSVC $VsToolsVersion not present; using detected $($detected.Name)."
+        $VsToolsVersion = $detected.Name
+    }
+}
+$nmake = "$msvcRoot\$VsToolsVersion\bin\Hostx64\x86\nmake.exe"
+$cvtresDir = "$msvcRoot\$VsToolsVersion\bin\Hostx64\x86"
 
 if (!(Test-Path $sdkRoot)) {
     throw "SDK folder not found: $sdkRoot"
