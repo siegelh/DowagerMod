@@ -415,6 +415,12 @@ void CvSelectionGroup::pushMission(MissionTypes eMission, int iData1, int iData2
 
 	FAssert(getOwnerINLINE() != NO_PLAYER);
 
+	if (getOwnerINLINE() != NO_PLAYER && getOwnerINLINE() == GC.getGameINLINE().getActivePlayer())
+	{
+		dllTrace("SHIFTQ", "pushMission grp=%d eMission=%d iData1=%d iData2=%d bAppend=%d bManual=%d qlenBefore=%d",
+			m_iID, (int)eMission, iData1, iData2, (int)bAppend, (int)bManual, getLengthMissionQueue());
+	}
+
 	if (!bAppend)
 	{
 		if (isBusy())
@@ -557,12 +563,27 @@ CvPlot* CvSelectionGroup::lastMissionPlot()
 
 	pMissionNode = tailMissionQueueNode();
 
+	const bool bTraceShiftQ = (getOwnerINLINE() != NO_PLAYER && getOwnerINLINE() == GC.getGameINLINE().getActivePlayer());
+	if (bTraceShiftQ)
+	{
+		CvPlot* pCur = plot();
+		dllTrace("SHIFTQ", "lastMissionPlot grp=%d qlen=%d curPlot=(%d,%d) tailIsNull=%d",
+			m_iID, getLengthMissionQueue(),
+			pCur ? pCur->getX_INLINE() : -1, pCur ? pCur->getY_INLINE() : -1,
+			(int)(pMissionNode == NULL));
+	}
+
 	while (pMissionNode != NULL)
 	{
 		switch (pMissionNode->m_data.eMissionType)
 		{
 		case MISSION_MOVE_TO:
 		case MISSION_ROUTE_TO:
+			if (bTraceShiftQ)
+			{
+				dllTrace("SHIFTQ", "lastMissionPlot grp=%d -> queued plot (%d,%d) via mission=%d",
+					m_iID, pMissionNode->m_data.iData1, pMissionNode->m_data.iData2, (int)pMissionNode->m_data.eMissionType);
+			}
 			return GC.getMapINLINE().plotINLINE(pMissionNode->m_data.iData1, pMissionNode->m_data.iData2);
 			break;
 
@@ -618,6 +639,12 @@ CvPlot* CvSelectionGroup::lastMissionPlot()
 		pMissionNode = prevMissionQueueNode(pMissionNode);
 	}
 
+	if (bTraceShiftQ)
+	{
+		CvPlot* pCur = plot();
+		dllTrace("SHIFTQ", "lastMissionPlot grp=%d -> FALLBACK plot() (%d,%d) (no MOVE_TO/ROUTE_TO/MOVE_TO_UNIT in queue)",
+			m_iID, pCur ? pCur->getX_INLINE() : -1, pCur ? pCur->getY_INLINE() : -1);
+	}
 	return plot();
 }
 

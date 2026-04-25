@@ -6344,6 +6344,14 @@ bool CvUnit::goldenAge()
 bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible) const
 {
     FAssertMsg(eBuild < GC.getNumBuildInfos(), "Index out of bounds");
+	if (getOwnerINLINE() != NO_PLAYER && getOwnerINLINE() == GC.getGameINLINE().getActivePlayer())
+	{
+		dllTrace("SHIFTQ", "canBuild ENTRY unit=%d eBuild=%d plot=(%d,%d) curPlot=(%d,%d) bTestVisible=%d",
+			getID(), (int)eBuild,
+			pPlot ? pPlot->getX_INLINE() : -1, pPlot ? pPlot->getY_INLINE() : -1,
+			plot() ? plot()->getX_INLINE() : -1, plot() ? plot()->getY_INLINE() : -1,
+			(int)bTestVisible);
+	}
 	if (!(m_pUnitInfo->getBuilds(eBuild)))
 	{
 		return false;

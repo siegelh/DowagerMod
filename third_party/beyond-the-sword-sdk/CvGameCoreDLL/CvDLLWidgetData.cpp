@@ -1950,10 +1950,29 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct &widgetDataStruct, CvWS
 			if (bShift && gDLL->getInterfaceIFace()->mirrorsSelectionGroup())
 			{
 				pMissionPlot = pHeadSelectedUnit->getGroup()->lastMissionPlot();
+				if (pHeadSelectedUnit->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer())
+				{
+					dllTrace("SHIFTQ", "parseActionHelp BRANCH=lastMissionPlot bShift=1 mirrors=1 unit=%d action=%d resolvedPlot=(%d,%d) curPlot=(%d,%d) qlen=%d",
+						pHeadSelectedUnit->getID(), widgetDataStruct.m_iData1,
+						pMissionPlot ? pMissionPlot->getX_INLINE() : -1,
+						pMissionPlot ? pMissionPlot->getY_INLINE() : -1,
+						pHeadSelectedUnit->plot() ? pHeadSelectedUnit->plot()->getX_INLINE() : -1,
+						pHeadSelectedUnit->plot() ? pHeadSelectedUnit->plot()->getY_INLINE() : -1,
+						pHeadSelectedUnit->getGroup()->getLengthMissionQueue());
+				}
 			}
 			else
 			{
 				pMissionPlot = pHeadSelectedUnit->plot();
+				if (pHeadSelectedUnit->getOwnerINLINE() == GC.getGameINLINE().getActivePlayer())
+				{
+					dllTrace("SHIFTQ", "parseActionHelp BRANCH=currentPlot bShift=%d mirrors=%d unit=%d action=%d resolvedPlot=(%d,%d) qlen=%d",
+						(int)bShift, (int)gDLL->getInterfaceIFace()->mirrorsSelectionGroup(),
+						pHeadSelectedUnit->getID(), widgetDataStruct.m_iData1,
+						pMissionPlot ? pMissionPlot->getX_INLINE() : -1,
+						pMissionPlot ? pMissionPlot->getY_INLINE() : -1,
+						pHeadSelectedUnit->getGroup()->getLengthMissionQueue());
+				}
 			}
 
 			pMissionCity = pMissionPlot->getPlotCity();

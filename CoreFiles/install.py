@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import sys
 import distutils.dir_util as dis
@@ -107,21 +108,102 @@ else:
     winsound.PlaySound('install_noise.wav', winsound.SND_FILENAME)
 
 ## Functions
+def _looks_like_bts_install(path):
+    """Return True if path looks like a real Civ4 BtS install (has the BtS subdir or Assets)."""
+    if not path or not os.path.isdir(path):
+        return False
+    bts_marker = os.path.join(path, "Beyond the Sword", "Assets")
+    return os.path.isdir(bts_marker)
+
+def _candidate_steam_paths(civ_drive):
+    """Return an ordered list of likely Civ 4 BTS install paths to probe."""
+    drive = civ_drive.rstrip("\\:").upper() + ":\\"
+    name = "Sid Meier's Civilization IV Beyond the Sword"
+    candidates = []
+
+    # 1) Explicit override via env var — instant exit, no prompt
+    env_path = os.environ.get("CIV4_BTS_PATH")
+    if env_path:
+        candidates.append(env_path)
+
+    # 2) Common Steam library locations on the chosen drive
+    common_roots = [
+        os.path.join(drive, "Program Files (x86)", "Steam"),
+        os.path.join(drive, "Program Files", "Steam"),
+        os.path.join(drive, "Steam"),
+        os.path.join(drive, "SteamLibrary"),
+        os.path.join(drive, "Games", "Steam"),
+    ]
+    for root in common_roots:
+        candidates.append(os.path.join(root, "steamapps", "common", name))
+
+    # 3) Parse Steam's libraryfolders.vdf (each Steam install lists every library across all drives).
+    #    This finds installs even on drives the user didn't pick.
+    vdf_candidates = [
+        r"C:\Program Files (x86)\Steam\steamapps\libraryfolders.vdf",
+        r"C:\Program Files\Steam\steamapps\libraryfolders.vdf",
+    ]
+    for vdf in vdf_candidates:
+        if not os.path.isfile(vdf):
+            continue
+        try:
+            with open(vdf, "r", encoding="utf-8", errors="replace") as fh:
+                text = fh.read()
+        except Exception:
+            continue
+        # libraryfolders.vdf has lines like:    "path"    "D:\\SteamLibrary"
+        for match in re.finditer(r'"path"\s*"([^"]+)"', text):
+            lib_path = match.group(1).replace("\\\\", "\\")
+            candidates.append(os.path.join(lib_path, "steamapps", "common", name))
+
+    # Dedupe while preserving order
+    seen = set()
+    unique = []
+    for c in candidates:
+        key = os.path.normcase(os.path.normpath(c))
+        if key not in seen:
+            seen.add(key)
+            unique.append(c)
+    return unique
+
 def findPath(civ_drive):
     """
-    Returns either the path where Civ 4 is installed or 'Failed'.
+    Returns either the path where Civ 4 BtS is installed or 'Failed'.
+
+    Strategy:
+      1. Try CIV4_BTS_PATH env var.
+      2. Try common Steam library paths on the chosen drive (~instant).
+      3. Try every Steam library listed in libraryfolders.vdf (~instant).
+      4. Fall back to a full os.walk of the chosen drive (slow last resort).
     """
+    # Fast path: probe known candidates first
+    for candidate in _candidate_steam_paths(civ_drive):
+        if _looks_like_bts_install(candidate):
+            print("""
+                ---------------------------------
+                Civ 4 BTS install found (fast path)
+                ---------------------------------
+
+                {0}
+
+                """.format(candidate))
+            response = input("Is this the correct directory? [y / n]: ").strip().lower()
+            if response == "y":
+                return candidate
+
+    # Slow fallback: original drive walk
+    print("Fast-path candidates exhausted. Falling back to a full drive scan (this can take a while)...")
     for root, directories, filenames in os.walk(civ_drive.upper()):
         for directory in directories:
-            current_path = os.path.join(root, directory).replace("\n",'\\')
+            current_path = os.path.join(root, directory).replace("\n", '\\')
             if "\\Sid Meier's Civilization IV Beyond the Sword" in current_path and "steamapps" in current_path.lower():
                 print("""
                 ---------------------------------
                 Civ 4 BTS Assets Directory found!
                 ---------------------------------
-                
+
                 {0}
-                
+
                 """.format(current_path))
                 response = input("Is this the correct directory? [y / n]: ")
                 response = response.lower()
