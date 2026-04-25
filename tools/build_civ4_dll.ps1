@@ -2,6 +2,7 @@ param(
     [string]$RepoRoot = "C:\DowagerMod",
     [string]$VsToolsVersion = "14.38.33130",
     [string]$Target = "Release",
+    [string]$Civ4SdkRoot = "",
     [switch]$NoDeploy
 )
 
@@ -34,11 +35,29 @@ if (!(Test-Path $nmake)) {
     throw "nmake not found: $nmake"
 }
 
+if (-not $Civ4SdkRoot) {
+    $candidates = @(
+        "C:\Program Files (x86)\Civ4SDK",
+        "C:\Civ4SDK\Civ4SDK",
+        "C:\Civ4SDK"
+    )
+    foreach ($c in $candidates) {
+        if (Test-Path (Join-Path $c "Microsoft Visual C++ Toolkit 2003\bin\cl.exe")) {
+            $Civ4SdkRoot = $c
+            break
+        }
+    }
+}
+if (-not $Civ4SdkRoot -or -not (Test-Path (Join-Path $Civ4SdkRoot "Microsoft Visual C++ Toolkit 2003\bin\cl.exe"))) {
+    throw "Civ4 SDK toolkit (Nightinggale's installer) not found. Pass -Civ4SdkRoot pointing to the folder containing 'Microsoft Visual C++ Toolkit 2003' and 'WindowsSDK'."
+}
+Write-Host "[build_civ4_dll] Using Civ4 SDK at: $Civ4SdkRoot"
+
 Set-Location $sdkRoot
 
 @"
-TOOLKIT=C:\Program Files (x86)\Civ4SDK\Microsoft Visual C++ Toolkit 2003
-PSDK=C:\Program Files (x86)\Civ4SDK\WindowsSDK
+TOOLKIT=$Civ4SdkRoot\Microsoft Visual C++ Toolkit 2003
+PSDK=$Civ4SdkRoot\WindowsSDK
 "@ | Set-Content -Path ".\Makefile.settings" -Encoding ascii
 
 $env:PATH = "$cvtresDir;$env:PATH"
