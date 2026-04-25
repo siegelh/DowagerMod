@@ -30,9 +30,14 @@ Compile-only validation:
 
 ## Toolchain assumptions
 
-- Civ4 SDK toolkit:
-  - `C:\Program Files (x86)\Civ4SDK\Microsoft Visual C++ Toolkit 2003`
-  - `C:\Program Files (x86)\Civ4SDK\WindowsSDK`
+- Civ4 SDK toolkit (any of these locations are auto-detected by the script):
+  - `C:\Program Files (x86)\Civ4SDK\` (preferred — Nightinggale default)
+  - `C:\Civ4SDK\Civ4SDK\` (Nightinggale installer's nested fallback layout)
+  - `C:\Civ4SDK\`
+  - Override with `-Civ4SdkRoot <path>`.
+  - Inside that root the script expects:
+    - `Microsoft Visual C++ Toolkit 2003\bin\cl.exe` and `link.exe`
+    - `WindowsSDK\Include\` headers and `WindowsSDK\bin\rc.exe`
 - VS2022 `nmake.exe` / `cvtres.exe` under:
   - `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\<version>\bin\Hostx64\x86`
   - The script's default `-VsToolsVersion` is `14.38.33130`, but if that exact
@@ -40,7 +45,27 @@ Compile-only validation:
     script auto-falls-back to the highest-numbered one found there. Override
     with `-VsToolsVersion <version>` if you need a specific build.
 
-The build script writes `Makefile.settings` with the `(x86)` toolkit paths before building.
+The build script writes `Makefile.settings` with the resolved toolkit paths before building.
+
+### `sal.h` workaround for Nightinggale's WindowsSDK
+
+The CivFanatics-packaged WindowsSDK ships `specstrings*.h` but **not** `sal.h`,
+so a fresh install of the Civ4 SDK toolkit will fail the precompile step with
+`fatal error C1083: Cannot open include file: 'sal.h'`.
+
+A pre-tested empty-macro stub is checked in at `tools/civ4sdk_sal_stub.h`. To
+fix a fresh machine after installing the Civ4 SDK toolkit, copy it to the
+WindowsSDK include folder, e.g.:
+
+```powershell
+Copy-Item tools\civ4sdk_sal_stub.h "C:\Civ4SDK\Civ4SDK\WindowsSDK\include\sal.h"
+# or, for the (x86) install location:
+# Copy-Item tools\civ4sdk_sal_stub.h "C:\Program Files (x86)\Civ4SDK\WindowsSDK\Include\sal.h"
+```
+
+The stub defines all SAL/specstrings annotation macros (`__in`, `__out`,
+`__checkReturn`, `__inner_checkReturn`, etc.) as no-ops so the legacy VC7.1
+compiler can parse modern Win32 headers.
 
 ## First-time machine setup
 
@@ -55,9 +80,16 @@ If `C:\Program Files (x86)\Civ4SDK\` is missing, install in this order:
    no longer hosted by Microsoft). Download Nightinggale's SDK installer
    from CivFanatics:
    - Forum thread: `https://forums.civfanatics.com/threads/sdk-installer.649662/`
-   - Run the installer interactively (it elevates and writes to
-     `C:\Program Files (x86)\Civ4SDK\`).
-3. Verify install with `.\tools\build_civ4_dll.ps1 -NoDeploy`.
+   - Run the installer interactively. The installer may write to
+     `C:\Program Files (x86)\Civ4SDK\` or to `C:\Civ4SDK\Civ4SDK\` (nested);
+     either is auto-detected by the build script.
+3. **Patch `sal.h`** (the installer omits it — see the stub workaround
+   section above):
+   ```powershell
+   # adjust path to wherever the installer placed WindowsSDK\Include
+   Copy-Item tools\civ4sdk_sal_stub.h "C:\Civ4SDK\Civ4SDK\WindowsSDK\include\sal.h"
+   ```
+4. Verify install with `.\tools\build_civ4_dll.ps1 -NoDeploy`.
 
 ## Expected output
 
