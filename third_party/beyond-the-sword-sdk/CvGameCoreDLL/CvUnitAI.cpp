@@ -14540,8 +14540,24 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 	// a weak case ~tens-of-thousands. All raw numbers below are tuned so
 	// flavor multipliers (1.6x / 0.7x) tilt without locking.
 
-	// (a) Found: bestFoundValue * 200 / (path + 2).
+	// Detailed decision log. File lives at:
+	//   My Documents\My Games\Beyond the Sword\Logs\VenicePrince.log
+	// (requires LoggingEnabled = 1 in CivilizationIV.ini).
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"==== T%d  Player=%S  Unit=\"%S\" at (%d,%d)  Flavor=%s  Cities=%d ====",
+		GC.getGameINLINE().getGameTurn(),
+		kOwner.getName(),
+		getName().GetCString(),
+		getX_INLINE(), getY_INLINE(),
+		getFlavorAsciiName(eFlavor),
+		kOwner.getNumCities()).c_str());
+
+	// (a) Found: bestFoundValue * 1000 / (path + 2).  All multiplies use
+	// long long because foundValue * 1000 can reach ~25M and the urgency
+	// multiplier below (up to 9.0x) was overflowing int32 at runtime.
 	int iValueFound = 0;
+	int iValueFoundRaw = 0;       // pre-urgency, for log
+	int iFoundCandidatesScored = 0;
 	if (m_pUnitInfo->isFound())
 	{
 		for (int i = 0; i < kOwner.AI_getNumCitySites(); ++i)
@@ -14568,14 +14584,21 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			{
 				continue;
 			}
-			int iV = pSite->getFoundValue(getOwnerINLINE());
-			iV = (iV * 1000) / (iPathTurns + 2);
+			int iFV = pSite->getFoundValue(getOwnerINLINE());
+			long long iV64 = ((long long)iFV * 1000LL) / (long long)(iPathTurns + 2);
+			int iV = (iV64 > 2000000000LL) ? 2000000000 : (int)iV64;
+			++iFoundCandidatesScored;
+			gDLL->logMsg("VenicePrince.log", CvString::format(
+				"  [Found] cand site (%d,%d): foundValue=%d path=%dt -> iV=%d",
+				pSite->getX_INLINE(), pSite->getY_INLINE(),
+				iFV, iPathTurns, iV).c_str());
 			if (iV > iValueFound)
 			{
 				iValueFound = iV;
 			}
 		}
 	}
+	iValueFoundRaw = iValueFound;
 
 	// Per-flavor city-count Found urgency. Tilts the value-comparison
 	// toward founding when below an empire's natural city target. This
@@ -14584,6 +14607,7 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 	// multiplier of 0 is still 0, so the Prince Joins (the design
 	// default). Tall is excluded because true Tall Venice can stay at
 	// one city; only an amazing site overrides.
+	int iUrgencyApplied = 100;
 	{
 		const int iCityCount = kOwner.getNumCities();
 		int iUrgency = 100;
@@ -14596,13 +14620,22 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		{
 			iUrgency = (iUrgency * 150) / 100;
 		}
-		iValueFound = (iValueFound * iUrgency) / 100;
+		// Long-long math: iValueFound up to ~2e9, iUrgency up to 900,
+		// product up to ~1.8e12 -- well outside int32.
+		long long iAfter64 = ((long long)iValueFound * (long long)iUrgency) / 100LL;
+		iValueFound = (iAfter64 > 2000000000LL) ? 2000000000 : (int)iAfter64;
+		iUrgencyApplied = iUrgency;
 	}
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [Found] candidates=%d  raw_max=%d  urgency=%d/100  ->  iValueFound=%d",
+		iFoundCandidatesScored, iValueFoundRaw, iUrgencyApplied,
+		iValueFound).c_str());
 
 	// (b) Join: bestSpecialistValue * 20000 / (4 + existingPrincesInCity).
 	// Snowball decay so even Tall flavor eventually founds again after the
 	// city is saturated with Princes.
 	int iValueJoin = 0;
+	int iJoinCandidatesScored = 0;
 	{
 		const SpecialistTypes ePrinceSpec = getVenetianMerchantPrinceSpecialist();
 		int iLoop;
@@ -14624,15 +14657,17 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			{
 				continue;
 			}
-			int iExistingPrinces = 0;
+			int iExistingFree = 0;
+			int iExistingTotal = 0;
 			if (ePrinceSpec != NO_SPECIALIST)
 			{
-				iExistingPrinces = pCity->getFreeSpecialistCount(ePrinceSpec);
+				iExistingFree = pCity->getFreeSpecialistCount(ePrinceSpec);
+				iExistingTotal = pCity->getSpecialistCount(ePrinceSpec);
 			}
 			// Linear snowball decay -- gentle so stacking in Venice
 			// (the GPP pump) remains the design default. Flavor +
 			// Found urgency handle expansion separately.
-			const int iJoinDenom = 4 + iExistingPrinces;
+			const int iJoinDenom = 4 + iExistingFree;
 
 			// Per-city tilt: capital is the GPP pump, so prefer it by
 			// default. Override only for a small starving secondary city
@@ -14649,25 +14684,52 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 				iCityMultX100 = 300;
 			}
 
+			int iBestSpecRaw = 0;
+			int iBestSpecAfterMult = 0;
+			int iBestCityV = 0;
 			for (int iI = 0; iI < GC.getNumSpecialistInfos(); ++iI)
 			{
 				if (canJoin(pCity->plot(), (SpecialistTypes)iI))
 				{
-					int iSV = pCity->AI_specialistValue((SpecialistTypes)iI,
+					int iSV_raw = pCity->AI_specialistValue((SpecialistTypes)iI,
 						pCity->AI_avoidGrowth(), false);
-					iSV = (iSV * iCityMultX100) / 100;
-					int iV = (iSV * 20000) / iJoinDenom;
+					int iSV = (iSV_raw * iCityMultX100) / 100;
+					long long iV64 = ((long long)iSV * 20000LL) / (long long)iJoinDenom;
+					int iV = (iV64 > 2000000000LL) ? 2000000000 : (int)iV64;
+					if (iV > iBestCityV)
+					{
+						iBestCityV = iV;
+						iBestSpecRaw = iSV_raw;
+						iBestSpecAfterMult = iSV;
+					}
 					if (iV > iValueJoin)
 					{
 						iValueJoin = iV;
 					}
 				}
 			}
+			if (iBestCityV > 0)
+			{
+				++iJoinCandidatesScored;
+				gDLL->logMsg("VenicePrince.log", CvString::format(
+					"  [Join] cand %S: capital=%d existingFree=%d totalSpec=%d cityMult=%d/100 specVal_raw=%d after_mult=%d denom=%d -> iV=%d",
+					pCity->getName().GetCString(),
+					pCity->isCapital() ? 1 : 0,
+					iExistingFree, iExistingTotal, iCityMultX100,
+					iBestSpecRaw, iBestSpecAfterMult, iJoinDenom,
+					iBestCityV).c_str());
+			}
 		}
 	}
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [Join] candidates=%d  ->  iValueJoin=%d",
+		iJoinCandidatesScored, iValueJoin).c_str());
 
 	// (c) Trade: tradeGold * 1000 / (4 + path).
 	int iValueTrade = 0;
+	int iTradeCandidatesScored = 0;
+	int iTradeBestGold = 0;
+	int iTradeBestPath = 0;
 	{
 		for (int iI = 0; iI < MAX_PLAYERS; ++iI)
 		{
@@ -14696,19 +14758,30 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 				{
 					continue;
 				}
-				int iV = (getTradeGold(pCity->plot()) * 1000) / (4 + iPathTurns);
+				int iGold = getTradeGold(pCity->plot());
+				long long iV64 = ((long long)iGold * 1000LL) / (long long)(4 + iPathTurns);
+				int iV = (iV64 > 2000000000LL) ? 2000000000 : (int)iV64;
+				++iTradeCandidatesScored;
 				if (iV > iValueTrade)
 				{
 					iValueTrade = iV;
+					iTradeBestGold = iGold;
+					iTradeBestPath = iPathTurns;
 				}
 			}
 		}
 	}
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [Trade] candidates=%d  bestGold=%d bestPath=%dt  ->  iValueTrade=%d",
+		iTradeCandidatesScored, iTradeBestGold, iTradeBestPath,
+		iValueTrade).c_str());
 
 	// (d) Grand Colosseum: aggregateUsableHappy (capped 30) * 50000.
 	int iValueColos = 0;
-	if (getGrandColosseumBuildType() != NO_BUILD &&
-		GC.getUnitInfo(getUnitType()).getBuilds(getGrandColosseumBuildType()))
+	int iColosAggregate = 0;
+	bool bColosBuildAvailable = (getGrandColosseumBuildType() != NO_BUILD &&
+		GC.getUnitInfo(getUnitType()).getBuilds(getGrandColosseumBuildType()));
+	if (bColosBuildAvailable)
 	{
 		int iLoop;
 		int iAggregate = 0;
@@ -14730,26 +14803,43 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			iAggregate += iUsable;
 		}
 		iAggregate = std::min(30, iAggregate);
+		iColosAggregate = iAggregate;
 		iValueColos = iAggregate * 50000;
 	}
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [Colos] buildAvailable=%d aggregateHappy=%d  ->  iValueColos=%d",
+		bColosBuildAvailable ? 1 : 0, iColosAggregate, iValueColos).c_str());
 
 	// (e) Golden Age: numCities * 100000, gated on can-actually-trigger and
 	// not currently in a GA / anarchy. Capped at 1.2M.
 	int iValueGoldenAge = 0;
-	if (m_pUnitInfo->isGoldenAge() && canGoldenAge(plot()) &&
-		!kOwner.isGoldenAge() && !kOwner.isAnarchy())
+	bool bGAEligible = (m_pUnitInfo->isGoldenAge() && canGoldenAge(plot()) &&
+		!kOwner.isGoldenAge() && !kOwner.isAnarchy());
+	if (bGAEligible)
 	{
 		int iV = kOwner.getNumCities() * 100000;
 		iValueGoldenAge = std::min(1200000, iV);
 	}
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [GoldenAge] eligible=%d  ->  iValueGoldenAge=%d",
+		bGAEligible ? 1 : 0, iValueGoldenAge).c_str());
+
 
 	// --- Apply flavor multipliers (tenths) ---
 	const int* pMult = kFlavorMultipliersX10[(int)eFlavor];
-	int iScoreFound  = (iValueFound      * pMult[0]) / 10;
-	int iScoreJoin   = (iValueJoin       * pMult[1]) / 10;
-	int iScoreTrade  = (iValueTrade      * pMult[2]) / 10;
-	int iScoreColos  = (iValueColos      * pMult[3]) / 10;
-	int iScoreGA     = (iValueGoldenAge  * pMult[4]) / 10;
+	int iScoreFound  = (int)(((long long)iValueFound      * pMult[0]) / 10);
+	int iScoreJoin   = (int)(((long long)iValueJoin       * pMult[1]) / 10);
+	int iScoreTrade  = (int)(((long long)iValueTrade      * pMult[2]) / 10);
+	int iScoreColos  = (int)(((long long)iValueColos      * pMult[3]) / 10);
+	int iScoreGA     = (int)(((long long)iValueGoldenAge  * pMult[4]) / 10);
+
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [Mults] flavor=%s  F=%d/10 J=%d/10 T=%d/10 C=%d/10 GA=%d/10",
+		getFlavorAsciiName(eFlavor),
+		pMult[0], pMult[1], pMult[2], pMult[3], pMult[4]).c_str());
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [Scores] F=%d J=%d T=%d C=%d GA=%d",
+		iScoreFound, iScoreJoin, iScoreTrade, iScoreColos, iScoreGA).c_str());
 
 	enum { OPT_FOUND, OPT_JOIN, OPT_TRADE, OPT_COLOS, OPT_GA, OPT_COUNT };
 	int aWeights[OPT_COUNT] = {
@@ -14798,6 +14888,11 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		}
 	};
 
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [Pick] threshold=%d  best=%s(%d)",
+		kMinStrategicThreshold, Local::optName(iBest),
+		aWeights[iBest]).c_str());
+
 	if (aWeights[iBest] < kMinStrategicThreshold)
 	{
 		// --- Tier 3 fallback: Build Road if we can route between own land. ---
@@ -14808,10 +14903,14 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			plot()->getOwner() == getOwnerINLINE() &&
 			plot()->getRouteType() == NO_ROUTE)
 		{
+			gDLL->logMsg("VenicePrince.log",
+				"  [Action] below-threshold -> BUILD_ROAD pushed");
 			getGroup()->pushMission(MISSION_BUILD, eRoadBuild, -1, 0,
 				false, false, MISSIONAI_BUILD, plot());
 			return true;
 		}
+		gDLL->logMsg("VenicePrince.log",
+			"  [Action] below-threshold and no road build -> return false (vanilla cascade)");
 		return false;
 	}
 
@@ -14827,6 +14926,11 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		case OPT_COLOS: bDone = AI_buildGrandColosseum(false); break;
 		case OPT_GA:    bDone = AI_goldenAge();              break;
 		}
+
+		gDLL->logMsg("VenicePrince.log", CvString::format(
+			"  [Action] attempt=%d try=%s  result=%s",
+			iAttempt, Local::optName(iBest),
+			bDone ? "SUCCESS" : "BAILED").c_str());
 
 		if (bDone)
 		{
@@ -14877,6 +14981,8 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 	}
 
 	// Fall through to vanilla cascade.
+	gDLL->logMsg("VenicePrince.log",
+		"  [Action] both attempts bailed -> return false (vanilla cascade)");
 	return false;
 }
 
