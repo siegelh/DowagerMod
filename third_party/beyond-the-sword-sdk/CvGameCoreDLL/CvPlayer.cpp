@@ -17085,12 +17085,31 @@ void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThre
 
 		changeGreatPeopleThresholdModifier(GC.getDefineINT("GREAT_PEOPLE_THRESHOLD_INCREASE") * ((getGreatPeopleCreated() / 10) + 1));
 
-		for (int iI = 0; iI < MAX_PLAYERS; iI++)
+		// Venice exception: the Venetian Merchant Prince is the only GP with
+		// bFound. Vanilla pumps a team-wide threshold bump on every GP pop,
+		// which means two Enrico-of-Venice allies on the same team share GP
+		// economy and effectively only one of them can spawn Princes per turn
+		// (the second's GPP bar fills, then the bump pushes threshold above it
+		// before that player's cities are processed). Skip the team bump for
+		// Venice so each Venice civ accumulates Princes independently.
+		bool bSkipTeamBump = GC.getUnitInfo(eGreatPersonUnit).isFound();
+		if (!bSkipTeamBump)
 		{
-			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getTeam())
+			for (int iI = 0; iI < MAX_PLAYERS; iI++)
 			{
-				GET_PLAYER((PlayerTypes)iI).changeGreatPeopleThresholdModifier(GC.getDefineINT("GREAT_PEOPLE_THRESHOLD_INCREASE_TEAM") * ((getGreatPeopleCreated() / 10) + 1));
+				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getTeam())
+				{
+					GET_PLAYER((PlayerTypes)iI).changeGreatPeopleThresholdModifier(GC.getDefineINT("GREAT_PEOPLE_THRESHOLD_INCREASE_TEAM") * ((getGreatPeopleCreated() / 10) + 1));
+				}
 			}
+		}
+		else
+		{
+			gDLL->logMsg("VenicePrince.log", CvString::format(
+				"[TeamBumpSkipped] T%d  Player=%S  Unit=%S  (Venice exception: teammates retain threshold)",
+				GC.getGameINLINE().getGameTurn(),
+				getName(),
+				GC.getUnitInfo(eGreatPersonUnit).getType()).c_str());
 		}
 	}
 
