@@ -178,6 +178,8 @@ protected:
 	bool AI_routeCity();
 	bool AI_routeTerritory(bool bImprovementOnly = false);
 	bool AI_buildReefWorks();
+	bool AI_buildGrandColosseum(bool bFirstFreebie = false);
+	bool AI_venetianPrinceChoice();
 	bool AI_travelToUpgradeCity();
 	bool AI_retreatToCity(bool bPrimary = false, bool bAirlift = false, int iMaxPath = MAX_INT);
 	bool AI_pickup(UnitAITypes eUnitAI);

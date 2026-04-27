@@ -17,6 +17,30 @@
 		<Spanish>Venetian Merchant Prince</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_UNIT_VENICE_FOUNDER</Tag>
+		<English>Venetian Founder</English>
+		<French>Venetian Founder</French>
+		<German>Venetian Founder</German>
+		<Italian>Venetian Founder</Italian>
+		<Spanish>Venetian Founder</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_VENICE_FOUNDER_PEDIA</Tag>
+		<English>The Venetian Founder is the founding party of the Most Serene Republic of Venice. Its sole purpose is to establish Venice's capital city. The Venetian Founder cannot be built; only one is granted at the start of the game.</English>
+		<French>The Venetian Founder is the founding party of the Most Serene Republic of Venice. Its sole purpose is to establish Venice's capital city. The Venetian Founder cannot be built; only one is granted at the start of the game.</French>
+		<German>The Venetian Founder is the founding party of the Most Serene Republic of Venice. Its sole purpose is to establish Venice's capital city. The Venetian Founder cannot be built; only one is granted at the start of the game.</German>
+		<Italian>The Venetian Founder is the founding party of the Most Serene Republic of Venice. Its sole purpose is to establish Venice's capital city. The Venetian Founder cannot be built; only one is granted at the start of the game.</Italian>
+		<Spanish>The Venetian Founder is the founding party of the Most Serene Republic of Venice. Its sole purpose is to establish Venice's capital city. The Venetian Founder cannot be built; only one is granted at the start of the game.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_VENICE_FOUNDER_STRATEGY</Tag>
+		<English>Use the Venetian Founder to establish Venice on a strong site near coast and resources. Once Venice is founded, growth and merchant princes drive the rest of the empire.</English>
+		<French>Use the Venetian Founder to establish Venice on a strong site near coast and resources. Once Venice is founded, growth and merchant princes drive the rest of the empire.</French>
+		<German>Use the Venetian Founder to establish Venice on a strong site near coast and resources. Once Venice is founded, growth and merchant princes drive the rest of the empire.</German>
+		<Italian>Use the Venetian Founder to establish Venice on a strong site near coast and resources. Once Venice is founded, growth and merchant princes drive the rest of the empire.</Italian>
+		<Spanish>Use the Venetian Founder to establish Venice on a strong site near coast and resources. Once Venice is founded, growth and merchant princes drive the rest of the empire.</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_BUILDING_VENETIAN_DOGE_PALACE</Tag>
 		<English>Doge's Palace</English>
 		<French>Doge's Palace</French>

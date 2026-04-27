@@ -37,6 +37,18 @@ namespace
 		static ImprovementTypes eReefImprovement = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG", true);
 		return eReefImprovement;
 	}
+
+	BuildTypes getGrandColosseumBuildType()
+	{
+		static BuildTypes eBuild = (BuildTypes)GC.getInfoTypeForString("BUILD_GRAND_COLOSSEUM_BTG", true);
+		return eBuild;
+	}
+
+	ImprovementTypes getGrandColosseumImprovementType()
+	{
+		static ImprovementTypes eImp = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_GRAND_COLOSSEUM_BTG", true);
+		return eImp;
+	}
 }
 
 // Public Functions...
@@ -3379,6 +3391,21 @@ void CvUnitAI::AI_artistMove()
 	    return;
 	}
 
+	// First Grand Colosseum is "free": if the empire has zero of them yet,
+	// place one even on a modest site so the AI exercises this feature at
+	// least once. Subsequent placements use the normal threshold below.
+	{
+		const ImprovementTypes eGCImp = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_GRAND_COLOSSEUM_BTG", true);
+		if (eGCImp != NO_IMPROVEMENT &&
+			GET_PLAYER(getOwnerINLINE()).getImprovementCount(eGCImp) == 0)
+		{
+			if (AI_buildGrandColosseum(true))
+			{
+				return;
+			}
+		}
+	}
+
 	if (AI_construct())
 	{
 		return;
@@ -3390,6 +3417,13 @@ void CvUnitAI::AI_artistMove()
 	}
 
 	if (AI_greatWork())
+	{
+		return;
+	}
+
+	// Normal-threshold Grand Colosseum (any subsequent placement, after the
+	// first-freebie path above already fired or wasn't applicable).
+	if (AI_buildGrandColosseum(false))
 	{
 		return;
 	}
@@ -3633,6 +3667,18 @@ void CvUnitAI::AI_generalMove()
 void CvUnitAI::AI_merchantMove()
 {
 	PROFILE_FUNC();
+
+	// Venice's Merchant Prince stands in for both Settler and Great Merchant.
+	// The vanilla cascade below has no AI_found() call, so without this gate
+	// the AI would burn its only city-founder on a one-shot trade mission.
+	// AI_venetianPrinceChoice value-compares the Prince's full action set
+	// (found / join / trade / grand colosseum + tier-1 clutch picks) and
+	// falls through here only when no strategic option clears its threshold.
+	// Gated on isFound() so vanilla Great Merchants are unaffected.
+	if (m_pUnitInfo->isFound() && AI_venetianPrinceChoice())
+	{
+		return;
+	}
 
 	if (AI_construct())
 	{
@@ -14085,6 +14131,438 @@ bool CvUnitAI::AI_buildReefWorks()
 		return AI_improvePlot(pBestPlot, eReefBuild);
 	}
 
+	return false;
+}
+
+// AI_buildGrandColosseum
+// ----------------------
+// Picks a tile in our cultural borders to drop a Grand Colosseum on, scoring
+// each candidate by how much usable Happy it actually delivers across cities
+// whose Big-Fat-Cross overlaps the tile. Even cities that are currently happy
+// score, because growth turns extra happy headroom into future avoidance of
+// unhappiness; we project ~30 turns of population growth from current food
+// surplus to estimate that latent demand.
+//
+// bFirstFreebie: when true, lowers the build threshold so a Great Artist will
+// place the empire's first Grand Colosseum even on modest sites. Used by the
+// artist-AI path the first time around to make sure the AI tries this feature
+// at least once. Merchant Princes never request the freebie discount.
+bool CvUnitAI::AI_buildGrandColosseum(bool bFirstFreebie)
+{
+	const BuildTypes eBuild = getGrandColosseumBuildType();
+	if (eBuild == NO_BUILD)
+	{
+		return false;
+	}
+
+	if (!GC.getUnitInfo(getUnitType()).getBuilds(eBuild))
+	{
+		return false;
+	}
+
+	const ImprovementTypes eGCImprovement = getGrandColosseumImprovementType();
+
+	CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
+
+	// Iterate every plot we own, score by overlapping-city Happy contribution.
+	CvPlot* pBestPlot = NULL;
+	int iBestValue = 0;
+
+	const int iNumPlots = GC.getMapINLINE().numPlotsINLINE();
+	for (int iI = 0; iI < iNumPlots; iI++)
+	{
+		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
+		if (pLoopPlot == NULL)
+		{
+			continue;
+		}
+		if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
+		{
+			continue;
+		}
+		if (pLoopPlot->isCity())
+		{
+			continue;
+		}
+		// Don't overwrite an existing Grand Colosseum.
+		if (eGCImprovement != NO_IMPROVEMENT && pLoopPlot->getImprovementType() == eGCImprovement)
+		{
+			continue;
+		}
+		if (!canBuild(pLoopPlot, eBuild))
+		{
+			continue;
+		}
+		if (pLoopPlot->isVisibleEnemyUnit(this))
+		{
+			continue;
+		}
+
+		int iPathTurns;
+		if (!generatePath(pLoopPlot, MOVE_SAFE_TERRITORY, true, &iPathTurns))
+		{
+			continue;
+		}
+
+		// Sum usable happy across every owned city whose BFC overlaps this plot.
+		int iHappySum = 0;
+		int iOverlapCities = 0;
+		int iLoop;
+		for (CvCity* pCity = kOwner.firstCity(&iLoop); pCity != NULL; pCity = kOwner.nextCity(&iLoop))
+		{
+			if (plotDistance(pCity->getX_INLINE(), pCity->getY_INLINE(),
+				pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE()) > CITY_PLOTS_RADIUS)
+			{
+				continue;
+			}
+			// Skip if plot is the city center itself (can't build there anyway,
+			// but this guards against odd geometry).
+			if (pCity->plot() == pLoopPlot)
+			{
+				continue;
+			}
+
+			++iOverlapCities;
+
+			// Current unhappiness deficit (positive = unhappy, negative = surplus).
+			int iCurDeficit = pCity->unhappyLevel() - pCity->happyLevel();
+
+			// Project ~30 turns of pop growth from current food surplus.
+			int iProjGrowth = 0;
+			int iFoodNet = pCity->foodDifference();
+			if (iFoodNet > 0)
+			{
+				int iThreshold = pCity->growthThreshold();
+				if (iThreshold > 0)
+				{
+					int iTurnsPerPop = std::max(1, iThreshold / iFoodNet);
+					iProjGrowth = std::min(10, 30 / iTurnsPerPop);
+				}
+			}
+
+			// Usable happy this Colosseum delivers to THIS city (cap at 10
+			// since Grand Colosseum yields 10 happy).
+			int iUsable = std::min(10, std::max(0, iCurDeficit + iProjGrowth));
+			iHappySum += iUsable;
+		}
+
+		if (iOverlapCities == 0)
+		{
+			continue;
+		}
+
+		// Base value: happy delivered, weighted heavily.
+		int iValue = iHappySum * 200;
+
+		// Add the +8 commerce yield bonus (small but nonzero contribution).
+		iValue += 8 * 30;
+
+		// Bonus for tiles that overlap multiple cities — encourages placing
+		// in a "shared" cultural area where one Colosseum buffs several cities.
+		if (iOverlapCities > 1)
+		{
+			iValue += iHappySum * 100 * (iOverlapCities - 1);
+		}
+
+		// Penalize travel time so nearby sites are preferred when scores tie.
+		iValue *= 1000;
+		iValue /= (1 + iPathTurns);
+
+		if (iValue > iBestValue)
+		{
+			iBestValue = iValue;
+			pBestPlot = pLoopPlot;
+		}
+	}
+
+	// Threshold: Great Artist's first Colosseum gets a "freebie" discount so
+	// the AI is willing to drop one even when no city is critically unhappy.
+	const int iMinThreshold = bFirstFreebie ? 50000 : 400000;
+	if (pBestPlot == NULL || iBestValue < iMinThreshold)
+	{
+		return false;
+	}
+
+	return AI_improvePlot(pBestPlot, eBuild);
+}
+
+// AI_venetianPrinceChoice
+// -----------------------
+// Replacement decision routine for Venetian Merchant Princes (and any future
+// merchant-AI unit that sets bFound=1). Vanilla AI_merchantMove is hard-wired
+// for one-shot Great Merchants — it has no AI_found() call, so the AI happily
+// burns Venice's only city-founder on a quick trade mission. This routine
+// instead value-compares the Prince's full action set:
+//
+//   - Tier 1 (clutch): construct a free corp HQ; finish a tech this turn.
+//     These are no-brainers when available.
+//   - Tier 2 (strategic): probe the four big strategic options (found, join,
+//     trade, grand colosseum), normalize their scores, and dispatch the
+//     winner. Runner-up gets a second chance if the winner's helper bails.
+//   - Tier 3 (fallback): return false → caller's vanilla cascade resumes
+//     (golden age / discover / safety / skip).
+//
+// IMPORTANT: This is gated by AI_merchantMove on `m_pUnitInfo->isFound()`,
+// which is false for vanilla Great Merchants. Only the Venetian Merchant
+// Prince has both UNITAI_MERCHANT and bFound=1, so vanilla behavior is
+// unaffected.
+bool CvUnitAI::AI_venetianPrinceChoice()
+{
+	PROFILE_FUNC();
+
+	CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
+
+	// --- Tier 1: clutch tactical actions (no-brainers when available) ---
+
+	// Free corp HQ if no other GP has placed one yet.
+	if (AI_construct())
+	{
+		return true;
+	}
+
+	// Tech finishable this turn.
+	if (AI_discover(true, true))
+	{
+		return true;
+	}
+
+	// --- Tier 2: probe the four big strategic options ---
+
+	// (a) Found: best foundValue×1000/(path+1) over our known city sites.
+	int iValueFound = 0;
+	if (m_pUnitInfo->isFound())
+	{
+		for (int i = 0; i < kOwner.AI_getNumCitySites(); ++i)
+		{
+			CvPlot* pSite = kOwner.AI_getCitySite(i);
+			if (pSite->getArea() != getArea())
+			{
+				continue;
+			}
+			if (!canFound(pSite))
+			{
+				continue;
+			}
+			if (pSite->isVisibleEnemyUnit(this))
+			{
+				continue;
+			}
+			if (kOwner.AI_plotTargetMissionAIs(pSite, MISSIONAI_FOUND, getGroup()) != 0)
+			{
+				continue;
+			}
+			int iPathTurns;
+			if (!generatePath(pSite, MOVE_SAFE_TERRITORY, true, &iPathTurns))
+			{
+				continue;
+			}
+			int iV = pSite->getFoundValue(getOwnerINLINE());
+			iV *= 1000;
+			iV /= (iPathTurns + 1);
+			if (iV > iValueFound)
+			{
+				iValueFound = iV;
+			}
+		}
+	}
+
+	// (b) Join: best AI_specialistValue across our cities. The snowball case
+	// (Prince joins Venice → +3 food, +2 GPP toward next Prince) falls out of
+	// the existing AI_specialistValue math: high-food specialists in growing
+	// cities score very well.
+	int iValueJoin = 0;
+	{
+		int iLoop;
+		for (CvCity* pCity = kOwner.firstCity(&iLoop); pCity != NULL; pCity = kOwner.nextCity(&iLoop))
+		{
+			if (!AI_plotValid(pCity->plot()))
+			{
+				continue;
+			}
+			if (pCity->plot()->isVisibleEnemyUnit(this))
+			{
+				continue;
+			}
+			if (!generatePath(pCity->plot(), 0, true))
+			{
+				continue;
+			}
+			if (kOwner.AI_getPlotDanger(pCity->plot(), 2) > 0)
+			{
+				continue;
+			}
+			for (int iI = 0; iI < GC.getNumSpecialistInfos(); ++iI)
+			{
+				if (canJoin(pCity->plot(), (SpecialistTypes)iI))
+				{
+					int iV = pCity->AI_specialistValue((SpecialistTypes)iI, pCity->AI_avoidGrowth(), false);
+					if (iV > iValueJoin)
+					{
+						iValueJoin = iV;
+					}
+				}
+			}
+		}
+	}
+
+	// (c) Trade: best tradeGold/(4+path) across foreign cities.
+	int iValueTrade = 0;
+	{
+		for (int iI = 0; iI < MAX_PLAYERS; ++iI)
+		{
+			CvPlayer& kOther = GET_PLAYER((PlayerTypes)iI);
+			if (!kOther.isAlive() || kOther.getTeam() == getTeam())
+			{
+				continue;
+			}
+			int iLoop;
+			for (CvCity* pCity = kOther.firstCity(&iLoop); pCity != NULL; pCity = kOther.nextCity(&iLoop))
+			{
+				if (!AI_plotValid(pCity->plot()))
+				{
+					continue;
+				}
+				if (pCity->plot()->isVisibleEnemyUnit(this))
+				{
+					continue;
+				}
+				if (!canTrade(pCity->plot(), true))
+				{
+					continue;
+				}
+				int iPathTurns;
+				if (!generatePath(pCity->plot(), 0, true, &iPathTurns))
+				{
+					continue;
+				}
+				int iV = getTradeGold(pCity->plot());
+				iV /= (4 + iPathTurns);
+				if (iV > iValueTrade)
+				{
+					iValueTrade = iV;
+				}
+			}
+		}
+	}
+
+	// (d) Grand Colosseum: probe via the same scoring AI_buildGrandColosseum
+	// uses, but without committing the build. We approximate with a quick
+	// "happy headroom across cities" heuristic and let the actual placement
+	// search re-pick the best plot if we choose this option.
+	int iValueColos = 0;
+	if (getGrandColosseumBuildType() != NO_BUILD &&
+		GC.getUnitInfo(getUnitType()).getBuilds(getGrandColosseumBuildType()))
+	{
+		int iLoop;
+		int iAggregate = 0;
+		for (CvCity* pCity = kOwner.firstCity(&iLoop); pCity != NULL; pCity = kOwner.nextCity(&iLoop))
+		{
+			int iCurDeficit = pCity->unhappyLevel() - pCity->happyLevel();
+			int iProjGrowth = 0;
+			int iFoodNet = pCity->foodDifference();
+			if (iFoodNet > 0)
+			{
+				int iThreshold = pCity->growthThreshold();
+				if (iThreshold > 0)
+				{
+					int iTurnsPerPop = std::max(1, iThreshold / iFoodNet);
+					iProjGrowth = std::min(10, 30 / iTurnsPerPop);
+				}
+			}
+			int iUsable = std::min(10, std::max(0, iCurDeficit + iProjGrowth));
+			iAggregate += iUsable;
+		}
+		// Approximate weight: happy summed across all empire cities; the
+		// real placement search will only find ~half of these via overlap.
+		iValueColos = iAggregate * 100;
+	}
+
+	// --- Tier 2: normalize to a common scale and pick the winner ---
+	//
+	// Tuning constants. These scale four very different value spaces (city
+	// foundValue, specialist value, trade gold, happy points) into a roughly
+	// comparable range so the winner reflects strategic priority, not unit
+	// arithmetic. Expect tuning from playtest feedback.
+	const int kWeightFound = 1;        // foundValue×1000/(path+1) is already huge
+	const int kWeightJoin  = 30000;    // specialistValue ~50-200 raw
+	const int kWeightTrade = 4000;     // trade gold ~100-2000 raw
+	const int kWeightColos = 25000;    // happy aggregate ~5-50 raw
+
+	const int wFound = iValueFound * kWeightFound;
+	const int wJoin  = iValueJoin  * kWeightJoin;
+	const int wTrade = iValueTrade * kWeightTrade;
+	const int wColos = iValueColos * kWeightColos;
+
+	enum { OPT_FOUND, OPT_JOIN, OPT_TRADE, OPT_COLOS, OPT_COUNT };
+	int aWeights[OPT_COUNT] = { wFound, wJoin, wTrade, wColos };
+
+	int iBest = 0;
+	for (int i = 1; i < OPT_COUNT; ++i)
+	{
+		if (aWeights[i] > aWeights[iBest])
+		{
+			iBest = i;
+		}
+	}
+
+	// Minimum threshold to make a strategic call vs falling through to the
+	// vanilla cascade (golden age / discover / etc.).
+	const int kMinStrategicThreshold = 1000000;
+	if (aWeights[iBest] < kMinStrategicThreshold)
+	{
+		return false;
+	}
+
+	// Try the winner; if its helper bails (e.g. all paths blocked), try the
+	// runner-up before falling through.
+	for (int iAttempt = 0; iAttempt < 2; ++iAttempt)
+	{
+		switch (iBest)
+		{
+		case OPT_FOUND:
+			if (AI_found())
+			{
+				return true;
+			}
+			break;
+		case OPT_JOIN:
+			if (AI_join())
+			{
+				return true;
+			}
+			break;
+		case OPT_TRADE:
+			if (AI_trade(0))
+			{
+				return true;
+			}
+			break;
+		case OPT_COLOS:
+			if (AI_buildGrandColosseum(false))
+			{
+				return true;
+			}
+			break;
+		}
+
+		// Winner failed — find the runner-up and try once more.
+		aWeights[iBest] = -1;
+		int iSecond = 0;
+		for (int i = 1; i < OPT_COUNT; ++i)
+		{
+			if (aWeights[i] > aWeights[iSecond])
+			{
+				iSecond = i;
+			}
+		}
+		if (aWeights[iSecond] < kMinStrategicThreshold)
+		{
+			break;
+		}
+		iBest = iSecond;
+	}
+
+	// Fall through to vanilla cascade.
 	return false;
 }
 
