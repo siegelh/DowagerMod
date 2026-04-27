@@ -14680,25 +14680,72 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 				iExistingFree = pCity->getFreeSpecialistCount(ePrinceSpec);
 				iExistingTotal = pCity->getSpecialistCount(ePrinceSpec);
 			}
-			// Linear snowball decay -- gentle so stacking in Venice
-			// (the GPP pump) remains the design default. Flavor +
-			// Found urgency handle expansion separately.
-			const int iJoinDenom = 4 + iExistingFree;
 
-			// Per-city tilt: capital is the GPP pump, so prefer it by
-			// default. Override only for a small starving secondary city
-			// whose great tiles are blocked by a food shortage -- the
-			// Prince's +3 food specialist can unlock it.
-			int iCityMultX100 = 100;
-			if (pCity->isCapital())
+			// Capital is the design default for joining: it is the GPP pump
+			// and stacking Princes there is the strong strategy. Non-capital
+			// cities are skipped UNLESS they meet a strict exception:
+			//   (a) starving (food < 0): the Prince's +3F prevents shrinkage
+			//   (b) stagnant (food == 0) AND has a valuable unworked resource
+			//       tile (gold/gems/silver/etc) that growth would unlock.
+			// No decay anywhere -- saturating the capital with Princes is
+			// intentional. Found expansion is handled by the Found/Flavor
+			// path independently.
+			const bool bIsCapital = pCity->isCapital();
+			bool bExceptionEligible = false;
+			const char* pszReason = "capital";
+			if (!bIsCapital)
 			{
-				iCityMultX100 = 200;
+				const int iFoodDiff = pCity->foodDifference(false);
+				if (iFoodDiff < 0)
+				{
+					bExceptionEligible = true;
+					pszReason = "starving";
+				}
+				else if (iFoodDiff == 0)
+				{
+					for (int iPI = 0; iPI < NUM_CITY_PLOTS; ++iPI)
+					{
+						if (iPI == CITY_HOME_PLOT)
+						{
+							continue;
+						}
+						CvPlot* pLoopPlot = plotCity(pCity->getX_INLINE(),
+							pCity->getY_INLINE(), iPI);
+						if (pLoopPlot == NULL)
+						{
+							continue;
+						}
+						if (pLoopPlot->getWorkingCity() != pCity)
+						{
+							continue;
+						}
+						if (pCity->isWorkingPlot(iPI))
+						{
+							continue;
+						}
+						BonusTypes eBonus = pLoopPlot->getBonusType(pCity->getTeam());
+						if (eBonus == NO_BONUS)
+						{
+							continue;
+						}
+						const int iComBonus = GC.getBonusInfo(eBonus).getYieldChange(YIELD_COMMERCE);
+						const int iPlotCom = pLoopPlot->calculateBestNatureYield(YIELD_COMMERCE, pCity->getTeam());
+						if (iComBonus >= 3 || iPlotCom >= 4)
+						{
+							bExceptionEligible = true;
+							pszReason = "stagnant+resource";
+							break;
+						}
+					}
+				}
+				if (!bExceptionEligible)
+				{
+					continue;
+				}
 			}
-			else if (pCity->getPopulation() <= 4 &&
-				pCity->foodDifference(false) <= 1)
-			{
-				iCityMultX100 = 300;
-			}
+
+			const int iJoinDenom = 1;
+			const int iCityMultX100 = 100;
 
 			int iBestSpecRaw = 0;
 			int iBestSpecAfterMult = 0;
@@ -14728,12 +14775,12 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			{
 				++iJoinCandidatesScored;
 				gDLL->logMsg("VenicePrince.log", CvString::format(
-					"  [Join] cand %S: capital=%d existingFree=%d totalSpec=%d cityMult=%d/100 specVal_raw=%d after_mult=%d denom=%d -> iV=%d",
+					"  [Join] cand %S: capital=%d existingFree=%d totalSpec=%d cityMult=%d/100 specVal_raw=%d after_mult=%d denom=%d -> iV=%d  reason=%s",
 					pCity->getName().GetCString(),
 					pCity->isCapital() ? 1 : 0,
 					iExistingFree, iExistingTotal, iCityMultX100,
 					iBestSpecRaw, iBestSpecAfterMult, iJoinDenom,
-					iBestCityV).c_str());
+					iBestCityV, pszReason).c_str());
 			}
 		}
 	}

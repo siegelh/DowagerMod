@@ -609,6 +609,30 @@ int CvCityAI::AI_specialistValue(SpecialistTypes eSpecialist, bool bAvoidGrowth,
 		iValue += ((getMilitaryProductionModifier() * iExperience * 8) / 100);
 	}
 
+	// Venice-only bias: regular Merchant specialists generate Great Merchant
+	// GPP, which spawns the Venetian Merchant Prince (Venice's unique GP and
+	// only path to expansion / commerce stacking). Boost merchant-specialist
+	// value substantially so Venice cities favor merchants over scientists/
+	// artists/etc when assigning specialists. Gated on the player having
+	// UNIT_VENETIAN_MERCHANT as their UNITCLASS_MERCHANT mapping -- only
+	// Venice does, so other civs are unaffected.
+	{
+		static const UnitClassTypes s_eMerchantClass = (UnitClassTypes)GC.getInfoTypeForString("UNITCLASS_MERCHANT", true);
+		static const UnitTypes s_ePrinceUnit = (UnitTypes)GC.getInfoTypeForString("UNIT_VENETIAN_MERCHANT", true);
+		if (s_eMerchantClass != NO_UNITCLASS && s_ePrinceUnit != NO_UNIT)
+		{
+			const UnitTypes eMyMerchant = (UnitTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(s_eMerchantClass);
+			if (eMyMerchant == s_ePrinceUnit)
+			{
+				const int iSpecGPClass = GC.getSpecialistInfo(eSpecialist).getGreatPeopleUnitClass();
+				if (iSpecGPClass == (int)s_eMerchantClass)
+				{
+					iValue = (iValue * 175) / 100;
+				}
+			}
+		}
+	}
+
 	return (iValue * 100);
 }
 
