@@ -12086,6 +12086,72 @@ bool CvUnitAI::AI_found()
 }
 
 
+// Venice variant of AI_found that drops vanilla's canDefend()/GUARD_CITY gate.
+// The Venetian Merchant Prince is non-combat (Combat=NONE) and ships without
+// an escort, so vanilla AI_found is structurally unreachable for it: lone
+// Princes always fail the gate at line 12049, never push MISSION_FOUND, and
+// always cascade to AI_join — bug visible to the player as "announces FOUND,
+// joins city". Princes are GP-rate-limited (use it or lose it); accepting
+// barbarian risk is preferable to never founding.
+bool CvUnitAI::AI_foundForPrince()
+{
+	PROFILE_FUNC();
+
+	int iPathTurns;
+	int iValue;
+	int iBestFoundValue = 0;
+	CvPlot* pBestPlot = NULL;
+	CvPlot* pBestFoundPlot = NULL;
+
+	for (int iI = 0; iI < GET_PLAYER(getOwnerINLINE()).AI_getNumCitySites(); iI++)
+	{
+		CvPlot* pCitySitePlot = GET_PLAYER(getOwnerINLINE()).AI_getCitySite(iI);
+		if (pCitySitePlot->getArea() == getArea())
+		{
+			if (canFound(pCitySitePlot))
+			{
+				if (!(pCitySitePlot->isVisibleEnemyUnit(this)))
+				{
+					if (GET_PLAYER(getOwnerINLINE()).AI_plotTargetMissionAIs(pCitySitePlot, MISSIONAI_FOUND, getGroup()) == 0)
+					{
+						// Vanilla's escort gate intentionally omitted here — see banner above.
+						if (generatePath(pCitySitePlot, MOVE_SAFE_TERRITORY, true, &iPathTurns))
+						{
+							iValue = pCitySitePlot->getFoundValue(getOwnerINLINE());
+							iValue *= 1000;
+							iValue /= (iPathTurns + 1);
+							if (iValue > iBestFoundValue)
+							{
+								iBestFoundValue = iValue;
+								pBestPlot = getPathEndTurnPlot();
+								pBestFoundPlot = pCitySitePlot;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if ((pBestPlot != NULL) && (pBestFoundPlot != NULL))
+	{
+		if (atPlot(pBestFoundPlot))
+		{
+			getGroup()->pushMission(MISSION_FOUND, -1, -1, 0, false, false, MISSIONAI_FOUND, pBestFoundPlot);
+			return true;
+		}
+		else
+		{
+			FAssert(!atPlot(pBestPlot));
+			getGroup()->pushMission(MISSION_MOVE_TO, pBestPlot->getX_INLINE(), pBestPlot->getY_INLINE(), MOVE_SAFE_TERRITORY, false, false, MISSIONAI_FOUND, pBestFoundPlot);
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
 // Returns true if a mission was pushed...
 bool CvUnitAI::AI_foundRange(int iRange, bool bFollow)
 {
@@ -14755,7 +14821,7 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		bool bDone = false;
 		switch (iBest)
 		{
-		case OPT_FOUND: bDone = AI_found();                  break;
+		case OPT_FOUND: bDone = AI_foundForPrince();         break;
 		case OPT_JOIN:  bDone = AI_join();                   break;
 		case OPT_TRADE: bDone = AI_trade(0);                 break;
 		case OPT_COLOS: bDone = AI_buildGrandColosseum(false); break;
@@ -14766,34 +14832,29 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		{
 			if (!kOwner.isHuman())
 			{
-				// Public decision message.
+				// Debug-style decision message: shows action picked, all 5 weighted
+				// scores (K-scaled), threshold, flavor + per-option multipliers.
+				// Always-on (no cheat gate) so divergence between announcement and
+				// observed action is unambiguous during testing.
 				CvWString szUnitName = getName();
-				CvWString szMsg = gDLL->getText(Local::optTextKey(iBest),
-					szUnitName.GetCString());
+				CvWString szMsg = CvWString::format(
+					L"%s (Venice): %S. Scores F=%dK J=%dK T=%dK C=%dK GA=%dK (thresh %dK). Flavor=%S mults F%d.%d J%d.%d T%d.%d C%d.%d GA%d.%d.",
+					szUnitName.GetCString(),
+					Local::optName(iBest),
+					iScoreFound / 1000,
+					iScoreJoin  / 1000,
+					iScoreTrade / 1000,
+					iScoreColos / 1000,
+					iScoreGA    / 1000,
+					kMinStrategicThreshold / 1000,
+					getFlavorAsciiName(eFlavor),
+					pMult[0]/10, pMult[0]%10,
+					pMult[1]/10, pMult[1]%10,
+					pMult[2]/10, pMult[2]%10,
+					pMult[3]/10, pMult[3]%10,
+					pMult[4]/10, pMult[4]%10);
 				announceToHumansWhoMet(getOwnerINLINE(), szMsg,
 					getX_INLINE(), getY_INLINE());
-
-				// Cheat-mode diagnostic line. Built directly with CvWString::format
-				// to avoid char/wchar mix in TXT_KEY substitution.
-				if (gDLL->getChtLvl() > 0)
-				{
-					CvWString szDiag = CvWString::format(
-						L"  [scores F:%dK J:%dK T:%dK C:%dK GA:%dK | flavor=%S mults F%d.%d J%d.%d T%d.%d C%d.%d GA%d.%d | pick=%S]",
-						iScoreFound / 1000,
-						iScoreJoin  / 1000,
-						iScoreTrade / 1000,
-						iScoreColos / 1000,
-						iScoreGA    / 1000,
-						getFlavorAsciiName(eFlavor),
-						pMult[0]/10, pMult[0]%10,
-						pMult[1]/10, pMult[1]%10,
-						pMult[2]/10, pMult[2]%10,
-						pMult[3]/10, pMult[3]%10,
-						pMult[4]/10, pMult[4]%10,
-						Local::optName(iBest));
-					announceToHumansWhoMet(getOwnerINLINE(), szDiag,
-						getX_INLINE(), getY_INLINE());
-				}
 			}
 			return true;
 		}
