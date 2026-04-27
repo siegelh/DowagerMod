@@ -119,7 +119,7 @@ if ($CheckDll -and -not $SkipDll) {
 if ($CheckDll -and -not $SkipDll) {
     if ($shouldRunDllBuild) {
         try {
-            & (Join-Path $PSScriptRoot "build_civ4_dll.ps1") -RepoRoot $RepoRoot -NoDeploy
+            & (Join-Path $PSScriptRoot "build_civ4_dll.ps1") -RepoRoot $RepoRoot
             Write-Host "[GATE] DLL build passed."
         }
         catch {
