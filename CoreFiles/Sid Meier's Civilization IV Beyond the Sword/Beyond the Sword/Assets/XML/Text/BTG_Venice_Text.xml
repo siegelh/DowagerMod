@@ -211,7 +211,7 @@
 	<!-- Venice AI flavor announce / per-Prince decision messages -->
 	<TEXT>
 		<Tag>TXT_KEY_VENICE_FLAVOR_ANNOUNCE_EXPANSIONIST</Tag>
-		<English>Doge of Venice: "Venice shall plant her banner across every shore!"</English>
+		<English>Doge of Venice [Expansionist]: "Venice shall plant her banner across every shore!"</English>
 		<French>Doge of Venice: "Venice shall plant her banner across every shore!"</French>
 		<German>Doge of Venice: "Venice shall plant her banner across every shore!"</German>
 		<Italian>Doge of Venice: "Venice shall plant her banner across every shore!"</Italian>
@@ -219,7 +219,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_VENICE_FLAVOR_ANNOUNCE_TALL</Tag>
-		<English>Doge of Venice: "Venice herself shall be the wonder of the world."</English>
+		<English>Doge of Venice [Building Tall]: "Venice herself shall be the wonder of the world."</English>
 		<French>Doge of Venice: "Venice herself shall be the wonder of the world."</French>
 		<German>Doge of Venice: "Venice herself shall be the wonder of the world."</German>
 		<Italian>Doge of Venice: "Venice herself shall be the wonder of the world."</Italian>
@@ -227,7 +227,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_VENICE_FLAVOR_ANNOUNCE_TRAVELING_MERCHANT</Tag>
-		<English>Doge of Venice: "Trade routes shall make us the wealthiest in the world!"</English>
+		<English>Doge of Venice [Traveling Merchant]: "Trade routes shall make us the wealthiest in the world!"</English>
 		<French>Doge of Venice: "Trade routes shall make us the wealthiest in the world!"</French>
 		<German>Doge of Venice: "Trade routes shall make us the wealthiest in the world!"</German>
 		<Italian>Doge of Venice: "Trade routes shall make us the wealthiest in the world!"</Italian>
@@ -235,7 +235,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_VENICE_FLAVOR_ANNOUNCE_CIVIC</Tag>
-		<English>Doge of Venice: "Venice's people shall know prosperity and joy."</English>
+		<English>Doge of Venice [Civic]: "Venice's people shall know prosperity and joy."</English>
 		<French>Doge of Venice: "Venice's people shall know prosperity and joy."</French>
 		<German>Doge of Venice: "Venice's people shall know prosperity and joy."</German>
 		<Italian>Doge of Venice: "Venice's people shall know prosperity and joy."</Italian>
