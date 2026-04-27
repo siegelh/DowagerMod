@@ -14643,9 +14643,13 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		iFoundCandidatesScored, iValueFoundRaw, iUrgencyApplied,
 		iValueFound).c_str());
 
-	// (b) Join: bestSpecialistValue * 20000 / (4 + existingPrincesInCity).
+	// (b) Join: bestSpecialistValue * 3000 / (4 + existingPrincesInCity).
 	// Snowball decay so even Tall flavor eventually founds again after the
-	// city is saturated with Princes.
+	// city is saturated with Princes. Base multiplier was originally 20000
+	// but produced Join scores ~5-10x higher than Found across all flavors,
+	// so flavor and urgency had little real influence on the pick. Lowered
+	// to 3000 to put Join in the same ballpark as Found, letting flavor
+	// actually swing the choice.
 	int iValueJoin = 0;
 	int iJoinCandidatesScored = 0;
 	{
@@ -14706,7 +14710,7 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 					int iSV_raw = pCity->AI_specialistValue((SpecialistTypes)iI,
 						pCity->AI_avoidGrowth(), false);
 					int iSV = (iSV_raw * iCityMultX100) / 100;
-					long long iV64 = ((long long)iSV * 20000LL) / (long long)iJoinDenom;
+					long long iV64 = ((long long)iSV * 3000LL) / (long long)iJoinDenom;
 					int iV = (iV64 > 2000000000LL) ? 2000000000 : (int)iV64;
 					if (iV > iBestCityV)
 					{
