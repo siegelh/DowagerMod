@@ -208,4 +208,85 @@
 		<Italian>Andrea Gritti</Italian>
 		<Spanish>Andrea Gritti</Spanish>
 	</TEXT>
+	<!-- Venice AI flavor announce / per-Prince decision messages -->
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_FLAVOR_ANNOUNCE_EXPANSIONIST</Tag>
+		<English>Doge of Venice: "Venice shall plant her banner across every shore!"</English>
+		<French>Doge of Venice: "Venice shall plant her banner across every shore!"</French>
+		<German>Doge of Venice: "Venice shall plant her banner across every shore!"</German>
+		<Italian>Doge of Venice: "Venice shall plant her banner across every shore!"</Italian>
+		<Spanish>Doge of Venice: "Venice shall plant her banner across every shore!"</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_FLAVOR_ANNOUNCE_TALL</Tag>
+		<English>Doge of Venice: "Venice herself shall be the wonder of the world."</English>
+		<French>Doge of Venice: "Venice herself shall be the wonder of the world."</French>
+		<German>Doge of Venice: "Venice herself shall be the wonder of the world."</German>
+		<Italian>Doge of Venice: "Venice herself shall be the wonder of the world."</Italian>
+		<Spanish>Doge of Venice: "Venice herself shall be the wonder of the world."</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_FLAVOR_ANNOUNCE_TRAVELING_MERCHANT</Tag>
+		<English>Doge of Venice: "Trade routes shall make us the wealthiest in the world!"</English>
+		<French>Doge of Venice: "Trade routes shall make us the wealthiest in the world!"</French>
+		<German>Doge of Venice: "Trade routes shall make us the wealthiest in the world!"</German>
+		<Italian>Doge of Venice: "Trade routes shall make us the wealthiest in the world!"</Italian>
+		<Spanish>Doge of Venice: "Trade routes shall make us the wealthiest in the world!"</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_FLAVOR_ANNOUNCE_CIVIC</Tag>
+		<English>Doge of Venice: "Venice's people shall know prosperity and joy."</English>
+		<French>Doge of Venice: "Venice's people shall know prosperity and joy."</French>
+		<German>Doge of Venice: "Venice's people shall know prosperity and joy."</German>
+		<Italian>Doge of Venice: "Venice's people shall know prosperity and joy."</Italian>
+		<Spanish>Doge of Venice: "Venice's people shall know prosperity and joy."</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_PRINCE_DECISION_FOUND</Tag>
+		<English>%s1 of Venice decides: Found a new city.</English>
+		<French>%s1 of Venice decides: Found a new city.</French>
+		<German>%s1 of Venice decides: Found a new city.</German>
+		<Italian>%s1 of Venice decides: Found a new city.</Italian>
+		<Spanish>%s1 of Venice decides: Found a new city.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_PRINCE_DECISION_JOIN</Tag>
+		<English>%s1 of Venice decides: Settle as a Merchant Prince.</English>
+		<French>%s1 of Venice decides: Settle as a Merchant Prince.</French>
+		<German>%s1 of Venice decides: Settle as a Merchant Prince.</German>
+		<Italian>%s1 of Venice decides: Settle as a Merchant Prince.</Italian>
+		<Spanish>%s1 of Venice decides: Settle as a Merchant Prince.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_PRINCE_DECISION_TRADE</Tag>
+		<English>%s1 of Venice decides: Embark on a trade mission abroad.</English>
+		<French>%s1 of Venice decides: Embark on a trade mission abroad.</French>
+		<German>%s1 of Venice decides: Embark on a trade mission abroad.</German>
+		<Italian>%s1 of Venice decides: Embark on a trade mission abroad.</Italian>
+		<Spanish>%s1 of Venice decides: Embark on a trade mission abroad.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_PRINCE_DECISION_COLOS</Tag>
+		<English>%s1 of Venice decides: Construct a Grand Colosseum.</English>
+		<French>%s1 of Venice decides: Construct a Grand Colosseum.</French>
+		<German>%s1 of Venice decides: Construct a Grand Colosseum.</German>
+		<Italian>%s1 of Venice decides: Construct a Grand Colosseum.</Italian>
+		<Spanish>%s1 of Venice decides: Construct a Grand Colosseum.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_PRINCE_DECISION_GOLDEN_AGE</Tag>
+		<English>%s1 of Venice decides: Proclaim a Golden Age.</English>
+		<French>%s1 of Venice decides: Proclaim a Golden Age.</French>
+		<German>%s1 of Venice decides: Proclaim a Golden Age.</German>
+		<Italian>%s1 of Venice decides: Proclaim a Golden Age.</Italian>
+		<Spanish>%s1 of Venice decides: Proclaim a Golden Age.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_VENICE_PRINCE_DIAGNOSTIC_LINE</Tag>
+		<English>  [scores F:%d1K J:%d2K T:%d3K C:%d4K GA:%d5K | flavor=%s6 mults F%s7 J%s8 T%s9 C%s10 GA%s11 | pick=%s12]</English>
+		<French>  [scores F:%d1K J:%d2K T:%d3K C:%d4K GA:%d5K | flavor=%s6 mults F%s7 J%s8 T%s9 C%s10 GA%s11 | pick=%s12]</French>
+		<German>  [scores F:%d1K J:%d2K T:%d3K C:%d4K GA:%d5K | flavor=%s6 mults F%s7 J%s8 T%s9 C%s10 GA%s11 | pick=%s12]</German>
+		<Italian>  [scores F:%d1K J:%d2K T:%d3K C:%d4K GA:%d5K | flavor=%s6 mults F%s7 J%s8 T%s9 C%s10 GA%s11 | pick=%s12]</Italian>
+		<Spanish>  [scores F:%d1K J:%d2K T:%d3K C:%d4K GA:%d5K | flavor=%s6 mults F%s7 J%s8 T%s9 C%s10 GA%s11 | pick=%s12]</Spanish>
+	</TEXT>
 </Civ4GameText>

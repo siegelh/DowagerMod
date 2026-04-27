@@ -11,6 +11,7 @@
 #include "CvPlayerAI.h"
 #include "CvGameCoreUtils.h"
 #include "CvRandom.h"
+#include "CvInitCore.h"
 #include "CyUnit.h"
 #include "CyArgsList.h"
 #include "CvDLLPythonIFaceBase.h"
@@ -48,6 +49,126 @@ namespace
 	{
 		static ImprovementTypes eImp = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_GRAND_COLOSSEUM_BTG", true);
 		return eImp;
+	}
+
+	SpecialistTypes getVenetianMerchantPrinceSpecialist()
+	{
+		static SpecialistTypes eSpec = (SpecialistTypes)GC.getInfoTypeForString("SPECIALIST_VENETIAN_MERCHANT_PRINCE", true);
+		return eSpec;
+	}
+
+	BuildTypes getRoadBuildType()
+	{
+		// First road BUILD that constructs ROUTE_ROAD; cached.
+		static BuildTypes eBuild = NO_BUILD;
+		static bool bSearched = false;
+		if (!bSearched)
+		{
+			bSearched = true;
+			for (int i = 0; i < GC.getNumBuildInfos(); ++i)
+			{
+				CvBuildInfo& kBuild = GC.getBuildInfo((BuildTypes)i);
+				if (kBuild.getRoute() != NO_ROUTE)
+				{
+					RouteTypes eRoute = (RouteTypes)kBuild.getRoute();
+					if (GC.getRouteInfo(eRoute).getValue() <= 1) // road, not railroad
+					{
+						eBuild = (BuildTypes)i;
+						break;
+					}
+				}
+			}
+		}
+		return eBuild;
+	}
+
+	enum VenicePrinceFlavor
+	{
+		PRINCE_FLAVOR_EXPANSIONIST = 0,
+		PRINCE_FLAVOR_TALL,
+		PRINCE_FLAVOR_TRAVELING_MERCHANT,
+		PRINCE_FLAVOR_CIVIC,
+		NUM_PRINCE_FLAVORS
+	};
+
+	VenicePrinceFlavor getVenicePrinceFlavor(PlayerTypes ePlayer)
+	{
+		// Deterministic per (game, player). No save format change.
+		unsigned int uSeed = GC.getInitCore().getMapRandSeed();
+		unsigned int uMix = uSeed ^ (unsigned int)ePlayer ^ 0xBEu;
+		return (VenicePrinceFlavor)(uMix % (unsigned int)NUM_PRINCE_FLAVORS);
+	}
+
+	// Multipliers in tenths to keep integer math.
+	// Order matches Tier-2 option enum: { Found, Join, Trade, Colos, GoldenAge }.
+	const int kFlavorMultipliersX10[NUM_PRINCE_FLAVORS][5] = {
+		/* EXPANSIONIST       */ { 16,  7, 16, 10, 10 },
+		/* TALL               */ {  7, 16, 10, 16, 10 },
+		/* TRAVELING_MERCHANT */ { 10,  7, 16, 10, 16 },
+		/* CIVIC              */ { 10, 10,  7, 16, 16 }
+	};
+
+	const char* getFlavorAsciiName(VenicePrinceFlavor f)
+	{
+		switch (f)
+		{
+		case PRINCE_FLAVOR_EXPANSIONIST:        return "EXPANSIONIST";
+		case PRINCE_FLAVOR_TALL:                return "TALL";
+		case PRINCE_FLAVOR_TRAVELING_MERCHANT:  return "TRAVELING_MERCHANT";
+		case PRINCE_FLAVOR_CIVIC:               return "CIVIC";
+		}
+		return "UNKNOWN";
+	}
+
+	const char* getFlavorAnnounceTextKey(VenicePrinceFlavor f)
+	{
+		switch (f)
+		{
+		case PRINCE_FLAVOR_EXPANSIONIST:        return "TXT_KEY_VENICE_FLAVOR_ANNOUNCE_EXPANSIONIST";
+		case PRINCE_FLAVOR_TALL:                return "TXT_KEY_VENICE_FLAVOR_ANNOUNCE_TALL";
+		case PRINCE_FLAVOR_TRAVELING_MERCHANT:  return "TXT_KEY_VENICE_FLAVOR_ANNOUNCE_TRAVELING_MERCHANT";
+		case PRINCE_FLAVOR_CIVIC:               return "TXT_KEY_VENICE_FLAVOR_ANNOUNCE_CIVIC";
+		}
+		return "TXT_KEY_VENICE_FLAVOR_ANNOUNCE_EXPANSIONIST";
+	}
+
+	// Send a message to every human (active or hot-seat) whose team has met
+	// eFromPlayer's team. Falls back to active player only if nobody has met.
+	void announceToHumansWhoMet(PlayerTypes eFromPlayer, const CvWString& szMsg,
+		int iX, int iY)
+	{
+		TeamTypes eFromTeam = GET_PLAYER(eFromPlayer).getTeam();
+		ColorTypes eColor = (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT");
+		bool bAnySent = false;
+		for (int iI = 0; iI < MAX_PLAYERS; ++iI)
+		{
+			CvPlayer& kP = GET_PLAYER((PlayerTypes)iI);
+			if (!kP.isAlive() || !kP.isHuman())
+			{
+				continue;
+			}
+			if (kP.getTeam() != eFromTeam &&
+				!GET_TEAM(kP.getTeam()).isHasMet(eFromTeam))
+			{
+				continue;
+			}
+			gDLL->getInterfaceIFace()->addMessage(
+				(PlayerTypes)iI, false, GC.getEVENT_MESSAGE_TIME(), szMsg,
+				NULL, MESSAGE_TYPE_MAJOR_EVENT, NULL, eColor,
+				iX, iY, true, true);
+			bAnySent = true;
+		}
+		if (!bAnySent)
+		{
+			// Hot-seat fallback: ensure the active player at least sees flavor
+			// when they later meet Venice. Cheap & non-leaking because active
+			// player is the local human anyway.
+			gDLL->getInterfaceIFace()->addMessage(
+				GC.getGameINLINE().getActivePlayer(), false,
+				GC.getEVENT_MESSAGE_TIME(), szMsg,
+				NULL, MESSAGE_TYPE_MAJOR_EVENT, NULL, eColor,
+				iX, iY, true, true);
+		}
 	}
 }
 
@@ -14326,9 +14447,34 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		return true;
 	}
 
-	// --- Tier 2: probe the four big strategic options ---
+	// --- Citysite refresh: insure we score Found against current knowledge ---
+	kOwner.AI_updateCitySites(kOwner.AI_getMinFoundValue(),
+		kOwner.getNumCities() + 8);
 
-	// (a) Found: best foundValue×1000/(path+1) over our known city sites.
+	// --- Personality: pick this Venice's flavor (deterministic per game). ---
+	VenicePrinceFlavor eFlavor = getVenicePrinceFlavor(getOwnerINLINE());
+
+	// One-shot flavor announcement on the AI's first Prince ever.
+	// kPlayer.getGreatPeopleCreated() includes the unit currently being placed,
+	// so == 1 means this is the first ever GP for that player.
+	if (!kOwner.isHuman() && kOwner.getGreatPeopleCreated() == 1)
+	{
+		const SpecialistTypes ePrinceSpec = getVenetianMerchantPrinceSpecialist();
+		if (ePrinceSpec != NO_SPECIALIST &&
+			GC.getUnitInfo(getUnitType()).getGreatPeoples(ePrinceSpec))
+		{
+			CvWString szMsg = gDLL->getText(getFlavorAnnounceTextKey(eFlavor));
+			announceToHumansWhoMet(getOwnerINLINE(), szMsg,
+				getX_INLINE(), getY_INLINE());
+		}
+	}
+
+	// --- Tier 2: probe the strategic options on a normalized scale ---
+	// Goal: a strong/excellent case for any one option produces ~1,000,000;
+	// a weak case ~tens-of-thousands. All raw numbers below are tuned so
+	// flavor multipliers (1.6x / 0.7x) tilt without locking.
+
+	// (a) Found: bestFoundValue * 200 / (path + 2).
 	int iValueFound = 0;
 	if (m_pUnitInfo->isFound())
 	{
@@ -14357,8 +14503,7 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 				continue;
 			}
 			int iV = pSite->getFoundValue(getOwnerINLINE());
-			iV *= 1000;
-			iV /= (iPathTurns + 1);
+			iV = (iV * 200) / (iPathTurns + 2);
 			if (iV > iValueFound)
 			{
 				iValueFound = iV;
@@ -14366,12 +14511,12 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		}
 	}
 
-	// (b) Join: best AI_specialistValue across our cities. The snowball case
-	// (Prince joins Venice → +3 food, +2 GPP toward next Prince) falls out of
-	// the existing AI_specialistValue math: high-food specialists in growing
-	// cities score very well.
+	// (b) Join: bestSpecialistValue * 20000 / (4 + existingPrincesInCity).
+	// Snowball decay so even Tall flavor eventually founds again after the
+	// city is saturated with Princes.
 	int iValueJoin = 0;
 	{
+		const SpecialistTypes ePrinceSpec = getVenetianMerchantPrinceSpecialist();
 		int iLoop;
 		for (CvCity* pCity = kOwner.firstCity(&iLoop); pCity != NULL; pCity = kOwner.nextCity(&iLoop))
 		{
@@ -14391,11 +14536,18 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			{
 				continue;
 			}
+			int iExistingPrinces = 0;
+			if (ePrinceSpec != NO_SPECIALIST)
+			{
+				iExistingPrinces = pCity->getFreeSpecialistCount(ePrinceSpec);
+			}
 			for (int iI = 0; iI < GC.getNumSpecialistInfos(); ++iI)
 			{
 				if (canJoin(pCity->plot(), (SpecialistTypes)iI))
 				{
-					int iV = pCity->AI_specialistValue((SpecialistTypes)iI, pCity->AI_avoidGrowth(), false);
+					int iSV = pCity->AI_specialistValue((SpecialistTypes)iI,
+						pCity->AI_avoidGrowth(), false);
+					int iV = (iSV * 20000) / (4 + iExistingPrinces);
 					if (iV > iValueJoin)
 					{
 						iValueJoin = iV;
@@ -14405,7 +14557,7 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		}
 	}
 
-	// (c) Trade: best tradeGold/(4+path) across foreign cities.
+	// (c) Trade: tradeGold * 1000 / (4 + path).
 	int iValueTrade = 0;
 	{
 		for (int iI = 0; iI < MAX_PLAYERS; ++iI)
@@ -14435,8 +14587,7 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 				{
 					continue;
 				}
-				int iV = getTradeGold(pCity->plot());
-				iV /= (4 + iPathTurns);
+				int iV = (getTradeGold(pCity->plot()) * 1000) / (4 + iPathTurns);
 				if (iV > iValueTrade)
 				{
 					iValueTrade = iV;
@@ -14445,10 +14596,7 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		}
 	}
 
-	// (d) Grand Colosseum: probe via the same scoring AI_buildGrandColosseum
-	// uses, but without committing the build. We approximate with a quick
-	// "happy headroom across cities" heuristic and let the actual placement
-	// search re-pick the best plot if we choose this option.
+	// (d) Grand Colosseum: aggregateUsableHappy (capped 30) * 50000.
 	int iValueColos = 0;
 	if (getGrandColosseumBuildType() != NO_BUILD &&
 		GC.getUnitInfo(getUnitType()).getBuilds(getGrandColosseumBuildType()))
@@ -14472,29 +14620,32 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			int iUsable = std::min(10, std::max(0, iCurDeficit + iProjGrowth));
 			iAggregate += iUsable;
 		}
-		// Approximate weight: happy summed across all empire cities; the
-		// real placement search will only find ~half of these via overlap.
-		iValueColos = iAggregate * 100;
+		iAggregate = std::min(30, iAggregate);
+		iValueColos = iAggregate * 50000;
 	}
 
-	// --- Tier 2: normalize to a common scale and pick the winner ---
-	//
-	// Tuning constants. These scale four very different value spaces (city
-	// foundValue, specialist value, trade gold, happy points) into a roughly
-	// comparable range so the winner reflects strategic priority, not unit
-	// arithmetic. Expect tuning from playtest feedback.
-	const int kWeightFound = 1;        // foundValue×1000/(path+1) is already huge
-	const int kWeightJoin  = 30000;    // specialistValue ~50-200 raw
-	const int kWeightTrade = 4000;     // trade gold ~100-2000 raw
-	const int kWeightColos = 25000;    // happy aggregate ~5-50 raw
+	// (e) Golden Age: numCities * 100000, gated on can-actually-trigger and
+	// not currently in a GA / anarchy. Capped at 1.2M.
+	int iValueGoldenAge = 0;
+	if (m_pUnitInfo->isGoldenAge() && canGoldenAge(plot()) &&
+		!kOwner.isGoldenAge() && !kOwner.isAnarchy())
+	{
+		int iV = kOwner.getNumCities() * 100000;
+		iValueGoldenAge = std::min(1200000, iV);
+	}
 
-	const int wFound = iValueFound * kWeightFound;
-	const int wJoin  = iValueJoin  * kWeightJoin;
-	const int wTrade = iValueTrade * kWeightTrade;
-	const int wColos = iValueColos * kWeightColos;
+	// --- Apply flavor multipliers (tenths) ---
+	const int* pMult = kFlavorMultipliersX10[(int)eFlavor];
+	int iScoreFound  = (iValueFound      * pMult[0]) / 10;
+	int iScoreJoin   = (iValueJoin       * pMult[1]) / 10;
+	int iScoreTrade  = (iValueTrade      * pMult[2]) / 10;
+	int iScoreColos  = (iValueColos      * pMult[3]) / 10;
+	int iScoreGA     = (iValueGoldenAge  * pMult[4]) / 10;
 
-	enum { OPT_FOUND, OPT_JOIN, OPT_TRADE, OPT_COLOS, OPT_COUNT };
-	int aWeights[OPT_COUNT] = { wFound, wJoin, wTrade, wColos };
+	enum { OPT_FOUND, OPT_JOIN, OPT_TRADE, OPT_COLOS, OPT_GA, OPT_COUNT };
+	int aWeights[OPT_COUNT] = {
+		iScoreFound, iScoreJoin, iScoreTrade, iScoreColos, iScoreGA
+	};
 
 	int iBest = 0;
 	for (int i = 1; i < OPT_COUNT; ++i)
@@ -14505,44 +14656,101 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		}
 	}
 
-	// Minimum threshold to make a strategic call vs falling through to the
-	// vanilla cascade (golden age / discover / etc.).
-	const int kMinStrategicThreshold = 1000000;
+	// Threshold matched to the new normalized scale.
+	const int kMinStrategicThreshold = 150000;
+
+	// Helper: announce + cheat-mode diagnostic line.
+	struct Local {
+		static const char* optName(int o)
+		{
+			switch (o)
+			{
+			case OPT_FOUND: return "FOUND";
+			case OPT_JOIN:  return "JOIN";
+			case OPT_TRADE: return "TRADE";
+			case OPT_COLOS: return "COLOS";
+			case OPT_GA:    return "GOLDEN_AGE";
+			}
+			return "?";
+		}
+		static const char* optTextKey(int o)
+		{
+			switch (o)
+			{
+			case OPT_FOUND: return "TXT_KEY_VENICE_PRINCE_DECISION_FOUND";
+			case OPT_JOIN:  return "TXT_KEY_VENICE_PRINCE_DECISION_JOIN";
+			case OPT_TRADE: return "TXT_KEY_VENICE_PRINCE_DECISION_TRADE";
+			case OPT_COLOS: return "TXT_KEY_VENICE_PRINCE_DECISION_COLOS";
+			case OPT_GA:    return "TXT_KEY_VENICE_PRINCE_DECISION_GOLDEN_AGE";
+			}
+			return "TXT_KEY_VENICE_PRINCE_DECISION_FOUND";
+		}
+	};
+
 	if (aWeights[iBest] < kMinStrategicThreshold)
 	{
+		// --- Tier 3 fallback: Build Road if we can route between own land. ---
+		BuildTypes eRoadBuild = getRoadBuildType();
+		if (eRoadBuild != NO_BUILD &&
+			GC.getUnitInfo(getUnitType()).getBuilds(eRoadBuild) &&
+			canBuild(plot(), eRoadBuild) &&
+			plot()->getOwner() == getOwnerINLINE() &&
+			plot()->getRouteType() == NO_ROUTE)
+		{
+			getGroup()->pushMission(MISSION_BUILD, eRoadBuild, -1, 0,
+				false, false, MISSIONAI_BUILD, plot());
+			return true;
+		}
 		return false;
 	}
 
-	// Try the winner; if its helper bails (e.g. all paths blocked), try the
-	// runner-up before falling through.
+	// --- Try winner; on bail try runner-up. Announce on first success. ---
 	for (int iAttempt = 0; iAttempt < 2; ++iAttempt)
 	{
+		bool bDone = false;
 		switch (iBest)
 		{
-		case OPT_FOUND:
-			if (AI_found())
+		case OPT_FOUND: bDone = AI_found();                  break;
+		case OPT_JOIN:  bDone = AI_join();                   break;
+		case OPT_TRADE: bDone = AI_trade(0);                 break;
+		case OPT_COLOS: bDone = AI_buildGrandColosseum(false); break;
+		case OPT_GA:    bDone = AI_goldenAge();              break;
+		}
+
+		if (bDone)
+		{
+			if (!kOwner.isHuman())
 			{
-				return true;
+				// Public decision message.
+				CvWString szUnitName = getName();
+				CvWString szMsg = gDLL->getText(Local::optTextKey(iBest),
+					szUnitName.GetCString());
+				announceToHumansWhoMet(getOwnerINLINE(), szMsg,
+					getX_INLINE(), getY_INLINE());
+
+				// Cheat-mode diagnostic line. Built directly with CvWString::format
+				// to avoid char/wchar mix in TXT_KEY substitution.
+				if (gDLL->getChtLvl() > 0)
+				{
+					CvWString szDiag = CvWString::format(
+						L"  [scores F:%dK J:%dK T:%dK C:%dK GA:%dK | flavor=%S mults F%d.%d J%d.%d T%d.%d C%d.%d GA%d.%d | pick=%S]",
+						iScoreFound / 1000,
+						iScoreJoin  / 1000,
+						iScoreTrade / 1000,
+						iScoreColos / 1000,
+						iScoreGA    / 1000,
+						getFlavorAsciiName(eFlavor),
+						pMult[0]/10, pMult[0]%10,
+						pMult[1]/10, pMult[1]%10,
+						pMult[2]/10, pMult[2]%10,
+						pMult[3]/10, pMult[3]%10,
+						pMult[4]/10, pMult[4]%10,
+						Local::optName(iBest));
+					announceToHumansWhoMet(getOwnerINLINE(), szDiag,
+						getX_INLINE(), getY_INLINE());
+				}
 			}
-			break;
-		case OPT_JOIN:
-			if (AI_join())
-			{
-				return true;
-			}
-			break;
-		case OPT_TRADE:
-			if (AI_trade(0))
-			{
-				return true;
-			}
-			break;
-		case OPT_COLOS:
-			if (AI_buildGrandColosseum(false))
-			{
-				return true;
-			}
-			break;
+			return true;
 		}
 
 		// Winner failed — find the runner-up and try once more.
