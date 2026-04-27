@@ -31622,7 +31622,7 @@
       <VassalRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</VassalRefuseAttitudeThreshold>
       <iVassalPowerModifier>10</iVassalPowerModifier>
       <iFreedomAppreciation>10</iFreedomAppreciation>
-      <FavoriteCivic>CIVIC_BUREAUCRACY</FavoriteCivic>
+      <FavoriteCivic>CIVIC_CASTE_SYSTEM</FavoriteCivic>
       <FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
       <Traits>
         <Trait>
