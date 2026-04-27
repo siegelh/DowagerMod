@@ -14541,13 +14541,16 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			{
 				iExistingPrinces = pCity->getFreeSpecialistCount(ePrinceSpec);
 			}
+			// Quadratic snowball decay so a flooded city stops being the
+			// magnet for every Prince in the empire.
+			const int iJoinDenom = 4 + iExistingPrinces * iExistingPrinces;
 			for (int iI = 0; iI < GC.getNumSpecialistInfos(); ++iI)
 			{
 				if (canJoin(pCity->plot(), (SpecialistTypes)iI))
 				{
 					int iSV = pCity->AI_specialistValue((SpecialistTypes)iI,
 						pCity->AI_avoidGrowth(), false);
-					int iV = (iSV * 20000) / (4 + iExistingPrinces);
+					int iV = (iSV * 20000) / iJoinDenom;
 					if (iV > iValueJoin)
 					{
 						iValueJoin = iV;
