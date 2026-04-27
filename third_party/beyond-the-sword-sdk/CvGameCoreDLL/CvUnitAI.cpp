@@ -14503,12 +14503,34 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 				continue;
 			}
 			int iV = pSite->getFoundValue(getOwnerINLINE());
-			iV = (iV * 200) / (iPathTurns + 2);
+			iV = (iV * 1000) / (iPathTurns + 2);
 			if (iV > iValueFound)
 			{
 				iValueFound = iV;
 			}
 		}
+	}
+
+	// Per-flavor city-count Found urgency. Tilts the value-comparison
+	// toward founding when below an empire's natural city target. This
+	// is a multiplier on a value that already accounts for site quality
+	// and path safety -- if no viable site exists, base is 0 and any
+	// multiplier of 0 is still 0, so the Prince Joins (the design
+	// default). Tall is excluded because true Tall Venice can stay at
+	// one city; only an amazing site overrides.
+	{
+		const int iCityCount = kOwner.getNumCities();
+		int iUrgency = 100;
+		if (eFlavor != PRINCE_FLAVOR_TALL)
+		{
+			if (iCityCount == 1)        iUrgency = 600;
+			else if (iCityCount == 2)   iUrgency = 200;
+		}
+		if (eFlavor == PRINCE_FLAVOR_EXPANSIONIST && iCityCount < 5)
+		{
+			iUrgency = (iUrgency * 150) / 100;
+		}
+		iValueFound = (iValueFound * iUrgency) / 100;
 	}
 
 	// (b) Join: bestSpecialistValue * 20000 / (4 + existingPrincesInCity).
@@ -14541,15 +14563,33 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			{
 				iExistingPrinces = pCity->getFreeSpecialistCount(ePrinceSpec);
 			}
-			// Quadratic snowball decay so a flooded city stops being the
-			// magnet for every Prince in the empire.
-			const int iJoinDenom = 4 + iExistingPrinces * iExistingPrinces;
+			// Linear snowball decay -- gentle so stacking in Venice
+			// (the GPP pump) remains the design default. Flavor +
+			// Found urgency handle expansion separately.
+			const int iJoinDenom = 4 + iExistingPrinces;
+
+			// Per-city tilt: capital is the GPP pump, so prefer it by
+			// default. Override only for a small starving secondary city
+			// whose great tiles are blocked by a food shortage -- the
+			// Prince's +3 food specialist can unlock it.
+			int iCityMultX100 = 100;
+			if (pCity->isCapital())
+			{
+				iCityMultX100 = 200;
+			}
+			else if (pCity->getPopulation() <= 4 &&
+				pCity->foodDifference(false) <= 1)
+			{
+				iCityMultX100 = 300;
+			}
+
 			for (int iI = 0; iI < GC.getNumSpecialistInfos(); ++iI)
 			{
 				if (canJoin(pCity->plot(), (SpecialistTypes)iI))
 				{
 					int iSV = pCity->AI_specialistValue((SpecialistTypes)iI,
 						pCity->AI_avoidGrowth(), false);
+					iSV = (iSV * iCityMultX100) / 100;
 					int iV = (iSV * 20000) / iJoinDenom;
 					if (iV > iValueJoin)
 					{
@@ -14659,8 +14699,10 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		}
 	}
 
-	// Threshold matched to the new normalized scale.
-	const int kMinStrategicThreshold = 150000;
+	// Threshold matched to the new normalized scale. Lowered so that
+	// modest-but-real options (Trade, Colos, GA) can fire instead of
+	// always falling through to BuildRoad.
+	const int kMinStrategicThreshold = 50000;
 
 	// Helper: announce + cheat-mode diagnostic line.
 	struct Local {
