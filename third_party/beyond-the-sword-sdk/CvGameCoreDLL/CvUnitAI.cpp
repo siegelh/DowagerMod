@@ -14620,27 +14620,58 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 	// default). Tall is excluded because true Tall Venice can stay at
 	// one city; only an amazing site overrides.
 	int iUrgencyApplied = 100;
+	int iScarcityBoostApplied = 0;
+	int iTotalPrincesJoined = 0;
 	{
+		// Count Venetian Princes already joined across all of this player's
+		// cities. Each one stockpiled without expansion adds pressure for the
+		// next Prince to actually go found territory. Reflects the in-fiction
+		// idea that Venice has accumulated enough merchants and now wants
+		// colonies, and the practical concern that the world fills up fast --
+		// the first 3-5 Princes are when land is still available.
+		const SpecialistTypes ePrinceSpecForCount = getVenetianMerchantPrinceSpecialist();
+		if (ePrinceSpecForCount != NO_SPECIALIST)
+		{
+			int iLoopScarcity;
+			for (CvCity* pLoopCityScarcity = kOwner.firstCity(&iLoopScarcity);
+				pLoopCityScarcity != NULL;
+				pLoopCityScarcity = kOwner.nextCity(&iLoopScarcity))
+			{
+				iTotalPrincesJoined += pLoopCityScarcity->getFreeSpecialistCount(ePrinceSpecForCount);
+			}
+		}
+
 		const int iCityCount = kOwner.getNumCities();
 		int iUrgency = 100;
+		int iScarcityBoost = 0;
 		if (eFlavor != PRINCE_FLAVOR_TALL)
 		{
 			if (iCityCount == 1)        iUrgency = 600;
 			else if (iCityCount == 2)   iUrgency = 200;
+			// Stockpile pressure: +500 urgency per Prince already joined,
+			// capped at +1400. With base 600 (1 city), this lifts the second
+			// Prince to 1100, the third to 1600, and saturates at 2000 by the
+			// fourth -- so non-TALL flavors found by Prince #3 even on
+			// average maps. TALL deliberately ignores this and stays parked.
+			iScarcityBoost = std::min(1400, iTotalPrincesJoined * 500);
+			iUrgency += iScarcityBoost;
 		}
 		if (eFlavor == PRINCE_FLAVOR_EXPANSIONIST && iCityCount < 5)
 		{
 			iUrgency = (iUrgency * 150) / 100;
 		}
-		// Long-long math: iValueFound up to ~2e9, iUrgency up to 900,
-		// product up to ~1.8e12 -- well outside int32.
+		// Long-long math: iValueFound up to ~2e9, iUrgency now up to ~3000
+		// (2000 base * 1.5 expansionist), product up to ~6e12 -- well
+		// outside int32, so 64-bit math throughout.
 		long long iAfter64 = ((long long)iValueFound * (long long)iUrgency) / 100LL;
 		iValueFound = (iAfter64 > 2000000000LL) ? 2000000000 : (int)iAfter64;
 		iUrgencyApplied = iUrgency;
+		iScarcityBoostApplied = iScarcityBoost;
 	}
 	gDLL->logMsg("VenicePrince.log", CvString::format(
-		"  [Found] candidates=%d  raw_max=%d  urgency=%d/100  ->  iValueFound=%d",
+		"  [Found] candidates=%d  raw_max=%d  urgency=%d/100 (scarcity+%d, joined=%d)  ->  iValueFound=%d",
 		iFoundCandidatesScored, iValueFoundRaw, iUrgencyApplied,
+		iScarcityBoostApplied, iTotalPrincesJoined,
 		iValueFound).c_str());
 
 	// (b) Join: bestSpecialistValue * 3000 / (4 + existingPrincesInCity).
