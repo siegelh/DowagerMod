@@ -3789,6 +3789,17 @@ void CvUnitAI::AI_merchantMove()
 {
 	PROFILE_FUNC();
 
+	// Trace every entry into merchant AI so we can see if a 2nd Venetian
+	// Prince ever even reaches this dispatch (or gets diverted earlier).
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"[merchantMove] T%d  Player=%S  Unit=\"%S\" at (%d,%d)  bFound=%d  AIType=%d",
+		GC.getGameINLINE().getGameTurn(),
+		GET_PLAYER(getOwnerINLINE()).getName(),
+		getName().GetCString(),
+		getX_INLINE(), getY_INLINE(),
+		m_pUnitInfo->isFound() ? 1 : 0,
+		(int)AI_getUnitAIType()).c_str());
+
 	// Venice's Merchant Prince stands in for both Settler and Great Merchant.
 	// The vanilla cascade below has no AI_found() call, so without this gate
 	// the AI would burn its only city-founder on a one-shot trade mission.
@@ -14529,9 +14540,10 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		if (ePrinceSpec != NO_SPECIALIST &&
 			GC.getUnitInfo(getUnitType()).getGreatPeoples(ePrinceSpec))
 		{
-			CvWString szMsg = gDLL->getText(getFlavorAnnounceTextKey(eFlavor));
-			announceToHumansWhoMet(getOwnerINLINE(), szMsg,
-				getX_INLINE(), getY_INLINE());
+			gDLL->logMsg("VenicePrince.log", CvString::format(
+				"  [FlavorIntro] %S adopts %s flavor",
+				kOwner.getName(),
+				getFlavorAsciiName(eFlavor)).c_str());
 		}
 	}
 
@@ -14914,7 +14926,10 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		return false;
 	}
 
-	// --- Try winner; on bail try runner-up. Announce on first success. ---
+	// --- Try winner; on bail try runner-up. Capture pre-action state for log. ---
+	const int iPreX     = getX_INLINE();
+	const int iPreY     = getY_INLINE();
+	const int iUnitID   = getID();
 	for (int iAttempt = 0; iAttempt < 2; ++iAttempt)
 	{
 		bool bDone = false;
@@ -14934,32 +14949,22 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 
 		if (bDone)
 		{
-			if (!kOwner.isHuman())
-			{
-				// Debug-style decision message: shows action picked, all 5 weighted
-				// scores (K-scaled), threshold, flavor + per-option multipliers.
-				// Always-on (no cheat gate) so divergence between announcement and
-				// observed action is unambiguous during testing.
-				CvWString szUnitName = getName();
-				CvWString szMsg = CvWString::format(
-					L"%s (Venice): %S. Scores F=%dK J=%dK T=%dK C=%dK GA=%dK (thresh %dK). Flavor=%S mults F%d.%d J%d.%d T%d.%d C%d.%d GA%d.%d.",
-					szUnitName.GetCString(),
-					Local::optName(iBest),
-					iScoreFound / 1000,
-					iScoreJoin  / 1000,
-					iScoreTrade / 1000,
-					iScoreColos / 1000,
-					iScoreGA    / 1000,
-					kMinStrategicThreshold / 1000,
-					getFlavorAsciiName(eFlavor),
-					pMult[0]/10, pMult[0]%10,
-					pMult[1]/10, pMult[1]%10,
-					pMult[2]/10, pMult[2]%10,
-					pMult[3]/10, pMult[3]%10,
-					pMult[4]/10, pMult[4]%10);
-				announceToHumansWhoMet(getOwnerINLINE(), szMsg,
-					getX_INLINE(), getY_INLINE());
-			}
+			// Resolve the unit again — AI_join / found may have killed it.
+			CvUnit* pSelf = GET_PLAYER(getOwnerINLINE()).getUnit(iUnitID);
+			bool bAlive = (pSelf != NULL) && !pSelf->isDelayedDeath();
+			int iPostX = bAlive ? pSelf->getX_INLINE() : -1;
+			int iPostY = bAlive ? pSelf->getY_INLINE() : -1;
+			CvPlot* pPostPlot = bAlive ? pSelf->plot() : NULL;
+			CvCity* pPostCity = pPostPlot ? pPostPlot->getPlotCity() : NULL;
+			const wchar* szPostCity = pPostCity ? pPostCity->getName().GetCString() : L"<no city>";
+
+			gDLL->logMsg("VenicePrince.log", CvString::format(
+				"  [Outcome] Player=%S Action=%s alive=%d pre=(%d,%d) post=(%d,%d) postCity=\"%S\"",
+				GET_PLAYER(getOwnerINLINE()).getName(),
+				Local::optName(iBest),
+				bAlive ? 1 : 0,
+				iPreX, iPreY, iPostX, iPostY,
+				szPostCity).c_str());
 			return true;
 		}
 

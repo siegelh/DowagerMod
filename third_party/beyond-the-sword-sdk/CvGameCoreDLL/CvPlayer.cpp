@@ -17064,6 +17064,21 @@ void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThre
 		return;
 	}
 
+	// Trace every GP creation that has bFound (Venetian Merchant Prince
+	// distinguishing flag among GPs). Keeps log scoped to Venice while
+	// still confirming spawn happened on the correct turn for each civ.
+	if (GC.getUnitInfo(eGreatPersonUnit).isFound())
+	{
+		gDLL->logMsg("VenicePrince.log", CvString::format(
+			"[Spawn] T%d  Player=%S  Unit=\"%S\" UnitType=%S at (%d,%d)  newGPCount=%d",
+			GC.getGameINLINE().getGameTurn(),
+			getName(),
+			pGreatPeopleUnit->getName().GetCString(),
+			GC.getUnitInfo(eGreatPersonUnit).getType(),
+			iX, iY,
+			getGreatPeopleCreated() + (bIncrementThreshold ? 1 : 0)).c_str());
+	}
+
 	if (bIncrementThreshold)
 	{
 		incrementGreatPeopleCreated();

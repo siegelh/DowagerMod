@@ -464,7 +464,22 @@ void CvUnit::convert(CvUnit* pUnit)
 void CvUnit::kill(bool bDelay, PlayerTypes ePlayer)
 {
 	PROFILE_FUNC();
-	
+
+	// Trace deaths of bFound GPs (Venetian Merchant Princes) so we can see
+	// when a Prince disappears outside of AI_venetianPrinceChoice.
+	if (m_pUnitInfo != NULL && m_pUnitInfo->isFound() &&
+		GC.getUnitInfo(getUnitType()).getProductionCost() == -1)
+	{
+		gDLL->logMsg("VenicePrince.log", CvString::format(
+			"[Kill] T%d  Player=%S  Unit=\"%S\" at (%d,%d) bDelay=%d killer=%d",
+			GC.getGameINLINE().getGameTurn(),
+			GET_PLAYER(getOwnerINLINE()).getName(),
+			getName().GetCString(),
+			getX_INLINE(), getY_INLINE(),
+			bDelay ? 1 : 0,
+			(int)ePlayer).c_str());
+	}
+
 	CLLNode<IDInfo>* pUnitNode;
 	CvUnit* pTransportUnit;
 	CvUnit* pLoopUnit;
