@@ -892,12 +892,27 @@ def main(argv: list[str]) -> int:
         print(f"\nERROR: {e}")
         rc = 1
 
-    # Give the user 5 seconds to read the result before the window closes
-    # (matters when launched by double-click on the .exe).
+    # Countdown so the user has time to read the result before the window
+    # closes (UAC-launched .exe owns its console; it vanishes on return).
+    print()
+    print("=" * 60)
+    if rc == 0:
+        print("Done.")
+    else:
+        print("Installer did NOT complete -- read the messages above.")
+    print("=" * 60)
     try:
-        time.sleep(5)
+        for sec in range(15, 0, -1):
+            sys.stdout.write(f"\rClosing in {sec:2d} seconds... (Ctrl+C to keep window open) ")
+            sys.stdout.flush()
+            time.sleep(1)
+        sys.stdout.write("\n")
     except KeyboardInterrupt:
-        pass
+        print("\nWindow held open. Press Enter to close.")
+        try:
+            input()
+        except (EOFError, KeyboardInterrupt):
+            pass
     return rc
 
 

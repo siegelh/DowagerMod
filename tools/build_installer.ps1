@@ -27,6 +27,20 @@ $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $coreFiles = Join-Path $repoRoot "CoreFiles"
 $spec = Join-Path $coreFiles "install.spec"
 
+# IMPORTANT: always use the dedicated build venv. If PyInstaller is picked
+# up from Anaconda or another global Python, builds can hang for 15+ minutes
+# instead of finishing in ~25 seconds.
+$venvPyInstaller = Join-Path $repoRoot ".build_venv\Scripts\pyinstaller.exe"
+if (-not (Test-Path $venvPyInstaller)) {
+    throw @"
+Build venv missing at: $venvPyInstaller
+
+Create it with:
+  python -m venv .build_venv
+  .\.build_venv\Scripts\pip install pyinstaller tqdm
+"@
+}
+
 if (-not (Test-Path $spec)) {
     throw "Spec file not found: $spec"
 }
@@ -44,11 +58,12 @@ try {
     }
 
     Write-Host "Building installer with PyInstaller..." -ForegroundColor Cyan
+    Write-Host "  (using $venvPyInstaller)" -ForegroundColor DarkGray
     # Build into CoreFiles/build and CoreFiles/dist so the .exe lives next to
     # the mod payload (CoreFiles/Sid Meier's Civilization IV Beyond the Sword/).
     # Friends clone the repo, open CoreFiles\dist\DowagerMod-Installer\ and
     # double-click DowagerMod-Installer.exe.
-    pyinstaller --noconfirm `
+    & $venvPyInstaller --noconfirm `
         --workpath (Join-Path $coreFiles "build") `
         --distpath (Join-Path $coreFiles "dist") `
         install.spec

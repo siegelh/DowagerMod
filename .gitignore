@@ -21,6 +21,10 @@ CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Assets/Assets0.fpk
 CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Assets/Assets1.fpk
 CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Assets/Assets2.fpk
 CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/ThemeParseLog.txt
-CoreFiles/dist/
+CoreFiles/dist/*
+!CoreFiles/dist/DowagerMod-Installer/
+CoreFiles/build/
+.build_venv/
+build.log
 tmp/**
 .env
