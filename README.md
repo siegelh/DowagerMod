@@ -39,9 +39,21 @@ See:
 
 ## Install / Deploy
 
-- Canonical installer source: `CoreFiles/install.py`
-- Installer behavior and packaging caveats: [INSTALLER.md](INSTALLER.md)
-- Important: deployment is copy-based and does not prune deleted files from the live game install.
+**For installing the mod (friends):** double-click `Install DowagerMod.bat`
+at the repo root. Approve the UAC prompt. That's it.
+
+**For mod developers / contributors:**
+
+- Installer source: `CoreFiles/install.py`
+- Built exe (committed): `CoreFiles/dist/DowagerMod-Installer/DowagerMod-Installer.exe`
+- Build script: `tools\build_installer.ps1` (uses dedicated `.build_venv\`)
+- Full design + troubleshooting: [INSTALLER.md](INSTALLER.md)
+
+The installer uses a **wipe-and-restore** model: it captures a pristine
+snapshot of the clean Civ4 install on first run, then every subsequent
+install mirrors live back to pristine and overlays the mod payload. This
+means deleting a file from the repo *does* remove it from the live
+install — no cross-version drift.
 
 ## Repo Notes
 

@@ -79,8 +79,12 @@
 - The current branch may still show many untracked stock files in the mirror. Review `git status --short` early and do not treat every untracked file as intentional new work.
 - BtS is the default edit target. Do not update base `Assets` or `Warlords` unless the task proves they matter.
 - Current working assumption: runtime behaves as a BtS overlay plus some inherited base Python support files, not as a fully self-contained BtS Python tree.
-- `CoreFiles/install.py` is the canonical installer source, but its source-path logic depends on where the installer executable/script is located. If packaging or direct invocation matters, inspect `INSTALLER.md` and the script before using it.
-- `CoreFiles/install_for_gui.py`, `CoreFiles/install_working.py`, `CoreFiles/setup.py`, and `install.spec` are secondary or historical packaging paths unless a task explicitly targets them.
+- `CoreFiles/install.py` is the canonical installer source. It uses a wipe-and-restore model with a per-machine pristine snapshot — see `INSTALLER.md` for design.
+- The committed installer .exe lives at `CoreFiles/dist/DowagerMod-Installer/DowagerMod-Installer.exe` (built via `tools/build_installer.ps1` from `CoreFiles/install.spec`). The friend-facing launcher `Install DowagerMod.bat` at repo root self-elevates and runs the .exe.
+- The .exe must be built in one-folder PyInstaller mode (DLLs as siblings of the .exe). One-file mode triggers Windows Application Control blocks on locked-down machines.
+- Builds must use the dedicated `.build_venv/` (gitignored) with only `pyinstaller` + `tqdm`. Building from Anaconda or system Python pulls hostile hooks and takes 15+ minutes.
+- The installer maintains a pristine snapshot at `<install_dir> - PRISTINE` (sibling of the live game install). Per-machine state is persisted at `%LOCALAPPDATA%\DowagerMod\config.json`. Pristine is captured once from a clean Steam install and never goes stale (BTS is on Steam's frozen `original_release_unsupported` branch).
+- The installer also nukes `Documents\My Games\Beyond the Sword\` (preserving `Saves/` and `CivilizationIV.ini`) and forces `DisableCaching = 1` in the .ini, to prevent stale XML cache from shadowing mod changes.
 - `traits_enhanced.py` and `merge_traits_all.py` are legacy workflow files, not default entrypoints.
 - `CoreFiles/dist`, `tmp`, backup DLLs, and large imported art folders are not primary sources of truth.
 - `petromod_v1` is legacy-looking content, but it is still a live HUD dependency because `Beyond the Sword/Assets/Python/Screens/CvMainInterface.py` imports its `CvMainInterface.py`.
