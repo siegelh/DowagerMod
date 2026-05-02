@@ -39180,15 +39180,15 @@
 					<YieldChanges>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>1</iYield>
+						<iYield>2</iYield>
 					</YieldChanges>
 				</ImprovementYieldChange>
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
 					<YieldChanges>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
 						<iYield>1</iYield>
+						<iYield>0</iYield>
+						<iYield>3</iYield>
 					</YieldChanges>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
@@ -39867,7 +39867,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_LUMBERMILL</ImprovementType>
 					<YieldChanges>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 						<iYield>1</iYield>
 						<iYield>0</iYield>
 					</YieldChanges>
@@ -39875,7 +39875,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_FOREST_PRESERVE</ImprovementType>
 					<YieldChanges>
-						<iYield>0</iYield>
+						<iYield>1</iYield>
 						<iYield>0</iYield>
 						<iYield>1</iYield>
 					</YieldChanges>
@@ -39883,7 +39883,7 @@
 				<ImprovementYieldChange>
 					<ImprovementType>IMPROVEMENT_TREE_NURSERY</ImprovementType>
 					<YieldChanges>
-						<iYield>1</iYield>
+						<iYield>3</iYield>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
 					</YieldChanges>
@@ -40110,7 +40110,7 @@
 					<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 					<YieldChanges>
 						<iYield>0</iYield>
-						<iYield>1</iYield>
+						<iYield>2</iYield>
 						<iYield>0</iYield>
 					</YieldChanges>
 				</ImprovementYieldChange>
@@ -40119,7 +40119,7 @@
 					<YieldChanges>
 						<iYield>0</iYield>
 						<iYield>0</iYield>
-						<iYield>1</iYield>
+						<iYield>2</iYield>
 					</YieldChanges>
 				</ImprovementYieldChange>
 			</ImprovementYieldChanges>
@@ -40307,7 +40307,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>10</iCommerce>
+				<iCommerce>25</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
