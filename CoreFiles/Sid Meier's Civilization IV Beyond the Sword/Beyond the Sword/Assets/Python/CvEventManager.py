@@ -21,6 +21,7 @@ import CvWorldBuilderScreen
 import CvAdvisorUtils
 import CvTechChooser
 import CvArtMasterpieceSystem
+import CvGlyphDiagnostics
 
 gc = CyGlobalContext()
 localText = CyTranslator()
@@ -230,6 +231,10 @@ class CvEventManager:
 		
 		if ( eventType == self.EventKeyDown ):
 			theKey=int(key)
+
+			if (theKey == int(InputTypes.KB_G) and self.bCtrl and self.bShift):
+				CvGlyphDiagnostics.dumpGlyphDiagnostics(mx, my, px, py, "hotkey")
+				return 1
 			
 			CvCameraControls.g_CameraControls.handleInput( theKey )
 						
@@ -843,6 +848,8 @@ class CvEventManager:
 	def onChat(self, argsList):
 		'Chat Message Event'
 		chatMessage = "%s" %(argsList[0],)
+		if (chatMessage.strip().lower() == "!glyphdump"):
+			CvGlyphDiagnostics.dumpGlyphDiagnostics(-1, -1, -1, -1, "chat")
 		
 	def onSetPlayerAlive(self, argsList):
 		'Set Player Alive Event'
