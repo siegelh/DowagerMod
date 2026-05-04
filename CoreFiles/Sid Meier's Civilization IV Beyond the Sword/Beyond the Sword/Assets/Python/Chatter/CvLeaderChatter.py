@@ -56,6 +56,8 @@ _active_exchange_until = 0.0    # while a multi-line exchange's queue is non-emp
 _global_recent_lines = []       # unix timestamps of recently broadcast lines (for hourly cap)
 _logged_first_run = False       # one-time setup log
 _spawn_attempted_at = 0.0       # rate-limit auto-spawn attempts
+_no_elector_diag_fired = False  # one-time diagnostic when nobody is capable
+_no_elector_first_seen_turn = -1
 
 
 # ===== tunables =====
@@ -71,6 +73,7 @@ SPOOL_SCAN_LIMIT = 8                 # max response files scanned per tick
 REJOINDER_PROBABILITY = 0.5          # chance a trigger gets a multi-turn exchange
 SPAWN_RETRY_SECONDS = 30             # don't try to spawn sidecar more than once per N seconds
 DROP_NEW_WHILE_QUEUE_ACTIVE = True   # one event at a time
+NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o capable elector
 
 # Triggers that should always render as a 1-to-1 exchange (directed mode).
 DIRECTED_TRIGGERS = (
@@ -718,6 +721,7 @@ def _full_reset(reason):
     global _local_capable_checked_at, _seen_events, _pair_cooldown
     global _display_queue, _pending_request_id, _pending_request_at
     global _active_exchange_until, _global_recent_lines, _logged_first_run
+    global _no_elector_diag_fired, _no_elector_first_seen_turn
     _session_id = _gen_uuid()
     try:
         _local_player_id = _gc().getGame().getActivePlayer()
@@ -736,6 +740,8 @@ def _full_reset(reason):
     while _global_recent_lines:
         _global_recent_lines.pop()
     _logged_first_run = False
+    _no_elector_diag_fired = False
+    _no_elector_first_seen_turn = -1
     _log("reset (" + reason + ") session=" + _session_id + " localPlayer=" + str(_local_player_id))
 
 
@@ -802,8 +808,41 @@ def chatter_on_begin_player_turn(iGameTurn, iPlayer):
         # Drain display + check for responses on every player-turn
         _check_for_responses()
         _drain_display_queue()
+        # One-time diagnostic if no capable elector after N turns
+        _maybe_show_no_elector_diagnostic(iGameTurn, iPlayer)
     except Exception, exc:
         _log("on_begin_player_turn error: " + str(exc))
+
+
+def _maybe_show_no_elector_diagnostic(iGameTurn, iLocalPlayer):
+    """Once per session, if we've seen no capable peers for N turns, post a
+    quiet local-only message so the user knows chatter is silent and why.
+    """
+    global _no_elector_diag_fired, _no_elector_first_seen_turn
+    if _no_elector_diag_fired:
+        return
+    if _check_local_capable():
+        # Local IS capable -- never show the diag.
+        _no_elector_diag_fired = True
+        return
+    if _capable_humans:
+        # Some other peer is capable -- nothing to warn about.
+        _no_elector_diag_fired = True
+        return
+    if _no_elector_first_seen_turn < 0:
+        _no_elector_first_seen_turn = iGameTurn
+        return
+    if (iGameTurn - _no_elector_first_seen_turn) < NO_ELECTOR_DIAG_AFTER_TURNS:
+        return
+    # Fire the diagnostic locally only (no sendChat -- this is per-machine).
+    try:
+        if iLocalPlayer == _local_player_id and _local_player_id >= 0:
+            CyInterface().addImmediateMessage(
+                "DowagerMod Chatter: no AI commentator available this game.", "")
+    except:
+        pass
+    _no_elector_diag_fired = True
+    _log("no-elector diagnostic fired at turn " + str(iGameTurn))
 
 
 def chatter_on_update(fDeltaTime):

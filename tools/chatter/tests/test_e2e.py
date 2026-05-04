@@ -45,6 +45,13 @@ _load_env_if_present()
 HAS_KEY = bool(os.environ.get("AZURE_FOUNDRY_API_KEY") or os.environ.get("DOWAGER_CHATTER_API_KEY"))
 
 
+def _ascii(text: str) -> str:
+    """Replace non-ASCII chars so Windows cp1252 console can print results."""
+    if not isinstance(text, str):
+        text = str(text)
+    return text.encode("ascii", "replace").decode("ascii")
+
+
 @unittest.skipUnless(HAS_KEY, "AZURE_FOUNDRY_API_KEY not set; skipping live test")
 class TestEndToEnd(unittest.TestCase):
     def test_real_directed_call(self):
@@ -84,7 +91,7 @@ class TestEndToEnd(unittest.TestCase):
             line = resp["lines"][0]
             self.assertEqual(line["speaker_player_id"], 13)
             self.assertGreater(len(line["text"]), 5)
-            print(f"\n  Victoria -> Lincoln: \"{line['text']}\"")
+            print(f"\n  Victoria -> Lincoln: \"{_ascii(line['text'])}\"")
             print(f"  ({resp['latency_ms']}ms, {resp['input_tokens']}/{resp['output_tokens']} tokens)")
         else:
             print(f"  Got non-ok response (acceptable for refusal): {resp['error']}")
@@ -125,7 +132,7 @@ class TestEndToEnd(unittest.TestCase):
                   f"{resp['input_tokens']}/{resp['output_tokens']} tokens):")
             for ln in resp["lines"]:
                 delay = "(immediate)" if ln["delay_ms"] == 0 else f"(+{ln['delay_ms']}ms)"
-                print(f"    {ln['speaker_name']} {delay}: \"{ln['text']}\"")
+                print(f"    {_ascii(ln['speaker_name'])} {delay}: \"{_ascii(ln['text'])}\"")
             self.assertGreaterEqual(len(resp["lines"]), 1)
         else:
             print(f"  Got non-ok response: {resp['error']}")

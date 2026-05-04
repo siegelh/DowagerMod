@@ -43,6 +43,8 @@
 - [`GLYPH_DIAGNOSTICS.md`](GLYPH_DIAGNOSTICS.md) - `Current`. In-game and offline `GameFont` glyph triage workflow.
 - [`CIV4_UNIT_ART_CRASH_PLAYBOOK.md`](CIV4_UNIT_ART_CRASH_PLAYBOOK.md) - `Current`. Art/XML crash triage workflow.
 - [`INDUSTRY_ICON_PIPELINE.md`](INDUSTRY_ICON_PIPELINE.md) - `Current`. Live icon pipeline reference for industry buttons and `GameFont` glyph usage.
+- [`CHATTER_OVERVIEW.md`](CHATTER_OVERVIEW.md) - `Current`. Design overview for the AI Leader Chatter feature (Azure Foundry sidecar + game-side hooks).
+- [`CHATTER_RUNBOOK.md`](CHATTER_RUNBOOK.md) - `Current`. Operator runbook for the chatter sidecar (setup, run, troubleshoot).
 
 ### Process / Planning
 

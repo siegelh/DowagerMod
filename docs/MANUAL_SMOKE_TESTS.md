@@ -25,6 +25,14 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - verify the art path resolves without pink boxes, missing buttons, or crash-on-open behavior
 - Persistence:
   - save and reload once, then confirm the changed state still exists
+- AI Leader Chatter (`Chatter\CvLeaderChatter.py`, sidecar in `tools\chatter\`):
+  - SP: start a game with at least 2 AI civs; force a DoW via WorldBuilder; confirm a chat line appears within ~10s
+  - If multi-turn fired: confirm follow-up lines arrive ~5-10s after the first
+  - Save mid-game, exit, reload; confirm no replay of the previous DoW line
+  - Run `.\tools\Stop-Chatter.ps1` mid-game; play a few more turns; confirm zero in-game errors and no slowdown
+  - Quit, ensure sidecar is not running, launch fresh; confirm the game is normal with no chatter and no errors
+  - 2-client MP (LAN or two instances): force a DoW; verify exactly ONE entry in your sidecar's `daemon.log` AND BOTH clients display the SAME chat line; confirm no OOS warning fires
+  - See [`CHATTER_RUNBOOK.md`](CHATTER_RUNBOOK.md) for detailed troubleshooting
 
 ## What to report
 

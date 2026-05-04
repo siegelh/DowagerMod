@@ -140,9 +140,22 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
     text = api_result.text
 
     if looks_like_refusal(text):
-        logger.info("model refused, request_id=%s", request.get("request_id"))
+        logger.info("model refused, request_id=%s — substituting fallback line",
+                    request.get("request_id"))
+        # Substitute a canned fallback so the user sees something rather than silence.
+        speaker = request.get("speaker") or {}
+        target = request.get("target") or {}
+        is_broadcast = (request.get("mode") == "broadcast")
+        from tools.chatter.azure_client import fallback_line
+        fb = fallback_line(
+            speaker_name=speaker.get("leader_name", ""),
+            target_name=target.get("leader_name", ""),
+            broadcast=is_broadcast,
+        )
         return make_response(
-            request=request, ok=False, lines=[], error="refusal",
+            request=request, ok=True,
+            lines=render_single_line(request, fb),
+            error=None,
             latency_ms=api_result.latency_ms,
             input_tokens=api_result.input_tokens,
             output_tokens=api_result.output_tokens,

@@ -7,10 +7,38 @@ method that returns either text (single-line) or a parsed list of
 from __future__ import annotations
 
 import json
+import random
 import re
 import time
 from dataclasses import dataclass
 from typing import List, Optional
+
+
+# Fallback canned lines for when the model refuses or fails. Speaker-agnostic
+# (they fit any leader) and intentionally short. Used by the daemon to
+# substitute for refusals so the user sees *something* rather than silence.
+FALLBACK_DIRECTED = [
+    "{speaker} regards {target} in pointed silence.",
+    "{speaker} pauses, then turns away from {target}.",
+    "{speaker} offers {target} only a thin, unreadable smile.",
+    "{speaker} considers {target} for a long moment without speaking.",
+]
+
+FALLBACK_BROADCAST = [
+    "{speaker} surveys the world in measured silence.",
+    "{speaker} lets the moment speak for itself.",
+    "{speaker} accepts the day's news with the calm of an empire.",
+]
+
+
+def fallback_line(speaker_name: str, target_name: str = "", broadcast: bool = False) -> str:
+    """Pick a canned fallback line. Never raises."""
+    pool = FALLBACK_BROADCAST if broadcast else FALLBACK_DIRECTED
+    tmpl = random.choice(pool)
+    try:
+        return tmpl.format(speaker=speaker_name or "The leader", target=target_name or "the rival")
+    except Exception:
+        return "The leader is silent."
 
 
 class AuthError(Exception):
@@ -112,6 +140,25 @@ def parse_multi_turn_lines(raw: str) -> List[dict]:
     return out
 
 
+# Simple post-render denylist. Triggered after the model returns text but
+# before we hand back to the caller. Keeps a tiny safety net for known-bad
+# substrings the model might slip past its own filters. Case-insensitive.
+DENY_SUBSTRINGS = (
+    # Empty for v1 — extend per-incident if real refusals leak ugly content.
+)
+
+
+def post_filter_clean(text: str) -> Optional[str]:
+    """Return None if the text trips the denylist. Else return text trimmed."""
+    if not text:
+        return None
+    low = text.lower()
+    for bad in DENY_SUBSTRINGS:
+        if bad in low:
+            return None
+    return text.strip()
+
+
 def looks_like_refusal(text: str) -> bool:
     """Heuristic detection of safety refusals."""
     if not text:
@@ -124,3 +171,4 @@ def looks_like_refusal(text: str) -> bool:
         or "as an ai" in low
         or "i am not able" in low
     )
+

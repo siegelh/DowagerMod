@@ -290,8 +290,13 @@ class TestDaemonProcessRequest(unittest.TestCase):
             client=client, breaker=self.breaker, logger=self.logger,
             max_tokens=80, max_tokens_multi=400,
         )
-        self.assertFalse(resp["ok"])
-        self.assertEqual(resp["error"], "refusal")
+        # Refusal substitutes a fallback canned line; we still return ok=True
+        # so the user sees something rather than silence.
+        self.assertTrue(resp["ok"])
+        self.assertEqual(len(resp["lines"]), 1)
+        text = resp["lines"][0]["text"]
+        # Canned fallbacks reference the speaker name and are short.
+        self.assertIn("Victoria", text)
 
     def test_auth_error_trips_breaker(self):
         client = self._fake_client(auth=True)
