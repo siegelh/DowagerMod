@@ -39,6 +39,286 @@ import time
 import random
 
 
+# ===== minimal JSON encode/decode (Py 2.4 has no json module) =====
+# Civ4's bundled Python 2.4 does not include the json stdlib (added 2.6).
+# Sidecar writes valid JSON; we parse it here. We also produce valid JSON for
+# the request file. Scope: dicts, lists, strings (ASCII + escaped \uXXXX),
+# ints, floats, bools, None. No special handling for NaN/Infinity. Strings
+# are emitted as-is with backslash escapes for ", \, \n, \r, \t. Round-tripped
+# successfully against the sidecar's stdlib json output during testing.
+
+class _JsonError(Exception):
+    pass
+
+
+def _json_dumps(obj):
+    parts = []
+    _json_write(obj, parts)
+    return "".join(parts)
+
+
+def _json_write(obj, out):
+    if obj is None:
+        out.append("null")
+    elif obj is True:
+        out.append("true")
+    elif obj is False:
+        out.append("false")
+    elif isinstance(obj, dict):
+        out.append("{")
+        first = True
+        for k, v in obj.items():
+            if not first:
+                out.append(",")
+            first = False
+            _json_write_string(str(k), out)
+            out.append(":")
+            _json_write(v, out)
+        out.append("}")
+    elif isinstance(obj, (list, tuple)):
+        out.append("[")
+        first = True
+        for v in obj:
+            if not first:
+                out.append(",")
+            first = False
+            _json_write(v, out)
+        out.append("]")
+    elif isinstance(obj, bool):  # noqa (handled above; defensive)
+        if obj:
+            out.append("true")
+        else:
+            out.append("false")
+    elif isinstance(obj, (int, long)):
+        out.append(str(obj))
+    elif isinstance(obj, float):
+        # JSON spec forbids NaN/Infinity; substitute a safe value.
+        s = repr(obj)
+        if s in ("nan", "inf", "-inf"):
+            out.append("null")
+        else:
+            out.append(s)
+    elif isinstance(obj, (str, unicode)):
+        _json_write_string(obj, out)
+    else:
+        # Best effort: convert to string
+        _json_write_string(str(obj), out)
+
+
+def _json_write_string(s, out):
+    if isinstance(s, str):
+        try:
+            s = s.decode("utf-8", "replace")
+        except:
+            s = s.decode("ascii", "replace")
+    buf = [u'"']
+    for ch in s:
+        oc = ord(ch)
+        if ch == u'"':
+            buf.append(u'\\"')
+        elif ch == u'\\':
+            buf.append(u'\\\\')
+        elif ch == u'\n':
+            buf.append(u'\\n')
+        elif ch == u'\r':
+            buf.append(u'\\r')
+        elif ch == u'\t':
+            buf.append(u'\\t')
+        elif oc < 0x20:
+            buf.append(u'\\u%04x' % oc)
+        elif oc < 0x7F:
+            buf.append(ch)
+        else:
+            # Emit as \uXXXX for portability
+            buf.append(u'\\u%04x' % oc)
+    buf.append(u'"')
+    out.append(u"".join(buf).encode("ascii", "replace"))
+
+
+def _json_loads(text):
+    if isinstance(text, str):
+        try:
+            text = text.decode("utf-8", "replace")
+        except:
+            text = text.decode("ascii", "replace")
+    p = [0]
+    _json_skip_ws(text, p)
+    val = _json_parse(text, p)
+    _json_skip_ws(text, p)
+    return val
+
+
+def _json_skip_ws(text, p):
+    n = len(text)
+    while p[0] < n and text[p[0]] in u" \t\r\n":
+        p[0] += 1
+
+
+def _json_parse(text, p):
+    _json_skip_ws(text, p)
+    if p[0] >= len(text):
+        raise _JsonError("unexpected end of input")
+    ch = text[p[0]]
+    if ch == u'{':
+        return _json_parse_object(text, p)
+    if ch == u'[':
+        return _json_parse_array(text, p)
+    if ch == u'"':
+        return _json_parse_string(text, p)
+    if ch == u't' or ch == u'f':
+        return _json_parse_bool(text, p)
+    if ch == u'n':
+        return _json_parse_null(text, p)
+    return _json_parse_number(text, p)
+
+
+def _json_parse_object(text, p):
+    p[0] += 1  # consume {
+    out = {}
+    _json_skip_ws(text, p)
+    if p[0] < len(text) and text[p[0]] == u'}':
+        p[0] += 1
+        return out
+    while True:
+        _json_skip_ws(text, p)
+        if p[0] >= len(text) or text[p[0]] != u'"':
+            raise _JsonError("expected string key at %d" % p[0])
+        key = _json_parse_string(text, p)
+        _json_skip_ws(text, p)
+        if p[0] >= len(text) or text[p[0]] != u':':
+            raise _JsonError("expected : at %d" % p[0])
+        p[0] += 1
+        val = _json_parse(text, p)
+        out[key] = val
+        _json_skip_ws(text, p)
+        if p[0] >= len(text):
+            raise _JsonError("unterminated object")
+        if text[p[0]] == u',':
+            p[0] += 1
+            continue
+        if text[p[0]] == u'}':
+            p[0] += 1
+            return out
+        raise _JsonError("expected , or } at %d" % p[0])
+
+
+def _json_parse_array(text, p):
+    p[0] += 1  # consume [
+    out = []
+    _json_skip_ws(text, p)
+    if p[0] < len(text) and text[p[0]] == u']':
+        p[0] += 1
+        return out
+    while True:
+        out.append(_json_parse(text, p))
+        _json_skip_ws(text, p)
+        if p[0] >= len(text):
+            raise _JsonError("unterminated array")
+        if text[p[0]] == u',':
+            p[0] += 1
+            continue
+        if text[p[0]] == u']':
+            p[0] += 1
+            return out
+        raise _JsonError("expected , or ] at %d" % p[0])
+
+
+def _json_parse_string(text, p):
+    if text[p[0]] != u'"':
+        raise _JsonError("expected string at %d" % p[0])
+    p[0] += 1
+    n = len(text)
+    out = []
+    while p[0] < n:
+        ch = text[p[0]]
+        if ch == u'"':
+            p[0] += 1
+            return u"".join(out)
+        if ch == u'\\':
+            p[0] += 1
+            if p[0] >= n:
+                raise _JsonError("bad escape")
+            esc = text[p[0]]
+            p[0] += 1
+            if esc == u'"' or esc == u'\\' or esc == u'/':
+                out.append(esc)
+            elif esc == u'n':
+                out.append(u'\n')
+            elif esc == u'r':
+                out.append(u'\r')
+            elif esc == u't':
+                out.append(u'\t')
+            elif esc == u'b':
+                out.append(u'\b')
+            elif esc == u'f':
+                out.append(u'\f')
+            elif esc == u'u':
+                if p[0] + 4 > n:
+                    raise _JsonError("bad \\u escape")
+                hexstr = text[p[0]:p[0] + 4]
+                p[0] += 4
+                try:
+                    out.append(unichr(int(hexstr, 16)))
+                except:
+                    out.append(u'?')
+            else:
+                out.append(esc)
+        else:
+            out.append(ch)
+            p[0] += 1
+    raise _JsonError("unterminated string")
+
+
+def _json_parse_bool(text, p):
+    if text[p[0]:p[0] + 4] == u'true':
+        p[0] += 4
+        return True
+    if text[p[0]:p[0] + 5] == u'false':
+        p[0] += 5
+        return False
+    raise _JsonError("bad bool at %d" % p[0])
+
+
+def _json_parse_null(text, p):
+    if text[p[0]:p[0] + 4] == u'null':
+        p[0] += 4
+        return None
+    raise _JsonError("bad null at %d" % p[0])
+
+
+def _json_parse_number(text, p):
+    n = len(text)
+    start = p[0]
+    if text[p[0]] in u'-+':
+        p[0] += 1
+    while p[0] < n and text[p[0]] in u'0123456789':
+        p[0] += 1
+    is_float = False
+    if p[0] < n and text[p[0]] == u'.':
+        is_float = True
+        p[0] += 1
+        while p[0] < n and text[p[0]] in u'0123456789':
+            p[0] += 1
+    if p[0] < n and text[p[0]] in u'eE':
+        is_float = True
+        p[0] += 1
+        if p[0] < n and text[p[0]] in u'+-':
+            p[0] += 1
+        while p[0] < n and text[p[0]] in u'0123456789':
+            p[0] += 1
+    chunk = text[start:p[0]]
+    try:
+        if is_float:
+            return float(chunk)
+        return int(chunk)
+    except:
+        try:
+            return float(chunk)
+        except:
+            raise _JsonError("bad number %s" % chunk)
+
+
+
 # ===== module-level state (per session) =====
 
 _disabled = False               # set on any unrecoverable game-side error
@@ -210,7 +490,10 @@ def _to_ascii(text):
         pass
     out_chars = []
     for c in text:
-        oc = ord(c) if isinstance(c, str) else c
+        if isinstance(c, str):
+            oc = ord(c)
+        else:
+            oc = c
         if 32 <= oc <= 126:
             out_chars.append(chr(oc))
         elif oc == 9 or oc == 10:
@@ -220,7 +503,6 @@ def _to_ascii(text):
 
 def _atomic_write_json(path, payload):
     """Tmp + rename. Returns True on success."""
-    import json
     try:
         d = os.path.dirname(path)
         if d and not os.path.isdir(d):
@@ -231,7 +513,7 @@ def _atomic_write_json(path, payload):
         tmp = path + ".tmp"
         f = open(tmp, "w")
         try:
-            json.dump(payload, f)
+            f.write(_json_dumps(payload))
         finally:
             f.close()
         # On Windows, os.rename fails if dest exists; use os.remove + rename.
@@ -248,11 +530,10 @@ def _atomic_write_json(path, payload):
 
 def _read_json(path):
     """Returns dict or None on any error."""
-    import json
     try:
         f = open(path, "r")
         try:
-            return json.load(f)
+            return _json_loads(f.read())
         finally:
             f.close()
     except:
@@ -602,6 +883,10 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
         n_lines = 1
         multi = False
 
+    if trigger in DIRECTED_TRIGGERS:
+        _mode = "directed"
+    else:
+        _mode = "broadcast"
     rid = _gen_uuid()
     payload = {
         "schema": 1,
@@ -610,7 +895,7 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
         "game_turn": _gc().getGame().getGameTurn(),
         "elector_player_id": _local_player_id,
         "trigger": trigger,
-        "mode": ("directed" if trigger in DIRECTED_TRIGGERS else "broadcast"),
+        "mode": _mode,
         "speaker": speaker,
         "target": target,
         "context": ctx,
