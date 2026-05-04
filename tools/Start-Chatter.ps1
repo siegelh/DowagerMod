@@ -23,9 +23,11 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+. (Join-Path $PSScriptRoot 'Chatter-Common.ps1')
+
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot '..')
-$spoolDir = Join-Path $env:USERPROFILE 'Documents\My Games\Beyond the Sword\Logs\DowagerMod\chatter'
-$pidFile = Join-Path $spoolDir 'daemon.pid'
+$spoolDir = Get-ChatterSpoolDir
+$pidFile = Get-ChatterPidFile
 
 # Check existing daemon
 if (Test-Path $pidFile) {

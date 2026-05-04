@@ -9,12 +9,14 @@
 
 $ErrorActionPreference = 'Continue'
 
+. (Join-Path $PSScriptRoot 'Chatter-Common.ps1')
+
 $configDir = Join-Path $env:LOCALAPPDATA 'DowagerMod\chatter'
 $configPath = Join-Path $configDir 'config.json'
-$spoolDir = Join-Path $env:USERPROFILE 'Documents\My Games\Beyond the Sword\Logs\DowagerMod\chatter'
-$pidFile = Join-Path $spoolDir 'daemon.pid'
-$daemonLog = Join-Path $spoolDir 'daemon.log'
-$chatterLog = Join-Path $spoolDir 'chatter.log'
+$spoolDir = Get-ChatterSpoolDir
+$pidFile = Get-ChatterPidFile
+$daemonLog = Get-ChatterDaemonLog
+$chatterLog = Get-ChatterGameLog
 
 Write-Host ""
 Write-Host "DowagerMod Chatter status" -ForegroundColor Cyan

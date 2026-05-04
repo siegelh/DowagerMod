@@ -10,8 +10,10 @@
 [CmdletBinding()]
 param([switch] $Force)
 
-$spoolDir = Join-Path $env:USERPROFILE 'Documents\My Games\Beyond the Sword\Logs\DowagerMod\chatter'
-$pidFile = Join-Path $spoolDir 'daemon.pid'
+. (Join-Path $PSScriptRoot 'Chatter-Common.ps1')
+
+$spoolDir = Get-ChatterSpoolDir
+$pidFile = Get-ChatterPidFile
 
 if (-not (Test-Path $pidFile)) {
     Write-Host "No PID file found at $pidFile. Daemon is not running (or never was)."
