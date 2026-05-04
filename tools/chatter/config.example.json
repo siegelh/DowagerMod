@@ -1,0 +1,20 @@
+{
+  "_comment": "DowagerMod Chatter sidecar example config. Copy to %LOCALAPPDATA%\\DowagerMod\\chatter\\config.json and fill in api_key. Setup-Chatter.ps1 does this interactively.",
+  "endpoint": "https://hasiegeltestingfoundry.services.ai.azure.com/openai/v1",
+  "deployment": "gpt-5.4-mini",
+  "api_key": "",
+  "enabled": true,
+  "max_tokens": 80,
+  "max_tokens_multi_turn": 400,
+  "request_timeout_seconds": 8,
+  "rate_limit_seconds": 1.0,
+  "max_in_flight": 4,
+  "circuit_breaker": {
+    "failure_threshold": 3,
+    "open_seconds": 120
+  },
+  "spool_poll_interval_seconds": 0.5,
+  "request_ttl_seconds": 60,
+  "response_ttl_seconds": 3600,
+  "log_level": "INFO"
+}
