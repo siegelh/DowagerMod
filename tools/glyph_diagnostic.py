@@ -101,6 +101,22 @@ class Issue:
     symbols: list[str]
 
 
+@dataclass
+class AllocationSummary:
+    bonus_count: int
+    non_art_slot_consuming_bonus_count: int
+    art_masterpiece_bonus_count: int
+    distinct_bonus_char_count: int
+    duplicate_bonus_char_groups: int
+    duplicate_bonus_font_index_groups: int
+    bonus_base_id: int | None
+    first_generic_symbol_id: int | None
+    expected_default_first_generic_symbol_id: int
+    generic_symbol_start_matches_default: bool | None
+    non_art_bonus_count_to_next_padding_boundary: int
+    generic_shift_risk: str
+
+
 def repo_root_from_script() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -509,6 +525,72 @@ def build_issues(rows: list[SymbolRow], slot_count: int) -> list[Issue]:
     return issues
 
 
+def build_allocation_summary(rows: list[SymbolRow], pad_amount: int) -> AllocationSummary:
+    bonus_rows = [row for row in rows if row.family == "bonus"]
+    font_symbol_rows = [row for row in rows if row.family == "font_symbol"]
+    non_art = [row for row in bonus_rows if not row.type.startswith("BONUS_ART_")]
+    art = [row for row in bonus_rows if row.type.startswith("BONUS_ART_")]
+    bonus_base = min((row.char_code - (row.font_button_index or 0) for row in non_art if row.font_button_index is not None), default=None)
+    first_generic = min((row.char_code for row in font_symbol_rows), default=None)
+    by_char: dict[int, int] = {}
+    by_font_index: dict[int, int] = {}
+    for row in bonus_rows:
+        by_char[row.char_code] = by_char.get(row.char_code, 0) + 1
+        if row.font_button_index is not None:
+            by_font_index[row.font_button_index] = by_font_index.get(row.font_button_index, 0) + 1
+    distance = 0
+    if bonus_base is not None:
+        cursor_after_non_art = bonus_base + 1 + len(non_art)
+        boundary = cursor_after_non_art
+        while boundary % pad_amount != 0:
+            boundary += 1
+        distance = max(0, boundary - cursor_after_non_art)
+    remainder = len(non_art) % pad_amount
+    risk = "near_padding_boundary" if remainder >= 20 else "normal"
+    expected_default = 8675
+    return AllocationSummary(
+        bonus_count=len(bonus_rows),
+        non_art_slot_consuming_bonus_count=len(non_art),
+        art_masterpiece_bonus_count=len(art),
+        distinct_bonus_char_count=len(by_char),
+        duplicate_bonus_char_groups=sum(1 for count in by_char.values() if count > 1),
+        duplicate_bonus_font_index_groups=sum(1 for count in by_font_index.values() if count > 1),
+        bonus_base_id=bonus_base,
+        first_generic_symbol_id=first_generic,
+        expected_default_first_generic_symbol_id=expected_default,
+        generic_symbol_start_matches_default=(first_generic == expected_default) if first_generic is not None else None,
+        non_art_bonus_count_to_next_padding_boundary=distance,
+        generic_shift_risk=risk,
+    )
+
+
+def add_allocation_issues(issues: list[Issue], allocation: AllocationSummary) -> None:
+    if allocation.generic_symbol_start_matches_default is False:
+        issues.append(
+            Issue(
+                severity="warning",
+                code="generic-symbol-start-shifted",
+                message=(
+                    f"First generic FontSymbols ID is {allocation.first_generic_symbol_id}, "
+                    f"expected {allocation.expected_default_first_generic_symbol_id} for the current BtS-compatible layout."
+                ),
+                symbols=["FONT_SYMBOLS"],
+            )
+        )
+    if allocation.generic_shift_risk != "normal":
+        issues.append(
+            Issue(
+                severity="warning",
+                code="non-art-bonus-padding-boundary-risk",
+                message=(
+                    "Non-art slot-consuming bonus count is close to a padding boundary; "
+                    "additional non-art bonuses may shift generic FontSymbols."
+                ),
+                symbols=["BONUS"],
+            )
+        )
+
+
 def add_occupancy_issues(
     issues: list[Issue],
     rows: list[SymbolRow],
@@ -601,7 +683,9 @@ def main() -> int:
         args.first_symbol_code,
         args.pad_amount,
     )
+    allocation = build_allocation_summary(rows, args.pad_amount)
     issues = build_issues(rows, args.slot_count)
+    add_allocation_issues(issues, allocation)
 
     repo_font = assets / "res" / "Fonts" / "GameFont.tga"
     repo_font_75 = assets / "res" / "Fonts" / "GameFont_75.tga"
@@ -660,6 +744,7 @@ def main() -> int:
             "assigned_symbols": len(rows),
             "issues": len(issues),
         },
+        "allocation": asdict(allocation),
         "tga": {name: asdict(info) for name, info in tga_infos.items()},
         "font_file_matches_pristine": {
             "GameFont": compare_files(repo_font, pristine_font),
@@ -691,6 +776,16 @@ def main() -> int:
         "counts: "
         f"yields={len(yields)}, commerces={len(commerces)}, religions={len(religions)}, "
         f"corporations={len(corporations)}, bonuses={len(bonuses)}, assigned={len(rows)}"
+    )
+    print(
+        "allocation: "
+        f"bonus_base_id={allocation.bonus_base_id}, "
+        f"non_art_slot_consuming_bonuses={allocation.non_art_slot_consuming_bonus_count}, "
+        f"art_masterpiece_bonuses={allocation.art_masterpiece_bonus_count}, "
+        f"first_generic_symbol_id={allocation.first_generic_symbol_id}, "
+        f"generic_start_matches_default={allocation.generic_symbol_start_matches_default}, "
+        f"boundary_distance={allocation.non_art_bonus_count_to_next_padding_boundary}, "
+        f"risk={allocation.generic_shift_risk}"
     )
     for name, info in tga_infos.items():
         print(
