@@ -94,9 +94,58 @@ REJOINDER_ELIGIBLE = (
 
 # ===== simple helpers =====
 
+def _my_games_root_candidates():
+    """All plausible Civ4 'My Games\\Beyond the Sword' parent paths.
+
+    Civ4 uses Windows' SHGetFolderPath(CSIDL_PERSONAL) which respects
+    OneDrive Documents redirection. We can't call SHGetFolderPath from
+    Python 2.4 portably, so we enumerate likely roots (USERPROFILE,
+    OneDrive*, any OneDrive-prefixed dir under USERPROFILE) and use the
+    first one that exists.
+    """
+    out = []
+    user_profile = os.environ.get("USERPROFILE", "")
+    if user_profile:
+        # OneDrive-prefixed siblings of USERPROFILE
+        try:
+            for name in os.listdir(user_profile):
+                if name.lower().startswith("onedrive"):
+                    root = os.path.join(user_profile, name)
+                    out.append(os.path.join(root, "Documents", "My Games", "Beyond the Sword"))
+                    out.append(os.path.join(root, "Documents", "My Games", "beyond the sword"))
+        except:
+            pass
+        out.append(os.path.join(user_profile, "Documents", "My Games", "Beyond the Sword"))
+        out.append(os.path.join(user_profile, "Documents", "My Games", "beyond the sword"))
+    for key in ("OneDriveCommercial", "OneDriveConsumer", "OneDrive"):
+        root = os.environ.get(key, "")
+        if root:
+            out.append(os.path.join(root, "Documents", "My Games", "Beyond the Sword"))
+            out.append(os.path.join(root, "Documents", "My Games", "beyond the sword"))
+    return out
+
+
+_cached_my_games_root = None
+
+def _my_games_root():
+    """Return the actual My Games\\Beyond the Sword path (cached)."""
+    global _cached_my_games_root
+    if _cached_my_games_root:
+        return _cached_my_games_root
+    for c in _my_games_root_candidates():
+        if c and os.path.isdir(c):
+            _cached_my_games_root = c
+            return c
+    # Last resort: first candidate; we'll create dirs as needed
+    cand = _my_games_root_candidates()
+    if cand:
+        _cached_my_games_root = cand[0]
+        return cand[0]
+    return os.path.join(os.path.expanduser("~"), "Documents", "My Games", "Beyond the Sword")
+
+
 def _log_dir():
-    home = os.path.expanduser("~")
-    return os.path.join(home, "Documents", "My Games", "Beyond the Sword", "Logs")
+    return os.path.join(_my_games_root(), "Logs")
 
 def _spool_dir():
     return os.path.join(_log_dir(), "DowagerMod", "chatter")
