@@ -22,6 +22,7 @@ import CvAdvisorUtils
 import CvTechChooser
 import CvArtMasterpieceSystem
 import CvGlyphDiagnostics
+from Chatter import CvLeaderChatter
 
 gc = CyGlobalContext()
 localText = CyTranslator()
@@ -294,6 +295,10 @@ class CvEventManager:
 		
 		iData1, iData2, iData3, iData4, iData5 = argsList
 		
+		# DowagerMod chatter capability ping handler.
+		if CvLeaderChatter.chatter_on_mod_net_message(iData1, iData2, iData3, iData4, iData5):
+			return
+		
 		print("Modder's net message!")
 		
 		CvUtil.pyPrint( 'onModNetMessage' )
@@ -309,6 +314,8 @@ class CvEventManager:
 		# allow camera to be updated
 		CvCameraControls.g_CameraControls.onUpdate( fDeltaTime )
 		CvArtMasterpieceSystem.onUpdate( fDeltaTime )
+		# DowagerMod chatter: drain real-time-paced display queue.
+		CvLeaderChatter.chatter_on_update( fDeltaTime )
 		
 	def onWindowActivation(self, argsList):
 		'Called when the game window activates or deactivates'
@@ -329,6 +336,8 @@ class CvEventManager:
 	def onLoadGame(self, argsList):
 		CvAdvisorUtils.resetNoLiberateCities()
 		CvArtMasterpieceSystem.onLoadGame()
+		# DowagerMod chatter: reset session, capability ping, autospawn sidecar.
+		CvLeaderChatter.chatter_on_load_game()
 		return 0
 
 	def onGameStart(self, argsList):
@@ -355,6 +364,8 @@ class CvEventManager:
 
 		CvAdvisorUtils.resetNoLiberateCities()
 		CvArtMasterpieceSystem.onGameStart()
+		# DowagerMod chatter: reset session, capability ping, autospawn sidecar.
+		CvLeaderChatter.chatter_on_game_start()
 																
 	def onGameEnd(self, argsList):
 		'Called at the End of the game'
@@ -374,6 +385,8 @@ class CvEventManager:
 		'Called at the beginning of a players turn'
 		iGameTurn, iPlayer = argsList
 		CvArtMasterpieceSystem.onBeginPlayerTurn(iPlayer)
+		# DowagerMod chatter: capability heartbeat + spool poll + queue drain.
+		CvLeaderChatter.chatter_on_begin_player_turn(iGameTurn, iPlayer)
 
 	def onEndPlayerTurn(self, argsList):
 		'Called at the end of a players turn'
@@ -395,6 +408,8 @@ class CvEventManager:
 	def onFirstContact(self, argsList):
 		'Contact'
 		iTeamX,iHasMetTeamY = argsList
+		# DowagerMod chatter: emit FIRST_CONTACT line.
+		CvLeaderChatter.chatter_on_first_contact(iTeamX, iHasMetTeamY)
 		if (not self.__LOG_CONTACT):
 			return
 		CvUtil.pyPrint('Team %d has met Team %d' %(iTeamX, iHasMetTeamY))
@@ -548,6 +563,8 @@ class CvEventManager:
 		pCity, iBuildingType = argsList
 		if CvArtMasterpieceSystem.onBuildingBuilt(pCity, iBuildingType):
 			return
+		# DowagerMod chatter: only world wonders trigger a line.
+		CvLeaderChatter.chatter_on_wonder_built(pCity, iBuildingType, pCity.getOwner())
 		game = gc.getGame()
 		if ((not gc.getGame().isNetworkMultiPlayer()) and (pCity.getOwner() == gc.getGame().getActivePlayer()) and isWorldWonderClass(gc.getBuildingInfo(iBuildingType).getBuildingClassType())):
 			# If this is a wonder...
@@ -724,6 +741,8 @@ class CvEventManager:
 		iTechType, iTeam, iPlayer, bAnnounce = argsList
 		# Note that iPlayer may be NULL (-1) and not a refer to a player object
 		
+		# DowagerMod chatter: only fire if first-in-world for this tech.
+		CvLeaderChatter.chatter_on_tech_acquired(iTechType, iTeam, iPlayer, bAnnounce)
 		# Show tech splash when applicable
 		if (iPlayer > -1 and bAnnounce and not CyInterface().noTechSplash()):
 			if (gc.getGame().isFinalInitialized() and not gc.getGame().GetWorldBuilderMode()):
@@ -750,6 +769,8 @@ class CvEventManager:
 		'Religion Founded'
 		iReligion, iFounder = argsList
 		player = PyPlayer(iFounder)
+		# DowagerMod chatter: founder proclaims to the world.
+		CvLeaderChatter.chatter_on_religion_founded(iReligion, iFounder)
 		
 		iCityId = gc.getGame().getHolyCity(iReligion).getID()
 		if (gc.getGame().isFinalInitialized() and not gc.getGame().GetWorldBuilderMode()):
@@ -789,6 +810,8 @@ class CvEventManager:
 		'Corporation Founded'
 		iCorporation, iFounder = argsList
 		player = PyPlayer(iFounder)
+		# DowagerMod chatter: founder boasts to the world.
+		CvLeaderChatter.chatter_on_corporation_founded(iCorporation, iFounder)
 		
 		if (not self.__LOG_RELIGION):
 			return
@@ -836,6 +859,8 @@ class CvEventManager:
 		bIsWar = argsList[0]
 		iTeam = argsList[1]
 		iRivalTeam = argsList[2]
+		# DowagerMod chatter: emit DECLARE_WAR or PEACE_TREATY line.
+		CvLeaderChatter.chatter_on_change_war(bIsWar, iTeam, iRivalTeam)
 		if (not self.__LOG_WARPEACE):
 			return
 		if (bIsWar):
@@ -974,6 +999,10 @@ class CvEventManager:
 		'Set Player Alive Event'
 		iPlayerID = argsList[0]
 		bNewValue = argsList[1]
+		# DowagerMod chatter: on elimination (alive -> false), fire two-shot
+		# gloat + last-words exchange.
+		if not bNewValue:
+			CvLeaderChatter.chatter_on_player_eliminated(iPlayerID)
 		CvUtil.pyPrint("Player %d's alive status set to: %d" %(iPlayerID, int(bNewValue)))
 		
 	def onPlayerChangeStateReligion(self, argsList):
@@ -995,6 +1024,8 @@ class CvEventManager:
 		'City Razed'
 		city, iPlayer = argsList
 		iOwner = city.findHighestCulture()
+		# DowagerMod chatter: emit CITY_RAZED line.
+		CvLeaderChatter.chatter_on_city_razed(city, iPlayer)
 		
 		# Partisans!
 		if city.getPopulation > 1 and iOwner != -1 and iPlayer != -1:
@@ -1016,6 +1047,8 @@ class CvEventManager:
 	def onCityAcquiredAndKept(self, argsList):
 		'City Acquired and Kept'
 		iOwner,pCity = argsList
+		# DowagerMod chatter: emit CITY_CAPTURED line.
+		CvLeaderChatter.chatter_on_city_acquired_and_kept(iOwner, pCity)
 		CvUtil.pyPrint('City Acquired and Kept Event: %s' %(pCity.getName()))
 	
 	def onCityLost(self, argsList):
