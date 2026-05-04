@@ -68,6 +68,19 @@ void CyMessageControl::sendModNetMessage(int iData1, int iData2, int iData3, int
 }
 
 //
+// DowagerMod chatter: expose engine-level sendChat to Python.
+// Routes through gDLL->sendChat which broadcasts a chat message to all
+// players (or a team / specific player depending on eTarget).
+// Used by the Leader Chatter feature so the elector machine can broadcast
+// AI-generated trash-talk lines to every connected client. ChatTargetTypes:
+//   CHATTARGET_ALL = -2, CHATTARGET_TEAM = -3, >=0 means specific player ID.
+//
+void CyMessageControl::sendChat(std::wstring szText, int /*ChatTargetTypes*/ eTarget)
+{
+	gDLL->sendChat(CvWString(szText), (ChatTargetTypes) eTarget);
+}
+
+//
 // return true if succeeded
 //
 int CyMessageControl::GetFirstBadConnection()
