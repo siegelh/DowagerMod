@@ -39,7 +39,10 @@ Run from repo root.
 - If an XML schema file changed, it also validates all XML that reference that schema via `x-schema:...`.
 - In default mode, skips DLL build for fast XML-focused feedback.
 - With `-CheckDll`, compiles `CvGameCoreDLL.dll` only when DLL source files changed.
-- DLL compile runs in non-destructive mode (`build_civ4_dll.ps1 -NoDeploy`).
+- The DLL compile path deploys by default: `test_gate.ps1 -CheckDll` calls
+  `build_civ4_dll.ps1` without `-NoDeploy`, so it backs up the current
+  repo-mirror DLL and replaces `Beyond the Sword/Assets/CvGameCoreDLL.dll`.
+- For compile-only validation, run `.\tools\build_civ4_dll.ps1 -NoDeploy` directly.
 - Changed-file selection is based on git diff plus untracked files, so noisy worktrees can widen the validation set.
 
 `test_xml.ps1 -All`
@@ -47,7 +50,7 @@ Run from repo root.
 - `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML`
 
 `test_full.ps1`
-- Always runs full XML validation and full DLL build.
+- Always runs full XML validation and the same deploying DLL build path used by `test_gate.ps1 -CheckDll`.
 
 ## Failure behavior
 

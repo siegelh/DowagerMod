@@ -75,7 +75,7 @@ This file defines the expected working method for future agents in this repo. It
 ### 5. Validate
 
 - After editing BtS XML, run `.\tools\test_gate.ps1`.
-- After editing DLL source, run `.\tools\test_gate.ps1`.
+- After editing DLL source, run `.\tools\test_gate.ps1 -CheckDll`.
 - If XML work may depend on DLL support, run `.\tools\test_gate.ps1 -CheckDll`.
 - For broad changes, run `.\tools\test_full.ps1`.
 - For any gameplay change, also do a manual smoke test.
@@ -142,4 +142,4 @@ This file defines the expected working method for future agents in this repo. It
 - Do not update base `Assets` or `Warlords` just to "keep things in sync."
 - Do not treat duplicate source trees as equally authoritative without verification.
 - Do not reference external asset libraries directly from runtime XML or Python.
-- Do not mark XML or DLL work complete without running the gate or explicitly escalating the inability to do so.
+- Do not mark XML work complete without running the gate, or DLL work complete without running `.\tools\test_gate.ps1 -CheckDll`, unless explicitly escalating the inability to do so.

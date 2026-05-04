@@ -114,11 +114,11 @@ This document describes the repository as implemented now. It is intentionally c
 - `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Python/CvArtMasterpieceSystem.py` stores its state inside `CyGame().getScriptData()` using `__ARTSYS_BEGIN__` / `__ARTSYS_END__` markers.
 - `CvArtMasterpieceSystem.py` persists claimed pieces, per-player ownership, and an applied happiness offset.
 - `tools/build_civ4_dll.ps1` backs up the active `CvGameCoreDLL.dll` in `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets` before replacing it.
-- `CoreFiles/install.py` copies files into a detected Steam install but does not delete removed files.
+- `CoreFiles/install.py` restores the live install from the pristine snapshot, overlays the repo mirror, and removes stale mod files that no longer exist in the repo payload.
 
 ### Inferred but likely
 
-- A live install can retain stale files after they are deleted from the repo, because deployment is copy-based rather than sync/prune-based.
+- The live install can still retain stale user-data/cache files if they are outside the installer cleanup allowlist, but stale files inside the game install are pruned by the pristine-restore step.
 
 ### Unknown / requires human confirmation
 
@@ -130,7 +130,7 @@ This document describes the repository as implemented now. It is intentionally c
 
 - `CoreFiles/install.py` scans a user-selected Windows drive for `steamapps\\...\\Sid Meier's Civilization IV Beyond the Sword`.
 - `CoreFiles/install.py` computes its source mirror path from `sys.argv[0]` using a fixed suffix strip. That means packaging or invocation location matters to installer behavior.
-- `tools/build_civ4_dll.ps1` depends on a local Visual Studio 2022 install and hardcoded Civ4 SDK toolkit paths.
+- `tools/build_civ4_dll.ps1` depends on a local Visual Studio 2022 install and auto-detects known Civ4 SDK toolkit layouts, with `-Civ4SdkRoot` available for overrides.
 - `tools/generate_art_masterpieces.py` uses `requests` and `PIL` and queries Wikidata over HTTP.
 - `tools/rebuild_industry_buttons_v2.py` reads art that already exists inside the repo mirror, including imported subtrees such as `Assets/Art/BTG` and `Assets/Art/Caveman2Cosmos`.
 
@@ -150,8 +150,9 @@ This document describes the repository as implemented now. It is intentionally c
 - `tools/test_xml.ps1` validates the BtS XML tree and defaults to changed-file validation using git diff.
 - `tools/test_full.ps1` runs the full gate (`-All`).
 - `.githooks/pre-commit` runs `tools/test_gate.ps1`.
+- `tools/test_gate.ps1 -CheckDll` is required for DLL source changes; it builds and deploys the repo-mirror DLL when DLL source files changed.
 - `tools/build_civ4_dll.ps1` builds the DLL from `third_party/beyond-the-sword-sdk/CvGameCoreDLL` and deploys it to the BtS assets folder unless `-NoDeploy` is used.
-- `CoreFiles/install.py` copies the mirrored game tree under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword` into the live install.
+- `CoreFiles/install.py` restores the live game tree from pristine, then overlays the mirrored game tree under `CoreFiles/Sid Meier's Civilization IV Beyond the Sword`.
 - No repo CI configuration is present under a root `.github/` directory.
 - `symphony/main.py` provides the current local CLI slice for GitHub issue pickup, worktree creation, one-turn Codex execution, repo-native validation, and draft-PR handoff using `symphony/WORKFLOW.md`.
 - `symphony/main.py` now also provides a local `serve` mode so Symphony can run as a background polling worker on the modding machine.
@@ -175,7 +176,7 @@ This document describes the repository as implemented now. It is intentionally c
 
 ### Proposed working smoke-test path
 
-- Run `.\tools\test_gate.ps1` after BtS XML or DLL changes, and widen to `.\tools\test_full.ps1` when the change is broad.
+- Run `.\tools\test_gate.ps1` after BtS XML changes, `.\tools\test_gate.ps1 -CheckDll` after DLL source changes, and widen to `.\tools\test_full.ps1` when the change is broad.
 - Copy/install the updated files into the live game tree.
 - Launch the mod and confirm it reaches the main menu without XML or Python error popups.
 - Load a representative save or start a quick single-player game.
@@ -249,7 +250,7 @@ These items may still be useful, but they should not be treated as primary archi
 - Do not assume deleting `petromod_v1` is safe while `CvMainInterface.py` still imports it.
 - Do not assume base `Assets` and `Warlords` are irrelevant just because BtS is the primary target.
 - Do not assume generated scripts only affect the BtS tree; some still touch other asset roots.
-- Do not assume deployment cleans up deleted files in the live game install.
+- Do not assume copied files are live until the repo mirror has been installed or manually copied into the live game install.
 - Do not assume `CoreFiles/install.py` can be run from any arbitrary path without checking its source-path logic.
 - Do not assume a repo CI pipeline exists.
 
@@ -259,4 +260,4 @@ These items may still be useful, but they should not be treated as primary archi
 - Should the BtS tree eventually be made fully self-contained for Python entrypoints and support files, or should the inherited-base-file model remain intentional?
 - Should `tools/apply_supply_chain_overhaul.py` and `tools/apply_industry_wave2.py` stop patching base `Assets` and `Warlords` by default?
 - Which installer/package path is still supported besides `CoreFiles/install.py`, if any?
-- Should deployment eventually support pruning removed files from the live install?
+- Should any non-game-install user-data folders besides the current cleanup set be pruned during deployment?

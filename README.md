@@ -35,6 +35,8 @@ See:
 
 - [docs/TESTING_WORKFLOW.md](docs/TESTING_WORKFLOW.md)
 - [docs/MANUAL_SMOKE_TESTS.md](docs/MANUAL_SMOKE_TESTS.md)
+- [docs/GLYPH_DIAGNOSTICS.md](docs/GLYPH_DIAGNOSTICS.md)
+- [docs/DLL_TRACING_WORKFLOW.md](docs/DLL_TRACING_WORKFLOW.md)
 - [third_party/beyond-the-sword-sdk/BUILDING_CVGAMECOREDLL.md](third_party/beyond-the-sword-sdk/BUILDING_CVGAMECOREDLL.md)
 
 ## Install / Deploy
@@ -51,9 +53,18 @@ at the repo root. Approve the UAC prompt. That's it.
 
 The installer uses a **wipe-and-restore** model: it captures a pristine
 snapshot of the clean Civ4 install on first run, then every subsequent
-install mirrors live back to pristine and overlays the mod payload. This
+install restores the live game from pristine and overlays the mod payload. This
 means deleting a file from the repo *does* remove it from the live
 install — no cross-version drift.
+
+## Debug / Diagnostics
+
+- In-game glyph dump: press `Ctrl+Shift+G` or type `!glyphdump`.
+- Output path: `%LOCALAPPDATA%\DowagerMod\GlyphDiagnostics\`.
+- Offline glyph/font check:
+  - `python .\tools\glyph_diagnostic.py --fail-on-error`
+- DLL trace workflow:
+  - [docs/DLL_TRACING_WORKFLOW.md](docs/DLL_TRACING_WORKFLOW.md)
 
 ## Repo Notes
 

@@ -136,14 +136,22 @@ After editing DLL code under:
 run:
 
 ```powershell
-.\tools\test_gate.ps1
+.\tools\test_gate.ps1 -CheckDll
 ```
 
-Then copy the rebuilt DLL into:
+That gate calls `tools\build_civ4_dll.ps1` without `-NoDeploy`: it builds
+from `third_party\beyond-the-sword-sdk\CvGameCoreDLL`, backs up the current
+repo-mirror DLL, and replaces:
 
 - [CvGameCoreDLL.dll](/c:/DowagerMod/CoreFiles/Sid%20Meier%27s%20Civilization%20IV%20Beyond%20the%20Sword/Beyond%20the%20Sword/Assets/CvGameCoreDLL.dll)
 
-Then deploy to the live install using:
+For compile-only validation without replacing the repo-mirror DLL, run:
+
+```powershell
+.\tools\build_civ4_dll.ps1 -NoDeploy
+```
+
+To deploy the repo mirror to the live install, use:
 
 - [install.py](/c:/DowagerMod/CoreFiles/install.py)
 

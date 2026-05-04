@@ -40,6 +40,7 @@
 - [`TESTING_WORKFLOW.md`](TESTING_WORKFLOW.md) - `Current`. Local XML and DLL validation flow. Matches [`../tools/test_gate.ps1`](../tools/test_gate.ps1), [`../tools/test_xml.ps1`](../tools/test_xml.ps1), and [`../tools/test_full.ps1`](../tools/test_full.ps1).
 - [`MANUAL_SMOKE_TESTS.md`](MANUAL_SMOKE_TESTS.md) - `Current`. Minimum gameplay smoke-test runbook for gameplay-affecting changes.
 - [`DLL_TRACING_WORKFLOW.md`](DLL_TRACING_WORKFLOW.md) - `Current`. DLL tracing and logging workflow for [`../third_party/beyond-the-sword-sdk/CvGameCoreDLL/`](../third_party/beyond-the-sword-sdk/CvGameCoreDLL/).
+- [`GLYPH_DIAGNOSTICS.md`](GLYPH_DIAGNOSTICS.md) - `Current`. In-game and offline `GameFont` glyph triage workflow.
 - [`CIV4_UNIT_ART_CRASH_PLAYBOOK.md`](CIV4_UNIT_ART_CRASH_PLAYBOOK.md) - `Current`. Art/XML crash triage workflow.
 - [`INDUSTRY_ICON_PIPELINE.md`](INDUSTRY_ICON_PIPELINE.md) - `Current`. Live icon pipeline reference for industry buttons and `GameFont` glyph usage.
 
