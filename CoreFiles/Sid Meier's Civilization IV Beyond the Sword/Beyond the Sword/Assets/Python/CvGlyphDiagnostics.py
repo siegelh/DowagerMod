@@ -293,7 +293,11 @@ def _append_user_data_state(lines):
 	for index, path in enumerate(candidates):
 		lines.append(_join_fields([u"MY_GAMES_CANDIDATE", index, path, u"exists=%s" % os.path.isdir(path)]))
 	user_data = _first_existing_dir(candidates)
-	lines.append(_kv(u"selected_my_games_path", user_data if user_data else u"<not found>"))
+	if user_data:
+		_selected_path = user_data
+	else:
+		_selected_path = u"<not found>"
+	lines.append(_kv(u"selected_my_games_path", _selected_path))
 	if user_data:
 		ini = os.path.join(user_data, "CivilizationIV.ini")
 		cache_dir = os.path.join(user_data, "cache")
@@ -302,7 +306,10 @@ def _append_user_data_state(lines):
 		try:
 			for name in sorted(os.listdir(user_data)):
 				path = os.path.join(user_data, name)
-				kind = u"dir" if os.path.isdir(path) else u"file"
+				if os.path.isdir(path):
+					kind = u"dir"
+				else:
+					kind = u"file"
 				lines.append(_join_fields([u"MY_GAMES_ENTRY", name, kind]))
 		except Exception:
 			lines.append(_join_fields([u"MY_GAMES_LIST_ERROR", _exception_text()]))
@@ -341,7 +348,10 @@ def _append_trigger_context(lines, mx, my, px, py):
 	lines.append(_kv(u"mouse_plot_xy", u"%s,%s" % (px, py)))
 	game = gc.getGame()
 	i_active_player = _safe_int(lambda: game.getActivePlayer(), -1)
-	player = gc.getPlayer(i_active_player) if i_active_player >= 0 else None
+	if i_active_player >= 0:
+		player = gc.getPlayer(i_active_player)
+	else:
+		player = None
 	_append_plot_context(lines, u"TRIGGER_PLOT", px, py, player)
 	lines.append(_kv(u"active_screen", _safe_value(lambda: CyInterface().getShowInterface())))
 	lines.append(_kv(u"selected_unit", _selected_unit_summary()))
@@ -359,7 +369,10 @@ def _append_plot_context(lines, label, px, py, player):
 		return
 	try:
 		plot = CyMap().plot(px, py)
-		i_team = _safe_int(lambda: player.getTeam(), -1) if player else -1
+		if player:
+			i_team = _safe_int(lambda: player.getTeam(), -1)
+		else:
+			i_team = -1
 		i_owner = _safe_int(lambda: plot.getOwner(), -1)
 		i_bonus = _safe_int(lambda: plot.getBonusType(i_team), -1)
 		fields = [
@@ -493,7 +506,10 @@ def _append_duplicate_bonus_groups(lines):
 		info = gc.getBonusInfo(i)
 		bonus_type = _info_type_from_info(info)
 		code = _safe_int(lambda info=info: info.getChar(), -1)
-		index = code - bonus_base if code >= 0 else -1
+		if code >= 0:
+			index = code - bonus_base
+		else:
+			index = -1
 		by_char.setdefault(code, []).append(bonus_type)
 		by_index.setdefault(index, []).append(bonus_type)
 	for code in sorted(by_char.keys()):
@@ -503,7 +519,10 @@ def _append_duplicate_bonus_groups(lines):
 	for index in sorted(by_index.keys()):
 		items = by_index[index]
 		if len(items) > 1:
-			label = u"ART_MASTERPIECE_SHARED_SLOT" if index == 5 and _all_art_masterpieces(items) else u"DUPLICATE_FONT_INDEX"
+			if index == 5 and _all_art_masterpieces(items):
+				label = u"ART_MASTERPIECE_SHARED_SLOT"
+			else:
+				label = u"DUPLICATE_FONT_INDEX"
 			lines.append(_join_fields([label, index, u"count=%d" % len(items), _compact_list(items)]))
 
 
@@ -744,10 +763,24 @@ def _append_diagnosis_summary(lines):
 	lines.append(_kv(u"duplicate_resource_glyphs_expected", True))
 	lines.append(_kv(u"city_religion_expectations_present", _city_religion_expectations_present()))
 	user_data = _first_existing_dir(_my_games_candidates())
-	cache_dir = os.path.join(user_data, "cache") if user_data else ""
-	ini = os.path.join(user_data, "CivilizationIV.ini") if user_data else ""
-	lines.append(_kv(u"cache_dir_present", os.path.isdir(cache_dir) if cache_dir else u"unknown"))
-	lines.append(_kv(u"disable_caching_value", _read_disable_caching(ini) if ini else u"unknown"))
+	if user_data:
+		cache_dir = os.path.join(user_data, "cache")
+	else:
+		cache_dir = ""
+	if user_data:
+		ini = os.path.join(user_data, "CivilizationIV.ini")
+	else:
+		ini = ""
+	if cache_dir:
+		_cache_present = os.path.isdir(cache_dir)
+	else:
+		_cache_present = u"unknown"
+	lines.append(_kv(u"cache_dir_present", _cache_present))
+	if ini:
+		_disable_caching = _read_disable_caching(ini)
+	else:
+		_disable_caching = u"unknown"
+	lines.append(_kv(u"disable_caching_value", _disable_caching))
 	lines.append(_kv(u"likely_install_drift", u"unknown"))
 	lines.append(_kv(u"requires_visual_context", True))
 
@@ -1019,7 +1052,12 @@ def _city_religion_marker_string(city):
 		info = gc.getReligionInfo(i)
 		religion_type = _info_type_from_info(info)
 		is_holy = _safe_bool(lambda i=i: city.isHolyCityByType(i), False)
-		code = _safe_int(lambda info=info, is_holy=is_holy: info.getHolyCityChar() if is_holy else info.getChar(), -1)
+		def _get_char(info=info, is_holy=is_holy):
+			if is_holy:
+				return info.getHolyCityChar()
+			else:
+				return info.getChar()
+		code = _safe_int(_get_char, -1)
 		items.append(u"%s:%d:0x%04X:%s:holy=%s" % (religion_type, code, code, _glyph_for_code(code), is_holy))
 	return _join_list(items)
 
