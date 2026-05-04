@@ -14540,6 +14540,8 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		if (ePrinceSpec != NO_SPECIALIST &&
 			GC.getUnitInfo(getUnitType()).getGreatPeoples(ePrinceSpec))
 		{
+			CvWString szMsg = gDLL->getText(getFlavorAnnounceTextKey(eFlavor));
+			announceToHumansWhoMet(getOwnerINLINE(), szMsg, getX_INLINE(), getY_INLINE());
 			gDLL->logMsg("VenicePrince.log", CvString::format(
 				"  [FlavorIntro] %S adopts %s flavor",
 				kOwner.getName(),
