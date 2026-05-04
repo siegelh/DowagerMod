@@ -22,7 +22,7 @@ import CvAdvisorUtils
 import CvTechChooser
 import CvArtMasterpieceSystem
 import CvGlyphDiagnostics
-from Chatter import CvLeaderChatter
+import CvLeaderChatter
 
 gc = CyGlobalContext()
 localText = CyTranslator()
