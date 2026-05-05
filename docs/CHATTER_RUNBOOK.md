@@ -37,15 +37,76 @@ normally. The sidecar persists across multiple game launches.
 
 Per-machine setup, ~60 seconds each:
 
-1. `git clone` (or `git pull`) this repo to the new machine. Sidecar
-   lives at `tools/chatter/`.
-2. Run `.\tools\Setup-Chatter.ps1` on that machine. Same key works fine
-   on multiple machines — Azure doesn't care.
-3. (Optional) `-RegisterScheduledTask` for set-and-forget.
+1. **Get the repo on the new machine.**
+   ```powershell
+   git clone https://github.com/siegelh/DowagerMod.git
+   # or, if you already have it:
+   git pull
+   ```
+2. **Run setup.** From the repo root on the new machine:
+   ```powershell
+   .\tools\Setup-Chatter.ps1
+   ```
+   Same Foundry API key works on every machine — Azure doesn't care.
+3. **Recommended for your gaming desktop:** also register the auto-start
+   task so the sidecar comes up at every Windows login:
+   ```powershell
+   .\tools\Setup-Chatter.ps1 -RegisterScheduledTask
+   ```
+4. **Verify:** `\.tools\Chatter-Status.ps1` should print "RUNNING" within
+   a few seconds (or after first logon if you used the scheduled task).
 
 **Don't** auto-sync `%LOCALAPPDATA%\DowagerMod\chatter\config.json` via
 OneDrive / Dropbox / etc. — that defeats the ACL and may copy the key to
 machines you didn't intend.
+
+**Pulling new sidecar code:** sidecar code lives in `tools/chatter/`. After
+`git pull`, just `Stop-Chatter.ps1` then `Start-Chatter.ps1` (or restart
+the scheduled task) to pick up the new version. The game-side hooks come
+through the normal mod installer.
+
+## Updating endpoint or API key
+
+`Setup-Chatter.ps1` is idempotent — re-run it any time to change values:
+
+```powershell
+.\tools\Setup-Chatter.ps1
+```
+
+- **Endpoint / deployment:** prompts show the current value; press Enter
+  to keep it.
+- **API key:** prompts "API Key (input hidden, press Enter to keep
+  existing)". Press Enter to leave the current key in place; type a new
+  key (then Enter) to replace it. The summary line will say
+  `API key:     (unchanged)` when you keep the existing one.
+
+After changing values, restart the sidecar so it picks up the new config:
+
+```powershell
+.\tools\Stop-Chatter.ps1
+.\tools\Start-Chatter.ps1
+```
+
+## Uninstalling the sidecar
+
+Use the dedicated uninstaller from the repo root:
+
+```powershell
+.\tools\Uninstall-Chatter.ps1               # stops daemon + removes scheduled task; keeps config
+.\tools\Uninstall-Chatter.ps1 -RemoveConfig # also delete config + API key (asks for confirmation)
+.\tools\Uninstall-Chatter.ps1 -RemoveConfig -Force  # same, no prompt
+```
+
+What it does, in order:
+1. Stops any running daemon (calls `Stop-Chatter.ps1`).
+2. Removes the `DowagerMod-Chatter` Windows scheduled task if registered.
+3. Optionally deletes `%LOCALAPPDATA%\DowagerMod\chatter\` (config + key).
+   Default is to keep it so reinstalling later doesn't re-prompt for the
+   key.
+
+This **does not** remove the in-game hooks — those ship with the mod and
+are silent when no sidecar is running. To remove the entire feature from
+your game install, simply uninstall DowagerMod itself.
 
 ## Distribution to friends
 
@@ -103,21 +164,14 @@ Look for `[ERROR]` lines.
 - `circuit_open` (info, not error) → previous failures opened the breaker;
   daemon is currently dropping requests.
 
-### "The chat appears with my player name as a prefix, not the leader's"
+### "The chat shows up with my player name as a prefix, not the leader's"
 
-That's expected for v1. The engine attributes chat to the calling player
-(the elector, which is you when you're playing). The line itself is
-formatted as `Leader: text` so the in-character source is visible:
-
-```
-[Harrison]: Victoria: Mr. Lincoln, your republic...
-```
-
-A v1.1 enhancement is planned to make the line render as a real
-diplomatic message attributed to the leader (with portrait + color)
-via the `addMessage` event-log API. Pre-flight B (an in-game test)
-will determine whether this is feasible before we invest the engineering
-time.
+This was a v1 limitation. As of v1.1 the chunked-broadcast / `addMessage`
+display path bypasses the chat channel entirely — lines render in the
+event log attributed to the speaking leader (with portrait, civ color,
+and a `Leader: text` prefix). If you still see `[YourName]:` style
+prefixes, your mod install is still on v1. Reinstall DowagerMod to pick
+up the v1.1 game-side hooks.
 
 ### "I want to disable chatter for one game"
 
@@ -128,10 +182,14 @@ game.
 
 ### "I want to remove the feature entirely"
 
-1. `Stop-Chatter.ps1` to stop the daemon.
-2. Delete `%LOCALAPPDATA%\DowagerMod\chatter\` to remove your config + key.
-3. The game-side hooks remain in the mod payload but are entirely silent
-   when no sidecar is running.
+Use the uninstaller (see "Uninstalling the sidecar" above):
+
+```powershell
+.\tools\Uninstall-Chatter.ps1 -RemoveConfig
+```
+
+The game-side hooks remain in the mod payload but are entirely silent
+when no sidecar is running. To remove them too, uninstall DowagerMod.
 
 ## Logs and where to find things
 

@@ -41,12 +41,17 @@ CvLeaderChatter.py                     chatter_daemon.py
   - on each tick:
       if line due & game not paused
       & speaker still alive:
-          CyMessageControl().sendChat(line, CHATTARGET_ALL)
+          send line as chunked sendModNetMessage
+          stream (CHATTER_LINE_MAGIC)
                                        │
                                        ▼
-                                 Engine routes to all
-                                 connected MP players
-                                 via native chat channel
+                                 Every client (incl. elector)
+                                 reassembles chunks in
+                                 onModNetMessage and renders
+                                 locally via CyInterface().addMessage
+                                 with the speaker's leader portrait
+                                 and civ color (no chat-channel
+                                 elector-name prefix).
 ```
 
 Key architectural points:
@@ -59,11 +64,16 @@ Key architectural points:
 - **Multiplayer-safe via "single elector" pattern.** When a trigger fires,
   every connected client runs the same elector election (deterministic).
   Exactly ONE machine writes a request, calls the API, and broadcasts the
-  result via the engine's native `sendChat` so every player sees the same
-  line. See "Multiplayer model" below.
+  result. See "Multiplayer model" below.
 - **Real-time pacing.** Multi-line exchanges are generated in a single API
   call (one-shot script) and queued on the elector's machine. Each line
   fires 5-10 seconds after the previous so the back-and-forth feels live.
+- **Chunked broadcast + local render.** Lines are streamed as a sequence
+  of `sendModNetMessage(CHATTER_LINE_MAGIC, ...)` chunks (8 ASCII bytes
+  per chunk). Receiving clients reassemble in `onModNetMessage` and
+  render locally via `CyInterface().addMessage` with the leader's
+  portrait and civ color. The chat channel is bypassed entirely so
+  there is no `[ElectorName]:` prefix.
 
 ## Distribution model — who needs what
 
@@ -99,11 +109,13 @@ We solve this with a **deterministic capable-elector election**:
    incoming pings. Election picks the lowest-id player from that set.
    Exactly one client agrees "I am the elector."
 3. **Single API call.** Only the elector writes a request. Sidecar generates.
-4. **Broadcast via engine chat.** Elector calls `CyMessageControl().sendChat`
-   which routes through Civ4's native MP chat channel. All clients see the
-   same string.
-5. **No game state writes.** Chat is not game state — it cannot OOS, cannot
-   corrupt save games, cannot affect the simulation.
+4. **Broadcast via chunked mod-net-message.** Elector streams the line as
+   `CHATTER_LINE_MAGIC` chunks; every client (including the elector)
+   reassembles them in `onModNetMessage` and renders locally via
+   `CyInterface().addMessage` with the leader's portrait. All clients see
+   the same line in their event log, attributed to the speaking leader.
+5. **No game state writes.** The chunked message stream is not game state —
+   it cannot OOS, cannot corrupt save games, cannot affect the simulation.
 
 Per-game-type behavior:
 
@@ -128,7 +140,7 @@ Per-game-type behavior:
 | `VASSAL_FORCED` | `onVassalState` (planned) | Loser POV |
 | `VASSAL_ACCEPTED` | `onVassalState` (planned) | Winner POV |
 | `FIRST_CONTACT` | `onFirstContact` | |
-| `BACKSTABBED` ⚡ | `onChangeWar` w/ peace check (planned) | |
+| `BACKSTABBED` ⚡ | `onChangeWar` (war=true) when defender's residual attitude is Pleased+ or has 3+ positive memories of attacker | Defender POV; replaces DECLARE_WAR for that pair |
 
 ### Broadcast (proclamation to the world)
 
@@ -138,7 +150,7 @@ Per-game-type behavior:
 | `WONDER_BUILT` | `onBuildingBuilt` (gated to world wonders) |
 | `CORPORATION_FOUNDED` | `onCorporationFounded` |
 | `FIRST_TO_TECH` | `onTechAcquired` (gated to first-in-world) |
-| `GOLDEN_AGE` | `onGoldenAgeStart` (planned) |
+| `GOLDEN_AGE` | `onGoldenAge` |
 
 ⚡ = eligible for multi-turn rejoinders (50% probability per fire). Other
 triggers always produce a single line.

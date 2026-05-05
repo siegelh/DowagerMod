@@ -1,8 +1,10 @@
 # Plan: AI Leader Chatter via Azure Foundry
 
 **Branch:** `agent-baseline-leader-chatter` (off `agent-baseline-fix-venice`).
-**Status (2026-05-03):** Implementation complete; awaiting user manual smoke
-test before opening PR.
+**Status (2026-05-04):** v1.1 in progress. Chunked addMessage display path
+implemented; BACKSTABBED + GOLDEN_AGE triggers wired; lifecycle scripts
+(uninstall, key-keep on re-run) added. Awaiting in-game smoke test on
+laptop, then push for desktop validation, then PR.
 
 ## Goal
 
@@ -64,19 +66,29 @@ the back-and-forth feels live. Capability is advertised across clients via
   3% directed / 0% broadcast / 0% one-shot multi-turn; ~1s median latency;
   in-character output across 17+ leaders and 14 trigger types.
 - Pre-flight B (in-game test of `sendChat` Python binding + display
-  options): not yet run by user. **Required to lock the v1.1 display
-  upgrade path** but not blocking for v1 ship.
+  options): completed; chunked `sendModNetMessage` + `addMessage` render
+  path adopted as v1.1 production display.
 
 ## Validation pending (user)
 
 - Manual smoke test matrix from `docs/MANUAL_SMOKE_TESTS.md`:
-  1. SP DoW chat appears
+  1. SP DoW chat appears (with leader portrait, no elector prefix)
   2. Multi-turn pacing feels live
   3. Save/reload no-replay
   4. Sidecar killed mid-game, no errors
   5. No sidecar at all, no errors
   6. **2-client MP one-call invariant** (the critical MP test)
-- Pre-flight B in-game observation to inform v1.1 display polish.
+- New trigger smoke: WorldBuilder a Golden Age for an AI civ; WorldBuilder
+  a Friendly→DoW to confirm BACKSTABBED replaces DECLARE_WAR.
+- Lifecycle script smoke on the laptop:
+  - Re-run `Setup-Chatter.ps1`, confirm "(unchanged)" for the API key.
+  - `Setup-Chatter.ps1 -RegisterScheduledTask`, confirm task created.
+  - `Uninstall-Chatter.ps1`, confirm task removed + daemon stopped + config
+    preserved.
+  - `Uninstall-Chatter.ps1 -RemoveConfig -Force`, confirm config gone.
+- Desktop dry run after push: `git pull`, run `Setup-Chatter.ps1` (or
+  pull updated key with Enter-to-keep), launch Civ4, verify lines render
+  the same way.
 
 ## Assumptions
 
@@ -98,23 +110,15 @@ the back-and-forth feels live. Capability is advertised across clients via
 
 ## Unresolved / deferred
 
-- **Pre-flight B display test.** The plan supports three display options
-  (default chat with elector prefix, stripped-prefix chat via onChat
-  intercept, or Venice-style addMessage with leader portrait/color). v1
-  ships with the default chat path; v1.1 can upgrade if Pre-flight B
-  reveals the better options work cleanly. The Pre-flight B probe was
-  removed from `CvEventManager.py` once the production path was wired;
-  standalone test scripts at `tmp/chatter_smoke*.py` remain available
-  for re-testing.
-- **Watchdog/supervisor for sidecar.** Deferred to v1.1. Auto-spawn
-  on `onGameStart` provides the practical equivalent for v1: if the
+- **Watchdog/supervisor for sidecar.** Deferred to v1.2. Auto-spawn
+  on `onGameStart` provides the practical equivalent for v1.1: if the
   sidecar dies, next game start re-spawns it.
-- **VASSAL_FORCED, VASSAL_ACCEPTED, BACKSTABBED, GOLDEN_AGE triggers.**
-  Trigger templates exist in the sidecar; game-side hooks not wired
-  yet (Civ4 hook event signatures need verification first). Easy v1.1
-  addition.
+- **VASSAL_FORCED, VASSAL_ACCEPTED triggers.** Trigger templates exist
+  in the sidecar; `onVassalState` hook signature verified, but
+  distinguishing forced (war-time surrender) vs accepted (peaceful)
+  surrender requires extra state inspection. Deferred to v1.2.
 - **Wonder racer detection** for directed-mode WONDER_BUILT lines.
-  Deferred to v1.1; v1 always uses broadcast mode for wonders.
+  Deferred to v1.2; v1.1 always uses broadcast mode for wonders.
 
 ## Documentation updates landed
 
@@ -123,6 +127,10 @@ the back-and-forth feels live. Capability is advertised across clients via
 - Updated: `docs/index.md` (added both Current entries),
   `docs/MANUAL_SMOKE_TESTS.md` (added chatter checklist),
   `ARCHITECTURE.md` (System Overview mention).
+- v1.1 update: runbook gained "Updating endpoint or API key" and
+  "Uninstalling the sidecar" sections; "Multi-machine" expanded into a
+  copy-pasteable checklist; trigger list updated with BACKSTABBED and
+  GOLDEN_AGE; chunked addMessage display documented in overview.
 
 ## Commits on this branch
 
@@ -138,11 +146,15 @@ the back-and-forth feels live. Capability is advertised across clients via
 
 ## Next steps
 
-1. User runs the manual smoke matrix from `docs/MANUAL_SMOKE_TESTS.md`.
-2. (Optional) User runs Pre-flight B-style in-game test of display
-   options to inform v1.1 display polish.
-3. When `agent-baseline-fix-venice` lands in `agent-baseline`, rebase
+1. User runs the manual smoke matrix from `docs/MANUAL_SMOKE_TESTS.md`
+   (laptop) plus the new BACKSTABBED + GOLDEN_AGE trigger spot-checks.
+2. User flips `_DEBUG_HELLO_*` flags to `False` in `CvLeaderChatter.py`
+   if they were left True for the smoke test.
+3. User commits + pushes.
+4. Desktop: `git pull`, run `Setup-Chatter.ps1` once (Enter to keep
+   key on existing installs), play.
+5. When `agent-baseline-fix-venice` lands in `agent-baseline`, rebase
    `agent-baseline-leader-chatter` onto the new head (near-fast-forward).
-4. Open PR against `agent-baseline`.
-5. After merge, autopilot can remove the `tmp/chatter_smoke*.py`
+6. Open PR against `agent-baseline`.
+7. After merge, autopilot can remove the `tmp/chatter_smoke*.py`
    pre-flight scripts and move this plan doc to `docs/archive/plans/`.

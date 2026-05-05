@@ -338,11 +338,14 @@ _logged_first_run = False       # one-time setup log
 _spawn_attempted_at = 0.0       # rate-limit auto-spawn attempts
 _no_elector_diag_fired = False  # one-time diagnostic when nobody is capable
 _no_elector_first_seen_turn = -1
+_next_msg_id = 1                # incrementing message ID for line chunks
+_pending_lines = {}             # msg_id -> {'speaker_id', 'expected_chunks', 'received', 'parts'}
 
 
 # ===== tunables =====
 
-CHATTER_CAP_MAGIC = 0x4348           # 'CH' as int -- recognizable in onModNetMessage
+CHATTER_CAP_MAGIC = 0x4348           # 'CH' as int -- capability ping
+CHATTER_LINE_MAGIC = 0x434C          # 'CL' as int -- chatter line chunk
 HEARTBEAT_FRESH_SECONDS = 60         # local sidecar heartbeat must be within this
 CAPABILITY_REBROADCAST_TURNS = 50    # re-advertise capability every N game turns
 CAPABILITY_STALE_HEARTBEATS = 5      # peers drop us after N missed advertisements
@@ -354,6 +357,17 @@ REJOINDER_PROBABILITY = 0.5          # chance a trigger gets a multi-turn exchan
 SPAWN_RETRY_SECONDS = 30             # don't try to spawn sidecar more than once per N seconds
 DROP_NEW_WHILE_QUEUE_ACTIVE = True   # one event at a time
 NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o capable elector
+
+# === DEBUG MODE (smoke test only) ===
+# When True, the module fires test messages on game start and after a few
+# turns so the user can confirm the broadcast path works end-to-end without
+# waiting for a real trigger. Set False before shipping.
+_DEBUG_HELLO_AT_START = True
+_DEBUG_HELLO_AT_TURN = 1   # fires on turn 1 (first end-turn) so user sees it fast
+_DEBUG_HELLO_AT_TURN_2 = 2 # second LLM probe at turn 2
+_debug_hello_fired_at_start = False
+_debug_hello_fired_at_turn = False
+_debug_hello_fired_at_turn_2 = False
 
 # Triggers that should always render as a 1-to-1 exchange (directed mode).
 DIRECTED_TRIGGERS = (
@@ -480,25 +494,53 @@ def _gen_uuid():
 
 
 def _to_ascii(text):
-    """Strip non-ASCII (Civ4 chat panel has limited glyph coverage)."""
+    """Strip non-ASCII (Civ4 chat panel has limited glyph coverage).
+
+    Tolerates unicode and bytes input. Common smart-typography characters
+    (em/en dash, smart quotes, ellipsis) are mapped to safe ASCII equivalents
+    instead of being dropped.
+    """
     if text is None:
         return ""
+    SMART = {
+        0x2014: u"--",   # em dash
+        0x2013: u"-",    # en dash
+        0x2018: u"'",    # left single quote
+        0x2019: u"'",    # right single quote
+        0x201C: u'"',    # left double quote
+        0x201D: u'"',    # right double quote
+        0x2026: u"...",  # ellipsis
+        0x00A0: u" ",    # nbsp
+    }
+    # Normalize bytes to unicode first
     try:
-        if isinstance(text, unicode):
-            text = text.encode("ascii", "replace")
+        if isinstance(text, str):
+            text = text.decode("utf-8", "replace")
     except:
-        pass
+        try:
+            text = text.decode("ascii", "replace")
+        except:
+            pass
     out_chars = []
-    for c in text:
-        if isinstance(c, str):
-            oc = ord(c)
-        else:
-            oc = c
-        if 32 <= oc <= 126:
-            out_chars.append(chr(oc))
+    for ch in text:
+        try:
+            oc = ord(ch)
+        except:
+            continue
+        if oc in SMART:
+            out_chars.append(SMART[oc])
+        elif 32 <= oc <= 126:
+            out_chars.append(ch)
         elif oc == 9 or oc == 10:
-            out_chars.append(c)
-    return "".join(out_chars)
+            out_chars.append(ch)
+        # else: drop silently
+    out = u"".join(out_chars)
+    # Re-encode to bytes (str in Py 2.4) so downstream code that does
+    # implicit ASCII conversion (e.g. CvString) doesn't blow up.
+    try:
+        return out.encode("ascii", "replace")
+    except:
+        return out
 
 
 def _atomic_write_json(path, payload):
@@ -558,29 +600,47 @@ def _gc():
 # ===== capability detection =====
 
 def _check_local_capable():
-    """Is the local sidecar fresh (config exists + PID file heartbeat < 60s)?"""
+    """Is the local sidecar fresh (config exists + PID file heartbeat < 60s)?
+
+    Cached for 2 seconds (was 5) to balance call frequency vs responsiveness.
+    Cache is invalidated whenever a PID file appears/disappears or the
+    heartbeat transitions from fresh to stale.
+    """
     global _local_capable, _local_capable_checked_at
     now = _now()
-    if _local_capable is not None and (now - _local_capable_checked_at) < 5.0:
+    # Short-circuit cache (2s window so events firing seconds apart all see
+    # a consistent capability snapshot but a sidecar that just started or
+    # died is reflected within 2s).
+    if _local_capable is not None and (now - _local_capable_checked_at) < 2.0:
         return _local_capable
     _local_capable_checked_at = now
     cfg = _config_path()
     if cfg is None or not os.path.isfile(cfg):
+        if _local_capable is not False:
+            _log("capable: False (no config at " + str(cfg) + ")")
         _local_capable = False
         return False
     pid = _daemon_pid_path()
     if not os.path.isfile(pid):
+        if _local_capable is not False:
+            _log("capable: False (no PID file)")
         _local_capable = False
         return False
     pid_data = _read_json(pid)
     if not pid_data:
+        if _local_capable is not False:
+            _log("capable: False (PID file unreadable)")
         _local_capable = False
         return False
     hb = float(pid_data.get("heartbeat_unix", 0))
     age = now - hb
     if age > HEARTBEAT_FRESH_SECONDS:
+        if _local_capable is not False:
+            _log("capable: False (heartbeat stale, age=" + ("%.1f" % age) + "s)")
         _local_capable = False
         return False
+    if _local_capable is not True:
+        _log("capable: True (sidecar healthy, age=" + ("%.1f" % age) + "s)")
     _local_capable = True
     return True
 
@@ -589,6 +649,13 @@ def _try_autospawn_sidecar():
     """If config exists but sidecar isn't running, try to launch it.
 
     Best-effort. Detached, never blocks. Failures are silent.
+
+    Search paths for Start-Chatter.ps1 (in order):
+      1. Walk up from this Python file's location looking for tools\.
+         (only works in dev — Steam install doesn't have tools/.)
+      2. Hardcoded common DowagerMod repo locations on the user's machine.
+      3. %LOCALAPPDATA%\DowagerMod\autospawn\Start-Chatter.ps1 (one we
+         install to be reachable from any Civ4 install).
     """
     global _spawn_attempted_at
     now = _now()
@@ -603,32 +670,44 @@ def _try_autospawn_sidecar():
     if _check_local_capable():
         return  # already running
 
-    # Try to find the repo's Start-Chatter.ps1 by walking up from the live
-    # game install dir. We expect: <repo>\CoreFiles\Sid Meier's...\Beyond the Sword\Assets\Python\Chatter\
+    # Build candidate list
     here = os.path.dirname(os.path.abspath(__file__))
     candidates = []
-    try:
-        # Walk up to find a 'tools' sibling
-        cur = here
-        for _ in range(10):
-            cur = os.path.dirname(cur)
-            if not cur:
-                break
-            cand = os.path.join(cur, "tools", "Start-Chatter.ps1")
-            if os.path.isfile(cand):
-                candidates.append(cand)
-                break
-    except:
-        pass
+
+    # 1. Walk up from this file
+    cur = here
+    for _ in range(10):
+        cur = os.path.dirname(cur)
+        if not cur:
+            break
+        cand = os.path.join(cur, "tools", "Start-Chatter.ps1")
+        if os.path.isfile(cand):
+            candidates.append(cand)
+            break
+
+    # 2. Hardcoded common repo locations
+    common_repos = [
+        "C:\\DowagerMod\\tools\\Start-Chatter.ps1",
+        "D:\\DowagerMod\\tools\\Start-Chatter.ps1",
+    ]
+    for c in common_repos:
+        if os.path.isfile(c):
+            candidates.append(c)
+
+    # 3. %LOCALAPPDATA% fallback (where Setup-Chatter.ps1 should also drop a
+    # copy so the friend installer path can autospawn without the repo).
+    appdata = os.environ.get("LOCALAPPDATA", "")
+    if appdata:
+        cand = os.path.join(appdata, "DowagerMod", "autospawn", "Start-Chatter.ps1")
+        if os.path.isfile(cand):
+            candidates.append(cand)
 
     if not candidates:
-        _log("autospawn: could not locate Start-Chatter.ps1")
+        _log("autospawn: could not locate Start-Chatter.ps1 (searched: walk-up, common repos, LOCALAPPDATA)")
         return
 
     script = candidates[0]
     try:
-        # Detached background. Use os.spawnl with P_DETACH-equivalent flags.
-        # On Windows, we can use subprocess with creationflags for detached.
         import subprocess
         DETACHED_PROCESS = 0x00000008
         CREATE_NO_WINDOW = 0x08000000
@@ -642,8 +721,8 @@ def _try_autospawn_sidecar():
         ]
         subprocess.Popen(cmd, creationflags=flags, close_fds=True)
         _log("autospawn: launched " + script)
-    except:
-        _log("autospawn: subprocess.Popen failed")
+    except Exception, exc:
+        _log("autospawn: subprocess.Popen failed: " + str(exc))
 
 
 # ===== election =====
@@ -799,12 +878,35 @@ def _global_rate_limit_ok():
 
 
 def _player_info(player_id):
-    """Build a {player_id, leader_name, civ_short_name, score} dict for the request."""
+    """Build a {player_id, leader_name, civ_short_name, score} dict for the request.
+
+    leader_name comes from CIV4LeaderHeadInfos (e.g. 'Victoria', 'Lincoln'),
+    NOT from p.getName() which returns the player's local OS nickname (e.g.
+    'Harrison'). In multiplayer the nickname IS the actual player's name and
+    might be useful elsewhere, but for AI-generated trash talk the leader
+    name is the in-character handle the LLM should think it's playing.
+    """
     try:
         p = _gc().getPlayer(player_id)
+        leader_name = ""
+        try:
+            leader_type = p.getLeaderType()
+            if leader_type >= 0:
+                leader_info = _gc().getLeaderHeadInfo(leader_type)
+                if leader_info is not None:
+                    leader_name = _to_ascii(leader_info.getDescription())
+        except:
+            pass
+        if not leader_name:
+            try:
+                leader_name = _to_ascii(p.getName())
+            except:
+                leader_name = ""
+        if not leader_name:
+            leader_name = "Unknown"
         return {
             "player_id": int(player_id),
-            "leader_name": _to_ascii(p.getName()),
+            "leader_name": leader_name,
             "civ_short_name": _to_ascii(p.getCivilizationShortDescription(0)),
             "score": int(p.calculateScore()),
         }
@@ -828,6 +930,7 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
     global _pending_request_id, _pending_request_at, _active_exchange_until
 
     if _disabled:
+        _log("emit " + trigger + " gated: disabled")
         return None
 
     # Allow only one in-flight at a time
@@ -837,20 +940,26 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
             _log("dropping stale pending request " + str(_pending_request_id))
             _pending_request_id = None
         else:
+            _log("emit " + trigger + " gated: pending request " + str(_pending_request_id) + " in flight")
             return None
 
     if DROP_NEW_WHILE_QUEUE_ACTIVE and _display_queue:
+        _log("emit " + trigger + " gated: display_queue size=" + str(len(_display_queue)))
         return None
 
     if not _global_rate_limit_ok():
-        _log("global rate limit hit; dropping " + trigger)
+        _log("emit " + trigger + " gated: global rate limit hit")
         return None
 
     if not _is_chatter_elector():
+        _log("emit " + trigger + " gated: not elector "
+             + "(local_capable=" + str(_check_local_capable())
+             + ", capable_humans=" + str(list(_capable_humans.keys())) + ")")
         return None
 
     # Per-pair cooldown
     if _per_pair_cooldown_active(speaker_id, target_id):
+        _log("emit " + trigger + " gated: per-pair cooldown speaker=" + str(speaker_id) + " target=" + str(target_id))
         return None
 
     # Dedup
@@ -858,6 +967,7 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
                      str(extra_context.get("city", "")) + str(extra_context.get("wonder", ""))
                      + str(extra_context.get("religion", "")) + str(extra_context.get("tech", "")))
     if _event_seen(key):
+        _log("emit " + trigger + " gated: event already seen this turn")
         return None
     _mark_seen(key)
 
@@ -934,17 +1044,20 @@ def _enqueue_response_lines(response):
     for ln in lines:
         cumulative_delay += int(ln.get("delay_ms", 0))
         due = base + (cumulative_delay / 1000.0)
+        # Pass directly to _to_ascii (which handles unicode); calling str()
+        # on a unicode string with non-ASCII chars raises UnicodeEncodeError
+        # in Py 2.4.
         _display_queue.append({
             "due_unix": due,
             "speaker_id": int(ln.get("speaker_player_id", -1)),
-            "speaker_name": _to_ascii(str(ln.get("speaker_name", "?"))),
-            "text": _to_ascii(str(ln.get("text", ""))),
+            "speaker_name": _to_ascii(ln.get("speaker_name", "?")),
+            "text": _to_ascii(ln.get("text", "")),
         })
     _active_exchange_until = base + (cumulative_delay / 1000.0) + 1.0
 
 
 def _format_chat_line(speaker_name, text):
-    """Render the line for sendChat broadcast.
+    """Render the line for sendChat broadcast. (legacy fallback path)
 
     Format: 'Victoria: <text>'  (ASCII only, no Unicode).
     Engine will prefix with elector's player name regardless.
@@ -953,15 +1066,222 @@ def _format_chat_line(speaker_name, text):
 
 
 def _broadcast_line(entry):
-    """Send via the engine's chat channel so all clients see it."""
+    """Broadcast a line so all clients render it as if from the leader.
+
+    v1.1 path: encode the line + speaker_player_id as a chunked stream of
+    sendModNetMessage calls. Each receiving client (including the elector)
+    accumulates chunks in onModNetMessage, then locally renders via
+    CyInterface().addMessage with the leader's portrait + civ color. This
+    bypasses the chat panel entirely so there is no '[ElectorName]:' prefix.
+    """
     try:
-        msg = _format_chat_line(entry["speaker_name"], entry["text"])
-        # CHATTARGET_ALL = -2
-        CyMessageControl().sendChat(msg, -2)
+        speaker_id = int(entry["speaker_id"])
+        text = _to_ascii(entry["text"])
+        if not text:
+            return
+        _send_line_via_chunks(speaker_id, text)
         _global_recent_lines.append(_now())
-        _log("broadcast: " + msg[:100])
+        _log("broadcast (chunked): " + text[:100])
     except:
         _log("broadcast failed for: " + str(entry.get("text", ""))[:60])
+
+
+def _send_line_via_chunks(speaker_id, text):
+    """Encode (speaker_id, text) into N sendModNetMessage calls.
+
+    Wire format:
+      Header chunk (chunk_index=0):
+        iData1 = CHATTER_LINE_MAGIC
+        iData2 = msg_id (1..65535, wraps)
+        iData3 = 0  (signals header chunk)
+        iData4 = speaker_player_id
+        iData5 = total_payload_chunks
+      Payload chunk N (1 <= chunk_index <= total_payload_chunks):
+        iData1 = CHATTER_LINE_MAGIC
+        iData2 = msg_id
+        iData3 = chunk_index (>=1)
+        iData4 = 4 chars packed (LE)
+        iData5 = 4 chars packed (LE)
+    8 ASCII bytes per payload chunk. For a 200-char text -> 25 chunks + header.
+    """
+    global _next_msg_id
+    msg_id = _next_msg_id & 0xFFFF
+    if msg_id == 0:
+        msg_id = 1
+    _next_msg_id = (msg_id + 1) & 0xFFFF
+    if _next_msg_id == 0:
+        _next_msg_id = 1
+
+    # Encode text into 8-byte chunks
+    BYTES_PER_CHUNK = 8
+    total = (len(text) + BYTES_PER_CHUNK - 1) // BYTES_PER_CHUNK
+
+    # Header
+    try:
+        CyMessageControl().sendModNetMessage(
+            CHATTER_LINE_MAGIC, msg_id, 0, int(speaker_id), int(total))
+    except:
+        return
+
+    # Payload
+    for i in range(total):
+        seg = text[i * BYTES_PER_CHUNK:(i + 1) * BYTES_PER_CHUNK]
+        # Pad to 8 bytes with NUL
+        seg = seg + ("\0" * (BYTES_PER_CHUNK - len(seg)))
+        d4 = _pack_4chars(seg[0:4])
+        d5 = _pack_4chars(seg[4:8])
+        try:
+            CyMessageControl().sendModNetMessage(
+                CHATTER_LINE_MAGIC, msg_id, i + 1, d4, d5)
+        except:
+            # Best effort; if a chunk fails, the receiving side won't be
+            # able to assemble and will eventually GC the partial. Not
+            # fatal.
+            return
+
+
+def _pack_4chars(s):
+    """Pack up to 4 ASCII chars (zero-padded) into a 32-bit int (LE).
+    Top bit always 0 since we ASCII-only.
+    """
+    if not s:
+        return 0
+    if len(s) < 4:
+        s = s + ("\0" * (4 - len(s)))
+    return (ord(s[0]) & 0xFF) | ((ord(s[1]) & 0xFF) << 8) | \
+           ((ord(s[2]) & 0xFF) << 16) | ((ord(s[3]) & 0xFF) << 24)
+
+
+def _unpack_4chars(i):
+    """Unpack 4 chars from a 32-bit int (LE), trimming trailing NULs."""
+    out = []
+    val = int(i) & 0xFFFFFFFF
+    for _ in range(4):
+        c = val & 0xFF
+        out.append(chr(c))
+        val >>= 8
+    s = "".join(out)
+    # Trim trailing NULs
+    nul_pos = s.find("\0")
+    if nul_pos >= 0:
+        s = s[:nul_pos]
+    return s
+
+
+def _handle_line_chunk(iData2, iData3, iData4, iData5):
+    """Process an inbound CHATTER_LINE_MAGIC chunk."""
+    global _pending_lines
+    msg_id = int(iData2)
+    chunk_index = int(iData3)
+    if chunk_index == 0:
+        # Header
+        speaker_id = int(iData4)
+        total = int(iData5)
+        _log("chunk: header msg=" + str(msg_id) + " speaker=" + str(speaker_id) + " total=" + str(total))
+        if total <= 0 or total > 256:
+            return
+        _pending_lines[msg_id] = {
+            "speaker_id": speaker_id,
+            "expected": total,
+            "received": 0,
+            "parts": [None] * total,
+            "started_at": _now(),
+        }
+        return
+    state = _pending_lines.get(msg_id)
+    if state is None:
+        _log("chunk: orphan msg=" + str(msg_id) + " idx=" + str(chunk_index))
+        return
+    idx0 = chunk_index - 1
+    if idx0 < 0 or idx0 >= state["expected"]:
+        return
+    if state["parts"][idx0] is not None:
+        return
+    seg = _unpack_4chars(iData4) + _unpack_4chars(iData5)
+    state["parts"][idx0] = seg
+    state["received"] += 1
+    if state["received"] >= state["expected"]:
+        text = "".join(state["parts"])
+        speaker_id = state["speaker_id"]
+        _log("chunk: complete msg=" + str(msg_id) + " text_len=" + str(len(text)))
+        try:
+            del _pending_lines[msg_id]
+        except:
+            pass
+        _render_local_line(speaker_id, text)
+
+
+def _gc_pending_lines():
+    """Drop partial line accumulators older than 30s (in case of lost chunks)."""
+    if not _pending_lines:
+        return
+    now = _now()
+    stale = []
+    for k, v in _pending_lines.items():
+        if (now - v.get("started_at", now)) > 30:
+            stale.append(k)
+    for k in stale:
+        try:
+            del _pending_lines[k]
+        except:
+            pass
+
+
+def _render_local_line(speaker_id, text):
+    """Render a chatter line in the local event log via addMessage with the
+    speaker's leader portrait. Prefixes the line with the leader's name so
+    attribution is unmissable (the engine's eColor param doesn't reliably
+    tint message-log text in BTS, so we lean on the prefix instead).
+    """
+    try:
+        local_player = _gc().getGame().getActivePlayer()
+        # Resolve speaker leader info
+        leader_button = None
+        speaker_color = -1  # let engine pick a default
+        leader_name = ""
+        try:
+            sp = _gc().getPlayer(int(speaker_id))
+            try:
+                pc = sp.getPlayerColor()
+                if pc >= 0:
+                    pci = _gc().getPlayerColorInfo(pc)
+                    if pci is not None:
+                        speaker_color = int(pci.getColorTypePrimary())
+            except Exception, exc:
+                _log("render: color lookup failed: " + str(exc))
+            try:
+                lt = sp.getLeaderType()
+                if lt >= 0:
+                    li = _gc().getLeaderHeadInfo(lt)
+                    if li is not None:
+                        leader_button = li.getButton()
+                        leader_name = _to_ascii(li.getDescription())
+            except Exception, exc:
+                _log("render: leader lookup failed: " + str(exc))
+        except Exception, exc:
+            _log("render: getPlayer failed: " + str(exc))
+        # Build the displayed line: "<Leader>: <text>" so attribution shows
+        # explicitly even when the engine doesn't tint message text.
+        clean_text = _to_ascii(text)
+        if leader_name and not clean_text.lower().startswith(leader_name.lower() + ":"):
+            displayed = leader_name + ": " + clean_text
+        else:
+            displayed = clean_text
+        message_type = InterfaceMessageTypes.MESSAGE_TYPE_MAJOR_EVENT
+        _log("render: localPlayer=" + str(local_player)
+             + " speaker_id=" + str(speaker_id)
+             + " leader=" + str(leader_name)
+             + " color=" + str(speaker_color)
+             + " has_button=" + str(leader_button is not None)
+             + " final_len=" + str(len(displayed)))
+        CyInterface().addMessage(
+            local_player, False, 12, displayed, "",
+            message_type, leader_button, speaker_color,
+            -1, -1, True, True
+        )
+        _log("render: addMessage call returned without exception")
+    except Exception, exc:
+        _log("render_local_line failed: " + str(exc))
 
 
 def _drain_display_queue():
@@ -1033,8 +1353,22 @@ def _check_for_responses():
             # Could be a stale response or a response for someone else (impossible
             # in current design but defend). Leave it; janitor will GC.
             continue
-        # Filter: must still be the elector at consume time (pre-broadcast recheck)
-        if not _is_chatter_elector():
+        # Pre-broadcast recheck: in MP, confirm we are still elector
+        # (someone else may have taken over between request emit and response
+        # arrival). In SP/hot-seat the response is from THIS machine and we
+        # should always render it, even if the sidecar's heartbeat went stale
+        # while it was busy calling the API.
+        try:
+            game = _gc().getGame()
+            is_network = game.isNetworkMultiPlayer()
+        except:
+            is_network = False
+        drop_due_to_election = False
+        if is_network:
+            if not _is_chatter_elector():
+                drop_due_to_election = True
+        # SP/hot-seat: we wrote it, we render it. No re-election check.
+        if drop_due_to_election:
             _log("dropping response: no longer elector")
             _safe_unlink(path)
             _pending_request_id = None
@@ -1056,6 +1390,7 @@ def _full_reset(reason):
     global _display_queue, _pending_request_id, _pending_request_at
     global _active_exchange_until, _global_recent_lines, _logged_first_run
     global _no_elector_diag_fired, _no_elector_first_seen_turn
+    global _pending_lines, _next_msg_id
     _session_id = _gen_uuid()
     try:
         _local_player_id = _gc().getGame().getActivePlayer()
@@ -1076,6 +1411,8 @@ def _full_reset(reason):
     _logged_first_run = False
     _no_elector_diag_fired = False
     _no_elector_first_seen_turn = -1
+    _pending_lines = {}
+    _next_msg_id = 1
     _log("reset (" + reason + ") session=" + _session_id + " localPlayer=" + str(_local_player_id))
 
 
@@ -1114,6 +1451,7 @@ def chatter_on_game_start():
         _gc_old_spool_files()
         _try_autospawn_sidecar()
         _broadcast_capability_ping()
+        _maybe_fire_debug_hello_at_start()
     except Exception, exc:
         _disable("on_game_start: " + str(exc))
 
@@ -1127,8 +1465,83 @@ def chatter_on_load_game():
         _gc_old_spool_files()
         _try_autospawn_sidecar()
         _broadcast_capability_ping()
+        _maybe_fire_debug_hello_at_start()
     except Exception, exc:
         _disable("on_load_game: " + str(exc))
+
+
+def _maybe_fire_debug_hello_at_start():
+    """Smoke-test only: send a chunked-broadcast probe so the user can see
+    that the broadcast pipe + addMessage render works without needing a
+    real trigger event. Uses the local player as both speaker and broadcast
+    sender so we exercise the full path (chunking, accumulation, render).
+    """
+    global _debug_hello_fired_at_start
+    if not _DEBUG_HELLO_AT_START:
+        return
+    if _debug_hello_fired_at_start:
+        return
+    _debug_hello_fired_at_start = True
+    try:
+        _log("debug: firing chunked-broadcast probe at game start")
+        if _local_player_id < 0:
+            _log("debug: no local player; skipping start probe")
+            return
+        _send_line_via_chunks(
+            _local_player_id,
+            "DowagerMod Chatter [DEBUG]: chatter module loaded; "
+            "if you see this in your event log, the chunked addMessage path works."
+        )
+        _log("debug: chunked-broadcast probe fired without exception")
+    except Exception, exc:
+        _log("debug: chunked probe FAILED: " + str(exc))
+
+
+def _maybe_fire_debug_hello_at_turn(iGameTurn):
+    """Smoke-test only: at turn 1 and turn 2, write synthetic spool requests
+    to test the full game -> sidecar -> response -> broadcast pipeline.
+    Two fires so we can also test the "second event" path (which previously
+    got blocked by stale cooldowns or flags).
+    """
+    global _debug_hello_fired_at_turn, _debug_hello_fired_at_turn_2
+    if not _DEBUG_HELLO_AT_START:
+        return
+    # First debug LLM trigger
+    if (iGameTurn == _DEBUG_HELLO_AT_TURN) and not _debug_hello_fired_at_turn:
+        _debug_hello_fired_at_turn = True
+        _fire_synthetic_test("turn-" + str(iGameTurn) + "-A")
+        return
+    # Second debug LLM trigger
+    if (iGameTurn == _DEBUG_HELLO_AT_TURN_2) and not _debug_hello_fired_at_turn_2:
+        _debug_hello_fired_at_turn_2 = True
+        _fire_synthetic_test("turn-" + str(iGameTurn) + "-B")
+        return
+
+
+def _fire_synthetic_test(label):
+    """Write a synthetic FIRST_CONTACT request through the full pipeline."""
+    try:
+        _log("debug: firing synthetic " + label + " request")
+        if _local_player_id < 0:
+            _log("debug: no local player; skipping synthetic " + label)
+            return
+        speaker_id = _local_player_id
+        target_id = -1
+        try:
+            for i in range(_gc().getMAX_CIV_PLAYERS()):
+                if i == speaker_id:
+                    continue
+                p = _gc().getPlayer(i)
+                if p.isAlive():
+                    target_id = i
+                    break
+        except:
+            pass
+        if target_id < 0:
+            target_id = speaker_id
+        _emit_request("FIRST_CONTACT", speaker_id, target_id, {}, multi_turn=False)
+    except Exception, exc:
+        _log("debug: synthetic " + label + " FAILED: " + str(exc))
 
 
 def chatter_on_begin_player_turn(iGameTurn, iPlayer):
@@ -1142,6 +1555,8 @@ def chatter_on_begin_player_turn(iGameTurn, iPlayer):
         # Drain display + check for responses on every player-turn
         _check_for_responses()
         _drain_display_queue()
+        # Debug probe (smoke test only)
+        _maybe_fire_debug_hello_at_turn(iGameTurn)
         # One-time diagnostic if no capable elector after N turns
         _maybe_show_no_elector_diagnostic(iGameTurn, iPlayer)
     except Exception, exc:
@@ -1193,17 +1608,21 @@ def chatter_on_update(fDeltaTime):
 
 
 def chatter_on_mod_net_message(iData1, iData2, iData3, iData4, iData5):
-    """Called from CvEventManager.onModNetMessage. Receives capability pings."""
+    """Called from CvEventManager.onModNetMessage. Receives capability
+    pings AND chatter line chunks.
+    """
     if _disabled:
         return False
     try:
-        if iData1 != CHATTER_CAP_MAGIC:
-            return False  # not for us
-        pid = int(iData2)
-        if pid < 0:
+        if iData1 == CHATTER_CAP_MAGIC:
+            pid = int(iData2)
+            if pid >= 0:
+                _capable_humans[pid] = _now()
             return True
-        _capable_humans[pid] = _now()
-        return True
+        if iData1 == CHATTER_LINE_MAGIC:
+            _handle_line_chunk(iData2, iData3, iData4, iData5)
+            return True
+        return False
     except:
         return False
 
@@ -1211,7 +1630,14 @@ def chatter_on_mod_net_message(iData1, iData2, iData3, iData4, iData5):
 # ----- trigger handlers (one per event type) -----
 
 def chatter_on_change_war(bIsWar, iAttackerTeam, iDefenderTeam):
-    """Called from CvEventManager.onChangeWar."""
+    """Called from CvEventManager.onChangeWar.
+
+    For DoW (bIsWar=True), emits BACKSTABBED instead of DECLARE_WAR if the
+    defender's leader still views the attacker as Pleased/Friendly OR the
+    defender has accumulated several positive memories of the attacker
+    (open borders, traded resources/tech, etc.). The line is spoken FROM
+    the betrayed defender TO the attacker, matching the prompt template.
+    """
     if _disabled:
         return
     try:
@@ -1219,13 +1645,82 @@ def chatter_on_change_war(bIsWar, iAttackerTeam, iDefenderTeam):
         if atk_p < 0 or def_p < 0:
             return
         if bIsWar:
-            _emit_request("DECLARE_WAR", atk_p, def_p, {}, multi_turn=True)
+            if _is_backstab(atk_p, def_p):
+                # Speaker = defender (the betrayed), target = attacker.
+                _emit_request("BACKSTABBED", def_p, atk_p, {}, multi_turn=True)
+            else:
+                _emit_request("DECLARE_WAR", atk_p, def_p, {}, multi_turn=True)
         else:
             # Peace treaty (only fire if pair was at war for >0 turns; engine
             # handles that — if !bIsWar fires they had been at war).
             _emit_request("PEACE_TREATY", atk_p, def_p, {}, multi_turn=False)
     except Exception, exc:
         _log("on_change_war error: " + str(exc))
+
+
+def _is_backstab(atk_p, def_p):
+    """Heuristic: does this DoW look like a betrayal?
+
+    Two signals (any one true => backstab):
+      A. Defender's AI attitude toward attacker is still >= Pleased (3)
+         immediately after the war state change. Civ4's just-declared-war
+         memory drops attitude, so a Pleased/Friendly result means there
+         were strong positive baseline modifiers (long peace, religion,
+         civics, etc.) that survived the penalty.
+      B. Defender has accumulated several positive-history memories of
+         the attacker (traded tech, open borders accepted, gave help,
+         traded resources, accepted defensive pact). 3+ such memories
+         indicates a meaningful prior friendship.
+    """
+    try:
+        gc = _gc()
+        defender = gc.getPlayer(def_p)
+        # Signal A: residual attitude
+        try:
+            attitude = defender.AI_getAttitude(int(atk_p))
+            # AttitudeTypes: 0=Furious, 1=Annoyed, 2=Cautious, 3=Pleased, 4=Friendly
+            if int(attitude) >= 3:
+                return True
+        except:
+            pass
+        # Signal B: positive-memory count
+        positive = 0
+        try:
+            mt = MemoryTypes
+        except:
+            mt = None
+        if mt is not None:
+            mem_names = (
+                "MEMORY_TRADED_TECH_TO_US",
+                "MEMORY_GAVE_HELP",
+                "MEMORY_ACCEPTED_OPEN_BORDERS",
+                "MEMORY_ACCEPTED_DEFENSIVE_PACT",
+                "MEMORY_ACCEPTED_RESOURCES",
+            )
+            for name in mem_names:
+                try:
+                    mem_const = getattr(mt, name)
+                    positive += int(defender.AI_getMemoryCount(int(atk_p), mem_const))
+                except:
+                    pass
+        return positive >= 3
+    except:
+        return False
+
+
+def chatter_on_golden_age(iPlayer):
+    """Called from CvEventManager.onGoldenAge.
+
+    Broadcast trigger: the leader announces their civ has entered a golden age.
+    """
+    if _disabled:
+        return
+    try:
+        if iPlayer is None or int(iPlayer) < 0:
+            return
+        _emit_request("GOLDEN_AGE", int(iPlayer), -1, {}, multi_turn=False)
+    except Exception, exc:
+        _log("on_golden_age error: " + str(exc))
 
 
 def chatter_on_city_acquired_and_kept(iOwner, pCity):

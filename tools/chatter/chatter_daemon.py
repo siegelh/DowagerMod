@@ -267,12 +267,24 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
                 spool_mod.safe_unlink(req_path)
                 continue
 
+            # Refresh heartbeat BEFORE the API call so the game-side
+            # recheck doesn't see us as stale during a slow call.
+            heartbeat(spool_path, logger)
+            last_heartbeat = time.time()
+
             response = process_request(
                 req_path, request,
                 client=client, breaker=breaker, logger=logger,
                 max_tokens=cfg.max_tokens,
                 max_tokens_multi=cfg.max_tokens_multi_turn,
             )
+
+            # And refresh again after the API call completes, before writing
+            # the response, so the game-side check (which happens shortly
+            # after) sees a fresh heartbeat.
+            heartbeat(spool_path, logger)
+            last_heartbeat = time.time()
+
             write_response(spool_path, response, logger)
             spool_mod.safe_unlink(req_path)
             last_call_at = time.time()

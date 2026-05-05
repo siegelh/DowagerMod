@@ -839,6 +839,8 @@ class CvEventManager:
 	def onGoldenAge(self, argsList):
 		'Golden Age'
 		iPlayer = argsList[0]
+		# DowagerMod chatter: emit GOLDEN_AGE broadcast line.
+		CvLeaderChatter.chatter_on_golden_age(iPlayer)
 		player = PyPlayer(iPlayer)
 		if (not self.__LOG_GOLDENAGE):
 			return

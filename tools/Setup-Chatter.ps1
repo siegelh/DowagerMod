@@ -61,12 +61,23 @@ if (-not $NoPrompt) {
         if ($reply) { $Deployment = $reply }
     }
     if (-not $ApiKey) {
-        $secure = Read-Host "API Key (input hidden)" -AsSecureString
+        $hasExistingKey = ($existing -and $existing.ContainsKey('api_key') -and $existing.api_key)
+        if ($hasExistingKey) {
+            $secure = Read-Host "API Key (input hidden, press Enter to keep existing)" -AsSecureString
+        } else {
+            $secure = Read-Host "API Key (input hidden)" -AsSecureString
+        }
         $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
         try {
-            $ApiKey = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
+            $entered = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
         } finally {
             [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
+        }
+        if ($entered) {
+            $ApiKey = $entered
+        } elseif ($hasExistingKey) {
+            $ApiKey = $existing.api_key
+            $script:KeyUnchanged = $true
         }
     }
 }
@@ -122,8 +133,12 @@ Write-Host ""
 Write-Host "Wrote config: $configPath" -ForegroundColor Green
 Write-Host "Endpoint:    $Endpoint"
 Write-Host "Deployment:  $Deployment"
-$redacted = if ($ApiKey.Length -gt 8) { $ApiKey.Substring(0,4) + "..." + $ApiKey.Substring($ApiKey.Length - 4) } else { "***" }
-Write-Host "API key:     $redacted"
+if ($script:KeyUnchanged) {
+    Write-Host "API key:     (unchanged)"
+} else {
+    $redacted = if ($ApiKey.Length -gt 8) { $ApiKey.Substring(0,4) + "..." + $ApiKey.Substring($ApiKey.Length - 4) } else { "***" }
+    Write-Host "API key:     $redacted"
+}
 Write-Host ""
 
 if ($RegisterScheduledTask) {
