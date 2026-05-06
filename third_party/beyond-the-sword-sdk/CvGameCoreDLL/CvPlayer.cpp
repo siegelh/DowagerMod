@@ -17085,31 +17085,23 @@ void CvPlayer::createGreatPeople(UnitTypes eGreatPersonUnit, bool bIncrementThre
 
 		changeGreatPeopleThresholdModifier(GC.getDefineINT("GREAT_PEOPLE_THRESHOLD_INCREASE") * ((getGreatPeopleCreated() / 10) + 1));
 
-		// Venice exception: the Venetian Merchant Prince is the only GP with
-		// bFound. Vanilla pumps a team-wide threshold bump on every GP pop,
-		// which means two Enrico-of-Venice allies on the same team share GP
-		// economy and effectively only one of them can spawn Princes per turn
-		// (the second's GPP bar fills, then the bump pushes threshold above it
-		// before that player's cities are processed). Skip the team bump for
-		// Venice so each Venice civ accumulates Princes independently.
-		bool bSkipTeamBump = GC.getUnitInfo(eGreatPersonUnit).isFound();
-		if (!bSkipTeamBump)
+		// MP OOS triage: previously skipped the team-wide threshold bump
+		// for Venetian Merchant Princes (commit 4ae1e6cb5) so two
+		// Enrico-of-Venice teammates would each accumulate Princes
+		// independently. Reverted to vanilla behavior because skipping
+		// the bump only when the GP was bFound was the strongest
+		// remaining suspect for repeatable per-prince OOS in MP games
+		// where Enrico had an AI teammate. Trade-off: with two Venice
+		// teammates the original "shared GP economy" bug returns; we
+		// can re-implement the skip later in an MP-safe way (e.g. only
+		// in SP, or via an XML-driven mechanic) once the OOS is
+		// confirmed gone.
+		for (int iI = 0; iI < MAX_PLAYERS; iI++)
 		{
-			for (int iI = 0; iI < MAX_PLAYERS; iI++)
+			if (GET_PLAYER((PlayerTypes)iI).getTeam() == getTeam())
 			{
-				if (GET_PLAYER((PlayerTypes)iI).getTeam() == getTeam())
-				{
-					GET_PLAYER((PlayerTypes)iI).changeGreatPeopleThresholdModifier(GC.getDefineINT("GREAT_PEOPLE_THRESHOLD_INCREASE_TEAM") * ((getGreatPeopleCreated() / 10) + 1));
-				}
+				GET_PLAYER((PlayerTypes)iI).changeGreatPeopleThresholdModifier(GC.getDefineINT("GREAT_PEOPLE_THRESHOLD_INCREASE_TEAM") * ((getGreatPeopleCreated() / 10) + 1));
 			}
-		}
-		else
-		{
-			gDLL->logMsg("VenicePrince.log", CvString::format(
-				"[TeamBumpSkipped] T%d  Player=%S  Unit=%S  (Venice exception: teammates retain threshold)",
-				GC.getGameINLINE().getGameTurn(),
-				getName(),
-				GC.getUnitInfo(eGreatPersonUnit).getType()).c_str());
 		}
 	}
 

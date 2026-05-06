@@ -132,44 +132,13 @@ namespace
 		return "TXT_KEY_VENICE_FLAVOR_ANNOUNCE_EXPANSIONIST";
 	}
 
-	// Send a message to every human (active or hot-seat) whose team has met
-	// eFromPlayer's team. Falls back to active player only if nobody has met.
-	void announceToHumansWhoMet(PlayerTypes eFromPlayer, const CvWString& szMsg,
-		int iX, int iY)
-	{
-		TeamTypes eFromTeam = GET_PLAYER(eFromPlayer).getTeam();
-		ColorTypes eColor = (ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT");
-		bool bAnySent = false;
-		for (int iI = 0; iI < MAX_PLAYERS; ++iI)
-		{
-			CvPlayer& kP = GET_PLAYER((PlayerTypes)iI);
-			if (!kP.isAlive() || !kP.isHuman())
-			{
-				continue;
-			}
-			if (kP.getTeam() != eFromTeam &&
-				!GET_TEAM(kP.getTeam()).isHasMet(eFromTeam))
-			{
-				continue;
-			}
-			gDLL->getInterfaceIFace()->addMessage(
-				(PlayerTypes)iI, false, GC.getEVENT_MESSAGE_TIME(), szMsg,
-				NULL, MESSAGE_TYPE_MAJOR_EVENT, NULL, eColor,
-				iX, iY, true, true);
-			bAnySent = true;
-		}
-		if (!bAnySent)
-		{
-			// Hot-seat fallback: ensure the active player at least sees flavor
-			// when they later meet Venice. Cheap & non-leaking because active
-			// player is the local human anyway.
-			gDLL->getInterfaceIFace()->addMessage(
-				GC.getGameINLINE().getActivePlayer(), false,
-				GC.getEVENT_MESSAGE_TIME(), szMsg,
-				NULL, MESSAGE_TYPE_MAJOR_EVENT, NULL, eColor,
-				iX, iY, true, true);
-		}
-	}
+	// announceToHumansWhoMet was previously used by the Venice flavor announce
+	// at first-prince spawn. Removed during MP OOS triage: addMessage with
+	// MESSAGE_TYPE_MAJOR_EVENT and the hot-seat fallback (using
+	// getActivePlayer(), which differs per network MP client) were the
+	// suspected divergence. Helper kept removed to prevent reintroduction.
+	// If we want to re-add Venice in-game announcements, route them through
+	// the chatter system (which is MP-safe by design).
 }
 
 // Public Functions...
@@ -14540,8 +14509,14 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		if (ePrinceSpec != NO_SPECIALIST &&
 			GC.getUnitInfo(getUnitType()).getGreatPeoples(ePrinceSpec))
 		{
-			CvWString szMsg = gDLL->getText(getFlavorAnnounceTextKey(eFlavor));
-			announceToHumansWhoMet(getOwnerINLINE(), szMsg, getX_INLINE(), getY_INLINE());
+			// MP OOS triage: in-game flavor announce removed. The
+			// announceToHumansWhoMet path used getActivePlayer() in its
+			// hot-seat fallback, which differs per network MP client and
+			// was suspected of triggering checksum divergence on every
+			// AI Venice civ's first prince. Flavor selection still goes
+			// to VenicePrince.log for debugging; if/when we want it
+			// visible in-game we'll route it through the chatter system
+			// (which is MP-safe by design).
 			gDLL->logMsg("VenicePrince.log", CvString::format(
 				"  [FlavorIntro] %S adopts %s flavor",
 				kOwner.getName(),
