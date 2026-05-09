@@ -58,34 +58,89 @@ class ApiResult:
 
 
 class AzureClient:
-    def __init__(self, endpoint: str, api_key: str, deployment: str, *, request_timeout_seconds: float = 8.0):
+    def __init__(
+        self,
+        endpoint: str,
+        api_key: str,
+        deployment: str,
+        *,
+        request_timeout_seconds: float = 8.0,
+        api_version: str = "",
+    ):
         self.endpoint = endpoint
         self.api_key = api_key
         self.deployment = deployment
         self.request_timeout = request_timeout_seconds
+        # Auto-detect mode by URL shape.
+        # OpenAI mode: Foundry "/openai/v1" base URLs (compat with the OpenAI SDK).
+        # AzureOpenAI mode: classic Cognitive Services / Azure OpenAI hostnames
+        # (no /openai/v1 suffix; require explicit api_version).
+        ep_low = (endpoint or "").lower().rstrip("/")
+        self._mode = "azure" if (
+            "cognitiveservices.azure.com" in ep_low
+            or "openai.azure.com" in ep_low
+        ) and not ep_low.endswith("/openai/v1") else "openai"
+        # Default api_version for AzureOpenAI mode if caller didn't supply one.
+        self.api_version = api_version or "2024-12-01-preview"
         self._client = None
 
     def _ensure_client(self):
         if self._client is None:
-            from openai import OpenAI  # lazy import — only required at call time
-            self._client = OpenAI(
-                base_url=self.endpoint,
-                api_key=self.api_key,
-                timeout=self.request_timeout,
-            )
+            if self._mode == "azure":
+                from openai import AzureOpenAI  # lazy import
+                # AzureOpenAI infers the /openai/deployments/<deployment>/chat/completions
+                # path from azure_endpoint + api_version + model (== deployment name).
+                self._client = AzureOpenAI(
+                    azure_endpoint=self.endpoint,
+                    api_key=self.api_key,
+                    api_version=self.api_version,
+                    timeout=self.request_timeout,
+                )
+            else:
+                from openai import OpenAI
+                self._client = OpenAI(
+                    base_url=self.endpoint,
+                    api_key=self.api_key,
+                    timeout=self.request_timeout,
+                )
         return self._client
 
     def call_responses(self, system_msg: str, user_msg: str, *, max_tokens: int = 80) -> ApiResult:
-        """Single API call. Raises AuthError on auth failure, ApiError on others."""
+        """Single API call. Raises AuthError on auth failure, ApiError on others.
+
+        Auto-routes to either the OpenAI Responses API (for /openai/v1 endpoints)
+        or the Chat Completions API (for AzureOpenAI / cognitiveservices endpoints).
+        Both return the same ApiResult shape so callers don't care.
+        """
         client = self._ensure_client()
         t0 = time.perf_counter()
         try:
-            response = client.responses.create(
-                model=self.deployment,
-                instructions=system_msg,
-                input=user_msg,
-                max_output_tokens=max_tokens,
-            )
+            if self._mode == "azure":
+                # AzureOpenAI uses chat.completions.create with messages + max_completion_tokens.
+                # max_completion_tokens is the new field (gpt-5 era models reject max_tokens);
+                # fall back to max_tokens if max_completion_tokens isn't accepted.
+                kwargs = {
+                    "model": self.deployment,
+                    "messages": [
+                        {"role": "system", "content": system_msg},
+                        {"role": "user", "content": user_msg},
+                    ],
+                }
+                try:
+                    response = client.chat.completions.create(
+                        max_completion_tokens=max_tokens, **kwargs
+                    )
+                except TypeError:
+                    response = client.chat.completions.create(
+                        max_tokens=max_tokens, **kwargs
+                    )
+            else:
+                response = client.responses.create(
+                    model=self.deployment,
+                    instructions=system_msg,
+                    input=user_msg,
+                    max_output_tokens=max_tokens,
+                )
         except Exception as exc:  # noqa: BLE001
             elapsed_ms = int((time.perf_counter() - t0) * 1000)
             msg = str(exc)
@@ -102,10 +157,19 @@ class AzureClient:
             raise ApiError(f"api failure after {elapsed_ms}ms: {msg}") from exc
 
         elapsed_ms = int((time.perf_counter() - t0) * 1000)
-        text = (getattr(response, "output_text", "") or "").strip()
-        usage = getattr(response, "usage", None)
-        ti = getattr(usage, "input_tokens", 0) if usage else 0
-        to = getattr(usage, "output_tokens", 0) if usage else 0
+        if self._mode == "azure":
+            try:
+                text = (response.choices[0].message.content or "").strip()
+            except Exception:
+                text = ""
+            usage = getattr(response, "usage", None)
+            ti = getattr(usage, "prompt_tokens", 0) if usage else 0
+            to = getattr(usage, "completion_tokens", 0) if usage else 0
+        else:
+            text = (getattr(response, "output_text", "") or "").strip()
+            usage = getattr(response, "usage", None)
+            ti = getattr(usage, "input_tokens", 0) if usage else 0
+            to = getattr(usage, "output_tokens", 0) if usage else 0
         return ApiResult(text=text, latency_ms=elapsed_ms, input_tokens=ti, output_tokens=to)
 
 

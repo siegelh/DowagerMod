@@ -344,6 +344,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         api_key=cfg.api_key,
         deployment=cfg.deployment,
         request_timeout_seconds=cfg.request_timeout_seconds,
+        api_version=cfg.api_version,
     )
     breaker = CircuitBreaker(
         failure_threshold=cfg.circuit_breaker.failure_threshold,

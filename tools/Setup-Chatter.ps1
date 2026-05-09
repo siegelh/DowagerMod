@@ -15,9 +15,10 @@
 
 [CmdletBinding()]
 param(
-    [string] $Endpoint = "https://hasiegeltestingfoundry.services.ai.azure.com/openai/v1",
+    [string] $Endpoint = "https://discordagent.cognitiveservices.azure.com/",
     [string] $Deployment = "gpt-5.4-mini",
     [string] $ApiKey,
+    [string] $ApiVersion = "2024-12-01-preview",
     [switch] $RegisterScheduledTask,
     [switch] $NoPrompt,
     [switch] $ConfigureVoiceover,
@@ -198,6 +199,7 @@ $config = [ordered]@{
     endpoint = $Endpoint
     deployment = $Deployment
     api_key = $ApiKey
+    api_version = $ApiVersion
     enabled = $true
     max_tokens = 80
     max_tokens_multi_turn = 400

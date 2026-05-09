@@ -13,9 +13,10 @@ from typing import Optional
 
 
 DEFAULTS = {
-    "endpoint": "https://hasiegeltestingfoundry.services.ai.azure.com/openai/v1",
+    "endpoint": "https://discordagent.cognitiveservices.azure.com/",
     "deployment": "gpt-5.4-mini",
     "api_key": "",
+    "api_version": "2024-12-01-preview",
     "enabled": True,
     "max_tokens": 80,
     "max_tokens_multi_turn": 400,
@@ -89,6 +90,7 @@ class Config:
     endpoint: str = ""
     deployment: str = ""
     api_key: str = ""
+    api_version: str = "2024-12-01-preview"
     enabled: bool = True
     max_tokens: int = 80
     max_tokens_multi_turn: int = 400
@@ -192,6 +194,7 @@ def load_config(path: Optional[Path] = None) -> Config:
         endpoint=str(raw.get("endpoint", "")),
         deployment=str(raw.get("deployment", "")),
         api_key=str(raw.get("api_key", "")),
+        api_version=str(raw.get("api_version", "2024-12-01-preview")),
         enabled=bool(raw.get("enabled", True)),
         max_tokens=int(raw.get("max_tokens", 80)),
         max_tokens_multi_turn=int(raw.get("max_tokens_multi_turn", 400)),
