@@ -834,6 +834,28 @@ def install(args: argparse.Namespace) -> None:
 
     save_config(cfg)
 
+    # ---- Upfront status: what does the installer see? ----
+    print()
+    print("-" * 60)
+    print("Pre-install status")
+    print("-" * 60)
+    print(f"  Live install dir:   {live}")
+    print(f"  Pristine snapshot:  {pristine}  ({'present' if pristine.exists() else 'MISSING'})")
+    if pristine_hot.exists():
+        try:
+            n = sum(1 for _ in pristine_hot.iterdir())
+        except OSError:
+            n = -1
+        print(f"  PRISTINE_HOT clone: {pristine_hot}  (present, ~{n} items at root) -> FAST PATH")
+    else:
+        print(f"  PRISTINE_HOT clone: {pristine_hot}  (NOT YET BUILT) -> SLOW PATH this run")
+        print(f"                      (background rebuild after install will make NEXT run fast)")
+    if cfg.get("last_install_at"):
+        print(f"  Last install at:    {cfg['last_install_at']}")
+        print(f"  Last mod version:   {cfg.get('last_mod_version', '<unknown>')}")
+    else:
+        print(f"  Last install at:    <never on this machine>")
+
     # ---- The actual install ----
     print()
     print("-" * 60)
@@ -867,18 +889,29 @@ def install(args: argparse.Namespace) -> None:
     print(f"  Config:      {CONFIG_FILE}")
     print("=" * 60)
 
-    # If we just consumed PRISTINE_HOT (via fast-path rename), kick off a
-    # background re-prep so the NEXT install is also instant. The user is
-    # free to launch Civ4 immediately; the background copy doesn't block.
-    if install_used_hot:
+    # Build PRISTINE_HOT so the NEXT install is just a rename. Synchronous --
+    # detached spawn proved unreliable on UAC-elevated PyInstaller .exe.
+    should_build = (install_used_hot or
+                    (pristine.exists() and not pristine_hot.exists()))
+    if should_build:
         print()
-        print("(Background: re-prepping PRISTINE_HOT for next install. Safe to launch the game now.)")
-        install_hot.kickoff_background_hot_rebuild(pristine, pristine_hot)
-    elif pristine.exists() and not pristine_hot.exists():
-        # First install ever (or post-refresh): create HOT in background.
-        print()
-        print("(Background: creating PRISTINE_HOT for next install. Safe to launch the game now.)")
-        install_hot.kickoff_background_hot_rebuild(pristine, pristine_hot)
+        print("-" * 60)
+        if install_used_hot:
+            print("Re-staging PRISTINE_HOT for next install (please wait)...")
+        else:
+            print("Pre-staging PRISTINE_HOT for next install (please wait)...")
+        print("-" * 60)
+        result = install_hot.build_pristine_hot(pristine, pristine_hot)
+        if result.get("ok"):
+            secs = result.get("elapsed", 0)
+            print()
+            print(f"PRISTINE_HOT ready (took {secs:.0f}s). Next install will be instant.")
+            cfg["pristine_hot_dir"] = str(pristine_hot)
+            save_config(cfg)
+        else:
+            print()
+            print(f"WARN: PRISTINE_HOT build failed: {result.get('error')}")
+            print(f"  (Non-fatal -- mod IS installed; next install will be slow again.)")
 
 
 def main(argv: list[str]) -> int:
@@ -917,23 +950,30 @@ def main(argv: list[str]) -> int:
         print(f"\nERROR: {e}")
         rc = 1
 
-    # Countdown so the user has time to read the result before the window
-    # closes (UAC-launched .exe owns its console; it vanishes on return).
+    # On error: hold the window open indefinitely so the user can read.
+    # On success: countdown + auto-close (still pausable with Ctrl+C).
     print()
     print("=" * 60)
     if rc == 0:
         print("Done.")
+        print("=" * 60)
+        try:
+            for sec in range(15, 0, -1):
+                sys.stdout.write(f"\rClosing in {sec:2d} seconds... (Ctrl+C to keep window open) ")
+                sys.stdout.flush()
+                time.sleep(1)
+            sys.stdout.write("\n")
+        except KeyboardInterrupt:
+            print("\nWindow held open. Press Enter to close.")
+            try:
+                input()
+            except (EOFError, KeyboardInterrupt):
+                pass
     else:
         print("Installer did NOT complete -- read the messages above.")
-    print("=" * 60)
-    try:
-        for sec in range(15, 0, -1):
-            sys.stdout.write(f"\rClosing in {sec:2d} seconds... (Ctrl+C to keep window open) ")
-            sys.stdout.flush()
-            time.sleep(1)
-        sys.stdout.write("\n")
-    except KeyboardInterrupt:
-        print("\nWindow held open. Press Enter to close.")
+        print("=" * 60)
+        print()
+        print("Press Enter to close this window (window stays open until you do).")
         try:
             input()
         except (EOFError, KeyboardInterrupt):
