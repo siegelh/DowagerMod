@@ -133,11 +133,18 @@ class AzureSpeechClient:
             "X-Microsoft-OutputFormat": fmt,
             "User-Agent": "DowagerMod-Chatter",
         }
-        # Voice locale is the part before the first dash-pair; e.g. en-US-AriaNeural -> en-US
-        locale = "-".join(v.split("-")[:2]) if "-" in v else "en-US"
+        # SSML lang is ALWAYS en-US because chatter is always written in English.
+        # The voice itself supplies the accent — Multilingual voices handle this
+        # gracefully (e.g. it-IT-MarcelloMultilingualNeural reads English with an
+        # Italian accent). For non-Multilingual locale voices, this still works
+        # but produces a heavier, funnier accent. The voice's source locale is
+        # encoded in the voice name, not in xml:lang.
         ssml = (
-            f'<speak version="1.0" xml:lang="{locale}">'
-            f'<voice name="{v}">{_xml_escape(text)}</voice>'
+            f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" '
+            f'xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">'
+            f'<voice name="{v}">'
+            f'<lang xml:lang="en-US">{_xml_escape(text)}</lang>'
+            f'</voice>'
             f'</speak>'
         )
 

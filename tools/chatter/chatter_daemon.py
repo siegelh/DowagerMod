@@ -223,16 +223,17 @@ def heartbeat(spool_path: Path, logger: logging.Logger) -> None:
 
 
 def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
-    """Initialize Speech client + Discord bot if voiceover is configured.
+    """Initialize Speech client + Discord bot + voice picker if voiceover
+    is configured.
 
-    Returns (speech_client, bot_worker) tuple. Either may be None if not
-    enabled or if startup failed. Failures are logged but don't kill the
-    daemon — text chatter remains unaffected.
+    Returns (speech_client, bot_worker, voice_picker) tuple. Any may be None
+    if not enabled or if startup failed. Failures are logged but don't kill
+    the daemon — text chatter remains unaffected.
     """
     if not cfg.voiceover.is_ready():
         if cfg.voiceover.enabled:
             logger.info("voiceover enabled in config but missing fields; skipping")
-        return None, None
+        return None, None, None
 
     # Speech client
     try:
@@ -251,7 +252,18 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: Speech client init failed: %s", exc)
-        return None, None
+        return None, None, None
+
+    # Voice picker (per-leader map)
+    voice_picker = None
+    try:
+        from tools.chatter.voice_picker import VoicePicker
+        voice_picker = VoicePicker(
+            default_voice=cfg.voiceover.azure_speech_voice,
+            logger=logger,
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("voiceover: voice picker init failed: %s", exc)
 
     # Discord bot
     try:
@@ -269,15 +281,20 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: Discord bot init failed: %s", exc)
-        return speech_client, None
+        return speech_client, None, voice_picker
 
-    return speech_client, bot
+    return speech_client, bot, voice_picker
 
 
-def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, logger: logging.Logger) -> None:
+def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, logger: logging.Logger,
+                       voice_picker=None) -> None:
     """If voiceover is wired up, synthesize each response line and enqueue
     it to the Discord bot for playback. Failures log + continue (text
     chatter is unaffected).
+
+    If voice_picker is provided, each line's voice is chosen based on the
+    speaker's leader name (per-leader voice mapping). Otherwise the speech
+    client's default voice is used for every line.
     """
     if speech_client is None or bot is None:
         return
@@ -297,8 +314,16 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         text = (ln.get("text") or "").strip()
         if not text:
             continue
+        speaker_name = (ln.get("speaker_name") or "").strip()
+        chosen_voice = None
+        if voice_picker is not None and speaker_name:
+            try:
+                chosen_voice = voice_picker.pick_voice(speaker_name)
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("voiceover: voice pick failed for %r: %s", speaker_name, exc)
+                chosen_voice = None
         try:
-            result = speech_client.synthesize(text)
+            result = speech_client.synthesize(text, voice=chosen_voice)
         except SpeechBudgetExhausted as exc:
             logger.warning("voiceover: %s", exc)
             return
@@ -318,8 +343,8 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
             logger.warning("voiceover: write WAV failed %s: %s", wav_path, exc)
             continue
         logger.info(
-            "voiceover: synth ok rid=%s line=%d chars=%d latency=%dms voice=%s",
-            rid, idx, result.char_count, result.latency_ms, result.voice,
+            "voiceover: synth ok rid=%s line=%d speaker=%r voice=%s chars=%d latency=%dms",
+            rid, idx, speaker_name, result.voice, result.char_count, result.latency_ms,
         )
         try:
             bot.enqueue_audio(wav_path)
@@ -352,7 +377,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
     )
     state = StateStore()  # noqa: F841 — reserved for future use
 
-    speech_client, bot = setup_voiceover(cfg, spool_path, logger)
+    speech_client, bot, voice_picker = setup_voiceover(cfg, spool_path, logger)
 
     last_call_at = 0.0
     last_heartbeat = 0.0
@@ -409,7 +434,8 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
 
             write_response(spool_path, response, logger)
             voiceover_response(response, speech_client=speech_client, bot=bot,
-                               spool_path=spool_path, logger=logger)
+                               spool_path=spool_path, logger=logger,
+                               voice_picker=voice_picker)
             spool_mod.safe_unlink(req_path)
             last_call_at = time.time()
             processed += 1
