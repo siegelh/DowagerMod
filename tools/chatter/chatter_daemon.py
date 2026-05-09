@@ -310,6 +310,11 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
 
     rid = response.get("request_id") or "unknown"
     from tools.chatter.azure_speech_client import SpeechAuthError, SpeechApiError, SpeechBudgetExhausted
+    # Pace TTS calls to avoid Azure free-tier rate limits (20 req/60s on F0).
+    # 0.5s between calls = max 120/min if every call is back-to-back, well under
+    # any tier limit. In normal play this delay is invisible because most lines
+    # fire 5-10s apart anyway.
+    last_synth_at = 0.0
     for idx, ln in enumerate(lines):
         text = (ln.get("text") or "").strip()
         if not text:
@@ -322,6 +327,10 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
             except Exception as exc:  # noqa: BLE001
                 logger.warning("voiceover: voice pick failed for %r: %s", speaker_name, exc)
                 chosen_voice = None
+        # Pacing
+        elapsed = time.time() - last_synth_at
+        if elapsed < 0.5 and last_synth_at > 0:
+            time.sleep(0.5 - elapsed)
         try:
             result = speech_client.synthesize(text, voice=chosen_voice)
         except SpeechBudgetExhausted as exc:
@@ -342,6 +351,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         except Exception as exc:  # noqa: BLE001
             logger.warning("voiceover: write WAV failed %s: %s", wav_path, exc)
             continue
+        last_synth_at = time.time()
         logger.info(
             "voiceover: synth ok rid=%s line=%d speaker=%r voice=%s chars=%d latency=%dms",
             rid, idx, speaker_name, result.voice, result.char_count, result.latency_ms,
