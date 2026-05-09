@@ -110,8 +110,22 @@ class AzureSpeechClient:
         *,
         voice: Optional[str] = None,
         output_format: Optional[str] = None,
+        rate: str = "",
+        pitch: str = "",
+        locale: str = "",
     ) -> SpeechResult:
-        """Synthesize text to WAV bytes. Raises on auth/api failure or budget exhaustion."""
+        """Synthesize text to WAV bytes. Raises on auth/api failure or budget exhaustion.
+
+        rate / pitch are optional SSML <prosody> attribute values, e.g.
+        rate="-15%", pitch="-10%", rate="slow", pitch="x-low". Empty string
+        means do not apply that dimension. Used to make a stock voice sound
+        older/younger/somber/excited without needing a different voice ID.
+
+        locale is the SSML xml:lang for the inner <lang> element. When empty,
+        defaults to en-US (English audio). Set to e.g. "ru-RU" when the text
+        is Russian so the voice's pronunciation engine renders Cyrillic
+        properly.
+        """
         if not text or not text.strip():
             raise SpeechApiError("empty text")
         char_count = len(text)
@@ -133,17 +147,27 @@ class AzureSpeechClient:
             "X-Microsoft-OutputFormat": fmt,
             "User-Agent": "DowagerMod-Chatter",
         }
-        # SSML lang is ALWAYS en-US because chatter is always written in English.
-        # The voice itself supplies the accent — Multilingual voices handle this
-        # gracefully (e.g. it-IT-MarcelloMultilingualNeural reads English with an
-        # Italian accent). For non-Multilingual locale voices, this still works
-        # but produces a heavier, funnier accent. The voice's source locale is
-        # encoded in the voice name, not in xml:lang.
+        # Build prosody attrs only for non-empty values
+        prosody_attrs = []
+        if rate:
+            prosody_attrs.append(f'rate="{_xml_attr_escape(rate)}"')
+        if pitch:
+            prosody_attrs.append(f'pitch="{_xml_attr_escape(pitch)}"')
+        prosody_open = f'<prosody {" ".join(prosody_attrs)}>' if prosody_attrs else ""
+        prosody_close = "</prosody>" if prosody_attrs else ""
+        # SSML inner <lang> tells the voice's pronunciation engine which
+        # language the text is in. en-US = English audio (multilingual voices
+        # produce native-accent English; locale-only voices produce thicker
+        # accents). When locale is set (e.g. "ru-RU" with Cyrillic text), the
+        # voice renders the text in that language properly.
+        inner_lang = locale if locale else "en-US"
         ssml = (
             f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" '
             f'xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">'
             f'<voice name="{v}">'
-            f'<lang xml:lang="en-US">{_xml_escape(text)}</lang>'
+            f'{prosody_open}'
+            f'<lang xml:lang="{inner_lang}">{_xml_escape(text)}</lang>'
+            f'{prosody_close}'
             f'</voice>'
             f'</speak>'
         )
@@ -185,3 +209,8 @@ def _xml_escape(s: str) -> str:
         .replace('"', "&quot;")
         .replace("'", "&apos;")
     )
+
+
+def _xml_attr_escape(s: str) -> str:
+    """Escape a string for use as an XML attribute value (for prosody attrs)."""
+    return _xml_escape(s)

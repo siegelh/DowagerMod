@@ -39,6 +39,12 @@ DEFAULTS = {
     "discord_bot_token": "",
     "discord_guild_id": "",
     "discord_voice_channel_id": "",
+    # Native-tongue mode: when true, the LLM also generates a translation
+    # of each line into the speaker's native language, and the TTS speaks
+    # the native version. The English version still appears in-game in the
+    # event log (subtitles). Trade-off: slightly higher token use, voice
+    # quality varies on rare languages. False = English audio for all leaders.
+    "native_tongue_mode": False,
 }
 
 
@@ -58,6 +64,7 @@ class VoiceoverConfig:
     discord_bot_token: str = ""
     discord_guild_id: str = ""
     discord_voice_channel_id: str = ""
+    native_tongue_mode: bool = False
 
     def is_ready(self) -> bool:
         """True iff all fields needed to actually run voiceover are populated."""
@@ -172,13 +179,14 @@ def load_config(path: Optional[Path] = None) -> Config:
         4. process env (real shell exports)
 
     The .env loader is best-effort and never overrides existing env vars.
+    Tests can disable .env by setting DOWAGER_CHATTER_SKIP_DOTENV=1.
     """
-    # Load .env into os.environ at the start of every load_config call. Idempotent.
-    try:
-        from tools.chatter.dotenv import load_dotenv
-        load_dotenv()
-    except Exception:  # noqa: BLE001
-        pass
+    if not os.environ.get("DOWAGER_CHATTER_SKIP_DOTENV"):
+        try:
+            from tools.chatter.dotenv import load_dotenv
+            load_dotenv()
+        except Exception:  # noqa: BLE001
+            pass
 
     raw = dict(DEFAULTS)
     p = path or config_path()
@@ -214,6 +222,7 @@ def load_config(path: Optional[Path] = None) -> Config:
         "DOWAGER_CHATTER_DISCORD_BOT_TOKEN": ("discord_bot_token", str),
         "DOWAGER_CHATTER_DISCORD_GUILD_ID": ("discord_guild_id", str),
         "DOWAGER_CHATTER_DISCORD_VOICE_CHANNEL_ID": ("discord_voice_channel_id", str),
+        "DOWAGER_CHATTER_NATIVE_TONGUE_MODE": ("native_tongue_mode", lambda v: str(v).lower() in ("1", "true", "yes", "on")),
     }
     for env_key, (cfg_key, caster) in _ENV_MAP.items():
         if env_key in os.environ and os.environ[env_key] != "":
@@ -251,6 +260,7 @@ def load_config(path: Optional[Path] = None) -> Config:
             discord_bot_token=str(raw.get("discord_bot_token", "")),
             discord_guild_id=str(raw.get("discord_guild_id", "")),
             discord_voice_channel_id=str(raw.get("discord_voice_channel_id", "")),
+            native_tongue_mode=bool(raw.get("native_tongue_mode", False)),
         ),
     )
 

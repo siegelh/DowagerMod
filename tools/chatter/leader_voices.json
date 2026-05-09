@@ -1,6 +1,6 @@
 {
-    "_meta": "Per-leader voice mapping for DowagerMod Chatter voiceover. v2: thick locale-only voices preferred over Multilingual variants. Each leader gets the THICKEST authentically-accented voice for the locale closest to their actual cultural/linguistic background. The Multilingual voices (e.g. de-DE-FlorianMultilingual) sound smoother / more international; the locale-only ones (e.g. de-DE-Conrad) sound like that nationality is GENUINELY trying to speak English. We want the second flavor — that's the comedy AND the historical realism. All 59 voices below are unique. Lookup is case-insensitive on alphanumeric chars only ('Mansa Musa' -> 'mansamusa').",
-
+    "_meta": "Per-leader voice mapping for DowagerMod Chatter voiceover. v5: prosody + native-tongue. Map values may be a bare voice name string OR a {voice, rate, pitch, lang, locale} object. rate/pitch examples: '-15%' / '+10%'. lang = human-readable language name (e.g. 'Russian', 'Mongolian'); when set AND DOWAGER_CHATTER_NATIVE_TONGUE_MODE=true, the LLM generates a translation that the TTS speaks instead of English. Leaders without 'lang' stay English even in native mode.",
+    "_native_tongue_meta": "When DOWAGER_CHATTER_NATIVE_TONGUE_MODE=true, the LLM also generates a 'line_native' translation for each line in the speaker's actual language. The TTS speaks the native version; in-game text shows English (subtitles). Leaders without a 'lang' field below stay English-only even in native-tongue mode (English natives, ambiguous historical languages, or where translation quality is doubtful). The 'lang' value is the human-readable language name passed to the LLM in its prompt.",
     "_fallback_male": [
         "en-US-DavisNeural",
         "en-CA-LiamNeural",
@@ -13,7 +13,6 @@
         "en-GB-LibbyNeural",
         "en-GB-HollieNeural"
     ],
-
     "_realism_notes": {
         "Alexander": "mk-MK voice literally named 'Aleksandar' — Macedonian is the modern descendant of Alexander's homeland",
         "Catherine the Great": "de-DE thick German — she was born German, ruled Russia, and historians note she NEVER lost her German accent at the Russian court",
@@ -31,111 +30,547 @@
         "Justinian": "it-IT-Gianni — Byzantine emperor whose legal code was in Latin; Italian gives him the imperial-Roman gravitas with a Mediterranean accent",
         "Reginald Endicott Barclay": "en-GB-Elliot — Star Trek nervous nerd. Pure inside-joke pick for the modder Easter egg leader."
     },
-
     "map": {
-        "alexander": "mk-MK-AleksandarNeural",
-        "asoka": "hi-IN-ArjunNeural",
-        "augustus": "it-IT-LisandroNeural",
-        "augustuscaesar": "it-IT-LisandroNeural",
-        "bismarck": "de-DE-RalfNeural",
-        "ottovonbismarck": "de-DE-RalfNeural",
+        "alexander": {
+            "voice": "mk-MK-AleksandarNeural",
+            "lang": "Modern Greek (the closest living language to Ancient Greek)",
+            "locale": "el-GR",
+            "voice_native": "el-GR-NestorasNeural"
+        },
+        "asoka": {
+            "voice": "hi-IN-AaravNeural",
+            "lang": "Hindi",
+            "locale": "hi-IN"
+        },
+        "augustus": {
+            "voice": "it-IT-LisandroNeural",
+            "lang": "Latin",
+            "locale": "it-IT"
+        },
+        "augustuscaesar": {
+            "voice": "it-IT-LisandroNeural",
+            "lang": "Latin",
+            "locale": "it-IT"
+        },
+        "bismarck": {
+            "voice": "de-DE-RalfNeural",
+            "rate": "-8%",
+            "pitch": "-5%",
+            "lang": "German",
+            "locale": "de-DE"
+        },
+        "ottovonbismarck": {
+            "voice": "de-DE-RalfNeural",
+            "rate": "-8%",
+            "pitch": "-5%",
+            "lang": "German",
+            "locale": "de-DE"
+        },
         "boudica": "en-IE-EmilyNeural",
-        "brennus": "fr-FR-ClaudeNeural",
-        "casimir": "pl-PL-MarekNeural",
-        "casimiriii": "pl-PL-MarekNeural",
-        "catherine": "de-DE-MajaNeural",
-        "catherinethegreat": "de-DE-MajaNeural",
-        "charlemagne": "de-DE-KillianNeural",
-        "chineseleader": "zh-CN-YunhaoNeural",
-        "maozedong": "zh-CN-YunhaoNeural",
-        "qianlong": "zh-CN-YunhaoNeural",
-        "churchill": "en-GB-OliverNeural",
-        "winstonchurchill": "en-GB-OliverNeural",
-        "cyrus": "ps-AF-GulNawazNeural",
-        "cyrusthegreat": "ps-AF-GulNawazNeural",
-        "darius": "ar-IQ-BasselNeural",
-        "dariusi": "ar-IQ-BasselNeural",
-        "degaulle": "fr-FR-MauriceNeural",
-        "charlesdegaulle": "fr-FR-MauriceNeural",
-        "dowagercountess": "en-GB-AbbiNeural",
-        "elizabeth": "en-GB-SoniaNeural",
-        "elizabethi": "en-GB-SoniaNeural",
-        "enricodandolo": "it-IT-CalimeroNeural",
+        "brennus": {
+            "voice": "fr-FR-ClaudeNeural",
+            "lang": "French",
+            "locale": "fr-FR"
+        },
+        "casimir": {
+            "voice": "pl-PL-MarekNeural",
+            "lang": "Polish",
+            "locale": "pl-PL"
+        },
+        "casimiriii": {
+            "voice": "pl-PL-MarekNeural",
+            "lang": "Polish",
+            "locale": "pl-PL"
+        },
+        "catherine": {
+            "voice": "de-DE-MajaNeural",
+            "lang": "Russian",
+            "locale": "ru-RU",
+            "voice_native": "ru-RU-SvetlanaNeural"
+        },
+        "catherinethegreat": {
+            "voice": "de-DE-MajaNeural",
+            "lang": "Russian",
+            "locale": "ru-RU",
+            "voice_native": "ru-RU-SvetlanaNeural"
+        },
+        "charlemagne": {
+            "voice": "de-DE-KillianNeural",
+            "lang": "German",
+            "locale": "de-DE"
+        },
+        "chineseleader": {
+            "voice": "zh-CN-YunhaoNeural",
+            "lang": "Mandarin Chinese",
+            "locale": "zh-CN"
+        },
+        "maozedong": {
+            "voice": "zh-CN-YunhaoNeural",
+            "lang": "Mandarin Chinese",
+            "locale": "zh-CN"
+        },
+        "qianlong": {
+            "voice": "zh-CN-YunhaoNeural",
+            "lang": "Mandarin Chinese",
+            "locale": "zh-CN"
+        },
+        "churchill": {
+            "voice": "en-GB-OliverNeural",
+            "rate": "-12%",
+            "pitch": "-8%"
+        },
+        "winstonchurchill": {
+            "voice": "en-GB-OliverNeural",
+            "rate": "-12%",
+            "pitch": "-8%"
+        },
+        "cyrus": {
+            "voice": "ps-AF-GulNawazNeural",
+            "lang": "Persian (Farsi)",
+            "locale": "fa-IR",
+            "voice_native": "fa-IR-FaridNeural"
+        },
+        "cyrusthegreat": {
+            "voice": "ps-AF-GulNawazNeural",
+            "lang": "Persian (Farsi)",
+            "locale": "fa-IR",
+            "voice_native": "fa-IR-FaridNeural"
+        },
+        "darius": {
+            "voice": "ar-IQ-BasselNeural",
+            "lang": "Persian (Farsi)",
+            "locale": "fa-IR",
+            "voice_native": "fa-IR-FaridNeural"
+        },
+        "dariusi": {
+            "voice": "ar-IQ-BasselNeural",
+            "lang": "Persian (Farsi)",
+            "locale": "fa-IR",
+            "voice_native": "fa-IR-FaridNeural"
+        },
+        "degaulle": {
+            "voice": "fr-FR-MauriceNeural",
+            "rate": "-8%",
+            "pitch": "-3%",
+            "lang": "French",
+            "locale": "fr-FR"
+        },
+        "charlesdegaulle": {
+            "voice": "fr-FR-MauriceNeural",
+            "rate": "-8%",
+            "pitch": "-3%",
+            "lang": "French",
+            "locale": "fr-FR"
+        },
+        "dowagercountess": {
+            "voice": "en-GB-HollieNeural",
+            "rate": "-18%",
+            "pitch": "-10%"
+        },
+        "elizabeth": {
+            "voice": "en-GB-SoniaNeural",
+            "rate": "-3%",
+            "pitch": "-2%"
+        },
+        "elizabethi": {
+            "voice": "en-GB-SoniaNeural",
+            "rate": "-3%",
+            "pitch": "-2%"
+        },
+        "enricodandolo": {
+            "voice": "it-IT-CalimeroNeural",
+            "lang": "Italian",
+            "locale": "it-IT"
+        },
         "franklinroosevelt": "en-US-GuyNeural",
         "fdr": "en-US-GuyNeural",
         "roosevelt": "en-US-GuyNeural",
-        "frederick": "de-DE-ChristophNeural",
-        "frederickthegreat": "de-DE-ChristophNeural",
-        "fredericki": "de-DE-ChristophNeural",
-        "gandhi": "en-IN-PrabhatNeural",
-        "mahatmagandhi": "en-IN-PrabhatNeural",
-        "genghiskhan": "mn-MN-BataaNeural",
-        "geronimo": "en-US-DavisNeural",
-        "geronimobtg": "en-US-DavisNeural",
-        "gilgamesh": "ar-SY-LaithNeural",
-        "haileselassie": "en-KE-ChilembaNeural",
-        "hammurabi": "ar-JO-TaimNeural",
-        "hannibal": "ar-TN-HediNeural",
-        "hannibalbarca": "ar-TN-HediNeural",
-        "hatshepsut": "ar-EG-SalmaNeural",
-        "huaynacapac": "es-PE-AlexNeural",
-        "isabella": "es-ES-ElviraNeural",
-        "isabellai": "es-ES-ElviraNeural",
-        "joao": "pt-PT-DuarteNeural",
-        "joaoii": "pt-PT-DuarteNeural",
-        "johnii": "pt-PT-DuarteNeural",
-        "juliuscaesar": "it-IT-RinaldoNeural",
-        "caesar": "it-IT-RinaldoNeural",
-        "justinian": "it-IT-GianniNeural",
-        "justiniani": "it-IT-GianniNeural",
-        "kublaikhan": "kk-KZ-DauletNeural",
-        "lincoln": "en-US-BrianNeural",
-        "abrahamlincoln": "en-US-BrianNeural",
-        "louisxiv": "fr-FR-AlainNeural",
-        "louisthexiv": "fr-FR-AlainNeural",
-        "mansamusa": "en-NG-AbeoNeural",
-        "mehmed": "tr-TR-AhmetNeural",
-        "mehmedii": "tr-TR-AhmetNeural",
-        "montezuma": "es-MX-CecilioNeural",
-        "napoleon": "fr-FR-YvesNeural",
-        "napoleonbonaparte": "fr-FR-YvesNeural",
-        "pacal": "es-MX-LibertoNeural",
-        "pacalii": "es-MX-LibertoNeural",
-        "pericles": "el-GR-NestorasNeural",
-        "peter": "ru-RU-DmitryNeural",
-        "peterthegreat": "ru-RU-DmitryNeural",
-        "qinshihuang": "zh-CN-YunjianNeural",
-        "qinshihuangdi": "zh-CN-YunjianNeural",
-        "ragnar": "no-NO-FinnNeural",
-        "ragnarlothbrok": "no-NO-FinnNeural",
-        "ramesses": "ar-EG-ShakirNeural",
-        "ramessesii": "ar-EG-ShakirNeural",
-        "ramses": "ar-EG-ShakirNeural",
+        "frederick": {
+            "voice": "de-DE-ChristophNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "lang": "German",
+            "locale": "de-DE"
+        },
+        "frederickthegreat": {
+            "voice": "de-DE-ChristophNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "lang": "German",
+            "locale": "de-DE"
+        },
+        "fredericki": {
+            "voice": "de-DE-ChristophNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "lang": "German",
+            "locale": "de-DE"
+        },
+        "gandhi": {
+            "voice": "en-IN-PrabhatNeural",
+            "lang": "Hindi",
+            "locale": "hi-IN",
+            "voice_native": "hi-IN-AaravNeural"
+        },
+        "mahatmagandhi": {
+            "voice": "en-IN-PrabhatNeural",
+            "lang": "Hindi",
+            "locale": "hi-IN",
+            "voice_native": "hi-IN-AaravNeural"
+        },
+        "genghiskhan": {
+            "voice": "mn-MN-BataaNeural",
+            "rate": "-3%",
+            "pitch": "-5%",
+            "lang": "Mongolian",
+            "locale": "mn-MN"
+        },
+        "geronimo": {
+            "voice": "en-US-BrianNeural",
+            "rate": "-8%",
+            "pitch": "-8%"
+        },
+        "geronimobtg": {
+            "voice": "en-US-BrianNeural",
+            "rate": "-8%",
+            "pitch": "-8%"
+        },
+        "gilgamesh": {
+            "voice": "ar-SY-LaithNeural",
+            "rate": "-8%",
+            "pitch": "-3%",
+            "lang": "Arabic",
+            "locale": "ar-SA",
+            "voice_native": "ar-SA-HamedNeural"
+        },
+        "haileselassie": {
+            "voice": "en-KE-ChilembaNeural",
+            "lang": "Amharic",
+            "locale": "am-ET",
+            "voice_native": "am-ET-AmehaNeural"
+        },
+        "hammurabi": {
+            "voice": "ar-JO-TaimNeural",
+            "rate": "-8%",
+            "pitch": "-3%",
+            "lang": "Arabic",
+            "locale": "ar-SA",
+            "voice_native": "ar-SA-HamedNeural"
+        },
+        "hannibal": {
+            "voice": "ar-TN-HediNeural",
+            "lang": "Arabic",
+            "locale": "ar-TN"
+        },
+        "hannibalbarca": {
+            "voice": "ar-TN-HediNeural",
+            "lang": "Arabic",
+            "locale": "ar-TN"
+        },
+        "hatshepsut": {
+            "voice": "ar-EG-SalmaNeural",
+            "lang": "Arabic",
+            "locale": "ar-EG"
+        },
+        "huaynacapac": {
+            "voice": "es-PE-AlexNeural",
+            "lang": "Spanish",
+            "locale": "es-PE"
+        },
+        "isabella": {
+            "voice": "es-ES-ElviraNeural",
+            "lang": "Spanish",
+            "locale": "es-ES"
+        },
+        "isabellai": {
+            "voice": "es-ES-ElviraNeural",
+            "lang": "Spanish",
+            "locale": "es-ES"
+        },
+        "joao": {
+            "voice": "pt-PT-DuarteNeural",
+            "lang": "Portuguese",
+            "locale": "pt-PT"
+        },
+        "joaoii": {
+            "voice": "pt-PT-DuarteNeural",
+            "lang": "Portuguese",
+            "locale": "pt-PT"
+        },
+        "johnii": {
+            "voice": "pt-PT-DuarteNeural",
+            "lang": "Portuguese",
+            "locale": "pt-PT"
+        },
+        "juliuscaesar": {
+            "voice": "it-IT-RinaldoNeural",
+            "lang": "Latin",
+            "locale": "it-IT"
+        },
+        "caesar": {
+            "voice": "it-IT-RinaldoNeural",
+            "lang": "Latin",
+            "locale": "it-IT"
+        },
+        "justinian": {
+            "voice": "it-IT-GianniNeural",
+            "lang": "Greek",
+            "locale": "el-GR",
+            "voice_native": "el-GR-NestorasNeural"
+        },
+        "justiniani": {
+            "voice": "it-IT-GianniNeural",
+            "lang": "Greek",
+            "locale": "el-GR",
+            "voice_native": "el-GR-NestorasNeural"
+        },
+        "kublaikhan": {
+            "voice": "kk-KZ-DauletNeural",
+            "lang": "Mongolian",
+            "locale": "mn-MN",
+            "voice_native": "mn-MN-BataaNeural"
+        },
+        "lincoln": {
+            "voice": "en-US-DavisNeural",
+            "rate": "-15%",
+            "pitch": "-12%"
+        },
+        "abrahamlincoln": {
+            "voice": "en-US-DavisNeural",
+            "rate": "-15%",
+            "pitch": "-12%"
+        },
+        "louisxiv": {
+            "voice": "fr-FR-AlainNeural",
+            "rate": "-5%",
+            "pitch": "+3%",
+            "lang": "French",
+            "locale": "fr-FR"
+        },
+        "louisthexiv": {
+            "voice": "fr-FR-AlainNeural",
+            "rate": "-5%",
+            "pitch": "+3%",
+            "lang": "French",
+            "locale": "fr-FR"
+        },
+        "mansamusa": {
+            "voice": "en-NG-AbeoNeural",
+            "lang": "Arabic",
+            "locale": "ar-SA",
+            "voice_native": "ar-SA-HamedNeural"
+        },
+        "mehmed": {
+            "voice": "tr-TR-AhmetNeural",
+            "lang": "Turkish",
+            "locale": "tr-TR"
+        },
+        "mehmedii": {
+            "voice": "tr-TR-AhmetNeural",
+            "lang": "Turkish",
+            "locale": "tr-TR"
+        },
+        "montezuma": {
+            "voice": "es-MX-CecilioNeural",
+            "rate": "+8%",
+            "pitch": "+5%",
+            "lang": "Spanish",
+            "locale": "es-MX"
+        },
+        "napoleon": {
+            "voice": "fr-FR-YvesNeural",
+            "lang": "French",
+            "locale": "fr-FR"
+        },
+        "napoleonbonaparte": {
+            "voice": "fr-FR-YvesNeural",
+            "lang": "French",
+            "locale": "fr-FR"
+        },
+        "pacal": {
+            "voice": "es-MX-LibertoNeural",
+            "lang": "Spanish",
+            "locale": "es-MX"
+        },
+        "pacalii": {
+            "voice": "es-MX-LibertoNeural",
+            "lang": "Spanish",
+            "locale": "es-MX"
+        },
+        "pericles": {
+            "voice": "el-GR-NestorasNeural",
+            "lang": "Greek",
+            "locale": "el-GR"
+        },
+        "peter": {
+            "voice": "ru-RU-DmitryNeural",
+            "lang": "Russian",
+            "locale": "ru-RU"
+        },
+        "peterthegreat": {
+            "voice": "ru-RU-DmitryNeural",
+            "lang": "Russian",
+            "locale": "ru-RU"
+        },
+        "qinshihuang": {
+            "voice": "zh-CN-YunjianNeural",
+            "lang": "Mandarin Chinese",
+            "locale": "zh-CN"
+        },
+        "qinshihuangdi": {
+            "voice": "zh-CN-YunjianNeural",
+            "lang": "Mandarin Chinese",
+            "locale": "zh-CN"
+        },
+        "ragnar": {
+            "voice": "da-DK-JeppeNeural",
+            "rate": "-5%",
+            "pitch": "-8%",
+            "lang": "Danish",
+            "locale": "da-DK"
+        },
+        "ragnarlothbrok": {
+            "voice": "da-DK-JeppeNeural",
+            "rate": "-5%",
+            "pitch": "-8%",
+            "lang": "Danish",
+            "locale": "da-DK"
+        },
+        "ramesses": {
+            "voice": "ar-EG-ShakirNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "lang": "Arabic",
+            "locale": "ar-EG"
+        },
+        "ramessesii": {
+            "voice": "ar-EG-ShakirNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "lang": "Arabic",
+            "locale": "ar-EG"
+        },
+        "ramses": {
+            "voice": "ar-EG-ShakirNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "lang": "Arabic",
+            "locale": "ar-EG"
+        },
         "reginaldendicottbarclay": "en-GB-ElliotNeural",
         "reginaldbarclay": "en-GB-ElliotNeural",
         "barclay": "en-GB-ElliotNeural",
-        "saladin": "ar-SA-HamedNeural",
+        "saladin": {
+            "voice": "ar-SA-HamedNeural",
+            "lang": "Arabic",
+            "locale": "ar-SA"
+        },
         "salamasina": "en-AU-NatashaNeural",
         "salamasinabtg": "en-AU-NatashaNeural",
-        "shaka": "zu-ZA-ThembaNeural",
-        "sittingbull": "en-US-TonyNeural",
-        "stalin": "ka-GE-GiorgiNeural",
-        "josephstalin": "ka-GE-GiorgiNeural",
-        "suleiman": "az-AZ-BabekNeural",
-        "suleimanthemagnificent": "az-AZ-BabekNeural",
-        "suryavarman": "th-TH-NiwatNeural",
-        "suryavarmanii": "th-TH-NiwatNeural",
-        "tokugawa": "ja-JP-KeitaNeural",
-        "tokugawaieyasu": "ja-JP-KeitaNeural",
-        "victoria": "en-GB-MiaNeural",
-        "wangkon": "ko-KR-InJoonNeural",
-        "wang": "ko-KR-InJoonNeural",
-        "washington": "en-US-AndrewNeural",
-        "georgewashington": "en-US-AndrewNeural",
-        "willem": "nl-NL-MaartenNeural",
-        "willemvanoranje": "nl-NL-MaartenNeural",
-        "williamoforange": "nl-NL-MaartenNeural",
-        "zarayaqob": "am-ET-AmehaNeural"
+        "shaka": {
+            "voice": "zu-ZA-ThembaNeural",
+            "rate": "+5%",
+            "pitch": "+3%",
+            "lang": "isiZulu",
+            "locale": "zu-ZA"
+        },
+        "sittingbull": {
+            "voice": "en-US-TonyNeural",
+            "rate": "-15%",
+            "pitch": "-8%"
+        },
+        "stalin": {
+            "voice": "ka-GE-GiorgiNeural",
+            "rate": "-5%",
+            "pitch": "-8%",
+            "lang": "Russian (with Georgian accent in spirit)",
+            "locale": "ru-RU",
+            "voice_native": "ru-RU-DmitryNeural"
+        },
+        "josephstalin": {
+            "voice": "ka-GE-GiorgiNeural",
+            "rate": "-5%",
+            "pitch": "-8%",
+            "lang": "Russian (with Georgian accent in spirit)",
+            "locale": "ru-RU",
+            "voice_native": "ru-RU-DmitryNeural"
+        },
+        "suleiman": {
+            "voice": "az-AZ-BabekNeural",
+            "lang": "Turkish",
+            "locale": "tr-TR",
+            "voice_native": "tr-TR-AhmetNeural"
+        },
+        "suleimanthemagnificent": {
+            "voice": "az-AZ-BabekNeural",
+            "lang": "Turkish",
+            "locale": "tr-TR",
+            "voice_native": "tr-TR-AhmetNeural"
+        },
+        "suryavarman": {
+            "voice": "th-TH-NiwatNeural",
+            "lang": "Thai",
+            "locale": "th-TH"
+        },
+        "suryavarmanii": {
+            "voice": "th-TH-NiwatNeural",
+            "lang": "Thai",
+            "locale": "th-TH"
+        },
+        "tokugawa": {
+            "voice": "ja-JP-KeitaNeural",
+            "lang": "Japanese",
+            "locale": "ja-JP"
+        },
+        "tokugawaieyasu": {
+            "voice": "ja-JP-KeitaNeural",
+            "lang": "Japanese",
+            "locale": "ja-JP"
+        },
+        "victoria": {
+            "voice": "en-GB-MiaNeural",
+            "rate": "-8%",
+            "pitch": "-3%"
+        },
+        "wangkon": {
+            "voice": "ko-KR-InJoonNeural",
+            "lang": "Korean",
+            "locale": "ko-KR"
+        },
+        "wang": {
+            "voice": "ko-KR-InJoonNeural",
+            "lang": "Korean",
+            "locale": "ko-KR"
+        },
+        "washington": {
+            "voice": "en-US-AndrewNeural",
+            "rate": "-8%",
+            "pitch": "-5%"
+        },
+        "georgewashington": {
+            "voice": "en-US-AndrewNeural",
+            "rate": "-8%",
+            "pitch": "-5%"
+        },
+        "willem": {
+            "voice": "nl-NL-MaartenNeural",
+            "lang": "Dutch",
+            "locale": "nl-NL"
+        },
+        "willemvanoranje": {
+            "voice": "nl-NL-MaartenNeural",
+            "lang": "Dutch",
+            "locale": "nl-NL"
+        },
+        "williamoforange": {
+            "voice": "nl-NL-MaartenNeural",
+            "lang": "Dutch",
+            "locale": "nl-NL"
+        },
+        "zarayaqob": {
+            "voice": "am-ET-AmehaNeural",
+            "lang": "Amharic",
+            "locale": "am-ET"
+        }
     }
 }
-

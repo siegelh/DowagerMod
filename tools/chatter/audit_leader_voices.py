@@ -54,7 +54,53 @@ LEADER_XML = (
 def title_from_leader_type(leader_type: str) -> str:
     """LEADER_DOWAGER_COUNTESS -> 'Dowager Countess'.
     LEADER_REGINALD_ENDICOTT_BARCLAY -> 'Reginald Endicott Barclay'.
+
+    Some leader types have artifacts (BTG mod suffix) or generic names that
+    aren't the actual leader; override those explicitly.
     """
+    overrides = {
+        "LEADER_CHINESE_LEADER": "Mao Zedong",
+        "LEADER_GERONIMO_BTG": "Geronimo",
+        "LEADER_SALAMASINA_BTG": "Salamasina",
+        "LEADER_WANGKON": "Wang Kon",
+        "LEADER_CASIMIR": "Casimir III",
+        "LEADER_LOUIS_XIV": "Louis XIV",
+        "LEADER_PACAL": "Pacal II",
+        "LEADER_MEHMED": "Mehmed II",
+        "LEADER_RAMESSES": "Ramesses II",
+        "LEADER_DARIUS": "Darius I",
+        "LEADER_FREDERICK": "Frederick the Great",
+        "LEADER_PETER": "Peter the Great",
+        "LEADER_CYRUS": "Cyrus the Great",
+        "LEADER_CATHERINE": "Catherine the Great",
+        "LEADER_QIN_SHI_HUANG": "Qin Shi Huang",
+        "LEADER_HUAYNA_CAPAC": "Huayna Capac",
+        "LEADER_FRANKLIN_ROOSEVELT": "Franklin Roosevelt",
+        "LEADER_DE_GAULLE": "Charles de Gaulle",
+        "LEADER_HAILE_SELASSIE": "Haile Selassie",
+        "LEADER_HAMMURABI": "Hammurabi",
+        "LEADER_KUBLAI_KHAN": "Kublai Khan",
+        "LEADER_GENGHIS_KHAN": "Genghis Khan",
+        "LEADER_ENRICO_DANDOLO": "Enrico Dandolo",
+        "LEADER_REGINALD_ENDICOTT_BARCLAY": "Reginald Endicott Barclay",
+        "LEADER_ZARA_YAQOB": "Zara Yaqob",
+        "LEADER_DOWAGER_COUNTESS": "Dowager Countess",
+        "LEADER_SULEIMAN": "Suleiman the Magnificent",
+        "LEADER_ELIZABETH": "Elizabeth I",
+        "LEADER_AUGUSTUS": "Augustus Caesar",
+        "LEADER_JUSTINIAN": "Justinian I",
+        "LEADER_ISABELLA": "Isabella I",
+        "LEADER_JOAO": "Joao II",
+        "LEADER_SURYAVARMAN": "Suryavarman II",
+        "LEADER_TOKUGAWA": "Tokugawa Ieyasu",
+        "LEADER_RAGNAR": "Ragnar Lothbrok",
+        "LEADER_SITTING_BULL": "Sitting Bull",
+        "LEADER_MANSA_MUSA": "Mansa Musa",
+        "LEADER_WILLEM": "Willem van Oranje",
+        "LEADER_HANNIBAL": "Hannibal Barca",
+    }
+    if leader_type in overrides:
+        return overrides[leader_type]
     s = leader_type
     if s.startswith("LEADER_"):
         s = s[len("LEADER_"):]
@@ -107,8 +153,15 @@ def main() -> int:
 
     leaders = list_leaders(LEADER_XML)
     if args.leader:
-        wanted = {l.lower() for l in args.leader}
-        leaders = [(t, n) for t, n in leaders if n.lower() in wanted or t.lower() in wanted]
+        wanted_raw = [l.lower().strip() for l in args.leader]
+        wanted_norm = {re.sub(r"[^a-z0-9]", "", w) for w in wanted_raw}
+        def matches(t: str, n: str) -> bool:
+            if t.lower() in wanted_raw or n.lower() in wanted_raw:
+                return True
+            t_norm = re.sub(r"[^a-z0-9]", "", t.lower())
+            n_norm = re.sub(r"[^a-z0-9]", "", n.lower())
+            return t_norm in wanted_norm or n_norm in wanted_norm
+        leaders = [(t, n) for t, n in leaders if matches(t, n)]
         if not leaders:
             print(f"{RED}FAIL: no leaders matched {args.leader!r}{RESET}")
             return 2
@@ -124,13 +177,25 @@ def main() -> int:
         voices_data = json.load(fh)
     explicit_map: dict = voices_data.get("map") or {}
 
-    # Resolve each leader to (display_name, voice, is_explicit_pick)
+    # Resolve each leader to (display_name, voice_spec, is_explicit_pick).
+    # Voice lookup tries the override name first, falls back to the bare
+    # title (LEADER_CATHERINE -> 'Catherine') so map entries stay simple.
     rows = []
     for leader_type, name in leaders:
+        bare = leader_type
+        if bare.startswith("LEADER_"):
+            bare = bare[len("LEADER_"):]
+        bare = " ".join(p.capitalize() for p in bare.split("_") if p)
         norm = normalize_name(name)
-        is_explicit = norm in explicit_map
-        voice = vp.pick_voice(name)
-        rows.append((leader_type, name, voice, is_explicit))
+        bare_norm = normalize_name(bare)
+        is_explicit = norm in explicit_map or bare_norm in explicit_map
+        if norm in explicit_map:
+            spec = vp.pick_spec(name)
+        elif bare_norm in explicit_map:
+            spec = vp.pick_spec(bare)
+        else:
+            spec = vp.pick_spec(name)  # auto-fallback
+        rows.append((leader_type, name, spec, is_explicit))
 
     # Coverage report
     print()
@@ -142,8 +207,8 @@ def main() -> int:
     if fallback:
         print()
         print(f"{YELLOW}  These leaders have NO explicit voice mapping; using auto-fallback:{RESET}")
-        for _, name, voice, _ in fallback:
-            print(f"    - {name:30}  ->  {voice}  (auto)")
+        for _, name, spec, _ in fallback:
+            print(f"    - {name:30}  ->  {spec.voice}  (auto)")
         print()
         print(f"{YELLOW}  To fix: add entries to tools/chatter/leader_voices.json with the{RESET}")
         print(f"{YELLOW}  normalized leader name as key (lowercase + alphanumeric only).{RESET}")
@@ -221,11 +286,20 @@ def main() -> int:
 
     passed = 0
     failed: list[tuple[str, str, str]] = []
-    for idx, (leader_type, name, voice, is_explicit) in enumerate(rows, start=1):
+    for idx, (leader_type, name, spec, is_explicit) in enumerate(rows, start=1):
+        voice = spec.voice
         if args.phrase:
             phrase = args.phrase
         else:
-            phrase = f"Hello, I am {name}. My voice is {voice}."
+            prosody_note = ""
+            if spec.rate or spec.pitch:
+                bits = []
+                if spec.rate:
+                    bits.append(f"rate {spec.rate}")
+                if spec.pitch:
+                    bits.append(f"pitch {spec.pitch}")
+                prosody_note = f" with " + ", ".join(bits)
+            phrase = f"Hello, I am {name}. My voice is {voice}{prosody_note}."
         # Sanitize leader name for filename
         safe_name = re.sub(r"[^A-Za-z0-9]+", "-", name).strip("-")
         out_path = out_dir / f"{idx:02d}-{safe_name}-{voice}.wav"
@@ -240,11 +314,14 @@ def main() -> int:
                 time.sleep(2.0 * attempt)
             try:
                 t0 = time.perf_counter()
-                result = sc.synthesize(phrase, voice=voice)
+                result = sc.synthesize(phrase, voice=voice, rate=spec.rate, pitch=spec.pitch)
                 elapsed_ms = int((time.perf_counter() - t0) * 1000)
                 out_path.write_bytes(result.audio_bytes)
                 retry_note = f" (retry {attempt})" if attempt > 0 else ""
-                print(f"  {GREEN}OK{RESET}  {marker}  {name:28} -> {out_path.name}  ({elapsed_ms}ms){retry_note}")
+                pros_note = ""
+                if spec.rate or spec.pitch:
+                    pros_note = f"  [{spec.rate or '-'} / {spec.pitch or '-'}]"
+                print(f"  {GREEN}OK{RESET}  {marker}  {name:28} -> {out_path.name}  ({elapsed_ms}ms){pros_note}{retry_note}")
                 passed += 1
                 attempt_err = None
                 break

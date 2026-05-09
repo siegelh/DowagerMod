@@ -13,6 +13,7 @@ from __future__ import annotations
 import logging
 import os
 import random
+import re
 import sys
 import time
 from pathlib import Path
@@ -68,18 +69,30 @@ def make_response(*, request: dict, ok: bool, lines, error: Optional[str], laten
     }
 
 
+_STAGE_DIRECTION_RE = re.compile(r"\*[^*\n]{1,80}\*")
+
+
+def _scrub_stage_directions(text: str) -> str:
+    """Remove *stage directions* like '*laughs*' or '*scoffs*' which the
+    voice synthesizer would speak literally and ruin the audio. Also
+    collapses any leftover double-spaces.
+    """
+    cleaned = _STAGE_DIRECTION_RE.sub("", text or "")
+    return re.sub(r"\s{2,}", " ", cleaned).strip()
+
+
 def render_single_line(request: dict, text: str) -> list:
     speaker = request.get("speaker") or {}
     return [{
         "speaker_player_id": int(speaker.get("player_id", -1)),
         "speaker_name": speaker.get("leader_name", ""),
-        "text": text,
+        "text": _scrub_stage_directions(text),
         "delay_ms": 0,
     }]
 
 
 def render_multi_turn(request: dict, parsed: list) -> list:
-    """Map parsed [{speaker:'Victoria', line:'...'}] to spool line entries.
+    """Map parsed [{speaker:'Victoria', line:'...', [line_native:'...']}] to spool line entries.
 
     Speaker-name -> player-id resolution is done by name match against the
     request's speaker/target. Anything that doesn't match falls back to the
@@ -99,29 +112,60 @@ def render_multi_turn(request: dict, parsed: list) -> list:
         spk_name = item["speaker"].strip()
         spk_id = name_map.get(spk_name.lower(), int(speaker.get("player_id", -1)))
         delay_ms = 0 if i == 0 else random.randint(REJOINDER_MIN_MS, REJOINDER_MAX_MS)
-        out.append({
+        entry = {
             "speaker_player_id": spk_id,
             "speaker_name": spk_name,
-            "text": item["line"],
+            "text": _scrub_stage_directions(item["line"]),
             "delay_ms": delay_ms,
-        })
+        }
+        # Carry through native translation if present
+        ln = (item.get("line_native") or "").strip()
+        if ln:
+            entry["text_native"] = _scrub_stage_directions(ln)
+        out.append(entry)
     return out
 
 
 def process_request(req_path: Path, request: dict, *, client: AzureClient, breaker: CircuitBreaker,
-                    logger: logging.Logger, max_tokens: int, max_tokens_multi: int) -> dict:
-    """Run one request through the API. Always returns a response dict."""
+                    logger: logging.Logger, max_tokens: int, max_tokens_multi: int,
+                    native_mode: bool = False, voice_picker=None) -> dict:
+    """Run one request through the API. Always returns a response dict.
+
+    When native_mode is True, asks the LLM for both English and native-tongue
+    versions of each line. The voice_picker is needed to know which native
+    language each speaker uses (skipped if leader has no configured 'lang').
+    """
     if not breaker.can_call():
         logger.info("circuit OPEN, dropping request_id=%s", request.get("request_id"))
         return make_response(request=request, ok=False, lines=[], error="circuit_open")
 
     multi = bool(request.get("multi_turn"))
+    # Resolve per-speaker native lang hints if native_mode is on
+    speaker_native_lang = ""
+    target_native_lang = ""
+    if native_mode and voice_picker is not None:
+        try:
+            sp = (request.get("speaker") or {}).get("leader_name", "")
+            if sp:
+                speaker_native_lang = voice_picker.pick_spec(sp).lang
+            tg = (request.get("target") or {}).get("leader_name", "")
+            if tg:
+                target_native_lang = voice_picker.pick_spec(tg).lang
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("native_mode: failed to resolve native langs: %s", exc)
     try:
         if multi:
-            sys_msg, user_msg = build_multi_turn_prompt(request)
+            sys_msg, user_msg = build_multi_turn_prompt(
+                request, native_mode=native_mode,
+                speaker_native_lang=speaker_native_lang,
+                target_native_lang=target_native_lang,
+            )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens_multi)
         else:
-            sys_msg, user_msg = build_single_line_prompt(request)
+            sys_msg, user_msg = build_single_line_prompt(
+                request, native_mode=native_mode,
+                speaker_native_lang=speaker_native_lang,
+            )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens)
     except AuthError as exc:
         breaker.trip_immediately()
@@ -142,7 +186,6 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
     if looks_like_refusal(text):
         logger.info("model refused, request_id=%s — substituting fallback line",
                     request.get("request_id"))
-        # Substitute a canned fallback so the user sees something rather than silence.
         speaker = request.get("speaker") or {}
         target = request.get("target") or {}
         is_broadcast = (request.get("mode") == "broadcast")
@@ -170,7 +213,16 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
         else:
             lines = render_multi_turn(request, parsed)
     else:
-        lines = render_single_line(request, text)
+        # In native mode, single-line is also a JSON object
+        if native_mode and speaker_native_lang:
+            from tools.chatter.azure_client import parse_single_line_native
+            parsed = parse_single_line_native(text)
+            lines = render_single_line(request, parsed.get("line", text))
+            ln = parsed.get("line_native", "")
+            if ln and lines:
+                lines[0]["text_native"] = _scrub_stage_directions(ln)
+        else:
+            lines = render_single_line(request, text)
 
     return make_response(
         request=request, ok=True, lines=lines, error=None,
@@ -310,29 +362,42 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
 
     rid = response.get("request_id") or "unknown"
     from tools.chatter.azure_speech_client import SpeechAuthError, SpeechApiError, SpeechBudgetExhausted
-    # Pace TTS calls to avoid Azure free-tier rate limits (20 req/60s on F0).
-    # 0.5s between calls = max 120/min if every call is back-to-back, well under
-    # any tier limit. In normal play this delay is invisible because most lines
-    # fire 5-10s apart anyway.
     last_synth_at = 0.0
     for idx, ln in enumerate(lines):
         text = (ln.get("text") or "").strip()
-        if not text:
+        text_native = (ln.get("text_native") or "").strip()
+        if not text and not text_native:
             continue
         speaker_name = (ln.get("speaker_name") or "").strip()
         chosen_voice = None
+        rate = ""
+        pitch = ""
+        locale = ""
+        # Use native text when available and a locale is configured for speaker
+        synth_text = text_native if text_native else text
         if voice_picker is not None and speaker_name:
             try:
-                chosen_voice = voice_picker.pick_voice(speaker_name)
+                spec = voice_picker.pick_spec(speaker_name)
+                # When speaking native and a voice_native is defined, use it.
+                # Otherwise (English mode OR no override) use the primary voice.
+                if text_native and spec.voice_native:
+                    chosen_voice = spec.voice_native
+                else:
+                    chosen_voice = spec.voice
+                rate = spec.rate
+                pitch = spec.pitch
+                if text_native:
+                    locale = spec.derived_locale()
             except Exception as exc:  # noqa: BLE001
                 logger.warning("voiceover: voice pick failed for %r: %s", speaker_name, exc)
                 chosen_voice = None
-        # Pacing
         elapsed = time.time() - last_synth_at
         if elapsed < 0.5 and last_synth_at > 0:
             time.sleep(0.5 - elapsed)
         try:
-            result = speech_client.synthesize(text, voice=chosen_voice)
+            result = speech_client.synthesize(
+                synth_text, voice=chosen_voice, rate=rate, pitch=pitch, locale=locale,
+            )
         except SpeechBudgetExhausted as exc:
             logger.warning("voiceover: %s", exc)
             return
@@ -434,6 +499,8 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
                 client=client, breaker=breaker, logger=logger,
                 max_tokens=cfg.max_tokens,
                 max_tokens_multi=cfg.max_tokens_multi_turn,
+                native_mode=cfg.voiceover.native_tongue_mode,
+                voice_picker=voice_picker,
             )
 
             # And refresh again after the API call completes, before writing

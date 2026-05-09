@@ -111,6 +111,10 @@ SYSTEM_DIRECTED = (
     "Constraints:\n"
     "- Output exactly ONE sentence, no more than 25 words.\n"
     "- Witty, theatrical, slightly arch. In-character trash talk is welcome.\n"
+    "- Punctuated interjections are encouraged when they fit the moment: "
+    "Ha! Bah! Pah! Hmph! Tch! Pfft! At last! Indeed! "
+    "(Use them as the first word, followed by a comma or exclamation, then your sentence.)\n"
+    "- NEVER use stage directions or asterisks like *laughs* or *scoffs* — those get spoken literally by the voice synthesizer.\n"
     "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
     '- Stay in character. Do not refer to "the game" or "the player" or "Civilization IV".\n'
     "- No quotation marks around the line. No leader name prefix.\n"
@@ -136,6 +140,10 @@ SYSTEM_BROADCAST = (
     "Constraints:\n"
     "- Output exactly ONE sentence, no more than 25 words.\n"
     "- Theatrical, proud, in-character. Boast or proclaim as fits the moment.\n"
+    "- Punctuated interjections are encouraged when they fit the moment: "
+    "Behold! At last! Hark! Ha! Indeed! "
+    "(Use them as the first word, followed by a comma or exclamation, then your sentence.)\n"
+    "- NEVER use stage directions or asterisks like *raises arms* or *laughs* — those get spoken literally by the voice synthesizer.\n"
     "- Do NOT address any specific rival by name. This is to all the world.\n"
     "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
     '- Stay in character. Do not refer to "the game" or "the player" or "Civilization IV".\n'
@@ -153,6 +161,10 @@ SYSTEM_MULTI_TURN = (
     "and \"line\" (their remark, ONE sentence, max 25 words).\n\n"
     "Constraints for every line:\n"
     "- Witty, theatrical, slightly arch. In-character trash talk is welcome.\n"
+    "- Punctuated interjections are encouraged when they fit the moment: "
+    "Ha! Bah! Pah! Hmph! Tch! Pfft! Indeed! Behold! Hark! "
+    "(Use them as the first word, followed by a comma or exclamation, then the sentence.)\n"
+    "- NEVER use stage directions or asterisks like *laughs* *scoffs* *raises arms* — those get spoken literally by the voice synthesizer and ruin the audio.\n"
     '- Stay in character. No references to "the game" or "the player".\n'
     "- No quotation marks within the line. No leader name prefix inside the line.\n"
     "- Each leader's lines must respond to the prior speaker's line, escalating naturally.\n"
@@ -160,11 +172,72 @@ SYSTEM_MULTI_TURN = (
     "Output ONLY the JSON array. No markdown, no commentary, no code fences."
 )
 
+SYSTEM_MULTI_TURN_NATIVE = (
+    "You are a historical playwright generating a brief exchange between two leaders "
+    "from Sid Meier's Civilization IV. Both leaders speak in-character with "
+    "period-appropriate flavor.\n\n"
+    "Premise: {premise}\n\n"
+    "Generate exactly {n_lines} lines as a JSON array of objects, each with THREE keys:\n"
+    '  "speaker" : the leader\'s name, alternating between {speaker_leader} and {target_leader}\n'
+    '  "line"    : the remark in ENGLISH (one sentence, max 25 words). This is the subtitle the player reads.\n'
+    '  "line_native" : the SAME remark translated into the speaker\'s native language. {speaker_leader} speaks {speaker_native_lang}; {target_leader} speaks {target_native_lang}. Use the natural script for that language (Cyrillic for Russian, Hanzi for Mandarin, Devanagari for Hindi, Arabic script for Arabic, Hangul for Korean, etc.). If you do not know how to render the language fluently, return the English text in line_native as a fallback.\n\n'
+    "Constraints for every line:\n"
+    "- Witty, theatrical, slightly arch. In-character trash talk is welcome.\n"
+    "- Punctuated interjections are encouraged when they fit the moment "
+    "(use natural-language equivalents in line_native).\n"
+    "- NEVER use stage directions or asterisks like *laughs* *scoffs* — those get spoken literally and ruin the audio.\n"
+    '- Stay in character. No references to "the game" or "the player".\n'
+    "- No quotation marks within the line. No leader name prefix inside the line.\n"
+    "- Each leader's lines must respond to the prior speaker's line, escalating naturally.\n"
+    "- The English line and the native line must convey the SAME meaning.\n"
+    "- No real-world modern politics, no slurs, no profanity stronger than mild.\n\n"
+    "Output ONLY the JSON array. No markdown, no commentary, no code fences."
+)
+
+SYSTEM_DIRECTED_NATIVE = (
+    "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
+    "Sid Meier's Civilization IV. {action}.\n\n"
+    "Speak in-character with period-appropriate flavor, addressing {target_leader} directly.\n\n"
+    "Output a JSON object with TWO keys:\n"
+    '  "line"        : your remark in ENGLISH (one sentence, max 25 words). This is the subtitle.\n'
+    '  "line_native" : the SAME remark translated into your native language ({speaker_native_lang}). Use the natural script. If you do not know how to render this language fluently, return the English text as a fallback.\n\n'
+    "Constraints:\n"
+    "- Witty, theatrical, slightly arch. Trash talk welcome.\n"
+    "- Interjections encouraged (Ha!, Bah!, Pah! in English; natural equivalents in line_native).\n"
+    "- NEVER use stage directions or asterisks.\n"
+    "- No real-world modern politics, no slurs.\n"
+    "- The English line and the native line must convey the SAME meaning.\n"
+    "- Output ONLY the JSON object. No markdown, no code fences."
+)
+
+SYSTEM_BROADCAST_NATIVE = (
+    "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
+    "Sid Meier's Civilization IV. {action}.\n\n"
+    "Proclaim this to the world in-character.\n\n"
+    "Output a JSON object with TWO keys:\n"
+    '  "line"        : your proclamation in ENGLISH (one sentence, max 25 words). This is the subtitle.\n'
+    '  "line_native" : the SAME proclamation translated into your native language ({speaker_native_lang}). Use the natural script.\n\n'
+    "Constraints:\n"
+    "- Theatrical, proud, in-character.\n"
+    "- Interjections encouraged.\n"
+    "- Do NOT address any specific rival by name.\n"
+    "- NEVER use stage directions or asterisks.\n"
+    "- No real-world modern politics, no slurs.\n"
+    "- The English and native versions must match in meaning.\n"
+    "- Output ONLY the JSON object. No markdown, no code fences."
+)
+
 USER_TEMPLATE = "Game state: turn {game_turn}, {era} era.\n{extra}"
 
 
-def build_single_line_prompt(request: dict) -> tuple[str, str]:
-    """Return (system_message, user_message) for a single-line directed/broadcast call."""
+def build_single_line_prompt(request: dict, *, native_mode: bool = False,
+                             speaker_native_lang: str = "") -> tuple[str, str]:
+    """Return (system_message, user_message) for a single-line directed/broadcast call.
+
+    When native_mode is True AND speaker_native_lang is non-empty, the LLM
+    returns a JSON object with both English (line) and native (line_native).
+    Otherwise it returns a plain text line as before.
+    """
     trigger = request["trigger"]
     tmpl = TRIGGERS.get(trigger)
     if tmpl is None:
@@ -187,19 +260,37 @@ def build_single_line_prompt(request: dict) -> tuple[str, str]:
     }
     action = tmpl.action.format(**fmt)
     user_extra = tmpl.user_extra.format(**fmt)
+    use_native = native_mode and bool(speaker_native_lang)
     if tmpl.mode == "broadcast":
-        system_msg = SYSTEM_BROADCAST.format(
-            speaker_leader=fmt["speaker_leader"],
-            speaker_civ=fmt["speaker_civ"],
-            action=action,
-        )
+        if use_native:
+            system_msg = SYSTEM_BROADCAST_NATIVE.format(
+                speaker_leader=fmt["speaker_leader"],
+                speaker_civ=fmt["speaker_civ"],
+                action=action,
+                speaker_native_lang=speaker_native_lang,
+            )
+        else:
+            system_msg = SYSTEM_BROADCAST.format(
+                speaker_leader=fmt["speaker_leader"],
+                speaker_civ=fmt["speaker_civ"],
+                action=action,
+            )
     else:
-        system_msg = SYSTEM_DIRECTED.format(
-            speaker_leader=fmt["speaker_leader"],
-            speaker_civ=fmt["speaker_civ"],
-            target_leader=fmt["target_leader"],
-            action=action,
-        )
+        if use_native:
+            system_msg = SYSTEM_DIRECTED_NATIVE.format(
+                speaker_leader=fmt["speaker_leader"],
+                speaker_civ=fmt["speaker_civ"],
+                target_leader=fmt["target_leader"],
+                action=action,
+                speaker_native_lang=speaker_native_lang,
+            )
+        else:
+            system_msg = SYSTEM_DIRECTED.format(
+                speaker_leader=fmt["speaker_leader"],
+                speaker_civ=fmt["speaker_civ"],
+                target_leader=fmt["target_leader"],
+                action=action,
+            )
         if target.get("is_barbarian"):
             system_msg += BARB_CONTEMPT_DIRECTIVE
     user_msg = USER_TEMPLATE.format(
@@ -210,8 +301,15 @@ def build_single_line_prompt(request: dict) -> tuple[str, str]:
     return system_msg, user_msg
 
 
-def build_multi_turn_prompt(request: dict) -> tuple[str, str]:
-    """Return (system_message, user_message) for a one-shot multi-line script call."""
+def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
+                            speaker_native_lang: str = "",
+                            target_native_lang: str = "") -> tuple[str, str]:
+    """Return (system_message, user_message) for a one-shot multi-line script call.
+
+    When native_mode is True AND both leaders have a configured native lang,
+    each generated line carries both 'line' (English) and 'line_native'
+    (translated). Otherwise plain English lines as before.
+    """
     trigger = request["trigger"]
     tmpl = TRIGGERS.get(trigger)
     if tmpl is None:
@@ -240,11 +338,22 @@ def build_multi_turn_prompt(request: dict) -> tuple[str, str]:
         f"Generate a {n_lines}-line back-and-forth exchange beginning with {fmt['speaker_leader']}'s opening barb. "
         f"Speakers strictly alternate: {fmt['speaker_leader']}, {fmt['target_leader']}, ..."
     )
-    system_msg = SYSTEM_MULTI_TURN.format(
-        speaker_leader=fmt["speaker_leader"],
-        target_leader=fmt["target_leader"],
-        n_lines=n_lines,
-        premise=premise,
-    )
+    use_native = native_mode and bool(speaker_native_lang) and bool(target_native_lang)
+    if use_native:
+        system_msg = SYSTEM_MULTI_TURN_NATIVE.format(
+            speaker_leader=fmt["speaker_leader"],
+            target_leader=fmt["target_leader"],
+            n_lines=n_lines,
+            premise=premise,
+            speaker_native_lang=speaker_native_lang,
+            target_native_lang=target_native_lang,
+        )
+    else:
+        system_msg = SYSTEM_MULTI_TURN.format(
+            speaker_leader=fmt["speaker_leader"],
+            target_leader=fmt["target_leader"],
+            n_lines=n_lines,
+            premise=premise,
+        )
     user_msg = "Generate the exchange now."
     return system_msg, user_msg

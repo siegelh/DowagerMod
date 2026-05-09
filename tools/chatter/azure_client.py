@@ -174,7 +174,7 @@ class AzureClient:
 
 
 def parse_multi_turn_lines(raw: str) -> List[dict]:
-    """Parse a JSON array of {speaker, line} from the model's output.
+    """Parse a JSON array of {speaker, line[, line_native]} from the model's output.
 
     Tolerates code fences, leading/trailing whitespace, and minor format
     quirks. Raises ValueError if it can't be parsed.
@@ -198,10 +198,38 @@ def parse_multi_turn_lines(raw: str) -> List[dict]:
         line = str(item.get("line", "")).strip()
         if not speaker or not line:
             raise ValueError(f"item {i} missing speaker or line")
-        out.append({"speaker": speaker, "line": line})
+        entry = {"speaker": speaker, "line": line}
+        # Optional native-tongue translation
+        line_native = str(item.get("line_native", "")).strip()
+        if line_native:
+            entry["line_native"] = line_native
+        out.append(entry)
     if not out:
         raise ValueError("empty exchange")
     return out
+
+
+def parse_single_line_native(raw: str) -> dict:
+    """Parse a JSON object {line, line_native} from the single-line native call.
+    Returns {'line': str, 'line_native': str}. Falls back to {'line': raw} if parse fails.
+    """
+    text = raw.strip()
+    text = re.sub(r"^```(?:json)?\s*", "", text)
+    text = re.sub(r"\s*```\s*$", "", text)
+    idx = text.find("{")
+    if idx > 0:
+        text = text[idx:]
+    try:
+        parsed = json.loads(text)
+        if isinstance(parsed, dict) and parsed.get("line"):
+            out = {"line": str(parsed["line"]).strip()}
+            ln = str(parsed.get("line_native", "")).strip()
+            if ln:
+                out["line_native"] = ln
+            return out
+    except Exception:  # noqa: BLE001
+        pass
+    return {"line": text}
 
 
 # Simple post-render denylist. Triggered after the model returns text but

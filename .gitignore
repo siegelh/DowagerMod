@@ -34,3 +34,7 @@ test_speech_output.wav
 test_discord_audio.wav
 voice_audit/
 voices_list.txt
+demo_flow/
+dowager_test.wav
+lincoln_test_*.wav
+dramatic_test*.wav
