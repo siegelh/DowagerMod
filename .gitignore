@@ -33,3 +33,4 @@ tmp/**
 test_speech_output.wav
 test_discord_audio.wav
 voice_audit/
+voices_list.txt
