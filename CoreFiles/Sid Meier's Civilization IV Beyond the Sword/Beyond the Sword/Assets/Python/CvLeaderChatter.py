@@ -371,7 +371,8 @@ _debug_hello_fired_at_turn_2 = False
 
 # Triggers that should always render as a 1-to-1 exchange (directed mode).
 DIRECTED_TRIGGERS = (
-    "DECLARE_WAR", "PEACE_TREATY", "CITY_CAPTURED", "CITY_RAZED",
+    "DECLARE_WAR", "WAR_DECLARED_ON_ME", "PEACE_TREATY",
+    "CITY_CAPTURED", "CITY_RAZED",
     "PLAYER_ELIMINATED_GLOAT", "PLAYER_ELIMINATED_LAST_WORDS",
     "VASSAL_FORCED", "VASSAL_ACCEPTED", "FIRST_CONTACT", "BACKSTABBED",
 )
@@ -381,7 +382,8 @@ BROADCAST_TRIGGERS = (
 )
 # Triggers that may use multi-turn rejoinders.
 REJOINDER_ELIGIBLE = (
-    "DECLARE_WAR", "CITY_CAPTURED", "CITY_RAZED", "BACKSTABBED",
+    "DECLARE_WAR", "WAR_DECLARED_ON_ME",
+    "CITY_CAPTURED", "CITY_RAZED", "BACKSTABBED",
     "PLAYER_ELIMINATED_GLOAT",
 )
 
@@ -1724,14 +1726,28 @@ def chatter_on_mod_net_message(iData1, iData2, iData3, iData4, iData5):
 
 # ----- trigger handlers (one per event type) -----
 
+def _is_human_player(iPlayer):
+    """True if the given player slot is controlled by a human. Defensive."""
+    try:
+        if iPlayer < 0:
+            return False
+        return bool(_gc().getPlayer(int(iPlayer)).isHuman())
+    except:
+        return False
+
+
 def chatter_on_change_war(bIsWar, iAttackerTeam, iDefenderTeam):
     """Called from CvEventManager.onChangeWar.
 
-    For DoW (bIsWar=True), emits BACKSTABBED instead of DECLARE_WAR if the
-    defender's leader still views the attacker as Pleased/Friendly OR the
-    defender has accumulated several positive memories of the attacker
-    (open borders, traded resources/tech, etc.). The line is spoken FROM
-    the betrayed defender TO the attacker, matching the prompt template.
+    Speaker selection rules:
+      - If both sides are AI: attacker speaks DECLARE_WAR (or defender speaks
+        BACKSTABBED on a betrayal-like DoW, see _is_backstab).
+      - If AI declares on human: attacker (AI) speaks DECLARE_WAR.
+      - If human declares on AI: AI defender speaks BACKSTABBED on betrayal
+        signals, otherwise WAR_DECLARED_ON_ME (a different trigger so the
+        prompt can frame it as the defender reacting, not the aggressor
+        announcing).
+      - PEACE_TREATY: AI side speaks (whichever side is not human).
     """
     if _disabled:
         return
@@ -1739,16 +1755,21 @@ def chatter_on_change_war(bIsWar, iAttackerTeam, iDefenderTeam):
         atk_p, def_p = _representative_players_for_teams(iAttackerTeam, iDefenderTeam)
         if atk_p < 0 or def_p < 0:
             return
+        atk_human = _is_human_player(atk_p)
+        def_human = _is_human_player(def_p)
         if bIsWar:
             if _is_backstab(atk_p, def_p):
-                # Speaker = defender (the betrayed), target = attacker.
                 _emit_request("BACKSTABBED", def_p, atk_p, {}, multi_turn=True)
+            elif atk_human and not def_human:
+                _emit_request("WAR_DECLARED_ON_ME", def_p, atk_p, {}, multi_turn=True)
             else:
                 _emit_request("DECLARE_WAR", atk_p, def_p, {}, multi_turn=True)
         else:
-            # Peace treaty (only fire if pair was at war for >0 turns; engine
-            # handles that — if !bIsWar fires they had been at war).
-            _emit_request("PEACE_TREATY", atk_p, def_p, {}, multi_turn=True)
+            # Peace treaty: prefer AI as speaker so the line has a persona.
+            if atk_human and not def_human:
+                _emit_request("PEACE_TREATY", def_p, atk_p, {}, multi_turn=True)
+            else:
+                _emit_request("PEACE_TREATY", atk_p, def_p, {}, multi_turn=True)
     except Exception, exc:
         _log("on_change_war error: " + str(exc))
 

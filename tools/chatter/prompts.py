@@ -73,6 +73,11 @@ TRIGGERS: Dict[str, TriggerTemplate] = {
         action="{target_leader} of {target_civ}, your long-time ally, has just declared war on you without warning",
         user_extra="Your trusted ally has betrayed you. React.",
     ),
+    "WAR_DECLARED_ON_ME": TriggerTemplate(
+        mode="directed",
+        action="{target_leader} of {target_civ} has just declared war on you, marching their armies to your border",
+        user_extra="React to having war declared on you.",
+    ),
     # ===== Broadcast triggers =====
     "RELIGION_FOUNDED": TriggerTemplate(
         mode="broadcast",
@@ -139,14 +144,18 @@ BARB_CONTEMPT_DIRECTIVE = (
 # in the diplomacy screen header, e.g. "Player: Harrison"). Use sparingly
 # so the in-character voice still dominates.
 HUMAN_PLAYER_DIRECTIVE = (
-    "\n\nNote: {target_leader} is portrayed by a real human player whose chosen "
-    'in-game player name is "{target_human_name}". You MAY occasionally address '
-    'them by "{target_human_name}" instead of {target_leader} for a comedic '
-    "period-clash effect "
-    "(e.g. \"Hark, {target_human_name}! Your empire crumbles!\"). "
-    "Use this VERY sparingly -- at most once per exchange -- and always re-anchor "
-    "back to the in-character {target_leader} address afterwards. Most lines must "
-    "still use the leader name."
+    "\n\nIMPORTANT: {target_leader} is portrayed by a real human player whose "
+    'chosen in-game player name is "{target_human_name}". EVERY line you '
+    'produce that addresses them MUST address them as "{target_human_name}" '
+    "(their actual chosen player name) -- NOT by the leader name "
+    "{target_leader}. The comedic effect of breaking the period frame to call "
+    "the human player out by their real name across the centuries is the "
+    "entire point. Examples:\n"
+    '  - "Behold, {target_human_name}, the dawn of a new age!"\n'
+    '  - "{target_human_name}! You will regret this day."\n'
+    '  - "Hear me, {target_human_name} -- your folly is plain."\n'
+    "Do NOT lapse into addressing them as {target_leader}. Use "
+    '"{target_human_name}" whenever you address them.'
 )
 
 SYSTEM_BROADCAST = (
