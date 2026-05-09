@@ -197,6 +197,20 @@ def gc_spool(spool_path: Path, cfg, logger: logging.Logger) -> None:
         n_resp = spool_mod.gc_old_files(spool_path, spool_mod.RESP_PREFIX, cfg.response_ttl_seconds)
         if n_req or n_resp:
             logger.info("janitor: removed %d stale req, %d stale resp", n_req, n_resp)
+        # GC voiceover WAV files older than 1 hour. Best-effort.
+        audio_dir = spool_path / "audio"
+        if audio_dir.is_dir():
+            now = time.time()
+            removed = 0
+            for p in audio_dir.glob("tts-*.wav"):
+                try:
+                    if (now - p.stat().st_mtime) > 3600:
+                        p.unlink()
+                        removed += 1
+                except Exception:
+                    pass
+            if removed:
+                logger.info("janitor: removed %d stale tts WAV files", removed)
     except Exception as exc:  # noqa: BLE001
         logger.warning("janitor failed: %s", exc)
 
@@ -206,6 +220,111 @@ def heartbeat(spool_path: Path, logger: logging.Logger) -> None:
         spool_mod.write_pid_file(spool_path, os.getpid())
     except Exception as exc:  # noqa: BLE001
         logger.warning("heartbeat failed: %s", exc)
+
+
+def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
+    """Initialize Speech client + Discord bot if voiceover is configured.
+
+    Returns (speech_client, bot_worker) tuple. Either may be None if not
+    enabled or if startup failed. Failures are logged but don't kill the
+    daemon — text chatter remains unaffected.
+    """
+    if not cfg.voiceover.is_ready():
+        if cfg.voiceover.enabled:
+            logger.info("voiceover enabled in config but missing fields; skipping")
+        return None, None
+
+    # Speech client
+    try:
+        from tools.chatter.azure_speech_client import AzureSpeechClient
+        speech_client = AzureSpeechClient(
+            endpoint=cfg.voiceover.azure_speech_endpoint,
+            key=cfg.voiceover.azure_speech_key,
+            default_voice=cfg.voiceover.azure_speech_voice,
+            request_timeout_seconds=cfg.request_timeout_seconds,
+            daily_char_cap=cfg.voiceover.daily_char_cap,
+        )
+        logger.info(
+            "voiceover: Speech client initialized endpoint=%s voice=%s daily_cap=%d",
+            cfg.voiceover.azure_speech_endpoint, cfg.voiceover.azure_speech_voice,
+            cfg.voiceover.daily_char_cap,
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("voiceover: Speech client init failed: %s", exc)
+        return None, None
+
+    # Discord bot
+    try:
+        from tools.chatter.discord_bot import DiscordBotWorker
+        bot = DiscordBotWorker(
+            bot_token=cfg.voiceover.discord_bot_token,
+            guild_id=int(cfg.voiceover.discord_guild_id),
+            voice_channel_id=int(cfg.voiceover.discord_voice_channel_id),
+            logger=logger,
+        )
+        bot.start()
+        logger.info(
+            "voiceover: Discord bot started guild=%s channel=%s",
+            cfg.voiceover.discord_guild_id, cfg.voiceover.discord_voice_channel_id,
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("voiceover: Discord bot init failed: %s", exc)
+        return speech_client, None
+
+    return speech_client, bot
+
+
+def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, logger: logging.Logger) -> None:
+    """If voiceover is wired up, synthesize each response line and enqueue
+    it to the Discord bot for playback. Failures log + continue (text
+    chatter is unaffected).
+    """
+    if speech_client is None or bot is None:
+        return
+    if not response.get("ok"):
+        return
+    lines = response.get("lines") or []
+    audio_dir = spool_path / "audio"
+    try:
+        audio_dir.mkdir(parents=True, exist_ok=True)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("voiceover: cannot create audio dir %s: %s", audio_dir, exc)
+        return
+
+    rid = response.get("request_id") or "unknown"
+    from tools.chatter.azure_speech_client import SpeechAuthError, SpeechApiError, SpeechBudgetExhausted
+    for idx, ln in enumerate(lines):
+        text = (ln.get("text") or "").strip()
+        if not text:
+            continue
+        try:
+            result = speech_client.synthesize(text)
+        except SpeechBudgetExhausted as exc:
+            logger.warning("voiceover: %s", exc)
+            return
+        except SpeechAuthError as exc:
+            logger.error("voiceover: Speech auth failure (disabling for this run): %s", exc)
+            return
+        except SpeechApiError as exc:
+            logger.warning("voiceover: synth failed for line %d: %s", idx, exc)
+            continue
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("voiceover: unexpected synth failure for line %d: %s", idx, exc)
+            continue
+        wav_path = audio_dir / f"tts-{rid}-{idx}.wav"
+        try:
+            wav_path.write_bytes(result.audio_bytes)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("voiceover: write WAV failed %s: %s", wav_path, exc)
+            continue
+        logger.info(
+            "voiceover: synth ok rid=%s line=%d chars=%d latency=%dms voice=%s",
+            rid, idx, result.char_count, result.latency_ms, result.voice,
+        )
+        try:
+            bot.enqueue_audio(wav_path)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("voiceover: enqueue failed for %s: %s", wav_path, exc)
 
 
 def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
@@ -231,6 +350,8 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         open_seconds=cfg.circuit_breaker.open_seconds,
     )
     state = StateStore()  # noqa: F841 — reserved for future use
+
+    speech_client, bot = setup_voiceover(cfg, spool_path, logger)
 
     last_call_at = 0.0
     last_heartbeat = 0.0
@@ -286,6 +407,8 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
             last_heartbeat = time.time()
 
             write_response(spool_path, response, logger)
+            voiceover_response(response, speech_client=speech_client, bot=bot,
+                               spool_path=spool_path, logger=logger)
             spool_mod.safe_unlink(req_path)
             last_call_at = time.time()
             processed += 1

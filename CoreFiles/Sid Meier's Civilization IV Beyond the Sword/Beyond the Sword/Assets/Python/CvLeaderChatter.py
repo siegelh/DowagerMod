@@ -349,13 +349,13 @@ CHATTER_LINE_MAGIC = 0x434C          # 'CL' as int -- chatter line chunk
 HEARTBEAT_FRESH_SECONDS = 60         # local sidecar heartbeat must be within this
 CAPABILITY_REBROADCAST_TURNS = 50    # re-advertise capability every N game turns
 CAPABILITY_STALE_HEARTBEATS = 5      # peers drop us after N missed advertisements
-PER_PAIR_COOLDOWN_TURNS = 200        # min game turns between exchanges for same pair
-GLOBAL_LINE_PER_REAL_MIN_CAP = 4     # max chatter lines per 60s real-time
+PER_PAIR_COOLDOWN_TURNS = 30         # min game turns between exchanges for same pair
+GLOBAL_LINE_PER_REAL_MIN_CAP = 10    # max chatter lines per 60s real-time
 LINE_TICK_BUDGET_SECONDS = 0.005     # max wallclock per onUpdate-equivalent tick
 SPOOL_SCAN_LIMIT = 8                 # max response files scanned per tick
-REJOINDER_PROBABILITY = 0.5          # chance a trigger gets a multi-turn exchange
+REJOINDER_PROBABILITY = 0.75         # chance a multi_turn-eligible trigger gets a multi-turn exchange
 SPAWN_RETRY_SECONDS = 30             # don't try to spawn sidecar more than once per N seconds
-DROP_NEW_WHILE_QUEUE_ACTIVE = True   # one event at a time
+DROP_NEW_WHILE_QUEUE_ACTIVE = False  # queue-don't-drop new events during in-flight render
 NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o capable elector
 
 # === DEBUG MODE (smoke test only) ===
@@ -878,16 +878,35 @@ def _global_rate_limit_ok():
 
 
 def _player_info(player_id):
-    """Build a {player_id, leader_name, civ_short_name, score} dict for the request.
+    """Build a {player_id, leader_name, civ_short_name, score, is_barbarian}
+    dict for the request.
 
     leader_name comes from CIV4LeaderHeadInfos (e.g. 'Victoria', 'Lincoln'),
     NOT from p.getName() which returns the player's local OS nickname (e.g.
     'Harrison'). In multiplayer the nickname IS the actual player's name and
     might be useful elsewhere, but for AI-generated trash talk the leader
     name is the in-character handle the LLM should think it's playing.
+
+    Special case: the BARBARIAN player has no real LeaderHead. Returns
+    "the Barbarian Hordes" with is_barbarian=true so the sidecar can add a
+    max-contempt directive to the prompt. Without this, _player_info would
+    fall back to "Unknown" and the LLM would faithfully address "Unknown".
     """
+    is_barb = False
     try:
         p = _gc().getPlayer(player_id)
+        try:
+            is_barb = bool(p.isBarbarian())
+        except:
+            is_barb = False
+        if is_barb:
+            return {
+                "player_id": int(player_id),
+                "leader_name": "the Barbarian Hordes",
+                "civ_short_name": "Barbarian",
+                "score": 0,
+                "is_barbarian": True,
+            }
         leader_name = ""
         try:
             leader_type = p.getLeaderType()
@@ -904,15 +923,17 @@ def _player_info(player_id):
                 leader_name = ""
         if not leader_name:
             leader_name = "Unknown"
+            _log("warn: _player_info fallback Unknown for player_id=" + str(player_id))
         return {
             "player_id": int(player_id),
             "leader_name": leader_name,
             "civ_short_name": _to_ascii(p.getCivilizationShortDescription(0)),
             "score": int(p.calculateScore()),
+            "is_barbarian": False,
         }
     except:
         return {"player_id": int(player_id), "leader_name": "Unknown",
-                "civ_short_name": "Unknown", "score": 0}
+                "civ_short_name": "Unknown", "score": 0, "is_barbarian": False}
 
 
 def _era_name(player_id):
@@ -935,8 +956,8 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
 
     # Allow only one in-flight at a time
     if _pending_request_id is not None:
-        # If pending is older than 60s, drop it (sidecar must be slow/dead)
-        if (_now() - _pending_request_at) > 60.0:
+        # If pending is older than 30s, drop it (sidecar must be slow/dead)
+        if (_now() - _pending_request_at) > 30.0:
             _log("dropping stale pending request " + str(_pending_request_id))
             _pending_request_id = None
         else:
@@ -983,7 +1004,12 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
             ctx[k] = _to_ascii(str(extra_context[k]))
 
     if multi_turn and trigger in REJOINDER_ELIGIBLE and target is not None:
-        if random.random() < REJOINDER_PROBABILITY:
+        # Force single-line when target is barbarian: the Hordes don't make
+        # for a meaningful back-and-forth speaker. Just one withering remark.
+        if target.get("is_barbarian"):
+            n_lines = 1
+            multi = False
+        elif random.random() < REJOINDER_PROBABILITY:
             n_lines = 3
             multi = True
         else:
@@ -1653,7 +1679,7 @@ def chatter_on_change_war(bIsWar, iAttackerTeam, iDefenderTeam):
         else:
             # Peace treaty (only fire if pair was at war for >0 turns; engine
             # handles that — if !bIsWar fires they had been at war).
-            _emit_request("PEACE_TREATY", atk_p, def_p, {}, multi_turn=False)
+            _emit_request("PEACE_TREATY", atk_p, def_p, {}, multi_turn=True)
     except Exception, exc:
         _log("on_change_war error: " + str(exc))
 
@@ -1763,7 +1789,7 @@ def chatter_on_first_contact(iTeamX, iHasMetTeamY):
         x_p, y_p = _representative_players_for_teams(iTeamX, iHasMetTeamY)
         if x_p < 0 or y_p < 0:
             return
-        _emit_request("FIRST_CONTACT", x_p, y_p, {}, multi_turn=False)
+        _emit_request("FIRST_CONTACT", x_p, y_p, {}, multi_turn=True)
     except Exception, exc:
         _log("on_first_contact error: " + str(exc))
 
@@ -1847,11 +1873,11 @@ def chatter_on_player_eliminated(iPlayer):
         if killer < 0:
             return
         # Two events: gloat (killer speaks) and last-words (eliminated speaks).
-        # Both are short single-line, no rejoinder. Fire both with slight separation.
-        _emit_request("PLAYER_ELIMINATED_GLOAT", killer, iPlayer, {}, multi_turn=False)
+        # Both are now multi-turn for dramatic last-stand exchanges.
+        _emit_request("PLAYER_ELIMINATED_GLOAT", killer, iPlayer, {}, multi_turn=True)
         # Last words is ALWAYS broadcast even if the gloat was emitted (cooldown
-        # check uses the same pair, so we side-step by not re-emitting if pending).
-        _emit_request("PLAYER_ELIMINATED_LAST_WORDS", iPlayer, killer, {}, multi_turn=False)
+        # and dedup don't share keys -- separate trigger ID).
+        _emit_request("PLAYER_ELIMINATED_LAST_WORDS", iPlayer, killer, {}, multi_turn=True)
     except Exception, exc:
         _log("on_player_eliminated error: " + str(exc))
 

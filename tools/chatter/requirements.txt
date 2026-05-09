@@ -1,1 +1,6 @@
 openai>=1.0.0
+# Voiceover (optional). Required only when voiceover_enabled is true in
+# config and Discord bot fields are populated. Importing discord is
+# wrapped in try/except in tools/chatter/discord_bot.py so missing this
+# package does NOT break text chatter.
+discord.py[voice]>=2.3.0

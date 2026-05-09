@@ -117,6 +117,17 @@ SYSTEM_DIRECTED = (
     "- Output ONLY the line itself, nothing else."
 )
 
+# Appended to the system message when target.is_barbarian is True. Authorizes
+# the LLM to drop the diplomatic register and speak with imperial contempt.
+# Keep cues evocative but PG-13 (still no slurs / heavy profanity).
+BARB_CONTEMPT_DIRECTIVE = (
+    "\n\nIMPORTANT: Your target is the Barbarian Hordes -- not a peer civilization, "
+    "not a fellow ruler, but raiders, savages, and rabble. Speak with maximum "
+    "imperial contempt and dehumanizing swagger. Be openly disdainful, mock "
+    "their squalor, their brutishness, their lack of civilization. Theatrical "
+    "cruelty is welcome here. They are not your equal; do not treat them as one."
+)
+
 SYSTEM_BROADCAST = (
     "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
     "Sid Meier's Civilization IV. {action}.\n\n"
@@ -189,6 +200,8 @@ def build_single_line_prompt(request: dict) -> tuple[str, str]:
             target_leader=fmt["target_leader"],
             action=action,
         )
+        if target.get("is_barbarian"):
+            system_msg += BARB_CONTEMPT_DIRECTIVE
     user_msg = USER_TEMPLATE.format(
         game_turn=request.get("game_turn", 0),
         era=ctx.get("era", "unknown"),

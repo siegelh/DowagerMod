@@ -27,6 +27,17 @@ DEFAULTS = {
     "request_ttl_seconds": 60,
     "response_ttl_seconds": 3600,
     "log_level": "INFO",
+    # Voiceover (Azure Speech + Discord bot) -- all optional. When
+    # voiceover_enabled is False or any required field is empty, the daemon
+    # skips TTS and the bot is never started; text chatter is unaffected.
+    "voiceover_enabled": False,
+    "azure_speech_endpoint": "",
+    "azure_speech_key": "",
+    "azure_speech_voice": "en-US-AriaNeural",
+    "voiceover_daily_char_cap": 100000,
+    "discord_bot_token": "",
+    "discord_guild_id": "",
+    "discord_voice_channel_id": "",
 }
 
 
@@ -34,6 +45,43 @@ DEFAULTS = {
 class CircuitBreakerConfig:
     failure_threshold: int = 3
     open_seconds: int = 120
+
+
+@dataclass
+class VoiceoverConfig:
+    enabled: bool = False
+    azure_speech_endpoint: str = ""
+    azure_speech_key: str = ""
+    azure_speech_voice: str = "en-US-AriaNeural"
+    daily_char_cap: int = 100000
+    discord_bot_token: str = ""
+    discord_guild_id: str = ""
+    discord_voice_channel_id: str = ""
+
+    def is_ready(self) -> bool:
+        """True iff all fields needed to actually run voiceover are populated."""
+        return bool(
+            self.enabled
+            and self.azure_speech_endpoint
+            and self.azure_speech_key
+            and self.discord_bot_token
+            and self.discord_guild_id
+            and self.discord_voice_channel_id
+        )
+
+    def redacted_speech_key(self) -> str:
+        if not self.azure_speech_key:
+            return "<empty>"
+        if len(self.azure_speech_key) <= 8:
+            return "***"
+        return self.azure_speech_key[:4] + "..." + self.azure_speech_key[-4:]
+
+    def redacted_bot_token(self) -> str:
+        if not self.discord_bot_token:
+            return "<empty>"
+        if len(self.discord_bot_token) <= 8:
+            return "***"
+        return self.discord_bot_token[:4] + "..." + self.discord_bot_token[-4:]
 
 
 @dataclass
@@ -52,6 +100,7 @@ class Config:
     request_ttl_seconds: float = 60.0
     response_ttl_seconds: float = 3600.0
     log_level: str = "INFO"
+    voiceover: VoiceoverConfig = field(default_factory=VoiceoverConfig)
 
     def redacted_api_key(self) -> str:
         if not self.api_key:
@@ -157,6 +206,16 @@ def load_config(path: Optional[Path] = None) -> Config:
         request_ttl_seconds=float(raw.get("request_ttl_seconds", 60)),
         response_ttl_seconds=float(raw.get("response_ttl_seconds", 3600)),
         log_level=str(raw.get("log_level", "INFO")).upper(),
+        voiceover=VoiceoverConfig(
+            enabled=bool(raw.get("voiceover_enabled", False)),
+            azure_speech_endpoint=str(raw.get("azure_speech_endpoint", "")),
+            azure_speech_key=str(raw.get("azure_speech_key", "")),
+            azure_speech_voice=str(raw.get("azure_speech_voice", "en-US-AriaNeural")),
+            daily_char_cap=int(raw.get("voiceover_daily_char_cap", 100000)),
+            discord_bot_token=str(raw.get("discord_bot_token", "")),
+            discord_guild_id=str(raw.get("discord_guild_id", "")),
+            discord_voice_channel_id=str(raw.get("discord_voice_channel_id", "")),
+        ),
     )
 
 

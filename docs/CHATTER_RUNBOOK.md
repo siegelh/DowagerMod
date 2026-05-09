@@ -19,6 +19,66 @@ design overview, see [`CHATTER_OVERVIEW.md`](CHATTER_OVERVIEW.md).
    gaming desktop; skip on your laptop if you don't want a background
    Python process running all the time.
 
+## Voiceover setup (optional, opt-in)
+
+Voiceover plays each chatter line aloud in a Discord voice channel via a
+bot account, so everyone in the channel hears it. Friend needs ZERO
+additional setup beyond joining the same voice channel.
+
+**Prerequisites (one-time):**
+
+1. **Azure Speech resource** (separate from Foundry):
+   - Create a Speech resource in the Azure portal. Free tier (F0) gives
+     500K characters/month — plenty for normal play.
+   - Copy the endpoint (e.g. `https://<region>.api.cognitive.microsoft.com/`)
+     and one of the keys.
+2. **Discord bot:**
+   - Go to https://discord.com/developers/applications and create a new
+     application.
+   - Add a Bot to the application; copy the bot token.
+   - Generate an OAuth2 invite URL with the `bot` scope and `Connect` +
+     `Speak` voice permissions.
+   - Click the invite URL and add the bot to your Discord server.
+   - In Discord, enable Developer Mode (Settings → Advanced) so you can
+     right-click and Copy ID. Get your server (guild) ID and the voice
+     channel ID where the bot should connect.
+3. **FFmpeg** on the sidecar machine (used by discord.py for audio):
+   ```powershell
+   winget install ffmpeg
+   ```
+   Or download from https://ffmpeg.org/download.html and add to PATH.
+4. **discord.py with voice extras**:
+   ```powershell
+   pip install -U "discord.py[voice]"
+   ```
+
+**Configure:**
+
+```powershell
+.\tools\Setup-Chatter.ps1 -ConfigureVoiceover
+```
+
+(Or just answer "y" when the script asks "Configure voiceover?" during
+a normal run.)
+
+The script prompts for Speech endpoint + key, voice name (default
+`en-US-AriaNeural`), Discord bot token, guild ID, and voice channel ID.
+Skip any prompt to disable voiceover.
+
+**Restart the sidecar** after configuring:
+
+```powershell
+.\tools\Stop-Chatter.ps1
+.\tools\Start-Chatter.ps1
+```
+
+The bot will auto-connect to the configured voice channel on startup and
+play each chatter line as it is generated.
+
+**To disable later:** re-run `Setup-Chatter.ps1`, decline at the
+voiceover prompt, restart sidecar. Bot disconnects, no more Speech API
+calls, text chatter unchanged.
+
 ## Running the sidecar
 
 ```powershell
