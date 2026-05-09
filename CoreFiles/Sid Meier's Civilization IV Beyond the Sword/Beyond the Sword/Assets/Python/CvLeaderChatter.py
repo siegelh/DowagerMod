@@ -1925,15 +1925,35 @@ def chatter_on_city_razed(pCity, iPlayer):
 
 
 def chatter_on_first_contact(iTeamX, iHasMetTeamY):
-    """Called from CvEventManager.onFirstContact (team-based)."""
+    """Called from CvEventManager.onFirstContact (team-based).
+
+    Only fires when the local human is one of the two parties -- 16-civ
+    games cascade with AI-AI contacts at the start of the game and they
+    are pure noise to the player. When the human IS involved, the AI
+    leader is always the speaker (introducing themselves *to* the human).
+    """
     if _disabled:
         return
     try:
-        # Emit from team X's leader to team Y's leader
         x_p, y_p = _representative_players_for_teams(iTeamX, iHasMetTeamY)
         if x_p < 0 or y_p < 0:
             return
-        _emit_request("FIRST_CONTACT", x_p, y_p, {}, multi_turn=True)
+        x_human = _is_human_player(x_p)
+        y_human = _is_human_player(y_p)
+        # Skip if neither side is the human (16-civ games make AI-AI contact spam).
+        if not (x_human or y_human):
+            _log("FIRST_CONTACT skipped: AI-AI contact (x=" + str(x_p)
+                 + " y=" + str(y_p) + ")")
+            return
+        # Skip the rare both-human case (multiplayer); not interesting chatter.
+        if x_human and y_human:
+            return
+        # AI introduces themselves TO the human.
+        if x_human:
+            speaker_id, target_id = y_p, x_p
+        else:
+            speaker_id, target_id = x_p, y_p
+        _emit_request("FIRST_CONTACT", speaker_id, target_id, {}, multi_turn=True)
     except Exception, exc:
         _log("on_first_contact error: " + str(exc))
 
