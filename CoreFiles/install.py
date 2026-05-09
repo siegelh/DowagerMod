@@ -52,8 +52,17 @@ import sys
 import time
 from pathlib import Path
 
+# Local sibling module
+try:
+    from . import install_hot  # type: ignore
+except ImportError:
+    # When invoked as a script, package import won't work
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import install_hot  # type: ignore
+
 PAYLOAD_DIRNAME = "Sid Meier's Civilization IV Beyond the Sword"
 PRISTINE_SUFFIX = " - PRISTINE"
+PRISTINE_HOT_SUFFIX = " - PRISTINE_HOT"
 SENTINEL_NAME = "_DOWAGERMOD_INSTALLED.txt"
 SOUND_FILENAME = "install_noise.wav"
 
@@ -806,30 +815,33 @@ def install(args: argparse.Namespace) -> None:
         live = discover_install_dir()
         cfg["install_dir"] = str(live)
 
-    # Resolve pristine dir (always sibling of live)
+    # Resolve pristine dir + the HOT pre-staged clone
     pristine = Path(str(live) + PRISTINE_SUFFIX)
+    pristine_hot = Path(str(live) + PRISTINE_HOT_SUFFIX)
     cfg["pristine_dir"] = str(pristine)
-
-    # Refresh pristine if requested
+    cfg["pristine_hot_dir"] = str(pristine_hot)
+    # Refresh pristine if requested -- also nukes HOT (it would be stale).
     if args.refresh_pristine and pristine.exists():
         print(f"--refresh-pristine: deleting existing pristine at {pristine}")
         shutil.rmtree(pristine)
+        if pristine_hot.exists():
+            print(f"  also deleting stale HOT clone at {pristine_hot}")
+            shutil.rmtree(pristine_hot)
 
-    # Bootstrap pristine if missing
+    # Bootstrap pristine if missing.
     if not pristine.exists():
         capture_pristine(live, pristine)
 
     save_config(cfg)
 
-    # The actual install: wipe via /MIR from pristine, then overlay payload.
+    # ---- The actual install ----
     print()
     print("-" * 60)
     print("Installing DowagerMod")
     print("-" * 60)
-    robocopy(pristine, live, mirror=True, label="restore pristine")
-    robocopy(payload_root, live, mirror=False, label="overlay mod payload")
 
-    # Sentinel
+    install_used_hot = install_hot.install_from_pristine_or_hot(live, pristine, pristine_hot, robocopy)
+    robocopy(payload_root, live, mirror=False, label="overlay mod payload")    # Sentinel
     version = get_mod_version()
     sentinel = live / SENTINEL_NAME
     sentinel.write_text(
@@ -854,6 +866,19 @@ def install(args: argparse.Namespace) -> None:
     print(f"  Pristine:    {pristine}")
     print(f"  Config:      {CONFIG_FILE}")
     print("=" * 60)
+
+    # If we just consumed PRISTINE_HOT (via fast-path rename), kick off a
+    # background re-prep so the NEXT install is also instant. The user is
+    # free to launch Civ4 immediately; the background copy doesn't block.
+    if install_used_hot:
+        print()
+        print("(Background: re-prepping PRISTINE_HOT for next install. Safe to launch the game now.)")
+        install_hot.kickoff_background_hot_rebuild(pristine, pristine_hot)
+    elif pristine.exists() and not pristine_hot.exists():
+        # First install ever (or post-refresh): create HOT in background.
+        print()
+        print("(Background: creating PRISTINE_HOT for next install. Safe to launch the game now.)")
+        install_hot.kickoff_background_hot_rebuild(pristine, pristine_hot)
 
 
 def main(argv: list[str]) -> int:
