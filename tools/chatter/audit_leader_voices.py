@@ -97,6 +97,8 @@ def main() -> int:
                         help="Custom test phrase. Default: 'Hello, I am <Name>. My voice is <voice>.'")
     parser.add_argument("--out-dir", default="voice_audit",
                         help="Directory to save WAVs into (default: voice_audit/).")
+    parser.add_argument("--no-play", action="store_true",
+                        help="Skip live local playback. Default: play each WAV as it is synthesized.")
     args = parser.parse_args()
 
     print()
@@ -174,7 +176,40 @@ def main() -> int:
     print(f"  output dir:  {out_dir.resolve()}")
     print(f"  voices:      {len(rows)} unique calls")
     print(f"  pacing:      0.4s between calls (avoid free-tier throttle)")
+    if not args.no_play:
+        print(f"  playback:    LIVE (playing each WAV through default audio device)")
     print()
+
+    # Probe winsound up front; falls back to ffplay if available.
+    play_method = None
+    if not args.no_play:
+        try:
+            import winsound  # noqa: F401
+            play_method = "winsound"
+        except ImportError:
+            import shutil
+            if shutil.which("ffplay"):
+                play_method = "ffplay"
+            else:
+                print(f"{YELLOW}  warning: no winsound (non-Windows) and no ffplay; live playback disabled{RESET}")
+
+    def _play_wav_blocking(path: Path) -> None:
+        """Play the WAV synchronously through the default audio device."""
+        if play_method == "winsound":
+            import winsound
+            try:
+                winsound.PlaySound(str(path), winsound.SND_FILENAME)
+            except Exception as exc:  # noqa: BLE001
+                print(f"{YELLOW}    (playback failed: {exc}){RESET}")
+        elif play_method == "ffplay":
+            import subprocess
+            try:
+                subprocess.run(
+                    ["ffplay", "-nodisp", "-autoexit", "-loglevel", "quiet", str(path)],
+                    check=False,
+                )
+            except Exception as exc:  # noqa: BLE001
+                print(f"{YELLOW}    (playback failed: {exc}){RESET}")
 
     from tools.chatter.azure_speech_client import AzureSpeechClient, SpeechAuthError, SpeechApiError
     sc = AzureSpeechClient(
@@ -224,6 +259,10 @@ def main() -> int:
             print(f"  {RED}FAIL{RESET}  {marker}  {name:28} voice={voice}")
             print(f"        -> {attempt_err}")
             failed.append((name, voice, attempt_err))
+            continue
+        # Live play (blocking — waits for the WAV to finish before continuing)
+        if not args.no_play and play_method is not None:
+            _play_wav_blocking(out_path)
 
     print()
     print(f"{CYAN}===== Summary ====={RESET}")
