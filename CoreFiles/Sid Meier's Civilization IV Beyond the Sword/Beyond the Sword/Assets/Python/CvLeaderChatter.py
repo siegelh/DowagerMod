@@ -340,6 +340,7 @@ _no_elector_diag_fired = False  # one-time diagnostic when nobody is capable
 _no_elector_first_seen_turn = -1
 _next_msg_id = 1                # incrementing message ID for line chunks
 _pending_lines = {}             # msg_id -> {'speaker_id', 'expected_chunks', 'received', 'parts'}
+_last_trigger_emit_at = {}      # trigger -> unix ts of most recent emission (for per-trigger realtime cooldowns)
 
 
 # ===== tunables =====
@@ -357,6 +358,22 @@ REJOINDER_PROBABILITY = 0.75         # chance a multi_turn-eligible trigger gets
 SPAWN_RETRY_SECONDS = 30             # don't try to spawn sidecar more than once per N seconds
 DROP_NEW_WHILE_QUEUE_ACTIVE = False  # queue-don't-drop new events during in-flight render
 NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o capable elector
+
+# Triggers that MUST fire even if a lower-priority request is in flight or
+# normal cooldowns are active. War/peace/elimination beats first-to-tech.
+HIGH_PRIORITY_TRIGGERS = (
+    "DECLARE_WAR", "WAR_DECLARED_ON_ME", "BACKSTABBED",
+    "PEACE_TREATY",
+    "CITY_CAPTURED", "CITY_RAZED",
+    "PLAYER_ELIMINATED_GLOAT", "PLAYER_ELIMINATED_LAST_WORDS",
+    "VASSAL_FORCED", "VASSAL_ACCEPTED",
+)
+
+# Per-trigger global realtime cooldown (seconds). Triggers not listed here
+# have no per-trigger throttle (they still hit global rate-limit + dedup).
+PER_TRIGGER_REAL_COOLDOWN_SECONDS = {
+    "FIRST_TO_TECH": 180,  # at most one first-to-tech boast every 3 minutes
+}
 
 # === DEBUG MODE (smoke test only) ===
 # When True, the module fires test messages on game start and after a few
@@ -833,6 +850,19 @@ def _record_pair_exchange(speaker_id, target_id):
     _pair_cooldown[(a, b)] = turn
 
 
+def _per_trigger_cooldown_active(trigger):
+    """True if `trigger` was emitted within its configured per-trigger
+    realtime cooldown window. Used to throttle low-value chatter (e.g.
+    FIRST_TO_TECH) without affecting unrelated triggers."""
+    window = PER_TRIGGER_REAL_COOLDOWN_SECONDS.get(trigger)
+    if not window:
+        return False
+    last = _last_trigger_emit_at.get(trigger)
+    if last is None:
+        return False
+    return (_now() - last) < window
+
+
 def _global_rate_limit_ok():
     """True iff we are under the per-real-minute global cap."""
     now = _now()
@@ -1019,21 +1049,42 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
              + str(speaker_id) + ", target=" + str(target_id) + ")")
         return None
 
-    # Allow only one in-flight at a time
+    is_high_priority = trigger in HIGH_PRIORITY_TRIGGERS
+
+    # Per-trigger realtime cooldown (e.g. FIRST_TO_TECH). High-priority
+    # events (war/peace/elimination) are NEVER throttled this way -- a
+    # declaration of war must always be voiced.
+    if not is_high_priority and _per_trigger_cooldown_active(trigger):
+        last = _last_trigger_emit_at.get(trigger, 0.0)
+        age = _now() - last
+        window = PER_TRIGGER_REAL_COOLDOWN_SECONDS.get(trigger, 0)
+        _log("emit " + trigger + " gated: per-trigger cooldown "
+             + str(int(age)) + "s/" + str(window) + "s")
+        return None
+
+    # Allow only one in-flight at a time -- UNLESS the new trigger is
+    # high-priority, in which case it preempts the pending request.
+    # The pending response may still arrive and render later; that's
+    # acceptable -- the important chatter goes through immediately.
     if _pending_request_id is not None:
-        # If pending is older than 30s, drop it (sidecar must be slow/dead)
-        if (_now() - _pending_request_at) > 30.0:
-            _log("dropping stale pending request " + str(_pending_request_id))
+        if is_high_priority:
+            _log("preempting pending request " + str(_pending_request_id)
+                 + " for HIGH-priority trigger " + trigger)
             _pending_request_id = None
         else:
-            _log("emit " + trigger + " gated: pending request " + str(_pending_request_id) + " in flight")
-            return None
+            # If pending is older than 30s, drop it (sidecar must be slow/dead)
+            if (_now() - _pending_request_at) > 30.0:
+                _log("dropping stale pending request " + str(_pending_request_id))
+                _pending_request_id = None
+            else:
+                _log("emit " + trigger + " gated: pending request " + str(_pending_request_id) + " in flight")
+                return None
 
-    if DROP_NEW_WHILE_QUEUE_ACTIVE and _display_queue:
+    if DROP_NEW_WHILE_QUEUE_ACTIVE and _display_queue and not is_high_priority:
         _log("emit " + trigger + " gated: display_queue size=" + str(len(_display_queue)))
         return None
 
-    if not _global_rate_limit_ok():
+    if not is_high_priority and not _global_rate_limit_ok():
         _log("emit " + trigger + " gated: global rate limit hit")
         return None
 
@@ -1043,8 +1094,10 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
              + ", capable_humans=" + str(list(_capable_humans.keys())) + ")")
         return None
 
-    # Per-pair cooldown
-    if _per_pair_cooldown_active(speaker_id, target_id):
+    # Per-pair cooldown (skipped for HIGH-priority: war/peace/elimination
+    # between the same two leaders should always be voiced even if they
+    # had a chatter exchange recently).
+    if not is_high_priority and _per_pair_cooldown_active(speaker_id, target_id):
         _log("emit " + trigger + " gated: per-pair cooldown speaker=" + str(speaker_id) + " target=" + str(target_id))
         return None
 
@@ -1117,6 +1170,7 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
 
     _pending_request_id = rid
     _pending_request_at = _now()
+    _last_trigger_emit_at[trigger] = _now()
     _record_pair_exchange(speaker_id, target_id)
     _log("emitted " + trigger + " req=" + rid + " multi=" + str(multi))
     return rid
@@ -1916,6 +1970,9 @@ def chatter_on_tech_acquired(iTech, iTeam, iPlayer, bAnnounce):
     """Called from CvEventManager.onTechAcquired.
 
     Fire only if the player is the FIRST in the world to discover the tech.
+    Skips techs in (or below) the game's start era to avoid drowning the
+    early game in low-flavor "first to Pottery" announcements; relies on
+    the per-trigger realtime cooldown for ongoing throttling.
     """
     if _disabled:
         return
@@ -1924,6 +1981,21 @@ def chatter_on_tech_acquired(iTech, iTeam, iPlayer, bAnnounce):
             return
         if not _first_in_world_for_tech(iTech, iTeam):
             return
+        # Era gate: skip techs in (or before) the era the game started in.
+        # Default Ancient start -> ancient techs are skipped (pottery,
+        # mysticism, etc. -- everyone gets these and they fire constantly).
+        try:
+            tech_era = _gc().getTechInfo(iTech).getEra()
+            start_era = _gc().getGame().getStartEra()
+            if tech_era <= start_era:
+                _log("FIRST_TO_TECH skipped: tech_era=" + str(tech_era)
+                     + " <= start_era=" + str(start_era)
+                     + " tech=" + _to_ascii(_gc().getTechInfo(iTech).getDescription()))
+                return
+        except Exception, era_exc:
+            # If era lookup fails, fall through to emit (don't lose chatter
+            # over a metadata hiccup).
+            _log("FIRST_TO_TECH era-gate lookup failed: " + str(era_exc))
         tech_name = _to_ascii(_gc().getTechInfo(iTech).getDescription())
         _emit_request("FIRST_TO_TECH", iPlayer, -1,
                       {"tech": tech_name}, multi_turn=False)
