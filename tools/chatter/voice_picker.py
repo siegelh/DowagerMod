@@ -106,16 +106,19 @@ class VoicePicker:
 
         path = json_path or (Path(__file__).resolve().parent / "leader_voices.json")
         try:
-            with path.open("r", encoding="utf-8") as fh:
-                data = json.load(fh)
+            raw_bytes = path.read_bytes()
+            sha256 = hashlib.sha256(raw_bytes).hexdigest()[:16]
+            data = json.loads(raw_bytes.decode("utf-8"))
             # Map entries may be strings or {voice, rate, pitch} dicts.
             self._map = {str(k).lower(): v for k, v in (data.get("map") or {}).items()}
             self._fallback_male = list(data.get("_fallback_male") or [])
             self._fallback_female = list(data.get("_fallback_female") or [])
             self._loaded = True
             self.logger.info(
-                "voice picker loaded: %d entries, fallback_male=%d fallback_female=%d",
+                "voice picker loaded: %d entries, fallback_male=%d fallback_female=%d "
+                "path=%s sha256=%s size=%dB",
                 len(self._map), len(self._fallback_male), len(self._fallback_female),
+                path, sha256, len(raw_bytes),
             )
         except FileNotFoundError:
             self.logger.warning("voice picker: no leader_voices.json at %s; using default voice for all", path)

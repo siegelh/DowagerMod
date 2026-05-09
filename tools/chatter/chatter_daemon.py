@@ -527,6 +527,15 @@ def main(argv: Optional[list] = None) -> int:
     cfg = cfg_mod.load_config()
     spool_path = cfg_mod.spool_dir()
     logger = setup_logging(spool_path, cfg.log_level)
+    # Provenance footer: makes stale-vs-fresh restarts unambiguous in daemon.log.
+    try:
+        cfg_path = cfg_mod.config_path()
+    except Exception:  # noqa: BLE001
+        cfg_path = "?"
+    logger.info(
+        "daemon boot: schema=%d config=%s spool=%s log_level=%s",
+        SCHEMA_VERSION, cfg_path, spool_path, cfg.log_level,
+    )
     try:
         return main_loop(cfg, spool_path, logger) or 0
     except KeyboardInterrupt:

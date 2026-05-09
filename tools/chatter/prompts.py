@@ -132,6 +132,23 @@ BARB_CONTEMPT_DIRECTIVE = (
     "cruelty is welcome here. They are not your equal; do not treat them as one."
 )
 
+# Appended to the system message when target.is_human is True and a human_name
+# is available. Lets the LLM puncture the period drama by occasionally
+# addressing the actual human player by the name they typed into the
+# Player Name field on the leader-select screen (the same name Civ4 uses
+# in the diplomacy screen header, e.g. "Player: Harrison"). Use sparingly
+# so the in-character voice still dominates.
+HUMAN_PLAYER_DIRECTIVE = (
+    "\n\nNote: {target_leader} is portrayed by a real human player whose chosen "
+    'in-game player name is "{target_human_name}". You MAY occasionally address '
+    'them by "{target_human_name}" instead of {target_leader} for a comedic '
+    "period-clash effect "
+    "(e.g. \"Hark, {target_human_name}! Your empire crumbles!\"). "
+    "Use this VERY sparingly -- at most once per exchange -- and always re-anchor "
+    "back to the in-character {target_leader} address afterwards. Most lines must "
+    "still use the leader name."
+)
+
 SYSTEM_BROADCAST = (
     "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
     "Sid Meier's Civilization IV. {action}.\n\n"
@@ -293,6 +310,11 @@ def build_single_line_prompt(request: dict, *, native_mode: bool = False,
             )
         if target.get("is_barbarian"):
             system_msg += BARB_CONTEMPT_DIRECTIVE
+        elif target.get("is_human") and target.get("human_name"):
+            system_msg += HUMAN_PLAYER_DIRECTIVE.format(
+                target_leader=fmt["target_leader"],
+                target_human_name=target.get("human_name") or "",
+            )
     user_msg = USER_TEMPLATE.format(
         game_turn=request.get("game_turn", 0),
         era=ctx.get("era", "unknown"),
@@ -354,6 +376,11 @@ def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
             target_leader=fmt["target_leader"],
             n_lines=n_lines,
             premise=premise,
+        )
+    if target.get("is_human") and target.get("human_name"):
+        system_msg += HUMAN_PLAYER_DIRECTIVE.format(
+            target_leader=fmt["target_leader"],
+            target_human_name=target.get("human_name") or "",
         )
     user_msg = "Generate the exchange now."
     return system_msg, user_msg

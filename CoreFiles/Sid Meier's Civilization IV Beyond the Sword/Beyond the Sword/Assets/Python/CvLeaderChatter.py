@@ -877,24 +877,58 @@ def _global_rate_limit_ok():
     return len(fresh) < GLOBAL_LINE_PER_REAL_MIN_CAP
 
 
+def _is_barbarian(player_id):
+    """True iff player_id refers to a barbarian player. None / negative IDs
+    are not barbarian (they're sentinels for 'no specific player')."""
+    if player_id is None:
+        return False
+    try:
+        if int(player_id) < 0:
+            return False
+    except:
+        return False
+    try:
+        return bool(_gc().getPlayer(player_id).isBarbarian())
+    except:
+        return False
+
+
 def _player_info(player_id):
-    """Build a {player_id, leader_name, civ_short_name, score, is_barbarian}
-    dict for the request.
+    """Build a player-info dict for the request payload.
+
+    Returns a dict with at least:
+      player_id, leader_name, civ_short_name, score,
+      is_barbarian, is_human, human_name, is_anonymous
 
     leader_name comes from CIV4LeaderHeadInfos (e.g. 'Victoria', 'Lincoln'),
-    NOT from p.getName() which returns the player's local OS nickname (e.g.
-    'Harrison'). In multiplayer the nickname IS the actual player's name and
-    might be useful elsewhere, but for AI-generated trash talk the leader
-    name is the in-character handle the LLM should think it's playing.
+    NOT from p.getName(). p.getName() returns the player's local OS nickname
+    (e.g. 'Harrison') and is captured separately as human_name when the
+    player is human, so the prompt can occasionally address them by their
+    real name for comedic effect.
 
-    Special case: the BARBARIAN player has no real LeaderHead. Returns
-    "the Barbarian Hordes" with is_barbarian=true so the sidecar can add a
-    max-contempt directive to the prompt. Without this, _player_info would
-    fall back to "Unknown" and the LLM would faithfully address "Unknown".
+    Special cases:
+    - BARBARIAN player: returns "the Barbarian Hordes" with is_barbarian=True
+      so the sidecar can add a max-contempt directive. (After the
+      _emit_request barbarian filter, this is mostly defensive.)
+    - player_id < 0 (sentinel for "no specific target", e.g. broadcasts):
+      returns an anonymous "the world" struct so legacy callers don't get
+      "Unknown" garbage. _emit_request now passes target=None for these
+      cases anyway, so this is defense-in-depth.
     """
-    is_barb = False
+    if player_id is None or int(player_id) < 0:
+        return {
+            "player_id": -1,
+            "leader_name": "the world",
+            "civ_short_name": "the world",
+            "score": 0,
+            "is_barbarian": False,
+            "is_human": False,
+            "human_name": None,
+            "is_anonymous": True,
+        }
     try:
         p = _gc().getPlayer(player_id)
+        is_barb = False
         try:
             is_barb = bool(p.isBarbarian())
         except:
@@ -906,6 +940,9 @@ def _player_info(player_id):
                 "civ_short_name": "Barbarian",
                 "score": 0,
                 "is_barbarian": True,
+                "is_human": False,
+                "human_name": None,
+                "is_anonymous": False,
             }
         leader_name = ""
         try:
@@ -924,16 +961,64 @@ def _player_info(player_id):
         if not leader_name:
             leader_name = "Unknown"
             _log("warn: _player_info fallback Unknown for player_id=" + str(player_id))
+
+        # Detect human player and capture their in-game player name. This is
+        # the value the user typed into the "Player Name" field on the
+        # leader-select screen (the same name shown in the diplomacy
+        # screen header). If they didn't customize it, p.getName() falls
+        # back to the leader description -- we filter that out below so
+        # we only set human_name when the user actually personalized it.
+        is_human = False
+        human_name = None
+        try:
+            if p.isHuman():
+                is_human = True
+                try:
+                    nick = _to_ascii(p.getName())
+                except:
+                    nick = ""
+                # Skip if uncustomized -- p.getName() defaults to the
+                # leader description in that case, and we want the LLM
+                # to treat that as no-real-name.
+                if nick and nick != leader_name:
+                    human_name = nick
+        except:
+            pass
+
+        # Civ short description and score may throw on edge-case players
+        # (slot transitions, reload races). Fail soft so we don't lose the
+        # leader name we already resolved -- the silent outer bare-except
+        # used to swallow these and emit "Unknown".
+        civ_short = ""
+        try:
+            civ_short = _to_ascii(p.getCivilizationShortDescription(0))
+        except Exception, exc:
+            _log("warn: _player_info getCivilizationShortDescription failed for player_id="
+                 + str(player_id) + ": " + str(exc))
+            civ_short = "Unknown"
+        score = 0
+        try:
+            score = int(p.calculateScore())
+        except Exception, exc:
+            _log("warn: _player_info calculateScore failed for player_id="
+                 + str(player_id) + ": " + str(exc))
+            score = 0
         return {
             "player_id": int(player_id),
             "leader_name": leader_name,
-            "civ_short_name": _to_ascii(p.getCivilizationShortDescription(0)),
-            "score": int(p.calculateScore()),
+            "civ_short_name": civ_short,
+            "score": score,
             "is_barbarian": False,
+            "is_human": is_human,
+            "human_name": human_name,
+            "is_anonymous": False,
         }
-    except:
+    except Exception, exc:
+        _log("warn: _player_info OUTER exception for player_id="
+             + str(player_id) + ": " + str(exc))
         return {"player_id": int(player_id), "leader_name": "Unknown",
-                "civ_short_name": "Unknown", "score": 0, "is_barbarian": False}
+                "civ_short_name": "Unknown", "score": 0, "is_barbarian": False,
+                "is_human": False, "human_name": None, "is_anonymous": False}
 
 
 def _era_name(player_id):
@@ -952,6 +1037,15 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
 
     if _disabled:
         _log("emit " + trigger + " gated: disabled")
+        return None
+
+    # DowagerMod policy: drop all barbarian-involved chatter. Early-game
+    # FIRST_CONTACT fires for every civ that meets the Barbarian Hordes
+    # which drowns out the fun leader-vs-leader exchanges. Speaker-side
+    # too: razed-by-barbs etc. produce noise nobody wants.
+    if _is_barbarian(speaker_id) or _is_barbarian(target_id):
+        _log("emit " + trigger + " gated: barbarian involved (speaker="
+             + str(speaker_id) + ", target=" + str(target_id) + ")")
         return None
 
     # Allow only one in-flight at a time
