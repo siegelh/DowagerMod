@@ -3,10 +3,13 @@
 This is the operator's guide for the Leader Chatter feature. For the
 design overview, see [`CHATTER_OVERVIEW.md`](CHATTER_OVERVIEW.md).
 
-## Setup on a new machine
+## What you get
 
-1. Have your Azure Foundry endpoint URL, deployment name, and API key handy.
-2. From the repo root, run:
+Three layers, all opt-in via `.env`:
+
+1. **Text chatter** — leaders trash-talk in the in-game event log on
+   major events (DoW, peace, city capture/raze, religion founded,
+   wonder built, et
    ```powershell
    .\tools\Setup-Chatter.ps1
    ```
