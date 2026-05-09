@@ -1,26 +1,21 @@
 """Test DowagerMod Chatter credentials against the real Azure endpoints.
 
-Reads endpoint+key from environment variables OR from a .env file in the
-current directory. The .env file is gitignored automatically (added in
-this commit) so your keys never end up in git history.
+Reads endpoint+key from a .env file or environment variables. Uses the
+SAME variable names as the sidecar daemon, so a single .env file drives
+both this test and the actual chatter sidecar.
 
-Usage option 1 - .env file (recommended):
+Usage:
 
-    1. Copy tools/chatter/.env.example -> tools/chatter/.env (or keep .env at repo root)
-    2. Fill in the values
-    3. Run:
-        python tools/chatter/test_credentials.py --foundry
-        python tools/chatter/test_credentials.py --speech
-        python tools/chatter/test_credentials.py --foundry --speech
+    1. cp tools/chatter/.env.example .env  (or to tools/chatter/.env)
+    2. edit .env, paste real keys
+    3. python tools/chatter/test_credentials.py --foundry --speech
 
-Usage option 2 - env vars (one-off):
+Variables (all optional unless used by the test you run):
+    DOWAGER_CHATTER_ENDPOINT, DOWAGER_CHATTER_DEPLOYMENT, DOWAGER_CHATTER_API_KEY,
+    DOWAGER_CHATTER_API_VERSION, DOWAGER_CHATTER_SPEECH_ENDPOINT,
+    DOWAGER_CHATTER_SPEECH_KEY, DOWAGER_CHATTER_SPEECH_VOICE.
 
-    $env:DOWAGER_TEST_FOUNDRY_ENDPOINT = 'https://...'
-    $env:DOWAGER_TEST_FOUNDRY_KEY = '...'
-    python tools/chatter/test_credentials.py --foundry
-
-Prints clear PASS/FAIL with diagnostics. Exit code 0 if all requested tests
-passed, non-zero otherwise.
+Older DOWAGER_TEST_* names are also recognized for backwards compat.
 """
 from __future__ import annotations
 
@@ -31,41 +26,6 @@ from pathlib import Path
 
 # Make tools/chatter importable when run as a script
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
-
-
-def _load_dotenv() -> None:
-    """Best-effort loader for a .env file. Searches in this order:
-       1. ./.env (current working directory)
-       2. ./tools/chatter/.env
-       3. <repo root>/.env (parent of tools/)
-    File format: KEY=VALUE per line. Lines starting with # are comments.
-    Existing env vars are NOT overwritten - real env wins.
-    """
-    here = Path(__file__).resolve()
-    candidates = [
-        Path.cwd() / ".env",
-        here.parent / ".env",
-        here.parent.parent.parent / ".env",
-    ]
-    for candidate in candidates:
-        if not candidate.is_file():
-            continue
-        try:
-            for line in candidate.read_text(encoding="utf-8").splitlines():
-                line = line.strip()
-                if not line or line.startswith("#"):
-                    continue
-                if "=" not in line:
-                    continue
-                k, _, v = line.partition("=")
-                k = k.strip()
-                v = v.strip().strip('"').strip("'")
-                if k and k not in os.environ:
-                    os.environ[k] = v
-            print(f"  (loaded env from {candidate})")
-            return
-        except Exception as exc:  # noqa: BLE001
-            print(f"  (warning: failed to read {candidate}: {exc})")
 
 
 def green(s: str) -> str:
@@ -83,15 +43,29 @@ def yellow(s: str) -> str:
 def test_foundry() -> bool:
     print()
     print("===== Foundry (text/LLM) test =====")
-    endpoint = os.environ.get("DOWAGER_TEST_FOUNDRY_ENDPOINT", "").strip()
-    deployment = os.environ.get("DOWAGER_TEST_FOUNDRY_DEPLOYMENT", "gpt-5.4-mini").strip()
-    api_key = os.environ.get("DOWAGER_TEST_FOUNDRY_KEY", "").strip()
-    api_version = os.environ.get("DOWAGER_TEST_FOUNDRY_API_VERSION", "2024-12-01-preview").strip()
+    # Prefer DOWAGER_CHATTER_* (unified with sidecar config). Fall back to
+    # DOWAGER_TEST_FOUNDRY_* for backwards compat with earlier .env files.
+    endpoint = (
+        os.environ.get("DOWAGER_CHATTER_ENDPOINT", "")
+        or os.environ.get("DOWAGER_TEST_FOUNDRY_ENDPOINT", "")
+    ).strip()
+    deployment = (
+        os.environ.get("DOWAGER_CHATTER_DEPLOYMENT", "")
+        or os.environ.get("DOWAGER_TEST_FOUNDRY_DEPLOYMENT", "gpt-5.4-mini")
+    ).strip()
+    api_key = (
+        os.environ.get("DOWAGER_CHATTER_API_KEY", "")
+        or os.environ.get("DOWAGER_TEST_FOUNDRY_KEY", "")
+    ).strip()
+    api_version = (
+        os.environ.get("DOWAGER_CHATTER_API_VERSION", "")
+        or os.environ.get("DOWAGER_TEST_FOUNDRY_API_VERSION", "2024-12-01-preview")
+    ).strip()
     if not endpoint:
-        print(red("FAIL: DOWAGER_TEST_FOUNDRY_ENDPOINT env var not set"))
+        print(red("FAIL: DOWAGER_CHATTER_ENDPOINT not set in env or .env"))
         return False
     if not api_key:
-        print(red("FAIL: DOWAGER_TEST_FOUNDRY_KEY env var not set"))
+        print(red("FAIL: DOWAGER_CHATTER_API_KEY not set in env or .env"))
         return False
     redacted = api_key[:4] + "..." + api_key[-4:] if len(api_key) > 8 else "***"
     print(f"  endpoint:   {endpoint}")
@@ -134,14 +108,23 @@ def test_foundry() -> bool:
 def test_speech() -> bool:
     print()
     print("===== Speech (TTS) test =====")
-    endpoint = os.environ.get("DOWAGER_TEST_SPEECH_ENDPOINT", "").strip()
-    key = os.environ.get("DOWAGER_TEST_SPEECH_KEY", "").strip()
-    voice = os.environ.get("DOWAGER_TEST_SPEECH_VOICE", "en-US-AriaNeural").strip()
+    endpoint = (
+        os.environ.get("DOWAGER_CHATTER_SPEECH_ENDPOINT", "")
+        or os.environ.get("DOWAGER_TEST_SPEECH_ENDPOINT", "")
+    ).strip()
+    key = (
+        os.environ.get("DOWAGER_CHATTER_SPEECH_KEY", "")
+        or os.environ.get("DOWAGER_TEST_SPEECH_KEY", "")
+    ).strip()
+    voice = (
+        os.environ.get("DOWAGER_CHATTER_SPEECH_VOICE", "")
+        or os.environ.get("DOWAGER_TEST_SPEECH_VOICE", "en-US-AriaNeural")
+    ).strip()
     if not endpoint:
-        print(red("FAIL: DOWAGER_TEST_SPEECH_ENDPOINT env var not set"))
+        print(red("FAIL: DOWAGER_CHATTER_SPEECH_ENDPOINT not set in env or .env"))
         return False
     if not key:
-        print(red("FAIL: DOWAGER_TEST_SPEECH_KEY env var not set"))
+        print(red("FAIL: DOWAGER_CHATTER_SPEECH_KEY not set in env or .env"))
         return False
     redacted = key[:4] + "..." + key[-4:] if len(key) > 8 else "***"
     print(f"  endpoint:   {endpoint}")
@@ -190,7 +173,14 @@ def main() -> int:
         parser.print_help()
         return 2
 
-    _load_dotenv()
+    # Load .env via the shared loader (same one the sidecar uses).
+    try:
+        from tools.chatter.dotenv import load_dotenv
+        loaded = load_dotenv()
+        if loaded:
+            print(f"  (loaded env from {loaded})")
+    except Exception as exc:  # noqa: BLE001
+        print(f"  (warning: dotenv loader failed: {exc})")
 
     results = []
     if args.foundry:

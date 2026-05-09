@@ -28,3 +28,5 @@ CoreFiles/build/
 build.log
 tmp/**
 .env
+!.env.example
+!**/.env.example

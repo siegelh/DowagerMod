@@ -163,7 +163,23 @@ def spool_dir() -> Path:
 
 
 def load_config(path: Optional[Path] = None) -> Config:
-    """Load config from file (if it exists) merged with defaults, then env overrides."""
+    """Load config from .env (if present) + file (if it exists) + env overrides.
+
+    Precedence (last wins):
+        1. DEFAULTS
+        2. config.json file
+        3. .env file (loaded into os.environ once)
+        4. process env (real shell exports)
+
+    The .env loader is best-effort and never overrides existing env vars.
+    """
+    # Load .env into os.environ at the start of every load_config call. Idempotent.
+    try:
+        from tools.chatter.dotenv import load_dotenv
+        load_dotenv()
+    except Exception:  # noqa: BLE001
+        pass
+
     raw = dict(DEFAULTS)
     p = path or config_path()
     if p.exists():
@@ -179,15 +195,32 @@ def load_config(path: Optional[Path] = None) -> Config:
             import sys
             print(f"[config] WARN: failed to read {p}: {exc}", file=sys.stderr)
 
-    # Env overrides (DOWAGER_CHATTER_*).
-    for env_key, cfg_key in [
-        ("DOWAGER_CHATTER_ENDPOINT", "endpoint"),
-        ("DOWAGER_CHATTER_DEPLOYMENT", "deployment"),
-        ("DOWAGER_CHATTER_API_KEY", "api_key"),
-        ("DOWAGER_CHATTER_LOG_LEVEL", "log_level"),
-    ]:
-        if env_key in os.environ and os.environ[env_key]:
-            raw[cfg_key] = os.environ[env_key]
+    # Env overrides (DOWAGER_CHATTER_*). All sidecar config fields can be set
+    # via env vars OR a .env file with the same names — useful when a user
+    # prefers to manage everything from one file rather than via Setup-Chatter.ps1.
+    _ENV_MAP = {
+        "DOWAGER_CHATTER_ENDPOINT": ("endpoint", str),
+        "DOWAGER_CHATTER_DEPLOYMENT": ("deployment", str),
+        "DOWAGER_CHATTER_API_KEY": ("api_key", str),
+        "DOWAGER_CHATTER_API_VERSION": ("api_version", str),
+        "DOWAGER_CHATTER_LOG_LEVEL": ("log_level", str),
+        "DOWAGER_CHATTER_ENABLED": ("enabled", lambda v: str(v).lower() in ("1", "true", "yes", "on")),
+        # Voiceover
+        "DOWAGER_CHATTER_VOICEOVER_ENABLED": ("voiceover_enabled", lambda v: str(v).lower() in ("1", "true", "yes", "on")),
+        "DOWAGER_CHATTER_SPEECH_ENDPOINT": ("azure_speech_endpoint", str),
+        "DOWAGER_CHATTER_SPEECH_KEY": ("azure_speech_key", str),
+        "DOWAGER_CHATTER_SPEECH_VOICE": ("azure_speech_voice", str),
+        "DOWAGER_CHATTER_VOICEOVER_DAILY_CHAR_CAP": ("voiceover_daily_char_cap", int),
+        "DOWAGER_CHATTER_DISCORD_BOT_TOKEN": ("discord_bot_token", str),
+        "DOWAGER_CHATTER_DISCORD_GUILD_ID": ("discord_guild_id", str),
+        "DOWAGER_CHATTER_DISCORD_VOICE_CHANNEL_ID": ("discord_voice_channel_id", str),
+    }
+    for env_key, (cfg_key, caster) in _ENV_MAP.items():
+        if env_key in os.environ and os.environ[env_key] != "":
+            try:
+                raw[cfg_key] = caster(os.environ[env_key])
+            except Exception:  # noqa: BLE001
+                pass
 
     cb = raw.get("circuit_breaker", {}) or {}
     return Config(
