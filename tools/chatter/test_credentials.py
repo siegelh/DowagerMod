@@ -1,23 +1,23 @@
 """Test DowagerMod Chatter credentials against the real Azure endpoints.
 
-Reads endpoint+key from environment variables so you never have to paste
-them into a file (and they never end up in git history).
+Reads endpoint+key from environment variables OR from a .env file in the
+current directory. The .env file is gitignored automatically (added in
+this commit) so your keys never end up in git history.
 
-Usage:
+Usage option 1 - .env file (recommended):
 
-    # Foundry / LLM test:
-    $env:DOWAGER_TEST_FOUNDRY_ENDPOINT = 'https://discordagent.cognitiveservices.azure.com/'
-    $env:DOWAGER_TEST_FOUNDRY_DEPLOYMENT = 'gpt-5.4-mini'
-    $env:DOWAGER_TEST_FOUNDRY_KEY = 'paste-your-key-here'
+    1. Copy tools/chatter/.env.example -> tools/chatter/.env (or keep .env at repo root)
+    2. Fill in the values
+    3. Run:
+        python tools/chatter/test_credentials.py --foundry
+        python tools/chatter/test_credentials.py --speech
+        python tools/chatter/test_credentials.py --foundry --speech
+
+Usage option 2 - env vars (one-off):
+
+    $env:DOWAGER_TEST_FOUNDRY_ENDPOINT = 'https://...'
+    $env:DOWAGER_TEST_FOUNDRY_KEY = '...'
     python tools/chatter/test_credentials.py --foundry
-
-    # Speech / TTS test:
-    $env:DOWAGER_TEST_SPEECH_ENDPOINT = 'https://eastus.api.cognitive.microsoft.com/'
-    $env:DOWAGER_TEST_SPEECH_KEY = 'paste-your-speech-key-here'
-    python tools/chatter/test_credentials.py --speech
-
-    # Both:
-    python tools/chatter/test_credentials.py --foundry --speech
 
 Prints clear PASS/FAIL with diagnostics. Exit code 0 if all requested tests
 passed, non-zero otherwise.
@@ -31,6 +31,41 @@ from pathlib import Path
 
 # Make tools/chatter importable when run as a script
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+
+
+def _load_dotenv() -> None:
+    """Best-effort loader for a .env file. Searches in this order:
+       1. ./.env (current working directory)
+       2. ./tools/chatter/.env
+       3. <repo root>/.env (parent of tools/)
+    File format: KEY=VALUE per line. Lines starting with # are comments.
+    Existing env vars are NOT overwritten - real env wins.
+    """
+    here = Path(__file__).resolve()
+    candidates = [
+        Path.cwd() / ".env",
+        here.parent / ".env",
+        here.parent.parent.parent / ".env",
+    ]
+    for candidate in candidates:
+        if not candidate.is_file():
+            continue
+        try:
+            for line in candidate.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if "=" not in line:
+                    continue
+                k, _, v = line.partition("=")
+                k = k.strip()
+                v = v.strip().strip('"').strip("'")
+                if k and k not in os.environ:
+                    os.environ[k] = v
+            print(f"  (loaded env from {candidate})")
+            return
+        except Exception as exc:  # noqa: BLE001
+            print(f"  (warning: failed to read {candidate}: {exc})")
 
 
 def green(s: str) -> str:
@@ -154,6 +189,8 @@ def main() -> int:
     if not args.foundry and not args.speech:
         parser.print_help()
         return 2
+
+    _load_dotenv()
 
     results = []
     if args.foundry:
