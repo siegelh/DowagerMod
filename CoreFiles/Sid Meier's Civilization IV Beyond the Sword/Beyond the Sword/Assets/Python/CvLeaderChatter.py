@@ -346,7 +346,7 @@ _pending_lines = {}             # msg_id -> {'speaker_id', 'expected_chunks', 'r
 
 CHATTER_CAP_MAGIC = 0x4348           # 'CH' as int -- capability ping
 CHATTER_LINE_MAGIC = 0x434C          # 'CL' as int -- chatter line chunk
-HEARTBEAT_FRESH_SECONDS = 60         # local sidecar heartbeat must be within this
+HEARTBEAT_FRESH_SECONDS = 180        # local sidecar heartbeat must be within this (3 min: tolerates OS hiccups + slow disk)
 CAPABILITY_REBROADCAST_TURNS = 50    # re-advertise capability every N game turns
 CAPABILITY_STALE_HEARTBEATS = 5      # peers drop us after N missed advertisements
 PER_PAIR_COOLDOWN_TURNS = 30         # min game turns between exchanges for same pair
@@ -388,61 +388,30 @@ REJOINDER_ELIGIBLE = (
 
 # ===== simple helpers =====
 
-def _my_games_root_candidates():
-    """All plausible Civ4 'My Games\\Beyond the Sword' parent paths.
-
-    Civ4 uses Windows' SHGetFolderPath(CSIDL_PERSONAL) which respects
-    OneDrive Documents redirection. We can't call SHGetFolderPath from
-    Python 2.4 portably, so we enumerate likely roots (USERPROFILE,
-    OneDrive*, any OneDrive-prefixed dir under USERPROFILE) and use the
-    first one that exists.
-    """
-    out = []
-    user_profile = os.environ.get("USERPROFILE", "")
-    if user_profile:
-        # OneDrive-prefixed siblings of USERPROFILE
-        try:
-            for name in os.listdir(user_profile):
-                if name.lower().startswith("onedrive"):
-                    root = os.path.join(user_profile, name)
-                    out.append(os.path.join(root, "Documents", "My Games", "Beyond the Sword"))
-                    out.append(os.path.join(root, "Documents", "My Games", "beyond the sword"))
-        except:
-            pass
-        out.append(os.path.join(user_profile, "Documents", "My Games", "Beyond the Sword"))
-        out.append(os.path.join(user_profile, "Documents", "My Games", "beyond the sword"))
-    for key in ("OneDriveCommercial", "OneDriveConsumer", "OneDrive"):
-        root = os.environ.get(key, "")
-        if root:
-            out.append(os.path.join(root, "Documents", "My Games", "Beyond the Sword"))
-            out.append(os.path.join(root, "Documents", "My Games", "beyond the sword"))
-    return out
-
-
-_cached_my_games_root = None
-
-def _my_games_root():
-    """Return the actual My Games\\Beyond the Sword path (cached)."""
-    global _cached_my_games_root
-    if _cached_my_games_root:
-        return _cached_my_games_root
-    for c in _my_games_root_candidates():
-        if c and os.path.isdir(c):
-            _cached_my_games_root = c
-            return c
-    # Last resort: first candidate; we'll create dirs as needed
-    cand = _my_games_root_candidates()
-    if cand:
-        _cached_my_games_root = cand[0]
-        return cand[0]
-    return os.path.join(os.path.expanduser("~"), "Documents", "My Games", "Beyond the Sword")
-
-
-def _log_dir():
-    return os.path.join(_my_games_root(), "Logs")
-
 def _spool_dir():
-    return os.path.join(_log_dir(), "DowagerMod", "chatter")
+    """Return the chatter spool directory.
+
+    Lives under %LOCALAPPDATA%\\DowagerMod\\chatter\\spool, sibling of the
+    daemon's config.json. Per-user, per-machine, NEVER OneDrive-synced,
+    NEVER touched by the installer's "My Games" wipe.
+
+    Historical note: Pre-relocation the spool lived under
+    Documents\\My Games\\Beyond the Sword\\Logs\\DowagerMod\\chatter,
+    which caused two related bugs:
+      1. OneDrive Documents redirection sync delays caused 60+ second
+         gaps in the daemon's PID heartbeat, tripping the game-side
+         staleness check and gating ALL chatter for the session.
+      2. The DowagerMod installer wipes "My Games\\Beyond the Sword" on
+         every install (preserving only Saves/+CivilizationIV.ini) to
+         force XML cache invalidation -- if the daemon was running,
+         its PID file got deleted mid-flight.
+    Routing through %LOCALAPPDATA% eliminates both hazards.
+    """
+    appdata = os.environ.get("LOCALAPPDATA", "")
+    if not appdata:
+        # LOCALAPPDATA should always be set on Windows. Last-resort guess.
+        appdata = os.path.join(os.path.expanduser("~"), "AppData", "Local")
+    return os.path.join(appdata, "DowagerMod", "chatter", "spool")
 
 def _config_path():
     appdata = os.environ.get("LOCALAPPDATA", "")
@@ -1669,8 +1638,14 @@ def chatter_on_begin_player_turn(iGameTurn, iPlayer):
     if _disabled:
         return
     try:
-        # Re-broadcast capability periodically
+        # Re-broadcast capability.
+        # Self-heal: if we don't yet know any capable peer, broadcast EVERY
+        # turn until one shows up. Without this, a startup heartbeat-staleness
+        # gap (e.g. daemon spawning slow) would silently gate all chatter
+        # until turn 50 (the periodic rebroadcast cadence).
         if (iGameTurn % CAPABILITY_REBROADCAST_TURNS) == 0 and iGameTurn > 0:
+            _broadcast_capability_ping()
+        elif not _capable_humans:
             _broadcast_capability_ping()
         # Drain display + check for responses on every player-turn
         _check_for_responses()

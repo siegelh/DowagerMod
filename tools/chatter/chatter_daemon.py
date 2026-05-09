@@ -34,7 +34,7 @@ from tools.chatter.state import StateStore
 REJOINDER_MIN_MS = 5000
 REJOINDER_MAX_MS = 10000
 SCHEMA_VERSION = 1
-HEARTBEAT_INTERVAL_SECONDS = 15
+HEARTBEAT_INTERVAL_SECONDS = 5
 
 
 def setup_logging(spool_path: Path, level_name: str) -> logging.Logger:

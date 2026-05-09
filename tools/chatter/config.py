@@ -129,44 +129,27 @@ def config_path() -> Path:
 
 
 def spool_dir() -> Path:
-    """Return the actual chatter spool path under Civ4's My Games\\Beyond the Sword.
+    """Return the chatter spool directory.
 
-    Civ4 uses SHGetFolderPath(CSIDL_PERSONAL) which respects OneDrive Documents
-    redirection. USERPROFILE\\Documents may NOT match — when Documents is
-    redirected to OneDrive, the game writes to OneDrive\\Documents\\... but a
-    naive expanduser uses the empty USERPROFILE\\Documents. We probe both.
+    Lives at ``%LOCALAPPDATA%\\DowagerMod\\chatter\\spool``. Per-user,
+    per-machine, never synced. Survives the installer's wipe of
+    ``Documents\\My Games\\Beyond the Sword`` (which used to clobber the
+    daemon's PID file mid-flight). Sibling of ``config.json`` for symmetry
+    -- ``config_dir()`` returns ``%LOCALAPPDATA%\\DowagerMod\\chatter``.
+
+    NOT inside Civ4's ``My Games`` tree because:
+      1. That tree may live in OneDrive (Documents redirection); OneDrive
+         sync delays caused 60+ second heartbeat-staleness gaps that
+         tripped the game-side capability check.
+      2. The DowagerMod installer wipes the entire ``My Games\\Beyond the
+         Sword`` tree (preserving only ``Saves/`` + ``CivilizationIV.ini``)
+         to invalidate Civ4's XML cache. That wipe used to delete the
+         spool directory while the daemon was running.
+
+    Old (pre-relocation) location was
+    ``Documents\\My Games\\Beyond the Sword\\Logs\\DowagerMod\\chatter``.
     """
-    candidates: list[Path] = []
-    user_profile = os.environ.get("USERPROFILE", "")
-    if user_profile:
-        # OneDrive-prefixed sibling dirs under USERPROFILE
-        try:
-            for name in os.listdir(user_profile):
-                if name.lower().startswith("onedrive"):
-                    root = Path(user_profile) / name
-                    candidates.append(root / "Documents" / "My Games" / "Beyond the Sword")
-                    candidates.append(root / "Documents" / "My Games" / "beyond the sword")
-        except OSError:
-            pass
-        candidates.append(Path(user_profile) / "Documents" / "My Games" / "Beyond the Sword")
-        candidates.append(Path(user_profile) / "Documents" / "My Games" / "beyond the sword")
-    for key in ("OneDriveCommercial", "OneDriveConsumer", "OneDrive"):
-        root_str = os.environ.get(key, "")
-        if root_str:
-            root = Path(root_str)
-            candidates.append(root / "Documents" / "My Games" / "Beyond the Sword")
-            candidates.append(root / "Documents" / "My Games" / "beyond the sword")
-    # Pick the first that exists; if none, fall back to the first candidate
-    chosen: Path | None = None
-    for c in candidates:
-        if c.is_dir():
-            chosen = c
-            break
-    if chosen is None and candidates:
-        chosen = candidates[0]
-    if chosen is None:
-        chosen = Path(os.path.expanduser("~")) / "Documents" / "My Games" / "Beyond the Sword"
-    return chosen / "Logs" / "DowagerMod" / "chatter"
+    return config_dir() / "spool"
 
 
 def load_config(path: Optional[Path] = None) -> Config:

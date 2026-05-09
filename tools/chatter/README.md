@@ -61,7 +61,7 @@ on `onGameStart` if no sidecar PID is fresh.
 
 Per-machine, runtime-only, gitignored. Lives at:
 ```
-%USERPROFILE%\Documents\My Games\Beyond the Sword\Logs\DowagerMod\chatter\
+%LOCALAPPDATA%\DowagerMod\chatter\spool\
 ```
 - `req-<utc>-<seq>.json`  — game writes, daemon reads + deletes
 - `resp-<utc>-<seq>.json` — daemon writes, game reads + deletes

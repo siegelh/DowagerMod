@@ -1,7 +1,7 @@
 # Chatter Spool JSON Schemas
 
 The game and sidecar communicate via JSON files under
-`%USERPROFILE%\Documents\My Games\Beyond the Sword\Logs\DowagerMod\chatter\`.
+`%LOCALAPPDATA%\DowagerMod\chatter\spool\`.
 
 All writes are atomic (write to `*.tmp` + `os.rename`).
 
