@@ -338,6 +338,16 @@ _logged_first_run = False       # one-time setup log
 _spawn_attempted_at = 0.0       # rate-limit auto-spawn attempts
 _no_elector_diag_fired = False  # one-time diagnostic when nobody is capable
 _no_elector_first_seen_turn = -1
+# === Chat-reply state ===
+# (leader_player_id, last_chat_unix). If the human types a follow-up with no
+# leader name within CHAT_IDLE_SECONDS, it continues with this leader.
+_active_chat_partner = None
+# Last few lines we've seen on chat -- used as a defense-in-depth filter so a
+# rare stray sendChat from our own pipeline doesn't loop back as fresh input.
+_recent_sendchat_lines = []
+# Per-leader name -> player_id cache, refreshed lazily.
+_leader_name_to_player = None
+_leader_name_cache_at = 0.0
 _next_msg_id = 1                # incrementing message ID for line chunks
 _pending_lines = {}             # msg_id -> {'speaker_id', 'expected_chunks', 'received', 'parts'}
 _last_trigger_emit_at = {}      # trigger -> unix ts of most recent emission (for per-trigger realtime cooldowns)
@@ -359,6 +369,44 @@ SPAWN_RETRY_SECONDS = 30             # don't try to spawn sidecar more than once
 DROP_NEW_WHILE_QUEUE_ACTIVE = False  # queue-don't-drop new events during in-flight render
 NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o capable elector
 
+# === Chat-reply tunables ===
+# Active-partner idle window: within this many seconds of the last activity
+# in a conversation (your message OR the AI's reply), a follow-up with no
+# leader name continues with the same leader. After this window, no-name
+# chat is ignored.
+CHAT_IDLE_SECONDS = 120
+# Minimum debounce between consecutive emits from this hook (e.g. mashed
+# Enter on a single chat line). Short -- the goal is conversation, not
+# throttling.
+CHAT_EMIT_DEBOUNCE_SECONDS = 3.0
+# Fuzzy-match score threshold for leader-name resolution.
+CHAT_FUZZY_THRESHOLD = 60
+# How many recent sent lines we keep for anti-feedback filtering.
+CHAT_RECENT_LINES_RING = 32
+# Common English words that look like leader-name prefixes / fuzzy matches
+# but are almost never the user actually addressing a leader. Filtered
+# BEFORE scoring so they can never produce a false positive.
+# KEEP IN SYNC with tools/chatter/chat_resolve.py COMMON_STOPWORDS.
+CHAT_COMMON_STOPWORDS = (
+    "the", "and", "for", "are", "but", "not", "you", "any", "can",
+    "had", "her", "his", "she", "was", "one", "our", "out", "day",
+    "get", "has", "him", "how", "man", "new", "now", "old", "see",
+    "two", "way", "who", "boy", "did", "its", "let", "say", "too",
+    "use", "all", "got",
+    "this", "that", "with", "have", "from", "they", "your", "what",
+    "when", "make", "like", "time", "just", "know", "take", "into",
+    "good", "some", "than", "then", "look", "only", "come", "over",
+    "also", "back", "well", "even", "much", "want", "give", "here",
+    "more", "most", "find", "tell", "many", "both", "left", "next",
+    "open", "play", "real", "high", "long", "gone", "city", "lord",
+    "hello", "hey",
+    "their", "would", "there", "could", "about", "after", "first",
+    "where", "these", "those", "still", "world", "every",
+    "shall", "while", "going", "wonder", "wonders",
+    "people", "before", "really", "thanks", "please", "should",
+    "testing",
+)
+
 # Triggers that MUST fire even if a lower-priority request is in flight or
 # normal cooldowns are active. War/peace/elimination beats first-to-tech.
 HIGH_PRIORITY_TRIGGERS = (
@@ -367,6 +415,7 @@ HIGH_PRIORITY_TRIGGERS = (
     "CITY_CAPTURED", "CITY_RAZED",
     "PLAYER_ELIMINATED_GLOAT", "PLAYER_ELIMINATED_LAST_WORDS",
     "VASSAL_FORCED", "VASSAL_ACCEPTED",
+    "CHAT_REPLY",
 )
 
 # Per-trigger global realtime cooldown (seconds). Triggers not listed here
@@ -1104,7 +1153,8 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
     # Dedup
     key = _event_key(trigger, speaker_id, target_id,
                      str(extra_context.get("city", "")) + str(extra_context.get("wonder", ""))
-                     + str(extra_context.get("religion", "")) + str(extra_context.get("tech", "")))
+                     + str(extra_context.get("religion", "")) + str(extra_context.get("tech", ""))
+                     + str(extra_context.get("user_message", "")))
     if _event_seen(key):
         _log("emit " + trigger + " gated: event already seen this turn")
         return None
@@ -1117,7 +1167,7 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
         target = _player_info(target_id)
 
     ctx = {"era": _era_name(speaker_id)}
-    for k in ("city", "wonder", "tech", "religion", "corporation"):
+    for k in ("city", "wonder", "tech", "religion", "corporation", "user_message"):
         if k in extra_context and extra_context[k]:
             ctx[k] = _to_ascii(str(extra_context[k]))
 
@@ -1226,6 +1276,9 @@ def _broadcast_line(entry):
             return
         _send_line_via_chunks(speaker_id, text)
         _global_recent_lines.append(_now())
+        # Anti-feedback: remember the line so chatter_on_chat can recognize
+        # and ignore any echo that finds its way through onChat.
+        _remember_sent_line(text)
         _log("broadcast (chunked): " + text[:100])
     except:
         _log("broadcast failed for: " + str(entry.get("text", ""))[:60])
@@ -1466,7 +1519,7 @@ def _drain_display_queue():
 
 def _check_for_responses():
     """Scan spool for response files matching our pending request, ingest, delete."""
-    global _pending_request_id
+    global _pending_request_id, _active_chat_partner
     d = _spool_dir()
     if not os.path.isdir(d):
         return
@@ -1521,6 +1574,14 @@ def _check_for_responses():
         # Process
         if data.get("ok"):
             _enqueue_response_lines(data)
+            # CHAT_REPLY: refresh the active-partner pointer so the human
+            # can keep talking with no-name follow-ups inside the idle window.
+            if data.get("trigger") == "CHAT_REPLY":
+                lines = data.get("lines") or []
+                if lines:
+                    speaker_pid = int(lines[0].get("speaker_player_id", -1))
+                    if speaker_pid >= 0:
+                        _active_chat_partner = (speaker_pid, _now())
         else:
             _log("dropping non-ok response: " + str(data.get("error", "?")))
         _safe_unlink(path)
@@ -1536,6 +1597,8 @@ def _full_reset(reason):
     global _active_exchange_until, _global_recent_lines, _logged_first_run
     global _no_elector_diag_fired, _no_elector_first_seen_turn
     global _pending_lines, _next_msg_id
+    global _active_chat_partner, _recent_sendchat_lines
+    global _leader_name_to_player, _leader_name_cache_at
     _session_id = _gen_uuid()
     try:
         _local_player_id = _gc().getGame().getActivePlayer()
@@ -1558,6 +1621,10 @@ def _full_reset(reason):
     _no_elector_first_seen_turn = -1
     _pending_lines = {}
     _next_msg_id = 1
+    _active_chat_partner = None
+    _recent_sendchat_lines = []
+    _leader_name_to_player = None
+    _leader_name_cache_at = 0.0
     _log("reset (" + reason + ") session=" + _session_id + " localPlayer=" + str(_local_player_id))
 
 
@@ -2127,3 +2194,283 @@ def _likely_killer_of(iPlayer):
     except:
         pass
     return -1
+
+
+# ===== chat-reply: human types in chat, AI replies =====
+
+def _remember_sent_line(text):
+    """Note a line we just broadcast so we can ignore any echo."""
+    try:
+        s = _to_ascii(text or "").strip().lower()
+        if not s:
+            return
+        _recent_sendchat_lines.append(s)
+        # Cap the ring so memory stays bounded.
+        while len(_recent_sendchat_lines) > CHAT_RECENT_LINES_RING:
+            _recent_sendchat_lines.pop(0)
+    except:
+        pass
+
+
+def _looks_like_our_echo(text):
+    """True if the inbound chat line looks like one we just sent."""
+    try:
+        s = _to_ascii(text or "").strip().lower()
+        if not s:
+            return False
+        # Strip common "Leader: " prefixes the engine might add.
+        if ": " in s:
+            after = s.split(": ", 1)[1]
+            if after in _recent_sendchat_lines:
+                return True
+        for prev in _recent_sendchat_lines:
+            if prev and prev in s:
+                return True
+        return False
+    except:
+        return False
+
+
+def _build_leader_name_index():
+    """Return a dict {lowercase_leader_name: player_id} for all alive AIs.
+
+    Refreshed lazily; cached briefly because leader rosters don't change
+    mid-game except on elimination (and a stale entry just means a name
+    still resolves but is then filtered as dead in chatter_on_chat).
+    """
+    global _leader_name_to_player, _leader_name_cache_at
+    now = _now()
+    if _leader_name_to_player is not None and (now - _leader_name_cache_at) < 5.0:
+        return _leader_name_to_player
+    out = {}
+    try:
+        for i in range(_gc().getMAX_CIV_PLAYERS()):
+            try:
+                p = _gc().getPlayer(i)
+                if not p.isAlive():
+                    continue
+                if p.isHuman():
+                    continue
+                if p.isBarbarian():
+                    continue
+                lt = p.getLeaderType()
+                if lt < 0:
+                    continue
+                info = _gc().getLeaderHeadInfo(lt)
+                if info is None:
+                    continue
+                name = _to_ascii(info.getDescription())
+                if name:
+                    out[name.lower()] = int(i)
+            except:
+                continue
+    except:
+        pass
+    _leader_name_to_player = out
+    _leader_name_cache_at = now
+    return out
+
+
+def _levenshtein(a, b):
+    """Classic Levenshtein distance. Py 2.4 friendly. Caps at len(a)+len(b)."""
+    if a == b:
+        return 0
+    la = len(a)
+    lb = len(b)
+    if la == 0:
+        return lb
+    if lb == 0:
+        return la
+    prev = list(range(lb + 1))
+    for i in range(1, la + 1):
+        curr = [i] + [0] * lb
+        ai = a[i - 1]
+        for j in range(1, lb + 1):
+            cost = 0
+            if ai != b[j - 1]:
+                cost = 1
+            ins = curr[j - 1] + 1
+            dele = prev[j] + 1
+            sub = prev[j - 1] + cost
+            m = ins
+            if dele < m:
+                m = dele
+            if sub < m:
+                m = sub
+            curr[j] = m
+        prev = curr
+    return prev[lb]
+
+
+def _score_leader_match(token, leader_name_lower):
+    """Score one (lowercase) token against one (lowercase) leader name.
+
+    Returns 0 for no match, otherwise a positive integer (higher is better).
+    Rules:
+      - Exact full-name match  : 100
+      - Token equals first or last word of leader name (>=3 chars) : 90
+      - Token is a 4+ char prefix of any name word                  : 70
+      - Levenshtein <= 2 against any name word (len >=5)            : 100 - 25*dist
+      - else 0
+    """
+    if not token:
+        return 0
+    if token == leader_name_lower:
+        return 100
+    parts = leader_name_lower.split()
+    best = 0
+    for w in parts:
+        if not w:
+            continue
+        if token == w and len(w) >= 3:
+            if best < 90:
+                best = 90
+        if len(token) >= 4 and w.startswith(token):
+            if best < 70:
+                best = 70
+        if len(w) >= 5 and len(token) >= 4 and abs(len(token) - len(w)) <= 2:
+            d = _levenshtein(token, w)
+            if d <= 2:
+                fz = 100 - 25 * d
+                if fz > best:
+                    best = fz
+    return best
+
+
+def _resolve_addressed_leader(text, active_partner_id, active_partner_idle_seconds):
+    """Decide which AI leader the human is talking to.
+
+    Returns (player_id, why) where why is one of:
+      'name_match'       -- a leader name was found in the message.
+      'active_partner'   -- no name, but we have an active partner in window.
+      None               -- no match; caller should ignore.
+    """
+    s = _to_ascii(text or "").strip()
+    if not s:
+        return (None, None)
+    s_low = s.lower()
+    # Tokenize: split on non-alphanumeric, drop stopwords, keep tokens >=3 chars.
+    tokens = []
+    cur = []
+    for ch in s_low:
+        if ch.isalnum():
+            cur.append(ch)
+        else:
+            if cur:
+                tokens.append("".join(cur))
+                cur = []
+    if cur:
+        tokens.append("".join(cur))
+    # Don't try to match very short tokens; they false-positive against names.
+    # Also drop common English words ('just' -> 'justinian' false positives etc).
+    tokens = [t for t in tokens if len(t) >= 3 and t not in CHAT_COMMON_STOPWORDS]
+
+    index = _build_leader_name_index()  # {lower_name: player_id}
+    if not index:
+        return (None, None)
+
+    best_pid = None
+    best_score = 0
+    best_namelen = 9999
+    for name_low, pid in index.items():
+        # Try whole-name first (catches "Genghis Khan" as a phrase).
+        if name_low in s_low:
+            score = 100
+            if score > best_score or (score == best_score and len(name_low) < best_namelen):
+                best_score = score
+                best_pid = pid
+                best_namelen = len(name_low)
+            continue
+        # Then token-by-token.
+        local_best = 0
+        for tok in tokens:
+            sc = _score_leader_match(tok, name_low)
+            if sc > local_best:
+                local_best = sc
+        if local_best >= CHAT_FUZZY_THRESHOLD:
+            # Tie-break: prefer the most specific (shortest) leader name.
+            if local_best > best_score or (local_best == best_score and len(name_low) < best_namelen):
+                best_score = local_best
+                best_pid = pid
+                best_namelen = len(name_low)
+
+    if best_pid is not None:
+        return (best_pid, "name_match")
+
+    # No name matched -- fall back to active partner if within idle window.
+    if active_partner_id is not None and active_partner_idle_seconds <= CHAT_IDLE_SECONDS:
+        return (active_partner_id, "active_partner")
+    return (None, None)
+
+
+_last_chat_emit_at = 0.0
+
+
+def chatter_on_chat(szString):
+    """Public entry: called from CvEventManager.onChat with the raw message.
+
+    Decides whether to emit a CHAT_REPLY request to the sidecar. Never
+    raises into the engine. Single-player only (multiplayer doesn't pass
+    speaker ID through onChat).
+    """
+    global _active_chat_partner, _last_chat_emit_at
+    if _disabled:
+        return
+    try:
+        text = _to_ascii(szString or "").strip()
+        if not text:
+            return
+        # Anti-feedback: ignore messages that look like our own echoed lines.
+        if _looks_like_our_echo(text):
+            _log("chat: ignoring own echo: " + text[:60])
+            return
+        # Debounce: same line spammed in quick succession.
+        now = _now()
+        if (now - _last_chat_emit_at) < CHAT_EMIT_DEBOUNCE_SECONDS:
+            return
+
+        # Resolve which leader the human is addressing.
+        partner_pid = None
+        idle = 1e9
+        if _active_chat_partner is not None:
+            partner_pid = _active_chat_partner[0]
+            idle = now - _active_chat_partner[1]
+        leader_id, why = _resolve_addressed_leader(text, partner_pid, idle)
+        if leader_id is None:
+            _log("chat: no leader matched; ignoring: " + text[:60])
+            return
+
+        # Reject if the resolved leader is dead.
+        try:
+            if not _gc().getPlayer(leader_id).isAlive():
+                _log("chat: resolved leader pid=" + str(leader_id) + " is dead; ignoring")
+                _active_chat_partner = None
+                return
+        except:
+            return
+
+        if _local_player_id < 0:
+            return
+
+        # Switching leaders mid-thread: that's allowed; just update the
+        # active partner pointer. The daemon stores per-leader history
+        # so the prior conversation is retained for resume-by-name.
+        _active_chat_partner = (leader_id, now)
+        _last_chat_emit_at = now
+
+        # Emit the request. Speaker = AI leader, target = local human.
+        _emit_request(
+            "CHAT_REPLY",
+            int(leader_id),
+            int(_local_player_id),
+            {"user_message": text},
+            False,  # not a multi-line exchange; single reply
+        )
+        _log("chat emit: leader=" + str(leader_id) + " why=" + str(why)
+             + " text=" + text[:60])
+    except:
+        # Never raise into the engine.
+        try:
+            _log("chatter_on_chat: unexpected error")
+        except:
+            pass

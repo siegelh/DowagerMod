@@ -877,6 +877,17 @@ class CvEventManager:
 		chatMessage = "%s" %(argsList[0],)
 		if (chatMessage.strip().lower() == "!glyphdump"):
 			CvGlyphDiagnostics.dumpGlyphDiagnostics(-1, -1, -1, -1, "chat")
+			return
+		# DowagerMod chatter: pass chat through to the leader-chatter hook so
+		# typing "Louis, your gardens are beautiful" gets a reply from Louis.
+		# Wrapped defensively so chatter errors never break chat.
+		try:
+			CvLeaderChatter.chatter_on_chat(chatMessage)
+		except Exception, exc:
+			try:
+				CvUtil.pyPrint("chatter_on_chat error: %s" % (exc,))
+			except:
+				pass
 
 	def onSetPlayerAlive(self, argsList):
 		'Set Player Alive Event'

@@ -26,9 +26,12 @@ if __package__ in (None, ""):
 from tools.chatter import config as cfg_mod
 from tools.chatter import spool as spool_mod
 from tools.chatter.azure_client import AzureClient, AuthError, ApiError, parse_multi_turn_lines, looks_like_refusal
+from tools.chatter.chat_reply import handle_chat_reply
 from tools.chatter.circuit import CircuitBreaker
+from tools.chatter.conversations import ConversationStore
 from tools.chatter.prompts import build_single_line_prompt, build_multi_turn_prompt
 from tools.chatter.state import StateStore
+from tools.chatter.tone import add_percent, prosody_for
 
 
 REJOINDER_MIN_MS = 5000
@@ -128,16 +131,50 @@ def render_multi_turn(request: dict, parsed: list) -> list:
 
 def process_request(req_path: Path, request: dict, *, client: AzureClient, breaker: CircuitBreaker,
                     logger: logging.Logger, max_tokens: int, max_tokens_multi: int,
-                    native_mode: bool = False, voice_picker=None) -> dict:
+                    native_mode: bool = False, voice_picker=None,
+                    conversations: ConversationStore = None,
+                    chat_reply_max_tokens: int = 120) -> dict:
     """Run one request through the API. Always returns a response dict.
 
     When native_mode is True, asks the LLM for both English and native-tongue
     versions of each line. The voice_picker is needed to know which native
     language each speaker uses (skipped if leader has no configured 'lang').
+
+    CHAT_REPLY trigger is dispatched separately to handle_chat_reply, which
+    builds a multi-turn messages list from the conversation history and asks
+    the LLM for a tone-tagged response.
     """
     if not breaker.can_call():
         logger.info("circuit OPEN, dropping request_id=%s", request.get("request_id"))
         return make_response(request=request, ok=False, lines=[], error="circuit_open")
+
+    # Live chat reply: route through the dedicated multi-turn handler.
+    if request.get("trigger") == "CHAT_REPLY":
+        if conversations is None:
+            logger.warning("CHAT_REPLY but no conversation store; dropping request_id=%s",
+                           request.get("request_id"))
+            return make_response(request=request, ok=False, lines=[], error="no_chat_store")
+        try:
+            resp, line, tone = handle_chat_reply(
+                request=request, store=conversations, client=client,
+                max_tokens=chat_reply_max_tokens, logger=logger,
+            )
+        except Exception as exc:  # noqa: BLE001
+            breaker.record_failure()
+            logger.exception("chat_reply unexpected: %s", exc)
+            return make_response(request=request, ok=False, lines=[], error="unexpected")
+        if resp.get("ok"):
+            breaker.record_success()
+            logger.info("chat_reply ok rid=%s tone=%s line=%r",
+                        request.get("request_id"), tone, line[:120])
+        else:
+            err = resp.get("error") or ""
+            if err == "auth_failure":
+                breaker.trip_immediately()
+            elif err in ("api_failure", "unexpected"):
+                breaker.record_failure()
+            # empty_user_message / empty_reply / no_chat_store: don't ding circuit
+        return resp
 
     multi = bool(request.get("multi_turn"))
     # Resolve per-speaker native lang hints if native_mode is on
@@ -339,7 +376,7 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
 
 
 def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, logger: logging.Logger,
-                       voice_picker=None) -> None:
+                       voice_picker=None, cfg=None) -> None:
     """If voiceover is wired up, synthesize each response line and enqueue
     it to the Discord bot for playback. Failures log + continue (text
     chatter is unaffected).
@@ -347,6 +384,10 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
     If voice_picker is provided, each line's voice is chosen based on the
     speaker's leader name (per-leader voice mapping). Otherwise the speech
     client's default voice is used for every line.
+
+    cfg is optional. When provided and cfg.voiceover.speech_rate is set,
+    that value is used as the default <prosody rate=...> for any leader
+    whose voice_picker spec doesn't override rate.
     """
     if speech_client is None or bot is None:
         return
@@ -391,6 +432,23 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
             except Exception as exc:  # noqa: BLE001
                 logger.warning("voiceover: voice pick failed for %r: %s", speaker_name, exc)
                 chosen_voice = None
+        # Apply global speech_rate fallback when the per-leader spec doesn't
+        # override it. Per-leader overrides win; the global default just
+        # ensures every line is snappier-than-neutral by default.
+        if not rate and cfg is not None:
+            rate = getattr(cfg.voiceover, "speech_rate", "") or ""
+        # CHAT_REPLY tone layering: each line may carry a "tone" key
+        # (angry / amused / haughty / pleased / cold / menacing / wistful /
+        # theatrical). Tone offsets are ADDITIVE on top of the leader's base
+        # rate/pitch -- so an angry Catherine speeds up by +12% from her
+        # neutral, not from absolute zero.
+        tone = (ln.get("tone") or "").strip().lower()
+        if tone:
+            pitch_off, rate_off = prosody_for(tone)
+            if rate_off:
+                rate = add_percent(rate, rate_off)
+            if pitch_off:
+                pitch = add_percent(pitch, pitch_off)
         elapsed = time.time() - last_synth_at
         if elapsed < 0.5 and last_synth_at > 0:
             time.sleep(0.5 - elapsed)
@@ -451,6 +509,10 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         open_seconds=cfg.circuit_breaker.open_seconds,
     )
     state = StateStore()  # noqa: F841 — reserved for future use
+    conversations = ConversationStore(
+        history_seconds=cfg.chat_history_seconds,
+        max_turns=cfg.chat_max_history_turns,
+    )
 
     speech_client, bot, voice_picker = setup_voiceover(cfg, spool_path, logger)
 
@@ -501,6 +563,8 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
                 max_tokens_multi=cfg.max_tokens_multi_turn,
                 native_mode=cfg.voiceover.native_tongue_mode,
                 voice_picker=voice_picker,
+                conversations=conversations,
+                chat_reply_max_tokens=cfg.chat_reply_max_tokens,
             )
 
             # And refresh again after the API call completes, before writing
@@ -512,7 +576,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
             write_response(spool_path, response, logger)
             voiceover_response(response, speech_client=speech_client, bot=bot,
                                spool_path=spool_path, logger=logger,
-                               voice_picker=voice_picker)
+                               voice_picker=voice_picker, cfg=cfg)
             spool_mod.safe_unlink(req_path)
             last_call_at = time.time()
             processed += 1

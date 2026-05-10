@@ -196,6 +196,10 @@ class TestPrompts(unittest.TestCase):
         self.assertIn("declared war", sys_msg)
         self.assertIn("Industrial", user_msg)
         self.assertIn("turn 142", user_msg)
+        # Tightened brevity rules: 14-word cap and ban list applied.
+        self.assertIn("14 words", sys_msg)
+        self.assertIn("Behold", sys_msg)
+        self.assertNotIn("interjections encouraged", sys_msg.lower())
 
     def test_broadcast_prompt(self):
         request = {
@@ -213,6 +217,27 @@ class TestPrompts(unittest.TestCase):
     def test_unknown_trigger_raises(self):
         with self.assertRaises(ValueError):
             prompts.build_single_line_prompt({"trigger": "BOGUS", "speaker": {"leader_name": "X", "civ_short_name": "Y"}})
+
+    def test_chat_reply_prompt(self):
+        request = {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Louis XIV", "civ_short_name": "France", "player_id": 3},
+            "target": {"leader_name": "Harrison", "civ_short_name": "America", "player_id": 0,
+                       "human_name": "Harrison"},
+            "context": {"user_message": "You are a fool, Louie!"},
+        }
+        history = [
+            {"role": "user", "content": "You are a fool, Louie!"},
+        ]
+        sys_msg, msgs = prompts.build_chat_reply_prompt(request, history)
+        self.assertIn("Louis XIV", sys_msg)
+        self.assertIn("France", sys_msg)
+        self.assertIn("Harrison", sys_msg)
+        self.assertIn("JSON", sys_msg)
+        self.assertIn("tone", sys_msg)
+        self.assertIn("angry", sys_msg)
+        self.assertIn("14 words", sys_msg)
+        self.assertEqual(msgs, history)
 
     def test_multi_turn_prompt(self):
         request = {

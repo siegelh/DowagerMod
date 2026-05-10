@@ -78,6 +78,15 @@ TRIGGERS: Dict[str, TriggerTemplate] = {
         action="{target_leader} of {target_civ} has just declared war on you, marching their armies to your border",
         user_extra="React to having war declared on you.",
     ),
+    # Live player <-> AI chat. The "action" is filled in dynamically by
+    # build_chat_reply_messages -- it isn't formatted via TRIGGERS like the
+    # event-driven triggers above. Listed here so daemon trigger lookups
+    # (e.g. for HIGH_PRIORITY_TRIGGERS membership checks) succeed.
+    "CHAT_REPLY": TriggerTemplate(
+        mode="directed",
+        action="the human player has just spoken to you in chat",
+        user_extra="Reply in-character to their latest line.",
+    ),
     # ===== Broadcast triggers =====
     "RELIGION_FOUNDED": TriggerTemplate(
         mode="broadcast",
@@ -114,11 +123,11 @@ SYSTEM_DIRECTED = (
     "Sid Meier's Civilization IV. {action}.\n\n"
     "Speak in-character with period-appropriate flavor, addressing {target_leader} directly.\n\n"
     "Constraints:\n"
-    "- Output exactly ONE sentence, no more than 25 words.\n"
+    "- Output exactly ONE sentence, no more than 14 words. Punchy, clipped, decisive — like a one-liner, not a speech.\n"
     "- Witty, theatrical, slightly arch. In-character trash talk is welcome.\n"
-    "- Punctuated interjections are encouraged when they fit the moment: "
-    "Ha! Bah! Pah! Hmph! Tch! Pfft! At last! Indeed! "
-    "(Use them as the first word, followed by a comma or exclamation, then your sentence.)\n"
+    "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
+    "Do NOT use 'Behold' anywhere in the line. Vary your openers — fresh phrasing every time, "
+    "not stock theatrical exclamations.\n"
     "- NEVER use stage directions or asterisks like *laughs* or *scoffs* — those get spoken literally by the voice synthesizer.\n"
     "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
     '- Stay in character. Do not refer to "the game" or "the player" or "Civilization IV".\n'
@@ -151,9 +160,9 @@ HUMAN_PLAYER_DIRECTIVE = (
     "{target_leader}. The comedic effect of breaking the period frame to call "
     "the human player out by their real name across the centuries is the "
     "entire point. Examples:\n"
-    '  - "Behold, {target_human_name}, the dawn of a new age!"\n'
-    '  - "{target_human_name}! You will regret this day."\n'
-    '  - "Hear me, {target_human_name} -- your folly is plain."\n'
+    '  - "{target_human_name}, you will regret this day."\n'
+    '  - "Mark me well, {target_human_name} -- your folly is plain."\n'
+    '  - "{target_human_name}! Your gambit ends here."\n'
     "Do NOT lapse into addressing them as {target_leader}. Use "
     '"{target_human_name}" whenever you address them.'
 )
@@ -164,11 +173,11 @@ SYSTEM_BROADCAST = (
     "Speak in-character with period-appropriate flavor, proclaiming this to the world. "
     "This is a broadcast to all peoples and rulers, not a private message.\n\n"
     "Constraints:\n"
-    "- Output exactly ONE sentence, no more than 25 words.\n"
+    "- Output exactly ONE sentence, no more than 14 words. Punchy, clipped, decisive — like a one-liner, not a speech.\n"
     "- Theatrical, proud, in-character. Boast or proclaim as fits the moment.\n"
-    "- Punctuated interjections are encouraged when they fit the moment: "
-    "Behold! At last! Hark! Ha! Indeed! "
-    "(Use them as the first word, followed by a comma or exclamation, then your sentence.)\n"
+    "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
+    "Do NOT use 'Behold' anywhere in the line. Vary your openers — fresh phrasing every time, "
+    "not stock theatrical exclamations.\n"
     "- NEVER use stage directions or asterisks like *raises arms* or *laughs* — those get spoken literally by the voice synthesizer.\n"
     "- Do NOT address any specific rival by name. This is to all the world.\n"
     "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
@@ -184,12 +193,13 @@ SYSTEM_MULTI_TURN = (
     "Premise: {premise}\n\n"
     "Generate exactly {n_lines} lines as a JSON array of objects, each with two keys: "
     '"speaker" (the leader\'s name, alternating between {speaker_leader} and {target_leader}) '
-    "and \"line\" (their remark, ONE sentence, max 25 words).\n\n"
+    "and \"line\" (their remark, ONE sentence, max 14 words).\n\n"
     "Constraints for every line:\n"
+    "- Punchy, clipped, decisive — like a one-liner, not a speech.\n"
     "- Witty, theatrical, slightly arch. In-character trash talk is welcome.\n"
-    "- Punctuated interjections are encouraged when they fit the moment: "
-    "Ha! Bah! Pah! Hmph! Tch! Pfft! Indeed! Behold! Hark! "
-    "(Use them as the first word, followed by a comma or exclamation, then the sentence.)\n"
+    "- Do NOT begin a line with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
+    "Do NOT use 'Behold' anywhere in any line. Vary openers across the exchange — no two lines may start "
+    "with the same hook. Fresh phrasing, not stock theatrical exclamations.\n"
     "- NEVER use stage directions or asterisks like *laughs* *scoffs* *raises arms* — those get spoken literally by the voice synthesizer and ruin the audio.\n"
     '- Stay in character. No references to "the game" or "the player".\n'
     "- No quotation marks within the line. No leader name prefix inside the line.\n"
@@ -205,12 +215,14 @@ SYSTEM_MULTI_TURN_NATIVE = (
     "Premise: {premise}\n\n"
     "Generate exactly {n_lines} lines as a JSON array of objects, each with THREE keys:\n"
     '  "speaker" : the leader\'s name, alternating between {speaker_leader} and {target_leader}\n'
-    '  "line"    : the remark in ENGLISH (one sentence, max 25 words). This is the subtitle the player reads.\n'
+    '  "line"    : the remark in ENGLISH (one sentence, max 14 words). This is the subtitle the player reads.\n'
     '  "line_native" : the SAME remark translated into the speaker\'s native language. {speaker_leader} speaks {speaker_native_lang}; {target_leader} speaks {target_native_lang}. Use the natural script for that language (Cyrillic for Russian, Hanzi for Mandarin, Devanagari for Hindi, Arabic script for Arabic, Hangul for Korean, etc.). If you do not know how to render the language fluently, return the English text in line_native as a fallback.\n\n'
     "Constraints for every line:\n"
+    "- Punchy, clipped, decisive — like a one-liner, not a speech.\n"
     "- Witty, theatrical, slightly arch. In-character trash talk is welcome.\n"
-    "- Punctuated interjections are encouraged when they fit the moment "
-    "(use natural-language equivalents in line_native).\n"
+    "- Do NOT begin a line with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
+    "Do NOT use 'Behold' anywhere in any line. Vary openers across the exchange — no two lines may start "
+    "with the same hook. Fresh phrasing, not stock theatrical exclamations.\n"
     "- NEVER use stage directions or asterisks like *laughs* *scoffs* — those get spoken literally and ruin the audio.\n"
     '- Stay in character. No references to "the game" or "the player".\n'
     "- No quotation marks within the line. No leader name prefix inside the line.\n"
@@ -225,11 +237,13 @@ SYSTEM_DIRECTED_NATIVE = (
     "Sid Meier's Civilization IV. {action}.\n\n"
     "Speak in-character with period-appropriate flavor, addressing {target_leader} directly.\n\n"
     "Output a JSON object with TWO keys:\n"
-    '  "line"        : your remark in ENGLISH (one sentence, max 25 words). This is the subtitle.\n'
+    '  "line"        : your remark in ENGLISH (one sentence, max 14 words). This is the subtitle.\n'
     '  "line_native" : the SAME remark translated into your native language ({speaker_native_lang}). Use the natural script. If you do not know how to render this language fluently, return the English text as a fallback.\n\n'
     "Constraints:\n"
+    "- Punchy, clipped, decisive — like a one-liner, not a speech.\n"
     "- Witty, theatrical, slightly arch. Trash talk welcome.\n"
-    "- Interjections encouraged (Ha!, Bah!, Pah! in English; natural equivalents in line_native).\n"
+    "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
+    "Do NOT use 'Behold' anywhere in the line. Vary your openers — fresh phrasing every time.\n"
     "- NEVER use stage directions or asterisks.\n"
     "- No real-world modern politics, no slurs.\n"
     "- The English line and the native line must convey the SAME meaning.\n"
@@ -241,11 +255,13 @@ SYSTEM_BROADCAST_NATIVE = (
     "Sid Meier's Civilization IV. {action}.\n\n"
     "Proclaim this to the world in-character.\n\n"
     "Output a JSON object with TWO keys:\n"
-    '  "line"        : your proclamation in ENGLISH (one sentence, max 25 words). This is the subtitle.\n'
+    '  "line"        : your proclamation in ENGLISH (one sentence, max 14 words). This is the subtitle.\n'
     '  "line_native" : the SAME proclamation translated into your native language ({speaker_native_lang}). Use the natural script.\n\n'
     "Constraints:\n"
+    "- Punchy, clipped, decisive — like a one-liner, not a speech.\n"
     "- Theatrical, proud, in-character.\n"
-    "- Interjections encouraged.\n"
+    "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
+    "Do NOT use 'Behold' anywhere in the line. Vary your openers — fresh phrasing every time.\n"
     "- Do NOT address any specific rival by name.\n"
     "- NEVER use stage directions or asterisks.\n"
     "- No real-world modern politics, no slurs.\n"
@@ -254,6 +270,70 @@ SYSTEM_BROADCAST_NATIVE = (
 )
 
 USER_TEMPLATE = "Game state: turn {game_turn}, {era} era.\n{extra}"
+
+
+# ===== Chat-reply system prompt =====
+#
+# CHAT_REPLY is a live conversation between the human player and one AI
+# leader through the in-game chat box. The LLM receives:
+#   - this system prompt (configured for the speaker)
+#   - the full conversation history as alternating user/assistant messages
+# It must read the LATEST user message's tone and reply with a JSON object
+# {line, tone}. Tone drives the SSML <prosody> on synthesis -- insults
+# produce angry voices, compliments produce pleased voices, etc.
+SYSTEM_CHAT_REPLY = (
+    "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
+    "Sid Meier's Civilization IV. You are in a LIVE chat conversation with the "
+    'human player whose chosen in-game name is "{target_human_name}". You can see '
+    "the full conversation so far. They have just sent the most recent message.\n\n"
+    "Read the LATEST message carefully and detect its tone. Reply in-character with "
+    "a single line that matches and responds to that tone:\n"
+    "- Insult, mockery, or hostility => angry, cold, or menacing reply.\n"
+    "- Compliment, friendly remark   => pleased or amused reply.\n"
+    "- Threat or boast               => menacing or haughty reply.\n"
+    "- Wistful / philosophical       => wistful or theatrical reply.\n"
+    "- Neutral question              => any tone that fits your persona.\n\n"
+    "Output a JSON object with EXACTLY two keys:\n"
+    '  "line" : your reply -- ONE sentence, max 14 words. Punchy, clipped, decisive. '
+    'Address the human as "{target_human_name}" when you name them, NOT as {speaker_leader}.\n'
+    '  "tone" : one of exactly: angry, amused, haughty, pleased, cold, menacing, wistful, theatrical.\n\n'
+    "Constraints:\n"
+    "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
+    "Do NOT use 'Behold' anywhere in the line. Vary openers across turns -- never repeat your own previous opener.\n"
+    "- Stay in character as {speaker_leader}. No references to 'the game', 'the player', or 'Civilization IV'.\n"
+    "- NEVER use stage directions or asterisks like *laughs* *scoffs* -- those get spoken literally.\n"
+    "- No quotation marks around the line. No leader name prefix inside the line.\n"
+    "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
+    "- Output ONLY the JSON object. No markdown, no commentary, no code fences."
+)
+
+
+def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
+                            target_human_name: str) -> str:
+    """Format the SYSTEM_CHAT_REPLY system prompt for one conversation."""
+    return SYSTEM_CHAT_REPLY.format(
+        speaker_leader=speaker_leader or "Anonymous",
+        speaker_civ=speaker_civ or "their civilization",
+        target_human_name=target_human_name or "the visitor",
+    )
+
+
+def build_chat_reply_prompt(request: dict, history_messages: list) -> tuple[str, list]:
+    """Return (system_message, messages_list_for_llm) for a CHAT_REPLY call.
+
+    history_messages is the full conversation so far as [{role, content}, ...].
+    The latest entry should be the user message we're replying to. The
+    returned messages_list is exactly what the chat-completions / responses
+    API should see (no system message inside; system goes on the side).
+    """
+    speaker = request.get("speaker") or {}
+    target = request.get("target") or {}
+    sys_msg = build_chat_reply_system(
+        speaker_leader=speaker.get("leader_name", ""),
+        speaker_civ=speaker.get("civ_short_name", ""),
+        target_human_name=target.get("human_name", "") or target.get("leader_name", ""),
+    )
+    return sys_msg, list(history_messages)
 
 
 def build_single_line_prompt(request: dict, *, native_mode: bool = False,

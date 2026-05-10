@@ -35,10 +35,21 @@ DEFAULTS = {
     "azure_speech_endpoint": "",
     "azure_speech_key": "",
     "azure_speech_voice": "en-US-AriaNeural",
+    # Default SSML <prosody rate=...> applied to every leader voice that
+    # doesn't override it in leader_voices.json. "+50%" is the global
+    # snappier baseline (was implicitly 0 / neutral). Per-leader rate
+    # overrides take precedence; CHAT_REPLY tone-specific rates also
+    # take precedence per-line.
+    "speech_rate": "+50%",
     "voiceover_daily_char_cap": 100000,
     "discord_bot_token": "",
     "discord_guild_id": "",
     "discord_voice_channel_id": "",
+    # Chat-reply (player <-> AI conversations via the in-game chat box)
+    "chat_idle_seconds": 120,           # active-partner pointer expires after this much silence
+    "chat_history_seconds": 600,        # full conversation history is GC'd after this much silence
+    "chat_max_history_turns": 24,       # max turns kept in any one conversation (older drop off front)
+    "chat_reply_max_tokens": 120,       # token budget for one chat reply (slightly higher than single-line)
     # Native-tongue mode: when true, the LLM also generates a translation
     # of each line into the speaker's native language, and the TTS speaks
     # the native version. The English version still appears in-game in the
@@ -60,6 +71,7 @@ class VoiceoverConfig:
     azure_speech_endpoint: str = ""
     azure_speech_key: str = ""
     azure_speech_voice: str = "en-US-AriaNeural"
+    speech_rate: str = "+50%"
     daily_char_cap: int = 100000
     discord_bot_token: str = ""
     discord_guild_id: str = ""
@@ -109,6 +121,10 @@ class Config:
     request_ttl_seconds: float = 60.0
     response_ttl_seconds: float = 3600.0
     log_level: str = "INFO"
+    chat_idle_seconds: float = 120.0
+    chat_history_seconds: float = 600.0
+    chat_max_history_turns: int = 24
+    chat_reply_max_tokens: int = 120
     voiceover: VoiceoverConfig = field(default_factory=VoiceoverConfig)
 
     def redacted_api_key(self) -> str:
@@ -201,11 +217,17 @@ def load_config(path: Optional[Path] = None) -> Config:
         "DOWAGER_CHATTER_SPEECH_ENDPOINT": ("azure_speech_endpoint", str),
         "DOWAGER_CHATTER_SPEECH_KEY": ("azure_speech_key", str),
         "DOWAGER_CHATTER_SPEECH_VOICE": ("azure_speech_voice", str),
+        "DOWAGER_CHATTER_SPEECH_RATE": ("speech_rate", str),
         "DOWAGER_CHATTER_VOICEOVER_DAILY_CHAR_CAP": ("voiceover_daily_char_cap", int),
         "DOWAGER_CHATTER_DISCORD_BOT_TOKEN": ("discord_bot_token", str),
         "DOWAGER_CHATTER_DISCORD_GUILD_ID": ("discord_guild_id", str),
         "DOWAGER_CHATTER_DISCORD_VOICE_CHANNEL_ID": ("discord_voice_channel_id", str),
         "DOWAGER_CHATTER_NATIVE_TONGUE_MODE": ("native_tongue_mode", lambda v: str(v).lower() in ("1", "true", "yes", "on")),
+        # Chat-reply tunables
+        "DOWAGER_CHATTER_CHAT_IDLE_SECONDS": ("chat_idle_seconds", float),
+        "DOWAGER_CHATTER_CHAT_HISTORY_SECONDS": ("chat_history_seconds", float),
+        "DOWAGER_CHATTER_CHAT_MAX_HISTORY_TURNS": ("chat_max_history_turns", int),
+        "DOWAGER_CHATTER_CHAT_REPLY_MAX_TOKENS": ("chat_reply_max_tokens", int),
     }
     for env_key, (cfg_key, caster) in _ENV_MAP.items():
         if env_key in os.environ and os.environ[env_key] != "":
@@ -234,11 +256,16 @@ def load_config(path: Optional[Path] = None) -> Config:
         request_ttl_seconds=float(raw.get("request_ttl_seconds", 60)),
         response_ttl_seconds=float(raw.get("response_ttl_seconds", 3600)),
         log_level=str(raw.get("log_level", "INFO")).upper(),
+        chat_idle_seconds=float(raw.get("chat_idle_seconds", 120)),
+        chat_history_seconds=float(raw.get("chat_history_seconds", 600)),
+        chat_max_history_turns=int(raw.get("chat_max_history_turns", 24)),
+        chat_reply_max_tokens=int(raw.get("chat_reply_max_tokens", 120)),
         voiceover=VoiceoverConfig(
             enabled=bool(raw.get("voiceover_enabled", False)),
             azure_speech_endpoint=str(raw.get("azure_speech_endpoint", "")),
             azure_speech_key=str(raw.get("azure_speech_key", "")),
             azure_speech_voice=str(raw.get("azure_speech_voice", "en-US-AriaNeural")),
+            speech_rate=str(raw.get("speech_rate", "+50%")),
             daily_char_cap=int(raw.get("voiceover_daily_char_cap", 100000)),
             discord_bot_token=str(raw.get("discord_bot_token", "")),
             discord_guild_id=str(raw.get("discord_guild_id", "")),

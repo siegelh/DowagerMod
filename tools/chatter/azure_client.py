@@ -112,20 +112,40 @@ class AzureClient:
         or the Chat Completions API (for AzureOpenAI / cognitiveservices endpoints).
         Both return the same ApiResult shape so callers don't care.
         """
+        return self.call_chat(
+            [
+                {"role": "system", "content": system_msg},
+                {"role": "user", "content": user_msg},
+            ],
+            max_tokens=max_tokens,
+        )
+
+    def call_chat(self, messages: list, *, max_tokens: int = 80) -> ApiResult:
+        """Multi-turn API call. messages is a list of {role, content} dicts.
+
+        The first message MUST be role='system'; the rest alternate user/assistant.
+        Auto-routes to AzureOpenAI chat.completions or OpenAI Responses API.
+        """
+        if not messages:
+            raise ApiError("call_chat: messages list is empty")
+        # Pull the system message out (first occurrence; ignore any later ones).
+        system_msg = ""
+        rest: list = []
+        for i, m in enumerate(messages):
+            role = (m.get("role") or "").lower()
+            content = m.get("content") or ""
+            if role == "system" and not system_msg:
+                system_msg = content
+            else:
+                rest.append({"role": role, "content": content})
+
         client = self._ensure_client()
         t0 = time.perf_counter()
         try:
             if self._mode == "azure":
-                # AzureOpenAI uses chat.completions.create with messages + max_completion_tokens.
-                # max_completion_tokens is the new field (gpt-5 era models reject max_tokens);
-                # fall back to max_tokens if max_completion_tokens isn't accepted.
-                kwargs = {
-                    "model": self.deployment,
-                    "messages": [
-                        {"role": "system", "content": system_msg},
-                        {"role": "user", "content": user_msg},
-                    ],
-                }
+                # AzureOpenAI: full messages list including system.
+                full = ([{"role": "system", "content": system_msg}] if system_msg else []) + rest
+                kwargs = {"model": self.deployment, "messages": full}
                 try:
                     response = client.chat.completions.create(
                         max_completion_tokens=max_tokens, **kwargs
@@ -135,16 +155,16 @@ class AzureClient:
                         max_tokens=max_tokens, **kwargs
                     )
             else:
+                # Responses API: instructions + input list of role/content items.
                 response = client.responses.create(
                     model=self.deployment,
                     instructions=system_msg,
-                    input=user_msg,
+                    input=rest if rest else "",
                     max_output_tokens=max_tokens,
                 )
         except Exception as exc:  # noqa: BLE001
             elapsed_ms = int((time.perf_counter() - t0) * 1000)
             msg = str(exc)
-            # Best-effort auth detection
             low = msg.lower()
             if (
                 "401" in msg
@@ -230,6 +250,43 @@ def parse_single_line_native(raw: str) -> dict:
     except Exception:  # noqa: BLE001
         pass
     return {"line": text}
+
+
+# Tones the LLM is allowed to emit in CHAT_REPLY mode. Anything else is
+# coerced to "theatrical" (the safe neutral default) -- mirrors tone.py.
+_VALID_CHAT_TONES = {
+    "angry", "amused", "haughty", "pleased", "cold", "menacing", "wistful", "theatrical",
+}
+
+
+def parse_chat_reply(raw: str) -> dict:
+    """Parse a CHAT_REPLY JSON object {line, tone}.
+
+    Returns {'line': str, 'tone': str}. Tone is normalized to lowercase
+    and coerced to 'theatrical' if not in the allowed set. Falls back to
+    {'line': raw, 'tone': 'theatrical'} if JSON parse fails so the caller
+    still gets something speakable.
+    """
+    text = (raw or "").strip()
+    text = re.sub(r"^```(?:json)?\s*", "", text)
+    text = re.sub(r"\s*```\s*$", "", text)
+    idx = text.find("{")
+    if idx > 0:
+        text = text[idx:]
+    try:
+        parsed = json.loads(text)
+    except Exception:  # noqa: BLE001
+        return {"line": (raw or "").strip(), "tone": "theatrical"}
+    if not isinstance(parsed, dict):
+        return {"line": (raw or "").strip(), "tone": "theatrical"}
+    line = str(parsed.get("line", "")).strip()
+    tone = str(parsed.get("tone", "")).strip().lower()
+    if tone not in _VALID_CHAT_TONES:
+        tone = "theatrical"
+    if not line:
+        return {"line": (raw or "").strip(), "tone": tone}
+    return {"line": line, "tone": tone}
+
 
 
 # Simple post-render denylist. Triggered after the model returns text but
