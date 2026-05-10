@@ -63,6 +63,50 @@ class TestConversationStore(unittest.TestCase):
         self.assertEqual(store.get_messages(("s1", 7)), [])
         self.assertEqual(len(store.get_messages(("s2", 7))), 1)
 
+    # --- MP / typer name + speaker_type ---
+
+    def test_from_human_records_per_turn_and_renders_prefix(self):
+        store = conversations.ConversationStore()
+        key = ("s", 7)
+        store.append_user(key, "first", from_human="Alice")
+        store.append_user(key, "second", from_human="Bob")
+        msgs = store.get_messages(key)
+        self.assertEqual(msgs[0]["content"], "[Alice] first")
+        self.assertEqual(msgs[1]["content"], "[Bob] second")
+
+    def test_no_from_human_keeps_legacy_unprefixed_render(self):
+        """SP-callsites that don't pass from_human keep the old behavior."""
+        store = conversations.ConversationStore()
+        key = ("s", 7)
+        store.append_user(key, "no-prefix")
+        msgs = store.get_messages(key)
+        self.assertEqual(msgs[0]["content"], "no-prefix")
+
+    def test_humans_heard_returns_distinct_typers_in_order(self):
+        store = conversations.ConversationStore()
+        key = ("s", 7)
+        store.append_user(key, "1", from_human="Alice")
+        store.append_user(key, "2", from_human="Bob")
+        store.append_user(key, "3", from_human="Alice")  # repeat
+        store.append_user(key, "4", from_human="Carol")
+        self.assertEqual(store.humans_heard(key), ["Alice", "Bob", "Carol"])
+
+    def test_append_leader_speaker_renders_with_said_prefix(self):
+        """Chain-reply turns use [<leader> said] prefix, not [<name>]."""
+        store = conversations.ConversationStore()
+        key = ("s", 7)
+        store.append_user(key, "you stink", from_human="Alice")
+        store.append_assistant(key, "no, YOU stink")
+        # Now another leader chimes in.
+        store.append_leader_speaker(
+            key, "agreed, montezuma is foul", prior_speaker_name="Victoria",
+        )
+        msgs = store.get_messages(key)
+        self.assertEqual(msgs[2]["role"], "user")
+        self.assertEqual(msgs[2]["content"], "[Victoria said] agreed, montezuma is foul")
+        # humans_heard should NOT include leader speakers.
+        self.assertEqual(store.humans_heard(key), ["Alice"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -106,6 +106,13 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
     leader_id = int(speaker.get("player_id", -1))
     key = (session_id, leader_id)
 
+    # MP: chrome carries the typer's player name. SP fallback is the
+    # target.human_name we already had. Empty is fine -- store will just
+    # render messages without a [name] prefix.
+    from_human = (ctx.get("from_human") or "").strip()
+    if not from_human:
+        from_human = (target.get("human_name") or "").strip()
+
     if not user_message:
         resp = make_chat_reply_response(
             request=request, ok=False, error="empty_user_message",
@@ -114,11 +121,21 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
 
     # Append the user's latest line BEFORE calling the LLM. If the LLM call
     # fails we still want this message in history (so a retry sees it).
-    store.append_user(key, user_message, leader_name=speaker.get("leader_name", ""))
+    store.append_user(
+        key, user_message,
+        leader_name=speaker.get("leader_name", ""),
+        from_human=from_human,
+    )
     history = store.get_messages(key)
+    humans_heard = store.humans_heard(key)
+    others = [n for n in humans_heard if n and n != from_human]
 
     # Build (system_msg, history_messages_for_llm) and call the model.
-    system_msg, msgs = build_chat_reply_prompt(request, history)
+    system_msg, msgs = build_chat_reply_prompt(
+        request, history,
+        latest_typer_name=from_human,
+        other_humans_in_thread=others,
+    )
     full = [{"role": "system", "content": system_msg}] + msgs
 
     try:

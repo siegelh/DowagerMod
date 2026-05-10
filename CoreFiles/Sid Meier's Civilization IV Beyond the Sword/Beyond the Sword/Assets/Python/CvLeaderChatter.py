@@ -1173,7 +1173,8 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
         target = _player_info(target_id)
 
     ctx = {"era": _era_name(speaker_id)}
-    for k in ("city", "wonder", "tech", "religion", "corporation", "user_message"):
+    for k in ("city", "wonder", "tech", "religion", "corporation",
+              "user_message", "from_human"):
         if k in extra_context and extra_context[k]:
             ctx[k] = _to_ascii(str(extra_context[k]))
 
@@ -2288,16 +2289,24 @@ def _likely_killer_of(iPlayer):
 
 # ===== chat-reply: human types in chat, AI replies =====
 
-def _strip_chat_chrome(text):
-    """Strip Civ4 chat color tags and '[Name to all]:' channel prefix.
+def _parse_chat_chrome(text):
+    """Return (typer_name, stripped_text) from a Civ4 onChat string.
 
     Civ4 onChat hands us the formatted display string, e.g.
         <color=165,140,229,255>[hasiegel to all]:  uhhh hello?</color>
-    We want just `uhhh hello?` for the resolver and for the LLM prompt.
-    Py 2.4 friendly (no regex).
+    We want both 'hasiegel' (the typer's player name) and 'uhhh hello?'
+    (the message body). The typer name is needed in MP so the LLM knows
+    who is speaking when multiple humans contribute to the same leader's
+    conversation thread.
+
+    typer_name is '' if no '[Name to recipient]:' chrome was present
+    (e.g. raw call from internal code).
+
+    Py 2.4 friendly (no regex, no ternary expressions). Mirror of
+    tools/chatter/chat_chrome.parse_chat_chrome -- KEEP IN SYNC.
     """
     if not text:
-        return text
+        return "", text or ""
     s = text
     # Strip <color=...> opening tags (loop in case of nested/multiple).
     while True:
@@ -2308,17 +2317,33 @@ def _strip_chat_chrome(text):
         if j < 0:
             break
         s = s[:i] + s[j + 1:]
-    # Strip </color> close tags (case-insensitive).
+    # Strip </color> close tags (case-insensitive variants).
     s = s.replace("</color>", "")
     s = s.replace("</COLOR>", "")
     s = s.replace("</Color>", "")
-    # Strip leading '[Name to recipient]:' channel prefix.
     s = s.lstrip()
-    if s.startswith("["):
-        end = s.find("]:")
-        if end > 0:
-            s = s[end + 2:]
-    return s.strip()
+    if not s.startswith("["):
+        return "", s.strip()
+    end = s.find("]:")
+    if end <= 0:
+        return "", s.strip()
+    inside = s[1:end]               # what's between '[' and ']:'
+    body = s[end + 2:].strip()      # message body after the colon
+    sep = inside.find(" to ")
+    if sep <= 0:
+        return "", body
+    typer = inside[:sep].strip()
+    return typer, body
+
+
+def _strip_chat_chrome(text):
+    """Back-compat wrapper. Returns only the stripped body.
+
+    New code should call _parse_chat_chrome directly to capture the
+    typer's player name (needed for MP multi-human awareness).
+    """
+    typer, body = _parse_chat_chrome(text)
+    return body
 
 
 def _remember_sent_line(text):
@@ -2556,8 +2581,13 @@ def chatter_on_chat(szString):
         return
     try:
         raw = _to_ascii(szString or "")
-        text = _strip_chat_chrome(raw).strip()
-        _log("chat recv: raw=" + raw[:80] + " stripped=" + text[:60])
+        # MP: parse out the typer's player name from chat chrome so we can
+        # tell the LLM who is talking. SP: typer is usually empty (no
+        # chrome); the daemon falls back to target.human_name.
+        typer_name, body = _parse_chat_chrome(raw)
+        text = body.strip()
+        _log("chat recv: raw=" + raw[:80] + " typer=" + str(typer_name)
+             + " stripped=" + text[:60])
         if not text:
             _log("chat: empty after strip; ignoring")
             return
@@ -2614,15 +2644,20 @@ def chatter_on_chat(szString):
         _last_chat_emit_text = text.lower()
 
         # Emit the request. Speaker = AI leader, target = local human.
+        # from_human is the typer's name from chrome (MP); empty in SP
+        # so the daemon falls back to target.human_name.
+        ctx = {"user_message": text}
+        if typer_name:
+            ctx["from_human"] = typer_name
         _emit_request(
             "CHAT_REPLY",
             int(leader_id),
             int(_local_player_id),
-            {"user_message": text},
+            ctx,
             False,  # not a multi-line exchange; single reply
         )
         _log("chat emit: leader=" + str(leader_id) + " why=" + str(why)
-             + " text=" + text[:60])
+             + " typer=" + str(typer_name) + " text=" + text[:60])
     except Exception, exc:
         # Never raise into the engine.
         try:

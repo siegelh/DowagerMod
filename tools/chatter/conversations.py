@@ -5,6 +5,12 @@ independent thread per AI leader you're talking to. Histories are bounded
 in length and expire after a configurable idle window so a daemon restart
 or 10 minutes of silence cleans them up automatically.
 
+Turns can come from multiple speakers in MP: any connected human (typer
+name carried via `from_human`) or, in chain replies, another AI leader
+(prior leader name carried via `speaker_name` with speaker_type='leader').
+The render-side prefixes user content with `[<name>]` so the LLM can
+distinguish who said what within a single conversation thread.
+
 Thread-safety: the daemon is single-threaded today, so this is a plain
 dict. If the daemon ever goes multi-threaded, wrap operations in a Lock.
 """
@@ -17,10 +23,23 @@ from typing import Dict, List, Tuple
 
 @dataclass
 class ConversationTurn:
-    """One message in a conversation history. role is 'user' or 'assistant'."""
+    """One message in a conversation history.
+
+    role is 'user' or 'assistant' (from the current leader's POV).
+    speaker_type narrows the source for 'user' turns:
+      'human'      -- a real connected human typed it; from_human is set.
+      'leader'     -- a chain-reply where another AI leader is speaking
+                      to the current leader; speaker_name is set.
+      ''           -- legacy / unspecified (treated as human-typed).
+
+    For 'assistant' turns speaker_type is unused (always the current leader).
+    """
     role: str
     content: str
     ts: float = field(default_factory=time.time)
+    from_human: str = ""      # set when speaker_type == 'human'
+    speaker_type: str = ""    # 'human' | 'leader' | ''
+    speaker_name: str = ""    # set when speaker_type == 'leader' (prior leader's name)
 
 
 @dataclass
@@ -31,8 +50,31 @@ class Conversation:
     last_activity_at: float = field(default_factory=time.time)
 
     def to_messages(self) -> List[dict]:
-        """Render turns as OpenAI-style messages list (no system prompt)."""
-        return [{"role": t.role, "content": t.content} for t in self.turns]
+        """Render turns as OpenAI-style messages list (no system prompt).
+
+        User turns are prefixed with `[<name>]` so the LLM sees who is
+        talking when the same thread has multiple humans (or a chain
+        reply from another leader). Assistant turns pass through.
+        """
+        out = []
+        for t in self.turns:
+            content = t.content
+            if t.role == "user":
+                if t.speaker_type == "leader" and t.speaker_name:
+                    content = "[" + t.speaker_name + " said] " + content
+                elif t.from_human:
+                    content = "[" + t.from_human + "] " + content
+            out.append({"role": t.role, "content": content})
+        return out
+
+    def humans_heard(self) -> List[str]:
+        """Return distinct typer names seen in this thread, in first-seen order."""
+        seen = []
+        for t in self.turns:
+            name = t.from_human
+            if name and name not in seen:
+                seen.append(name)
+        return seen
 
 
 # Conversation key: (session_id, leader_player_id)
@@ -57,8 +99,15 @@ class ConversationStore:
 
     # ----- public API -----
 
-    def append_user(self, key: ConvKey, content: str, *, leader_name: str = "") -> Conversation:
-        """Append a user (human) message. Creates the conversation if missing."""
+    def append_user(self, key: ConvKey, content: str, *,
+                    leader_name: str = "",
+                    from_human: str = "") -> Conversation:
+        """Append a user (human) message. Creates the conversation if missing.
+
+        from_human is the typer's player name (Civ4 chat chrome). When set,
+        the rendered history prefixes the line with `[<name>]` so the LLM
+        knows which human spoke -- relevant in MP and harmless in SP.
+        """
         self._gc_idle()
         conv = self._convs.get(key)
         if conv is None:
@@ -66,7 +115,40 @@ class ConversationStore:
             self._convs[key] = conv
         elif leader_name and not conv.leader_name:
             conv.leader_name = leader_name
-        conv.turns.append(ConversationTurn(role="user", content=content))
+        conv.turns.append(ConversationTurn(
+            role="user",
+            content=content,
+            from_human=from_human or "",
+            speaker_type="human" if from_human else "",
+        ))
+        conv.last_activity_at = time.time()
+        self._trim(conv)
+        return conv
+
+    def append_leader_speaker(self, key: ConvKey, content: str, *,
+                              leader_name: str = "",
+                              prior_speaker_name: str = "") -> Conversation:
+        """Append a chain-reply turn from another AI leader.
+
+        Used when another leader has just spoken to/about the current
+        leader and we're queueing the current leader's reply. From the
+        current leader's POV this is still a 'user' role message (it's
+        what they're being asked to respond to), but speaker_type is
+        'leader' so rendering can prefix `[<prior leader> said] ...`.
+        """
+        self._gc_idle()
+        conv = self._convs.get(key)
+        if conv is None:
+            conv = Conversation(leader_id=key[1], leader_name=leader_name or "")
+            self._convs[key] = conv
+        elif leader_name and not conv.leader_name:
+            conv.leader_name = leader_name
+        conv.turns.append(ConversationTurn(
+            role="user",
+            content=content,
+            speaker_type="leader",
+            speaker_name=prior_speaker_name or "",
+        ))
         conv.last_activity_at = time.time()
         self._trim(conv)
         return conv
@@ -93,6 +175,11 @@ class ConversationStore:
         """Return the messages list for a conversation, or [] if missing."""
         conv = self.get(key)
         return conv.to_messages() if conv else []
+
+    def humans_heard(self, key: ConvKey) -> List[str]:
+        """Return distinct typer names seen in this thread, first-seen order."""
+        conv = self.get(key)
+        return conv.humans_heard() if conv else []
 
     def clear(self, key: ConvKey) -> bool:
         """Remove one conversation. Returns True if it existed."""
@@ -132,3 +219,4 @@ class ConversationStore:
         excess = len(conv.turns) - self.max_turns
         if excess > 0:
             del conv.turns[:excess]
+

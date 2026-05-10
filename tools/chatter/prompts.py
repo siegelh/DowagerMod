@@ -283,16 +283,19 @@ USER_TEMPLATE = "Game state: turn {game_turn}, {era} era.\n{extra}"
 # produce angry voices, compliments produce pleased voices, etc.
 SYSTEM_CHAT_REPLY = (
     "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
-    "Sid Meier's Civilization IV. You are in a LIVE chat conversation with the "
-    'human player whose chosen in-game name is "{target_human_name}". You can see '
-    "the full conversation so far. They have just sent the most recent message.\n\n"
+    "Sid Meier's Civilization IV. You are in a LIVE chat conversation. The most "
+    'recent message was sent by the human player named "{latest_typer_name}". '
+    "{other_humans_clause}"
+    "You can see the full conversation so far. Each user message is prefixed with "
+    "the speaker's name in square brackets, e.g. [Alice] hello -- so you can tell "
+    "who is talking when there are multiple humans in the room.\n\n"
     "TONE: This is theatrical banter and trash-talk for ENTERTAINMENT, not real "
-    "diplomacy. The human is your rival; lean into the rivalry. Mockery, exaggerated "
-    "boasts, ridiculous put-downs, absurd flexes, and over-the-top historical "
-    "swagger are ALL on the table and ENCOURAGED. Be witty, petty, dramatic, "
-    "extra. Roast their cities, their armies, their hairline -- whatever fits "
-    "your persona. Treat insults from the human as theater, not threats; respond "
-    "in kind without breaking character.\n\n"
+    "diplomacy. The humans are your rivals; lean into the rivalry. Mockery, "
+    "exaggerated boasts, ridiculous put-downs, absurd flexes, and over-the-top "
+    "historical swagger are ALL on the table and ENCOURAGED. Be witty, petty, "
+    "dramatic, extra. Roast their cities, their armies, their hairline -- whatever "
+    "fits your persona. Treat insults as theater, not threats; respond in kind "
+    "without breaking character.\n\n"
     "Read the LATEST message carefully and detect its tone. Reply in-character with "
     "a single line that matches and responds to that tone:\n"
     "- Insult, mockery, or hostility => angry, cold, or menacing reply (or roast back).\n"
@@ -301,9 +304,12 @@ SYSTEM_CHAT_REPLY = (
     "- Wistful / philosophical       => wistful or theatrical reply.\n"
     "- Neutral question              => any tone that fits your persona.\n"
     "- Absurd / silly / ridiculous   => match the energy. Be just as absurd back.\n\n"
+    "Reply primarily to {latest_typer_name}. You MAY reference the other humans by "
+    "name when it's natural (e.g. \"{latest_typer_name} and the other one\"), but "
+    "the line is FOR {latest_typer_name}.\n\n"
     "Output a JSON object with EXACTLY two keys:\n"
     '  "line" : your reply -- ONE sentence, max 14 words. Punchy, clipped, decisive. '
-    'Address the human as "{target_human_name}" when you name them, NOT as {speaker_leader}.\n'
+    'Address the human as "{latest_typer_name}" when you name them, NOT as {speaker_leader}.\n'
     '  "tone" : one of exactly: angry, amused, haughty, pleased, cold, menacing, wistful, theatrical.\n\n'
     "Constraints:\n"
     "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
@@ -317,29 +323,66 @@ SYSTEM_CHAT_REPLY = (
 
 
 def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
-                            target_human_name: str) -> str:
-    """Format the SYSTEM_CHAT_REPLY system prompt for one conversation."""
+                            latest_typer_name: str = "",
+                            other_humans_in_thread: list | None = None,
+                            target_human_name: str = "") -> str:
+    """Format the SYSTEM_CHAT_REPLY system prompt for one conversation.
+
+    `latest_typer_name` is the most recent human typer (preferred). For
+    back-compat, `target_human_name` is accepted as a fallback when no
+    typer info is available (SP single-human path that hasn't been
+    updated yet).
+    """
+    typer = latest_typer_name or target_human_name or "the visitor"
+    others = list(other_humans_in_thread or [])
+    others = [n for n in others if n and n != typer]
+    if others:
+        if len(others) == 1:
+            other_clause = (
+                "Another human, " + others[0] + ", has also been in this thread. "
+            )
+        else:
+            joined = ", ".join(others[:-1]) + " and " + others[-1]
+            other_clause = (
+                "Other humans -- " + joined + " -- have also been in this thread. "
+            )
+    else:
+        other_clause = ""
     return SYSTEM_CHAT_REPLY.format(
         speaker_leader=speaker_leader or "Anonymous",
         speaker_civ=speaker_civ or "their civilization",
-        target_human_name=target_human_name or "the visitor",
+        latest_typer_name=typer,
+        other_humans_clause=other_clause,
     )
 
 
-def build_chat_reply_prompt(request: dict, history_messages: list) -> tuple[str, list]:
+def build_chat_reply_prompt(request: dict, history_messages: list,
+                            *, latest_typer_name: str = "",
+                            other_humans_in_thread: list | None = None) -> tuple[str, list]:
     """Return (system_message, messages_list_for_llm) for a CHAT_REPLY call.
 
     history_messages is the full conversation so far as [{role, content}, ...].
     The latest entry should be the user message we're replying to. The
     returned messages_list is exactly what the chat-completions / responses
     API should see (no system message inside; system goes on the side).
+
+    `latest_typer_name` (preferred) names the most recent human typer; if
+    omitted we fall back to request.target.human_name for SP. The list
+    `other_humans_in_thread` carries any additional MP typers seen so far.
     """
     speaker = request.get("speaker") or {}
     target = request.get("target") or {}
+    ctx = request.get("context") or {}
+    typer = (latest_typer_name
+             or ctx.get("from_human")
+             or target.get("human_name")
+             or target.get("leader_name")
+             or "")
     sys_msg = build_chat_reply_system(
         speaker_leader=speaker.get("leader_name", ""),
         speaker_civ=speaker.get("civ_short_name", ""),
-        target_human_name=target.get("human_name", "") or target.get("leader_name", ""),
+        latest_typer_name=typer,
+        other_humans_in_thread=other_humans_in_thread,
     )
     return sys_msg, list(history_messages)
 

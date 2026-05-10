@@ -92,7 +92,10 @@ class TestHandleChatReply(unittest.TestCase):
         roles = [m["role"] for m in called_messages[1:]]
         # u-a-u: turn 1 user, turn 1 assistant, turn 2 user.
         self.assertEqual(roles, ["user", "assistant", "user"])
-        self.assertEqual(called_messages[-1]["content"], "Turn 2.")
+        # History rendering prefixes user turns with [<typer>] when the
+        # request carried a typer name (target.human_name in SP).
+        self.assertEqual(called_messages[-1]["content"], "[Harrison] Turn 2.")
+        self.assertEqual(called_messages[1]["content"], "[Harrison] Turn 1.")
 
     def test_api_failure_returns_error_response(self):
         from tools.chatter.azure_client import ApiError
@@ -120,6 +123,89 @@ class TestHandleChatReply(unittest.TestCase):
         self.assertTrue(resp["ok"])
         self.assertIn("plain string reply", line)
         self.assertEqual(tone, "theatrical")
+
+    # --- MP / from_human ---
+
+    def test_from_human_in_context_overrides_target_human_name(self):
+        """ctx['from_human'] (game-side chrome) takes precedence over target."""
+        store = conversations.ConversationStore()
+        client = _fake_client(json.dumps({"line": "Indeed.", "tone": "amused"}))
+        req = _make_request("Howdy.", human_name="Harrison")
+        # MP: a friend typed it, chrome said 'Foo'.
+        req["context"]["from_human"] = "Foo"
+
+        chat_reply.handle_chat_reply(request=req, store=store, client=client)
+
+        msgs = store.get_messages(("s1", 7))
+        self.assertEqual(msgs[0]["content"], "[Foo] Howdy.")
+        # System prompt should name Foo, not Harrison.
+        called = client.call_chat.call_args[0][0]
+        sys_msg = called[0]["content"]
+        self.assertIn("Foo", sys_msg)
+        # No "other humans" yet on first turn.
+        self.assertNotIn("Other humans", sys_msg)
+        self.assertNotIn("Another human", sys_msg)
+
+    def test_multi_human_thread_records_other_humans(self):
+        """Two different humans in the same thread => system prompt mentions the other."""
+        store = conversations.ConversationStore()
+
+        client1 = _fake_client(json.dumps({"line": "Greetings.", "tone": "amused"}))
+        req1 = _make_request("First.", human_name="Harrison")
+        req1["context"]["from_human"] = "Harrison"
+        chat_reply.handle_chat_reply(request=req1, store=store, client=client1)
+
+        client2 = _fake_client(json.dumps({"line": "Both of you.", "tone": "haughty"}))
+        req2 = _make_request("Second.", human_name="Harrison")
+        req2["context"]["from_human"] = "Foo"
+        chat_reply.handle_chat_reply(request=req2, store=store, client=client2)
+
+        called = client2.call_chat.call_args[0][0]
+        sys_msg = called[0]["content"]
+        # Latest typer is Foo; Harrison is the "other".
+        self.assertIn("Foo", sys_msg)
+        self.assertIn("Harrison", sys_msg)
+        self.assertIn("Another human", sys_msg)
+        # History reflects prefixes for both turns.
+        msgs = store.get_messages(("s1", 7))
+        self.assertEqual(msgs[0]["content"], "[Harrison] First.")
+        self.assertEqual(msgs[2]["content"], "[Foo] Second.")
+
+    def test_three_humans_uses_plural_clause(self):
+        store = conversations.ConversationStore()
+        for typer in ("Harrison", "Foo", "Bar"):
+            client = _fake_client(json.dumps({"line": "Sure.", "tone": "amused"}))
+            req = _make_request("Hi.", human_name="Harrison")
+            req["context"]["from_human"] = typer
+            chat_reply.handle_chat_reply(request=req, store=store, client=client)
+
+        # On the last call, the "other humans" list contains the first two.
+        # (We can fish the system prompt off the last call.)
+        # Re-issue once more with a known typer so we can capture cleanly.
+        client_final = _fake_client(json.dumps({"line": "Done.", "tone": "amused"}))
+        req_final = _make_request("End.", human_name="Harrison")
+        req_final["context"]["from_human"] = "Bar"
+        chat_reply.handle_chat_reply(request=req_final, store=store, client=client_final)
+
+        called = client_final.call_chat.call_args[0][0]
+        sys_msg = called[0]["content"]
+        self.assertIn("Other humans", sys_msg)
+        self.assertIn("Harrison", sys_msg)
+        self.assertIn("Foo", sys_msg)
+
+    def test_sp_no_from_human_falls_back_to_target_human_name(self):
+        """SP path: ctx has no from_human; we use target.human_name."""
+        store = conversations.ConversationStore()
+        client = _fake_client(json.dumps({"line": "OK.", "tone": "amused"}))
+        req = _make_request("Hi.", human_name="Harrison")
+        # No ctx['from_human'].
+        chat_reply.handle_chat_reply(request=req, store=store, client=client)
+
+        msgs = store.get_messages(("s1", 7))
+        self.assertEqual(msgs[0]["content"], "[Harrison] Hi.")
+        called = client.call_chat.call_args[0][0]
+        sys_msg = called[0]["content"]
+        self.assertIn("Harrison", sys_msg)
 
 
 if __name__ == "__main__":
