@@ -201,15 +201,34 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
     prior_thread_summary = ""
     if not chain_reply:
         prior_id_raw = ctx.get("prior_thread_with_leader_id")
+        if logger:
+            logger.info(
+                "chat_reply: rid=%s leader=%d from_human=%r prior_leader_id_raw=%r"
+                " chain_reply=%r session=%r",
+                request.get("request_id"), leader_id, from_human,
+                prior_id_raw, ctx.get("chain_reply"), session_id[:12],
+            )
         if prior_id_raw not in (None, "", -1):
             try:
                 prior_id = int(prior_id_raw)
             except (TypeError, ValueError):
                 prior_id = -1
             if prior_id >= 0 and prior_id != leader_id:
+                prior_key = (session_id, prior_id)
+                prior_conv = store.get(prior_key)
                 prior_leader_name, prior_thread_summary = _summarize_prior_thread(
-                    store, (session_id, prior_id),
+                    store, prior_key,
                 )
+                if logger:
+                    n_turns = len(prior_conv.turns) if prior_conv else 0
+                    logger.info(
+                        "chat_reply: pivot lookup -- prior_id=%d prior_conv=%s"
+                        " n_turns=%d summary_chars=%d known_keys=%r",
+                        prior_id, "present" if prior_conv else "MISSING",
+                        n_turns, len(prior_thread_summary),
+                        sorted([str(k[1]) for k in store._convs
+                                if k[0] == session_id]),
+                    )
                 if logger and prior_thread_summary:
                     logger.info(
                         "chat_reply: pivot detected -- prior_leader=%s summary_chars=%d",

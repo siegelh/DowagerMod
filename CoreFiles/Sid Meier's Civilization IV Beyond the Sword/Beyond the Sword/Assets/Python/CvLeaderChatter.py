@@ -377,6 +377,11 @@ DROP_NEW_WHILE_QUEUE_ACTIVE = False  # queue-don't-drop new events during in-fli
 # A human chat resets this. The cap is intentionally tight: 2 hops gives
 # the canonical "Vic -> Monte -> Vic" exchange without infinite ping-pong.
 CHAIN_MAX_DEPTH = 2
+# Disable AI leader self-introductions on first contact. Early-game these
+# fire in a cluster (every met civ + plus any later mid-game meetings) and
+# drown out more interesting chatter. Friends in MP find this off-putting.
+# Flip back to True if you want introductions; everything else still works.
+ENABLE_FIRST_CONTACT = False
 NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o capable elector
 
 # === Chat-reply tunables ===
@@ -2071,22 +2076,37 @@ def chatter_on_change_war(bIsWar, iAttackerTeam, iDefenderTeam):
         return
     try:
         atk_p, def_p = _representative_players_for_teams(iAttackerTeam, iDefenderTeam)
+        _log("on_change_war: bIsWar=" + str(bIsWar)
+             + " atk_team=" + str(iAttackerTeam) + " def_team=" + str(iDefenderTeam)
+             + " atk_p=" + str(atk_p) + " def_p=" + str(def_p))
         if atk_p < 0 or def_p < 0:
+            _log("on_change_war: skipped -- could not resolve representatives")
             return
         atk_human = _is_human_player(atk_p)
         def_human = _is_human_player(def_p)
         if bIsWar:
             if _is_backstab(atk_p, def_p):
+                _log("war: BACKSTABBED -- def=" + str(def_p)
+                     + " atk=" + str(atk_p) + " (atk_human=" + str(atk_human)
+                     + " def_human=" + str(def_human) + ")")
                 _emit_request("BACKSTABBED", def_p, atk_p, {}, multi_turn=True)
             elif atk_human and not def_human:
+                _log("war: HUMAN->AI -- emitting WAR_DECLARED_ON_ME def="
+                     + str(def_p) + " atk=" + str(atk_p))
                 _emit_request("WAR_DECLARED_ON_ME", def_p, atk_p, {}, multi_turn=True)
             else:
+                _log("war: DECLARE_WAR atk=" + str(atk_p) + " def=" + str(def_p)
+                     + " (atk_human=" + str(atk_human)
+                     + " def_human=" + str(def_human) + ")")
                 _emit_request("DECLARE_WAR", atk_p, def_p, {}, multi_turn=True)
         else:
             # Peace treaty: prefer AI as speaker so the line has a persona.
             if atk_human and not def_human:
+                _log("peace: human->AI -- AI speaks PEACE_TREATY def="
+                     + str(def_p) + " atk=" + str(atk_p))
                 _emit_request("PEACE_TREATY", def_p, atk_p, {}, multi_turn=True)
             else:
+                _log("peace: PEACE_TREATY atk=" + str(atk_p) + " def=" + str(def_p))
                 _emit_request("PEACE_TREATY", atk_p, def_p, {}, multi_turn=True)
     except Exception, exc:
         _log("on_change_war error: " + str(exc))
@@ -2195,8 +2215,14 @@ def chatter_on_first_contact(iTeamX, iHasMetTeamY):
     games cascade with AI-AI contacts at the start of the game and they
     are pure noise to the player. When the human IS involved, the AI
     leader is always the speaker (introducing themselves *to* the human).
+
+    Disabled by default via ENABLE_FIRST_CONTACT. Early-game introductions
+    were overwhelming the chat surface (especially in MP); we keep the
+    plumbing intact so the flag can be flipped back on later.
     """
     if _disabled:
+        return
+    if not ENABLE_FIRST_CONTACT:
         return
     try:
         x_p, y_p = _representative_players_for_teams(iTeamX, iHasMetTeamY)
