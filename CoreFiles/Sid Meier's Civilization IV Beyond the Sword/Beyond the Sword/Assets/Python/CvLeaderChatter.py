@@ -1174,7 +1174,7 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
 
     ctx = {"era": _era_name(speaker_id)}
     for k in ("city", "wonder", "tech", "religion", "corporation",
-              "user_message", "from_human"):
+              "user_message", "from_human", "prior_thread_with_leader_id"):
         if k in extra_context and extra_context[k]:
             ctx[k] = _to_ascii(str(extra_context[k]))
 
@@ -2636,6 +2636,16 @@ def chatter_on_chat(szString):
             _log("chat: local_player_id=" + str(_local_player_id) + "; ignoring (no init?)")
             return
 
+        # Pivot detection: if the human just shifted from one AI leader
+        # to a different one, flag it for the daemon. The daemon owns the
+        # per-leader conversation history and will build the recap text
+        # for the new leader's prompt.
+        prior_partner_id = -1
+        if (partner_pid is not None
+                and int(partner_pid) >= 0
+                and int(partner_pid) != int(leader_id)):
+            prior_partner_id = int(partner_pid)
+
         # Switching leaders mid-thread: that's allowed; just update the
         # active partner pointer. The daemon stores per-leader history
         # so the prior conversation is retained for resume-by-name.
@@ -2649,6 +2659,8 @@ def chatter_on_chat(szString):
         ctx = {"user_message": text}
         if typer_name:
             ctx["from_human"] = typer_name
+        if prior_partner_id >= 0:
+            ctx["prior_thread_with_leader_id"] = str(prior_partner_id)
         _emit_request(
             "CHAT_REPLY",
             int(leader_id),
@@ -2657,7 +2669,9 @@ def chatter_on_chat(szString):
             False,  # not a multi-line exchange; single reply
         )
         _log("chat emit: leader=" + str(leader_id) + " why=" + str(why)
-             + " typer=" + str(typer_name) + " text=" + text[:60])
+             + " typer=" + str(typer_name)
+             + " pivot_from=" + str(prior_partner_id)
+             + " text=" + text[:60])
     except Exception, exc:
         # Never raise into the engine.
         try:

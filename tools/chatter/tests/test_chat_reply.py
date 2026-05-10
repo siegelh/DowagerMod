@@ -207,6 +207,98 @@ class TestHandleChatReply(unittest.TestCase):
         sys_msg = called[0]["content"]
         self.assertIn("Harrison", sys_msg)
 
+    # --- MP / pivot context ---
+
+    def test_pivot_includes_prior_thread_summary_in_system_prompt(self):
+        """Pivot from leader 9 to leader 7: summary of leader 9's thread shows up."""
+        store = conversations.ConversationStore()
+
+        # Seed prior thread with leader 9 (Montezuma).
+        c1 = _fake_client(json.dumps({"line": "your stench rivals my pyramids.",
+                                      "tone": "haughty"}))
+        req_prior = _make_request("Montezuma you stink.", leader_id=9,
+                                  leader_name="Montezuma")
+        req_prior["context"]["from_human"] = "Harrison"
+        chat_reply.handle_chat_reply(request=req_prior, store=store, client=c1)
+
+        # Now pivot to leader 7 (Louis); context flags the prior thread.
+        c2 = _fake_client(json.dumps({"line": "Indeed, mon ami.", "tone": "amused"}))
+        req_pivot = _make_request("Louis what do you think?", leader_id=7,
+                                  leader_name="Louis XIV")
+        req_pivot["context"]["from_human"] = "Harrison"
+        req_pivot["context"]["prior_thread_with_leader_id"] = "9"
+        chat_reply.handle_chat_reply(request=req_pivot, store=store, client=c2)
+
+        called = c2.call_chat.call_args[0][0]
+        sys_msg = called[0]["content"]
+        # Background block names the prior leader and includes recap content.
+        self.assertIn("BACKGROUND", sys_msg)
+        self.assertIn("Montezuma", sys_msg)
+        self.assertIn("you stink", sys_msg)
+        self.assertIn("pyramids", sys_msg)
+
+    def test_pivot_with_no_prior_thread_skips_background_block(self):
+        """If prior thread doesn't exist in store, no BACKGROUND block."""
+        store = conversations.ConversationStore()
+        client = _fake_client(json.dumps({"line": "Hello.", "tone": "amused"}))
+        req = _make_request("First contact.", leader_id=7)
+        req["context"]["from_human"] = "Harrison"
+        # Claim a pivot from leader 9, but leader 9 has no prior thread.
+        req["context"]["prior_thread_with_leader_id"] = "9"
+        chat_reply.handle_chat_reply(request=req, store=store, client=client)
+
+        called = client.call_chat.call_args[0][0]
+        sys_msg = called[0]["content"]
+        self.assertNotIn("BACKGROUND", sys_msg)
+
+    def test_pivot_to_same_leader_skips_background_block(self):
+        """prior_thread_with_leader_id == speaker is a no-op (defensive)."""
+        store = conversations.ConversationStore()
+        # Seed thread with leader 7.
+        c0 = _fake_client(json.dumps({"line": "Hello there.", "tone": "amused"}))
+        chat_reply.handle_chat_reply(request=_make_request("hi"), store=store, client=c0)
+
+        client = _fake_client(json.dumps({"line": "More.", "tone": "amused"}))
+        req = _make_request("Continue.", leader_id=7)
+        req["context"]["from_human"] = "Harrison"
+        # Bogus pivot pointer pointing to ourselves.
+        req["context"]["prior_thread_with_leader_id"] = "7"
+        chat_reply.handle_chat_reply(request=req, store=store, client=client)
+
+        called = client.call_chat.call_args[0][0]
+        sys_msg = called[0]["content"]
+        self.assertNotIn("BACKGROUND", sys_msg)
+
+    def test_pivot_summary_is_truncated(self):
+        """If prior thread is long, summary stays under PIVOT_SUMMARY_MAX_CHARS."""
+        from tools.chatter import prompts
+        store = conversations.ConversationStore()
+        # Build a verbose prior thread with leader 9.
+        long_line = "x" * 200
+        for i in range(8):
+            ck = _fake_client(json.dumps({"line": long_line, "tone": "amused"}))
+            r = _make_request(long_line, leader_id=9, leader_name="Montezuma")
+            r["context"]["from_human"] = "Harrison"
+            chat_reply.handle_chat_reply(request=r, store=store, client=ck)
+
+        cf = _fake_client(json.dumps({"line": "Sure.", "tone": "amused"}))
+        rf = _make_request("Switch to Louis.", leader_id=7,
+                           leader_name="Louis XIV")
+        rf["context"]["from_human"] = "Harrison"
+        rf["context"]["prior_thread_with_leader_id"] = "9"
+        chat_reply.handle_chat_reply(request=rf, store=store, client=cf)
+
+        called = cf.call_chat.call_args[0][0]
+        sys_msg = called[0]["content"]
+        # The recap segment lives between "Brief recap" and "They have now turned"
+        idx_start = sys_msg.find("Brief recap of that thread:")
+        idx_end = sys_msg.find("They have now turned")
+        self.assertGreater(idx_start, 0)
+        self.assertGreater(idx_end, idx_start)
+        recap = sys_msg[idx_start:idx_end]
+        # Truncation cap: ~PIVOT_SUMMARY_MAX_CHARS plus the leading line and ellipsis.
+        self.assertLess(len(recap), prompts.PIVOT_SUMMARY_MAX_CHARS + 80)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -39,6 +39,11 @@ CONTENT_FILTER_FALLBACKS = [
 ]
 
 
+# How many of the prior thread's most recent turns to include in the
+# pivot recap. Each turn is one short bullet line.
+PIVOT_RECAP_TURNS = 4
+
+
 def _content_filter_fallback(speaker_name: str, target_name: str) -> str:
     """Pick a 'pretends not to hear you' line. Never raises."""
     tmpl = random.choice(CONTENT_FILTER_FALLBACKS)
@@ -49,6 +54,41 @@ def _content_filter_fallback(speaker_name: str, target_name: str) -> str:
         )
     except Exception:
         return "The leader regards you in pointed silence."
+
+
+def _summarize_prior_thread(store: ConversationStore, prior_key,
+                            *, max_turns: int = PIVOT_RECAP_TURNS) -> tuple[str, str]:
+    """Return (prior_leader_name, summary_text) for the pivot context block.
+
+    If the prior conversation doesn't exist or is empty, returns ("", "").
+    The summary is a short multi-line string with the most recent N turns
+    rendered as `<speaker>: <content>` -- speaker is either the typer name
+    (for human turns) or "<leader>" (for assistant turns).
+    """
+    prior = store.get(prior_key)
+    if prior is None or not prior.turns:
+        return "", ""
+    leader_name = prior.leader_name or ""
+    recent = prior.turns[-max_turns:]
+    lines = []
+    for t in recent:
+        content = (t.content or "").strip()
+        if not content:
+            continue
+        # Trim per-line length so a long monologue doesn't blow the cap.
+        if len(content) > 140:
+            content = content[:140].rstrip() + "..."
+        if t.role == "assistant":
+            speaker_label = leader_name or "leader"
+        elif t.speaker_type == "leader" and t.speaker_name:
+            speaker_label = t.speaker_name
+        elif t.from_human:
+            speaker_label = t.from_human
+        else:
+            speaker_label = "human"
+        lines.append("- " + speaker_label + ': "' + content + '"')
+    summary = "\n".join(lines)
+    return leader_name, summary
 
 
 def make_chat_reply_response(*, request: dict, ok: bool, line: str = "", tone: str = "theatrical",
@@ -130,11 +170,34 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
     humans_heard = store.humans_heard(key)
     others = [n for n in humans_heard if n and n != from_human]
 
+    # MP pivot: the human just turned from another AI leader to us.
+    # Look up the prior thread (same session, prior leader id) and
+    # build a short recap so we can address the pivot in character.
+    prior_leader_name = ""
+    prior_thread_summary = ""
+    prior_id_raw = ctx.get("prior_thread_with_leader_id")
+    if prior_id_raw not in (None, "", -1):
+        try:
+            prior_id = int(prior_id_raw)
+        except (TypeError, ValueError):
+            prior_id = -1
+        if prior_id >= 0 and prior_id != leader_id:
+            prior_leader_name, prior_thread_summary = _summarize_prior_thread(
+                store, (session_id, prior_id),
+            )
+            if logger and prior_thread_summary:
+                logger.info(
+                    "chat_reply: pivot detected -- prior_leader=%s summary_chars=%d",
+                    prior_leader_name, len(prior_thread_summary),
+                )
+
     # Build (system_msg, history_messages_for_llm) and call the model.
     system_msg, msgs = build_chat_reply_prompt(
         request, history,
         latest_typer_name=from_human,
         other_humans_in_thread=others,
+        prior_leader_name=prior_leader_name,
+        prior_thread_summary=prior_thread_summary,
     )
     full = [{"role": "system", "content": system_msg}] + msgs
 
