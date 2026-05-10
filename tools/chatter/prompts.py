@@ -366,12 +366,108 @@ SYSTEM_CHAT_REPLY_CHAIN = (
 # system prompt explicitly tells leaders they may react to those lines.
 
 
+def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> str:
+    """Render the room_state dict as a short ROSTER + RELATIONS preface block.
+
+    Empty string when room_state is None / empty / malformed.
+
+    Format::
+
+        ROOM:
+        - Washington of America (HUMAN, "harrison") -- toward you: Friendly
+        - Victoria of England (AI) -- toward you: Annoyed, at war
+        - Montezuma of Aztecs (AI) -- toward you: Pleased
+
+        RELATIONS (AI-to-AI):
+        - Victoria -> Montezuma: Furious (at war)
+        - Montezuma -> Victoria: Furious (at war)
+
+    Speaker is omitted from the roster (it's the leader who IS replying).
+    Capped at 8 roster entries and 12 relation entries to keep token usage
+    sane; the Civ4 turn-room rarely needs more than that.
+    """
+    if not isinstance(room_state, dict):
+        return ""
+    roster = room_state.get("roster") or []
+    relations = room_state.get("relations") or []
+    speaker_id = room_state.get("speaker_id")
+    if not roster:
+        return ""
+
+    roster_lines: list[str] = []
+    for entry in roster[:12]:
+        if not isinstance(entry, dict):
+            continue
+        try:
+            if int(entry.get("player_id", -1)) == int(speaker_id):
+                continue
+        except (TypeError, ValueError):
+            pass
+        leader = (entry.get("leader_name") or "").strip() or "Someone"
+        civ = (entry.get("civ_short") or "").strip() or "an unknown civilization"
+        is_human = bool(entry.get("is_human"))
+        human_name = (entry.get("human_name") or "").strip()
+        attitude = (entry.get("attitude_toward_speaker") or "").strip() or "Cautious"
+        at_war = bool(entry.get("at_war_with_speaker"))
+        kind = "HUMAN" if is_human else "AI"
+        who = leader + " of " + civ + " (" + kind
+        if is_human and human_name:
+            who += ', "' + human_name + '"'
+        who += ")"
+        suffix = "toward you: " + attitude
+        if at_war:
+            suffix += ", at war with you"
+        roster_lines.append("- " + who + " -- " + suffix)
+        if len(roster_lines) >= 8:
+            break
+
+    rel_lines: list[str] = []
+    if relations:
+        pid_to_name: dict[int, str] = {}
+        for entry in roster:
+            if isinstance(entry, dict):
+                try:
+                    pid_to_name[int(entry.get("player_id", -2))] = (entry.get("leader_name") or "").strip()
+                except (TypeError, ValueError):
+                    continue
+        for rel in relations[:24]:
+            if not isinstance(rel, dict):
+                continue
+            try:
+                fp = int(rel.get("from_pid", -1))
+                tp = int(rel.get("to_pid", -1))
+            except (TypeError, ValueError):
+                continue
+            fname = pid_to_name.get(fp, "")
+            tname = pid_to_name.get(tp, "")
+            if not fname or not tname:
+                continue
+            att = (rel.get("attitude") or "").strip() or "Cautious"
+            war = bool(rel.get("at_war"))
+            tail = " (at war)" if war else ""
+            rel_lines.append("- " + fname + " -> " + tname + ": " + att + tail)
+            if len(rel_lines) >= 12:
+                break
+
+    parts: list[str] = []
+    if roster_lines:
+        parts.append("ROOM (other leaders present, attitudes are how they feel toward "
+                     + (speaker_leader or "you") + "):\n" + "\n".join(roster_lines))
+    if rel_lines:
+        parts.append("RELATIONS (AI-to-AI attitudes among the others):\n" + "\n".join(rel_lines))
+    parts.append("Use these attitudes to color HOW you reply -- a Furious rival should "
+                 "rip into a Friendly ally; a Pleased ally might back you up. "
+                 "Mention names from the roster, never invent leaders not listed.")
+    return "\n\n".join(parts) + "\n\n"
+
+
 def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
                             latest_typer_name: str = "",
                             other_humans_in_thread: list | None = None,
                             chain_reply: bool = False,
                             prior_leader_speaker_name: str = "",
-                            target_human_name: str = "") -> str:
+                            target_human_name: str = "",
+                            room_state: dict | None = None) -> str:
     """Format the SYSTEM_CHAT_REPLY system prompt for one conversation.
 
     `latest_typer_name` is the most recent human typer (preferred). For
@@ -383,9 +479,14 @@ def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
     different system prompt directing the leader to reply to another
     AI leader (named by `prior_leader_speaker_name`) rather than to a
     human.
+
+    `room_state`, when provided, is rendered as a ROSTER + RELATIONS
+    preface block before the standard system text so the model knows
+    who else is in the room and how everyone feels.
     """
+    preface = _format_room_state_block(room_state, speaker_leader)
     if chain_reply:
-        return SYSTEM_CHAT_REPLY_CHAIN.format(
+        return preface + SYSTEM_CHAT_REPLY_CHAIN.format(
             speaker_leader=speaker_leader or "Anonymous",
             speaker_civ=speaker_civ or "their civilization",
             prior_leader_speaker_name=(prior_leader_speaker_name or "another leader"),
@@ -405,7 +506,7 @@ def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
             )
     else:
         other_clause = ""
-    return SYSTEM_CHAT_REPLY.format(
+    return preface + SYSTEM_CHAT_REPLY.format(
         speaker_leader=speaker_leader or "Anonymous",
         speaker_civ=speaker_civ or "their civilization",
         latest_typer_name=typer,
@@ -417,7 +518,8 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
                             *, latest_typer_name: str = "",
                             other_humans_in_thread: list | None = None,
                             chain_reply: bool = False,
-                            prior_leader_speaker_name: str = "") -> tuple[str, list]:
+                            prior_leader_speaker_name: str = "",
+                            room_state: dict | None = None) -> tuple[str, list]:
     """Return (system_message, messages_list_for_llm) for a CHAT_REPLY call.
 
     history_messages is the full conversation so far as [{role, content}, ...].
@@ -431,6 +533,9 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
 
     When `chain_reply` is True, the chain-flavored prompt is used and
     `prior_leader_speaker_name` names the AI leader who just spoke.
+
+    `room_state`, when present, is rendered as a roster+relations preface
+    block in the system prompt.
     """
     speaker = request.get("speaker") or {}
     target = request.get("target") or {}
@@ -447,6 +552,7 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
         other_humans_in_thread=other_humans_in_thread,
         chain_reply=chain_reply,
         prior_leader_speaker_name=prior_leader_speaker_name,
+        room_state=room_state,
     )
     return sys_msg, list(history_messages)
 

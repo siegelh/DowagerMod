@@ -239,6 +239,86 @@ class TestPrompts(unittest.TestCase):
         self.assertIn("14 words", sys_msg)
         self.assertEqual(msgs, history)
 
+    def test_chat_reply_prompt_room_state_roster(self):
+        """room_state injects a roster preface naming each civ + attitude toward speaker."""
+        request = {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Louis XIV", "civ_short_name": "France", "player_id": 3},
+            "target": {"leader_name": "Harrison", "civ_short_name": "America", "player_id": 0,
+                       "human_name": "Harrison"},
+            "context": {"user_message": "Hello"},
+        }
+        room_state = {
+            "speaker_id": 3,
+            "roster": [
+                {"player_id": 3, "leader_name": "Louis XIV", "civ_short": "France",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": False, "attitude_toward_speaker": "Friendly"},
+                {"player_id": 0, "leader_name": "Washington", "civ_short": "America",
+                 "is_human": True, "human_name": "Harrison",
+                 "at_war_with_speaker": False, "attitude_toward_speaker": "Pleased"},
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": True, "attitude_toward_speaker": "Furious"},
+            ],
+            "relations": [
+                {"from_pid": 1, "to_pid": 3, "attitude": "Furious", "at_war": True},
+            ],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        # Speaker (Louis XIV) himself must NOT appear in the roster lines.
+        roster_section = sys_msg.split("ROOM ")[1].split("RELATIONS")[0]
+        self.assertNotIn("Louis XIV of France", roster_section)
+        # Other entries appear, with attitude toward speaker.
+        self.assertIn("Washington of America (HUMAN, \"Harrison\")", sys_msg)
+        self.assertIn("Pleased", sys_msg)
+        self.assertIn("Victoria of England (AI)", sys_msg)
+        self.assertIn("Furious", sys_msg)
+        self.assertIn("at war with you", sys_msg)
+        # AI-to-AI relations block included.
+        self.assertIn("Victoria -> Louis XIV: Furious (at war)", sys_msg)
+
+    def test_chat_reply_prompt_room_state_none_no_preface(self):
+        """No room_state means no ROOM / RELATIONS preface."""
+        request = {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Louis XIV", "civ_short_name": "France", "player_id": 3},
+            "target": {"leader_name": "Harrison", "civ_short_name": "America", "player_id": 0,
+                       "human_name": "Harrison"},
+            "context": {"user_message": "Hello"},
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [])
+        self.assertNotIn("ROOM ", sys_msg)
+        self.assertNotIn("RELATIONS", sys_msg)
+
+    def test_chat_reply_prompt_room_state_chain_variant(self):
+        """Chain-reply prompt also gets the room_state preface."""
+        request = {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Victoria", "civ_short_name": "England", "player_id": 1},
+            "target": {"leader_name": "Louis XIV", "civ_short_name": "France", "player_id": 3},
+            "context": {"user_message": "Bah, Victoria!", "chain_reply": "1"},
+        }
+        room_state = {
+            "speaker_id": 1,
+            "roster": [
+                {"player_id": 3, "leader_name": "Louis XIV", "civ_short": "France",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": True, "attitude_toward_speaker": "Furious"},
+            ],
+            "relations": [],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(
+            request, [], chain_reply=True,
+            prior_leader_speaker_name="Louis XIV",
+            room_state=room_state,
+        )
+        self.assertIn("Louis XIV of France", sys_msg)
+        self.assertIn("Furious", sys_msg)
+        self.assertIn("at war with you", sys_msg)
+        # And the chain variant still kicks in.
+        self.assertIn("Reply in character to Louis XIV", sys_msg)
+
     def test_multi_turn_prompt(self):
         request = {
             "trigger": "DECLARE_WAR",

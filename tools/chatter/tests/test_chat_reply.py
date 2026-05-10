@@ -349,6 +349,64 @@ class TestChainReply(unittest.TestCase):
         out = parse_chat_reply(json.dumps({"line": "x", "tone": "amused", "address_to": "Vic"}))
         self.assertEqual(out["address_to"], "Vic")
 
+    def test_room_state_decoded_and_passed_to_prompt(self):
+        """ctx['room_state'] JSON is decoded and renders ROOM block in system prompt."""
+        store = conversations.RoomStore()
+        client = _fake_client(json.dumps({"line": "Curious.", "tone": "haughty"}))
+        req = _make_request("Tell me of England.")
+        rs = {
+            "speaker_id": 7,
+            "roster": [
+                {"player_id": 7, "leader_name": "Louis XIV", "civ_short": "France",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": False, "attitude_toward_speaker": "Friendly"},
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": True, "attitude_toward_speaker": "Furious"},
+            ],
+            "relations": [],
+        }
+        req["context"]["room_state"] = json.dumps(rs)
+
+        chat_reply.handle_chat_reply(
+            request=req, store=store, client=client, max_tokens=120, logger=None,
+        )
+        messages = client.call_chat.call_args[0][0]
+        system_text = messages[0]["content"]
+        self.assertIn("Victoria of England (AI)", system_text)
+        self.assertIn("Furious", system_text)
+        # Speaker himself is filtered out of the roster lines.
+        self.assertNotIn("Louis XIV of France (AI)", system_text)
+
+    def test_room_state_invalid_json_silently_dropped(self):
+        """Malformed room_state ctx field is ignored, not fatal."""
+        store = conversations.RoomStore()
+        client = _fake_client(json.dumps({"line": "Hello.", "tone": "amused"}))
+        req = _make_request("Hi.")
+        req["context"]["room_state"] = "not valid json{"
+
+        resp, line, tone = chat_reply.handle_chat_reply(
+            request=req, store=store, client=client, max_tokens=120, logger=None,
+        )
+        self.assertTrue(resp["ok"])
+        messages = client.call_chat.call_args[0][0]
+        system_text = messages[0]["content"]
+        self.assertNotIn("ROOM ", system_text)
+
+    def test_room_state_absent_no_room_block(self):
+        """When ctx has no room_state, system prompt has no ROOM block."""
+        store = conversations.RoomStore()
+        client = _fake_client(json.dumps({"line": "Hello.", "tone": "amused"}))
+        req = _make_request("Hi.")
+
+        chat_reply.handle_chat_reply(
+            request=req, store=store, client=client, max_tokens=120, logger=None,
+        )
+        messages = client.call_chat.call_args[0][0]
+        system_text = messages[0]["content"]
+        self.assertNotIn("ROOM ", system_text)
+        self.assertNotIn("RELATIONS", system_text)
+
 
 if __name__ == "__main__":
     unittest.main()

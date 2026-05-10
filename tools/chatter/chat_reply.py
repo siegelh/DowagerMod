@@ -21,6 +21,7 @@ was already added to the room when the prior leader spoke.
 """
 from __future__ import annotations
 
+import json
 import random
 from typing import Optional, Tuple
 
@@ -40,6 +41,19 @@ CONTENT_FILTER_FALLBACKS = [
     "{speaker} turns away from {target} and says nothing.",
     "{speaker} considers replying, then thinks better of it.",
 ]
+
+
+def _parse_room_state(raw: str) -> Optional[dict]:
+    """Decode the JSON room_state ctx field. None on missing/bad input."""
+    if not raw:
+        return None
+    try:
+        obj = json.loads(raw)
+    except (TypeError, ValueError):
+        return None
+    if not isinstance(obj, dict):
+        return None
+    return obj
 
 
 def _content_filter_fallback(speaker_name: str, target_name: str) -> str:
@@ -158,12 +172,17 @@ def handle_chat_reply(*, request: dict, store: RoomStore,
     humans_heard = store.humans_heard(session_id)
     others = [n for n in humans_heard if n and n != from_human]
 
+    room_state = _parse_room_state(ctx.get("room_state") or "")
+
     if logger:
+        rs_size = 0
+        if room_state:
+            rs_size = len(room_state.get("roster") or [])
         logger.info(
             "chat_reply: rid=%s leader=%d (%s) from_human=%r chain=%s"
-            " session=%r turns=%d",
+            " session=%r turns=%d roster=%d",
             request.get("request_id"), leader_id, leader_name, from_human,
-            "1" if chain_reply else "0", session_id[:12], len(history),
+            "1" if chain_reply else "0", session_id[:12], len(history), rs_size,
         )
 
     system_msg, msgs = build_chat_reply_prompt(
@@ -172,6 +191,7 @@ def handle_chat_reply(*, request: dict, store: RoomStore,
         other_humans_in_thread=others,
         chain_reply=chain_reply,
         prior_leader_speaker_name=prior_leader_speaker_name,
+        room_state=room_state,
     )
     full = [{"role": "system", "content": system_msg}] + msgs
 

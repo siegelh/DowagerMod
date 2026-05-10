@@ -1091,6 +1091,142 @@ def _player_info(player_id):
                 "is_human": False, "human_name": None, "is_anonymous": False}
 
 
+# AttitudeTypes: 0=Furious, 1=Annoyed, 2=Cautious, 3=Pleased, 4=Friendly
+_ATTITUDE_NAMES = ("Furious", "Annoyed", "Cautious", "Pleased", "Friendly")
+
+
+def _attitude_name(value):
+    try:
+        idx = int(value)
+    except:
+        return "Cautious"
+    if idx < 0 or idx >= len(_ATTITUDE_NAMES):
+        return "Cautious"
+    return _ATTITUDE_NAMES[idx]
+
+
+def _build_room_state(speaker_id):
+    """Snapshot of the chat room for the prompt: roster + pairwise attitudes.
+
+    Returns a JSON string. Layout::
+
+        {"speaker_id": int,
+         "roster": [
+             {"player_id": int, "leader_name": str, "civ_short": str,
+              "is_human": bool, "human_name": str-or-empty,
+              "at_war_with_speaker": bool,
+              "attitude_toward_speaker": "Furious|Annoyed|Cautious|Pleased|Friendly"},
+             ...],
+         "relations": [
+             {"from_pid": int, "to_pid": int,
+              "attitude": "Furious|Annoyed|Cautious|Pleased|Friendly",
+              "at_war": bool},
+             ...]}
+
+    Includes the local human and every alive AI civ the speaker has met.
+    Skips barbarians and dead civs. Attitudes are AI-only (humans don't
+    have AI_getAttitude); for the human entry we still include
+    ``attitude_toward_speaker`` (the speaker AI's view of the human) so the
+    prompt always has a reading for that side.
+    """
+    try:
+        gc = _gc()
+        max_civ = gc.getMAX_CIV_PLAYERS()
+        speaker = gc.getPlayer(int(speaker_id))
+        speaker_team_id = speaker.getTeam()
+        speaker_team = gc.getTeam(speaker_team_id)
+    except Exception, exc:
+        _log("warn: _build_room_state pre-flight failed: " + str(exc))
+        return ""
+
+    roster = []
+    relations = []
+    seen = []
+
+    for pid in range(max_civ):
+        if pid == int(speaker_id):
+            include = True
+        else:
+            include = False
+            try:
+                p = gc.getPlayer(pid)
+                if not p.isAlive():
+                    continue
+                if p.isBarbarian():
+                    continue
+                if p.isHuman():
+                    include = True
+                else:
+                    other_team = gc.getTeam(p.getTeam())
+                    if speaker_team.isHasMet(p.getTeam()):
+                        include = True
+            except Exception, exc:
+                _log("warn: _build_room_state pid=" + str(pid) + " gate: " + str(exc))
+                continue
+        if not include:
+            continue
+        try:
+            info = _player_info(pid)
+            entry = {
+                "player_id": int(info.get("player_id", pid)),
+                "leader_name": _to_ascii(str(info.get("leader_name", ""))),
+                "civ_short": _to_ascii(str(info.get("civ_short_name", ""))),
+                "is_human": bool(info.get("is_human", False)),
+                "human_name": _to_ascii(str(info.get("human_name") or "")),
+            }
+            try:
+                other_team_id = gc.getPlayer(pid).getTeam()
+                at_war = bool(speaker_team.isAtWar(other_team_id))
+            except:
+                at_war = False
+            entry["at_war_with_speaker"] = at_war
+            try:
+                speaker_view = speaker.AI_getAttitude(int(pid))
+                entry["attitude_toward_speaker"] = _attitude_name(speaker_view)
+            except:
+                entry["attitude_toward_speaker"] = "Cautious"
+            roster.append(entry)
+            seen.append(int(pid))
+        except Exception, exc:
+            _log("warn: _build_room_state pid=" + str(pid) + " roster: " + str(exc))
+
+    # Pairwise relations: AI-leader-to-AI-leader attitudes only.
+    for a in seen:
+        try:
+            pa = gc.getPlayer(a)
+            if pa.isHuman():
+                continue
+            for b in seen:
+                if b == a:
+                    continue
+                try:
+                    pb = gc.getPlayer(b)
+                    at_war = bool(gc.getTeam(pa.getTeam()).isAtWar(pb.getTeam()))
+                    att = pa.AI_getAttitude(int(b))
+                    relations.append({
+                        "from_pid": int(a),
+                        "to_pid": int(b),
+                        "attitude": _attitude_name(att),
+                        "at_war": at_war,
+                    })
+                except Exception, exc:
+                    _log("warn: _build_room_state pair " + str(a) + "->"
+                         + str(b) + ": " + str(exc))
+        except:
+            pass
+
+    payload = {
+        "speaker_id": int(speaker_id),
+        "roster": roster,
+        "relations": relations,
+    }
+    try:
+        return _json_dumps(payload)
+    except Exception, exc:
+        _log("warn: _build_room_state encode failed: " + str(exc))
+        return ""
+
+
 def _era_name(player_id):
     try:
         p = _gc().getPlayer(player_id)
@@ -1189,7 +1325,8 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
     ctx = {"era": _era_name(speaker_id)}
     for k in ("city", "wonder", "tech", "religion", "corporation",
               "user_message", "from_human", "prior_thread_with_leader_id",
-              "chain_reply", "chain_depth", "prior_leader_speaker_name"):
+              "chain_reply", "chain_depth", "prior_leader_speaker_name",
+              "room_state"):
         if k in extra_context and extra_context[k]:
             ctx[k] = _to_ascii(str(extra_context[k]))
 
@@ -1694,6 +1831,9 @@ def _maybe_queue_chain_reply(data):
             "chain_depth": str(_chain_depth),
             "prior_leader_speaker_name": prior_leader_name,
         }
+        room_state = _build_room_state(int(target_pid))
+        if room_state:
+            ctx["room_state"] = room_state
         _log("chain: emit depth=" + str(_chain_depth)
              + " from leader_pid=" + str(target_pid)
              + " replying_to_pid=" + str(speaker_pid)
@@ -2799,6 +2939,9 @@ def chatter_on_chat(szString):
             ctx["from_human"] = typer_name
         if prior_partner_id >= 0:
             ctx["prior_thread_with_leader_id"] = str(prior_partner_id)
+        room_state = _build_room_state(int(leader_id))
+        if room_state:
+            ctx["room_state"] = room_state
         _emit_request(
             "CHAT_REPLY",
             int(leader_id),
