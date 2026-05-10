@@ -22,7 +22,37 @@ from tools.chatter.leader_roster import LEADERS
 
 # Match the game-side tunable.
 CHAT_FUZZY_THRESHOLD = 60
-CHAT_IDLE_SECONDS = 120
+CHAT_IDLE_SECONDS = 300
+
+
+def strip_chat_chrome(text: str) -> str:
+    """Strip Civ4 chat color tags and '[Name to all]:' channel prefix.
+
+    Civ4 onChat hands us the formatted display string, e.g.
+        '<color=165,140,229,255>[hasiegel to all]:  uhhh hello?</color>'
+    We want just 'uhhh hello?' for the resolver and the LLM prompt.
+
+    Mirror of CvLeaderChatter._strip_chat_chrome (game-side py24).
+    """
+    if not text:
+        return text
+    s = text
+    while True:
+        i = s.find("<color=")
+        if i < 0:
+            break
+        j = s.find(">", i)
+        if j < 0:
+            break
+        s = s[:i] + s[j + 1:]
+    for closer in ("</color>", "</COLOR>", "</Color>"):
+        s = s.replace(closer, "")
+    s = s.lstrip()
+    if s.startswith("["):
+        end = s.find("]:")
+        if end > 0:
+            s = s[end + 2:]
+    return s.strip()
 
 # Common English words that look like leader-name prefixes / fuzzy matches
 # but are almost never the user actually addressing a leader. Filtered

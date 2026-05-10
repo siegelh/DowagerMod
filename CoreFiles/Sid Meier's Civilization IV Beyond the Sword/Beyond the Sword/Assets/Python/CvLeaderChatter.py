@@ -374,7 +374,7 @@ NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o c
 # in a conversation (your message OR the AI's reply), a follow-up with no
 # leader name continues with the same leader. After this window, no-name
 # chat is ignored.
-CHAT_IDLE_SECONDS = 120
+CHAT_IDLE_SECONDS = 300
 # Minimum debounce between consecutive emits from this hook (e.g. mashed
 # Enter on a single chat line). Short -- the goal is conversation, not
 # throttling.
@@ -2202,6 +2202,39 @@ def _likely_killer_of(iPlayer):
 
 # ===== chat-reply: human types in chat, AI replies =====
 
+def _strip_chat_chrome(text):
+    """Strip Civ4 chat color tags and '[Name to all]:' channel prefix.
+
+    Civ4 onChat hands us the formatted display string, e.g.
+        <color=165,140,229,255>[hasiegel to all]:  uhhh hello?</color>
+    We want just `uhhh hello?` for the resolver and for the LLM prompt.
+    Py 2.4 friendly (no regex).
+    """
+    if not text:
+        return text
+    s = text
+    # Strip <color=...> opening tags (loop in case of nested/multiple).
+    while True:
+        i = s.find("<color=")
+        if i < 0:
+            break
+        j = s.find(">", i)
+        if j < 0:
+            break
+        s = s[:i] + s[j + 1:]
+    # Strip </color> close tags (case-insensitive).
+    s = s.replace("</color>", "")
+    s = s.replace("</COLOR>", "")
+    s = s.replace("</Color>", "")
+    # Strip leading '[Name to recipient]:' channel prefix.
+    s = s.lstrip()
+    if s.startswith("["):
+        end = s.find("]:")
+        if end > 0:
+            s = s[end + 2:]
+    return s.strip()
+
+
 def _remember_sent_line(text):
     """Note a line we just broadcast so we can ignore any echo."""
     try:
@@ -2421,7 +2454,7 @@ def chatter_on_chat(szString):
     if _disabled:
         return
     try:
-        text = _to_ascii(szString or "").strip()
+        text = _strip_chat_chrome(_to_ascii(szString or "")).strip()
         if not text:
             return
         # Anti-feedback: ignore messages that look like our own echoed lines.

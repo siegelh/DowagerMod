@@ -120,5 +120,49 @@ class TestLevenshtein(unittest.TestCase):
         self.assertEqual(chat_resolve._levenshtein("genghi", "genghis"), 1)
 
 
+class TestStripChatChrome(unittest.TestCase):
+    def test_no_chrome_passthrough(self):
+        self.assertEqual(chat_resolve.strip_chat_chrome("hello world"), "hello world")
+
+    def test_color_tags_only(self):
+        self.assertEqual(
+            chat_resolve.strip_chat_chrome("<color=255,255,255,255>hello</color>"),
+            "hello",
+        )
+
+    def test_full_civ4_chat_line(self):
+        # The exact format we see in chatter.log.
+        raw = "<color=165,140,229,255>[hasiegel to all]:  Uhhh, hello, Gilg</color>"
+        self.assertEqual(chat_resolve.strip_chat_chrome(raw), "Uhhh, hello, Gilg")
+
+    def test_truncated_close_tag(self):
+        # The log truncated the close tag mid-string; still works.
+        raw = "<color=165,140,229,255>[hasiegel to all]:  uhhh hello?"
+        self.assertEqual(chat_resolve.strip_chat_chrome(raw), "uhhh hello?")
+
+    def test_empty_and_none(self):
+        self.assertEqual(chat_resolve.strip_chat_chrome(""), "")
+        self.assertEqual(chat_resolve.strip_chat_chrome(None), None)
+
+    def test_resolver_finds_leader_through_chrome(self):
+        # Real-world: full chrome string should still resolve to the leader.
+        raw = "<color=165,140,229,255>[hasiegel to all]:  Gilg, hello!</color>"
+        cleaned = chat_resolve.strip_chat_chrome(raw)
+        name, why = chat_resolve.resolve_addressed_leader(cleaned)
+        self.assertEqual(name, "Gilgamesh")
+
+    def test_resolver_active_partner_through_chrome(self):
+        # Followup with no name but chrome present, active partner fresh.
+        raw = "<color=165,140,229,255>[hasiegel to all]:  uhhh hello?</color>"
+        cleaned = chat_resolve.strip_chat_chrome(raw)
+        name, why = chat_resolve.resolve_addressed_leader(
+            cleaned,
+            active_partner_name="Gilgamesh",
+            active_partner_idle_seconds=30,
+        )
+        self.assertEqual(name, "Gilgamesh")
+        self.assertEqual(why, "active_partner")
+
+
 if __name__ == "__main__":
     unittest.main()
