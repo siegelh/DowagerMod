@@ -2194,7 +2194,12 @@ def _check_for_responses():
         else:
             _log("dropping non-ok response: " + str(data.get("error", "?")))
         _safe_unlink(path)
-        _pending_request_id = None
+        if _pending_request_id == rid:
+            _pending_request_id = None
+        else:
+            _log("chain/chime emitted new pending="
+                 + str(_pending_request_id)
+                 + "; not clearing (was " + str(rid) + ")")
 
 
 # ===== state machine: tick / reset / capability =====
