@@ -357,6 +357,10 @@ _last_trigger_emit_at = {}      # trigger -> unix ts of most recent emission (fo
 # fired since the last human chat. Reset to 0 on any human chat
 # (chatter_on_chat) and on _full_reset. Hard cap at CHAIN_MAX_DEPTH.
 _chain_depth = 0
+# Same-leader chime cooldown: last AI pid we chimed in with. Prevents
+# the same AI from chiming back-to-back inside a single chain. Reset
+# alongside _chain_depth (on human chat / full reset).
+_last_chime_pid = -1
 
 
 # ===== tunables =====
@@ -377,6 +381,18 @@ DROP_NEW_WHILE_QUEUE_ACTIVE = False  # queue-don't-drop new events during in-fli
 # A human chat resets this. The cap is intentionally tight: 2 hops gives
 # the canonical "Vic -> Monte -> Vic" exchange without infinite ping-pong.
 CHAIN_MAX_DEPTH = 2
+# Chime-in (AI peers spontaneously joining the chat): probability of a
+# random AI leader chiming in on a CHAT_REPLY response, decaying with
+# chain_depth. Used by _maybe_queue_chime when the LLM did NOT set
+# address_to (otherwise chain_reply handles the LLM-driven follow-up).
+# - depth 0 (initial reply to human): 50% chance another AI chimes in
+# - depth 1 (one chain hop already): 30%
+# - depth 2 (cap):                     0%  -- enforced by CHAIN_MAX_DEPTH
+# Same-leader cooldown (_last_chime_pid) prevents the same AI from
+# chiming back-to-back. Attitude-weighted candidate selection gives
+# rivals/allies a louder voice than Cautious bystanders.
+CHIME_BASE_PROB = 0.5
+CHIME_DECAY_FACTOR = 0.6  # 0.5 -> 0.30 -> 0.18, capped at depth 2
 # Disable AI leader self-introductions on first contact. Early-game these
 # fire in a cluster (every met civ + plus any later mid-game meetings) and
 # drown out more interesting chatter. Friends in MP find this off-putting.
@@ -1852,6 +1868,172 @@ def _maybe_queue_chain_reply(data):
             pass
 
 
+# AttitudeTypes: 0=Furious, 1=Annoyed, 2=Cautious, 3=Pleased, 4=Friendly
+# Chime weights pick a candidate proportional to how *interesting* a
+# response from them would be. Strong feelings either direction get
+# louder voices; Cautious bystanders sit on their hands.
+_CHIME_ATTITUDE_WEIGHT = {
+    "Furious":  4,
+    "Friendly": 4,
+    "Annoyed":  2,
+    "Pleased":  2,
+    "Cautious": 1,
+}
+_CHIME_AT_WAR_BONUS = 2
+
+
+def _maybe_queue_chime(data):
+    """Roll an attitude-weighted chime-in if the LLM didn't already chain.
+
+    Called from the response-scan loop AFTER `_maybe_queue_chain_reply`.
+    If the LLM set `address_to`, that path already fired; we skip.
+    Otherwise we roll vs CHIME_BASE_PROB * CHIME_DECAY_FACTOR^chain_depth
+    (50% / 30% / 0% at depths 0 / 1 / 2). Same-leader cooldown
+    (`_last_chime_pid`) prevents back-to-back chime from the same AI.
+
+    Candidate selection is attitude-weighted: AI leaders that have met
+    the speaker get a weight based on how they feel toward that speaker
+    (Furious/Friendly amplified; Cautious dampened) plus a flat bonus
+    if they're currently at war with the speaker. Humans never chime
+    (they type for themselves).
+
+    Reuses _emit_request -- the per-pair cooldown is bypassed because
+    CHAT_REPLY is HIGH_PRIORITY.
+    """
+    global _chain_depth, _last_chime_pid
+    try:
+        if not data:
+            return
+        if data.get("trigger") != "CHAT_REPLY":
+            return
+        lines = data.get("lines") or []
+        if not lines:
+            return
+        line0 = lines[0] or {}
+        # The LLM-driven chain (address_to) already handled it; don't double up.
+        if (line0.get("address_to") or "").strip():
+            return
+        line_text = (line0.get("text") or "").strip()
+        if not line_text:
+            return
+        speaker_pid = int(line0.get("speaker_player_id", -1))
+        if speaker_pid < 0:
+            return
+
+        # Hard cap first.
+        if _chain_depth >= CHAIN_MAX_DEPTH:
+            _log("chime: cap reached at depth=" + str(_chain_depth) + "; skipping")
+            return
+
+        # Decayed probability roll.
+        prob = CHIME_BASE_PROB * (CHIME_DECAY_FACTOR ** _chain_depth)
+        roll = random.random()
+        if roll >= prob:
+            _log("chime: roll missed at depth=" + str(_chain_depth)
+                 + " prob=" + str(prob) + " roll=" + str(roll))
+            return
+
+        # Build candidate pool: alive AI leaders (not the speaker, not the
+        # same as last chime), met by speaker, weighted by attitude.
+        gc = _gc()
+        try:
+            speaker_team_id = gc.getPlayer(int(speaker_pid)).getTeam()
+        except Exception, exc:
+            _log("chime: cannot resolve speaker team for pid="
+                 + str(speaker_pid) + ": " + str(exc))
+            return
+        candidates = []  # list of (pid, weight)
+        max_civ = gc.getMAX_CIV_PLAYERS()
+        for pid in range(max_civ):
+            if pid == speaker_pid:
+                continue
+            if pid == int(_last_chime_pid):
+                continue
+            try:
+                p = gc.getPlayer(pid)
+                if not p.isAlive():
+                    continue
+                if p.isBarbarian():
+                    continue
+                if p.isHuman():
+                    continue
+                # Need a mutual contact: speaker met them AND they met speaker.
+                other_team_id = p.getTeam()
+                speaker_team = gc.getTeam(speaker_team_id)
+                other_team = gc.getTeam(other_team_id)
+                if not speaker_team.isHasMet(other_team_id):
+                    continue
+                if not other_team.isHasMet(speaker_team_id):
+                    continue
+                att = _attitude_name(p.AI_getAttitude(int(speaker_pid)))
+                weight = _CHIME_ATTITUDE_WEIGHT.get(att, 1)
+                if speaker_team.isAtWar(other_team_id):
+                    weight += _CHIME_AT_WAR_BONUS
+                if weight <= 0:
+                    continue
+                candidates.append((int(pid), int(weight)))
+            except Exception, exc:
+                _log("chime: candidate eval failed for pid="
+                     + str(pid) + ": " + str(exc))
+                continue
+
+        if not candidates:
+            _log("chime: no eligible candidates for speaker pid=" + str(speaker_pid))
+            return
+
+        # Weighted pick.
+        total = 0
+        for _pid, w in candidates:
+            total += w
+        if total <= 0:
+            return
+        pick = random.randint(1, total)
+        target_pid = -1
+        running = 0
+        for pid, w in candidates:
+            running += w
+            if pick <= running:
+                target_pid = pid
+                break
+        if target_pid < 0:
+            return
+
+        # Resolve names + emit. From here on we mirror _maybe_queue_chain_reply.
+        speaker_info = _player_info(speaker_pid)
+        prior_leader_name = ""
+        if speaker_info:
+            prior_leader_name = _to_ascii(speaker_info.get("leader_name") or "")
+        _chain_depth += 1
+        _last_chime_pid = int(target_pid)
+        ctx = {
+            "user_message": line_text,
+            "chain_reply": "1",
+            "chain_depth": str(_chain_depth),
+            "prior_leader_speaker_name": prior_leader_name,
+        }
+        room_state = _build_room_state(int(target_pid))
+        if room_state:
+            ctx["room_state"] = room_state
+        _log("chime: emit depth=" + str(_chain_depth)
+             + " from leader_pid=" + str(target_pid)
+             + " replying_to_pid=" + str(speaker_pid)
+             + " (" + prior_leader_name + ")"
+             + " prob=" + str(prob) + " roll=" + str(roll)
+             + " line=" + line_text[:60])
+        _emit_request(
+            "CHAT_REPLY",
+            int(target_pid),
+            int(speaker_pid),
+            ctx,
+            False,
+        )
+    except Exception, exc:
+        try:
+            _log("_maybe_queue_chime: error: " + str(exc))
+        except:
+            pass
+
+
 def _check_for_responses():
     """Scan spool for response files matching our pending request, ingest, delete."""
     global _pending_request_id, _active_chat_partner
@@ -1920,6 +2102,10 @@ def _check_for_responses():
                 # mp-chain-replies: maybe queue a chain-reply if the
                 # response named another leader. Bounded by CHAIN_MAX_DEPTH.
                 _maybe_queue_chain_reply(data)
+                # shared-room chime: if the LLM didn't address another
+                # leader, roll for an attitude-weighted spontaneous
+                # chime-in from a third party.
+                _maybe_queue_chime(data)
         else:
             _log("dropping non-ok response: " + str(data.get("error", "?")))
         _safe_unlink(path)
@@ -1938,7 +2124,7 @@ def _full_reset(reason):
     global _pending_lines, _next_msg_id
     global _active_chat_partner, _recent_sendchat_lines
     global _leader_name_to_player, _leader_name_cache_at
-    global _chain_depth
+    global _chain_depth, _last_chime_pid
     _session_id = _gen_uuid()
     try:
         _local_player_id = _gc().getGame().getActivePlayer()
@@ -1967,6 +2153,7 @@ def _full_reset(reason):
     _leader_name_to_player = None
     _leader_name_cache_at = 0.0
     _chain_depth = 0
+    _last_chime_pid = -1
     _log("reset (" + reason + ") session=" + _session_id + " localPlayer=" + str(_local_player_id))
 
 
@@ -2927,9 +3114,11 @@ def chatter_on_chat(szString):
 
         # mp-chain-replies: any human chat resets the chain budget.
         # Bounded chain hops (CHAIN_MAX_DEPTH) are allowed PER human
-        # prompt, then reset when a human types again.
-        global _chain_depth
+        # prompt, then reset when a human types again. The chime
+        # same-leader cooldown resets here too.
+        global _chain_depth, _last_chime_pid
         _chain_depth = 0
+        _last_chime_pid = -1
 
         # Emit the request. Speaker = AI leader, target = local human.
         # from_human is the typer's name from chrome (MP); empty in SP
