@@ -14,6 +14,7 @@ returns the response dict + tone.
 """
 from __future__ import annotations
 
+import random
 from typing import Optional, Tuple
 
 from tools.chatter.azure_client import (
@@ -22,6 +23,32 @@ from tools.chatter.azure_client import (
 )
 from tools.chatter.conversations import ConversationStore
 from tools.chatter.prompts import build_chat_reply_prompt
+
+
+# Theatrical fallbacks used when Azure's content filter blocks the prompt
+# OR the model refuses outright. Speaker-agnostic and intentionally short
+# so the human still sees *something* and the conversation thread doesn't
+# break. Tone defaults to "cold" -- a deliberate non-engagement.
+CONTENT_FILTER_FALLBACKS = [
+    "{speaker} regards {target} in pointed silence.",
+    "{speaker} pretends not to have heard {target}.",
+    "{speaker} dismisses the remark with a cold half-smile.",
+    "{speaker} lets the comment hang in the air, untouched.",
+    "{speaker} turns away from {target} and says nothing.",
+    "{speaker} considers replying, then thinks better of it.",
+]
+
+
+def _content_filter_fallback(speaker_name: str, target_name: str) -> str:
+    """Pick a 'pretends not to hear you' line. Never raises."""
+    tmpl = random.choice(CONTENT_FILTER_FALLBACKS)
+    try:
+        return tmpl.format(
+            speaker=speaker_name or "The leader",
+            target=target_name or "the rival",
+        )
+    except Exception:
+        return "The leader regards you in pointed silence."
 
 
 def make_chat_reply_response(*, request: dict, ok: bool, line: str = "", tone: str = "theatrical",
@@ -102,6 +129,27 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
         resp = make_chat_reply_response(request=request, ok=False, error="auth_failure")
         return resp, "", "theatrical"
     except ApiError as exc:
+        msg_low = str(exc).lower()
+        is_content_filter = (
+            "content_filter" in msg_low
+            or "responsibleaipolicy" in msg_low
+            or "content management policy" in msg_low
+        )
+        if is_content_filter:
+            if logger:
+                logger.info(
+                    "chat_reply: content filter blocked prompt — substituting "
+                    "non-engagement fallback line"
+                )
+            fb = _content_filter_fallback(
+                speaker_name=speaker.get("leader_name", ""),
+                target_name=target.get("human_name", "") or target.get("leader_name", ""),
+            )
+            store.append_assistant(key, fb)
+            resp = make_chat_reply_response(
+                request=request, ok=True, line=fb, tone="cold",
+            )
+            return resp, fb, "cold"
         if logger:
             logger.warning("chat_reply: api failure: %s", exc)
         resp = make_chat_reply_response(request=request, ok=False, error="api_failure")
