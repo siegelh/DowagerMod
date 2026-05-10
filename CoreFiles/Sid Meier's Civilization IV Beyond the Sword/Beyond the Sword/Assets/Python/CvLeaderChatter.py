@@ -2507,7 +2507,14 @@ def chatter_on_chat(szString):
         if _active_chat_partner is not None:
             partner_pid = _active_chat_partner[0]
             idle = now - _active_chat_partner[1]
-        leader_id, why = _resolve_addressed_leader(text, partner_pid, idle)
+        _log("chat: resolving leader text=" + text[:40]
+             + " partner=" + str(partner_pid) + " idle=" + str(int(idle)))
+        try:
+            leader_id, why = _resolve_addressed_leader(text, partner_pid, idle)
+        except Exception, exc:
+            _log("chat: resolve THREW: " + str(exc))
+            return
+        _log("chat: resolve result leader_id=" + str(leader_id) + " why=" + str(why))
         if leader_id is None:
             _log("chat: no leader matched; ignoring: " + text[:60])
             return
@@ -2518,10 +2525,12 @@ def chatter_on_chat(szString):
                 _log("chat: resolved leader pid=" + str(leader_id) + " is dead; ignoring")
                 _active_chat_partner = None
                 return
-        except:
+        except Exception, exc:
+            _log("chat: alive-check THREW for pid=" + str(leader_id) + ": " + str(exc))
             return
 
         if _local_player_id < 0:
+            _log("chat: local_player_id=" + str(_local_player_id) + "; ignoring (no init?)")
             return
 
         # Switching leaders mid-thread: that's allowed; just update the
@@ -2541,9 +2550,9 @@ def chatter_on_chat(szString):
         )
         _log("chat emit: leader=" + str(leader_id) + " why=" + str(why)
              + " text=" + text[:60])
-    except:
+    except Exception, exc:
         # Never raise into the engine.
         try:
-            _log("chatter_on_chat: unexpected error")
+            _log("chatter_on_chat: unexpected error: " + str(exc))
         except:
             pass
