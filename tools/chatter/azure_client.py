@@ -260,12 +260,15 @@ _VALID_CHAT_TONES = {
 
 
 def parse_chat_reply(raw: str) -> dict:
-    """Parse a CHAT_REPLY JSON object {line, tone}.
+    """Parse a CHAT_REPLY JSON object {line, tone, address_to?}.
 
-    Returns {'line': str, 'tone': str}. Tone is normalized to lowercase
-    and coerced to 'theatrical' if not in the allowed set. Falls back to
-    {'line': raw, 'tone': 'theatrical'} if JSON parse fails so the caller
-    still gets something speakable.
+    Returns {'line': str, 'tone': str, 'address_to': str}. Tone is
+    normalized to lowercase and coerced to 'theatrical' if not in the
+    allowed set. address_to is optional in the LLM output -- when set it
+    names another AI leader the line is calling out (used for chain
+    replies). Empty string when missing or not a string. Falls back to
+    {'line': raw, 'tone': 'theatrical', 'address_to': ''} if JSON parse
+    fails so the caller still gets something speakable.
     """
     text = (raw or "").strip()
     text = re.sub(r"^```(?:json)?\s*", "", text)
@@ -276,16 +279,21 @@ def parse_chat_reply(raw: str) -> dict:
     try:
         parsed = json.loads(text)
     except Exception:  # noqa: BLE001
-        return {"line": (raw or "").strip(), "tone": "theatrical"}
+        return {"line": (raw or "").strip(), "tone": "theatrical", "address_to": ""}
     if not isinstance(parsed, dict):
-        return {"line": (raw or "").strip(), "tone": "theatrical"}
+        return {"line": (raw or "").strip(), "tone": "theatrical", "address_to": ""}
     line = str(parsed.get("line", "")).strip()
     tone = str(parsed.get("tone", "")).strip().lower()
     if tone not in _VALID_CHAT_TONES:
         tone = "theatrical"
+    addr_raw = parsed.get("address_to")
+    if isinstance(addr_raw, str):
+        address_to = addr_raw.strip()
+    else:
+        address_to = ""
     if not line:
-        return {"line": (raw or "").strip(), "tone": tone}
-    return {"line": line, "tone": tone}
+        return {"line": (raw or "").strip(), "tone": tone, "address_to": address_to}
+    return {"line": line, "tone": tone, "address_to": address_to}
 
 
 

@@ -308,15 +308,49 @@ SYSTEM_CHAT_REPLY = (
     "Reply primarily to {latest_typer_name}. You MAY reference the other humans by "
     "name when it's natural (e.g. \"{latest_typer_name} and the other one\"), but "
     "the line is FOR {latest_typer_name}.\n\n"
-    "Output a JSON object with EXACTLY two keys:\n"
-    '  "line" : your reply -- ONE sentence, max 14 words. Punchy, clipped, decisive. '
+    "Output a JSON object with EXACTLY these keys:\n"
+    '  "line"       : your reply -- ONE sentence, max 14 words. Punchy, clipped, decisive. '
     'Address the human as "{latest_typer_name}" when you name them, NOT as {speaker_leader}.\n'
-    '  "tone" : one of exactly: angry, amused, haughty, pleased, cold, menacing, wistful, theatrical.\n\n'
+    '  "tone"       : one of exactly: angry, amused, haughty, pleased, cold, menacing, wistful, theatrical.\n'
+    '  "address_to" : OPTIONAL. If your line directly calls out another AI leader by name '
+    "(e.g. \"Victoria, hold your tongue\"), set this to that leader's name. Otherwise null or "
+    'an empty string. Use SPARINGLY -- only when you are genuinely addressing a different '
+    "leader, not just mentioning them in passing.\n\n"
     "Constraints:\n"
     "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
     "Do NOT use 'Behold' anywhere in the line. Vary openers across turns -- never repeat your own previous opener.\n"
     "- Stay in character as {speaker_leader}. No references to 'the game', 'the player', or 'Civilization IV'.\n"
     "- NEVER use stage directions or asterisks like *laughs* *scoffs* -- those get spoken literally.\n"
+    "- No quotation marks around the line. No leader name prefix inside the line.\n"
+    "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
+    "- Output ONLY the JSON object. No markdown, no commentary, no code fences."
+)
+
+
+# Chain-reply variant: another AI leader has just spoken to/about the
+# current leader. The human players are listening but the line is FOR
+# the prior leader. The chain is bounded externally (chain_depth budget
+# in the game-side code), so the LLM doesn't need to police it -- the
+# system message is just calibrated to keep the line short and pointed.
+SYSTEM_CHAT_REPLY_CHAIN = (
+    "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
+    "Sid Meier's Civilization IV. Another leader, {prior_leader_speaker_name}, has "
+    "just said something to you in front of the human players. The humans are "
+    "watching this exchange. Reply in character to {prior_leader_speaker_name}, "
+    "ONE line, max 14 words, sharper than usual -- you're being publicly addressed "
+    "by a peer.\n\n"
+    "TONE: Theatrical rivalry and trash-talk for ENTERTAINMENT. Mockery, haughty "
+    "scorn, flat dismissal, withering one-liners are all on the table. Stay in "
+    "character. Do NOT break the fourth wall.\n\n"
+    "Output a JSON object with EXACTLY these keys:\n"
+    '  "line"       : your one-line reply to {prior_leader_speaker_name}. Max 14 words.\n'
+    '  "tone"       : one of exactly: angry, amused, haughty, pleased, cold, menacing, wistful, theatrical.\n'
+    '  "address_to" : OPTIONAL. If your line calls out yet another leader by name, set '
+    "this to that leader's name. Otherwise null. Use sparingly -- the chain is bounded.\n\n"
+    "Constraints:\n"
+    "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'.\n"
+    "- Stay in character as {speaker_leader}. No 'the game', 'the player', 'Civilization IV'.\n"
+    "- NEVER use stage directions or asterisks (*laughs* *scoffs*).\n"
     "- No quotation marks around the line. No leader name prefix inside the line.\n"
     "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
     "- Output ONLY the JSON object. No markdown, no commentary, no code fences."
@@ -352,6 +386,8 @@ def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
                             other_humans_in_thread: list | None = None,
                             prior_leader_name: str = "",
                             prior_thread_summary: str = "",
+                            chain_reply: bool = False,
+                            prior_leader_speaker_name: str = "",
                             target_human_name: str = "") -> str:
     """Format the SYSTEM_CHAT_REPLY system prompt for one conversation.
 
@@ -360,7 +396,18 @@ def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
     typer info is available (SP single-human path that hasn't been
     updated yet). When `prior_thread_summary` is set, a pivot block is
     prepended explaining who the human was just talking to.
+
+    When `chain_reply` is True, returns the chain-flavored variant: a
+    different system prompt directing the leader to reply to another
+    AI leader (named by `prior_leader_speaker_name`) rather than to a
+    human.
     """
+    if chain_reply:
+        return SYSTEM_CHAT_REPLY_CHAIN.format(
+            speaker_leader=speaker_leader or "Anonymous",
+            speaker_civ=speaker_civ or "their civilization",
+            prior_leader_speaker_name=(prior_leader_speaker_name or "another leader"),
+        )
     typer = latest_typer_name or target_human_name or "the visitor"
     others = list(other_humans_in_thread or [])
     others = [n for n in others if n and n != typer]
@@ -394,7 +441,9 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
                             *, latest_typer_name: str = "",
                             other_humans_in_thread: list | None = None,
                             prior_leader_name: str = "",
-                            prior_thread_summary: str = "") -> tuple[str, list]:
+                            prior_thread_summary: str = "",
+                            chain_reply: bool = False,
+                            prior_leader_speaker_name: str = "") -> tuple[str, list]:
     """Return (system_message, messages_list_for_llm) for a CHAT_REPLY call.
 
     history_messages is the full conversation so far as [{role, content}, ...].
@@ -408,6 +457,9 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
     `prior_leader_name` + `prior_thread_summary` describe the AI leader
     the human was just talking to (pivot context); when set, the system
     prompt prepends a short scene-setting block.
+
+    When `chain_reply` is True, the chain-flavored prompt is used and
+    `prior_leader_speaker_name` names the AI leader who just spoke.
     """
     speaker = request.get("speaker") or {}
     target = request.get("target") or {}
@@ -424,6 +476,8 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
         other_humans_in_thread=other_humans_in_thread,
         prior_leader_name=prior_leader_name,
         prior_thread_summary=prior_thread_summary,
+        chain_reply=chain_reply,
+        prior_leader_speaker_name=prior_leader_speaker_name,
     )
     return sys_msg, list(history_messages)
 

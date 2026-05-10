@@ -352,6 +352,11 @@ _leader_name_cache_at = 0.0
 _next_msg_id = 1                # incrementing message ID for line chunks
 _pending_lines = {}             # msg_id -> {'speaker_id', 'expected_chunks', 'received', 'parts'}
 _last_trigger_emit_at = {}      # trigger -> unix ts of most recent emission (for per-trigger realtime cooldowns)
+# === Chain-reply state (mp-chain-replies) ===
+# Bounded chain budget: how many consecutive AI-to-AI chain hops have
+# fired since the last human chat. Reset to 0 on any human chat
+# (chatter_on_chat) and on _full_reset. Hard cap at CHAIN_MAX_DEPTH.
+_chain_depth = 0
 
 
 # ===== tunables =====
@@ -368,6 +373,10 @@ SPOOL_SCAN_LIMIT = 8                 # max response files scanned per tick
 REJOINDER_PROBABILITY = 0.75         # chance a multi_turn-eligible trigger gets a multi-turn exchange
 SPAWN_RETRY_SECONDS = 30             # don't try to spawn sidecar more than once per N seconds
 DROP_NEW_WHILE_QUEUE_ACTIVE = False  # queue-don't-drop new events during in-flight render
+# Chain-reply cap: max consecutive AI-to-AI chain hops per human prompt.
+# A human chat resets this. The cap is intentionally tight: 2 hops gives
+# the canonical "Vic -> Monte -> Vic" exchange without infinite ping-pong.
+CHAIN_MAX_DEPTH = 2
 NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o capable elector
 
 # === Chat-reply tunables ===
@@ -1174,7 +1183,8 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
 
     ctx = {"era": _era_name(speaker_id)}
     for k in ("city", "wonder", "tech", "religion", "corporation",
-              "user_message", "from_human", "prior_thread_with_leader_id"):
+              "user_message", "from_human", "prior_thread_with_leader_id",
+              "chain_reply", "chain_depth", "prior_leader_speaker_name"):
         if k in extra_context and extra_context[k]:
             ctx[k] = _to_ascii(str(extra_context[k]))
 
@@ -1606,6 +1616,97 @@ def _drain_display_queue():
         _active_exchange_until = 0.0
 
 
+def _maybe_queue_chain_reply(data):
+    """mp-chain-replies: maybe emit a chain CHAT_REPLY.
+
+    Reads `address_to` from data.lines[0] (set by the LLM, validated by
+    the daemon). If it resolves to another alive AI leader AND we are
+    under the chain-depth cap AND the addressed leader is not the
+    speaker itself, emit a new CHAT_REPLY request from that leader
+    replying to the just-spoke leader. Bounded by CHAIN_MAX_DEPTH.
+
+    Reuses the same _emit_request path so all the existing gating
+    (capability, cooldowns, queue) still applies. The `chain_reply='1'`
+    ctx flag tells the daemon to use the chain-flavored prompt and
+    append the user-role turn as a "leader" speaker_type (so the LLM
+    sees `[<leader> said] ...` instead of `[<human>] ...`).
+
+    Only fires on the elector machine: this function is called from the
+    response-scan loop which is itself elector-gated. Never raises into
+    the engine.
+    """
+    global _chain_depth
+    try:
+        if not data:
+            return
+        if data.get("trigger") != "CHAT_REPLY":
+            return
+        lines = data.get("lines") or []
+        if not lines:
+            return
+        line0 = lines[0] or {}
+        addr = (line0.get("address_to") or "").strip()
+        if not addr:
+            return
+        line_text = (line0.get("text") or "").strip()
+        if not line_text:
+            return
+        speaker_pid = int(line0.get("speaker_player_id", -1))
+        if speaker_pid < 0:
+            return
+        # Cap: budget is consumed BEFORE emit, so check first.
+        if _chain_depth >= CHAIN_MAX_DEPTH:
+            _log("chain: cap reached at depth=" + str(_chain_depth)
+                 + "; ignoring address_to=" + addr)
+            return
+        idx = _build_leader_name_index()
+        target_pid = idx.get(addr.lower())
+        if target_pid is None:
+            _log("chain: address_to=" + addr + " did not resolve to alive AI; skipping")
+            return
+        if int(target_pid) == speaker_pid:
+            _log("chain: address_to is the speaker itself; skipping")
+            return
+        try:
+            if not _gc().getPlayer(int(target_pid)).isAlive():
+                _log("chain: target leader pid=" + str(target_pid) + " is dead; skipping")
+                return
+        except Exception, exc:
+            _log("chain: alive-check THREW for pid=" + str(target_pid) + ": " + str(exc))
+            return
+        # Resolve the just-spoke leader's display name to feed the prompt
+        # ("Victoria has just said this to you").
+        speaker_info = _player_info(speaker_pid)
+        prior_leader_name = ""
+        if speaker_info:
+            prior_leader_name = _to_ascii(speaker_info.get("leader_name") or "")
+        # Consume one budget unit and emit. We pre-increment so a later
+        # response that arrives while in flight sees the correct depth.
+        _chain_depth += 1
+        ctx = {
+            "user_message": line_text,
+            "chain_reply": "1",
+            "chain_depth": str(_chain_depth),
+            "prior_leader_speaker_name": prior_leader_name,
+        }
+        _log("chain: emit depth=" + str(_chain_depth)
+             + " from leader_pid=" + str(target_pid)
+             + " replying_to_pid=" + str(speaker_pid)
+             + " (" + prior_leader_name + ") line=" + line_text[:60])
+        _emit_request(
+            "CHAT_REPLY",
+            int(target_pid),
+            int(speaker_pid),
+            ctx,
+            False,
+        )
+    except Exception, exc:
+        try:
+            _log("_maybe_queue_chain_reply: error: " + str(exc))
+        except:
+            pass
+
+
 def _check_for_responses():
     """Scan spool for response files matching our pending request, ingest, delete."""
     global _pending_request_id, _active_chat_partner
@@ -1671,6 +1772,9 @@ def _check_for_responses():
                     speaker_pid = int(lines[0].get("speaker_player_id", -1))
                     if speaker_pid >= 0:
                         _active_chat_partner = (speaker_pid, _now())
+                # mp-chain-replies: maybe queue a chain-reply if the
+                # response named another leader. Bounded by CHAIN_MAX_DEPTH.
+                _maybe_queue_chain_reply(data)
         else:
             _log("dropping non-ok response: " + str(data.get("error", "?")))
         _safe_unlink(path)
@@ -1689,6 +1793,7 @@ def _full_reset(reason):
     global _pending_lines, _next_msg_id
     global _active_chat_partner, _recent_sendchat_lines
     global _leader_name_to_player, _leader_name_cache_at
+    global _chain_depth
     _session_id = _gen_uuid()
     try:
         _local_player_id = _gc().getGame().getActivePlayer()
@@ -1716,6 +1821,7 @@ def _full_reset(reason):
     _recent_sendchat_lines = []
     _leader_name_to_player = None
     _leader_name_cache_at = 0.0
+    _chain_depth = 0
     _log("reset (" + reason + ") session=" + _session_id + " localPlayer=" + str(_local_player_id))
 
 
@@ -2652,6 +2758,12 @@ def chatter_on_chat(szString):
         _active_chat_partner = (leader_id, now)
         _last_chat_emit_at = now
         _last_chat_emit_text = text.lower()
+
+        # mp-chain-replies: any human chat resets the chain budget.
+        # Bounded chain hops (CHAIN_MAX_DEPTH) are allowed PER human
+        # prompt, then reset when a human types again.
+        global _chain_depth
+        _chain_depth = 0
 
         # Emit the request. Speaker = AI leader, target = local human.
         # from_human is the typer's name from chrome (MP); empty in SP

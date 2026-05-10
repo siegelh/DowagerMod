@@ -300,5 +300,104 @@ class TestHandleChatReply(unittest.TestCase):
         self.assertLess(len(recap), prompts.PIVOT_SUMMARY_MAX_CHARS + 80)
 
 
+class TestChainReply(unittest.TestCase):
+    """mp-chain-replies: chain-flavored CHAT_REPLY when prior speaker is an AI."""
+
+    def test_chain_reply_uses_chain_system_prompt(self):
+        """When ctx['chain_reply']='1', system msg uses the chain variant."""
+        store = conversations.ConversationStore()
+        client = _fake_client(json.dumps({"line": "Spare me, Victoria.", "tone": "haughty"}))
+        req = _make_request("Montezuma is a buffoon.",
+                            leader_id=4, leader_name="Montezuma", civ="Aztec")
+        # Vic just said "Montezuma is a buffoon" -- now Monte should chain-reply.
+        req["context"]["chain_reply"] = "1"
+        req["context"]["chain_depth"] = "1"
+        req["context"]["prior_leader_speaker_name"] = "Victoria"
+
+        resp, line, tone = chat_reply.handle_chat_reply(
+            request=req, store=store, client=client, max_tokens=120,
+        )
+        self.assertTrue(resp["ok"])
+        # System prompt: chain variant referenced "Victoria has just said".
+        sys_msg = client.call_chat.call_args[0][0][0]["content"]
+        self.assertIn("Victoria", sys_msg)
+        self.assertIn("Another leader", sys_msg)
+        # Pivot block must NOT appear in chain replies.
+        self.assertNotIn("BACKGROUND:", sys_msg)
+        # Chain prompt does NOT use the human-typer phrasing.
+        self.assertNotIn("most\nrecent message was sent by the human", sys_msg)
+
+    def test_chain_reply_appends_leader_speaker_turn(self):
+        """Chain user_message goes in via append_leader_speaker, not append_user."""
+        store = conversations.ConversationStore()
+        client = _fake_client(json.dumps({"line": "Hold your tongue.", "tone": "angry"}))
+        req = _make_request("You are a buffoon.",
+                            leader_id=4, leader_name="Montezuma", civ="Aztec")
+        req["context"]["chain_reply"] = "1"
+        req["context"]["chain_depth"] = "1"
+        req["context"]["prior_leader_speaker_name"] = "Victoria"
+
+        chat_reply.handle_chat_reply(
+            request=req, store=store, client=client, max_tokens=120,
+        )
+        # Conversation should have two turns: leader-speaker user + assistant.
+        conv = store.get(("s1", 4))
+        self.assertIsNotNone(conv)
+        self.assertEqual(len(conv.turns), 2)
+        first = conv.turns[0]
+        self.assertEqual(first.role, "user")
+        self.assertEqual(first.speaker_type, "leader")
+        self.assertEqual(first.speaker_name, "Victoria")
+        # humans_heard should NOT include Victoria (she's a leader, not human).
+        self.assertEqual(store.humans_heard(("s1", 4)), [])
+
+    def test_address_to_parsed_and_surfaced_in_response(self):
+        """Optional address_to in LLM JSON is surfaced on lines[0]."""
+        store = conversations.ConversationStore()
+        client = _fake_client(json.dumps({
+            "line": "Victoria, you are next.",
+            "tone": "menacing",
+            "address_to": "Victoria",
+        }))
+        req = _make_request("Tell Victoria to back off.",
+                            leader_id=4, leader_name="Montezuma", civ="Aztec")
+
+        resp, line, tone = chat_reply.handle_chat_reply(
+            request=req, store=store, client=client, max_tokens=120,
+        )
+        self.assertTrue(resp["ok"])
+        self.assertEqual(len(resp["lines"]), 1)
+        self.assertEqual(resp["lines"][0]["address_to"], "Victoria")
+
+    def test_address_to_missing_defaults_empty(self):
+        """No address_to in LLM output -> empty string on the response line."""
+        store = conversations.ConversationStore()
+        client = _fake_client(json.dumps({"line": "How charming.", "tone": "amused"}))
+        req = _make_request("hello",
+                            leader_id=4, leader_name="Montezuma", civ="Aztec")
+
+        resp, line, tone = chat_reply.handle_chat_reply(
+            request=req, store=store, client=client, max_tokens=120,
+        )
+        self.assertTrue(resp["ok"])
+        self.assertEqual(resp["lines"][0]["address_to"], "")
+
+    def test_address_to_non_string_dropped(self):
+        """Non-string address_to (e.g. null, number) is dropped to empty."""
+        from tools.chatter.azure_client import parse_chat_reply
+        # null
+        out = parse_chat_reply(json.dumps({"line": "x", "tone": "amused", "address_to": None}))
+        self.assertEqual(out["address_to"], "")
+        # number
+        out = parse_chat_reply(json.dumps({"line": "x", "tone": "amused", "address_to": 42}))
+        self.assertEqual(out["address_to"], "")
+        # whitespace-only string -> stripped to empty
+        out = parse_chat_reply(json.dumps({"line": "x", "tone": "amused", "address_to": "   "}))
+        self.assertEqual(out["address_to"], "")
+        # legit string
+        out = parse_chat_reply(json.dumps({"line": "x", "tone": "amused", "address_to": "Vic"}))
+        self.assertEqual(out["address_to"], "Vic")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -92,13 +92,16 @@ def _summarize_prior_thread(store: ConversationStore, prior_key,
 
 
 def make_chat_reply_response(*, request: dict, ok: bool, line: str = "", tone: str = "theatrical",
+                             address_to: str = "",
                              error: Optional[str] = None, latency_ms: int = 0,
                              input_tokens: int = 0, output_tokens: int = 0) -> dict:
     """Render the response dict for a CHAT_REPLY request.
 
     Same envelope shape as the regular response, but the single line dict
     carries an extra `tone` key so the synth side can apply tone-specific
-    SSML <prosody> on top of the leader's base voice.
+    SSML <prosody> on top of the leader's base voice. `address_to`, when
+    non-empty, names another AI leader the line is calling out (used by
+    the game-side chain-reply hook).
     """
     speaker = request.get("speaker") or {}
     lines = []
@@ -109,6 +112,7 @@ def make_chat_reply_response(*, request: dict, ok: bool, line: str = "", tone: s
             "text": line,
             "delay_ms": 0,
             "tone": tone or "theatrical",
+            "address_to": address_to or "",
         })
     return {
         "schema": 1,
@@ -132,8 +136,15 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
 
     Reads the latest user message from request['context']['user_message'],
     appends it to the conversation history, calls the LLM, parses
-    {line, tone}, appends the assistant message to history, and returns
-    (response_dict, line, tone).
+    {line, tone, address_to}, appends the assistant message to history,
+    and returns (response_dict, line, tone).
+
+    Chain-reply mode: when ctx['chain_reply'] == '1', the user_message is
+    treated as a line spoken by another AI leader (named in
+    ctx['prior_leader_speaker_name']) rather than by a human. The history
+    turn is appended via append_leader_speaker so it renders with the
+    "[<leader> said] ..." prefix, and a chain-flavored system prompt is
+    used.
 
     On any failure returns a response with ok=False and a short error code.
     Never raises.
@@ -145,6 +156,10 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
     session_id = request.get("session_id") or ""
     leader_id = int(speaker.get("player_id", -1))
     key = (session_id, leader_id)
+
+    # Chain-reply context: prior AI leader spoke to us; humans are watching.
+    chain_reply = (ctx.get("chain_reply") or "").strip() == "1"
+    prior_leader_speaker_name = (ctx.get("prior_leader_speaker_name") or "").strip()
 
     # MP: chrome carries the typer's player name. SP fallback is the
     # target.human_name we already had. Empty is fine -- store will just
@@ -159,13 +174,21 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
         )
         return resp, "", "theatrical"
 
-    # Append the user's latest line BEFORE calling the LLM. If the LLM call
-    # fails we still want this message in history (so a retry sees it).
-    store.append_user(
-        key, user_message,
-        leader_name=speaker.get("leader_name", ""),
-        from_human=from_human,
-    )
+    # Append the latest line BEFORE calling the LLM. Chain replies append
+    # as a "leader" speaker_type turn so the renderer prefixes it with
+    # [<leader> said] and the LLM doesn't mistake it for a human message.
+    if chain_reply:
+        store.append_leader_speaker(
+            key, user_message,
+            leader_name=speaker.get("leader_name", ""),
+            prior_speaker_name=prior_leader_speaker_name,
+        )
+    else:
+        store.append_user(
+            key, user_message,
+            leader_name=speaker.get("leader_name", ""),
+            from_human=from_human,
+        )
     history = store.get_messages(key)
     humans_heard = store.humans_heard(key)
     others = [n for n in humans_heard if n and n != from_human]
@@ -173,23 +196,25 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
     # MP pivot: the human just turned from another AI leader to us.
     # Look up the prior thread (same session, prior leader id) and
     # build a short recap so we can address the pivot in character.
+    # Pivot context is suppressed for chain replies (they have their own framing).
     prior_leader_name = ""
     prior_thread_summary = ""
-    prior_id_raw = ctx.get("prior_thread_with_leader_id")
-    if prior_id_raw not in (None, "", -1):
-        try:
-            prior_id = int(prior_id_raw)
-        except (TypeError, ValueError):
-            prior_id = -1
-        if prior_id >= 0 and prior_id != leader_id:
-            prior_leader_name, prior_thread_summary = _summarize_prior_thread(
-                store, (session_id, prior_id),
-            )
-            if logger and prior_thread_summary:
-                logger.info(
-                    "chat_reply: pivot detected -- prior_leader=%s summary_chars=%d",
-                    prior_leader_name, len(prior_thread_summary),
+    if not chain_reply:
+        prior_id_raw = ctx.get("prior_thread_with_leader_id")
+        if prior_id_raw not in (None, "", -1):
+            try:
+                prior_id = int(prior_id_raw)
+            except (TypeError, ValueError):
+                prior_id = -1
+            if prior_id >= 0 and prior_id != leader_id:
+                prior_leader_name, prior_thread_summary = _summarize_prior_thread(
+                    store, (session_id, prior_id),
                 )
+                if logger and prior_thread_summary:
+                    logger.info(
+                        "chat_reply: pivot detected -- prior_leader=%s summary_chars=%d",
+                        prior_leader_name, len(prior_thread_summary),
+                    )
 
     # Build (system_msg, history_messages_for_llm) and call the model.
     system_msg, msgs = build_chat_reply_prompt(
@@ -198,8 +223,16 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
         other_humans_in_thread=others,
         prior_leader_name=prior_leader_name,
         prior_thread_summary=prior_thread_summary,
+        chain_reply=chain_reply,
+        prior_leader_speaker_name=prior_leader_speaker_name,
     )
     full = [{"role": "system", "content": system_msg}] + msgs
+
+    if logger and chain_reply:
+        logger.info(
+            "chat_reply: chain reply -- speaker=%s prior=%s",
+            speaker.get("leader_name", ""), prior_leader_speaker_name,
+        )
 
     try:
         api: ApiResult = client.call_chat(full, max_tokens=max_tokens)
@@ -243,6 +276,7 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
     parsed = parse_chat_reply(api.text)
     line = parsed.get("line", "").strip()
     tone = parsed.get("tone", "theatrical")
+    address_to = parsed.get("address_to", "").strip()
 
     cleaned = post_filter_clean(line) if line else None
     if not cleaned:
@@ -260,6 +294,7 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
 
     resp = make_chat_reply_response(
         request=request, ok=True, line=cleaned, tone=tone,
+        address_to=address_to,
         latency_ms=api.latency_ms,
         input_tokens=api.input_tokens, output_tokens=api.output_tokens,
     )
