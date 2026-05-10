@@ -81,6 +81,25 @@ class TestResolveAddressedLeader(unittest.TestCase):
         name, why = chat_resolve.resolve_addressed_leader("Caesar, your time is short.")
         self.assertIn(name, ("Augustus Caesar", "Julius Caesar"))
 
+    def test_two_full_names_prefer_first_mentioned_when_addressed(self):
+        # User explicitly addresses Justinian and only mentions Elizabeth in
+        # passing -- Justinian must win even though both names tie on
+        # length and whole-name score (=100). Earliest mention is the
+        # tie-breaker now.
+        name, why = chat_resolve.resolve_addressed_leader(
+            "Justinian, we must DESTROY Elizabeth!",
+        )
+        self.assertEqual(name, "Justinian I")
+        self.assertEqual(why, "name_match")
+
+    def test_two_full_names_prefer_first_mentioned_question(self):
+        # Same shape: addressee first, third party named later.
+        name, why = chat_resolve.resolve_addressed_leader(
+            "What do you think, Justinian? Is Elizabeth in trouble?",
+        )
+        self.assertEqual(name, "Justinian I")
+        self.assertEqual(why, "name_match")
+
     def test_short_token_does_not_false_positive(self):
         # 'I am' -- the 'am' token is too short to even score.
         name, why = chat_resolve.resolve_addressed_leader("I am building wonders.")

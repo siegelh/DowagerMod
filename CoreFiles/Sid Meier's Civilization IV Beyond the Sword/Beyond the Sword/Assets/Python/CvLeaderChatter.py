@@ -332,6 +332,7 @@ _pair_cooldown = {}             # (a,b) -> game_turn of last exchange (per-pair 
 _display_queue = []             # list of {due_unix, speaker_id, speaker_name, text}
 _pending_request_id = None      # we have one request in-flight via sidecar at a time
 _pending_request_at = 0.0
+_pending_request_target_id = -1  # target leader for the pending request, or -1 if none
 _active_exchange_until = 0.0    # while a multi-line exchange's queue is non-empty
 _global_recent_lines = []       # unix timestamps of recently broadcast lines (for hourly cap)
 _logged_first_run = False       # one-time setup log
@@ -1088,7 +1089,7 @@ def _era_name(player_id):
 
 def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
     """Build + write a request file. Returns request_id on success, None otherwise."""
-    global _pending_request_id, _pending_request_at, _active_exchange_until
+    global _pending_request_id, _pending_request_at, _pending_request_target_id, _active_exchange_until
 
     if _disabled:
         _log("emit " + trigger + " gated: disabled")
@@ -1225,6 +1226,10 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
 
     _pending_request_id = rid
     _pending_request_at = _now()
+    try:
+        _pending_request_target_id = int(target_id) if target_id is not None else -1
+    except:
+        _pending_request_target_id = -1
     _last_trigger_emit_at[trigger] = _now()
     _record_pair_exchange(speaker_id, target_id)
     _log("emitted " + trigger + " req=" + rid + " multi=" + str(multi))
@@ -1239,6 +1244,12 @@ def _enqueue_response_lines(response):
     lines = response.get("lines") or []
     if not lines:
         return
+    # Stamp target_id (from the originating request) onto every line so
+    # _broadcast_line / wire format can carry it through to receivers.
+    try:
+        response_target_id = int(_pending_request_target_id)
+    except:
+        response_target_id = -1
     cumulative_delay = 0
     base = _now()
     for ln in lines:
@@ -1252,6 +1263,7 @@ def _enqueue_response_lines(response):
             "speaker_id": int(ln.get("speaker_player_id", -1)),
             "speaker_name": _to_ascii(ln.get("speaker_name", "?")),
             "text": _to_ascii(ln.get("text", "")),
+            "target_id": response_target_id,
         })
     _active_exchange_until = base + (cumulative_delay / 1000.0) + 1.0
 
@@ -1279,7 +1291,11 @@ def _broadcast_line(entry):
         text = _to_ascii(entry["text"])
         if not text:
             return
-        _send_line_via_chunks(speaker_id, text)
+        try:
+            target_id = int(entry.get("target_id", -1))
+        except:
+            target_id = -1
+        _send_line_via_chunks(speaker_id, text, target_id)
         _global_recent_lines.append(_now())
         # Anti-feedback: remember the line so chatter_on_chat can recognize
         # and ignore any echo that finds its way through onChat.
@@ -1289,8 +1305,8 @@ def _broadcast_line(entry):
         _log("broadcast failed for: " + str(entry.get("text", ""))[:60])
 
 
-def _send_line_via_chunks(speaker_id, text):
-    """Encode (speaker_id, text) into N sendModNetMessage calls.
+def _send_line_via_chunks(speaker_id, text, target_id=-1):
+    """Encode (speaker_id, target_id, text) into N sendModNetMessage calls.
 
     Wire format:
       Header chunk (chunk_index=0):
@@ -1298,7 +1314,9 @@ def _send_line_via_chunks(speaker_id, text):
         iData2 = msg_id (1..65535, wraps)
         iData3 = 0  (signals header chunk)
         iData4 = speaker_player_id
-        iData5 = total_payload_chunks
+        iData5 = (target_packed << 16) | total_payload_chunks
+                 target_packed = 0xFFFF when target_id < 0 ("no target"),
+                 otherwise target_player_id & 0xFFFF
       Payload chunk N (1 <= chunk_index <= total_payload_chunks):
         iData1 = CHATTER_LINE_MAGIC
         iData2 = msg_id
@@ -1319,10 +1337,21 @@ def _send_line_via_chunks(speaker_id, text):
     BYTES_PER_CHUNK = 8
     total = (len(text) + BYTES_PER_CHUNK - 1) // BYTES_PER_CHUNK
 
+    # Pack target_id into the high 16 bits of iData5 (sentinel 0xFFFF = "no target").
+    try:
+        t_int = int(target_id)
+    except:
+        t_int = -1
+    if t_int < 0:
+        t_packed = 0xFFFF
+    else:
+        t_packed = t_int & 0xFFFF
+    header_iData5 = ((t_packed & 0xFFFF) << 16) | (total & 0xFFFF)
+
     # Header
     try:
         CyMessageControl().sendModNetMessage(
-            CHATTER_LINE_MAGIC, msg_id, 0, int(speaker_id), int(total))
+            CHATTER_LINE_MAGIC, msg_id, 0, int(speaker_id), header_iData5)
     except:
         return
 
@@ -1379,12 +1408,17 @@ def _handle_line_chunk(iData2, iData3, iData4, iData5):
     if chunk_index == 0:
         # Header
         speaker_id = int(iData4)
-        total = int(iData5)
-        _log("chunk: header msg=" + str(msg_id) + " speaker=" + str(speaker_id) + " total=" + str(total))
+        raw5 = int(iData5) & 0xFFFFFFFF
+        total = raw5 & 0xFFFF
+        t_packed = (raw5 >> 16) & 0xFFFF
+        target_id = -1 if t_packed == 0xFFFF else int(t_packed)
+        _log("chunk: header msg=" + str(msg_id) + " speaker=" + str(speaker_id)
+             + " target=" + str(target_id) + " total=" + str(total))
         if total <= 0 or total > 256:
             return
         _pending_lines[msg_id] = {
             "speaker_id": speaker_id,
+            "target_id": target_id,
             "expected": total,
             "received": 0,
             "parts": [None] * total,
@@ -1406,12 +1440,13 @@ def _handle_line_chunk(iData2, iData3, iData4, iData5):
     if state["received"] >= state["expected"]:
         text = "".join(state["parts"])
         speaker_id = state["speaker_id"]
+        target_id = state.get("target_id", -1)
         _log("chunk: complete msg=" + str(msg_id) + " text_len=" + str(len(text)))
         try:
             del _pending_lines[msg_id]
         except:
             pass
-        _render_local_line(speaker_id, text)
+        _render_local_line(speaker_id, text, target_id)
 
 
 def _gc_pending_lines():
@@ -1452,7 +1487,23 @@ def _has_met_speaker(local_player, speaker_id):
         return True
 
 
-def _render_local_line(speaker_id, text):
+def _has_met_any_participant(local_player, speaker_id, target_id):
+    """Return True if the local human's team has met EITHER the speaker or
+    the target. If target_id < 0 (no target -- e.g. RELIGION_FOUNDED),
+    falls back to a speaker-only check. Fails open via _has_met_speaker.
+    """
+    if _has_met_speaker(local_player, speaker_id):
+        return True
+    try:
+        t_id = int(target_id)
+    except:
+        t_id = -1
+    if t_id < 0:
+        return False
+    return _has_met_speaker(local_player, t_id)
+
+
+def _render_local_line(speaker_id, text, target_id=-1):
     """Render a chatter line in the local event log via addMessage with the
     speaker's leader portrait. Prefixes the line with the leader's name so
     attribution is unmissable (the engine's eColor param doesn't reliably
@@ -1460,9 +1511,9 @@ def _render_local_line(speaker_id, text):
     """
     try:
         local_player = _gc().getGame().getActivePlayer()
-        if not _has_met_speaker(local_player, speaker_id):
-            _log("render: skipping unmet speaker_id=" + str(speaker_id)
-                 + " (local has not met this team yet)")
+        if not _has_met_any_participant(local_player, speaker_id, target_id):
+            _log("render: skipping; haven't met speaker=" + str(speaker_id)
+                 + " or target=" + str(target_id))
             return
         # Resolve speaker leader info
         leader_button = None
@@ -1625,6 +1676,7 @@ def _full_reset(reason):
     global _session_id, _local_player_id, _capable_humans, _local_capable
     global _local_capable_checked_at, _seen_events, _pair_cooldown
     global _display_queue, _pending_request_id, _pending_request_at
+    global _pending_request_target_id
     global _active_exchange_until, _global_recent_lines, _logged_first_run
     global _no_elector_diag_fired, _no_elector_first_seen_turn
     global _pending_lines, _next_msg_id
@@ -1644,6 +1696,7 @@ def _full_reset(reason):
         _display_queue.pop(0)
     _pending_request_id = None
     _pending_request_at = 0.0
+    _pending_request_target_id = -1
     _active_exchange_until = 0.0
     while _global_recent_lines:
         _global_recent_lines.pop()
@@ -2435,27 +2488,41 @@ def _resolve_addressed_leader(text, active_partner_id, active_partner_idle_secon
 
     best_pid = None
     best_score = 0
+    best_pos = 9999
     best_namelen = 9999
     for name_low, pid in index.items():
         # Try whole-name first (catches "Genghis Khan" as a phrase).
         if name_low in s_low:
             score = 100
-            if score > best_score or (score == best_score and len(name_low) < best_namelen):
+            pos = s_low.find(name_low)
+            if (score > best_score
+                    or (score == best_score and pos < best_pos)
+                    or (score == best_score and pos == best_pos and len(name_low) < best_namelen)):
                 best_score = score
                 best_pid = pid
+                best_pos = pos
                 best_namelen = len(name_low)
             continue
         # Then token-by-token.
         local_best = 0
+        local_best_pos = 9999
         for tok in tokens:
             sc = _score_leader_match(tok, name_low)
             if sc > local_best:
                 local_best = sc
+                # Track where this token appears in the original string so
+                # ties between two equally-fuzzy leaders prefer the one
+                # mentioned first.
+                local_best_pos = s_low.find(tok)
         if local_best >= CHAT_FUZZY_THRESHOLD:
-            # Tie-break: prefer the most specific (shortest) leader name.
-            if local_best > best_score or (local_best == best_score and len(name_low) < best_namelen):
+            # Tie-break: earliest mention wins; if equal, shorter (more
+            # specific) name wins.
+            if (local_best > best_score
+                    or (local_best == best_score and local_best_pos < best_pos)
+                    or (local_best == best_score and local_best_pos == best_pos and len(name_low) < best_namelen)):
                 best_score = local_best
                 best_pid = pid
+                best_pos = local_best_pos
                 best_namelen = len(name_low)
 
     if best_pid is not None:

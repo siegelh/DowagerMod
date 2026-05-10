@@ -180,25 +180,39 @@ def resolve_addressed_leader(
 
     best_name = None
     best_score = 0
+    best_pos = 9_999
     best_namelen = 9_999
     for name, _civ in leaders:
         name_low = name.lower()
         if name_low in s_low:
             score = 100
-            if score > best_score or (score == best_score and len(name_low) < best_namelen):
+            pos = s_low.find(name_low)
+            if (
+                score > best_score
+                or (score == best_score and pos < best_pos)
+                or (score == best_score and pos == best_pos and len(name_low) < best_namelen)
+            ):
                 best_score = score
                 best_name = name
+                best_pos = pos
                 best_namelen = len(name_low)
             continue
         local_best = 0
+        local_best_pos = 9_999
         for tok in tokens:
             sc = _score_leader_match(tok, name_low)
             if sc > local_best:
                 local_best = sc
+                local_best_pos = s_low.find(tok)
         if local_best >= threshold:
-            if local_best > best_score or (local_best == best_score and len(name_low) < best_namelen):
+            if (
+                local_best > best_score
+                or (local_best == best_score and local_best_pos < best_pos)
+                or (local_best == best_score and local_best_pos == best_pos and len(name_low) < best_namelen)
+            ):
                 best_score = local_best
                 best_name = name
+                best_pos = local_best_pos
                 best_namelen = len(name_low)
 
     if best_name is not None:
