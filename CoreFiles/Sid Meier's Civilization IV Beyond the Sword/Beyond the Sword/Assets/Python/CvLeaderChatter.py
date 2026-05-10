@@ -1227,7 +1227,10 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
     _pending_request_id = rid
     _pending_request_at = _now()
     try:
-        _pending_request_target_id = int(target_id) if target_id is not None else -1
+        if target_id is None:
+            _pending_request_target_id = -1
+        else:
+            _pending_request_target_id = int(target_id)
     except:
         _pending_request_target_id = -1
     _last_trigger_emit_at[trigger] = _now()
@@ -1411,7 +1414,10 @@ def _handle_line_chunk(iData2, iData3, iData4, iData5):
         raw5 = int(iData5) & 0xFFFFFFFF
         total = raw5 & 0xFFFF
         t_packed = (raw5 >> 16) & 0xFFFF
-        target_id = -1 if t_packed == 0xFFFF else int(t_packed)
+        if t_packed == 0xFFFF:
+            target_id = -1
+        else:
+            target_id = int(t_packed)
         _log("chunk: header msg=" + str(msg_id) + " speaker=" + str(speaker_id)
              + " target=" + str(target_id) + " total=" + str(total))
         if total <= 0 or total > 256:
