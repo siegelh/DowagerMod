@@ -1430,6 +1430,28 @@ def _gc_pending_lines():
             pass
 
 
+def _has_met_speaker(local_player, speaker_id):
+    """Return True if the local human's team has met the speaker's team, or
+    if the speaker IS the local player (own leader). Returns True on any
+    error so we fail open (better to show a stray line than to silently
+    swallow real chatter).
+    """
+    try:
+        sp_id = int(speaker_id)
+        lp_id = int(local_player)
+        if sp_id == lp_id:
+            return True
+        local_team_idx = _gc().getPlayer(lp_id).getTeam()
+        speaker_team_idx = _gc().getPlayer(sp_id).getTeam()
+        if speaker_team_idx == local_team_idx:
+            return True
+        local_team = _gc().getTeam(local_team_idx)
+        return bool(local_team.isHasMet(speaker_team_idx))
+    except Exception, exc:
+        _log("render: hasMet check failed (failing open): " + str(exc))
+        return True
+
+
 def _render_local_line(speaker_id, text):
     """Render a chatter line in the local event log via addMessage with the
     speaker's leader portrait. Prefixes the line with the leader's name so
@@ -1438,6 +1460,10 @@ def _render_local_line(speaker_id, text):
     """
     try:
         local_player = _gc().getGame().getActivePlayer()
+        if not _has_met_speaker(local_player, speaker_id):
+            _log("render: skipping unmet speaker_id=" + str(speaker_id)
+                 + " (local has not met this team yet)")
+            return
         # Resolve speaker leader info
         leader_button = None
         speaker_color = -1  # let engine pick a default
