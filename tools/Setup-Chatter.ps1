@@ -215,6 +215,7 @@ $config = [ordered]@{
     azure_speech_endpoint = if ($SpeechEndpoint) { $SpeechEndpoint } else { "" }
     azure_speech_key = if ($SpeechKey) { $SpeechKey } else { "" }
     azure_speech_voice = if ($SpeechVoice) { $SpeechVoice } else { "en-US-AriaNeural" }
+    speech_rate = "+50%"
     voiceover_daily_char_cap = 100000
     discord_bot_token = if ($DiscordBotToken) { $DiscordBotToken } else { "" }
     discord_guild_id = if ($DiscordGuildId) { $DiscordGuildId } else { "" }
@@ -224,7 +225,8 @@ $config = [ordered]@{
 # Preserve user customizations from existing config (override defaults but not the ones we just set)
 foreach ($key in @('max_tokens','max_tokens_multi_turn','request_timeout_seconds','rate_limit_seconds',
                    'max_in_flight','spool_poll_interval_seconds','request_ttl_seconds',
-                   'response_ttl_seconds','log_level','enabled','voiceover_daily_char_cap')) {
+                   'response_ttl_seconds','log_level','enabled','voiceover_daily_char_cap',
+                   'speech_rate')) {
     if ($existing.ContainsKey($key)) {
         $config[$key] = $existing[$key]
     }

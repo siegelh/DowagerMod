@@ -44,6 +44,15 @@ COMMON_STOPWORDS = frozenset((
     "more", "most", "find", "tell", "many", "both", "left", "next",
     "open", "play", "real", "high", "long", "gone", "city", "lord",
     "hello", "hey",
+    # 4-letter -- common verbs that prefix-match leader names. Without
+    # these the resolver false-positives:
+    #   "I will go"  -> "will" prefix of "Willem van Oranje"
+    #   "wash up"    -> "wash" prefix of "Washington"
+    #   "talk soon"  -> no current leader, but reserved
+    "will", "wash", "talk", "tell", "told", "said", "show", "kept",
+    "hand", "head", "team", "year", "feel", "felt", "live", "kind",
+    "rest", "side", "wait", "stop", "work", "hear", "deal", "save",
+    "burn",
     # 5+ letter (only the worst false-positive triggers)
     "their", "would", "there", "could", "about", "after", "first",
     "where", "these", "those", "still", "still", "world", "every",

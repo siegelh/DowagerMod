@@ -86,6 +86,28 @@ class TestResolveAddressedLeader(unittest.TestCase):
         name, why = chat_resolve.resolve_addressed_leader("I am building wonders.")
         self.assertIsNone(name)
 
+    def test_will_does_not_match_willem(self):
+        # 'I will burn ...' shouldn't switch to Willem van Oranje. 'will'
+        # is a 4-char prefix of 'willem' but is also one of the most common
+        # English verbs -- it must be in the stopword filter.
+        name, why = chat_resolve.resolve_addressed_leader(
+            "Your gardens are beautiful but I will burn them down with my English army.",
+            active_partner_name="Louis XIV",
+            active_partner_idle_seconds=10,
+        )
+        # Should stay with the active partner, not switch.
+        self.assertEqual(name, "Louis XIV")
+        self.assertEqual(why, "active_partner")
+
+    def test_wash_does_not_match_washington(self):
+        # 'wash up' shouldn't pull Washington.
+        name, why = chat_resolve.resolve_addressed_leader(
+            "I need to wash my hands first.",
+            active_partner_name="Louis XIV",
+            active_partner_idle_seconds=10,
+        )
+        self.assertEqual(name, "Louis XIV")
+
 
 class TestLevenshtein(unittest.TestCase):
     def test_identity(self):

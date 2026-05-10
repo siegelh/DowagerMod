@@ -58,6 +58,7 @@ handle_chat_reply() function this CLI calls directly.
 from __future__ import annotations
 
 import argparse
+import getpass
 import logging
 import os
 import sys
@@ -82,7 +83,21 @@ from tools.chatter.leader_roster import LEADERS, civ_for_leader
 from tools.chatter.tone import add_percent, prosody_for
 from tools.chatter.voice_picker import VoicePicker, VoiceSpec
 
-DEFAULT_HUMAN_NAME = "You"
+def _default_human_name() -> str:
+    """Default human name = Windows account name. Falls back to 'Player'.
+
+    'You' is a bad default because the LLM treats target.human_name as a
+    real name and addresses the user as "You" in the line ("Your greeting
+    shows proper grace, You").
+    """
+    try:
+        name = (getpass.getuser() or "").strip()
+    except Exception:  # noqa: BLE001
+        name = ""
+    return name or "Player"
+
+
+DEFAULT_HUMAN_NAME = _default_human_name()
 
 
 # ----------------------------------------------------------------------------
