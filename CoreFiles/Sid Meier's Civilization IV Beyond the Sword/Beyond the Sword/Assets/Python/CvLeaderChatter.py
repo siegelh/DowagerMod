@@ -375,10 +375,11 @@ NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o c
 # leader name continues with the same leader. After this window, no-name
 # chat is ignored.
 CHAT_IDLE_SECONDS = 300
-# Minimum debounce between consecutive emits from this hook (e.g. mashed
-# Enter on a single chat line). Short -- the goal is conversation, not
-# throttling.
-CHAT_EMIT_DEBOUNCE_SECONDS = 3.0
+# Anti-double-fire safeguard: if the EXACT same text comes in within
+# this many seconds, treat it as a duplicate (e.g. engine fired onChat
+# twice for one Enter press) and drop the duplicate. Only matches on
+# identical content, so it never blocks a real conversation reply.
+CHAT_DUPLICATE_GUARD_SECONDS = 1.0
 # Fuzzy-match score threshold for leader-name resolution.
 CHAT_FUZZY_THRESHOLD = 60
 # How many recent sent lines we keep for anti-feedback filtering.
@@ -2441,6 +2442,7 @@ def _resolve_addressed_leader(text, active_partner_id, active_partner_idle_secon
 
 
 _last_chat_emit_at = 0.0
+_last_chat_emit_text = ""
 
 
 def chatter_on_chat(szString):
@@ -2450,20 +2452,27 @@ def chatter_on_chat(szString):
     raises into the engine. Single-player only (multiplayer doesn't pass
     speaker ID through onChat).
     """
-    global _active_chat_partner, _last_chat_emit_at
+    global _active_chat_partner, _last_chat_emit_at, _last_chat_emit_text
     if _disabled:
         return
     try:
-        text = _strip_chat_chrome(_to_ascii(szString or "")).strip()
+        raw = _to_ascii(szString or "")
+        text = _strip_chat_chrome(raw).strip()
+        _log("chat recv: raw=" + raw[:80] + " stripped=" + text[:60])
         if not text:
+            _log("chat: empty after strip; ignoring")
             return
         # Anti-feedback: ignore messages that look like our own echoed lines.
         if _looks_like_our_echo(text):
             _log("chat: ignoring own echo: " + text[:60])
             return
-        # Debounce: same line spammed in quick succession.
+        # Anti-double-fire: drop only if the EXACT same text arrives within
+        # CHAT_DUPLICATE_GUARD_SECONDS. Different messages always pass.
         now = _now()
-        if (now - _last_chat_emit_at) < CHAT_EMIT_DEBOUNCE_SECONDS:
+        if (text.lower() == _last_chat_emit_text
+                and (now - _last_chat_emit_at) < CHAT_DUPLICATE_GUARD_SECONDS):
+            _log("chat: duplicate within " + str(CHAT_DUPLICATE_GUARD_SECONDS)
+                 + "s; ignoring: " + text[:60])
             return
 
         # Resolve which leader the human is addressing.
@@ -2494,6 +2503,7 @@ def chatter_on_chat(szString):
         # so the prior conversation is retained for resume-by-name.
         _active_chat_partner = (leader_id, now)
         _last_chat_emit_at = now
+        _last_chat_emit_text = text.lower()
 
         # Emit the request. Speaker = AI leader, target = local human.
         _emit_request(

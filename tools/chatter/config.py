@@ -36,11 +36,11 @@ DEFAULTS = {
     "azure_speech_key": "",
     "azure_speech_voice": "en-US-AriaNeural",
     # Default SSML <prosody rate=...> applied to every leader voice that
-    # doesn't override it in leader_voices.json. "+15%" is a mild snap on
-    # top of the neutral baseline (was "+50%", which proved too rushed).
-    # Per-leader rate overrides take precedence; CHAT_REPLY tone-specific
-    # rates also take precedence per-line.
-    "speech_rate": "+15%",
+    # doesn't override it in leader_voices.json. Empty string = no global
+    # rate offset; leaders speak at the neutral TTS baseline. Per-leader
+    # rate overrides in leader_voices.json still apply, and CHAT_REPLY
+    # tone-specific rate adjustments still layer on top per-line.
+    "speech_rate": "",
     "voiceover_daily_char_cap": 100000,
     "discord_bot_token": "",
     "discord_guild_id": "",
@@ -71,7 +71,7 @@ class VoiceoverConfig:
     azure_speech_endpoint: str = ""
     azure_speech_key: str = ""
     azure_speech_voice: str = "en-US-AriaNeural"
-    speech_rate: str = "+15%"
+    speech_rate: str = ""
     daily_char_cap: int = 100000
     discord_bot_token: str = ""
     discord_guild_id: str = ""
@@ -265,7 +265,7 @@ def load_config(path: Optional[Path] = None) -> Config:
             azure_speech_endpoint=str(raw.get("azure_speech_endpoint", "")),
             azure_speech_key=str(raw.get("azure_speech_key", "")),
             azure_speech_voice=str(raw.get("azure_speech_voice", "en-US-AriaNeural")),
-            speech_rate=str(raw.get("speech_rate", "+15%")),
+            speech_rate=str(raw.get("speech_rate", "")),
             daily_char_cap=int(raw.get("voiceover_daily_char_cap", 100000)),
             discord_bot_token=str(raw.get("discord_bot_token", "")),
             discord_guild_id=str(raw.get("discord_guild_id", "")),
