@@ -398,6 +398,12 @@ CHIME_DECAY_FACTOR = 0.6  # 0.5 -> 0.30 -> 0.18, capped at depth 2
 # drown out more interesting chatter. Friends in MP find this off-putting.
 # Flip back to True if you want introductions; everything else still works.
 ENABLE_FIRST_CONTACT = False
+# Trivia-style world events. Friends in MP found these spammy -- a steady
+# drip of "Cyrus discovered Pottery!" / "Saladin built the Pyramids!"
+# pulls focus from the leader-vs-leader chatter that's actually fun.
+# Flip back to True to re-enable.
+ENABLE_FIRST_TO_TECH = False
+ENABLE_WONDER_BUILT = False
 NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o capable elector
 
 # === Chat-reply tunables ===
@@ -1270,6 +1276,15 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
              + str(speaker_id) + ", target=" + str(target_id) + ")")
         return None
 
+    # No human has met either party -- the render layer would suppress
+    # the line on every client, so skip the LLM call entirely. Fails
+    # open on any error (better to spend a few tokens than silently lose
+    # interesting chatter).
+    if not _any_human_has_met(speaker_id, target_id):
+        _log("emit " + trigger + " gated: no human has met speaker="
+             + str(speaker_id) + " or target=" + str(target_id))
+        return None
+
     is_high_priority = trigger in HIGH_PRIORITY_TRIGGERS
 
     # Per-trigger realtime cooldown (e.g. FIRST_TO_TECH). High-priority
@@ -1676,6 +1691,58 @@ def _has_met_any_participant(local_player, speaker_id, target_id):
     if t_id < 0:
         return False
     return _has_met_speaker(local_player, t_id)
+
+
+def _any_human_has_met(speaker_id, target_id):
+    """Emit-time gate: True if ANY alive human player's team has met the
+    speaker, or (when target_id >= 0) the target.
+
+    Used to skip the LLM call entirely for world events nobody in the
+    room would hear anyway (the render-side _has_met_any_participant
+    would suppress it on each client, but the elector would still have
+    burned tokens). In coop MP all humans share a team so this is just
+    one isHasMet probe; in adversarial MP we OR across all human teams.
+
+    Fails open (returns True) on any error. CHAT_REPLY emits trivially
+    pass because the target is the human (always met) and the speaker
+    is an AI the human just typed at.
+    """
+    try:
+        gc = _gc()
+        if speaker_id is None:
+            sid = -1
+        else:
+            sid = int(speaker_id)
+        if sid < 0:
+            return True  # can't gate without a speaker; emit
+        speaker_team_idx = gc.getPlayer(sid).getTeam()
+        target_team_idx = -1
+        try:
+            tid = int(target_id)
+        except (TypeError, ValueError):
+            tid = -1
+        if tid >= 0:
+            target_team_idx = gc.getPlayer(tid).getTeam()
+        max_civs = gc.getMAX_CIV_PLAYERS()
+        any_human_seen = False
+        for pid in range(max_civs):
+            p = gc.getPlayer(pid)
+            if not p.isAlive():
+                continue
+            if not p.isHuman():
+                continue
+            any_human_seen = True
+            t = gc.getTeam(p.getTeam())
+            if t.isHasMet(speaker_team_idx):
+                return True
+            if target_team_idx >= 0 and t.isHasMet(target_team_idx):
+                return True
+        if not any_human_seen:
+            return True  # AI-only game; nothing to gate on
+        return False
+    except Exception, exc:
+        _log("emit: _any_human_has_met failed (fail-open): " + str(exc))
+        return True
 
 
 def _render_local_line(speaker_id, text, target_id=-1):
@@ -2613,6 +2680,8 @@ def chatter_on_tech_acquired(iTech, iTeam, iPlayer, bAnnounce):
     """
     if _disabled:
         return
+    if not ENABLE_FIRST_TO_TECH:
+        return
     try:
         if iPlayer < 0:
             return
@@ -2643,6 +2712,8 @@ def chatter_on_tech_acquired(iTech, iTeam, iPlayer, bAnnounce):
 def chatter_on_wonder_built(pCity, iBuildingType, iPlayer):
     """Called when a wonder building completes (CvEventManager.onBuildingBuilt)."""
     if _disabled:
+        return
+    if not ENABLE_WONDER_BUILT:
         return
     try:
         if iPlayer < 0:
