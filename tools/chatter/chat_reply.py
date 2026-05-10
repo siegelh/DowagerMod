@@ -30,7 +30,7 @@ from tools.chatter.azure_client import (
     parse_chat_reply, post_filter_clean,
 )
 from tools.chatter.conversations import RoomStore
-from tools.chatter.prompts import build_chat_reply_prompt
+from tools.chatter.prompts import _format_room_state_block, build_chat_reply_prompt
 
 
 CONTENT_FILTER_FALLBACKS = [
@@ -184,6 +184,25 @@ def handle_chat_reply(*, request: dict, store: RoomStore,
             request.get("request_id"), leader_id, leader_name, from_human,
             "1" if chain_reply else "0", session_id[:12], len(history), rs_size,
         )
+        # ROOM_DEBUG: dump raw JSON + rendered preface so we can audit
+        # what the LLM is actually seeing. Grep daemon.log for ROOM_DEBUG.
+        if room_state is not None:
+            try:
+                rs_json = json.dumps(room_state, indent=2, sort_keys=True)
+            except (TypeError, ValueError):
+                rs_json = repr(room_state)
+            logger.info("ROOM_DEBUG raw rid=%s json:\n%s",
+                        request.get("request_id"), rs_json)
+            try:
+                preface = _format_room_state_block(room_state, leader_name)
+            except Exception as exc:  # noqa: BLE001
+                preface = "<preface render failed: %s>" % (exc,)
+            logger.info("ROOM_DEBUG preface rid=%s:\n%s",
+                        request.get("request_id"),
+                        preface or "<empty preface>")
+        else:
+            logger.info("ROOM_DEBUG rid=%s: no room_state in ctx",
+                        request.get("request_id"))
 
     system_msg, msgs = build_chat_reply_prompt(
         request, history,
