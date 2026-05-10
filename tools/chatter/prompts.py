@@ -286,10 +286,12 @@ SYSTEM_CHAT_REPLY = (
     "Sid Meier's Civilization IV. You are in a LIVE chat conversation. The most "
     'recent message was sent by the human player named "{latest_typer_name}". '
     "{other_humans_clause}"
-    "{pivot_clause}"
     "You can see the full conversation so far. Each user message is prefixed with "
     "the speaker's name in square brackets, e.g. [Alice] hello -- so you can tell "
-    "who is talking when there are multiple humans in the room.\n\n"
+    "who is talking when there are multiple humans in the room. Lines from OTHER "
+    "AI leaders in the room appear prefixed as [Victoria said] ... -- you may "
+    "acknowledge or react to them if it fits the conversation, but only the most "
+    "recent message is the one you are being asked to address.\n\n"
     "TONE: This is theatrical banter and trash-talk for ENTERTAINMENT, not real "
     "diplomacy. The humans are your rivals; lean into the rivalry. Mockery, "
     "exaggerated boasts, ridiculous put-downs, absurd flexes, and over-the-top "
@@ -357,35 +359,16 @@ SYSTEM_CHAT_REPLY_CHAIN = (
 )
 
 
-# Maximum prior_thread_summary length we'll embed in the pivot clause. Keeps
-# the system prompt bounded even if the prior conversation was long.
-PIVOT_SUMMARY_MAX_CHARS = 320
-
-
-def _format_pivot_clause(prior_leader_name: str, prior_thread_summary: str,
-                         latest_typer_name: str) -> str:
-    """Build the pivot block prepended to SYSTEM_CHAT_REPLY when a pivot occurred."""
-    name = (prior_leader_name or "another leader").strip()
-    summary = (prior_thread_summary or "").strip()
-    if not summary:
-        return ""
-    if len(summary) > PIVOT_SUMMARY_MAX_CHARS:
-        summary = summary[:PIVOT_SUMMARY_MAX_CHARS].rstrip() + "..."
-    return (
-        "BACKGROUND: " + (latest_typer_name or "they") + " was just speaking with "
-        + name + ". Brief recap of that thread:\n"
-        + summary + "\n"
-        "They have now turned to YOU. Acknowledge the pivot in character if it "
-        "feels natural (a sly aside about " + name + " is fair game), but reply "
-        "to the message you just received.\n\n"
-    )
+# Pivot recap has been removed: with the shared-room model, when a human
+# turns from one leader to another, the new leader can see the prior
+# leader's lines directly in the room transcript (rendered as
+# `[<leader> said] ...`). No special "BACKGROUND" block is needed; the
+# system prompt explicitly tells leaders they may react to those lines.
 
 
 def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
                             latest_typer_name: str = "",
                             other_humans_in_thread: list | None = None,
-                            prior_leader_name: str = "",
-                            prior_thread_summary: str = "",
                             chain_reply: bool = False,
                             prior_leader_speaker_name: str = "",
                             target_human_name: str = "") -> str:
@@ -394,8 +377,7 @@ def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
     `latest_typer_name` is the most recent human typer (preferred). For
     back-compat, `target_human_name` is accepted as a fallback when no
     typer info is available (SP single-human path that hasn't been
-    updated yet). When `prior_thread_summary` is set, a pivot block is
-    prepended explaining who the human was just talking to.
+    updated yet).
 
     When `chain_reply` is True, returns the chain-flavored variant: a
     different system prompt directing the leader to reply to another
@@ -423,25 +405,17 @@ def build_chat_reply_system(*, speaker_leader: str, speaker_civ: str,
             )
     else:
         other_clause = ""
-    pivot_clause = _format_pivot_clause(
-        prior_leader_name=prior_leader_name,
-        prior_thread_summary=prior_thread_summary,
-        latest_typer_name=typer,
-    )
     return SYSTEM_CHAT_REPLY.format(
         speaker_leader=speaker_leader or "Anonymous",
         speaker_civ=speaker_civ or "their civilization",
         latest_typer_name=typer,
         other_humans_clause=other_clause,
-        pivot_clause=pivot_clause,
     )
 
 
 def build_chat_reply_prompt(request: dict, history_messages: list,
                             *, latest_typer_name: str = "",
                             other_humans_in_thread: list | None = None,
-                            prior_leader_name: str = "",
-                            prior_thread_summary: str = "",
                             chain_reply: bool = False,
                             prior_leader_speaker_name: str = "") -> tuple[str, list]:
     """Return (system_message, messages_list_for_llm) for a CHAT_REPLY call.
@@ -454,9 +428,6 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
     `latest_typer_name` (preferred) names the most recent human typer; if
     omitted we fall back to request.target.human_name for SP. The list
     `other_humans_in_thread` carries any additional MP typers seen so far.
-    `prior_leader_name` + `prior_thread_summary` describe the AI leader
-    the human was just talking to (pivot context); when set, the system
-    prompt prepends a short scene-setting block.
 
     When `chain_reply` is True, the chain-flavored prompt is used and
     `prior_leader_speaker_name` names the AI leader who just spoke.
@@ -474,8 +445,6 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
         speaker_civ=speaker.get("civ_short_name", ""),
         latest_typer_name=typer,
         other_humans_in_thread=other_humans_in_thread,
-        prior_leader_name=prior_leader_name,
-        prior_thread_summary=prior_thread_summary,
         chain_reply=chain_reply,
         prior_leader_speaker_name=prior_leader_speaker_name,
     )

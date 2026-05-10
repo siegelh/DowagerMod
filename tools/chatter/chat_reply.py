@@ -7,10 +7,17 @@ This is called from two places:
 Both paths produce the same response_dict shape so downstream rendering
 (voiceover_response, sendChat broadcast on game side) works uniformly.
 
-Conversation history is owned by the caller (a ConversationStore lives in
-the daemon process; the CLI uses its own short-lived store). This module
+Conversation history is owned by the caller (a RoomStore lives in the
+daemon process; the CLI uses its own short-lived store). This module
 just builds the LLM messages list, calls the API, parses the JSON, and
 returns the response dict + tone.
+
+Shared-room semantics: every CHAT_REPLY (human-typed or chain) reads from
+and writes to ONE room per session. There is no "pivot" anymore -- when
+a human turns from one leader to another the new leader already sees the
+prior exchange in the shared transcript. Chain replies (one AI leader
+replying to another) do NOT append the prior leader's line; that line
+was already added to the room when the prior leader spoke.
 """
 from __future__ import annotations
 
@@ -21,14 +28,10 @@ from tools.chatter.azure_client import (
     ApiError, ApiResult, AuthError, AzureClient,
     parse_chat_reply, post_filter_clean,
 )
-from tools.chatter.conversations import ConversationStore
+from tools.chatter.conversations import RoomStore
 from tools.chatter.prompts import build_chat_reply_prompt
 
 
-# Theatrical fallbacks used when Azure's content filter blocks the prompt
-# OR the model refuses outright. Speaker-agnostic and intentionally short
-# so the human still sees *something* and the conversation thread doesn't
-# break. Tone defaults to "cold" -- a deliberate non-engagement.
 CONTENT_FILTER_FALLBACKS = [
     "{speaker} regards {target} in pointed silence.",
     "{speaker} pretends not to have heard {target}.",
@@ -37,11 +40,6 @@ CONTENT_FILTER_FALLBACKS = [
     "{speaker} turns away from {target} and says nothing.",
     "{speaker} considers replying, then thinks better of it.",
 ]
-
-
-# How many of the prior thread's most recent turns to include in the
-# pivot recap. Each turn is one short bullet line.
-PIVOT_RECAP_TURNS = 4
 
 
 def _content_filter_fallback(speaker_name: str, target_name: str) -> str:
@@ -54,41 +52,6 @@ def _content_filter_fallback(speaker_name: str, target_name: str) -> str:
         )
     except Exception:
         return "The leader regards you in pointed silence."
-
-
-def _summarize_prior_thread(store: ConversationStore, prior_key,
-                            *, max_turns: int = PIVOT_RECAP_TURNS) -> tuple[str, str]:
-    """Return (prior_leader_name, summary_text) for the pivot context block.
-
-    If the prior conversation doesn't exist or is empty, returns ("", "").
-    The summary is a short multi-line string with the most recent N turns
-    rendered as `<speaker>: <content>` -- speaker is either the typer name
-    (for human turns) or "<leader>" (for assistant turns).
-    """
-    prior = store.get(prior_key)
-    if prior is None or not prior.turns:
-        return "", ""
-    leader_name = prior.leader_name or ""
-    recent = prior.turns[-max_turns:]
-    lines = []
-    for t in recent:
-        content = (t.content or "").strip()
-        if not content:
-            continue
-        # Trim per-line length so a long monologue doesn't blow the cap.
-        if len(content) > 140:
-            content = content[:140].rstrip() + "..."
-        if t.role == "assistant":
-            speaker_label = leader_name or "leader"
-        elif t.speaker_type == "leader" and t.speaker_name:
-            speaker_label = t.speaker_name
-        elif t.from_human:
-            speaker_label = t.from_human
-        else:
-            speaker_label = "human"
-        lines.append("- " + speaker_label + ': "' + content + '"')
-    summary = "\n".join(lines)
-    return leader_name, summary
 
 
 def make_chat_reply_response(*, request: dict, ok: bool, line: str = "", tone: str = "theatrical",
@@ -129,25 +92,27 @@ def make_chat_reply_response(*, request: dict, ok: bool, line: str = "", tone: s
     }
 
 
-def handle_chat_reply(*, request: dict, store: ConversationStore,
+def handle_chat_reply(*, request: dict, store: RoomStore,
                       client: AzureClient, max_tokens: int = 120,
                       logger=None) -> Tuple[dict, str, str]:
-    """Run one CHAT_REPLY round-trip.
+    """Run one CHAT_REPLY round-trip against the shared room.
 
     Reads the latest user message from request['context']['user_message'],
-    appends it to the conversation history, calls the LLM, parses
-    {line, tone, address_to}, appends the assistant message to history,
-    and returns (response_dict, line, tone).
+    appends it to the room as a human turn (unless this is a chain reply,
+    in which case the prior leader's line is already in the room from
+    that leader's earlier response), calls the LLM, parses
+    {line, tone, address_to}, appends the assistant message as a leader
+    turn in the same room, and returns (response_dict, line, tone).
 
-    Chain-reply mode: when ctx['chain_reply'] == '1', the user_message is
-    treated as a line spoken by another AI leader (named in
-    ctx['prior_leader_speaker_name']) rather than by a human. The history
-    turn is appended via append_leader_speaker so it renders with the
-    "[<leader> said] ..." prefix, and a chain-flavored system prompt is
-    used.
+    Chain-reply mode: when ctx['chain_reply'] == '1', this is one AI
+    leader replying to another. The user_message field is the prior
+    leader's line; it's NOT re-appended (the prior leader already added
+    it when their CHAT_REPLY ran). A chain-flavored system prompt is
+    used; ctx['prior_leader_speaker_name'] tells the prompt who just
+    spoke.
 
-    On any failure returns a response with ok=False and a short error code.
-    Never raises.
+    On any failure returns a response with ok=False and a short error
+    code. Never raises.
     """
     speaker = request.get("speaker") or {}
     target = request.get("target") or {}
@@ -155,15 +120,14 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
     user_message = (ctx.get("user_message") or "").strip()
     session_id = request.get("session_id") or ""
     leader_id = int(speaker.get("player_id", -1))
-    key = (session_id, leader_id)
+    leader_name = speaker.get("leader_name", "") or ""
 
-    # Chain-reply context: prior AI leader spoke to us; humans are watching.
     chain_reply = (ctx.get("chain_reply") or "").strip() == "1"
     prior_leader_speaker_name = (ctx.get("prior_leader_speaker_name") or "").strip()
 
     # MP: chrome carries the typer's player name. SP fallback is the
-    # target.human_name we already had. Empty is fine -- store will just
-    # render messages without a [name] prefix.
+    # target.human_name we already had. Empty is fine -- the room will
+    # render the line without a [name] prefix.
     from_human = (ctx.get("from_human") or "").strip()
     if not from_human:
         from_human = (target.get("human_name") or "").strip()
@@ -174,74 +138,38 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
         )
         return resp, "", "theatrical"
 
-    # Append the latest line BEFORE calling the LLM. Chain replies append
-    # as a "leader" speaker_type turn so the renderer prefixes it with
-    # [<leader> said] and the LLM doesn't mistake it for a human message.
-    if chain_reply:
-        store.append_leader_speaker(
-            key, user_message,
-            leader_name=speaker.get("leader_name", ""),
-            prior_speaker_name=prior_leader_speaker_name,
+    # In chain mode the prior leader's line is already in the room (added
+    # when that leader's CHAT_REPLY ran). For human-typed chats we add a
+    # new human turn here, BEFORE calling the LLM, so the LLM sees the
+    # full context including the latest message.
+    if not chain_reply:
+        human_pid = -1
+        try:
+            human_pid = int(target.get("player_id", -1))
+        except (TypeError, ValueError):
+            human_pid = -1
+        store.append_human(
+            session_id, user_message,
+            speaker_name=from_human,
+            speaker_player_id=human_pid,
         )
-    else:
-        store.append_user(
-            key, user_message,
-            leader_name=speaker.get("leader_name", ""),
-            from_human=from_human,
-        )
-    history = store.get_messages(key)
-    humans_heard = store.humans_heard(key)
+
+    history = store.get_messages_for(session_id, leader_player_id=leader_id)
+    humans_heard = store.humans_heard(session_id)
     others = [n for n in humans_heard if n and n != from_human]
 
-    # MP pivot: the human just turned from another AI leader to us.
-    # Look up the prior thread (same session, prior leader id) and
-    # build a short recap so we can address the pivot in character.
-    # Pivot context is suppressed for chain replies (they have their own framing).
-    prior_leader_name = ""
-    prior_thread_summary = ""
-    if not chain_reply:
-        prior_id_raw = ctx.get("prior_thread_with_leader_id")
-        if logger:
-            logger.info(
-                "chat_reply: rid=%s leader=%d from_human=%r prior_leader_id_raw=%r"
-                " chain_reply=%r session=%r",
-                request.get("request_id"), leader_id, from_human,
-                prior_id_raw, ctx.get("chain_reply"), session_id[:12],
-            )
-        if prior_id_raw not in (None, "", -1):
-            try:
-                prior_id = int(prior_id_raw)
-            except (TypeError, ValueError):
-                prior_id = -1
-            if prior_id >= 0 and prior_id != leader_id:
-                prior_key = (session_id, prior_id)
-                prior_conv = store.get(prior_key)
-                prior_leader_name, prior_thread_summary = _summarize_prior_thread(
-                    store, prior_key,
-                )
-                if logger:
-                    n_turns = len(prior_conv.turns) if prior_conv else 0
-                    logger.info(
-                        "chat_reply: pivot lookup -- prior_id=%d prior_conv=%s"
-                        " n_turns=%d summary_chars=%d known_keys=%r",
-                        prior_id, "present" if prior_conv else "MISSING",
-                        n_turns, len(prior_thread_summary),
-                        sorted([str(k[1]) for k in store._convs
-                                if k[0] == session_id]),
-                    )
-                if logger and prior_thread_summary:
-                    logger.info(
-                        "chat_reply: pivot detected -- prior_leader=%s summary_chars=%d",
-                        prior_leader_name, len(prior_thread_summary),
-                    )
+    if logger:
+        logger.info(
+            "chat_reply: rid=%s leader=%d (%s) from_human=%r chain=%s"
+            " session=%r turns=%d",
+            request.get("request_id"), leader_id, leader_name, from_human,
+            "1" if chain_reply else "0", session_id[:12], len(history),
+        )
 
-    # Build (system_msg, history_messages_for_llm) and call the model.
     system_msg, msgs = build_chat_reply_prompt(
         request, history,
         latest_typer_name=from_human,
         other_humans_in_thread=others,
-        prior_leader_name=prior_leader_name,
-        prior_thread_summary=prior_thread_summary,
         chain_reply=chain_reply,
         prior_leader_speaker_name=prior_leader_speaker_name,
     )
@@ -250,7 +178,7 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
     if logger and chain_reply:
         logger.info(
             "chat_reply: chain reply -- speaker=%s prior=%s",
-            speaker.get("leader_name", ""), prior_leader_speaker_name,
+            leader_name, prior_leader_speaker_name,
         )
 
     try:
@@ -274,10 +202,13 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
                     "non-engagement fallback line"
                 )
             fb = _content_filter_fallback(
-                speaker_name=speaker.get("leader_name", ""),
+                speaker_name=leader_name,
                 target_name=target.get("human_name", "") or target.get("leader_name", ""),
             )
-            store.append_assistant(key, fb)
+            store.append_leader(
+                session_id, fb,
+                speaker_name=leader_name, speaker_player_id=leader_id,
+            )
             resp = make_chat_reply_response(
                 request=request, ok=True, line=fb, tone="cold",
             )
@@ -308,8 +239,10 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
         )
         return resp, "", "theatrical"
 
-    # Persist the assistant message in history for the next turn.
-    store.append_assistant(key, cleaned)
+    store.append_leader(
+        session_id, cleaned,
+        speaker_name=leader_name, speaker_player_id=leader_id,
+    )
 
     resp = make_chat_reply_response(
         request=request, ok=True, line=cleaned, tone=tone,
@@ -318,3 +251,4 @@ def handle_chat_reply(*, request: dict, store: ConversationStore,
         input_tokens=api.input_tokens, output_tokens=api.output_tokens,
     )
     return resp, cleaned, tone
+

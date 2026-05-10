@@ -392,7 +392,9 @@ def _run_repl(session: CliSession, initial_leader: str) -> int:
                 continue
             if cmd == "history":
                 lid = session._player_id_for(session.active_leader)
-                msgs = session.store.get_messages((session.session_id, lid))
+                msgs = session.store.get_messages_for(
+                    session.session_id, leader_player_id=lid,
+                )
                 if not msgs:
                     print("(no history with %s)" % session.active_leader, flush=True)
                 else:

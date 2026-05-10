@@ -47,8 +47,8 @@ DEFAULTS = {
     "discord_voice_channel_id": "",
     # Chat-reply (player <-> AI conversations via the in-game chat box)
     "chat_idle_seconds": 120,           # active-partner pointer expires after this much silence
-    "chat_history_seconds": 600,        # full conversation history is GC'd after this much silence
-    "chat_max_history_turns": 24,       # max turns kept in any one conversation (older drop off front)
+    "chat_history_seconds": 300,        # shared room is wiped after this much silence (5 min idle)
+    "chat_max_history_turns": 24,       # rolling window: oldest turns drop off the front past this many
     "chat_reply_max_tokens": 120,       # token budget for one chat reply (slightly higher than single-line)
     # Native-tongue mode: when true, the LLM also generates a translation
     # of each line into the speaker's native language, and the TTS speaks
@@ -122,7 +122,7 @@ class Config:
     response_ttl_seconds: float = 3600.0
     log_level: str = "INFO"
     chat_idle_seconds: float = 120.0
-    chat_history_seconds: float = 600.0
+    chat_history_seconds: float = 300.0
     chat_max_history_turns: int = 24
     chat_reply_max_tokens: int = 120
     voiceover: VoiceoverConfig = field(default_factory=VoiceoverConfig)
@@ -257,7 +257,7 @@ def load_config(path: Optional[Path] = None) -> Config:
         response_ttl_seconds=float(raw.get("response_ttl_seconds", 3600)),
         log_level=str(raw.get("log_level", "INFO")).upper(),
         chat_idle_seconds=float(raw.get("chat_idle_seconds", 120)),
-        chat_history_seconds=float(raw.get("chat_history_seconds", 600)),
+        chat_history_seconds=float(raw.get("chat_history_seconds", 300)),
         chat_max_history_turns=int(raw.get("chat_max_history_turns", 24)),
         chat_reply_max_tokens=int(raw.get("chat_reply_max_tokens", 120)),
         voiceover=VoiceoverConfig(

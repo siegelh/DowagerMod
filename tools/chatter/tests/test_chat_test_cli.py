@@ -18,15 +18,26 @@ from tools.chatter import chat_test
 def _fake_handle_chat_reply(*, request, store, client, max_tokens, logger):
     """Drop-in replacement that doesn't call any LLM. Returns an angry tone."""
     speaker = request.get("speaker") or {}
-    line = "How dare you, " + (request.get("target") or {}).get("human_name", "fool") + "!"
+    target = request.get("target") or {}
+    line = "How dare you, " + target.get("human_name", "fool") + "!"
     tone = "angry"
     # Walk through the same store-append discipline as the real handler so
     # tests for history can verify it works.
-    key = (request.get("session_id"), int(speaker.get("player_id", -1)))
+    session_id = request.get("session_id") or ""
+    leader_id = int(speaker.get("player_id", -1))
+    leader_name = speaker.get("leader_name", "") or ""
     user_msg = (request.get("context") or {}).get("user_message") or ""
+    from_human = (request.get("context") or {}).get("from_human") or target.get("human_name", "")
     if user_msg:
-        store.append_user(key, user_msg, leader_name=speaker.get("leader_name", ""))
-        store.append_assistant(key, line)
+        store.append_human(
+            session_id, user_msg,
+            speaker_name=from_human,
+            speaker_player_id=int(target.get("player_id", -1)),
+        )
+        store.append_leader(
+            session_id, line,
+            speaker_name=leader_name, speaker_player_id=leader_id,
+        )
     return (
         {
             "schema": 1,

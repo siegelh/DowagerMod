@@ -1,112 +1,147 @@
-"""Unit tests for tools/chatter/conversations.py."""
+"""Unit tests for tools/chatter/conversations.py — shared-room store."""
 import time
 import unittest
 
 from tools.chatter import conversations
 
 
-class TestConversationStore(unittest.TestCase):
-    def test_round_trip_single_conversation(self):
-        store = conversations.ConversationStore(history_seconds=600, max_turns=24)
-        key = ("session-1", 7)
-        store.append_user(key, "Hello, Louis.", leader_name="Louis XIV")
-        store.append_assistant(key, "Greetings, mortal.")
-        store.append_user(key, "How is Versailles?")
-        msgs = store.get_messages(key)
+class TestRoomStore(unittest.TestCase):
+    def test_round_trip_single_room(self):
+        store = conversations.RoomStore(history_seconds=600, max_turns=24)
+        sid = "session-1"
+        store.append_human(sid, "Hello, Louis.",
+                           speaker_name="Harrison", speaker_player_id=0)
+        store.append_leader(sid, "Greetings, mortal.",
+                            speaker_name="Louis XIV", speaker_player_id=7)
+        store.append_human(sid, "How is Versailles?",
+                           speaker_name="Harrison", speaker_player_id=0)
+        msgs = store.get_messages_for(sid, leader_player_id=7)
         self.assertEqual(len(msgs), 3)
         self.assertEqual(msgs[0]["role"], "user")
-        self.assertEqual(msgs[0]["content"], "Hello, Louis.")
+        self.assertEqual(msgs[0]["content"], "[Harrison] Hello, Louis.")
         self.assertEqual(msgs[1]["role"], "assistant")
         self.assertEqual(msgs[1]["content"], "Greetings, mortal.")
         self.assertEqual(msgs[2]["role"], "user")
+        self.assertEqual(msgs[2]["content"], "[Harrison] How is Versailles?")
 
-    def test_separate_conversations_isolated(self):
-        store = conversations.ConversationStore()
-        a = ("s", 7)
-        b = ("s", 9)
-        store.append_user(a, "to-louis")
-        store.append_user(b, "to-gilg")
-        self.assertEqual(len(store.get_messages(a)), 1)
-        self.assertEqual(len(store.get_messages(b)), 1)
-        self.assertEqual(store.get_messages(a)[0]["content"], "to-louis")
-        self.assertEqual(store.get_messages(b)[0]["content"], "to-gilg")
+    def test_separate_sessions_isolated(self):
+        store = conversations.RoomStore()
+        store.append_human("s1", "to-louis", speaker_name="A", speaker_player_id=0)
+        store.append_human("s2", "to-gilg",  speaker_name="B", speaker_player_id=0)
+        a = store.get_messages_for("s1", leader_player_id=7)
+        b = store.get_messages_for("s2", leader_player_id=9)
+        self.assertEqual(len(a), 1)
+        self.assertEqual(len(b), 1)
+        self.assertEqual(a[0]["content"], "[A] to-louis")
+        self.assertEqual(b[0]["content"], "[B] to-gilg")
 
     def test_max_turns_truncates_oldest(self):
-        store = conversations.ConversationStore(max_turns=4)
-        key = ("s", 1)
+        store = conversations.RoomStore(max_turns=4)
+        sid = "s"
         for i in range(10):
-            role = "user" if i % 2 == 0 else "assistant"
-            if role == "user":
-                store.append_user(key, "u" + str(i))
+            if i % 2 == 0:
+                store.append_human(sid, "u" + str(i),
+                                   speaker_name="H", speaker_player_id=0)
             else:
-                store.append_assistant(key, "a" + str(i))
-        msgs = store.get_messages(key)
+                store.append_leader(sid, "a" + str(i),
+                                    speaker_name="L", speaker_player_id=1)
+        msgs = store.get_messages_for(sid, leader_player_id=1)
         self.assertLessEqual(len(msgs), 4)
-        # The most recent messages should be retained.
+        # The most-recent message should be retained.
         self.assertEqual(msgs[-1]["content"], "a9")
 
-    def test_idle_gc_drops_old_conversations(self):
-        store = conversations.ConversationStore(history_seconds=0.05)
-        key = ("s", 1)
-        store.append_user(key, "old")
+    def test_idle_gc_drops_old_rooms(self):
+        store = conversations.RoomStore(history_seconds=0.05)
+        sid = "s"
+        store.append_human(sid, "old", speaker_name="A", speaker_player_id=0)
         time.sleep(0.1)
-        # Force GC by triggering another operation; either way, after the
-        # idle window, get_messages should return empty for the stale key.
+        # Force GC; after the idle window the room is gone.
         store._gc_idle()
-        self.assertEqual(store.get_messages(key), [])
+        self.assertEqual(store.get_messages_for(sid, leader_player_id=7), [])
 
     def test_clear_session_drops_only_that_session(self):
-        store = conversations.ConversationStore()
-        store.append_user(("s1", 7), "keep-or-drop")
-        store.append_user(("s2", 7), "different-session")
+        store = conversations.RoomStore()
+        store.append_human("s1", "keep-or-drop",
+                           speaker_name="A", speaker_player_id=0)
+        store.append_human("s2", "different-session",
+                           speaker_name="B", speaker_player_id=0)
         store.clear_session("s1")
-        self.assertEqual(store.get_messages(("s1", 7)), [])
-        self.assertEqual(len(store.get_messages(("s2", 7))), 1)
+        self.assertEqual(store.get_messages_for("s1", leader_player_id=7), [])
+        self.assertEqual(len(store.get_messages_for("s2", leader_player_id=7)), 1)
 
-    # --- MP / typer name + speaker_type ---
+    # --- speaker prefixes ---
 
-    def test_from_human_records_per_turn_and_renders_prefix(self):
-        store = conversations.ConversationStore()
-        key = ("s", 7)
-        store.append_user(key, "first", from_human="Alice")
-        store.append_user(key, "second", from_human="Bob")
-        msgs = store.get_messages(key)
+    def test_human_speaker_prefixed_with_brackets(self):
+        store = conversations.RoomStore()
+        store.append_human("s", "hi", speaker_name="Alice", speaker_player_id=0)
+        msgs = store.get_messages_for("s", leader_player_id=7)
+        self.assertEqual(msgs[0]["content"], "[Alice] hi")
+
+    def test_multi_human_renders_each_typer_name(self):
+        store = conversations.RoomStore()
+        store.append_human("s", "first",  speaker_name="Alice", speaker_player_id=0)
+        store.append_human("s", "second", speaker_name="Bob",   speaker_player_id=1)
+        msgs = store.get_messages_for("s", leader_player_id=7)
         self.assertEqual(msgs[0]["content"], "[Alice] first")
         self.assertEqual(msgs[1]["content"], "[Bob] second")
 
-    def test_no_from_human_keeps_legacy_unprefixed_render(self):
-        """SP-callsites that don't pass from_human keep the old behavior."""
-        store = conversations.ConversationStore()
-        key = ("s", 7)
-        store.append_user(key, "no-prefix")
-        msgs = store.get_messages(key)
-        self.assertEqual(msgs[0]["content"], "no-prefix")
+    def test_no_speaker_name_renders_generic_human(self):
+        """SP-style callsite with no speaker_name gets `[human]` prefix."""
+        store = conversations.RoomStore()
+        store.append_human("s", "no-name")
+        msgs = store.get_messages_for("s", leader_player_id=7)
+        self.assertEqual(msgs[0]["content"], "[human] no-name")
 
     def test_humans_heard_returns_distinct_typers_in_order(self):
-        store = conversations.ConversationStore()
-        key = ("s", 7)
-        store.append_user(key, "1", from_human="Alice")
-        store.append_user(key, "2", from_human="Bob")
-        store.append_user(key, "3", from_human="Alice")  # repeat
-        store.append_user(key, "4", from_human="Carol")
-        self.assertEqual(store.humans_heard(key), ["Alice", "Bob", "Carol"])
+        store = conversations.RoomStore()
+        for typer in ("Alice", "Bob", "Alice", "Carol"):
+            store.append_human("s", "t", speaker_name=typer, speaker_player_id=0)
+        self.assertEqual(store.humans_heard("s"), ["Alice", "Bob", "Carol"])
 
-    def test_append_leader_speaker_renders_with_said_prefix(self):
-        """Chain-reply turns use [<leader> said] prefix, not [<name>]."""
-        store = conversations.ConversationStore()
-        key = ("s", 7)
-        store.append_user(key, "you stink", from_human="Alice")
-        store.append_assistant(key, "no, YOU stink")
-        # Now another leader chimes in.
-        store.append_leader_speaker(
-            key, "agreed, montezuma is foul", prior_speaker_name="Victoria",
-        )
-        msgs = store.get_messages(key)
-        self.assertEqual(msgs[2]["role"], "user")
-        self.assertEqual(msgs[2]["content"], "[Victoria said] agreed, montezuma is foul")
-        # humans_heard should NOT include leader speakers.
-        self.assertEqual(store.humans_heard(key), ["Alice"])
+    # --- shared room across leaders ---
+
+    def test_other_leaders_rendered_with_said_prefix(self):
+        """Lines from other AI leaders prefix `[<name> said] ...` from POV
+        of a different leader."""
+        store = conversations.RoomStore()
+        store.append_human("s", "you stink",
+                           speaker_name="Alice", speaker_player_id=0)
+        # Montezuma (pid=4) replies.
+        store.append_leader("s", "no, YOU stink",
+                            speaker_name="Montezuma", speaker_player_id=4)
+        # Now render from Victoria's POV (pid=2): Montezuma's line is "user".
+        msgs = store.get_messages_for("s", leader_player_id=2)
+        self.assertEqual(msgs[0]["role"], "user")
+        self.assertEqual(msgs[0]["content"], "[Alice] you stink")
+        self.assertEqual(msgs[1]["role"], "user")
+        self.assertEqual(msgs[1]["content"], "[Montezuma said] no, YOU stink")
+
+    def test_speakers_own_line_renders_as_assistant(self):
+        """A leader's own past lines render as 'assistant' from their POV."""
+        store = conversations.RoomStore()
+        store.append_human("s", "ok",
+                           speaker_name="A", speaker_player_id=0)
+        store.append_leader("s", "fine",
+                            speaker_name="Louis XIV", speaker_player_id=7)
+        msgs = store.get_messages_for("s", leader_player_id=7)
+        self.assertEqual(msgs[0]["role"], "user")
+        self.assertEqual(msgs[1]["role"], "assistant")
+        self.assertEqual(msgs[1]["content"], "fine")
+
+    def test_leaders_heard_returns_distinct_speaker_pids(self):
+        store = conversations.RoomStore()
+        store.append_leader("s", "x", speaker_name="L1", speaker_player_id=1)
+        store.append_leader("s", "y", speaker_name="L2", speaker_player_id=2)
+        store.append_leader("s", "z", speaker_name="L1", speaker_player_id=1)
+        self.assertEqual(store.leaders_heard("s"), [1, 2])
+
+    # --- back-compat alias ---
+
+    def test_conversation_store_alias_points_at_room_store(self):
+        """Old name still imports and behaves identically."""
+        self.assertIs(conversations.ConversationStore, conversations.RoomStore)
 
 
 if __name__ == "__main__":
     unittest.main()
+
