@@ -404,6 +404,7 @@ ENABLE_FIRST_CONTACT = False
 # Flip back to True to re-enable.
 ENABLE_FIRST_TO_TECH = False
 ENABLE_WONDER_BUILT = False
+ENABLE_GOLDEN_AGE = False
 NO_ELECTOR_DIAG_AFTER_TURNS = 30     # show one-time message after N turns w/o capable elector
 
 # === Chat-reply tunables ===
@@ -1419,6 +1420,18 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
         _pending_request_target_id = -1
     _last_trigger_emit_at[trigger] = _now()
     _record_pair_exchange(speaker_id, target_id)
+    # Fresh non-chain trigger -> new conversation, fresh chime/chain budget.
+    # Chain emits (chime + LLM-driven address_to follow-ups) set chain_reply=1
+    # to preserve the running depth count; everything else resets.
+    is_chain_continuation = False
+    try:
+        is_chain_continuation = (ctx.get("chain_reply") == "1")
+    except:
+        is_chain_continuation = False
+    if not is_chain_continuation:
+        global _chain_depth, _last_chime_pid
+        _chain_depth = 0
+        _last_chime_pid = -1
     _log("emitted " + trigger + " req=" + rid + " multi=" + str(multi))
     return rid
 
@@ -1971,8 +1984,10 @@ def _maybe_queue_chime(data):
     try:
         if not data:
             return
-        if data.get("trigger") != "CHAT_REPLY":
-            return
+        # Chime may fire after ANY successful AI line -- chat or event-driven
+        # (CITY_CAPTURED, WAR_DECLARED_ON_ME, RELIGION_FOUNDED, etc.). The
+        # chain_depth budget is per-conversation: reset by _emit_request when
+        # a fresh non-chain trigger goes out, so each event starts at 0.
         lines = data.get("lines") or []
         if not lines:
             return
@@ -2169,10 +2184,13 @@ def _check_for_responses():
                 # mp-chain-replies: maybe queue a chain-reply if the
                 # response named another leader. Bounded by CHAIN_MAX_DEPTH.
                 _maybe_queue_chain_reply(data)
-                # shared-room chime: if the LLM didn't address another
-                # leader, roll for an attitude-weighted spontaneous
-                # chime-in from a third party.
-                _maybe_queue_chime(data)
+            # shared-room chime: any successful AI line (chat OR unsolicited
+            # event like CITY_CAPTURED, WAR_DECLARED_ON_ME, RELIGION_FOUNDED,
+            # etc.) can draw a spontaneous chime from a third-party AI.
+            # Bounded by CHAIN_MAX_DEPTH; chain_depth is reset to 0 by
+            # _emit_request when the originating trigger is fresh (not a
+            # chain continuation).
+            _maybe_queue_chime(data)
         else:
             _log("dropping non-ok response: " + str(data.get("error", "?")))
         _safe_unlink(path)
@@ -2562,6 +2580,8 @@ def chatter_on_golden_age(iPlayer):
     Broadcast trigger: the leader announces their civ has entered a golden age.
     """
     if _disabled:
+        return
+    if not ENABLE_GOLDEN_AGE:
         return
     try:
         if iPlayer is None or int(iPlayer) < 0:
