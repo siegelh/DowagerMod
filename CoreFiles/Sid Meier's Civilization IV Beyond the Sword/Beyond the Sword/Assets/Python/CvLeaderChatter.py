@@ -433,7 +433,7 @@ PER_TRIGGER_REAL_COOLDOWN_SECONDS = {
 # When True, the module fires test messages on game start and after a few
 # turns so the user can confirm the broadcast path works end-to-end without
 # waiting for a real trigger. Set False before shipping.
-_DEBUG_HELLO_AT_START = True
+_DEBUG_HELLO_AT_START = False
 _DEBUG_HELLO_AT_TURN = 1   # fires on turn 1 (first end-turn) so user sees it fast
 _DEBUG_HELLO_AT_TURN_2 = 2 # second LLM probe at turn 2
 _debug_hello_fired_at_start = False
