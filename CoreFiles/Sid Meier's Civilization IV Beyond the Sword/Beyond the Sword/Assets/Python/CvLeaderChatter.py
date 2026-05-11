@@ -1931,6 +1931,294 @@ def chatter_probe_kbd_hotkey(eventType, key, bCtrl, bShift, bAlt):
         return 0
 
 
+# ---------------------------------------------------------------------------
+# State-dump diagnostic (Ctrl+Shift+S)
+#
+# One-shot validation tool: when the player presses Ctrl+Shift+S, write a
+# JSON snapshot of every accessible leader/pair field we are considering
+# adding to _build_room_state to spool_dir/state_dump.json. We then read
+# the dump offline to confirm every field returns a sensible value before
+# committing to wire the new fields through.
+#
+# Each field is wrapped in {ok, value, error} so a single failing call
+# doesn't poison the rest of the snapshot -- we want to know which calls
+# work and which throw.
+#
+# Order of MEMORY type names MUST match CvEnums.h MemoryTypes enum.
+# ---------------------------------------------------------------------------
+
+_MEMORY_TYPE_NAMES = (
+    "DECLARED_WAR", "DECLARED_WAR_ON_FRIEND", "HIRED_WAR_ALLY", "NUKED_US",
+    "NUKED_FRIEND", "RAZED_CITY", "RAZED_HOLY_CITY", "SPY_CAUGHT",
+    "GIVE_HELP", "REFUSED_HELP", "ACCEPT_DEMAND", "REJECTED_DEMAND",
+    "ACCEPTED_RELIGION", "DENIED_RELIGION", "ACCEPTED_CIVIC", "DENIED_CIVIC",
+    "ACCEPTED_JOIN_WAR", "DENIED_JOIN_WAR", "ACCEPTED_STOP_TRADING",
+    "DENIED_STOP_TRADING", "STOPPED_TRADING", "STOPPED_TRADING_RECENT",
+    "HIRED_TRADE_EMBARGO", "MADE_DEMAND", "MADE_DEMAND_RECENT",
+    "CANCELLED_OPEN_BORDERS", "TRADED_TECH_TO_US", "RECEIVED_TECH_FROM_ANY",
+    "VOTED_AGAINST_US", "VOTED_FOR_US", "EVENT_GOOD_TO_US",
+    "EVENT_BAD_TO_US", "LIBERATED_CITIES",
+)
+
+
+def _dump_safe(fn):
+    """Invoke fn() and wrap the result/error in a {ok, value/error} dict."""
+    try:
+        return {"ok": True, "value": fn()}
+    except Exception, exc:
+        return {"ok": False, "error": str(exc)[:240]}
+
+
+def _dump_info_name(get_info_fn, type_id):
+    """Resolve a Civ4 type-id to a display string. ``-1`` => empty string."""
+    try:
+        tid = int(type_id)
+    except:
+        return ""
+    if tid < 0:
+        return ""
+    try:
+        info = get_info_fn(tid)
+    except Exception, exc:
+        return "<info-err: " + str(exc)[:80] + ">"
+    if info is None:
+        return ""
+    for attr in ("getDescription", "getType"):
+        try:
+            val = getattr(info, attr)()
+            return _to_ascii(val)
+        except:
+            continue
+    return ""
+
+
+def _dump_capital_city_name(p):
+    """Capital-city name or empty string. Handles the null sentinel city."""
+    try:
+        cap = p.getCapitalCity()
+    except Exception, exc:
+        return "<cap-err: " + str(exc)[:80] + ">"
+    try:
+        if cap is None or cap.isNone():
+            return ""
+    except:
+        pass
+    try:
+        return _to_ascii(cap.getName())
+    except:
+        return ""
+
+
+def _dump_leader_fields(p, pid):
+    """Per-leader Tier 1 fields: all wrapped in _dump_safe()."""
+    gc = _gc()
+    game = gc.getGame()
+    return {
+        "power": _dump_safe(lambda: int(p.getPower())),
+        "score": _dump_safe(lambda: int(game.getPlayerScore(int(pid)))),
+        "num_cities": _dump_safe(lambda: int(p.getNumCities())),
+        "total_population": _dump_safe(lambda: int(p.getTotalPopulation())),
+        "total_land": _dump_safe(lambda: int(p.getTotalLand())),
+        "current_era_id": _dump_safe(lambda: int(p.getCurrentEra())),
+        "current_era_name": _dump_safe(
+            lambda: _dump_info_name(gc.getEraInfo, p.getCurrentEra())),
+        "gold": _dump_safe(lambda: int(p.getGold())),
+        "gold_per_turn": _dump_safe(lambda: int(p.calculateGoldRate())),
+        "state_religion_id": _dump_safe(lambda: int(p.getStateReligion())),
+        "state_religion_name": _dump_safe(
+            lambda: _dump_info_name(gc.getReligionInfo, p.getStateReligion())),
+        "civic_0_government": _dump_safe(
+            lambda: _dump_info_name(gc.getCivicInfo, p.getCivics(0))),
+        "civic_1_legal": _dump_safe(
+            lambda: _dump_info_name(gc.getCivicInfo, p.getCivics(1))),
+        "civic_2_labor": _dump_safe(
+            lambda: _dump_info_name(gc.getCivicInfo, p.getCivics(2))),
+        "civic_3_economy": _dump_safe(
+            lambda: _dump_info_name(gc.getCivicInfo, p.getCivics(3))),
+        "civic_4_religion": _dump_safe(
+            lambda: _dump_info_name(gc.getCivicInfo, p.getCivics(4))),
+        "capital_city": _dump_safe(lambda: _dump_capital_city_name(p)),
+        "num_military_units": _dump_safe(lambda: int(p.getNumMilitaryUnits())),
+        "num_nukes": _dump_safe(lambda: int(p.getNumNukeUnits())),
+        "current_research_id": _dump_safe(lambda: int(p.getCurrentResearch())),
+        "current_research_name": _dump_safe(
+            lambda: _dump_info_name(gc.getTechInfo, p.getCurrentResearch())),
+        "golden_age_turns": _dump_safe(lambda: int(p.getGoldenAgeTurns())),
+        "tech_score": _dump_safe(lambda: int(p.getTechScore())),
+    }
+
+
+def _dump_pair_fields(pa, pb, a_pid, b_pid):
+    """Per-pair Tier 1b fields. ``pa`` views ``pb``."""
+    gc = _gc()
+    ta = gc.getTeam(pa.getTeam())
+    fields = {
+        "has_met": _dump_safe(lambda: bool(ta.isHasMet(pb.getTeam()))),
+        "has_open_borders": _dump_safe(
+            lambda: bool(ta.isOpenBorders(pb.getTeam()))),
+        "has_defensive_pact": _dump_safe(
+            lambda: bool(ta.isDefensivePact(pb.getTeam()))),
+        "at_war": _dump_safe(lambda: bool(ta.isAtWar(pb.getTeam()))),
+        "at_war_counter": _dump_safe(
+            lambda: int(ta.AI_getAtWarCounter(pb.getTeam()))),
+        "at_peace_counter": _dump_safe(
+            lambda: int(ta.AI_getAtPeaceCounter(pb.getTeam()))),
+        "war_success": _dump_safe(
+            lambda: int(ta.AI_getWarSuccess(pb.getTeam()))),
+        "attitude": _dump_safe(
+            lambda: _attitude_name(pa.AI_getAttitude(int(b_pid)))),
+    }
+    # Memory: only non-zero counts so the dump stays readable.
+    memories = []
+    n_types = len(_MEMORY_TYPE_NAMES)
+    for mt in range(n_types):
+        try:
+            c = int(pa.AI_getMemoryCount(int(b_pid), mt))
+        except:
+            c = 0
+        if c > 0:
+            memories.append({
+                "type_id": mt,
+                "type_name": _MEMORY_TYPE_NAMES[mt],
+                "count": c,
+            })
+    fields["memories_nonzero"] = {"ok": True, "value": memories}
+    return fields
+
+
+def _dump_state_snapshot(speaker_id):
+    """Gather a Tier 1 / Tier 1b state snapshot. Never raises."""
+    try:
+        gc = _gc()
+        game = gc.getGame()
+        max_civ = gc.getMAX_CIV_PLAYERS()
+    except Exception, exc:
+        return {"error": "preflight: " + str(exc)}
+
+    candidates = []
+    for pid in range(max_civ):
+        try:
+            p = gc.getPlayer(pid)
+            if p.isBarbarian():
+                continue
+            if not p.isAlive():
+                continue
+            candidates.append(pid)
+        except:
+            pass
+
+    leaders = []
+    for pid in candidates:
+        try:
+            p = gc.getPlayer(pid)
+            info = _player_info(pid)
+            leaders.append({
+                "player_id": int(pid),
+                "team_id": int(p.getTeam()),
+                "leader_name": _to_ascii(str(info.get("leader_name", ""))),
+                "civ_short": _to_ascii(str(info.get("civ_short_name", ""))),
+                "is_human": bool(info.get("is_human", False)),
+                "fields": _dump_leader_fields(p, pid),
+            })
+        except Exception, exc:
+            leaders.append({"player_id": int(pid),
+                            "error": "leader-gather: " + str(exc)[:200]})
+
+    pairs = []
+    for a in candidates:
+        for b in candidates:
+            if a == b:
+                continue
+            try:
+                pa = gc.getPlayer(a)
+                pb = gc.getPlayer(b)
+                pairs.append({
+                    "from_pid": int(a),
+                    "to_pid": int(b),
+                    "fields": _dump_pair_fields(pa, pb, a, b),
+                })
+            except Exception, exc:
+                pairs.append({"from_pid": int(a), "to_pid": int(b),
+                              "error": "pair-gather: " + str(exc)[:200]})
+
+    try:
+        game_turn = int(game.getGameTurn())
+    except:
+        game_turn = -1
+
+    return {
+        "schema_version": 1,
+        "game_turn": game_turn,
+        "speaker_id": int(speaker_id),
+        "candidate_pids": candidates,
+        "leaders": leaders,
+        "pairs": pairs,
+    }
+
+
+def _write_state_dump(payload):
+    """Write the dump to spool_dir/state_dump.json. Returns the path or ""."""
+    try:
+        d = _spool_dir()
+        try:
+            os.makedirs(d)
+        except:
+            pass
+        path = os.path.join(d, "state_dump.json")
+        f = open(path, "w")
+        try:
+            f.write(_json_dumps(payload))
+        finally:
+            f.close()
+        _log("dump: wrote " + path)
+        return path
+    except Exception, exc:
+        try:
+            _log("dump: write failed: " + str(exc))
+        except:
+            pass
+        return ""
+
+
+def chatter_dump_state_hotkey(eventType, key, bCtrl, bShift, bAlt):
+    """DIAG: Ctrl+Shift+S dumps current game-state to state_dump.json.
+
+    Speaker perspective is the active (human) player. Returns 1 if the
+    keypress was consumed, 0 otherwise. Used to validate Tier 1 / Tier 1b
+    field accessibility before wiring new fields into _build_room_state.
+    """
+    try:
+        if eventType != 6:  # KeyDown
+            return 0
+        if not (bCtrl and bShift):
+            return 0
+        try:
+            kb_s = int(InputTypes.KB_S)
+        except Exception:
+            return 0
+        if int(key) != kb_s:
+            return 0
+        try:
+            active_pid = int(_gc().getGame().getActivePlayer())
+        except Exception, exc:
+            _log("dump_kbd: getActivePlayer failed: " + str(exc))
+            return 1
+        payload = _dump_state_snapshot(active_pid)
+        path = _write_state_dump(payload)
+        try:
+            CyInterface().addImmediateMessage(
+                u"DowagerMod: state snapshot written to " + str(path), "")
+        except Exception:
+            pass
+        return 1
+    except Exception, exc:
+        try:
+            _log("dump_kbd: error: " + str(exc))
+        except:
+            pass
+        return 0
+
+
 _pending_input_renders = []
 
 

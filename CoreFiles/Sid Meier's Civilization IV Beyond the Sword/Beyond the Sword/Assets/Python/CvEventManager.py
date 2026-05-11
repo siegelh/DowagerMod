@@ -246,6 +246,18 @@ class CvEventManager:
 		except Exception:
 			pass
 
+		# DowagerMod state-dump diag: Ctrl+Shift+S writes a full snapshot
+		# of every Tier 1 / Tier 1b leader and pair field we are considering
+		# adding to room_state to spool_dir/state_dump.json. One-shot tool
+		# for validating field accessibility offline.
+		try:
+			if CvLeaderChatter.chatter_dump_state_hotkey(
+				eventType, key, self.bCtrl, self.bShift, self.bAlt
+			):
+				return 1
+		except Exception:
+			pass
+
 		if (self.bAllowCheats):
 			# notify debug tools of input to allow it to override the control
 			argsList = (eventType,key,self.bCtrl,self.bShift,self.bAlt,mx,my,px,py,gc.getGame().isNetworkMultiPlayer())
