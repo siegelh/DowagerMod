@@ -344,49 +344,14 @@ class CvEventManager:
 	def onUpdate(self, argsList):
 		'Called every frame'
 		fDeltaTime = argsList[0]
-		
-		# DIAG: confirm onUpdate is actually being called by the engine.
-		# Use a direct file-touch (no logging dependencies) to prove the path.
-		try:
-			import os as _diag_os, time as _diag_time
-			_diag_dir = _diag_os.path.join(
-				_diag_os.environ.get("LOCALAPPDATA", _diag_os.environ.get("APPDATA", "C:\\")),
-				"DowagerMod", "chatter", "spool")
-			try:
-				_diag_os.makedirs(_diag_dir)
-			except:
-				pass
-			_diag_marker = _diag_os.path.join(_diag_dir, "onupdate_pre.txt")
-			_f = open(_diag_marker, "a")
-			try:
-				_f.write(_diag_time.strftime("%H:%M:%S") + " PRE\n")
-			finally:
-				_f.close()
-		except:
-			pass
-		
+
 		# DowagerMod chatter: run chatter first so a camera/art exception
 		# cannot block it (Civ4 pyHandleEvent swallows raises silently).
 		try:
 			CvLeaderChatter.chatter_on_update( fDeltaTime )
-		except Exception, _diag_exc:
-			try:
-				_f = open(_diag_marker + ".chatterexc", "a")
-				_f.write(_diag_time.strftime("%H:%M:%S") + " " + str(_diag_exc) + "\n")
-				_f.close()
-			except:
-				pass
-		
-		# DIAG: marker after chatter call (proves chatter didn't hang).
-		try:
-			_f = open(_diag_os.path.join(_diag_dir, "onupdate_post.txt"), "a")
-			try:
-				_f.write(_diag_time.strftime("%H:%M:%S") + " POST\n")
-			finally:
-				_f.close()
-		except:
+		except Exception:
 			pass
-		
+
 		# allow camera to be updated
 		CvCameraControls.g_CameraControls.onUpdate( fDeltaTime )
 		CvArtMasterpieceSystem.onUpdate( fDeltaTime )

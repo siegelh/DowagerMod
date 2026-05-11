@@ -341,6 +341,11 @@ _no_elector_diag_fired = False  # one-time diagnostic when nobody is capable
 _no_elector_first_seen_turn = -1
 _last_diag_heartbeat_at = 0.0   # DIAG: throttle for chatter_on_update tick heartbeat
 _last_resp_diag_at = 0.0        # DIAG: throttle for _check_for_responses mismatch logs
+# State-dump auto-fire: one-shot per session, ~3s after the first onUpdate tick
+# so the engine has fully initialised. Cheaper / more reliable than relying on
+# Ctrl+Shift+S which Civ4 may filter before Python sees it.
+_state_dump_fired = False
+_state_dump_first_seen_at = 0.0
 # === Chat-reply state ===
 # (leader_player_id, last_chat_unix). If the human types a follow-up with no
 # leader name within CHAT_IDLE_SECONDS, it continues with this leader.
@@ -2186,6 +2191,10 @@ def chatter_dump_state_hotkey(eventType, key, bCtrl, bShift, bAlt):
     Speaker perspective is the active (human) player. Returns 1 if the
     keypress was consumed, 0 otherwise. Used to validate Tier 1 / Tier 1b
     field accessibility before wiring new fields into _build_room_state.
+
+    Note: this is a backup trigger. The primary trigger is auto-fire in
+    chatter_on_update (~3s after game start), because Civ4 may filter
+    plain `S` for Sentry before Python sees the keydown.
     """
     try:
         if eventType != 6:  # KeyDown
@@ -2194,10 +2203,16 @@ def chatter_dump_state_hotkey(eventType, key, bCtrl, bShift, bAlt):
             return 0
         try:
             kb_s = int(InputTypes.KB_S)
-        except Exception:
+        except Exception, exc:
+            _log("dump_kbd: InputTypes.KB_S unavailable: " + str(exc))
             return 0
         if int(key) != kb_s:
+            # Different chord, not ours. Log so we can see what scancode
+            # actually arrives if the user is trying to debug this.
+            _log("dump_kbd: chord seen but key mismatch key=" + str(key)
+                 + " expected_kb_s=" + str(kb_s))
             return 0
+        _log("dump_kbd: Ctrl+Shift+S consumed; firing dump")
         try:
             active_pid = int(_gc().getGame().getActivePlayer())
         except Exception, exc:
@@ -2210,6 +2225,7 @@ def chatter_dump_state_hotkey(eventType, key, bCtrl, bShift, bAlt):
                 u"DowagerMod: state snapshot written to " + str(path), "")
         except Exception:
             pass
+        _log("dump_kbd: dump complete path=" + str(path))
         return 1
     except Exception, exc:
         try:
@@ -2217,6 +2233,23 @@ def chatter_dump_state_hotkey(eventType, key, bCtrl, bShift, bAlt):
         except:
             pass
         return 0
+
+
+def _auto_fire_state_dump():
+    """One-shot helper called from chatter_on_update once per session.
+
+    Logs progress at both ends so we can confirm in chatter.log whether the
+    dump succeeded or threw. Speaker perspective is the active human player.
+    """
+    try:
+        active_pid = int(_gc().getGame().getActivePlayer())
+    except Exception, exc:
+        _log("state_dump: getActivePlayer failed: " + str(exc))
+        return
+    _log("state_dump: auto-fire begin active_pid=" + str(active_pid))
+    payload = _dump_state_snapshot(active_pid)
+    path = _write_state_dump(payload)
+    _log("state_dump: auto-fire wrote " + str(path))
 
 
 _pending_input_renders = []
@@ -2776,6 +2809,9 @@ def _full_reset(reason):
     global _active_chat_partner, _recent_sendchat_lines
     global _leader_name_to_player, _leader_name_cache_at
     global _chain_depth, _last_chime_pid
+    global _state_dump_fired, _state_dump_first_seen_at
+    _state_dump_fired = False
+    _state_dump_first_seen_at = 0.0
     _session_id = _gen_uuid()
     try:
         _local_player_id = _gc().getGame().getActivePlayer()
@@ -3006,6 +3042,27 @@ def chatter_on_update(fDeltaTime):
                  + " pending_rid=" + str(_pending_request_id)
                  + " disp_q=" + str(len(_display_queue))
                  + " inp_q=" + str(len(_pending_input_renders)))
+    except:
+        pass
+    # State-dump auto-fire: write state_dump.json once per session, ~3s after
+    # the first onUpdate tick. Replaces the Ctrl+Shift+S hotkey, which the
+    # engine may filter before Python sees it (Civ4 binds plain `S` to
+    # Sentry on a selected unit).
+    try:
+        global _state_dump_fired, _state_dump_first_seen_at
+        if not _state_dump_fired:
+            now_t = time.time()
+            if _state_dump_first_seen_at == 0.0:
+                _state_dump_first_seen_at = now_t
+            elif (now_t - _state_dump_first_seen_at) >= 3.0:
+                _state_dump_fired = True
+                try:
+                    _auto_fire_state_dump()
+                except Exception, exc:
+                    try:
+                        _log("state_dump: auto-fire error: " + str(exc))
+                    except:
+                        pass
     except:
         pass
     # Drain pending input-context renders. Now that USE_ON_UPDATE_CALLBACK=1,
