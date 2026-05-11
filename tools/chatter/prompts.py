@@ -412,7 +412,7 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
                 continue
 
     roster_lines: list[str] = []
-    for entry in roster[:12]:
+    for entry in roster[:14]:
         if not isinstance(entry, dict):
             continue
         try:
@@ -426,16 +426,23 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
         human_name = (entry.get("human_name") or "").strip()
         attitude = (entry.get("attitude_toward_speaker") or "").strip() or "Cautious"
         at_war = bool(entry.get("at_war_with_speaker"))
+        eliminated = bool(entry.get("eliminated"))
         kind = "HUMAN" if is_human else "AI"
         who = leader + " of " + civ + " (" + kind
         if is_human and human_name:
             who += ', "' + human_name + '"'
         who += ")"
-        suffix = "toward you: " + attitude
-        if at_war:
-            suffix += ", at war with you"
-        roster_lines.append("- " + who + " -- " + suffix)
-        if len(roster_lines) >= 8:
+        if eliminated:
+            # Met-but-dead leaders stay in the roster so others can refer
+            # to them in past tense; they cannot speak or be addressed.
+            roster_lines.append("- " + who + " -- ELIMINATED (can be referenced "
+                                "in past tense; cannot speak or be addressed)")
+        else:
+            suffix = "toward you: " + attitude
+            if at_war:
+                suffix += ", at war with you"
+            roster_lines.append("- " + who + " -- " + suffix)
+        if len(roster_lines) >= 10:
             break
 
     rel_lines: list[str] = []
@@ -462,8 +469,20 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
     speaker_display = (speaker_leader or "").strip() or "you"
     war_pairs: list[tuple[str, str]] = []
     seen_pairs: set[frozenset] = set()
+    eliminated_pids: set[int] = set()
     for entry in roster:
         if not isinstance(entry, dict):
+            continue
+        if bool(entry.get("eliminated")):
+            try:
+                eliminated_pids.add(int(entry.get("player_id", -1)))
+            except (TypeError, ValueError):
+                pass
+    for entry in roster:
+        if not isinstance(entry, dict):
+            continue
+        # Eliminated leaders cannot be currently at war (death ends wars).
+        if bool(entry.get("eliminated")):
             continue
         if not bool(entry.get("at_war_with_speaker")):
             continue
@@ -489,6 +508,9 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
             fp = int(rel.get("from_pid", -1))
             tp = int(rel.get("to_pid", -1))
         except (TypeError, ValueError):
+            continue
+        # Skip relations referencing eliminated leaders.
+        if fp in eliminated_pids or tp in eliminated_pids:
             continue
         fname = pid_to_name.get(fp, "")
         tname = pid_to_name.get(tp, "")
@@ -520,7 +542,10 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
         parts.append("RELATIONS (AI-to-AI attitudes among the others):\n" + "\n".join(rel_lines))
     parts.append("Use these attitudes to color HOW you reply -- a Furious rival should "
                  "rip into a Friendly ally; a Pleased ally might back you up. "
-                 "Mention names from the roster, never invent leaders not listed. "
+                 "Mention names ONLY from the roster above; NEVER invent or name "
+                 "any leader not on this list -- they do not exist in this "
+                 "conversation. Eliminated leaders may be referenced in past tense "
+                 "but cannot speak or be addressed in the present. "
                  "Defer to the ACTIVE WARS list above when describing current "
                  "diplomatic state; older transcript references to war or peace may be stale.")
     return "\n\n".join(parts) + "\n\n"

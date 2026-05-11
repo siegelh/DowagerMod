@@ -395,6 +395,73 @@ class TestPrompts(unittest.TestCase):
         self.assertEqual(bismarck_lincoln, 2,
                          "expected Bismarck and Lincoln each once; got " + war_section)
 
+    def test_chat_reply_prompt_eliminated_leader_in_roster(self):
+        """Met-but-eliminated leaders stay in the roster, tagged ELIMINATED.
+
+        They cannot speak or be addressed, but other leaders may refer
+        to them in past tense ('Catherine was a fool when she lived').
+        """
+        request = {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Lincoln", "civ_short_name": "America", "player_id": 2},
+            "target": {"leader_name": "h", "player_id": 0, "human_name": "h"},
+            "context": {"user_message": "Remember Catherine?"},
+        }
+        room_state = {
+            "speaker_id": 2,
+            "roster": [
+                {"player_id": 4, "leader_name": "Catherine", "civ_short": "Russia",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": False, "eliminated": True,
+                 "attitude_toward_speaker": "Furious"},
+                {"player_id": 5, "leader_name": "Ragnar", "civ_short": "Vikings",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": False, "eliminated": False,
+                 "attitude_toward_speaker": "Pleased"},
+            ],
+            "relations": [],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        # Catherine appears in the roster, but tagged ELIMINATED.
+        self.assertIn("Catherine of Russia (AI)", sys_msg)
+        self.assertIn("ELIMINATED", sys_msg)
+        self.assertIn("past tense", sys_msg)
+        # Eliminated Catherine is NOT shown as currently at war.
+        self.assertNotIn("Lincoln <-> Catherine", sys_msg)
+        # Ragnar is alive, normal attitude shown.
+        self.assertIn("Ragnar of Vikings (AI)", sys_msg)
+        self.assertIn("Pleased", sys_msg)
+        # Closing directive must forbid inventing leaders not on list.
+        self.assertIn("never invent", sys_msg.lower().replace(" or ", " "))
+
+    def test_chat_reply_prompt_eliminated_not_in_active_wars(self):
+        """Eliminated leaders must not appear as active belligerents even
+        if their at_war_with_speaker flag is somehow set upstream."""
+        request = {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Lincoln", "civ_short_name": "America", "player_id": 2},
+            "target": {"leader_name": "h", "player_id": 0, "human_name": "h"},
+            "context": {"user_message": "Who fights you?"},
+        }
+        room_state = {
+            "speaker_id": 2,
+            "roster": [
+                # Defensive case: eliminated entry with at_war flag True
+                # (the game-side code already sets at_war to False for
+                # eliminated, but the prompt layer should be robust to
+                # either).
+                {"player_id": 4, "leader_name": "Catherine", "civ_short": "Russia",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": True, "eliminated": True,
+                 "attitude_toward_speaker": "Furious"},
+            ],
+            "relations": [],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        # Eliminated Catherine must NOT appear in the WARS pair list.
+        self.assertNotIn("Lincoln <-> Catherine", sys_msg)
+        self.assertNotIn("Catherine <-> Lincoln", sys_msg)
+
     def test_chat_reply_prompt_room_state_chain_variant(self):
         """Chain-reply prompt also gets the room_state preface."""
         request = {

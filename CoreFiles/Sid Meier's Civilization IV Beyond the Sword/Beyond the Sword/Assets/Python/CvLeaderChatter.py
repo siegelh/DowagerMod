@@ -1137,7 +1137,7 @@ def _build_room_state(speaker_id):
          "roster": [
              {"player_id": int, "leader_name": str, "civ_short": str,
               "is_human": bool, "human_name": str-or-empty,
-              "at_war_with_speaker": bool,
+              "at_war_with_speaker": bool, "eliminated": bool,
               "attitude_toward_speaker": "Furious|Annoyed|Cautious|Pleased|Friendly"},
              ...],
          "relations": [
@@ -1146,11 +1146,14 @@ def _build_room_state(speaker_id):
               "at_war": bool},
              ...]}
 
-    Includes the local human and every alive AI civ the speaker has met.
-    Skips barbarians and dead civs. Attitudes are AI-only (humans don't
-    have AI_getAttitude); for the human entry we still include
-    ``attitude_toward_speaker`` (the speaker AI's view of the human) so the
-    prompt always has a reading for that side.
+    Chatroom semantics: only leaders the HUMAN AUDIENCE has met are in
+    the room. Eliminated leaders the audience knew are still in the
+    roster (so others can shit-talk them in past tense), tagged with
+    ``eliminated=True``. Never-met leaders are fully suppressed. The
+    speaker is always included. Barbarians never appear.
+
+    Pairwise relations only include pairs where BOTH leaders are alive
+    AI (dead leaders have no meaningful current attitudes).
     """
     try:
         gc = _gc()
@@ -1162,27 +1165,48 @@ def _build_room_state(speaker_id):
         _log("warn: _build_room_state pre-flight failed: " + str(exc))
         return ""
 
+    viewing_tid = _viewing_team_id()  # -1 means AI-only game; show everything
+
     roster = []
     relations = []
     seen = []
+    alive_seen = []
 
     for pid in range(max_civ):
         if pid == int(speaker_id):
             include = True
+            is_eliminated = False
         else:
             include = False
+            is_eliminated = False
             try:
                 p = gc.getPlayer(pid)
-                if not p.isAlive():
-                    continue
                 if p.isBarbarian():
                     continue
+                alive = bool(p.isAlive())
+                if not alive:
+                    is_eliminated = True
                 if p.isHuman():
-                    include = True
-                else:
-                    other_team = gc.getTeam(p.getTeam())
-                    if speaker_team.isHasMet(p.getTeam()):
+                    # Humans always in the room (when alive). A dead
+                    # human can't be addressed and adds no value to the
+                    # roster.
+                    if alive:
                         include = True
+                else:
+                    # AI: include if the human audience has met them,
+                    # alive OR eliminated. Skip never-met.
+                    other_team = gc.getTeam(p.getTeam())
+                    audience_met = True
+                    if viewing_tid >= 0:
+                        try:
+                            audience_met = bool(
+                                gc.getTeam(viewing_tid).isHasMet(p.getTeam())
+                            )
+                        except:
+                            audience_met = True
+                    if not audience_met:
+                        continue
+                    include = True
             except Exception, exc:
                 _log("warn: _build_room_state pid=" + str(pid) + " gate: " + str(exc))
                 continue
@@ -1196,10 +1220,11 @@ def _build_room_state(speaker_id):
                 "civ_short": _to_ascii(str(info.get("civ_short_name", ""))),
                 "is_human": bool(info.get("is_human", False)),
                 "human_name": _to_ascii(str(info.get("human_name") or "")),
+                "eliminated": bool(is_eliminated),
             }
             try:
                 other_team_id = gc.getPlayer(pid).getTeam()
-                at_war = bool(speaker_team.isAtWar(other_team_id))
+                at_war = bool(speaker_team.isAtWar(other_team_id)) and not is_eliminated
             except:
                 at_war = False
             entry["at_war_with_speaker"] = at_war
@@ -1210,16 +1235,19 @@ def _build_room_state(speaker_id):
                 entry["attitude_toward_speaker"] = "Cautious"
             roster.append(entry)
             seen.append(int(pid))
+            if not is_eliminated:
+                alive_seen.append(int(pid))
         except Exception, exc:
             _log("warn: _build_room_state pid=" + str(pid) + " roster: " + str(exc))
 
-    # Pairwise relations: AI-leader-to-AI-leader attitudes only.
-    for a in seen:
+    # Pairwise relations: AI-leader-to-AI-leader attitudes only, alive only.
+    # (Dead leaders have no current attitudes to share.)
+    for a in alive_seen:
         try:
             pa = gc.getPlayer(a)
             if pa.isHuman():
                 continue
-            for b in seen:
+            for b in alive_seen:
                 if b == a:
                     continue
                 try:
@@ -1277,13 +1305,13 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
              + str(speaker_id) + ", target=" + str(target_id) + ")")
         return None
 
-    # No human has met either party -- the render layer would suppress
-    # the line on every client, so skip the LLM call entirely. Fails
-    # open on any error (better to spend a few tokens than silently lose
-    # interesting chatter).
-    if not _any_human_has_met(speaker_id, target_id):
-        _log("emit " + trigger + " gated: no human has met speaker="
-             + str(speaker_id) + " or target=" + str(target_id))
+    # Chatroom visibility gate: skip emit entirely if the human audience
+    # hasn't met the speaker AND target, or if the speaker is eliminated
+    # (PLAYER_ELIMINATED_LAST_WORDS is the documented exception). Fails
+    # open on any error.
+    if not _any_human_has_met(speaker_id, target_id, trigger):
+        _log("emit " + trigger + " gated: chatroom visibility (speaker="
+             + str(speaker_id) + ", target=" + str(target_id) + ")")
         return None
 
     is_high_priority = trigger in HIGH_PRIORITY_TRIGGERS
@@ -1690,35 +1718,101 @@ def _has_met_speaker(local_player, speaker_id):
         return True
 
 
-def _has_met_any_participant(local_player, speaker_id, target_id):
-    """Return True if the local human's team has met EITHER the speaker or
-    the target. If target_id < 0 (no target -- e.g. RELIGION_FOUNDED),
-    falls back to a speaker-only check. Fails open via _has_met_speaker.
+def _viewing_team_id():
+    """Return the team_id of the human audience for chatroom gating.
+
+    All human players are coop on one team in MP; SP has one human. We
+    use the first alive human's team to define "the chatroom" -- every
+    leader the audience hasn't met is treated as not-in-the-room and is
+    fully suppressed (cannot speak, be addressed, or be talked about).
+
+    Returns -1 if no humans are alive (pure-AI game; caller should
+    treat that as fail-open and emit normally).
     """
-    if _has_met_speaker(local_player, speaker_id):
+    try:
+        gc = _gc()
+        for pid in range(gc.getMAX_CIV_PLAYERS()):
+            try:
+                p = gc.getPlayer(pid)
+                if p.isAlive() and p.isHuman():
+                    return int(p.getTeam())
+            except:
+                continue
+    except:
+        pass
+    return -1
+
+
+def _viewing_team_has_met(player_id):
+    """True if the human-audience team has met (or IS) `player_id`.
+
+    Defines chatroom visibility: leaders the audience hasn't met are not
+    in the room and must never appear in any chatter line, either as
+    speaker, target, or as a name dropped in the body.
+
+    Fails open (returns True) on any error, and for AI-only games where
+    there is no human audience to gate on.
+    """
+    try:
+        pid = int(player_id)
+    except:
         return True
+    if pid < 0:
+        return True
+    try:
+        tid = _viewing_team_id()
+        if tid < 0:
+            return True
+        gc = _gc()
+        other_team = int(gc.getPlayer(pid).getTeam())
+        if other_team == tid:
+            return True
+        return bool(gc.getTeam(tid).isHasMet(other_team))
+    except Exception, exc:
+        _log("viewing_team_has_met: error (fail-open) pid=" + str(player_id)
+             + ": " + str(exc))
+        return True
+
+
+def _has_met_any_participant(local_player, speaker_id, target_id):
+    """Render-time gate: True if the local human has met BOTH the speaker
+    and the target (chatroom rule -- nobody can hear chatter that names
+    a civ they've never met).
+
+    If target_id < 0 (no target -- e.g. RELIGION_FOUNDED), falls back
+    to a speaker-only check. Fails open via _has_met_speaker.
+
+    Chatroom semantics enforced here: previously this returned True if
+    EITHER party was met (OR semantics), which leaked the unmet party's
+    existence via context strings. Now requires BOTH met -- the line is
+    suppressed entirely if any participant is a stranger.
+    """
+    if not _has_met_speaker(local_player, speaker_id):
+        return False
     try:
         t_id = int(target_id)
     except:
         t_id = -1
     if t_id < 0:
-        return False
+        return True
     return _has_met_speaker(local_player, t_id)
 
 
-def _any_human_has_met(speaker_id, target_id):
-    """Emit-time gate: True if ANY alive human player's team has met the
-    speaker, or (when target_id >= 0) the target.
+def _any_human_has_met(speaker_id, target_id, trigger=""):
+    """Emit-time gate: True if the human-audience team has met the speaker
+    AND (when target_id >= 0) the target, AND the speaker is alive.
 
-    Used to skip the LLM call entirely for world events nobody in the
-    room would hear anyway (the render-side _has_met_any_participant
-    would suppress it on each client, but the elector would still have
-    burned tokens). In coop MP all humans share a team so this is just
-    one isHasMet probe; in adversarial MP we OR across all human teams.
+    Chatroom semantics: leaders the audience hasn't met are not in the
+    room. Eliminated leaders cannot speak (but can still be referenced
+    by name in chatter from leaders who knew them -- handled by
+    _build_room_state, which keeps them in the roster tagged as
+    ELIMINATED so the LLM can mention them in past tense).
 
-    Fails open (returns True) on any error. CHAT_REPLY emits trivially
-    pass because the target is the human (always met) and the speaker
-    is an AI the human just typed at.
+    The PLAYER_ELIMINATED_LAST_WORDS trigger is the documented exception
+    to the alive check: it fires at the moment of death (engine has
+    already flipped isAlive to False) and we want that final line.
+
+    Fails open (returns True) on any error.
     """
     try:
         gc = _gc()
@@ -1728,31 +1822,45 @@ def _any_human_has_met(speaker_id, target_id):
             sid = int(speaker_id)
         if sid < 0:
             return True  # can't gate without a speaker; emit
-        speaker_team_idx = gc.getPlayer(sid).getTeam()
-        target_team_idx = -1
+        # Alive check (skip for last-words exception).
+        try:
+            speaker_alive = bool(gc.getPlayer(sid).isAlive())
+        except:
+            speaker_alive = True
+        if not speaker_alive and trigger != "PLAYER_ELIMINATED_LAST_WORDS":
+            _log("emit gate: speaker pid=" + str(sid) + " is eliminated; suppress")
+            return False
+        viewing_tid = _viewing_team_id()
+        if viewing_tid < 0:
+            return True  # AI-only game -- emit
+        # Speaker visibility (chatroom rule: AND, not OR).
+        try:
+            speaker_team_idx = int(gc.getPlayer(sid).getTeam())
+        except Exception, exc:
+            _log("emit gate: cannot resolve speaker team: " + str(exc))
+            return True
+        if speaker_team_idx != viewing_tid:
+            try:
+                if not gc.getTeam(viewing_tid).isHasMet(speaker_team_idx):
+                    return False
+            except Exception, exc:
+                _log("emit gate: isHasMet(speaker) failed (fail-open): " + str(exc))
+                return True
+        # Target visibility (only when target is meaningful).
         try:
             tid = int(target_id)
         except (TypeError, ValueError):
             tid = -1
         if tid >= 0:
-            target_team_idx = gc.getPlayer(tid).getTeam()
-        max_civs = gc.getMAX_CIV_PLAYERS()
-        any_human_seen = False
-        for pid in range(max_civs):
-            p = gc.getPlayer(pid)
-            if not p.isAlive():
-                continue
-            if not p.isHuman():
-                continue
-            any_human_seen = True
-            t = gc.getTeam(p.getTeam())
-            if t.isHasMet(speaker_team_idx):
+            try:
+                target_team_idx = int(gc.getPlayer(tid).getTeam())
+                if target_team_idx != viewing_tid:
+                    if not gc.getTeam(viewing_tid).isHasMet(target_team_idx):
+                        return False
+            except Exception, exc:
+                _log("emit gate: isHasMet(target) failed (fail-open): " + str(exc))
                 return True
-            if target_team_idx >= 0 and t.isHasMet(target_team_idx):
-                return True
-        if not any_human_seen:
-            return True  # AI-only game; nothing to gate on
-        return False
+        return True
     except Exception, exc:
         _log("emit: _any_human_has_met failed (fail-open): " + str(exc))
         return True
@@ -1912,6 +2020,13 @@ def _maybe_queue_chain_reply(data):
         except Exception, exc:
             _log("chain: alive-check THREW for pid=" + str(target_pid) + ": " + str(exc))
             return
+        # Chatroom rule: the human audience must have met the addressed
+        # leader. If the LLM somehow names a stranger (shouldn't happen
+        # given the roster preface, but be defensive), drop the chain.
+        if not _viewing_team_has_met(int(target_pid)):
+            _log("chain: address_to=" + addr + " pid=" + str(target_pid)
+                 + " not in human audience chatroom; skipping")
+            return
         # Resolve the just-spoke leader's display name to feed the prompt
         # ("Victoria has just said this to you").
         speaker_info = _player_info(speaker_pid)
@@ -2038,6 +2153,12 @@ def _maybe_queue_chime(data):
                 if p.isBarbarian():
                     continue
                 if p.isHuman():
+                    continue
+                # Chatroom rule: the human audience must have met this AI
+                # for them to be in the room at all. Eliminated leaders
+                # are already filtered by isAlive above (they can be
+                # talked about but cannot chime).
+                if not _viewing_team_has_met(pid):
                     continue
                 # Need a mutual contact: speaker met them AND they met speaker.
                 other_team_id = p.getTeam()
