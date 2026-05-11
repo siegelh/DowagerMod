@@ -105,12 +105,18 @@ class AzureClient:
                 )
         return self._client
 
-    def call_responses(self, system_msg: str, user_msg: str, *, max_tokens: int = 80) -> ApiResult:
+    def call_responses(self, system_msg: str, user_msg: str, *, max_tokens: int = 80,
+                       json_mode: bool = False) -> ApiResult:
         """Single API call. Raises AuthError on auth failure, ApiError on others.
 
         Auto-routes to either the OpenAI Responses API (for /openai/v1 endpoints)
         or the Chat Completions API (for AzureOpenAI / cognitiveservices endpoints).
         Both return the same ApiResult shape so callers don't care.
+
+        json_mode: when True, asks the API to constrain the model output to a
+        single JSON object (response_format={"type": "json_object"}). The API
+        guarantees the response will be parseable JSON. Falls back transparently
+        if the endpoint does not support it.
         """
         return self.call_chat(
             [
@@ -118,13 +124,22 @@ class AzureClient:
                 {"role": "user", "content": user_msg},
             ],
             max_tokens=max_tokens,
+            json_mode=json_mode,
         )
 
-    def call_chat(self, messages: list, *, max_tokens: int = 80) -> ApiResult:
+    def call_chat(self, messages: list, *, max_tokens: int = 80,
+                  json_mode: bool = False) -> ApiResult:
         """Multi-turn API call. messages is a list of {role, content} dicts.
 
         The first message MUST be role='system'; the rest alternate user/assistant.
         Auto-routes to AzureOpenAI chat.completions or OpenAI Responses API.
+
+        json_mode: when True, asks the API to return a single well-formed JSON
+        object (response_format={"type": "json_object"}). Most modern OpenAI-
+        compatible endpoints (incl. Grok, GPT-4+, GPT-5) support this. We try
+        it first and fall back to plain mode if the API rejects the parameter
+        with a 400-class error -- this lets us stay compatible with older
+        deployments without bricking the call.
         """
         if not messages:
             raise ApiError("call_chat: messages list is empty")
@@ -146,6 +161,8 @@ class AzureClient:
                 # AzureOpenAI: full messages list including system.
                 full = ([{"role": "system", "content": system_msg}] if system_msg else []) + rest
                 kwargs = {"model": self.deployment, "messages": full}
+                if json_mode:
+                    kwargs["response_format"] = {"type": "json_object"}
                 try:
                     response = client.chat.completions.create(
                         max_completion_tokens=max_tokens, **kwargs
@@ -156,12 +173,23 @@ class AzureClient:
                     )
             else:
                 # Responses API: instructions + input list of role/content items.
-                response = client.responses.create(
-                    model=self.deployment,
-                    instructions=system_msg,
-                    input=rest if rest else "",
-                    max_output_tokens=max_tokens,
-                )
+                kwargs = {
+                    "model": self.deployment,
+                    "instructions": system_msg,
+                    "input": rest if rest else "",
+                    "max_output_tokens": max_tokens,
+                }
+                if json_mode:
+                    # Newer Responses API uses text.format; older variants use
+                    # response_format. Try the documented form first.
+                    kwargs["response_format"] = {"type": "json_object"}
+                try:
+                    response = client.responses.create(**kwargs)
+                except TypeError:
+                    # SDK doesn't accept response_format on Responses API -- retry
+                    # without it. The prompt-level JSON instructions still apply.
+                    kwargs.pop("response_format", None)
+                    response = client.responses.create(**kwargs)
         except Exception as exc:  # noqa: BLE001
             elapsed_ms = int((time.perf_counter() - t0) * 1000)
             msg = str(exc)
@@ -259,6 +287,28 @@ _VALID_CHAT_TONES = {
 }
 
 
+def _is_speakable_line(text: str) -> bool:
+    """Return True if text has enough natural content to be spoken aloud.
+
+    Rejects empty strings, pure punctuation, single chars, and truncated
+    JSON fragments like '{', '{"', '[', '["', etc. that the LLM may emit
+    when it runs out of tokens or fails to follow the schema.
+
+    A speakable line needs at least 3 alphabetic chars total AND must not
+    start with a JSON structural character ('{' or '[') after stripping.
+    """
+    if not text:
+        return False
+    t = text.strip()
+    if len(t) < 3:
+        return False
+    if t[0] in ("{", "["):
+        # Looks like a (truncated) JSON object/array, not natural prose.
+        return False
+    alpha = sum(1 for ch in t if ch.isalpha())
+    return alpha >= 3
+
+
 def parse_chat_reply(raw: str) -> dict:
     """Parse a CHAT_REPLY JSON object {line, tone, address_to?}.
 
@@ -266,9 +316,17 @@ def parse_chat_reply(raw: str) -> dict:
     normalized to lowercase and coerced to 'theatrical' if not in the
     allowed set. address_to is optional in the LLM output -- when set it
     names another AI leader the line is calling out (used for chain
-    replies). Empty string when missing or not a string. Falls back to
-    {'line': raw, 'tone': 'theatrical', 'address_to': ''} if JSON parse
-    fails so the caller still gets something speakable.
+    replies). Empty string when missing or not a string.
+
+    Fallback path: when JSON parse fails OR yields a non-speakable line
+    (truncated JSON fragments like '{"', JSON scaffolding, fewer than
+    3 alpha chars, etc.), returns {'line': '', ...}. The caller turns an
+    empty line into an `empty_reply` error and DOES NOT broadcast it,
+    instead of letting raw JSON scaffolding be spoken aloud.
+
+    The only case where the raw text is preserved as the line is when
+    the LLM emitted natural prose without the JSON wrapper -- e.g. just
+    'Your legions march at dawn.' instead of '{"line":"...","tone":"..."}'.
     """
     text = (raw or "").strip()
     text = re.sub(r"^```(?:json)?\s*", "", text)
@@ -279,9 +337,18 @@ def parse_chat_reply(raw: str) -> dict:
     try:
         parsed = json.loads(text)
     except Exception:  # noqa: BLE001
-        return {"line": (raw or "").strip(), "tone": "theatrical", "address_to": ""}
+        raw_stripped = (raw or "").strip()
+        # If the raw output STARTS like JSON (eg '{"' truncated, or '{"line":...'
+        # malformed) it's not speakable prose -- it's a broken structured emission.
+        # Don't speak it.
+        if not _is_speakable_line(raw_stripped):
+            return {"line": "", "tone": "theatrical", "address_to": ""}
+        return {"line": raw_stripped, "tone": "theatrical", "address_to": ""}
     if not isinstance(parsed, dict):
-        return {"line": (raw or "").strip(), "tone": "theatrical", "address_to": ""}
+        raw_stripped = (raw or "").strip()
+        if not _is_speakable_line(raw_stripped):
+            return {"line": "", "tone": "theatrical", "address_to": ""}
+        return {"line": raw_stripped, "tone": "theatrical", "address_to": ""}
     line = str(parsed.get("line", "")).strip()
     tone = str(parsed.get("tone", "")).strip().lower()
     if tone not in _VALID_CHAT_TONES:
@@ -291,8 +358,11 @@ def parse_chat_reply(raw: str) -> dict:
         address_to = addr_raw.strip()
     else:
         address_to = ""
-    if not line:
-        return {"line": (raw or "").strip(), "tone": tone, "address_to": address_to}
+    # Even when JSON parsed cleanly, reject lines that are obviously not
+    # speakable -- the LLM occasionally emits {"line": "{", ...} or similar
+    # garbage when it's truncated or confused.
+    if not _is_speakable_line(line):
+        return {"line": "", "tone": tone, "address_to": address_to}
     return {"line": line, "tone": tone, "address_to": address_to}
 
 

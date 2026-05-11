@@ -40,6 +40,43 @@ SCHEMA_VERSION = 1
 HEARTBEAT_INTERVAL_SECONDS = 5
 
 
+# Matches the JSON `"line": "<text>"` fragment in a multi-turn payload,
+# tolerating escaped quotes inside the line. Used by
+# _salvage_multi_turn_lines as a last-ditch recovery when
+# parse_multi_turn_lines raises (e.g. LLM hit max_tokens mid-string, or
+# emitted a bare title element before the dicts).
+_LINE_FIELD_RE = re.compile(r'"line"\s*:\s*"((?:\\.|[^"\\])*)"', re.DOTALL)
+
+
+def _salvage_multi_turn_lines(raw: str) -> list:
+    """Best-effort recovery of speakable text from a malformed multi-turn payload.
+
+    The strict parse (parse_multi_turn_lines) fails on truncated output,
+    bare-string array elements, or other LLM quirks. Rather than dumping
+    the raw JSON-shaped text into the message scroll (which the player
+    then hears the TTS voice literally read aloud), we yank any
+    well-formed `"line": "<text>"` fragments out via regex.
+
+    Returns a list of recovered line strings (possibly empty). The caller
+    decides whether to use them or fall back to a stock canned line.
+    """
+    out = []
+    try:
+        for m in _LINE_FIELD_RE.finditer(raw or ""):
+            # Decode the JSON-escaped content (\\n, \\", etc.).
+            try:
+                import json as _json
+                decoded = _json.loads('"' + m.group(1) + '"')
+            except Exception:
+                decoded = m.group(1)
+            decoded = (decoded or "").strip()
+            if decoded:
+                out.append(decoded)
+    except Exception:
+        return []
+    return out
+
+
 def setup_logging(spool_path: Path, level_name: str) -> logging.Logger:
     spool_path.mkdir(parents=True, exist_ok=True)
     log_path = spool_path / "daemon.log"
@@ -245,8 +282,24 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
         try:
             parsed = parse_multi_turn_lines(text)
         except Exception as exc:  # noqa: BLE001
-            logger.warning("multi-turn parse failed: %s; falling back to single line", exc)
-            lines = render_single_line(request, text)
+            logger.warning("multi-turn parse failed: %s; attempting salvage", exc)
+            salvaged = _salvage_multi_turn_lines(text)
+            speaker = request.get("speaker") or {}
+            target = request.get("target") or {}
+            if salvaged:
+                logger.info("multi-turn salvage: recovered %d line(s) via regex",
+                            len(salvaged))
+                lines = render_single_line(request, salvaged[0])
+            else:
+                logger.info("multi-turn salvage failed; using stock fallback line")
+                from tools.chatter.azure_client import fallback_line
+                is_broadcast = (request.get("mode") == "broadcast")
+                fb = fallback_line(
+                    speaker_name=speaker.get("leader_name", ""),
+                    target_name=target.get("leader_name", ""),
+                    broadcast=is_broadcast,
+                )
+                lines = render_single_line(request, fb)
         else:
             lines = render_multi_turn(request, parsed)
     else:

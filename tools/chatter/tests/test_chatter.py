@@ -25,10 +25,19 @@ from tools.chatter import prompts
 
 class TestConfig(unittest.TestCase):
     def test_defaults_load_when_no_file(self):
-        # Use an explicit path that does not exist
-        cfg = cfg_mod.load_config(Path(os.devnull + "_does_not_exist.json"))
-        self.assertEqual(cfg.endpoint, cfg_mod.DEFAULTS["endpoint"])
-        self.assertFalse(cfg_mod.is_configured(cfg))  # no key
+        # Use an explicit path that does not exist. Skip .env loading so a
+        # user's repo-root .env doesn't override the in-code DEFAULTS that
+        # this test is asserting against.
+        with patch.dict(os.environ, {"DOWAGER_CHATTER_SKIP_DOTENV": "1"}, clear=False):
+            # Strip any DOWAGER_CHATTER_* env vars that an outer process
+            # (e.g. an earlier .env load in the same pytest session) may
+            # already have injected.
+            for k in [k for k in os.environ if k.startswith("DOWAGER_CHATTER_")
+                      and k != "DOWAGER_CHATTER_SKIP_DOTENV"]:
+                del os.environ[k]
+            cfg = cfg_mod.load_config(Path(os.devnull + "_does_not_exist.json"))
+            self.assertEqual(cfg.endpoint, cfg_mod.DEFAULTS["endpoint"])
+            self.assertFalse(cfg_mod.is_configured(cfg))  # no key
 
     def test_env_overrides(self):
         with patch.dict(os.environ, {
@@ -53,8 +62,14 @@ class TestConfig(unittest.TestCase):
             f.write("{ this is not json")
             path = Path(f.name)
         try:
-            cfg = cfg_mod.load_config(path)
-            self.assertEqual(cfg.endpoint, cfg_mod.DEFAULTS["endpoint"])
+            # Skip .env to keep the test deterministic regardless of any
+            # user-specific overrides in the repo-root .env.
+            with patch.dict(os.environ, {"DOWAGER_CHATTER_SKIP_DOTENV": "1"}, clear=False):
+                for k in [k for k in os.environ if k.startswith("DOWAGER_CHATTER_")
+                          and k != "DOWAGER_CHATTER_SKIP_DOTENV"]:
+                    del os.environ[k]
+                cfg = cfg_mod.load_config(path)
+                self.assertEqual(cfg.endpoint, cfg_mod.DEFAULTS["endpoint"])
         finally:
             path.unlink()
 
@@ -236,7 +251,7 @@ class TestPrompts(unittest.TestCase):
         self.assertIn("JSON", sys_msg)
         self.assertIn("tone", sys_msg)
         self.assertIn("angry", sys_msg)
-        self.assertIn("14 words", sys_msg)
+        self.assertIn("18 words", sys_msg)
         self.assertEqual(msgs, history)
 
     def test_chat_reply_prompt_room_state_roster(self):
@@ -628,6 +643,11 @@ class TestDaemonProcessRequest(unittest.TestCase):
         self.assertEqual(resp["lines"][2]["speaker_player_id"], 13)
 
     def test_multi_turn_parse_failure_falls_back_to_single(self):
+        # When the LLM returns garbage that can't be parsed AND has no
+        # salvageable "line":"..." fragments, the daemon falls back to a
+        # canned stock line instead of broadcasting the raw text. This
+        # prevents JSON scaffolding (or partial / truncated output) from
+        # ever being spoken aloud.
         client = self._fake_client(text="not valid json at all")
         req = self._basic_request(multi_turn=True, n_lines=3)
         resp = self.daemon.process_request(
@@ -637,7 +657,93 @@ class TestDaemonProcessRequest(unittest.TestCase):
         )
         self.assertTrue(resp["ok"])
         self.assertEqual(len(resp["lines"]), 1)
-        self.assertEqual(resp["lines"][0]["text"], "not valid json at all")
+        # MUST NOT be the raw garbage text -- the whole point of the fix
+        # is that we never broadcast unparseable LLM output.
+        self.assertNotEqual(resp["lines"][0]["text"], "not valid json at all")
+        # Should be a stock fallback line (non-empty, natural prose).
+        self.assertGreater(len(resp["lines"][0]["text"]), 5)
+
+
+class TestParseChatReplyHardening(unittest.TestCase):
+    """Regression guards for parse_chat_reply.
+
+    History: production saw the LLM emit ``{"`` as a chat-reply (Grok
+    running out of tokens mid-JSON). The old parser fell back to the raw
+    text, so ``{"`` got post-filtered to a non-empty string and was
+    actually spoken aloud by TTS. These tests lock down the parser so
+    truncated / degenerate JSON cannot leak through as a speakable line.
+    """
+
+    def test_truncated_open_brace_returns_empty_line(self):
+        got = azure_client.parse_chat_reply('{')
+        self.assertEqual(got["line"], "")
+
+    def test_truncated_brace_quote_returns_empty_line(self):
+        # The exact Churchill bug from the daemon log.
+        got = azure_client.parse_chat_reply('{"')
+        self.assertEqual(got["line"], "")
+
+    def test_truncated_line_field_returns_empty_line(self):
+        got = azure_client.parse_chat_reply('{"line":"...')
+        self.assertEqual(got["line"], "")
+
+    def test_truncated_array_returns_empty_line(self):
+        got = azure_client.parse_chat_reply('[')
+        self.assertEqual(got["line"], "")
+
+    def test_json_with_brace_only_line_returns_empty(self):
+        # Even when JSON parses cleanly, a degenerate line value must be rejected.
+        got = azure_client.parse_chat_reply('{"line":"{","tone":"menacing"}')
+        self.assertEqual(got["line"], "")
+
+    def test_json_with_empty_line_returns_empty(self):
+        got = azure_client.parse_chat_reply('{"line":"","tone":"menacing"}')
+        self.assertEqual(got["line"], "")
+
+    def test_valid_json_passes_through(self):
+        got = azure_client.parse_chat_reply(
+            '{"line":"Your fleets rot in port, fool.","tone":"menacing"}'
+        )
+        self.assertEqual(got["line"], "Your fleets rot in port, fool.")
+        self.assertEqual(got["tone"], "menacing")
+
+    def test_natural_prose_without_wrapper_passes_through(self):
+        # Graceful fallback for LLMs that forget the JSON envelope but
+        # emit natural speakable text.
+        got = azure_client.parse_chat_reply("Your legions march at dawn, fool.")
+        self.assertEqual(got["line"], "Your legions march at dawn, fool.")
+
+    def test_short_garbage_returns_empty_line(self):
+        got = azure_client.parse_chat_reply("xx")
+        self.assertEqual(got["line"], "")
+
+    def test_invalid_tone_coerced_to_theatrical(self):
+        got = azure_client.parse_chat_reply(
+            '{"line":"A reasonable retort.","tone":"sassy"}'
+        )
+        self.assertEqual(got["tone"], "theatrical")
+
+    def test_address_to_preserved_when_string(self):
+        got = azure_client.parse_chat_reply(
+            '{"line":"Victoria, be silent.","tone":"cold","address_to":"Victoria"}'
+        )
+        self.assertEqual(got["address_to"], "Victoria")
+
+    def test_is_speakable_line_rejects_degenerate(self):
+        rej = ["", " ", "a", "{", "}", "{}", '{"', "[", "]", "{leader}", '"', "..."]
+        for t in rej:
+            self.assertFalse(
+                azure_client._is_speakable_line(t),
+                msg="should reject %r as non-speakable" % t,
+            )
+
+    def test_is_speakable_line_accepts_natural(self):
+        ok = ["Hi there", "Yes.", "No, you are wrong.", "Tokugawa, my legions await."]
+        for t in ok:
+            self.assertTrue(
+                azure_client._is_speakable_line(t),
+                msg="should accept %r as speakable" % t,
+            )
 
 
 if __name__ == "__main__":

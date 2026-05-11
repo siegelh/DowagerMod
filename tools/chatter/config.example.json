@@ -5,7 +5,7 @@
   "api_key": "",
   "enabled": true,
   "max_tokens": 80,
-  "max_tokens_multi_turn": 400,
+  "max_tokens_multi_turn": 10000,
   "request_timeout_seconds": 8,
   "rate_limit_seconds": 1.0,
   "max_in_flight": 4,

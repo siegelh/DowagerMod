@@ -200,12 +200,30 @@ SYSTEM_MULTI_TURN = (
     "- Do NOT begin a line with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
     "Do NOT use 'Behold' anywhere in any line. Vary openers across the exchange — no two lines may start "
     "with the same hook. Fresh phrasing, not stock theatrical exclamations.\n"
+    "- STRUCTURAL VARIETY (critical): each line must differ in shape from the others. Vary sentence "
+    "length, syntactic structure (statement / question / imperative / exclamation), opener (subject / "
+    "verb / prepositional / vocative), and rhetorical mode (taunt / boast / lament / threat / mockery / "
+    "warning). Two consecutive lines should never echo each other's rhythm or template.\n"
     "- NEVER use stage directions or asterisks like *laughs* *scoffs* *raises arms* — those get spoken literally by the voice synthesizer and ruin the audio.\n"
     '- Stay in character. No references to "the game" or "the player".\n'
     "- No quotation marks within the line. No leader name prefix inside the line.\n"
     "- Each leader's lines must respond to the prior speaker's line, escalating naturally.\n"
     "- No real-world modern politics, no slurs, no profanity stronger than mild.\n\n"
-    "Output ONLY the JSON array. No markdown, no commentary, no code fences."
+    "Output ONLY the JSON array. No markdown, no commentary, no code fences.\n\n"
+    "EXAMPLE OUTPUT (exact JSON shape required, n_lines=3, speakers Tokugawa and Qin Shi Huang):\n"
+    "[\n"
+    '  {{"speaker": "Tokugawa", "line": "Your wall could not stop a stiff breeze, Qin."}},\n'
+    '  {{"speaker": "Qin Shi Huang", "line": "And your honor could not stop a single arrow."}},\n'
+    '  {{"speaker": "Tokugawa", "line": "Both will outlast your peasant dynasty."}}\n'
+    "]\n\n"
+    "DO NOT output any of the following (these have caused production bugs):\n"
+    "- A title, announcement, or preface string BEFORE the array. "
+    'Bad: "Qin Shi Huang declares war!", [...]. The array MUST be the very first character.\n'
+    "- Markdown code fences (```json ... ```) around the array.\n"
+    "- Bare strings inside the array. Every element MUST be a {{\"speaker\": ..., \"line\": ...}} object.\n"
+    "- Commentary, explanation, or apology before or after the JSON.\n"
+    "- Trailing commas, unquoted keys, or single quotes -- use strict JSON.\n"
+    "- A truncated or partial array. Always emit the FULL array, properly closed with `]`."
 )
 
 SYSTEM_MULTI_TURN_NATIVE = (
@@ -223,13 +241,29 @@ SYSTEM_MULTI_TURN_NATIVE = (
     "- Do NOT begin a line with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
     "Do NOT use 'Behold' anywhere in any line. Vary openers across the exchange — no two lines may start "
     "with the same hook. Fresh phrasing, not stock theatrical exclamations.\n"
+    "- STRUCTURAL VARIETY (critical): each line must differ in shape from the others. Vary sentence "
+    "length, syntactic structure (statement / question / imperative / exclamation), opener (subject / "
+    "verb / prepositional / vocative), and rhetorical mode (taunt / boast / lament / threat / mockery / "
+    "warning). Two consecutive lines should never echo each other's rhythm or template.\n"
     "- NEVER use stage directions or asterisks like *laughs* *scoffs* — those get spoken literally and ruin the audio.\n"
     '- Stay in character. No references to "the game" or "the player".\n'
     "- No quotation marks within the line. No leader name prefix inside the line.\n"
     "- Each leader's lines must respond to the prior speaker's line, escalating naturally.\n"
     "- The English line and the native line must convey the SAME meaning.\n"
     "- No real-world modern politics, no slurs, no profanity stronger than mild.\n\n"
-    "Output ONLY the JSON array. No markdown, no commentary, no code fences."
+    "Output ONLY the JSON array. No markdown, no commentary, no code fences.\n\n"
+    "EXAMPLE OUTPUT (exact JSON shape required, n_lines=2, speakers Tokugawa and Qin Shi Huang):\n"
+    "[\n"
+    '  {{"speaker": "Tokugawa", "line": "Your wall could not stop a stiff breeze.", "line_native": "貴殿の壁は微風さえ止められぬ。"}},\n'
+    '  {{"speaker": "Qin Shi Huang", "line": "And your honor could not stop a single arrow.", "line_native": "汝の名誉は一矢も止められぬ。"}}\n'
+    "]\n\n"
+    "DO NOT output any of the following (these have caused production bugs):\n"
+    "- A title, announcement, or preface string BEFORE the array. The array MUST be the very first character.\n"
+    "- Markdown code fences around the array.\n"
+    "- Bare strings inside the array. Every element MUST be a full object with all three keys.\n"
+    "- Commentary, explanation, or apology before or after the JSON.\n"
+    "- Missing line_native field. ALL three keys are required.\n"
+    "- A truncated or partial array. Always emit the FULL array, properly closed with `]`."
 )
 
 SYSTEM_DIRECTED_NATIVE = (
@@ -311,7 +345,7 @@ SYSTEM_CHAT_REPLY = (
     "name when it's natural (e.g. \"{latest_typer_name} and the other one\"), but "
     "the line is FOR {latest_typer_name}.\n\n"
     "Output a JSON object with EXACTLY these keys:\n"
-    '  "line"       : your reply -- ONE sentence, max 14 words. Punchy, clipped, decisive. '
+    '  "line"       : your reply -- ONE sentence, max 18 words. Punchy, clipped, decisive. '
     'Address the human as "{latest_typer_name}" when you name them, NOT as {speaker_leader}.\n'
     '  "tone"       : one of exactly: angry, amused, haughty, pleased, cold, menacing, wistful, theatrical.\n'
     '  "address_to" : OPTIONAL. If your line directly calls out another AI leader by name '
@@ -321,11 +355,31 @@ SYSTEM_CHAT_REPLY = (
     "Constraints:\n"
     "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
     "Do NOT use 'Behold' anywhere in the line. Vary openers across turns -- never repeat your own previous opener.\n"
+    "- STRUCTURAL VARIETY (critical): look at your own prior assistant lines in this conversation. "
+    "Your new line MUST NOT echo their structure. Vary sentence length, syntactic shape "
+    "(statement / question / imperative / exclamation), opener type (subject / verb / prepositional / "
+    "vocative), and rhetorical mode (taunt / boast / lament / threat / mockery / warning). If your "
+    "last reply was a short retort, write a longer arch one this time, or pose a barbed question, "
+    "or open with a vocative -- but DO NOT reuse the same template.\n"
     "- Stay in character as {speaker_leader}. No references to 'the game', 'the player', or 'Civilization IV'.\n"
     "- NEVER use stage directions or asterisks like *laughs* *scoffs* -- those get spoken literally.\n"
     "- No quotation marks around the line. No leader name prefix inside the line.\n"
     "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
-    "- Output ONLY the JSON object. No markdown, no commentary, no code fences."
+    "- Output ONLY the JSON object. No markdown, no commentary, no code fences.\n\n"
+    "EXAMPLE OUTPUT (exact JSON shape required):\n"
+    '  {{"line": "Your fleets rot in port while mine command the seas, {latest_typer_name}.", "tone": "haughty"}}\n\n'
+    "EXAMPLE OUTPUT when explicitly addressing another AI leader by name:\n"
+    '  {{"line": "Victoria, hold your tongue while peers converse.", "tone": "cold", "address_to": "Victoria"}}\n\n'
+    "DO NOT output any of the following (these have caused production bugs):\n"
+    "- A truncated, empty, or partial JSON object. Bad: just `{{` or `{{\"` or `{{\"line\":\"\"}}`. "
+    "Always emit a COMPLETE object with a non-empty `line` field, properly closed with `}}`.\n"
+    "- Title or preface text before the JSON. The opening `{{` MUST be the very first character.\n"
+    "- Markdown code fences (```json ... ```) around the object.\n"
+    "- Two JSON objects -- emit EXACTLY ONE.\n"
+    "- Commentary or explanation before or after the JSON.\n"
+    "- A `tone` value not in the allowed set -- pick one of the eight listed tones.\n"
+    "- Trailing commas, unquoted keys, or single quotes -- use strict JSON.\n"
+    "- The `line` field MUST contain natural speakable prose, not JSON scaffolding or punctuation."
 )
 
 
@@ -339,23 +393,36 @@ SYSTEM_CHAT_REPLY_CHAIN = (
     "Sid Meier's Civilization IV. Another leader, {prior_leader_speaker_name}, has "
     "just said something to you in front of the human players. The humans are "
     "watching this exchange. Reply in character to {prior_leader_speaker_name}, "
-    "ONE line, max 14 words, sharper than usual -- you're being publicly addressed "
+    "ONE line, max 18 words, sharper than usual -- you're being publicly addressed "
     "by a peer.\n\n"
     "TONE: Theatrical rivalry and trash-talk for ENTERTAINMENT. Mockery, haughty "
     "scorn, flat dismissal, withering one-liners are all on the table. Stay in "
     "character. Do NOT break the fourth wall.\n\n"
     "Output a JSON object with EXACTLY these keys:\n"
-    '  "line"       : your one-line reply to {prior_leader_speaker_name}. Max 14 words.\n'
+    '  "line"       : your one-line reply to {prior_leader_speaker_name}. Max 18 words.\n'
     '  "tone"       : one of exactly: angry, amused, haughty, pleased, cold, menacing, wistful, theatrical.\n'
     '  "address_to" : OPTIONAL. If your line calls out yet another leader by name, set '
     "this to that leader's name. Otherwise null. Use sparingly -- the chain is bounded.\n\n"
     "Constraints:\n"
     "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'.\n"
+    "- STRUCTURAL VARIETY (critical): do NOT mirror the shape of {prior_leader_speaker_name}'s "
+    "line. If they used a statement, use a question or imperative. If they opened with a subject, "
+    "open with a vocative or prepositional phrase. Different sentence length, different rhythm, "
+    "different rhetorical mode. Also scan your own prior assistant lines in this conversation -- "
+    "do not echo them either.\n"
     "- Stay in character as {speaker_leader}. No 'the game', 'the player', 'Civilization IV'.\n"
     "- NEVER use stage directions or asterisks (*laughs* *scoffs*).\n"
     "- No quotation marks around the line. No leader name prefix inside the line.\n"
     "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
-    "- Output ONLY the JSON object. No markdown, no commentary, no code fences."
+    "- Output ONLY the JSON object. No markdown, no commentary, no code fences.\n\n"
+    "EXAMPLE OUTPUT (exact JSON shape required, replying to {prior_leader_speaker_name}):\n"
+    '  {{"line": "{prior_leader_speaker_name}, your tongue grows tiresome with each empire that buries you.", "tone": "cold"}}\n\n'
+    "DO NOT output any of the following (these have caused production bugs):\n"
+    "- A truncated or partial JSON object. Always emit a COMPLETE object with a non-empty `line` field.\n"
+    "- Title or preface text before the JSON. The opening `{{` MUST be the very first character.\n"
+    "- Markdown code fences around the object.\n"
+    "- Commentary or explanation before or after the JSON.\n"
+    "- The `line` field MUST contain natural speakable prose, not JSON scaffolding or punctuation."
 )
 
 
@@ -740,7 +807,7 @@ def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
     speaker = request["speaker"]
     target = request.get("target") or {}
     ctx = request.get("context") or {}
-    n_lines = max(2, min(int(request.get("n_lines", 3)), 4))
+    n_lines = max(2, min(int(request.get("n_lines", 4)), 8))
 
     fmt = {
         "speaker_leader": speaker["leader_name"],

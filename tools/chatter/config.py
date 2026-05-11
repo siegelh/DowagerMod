@@ -18,9 +18,9 @@ DEFAULTS = {
     "api_key": "",
     "api_version": "2024-12-01-preview",
     "enabled": True,
-    "max_tokens": 80,
-    "max_tokens_multi_turn": 400,
-    "request_timeout_seconds": 8,
+    "max_tokens": 10000,
+    "max_tokens_multi_turn": 10000,
+    "request_timeout_seconds": 180,
     "rate_limit_seconds": 1.0,
     "max_in_flight": 4,
     "circuit_breaker": {"failure_threshold": 3, "open_seconds": 120},
@@ -49,7 +49,7 @@ DEFAULTS = {
     "chat_idle_seconds": 120,           # active-partner pointer expires after this much silence
     "chat_history_seconds": 300,        # shared room is wiped after this much silence (5 min idle)
     "chat_max_history_turns": 24,       # rolling window: oldest turns drop off the front past this many
-    "chat_reply_max_tokens": 120,       # token budget for one chat reply (slightly higher than single-line)
+    "chat_reply_max_tokens": 10000,     # generous budget -- an 18-word line + JSON wrapper is ~40 tokens, but we never want to risk truncation
     # Native-tongue mode: when true, the LLM also generates a translation
     # of each line into the speaker's native language, and the TTS speaks
     # the native version. The English version still appears in-game in the
@@ -111,9 +111,9 @@ class Config:
     api_key: str = ""
     api_version: str = "2024-12-01-preview"
     enabled: bool = True
-    max_tokens: int = 80
-    max_tokens_multi_turn: int = 400
-    request_timeout_seconds: float = 8.0
+    max_tokens: int = 10000
+    max_tokens_multi_turn: int = 10000
+    request_timeout_seconds: float = 180.0
     rate_limit_seconds: float = 1.0
     max_in_flight: int = 4
     circuit_breaker: CircuitBreakerConfig = field(default_factory=CircuitBreakerConfig)
@@ -124,7 +124,7 @@ class Config:
     chat_idle_seconds: float = 120.0
     chat_history_seconds: float = 300.0
     chat_max_history_turns: int = 24
-    chat_reply_max_tokens: int = 120
+    chat_reply_max_tokens: int = 10000
     voiceover: VoiceoverConfig = field(default_factory=VoiceoverConfig)
 
     def redacted_api_key(self) -> str:
@@ -243,9 +243,9 @@ def load_config(path: Optional[Path] = None) -> Config:
         api_key=str(raw.get("api_key", "")),
         api_version=str(raw.get("api_version", "2024-12-01-preview")),
         enabled=bool(raw.get("enabled", True)),
-        max_tokens=int(raw.get("max_tokens", 80)),
-        max_tokens_multi_turn=int(raw.get("max_tokens_multi_turn", 400)),
-        request_timeout_seconds=float(raw.get("request_timeout_seconds", 8)),
+        max_tokens=int(raw.get("max_tokens", 10000)),
+        max_tokens_multi_turn=int(raw.get("max_tokens_multi_turn", 10000)),
+        request_timeout_seconds=float(raw.get("request_timeout_seconds", 180)),
         rate_limit_seconds=float(raw.get("rate_limit_seconds", 1.0)),
         max_in_flight=int(raw.get("max_in_flight", 4)),
         circuit_breaker=CircuitBreakerConfig(
@@ -259,7 +259,7 @@ def load_config(path: Optional[Path] = None) -> Config:
         chat_idle_seconds=float(raw.get("chat_idle_seconds", 120)),
         chat_history_seconds=float(raw.get("chat_history_seconds", 300)),
         chat_max_history_turns=int(raw.get("chat_max_history_turns", 24)),
-        chat_reply_max_tokens=int(raw.get("chat_reply_max_tokens", 120)),
+        chat_reply_max_tokens=int(raw.get("chat_reply_max_tokens", 10000)),
         voiceover=VoiceoverConfig(
             enabled=bool(raw.get("voiceover_enabled", False)),
             azure_speech_endpoint=str(raw.get("azure_speech_endpoint", "")),

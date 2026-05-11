@@ -221,7 +221,7 @@ def handle_chat_reply(*, request: dict, store: RoomStore,
         )
 
     try:
-        api: ApiResult = client.call_chat(full, max_tokens=max_tokens)
+        api: ApiResult = client.call_chat(full, max_tokens=max_tokens, json_mode=True)
     except AuthError as exc:
         if logger:
             logger.error("chat_reply: auth failure: %s", exc)
