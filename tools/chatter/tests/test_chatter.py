@@ -291,6 +291,110 @@ class TestPrompts(unittest.TestCase):
         self.assertNotIn("ROOM ", sys_msg)
         self.assertNotIn("RELATIONS", sys_msg)
 
+    def test_chat_reply_prompt_active_wars_section_during_war(self):
+        """When room_state shows wars, an ACTIVE WARS THIS TURN block lists them."""
+        request = {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Lincoln", "civ_short_name": "America", "player_id": 2},
+            "target": {"leader_name": "hasiegel", "civ_short_name": "", "player_id": 0,
+                       "human_name": "hasiegel"},
+            "context": {"user_message": "Who are you at war with?"},
+        }
+        room_state = {
+            "speaker_id": 2,
+            "roster": [
+                {"player_id": 5, "leader_name": "Ragnar", "civ_short": "Vikings",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": True, "attitude_toward_speaker": "Furious"},
+                {"player_id": 7, "leader_name": "Ramesses II", "civ_short": "Egypt",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": True, "attitude_toward_speaker": "Annoyed"},
+                {"player_id": 9, "leader_name": "Gilgamesh", "civ_short": "Sumeria",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": False, "attitude_toward_speaker": "Pleased"},
+            ],
+            "relations": [
+                {"from_pid": 5, "to_pid": 7, "attitude": "Friendly", "at_war": False},
+                {"from_pid": 7, "to_pid": 5, "attitude": "Friendly", "at_war": False},
+            ],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        self.assertIn("ACTIVE WARS THIS TURN", sys_msg)
+        self.assertIn("AUTHORITATIVE", sys_msg)
+        self.assertIn("Lincoln <-> Ragnar", sys_msg)
+        self.assertIn("Lincoln <-> Ramesses II", sys_msg)
+        # Gilgamesh is NOT at war and must not appear as a war pair.
+        self.assertNotIn("Lincoln <-> Gilgamesh", sys_msg)
+        self.assertNotIn("Gilgamesh <-> Lincoln", sys_msg)
+
+    def test_chat_reply_prompt_active_wars_section_during_peace(self):
+        """When everyone is at peace, the block explicitly states 'none' and
+        warns the model that any earlier transcript reference to a war
+        has since ended (this is the Ragnar/Ramesses post-treaty bug)."""
+        request = {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Lincoln", "civ_short_name": "America", "player_id": 2},
+            "target": {"leader_name": "hasiegel", "civ_short_name": "", "player_id": 0,
+                       "human_name": "hasiegel"},
+            "context": {"user_message": "Who are you at war with?"},
+        }
+        room_state = {
+            "speaker_id": 2,
+            "roster": [
+                # Lincoln, Ragnar, Ramesses II -- all at peace after treaty.
+                {"player_id": 5, "leader_name": "Ragnar", "civ_short": "Vikings",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": False, "attitude_toward_speaker": "Annoyed"},
+                {"player_id": 7, "leader_name": "Ramesses II", "civ_short": "Egypt",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": False, "attitude_toward_speaker": "Cautious"},
+            ],
+            "relations": [
+                {"from_pid": 5, "to_pid": 7, "attitude": "Friendly", "at_war": False},
+            ],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        self.assertIn("ACTIVE WARS THIS TURN: none", sys_msg)
+        # Must not name any pair as actively at war.
+        self.assertNotIn("Lincoln <-> Ragnar", sys_msg)
+        self.assertNotIn("Lincoln <-> Ramesses II", sys_msg)
+        self.assertNotIn("Ragnar <-> Ramesses II", sys_msg)
+        # Must give the model a clear "treat current peace as authoritative" hint.
+        self.assertIn("at peace", sys_msg.lower())
+        self.assertIn("authoritative", sys_msg.lower())
+
+    def test_chat_reply_prompt_active_wars_dedupes_mutual_pairs(self):
+        """Mutual at-war relations (A->B and B->A) collapse to a single pair."""
+        request = {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Catherine", "civ_short_name": "Russia", "player_id": 4},
+            "target": {"leader_name": "hasiegel", "civ_short_name": "", "player_id": 0,
+                       "human_name": "hasiegel"},
+            "context": {"user_message": "What's happening?"},
+        }
+        room_state = {
+            "speaker_id": 4,
+            "roster": [
+                {"player_id": 1, "leader_name": "Bismarck", "civ_short": "Germany",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": False, "attitude_toward_speaker": "Pleased"},
+                {"player_id": 2, "leader_name": "Lincoln", "civ_short": "America",
+                 "is_human": False, "human_name": "",
+                 "at_war_with_speaker": False, "attitude_toward_speaker": "Annoyed"},
+            ],
+            "relations": [
+                {"from_pid": 1, "to_pid": 2, "attitude": "Furious", "at_war": True},
+                {"from_pid": 2, "to_pid": 1, "attitude": "Furious", "at_war": True},
+            ],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        # Only one war pair line, regardless of direction.
+        war_section = sys_msg.split("ACTIVE WARS THIS TURN")[1].split("\n\n")[0]
+        bismarck_lincoln = war_section.count("Bismarck") + war_section.count("Lincoln")
+        # Each name appears exactly once in the dedup'd pair.
+        self.assertEqual(bismarck_lincoln, 2,
+                         "expected Bismarck and Lincoln each once; got " + war_section)
+
     def test_chat_reply_prompt_room_state_chain_variant(self):
         """Chain-reply prompt also gets the room_state preface."""
         request = {

@@ -378,6 +378,10 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
         - Victoria of England (AI) -- toward you: Annoyed, at war
         - Montezuma of Aztecs (AI) -- toward you: Pleased
 
+        ACTIVE WARS THIS TURN (authoritative; overrides any war/peace in earlier transcript):
+        - Louis XIV <-> Victoria
+        - Victoria <-> Montezuma
+
         RELATIONS (AI-to-AI):
         - Victoria -> Montezuma: Furious (at war)
         - Montezuma -> Victoria: Furious (at war)
@@ -385,6 +389,11 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
     Speaker is omitted from the roster (it's the leader who IS replying).
     Capped at 8 roster entries and 12 relation entries to keep token usage
     sane; the Civ4 turn-room rarely needs more than that.
+
+    The WARS block is always emitted when room_state is non-empty so the
+    model has an explicit, current diplomatic ground-truth -- earlier
+    transcript lines that reference a war that has since ended (or vice
+    versa) must defer to this list.
     """
     if not isinstance(room_state, dict):
         return ""
@@ -393,6 +402,14 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
     speaker_id = room_state.get("speaker_id")
     if not roster:
         return ""
+
+    pid_to_name: dict[int, str] = {}
+    for entry in roster:
+        if isinstance(entry, dict):
+            try:
+                pid_to_name[int(entry.get("player_id", -2))] = (entry.get("leader_name") or "").strip()
+            except (TypeError, ValueError):
+                continue
 
     roster_lines: list[str] = []
     for entry in roster[:12]:
@@ -423,13 +440,6 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
 
     rel_lines: list[str] = []
     if relations:
-        pid_to_name: dict[int, str] = {}
-        for entry in roster:
-            if isinstance(entry, dict):
-                try:
-                    pid_to_name[int(entry.get("player_id", -2))] = (entry.get("leader_name") or "").strip()
-                except (TypeError, ValueError):
-                    continue
         for rel in relations[:24]:
             if not isinstance(rel, dict):
                 continue
@@ -449,15 +459,70 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
             if len(rel_lines) >= 12:
                 break
 
+    speaker_display = (speaker_leader or "").strip() or "you"
+    war_pairs: list[tuple[str, str]] = []
+    seen_pairs: set[frozenset] = set()
+    for entry in roster:
+        if not isinstance(entry, dict):
+            continue
+        if not bool(entry.get("at_war_with_speaker")):
+            continue
+        try:
+            if int(entry.get("player_id", -1)) == int(speaker_id):
+                continue
+        except (TypeError, ValueError):
+            pass
+        opp = (entry.get("leader_name") or "").strip()
+        if not opp:
+            continue
+        key = frozenset([speaker_display, opp])
+        if key in seen_pairs:
+            continue
+        seen_pairs.add(key)
+        war_pairs.append((speaker_display, opp))
+    for rel in relations:
+        if not isinstance(rel, dict):
+            continue
+        if not bool(rel.get("at_war")):
+            continue
+        try:
+            fp = int(rel.get("from_pid", -1))
+            tp = int(rel.get("to_pid", -1))
+        except (TypeError, ValueError):
+            continue
+        fname = pid_to_name.get(fp, "")
+        tname = pid_to_name.get(tp, "")
+        if not fname or not tname or fname == tname:
+            continue
+        a, b = sorted([fname, tname])
+        key = frozenset([a, b])
+        if key in seen_pairs:
+            continue
+        seen_pairs.add(key)
+        war_pairs.append((a, b))
+
     parts: list[str] = []
     if roster_lines:
         parts.append("ROOM (other leaders present, attitudes are how they feel toward "
-                     + (speaker_leader or "you") + "):\n" + "\n".join(roster_lines))
+                     + speaker_display + "):\n" + "\n".join(roster_lines))
+    if war_pairs:
+        war_lines = ["- " + a + " <-> " + b for (a, b) in war_pairs[:16]]
+        parts.append("ACTIVE WARS THIS TURN (live diplomatic state, AUTHORITATIVE -- "
+                     "if a war is NOT on this list it has ENDED via peace treaty, "
+                     "regardless of what earlier transcript lines say):\n"
+                     + "\n".join(war_lines))
+    else:
+        parts.append("ACTIVE WARS THIS TURN: none. Every leader listed above is "
+                     "currently AT PEACE with " + speaker_display + " and with each other. "
+                     "If earlier transcript lines reference a war involving any of them, "
+                     "that war has since ended -- treat the current peace as authoritative.")
     if rel_lines:
         parts.append("RELATIONS (AI-to-AI attitudes among the others):\n" + "\n".join(rel_lines))
     parts.append("Use these attitudes to color HOW you reply -- a Furious rival should "
                  "rip into a Friendly ally; a Pleased ally might back you up. "
-                 "Mention names from the roster, never invent leaders not listed.")
+                 "Mention names from the roster, never invent leaders not listed. "
+                 "Defer to the ACTIVE WARS list above when describing current "
+                 "diplomatic state; older transcript references to war or peace may be stale.")
     return "\n\n".join(parts) + "\n\n"
 
 
