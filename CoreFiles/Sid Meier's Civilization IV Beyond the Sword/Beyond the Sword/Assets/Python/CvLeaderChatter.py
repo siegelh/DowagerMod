@@ -1096,11 +1096,14 @@ def _player_info(player_id):
             _log("warn: _player_info getCivilizationShortDescription failed for player_id="
                  + str(player_id) + ": " + str(exc))
             civ_short = "Unknown"
+        # CyPlayer doesn't have calculateScore() in BtS Python bindings; the
+        # authoritative score lives on CyGame.getPlayerScore(pid). The older
+        # call spammed warnings for every player on every _player_info call.
         score = 0
         try:
-            score = int(p.calculateScore())
+            score = int(_gc().getGame().getPlayerScore(int(player_id)))
         except Exception, exc:
-            _log("warn: _player_info calculateScore failed for player_id="
+            _log("warn: _player_info getPlayerScore failed for player_id="
                  + str(player_id) + ": " + str(exc))
             score = 0
         return {
@@ -1133,6 +1136,176 @@ def _attitude_name(value):
     if idx < 0 or idx >= len(_ATTITUDE_NAMES):
         return "Cautious"
     return _ATTITUDE_NAMES[idx]
+
+
+# Memory type names (subset of CvEnums::MemoryTypes). Used by both the
+# state-dump diagnostic AND by _build_room_state to enrich the LLM context.
+# Index in this tuple must match the in-engine MemoryTypes enum value so
+# AI_getMemoryCount(other_pid, mt) returns the correct count. Names mirror
+# what's emitted in state_dump.json so the daemon can reuse the same map.
+_ROOM_MEMORY_TYPE_NAMES = (
+    "DECLARED_WAR", "DECLARED_WAR_ON_FRIEND", "HIRED_WAR_ALLY", "NUKED_US",
+    "NUKED_FRIEND", "RAZED_CITY", "RAZED_HOLY_CITY", "SPY_CAUGHT",
+    "GIVE_HELP", "REFUSED_HELP", "ACCEPT_DEMAND", "REJECTED_DEMAND",
+    "ACCEPTED_RELIGION", "DENIED_RELIGION", "ACCEPTED_CIVIC", "DENIED_CIVIC",
+    "ACCEPTED_JOIN_WAR", "DENIED_JOIN_WAR", "ACCEPTED_STOP_TRADING",
+    "DENIED_STOP_TRADING", "STOPPED_TRADING", "STOPPED_TRADING_RECENT",
+    "HIRED_TRADE_EMBARGO", "MADE_DEMAND", "MADE_DEMAND_RECENT",
+    "CANCELLED_OPEN_BORDERS", "TRADED_TECH_TO_US", "RECEIVED_TECH_FROM_ANY",
+    "VOTED_AGAINST_US", "VOTED_FOR_US", "EVENT_GOOD_TO_US",
+    "EVENT_BAD_TO_US", "LIBERATED_CITIES",
+)
+
+
+def _room_info_name(get_info_fn, type_id):
+    """Resolve a Civ4 type-id to a display string. -1 / null => ''."""
+    try:
+        tid = int(type_id)
+    except:
+        return ""
+    if tid < 0:
+        return ""
+    try:
+        info = get_info_fn(tid)
+    except:
+        return ""
+    if info is None:
+        return ""
+    try:
+        return _to_ascii(info.getDescription())
+    except:
+        try:
+            return _to_ascii(info.getType())
+        except:
+            return ""
+
+
+def _room_capital_name(p):
+    """Capital-city name or empty string (handles null sentinel)."""
+    try:
+        cap = p.getCapitalCity()
+    except:
+        return ""
+    try:
+        if cap is None or cap.isNone():
+            return ""
+    except:
+        pass
+    try:
+        return _to_ascii(cap.getName())
+    except:
+        return ""
+
+
+def _room_leader_extras(p, pid):
+    """Per-leader Tier 1 stats for the room_state roster entry.
+
+    Returns a flat dict of pre-resolved scalars (no {ok, value} wrappers --
+    those exist in the state_dump diagnostic but the LLM payload wants
+    direct values). Individual fields fail soft to safe defaults so a
+    single throwing field can't break the whole row.
+    """
+    gc = _gc()
+    game = gc.getGame()
+    extras = {}
+    try:
+        extras["score"] = int(game.getPlayerScore(int(pid)))
+    except:
+        extras["score"] = 0
+    try:
+        extras["power"] = int(p.getPower())
+    except:
+        extras["power"] = 0
+    try:
+        extras["num_cities"] = int(p.getNumCities())
+    except:
+        extras["num_cities"] = 0
+    try:
+        extras["era"] = _room_info_name(gc.getEraInfo, p.getCurrentEra())
+    except:
+        extras["era"] = ""
+    try:
+        extras["gold"] = int(p.getGold())
+    except:
+        extras["gold"] = 0
+    try:
+        extras["military"] = int(p.getNumMilitaryUnits())
+    except:
+        extras["military"] = 0
+    try:
+        extras["civic_gov"] = _room_info_name(gc.getCivicInfo, p.getCivics(0))
+    except:
+        extras["civic_gov"] = ""
+    try:
+        extras["religion"] = _room_info_name(
+            gc.getReligionInfo, p.getStateReligion())
+    except:
+        extras["religion"] = ""
+    extras["capital"] = _room_capital_name(p)
+    try:
+        extras["research"] = _room_info_name(
+            gc.getTechInfo, p.getCurrentResearch())
+    except:
+        extras["research"] = ""
+    return extras
+
+
+def _room_memories(pa, b_pid):
+    """Non-zero memory entries that pa holds about b_pid.
+
+    Returns a list of {"name": str, "count": int}. Empty list when no
+    memories or on iteration failure. ``name`` is the symbolic memory-type
+    identifier (e.g. ``DECLARED_WAR_ON_FRIEND``); the daemon humanizes it
+    for prompt rendering.
+    """
+    out = []
+    try:
+        n = len(_ROOM_MEMORY_TYPE_NAMES)
+        for mt in range(n):
+            try:
+                c = int(pa.AI_getMemoryCount(int(b_pid), mt))
+            except:
+                c = 0
+            if c > 0:
+                out.append({"name": _ROOM_MEMORY_TYPE_NAMES[mt],
+                            "count": c})
+    except:
+        pass
+    return out
+
+
+def _room_pair_extras(pa, pb, b_pid):
+    """Per-pair Tier 1b extras for the room_state relations entry.
+
+    ``pa`` views ``pb``. Returns a flat dict of scalars + the memories
+    list. Fail-soft per field.
+    """
+    gc = _gc()
+    try:
+        ta = gc.getTeam(pa.getTeam())
+        tb_id = pb.getTeam()
+    except:
+        return {"has_open_borders": False, "has_defensive_pact": False,
+                "at_war_turns": 0, "war_success": 0, "memories": []}
+    extras = {}
+    try:
+        extras["has_open_borders"] = bool(ta.isOpenBorders(tb_id))
+    except:
+        extras["has_open_borders"] = False
+    try:
+        extras["has_defensive_pact"] = bool(ta.isDefensivePact(tb_id))
+    except:
+        extras["has_defensive_pact"] = False
+    try:
+        extras["at_war_turns"] = int(ta.AI_getAtWarCounter(tb_id))
+    except:
+        extras["at_war_turns"] = 0
+    try:
+        extras["war_success"] = int(ta.AI_getWarSuccess(tb_id))
+    except:
+        extras["war_success"] = 0
+    extras["memories"] = _room_memories(pa, b_pid)
+    return extras
 
 
 def _build_room_state(speaker_id):
@@ -1240,6 +1413,32 @@ def _build_room_state(speaker_id):
                 entry["attitude_toward_speaker"] = _attitude_name(speaker_view)
             except:
                 entry["attitude_toward_speaker"] = "Cautious"
+            # Tier 1 extension: per-leader scalars and speaker-centric memory.
+            # Speaker's own row gets skipped here (no self-stats / self-memory)
+            # since the speaker is dropped from the rendered roster anyway --
+            # but include speaker_attitude_toward for symmetry. Eliminated
+            # leaders have stale 0/empty stats; we skip them to keep the
+            # prompt block honest (dead civs don't have current cities/gold).
+            if pid != int(speaker_id) and not is_eliminated:
+                try:
+                    p_extras = _room_leader_extras(gc.getPlayer(pid), pid)
+                    for k, v in p_extras.items():
+                        entry[k] = v
+                except Exception, exc:
+                    _log("warn: _build_room_state extras pid=" + str(pid)
+                         + ": " + str(exc))
+                try:
+                    speaker_att = speaker.AI_getAttitude(int(pid))
+                    entry["speaker_attitude_toward"] = _attitude_name(speaker_att)
+                except:
+                    pass
+                try:
+                    mems = _room_memories(speaker, int(pid))
+                    if mems:
+                        entry["memories_vs_speaker"] = mems
+                except Exception, exc:
+                    _log("warn: _build_room_state memories pid=" + str(pid)
+                         + ": " + str(exc))
             roster.append(entry)
             seen.append(int(pid))
             if not is_eliminated:
@@ -1261,12 +1460,27 @@ def _build_room_state(speaker_id):
                     pb = gc.getPlayer(b)
                     at_war = bool(gc.getTeam(pa.getTeam()).isAtWar(pb.getTeam()))
                     att = pa.AI_getAttitude(int(b))
-                    relations.append({
+                    rel = {
                         "from_pid": int(a),
                         "to_pid": int(b),
                         "attitude": _attitude_name(att),
                         "at_war": at_war,
-                    })
+                    }
+                    # Tier 1b extension: open borders, def pact, war counters,
+                    # AI memories. Fail-soft: omit only the keys that throw.
+                    try:
+                        p_extras = _room_pair_extras(pa, pb, b)
+                        for k, v in p_extras.items():
+                            # Memories: only include when non-empty so old
+                            # tests that don't expect a memories key still
+                            # see clean payloads.
+                            if k == "memories" and not v:
+                                continue
+                            rel[k] = v
+                    except Exception, exc:
+                        _log("warn: _build_room_state pair-extras "
+                             + str(a) + "->" + str(b) + ": " + str(exc))
+                    relations.append(rel)
                 except Exception, exc:
                     _log("warn: _build_room_state pair " + str(a) + "->"
                          + str(b) + ": " + str(exc))

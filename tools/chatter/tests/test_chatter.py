@@ -522,6 +522,266 @@ class TestPrompts(unittest.TestCase):
         self.assertIn("Lincoln", sys_msg)
 
 
+class TestPromptsTier1Extras(unittest.TestCase):
+    """Tier 1 / Tier 1b room_state extension renders cleanly when present
+    and is omitted entirely when absent (additive backward-compat)."""
+
+    def _base_request(self):
+        return {
+            "trigger": "CHAT_REPLY",
+            "speaker": {"leader_name": "Louis XIV", "civ_short_name": "France", "player_id": 3},
+            "target": {"leader_name": "Harrison", "civ_short_name": "America", "player_id": 0,
+                       "human_name": "Harrison"},
+            "context": {"user_message": "Hello"},
+        }
+
+    def test_leader_stats_line_rendered(self):
+        """When roster entries carry Tier 1 scalars they appear on a
+        second indented line beneath the leader name."""
+        request = self._base_request()
+        room_state = {
+            "speaker_id": 3,
+            "roster": [
+                {"player_id": 3, "leader_name": "Louis XIV", "civ_short": "France",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Friendly"},
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Cautious",
+                 "speaker_attitude_toward": "Pleased",
+                 "era": "Industrial", "num_cities": 12, "score": 480,
+                 "power": 95000, "military": 38, "gold": 320,
+                 "civic_gov": "Hereditary Rule", "religion": "Buddhism",
+                 "capital": "London", "research": "Steam Power"},
+            ],
+            "relations": [],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        self.assertIn("you toward them: Pleased", sys_msg)
+        self.assertIn("Industrial era", sys_msg)
+        self.assertIn("12 cit", sys_msg)
+        self.assertIn("score 480", sys_msg)
+        self.assertIn("pwr 95000", sys_msg)
+        self.assertIn("38 units", sys_msg)
+        self.assertIn("gold 320", sys_msg)
+        self.assertIn("Hereditary Rule/Buddhism", sys_msg)
+        self.assertIn("cap London", sys_msg)
+        self.assertIn("researching Steam Power", sys_msg)
+
+    def test_leader_stats_line_skips_empty_segments(self):
+        """Empty/None scalars must NOT produce noise lines like
+        'cap (no capital)' or 'researching None'."""
+        request = self._base_request()
+        room_state = {
+            "speaker_id": 3,
+            "roster": [
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Cautious",
+                 "era": "Ancient", "num_cities": 2,
+                 "civic_gov": "Despotism", "religion": "",
+                 "capital": "", "research": ""},
+            ],
+            "relations": [],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        self.assertIn("Ancient era", sys_msg)
+        self.assertIn("Despotism", sys_msg)
+        # No empty/None segments leaked.
+        self.assertNotIn("cap (", sys_msg)
+        self.assertNotIn("researching None", sys_msg)
+        self.assertNotIn("None era", sys_msg)
+        self.assertNotIn("religion ()", sys_msg)
+
+    def test_leader_stats_omitted_when_no_extras(self):
+        """Old-style roster entries (no Tier 1 fields) render exactly as
+        before -- a single line per leader, no stats line."""
+        request = self._base_request()
+        room_state = {
+            "speaker_id": 3,
+            "roster": [
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Cautious"},
+            ],
+            "relations": [],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        room_section = sys_msg.split("ROOM ")[1].split("\n\n")[0]
+        # Only the leader line should be present -- no follow-up indented
+        # stats or memory lines.
+        leader_lines = [ln for ln in room_section.split("\n") if ln.startswith("- ")]
+        all_lines = [ln for ln in room_section.split("\n") if ln.strip()]
+        # Header line + one leader line == two lines total.
+        self.assertEqual(len(leader_lines), 1)
+        self.assertEqual(len(all_lines), 2)
+
+    def test_memory_line_rendered_with_humanized_phrases(self):
+        """memories_vs_speaker emits a humanized 'Your memory of them' line."""
+        request = self._base_request()
+        room_state = {
+            "speaker_id": 3,
+            "roster": [
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Furious",
+                 "memories_vs_speaker": [
+                     {"name": "DECLARED_WAR", "count": 1},
+                     {"name": "RAZED_CITY", "count": 3},
+                     {"name": "DECLARED_WAR_ON_FRIEND", "count": 2},
+                 ]},
+            ],
+            "relations": [],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        self.assertIn("Your memory of them: declared war on you", sys_msg)
+        self.assertIn("razed your city x3", sys_msg)
+        self.assertIn("declared war on your friend x2", sys_msg)
+
+    def test_memory_line_omitted_when_empty_or_missing(self):
+        """No memory line should render for entries without memories."""
+        request = self._base_request()
+        room_state = {
+            "speaker_id": 3,
+            "roster": [
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Pleased",
+                 "memories_vs_speaker": []},
+                {"player_id": 2, "leader_name": "Lincoln", "civ_short": "America",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Cautious"},
+            ],
+            "relations": [],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        self.assertNotIn("Your memory of them:", sys_msg)
+
+    def test_memory_unknown_name_passthrough(self):
+        """Unknown memory enum names fall back to the raw identifier
+        instead of being silently dropped."""
+        request = self._base_request()
+        room_state = {
+            "speaker_id": 3,
+            "roster": [
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Pleased",
+                 "memories_vs_speaker": [
+                     {"name": "BRAND_NEW_MEMORY_TYPE", "count": 1},
+                 ]},
+            ],
+            "relations": [],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        self.assertIn("BRAND_NEW_MEMORY_TYPE", sys_msg)
+
+    def test_relations_pair_extras_rendered(self):
+        """Pair extras (war duration, defensive pact, open borders,
+        memories) decorate the RELATIONS line."""
+        request = self._base_request()
+        room_state = {
+            "speaker_id": 3,
+            "roster": [
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Cautious"},
+                {"player_id": 2, "leader_name": "Lincoln", "civ_short": "America",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Pleased"},
+                {"player_id": 4, "leader_name": "Ragnar", "civ_short": "Vikings",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Pleased"},
+            ],
+            "relations": [
+                {"from_pid": 1, "to_pid": 2, "attitude": "Furious", "at_war": True,
+                 "at_war_turns": 8, "war_success": 12,
+                 "memories": [{"name": "DECLARED_WAR", "count": 1}]},
+                {"from_pid": 2, "to_pid": 4, "attitude": "Friendly", "at_war": False,
+                 "has_defensive_pact": True, "has_open_borders": True},
+            ],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        # War line: keep the original "(at war)" substring so legacy tests
+        # are not broken, but extend it with the duration when known.
+        self.assertIn("Victoria -> Lincoln: Furious (at war 8t)", sys_msg)
+        self.assertIn("grudges: declared war on you", sys_msg)
+        # Peace line with structural state suffixes.
+        self.assertIn("Lincoln -> Ragnar: Friendly", sys_msg)
+        self.assertIn("defensive pact", sys_msg)
+        self.assertIn("open borders", sys_msg)
+
+    def test_relations_war_with_unknown_duration_omits_t_suffix(self):
+        """When at_war_turns is missing or 0 we still mark the war but
+        omit the misleading '0t' duration."""
+        request = self._base_request()
+        room_state = {
+            "speaker_id": 3,
+            "roster": [
+                {"player_id": 1, "leader_name": "Victoria", "civ_short": "England",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Cautious"},
+                {"player_id": 2, "leader_name": "Lincoln", "civ_short": "America",
+                 "is_human": False, "at_war_with_speaker": False,
+                 "attitude_toward_speaker": "Pleased"},
+            ],
+            "relations": [
+                {"from_pid": 1, "to_pid": 2, "attitude": "Furious", "at_war": True},
+            ],
+        }
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        self.assertIn("Victoria -> Lincoln: Furious (at war)", sys_msg)
+        self.assertNotIn("(at war 0t)", sys_msg)
+
+    def test_relations_priority_sort_wars_first(self):
+        """When more relations exist than the 12-line cap can show,
+        wars and pacts surface first instead of being clipped."""
+        request = self._base_request()
+        roster = []
+        relations = []
+        # 15 bland relations + 1 war == cap forces something to drop.
+        for i in range(15):
+            pid = 100 + i
+            roster.append({"player_id": pid, "leader_name": "Boring" + str(i),
+                           "civ_short": "Civ" + str(i),
+                           "is_human": False, "at_war_with_speaker": False,
+                           "attitude_toward_speaker": "Cautious"})
+            if i > 0:
+                relations.append({"from_pid": 100, "to_pid": pid,
+                                  "attitude": "Cautious", "at_war": False})
+        roster.append({"player_id": 200, "leader_name": "Warmaker",
+                       "civ_short": "Hordes",
+                       "is_human": False, "at_war_with_speaker": False,
+                       "attitude_toward_speaker": "Cautious"})
+        relations.append({"from_pid": 100, "to_pid": 200,
+                          "attitude": "Furious", "at_war": True,
+                          "at_war_turns": 4})
+        room_state = {"speaker_id": 3, "roster": roster, "relations": relations}
+        sys_msg, _ = prompts.build_chat_reply_prompt(request, [], room_state=room_state)
+        self.assertIn("Boring0 -> Warmaker: Furious (at war 4t)", sys_msg)
+
+    def test_humanize_memories_empty_input(self):
+        """Direct helper test: empty/None input yields empty list."""
+        self.assertEqual(prompts._humanize_memories(None), [])
+        self.assertEqual(prompts._humanize_memories([]), [])
+        self.assertEqual(prompts._humanize_memories([{"name": "", "count": 5}]), [])
+        self.assertEqual(prompts._humanize_memories([{"name": "DECLARED_WAR",
+                                                     "count": 0}]), [])
+
+    def test_humanize_memories_count_formatting(self):
+        """Count >=2 emits 'x<N>' suffix; count==1 emits bare phrase."""
+        out = prompts._humanize_memories([
+            {"name": "DECLARED_WAR", "count": 1},
+            {"name": "RAZED_CITY", "count": 2},
+            {"name": "NUKED_US", "count": 7},
+        ])
+        self.assertEqual(out, [
+            "declared war on you",
+            "razed your city x2",
+            "nuked you x7",
+        ])
+
+
 class TestDaemonProcessRequest(unittest.TestCase):
     """End-to-end test of process_request with a fake AzureClient."""
 

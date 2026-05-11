@@ -14,6 +14,140 @@ from dataclasses import dataclass
 from typing import Dict
 
 
+# Humanized phrasings for AI-memory enum names that the game-side
+# _build_room_state ships. Used to render compact "your memory of them"
+# and "grudges" lines in the system prompt. Missing keys fall back to
+# the raw identifier so we never silently drop a memory.
+_MEMORY_PHRASES: dict[str, str] = {
+    "DECLARED_WAR": "declared war on you",
+    "DECLARED_WAR_ON_FRIEND": "declared war on your friend",
+    "HIRED_WAR_ALLY": "hired a war ally against you",
+    "NUKED_US": "nuked you",
+    "NUKED_FRIEND": "nuked your friend",
+    "RAZED_CITY": "razed your city",
+    "RAZED_HOLY_CITY": "razed a holy city",
+    "SPY_CAUGHT": "had spies caught against you",
+    "GIVE_HELP": "gave help",
+    "REFUSED_HELP": "refused help when asked",
+    "ACCEPT_DEMAND": "caved to your demand",
+    "REJECTED_DEMAND": "rejected your demand",
+    "ACCEPTED_RELIGION": "converted to your religion when asked",
+    "DENIED_RELIGION": "refused to convert to your religion",
+    "ACCEPTED_CIVIC": "adopted your favored civic",
+    "DENIED_CIVIC": "refused to adopt your favored civic",
+    "ACCEPTED_JOIN_WAR": "joined your war when asked",
+    "DENIED_JOIN_WAR": "refused to join your war",
+    "ACCEPTED_STOP_TRADING": "stopped trading with your target when asked",
+    "DENIED_STOP_TRADING": "refused to stop trading with your target",
+    "STOPPED_TRADING": "stopped trading with you",
+    "STOPPED_TRADING_RECENT": "recently stopped trading with you",
+    "HIRED_TRADE_EMBARGO": "got others to embargo you",
+    "MADE_DEMAND": "demanded tribute from you",
+    "MADE_DEMAND_RECENT": "recently demanded tribute from you",
+    "CANCELLED_OPEN_BORDERS": "cancelled open borders",
+    "TRADED_TECH_TO_US": "traded tech to you",
+    "RECEIVED_TECH_FROM_ANY": "received tech (from anyone)",
+    "VOTED_AGAINST_US": "voted against you",
+    "VOTED_FOR_US": "voted for you",
+    "EVENT_GOOD_TO_US": "did something good for you",
+    "EVENT_BAD_TO_US": "did something bad to you",
+    "LIBERATED_CITIES": "liberated cities",
+}
+
+
+def _humanize_memories(mems) -> list[str]:
+    """Turn the raw memories list from room_state into prose chunks.
+
+    Input: list of {"name": str, "count": int}. Output: list of strings
+    like ``"declared war on your friend x2"``. Empty list when input is
+    None / empty / malformed. Unknown ``name`` values are passed through
+    unchanged so we never silently drop data.
+    """
+    out: list[str] = []
+    if not mems:
+        return out
+    for m in mems:
+        if not isinstance(m, dict):
+            continue
+        name = (m.get("name") or "").strip()
+        if not name:
+            continue
+        try:
+            count = int(m.get("count", 0))
+        except (TypeError, ValueError):
+            count = 0
+        if count <= 0:
+            continue
+        phrase = _MEMORY_PHRASES.get(name, name)
+        if count == 1:
+            out.append(phrase)
+        else:
+            out.append(phrase + " x" + str(count))
+    return out
+
+
+def _format_leader_stats(entry: dict) -> str:
+    """Render the per-leader stats one-liner.
+
+    Returns empty string when none of the optional Tier 1 scalars are
+    present on the entry (so old room_state schemas render the same as
+    before). Skips empty / null segments to avoid noise like
+    ``"cap (no capital)"``.
+    """
+    if not isinstance(entry, dict):
+        return ""
+    segs: list[str] = []
+    era = (entry.get("era") or "").strip()
+    if era:
+        segs.append(era + " era")
+    try:
+        nc = int(entry.get("num_cities", -1))
+        if nc >= 0:
+            segs.append(str(nc) + " cit")
+    except (TypeError, ValueError):
+        pass
+    try:
+        scr = entry.get("score")
+        if scr is not None:
+            segs.append("score " + str(int(scr)))
+    except (TypeError, ValueError):
+        pass
+    try:
+        pwr = entry.get("power")
+        if pwr is not None:
+            segs.append("pwr " + str(int(pwr)))
+    except (TypeError, ValueError):
+        pass
+    try:
+        mil = entry.get("military")
+        if mil is not None:
+            segs.append(str(int(mil)) + " units")
+    except (TypeError, ValueError):
+        pass
+    try:
+        gold = entry.get("gold")
+        if gold is not None:
+            segs.append("gold " + str(int(gold)))
+    except (TypeError, ValueError):
+        pass
+    civic = (entry.get("civic_gov") or "").strip()
+    religion = (entry.get("religion") or "").strip()
+    if civic or religion:
+        if civic and religion:
+            segs.append(civic + "/" + religion)
+        elif civic:
+            segs.append(civic)
+        else:
+            segs.append(religion)
+    cap = (entry.get("capital") or "").strip()
+    if cap:
+        segs.append("cap " + cap)
+    rsch = (entry.get("research") or "").strip()
+    if rsch:
+        segs.append("researching " + rsch)
+    return " | ".join(segs)
+
+
 @dataclass(frozen=True)
 class TriggerTemplate:
     mode: str  # "directed" or "broadcast"
@@ -479,7 +613,11 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
                 continue
 
     roster_lines: list[str] = []
-    for entry in roster[:14]:
+    # Raise the cap from 10 to 24 so a full Civ4 game's 14 leaders all fit.
+    # Tier 1 extension may add a stats line + memory line per entry, so the
+    # rendered block grows -- but at ~2-3k tokens worst case it's nowhere
+    # near the LLM context limit (~128k for grok-4).
+    for entry in roster[:24]:
         if not isinstance(entry, dict):
             continue
         try:
@@ -508,13 +646,55 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
             suffix = "toward you: " + attitude
             if at_war:
                 suffix += ", at war with you"
+            # Tier 1 extension: append "you toward them: X" when present.
+            # Helps the LLM ground the speaker's own posture.
+            spk_att = (entry.get("speaker_attitude_toward") or "").strip()
+            if spk_att:
+                suffix += "; you toward them: " + spk_att
             roster_lines.append("- " + who + " -- " + suffix)
-        if len(roster_lines) >= 10:
+            # Tier 1 extension: per-leader stats line. Skipped when none
+            # of the optional scalars are present (old room_state shape).
+            stats = _format_leader_stats(entry)
+            if stats:
+                roster_lines.append("  " + stats)
+            # Tier 1 extension: memories the SPEAKER holds about this
+            # leader. Only emitted when non-empty. The phrasing assumes
+            # the memory is something the LEADER did to the SPEAKER --
+            # the daemon's humanizer maps the enum names accordingly.
+            grudges = _humanize_memories(entry.get("memories_vs_speaker"))
+            if grudges:
+                roster_lines.append("  Your memory of them: " + "; ".join(grudges))
+        if len(roster_lines) >= 64:
             break
 
     rel_lines: list[str] = []
     if relations:
-        for rel in relations[:24]:
+        # Tier 1b extension: prioritize relations with structural state
+        # (wars, def-pacts, open borders, memories, strong attitudes) over
+        # bland Cautious/Pleased pairs so the 12-cap surfaces interesting
+        # context first. Falls back to original order for plain entries.
+        def _rel_priority(r: dict) -> int:
+            if not isinstance(r, dict):
+                return 9
+            if bool(r.get("at_war")):
+                return 0
+            if bool(r.get("has_defensive_pact")):
+                return 1
+            if bool(r.get("has_open_borders")):
+                return 2
+            mems = r.get("memories")
+            if isinstance(mems, list) and mems:
+                return 3
+            att = (r.get("attitude") or "").strip()
+            if att in ("Furious", "Friendly"):
+                return 4
+            return 5
+
+        relations_sorted = sorted(
+            [r for r in relations if isinstance(r, dict)],
+            key=_rel_priority,
+        )
+        for rel in relations_sorted[:24]:
             if not isinstance(rel, dict):
                 continue
             try:
@@ -528,8 +708,30 @@ def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> st
                 continue
             att = (rel.get("attitude") or "").strip() or "Cautious"
             war = bool(rel.get("at_war"))
-            tail = " (at war)" if war else ""
-            rel_lines.append("- " + fname + " -> " + tname + ": " + att + tail)
+            # Preserve the original "(at war)" suffix for legacy
+            # consumers / tests; append the duration only when present
+            # and >0 so we don't render misleading "(0t)" for new wars.
+            tail = ""
+            if war:
+                tail = " (at war"
+                try:
+                    wt = int(rel.get("at_war_turns", 0))
+                except (TypeError, ValueError):
+                    wt = 0
+                if wt > 0:
+                    tail += " " + str(wt) + "t"
+                tail += ")"
+            extras: list[str] = []
+            if bool(rel.get("has_defensive_pact")):
+                extras.append("defensive pact")
+            if bool(rel.get("has_open_borders")):
+                extras.append("open borders")
+            mems_phr = _humanize_memories(rel.get("memories"))
+            if mems_phr:
+                extras.append("grudges: " + "; ".join(mems_phr))
+            extras_str = (", " + ", ".join(extras)) if extras else ""
+            rel_lines.append("- " + fname + " -> " + tname + ": " + att
+                             + tail + extras_str)
             if len(rel_lines) >= 12:
                 break
 
