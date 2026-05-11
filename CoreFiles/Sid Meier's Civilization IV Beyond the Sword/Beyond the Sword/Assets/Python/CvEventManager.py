@@ -223,7 +223,29 @@ class CvEventManager:
 
 		eventType,key,mx,my,px,py = argsList
 		game = gc.getGame()
-		
+
+		# DowagerMod: drain any pending chatter renders queued from
+		# background-tick context. onKbdEvent is input-handler context,
+		# so addMessage paints instantly here. See
+		# CvLeaderChatter.chatter_drain_input_renders for rationale.
+		try:
+			CvLeaderChatter.chatter_drain_input_renders()
+		except Exception:
+			pass
+
+		# DowagerMod PROBE P5b: Ctrl+Shift+P fires a probe addMessage from
+		# inside this onKbdEvent callback (UI input handler context). If
+		# the PROBE_KBD line paints instantly when the user presses the
+		# chord mid-turn, it confirms that addMessage paints when called
+		# from input-handler-callback context. Safe no-op for any other key.
+		try:
+			if CvLeaderChatter.chatter_probe_kbd_hotkey(
+				eventType, key, self.bCtrl, self.bShift, self.bAlt
+			):
+				return 1
+		except Exception:
+			pass
+
 		if (self.bAllowCheats):
 			# notify debug tools of input to allow it to override the control
 			argsList = (eventType,key,self.bCtrl,self.bShift,self.bAlt,mx,my,px,py,gc.getGame().isNetworkMultiPlayer())
@@ -311,11 +333,51 @@ class CvEventManager:
 		'Called every frame'
 		fDeltaTime = argsList[0]
 		
+		# DIAG: confirm onUpdate is actually being called by the engine.
+		# Use a direct file-touch (no logging dependencies) to prove the path.
+		try:
+			import os as _diag_os, time as _diag_time
+			_diag_dir = _diag_os.path.join(
+				_diag_os.environ.get("LOCALAPPDATA", _diag_os.environ.get("APPDATA", "C:\\")),
+				"DowagerMod", "chatter", "spool")
+			try:
+				_diag_os.makedirs(_diag_dir)
+			except:
+				pass
+			_diag_marker = _diag_os.path.join(_diag_dir, "onupdate_pre.txt")
+			_f = open(_diag_marker, "a")
+			try:
+				_f.write(_diag_time.strftime("%H:%M:%S") + " PRE\n")
+			finally:
+				_f.close()
+		except:
+			pass
+		
+		# DowagerMod chatter: run chatter first so a camera/art exception
+		# cannot block it (Civ4 pyHandleEvent swallows raises silently).
+		try:
+			CvLeaderChatter.chatter_on_update( fDeltaTime )
+		except Exception, _diag_exc:
+			try:
+				_f = open(_diag_marker + ".chatterexc", "a")
+				_f.write(_diag_time.strftime("%H:%M:%S") + " " + str(_diag_exc) + "\n")
+				_f.close()
+			except:
+				pass
+		
+		# DIAG: marker after chatter call (proves chatter didn't hang).
+		try:
+			_f = open(_diag_os.path.join(_diag_dir, "onupdate_post.txt"), "a")
+			try:
+				_f.write(_diag_time.strftime("%H:%M:%S") + " POST\n")
+			finally:
+				_f.close()
+		except:
+			pass
+		
 		# allow camera to be updated
 		CvCameraControls.g_CameraControls.onUpdate( fDeltaTime )
 		CvArtMasterpieceSystem.onUpdate( fDeltaTime )
-		# DowagerMod chatter: drain real-time-paced display queue.
-		CvLeaderChatter.chatter_on_update( fDeltaTime )
 		
 	def onWindowActivation(self, argsList):
 		'Called when the game window activates or deactivates'
@@ -1026,6 +1088,14 @@ class CvEventManager:
 	
 	def onMouseEvent(self, argsList):
 		'mouse handler - returns 1 if the event was consumed'
+		# DowagerMod: drain any pending chatter renders queued from
+		# background-tick context. onMouseEvent is input-handler context,
+		# so addMessage paints instantly here. Mouse events fire many times
+		# per second during normal play, so this is the primary drain path.
+		try:
+			CvLeaderChatter.chatter_drain_input_renders()
+		except Exception:
+			pass
 		eventType,mx,my,px,py,interfaceConsumed,screens = argsList
 		if ( px!=-1 and py!=-1 ):
 			if ( eventType == self.EventLButtonDown ):

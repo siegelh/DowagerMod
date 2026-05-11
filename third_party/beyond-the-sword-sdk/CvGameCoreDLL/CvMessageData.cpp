@@ -509,7 +509,38 @@ void CvNetModNetMessage::Debug(char* szAddendum)
 
 void CvNetModNetMessage::Execute()
 {
+	// DowagerMod: write a marker file so we can confirm this code is live in the loaded DLL
+	{
+		FILE* fp = fopen("C:\\Users\\hasiegel\\AppData\\Local\\DowagerMod\\chatter\\spool\\dll_marker.txt", "a");
+		if (fp)
+		{
+			fprintf(fp, "CvNetModNetMessage::Execute fired d1=%d d2=%d d3=%d d4=%d d5=%d\n",
+				m_iData1, m_iData2, m_iData3, m_iData4, m_iData5);
+			fclose(fp);
+		}
+	}
+
 	CvEventReporter::getInstance().reportModNetMessage(m_iData1, m_iData2, m_iData3, m_iData4, m_iData5);
+
+	// DowagerMod: This dispatcher fires when our chatter chunk arrives.
+	// The Python onModNetMessage callback may call CyInterface().addMessage
+	// to render the leader's line. That message gets enqueued in the
+	// engine's right-side scroll widget but the widget does NOT repaint
+	// because our Python callback runs in the per-frame onUpdate tick
+	// phase, NOT the user-input phase. To force the engine to paint
+	// pending updates NOW, we:
+	//   1) drain the player's unshown message queue via showMissedMessages
+	//   2) call callUpdater() -- the Win32 message pump used by map
+	//      generation, world builder, and engine-internal long-running
+	//      ops to "allow window updates" (see CvGame.cpp:767, CvMap.cpp:270).
+	//      This pumps pending paint messages and triggers a frame paint.
+	if (GC.getGameINLINE().getActivePlayer() != NO_PLAYER)
+	{
+		GET_PLAYER(GC.getGameINLINE().getActivePlayer()).showMissedMessages();
+		gDLL->getInterfaceIFace()->updatePythonScreens();
+		gDLL->getInterfaceIFace()->makeInterfaceDirty();
+		gDLL->callUpdater();
+	}
 }
 
 void CvNetModNetMessage::PutInBuffer(FDataStreamBase* pStream)

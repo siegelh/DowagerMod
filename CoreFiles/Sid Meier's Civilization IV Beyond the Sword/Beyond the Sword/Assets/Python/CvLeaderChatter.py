@@ -339,6 +339,8 @@ _logged_first_run = False       # one-time setup log
 _spawn_attempted_at = 0.0       # rate-limit auto-spawn attempts
 _no_elector_diag_fired = False  # one-time diagnostic when nobody is capable
 _no_elector_first_seen_turn = -1
+_last_diag_heartbeat_at = 0.0   # DIAG: throttle for chatter_on_update tick heartbeat
+_last_resp_diag_at = 0.0        # DIAG: throttle for _check_for_responses mismatch logs
 # === Chat-reply state ===
 # (leader_player_id, last_chat_unix). If the human types a follow-up with no
 # leader name within CHAT_IDLE_SECONDS, it continues with this leader.
@@ -1866,11 +1868,142 @@ def _any_human_has_met(speaker_id, target_id, trigger=""):
         return True
 
 
+def _fire_probe_addmessage(context_label):
+    """PROBE: addMessage from arbitrary callback contexts to test paint cycle.
+
+    Hypothesis: addMessage paints instantly when called from a Python callback
+    that runs inside the engine's UI-input-handler call stack (e.g. onKbdEvent,
+    onChangeWar from a player-initiated DoW). It defers to turn-boundary when
+    called from background ticks (onUpdate, onModNetMessage from a network
+    receive). This helper fires a static, distinctive "PROBE_*" line through
+    the exact same addMessage signature that _render_local_line uses, so the
+    only variable being tested is the calling context.
+
+    Args:
+      context_label: short string identifying where the probe was fired from,
+        e.g. "PROBE_KBD (onKbdEvent Ctrl+Shift+P)" or "PROBE_WAR (on_change_war)".
+
+    Always swallows exceptions and always logs the attempt so it's visible in
+    chatter.log even if addMessage itself fails.
+    """
+    try:
+        local_player = _gc().getGame().getActivePlayer()
+        try:
+            CyInterface().addMessage(
+                local_player, True, 12, str(context_label), "",
+                InterfaceMessageTypes.MESSAGE_TYPE_MAJOR_EVENT, None, -1,
+                -1, -1, True, True
+            )
+            _log("probe: addMessage fired ctx=" + str(context_label)
+                 + " local_player=" + str(local_player))
+        except Exception, exc:
+            _log("probe: addMessage FAILED ctx=" + str(context_label) + " err=" + str(exc))
+    except Exception, exc:
+        _log("probe: outer FAILED ctx=" + str(context_label) + " err=" + str(exc))
+
+
+def chatter_probe_kbd_hotkey(eventType, key, bCtrl, bShift, bAlt):
+    """PROBE: called from CvEventManager.onKbdEvent on Ctrl+Shift+P.
+
+    Returns 1 if the keypress was consumed (so the engine doesn't process it
+    further), 0 otherwise. We only consume the chord that triggers the probe.
+    """
+    try:
+        # Only react to a key-down event (EventKeyDown == 6 in BTS).
+        # The Python InputTypes.KB_P is the P scancode.
+        if eventType != 6:
+            return 0
+        if not (bCtrl and bShift):
+            return 0
+        try:
+            kb_p = int(InputTypes.KB_P)
+        except Exception:
+            return 0
+        if int(key) != kb_p:
+            return 0
+        _fire_probe_addmessage("PROBE_KBD (onKbdEvent Ctrl+Shift+P)")
+        return 1
+    except Exception, exc:
+        try:
+            _log("probe_kbd: error: " + str(exc))
+        except Exception:
+            pass
+        return 0
+
+
+_pending_input_renders = []
+
+
+def chatter_drain_input_renders():
+    """Drain any chatter renders queued for input-context delivery.
+
+    Hypothesis confirmed via P5 probes: addMessage only paints mid-turn when
+    called from inside the engine's UI-input-handler call stack (e.g. from
+    onKbdEvent / onMouseEvent / onChangeWar for player-initiated DoW). When
+    called from background ticks (onModNetMessage, onUpdate), the addMessage
+    queues but the right-side event scroll widget defers its paint to the
+    next turn boundary.
+
+    Our chatter render path historically lived in onModNetMessage (chunks
+    arriving) and chatter_on_update (line ready) -- both background context.
+    The text would queue and only paint at turn-end, while audio played
+    immediately. The result: ~30-second desync between audio and text.
+
+    Fix: _render_local_line now enqueues (speaker_id, text, target_id) into
+    `_pending_input_renders`. This function is invoked from CvEventManager
+    .onKbdEvent and .onMouseEvent (both input context). Mouse events fire
+    many times per second during normal play, so latency between enqueue and
+    paint is typically a single frame. If the player is fully idle (no
+    keyboard or mouse activity), the queue drains at the next input event or
+    at turn boundary -- still no worse than current behavior.
+
+    This function is a hot path. Keep it cheap and silent.
+    """
+    try:
+        if not _pending_input_renders:
+            return
+        # Pop locally to avoid mutating during iteration in case render
+        # re-enters somehow.
+        pending = _pending_input_renders[:]
+        del _pending_input_renders[:]
+        for speaker_id, text, target_id in pending:
+            try:
+                _do_render_local_line(speaker_id, text, target_id)
+            except Exception, exc:
+                _log("drain: render error: " + str(exc))
+    except Exception, exc:
+        try:
+            _log("drain: outer error: " + str(exc))
+        except Exception:
+            pass
+
+
 def _render_local_line(speaker_id, text, target_id=-1):
-    """Render a chatter line in the local event log via addMessage with the
-    speaker's leader portrait. Prefixes the line with the leader's name so
-    attribution is unmissable (the engine's eColor param doesn't reliably
-    tint message-log text in BTS, so we lean on the prefix instead).
+    """Public entry: enqueue a render for next input-context drain.
+
+    See `chatter_drain_input_renders` for the rationale on why the actual
+    addMessage call is deferred. Callers (chatter_on_update via
+    _drain_display_queue, onModNetMessage chunk assembly) keep their existing
+    invocation pattern -- only the timing of the resulting paint changes.
+    """
+    try:
+        _pending_input_renders.append((int(speaker_id), text, int(target_id)))
+        _log("render: queued for input-context drain"
+             + " speaker=" + str(speaker_id)
+             + " target=" + str(target_id)
+             + " queue_depth=" + str(len(_pending_input_renders)))
+    except Exception, exc:
+        try:
+            _log("render: enqueue error: " + str(exc))
+        except Exception:
+            pass
+
+
+def _do_render_local_line(speaker_id, text, target_id=-1):
+    """Actual render implementation. Must run in input-context to paint
+    mid-turn. Do not call from background ticks -- enqueue via
+    `_render_local_line` instead so the drain happens from onKbdEvent /
+    onMouseEvent.
     """
     try:
         local_player = _gc().getGame().getActivePlayer()
@@ -1917,8 +2050,11 @@ def _render_local_line(speaker_id, text, target_id=-1):
              + " color=" + str(speaker_color)
              + " has_button=" + str(leader_button is not None)
              + " final_len=" + str(len(displayed)))
+        # NOTE on bForce=True: harmless; P1 probe confirmed it has no effect
+        # on paint timing. The actual fix that makes this paint mid-turn is
+        # being called from input-context (the drain function above).
         CyInterface().addMessage(
-            local_player, False, 12, displayed, "",
+            local_player, True, 12, displayed, "",
             message_type, leader_button, speaker_color,
             -1, -1, True, True
         )
@@ -2239,7 +2375,7 @@ def _maybe_queue_chime(data):
 
 def _check_for_responses():
     """Scan spool for response files matching our pending request, ingest, delete."""
-    global _pending_request_id, _active_chat_partner
+    global _pending_request_id, _active_chat_partner, _last_resp_diag_at
     d = _spool_dir()
     if not os.path.isdir(d):
         return
@@ -2248,6 +2384,9 @@ def _check_for_responses():
     except:
         return
     scanned = 0
+    # Throttle "saw file but mismatched" diagnostics to once per 5s.
+    diag_now = time.time()
+    diag_allowed = (diag_now - _last_resp_diag_at) >= 5.0
     for name in names:
         if scanned >= SPOOL_SCAN_LIMIT:
             break
@@ -2259,10 +2398,17 @@ def _check_for_responses():
         path = os.path.join(d, name)
         data = _read_json(path)
         if data is None:
+            if diag_allowed:
+                _log("DIAG resp parse failed: " + name)
+                _last_resp_diag_at = diag_now
+                diag_allowed = False
             continue
         # Filter: must be our session
         if data.get("session_id") != _session_id:
             # Not ours -- delete (probably stale from a previous game)
+            _log("DIAG resp session mismatch file=" + name
+                 + " their_sid=" + str(data.get("session_id"))
+                 + " our_sid=" + str(_session_id) + " -- unlinking")
             _safe_unlink(path)
             continue
         # Filter: must be our pending request
@@ -2270,6 +2416,12 @@ def _check_for_responses():
         if rid != _pending_request_id:
             # Could be a stale response or a response for someone else (impossible
             # in current design but defend). Leave it; janitor will GC.
+            if diag_allowed:
+                _log("DIAG resp rid mismatch file=" + name
+                     + " their_rid=" + str(rid)
+                     + " our_pending=" + str(_pending_request_id))
+                _last_resp_diag_at = diag_now
+                diag_allowed = False
             continue
         # Pre-broadcast recheck: in MP, confirm we are still elector
         # (someone else may have taken over between request emit and response
@@ -2556,13 +2708,42 @@ def chatter_on_update(fDeltaTime):
     """Called from CvEventManager.onUpdate (~30-60 Hz). MUST be cheap."""
     if _disabled:
         return
+    # DIAG: heartbeat once every 5s so we can confirm the tick is alive.
+    try:
+        global _last_diag_heartbeat_at
+        now_t = time.time()
+        if (now_t - _last_diag_heartbeat_at) >= 5.0:
+            _last_diag_heartbeat_at = now_t
+            _log("DIAG on_update tick"
+                 + " pending_rid=" + str(_pending_request_id)
+                 + " disp_q=" + str(len(_display_queue))
+                 + " inp_q=" + str(len(_pending_input_renders)))
+    except:
+        pass
+    # Drain pending input-context renders. Now that USE_ON_UPDATE_CALLBACK=1,
+    # onUpdate fires every frame and is itself a viable paint context (this
+    # was never tested under the old broken setup). Even if addMessage from
+    # here doesn't paint mid-turn, draining here at minimum ensures the
+    # message is queued in Civ4's message scroll so it shows up at the next
+    # paint opportunity (matching old turn-boundary behavior, no worse).
+    if _pending_input_renders:
+        try:
+            chatter_drain_input_renders()
+        except Exception, exc:
+            try:
+                _log("DIAG on_update drain exception: " + str(exc))
+            except:
+                pass
     if not _display_queue and _pending_request_id is None:
-        return  # nothing to do
+        return  # nothing else to do
     try:
         _check_for_responses()
         _drain_display_queue()
-    except:
-        pass
+    except Exception, exc:
+        try:
+            _log("DIAG on_update exception: " + str(exc))
+        except:
+            pass
 
 
 def chatter_on_mod_net_message(iData1, iData2, iData3, iData4, iData5):
