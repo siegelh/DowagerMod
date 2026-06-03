@@ -145,3 +145,30 @@ class VoicePicker:
     def pick_voice(self, leader_name: str, *, gender_hint: str = "") -> str:
         """Backwards-compat: return just the voice name (no prosody)."""
         return self.pick_spec(leader_name, gender_hint=gender_hint).voice
+
+    def pick_random_spec(self, *, rng=None) -> VoiceSpec:
+        """Pick a uniformly random VoiceSpec from the loaded leader map.
+
+        Falls back to the default voice if the map is empty or unloaded.
+        Pass ``rng`` (a ``random.Random`` instance) for deterministic tests;
+        otherwise the module-level ``random`` is used.
+        """
+        import random as _random
+        r = rng or _random
+        if not self._loaded or not self._map:
+            return VoiceSpec(voice=self.default_voice)
+        keys = list(self._map.keys())
+        for _ in range(5):
+            k = r.choice(keys)
+            spec = _parse_entry(self._map[k], self.default_voice)
+            if spec is not None:
+                return spec
+        return VoiceSpec(voice=self.default_voice)
+
+    def random_leader_name(self, *, rng=None) -> str:
+        """Pick a random leader (normalized) name from the loaded map."""
+        import random as _random
+        r = rng or _random
+        if not self._loaded or not self._map:
+            return ""
+        return r.choice(list(self._map.keys()))

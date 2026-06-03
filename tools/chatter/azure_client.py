@@ -14,31 +14,50 @@ from dataclasses import dataclass
 from typing import List, Optional
 
 
-# Fallback canned lines for when the model refuses or fails. Speaker-agnostic
-# (they fit any leader) and intentionally short. Used by the daemon to
-# substitute for refusals so the user sees *something* rather than silence.
+# Fallback canned lines for when the model refuses or fails. Used by the
+# daemon (and by the game on non-ok responses) so the user sees *something*
+# rather than silence.
+#
+# CRITICAL: These render in-game as if the leader is speaking, so they MUST
+# be first-person dialogue. Third-person stage directions like
+# "{speaker} offers {target} a thin smile" produce the bizarre effect of a
+# leader narrating themselves. {target} is interpolated as the addressee's
+# name so it reads like the leader actually speaking *to* them.
 FALLBACK_DIRECTED = [
-    "{speaker} regards {target} in pointed silence.",
-    "{speaker} pauses, then turns away from {target}.",
-    "{speaker} offers {target} only a thin, unreadable smile.",
-    "{speaker} considers {target} for a long moment without speaking.",
+    "...",
+    "I have nothing to say to you, {target}.",
+    "Some words are better left unspoken.",
+    "Save your breath, {target}.",
+    "Hmph.",
+    "Not now, {target}.",
+    "We will speak another time.",
 ]
 
 FALLBACK_BROADCAST = [
-    "{speaker} surveys the world in measured silence.",
-    "{speaker} lets the moment speak for itself.",
-    "{speaker} accepts the day's news with the calm of an empire.",
+    "...",
+    "The world will know my answer in time.",
+    "I keep my own counsel.",
+    "Let others speak first.",
+    "Hmph.",
 ]
 
 
 def fallback_line(speaker_name: str, target_name: str = "", broadcast: bool = False) -> str:
-    """Pick a canned fallback line. Never raises."""
+    """Pick a canned fallback line. Never raises.
+
+    Always first-person dialogue (no third-person narration of the speaker).
+    """
     pool = FALLBACK_BROADCAST if broadcast else FALLBACK_DIRECTED
     tmpl = random.choice(pool)
     try:
-        return tmpl.format(speaker=speaker_name or "The leader", target=target_name or "the rival")
+        # {speaker} kept in the signature for back-compat but no longer used
+        # in templates; first-person dialogue doesn't need the speaker name.
+        return tmpl.format(
+            speaker=speaker_name or "",
+            target=target_name or "you",
+        )
     except Exception:
-        return "The leader is silent."
+        return "..."
 
 
 class AuthError(Exception):

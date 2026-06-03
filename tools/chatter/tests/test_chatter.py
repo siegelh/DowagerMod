@@ -846,8 +846,12 @@ class TestDaemonProcessRequest(unittest.TestCase):
         self.assertTrue(resp["ok"])
         self.assertEqual(len(resp["lines"]), 1)
         text = resp["lines"][0]["text"]
-        # Canned fallbacks reference the speaker name and are short.
-        self.assertIn("Victoria", text)
+        # Fallbacks are first-person dialogue, short, and never contain the
+        # refusal text. Anything non-empty that isn't the refusal is a pass.
+        self.assertTrue(text and text.strip())
+        self.assertNotIn("sorry", text.lower())
+        self.assertNotIn("cannot assist", text.lower())
+        self.assertLess(len(text), 120)
 
     def test_auth_error_trips_breaker(self):
         client = self._fake_client(auth=True)

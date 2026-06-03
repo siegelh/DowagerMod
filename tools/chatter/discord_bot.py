@@ -64,6 +64,7 @@ class DiscordBotWorker:
         self._voice_client = None
         self._ready_event = threading.Event()
         self._stop_event = threading.Event()
+        self._message_handler = None  # set via set_message_handler
 
     # ---------- public, thread-safe API ----------
 
@@ -76,10 +77,36 @@ class DiscordBotWorker:
     def is_ready(self) -> bool:
         return self._ready_event.is_set()
 
+    def is_playing(self) -> bool:
+        """True iff the bot has an active voice client currently playing audio."""
+        vc = self._voice_client
+        try:
+            return bool(vc and vc.is_connected() and vc.is_playing())
+        except Exception:
+            return False
+
+    def queue_size(self) -> int:
+        """Number of audio items waiting in the playback queue (excludes the one currently playing)."""
+        try:
+            return self._audio_q.qsize()
+        except Exception:
+            return 0
+
     def enqueue_audio(self, path: Path) -> None:
         if self._stop_event.is_set():
             return
         self._audio_q.put(path)
+
+    def set_message_handler(self, handler) -> None:
+        """Register a callback fired whenever a user @mentions the bot or DMs it.
+
+        Signature: ``handler(text: str, author_name: str, author_id: int, is_dm: bool) -> None``
+
+        Called on the bot's asyncio thread. The handler must be fast and
+        non-blocking — schedule any synth/IO on a background thread itself.
+        Exceptions are caught and logged.
+        """
+        self._message_handler = handler
 
     def stop(self) -> None:
         self._stop_event.set()
@@ -105,6 +132,10 @@ class DiscordBotWorker:
         intents = discord.Intents.default()
         intents.guilds = True
         intents.voice_states = True
+        intents.messages = True
+        # NOTE: message_content is a privileged intent and is NOT required
+        # for our use case — Discord delivers full content for messages that
+        # mention the bot or are DMs to it, even without the intent.
         client = discord.Client(intents=intents)
         self._client = client
 
@@ -112,6 +143,38 @@ class DiscordBotWorker:
         async def on_ready():
             self.logger.info("discord bot ready as %s", client.user)
             await self._connect_voice_and_drain(discord)
+
+        @client.event
+        async def on_message(msg):
+            try:
+                # Ignore the bot's own messages and other bots
+                if msg.author.id == client.user.id or getattr(msg.author, "bot", False):
+                    return
+                is_dm = msg.guild is None
+                mentioned = False
+                try:
+                    mentioned = client.user in (msg.mentions or [])
+                except Exception:
+                    mentioned = False
+                if not (is_dm or mentioned):
+                    return
+                text = msg.content or ""
+                # Strip the bot mention so we only speak the actual prompt
+                if mentioned:
+                    for mid in (client.user.id,):
+                        text = text.replace("<@%d>" % mid, "").replace("<@!%d>" % mid, "")
+                text = text.strip()
+                if not text:
+                    return
+                handler = self._message_handler
+                if handler is None:
+                    return
+                try:
+                    handler(text, str(msg.author), int(msg.author.id), bool(is_dm))
+                except Exception as exc:  # noqa: BLE001
+                    self.logger.warning("discord bot: message handler raised: %s", exc)
+            except Exception as exc:  # noqa: BLE001
+                self.logger.warning("discord bot: on_message failed: %s", exc)
 
         # Run client until stop_event is set
         loop = asyncio.new_event_loop()

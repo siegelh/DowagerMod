@@ -86,6 +86,22 @@ if ($All) {
     $CheckDll = $true
 }
 
+# Always run Py2.4-compat check on game-side Python. Civ4 BTS uses an
+# embedded Py 2.4 interpreter; constructs like ternary expressions or
+# 'with' statements cause SyntaxError at import time and silently kill
+# CvEventInterface (no logs, no chatter, no nothing).
+try {
+    & python (Join-Path $RepoRoot "tools\check_py24_compat.py")
+    if ($LASTEXITCODE -ne 0) {
+        throw "check_py24_compat.py reported issues (exit $LASTEXITCODE)."
+    }
+    Write-Host "[GATE] Py2.4 compatibility check passed."
+}
+catch {
+    $failed = $true
+    Write-Host "[GATE] Py2.4 compatibility check failed: $($_.Exception.Message)"
+}
+
 if (-not $SkipXml) {
     try {
         if ($All) {

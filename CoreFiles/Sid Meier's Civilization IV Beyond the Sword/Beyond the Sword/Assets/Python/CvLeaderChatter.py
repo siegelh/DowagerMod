@@ -330,9 +330,12 @@ _local_capable_checked_at = 0.0
 _seen_events = {}               # event_dedup_key -> timestamp (for trigger debounce)
 _pair_cooldown = {}             # (a,b) -> game_turn of last exchange (per-pair cooldown)
 _display_queue = []             # list of {due_unix, speaker_id, speaker_name, text}
-_pending_request_id = None      # we have one request in-flight via sidecar at a time
-_pending_request_at = 0.0
-_pending_request_target_id = -1  # target leader for the pending request, or -1 if none
+# In-flight LLM requests, keyed by request_id (rid). Values are dicts with
+# keys: "at" (emit time), "path" (on-disk request file path), "target_id"
+# (the target leader for this request, or -1). Multiple requests may be in
+# flight at once -- chatroom model: events queue alongside each other and
+# the daemon processes them in filename (= emit timestamp) order.
+_pending_requests = {}
 _active_exchange_until = 0.0    # while a multi-line exchange's queue is non-empty
 _global_recent_lines = []       # unix timestamps of recently broadcast lines (for hourly cap)
 _logged_first_run = False       # one-time setup log
@@ -553,6 +556,13 @@ def _log(msg):
                 os.makedirs(d)
             except:
                 return
+        # C9: rotate at 5 MB. Best-effort, never raise.
+        try:
+            p = _chatter_log_path()
+            if os.path.isfile(p) and os.path.getsize(p) >= 5 * 1024 * 1024:
+                _rotate_log(p, 3)
+        except:
+            pass
         f = open(_chatter_log_path(), "a")
         try:
             ts = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -563,10 +573,146 @@ def _log(msg):
         pass
 
 
+def _rotate_log(path, keep):
+    """C9: rotate chatter.log. Best-effort, never raise."""
+    try:
+        for i in range(keep - 1, 0, -1):
+            src = path + "." + str(i)
+            dst = path + "." + str(i + 1)
+            if os.path.isfile(src):
+                try:
+                    if os.path.isfile(dst):
+                        os.remove(dst)
+                except:
+                    pass
+                try:
+                    os.rename(src, dst)
+                except:
+                    pass
+        # Rename current to .1
+        try:
+            dst1 = path + ".1"
+            if os.path.isfile(dst1):
+                try:
+                    os.remove(dst1)
+                except:
+                    pass
+            os.rename(path, dst1)
+        except:
+            pass
+    except:
+        pass
+
+
+def _kv_escape(v):
+    """Format a value for key=val logging. Wrap in quotes if needed.
+
+    Never raises. Returns ASCII str. Non-ASCII unicode becomes '?' chars.
+    """
+    try:
+        if v is None:
+            return "none"
+        # bool before int (bool subclass of int in Py2)
+        if isinstance(v, bool):
+            if v:
+                return "1"
+            return "0"
+    except:
+        pass
+    try:
+        if isinstance(v, (int, long, float)):
+            return str(v)
+    except:
+        try:
+            if isinstance(v, (int, float)):
+                return str(v)
+        except:
+            pass
+    try:
+        if isinstance(v, unicode):
+            s = v.encode("ascii", "replace")
+        else:
+            s = str(v)
+    except:
+        try:
+            s = repr(v)
+        except:
+            return "?"
+    needs_quote = False
+    for ch in s:
+        if ch == " " or ch == "\t" or ch == "\n" or ch == "\r" or ch == '"' or ch == "=":
+            needs_quote = True
+            break
+    if needs_quote:
+        s2 = s.replace("\\", "\\\\").replace('"', '\\"')
+        s2 = s2.replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t")
+        return '"' + s2 + '"'
+    return s
+
+
+def _log_kv(level, phase, rid=None, msg=None, **fields):
+    """Structured kv log line.
+
+    Format: [LEVEL] [phase] rid=... key=val ... -- human msg
+    `_log` prepends [timestamp]. Final line example:
+      [2026-05-11 14:00:00] [INFO] [emit] rid=abc12345 trigger=CHAT_REPLY -- emitted
+
+    Levels: INFO, WARN, ERROR, DEBUG.
+    Phases: init, emit, chat, resolve, llm, drain, render, audio, gc,
+            heartbeat, error, fallback, chain, chime, dump, probe, input.
+
+    Field keys are sorted alphabetically for grep stability. `rid` is
+    always rendered first (after phase) when present.
+
+    Never raises. Falls back to plain _log on any error.
+    """
+    try:
+        lvl = "INFO"
+        try:
+            lvl = str(level or "INFO").upper()
+        except:
+            pass
+        ph = "info"
+        try:
+            ph = str(phase or "info")
+        except:
+            pass
+        parts = ["[" + lvl + "]", "[" + ph + "]"]
+        if rid is not None:
+            try:
+                rs = str(rid)
+            except:
+                rs = "?"
+            if len(rs) > 8:
+                rs = rs[:8]
+            parts.append("rid=" + rs)
+        if fields:
+            keys = list(fields.keys())
+            keys.sort()
+            for k in keys:
+                try:
+                    parts.append(str(k) + "=" + _kv_escape(fields[k]))
+                except:
+                    pass
+        body = " ".join(parts)
+        if msg:
+            try:
+                ms = str(msg)
+            except:
+                ms = "?"
+            body = body + " -- " + ms
+        _log(body)
+    except:
+        try:
+            _log("_log_kv FAILED phase=" + str(phase))
+        except:
+            pass
+
+
 def _disable(reason):
     global _disabled
     _disabled = True
-    _log("DISABLED: " + str(reason))
+    _log_kv("ERROR", "init", msg="DISABLED: " + str(reason))
 
 
 def _gen_uuid():
@@ -655,6 +801,92 @@ def _atomic_write_json(path, payload):
         return True
     except:
         return False
+
+
+# ===== game-side fallback lines =====
+#
+# Used when the daemon returns ok=False so the user always sees *something*.
+# Mirrors tools/chatter/azure_client.py FALLBACK_DIRECTED but is kept here
+# so the game can render without round-tripping a fallback through the
+# daemon. CRITICAL: first-person dialogue only -- third-person stage
+# directions render as if the leader is narrating themselves, which is
+# visually broken.
+_FALLBACK_DIRECTED_WITH_TARGET = [
+    "I have nothing to say to you, %s.",
+    "Save your breath, %s.",
+    "Not now, %s.",
+    "Spare me your words, %s.",
+]
+_FALLBACK_DIRECTED_NO_TARGET = [
+    "...",
+    "Some words are better left unspoken.",
+    "Hmph.",
+    "We will speak another time.",
+    "I have nothing to say.",
+]
+_FALLBACK_BROADCAST = [
+    "...",
+    "The world will know my answer in time.",
+    "I keep my own counsel.",
+    "Let others speak first.",
+    "Hmph.",
+]
+
+
+def _pick_fallback_line(target_name="", broadcast=False):
+    """Pick a first-person fallback line. Never raises.
+
+    target_name is the addressee's leader name (interpolated into %s
+    templates so the line reads as the leader speaking *to* them).
+    broadcast=True picks from the speaker-only pool.
+    """
+    try:
+        if broadcast:
+            return random.choice(_FALLBACK_BROADCAST)
+        if target_name:
+            pool = _FALLBACK_DIRECTED_WITH_TARGET + _FALLBACK_DIRECTED_NO_TARGET
+            tmpl = random.choice(pool)
+            if "%s" in tmpl:
+                try:
+                    return tmpl % str(target_name)
+                except:
+                    return tmpl.replace("%s", str(target_name))
+            return tmpl
+        return random.choice(_FALLBACK_DIRECTED_NO_TARGET)
+    except:
+        return "..."
+
+
+def _synthesize_fallback_response(pending_info, rid):
+    """Build a synthetic response dict carrying a fallback line attributed
+    to the would-be speaker. Caller renders it via _enqueue_response_lines.
+
+    Returns None if pending_info lacks the speaker context needed to
+    attribute a line.
+    """
+    try:
+        speaker_id = int(pending_info.get("speaker_id", -1))
+    except:
+        speaker_id = -1
+    if speaker_id < 0:
+        return None
+    speaker_name = pending_info.get("speaker_name", "?") or "?"
+    target_name = pending_info.get("target_name", "") or ""
+    mode = pending_info.get("mode", "broadcast")
+    text = _pick_fallback_line(target_name=target_name,
+                               broadcast=(mode == "broadcast"))
+    return {
+        "request_id": rid,
+        "ok": True,
+        "trigger": pending_info.get("trigger", ""),
+        "lines": [{
+            "speaker_player_id": speaker_id,
+            "speaker_name": _to_ascii(speaker_name),
+            "text": _to_ascii(text),
+            "delay_ms": 0,
+        }],
+        "is_fallback": True,
+    }
 
 
 def _read_json(path):
@@ -1510,8 +1742,15 @@ def _era_name(player_id):
 
 
 def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
-    """Build + write a request file. Returns request_id on success, None otherwise."""
-    global _pending_request_id, _pending_request_at, _pending_request_target_id, _active_exchange_until
+    """Build + write a request file. Returns request_id on success, None otherwise.
+
+    Chatroom model: requests are NOT gated by other requests already in
+    flight. They queue alongside each other on disk (filename-sorted by
+    emit timestamp) and the daemon processes them sequentially. World
+    events (war, peace, religion founded) join the conversation rather
+    than preempt it.
+    """
+    global _pending_requests, _active_exchange_until
 
     if _disabled:
         _log("emit " + trigger + " gated: disabled")
@@ -1548,23 +1787,56 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
              + str(int(age)) + "s/" + str(window) + "s")
         return None
 
-    # Allow only one in-flight at a time -- UNLESS the new trigger is
-    # high-priority, in which case it preempts the pending request.
-    # The pending response may still arrive and render later; that's
-    # acceptable -- the important chatter goes through immediately.
-    if _pending_request_id is not None:
-        if is_high_priority:
-            _log("preempting pending request " + str(_pending_request_id)
-                 + " for HIGH-priority trigger " + trigger)
-            _pending_request_id = None
-        else:
-            # If pending is older than 30s, drop it (sidecar must be slow/dead)
-            if (_now() - _pending_request_at) > 30.0:
-                _log("dropping stale pending request " + str(_pending_request_id))
-                _pending_request_id = None
+    # Garbage-collect any pending entries whose request files are older
+    # than 60s -- their response was lost, the daemon dropped them, or
+    # the daemon is dead. Stop tracking them so the in-flight set doesn't
+    # grow forever.
+    #
+    # We use os.path.getmtime() rather than the stored "at" field because
+    # Civ4 BTS Py2.4's time.time() is quantized to 128-second buckets
+    # (~64s skew per request). File mtime is set by the OS at write time
+    # and is accurate. See plan B2.
+    if _pending_requests:
+        now = _now()
+        stale = []
+        ages = {}
+        for srid, info in _pending_requests.items():
+            path = info.get("path", "")
+            mtime = 0.0
+            try:
+                if path:
+                    mtime = os.path.getmtime(path)
+            except:
+                # File gone -- daemon ate it; safe to GC.
+                mtime = 0.0
+            if mtime > 0.0:
+                age = now - mtime
             else:
-                _log("emit " + trigger + " gated: pending request " + str(_pending_request_id) + " in flight")
-                return None
+                # No mtime available (file deleted). Fall back to stored
+                # quantized "at" with a 2x window so we don't GC too eagerly.
+                age = now - float(info.get("at", 0.0))
+            ages[srid] = age
+            # C6: auto-dump on pending > 30s with no response yet.
+            # This fires once per stale request because we GC at 60s.
+            if 30.0 < age <= 60.0 and not info.get("dumped_30s"):
+                info["dumped_30s"] = True
+                _auto_state_dump(
+                    "pending_30s",
+                    rid=srid,
+                    trigger=info.get("trigger", "?"),
+                    age_s=("%.1f" % age),
+                )
+            if age > 60.0:
+                stale.append(srid)
+        for srid in stale:
+            info = _pending_requests.pop(srid, None)
+            age = ages.get(srid, 0.0)
+            _log_kv("WARN", "gc", rid=srid,
+                    trigger=(info or {}).get("trigger", "?"),
+                    age_s=("%.1f" % age),
+                    msg="stale pending request; daemon lost or dead")
+            if info and info.get("path"):
+                _safe_unlink(info["path"])
 
     if DROP_NEW_WHILE_QUEUE_ACTIVE and _display_queue and not is_high_priority:
         _log("emit " + trigger + " gated: display_queue size=" + str(len(_display_queue)))
@@ -1655,18 +1927,35 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
     fname = "req-" + ts + "-" + rand6 + ".json"
     path = os.path.join(_spool_dir(), fname)
     if not _atomic_write_json(path, payload):
-        _log("failed to write request " + fname)
+        _log_kv("ERROR", "emit", trigger=trigger, file=fname,
+                msg="failed to write request")
         return None
 
-    _pending_request_id = rid
-    _pending_request_at = _now()
     try:
         if target_id is None:
-            _pending_request_target_id = -1
+            tid_int = -1
         else:
-            _pending_request_target_id = int(target_id)
+            tid_int = int(target_id)
     except:
-        _pending_request_target_id = -1
+        tid_int = -1
+    if speaker:
+        spk_name = speaker.get("leader_name", "")
+    else:
+        spk_name = ""
+    if target:
+        tgt_name = target.get("leader_name", "")
+    else:
+        tgt_name = ""
+    _pending_requests[rid] = {
+        "at": _now(),
+        "path": path,
+        "target_id": tid_int,
+        "trigger": trigger,
+        "speaker_id": int(speaker_id),
+        "speaker_name": spk_name,
+        "target_name": tgt_name,
+        "mode": _mode,
+    }
     _last_trigger_emit_at[trigger] = _now()
     _record_pair_exchange(speaker_id, target_id)
     # Fresh non-chain trigger -> new conversation, fresh chime/chain budget.
@@ -1681,22 +1970,47 @@ def _emit_request(trigger, speaker_id, target_id, extra_context, multi_turn):
         global _chain_depth, _last_chime_pid
         _chain_depth = 0
         _last_chime_pid = -1
-    _log("emitted " + trigger + " req=" + rid + " multi=" + str(multi))
+    # Capture actual file mtime (real wall clock) for the emit log -- the
+    # `issued_at_unix` payload field is bucketed to 128s by Civ4 Py2.4's
+    # time.time() and is misleading. mtime here is whatever the OS stamped
+    # when _atomic_write_json renamed the file.
+    try:
+        emit_mtime = os.path.getmtime(path)
+    except:
+        emit_mtime = 0.0
+    spk_id_int = -1
+    if speaker_id is not None:
+        spk_id_int = int(speaker_id)
+    _log_kv("INFO", "emit",
+            rid=rid,
+            trigger=trigger,
+            speaker_id=spk_id_int,
+            speaker_name=spk_name,
+            target_id=tid_int,
+            target_name=tgt_name,
+            multi=multi,
+            n_lines=n_lines,
+            in_flight=len(_pending_requests),
+            mtime=("%.3f" % emit_mtime),
+            msg="request emitted")
     return rid
 
 
 # ===== display =====
 
-def _enqueue_response_lines(response):
-    """Take a parsed response dict and append its lines to the display queue."""
+def _enqueue_response_lines(response, target_id=-1):
+    """Take a parsed response dict and append its lines to the display queue.
+
+    target_id is the originating request's target leader (looked up from
+    the pending-request dict by the caller). It is stamped onto every
+    line so wire format can carry it to receivers.
+    """
     global _active_exchange_until
     lines = response.get("lines") or []
     if not lines:
         return
-    # Stamp target_id (from the originating request) onto every line so
-    # _broadcast_line / wire format can carry it through to receivers.
     try:
-        response_target_id = int(_pending_request_target_id)
+        response_target_id = int(target_id)
     except:
         response_target_id = -1
     cumulative_delay = 0
@@ -2466,6 +2780,117 @@ def _auto_fire_state_dump():
     _log("state_dump: auto-fire wrote " + str(path))
 
 
+# C6: auto state-dump on failure conditions. Throttled, pruned.
+_auto_dump_recent = []
+_AUTO_DUMP_MIN_INTERVAL = 10.0   # seconds between auto-dumps
+_AUTO_DUMP_KEEP = 20             # max files in state-dumps/ before pruning
+
+
+def _auto_state_dump(reason, rid=None, **fields):
+    """Fire a tagged state snapshot to spool/state-dumps/.
+
+    Best-effort, never raises. Rate-limited to once per 10 seconds so a
+    cascading failure doesn't fill the disk. Keeps the last 20 dumps.
+
+    Fired from:
+      - non-ok response received (reason='nonok_response')
+      - request pending > 30s (reason='pending_30s')
+      - daemon heartbeat stale > 2 min (reason='heartbeat_stale') -- future
+    """
+    global _auto_dump_recent
+    try:
+        now = time.time()
+        # Throttle: drop old entries, then check distance from last.
+        _auto_dump_recent = [t for t in _auto_dump_recent if (now - t) < 60.0]
+        if _auto_dump_recent:
+            last = _auto_dump_recent[-1]
+            if (now - last) < _AUTO_DUMP_MIN_INTERVAL:
+                _log_kv("DEBUG", "dump", rid=rid, reason=reason,
+                        msg="auto-dump throttled (interval)")
+                return
+        _auto_dump_recent.append(now)
+        # Resolve active player
+        try:
+            active_pid = int(_gc().getGame().getActivePlayer())
+        except:
+            active_pid = -1
+        payload = _dump_state_snapshot(active_pid)
+        try:
+            payload["auto_dump_reason"] = str(reason)
+            if rid is not None:
+                payload["auto_dump_rid"] = str(rid)
+            if fields:
+                for k in sorted(fields.keys()):
+                    try:
+                        payload["auto_dump_" + str(k)] = str(fields[k])
+                    except:
+                        pass
+        except:
+            pass
+        # Write to spool/state-dumps/<ts>-<rid>-<reason>.json
+        d = os.path.join(_spool_dir(), "state-dumps")
+        try:
+            os.makedirs(d)
+        except:
+            pass
+        ts = time.strftime("%Y%m%dT%H%M%S")
+        rid_part = "norid"
+        if rid is not None:
+            try:
+                rs = str(rid)
+                if len(rs) > 8:
+                    rid_part = rs[:8]
+                else:
+                    rid_part = rs
+            except:
+                pass
+        safe_reason = str(reason).replace("/", "_").replace("\\", "_").replace(" ", "_")
+        fname = ts + "-" + rid_part + "-" + safe_reason + ".json"
+        path = os.path.join(d, fname)
+        try:
+            f = open(path, "w")
+            try:
+                f.write(_json_dumps(payload))
+            finally:
+                f.close()
+        except Exception, exc:
+            try:
+                _log_kv("WARN", "dump", rid=rid, reason=reason,
+                        msg="auto-dump write failed: " + str(exc))
+            except:
+                pass
+            return
+        # Prune to last _AUTO_DUMP_KEEP files.
+        try:
+            entries = []
+            for fn in os.listdir(d):
+                if fn.endswith(".json"):
+                    fp = os.path.join(d, fn)
+                    try:
+                        mt = os.path.getmtime(fp)
+                    except:
+                        mt = 0
+                    entries.append((mt, fp))
+            if len(entries) > _AUTO_DUMP_KEEP:
+                entries.sort()
+                drop_count = len(entries) - _AUTO_DUMP_KEEP
+                for _, p in entries[:drop_count]:
+                    try:
+                        os.remove(p)
+                    except:
+                        pass
+        except:
+            pass
+        _log_kv("INFO", "dump", rid=rid, reason=reason, file=fname,
+                msg="auto-dump wrote")
+    except Exception, exc:
+        try:
+            _log_kv("WARN", "dump", rid=rid, reason=reason,
+                    msg="auto-dump THREW: " + str(exc))
+        except:
+            pass
+
+
 _pending_input_renders = []
 
 
@@ -2909,8 +3334,9 @@ def _maybe_queue_chime(data):
 
 
 def _check_for_responses():
-    """Scan spool for response files matching our pending request, ingest, delete."""
-    global _pending_request_id, _active_chat_partner, _last_resp_diag_at
+    """Scan spool for response files matching pending requests, ingest, delete."""
+    global _pending_requests
+    global _active_chat_partner, _last_resp_diag_at
     d = _spool_dir()
     if not os.path.isdir(d):
         return
@@ -2918,6 +3344,10 @@ def _check_for_responses():
         names = os.listdir(d)
     except:
         return
+    # Sort by filename (= emit timestamp) so multi-pending responses
+    # render in the order they were emitted, not in whatever order the
+    # filesystem returns them.
+    names.sort()
     scanned = 0
     # Throttle "saw file but mismatched" diagnostics to once per 5s.
     diag_now = time.time()
@@ -2933,31 +3363,49 @@ def _check_for_responses():
         path = os.path.join(d, name)
         data = _read_json(path)
         if data is None:
+            # C7: retry-on-parse-fail. If the file is <2s old, the daemon
+            # may still be writing it (atomic rename should prevent this,
+            # but be defensive). Skip silently and try again next tick.
+            try:
+                age = time.time() - os.path.getmtime(path)
+            except:
+                age = 999.0
+            if age < 2.0:
+                continue
+            if age >= 5.0:
+                # Persistently unparseable -- log + unlink so we stop hitting it.
+                _log_kv("WARN", "drain", file=name, age_s=("%.1f" % age),
+                        msg="parse failed; unlinking")
+                _safe_unlink(path)
+                continue
             if diag_allowed:
-                _log("DIAG resp parse failed: " + name)
+                _log_kv("DEBUG", "drain", file=name, age_s=("%.1f" % age),
+                        msg="parse failed; will retry")
                 _last_resp_diag_at = diag_now
                 diag_allowed = False
             continue
         # Filter: must be our session
         if data.get("session_id") != _session_id:
             # Not ours -- delete (probably stale from a previous game)
-            _log("DIAG resp session mismatch file=" + name
-                 + " their_sid=" + str(data.get("session_id"))
-                 + " our_sid=" + str(_session_id) + " -- unlinking")
+            _log_kv("INFO", "drain", file=name,
+                    their_sid=str(data.get("session_id")),
+                    our_sid=str(_session_id),
+                    msg="session mismatch; unlinking")
             _safe_unlink(path)
             continue
-        # Filter: must be our pending request
+        # Filter: must be a response for one of our pending requests
         rid = data.get("request_id")
-        if rid != _pending_request_id:
-            # Could be a stale response or a response for someone else (impossible
-            # in current design but defend). Leave it; janitor will GC.
+        if rid not in _pending_requests:
+            # Could be a stale response or for a request we GC'd. Leave
+            # the file; janitor will GC.
             if diag_allowed:
-                _log("DIAG resp rid mismatch file=" + name
-                     + " their_rid=" + str(rid)
-                     + " our_pending=" + str(_pending_request_id))
+                _log_kv("DEBUG", "drain", rid=rid, file=name,
+                        in_flight=len(_pending_requests),
+                        msg="rid not pending")
                 _last_resp_diag_at = diag_now
                 diag_allowed = False
             continue
+        pending_info = _pending_requests.get(rid) or {}
         # Pre-broadcast recheck: in MP, confirm we are still elector
         # (someone else may have taken over between request emit and response
         # arrival). In SP/hot-seat the response is from THIS machine and we
@@ -2974,17 +3422,23 @@ def _check_for_responses():
                 drop_due_to_election = True
         # SP/hot-seat: we wrote it, we render it. No re-election check.
         if drop_due_to_election:
-            _log("dropping response: no longer elector")
+            _log_kv("WARN", "drain", rid=rid, msg="dropping response: no longer elector")
             _safe_unlink(path)
-            _pending_request_id = None
+            _pending_requests.pop(rid, None)
             continue
         # Process
+        trig = data.get("trigger") or pending_info.get("trigger") or "?"
         if data.get("ok"):
-            _enqueue_response_lines(data)
+            lines = data.get("lines") or []
+            _log_kv("INFO", "drain", rid=rid, trigger=trig,
+                    lines=len(lines), ok=True, msg="response received")
+            _enqueue_response_lines(
+                data,
+                target_id=pending_info.get("target_id", -1),
+            )
             # CHAT_REPLY: refresh the active-partner pointer so the human
             # can keep talking with no-name follow-ups inside the idle window.
             if data.get("trigger") == "CHAT_REPLY":
-                lines = data.get("lines") or []
                 if lines:
                     speaker_pid = int(lines[0].get("speaker_player_id", -1))
                     if speaker_pid >= 0:
@@ -3000,14 +3454,39 @@ def _check_for_responses():
             # chain continuation).
             _maybe_queue_chime(data)
         else:
-            _log("dropping non-ok response: " + str(data.get("error", "?")))
+            err = str(data.get("error", "?"))
+            # C6: auto state-dump on non-ok response so we can debug the
+            # full game state at the moment the leader refused.
+            _auto_state_dump("nonok_response", rid=rid, reason=err, trigger=trig)
+            # Synthesize a fallback line so the user always sees something
+            # (instead of typing into the void). First-person dialogue
+            # attributed to the would-be speaker. Auth/api failures still
+            # render so the user isn't left wondering whether their input
+            # was even received.
+            synth = _synthesize_fallback_response(pending_info, rid)
+            if synth is not None:
+                _enqueue_response_lines(
+                    synth,
+                    target_id=pending_info.get("target_id", -1),
+                )
+                fb_text = ""
+                try:
+                    fb_text = synth["lines"][0]["text"]
+                except:
+                    pass
+                _log_kv("INFO", "fallback", rid=rid, reason=err, trigger=trig,
+                        text=fb_text[:80], msg="rendered fallback line")
+                # CHAT_REPLY fallback still refreshes active partner so the
+                # human can keep talking; we did "respond" from the leader.
+                if pending_info.get("trigger") == "CHAT_REPLY":
+                    spk = pending_info.get("speaker_id", -1)
+                    if spk is not None and int(spk) >= 0:
+                        _active_chat_partner = (int(spk), _now())
+            else:
+                _log_kv("WARN", "fallback", rid=rid, reason=err,
+                        msg="no speaker context; dropping silently")
         _safe_unlink(path)
-        if _pending_request_id == rid:
-            _pending_request_id = None
-        else:
-            _log("chain/chime emitted new pending="
-                 + str(_pending_request_id)
-                 + "; not clearing (was " + str(rid) + ")")
+        _pending_requests.pop(rid, None)
 
 
 # ===== state machine: tick / reset / capability =====
@@ -3015,8 +3494,7 @@ def _check_for_responses():
 def _full_reset(reason):
     global _session_id, _local_player_id, _capable_humans, _local_capable
     global _local_capable_checked_at, _seen_events, _pair_cooldown
-    global _display_queue, _pending_request_id, _pending_request_at
-    global _pending_request_target_id
+    global _display_queue, _pending_requests
     global _active_exchange_until, _global_recent_lines, _logged_first_run
     global _no_elector_diag_fired, _no_elector_first_seen_turn
     global _pending_lines, _next_msg_id
@@ -3038,9 +3516,7 @@ def _full_reset(reason):
     _pair_cooldown = {}
     while _display_queue:
         _display_queue.pop(0)
-    _pending_request_id = None
-    _pending_request_at = 0.0
-    _pending_request_target_id = -1
+    _pending_requests = {}
     _active_exchange_until = 0.0
     while _global_recent_lines:
         _global_recent_lines.pop()
@@ -3246,16 +3722,45 @@ def chatter_on_update(fDeltaTime):
     """Called from CvEventManager.onUpdate (~30-60 Hz). MUST be cheap."""
     if _disabled:
         return
-    # DIAG: heartbeat once every 5s so we can confirm the tick is alive.
+    # C8: structured heartbeat once a minute so chatter.log doesn't get
+    # spammed by per-5s heartbeat lines. The 5s heartbeat was useful during
+    # debug; for production we just need to know the tick is alive plus
+    # current in-flight/queue depths. Set CHATTER_HEARTBEAT_SECONDS=5 in
+    # env to restore the chatty version for debugging.
     try:
         global _last_diag_heartbeat_at
         now_t = time.time()
-        if (now_t - _last_diag_heartbeat_at) >= 5.0:
+        try:
+            hb_interval = float(os.environ.get("CHATTER_HEARTBEAT_SECONDS", "60"))
+        except:
+            hb_interval = 60.0
+        if (now_t - _last_diag_heartbeat_at) >= hb_interval:
             _last_diag_heartbeat_at = now_t
-            _log("DIAG on_update tick"
-                 + " pending_rid=" + str(_pending_request_id)
-                 + " disp_q=" + str(len(_display_queue))
-                 + " inp_q=" + str(len(_pending_input_renders)))
+            # Daemon liveness check: how stale is the daemon pid file?
+            daemon_age = -1.0
+            try:
+                pid_path = _daemon_pid_path()
+                if os.path.isfile(pid_path):
+                    daemon_age = now_t - os.path.getmtime(pid_path)
+            except:
+                pass
+            if daemon_age >= 0:
+                daemon_age_s_val = "%.1f" % daemon_age
+            else:
+                daemon_age_s_val = "missing"
+            _log_kv("INFO", "heartbeat",
+                    in_flight=len(_pending_requests),
+                    disp_q=len(_display_queue),
+                    inp_q=len(_pending_input_renders),
+                    daemon_age_s=daemon_age_s_val,
+                    msg="alive")
+            # C6: auto-dump if daemon heartbeat is missing/stale > 2 min.
+            try:
+                if daemon_age >= 120.0:
+                    _auto_state_dump("heartbeat_stale",
+                                     daemon_age_s=("%.1f" % daemon_age))
+            except:
+                pass
     except:
         pass
     # State-dump auto-fire: write state_dump.json once per session, ~3s after
@@ -3293,7 +3798,7 @@ def chatter_on_update(fDeltaTime):
                 _log("DIAG on_update drain exception: " + str(exc))
             except:
                 pass
-    if not _display_queue and _pending_request_id is None:
+    if not _display_queue and not _pending_requests:
         return  # nothing else to do
     try:
         _check_for_responses()
@@ -4002,22 +4507,20 @@ def chatter_on_chat(szString):
         # chrome); the daemon falls back to target.human_name.
         typer_name, body = _parse_chat_chrome(raw)
         text = body.strip()
-        _log("chat recv: raw=" + raw[:80] + " typer=" + str(typer_name)
-             + " stripped=" + text[:60])
         if not text:
-            _log("chat: empty after strip; ignoring")
+            _log_kv("DEBUG", "chat", typer=str(typer_name), msg="empty after strip; ignoring")
             return
         # Anti-feedback: ignore messages that look like our own echoed lines.
         if _looks_like_our_echo(text):
-            _log("chat: ignoring own echo: " + text[:60])
+            _log_kv("DEBUG", "chat", text=text[:60], msg="ignoring own echo")
             return
         # Anti-double-fire: drop only if the EXACT same text arrives within
         # CHAT_DUPLICATE_GUARD_SECONDS. Different messages always pass.
         now = _now()
         if (text.lower() == _last_chat_emit_text
                 and (now - _last_chat_emit_at) < CHAT_DUPLICATE_GUARD_SECONDS):
-            _log("chat: duplicate within " + str(CHAT_DUPLICATE_GUARD_SECONDS)
-                 + "s; ignoring: " + text[:60])
+            _log_kv("DEBUG", "chat", text=text[:60],
+                    guard_s=CHAT_DUPLICATE_GUARD_SECONDS, msg="duplicate; ignoring")
             return
 
         # Resolve which leader the human is addressing.
@@ -4026,30 +4529,45 @@ def chatter_on_chat(szString):
         if _active_chat_partner is not None:
             partner_pid = _active_chat_partner[0]
             idle = now - _active_chat_partner[1]
-        _log("chat: resolving leader text=" + text[:40]
-             + " partner=" + str(partner_pid) + " idle=" + str(int(idle)))
         try:
             leader_id, why = _resolve_addressed_leader(text, partner_pid, idle)
         except Exception, exc:
-            _log("chat: resolve THREW: " + str(exc))
+            _log_kv("ERROR", "resolve", text=text[:40],
+                    partner=partner_pid, idle_s=int(idle),
+                    msg="resolve THREW: " + str(exc))
             return
-        _log("chat: resolve result leader_id=" + str(leader_id) + " why=" + str(why))
+        # C4: consolidated one-line resolve trace. Grep "[resolve]" to see
+        # every chat resolution attempt with inputs and outcome.
+        if why:
+            why_str = str(why)
+        else:
+            why_str = "no_match"
+        _log_kv("INFO", "resolve",
+                text=text[:60],
+                typer=str(typer_name),
+                partner=partner_pid,
+                idle_s=int(idle),
+                picked_pid=leader_id,
+                why=why_str,
+                msg="chat resolution")
         if leader_id is None:
-            _log("chat: no leader matched; ignoring: " + text[:60])
             return
 
         # Reject if the resolved leader is dead.
         try:
             if not _gc().getPlayer(leader_id).isAlive():
-                _log("chat: resolved leader pid=" + str(leader_id) + " is dead; ignoring")
+                _log_kv("WARN", "resolve", picked_pid=leader_id,
+                        msg="resolved leader is dead; ignoring")
                 _active_chat_partner = None
                 return
         except Exception, exc:
-            _log("chat: alive-check THREW for pid=" + str(leader_id) + ": " + str(exc))
+            _log_kv("ERROR", "resolve", picked_pid=leader_id,
+                    msg="alive-check THREW: " + str(exc))
             return
 
         if _local_player_id < 0:
-            _log("chat: local_player_id=" + str(_local_player_id) + "; ignoring (no init?)")
+            _log_kv("WARN", "chat", local_player_id=_local_player_id,
+                    msg="ignoring (no init?)")
             return
 
         # Pivot detection: if the human just shifted from one AI leader

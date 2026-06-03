@@ -22,6 +22,7 @@ was already added to the room when the prior leader spoke.
 from __future__ import annotations
 
 import json
+import os
 import random
 from typing import Optional, Tuple
 
@@ -184,23 +185,38 @@ def handle_chat_reply(*, request: dict, store: RoomStore,
             request.get("request_id"), leader_id, leader_name, from_human,
             "1" if chain_reply else "0", session_id[:12], len(history), rs_size,
         )
-        # ROOM_DEBUG: dump raw JSON + rendered preface so we can audit
-        # what the LLM is actually seeing. Grep daemon.log for ROOM_DEBUG.
+        # C3: full preface logging is now gated behind CHATTER_LOG_PROMPT=1
+        # (was unconditionally producing ~600KB of daemon.log per session).
+        # Default: log roster/relations counts only. Set env to dump raw +
+        # rendered preface for debugging.
+        log_prompt = os.environ.get("CHATTER_LOG_PROMPT", "").strip().lower() in ("1", "true", "yes", "on")
         if room_state is not None:
+            rel_count = 0
             try:
-                rs_json = json.dumps(room_state, indent=2, sort_keys=True)
-            except (TypeError, ValueError):
-                rs_json = repr(room_state)
-            logger.info("ROOM_DEBUG raw rid=%s json:\n%s",
-                        request.get("request_id"), rs_json)
-            try:
-                preface = _format_room_state_block(room_state, leader_name)
-            except Exception as exc:  # noqa: BLE001
-                preface = "<preface render failed: %s>" % (exc,)
-            logger.info("ROOM_DEBUG preface rid=%s:\n%s",
-                        request.get("request_id"),
-                        preface or "<empty preface>")
-        else:
+                rel = room_state.get("relations") or []
+                rel_count = len(rel) if isinstance(rel, list) else 0
+            except Exception:
+                pass
+            logger.info(
+                "ROOM_DIGEST rid=%s roster=%d relations=%d log_prompt=%d",
+                request.get("request_id"), rs_size, rel_count,
+                1 if log_prompt else 0,
+            )
+            if log_prompt:
+                try:
+                    rs_json = json.dumps(room_state, indent=2, sort_keys=True)
+                except (TypeError, ValueError):
+                    rs_json = repr(room_state)
+                logger.info("ROOM_DEBUG raw rid=%s json:\n%s",
+                            request.get("request_id"), rs_json)
+                try:
+                    preface = _format_room_state_block(room_state, leader_name)
+                except Exception as exc:  # noqa: BLE001
+                    preface = "<preface render failed: %s>" % (exc,)
+                logger.info("ROOM_DEBUG preface rid=%s:\n%s",
+                            request.get("request_id"),
+                            preface or "<empty preface>")
+        elif log_prompt:
             logger.info("ROOM_DEBUG rid=%s: no room_state in ctx",
                         request.get("request_id"))
 

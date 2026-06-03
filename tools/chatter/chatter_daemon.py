@@ -11,6 +11,7 @@ Or via the helper script tools\\Start-Chatter.ps1.
 from __future__ import annotations
 
 import logging
+import logging.handlers
 import os
 import random
 import re
@@ -80,8 +81,14 @@ def _salvage_multi_turn_lines(raw: str) -> list:
 def setup_logging(spool_path: Path, level_name: str) -> logging.Logger:
     spool_path.mkdir(parents=True, exist_ok=True)
     log_path = spool_path / "daemon.log"
-    handler = logging.FileHandler(str(log_path), encoding="utf-8")
-    handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
+    # C9: rotate at 5 MB, keep 3 backups. Was unbounded FileHandler.
+    handler = logging.handlers.RotatingFileHandler(
+        str(log_path), maxBytes=5 * 1024 * 1024, backupCount=3, encoding="utf-8"
+    )
+    handler.setFormatter(logging.Formatter(
+        "[%(asctime)s] [%(levelname)s] %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    ))
     logger = logging.getLogger("chatter")
     logger.setLevel(getattr(logging, level_name.upper(), logging.INFO))
     # Idempotent — clear existing handlers first
@@ -90,6 +97,73 @@ def setup_logging(spool_path: Path, level_name: str) -> logging.Logger:
     logger.addHandler(handler)
     logger.propagate = False
     return logger
+
+
+# C1: structured kv logging helpers. Format mirrors game-side _log_kv so
+# rid=abc12345 grep works across both daemon.log and chatter.log.
+_LOG_LEVELS_NUM = {
+    "DEBUG": logging.DEBUG,
+    "INFO": logging.INFO,
+    "WARN": logging.WARNING,
+    "WARNING": logging.WARNING,
+    "ERROR": logging.ERROR,
+}
+
+
+def _kv_escape(v) -> str:
+    """Format a value for key=val. Wrap in quotes if it contains space/=/quote."""
+    if v is None:
+        return "none"
+    if isinstance(v, bool):
+        return "1" if v else "0"
+    if isinstance(v, (int, float)):
+        return str(v)
+    try:
+        s = str(v)
+    except Exception:
+        try:
+            s = repr(v)
+        except Exception:
+            return "?"
+    if any(ch in s for ch in (" ", "\t", "\n", "\r", '"', "=")):
+        s = s.replace("\\", "\\\\").replace('"', '\\"')
+        s = s.replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t")
+        return '"' + s + '"'
+    return s
+
+
+def log_kv(logger: logging.Logger, level: str, phase: str,
+           rid: Optional[str] = None, msg: Optional[str] = None,
+           **fields) -> None:
+    """Structured kv log line.
+
+    Format: [phase] rid=... key=val ... -- human msg
+
+    The logger's formatter prepends '[ts] [LEVEL]', so the final line is:
+      [2026-05-11 14:00:00] [INFO] [emit] rid=abc12345 trigger=CHAT_REPLY -- ok
+
+    Never raises. Field keys are sorted for grep stability.
+    """
+    try:
+        parts = ["[" + str(phase or "info") + "]"]
+        if rid is not None:
+            rs = str(rid)
+            if len(rs) > 8:
+                rs = rs[:8]
+            parts.append("rid=" + rs)
+        if fields:
+            for k in sorted(fields.keys()):
+                parts.append(str(k) + "=" + _kv_escape(fields[k]))
+        body = " ".join(parts)
+        if msg:
+            body = body + " -- " + str(msg)
+        lvl_num = _LOG_LEVELS_NUM.get((level or "INFO").upper(), logging.INFO)
+        logger.log(lvl_num, body)
+    except Exception:
+        try:
+            logger.info("[error] log_kv failed phase=%s", phase)
+        except Exception:
+            pass
 
 
 def make_response(*, request: dict, ok: bool, lines, error: Optional[str], latency_ms: int = 0,
@@ -181,31 +255,40 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
     builds a multi-turn messages list from the conversation history and asks
     the LLM for a tone-tagged response.
     """
+    rid = request.get("request_id")
+    trig = request.get("trigger") or "?"
     if not breaker.can_call():
-        logger.info("circuit OPEN, dropping request_id=%s", request.get("request_id"))
+        log_kv(logger, "WARN", "llm", rid=rid, trigger=trig,
+               msg="circuit OPEN, dropping")
         return make_response(request=request, ok=False, lines=[], error="circuit_open")
 
     # Live chat reply: route through the dedicated multi-turn handler.
     if request.get("trigger") == "CHAT_REPLY":
         if conversations is None:
-            logger.warning("CHAT_REPLY but no conversation store; dropping request_id=%s",
-                           request.get("request_id"))
+            log_kv(logger, "WARN", "llm", rid=rid, trigger=trig,
+                   msg="CHAT_REPLY but no conversation store; dropping")
             return make_response(request=request, ok=False, lines=[], error="no_chat_store")
         try:
+            t_start = time.time()
             resp, line, tone = handle_chat_reply(
                 request=request, store=conversations, client=client,
                 max_tokens=chat_reply_max_tokens, logger=logger,
             )
+            latency_ms = int((time.time() - t_start) * 1000)
         except Exception as exc:  # noqa: BLE001
             breaker.record_failure()
             logger.exception("chat_reply unexpected: %s", exc)
             return make_response(request=request, ok=False, lines=[], error="unexpected")
         if resp.get("ok"):
             breaker.record_success()
-            logger.info("chat_reply ok rid=%s tone=%s line=%r",
-                        request.get("request_id"), tone, line[:120])
+            log_kv(logger, "INFO", "llm", rid=rid, trigger=trig,
+                   tone=str(tone), latency_ms=latency_ms,
+                   line=line[:80] if line else "",
+                   msg="chat_reply ok")
         else:
             err = resp.get("error") or ""
+            log_kv(logger, "WARN", "llm", rid=rid, trigger=trig,
+                   reason=err, latency_ms=latency_ms, msg="chat_reply not ok")
             if err == "auth_failure":
                 breaker.trip_immediately()
             elif err in ("api_failure", "unexpected"):
@@ -228,6 +311,9 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
         except Exception as exc:  # noqa: BLE001
             logger.warning("native_mode: failed to resolve native langs: %s", exc)
     try:
+        t_start = time.time()
+        log_kv(logger, "INFO", "llm", rid=rid, trigger=trig, multi=multi,
+               native=native_mode, msg="llm_start")
         if multi:
             sys_msg, user_msg = build_multi_turn_prompt(
                 request, native_mode=native_mode,
@@ -241,13 +327,16 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                 speaker_native_lang=speaker_native_lang,
             )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens)
+        latency_ms = int((time.time() - t_start) * 1000)
     except AuthError as exc:
         breaker.trip_immediately()
-        logger.error("auth failure (circuit forced OPEN): %s", exc)
+        log_kv(logger, "ERROR", "llm", rid=rid, trigger=trig,
+               msg="auth failure (circuit forced OPEN): " + str(exc))
         return make_response(request=request, ok=False, lines=[], error="auth_failure")
     except ApiError as exc:
         breaker.record_failure()
-        logger.warning("api failure: %s", exc)
+        log_kv(logger, "WARN", "llm", rid=rid, trigger=trig,
+               msg="api failure: " + str(exc))
         return make_response(request=request, ok=False, lines=[], error="api_failure")
     except Exception as exc:  # noqa: BLE001 — never raise out of process_request
         breaker.record_failure()
@@ -256,10 +345,15 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
 
     breaker.record_success()
     text = api_result.text
+    log_kv(logger, "INFO", "llm", rid=rid, trigger=trig,
+           latency_ms=latency_ms, multi=multi,
+           input_tokens=getattr(api_result, "input_tokens", 0),
+           output_tokens=getattr(api_result, "output_tokens", 0),
+           msg="llm_end")
 
     if looks_like_refusal(text):
-        logger.info("model refused, request_id=%s — substituting fallback line",
-                    request.get("request_id"))
+        log_kv(logger, "WARN", "llm", rid=rid, trigger=trig,
+               msg="model refused; substituting fallback")
         speaker = request.get("speaker") or {}
         target = request.get("target") or {}
         is_broadcast = (request.get("mode") == "broadcast")
@@ -327,8 +421,13 @@ def write_response(spool_path: Path, response: dict, logger: logging.Logger) -> 
     out_path = spool_path / name
     try:
         spool_mod.atomic_write_json(out_path, response)
-        logger.info("wrote response %s ok=%s lines=%d",
-                    name, response.get("ok"), len(response.get("lines") or []))
+        log_kv(logger, "INFO", "write",
+               rid=(response.get("request_id") or ""),
+               file=name,
+               ok=bool(response.get("ok")),
+               lines=len(response.get("lines") or []),
+               error=(response.get("error") or ""),
+               msg="wrote response")
     except Exception as exc:  # noqa: BLE001
         logger.exception("failed to write response %s: %s", name, exc)
 
@@ -416,6 +515,9 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
             voice_channel_id=int(cfg.voiceover.discord_voice_channel_id),
             logger=logger,
         )
+        # Wire the "speak whatever a user types at me" handler.
+        # Triggered when a user @mentions DowagerBot OR DMs her.
+        _install_user_speak_handler(bot, speech_client, voice_picker, spool_path, logger)
         bot.start()
         logger.info(
             "voiceover: Discord bot started guild=%s channel=%s",
@@ -426,6 +528,68 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
         return speech_client, None, voice_picker
 
     return speech_client, bot, voice_picker
+
+
+def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Path, logger: logging.Logger):
+    """Register an on_message handler so users can have DowagerBot speak
+    arbitrary lines in a random leader voice by @mentioning her (or DM'ing).
+
+    - Per-user cooldown to throttle abuse.
+    - Character cap to protect the daily TTS budget.
+    - Heavy work runs in a worker thread so the bot's asyncio loop is free.
+    """
+    import threading as _t
+
+    MAX_CHARS = 240
+    PER_USER_COOLDOWN_SEC = 4.0
+    audio_dir = spool_path / "audio"
+    try:
+        audio_dir.mkdir(parents=True, exist_ok=True)
+    except Exception:
+        pass
+
+    last_spoke = {}  # author_id -> monotonic timestamp
+    lock = _t.Lock()
+
+    def _worker(text: str, author_name: str):
+        try:
+            # Hardcoded thick-accent voice: Hindi voice on English text.
+            voice = "en-IN-PrabhatNeural"
+            rate = ""
+            pitch = ""
+            logger.info(
+                "user-speak: author=%s chars=%d voice=%s rate=%r pitch=%r",
+                author_name, len(text), voice, rate, pitch,
+            )
+            result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
+            ts = int(time.time() * 1000)
+            wav = audio_dir / ("user_speak_%d.wav" % ts)
+            wav.write_bytes(result.audio_bytes)
+            bot.enqueue_audio(wav)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("user-speak: failed to speak for %s: %s", author_name, exc)
+
+    def handler(text: str, author_name: str, author_id: int, is_dm: bool):
+        text = (text or "").strip()
+        if not text:
+            return
+        if len(text) > MAX_CHARS:
+            text = text[:MAX_CHARS]
+        now = time.monotonic()
+        with lock:
+            last = last_spoke.get(author_id, 0.0)
+            if now - last < PER_USER_COOLDOWN_SEC:
+                logger.info("user-speak: cooldown skip author=%s", author_name)
+                return
+            last_spoke[author_id] = now
+        t = _t.Thread(
+            target=_worker, args=(text, author_name),
+            name="UserSpeak", daemon=True,
+        )
+        t.start()
+
+    bot.set_message_handler(handler)
+    logger.info("voiceover: user-speak handler registered (mention or DM the bot)")
 
 
 def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, logger: logging.Logger,
@@ -572,6 +736,9 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
     last_call_at = 0.0
     last_heartbeat = 0.0
     last_gc = 0.0
+    last_struct_hb = 0.0
+    daemon_started_at = time.time()
+    processed_count = 0
 
     while True:
         now = time.time()
@@ -580,6 +747,23 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         if now - last_heartbeat > HEARTBEAT_INTERVAL_SECONDS:
             heartbeat(spool_path, logger)
             last_heartbeat = now
+        # C8: structured heartbeat once a minute for diagnostics.
+        if now - last_struct_hb > 60:
+            try:
+                pending = 0
+                try:
+                    pending = len(list(spool_mod.list_requests(spool_path)))
+                except Exception:
+                    pass
+                log_kv(logger, "INFO", "heartbeat",
+                       uptime_s=int(now - daemon_started_at),
+                       pending=pending,
+                       processed_total=processed_count,
+                       circuit_open=(not breaker.can_call()),
+                       msg="alive")
+            except Exception:
+                pass
+            last_struct_hb = now
         if now - last_gc > 60:
             gc_spool(spool_path, cfg, logger)
             last_gc = now
@@ -595,14 +779,34 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
                 logger.warning("dropping unreadable request: %s", req_path.name)
                 spool_mod.safe_unlink(req_path)
                 continue
-            # TTL check — drop if too old
-            issued = float(request.get("issued_at_unix") or 0)
+            rid = request.get("request_id") or ""
+            trig = request.get("trigger") or "?"
+            # TTL check -- drop if too old.
+            # CRITICAL: do NOT trust request["issued_at_unix"] here. Civ4
+            # BTS Py2.4's time.time() is quantized to 128-second buckets, so
+            # the client clock can be up to ~64s off real wall time per
+            # request. We use os.path.getmtime() of the request file as the
+            # authoritative emit time (same OS, accurate clock, no
+            # quantization). See plan B1.
             ttl = float(request.get("ttl_seconds") or cfg.request_ttl_seconds)
-            if issued and (now - issued) > ttl:
-                logger.info("dropping expired request_id=%s age=%.1fs",
-                            request.get("request_id"), now - issued)
+            try:
+                mtime = req_path.stat().st_mtime
+            except Exception:
+                mtime = 0.0
+            age = (now - mtime) if mtime else 0.0
+            if mtime and age > ttl:
+                client_clock = float(request.get("issued_at_unix") or 0)
+                log_kv(logger, "WARN", "drop", rid=rid, trigger=trig,
+                       age_s=("%.1f" % age),
+                       ttl_s=("%.0f" % ttl),
+                       client_clock_skew_s=("%+.1f" % ((client_clock - mtime) if client_clock else 0.0)),
+                       msg="dropping expired request")
                 spool_mod.safe_unlink(req_path)
                 continue
+
+            log_kv(logger, "INFO", "pickup", rid=rid, trigger=trig,
+                   age_s=("%.1f" % age), file=req_path.name,
+                   msg="picked up request")
 
             # Refresh heartbeat BEFORE the API call so the game-side
             # recheck doesn't see us as stale during a slow call.
@@ -633,6 +837,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
             spool_mod.safe_unlink(req_path)
             last_call_at = time.time()
             processed += 1
+            processed_count += 1
             if processed >= cfg.max_in_flight:
                 break
 
