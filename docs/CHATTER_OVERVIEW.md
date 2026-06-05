@@ -89,7 +89,7 @@ fire in their games unless they also configure their own sidecar.
 | `Chatter\CvLeaderChatter.py`    | ✅ Yes       | `<install>\Beyond the Sword\Assets\Python\Chatter\` |
 | `CvEventManager.py` (with hooks)| ✅ Yes       | `<install>\Beyond the Sword\Assets\Python\` |
 | Sidecar (`tools/chatter/`)      | ❌ No        | Repo only — not installer payload |
-| API key / `config.json`         | ❌ Never     | `%LOCALAPPDATA%\DowagerMod\chatter\` on key holder's machine only |
+| API key / `.env`                | ❌ Never     | `<repo>\.env` on key holder's machine only |
 
 ## Multiplayer model
 

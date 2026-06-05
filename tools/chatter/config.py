@@ -1,15 +1,41 @@
 """Config loader for the DowagerMod Chatter sidecar.
 
-Loads from %LOCALAPPDATA%\\DowagerMod\\chatter\\config.json (per-machine,
-never committed). Env vars override file values for dev/CI use.
+**`.env` is the single source of truth.**
+
+Loading model (side-effect free; never mutates ``os.environ``):
+
+  1. Snapshot ``os.environ`` once at boot. Real shell exports always win
+     so an operator can do ``$env:DOWAGER_CHATTER_LOG_LEVEL='DEBUG'`` for a
+     one-shot debug session without touching ``.env``.
+  2. Find ``.env`` via ``tools.chatter.dotenv.find_dotenv`` (override,
+     repo root, ``tools/chatter/.env``).
+  3. Parse it into a dict.
+  4. Merge: ``DEFAULTS`` → parsed ``.env`` → real-env snapshot.
+
+If ``.env`` is missing the loader still returns a Config populated from
+DEFAULTS so callers (tests, ``Chatter-Status.ps1``) don't crash, but the
+daemon and the PS launcher call ``ensure_env_file()`` first to fail
+loudly with operator guidance -- we never want the daemon to come up
+unauthenticated.
+
+Legacy ``%LOCALAPPDATA%\\DowagerMod\\chatter\\config.json`` is no longer
+read; it's only surfaced via ``legacy_config_path()`` so the daemon and
+``Chatter-Status.ps1`` can warn that an old file is being ignored.
 """
 from __future__ import annotations
 
-import json
 import os
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
+from typing import Dict, Optional, Tuple
+
+from tools.chatter.dotenv import (
+    EnvFileMissingError,
+    ensure_dotenv_file,
+    find_dotenv,
+    parse_dotenv_file,
+)
 
 
 DEFAULTS = {
@@ -59,6 +85,25 @@ DEFAULTS = {
 }
 
 
+# Strings that ``.env.example`` ships with as placeholders. If any one of
+# these is left in ``.env`` we treat the field as un-set (validation
+# rejects, the daemon's ``is_configured`` returns False). Update this set
+# whenever a new ``paste-your-*-here`` placeholder is added to
+# ``.env.example``.
+PLACEHOLDER_VALUES = frozenset({
+    "paste-your-foundry-key-here",
+    "paste-your-speech-key-here",
+    "paste-your-bot-token-here",
+    "paste-your-server-id-here",
+    "paste-your-voice-channel-id-here",
+})
+
+
+def is_placeholder(value: str) -> bool:
+    """True if ``value`` is one of the ``.env.example`` placeholder strings."""
+    return bool(value) and value.strip() in PLACEHOLDER_VALUES
+
+
 @dataclass
 class CircuitBreakerConfig:
     failure_threshold: int = 3
@@ -84,9 +129,13 @@ class VoiceoverConfig:
             self.enabled
             and self.azure_speech_endpoint
             and self.azure_speech_key
+            and not is_placeholder(self.azure_speech_key)
             and self.discord_bot_token
+            and not is_placeholder(self.discord_bot_token)
             and self.discord_guild_id
+            and not is_placeholder(self.discord_guild_id)
             and self.discord_voice_channel_id
+            and not is_placeholder(self.discord_voice_channel_id)
         )
 
     def redacted_speech_key(self) -> str:
@@ -126,6 +175,9 @@ class Config:
     chat_max_history_turns: int = 24
     chat_reply_max_tokens: int = 10000
     voiceover: VoiceoverConfig = field(default_factory=VoiceoverConfig)
+    # Path to the .env file that supplied values, or None if no .env was
+    # found at load time. Populated by load_config(); not user-settable.
+    env_file: Optional[Path] = None
 
     def redacted_api_key(self) -> str:
         if not self.api_key:
@@ -136,12 +188,44 @@ class Config:
 
 
 def config_dir() -> Path:
+    """Per-user, per-machine state dir for chatter (spool, etc.).
+
+    Still used by ``spool_dir()``. The directory itself is fine; we just
+    no longer write a ``config.json`` into it.
+    """
     appdata = os.environ.get("LOCALAPPDATA", str(Path.home() / "AppData" / "Local"))
     return Path(appdata) / "DowagerMod" / "chatter"
 
 
-def config_path() -> Path:
+def legacy_config_path() -> Path:
+    """Path of the deprecated ``config.json`` (pre-.env refactor).
+
+    The file is never read anymore; the daemon and ``Chatter-Status.ps1``
+    use this to surface a one-time IGNORED warning so operators know
+    their old settings are no longer in effect.
+    """
     return config_dir() / "config.json"
+
+
+def legacy_config_exists() -> bool:
+    try:
+        return legacy_config_path().is_file()
+    except OSError:
+        return False
+
+
+def env_path() -> Optional[Path]:
+    """Return the resolved .env path (first existing candidate), or None."""
+    return find_dotenv()
+
+
+def ensure_env_file() -> Path:
+    """Return the .env path or raise ``EnvFileMissingError`` with guidance.
+
+    Re-exported from ``dotenv.ensure_dotenv_file`` so callers don't have
+    to know about the two-module split.
+    """
+    return ensure_dotenv_file()
 
 
 def spool_dir() -> Path:
@@ -150,8 +234,8 @@ def spool_dir() -> Path:
     Lives at ``%LOCALAPPDATA%\\DowagerMod\\chatter\\spool``. Per-user,
     per-machine, never synced. Survives the installer's wipe of
     ``Documents\\My Games\\Beyond the Sword`` (which used to clobber the
-    daemon's PID file mid-flight). Sibling of ``config.json`` for symmetry
-    -- ``config_dir()`` returns ``%LOCALAPPDATA%\\DowagerMod\\chatter``.
+    daemon's PID file mid-flight). Sibling of where ``config.json`` used
+    to live -- ``config_dir()`` returns ``%LOCALAPPDATA%\\DowagerMod\\chatter``.
 
     NOT inside Civ4's ``My Games`` tree because:
       1. That tree may live in OneDrive (Documents redirection); OneDrive
@@ -168,73 +252,124 @@ def spool_dir() -> Path:
     return config_dir() / "spool"
 
 
-def load_config(path: Optional[Path] = None) -> Config:
-    """Load config from .env (if present) + file (if it exists) + env overrides.
+# Bool caster shared by every "0/1/true/false/yes/no/on/off" env var.
+def _as_bool(v: str) -> bool:
+    return str(v).strip().lower() in ("1", "true", "yes", "on")
 
-    Precedence (last wins):
-        1. DEFAULTS
-        2. config.json file
-        3. .env file (loaded into os.environ once)
-        4. process env (real shell exports)
 
-    The .env loader is best-effort and never overrides existing env vars.
-    Tests can disable .env by setting DOWAGER_CHATTER_SKIP_DOTENV=1.
-    """
-    if not os.environ.get("DOWAGER_CHATTER_SKIP_DOTENV"):
+# (cfg-dict-key, caster) keyed by env-var name. Every chatter knob that
+# can be tuned via .env or shell export is listed here exactly once.
+# Add new ones at the bottom of the matching section and also extend
+# .env.example so the two surfaces stay in lockstep.
+_ENV_MAP: Dict[str, Tuple[str, callable]] = {
+    # --- Core LLM client ---
+    "DOWAGER_CHATTER_ENDPOINT": ("endpoint", str),
+    "DOWAGER_CHATTER_DEPLOYMENT": ("deployment", str),
+    "DOWAGER_CHATTER_API_KEY": ("api_key", str),
+    "DOWAGER_CHATTER_API_VERSION": ("api_version", str),
+    "DOWAGER_CHATTER_LOG_LEVEL": ("log_level", str),
+    "DOWAGER_CHATTER_ENABLED": ("enabled", _as_bool),
+    # --- Request budgets / throttling ---
+    "DOWAGER_CHATTER_MAX_TOKENS": ("max_tokens", int),
+    "DOWAGER_CHATTER_MAX_TOKENS_MULTI_TURN": ("max_tokens_multi_turn", int),
+    "DOWAGER_CHATTER_REQUEST_TIMEOUT_SECONDS": ("request_timeout_seconds", float),
+    "DOWAGER_CHATTER_RATE_LIMIT_SECONDS": ("rate_limit_seconds", float),
+    "DOWAGER_CHATTER_MAX_IN_FLIGHT": ("max_in_flight", int),
+    "DOWAGER_CHATTER_SPOOL_POLL_INTERVAL_SECONDS": ("spool_poll_interval_seconds", float),
+    "DOWAGER_CHATTER_REQUEST_TTL_SECONDS": ("request_ttl_seconds", float),
+    "DOWAGER_CHATTER_RESPONSE_TTL_SECONDS": ("response_ttl_seconds", float),
+    # Circuit-breaker keys are flat in env-var space, nested in DEFAULTS
+    # under "circuit_breaker". Resolved by _merge_circuit_breaker() below.
+    "DOWAGER_CHATTER_CIRCUIT_BREAKER_FAILURE_THRESHOLD": ("circuit_breaker.failure_threshold", int),
+    "DOWAGER_CHATTER_CIRCUIT_BREAKER_OPEN_SECONDS": ("circuit_breaker.open_seconds", int),
+    # --- Voiceover ---
+    "DOWAGER_CHATTER_VOICEOVER_ENABLED": ("voiceover_enabled", _as_bool),
+    "DOWAGER_CHATTER_SPEECH_ENDPOINT": ("azure_speech_endpoint", str),
+    "DOWAGER_CHATTER_SPEECH_KEY": ("azure_speech_key", str),
+    "DOWAGER_CHATTER_SPEECH_VOICE": ("azure_speech_voice", str),
+    "DOWAGER_CHATTER_SPEECH_RATE": ("speech_rate", str),
+    "DOWAGER_CHATTER_VOICEOVER_DAILY_CHAR_CAP": ("voiceover_daily_char_cap", int),
+    "DOWAGER_CHATTER_DISCORD_BOT_TOKEN": ("discord_bot_token", str),
+    "DOWAGER_CHATTER_DISCORD_GUILD_ID": ("discord_guild_id", str),
+    "DOWAGER_CHATTER_DISCORD_VOICE_CHANNEL_ID": ("discord_voice_channel_id", str),
+    "DOWAGER_CHATTER_NATIVE_TONGUE_MODE": ("native_tongue_mode", _as_bool),
+    # --- Chat-reply tunables ---
+    "DOWAGER_CHATTER_CHAT_IDLE_SECONDS": ("chat_idle_seconds", float),
+    "DOWAGER_CHATTER_CHAT_HISTORY_SECONDS": ("chat_history_seconds", float),
+    "DOWAGER_CHATTER_CHAT_MAX_HISTORY_TURNS": ("chat_max_history_turns", int),
+    "DOWAGER_CHATTER_CHAT_REPLY_MAX_TOKENS": ("chat_reply_max_tokens", int),
+}
+
+
+def _set_dotted(raw: dict, dotted_key: str, value) -> None:
+    """Set ``raw[a][b] = value`` for dotted_key ``"a.b"``; otherwise raw[k]=v."""
+    if "." not in dotted_key:
+        raw[dotted_key] = value
+        return
+    head, _, tail = dotted_key.partition(".")
+    sub = raw.get(head)
+    if not isinstance(sub, dict):
+        sub = {}
+        raw[head] = sub
+    _set_dotted(sub, tail, value)
+
+
+def _apply_env_map(raw: dict, source: Dict[str, str]) -> None:
+    """Apply ``DOWAGER_CHATTER_*`` keys from ``source`` into ``raw`` in place."""
+    for env_key, (cfg_key, caster) in _ENV_MAP.items():
+        if env_key not in source:
+            continue
+        value = source[env_key]
+        if value == "":
+            continue
         try:
-            from tools.chatter.dotenv import load_dotenv
-            load_dotenv()
-        except Exception:  # noqa: BLE001
+            _set_dotted(raw, cfg_key, caster(value))
+        except Exception:  # noqa: BLE001 — never raise from config load
             pass
 
-    raw = dict(DEFAULTS)
-    p = path or config_path()
-    if p.exists():
-        try:
-            data = json.loads(p.read_text(encoding="utf-8"))
-            # ignore "_comment" field
-            for k, v in data.items():
-                if k.startswith("_"):
-                    continue
-                raw[k] = v
-        except Exception as exc:  # noqa: BLE001 — never raise from config load
-            # Print to stderr; daemon main loop will keep going
-            import sys
-            print(f"[config] WARN: failed to read {p}: {exc}", file=sys.stderr)
 
-    # Env overrides (DOWAGER_CHATTER_*). All sidecar config fields can be set
-    # via env vars OR a .env file with the same names — useful when a user
-    # prefers to manage everything from one file rather than via Setup-Chatter.ps1.
-    _ENV_MAP = {
-        "DOWAGER_CHATTER_ENDPOINT": ("endpoint", str),
-        "DOWAGER_CHATTER_DEPLOYMENT": ("deployment", str),
-        "DOWAGER_CHATTER_API_KEY": ("api_key", str),
-        "DOWAGER_CHATTER_API_VERSION": ("api_version", str),
-        "DOWAGER_CHATTER_LOG_LEVEL": ("log_level", str),
-        "DOWAGER_CHATTER_ENABLED": ("enabled", lambda v: str(v).lower() in ("1", "true", "yes", "on")),
-        # Voiceover
-        "DOWAGER_CHATTER_VOICEOVER_ENABLED": ("voiceover_enabled", lambda v: str(v).lower() in ("1", "true", "yes", "on")),
-        "DOWAGER_CHATTER_SPEECH_ENDPOINT": ("azure_speech_endpoint", str),
-        "DOWAGER_CHATTER_SPEECH_KEY": ("azure_speech_key", str),
-        "DOWAGER_CHATTER_SPEECH_VOICE": ("azure_speech_voice", str),
-        "DOWAGER_CHATTER_SPEECH_RATE": ("speech_rate", str),
-        "DOWAGER_CHATTER_VOICEOVER_DAILY_CHAR_CAP": ("voiceover_daily_char_cap", int),
-        "DOWAGER_CHATTER_DISCORD_BOT_TOKEN": ("discord_bot_token", str),
-        "DOWAGER_CHATTER_DISCORD_GUILD_ID": ("discord_guild_id", str),
-        "DOWAGER_CHATTER_DISCORD_VOICE_CHANNEL_ID": ("discord_voice_channel_id", str),
-        "DOWAGER_CHATTER_NATIVE_TONGUE_MODE": ("native_tongue_mode", lambda v: str(v).lower() in ("1", "true", "yes", "on")),
-        # Chat-reply tunables
-        "DOWAGER_CHATTER_CHAT_IDLE_SECONDS": ("chat_idle_seconds", float),
-        "DOWAGER_CHATTER_CHAT_HISTORY_SECONDS": ("chat_history_seconds", float),
-        "DOWAGER_CHATTER_CHAT_MAX_HISTORY_TURNS": ("chat_max_history_turns", int),
-        "DOWAGER_CHATTER_CHAT_REPLY_MAX_TOKENS": ("chat_reply_max_tokens", int),
-    }
-    for env_key, (cfg_key, caster) in _ENV_MAP.items():
-        if env_key in os.environ and os.environ[env_key] != "":
-            try:
-                raw[cfg_key] = caster(os.environ[env_key])
-            except Exception:  # noqa: BLE001
-                pass
+def load_config(path: Optional[Path] = None) -> Config:
+    """Load config from ``.env`` + real process env.
+
+    Precedence (last wins):
+        1. ``DEFAULTS``
+        2. ``.env`` file (parsed, never injected into ``os.environ``)
+        3. real shell exports captured at the start of this call
+
+    Always returns a ``Config`` -- never raises. If ``.env`` is missing,
+    DEFAULTS apply and ``cfg.env_file`` is ``None``. Callers that REQUIRE
+    a .env (the daemon, ``Setup-Chatter.ps1``, ``Start-Chatter.ps1``) must
+    call :func:`ensure_env_file` themselves before this.
+
+    Tests can:
+      * point ``$env:DOWAGER_CHATTER_ENV_PATH`` at a tmp .env to inject values
+      * set ``DOWAGER_CHATTER_SKIP_DOTENV=1`` to ignore any found .env
+        (used by ``conftest.py`` so tests don't pick up the dev's real .env)
+
+    The ``path`` parameter is accepted for back-compat with the old
+    signature (``load_config(path_to_config_json)``) and is IGNORED;
+    .env is the only file we read now.
+    """
+    # 1. Snapshot real env up front. Doing it now (vs. reading os.environ
+    #    repeatedly later) makes the merge order explicit and lets a
+    #    future hot-reload path reason about "what did the shell set vs.
+    #    what came from .env" without state drift.
+    real_env = {k: v for k, v in os.environ.items() if k.startswith("DOWAGER_CHATTER_")}
+
+    raw = dict(DEFAULTS)
+    # Deep-copy the nested dict so per-call mutations never leak into DEFAULTS.
+    raw["circuit_breaker"] = dict(DEFAULTS["circuit_breaker"])
+
+    # 2. .env (best-effort; never raises).
+    env_file_used: Optional[Path] = None
+    if not os.environ.get("DOWAGER_CHATTER_SKIP_DOTENV"):
+        env_file_used = find_dotenv()
+        if env_file_used is not None:
+            parsed = parse_dotenv_file(env_file_used)
+            _apply_env_map(raw, parsed)
+
+    # 3. Real shell exports always win over .env.
+    _apply_env_map(raw, real_env)
 
     cb = raw.get("circuit_breaker", {}) or {}
     return Config(
@@ -272,9 +407,70 @@ def load_config(path: Optional[Path] = None) -> Config:
             discord_voice_channel_id=str(raw.get("discord_voice_channel_id", "")),
             native_tongue_mode=bool(raw.get("native_tongue_mode", False)),
         ),
+        env_file=env_file_used,
     )
 
 
 def is_configured(cfg: Config) -> bool:
-    """True iff config has the minimum fields needed to call the API."""
-    return bool(cfg.endpoint and cfg.deployment and cfg.api_key and cfg.enabled)
+    """True iff config has the minimum fields needed to call the API.
+
+    Rejects placeholder strings (``paste-your-foundry-key-here`` etc.)
+    so a freshly-copied ``.env.example`` never silently passes muster.
+    """
+    return bool(
+        cfg.endpoint
+        and cfg.deployment
+        and cfg.api_key
+        and not is_placeholder(cfg.api_key)
+        and cfg.enabled
+    )
+
+
+def validate_required(cfg: Config) -> list:
+    """Return a list of human-readable problems with ``cfg``.
+
+    Empty list means ready to run. Used by ``Setup-Chatter.ps1`` to give
+    operator-friendly errors before scheduling the daemon. Validation is
+    conditional: text-only mode needs Foundry credentials; voiceover
+    mode additionally needs Speech + Discord credentials.
+    """
+    problems: list = []
+
+    def _missing(label: str, value: str) -> None:
+        if not value:
+            problems.append("missing: " + label)
+        elif is_placeholder(value):
+            problems.append("placeholder not replaced: " + label)
+
+    _missing("DOWAGER_CHATTER_ENDPOINT", cfg.endpoint)
+    _missing("DOWAGER_CHATTER_DEPLOYMENT", cfg.deployment)
+    _missing("DOWAGER_CHATTER_API_KEY", cfg.api_key)
+
+    if cfg.voiceover.enabled:
+        _missing("DOWAGER_CHATTER_SPEECH_ENDPOINT", cfg.voiceover.azure_speech_endpoint)
+        _missing("DOWAGER_CHATTER_SPEECH_KEY", cfg.voiceover.azure_speech_key)
+        _missing("DOWAGER_CHATTER_DISCORD_BOT_TOKEN", cfg.voiceover.discord_bot_token)
+        _missing("DOWAGER_CHATTER_DISCORD_GUILD_ID", cfg.voiceover.discord_guild_id)
+        _missing("DOWAGER_CHATTER_DISCORD_VOICE_CHANNEL_ID", cfg.voiceover.discord_voice_channel_id)
+
+    return problems
+
+
+__all__ = [
+    "DEFAULTS",
+    "PLACEHOLDER_VALUES",
+    "Config",
+    "CircuitBreakerConfig",
+    "VoiceoverConfig",
+    "EnvFileMissingError",
+    "config_dir",
+    "env_path",
+    "ensure_env_file",
+    "is_configured",
+    "is_placeholder",
+    "legacy_config_exists",
+    "legacy_config_path",
+    "load_config",
+    "spool_dir",
+    "validate_required",
+]

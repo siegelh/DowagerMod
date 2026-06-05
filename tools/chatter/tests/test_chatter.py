@@ -8,8 +8,10 @@ from __future__ import annotations
 import json
 import os
 import sys
+import tempfile
 import time
 import unittest
+from contextlib import contextmanager
 from pathlib import Path
 from unittest.mock import patch
 
@@ -21,33 +23,98 @@ from tools.chatter import spool as spool_mod
 from tools.chatter import circuit
 from tools.chatter import azure_client
 from tools.chatter import prompts
+from tools.chatter.dotenv import EnvFileMissingError, find_dotenv, parse_dotenv_file
+
+
+@contextmanager
+def _clean_chatter_env(extra: dict = None):
+    """Patch os.environ so no real DOWAGER_CHATTER_* values leak in.
+
+    Tests run with ``DOWAGER_CHATTER_SKIP_DOTENV=1`` (set by conftest)
+    plus any keys passed via ``extra``. All other ``DOWAGER_CHATTER_*``
+    keys present in the outer environment are stripped for the duration
+    of the with block so each test gets a deterministic baseline.
+    """
+    base = {"DOWAGER_CHATTER_SKIP_DOTENV": "1"}
+    if extra:
+        base.update(extra)
+    with patch.dict(os.environ, base, clear=False):
+        for k in [k for k in list(os.environ)
+                  if k.startswith("DOWAGER_CHATTER_") and k not in base]:
+            del os.environ[k]
+        yield
+
+
+@contextmanager
+def _tmp_env_file(contents: str):
+    """Write a tmp .env file and point DOWAGER_CHATTER_ENV_PATH at it.
+
+    Implicitly clears ``DOWAGER_CHATTER_SKIP_DOTENV`` so the loader will
+    actually consult the override path.
+    """
+    fd, name = tempfile.mkstemp(prefix="chatter_dotenv_", suffix=".env")
+    os.close(fd)
+    Path(name).write_text(contents, encoding="utf-8")
+    overrides = {"DOWAGER_CHATTER_ENV_PATH": name}
+    try:
+        with patch.dict(os.environ, overrides, clear=False):
+            # Strip outer DOWAGER_CHATTER_* values AND SKIP_DOTENV so the
+            # loader reads our tmp .env and nothing else.
+            for k in [k for k in list(os.environ)
+                      if k.startswith("DOWAGER_CHATTER_") and k != "DOWAGER_CHATTER_ENV_PATH"]:
+                del os.environ[k]
+            yield Path(name)
+    finally:
+        try:
+            Path(name).unlink()
+        except OSError:
+            pass
 
 
 class TestConfig(unittest.TestCase):
-    def test_defaults_load_when_no_file(self):
-        # Use an explicit path that does not exist. Skip .env loading so a
-        # user's repo-root .env doesn't override the in-code DEFAULTS that
-        # this test is asserting against.
-        with patch.dict(os.environ, {"DOWAGER_CHATTER_SKIP_DOTENV": "1"}, clear=False):
-            # Strip any DOWAGER_CHATTER_* env vars that an outer process
-            # (e.g. an earlier .env load in the same pytest session) may
-            # already have injected.
-            for k in [k for k in os.environ if k.startswith("DOWAGER_CHATTER_")
-                      and k != "DOWAGER_CHATTER_SKIP_DOTENV"]:
-                del os.environ[k]
-            cfg = cfg_mod.load_config(Path(os.devnull + "_does_not_exist.json"))
+    def test_defaults_when_skip_dotenv(self):
+        with _clean_chatter_env():
+            cfg = cfg_mod.load_config()
             self.assertEqual(cfg.endpoint, cfg_mod.DEFAULTS["endpoint"])
-            self.assertFalse(cfg_mod.is_configured(cfg))  # no key
+            self.assertIsNone(cfg.env_file)
+            self.assertFalse(cfg_mod.is_configured(cfg))
 
-    def test_env_overrides(self):
-        with patch.dict(os.environ, {
+    def test_real_env_overrides(self):
+        with _clean_chatter_env({
             "DOWAGER_CHATTER_API_KEY": "test-key-1234",
             "DOWAGER_CHATTER_DEPLOYMENT": "test-deployment",
-        }, clear=False):
-            cfg = cfg_mod.load_config(Path(os.devnull + "_does_not_exist.json"))
+        }):
+            cfg = cfg_mod.load_config()
             self.assertEqual(cfg.api_key, "test-key-1234")
             self.assertEqual(cfg.deployment, "test-deployment")
             self.assertTrue(cfg_mod.is_configured(cfg))
+
+    def test_dotenv_file_overrides_defaults(self):
+        body = (
+            "DOWAGER_CHATTER_ENDPOINT=https://from-dotenv.example/\n"
+            "DOWAGER_CHATTER_DEPLOYMENT=dotenv-deployment\n"
+            "DOWAGER_CHATTER_API_KEY=dotenv-key\n"
+            "DOWAGER_CHATTER_LOG_LEVEL=debug\n"
+        )
+        with _tmp_env_file(body) as p:
+            cfg = cfg_mod.load_config()
+            self.assertEqual(cfg.env_file, p)
+            self.assertEqual(cfg.endpoint, "https://from-dotenv.example/")
+            self.assertEqual(cfg.deployment, "dotenv-deployment")
+            self.assertEqual(cfg.api_key, "dotenv-key")
+            # str caster + uppercased log_level
+            self.assertEqual(cfg.log_level, "DEBUG")
+            self.assertTrue(cfg_mod.is_configured(cfg))
+
+    def test_real_env_beats_dotenv(self):
+        body = "DOWAGER_CHATTER_API_KEY=from-dotenv\n"
+        with _tmp_env_file(body):
+            os.environ["DOWAGER_CHATTER_API_KEY"] = "from-real-env"
+            try:
+                cfg = cfg_mod.load_config()
+                self.assertEqual(cfg.api_key, "from-real-env")
+            finally:
+                del os.environ["DOWAGER_CHATTER_API_KEY"]
 
     def test_redacted_api_key(self):
         cfg = cfg_mod.Config(api_key="abcdefghijklmnop")
@@ -56,22 +123,91 @@ class TestConfig(unittest.TestCase):
         self.assertTrue(r.startswith("abcd"))
         self.assertTrue(r.endswith("mnop"))
 
-    def test_malformed_config_falls_back_to_defaults(self):
-        import tempfile
-        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
-            f.write("{ this is not json")
-            path = Path(f.name)
-        try:
-            # Skip .env to keep the test deterministic regardless of any
-            # user-specific overrides in the repo-root .env.
-            with patch.dict(os.environ, {"DOWAGER_CHATTER_SKIP_DOTENV": "1"}, clear=False):
-                for k in [k for k in os.environ if k.startswith("DOWAGER_CHATTER_")
-                          and k != "DOWAGER_CHATTER_SKIP_DOTENV"]:
-                    del os.environ[k]
-                cfg = cfg_mod.load_config(path)
-                self.assertEqual(cfg.endpoint, cfg_mod.DEFAULTS["endpoint"])
-        finally:
-            path.unlink()
+    def test_malformed_dotenv_falls_back_to_defaults(self):
+        # Garbled .env (no '=' on any line, random binary-ish chars).
+        # The parser swallows the failure and returns an empty dict;
+        # DEFAULTS apply and the loader still reports the path it tried.
+        with _tmp_env_file("@@@ this is not a key=value file @@@\n") as p:
+            cfg = cfg_mod.load_config()
+            self.assertEqual(cfg.endpoint, cfg_mod.DEFAULTS["endpoint"])
+            self.assertEqual(cfg.env_file, p)
+
+    def test_placeholder_values_rejected(self):
+        body = (
+            "DOWAGER_CHATTER_ENDPOINT=https://from-dotenv.example/\n"
+            "DOWAGER_CHATTER_DEPLOYMENT=dotenv-deployment\n"
+            "DOWAGER_CHATTER_API_KEY=paste-your-foundry-key-here\n"
+        )
+        with _tmp_env_file(body):
+            cfg = cfg_mod.load_config()
+            self.assertFalse(cfg_mod.is_configured(cfg))
+            problems = cfg_mod.validate_required(cfg)
+            self.assertIn("placeholder not replaced: DOWAGER_CHATTER_API_KEY", problems)
+
+    def test_validate_required_voiceover_conditional(self):
+        # Text-only: voiceover fields are NOT required.
+        with _clean_chatter_env({
+            "DOWAGER_CHATTER_ENDPOINT": "https://x.example/",
+            "DOWAGER_CHATTER_DEPLOYMENT": "x",
+            "DOWAGER_CHATTER_API_KEY": "k",
+        }):
+            cfg = cfg_mod.load_config()
+            self.assertEqual(cfg_mod.validate_required(cfg), [])
+
+        # Voiceover enabled: speech + discord become required.
+        with _clean_chatter_env({
+            "DOWAGER_CHATTER_ENDPOINT": "https://x.example/",
+            "DOWAGER_CHATTER_DEPLOYMENT": "x",
+            "DOWAGER_CHATTER_API_KEY": "k",
+            "DOWAGER_CHATTER_VOICEOVER_ENABLED": "true",
+        }):
+            cfg = cfg_mod.load_config()
+            problems = cfg_mod.validate_required(cfg)
+            self.assertIn("missing: DOWAGER_CHATTER_SPEECH_KEY", problems)
+            self.assertIn("missing: DOWAGER_CHATTER_DISCORD_BOT_TOKEN", problems)
+
+    def test_circuit_breaker_dotted_env_keys(self):
+        with _clean_chatter_env({
+            "DOWAGER_CHATTER_CIRCUIT_BREAKER_FAILURE_THRESHOLD": "7",
+            "DOWAGER_CHATTER_CIRCUIT_BREAKER_OPEN_SECONDS": "42",
+        }):
+            cfg = cfg_mod.load_config()
+            self.assertEqual(cfg.circuit_breaker.failure_threshold, 7)
+            self.assertEqual(cfg.circuit_breaker.open_seconds, 42)
+
+    def test_numeric_tunables_cast_correctly(self):
+        with _clean_chatter_env({
+            "DOWAGER_CHATTER_MAX_TOKENS": "1234",
+            "DOWAGER_CHATTER_REQUEST_TIMEOUT_SECONDS": "12.5",
+            "DOWAGER_CHATTER_MAX_IN_FLIGHT": "8",
+        }):
+            cfg = cfg_mod.load_config()
+            self.assertEqual(cfg.max_tokens, 1234)
+            self.assertEqual(cfg.request_timeout_seconds, 12.5)
+            self.assertEqual(cfg.max_in_flight, 8)
+
+    def test_ensure_env_file_missing_raises(self):
+        with patch.dict(os.environ,
+                        {"DOWAGER_CHATTER_ENV_PATH": str(Path(tempfile.gettempdir()) / "no-such-dowager.env")},
+                        clear=False):
+            for k in [k for k in list(os.environ)
+                      if k.startswith("DOWAGER_CHATTER_") and k != "DOWAGER_CHATTER_ENV_PATH"]:
+                del os.environ[k]
+            with self.assertRaises(EnvFileMissingError) as ctx:
+                cfg_mod.ensure_env_file()
+            # Message must include actionable guidance
+            self.assertIn("Copy-Item .env.example .env", str(ctx.exception))
+
+    def test_ensure_env_file_present_returns_path(self):
+        with _tmp_env_file("DOWAGER_CHATTER_API_KEY=k\n") as p:
+            self.assertEqual(cfg_mod.ensure_env_file(), p)
+
+    def test_load_config_path_arg_ignored(self):
+        # Back-compat: old callers that pass a path get a Config back
+        # built from DEFAULTS + env (path is silently ignored).
+        with _clean_chatter_env():
+            cfg = cfg_mod.load_config(Path("c:/this/does/not/matter.json"))
+            self.assertEqual(cfg.endpoint, cfg_mod.DEFAULTS["endpoint"])
 
 
 class TestSpool(unittest.TestCase):
@@ -924,8 +1060,19 @@ class TestDaemonProcessRequest(unittest.TestCase):
         # MUST NOT be the raw garbage text -- the whole point of the fix
         # is that we never broadcast unparseable LLM output.
         self.assertNotEqual(resp["lines"][0]["text"], "not valid json at all")
-        # Should be a stock fallback line (non-empty, natural prose).
-        self.assertGreater(len(resp["lines"][0]["text"]), 5)
+        # Should be one of the canned fallback lines (the daemon picks at
+        # random from a fixed pool, so we assert membership rather than
+        # any length-based heuristic — pool entries include "..." (3 chars)
+        # and "Hmph." (5 chars), which would defeat a `> N` check).
+        from tools.chatter.azure_client import FALLBACK_BROADCAST, FALLBACK_DIRECTED
+        pool = set(FALLBACK_BROADCAST) | set(FALLBACK_DIRECTED)
+        # Templates may have been .format()-rendered with a target name;
+        # accept either the raw template or any plausible rendered form.
+        text = resp["lines"][0]["text"]
+        self.assertTrue(
+            text in pool or any(t.split("{")[0] and text.startswith(t.split("{")[0]) for t in pool),
+            "got %r which is not from the fallback pool" % text,
+        )
 
 
 class TestParseChatReplyHardening(unittest.TestCase):

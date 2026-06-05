@@ -49,6 +49,22 @@ if (Test-Path $pidFile) {
     } catch { }
 }
 
+# Preflight: .env must exist. Without it the daemon exits 2 anyway with a
+# scary stack trace; catch it here and point the user at Setup-Chatter.
+$envPath = Get-ChatterEnvPath
+if (-not (Test-Path $envPath)) {
+    Write-Host ""
+    Write-Host "Cannot start: .env not found at $envPath" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "The chatter daemon requires a .env file with your API credentials."
+    Write-Host "To set one up:"
+    Write-Host "  1. Copy-Item .env.example .env"
+    Write-Host "  2. Edit .env in Notepad and fill in your keys"
+    Write-Host "  3. .\tools\Setup-Chatter.ps1   (validates and bootstraps)"
+    Write-Host ""
+    exit 1
+}
+
 # Pick Python: explicit param > venv > system python > anaconda fallback
 function Find-Python {
     param([string]$Override)

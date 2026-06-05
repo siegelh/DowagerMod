@@ -9,31 +9,53 @@ Three layers, all opt-in via `.env`:
 
 1. **Text chatter** — leaders trash-talk in the in-game event log on
    major events (DoW, peace, city capture/raze, religion founded,
-   wonder built, et
-   ```powershell
-   .\tools\Setup-Chatter.ps1
-   ```
-3. Answer the prompts (endpoint and deployment have sensible defaults; API
-   key is required and is read with hidden input).
-4. The script writes `%LOCALAPPDATA%\DowagerMod\chatter\config.json` with
-   restrictive ACLs (current user only).
-5. Optionally pass `-RegisterScheduledTask` to register a Windows logon
-   task that auto-starts the sidecar at every login. Recommended for your
-   gaming desktop; skip on your laptop if you don't want a background
-   Python process running all the time.
+   wonder built, etc).
+2. **Multi-turn exchanges** — sometimes the attacker fires a second
+   line in response (50% chance, gated by per-pair cooldown).
+3. **Voiceover** — each line is also spoken aloud in a Discord voice
+   channel via a bot account (Azure Speech TTS + discord.py).
 
-## Voiceover setup (optional, opt-in)
+## Install (single machine, ~60 seconds)
+
+The chatter sidecar is configured **entirely from a `.env` file at the
+repo root** (`C:\DowagerMod\.env`). That file is the single source of
+truth — there is no interactive setup wizard, no `config.json`, no
+hidden state.
+
+```powershell
+cd C:\DowagerMod
+Copy-Item .env.example .env
+notepad .env                  # paste your Azure + Discord credentials
+.\tools\Setup-Chatter.ps1     # validates .env, hardens ACL, optional task
+.\tools\Start-Chatter.ps1     # launches detached pythonw.exe
+```
+
+What `Setup-Chatter.ps1` does:
+- Validates `.env` exists and contains real (non-placeholder) values for
+  the required fields. **Fails loudly** with operator guidance if `.env`
+  is missing or contains `paste-your-*-here` placeholders.
+- Prints a redacted summary of every credential it found.
+- Warns if a legacy `%LOCALAPPDATA%\DowagerMod\chatter\config.json`
+  exists (it's IGNORED — you can copy values out and delete it).
+- Hardens `.env` ACL to current user only (skip with `-NoHardenAcl`).
+- Optionally registers the Windows scheduled task
+  (`-RegisterScheduledTask`).
+
+Pass `-Edit` to skip validation and just open `.env` in Notepad.
+
+## Voiceover setup (optional)
 
 Voiceover plays each chatter line aloud in a Discord voice channel via a
-bot account, so everyone in the channel hears it. Friend needs ZERO
-additional setup beyond joining the same voice channel.
+bot account, so everyone in the channel hears it. Friends in the channel
+need ZERO additional setup beyond joining.
 
 **Prerequisites (one-time):**
 
 1. **Azure Speech resource** (separate from Foundry):
    - Create a Speech resource in the Azure portal. Free tier (F0) gives
      500K characters/month — plenty for normal play.
-   - Copy the endpoint (e.g. `https://<region>.api.cognitive.microsoft.com/`)
+   - Copy the **TTS** endpoint (`https://<region>.tts.speech.microsoft.com/`,
+     NOT the generic Cognitive Services URL the portal shows by default)
      and one of the keys.
 2. **Discord bot:**
    - Go to https://discord.com/developers/applications and create a new
@@ -55,20 +77,18 @@ additional setup beyond joining the same voice channel.
    pip install -U "discord.py[voice]"
    ```
 
-**Configure:**
+**Enable:** edit `.env` and set:
 
-```powershell
-.\tools\Setup-Chatter.ps1 -ConfigureVoiceover
+```
+DOWAGER_CHATTER_SPEECH_ENDPOINT=https://eastus.tts.speech.microsoft.com/
+DOWAGER_CHATTER_SPEECH_KEY=<your-speech-key>
+DOWAGER_CHATTER_DISCORD_BOT_TOKEN=<your-bot-token>
+DOWAGER_CHATTER_DISCORD_GUILD_ID=<your-guild-id>
+DOWAGER_CHATTER_DISCORD_VOICE_CHANNEL_ID=<your-voice-channel-id>
+DOWAGER_CHATTER_VOICEOVER_ENABLED=true
 ```
 
-(Or just answer "y" when the script asks "Configure voiceover?" during
-a normal run.)
-
-The script prompts for Speech endpoint + key, voice name (default
-`en-US-AriaNeural`), Discord bot token, guild ID, and voice channel ID.
-Skip any prompt to disable voiceover.
-
-**Restart the sidecar** after configuring:
+Then restart the sidecar:
 
 ```powershell
 .\tools\Stop-Chatter.ps1
@@ -78,8 +98,8 @@ Skip any prompt to disable voiceover.
 The bot will auto-connect to the configured voice channel on startup and
 play each chatter line as it is generated.
 
-**To disable later:** re-run `Setup-Chatter.ps1`, decline at the
-voiceover prompt, restart sidecar. Bot disconnects, no more Speech API
+**To disable later:** set `DOWAGER_CHATTER_VOICEOVER_ENABLED=false` in
+`.env` and restart the sidecar. Bot disconnects, no more Speech API
 calls, text chatter unchanged.
 
 ## Running the sidecar
@@ -91,7 +111,7 @@ calls, text chatter unchanged.
 ```
 
 You can also just launch Civ4 directly — the game-side `CvLeaderChatter.py`
-will auto-spawn the sidecar on `onGameStart` if your config exists but the
+will auto-spawn the sidecar on `onGameStart` if `.env` exists but the
 sidecar isn't running. The very first event in a fresh game might be
 missed (~3s window while the sidecar boots) but everything after works
 normally. The sidecar persists across multiple game launches.
@@ -106,66 +126,72 @@ Per-machine setup, ~60 seconds each:
    # or, if you already have it:
    git pull
    ```
-2. **Run setup.** From the repo root on the new machine:
+2. **Copy your `.env` over.** The same `.env` works on every machine —
+   Azure and Discord don't care which host is calling.
+   ```powershell
+   # On the source machine, copy C:\DowagerMod\.env to a USB stick or
+   # secure channel. Then on the new machine:
+   Copy-Item <wherever>\.env C:\DowagerMod\.env
+   ```
+   Or just `cp .env.example .env` and paste the values from your password
+   manager.
+3. **Validate.**
    ```powershell
    .\tools\Setup-Chatter.ps1
    ```
-   Same Foundry API key works on every machine — Azure doesn't care.
-3. **Recommended for your gaming desktop:** also register the auto-start
+4. **Recommended for your gaming desktop:** also register the auto-start
    task so the sidecar comes up at every Windows login:
    ```powershell
    .\tools\Setup-Chatter.ps1 -RegisterScheduledTask
    ```
-4. **Verify:** `\.tools\Chatter-Status.ps1` should print "RUNNING" within
+5. **Verify:** `.\tools\Chatter-Status.ps1` should print "RUNNING" within
    a few seconds (or after first logon if you used the scheduled task).
 
-**Don't** auto-sync `%LOCALAPPDATA%\DowagerMod\chatter\config.json` via
-OneDrive / Dropbox / etc. — that defeats the ACL and may copy the key to
-machines you didn't intend.
+**Don't** auto-sync `.env` via OneDrive / Dropbox / etc. — that defeats
+the ACL and may copy the keys to machines you didn't intend.
 
 **Pulling new sidecar code:** sidecar code lives in `tools/chatter/`. After
 `git pull`, just `Stop-Chatter.ps1` then `Start-Chatter.ps1` (or restart
 the scheduled task) to pick up the new version. The game-side hooks come
-through the normal mod installer.
+through the normal mod installer. Your `.env` is untouched by `git pull`.
 
 ## Updating endpoint or API key
 
-`Setup-Chatter.ps1` is idempotent — re-run it any time to change values:
+`.env` is the single source of truth. To change any value:
 
 ```powershell
-.\tools\Setup-Chatter.ps1
-```
-
-- **Endpoint / deployment:** prompts show the current value; press Enter
-  to keep it.
-- **API key:** prompts "API Key (input hidden, press Enter to keep
-  existing)". Press Enter to leave the current key in place; type a new
-  key (then Enter) to replace it. The summary line will say
-  `API key:     (unchanged)` when you keep the existing one.
-
-After changing values, restart the sidecar so it picks up the new config:
-
-```powershell
+notepad C:\DowagerMod\.env       # or: .\tools\Setup-Chatter.ps1 -Edit
+.\tools\Setup-Chatter.ps1        # re-validate (optional but recommended)
 .\tools\Stop-Chatter.ps1
 .\tools\Start-Chatter.ps1
 ```
+
+The daemon reads `.env` once at startup. Changes only take effect after
+a Stop / Start cycle. (For one-shot debugging without editing `.env`,
+real shell env vars override `.env` for the spawned process — e.g.
+`$env:DOWAGER_CHATTER_LOG_LEVEL='DEBUG'; .\tools\Start-Chatter.ps1`.)
 
 ## Uninstalling the sidecar
 
 Use the dedicated uninstaller from the repo root:
 
 ```powershell
-.\tools\Uninstall-Chatter.ps1               # stops daemon + removes scheduled task; keeps config
-.\tools\Uninstall-Chatter.ps1 -RemoveConfig # also delete config + API key (asks for confirmation)
-.\tools\Uninstall-Chatter.ps1 -RemoveConfig -Force  # same, no prompt
+.\tools\Uninstall-Chatter.ps1                       # stops daemon + removes scheduled task; keeps .env
+.\tools\Uninstall-Chatter.ps1 -RemoveEnv            # also delete .env (asks for confirmation)
+.\tools\Uninstall-Chatter.ps1 -RemoveEnv -Force     # same, no prompt
+.\tools\Uninstall-Chatter.ps1 -RemoveLegacyConfig   # also delete the legacy %LOCALAPPDATA%\...\config.json
 ```
 
 What it does, in order:
 1. Stops any running daemon (calls `Stop-Chatter.ps1`).
 2. Removes the `DowagerMod-Chatter` Windows scheduled task if registered.
-3. Optionally deletes `%LOCALAPPDATA%\DowagerMod\chatter\` (config + key).
-   Default is to keep it so reinstalling later doesn't re-prompt for the
-   key.
+3. Optionally deletes `<repo>\.env`.
+4. Optionally deletes the legacy
+   `%LOCALAPPDATA%\DowagerMod\chatter\config.json` (no longer read by
+   the daemon as of the .env refactor).
+
+Default is to keep `.env` so reinstalling later doesn't require
+re-pasting your keys.
 
 This **does not** remove the in-game hooks — those ship with the mod and
 are silent when no sidecar is running. To remove the entire feature from
@@ -181,10 +207,9 @@ game is otherwise normal.
 
 A friend who wants chatter when you're not present needs to:
 
-1. Get a copy of `tools/chatter/` (clone the repo, or you send them a
-   small zip).
-2. Get their own Azure Foundry / OpenAI API key.
-3. Run `Setup-Chatter.ps1`.
+1. Get a copy of the repo (clone, or you send them a small zip of `tools/`).
+2. Get their own Azure Foundry + (optionally) Speech key.
+3. `Copy-Item .env.example .env`, paste their keys, run `Setup-Chatter.ps1`.
 
 That's documented for them but not the default path.
 
@@ -194,8 +219,10 @@ That's documented for them but not the default path.
 
 Run `.\tools\Chatter-Status.ps1`. It tells you in order:
 
-1. Is the config file present? If no → run `Setup-Chatter.ps1`.
-2. Is the API key non-empty? If the redacted display says `<empty>` → re-run setup.
+1. Is `.env` present and valid? If "MISSING" or "INVALID" → copy
+   `.env.example` and edit; if values are placeholders → fill them in.
+2. Are the required fields populated (endpoint, deployment, api_key)?
+   The redacted display shows what was found.
 3. Is the daemon running? If "NOT RUNNING" → `Start-Chatter.ps1`.
 4. Is there recent activity in `daemon.log`? If empty for a long time
    while you've been playing → maybe no triggers fired (DoW takes time)
@@ -220,8 +247,8 @@ Open `%USERPROFILE%\Documents\My Games\Beyond the Sword\Logs\DowagerMod\chatter\
 Look for `[ERROR]` lines.
 
 - `auth_failure` → API key is wrong, expired, or doesn't have access to
-  the deployment. Circuit forced OPEN; rerun setup with a fresh key and
-  restart sidecar.
+  the deployment. Circuit forced OPEN; edit `.env` with a fresh key and
+  restart the sidecar.
 - `api_failure` → network / 5xx / timeout. Circuit opens after 3 in a row
   and stays open 120s. Should self-recover when the API does.
 - `circuit_open` (info, not error) → previous failures opened the breaker;
@@ -238,17 +265,17 @@ up the v1.1 game-side hooks.
 
 ### "I want to disable chatter for one game"
 
-Edit `%LOCALAPPDATA%\DowagerMod\chatter\config.json` and set
-`"enabled": false`. Stop and restart the sidecar. Or just stop the
-sidecar entirely (`Stop-Chatter.ps1`) and don't restart it for that
-game.
+Stop the sidecar (`Stop-Chatter.ps1`) and don't restart it for that game.
+The in-game hooks are silent without a sidecar. Or, if you want voiceover
+off but text on, set `DOWAGER_CHATTER_VOICEOVER_ENABLED=false` in `.env`
+and restart.
 
 ### "I want to remove the feature entirely"
 
 Use the uninstaller (see "Uninstalling the sidecar" above):
 
 ```powershell
-.\tools\Uninstall-Chatter.ps1 -RemoveConfig
+.\tools\Uninstall-Chatter.ps1 -RemoveEnv -RemoveLegacyConfig
 ```
 
 The game-side hooks remain in the mod payload but are entirely silent
@@ -258,11 +285,13 @@ when no sidecar is running. To remove them too, uninstall DowagerMod.
 
 | What | Where |
 |---|---|
-| Sidecar config (per machine, gitignored) | `%LOCALAPPDATA%\DowagerMod\chatter\config.json` |
-| Sidecar logs | `%USERPROFILE%\Documents\My Games\Beyond the Sword\Logs\DowagerMod\chatter\daemon.log` |
-| Game-side logs | `%USERPROFILE%\Documents\My Games\Beyond the Sword\Logs\DowagerMod\chatter\chatter.log` |
-| Sidecar PID file | `%USERPROFILE%\...\Logs\DowagerMod\chatter\daemon.pid` |
-| Spool req/resp files | `%USERPROFILE%\...\Logs\DowagerMod\chatter\req-*.json`, `resp-*.json` |
+| Sidecar config (per machine, gitignored) | `<repo>\.env` (e.g. `C:\DowagerMod\.env`) |
+| Config template | `<repo>\.env.example` |
+| Legacy config (IGNORED, can delete) | `%LOCALAPPDATA%\DowagerMod\chatter\config.json` |
+| Sidecar logs | `%LOCALAPPDATA%\DowagerMod\chatter\spool\daemon.log` |
+| Game-side logs | `%LOCALAPPDATA%\DowagerMod\chatter\spool\chatter.log` |
+| Sidecar PID file | `%LOCALAPPDATA%\DowagerMod\chatter\spool\daemon.pid` |
+| Spool req/resp files | `%LOCALAPPDATA%\DowagerMod\chatter\spool\req-*.json`, `resp-*.json` |
 | Sidecar source | `<repo>\tools\chatter\` |
 | Game-side source | `<repo>\CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Assets\Python\Chatter\` |
 | DLL source | `<repo>\third_party\beyond-the-sword-sdk\CvGameCoreDLL\CyMessageControl*.{cpp,h}` |

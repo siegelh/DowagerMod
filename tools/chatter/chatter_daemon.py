@@ -846,18 +846,35 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
 
 
 def main(argv: Optional[list] = None) -> int:
+    # Hard-fail at boot if .env is missing. Daemon refuses to come up
+    # unauthenticated; falling back to DEFAULTS would just produce 401s
+    # for hours until someone noticed via Chatter-Status.
+    try:
+        cfg_mod.ensure_env_file()
+    except cfg_mod.EnvFileMissingError as exc:
+        # Print to stderr so it surfaces in Start-Chatter's transient
+        # window AND in daemon.log if the redirect already started.
+        sys.stderr.write(str(exc) + "\n")
+        return 2
+
     cfg = cfg_mod.load_config()
     spool_path = cfg_mod.spool_dir()
     logger = setup_logging(spool_path, cfg.log_level)
     # Provenance footer: makes stale-vs-fresh restarts unambiguous in daemon.log.
-    try:
-        cfg_path = cfg_mod.config_path()
-    except Exception:  # noqa: BLE001
-        cfg_path = "?"
     logger.info(
-        "daemon boot: schema=%d config=%s spool=%s log_level=%s",
-        SCHEMA_VERSION, cfg_path, spool_path, cfg.log_level,
+        "daemon boot: schema=%d env=%s spool=%s log_level=%s",
+        SCHEMA_VERSION, cfg.env_file or "?", spool_path, cfg.log_level,
     )
+    # One-time warning if a pre-refactor config.json is still on disk.
+    # It's NEVER read anymore; emit so operators don't think it's live.
+    if cfg_mod.legacy_config_exists():
+        logger.warning(
+            "legacy chatter config.json found at %s; IGNORED. "
+            ".env is the only config source now. "
+            "Migrate any custom values into .env and delete the file "
+            "(or run Uninstall-Chatter.ps1 -RemoveLegacyConfig).",
+            cfg_mod.legacy_config_path(),
+        )
     try:
         return main_loop(cfg, spool_path, logger) or 0
     except KeyboardInterrupt:

@@ -1,286 +1,232 @@
 #requires -Version 5.0
 <#
 .SYNOPSIS
-    Interactive setup for the DowagerMod Chatter sidecar.
+    Set up (or verify) the DowagerMod Chatter sidecar on this machine.
 
 .DESCRIPTION
-    Writes an Azure Foundry config to %LOCALAPPDATA%\DowagerMod\chatter\config.json
-    with restrictive ACLs (current user only). Idempotent — re-running edits in
-    place. Optionally registers a Windows scheduled task to start the sidecar
-    at logon.
+    Bootstraps and validates the single source of truth for chatter
+    credentials and tunables: <repo-root>\.env
+
+    On a fresh machine:
+      1. Copies .env.example -> .env (if .env missing).
+      2. Opens .env in Notepad so you can paste credentials.
+      3. Exits and tells you to re-run after editing.
+
+    On a machine that already has .env:
+      1. Validates the file via tools/chatter/env_check.py.
+      2. Prints a redacted summary so you can confirm what the daemon
+         will see.
+      3. Warns if a pre-refactor %LOCALAPPDATA%\DowagerMod\chatter\
+         config.json is still on disk (it is IGNORED but kept until
+         you remove it with Uninstall-Chatter.ps1 -RemoveLegacyConfig).
+      4. Optionally hardens the .env ACL to current user only.
+      5. Optionally registers the Windows scheduled task that auto-starts
+         the daemon at logon.
+
+    Idempotent. Never edits .env (Notepad does); never prompts for keys.
+    To change a setting: edit .env directly, then re-run this script (or
+    just Stop-Chatter + Start-Chatter).
+
+.PARAMETER Edit
+    Open .env in Notepad and exit. Convenience shortcut.
+
+.PARAMETER RegisterScheduledTask
+    Register the 'DowagerMod-Chatter' logon task. Requires no
+    elevation when the task runs under your own user.
+
+.PARAMETER NoHardenAcl
+    Skip the icacls hardening step. Useful when .env lives in OneDrive
+    or any path where forcing inheritance off causes friction.
 
 .EXAMPLE
     .\tools\Setup-Chatter.ps1
+    # Validate .env (or bootstrap from .env.example on a fresh machine).
+
+.EXAMPLE
+    .\tools\Setup-Chatter.ps1 -RegisterScheduledTask
+    # Validate then schedule the daemon to start at logon.
+
+.EXAMPLE
+    .\tools\Setup-Chatter.ps1 -Edit
+    # Open .env in Notepad and exit.
 #>
 
 [CmdletBinding()]
 param(
-    [string] $Endpoint = "https://discordagent.cognitiveservices.azure.com/",
-    [string] $Deployment = "gpt-5.4-mini",
-    [string] $ApiKey,
-    [string] $ApiVersion = "2024-12-01-preview",
+    [switch] $Edit,
     [switch] $RegisterScheduledTask,
-    [switch] $NoPrompt,
-    [switch] $ConfigureVoiceover,
-    [string] $SpeechEndpoint,
-    [string] $SpeechKey,
-    [string] $SpeechVoice = "en-US-AriaNeural",
-    [string] $DiscordBotToken,
-    [string] $DiscordGuildId,
-    [string] $DiscordVoiceChannelId
+    [switch] $NoHardenAcl
 )
 
 $ErrorActionPreference = 'Stop'
 
-$configDir = Join-Path $env:LOCALAPPDATA 'DowagerMod\chatter'
-$configPath = Join-Path $configDir 'config.json'
+. (Join-Path $PSScriptRoot 'Chatter-Common.ps1')
+
+$envPath = Get-ChatterEnvPath
+$envExample = Get-ChatterEnvExamplePath
+$repoRoot = Get-ChatterRepoRoot
 
 Write-Host ""
 Write-Host "DowagerMod Chatter setup" -ForegroundColor Cyan
 Write-Host "========================="
 Write-Host ""
+Write-Host ".env path:   $envPath"
+Write-Host ""
 
-if (-not (Test-Path $configDir)) {
-    New-Item -ItemType Directory -Path $configDir -Force | Out-Null
-    Write-Host "Created: $configDir"
+# ===== Step 1: bootstrap .env if missing =====
+
+if (-not (Test-Path $envPath)) {
+    Write-Host "No .env found." -ForegroundColor Yellow
+    if (-not (Test-Path $envExample)) {
+        Write-Error "Missing .env.example at $envExample. Cannot bootstrap. Pull the latest repo and retry."
+        exit 1
+    }
+    Copy-Item -Path $envExample -Destination $envPath
+    Write-Host "Created .env from .env.example." -ForegroundColor Green
+    Write-Host ""
+    Write-Host "Next steps:" -ForegroundColor Cyan
+    Write-Host "  1. Paste your Azure Foundry / Speech / Discord credentials into .env"
+    Write-Host "     (replace every 'paste-your-*-here' placeholder)."
+    Write-Host "  2. Save and close Notepad."
+    Write-Host "  3. Re-run .\tools\Setup-Chatter.ps1 to validate."
+    Write-Host ""
+    Write-Host "  Opening $envPath in Notepad..."
+    Start-Process notepad.exe -ArgumentList $envPath
+    exit 0
 }
 
-# Load existing config if present (so re-run is idempotent)
-$existing = @{}
-if (Test-Path $configPath) {
-    try {
-        $existing = Get-Content -Path $configPath -Raw | ConvertFrom-Json -AsHashtable
-        Write-Host "Existing config found at $configPath; will edit in place."
-    } catch {
-        Write-Warning "Existing config at $configPath is unreadable; will overwrite."
-        $existing = @{}
-    }
+# ===== Step 2: -Edit shortcut =====
+
+if ($Edit) {
+    Write-Host "Opening $envPath in Notepad..." -ForegroundColor Cyan
+    Start-Process notepad.exe -ArgumentList $envPath -Wait
+    Write-Host "Re-running validation..." -ForegroundColor Cyan
+    Write-Host ""
 }
 
-if (-not $NoPrompt) {
-    if (-not $Endpoint) { $Endpoint = Read-Host "Endpoint URL" }
-    elseif ($existing.endpoint -and $existing.endpoint -ne $Endpoint) {
-        $reply = Read-Host "Endpoint [$Endpoint] (Enter to keep)"
-        if ($reply) { $Endpoint = $reply }
+# ===== Step 3: preflight -- .env must be in .gitignore =====
+
+$gitignore = Join-Path $repoRoot '.gitignore'
+if (Test-Path $gitignore) {
+    $gi = Get-Content -Path $gitignore -Raw
+    if ($gi -notmatch '(?m)^\.env\s*$' -and $gi -notmatch '(?m)^/?\.env\s*$') {
+        Write-Warning "WARNING: '.env' does NOT appear in .gitignore at $gitignore."
+        Write-Warning "Your credentials are at risk of being committed. Add a line:"
+        Write-Warning "    .env"
+        Write-Warning "to .gitignore before pushing anything."
     }
-    if (-not $Deployment) { $Deployment = Read-Host "Deployment name" }
-    elseif ($existing.deployment -and $existing.deployment -ne $Deployment) {
-        $reply = Read-Host "Deployment [$Deployment] (Enter to keep)"
-        if ($reply) { $Deployment = $reply }
-    }
-    if (-not $ApiKey) {
-        $hasExistingKey = ($existing -and $existing.ContainsKey('api_key') -and $existing.api_key)
-        if ($hasExistingKey) {
-            $secure = Read-Host "API Key (input hidden, press Enter to keep existing)" -AsSecureString
-        } else {
-            $secure = Read-Host "API Key (input hidden)" -AsSecureString
-        }
-        $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
-        try {
-            $entered = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
-        } finally {
-            [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
-        }
-        if ($entered) {
-            $ApiKey = $entered
-        } elseif ($hasExistingKey) {
-            $ApiKey = $existing.api_key
-            $script:KeyUnchanged = $true
-        }
-    }
+} else {
+    Write-Warning "No .gitignore at $gitignore. Confirm .env is excluded from your VCS."
 }
 
-if (-not $ApiKey) {
-    Write-Error "API key is required. Re-run interactively or pass -ApiKey."
+# ===== Step 4: validate via env_check.py =====
+
+Write-Host "Validating .env..." -ForegroundColor Cyan
+$report = Invoke-ChatterEnvCheck
+$exit = $script:LastEnvCheckExit
+
+if ($null -eq $report) {
+    Write-Error "env_check.py returned no parseable output (exit=$exit). Cannot continue."
+    exit 1
+}
+
+if ($report.problems -and $report.problems.Count -gt 0) {
+    Write-Host ""
+    Write-Host "Problems found in $envPath :" -ForegroundColor Yellow
+    foreach ($p in $report.problems) {
+        Write-Host "  - $p" -ForegroundColor Yellow
+    }
+    Write-Host ""
+    Write-Host "Fix: open .env (run .\tools\Setup-Chatter.ps1 -Edit) and replace" -ForegroundColor Yellow
+    Write-Host "each missing or placeholder value, then re-run this script." -ForegroundColor Yellow
+    Write-Host ""
+    if (-not $RegisterScheduledTask) { exit 2 }
+    Write-Warning "Skipping -RegisterScheduledTask because .env validation failed."
     exit 2
 }
 
-# ===== Voiceover (Azure Speech + Discord bot) — optional =====
+# ===== Step 5: show redacted summary =====
 
-$voiceoverEnabled = $false
-$existingVoiceover = ($existing.ContainsKey('voiceover_enabled') -and $existing['voiceover_enabled'])
-
-if (-not $NoPrompt) {
-    if ($ConfigureVoiceover) {
-        $configureVo = $true
-    } elseif ($existingVoiceover) {
-        $reply = Read-Host "Voiceover is currently enabled. Reconfigure? (y/N)"
-        $configureVo = ($reply -eq 'y' -or $reply -eq 'Y')
+$r = $report.redacted
+Write-Host ""
+Write-Host ".env validated." -ForegroundColor Green
+Write-Host "  endpoint:           $($r.endpoint)"
+Write-Host "  deployment:         $($r.deployment)"
+Write-Host "  api_key:            $($r.api_key)"
+Write-Host "  log_level:          $($r.log_level)"
+Write-Host ""
+if ($r.voiceover_enabled) {
+    if ($r.voiceover_ready) {
+        Write-Host "Voiceover:           ENABLED (ready)" -ForegroundColor Green
     } else {
-        $reply = Read-Host "Configure voiceover (Discord bot + Azure Speech)? (y/N)"
-        $configureVo = ($reply -eq 'y' -or $reply -eq 'Y')
+        Write-Host "Voiceover:           ENABLED but NOT READY (missing fields)" -ForegroundColor Yellow
     }
+    Write-Host "  speech_endpoint:    $($r.speech_endpoint)"
+    Write-Host "  speech_voice:       $($r.speech_voice)"
+    Write-Host "  speech_key:         $($r.speech_key)"
+    Write-Host "  discord_bot_token:  $($r.discord_bot_token)"
+    Write-Host "  discord_guild_id:   $($r.discord_guild_id)"
+    Write-Host "  discord_channel:    $($r.discord_voice_channel_id)"
+    Write-Host "  native_tongue_mode: $($r.native_tongue_mode)"
 
-    if ($configureVo) {
-        Write-Host ""
-        Write-Host "Voiceover setup" -ForegroundColor Cyan
-        Write-Host "---------------"
-        Write-Host "Press Enter at any prompt to keep the existing value (or to skip and disable)."
-        Write-Host ""
-
-        # Azure Speech
-        if (-not $SpeechEndpoint) {
-            $existingSpeechEp = if ($existing.ContainsKey('azure_speech_endpoint')) { $existing.azure_speech_endpoint } else { '' }
-            $hint = if ($existingSpeechEp) { "[$existingSpeechEp]" } else { 'e.g. https://<region>.api.cognitive.microsoft.com/' }
-            $reply = Read-Host "Azure Speech endpoint $hint"
-            if ($reply) { $SpeechEndpoint = $reply } elseif ($existingSpeechEp) { $SpeechEndpoint = $existingSpeechEp }
-        }
-        if (-not $SpeechKey) {
-            $existingSpeechKey = if ($existing.ContainsKey('azure_speech_key')) { $existing.azure_speech_key } else { '' }
-            $hasExistingSpeechKey = [bool]$existingSpeechKey
-            $prompt = if ($hasExistingSpeechKey) { "Azure Speech key (input hidden, Enter to keep existing)" } else { "Azure Speech key (input hidden)" }
-            $secure = Read-Host $prompt -AsSecureString
-            $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
-            try { $entered = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr) }
-            finally { [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr) }
-            if ($entered) { $SpeechKey = $entered } elseif ($hasExistingSpeechKey) { $SpeechKey = $existingSpeechKey; $script:SpeechKeyUnchanged = $true }
-        }
-        if (-not $SpeechVoice -or $SpeechVoice -eq "en-US-AriaNeural") {
-            $existingVoice = if ($existing.ContainsKey('azure_speech_voice')) { $existing.azure_speech_voice } else { 'en-US-AriaNeural' }
-            $reply = Read-Host "Speech voice [$existingVoice]"
-            if ($reply) { $SpeechVoice = $reply } else { $SpeechVoice = $existingVoice }
-        }
-
-        # Discord
-        if (-not $DiscordBotToken) {
-            $existingBotToken = if ($existing.ContainsKey('discord_bot_token')) { $existing.discord_bot_token } else { '' }
-            $hasExistingBotToken = [bool]$existingBotToken
-            $prompt = if ($hasExistingBotToken) { "Discord bot token (input hidden, Enter to keep existing)" } else { "Discord bot token (input hidden)" }
-            $secure = Read-Host $prompt -AsSecureString
-            $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
-            try { $entered = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr) }
-            finally { [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr) }
-            if ($entered) { $DiscordBotToken = $entered } elseif ($hasExistingBotToken) { $DiscordBotToken = $existingBotToken; $script:BotTokenUnchanged = $true }
-        }
-        if (-not $DiscordGuildId) {
-            $existingGuild = if ($existing.ContainsKey('discord_guild_id')) { $existing.discord_guild_id } else { '' }
-            $hint = if ($existingGuild) { "[$existingGuild]" } else { '(numeric ID from Discord server settings)' }
-            $reply = Read-Host "Discord server (guild) ID $hint"
-            if ($reply) { $DiscordGuildId = $reply } elseif ($existingGuild) { $DiscordGuildId = $existingGuild }
-        }
-        if (-not $DiscordVoiceChannelId) {
-            $existingChan = if ($existing.ContainsKey('discord_voice_channel_id')) { $existing.discord_voice_channel_id } else { '' }
-            $hint = if ($existingChan) { "[$existingChan]" } else { '(numeric ID, right-click voice channel -> Copy Channel ID)' }
-            $reply = Read-Host "Discord voice channel ID $hint"
-            if ($reply) { $DiscordVoiceChannelId = $reply } elseif ($existingChan) { $DiscordVoiceChannelId = $existingChan }
-        }
-
-        # All fields populated => enable voiceover
-        $allPopulated = ($SpeechEndpoint -and $SpeechKey -and $DiscordBotToken -and $DiscordGuildId -and $DiscordVoiceChannelId)
-        if ($allPopulated) {
-            $voiceoverEnabled = $true
-            # Validate FFmpeg presence (required by discord.py for audio playback)
-            $ffmpeg = Get-Command ffmpeg -ErrorAction SilentlyContinue
-            if (-not $ffmpeg) {
-                Write-Warning "FFmpeg not found on PATH. Voiceover will NOT play audio until you install it."
-                Write-Warning "Install: https://ffmpeg.org/download.html (or ``winget install ffmpeg`` / ``choco install ffmpeg``)"
-            } else {
-                Write-Host "FFmpeg found: $($ffmpeg.Source)" -ForegroundColor Green
-            }
-        } else {
-            Write-Warning "Not all voiceover fields populated; voiceover will stay DISABLED."
-            $voiceoverEnabled = $false
-        }
-    } elseif ($existingVoiceover) {
-        # User declined to reconfigure; preserve existing voiceover state
-        $voiceoverEnabled = $true
-        if ($existing.ContainsKey('azure_speech_endpoint')) { $SpeechEndpoint = $existing.azure_speech_endpoint }
-        if ($existing.ContainsKey('azure_speech_key')) { $SpeechKey = $existing.azure_speech_key; $script:SpeechKeyUnchanged = $true }
-        if ($existing.ContainsKey('azure_speech_voice')) { $SpeechVoice = $existing.azure_speech_voice }
-        if ($existing.ContainsKey('discord_bot_token')) { $DiscordBotToken = $existing.discord_bot_token; $script:BotTokenUnchanged = $true }
-        if ($existing.ContainsKey('discord_guild_id')) { $DiscordGuildId = $existing.discord_guild_id }
-        if ($existing.ContainsKey('discord_voice_channel_id')) { $DiscordVoiceChannelId = $existing.discord_voice_channel_id }
+    # FFmpeg presence check (only relevant when voiceover is on)
+    $ffmpeg = Get-Command ffmpeg -ErrorAction SilentlyContinue
+    if (-not $ffmpeg) {
+        Write-Warning "FFmpeg not found on PATH. Voiceover will NOT play audio until you install it."
+        Write-Warning "Install: winget install ffmpeg  (or https://ffmpeg.org/download.html)"
+    } else {
+        Write-Host "  ffmpeg:             $($ffmpeg.Source)" -ForegroundColor Green
     }
-}
-
-# Build config (preserving any non-required fields the user has customized)
-$config = [ordered]@{
-    "_comment" = "DowagerMod Chatter sidecar config. NEVER COMMIT THIS FILE. NEVER SHARE THIS KEY."
-    endpoint = $Endpoint
-    deployment = $Deployment
-    api_key = $ApiKey
-    api_version = $ApiVersion
-    enabled = $true
-    max_tokens = 80
-    max_tokens_multi_turn = 400
-    request_timeout_seconds = 8
-    rate_limit_seconds = 1.0
-    max_in_flight = 4
-    circuit_breaker = @{ failure_threshold = 3; open_seconds = 120 }
-    spool_poll_interval_seconds = 0.5
-    request_ttl_seconds = 60
-    response_ttl_seconds = 3600
-    log_level = "INFO"
-    voiceover_enabled = [bool]$voiceoverEnabled
-    azure_speech_endpoint = if ($SpeechEndpoint) { $SpeechEndpoint } else { "" }
-    azure_speech_key = if ($SpeechKey) { $SpeechKey } else { "" }
-    azure_speech_voice = if ($SpeechVoice) { $SpeechVoice } else { "en-US-AriaNeural" }
-    speech_rate = "+50%"
-    voiceover_daily_char_cap = 100000
-    discord_bot_token = if ($DiscordBotToken) { $DiscordBotToken } else { "" }
-    discord_guild_id = if ($DiscordGuildId) { $DiscordGuildId } else { "" }
-    discord_voice_channel_id = if ($DiscordVoiceChannelId) { $DiscordVoiceChannelId } else { "" }
-}
-
-# Preserve user customizations from existing config (override defaults but not the ones we just set)
-foreach ($key in @('max_tokens','max_tokens_multi_turn','request_timeout_seconds','rate_limit_seconds',
-                   'max_in_flight','spool_poll_interval_seconds','request_ttl_seconds',
-                   'response_ttl_seconds','log_level','enabled','voiceover_daily_char_cap',
-                   'speech_rate')) {
-    if ($existing.ContainsKey($key)) {
-        $config[$key] = $existing[$key]
-    }
-}
-if ($existing.ContainsKey('circuit_breaker')) { $config['circuit_breaker'] = $existing['circuit_breaker'] }
-
-$json = $config | ConvertTo-Json -Depth 10
-[IO.File]::WriteAllText($configPath, $json, [Text.UTF8Encoding]::new($false))
-
-# Restrict ACL: only current user has full control
-try {
-    $user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
-    & icacls.exe $configPath /inheritance:r /grant:r "${user}:F" 2>&1 | Out-Null
-    & icacls.exe $configDir /inheritance:r /grant:r "${user}:(OI)(CI)F" 2>&1 | Out-Null
-    Write-Host "ACLs restricted to: $user"
-} catch {
-    Write-Warning "Could not lock down ACLs: $_"
-}
-
-Write-Host ""
-Write-Host "Wrote config: $configPath" -ForegroundColor Green
-Write-Host "Endpoint:    $Endpoint"
-Write-Host "Deployment:  $Deployment"
-if ($script:KeyUnchanged) {
-    Write-Host "API key:     (unchanged)"
 } else {
-    $redacted = if ($ApiKey.Length -gt 8) { $ApiKey.Substring(0,4) + "..." + $ApiKey.Substring($ApiKey.Length - 4) } else { "***" }
-    Write-Host "API key:     $redacted"
+    Write-Host "Voiceover:           disabled"
 }
-Write-Host ""
-if ($voiceoverEnabled) {
-    Write-Host "Voiceover:   ENABLED" -ForegroundColor Green
-    Write-Host "  Speech endpoint:  $SpeechEndpoint"
-    Write-Host "  Speech voice:     $SpeechVoice"
-    if ($script:SpeechKeyUnchanged) { Write-Host "  Speech key:       (unchanged)" }
-    else { $sk = if ($SpeechKey.Length -gt 8) { $SpeechKey.Substring(0,4) + "..." + $SpeechKey.Substring($SpeechKey.Length - 4) } else { "***" }; Write-Host "  Speech key:       $sk" }
-    if ($script:BotTokenUnchanged) { Write-Host "  Discord bot tok:  (unchanged)" }
-    else { $bt = if ($DiscordBotToken.Length -gt 8) { $DiscordBotToken.Substring(0,4) + "..." + $DiscordBotToken.Substring($DiscordBotToken.Length - 4) } else { "***" }; Write-Host "  Discord bot tok:  $bt" }
-    Write-Host "  Discord guild:    $DiscordGuildId"
-    Write-Host "  Discord channel:  $DiscordVoiceChannelId"
-} else {
-    Write-Host "Voiceover:   disabled"
+
+# ===== Step 6: legacy config.json warning =====
+
+if ($report.legacy_present) {
+    Write-Host ""
+    Write-Host "Legacy config detected:" -ForegroundColor Yellow
+    Write-Host "  $($report.legacy_path)" -ForegroundColor Yellow
+    Write-Host "This file is IGNORED -- .env is the only config source now."
+    Write-Host "If it contains values you still want, copy them into .env first,"
+    Write-Host "then run: .\tools\Uninstall-Chatter.ps1 -RemoveLegacyConfig"
 }
-Write-Host ""
+
+# ===== Step 7: harden .env ACL =====
+
+if (-not $NoHardenAcl) {
+    try {
+        $user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+        & icacls.exe $envPath /inheritance:r /grant:r "${user}:F" 2>&1 | Out-Null
+        Write-Host ""
+        Write-Host "Hardened ACL on .env (owner only): $user" -ForegroundColor Green
+    } catch {
+        Write-Warning "Could not harden .env ACL: $_"
+    }
+}
+
+# ===== Step 8: optional scheduled-task registration =====
 
 if ($RegisterScheduledTask) {
-    Write-Host "Registering Windows scheduled task to auto-start at logon..."
+    Write-Host ""
+    Write-Host "Registering Windows scheduled task to auto-start at logon..." -ForegroundColor Cyan
     $taskName = "DowagerMod-Chatter"
     $startScript = Join-Path $PSScriptRoot 'Start-Chatter.ps1'
-    $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -WindowStyle Hidden -File `"$startScript`""
+    $action = New-ScheduledTaskAction -Execute "powershell.exe" `
+        -Argument "-NoProfile -WindowStyle Hidden -File `"$startScript`""
     $trigger = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
-    $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -DontStopIfGoingOnBatteries -AllowStartIfOnBatteries
-    Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Settings $settings -Force | Out-Null
-    Write-Host "Registered task '$taskName'."
+    $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable `
+        -DontStopIfGoingOnBatteries -AllowStartIfOnBatteries
+    Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger `
+        -Settings $settings -Force | Out-Null
+    Write-Host "Registered task '$taskName'." -ForegroundColor Green
 }
 
-Write-Host "Done. Start the daemon with: .\tools\Start-Chatter.ps1" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Done." -ForegroundColor Cyan
+Write-Host ""
+Write-Host "To start the daemon now:        .\tools\Start-Chatter.ps1"
+Write-Host "To change a setting later:      .\tools\Setup-Chatter.ps1 -Edit  (or edit .env directly)"
+Write-Host "                                then Stop-Chatter / Start-Chatter to pick it up"
+Write-Host "To see live status:             .\tools\Chatter-Status.ps1"
+Write-Host ""
