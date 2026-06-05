@@ -3116,6 +3116,31 @@ def _maybe_queue_chain_reply(data):
         except Exception, exc:
             _log("chain: alive-check THREW for pid=" + str(target_pid) + ": " + str(exc))
             return
+        # Team-relationship rule: refuse chains to a leader on the same
+        # team as the speaker. The chain-flavored prompt
+        # (SYSTEM_CHAT_REPLY_CHAIN in tools/chatter/prompts.py) explicitly
+        # tells the addressed leader to reply "sharper than usual" with
+        # "theatrical rivalry and trash-talk", which causes teammates to
+        # mock each other when the human insults one of them and that
+        # leader sets address_to to their ally. The prompt has no team
+        # awareness, so the safest fix is to drop the chain here. Master
+        # vassal pairs and defensive pacts are NOT filtered (yet) -- only
+        # the literal same-team case, which is the directly reported bug.
+        try:
+            gc = _gc()
+            speaker_team_id = int(gc.getPlayer(speaker_pid).getTeam())
+            target_team_id = int(gc.getPlayer(int(target_pid)).getTeam())
+            if speaker_team_id == target_team_id:
+                _log("chain: address_to=" + addr + " pid=" + str(target_pid)
+                     + " is on the same team as speaker pid=" + str(speaker_pid)
+                     + " (team_id=" + str(speaker_team_id) + "); skipping to"
+                     + " avoid teammate-on-teammate insult")
+                return
+        except Exception, exc:
+            _log("chain: same-team check THREW (failing closed) for"
+                 + " speaker=" + str(speaker_pid) + " target=" + str(target_pid)
+                 + ": " + str(exc))
+            return
         # Chatroom rule: the human audience must have met the addressed
         # leader. If the LLM somehow names a stranger (shouldn't happen
         # given the roster preface, but be defensive), drop the chain.
