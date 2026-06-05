@@ -2347,7 +2347,15 @@ def _any_human_has_met(speaker_id, target_id, trigger=""):
     to the alive check: it fires at the moment of death (engine has
     already flipped isAlive to False) and we want that final line.
 
-    Fails open (returns True) on any error.
+    Fail-open behavior:
+    - Outer/structural errors (gc unavailable, viewing-team lookup, etc.)
+      return True so transient engine state doesn't kill all chatter.
+    - AI-only games (no humans) return True -- nothing to gate for.
+    - Inner isHasMet() exceptions for the speaker/target team check
+      return FALSE (fail-CLOSED). The chatroom property must hold: if we
+      can't verify the audience has met a leader, we must not leak their
+      voice. This is the fix for "unmet leaders broadcasting" (e.g.
+      RELIGION_FOUNDED from a stranger).
     """
     try:
         gc = _gc()
@@ -2379,8 +2387,13 @@ def _any_human_has_met(speaker_id, target_id, trigger=""):
                 if not gc.getTeam(viewing_tid).isHasMet(speaker_team_idx):
                     return False
             except Exception, exc:
-                _log("emit gate: isHasMet(speaker) failed (fail-open): " + str(exc))
-                return True
+                # Chatroom rule trumps fail-open: if we cannot verify the
+                # human audience has met the speaker, suppress. Failing
+                # open here was the documented leak path for "unmet
+                # leaders broadcasting" (e.g. RELIGION_FOUNDED from a
+                # stranger).
+                _log("emit gate: isHasMet(speaker) failed (fail-CLOSED): " + str(exc))
+                return False
         # Target visibility (only when target is meaningful).
         try:
             tid = int(target_id)
@@ -2393,8 +2406,11 @@ def _any_human_has_met(speaker_id, target_id, trigger=""):
                     if not gc.getTeam(viewing_tid).isHasMet(target_team_idx):
                         return False
             except Exception, exc:
-                _log("emit gate: isHasMet(target) failed (fail-open): " + str(exc))
-                return True
+                # Same chatroom rule as speaker: if we cannot verify the
+                # human audience has met the target, suppress rather than
+                # leak an unmet-civ name into the chatter.
+                _log("emit gate: isHasMet(target) failed (fail-CLOSED): " + str(exc))
+                return False
         return True
     except Exception, exc:
         _log("emit: _any_human_has_met failed (fail-open): " + str(exc))
