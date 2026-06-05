@@ -109,6 +109,15 @@ This file defines the expected working method for future agents in this repo. It
 - notable worktree noise or unrelated changes that may affect future tasks
 - state explicitly if manual smoke testing was not run
 
+## Pulling Changes Onto Another Machine
+
+`git pull` only updates the repo source tree. It does NOT update the Civ4 install or the chatter daemon. After pulling:
+
+- Changes under `CoreFiles/...` (XML, Python, DLL, art) require running the installer to take effect in-game. Run `Install DowagerMod.bat` from the repo root (it self-elevates), or `Setup-Chatter.ps1` if only chatter sidecar files changed. Quit Civ4 first; it locks the Python files while loaded.
+- Changes under `tools/chatter/...` (sidecar code) require `.\tools\Stop-Chatter.ps1` then `.\tools\Start-Chatter.ps1`. Run `Setup-Chatter.ps1` again if `requirements.txt` changed.
+- Pure docs, scripts in `tools/` not related to chatter, or test-only changes need no reinstall.
+- If a Civ4 mod load looks fine but in-game updates stop reaching chatter mid-game, the daemon is probably down or the latest `CvLeaderChatter.py` was not deployed. Verify with `.\tools\Chatter-Status.ps1` and by hashing the deployed file against `CoreFiles/.../CvLeaderChatter.py`.
+
 ## Handling Stale Or Conflicting Docs
 
 - Do not blend stale docs with current code into a false narrative.

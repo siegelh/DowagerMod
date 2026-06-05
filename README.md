@@ -31,6 +31,16 @@ Run from repo root.
 .\tools\build_civ4_dll.ps1
 ```
 
+## After `git pull`
+
+`git pull` only updates the repo. It does NOT update the Civ4 install or the chatter sidecar. Civ4 keeps loading whatever was deployed last time.
+
+- Anything under `CoreFiles/...` changed (XML, Python, DLL, art)? Quit Civ4, then run `Install DowagerMod.bat` from the repo root (self-elevates). This is required for `CvLeaderChatter.py` changes to reach the game.
+- Anything under `tools/chatter/...` changed? `.\tools\Stop-Chatter.ps1` then `.\tools\Start-Chatter.ps1`. Re-run `.\tools\Setup-Chatter.ps1` only if `requirements.txt` changed.
+- Pure docs / non-chatter tooling / tests? No reinstall needed.
+
+If in-game updates suddenly stop reaching chatter mid-game, the most likely cause is one of the above being skipped. See `WORKFLOW.md` -> "Pulling Changes Onto Another Machine".
+
 See:
 
 - [docs/TESTING_WORKFLOW.md](docs/TESTING_WORKFLOW.md)
