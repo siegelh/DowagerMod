@@ -263,6 +263,38 @@ and a `Leader: text` prefix). If you still see `[YourName]:` style
 prefixes, your mod install is still on v1. Reinstall DowagerMod to pick
 up the v1.1 game-side hooks.
 
+### "A leader sounds way too fast / too slow / wrong voice"
+
+The synthesized rate, pitch, and voice for every line are layered (see
+`CHATTER_OVERVIEW.md` §"Voice and tone" for the full pipeline):
+
+1. **Per-leader base** — `tools/chatter/leader_voices.json` (`voice`,
+   `rate`, `pitch`)
+2. **Global fallback rate** — `DOWAGER_CHATTER_SPEECH_RATE` in `.env`
+   (default empty)
+3. **Tone offset** — added on top by the LLM's tag (`angry +12%`,
+   `wistful -10%`, etc.), per `tools/chatter/tone.py`
+
+Diagnose:
+
+```powershell
+# What tone is the LLM picking for this leader?
+Get-Content "$env:LOCALAPPDATA\DowagerMod\chatter\spool\daemon.log" |
+    Select-String -Pattern 'chat_reply ok.*<leader_name>'
+
+# Audition a leader's voice + base prosody locally
+python -m tools.chatter.say --leader napoleon --text "Hello." --play
+```
+
+Common causes:
+- Per-leader `rate` in `leader_voices.json` is too aggressive → edit and
+  restart sidecar.
+- LLM keeps picking `angry` for that leader (+12% rate on top of base) →
+  tweak persona snippet in `tools/chatter/prompts.py`, or dial down
+  `TONE_PROSODY["angry"]` in `tools/chatter/tone.py`.
+- Voice itself is naturally fast (some non-English neural voices read
+  quicker by default) → set a negative `rate` in the leader's JSON entry.
+
 ### "I want to disable chatter for one game"
 
 Stop the sidecar (`Stop-Chatter.ps1`) and don't restart it for that game.

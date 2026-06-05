@@ -155,6 +155,98 @@ Per-game-type behavior:
 ⚡ = eligible for multi-turn rejoinders (50% probability per fire). Other
 triggers always produce a single line.
 
+## Voice and tone (prosody pipeline)
+
+Every chatter line that's spoken aloud goes through a three-layer
+prosody stack. Understanding the layers is the difference between "this
+leader sounds great" and "Catherine sounds like she's auctioning
+livestock."
+
+### Layer 1 — Per-leader base voice + rate/pitch
+
+Source: `tools/chatter/leader_voices.json`. Each known leader maps to:
+
+```json
+"napoleon": {
+  "voice": "fr-FR-HenriNeural",
+  "rate": "-8%",
+  "pitch": "-3%"
+}
+```
+
+- **`voice`** — Azure Neural voice ID (region + voice name). Picks the
+  accent and timbre.
+- **`rate`** — SSML `<prosody rate>` offset relative to that voice's
+  natural pace. Current spread: `-18%` (slowest, e.g. Mansa Musa) to
+  `+8%` (fastest, Montezuma — `es-MX-CecilioNeural` reads naturally
+  quick already). Empty string means "use voice default."
+- **`pitch`** — same idea for SSML `<prosody pitch>`. Optional.
+
+**Leaders not in the map** fall back to a stable-hashed pick from
+`_fallback_male` / `_fallback_female` pools (`voice_picker.py`
+`pick_spec()`). Fallback picks have **no rate or pitch override** — they
+speak at the voice's natural pace.
+
+Tweak per-leader: edit `leader_voices.json`, restart sidecar. Use
+`python -m tools.chatter.audit_leader_voices` to bulk-audition every
+leader and write WAVs to `tools/chatter/leader_audition/`.
+
+### Layer 2 — Global rate fallback
+
+`DOWAGER_CHATTER_SPEECH_RATE` (`.env`). Applied **only when the
+per-leader spec doesn't set its own rate**. Default `""` (no override).
+
+Use this to make every unmapped / no-rate leader uniformly snappier or
+slower without editing the JSON map. Example: `+10%` makes every fallback
+voice 10% faster; explicit per-leader rates still win.
+
+### Layer 3 — Tone offset (per-line, additive)
+
+Every `CHAT_REPLY` line carries a `tone` tag emitted by the LLM. The
+tone maps to a pitch/rate offset that's **added** on top of the layers
+above (`tools/chatter/tone.py` → `TONE_PROSODY`):
+
+| Tone         | Pitch  | Rate   | Vibe |
+|--------------|--------|--------|------|
+| `angry`      | +8%    | +12%   | spitting words |
+| `amused`     | +4%    | +8%    | brisker, enjoying it |
+| `pleased`    | +5%    | +5%    | warm, brighter |
+| `theatrical` | (none) | (none) | neutral, inherits base — **default fallback** |
+| `haughty`    | −3%    | −2%    | deliberate, looking down nose |
+| `cold`       | −4%    | −6%    | contempt |
+| `menacing`   | −7%    | −8%    | gravelly threat |
+| `wistful`    | −3%    | −10%   | softer, regretful |
+
+So a Montezuma line tagged `angry` ships as `rate=+20%` (Layer 1 `+8%`
++ Layer 3 `+12%`). An unmapped leader tagged `wistful` with no Layer 2
+override ships as `rate=-10%`.
+
+The actual rate sent to Azure for every line is logged at INFO level by
+`chat_reply ok rid=... tone=...`. Grep the daemon log to see exactly
+what tone the LLM is picking for each speaker — useful when one leader
+sounds wrong.
+
+### Tweak workflow
+
+| Symptom | Where to change |
+|---|---|
+| One leader sounds wrong | `tools/chatter/leader_voices.json` — adjust `rate`/`pitch`/`voice` |
+| All unmapped leaders sound wrong | `DOWAGER_CHATTER_SPEECH_RATE` in `.env` |
+| All `angry` lines too aggressive | `tools/chatter/tone.py` `TONE_PROSODY["angry"]` |
+| LLM always picks `haughty` for a leader | tweak the leader's persona snippet in `tools/chatter/prompts.py` |
+
+After any tweak: `Stop-Chatter` → `Start-Chatter` to pick it up.
+
+### Single-line audition helper
+
+```powershell
+python -m tools.chatter.say --leader napoleon --text "Bonjour, my friend." --play
+```
+
+Plays the synthesized line locally so you can A/B rates without
+launching Civ4. See `tools/chatter/say.py --help` for `--rate` /
+`--pitch` overrides.
+
 ## Anti-spam guards
 
 Stricter than feels necessary on first pass — designed for restraint:
