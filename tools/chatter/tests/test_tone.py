@@ -51,9 +51,13 @@ class TestAddPercent(unittest.TestCase):
     def test_empty_offset_returns_base(self):
         self.assertEqual(tone.add_percent("+50%", ""), "+50%")
 
-    def test_unparseable_base_falls_back_to_zero(self):
-        # 'slow' isn't a percentage; treat as 0 and apply offset cleanly.
-        self.assertEqual(tone.add_percent("slow", "+12%"), "+12%")
+    def test_unparseable_base_preserved_verbatim(self):
+        # Non-percent bases like SSML named keywords ('slow'), semitones
+        # ('+24st'), or Hz ('+400Hz') must be preserved as-is so a
+        # deliberately picked extreme base survives a tone offset.
+        self.assertEqual(tone.add_percent("slow", "+12%"), "slow")
+        self.assertEqual(tone.add_percent("+24st", "+12%"), "+24st")
+        self.assertEqual(tone.add_percent("+400Hz", "-8%"), "+400Hz")
 
     def test_zero_result(self):
         # +5% and -5% cancel.

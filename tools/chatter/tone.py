@@ -71,8 +71,12 @@ def add_percent(base: str, offset: str) -> str:
     add_percent('+50%', '+12%') -> '+62%'.
     add_percent('+50%', '')     -> '+50%' (no change).
     add_percent('', '+12%')     -> '+12%' (offset alone).
-    add_percent('slow', '+12%') -> '+12%' (unparseable base treated as 0
-                                            rather than dropping the offset).
+
+    NON-PERCENT BASE (e.g. semitones '+24st', Hz '+400Hz', named keywords
+    like 'slow' / 'x-low'): the base is preserved verbatim and the offset
+    is DROPPED on that axis. We don't try to convert units cross-domain,
+    and dropping the offset is safer than dropping a deliberately picked
+    extreme base like a chipmunk '+24st' pitch.
 
     Always returns a string. Caller passes it directly into SSML.
     """
@@ -80,6 +84,10 @@ def add_percent(base: str, offset: str) -> str:
     o = _parse_percent(offset)
     if b is None and o is None:
         return ""
+    if b is None and base:
+        # Non-percent base (semitones / Hz / named keyword): preserve as-is,
+        # drop the offset rather than silently clobbering the base value.
+        return base
     total = (b or 0.0) + (o or 0.0)
     # Render as integer when possible -- SSML accepts both, integer is tidier
     if abs(total - round(total)) < 1e-6:
