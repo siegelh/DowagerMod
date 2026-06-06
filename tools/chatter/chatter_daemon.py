@@ -30,7 +30,10 @@ from tools.chatter.azure_client import AzureClient, AuthError, ApiError, parse_m
 from tools.chatter.chat_reply import handle_chat_reply
 from tools.chatter.circuit import CircuitBreaker
 from tools.chatter.conversations import ConversationStore
-from tools.chatter.prompts import build_single_line_prompt, build_multi_turn_prompt
+from tools.chatter.prompts import (
+    build_single_line_prompt, build_multi_turn_prompt,
+    SPICY_DIRECTIVE, ANTI_CLICHE_DIRECTIVE, STRUCTURAL_VARIETY_DIRECTIVE,
+)
 from tools.chatter.state import StateStore
 from tools.chatter.tone import add_percent, prosody_for
 
@@ -485,7 +488,7 @@ def heartbeat(spool_path: Path, logger: logging.Logger) -> None:
         logger.warning("heartbeat failed: %s", exc)
 
 
-def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
+def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=None):
     """Initialize Speech client + Discord bot + voice picker if voiceover
     is configured.
 
@@ -537,9 +540,14 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
             voice_channel_id=int(cfg.voiceover.discord_voice_channel_id),
             logger=logger,
         )
-        # Wire the "speak whatever a user types at me" handler.
+        # Wire the "speak whatever a user types at me" handler AND the
+        # "ask: ..." handler that runs the prompt through the LLM and
+        # speaks the model's reply.
         # Triggered when a user @mentions DowagerBot OR DMs her.
-        _install_user_speak_handler(bot, speech_client, voice_picker, spool_path, logger)
+        _install_user_speak_handler(
+            bot, speech_client, voice_picker, spool_path, logger,
+            client=client, llm_max_tokens=cfg.ask_max_tokens,
+        )
         bot.start()
         logger.info(
             "voiceover: Discord bot started guild=%s channel=%s",
@@ -552,66 +560,216 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger):
     return speech_client, bot, voice_picker
 
 
-def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Path, logger: logging.Logger):
-    """Register an on_message handler so users can have DowagerBot speak
-    arbitrary lines in a random leader voice by @mentioning her (or DM'ing).
+_ASK_PATTERN = re.compile(
+    r"^\s*ask(?:\s+as\s+([A-Za-z][A-Za-z0-9 .'\-]*?))?\s*:\s*(.+)$",
+    re.IGNORECASE | re.DOTALL,
+)
 
-    - Per-user cooldown to throttle abuse.
-    - Character cap to protect the daily TTS budget.
+# Default persona used when the user just types "ask: <prompt>" with no
+# leader override. Hindi-accented Gandhi voice; persona matches that voice.
+_ASK_DEFAULT_PERSONA = (
+    "a wise Indian elder with the bearing of Mahatma Gandhi: measured, "
+    "thoughtful, faintly amused, willing to be blunt when it serves the truth"
+)
+_ASK_DEFAULT_VOICE = "en-IN-PrabhatNeural"
+
+_ASK_SYSTEM_TEMPLATE = (
+    "You are answering a user's question over a Discord voice channel "
+    "for DowagerMod, a Sid Meier's Civilization IV mod. The user "
+    "invoked you with 'ask:' and wants you to actually answer "
+    "their question -- do NOT echo their text back, do NOT acknowledge "
+    "the command; just answer.\n\n"
+    "Speak in the persona of: {persona}.\n\n"
+    "Output rules (this WILL be spoken aloud by text-to-speech):\n"
+    "- Plain prose only. No markdown, no asterisks, no bullet lists, "
+    "no headings, no code blocks, no URLs, no stage directions.\n"
+    "- Spell out symbols and abbreviations the way you would say them "
+    "aloud ('and' not '&', 'percent' not '%').\n"
+    "- Stay in character throughout. If asked something the persona "
+    "could not plausibly know, answer anyway in their voice (the "
+    "anachronism is part of the fun); only refuse if the request is "
+    "truly off-limits.\n"
+)
+
+
+def _build_ask_prompt(question: str, persona: str) -> tuple[str, str]:
+    """Build (system, user) messages for the ask: command."""
+    system_msg = _ASK_SYSTEM_TEMPLATE.format(persona=persona)
+    # Apply the same spicy / anti-cliche / structural-variety directives
+    # that in-game commentary uses, so ask: answers don't go preachy
+    # and don't lean on the banned words.
+    system_msg += SPICY_DIRECTIVE + ANTI_CLICHE_DIRECTIVE + STRUCTURAL_VARIETY_DIRECTIVE
+    return system_msg, question
+
+
+def _parse_ask_command(text: str) -> Optional[tuple[Optional[str], str]]:
+    """Return (leader_name_or_None, question) if text is an ask: command.
+
+    Matches:
+        "ask: what is the capital of France?"     -> (None, "what is ...")
+        "ask as Stalin: who killed Trotsky?"      -> ("Stalin", "who killed ...")
+
+    Returns None if text is not an ask command.
+    """
+    if not text:
+        return None
+    m = _ASK_PATTERN.match(text)
+    if not m:
+        return None
+    leader = (m.group(1) or "").strip() or None
+    question = (m.group(2) or "").strip()
+    if not question:
+        return None
+    return leader, question
+
+
+def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple[str, str, str, str]:
+    """Resolve (voice, rate, pitch, persona_description) for an ask request.
+
+    leader_name=None -> default Gandhi-flavored persona + Hindi-accented voice.
+    leader_name set  -> look up via voice_picker; persona becomes that leader.
+    """
+    if not leader_name:
+        return _ASK_DEFAULT_VOICE, "", "", _ASK_DEFAULT_PERSONA
+    spec = voice_picker.pick_spec(leader_name) if voice_picker is not None else None
+    voice = spec.voice if spec is not None else _ASK_DEFAULT_VOICE
+    rate = spec.rate if (spec is not None and spec.rate) else ""
+    pitch = spec.pitch if (spec is not None and spec.pitch) else ""
+    persona = "the historical leader %s -- their actual personality, era, and worldview, in their own voice" % leader_name
+    return voice, rate, pitch, persona
+
+
+def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Path,
+                                logger: logging.Logger, *, client=None,
+                                llm_max_tokens: int = 4000):
+    """Register an on_message handler so users can:
+
+    1. @mention DowagerBot with arbitrary text  -> she speaks it verbatim
+       in the default Hindi-accented voice (the original "say" feature).
+
+    2. @mention DowagerBot with 'ask: <question>'  -> she sends the question
+       to the LLM (Grok) and speaks the response in the default persona.
+
+    3. @mention DowagerBot with 'ask as <Leader>: <question>'  -> same as
+       above but routed through that leader's voice and persona.
+
+    - Per-user cooldown to throttle abuse (longer for ask, since it spends
+      LLM tokens).
     - Heavy work runs in a worker thread so the bot's asyncio loop is free.
     """
     import threading as _t
 
-    MAX_CHARS = 240
-    PER_USER_COOLDOWN_SEC = 4.0
+    # Azure TTS REST API caps a single synth call around 50k chars; honor
+    # that as the hard ceiling and let everything below it through.
+    MAX_CHARS = 50000
+    PER_USER_COOLDOWN_SAY_SEC = 4.0
+    PER_USER_COOLDOWN_ASK_SEC = 8.0
     audio_dir = spool_path / "audio"
     try:
         audio_dir.mkdir(parents=True, exist_ok=True)
     except Exception:
         pass
 
-    last_spoke = {}  # author_id -> monotonic timestamp
+    last_say = {}  # author_id -> monotonic timestamp
+    last_ask = {}  # author_id -> monotonic timestamp
     lock = _t.Lock()
 
-    def _worker(text: str, author_name: str):
+    def _speak(text: str, voice: str, rate: str, pitch: str,
+               author_name: str, kind: str) -> None:
+        """Synthesize ``text`` with the given voice/prosody and enqueue
+        for playback. ``kind`` is just a log tag ('say' or 'ask')."""
         try:
-            # Hardcoded thick-accent voice: Hindi voice on English text.
-            voice = "en-IN-PrabhatNeural"
-            rate = ""
-            pitch = ""
             logger.info(
-                "user-speak: author=%s chars=%d voice=%s rate=%r pitch=%r",
-                author_name, len(text), voice, rate, pitch,
+                "user-%s: author=%s chars=%d voice=%s rate=%r pitch=%r",
+                kind, author_name, len(text), voice, rate, pitch,
             )
             result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
             ts = int(time.time() * 1000)
-            wav = audio_dir / ("user_speak_%d.wav" % ts)
+            wav = audio_dir / ("user_%s_%d.wav" % (kind, ts))
             wav.write_bytes(result.audio_bytes)
             bot.enqueue_audio(wav)
         except Exception as exc:  # noqa: BLE001
-            logger.warning("user-speak: failed to speak for %s: %s", author_name, exc)
+            logger.warning("user-%s: failed to speak for %s: %s", kind, author_name, exc)
+
+    def _say_worker(text: str, author_name: str) -> None:
+        # Hardcoded thick-accent voice: Hindi voice on English text.
+        _speak(text, _ASK_DEFAULT_VOICE, "", "", author_name, "say")
+
+    def _ask_worker(question: str, leader_name: Optional[str], author_name: str) -> None:
+        if client is None:
+            logger.warning("user-ask: LLM client not wired; cannot answer ask: from %s", author_name)
+            return
+        voice, rate, pitch, persona = _resolve_ask_voice(voice_picker, leader_name)
+        sys_msg, user_msg = _build_ask_prompt(question, persona)
+        logger.info(
+            "user-ask: author=%s leader=%s persona_chars=%d question_chars=%d voice=%s max_tokens=%d",
+            author_name, leader_name or "(default)",
+            len(persona), len(question), voice, llm_max_tokens,
+        )
+        try:
+            api_result = client.call_responses(sys_msg, user_msg, max_tokens=llm_max_tokens)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("user-ask: LLM call failed for %s: %s", author_name, exc)
+            return
+        reply = (api_result.text or "").strip()
+        if not reply:
+            logger.warning("user-ask: LLM returned empty reply for %s (latency=%dms)",
+                           author_name, api_result.latency_ms)
+            return
+        if len(reply) > MAX_CHARS:
+            logger.info("user-ask: truncating %d-char reply to %d (Azure TTS limit)",
+                        len(reply), MAX_CHARS)
+            reply = reply[:MAX_CHARS]
+        logger.info(
+            "user-ask: got reply for %s chars=%d in_tokens=%d out_tokens=%d latency=%dms",
+            author_name, len(reply),
+            api_result.input_tokens, api_result.output_tokens, api_result.latency_ms,
+        )
+        _speak(reply, voice, rate, pitch, author_name, "ask")
 
     def handler(text: str, author_name: str, author_id: int, is_dm: bool):
         text = (text or "").strip()
         if not text:
             return
+        ask = _parse_ask_command(text)
+        now = time.monotonic()
+        if ask is not None:
+            leader_name, question = ask
+            if len(question) > MAX_CHARS:
+                question = question[:MAX_CHARS]
+            with lock:
+                last = last_ask.get(author_id, 0.0)
+                if now - last < PER_USER_COOLDOWN_ASK_SEC:
+                    logger.info("user-ask: cooldown skip author=%s", author_name)
+                    return
+                last_ask[author_id] = now
+            t = _t.Thread(
+                target=_ask_worker, args=(question, leader_name, author_name),
+                name="UserAsk", daemon=True,
+            )
+            t.start()
+            return
+        # Fall through: plain say.
         if len(text) > MAX_CHARS:
             text = text[:MAX_CHARS]
-        now = time.monotonic()
         with lock:
-            last = last_spoke.get(author_id, 0.0)
-            if now - last < PER_USER_COOLDOWN_SEC:
-                logger.info("user-speak: cooldown skip author=%s", author_name)
+            last = last_say.get(author_id, 0.0)
+            if now - last < PER_USER_COOLDOWN_SAY_SEC:
+                logger.info("user-say: cooldown skip author=%s", author_name)
                 return
-            last_spoke[author_id] = now
+            last_say[author_id] = now
         t = _t.Thread(
-            target=_worker, args=(text, author_name),
+            target=_say_worker, args=(text, author_name),
             name="UserSpeak", daemon=True,
         )
         t.start()
 
     bot.set_message_handler(handler)
-    logger.info("voiceover: user-speak handler registered (mention or DM the bot)")
+    logger.info(
+        "voiceover: user-speak handler registered (say + ask: + ask as <leader>: ; "
+        "llm_wired=%s ask_max_tokens=%d)",
+        client is not None, llm_max_tokens,
+    )
 
 
 def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, logger: logging.Logger,
@@ -753,7 +911,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         max_turns=cfg.chat_max_history_turns,
     )
 
-    speech_client, bot, voice_picker = setup_voiceover(cfg, spool_path, logger)
+    speech_client, bot, voice_picker = setup_voiceover(cfg, spool_path, logger, client=client)
 
     last_call_at = 0.0
     last_heartbeat = 0.0

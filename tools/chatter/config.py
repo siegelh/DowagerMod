@@ -67,7 +67,7 @@ DEFAULTS = {
     # rate overrides in leader_voices.json still apply, and CHAT_REPLY
     # tone-specific rate adjustments still layer on top per-line.
     "speech_rate": "",
-    "voiceover_daily_char_cap": 100000,
+    "voiceover_daily_char_cap": 0,
     "discord_bot_token": "",
     "discord_guild_id": "",
     "discord_voice_channel_id": "",
@@ -76,6 +76,7 @@ DEFAULTS = {
     "chat_history_seconds": 300,        # shared room is wiped after this much silence (5 min idle)
     "chat_max_history_turns": 24,       # rolling window: oldest turns drop off the front past this many
     "chat_reply_max_tokens": 10000,     # generous budget -- an 18-word line + JSON wrapper is ~40 tokens, but we never want to risk truncation
+    "ask_max_tokens": 10000,            # Discord 'ask:' / 'ask as <leader>:' command -- generous, since user values quality over budget
     # Native-tongue mode: when true, the LLM also generates a translation
     # of each line into the speaker's native language, and the TTS speaks
     # the native version. The English version still appears in-game in the
@@ -117,7 +118,7 @@ class VoiceoverConfig:
     azure_speech_key: str = ""
     azure_speech_voice: str = "en-US-AriaNeural"
     speech_rate: str = ""
-    daily_char_cap: int = 100000
+    daily_char_cap: int = 0
     discord_bot_token: str = ""
     discord_guild_id: str = ""
     discord_voice_channel_id: str = ""
@@ -174,6 +175,7 @@ class Config:
     chat_history_seconds: float = 300.0
     chat_max_history_turns: int = 24
     chat_reply_max_tokens: int = 10000
+    ask_max_tokens: int = 10000
     voiceover: VoiceoverConfig = field(default_factory=VoiceoverConfig)
     # Path to the .env file that supplied values, or None if no .env was
     # found at load time. Populated by load_config(); not user-settable.
@@ -298,6 +300,7 @@ _ENV_MAP: Dict[str, Tuple[str, callable]] = {
     "DOWAGER_CHATTER_CHAT_HISTORY_SECONDS": ("chat_history_seconds", float),
     "DOWAGER_CHATTER_CHAT_MAX_HISTORY_TURNS": ("chat_max_history_turns", int),
     "DOWAGER_CHATTER_CHAT_REPLY_MAX_TOKENS": ("chat_reply_max_tokens", int),
+    "DOWAGER_CHATTER_ASK_MAX_TOKENS": ("ask_max_tokens", int),
 }
 
 
@@ -395,13 +398,14 @@ def load_config(path: Optional[Path] = None) -> Config:
         chat_history_seconds=float(raw.get("chat_history_seconds", 300)),
         chat_max_history_turns=int(raw.get("chat_max_history_turns", 24)),
         chat_reply_max_tokens=int(raw.get("chat_reply_max_tokens", 10000)),
+        ask_max_tokens=int(raw.get("ask_max_tokens", 10000)),
         voiceover=VoiceoverConfig(
             enabled=bool(raw.get("voiceover_enabled", False)),
             azure_speech_endpoint=str(raw.get("azure_speech_endpoint", "")),
             azure_speech_key=str(raw.get("azure_speech_key", "")),
             azure_speech_voice=str(raw.get("azure_speech_voice", "en-US-AriaNeural")),
             speech_rate=str(raw.get("speech_rate", "")),
-            daily_char_cap=int(raw.get("voiceover_daily_char_cap", 100000)),
+            daily_char_cap=int(raw.get("voiceover_daily_char_cap", 0)),
             discord_bot_token=str(raw.get("discord_bot_token", "")),
             discord_guild_id=str(raw.get("discord_guild_id", "")),
             discord_voice_channel_id=str(raw.get("discord_voice_channel_id", "")),
