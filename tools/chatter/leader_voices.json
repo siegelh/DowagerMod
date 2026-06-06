@@ -480,20 +480,20 @@
             "pitch": "-8%"
         },
         "stalin": {
-            "voice": "ka-GE-GiorgiNeural",
-            "rate": "+20%",
-            "pitch": "+50%",
-            "lang": "Russian (with Georgian accent in spirit)",
-            "locale": "ru-RU",
-            "voice_native": "ru-RU-DmitryNeural"
+            "voice": "en-US-AnaNeural",
+            "rate": "+80%",
+            "pitch": "+45%",
+            "lang": "English (childlike chipmunk gag)",
+            "locale": "en-US",
+            "voice_native": "en-US-AnaNeural"
         },
         "josephstalin": {
-            "voice": "ka-GE-GiorgiNeural",
-            "rate": "+20%",
-            "pitch": "+50%",
-            "lang": "Russian (with Georgian accent in spirit)",
-            "locale": "ru-RU",
-            "voice_native": "ru-RU-DmitryNeural"
+            "voice": "en-US-AnaNeural",
+            "rate": "+80%",
+            "pitch": "+45%",
+            "lang": "English (childlike chipmunk gag)",
+            "locale": "en-US",
+            "voice_native": "en-US-AnaNeural"
         },
         "suleiman": {
             "voice": "az-AZ-BabekNeural",
