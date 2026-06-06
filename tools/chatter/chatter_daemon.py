@@ -244,6 +244,7 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                     logger: logging.Logger, max_tokens: int, max_tokens_multi: int,
                     native_mode: bool = False, voice_picker=None,
                     conversations: ConversationStore = None,
+                    state: StateStore = None,
                     chat_reply_max_tokens: int = 120) -> dict:
     """Run one request through the API. Always returns a response dict.
 
@@ -314,17 +315,29 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
         t_start = time.time()
         log_kv(logger, "INFO", "llm", rid=rid, trigger=trig, multi=multi,
                native=native_mode, msg="llm_start")
+        # Look up the speaker's (and for multi-turn, target's) recent spoken
+        # lines so the prompt builder can render an AVOID-ECHOING block.
+        # This is the main defense against the LLM reaching for the same
+        # word ("crumbling", etc.) across triggers.
+        session_id = request.get("session_id") or ""
+        speaker_pid = (request.get("speaker") or {}).get("player_id")
+        target_pid = (request.get("target") or {}).get("player_id")
+        speaker_recent = state.recent_lines(session_id, speaker_pid) if (state is not None and speaker_pid is not None) else []
+        target_recent = state.recent_lines(session_id, target_pid) if (state is not None and target_pid is not None) else []
         if multi:
             sys_msg, user_msg = build_multi_turn_prompt(
                 request, native_mode=native_mode,
                 speaker_native_lang=speaker_native_lang,
                 target_native_lang=target_native_lang,
+                recent_lines=speaker_recent,
+                target_recent_lines=target_recent,
             )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens_multi)
         else:
             sys_msg, user_msg = build_single_line_prompt(
                 request, native_mode=native_mode,
                 speaker_native_lang=speaker_native_lang,
+                recent_lines=speaker_recent,
             )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens)
         latency_ms = int((time.time() - t_start) * 1000)
@@ -407,6 +420,15 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                 lines[0]["text_native"] = _scrub_stage_directions(ln)
         else:
             lines = render_single_line(request, text)
+
+    # Record every spoken line into the per-leader recent-lines ring buffer
+    # so future requests for this leader can see it and avoid echoing.
+    if state is not None and lines:
+        for entry in lines:
+            pid = entry.get("speaker_player_id")
+            txt = entry.get("text") or ""
+            if pid is not None and txt:
+                state.record_line(session_id, pid, txt)
 
     return make_response(
         request=request, ok=True, lines=lines, error=None,
@@ -725,7 +747,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         failure_threshold=cfg.circuit_breaker.failure_threshold,
         open_seconds=cfg.circuit_breaker.open_seconds,
     )
-    state = StateStore()  # noqa: F841 — reserved for future use
+    state = StateStore()
     conversations = ConversationStore(
         history_seconds=cfg.chat_history_seconds,
         max_turns=cfg.chat_max_history_turns,
@@ -821,6 +843,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
                 native_mode=cfg.voiceover.native_tongue_mode,
                 voice_picker=voice_picker,
                 conversations=conversations,
+                state=state,
                 chat_reply_max_tokens=cfg.chat_reply_max_tokens,
             )
 

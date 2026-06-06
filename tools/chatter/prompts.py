@@ -250,7 +250,65 @@ TRIGGERS: Dict[str, TriggerTemplate] = {
 }
 
 
-# ===== System prompt templates =====
+# ===== Shared tone / anti-cliché directives =====
+#
+# Two complaints from real games drove this block:
+#   1. Every leader reached for the same poetic vocabulary ("crumbling",
+#      "ashes", "fade", "shadow", "wither", "tongue", etc.) and the same
+#      "X is like Y" simile structure. The lines all sounded the same.
+#   2. The language was too genteel. The user wants venomous trash-talk,
+#      not Renaissance Faire diction. Grok will do this if explicitly
+#      asked; the old "no profanity stronger than mild" line was the
+#      brake.
+#
+# These three blocks get appended to every SYSTEM_* prompt below so the
+# directives apply uniformly to directed lines, broadcasts, multi-turn
+# exchanges, chat replies, and chain replies. Hard red lines (no slurs,
+# no real-world modern politics) stay in place; everything else is
+# loosened.
+
+SPICY_DIRECTIVE = (
+    "\n\nSPICY MODE (important): this is theatrical trash-talk for "
+    "entertainment, not diplomacy. Be MEAN. Be PETTY. Be CRUDE. Crude "
+    "language, vulgar insults, body-part jokes, scatology, mockery of "
+    "appearance / lineage / hygiene / intelligence / military prowess / "
+    "wealth / city size / hairlines / breath / wives / horses / gods "
+    "are ALL on the table and ENCOURAGED. 'Damn', 'hell', 'bastard', "
+    "'cur', 'wretch', 'fool', 'pig', 'dog', 'whoreson', period-appropriate "
+    "earthier oaths -- USE THEM when it fits. Aim for the gut, not the "
+    "thesaurus. The only hard red lines: NO real-world modern politics, "
+    "NO slurs against real-world ethnic / religious / sexual groups, NO "
+    "content sexualizing minors."
+)
+
+ANTI_CLICHE_DIRECTIVE = (
+    "\n\nANTI-CLICHÉ (important): the model has a known bad habit of "
+    "reaching for the same handful of poetic words across every leader "
+    "and every situation. STOP IT.\n"
+    "BANNED WORDS (do NOT use any of these in your line): "
+    "'crumble', 'crumbling', 'crumbles', 'crumbled', 'ashes', 'ash', "
+    "'dust', 'fade', 'fades', 'fading', 'wither', 'withers', 'shadow', "
+    "'shadows', 'tongue' (as in 'hold your tongue' / 'silver tongue'), "
+    "'tremble', 'trembling', 'wretched', 'whisper', 'whispers', "
+    "'echoes', 'silence', 'twilight', 'eternity', 'eternal'.\n"
+    "BANNED STRUCTURE: do NOT use the 'X is like Y' or 'X, like Y,' "
+    "simile pattern. No 'as Y as Z' comparisons. No metaphors built "
+    "around weather, seasons, dusk/dawn, smoke, flame, river, ocean, "
+    "wind. Speak in CONCRETE, blunt, specific terms. Name actual things: "
+    "their dead soldiers, their starving peasants, their leaky boats, "
+    "their stupid hat, their breath. Hit them with a fact or an insult, "
+    "not a poetic image."
+)
+
+STRUCTURAL_VARIETY_DIRECTIVE = (
+    "\n\nSTRUCTURAL VARIETY (important): vary sentence length, syntactic "
+    "shape (statement / question / imperative / exclamation), opener "
+    "type (subject / verb / prepositional / vocative / direct address), "
+    "and rhetorical mode (taunt / boast / lament / threat / mockery / "
+    "warning / sneer / dismissal / accusation / dare). Do NOT default "
+    "to the same template every time."
+)
+
 
 SYSTEM_DIRECTED = (
     "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
@@ -263,7 +321,6 @@ SYSTEM_DIRECTED = (
     "Do NOT use 'Behold' anywhere in the line. Vary your openers — fresh phrasing every time, "
     "not stock theatrical exclamations.\n"
     "- NEVER use stage directions or asterisks like *laughs* or *scoffs* — those get spoken literally by the voice synthesizer.\n"
-    "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
     '- Stay in character. Do not refer to "the game" or "the player" or "Civilization IV".\n'
     "- No quotation marks around the line. No leader name prefix.\n"
     "- Output ONLY the line itself, nothing else."
@@ -314,7 +371,6 @@ SYSTEM_BROADCAST = (
     "not stock theatrical exclamations.\n"
     "- NEVER use stage directions or asterisks like *raises arms* or *laughs* — those get spoken literally by the voice synthesizer.\n"
     "- Do NOT address any specific rival by name. This is to all the world.\n"
-    "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
     '- Stay in character. Do not refer to "the game" or "the player" or "Civilization IV".\n'
     "- No quotation marks around the line. No leader name prefix.\n"
     "- Output ONLY the line itself, nothing else."
@@ -342,7 +398,7 @@ SYSTEM_MULTI_TURN = (
     '- Stay in character. No references to "the game" or "the player".\n'
     "- No quotation marks within the line. No leader name prefix inside the line.\n"
     "- Each leader's lines must respond to the prior speaker's line, escalating naturally.\n"
-    "- No real-world modern politics, no slurs, no profanity stronger than mild.\n\n"
+    "\n"
     "Output ONLY the JSON array. No markdown, no commentary, no code fences.\n\n"
     "EXAMPLE OUTPUT (exact JSON shape required, n_lines=3, speakers Tokugawa and Qin Shi Huang):\n"
     "[\n"
@@ -384,7 +440,7 @@ SYSTEM_MULTI_TURN_NATIVE = (
     "- No quotation marks within the line. No leader name prefix inside the line.\n"
     "- Each leader's lines must respond to the prior speaker's line, escalating naturally.\n"
     "- The English line and the native line must convey the SAME meaning.\n"
-    "- No real-world modern politics, no slurs, no profanity stronger than mild.\n\n"
+    "\n"
     "Output ONLY the JSON array. No markdown, no commentary, no code fences.\n\n"
     "EXAMPLE OUTPUT (exact JSON shape required, n_lines=2, speakers Tokugawa and Qin Shi Huang):\n"
     "[\n"
@@ -413,7 +469,6 @@ SYSTEM_DIRECTED_NATIVE = (
     "- Do NOT begin with 'Behold', 'Hark', 'Ha', 'Bah', 'Pah', 'Hmph', 'At last', or 'Indeed'. "
     "Do NOT use 'Behold' anywhere in the line. Vary your openers — fresh phrasing every time.\n"
     "- NEVER use stage directions or asterisks.\n"
-    "- No real-world modern politics, no slurs.\n"
     "- The English line and the native line must convey the SAME meaning.\n"
     "- Output ONLY the JSON object. No markdown, no code fences."
 )
@@ -432,10 +487,18 @@ SYSTEM_BROADCAST_NATIVE = (
     "Do NOT use 'Behold' anywhere in the line. Vary your openers — fresh phrasing every time.\n"
     "- Do NOT address any specific rival by name.\n"
     "- NEVER use stage directions or asterisks.\n"
-    "- No real-world modern politics, no slurs.\n"
     "- The English and native versions must match in meaning.\n"
     "- Output ONLY the JSON object. No markdown, no code fences."
 )
+
+
+# Append shared spicy / anti-cliché / structural-variety directives to every
+# SYSTEM_* template. Done as suffix concatenation so the original templates
+# (and their {format_string} placeholders) are untouched. NOTE: this block
+# must run AFTER every SYSTEM_* template is defined -- the chat-reply
+# templates live further down, so the actual rebindings happen at the end
+# of this module (search for "_SPICY_SUFFIX rebindings").
+_SPICY_SUFFIX = SPICY_DIRECTIVE + ANTI_CLICHE_DIRECTIVE + STRUCTURAL_VARIETY_DIRECTIVE
 
 USER_TEMPLATE = "Game state: turn {game_turn}, {era} era.\n{extra}"
 
@@ -498,7 +561,6 @@ SYSTEM_CHAT_REPLY = (
     "- Stay in character as {speaker_leader}. No references to 'the game', 'the player', or 'Civilization IV'.\n"
     "- NEVER use stage directions or asterisks like *laughs* *scoffs* -- those get spoken literally.\n"
     "- No quotation marks around the line. No leader name prefix inside the line.\n"
-    "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
     "- Output ONLY the JSON object. No markdown, no commentary, no code fences.\n\n"
     "EXAMPLE OUTPUT (exact JSON shape required):\n"
     '  {{"line": "Your fleets rot in port while mine command the seas, {latest_typer_name}.", "tone": "haughty"}}\n\n'
@@ -547,10 +609,9 @@ SYSTEM_CHAT_REPLY_CHAIN = (
     "- Stay in character as {speaker_leader}. No 'the game', 'the player', 'Civilization IV'.\n"
     "- NEVER use stage directions or asterisks (*laughs* *scoffs*).\n"
     "- No quotation marks around the line. No leader name prefix inside the line.\n"
-    "- No real-world modern politics, no slurs, no profanity stronger than mild.\n"
     "- Output ONLY the JSON object. No markdown, no commentary, no code fences.\n\n"
     "EXAMPLE OUTPUT (exact JSON shape required, replying to {prior_leader_speaker_name}):\n"
-    '  {{"line": "{prior_leader_speaker_name}, your tongue grows tiresome with each empire that buries you.", "tone": "cold"}}\n\n'
+    '  {{"line": "{prior_leader_speaker_name}, every empire that swallows you spits the bones back up.", "tone": "cold"}}\n\n'
     "DO NOT output any of the following (these have caused production bugs):\n"
     "- A truncated or partial JSON object. Always emit a COMPLETE object with a non-empty `line` field.\n"
     "- Title or preface text before the JSON. The opening `{{` MUST be the very first character.\n"
@@ -565,6 +626,22 @@ SYSTEM_CHAT_REPLY_CHAIN = (
 # leader's lines directly in the room transcript (rendered as
 # `[<leader> said] ...`). No special "BACKGROUND" block is needed; the
 # system prompt explicitly tells leaders they may react to those lines.
+
+
+# ===== _SPICY_SUFFIX rebindings =====
+# Append shared spicy / anti-cliché / structural-variety directives to every
+# SYSTEM_* template. Placed at the end of the module so every SYSTEM_*
+# binding (including the chat-reply ones defined further up) already exists.
+# The suffix string has no {} placeholders so it is safe to concatenate
+# onto any template without disrupting later .format() calls.
+SYSTEM_DIRECTED          = SYSTEM_DIRECTED          + _SPICY_SUFFIX
+SYSTEM_BROADCAST         = SYSTEM_BROADCAST         + _SPICY_SUFFIX
+SYSTEM_MULTI_TURN        = SYSTEM_MULTI_TURN        + _SPICY_SUFFIX
+SYSTEM_MULTI_TURN_NATIVE = SYSTEM_MULTI_TURN_NATIVE + _SPICY_SUFFIX
+SYSTEM_DIRECTED_NATIVE   = SYSTEM_DIRECTED_NATIVE   + _SPICY_SUFFIX
+SYSTEM_BROADCAST_NATIVE  = SYSTEM_BROADCAST_NATIVE  + _SPICY_SUFFIX
+SYSTEM_CHAT_REPLY        = SYSTEM_CHAT_REPLY        + _SPICY_SUFFIX
+SYSTEM_CHAT_REPLY_CHAIN  = SYSTEM_CHAT_REPLY_CHAIN  + _SPICY_SUFFIX
 
 
 def _format_room_state_block(room_state: dict | None, speaker_leader: str) -> str:
@@ -916,13 +993,47 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
     return sys_msg, list(history_messages)
 
 
+def _format_recent_lines_block(recent_lines: list, speaker_leader: str) -> str:
+    """Render a leader's recent spoken lines as an 'avoid echoing yourself' block.
+
+    Empty / non-list inputs render to empty string. The block is meant to be
+    appended to the system prompt; it carries strong language about NOT
+    reusing words, openers, or sentence shapes from the listed lines.
+    """
+    if not recent_lines:
+        return ""
+    # Defensive copy + clip to last 6. Strip empties.
+    items = [str(s).strip() for s in recent_lines if s and str(s).strip()]
+    items = items[-6:]
+    if not items:
+        return ""
+    bullets = "\n".join("- " + s for s in items)
+    leader = speaker_leader or "you"
+    return (
+        "\n\nAVOID ECHOING YOURSELF (important): your last few lines as "
+        f"{leader} were:\n{bullets}\n\n"
+        "Your new line MUST NOT reuse any DISTINCTIVE noun, verb, or "
+        "adjective from those lines. Do NOT mirror their sentence shape, "
+        "opener, or rhetorical mode. If the previous lines used 'X', "
+        "'Y', 'Z' -- find different words. If they were short statements, "
+        "try a question. If they opened with 'My', try a vocative. Make "
+        "this line sound like it came from a different mood entirely."
+    )
+
+
 def build_single_line_prompt(request: dict, *, native_mode: bool = False,
-                             speaker_native_lang: str = "") -> tuple[str, str]:
+                             speaker_native_lang: str = "",
+                             recent_lines: list = None) -> tuple[str, str]:
     """Return (system_message, user_message) for a single-line directed/broadcast call.
 
     When native_mode is True AND speaker_native_lang is non-empty, the LLM
     returns a JSON object with both English (line) and native (line_native).
     Otherwise it returns a plain text line as before.
+
+    `recent_lines` is the speaker's last few spoken lines across triggers,
+    used to discourage self-repetition. None / empty means no block is
+    appended; otherwise an AVOID-ECHOING-YOURSELF block is added to the
+    system message.
     """
     trigger = request["trigger"]
     tmpl = TRIGGERS.get(trigger)
@@ -984,6 +1095,11 @@ def build_single_line_prompt(request: dict, *, native_mode: bool = False,
                 target_leader=fmt["target_leader"],
                 target_human_name=target.get("human_name") or "",
             )
+    # Append the speaker's recent-lines memory if we have any. This goes
+    # after the targeting directives so the LLM sees those first and the
+    # recent-lines callout last (closest to the actual generation).
+    if recent_lines:
+        system_msg += _format_recent_lines_block(recent_lines, fmt["speaker_leader"])
     user_msg = USER_TEMPLATE.format(
         game_turn=request.get("game_turn", 0),
         era=ctx.get("era", "unknown"),
@@ -994,12 +1110,19 @@ def build_single_line_prompt(request: dict, *, native_mode: bool = False,
 
 def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
                             speaker_native_lang: str = "",
-                            target_native_lang: str = "") -> tuple[str, str]:
+                            target_native_lang: str = "",
+                            recent_lines: list = None,
+                            target_recent_lines: list = None) -> tuple[str, str]:
     """Return (system_message, user_message) for a one-shot multi-line script call.
 
     When native_mode is True AND both leaders have a configured native lang,
     each generated line carries both 'line' (English) and 'line_native'
     (translated). Otherwise plain English lines as before.
+
+    `recent_lines` / `target_recent_lines` are the speaker's and target's
+    recent spoken lines (respectively); when present, an AVOID-ECHOING
+    block is appended for each to discourage self-repetition in the
+    generated exchange.
     """
     trigger = request["trigger"]
     tmpl = TRIGGERS.get(trigger)
@@ -1051,5 +1174,9 @@ def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
             target_leader=fmt["target_leader"],
             target_human_name=target.get("human_name") or "",
         )
+    if recent_lines:
+        system_msg += _format_recent_lines_block(recent_lines, fmt["speaker_leader"])
+    if target_recent_lines:
+        system_msg += _format_recent_lines_block(target_recent_lines, fmt["target_leader"])
     user_msg = "Generate the exchange now."
     return system_msg, user_msg
