@@ -20,7 +20,7 @@
         "Genghis Khan": "kk-KZ Kazakh — Azure has no Mongolian neural voice; Kazakh is the closest living Turkic-Mongolic relative",
         "Suryavarman": "km-KH Khmer — he WAS Khmer, ruling the Khmer empire that built Angkor Wat",
         "Ragnar Lothbrok": "is-IS Icelandic — Icelandic is the closest living language to Old Norse; Vikings would basically sound like this",
-        "Stalin": "uk-UA Ukrainian — Stalin was Georgian-born but Azure has no Georgian voice. Ukrainian gets closest to Slavic Soviet feel without sharing Peter the Great's Russian voice. INTENTIONAL JOKE: rate +20% / pitch +50% to make him squeaky and ridiculous -- 'really high and squeaky' per user request 2026-06-05",
+        "Stalin": "uk-UA Ukrainian — Stalin was Georgian-born but Azure has no Georgian voice. Ukrainian gets closest to Slavic Soviet feel without sharing Peter the Great's Russian voice",
         "Saladin": "ar-SA Saudi Arabic — Saladin ruled Egypt + Syria + Arabian peninsula; Saudi Arabic represents the Arab heartland of his empire",
         "Napoleon": "fr-FR-Yves thick French male — Napoleon famously had a thick Corsican-French accent his whole life. The Yves voice has a slightly older/coarser tone than the courtly Alain (Louis XIV)",
         "Catherine NOT French anymore": "Previous version gave her French (she spoke French at court), but Yves Henri Catherine all spoke fr-FR. de-DE-Katja captures the actual accent she would have had speaking English",
@@ -163,9 +163,12 @@
             "locale": "fr-FR"
         },
         "dowagercountess": {
-            "voice": "en-GB-HollieNeural",
-            "rate": "-18%",
-            "pitch": "-10%"
+            "voice": "en-US-AnaNeural",
+            "rate": "+80%",
+            "pitch": "+45%",
+            "lang": "English (childlike chipmunk gag)",
+            "locale": "en-US",
+            "voice_native": "en-US-AnaNeural"
         },
         "elizabeth": {
             "voice": "en-GB-SoniaNeural",
@@ -480,20 +483,20 @@
             "pitch": "-8%"
         },
         "stalin": {
-            "voice": "en-US-AnaNeural",
-            "rate": "+80%",
-            "pitch": "+45%",
-            "lang": "English (childlike chipmunk gag)",
-            "locale": "en-US",
-            "voice_native": "en-US-AnaNeural"
+            "voice": "ka-GE-GiorgiNeural",
+            "rate": "-5%",
+            "pitch": "-8%",
+            "lang": "Russian (with Georgian accent in spirit)",
+            "locale": "ru-RU",
+            "voice_native": "ru-RU-DmitryNeural"
         },
         "josephstalin": {
-            "voice": "en-US-AnaNeural",
-            "rate": "+80%",
-            "pitch": "+45%",
-            "lang": "English (childlike chipmunk gag)",
-            "locale": "en-US",
-            "voice_native": "en-US-AnaNeural"
+            "voice": "ka-GE-GiorgiNeural",
+            "rate": "-5%",
+            "pitch": "-8%",
+            "lang": "Russian (with Georgian accent in spirit)",
+            "locale": "ru-RU",
+            "voice_native": "ru-RU-DmitryNeural"
         },
         "suleiman": {
             "voice": "az-AZ-BabekNeural",
