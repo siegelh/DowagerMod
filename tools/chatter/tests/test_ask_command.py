@@ -130,5 +130,28 @@ class TestBuildAskPrompt(unittest.TestCase):
         self.assertIn("anachronism", sys_msg)
 
 
+class TestBuildAskPromptBare(unittest.TestCase):
+    """The 'ask as <Leader>:' path intentionally sends no system prompt --
+    just the user's raw question through the LLM, with the leader's voice
+    applied only at TTS time."""
+
+    def test_bare_system_msg_is_empty(self):
+        sys_msg, user_msg = cd._build_ask_prompt_bare("what is 2 + 2?")
+        self.assertEqual(sys_msg, "")
+        self.assertEqual(user_msg, "what is 2 + 2?")
+
+    def test_bare_does_not_include_persona_or_directives(self):
+        sys_msg, _ = cd._build_ask_prompt_bare("hi")
+        self.assertNotIn("SPICY", sys_msg)
+        self.assertNotIn("ANTI-CLICHÉ", sys_msg)
+        self.assertNotIn("Gandhi", sys_msg)
+        self.assertNotIn("persona", sys_msg.lower())
+
+    def test_bare_preserves_question_verbatim(self):
+        q = "line one\nline two\n  with spacing  "
+        _, user_msg = cd._build_ask_prompt_bare(q)
+        self.assertEqual(user_msg, q)
+
+
 if __name__ == "__main__":
     unittest.main()

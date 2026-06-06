@@ -593,13 +593,25 @@ _ASK_SYSTEM_TEMPLATE = (
 
 
 def _build_ask_prompt(question: str, persona: str) -> tuple[str, str]:
-    """Build (system, user) messages for the ask: command."""
+    """Build (system, user) messages for the default 'ask:' command.
+
+    Used only by the no-leader path. Applies persona + spicy/anti-cliche/
+    structural-variety directives so the default Gandhi-flavored answers
+    don't go preachy or lean on banned words.
+    """
     system_msg = _ASK_SYSTEM_TEMPLATE.format(persona=persona)
-    # Apply the same spicy / anti-cliche / structural-variety directives
-    # that in-game commentary uses, so ask: answers don't go preachy
-    # and don't lean on the banned words.
     system_msg += SPICY_DIRECTIVE + ANTI_CLICHE_DIRECTIVE + STRUCTURAL_VARIETY_DIRECTIVE
     return system_msg, question
+
+
+def _build_ask_prompt_bare(question: str) -> tuple[str, str]:
+    """Build (system, user) messages for 'ask as <Leader>:'.
+
+    Intentionally bare: empty system message, raw question as user message.
+    The user explicitly wants the leader's *voice only* with no persona or
+    style prompt -- as if they were asking the model their question directly.
+    """
+    return "", question
 
 
 def _parse_ask_command(text: str) -> Optional[tuple[Optional[str], str]]:
@@ -700,10 +712,16 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             logger.warning("user-ask: LLM client not wired; cannot answer ask: from %s", author_name)
             return
         voice, rate, pitch, persona = _resolve_ask_voice(voice_picker, leader_name)
-        sys_msg, user_msg = _build_ask_prompt(question, persona)
+        # 'ask as <Leader>:' -> bare prompt, leader's voice only, no persona/spicy dressing.
+        # 'ask:'             -> default Gandhi persona + spicy/anti-cliche directives.
+        if leader_name:
+            sys_msg, user_msg = _build_ask_prompt_bare(question)
+        else:
+            sys_msg, user_msg = _build_ask_prompt(question, persona)
         logger.info(
-            "user-ask: author=%s leader=%s persona_chars=%d question_chars=%d voice=%s max_tokens=%d",
+            "user-ask: author=%s leader=%s mode=%s persona_chars=%d question_chars=%d voice=%s max_tokens=%d",
             author_name, leader_name or "(default)",
+            "bare" if leader_name else "persona",
             len(persona), len(question), voice, llm_max_tokens,
         )
         try:
