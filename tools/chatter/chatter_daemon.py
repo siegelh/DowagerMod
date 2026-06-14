@@ -733,7 +733,10 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
             audio_bytes = result.audio_bytes
             if post_process:
-                from audio_postprocess import apply_postprocess
+                try:
+                    from .audio_postprocess import apply_postprocess
+                except ImportError:
+                    from audio_postprocess import apply_postprocess
                 audio_bytes = apply_postprocess(audio_bytes, post_process, logger=logger)
             ts = int(time.time() * 1000)
             wav = audio_dir / ("user_%s_%d.wav" % (kind, ts))
@@ -940,7 +943,10 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         try:
             audio_bytes = result.audio_bytes
             if post_process:
-                from audio_postprocess import apply_postprocess
+                try:
+                    from .audio_postprocess import apply_postprocess
+                except ImportError:
+                    from audio_postprocess import apply_postprocess
                 audio_bytes = apply_postprocess(audio_bytes, post_process, logger=logger)
             wav_path.write_bytes(audio_bytes)
         except Exception as exc:  # noqa: BLE001
