@@ -173,6 +173,27 @@
             "locale": "en-GB",
             "voice_native": "en-US-AnaNeural"
         },
+        "dowager": {
+            "voice": "en-GB-SoniaNeural",
+            "rate": "-18%",
+            "pitch": "-10%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB"
+        },
+        "thedowager": {
+            "voice": "en-GB-SoniaNeural",
+            "rate": "-18%",
+            "pitch": "-10%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB"
+        },
+        "thedowagercountess": {
+            "voice": "en-GB-SoniaNeural",
+            "rate": "-18%",
+            "pitch": "-10%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB"
+        },
         "elizabeth": {
             "voice": "en-GB-SoniaNeural",
             "rate": "-3%",
