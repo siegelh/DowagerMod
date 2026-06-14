@@ -38,9 +38,12 @@
             "voice_native": "el-GR-NestorasNeural"
         },
         "asoka": {
-            "voice": "hi-IN-AaravNeural",
+            "voice": "en-IN-PrabhatNeural",
+            "rate": "-4%",
+            "pitch": "-6%",
             "lang": "Hindi",
-            "locale": "hi-IN"
+            "locale": "hi-IN",
+            "voice_native": "hi-IN-AaravNeural"
         },
         "augustus": {
             "voice": "it-IT-LisandroNeural",
@@ -163,11 +166,11 @@
             "locale": "fr-FR"
         },
         "dowagercountess": {
-            "voice": "en-US-AnaNeural",
-            "rate": "+80%",
-            "pitch": "+45%",
-            "lang": "English (childlike chipmunk gag)",
-            "locale": "en-US",
+            "voice": "en-GB-SoniaNeural",
+            "rate": "-18%",
+            "pitch": "-10%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB",
             "voice_native": "en-US-AnaNeural"
         },
         "elizabeth": {
