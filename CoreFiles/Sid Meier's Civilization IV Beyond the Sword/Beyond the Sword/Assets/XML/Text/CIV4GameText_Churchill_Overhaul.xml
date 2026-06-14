@@ -96,4 +96,20 @@
     <Italian>Sostituto unico di Scotland Yard per Stalin. Fulcro nazionale d'intelligence costruito da una Grande Spia: +5 felicita, +50 spionaggio per turno (fisso) e +100% di commercio di spionaggio. Si somma agli slot illimitati di specialisti Spia del Monumento Glorioso Sovietico per trasformare ogni citta russa in un posto di ascolto.</Italian>
     <Spanish>Reemplazo unico de Scotland Yard para Stalin. Centro nacional de inteligencia construido por un Gran Espia: +5 felicidad, +50 espionaje por turno (fijo) y +100% de comercio de espionaje. Se acumula con los puestos ilimitados de especialistas Espia del Monumento Glorioso Sovietico para convertir cada ciudad rusa en un puesto de escucha.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_WAR_OF_NERVES</Tag>
+    <English>War of Nerves</English>
+    <French>Guerre des Nerfs</French>
+    <German>Nervenkrieg</German>
+    <Italian>Guerra dei Nervi</Italian>
+    <Spanish>Guerra de Nervios</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_WAR_OF_NERVES_HELP</Tag>
+    <English>Spies whisper of frontline disasters, ration shortages, and looming defeat. The target city suffers [COLOR_NEGATIVE_TEXT]15 turns of unhappiness[COLOR_REVERT] as agitators turn its citizens against the war effort. Requires Radio.</English>
+    <French>Les espions chuchotent des desastres au front, des penuries de rations et de la defaite imminente. La ville cible subit [COLOR_NEGATIVE_TEXT]15 tours de mecontentement[COLOR_REVERT] alors que les agitateurs retournent ses citoyens contre l'effort de guerre. Necessite la Radio.</French>
+    <German>Spione flustern von Frontkatastrophen, Rationenknappheit und drohender Niederlage. Die Zielstadt erleidet [COLOR_NEGATIVE_TEXT]15 Runden Unzufriedenheit[COLOR_REVERT], wahrend Agitatoren ihre Burger gegen die Kriegsanstrengung aufbringen. Erfordert Radio.</German>
+    <Italian>Le spie sussurrano di disastri al fronte, carenza di razioni e sconfitta incombente. La citta bersaglio subisce [COLOR_NEGATIVE_TEXT]15 turni di malcontento[COLOR_REVERT] mentre gli agitatori spingono i suoi cittadini contro lo sforzo bellico. Richiede Radio.</Italian>
+    <Spanish>Los espias susurran sobre desastres en el frente, escasez de raciones y derrota inminente. La ciudad objetivo sufre [COLOR_NEGATIVE_TEXT]15 turnos de descontento[COLOR_REVERT] mientras los agitadores ponen a sus ciudadanos contra el esfuerzo belico. Requiere Radio.</Spanish>
+  </TEXT>
 </Civ4GameText>
