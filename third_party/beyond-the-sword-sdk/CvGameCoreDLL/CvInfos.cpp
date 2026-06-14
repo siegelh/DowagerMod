@@ -23788,6 +23788,7 @@ bool CvEventInfo::readPass2(CvXMLLoadUtility* pXML)
 //------------------------------------------------------------------------------------------------------
 CvEspionageMissionInfo::CvEspionageMissionInfo()
 {
+	m_iPlantBuildingType = -1;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -23956,6 +23957,11 @@ int CvEspionageMissionInfo::getDifficultyMod() const
 	return m_iDifficultyMod;
 }
 
+int CvEspionageMissionInfo::getPlantBuildingType() const
+{
+	return m_iPlantBuildingType;
+}
+
 bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 {
 	CvString szTextVal;
@@ -23999,6 +24005,15 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iCounterespionageNumTurns, "iCounterespionageNumTurns");
 	pXML->GetChildXmlValByName(&m_iCounterespionageMod, "iCounterespionageMod");
 	pXML->GetChildXmlValByName(&m_iDifficultyMod, "iDifficultyMod");
+
+	if (pXML->GetChildXmlValByName(szTextVal, "PlantBuildingType"))
+	{
+		m_iPlantBuildingType = pXML->FindInInfoClass(szTextVal);
+	}
+	else
+	{
+		m_iPlantBuildingType = -1;
+	}
 
 	return true;
 }

@@ -13244,6 +13244,15 @@ bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes
 
 	CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
 
+	// DM: Stalin-only restriction for spy missions that plant a building in the target city
+	if (kMission.getPlantBuildingType() != -1)
+	{
+		if (getLeaderType() != (LeaderHeadTypes)GC.getInfoTypeForString("LEADER_STALIN"))
+		{
+			return false;
+		}
+	}
+
 	// Need Tech Prereq, if applicable
 	if (kMission.getTechPrereq() != NO_TECH)
 	{
@@ -13680,6 +13689,15 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 	{
 		iMissionCost = (iBaseMissionCost * (100 + GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).getEspionagePointsAgainstTeam(getTeam()))) / 100;
 	}
+	else if (kMission.getPlantBuildingType() != -1)
+	{
+		// DM: plant building in target city. Cost guard: city must exist and not already
+		// have the planted building (prevents stacking).
+		if (NULL != pCity && pCity->getNumRealBuilding((BuildingTypes)kMission.getPlantBuildingType()) <= 0)
+		{
+			iMissionCost = iBaseMissionCost;
+		}
+	}
 	else
 	{
 		iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
@@ -14060,6 +14078,29 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 
 				bShowExplosion = true;
 				bSomethingHappened = true;
+			}
+		}
+	}
+
+	//////////////////////////////
+	// DM: Plant a building in target city (Lysenkoism, Cambridge Asset, ...)
+
+	if (kMission.getPlantBuildingType() != -1)
+	{
+		if (NULL != pPlot)
+		{
+			CvCity* pCity = pPlot->getPlotCity();
+
+			if (NULL != pCity)
+			{
+				BuildingTypes ePlantBuilding = (BuildingTypes)kMission.getPlantBuildingType();
+				if (pCity->getNumRealBuilding(ePlantBuilding) <= 0)
+				{
+					pCity->setNumRealBuilding(ePlantBuilding, 1);
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_PLANT_BUILDING", GC.getBuildingInfo(ePlantBuilding).getDescription(), pCity->getNameKey()).GetCString();
+					bShowExplosion = true;
+					bSomethingHappened = true;
+				}
 			}
 		}
 	}

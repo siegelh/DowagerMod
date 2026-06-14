@@ -112,4 +112,44 @@
     <Italian>Le spie sussurrano di disastri al fronte, carenza di razioni e sconfitta incombente. La citta bersaglio subisce [COLOR_NEGATIVE_TEXT]15 turni di malcontento[COLOR_REVERT] mentre gli agitatori spingono i suoi cittadini contro lo sforzo bellico. Richiede Radio.</Italian>
     <Spanish>Los espias susurran sobre desastres en el frente, escasez de raciones y derrota inminente. La ciudad objetivo sufre [COLOR_NEGATIVE_TEXT]15 turnos de descontento[COLOR_REVERT] mientras los agitadores ponen a sus ciudadanos contra el esfuerzo belico. Requiere Radio.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_LYSENKOISM_EXPORT</Tag>
+    <English>Export Lysenkoism</English>
+    <French>Exporter le Lyssenkisme</French>
+    <German>Lyssenkoismus exportieren</German>
+    <Italian>Esportare il Lysenkoismo</Italian>
+    <Spanish>Exportar el Lysenkoismo</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_PLANT_BUILDING</Tag>
+    <English>%s1 has been planted in %s2.</English>
+    <French>%s1 a ete implante a %s2.</French>
+    <German>%s1 wurde in %s2 eingeschleust.</German>
+    <Italian>%s1 e stato impiantato a %s2.</Italian>
+    <Spanish>%s1 ha sido implantado en %s2.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_DM_LYSENKOIST_CORRUPTION</Tag>
+    <English>Lysenkoist Corruption</English>
+    <French>Corruption Lyssenkiste</French>
+    <German>Lyssenkoistische Korruption</German>
+    <Italian>Corruzione Lysenkista</Italian>
+    <Spanish>Corrupcion Lysenkista</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_DM_LYSENKOIST_CORRUPTION_PEDIA</Tag>
+    <English>Soviet agronomist Trofim Lysenko's pseudoscientific theories of inherited acquired traits, vernalization, and the rejection of Mendelian genetics destroyed Soviet biology, agriculture, and medicine for two decades. Scientists who disagreed were imprisoned, exiled, or shot. Famines followed. When Stalin's agents successfully exported Lysenkoism to a rival's institutes, the rival civilization lost a generation of scientific productivity.</English>
+    <French>Les theories pseudoscientifiques de l'agronome sovietique Trofim Lyssenko sur l'heredite des caracteres acquis, la vernalisation et le rejet de la genetique mendelienne ont detruit la biologie, l'agriculture et la medecine sovietiques pendant deux decennies. Les scientifiques en desaccord etaient emprisonnes, exiles ou fusilles. Des famines ont suivi.</French>
+    <German>Die pseudowissenschaftlichen Theorien des sowjetischen Agronomen Trofim Lyssenko uber vererbte erworbene Eigenschaften, Vernalisation und die Ablehnung der Mendelschen Genetik zerstorten die sowjetische Biologie, Landwirtschaft und Medizin zwei Jahrzehnte lang. Wissenschaftler, die anderer Meinung waren, wurden inhaftiert, verbannt oder erschossen. Hungersnote folgten.</German>
+    <Italian>Le teorie pseudoscientifiche dell'agronomo sovietico Trofim Lysenko sull'eredita dei caratteri acquisiti, la vernalizzazione e il rifiuto della genetica mendeliana distrussero la biologia, l'agricoltura e la medicina sovietiche per due decenni. Gli scienziati dissenzienti venivano imprigionati, esiliati o fucilati. Seguirono carestie.</Italian>
+    <Spanish>Las teorias pseudocientificas del agronomo sovietico Trofim Lysenko sobre los caracteres adquiridos heredados, la vernalizacion y el rechazo de la genetica mendeliana destruyeron la biologia, la agricultura y la medicina sovieticas durante dos decadas. Los cientificos disidentes eran encarcelados, exiliados o fusilados. Siguieron las hambrunas.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_DM_LYSENKOIST_CORRUPTION_STRATEGY</Tag>
+    <English>Planted in an enemy city by Stalin's [COLOR_HIGHLIGHT_TEXT]Export Lysenkoism[COLOR_REVERT] spy mission. Cripples that city's research output by 75%, costs 2 hammers per turn, and adds 2 unhappy citizens until removed. Cannot be built directly.</English>
+    <French>Implante dans une ville ennemie par la mission d'espionnage [COLOR_HIGHLIGHT_TEXT]Exporter le Lyssenkisme[COLOR_REVERT] de Staline. Paralyse la production de recherche de cette ville de 75%, coute 2 marteaux par tour et ajoute 2 citoyens mecontents jusqu'a sa suppression. Ne peut etre construit directement.</French>
+    <German>Wird in einer feindlichen Stadt durch Stalins Spionagemission [COLOR_HIGHLIGHT_TEXT]Lyssenkoismus exportieren[COLOR_REVERT] eingeschleust. Lahmt die Forschungsproduktion dieser Stadt um 75%, kostet 2 Hammer pro Runde und fugt 2 unzufriedene Burger hinzu, bis es entfernt wird. Kann nicht direkt gebaut werden.</German>
+    <Italian>Impiantato in una citta nemica dalla missione spia di Stalin [COLOR_HIGHLIGHT_TEXT]Esportare il Lysenkoismo[COLOR_REVERT]. Paralizza la produzione di ricerca della citta del 75%, costa 2 martelli per turno e aggiunge 2 cittadini infelici fino alla rimozione. Non puo essere costruito direttamente.</Italian>
+    <Spanish>Implantado en una ciudad enemiga por la mision de espionaje [COLOR_HIGHLIGHT_TEXT]Exportar el Lysenkoismo[COLOR_REVERT] de Stalin. Paraliza la produccion de investigacion de la ciudad en un 75%, cuesta 2 martillos por turno y agrega 2 ciudadanos infelices hasta su eliminacion. No se puede construir directamente.</Spanish>
+  </TEXT>
 </Civ4GameText>

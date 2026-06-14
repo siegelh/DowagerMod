@@ -2638,5 +2638,17 @@
 			<VictoryThresholds/>
 		</BuildingClassInfo>
 <!-- ART_MASTERPIECE_BUILDINGCLASS_END -->
+		<BuildingClassInfo>
+			<Type>BUILDINGCLASS_DM_LYSENKOIST_CORRUPTION</Type>
+			<Description>TXT_KEY_BUILDING_DM_LYSENKOIST_CORRUPTION</Description>
+			<iMaxGlobalInstances>-1</iMaxGlobalInstances>
+			<iMaxTeamInstances>-1</iMaxTeamInstances>
+			<iMaxPlayerInstances>-1</iMaxPlayerInstances>
+			<iExtraPlayerInstances>0</iExtraPlayerInstances>
+			<bNoLimit>1</bNoLimit>
+			<bMonument>0</bMonument>
+			<DefaultBuilding>BUILDING_DM_LYSENKOIST_CORRUPTION</DefaultBuilding>
+			<VictoryThresholds/>
+		</BuildingClassInfo>
 	</BuildingClassInfos>
 </Civ4BuildingClassInfos>

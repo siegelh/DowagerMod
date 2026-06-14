@@ -1195,6 +1195,7 @@
 	<ElementType name="iPlayerAnarchyCounter" content="textOnly" dt:type="int"/>
 	<ElementType name="iCounterespionageNumTurns" content="textOnly" dt:type="int"/>
 	<ElementType name="iCounterespionageMod" content="textOnly" dt:type="int"/>
+	<ElementType name="PlantBuildingType" content="textOnly" dt:type="string"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -1229,6 +1230,7 @@
 		<element type="iPlayerAnarchyCounter"/>
 		<element type="iCounterespionageNumTurns"/>
 		<element type="iCounterespionageMod"/>
+		<element type="PlantBuildingType" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="EspionageMissionInfos" content="eltOnly">
 		<element type="EspionageMissionInfo" maxOccurs="*"/>
