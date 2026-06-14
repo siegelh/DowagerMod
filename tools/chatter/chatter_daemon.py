@@ -464,19 +464,21 @@ def gc_spool(spool_path: Path, cfg, logger: logging.Logger) -> None:
         if n_req or n_resp:
             logger.info("janitor: removed %d stale req, %d stale resp", n_req, n_resp)
         # GC voiceover WAV files older than 1 hour. Best-effort.
+        # Covers tts-* (in-game CHAT_REPLY), user_say_*, user_ask_*, user_speak_*.
         audio_dir = spool_path / "audio"
         if audio_dir.is_dir():
             now = time.time()
             removed = 0
-            for p in audio_dir.glob("tts-*.wav"):
-                try:
-                    if (now - p.stat().st_mtime) > 3600:
-                        p.unlink()
-                        removed += 1
-                except Exception:
-                    pass
+            for pattern in ("tts-*.wav", "user_say_*.wav", "user_ask_*.wav", "user_speak_*.wav"):
+                for p in audio_dir.glob(pattern):
+                    try:
+                        if (now - p.stat().st_mtime) > 3600:
+                            p.unlink()
+                            removed += 1
+                    except Exception:
+                        pass
             if removed:
-                logger.info("janitor: removed %d stale tts WAV files", removed)
+                logger.info("janitor: removed %d stale audio WAV files", removed)
     except Exception as exc:  # noqa: BLE001
         logger.warning("janitor failed: %s", exc)
 
