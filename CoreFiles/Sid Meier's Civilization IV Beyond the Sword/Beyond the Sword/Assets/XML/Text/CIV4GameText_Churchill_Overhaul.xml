@@ -72,4 +72,28 @@
     <Italian>Sostituto unico di Scotland Yard per Churchill. Fulcro nazionale d'intelligence costruito da una Grande Spia con enorme moltiplicatore di spionaggio e due specialisti Spia gratuiti.</Italian>
     <Spanish>Reemplazo unico de Scotland Yard para Churchill. Centro nacional de inteligencia construido por un Gran Espia con enorme multiplicador de espionaje y dos especialistas Espia gratis.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_LUBYANKA</Tag>
+    <English>Lubyanka</English>
+    <French>Loubianka</French>
+    <German>Lubjanka</German>
+    <Italian>Lubjanka</Italian>
+    <Spanish>Lubyanka</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_LUBYANKA_PEDIA</Tag>
+    <English>The yellow-brick headquarters of the Soviet security organs on Dzerzhinsky Square in Moscow. Successively home to the Cheka, OGPU, NKVD, MGB, and KGB, the Lubyanka was synonymous with secret arrests, midnight interrogations, and the disappearance of enemies of the people. Stalin's surveillance state radiated outward from these basements.</English>
+    <French>Le quartier general en briques jaunes des organes de securite sovietiques sur la place Dzerjinski a Moscou. Tour a tour siege de la Tcheka, de l'OGPU, du NKVD, du MGB et du KGB, la Loubianka etait synonyme d'arrestations secretes, d'interrogatoires nocturnes et de la disparition des ennemis du peuple. L'Etat policier de Staline rayonnait depuis ces sous-sols.</French>
+    <German>Das gelbe Backsteingebaude der sowjetischen Sicherheitsorgane am Dserschinski-Platz in Moskau. Nacheinander Sitz von Tscheka, OGPU, NKWD, MGB und KGB, war die Lubjanka gleichbedeutend mit heimlichen Verhaftungen, nachtlichen Verhoren und dem Verschwinden von Volksfeinden. Stalins Uberwachungsstaat strahlte von diesen Kellern aus.</German>
+    <Italian>Il quartier generale in mattoni gialli degli organi di sicurezza sovietici in piazza Dzerzhinsky a Mosca. Sede successiva di Ceka, OGPU, NKVD, MGB e KGB, la Lubjanka era sinonimo di arresti segreti, interrogatori notturni e sparizione dei nemici del popolo. Lo Stato di sorveglianza di Stalin si irradiava da questi sotterranei.</Italian>
+    <Spanish>La sede de ladrillo amarillo de los organos de seguridad sovieticos en la plaza Dzerzhinski de Moscu. Sucesivamente hogar de Cheka, OGPU, NKVD, MGB y KGB, la Lubyanka fue sinonimo de arrestos secretos, interrogatorios nocturnos y desaparicion de enemigos del pueblo. El Estado de vigilancia de Stalin se irradiaba desde estos sotanos.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_LUBYANKA_STRATEGY</Tag>
+    <English>Stalin unique Scotland Yard replacement. Great Spy-built national intelligence anchor: +5 Happiness, +50 Espionage per turn (flat), and +100% Espionage commerce. Stacks with the unlimited Spy specialist slots from the Soviet Glorious Monument to turn every Russian city into a listening post.</English>
+    <French>Remplacement unique de Scotland Yard pour Staline. Pilier national du renseignement construit par un Grand Espion : +5 bonheur, +50 espionnage par tour (forfaitaire) et +100% de commerce d'espionnage. Se cumule avec les emplacements d'Espions illimites du Monument glorieux sovietique pour transformer chaque ville russe en poste d'ecoute.</French>
+    <German>Stalins einzigartiger Ersatz fur Scotland Yard. Nationales Geheimdienstzentrum, durch GroBen Spion gebaut: +5 Zufriedenheit, +50 Spionage pro Runde (pauschal) und +100% Spionage-Handel. Kombiniert mit den unbegrenzten Spion-Spezialistenplatzen des Sowjetischen Ruhmesdenkmals macht es jede russische Stadt zum Horchposten.</German>
+    <Italian>Sostituto unico di Scotland Yard per Stalin. Fulcro nazionale d'intelligence costruito da una Grande Spia: +5 felicita, +50 spionaggio per turno (fisso) e +100% di commercio di spionaggio. Si somma agli slot illimitati di specialisti Spia del Monumento Glorioso Sovietico per trasformare ogni citta russa in un posto di ascolto.</Italian>
+    <Spanish>Reemplazo unico de Scotland Yard para Stalin. Centro nacional de inteligencia construido por un Gran Espia: +5 felicidad, +50 espionaje por turno (fijo) y +100% de comercio de espionaje. Se acumula con los puestos ilimitados de especialistas Espia del Monumento Glorioso Sovietico para convertir cada ciudad rusa en un puesto de escucha.</Spanish>
+  </TEXT>
 </Civ4GameText>

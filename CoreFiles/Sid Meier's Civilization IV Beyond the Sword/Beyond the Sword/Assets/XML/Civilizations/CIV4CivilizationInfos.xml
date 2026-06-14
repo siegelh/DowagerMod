@@ -2393,6 +2393,10 @@
           <BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
           <BuildingType>BUILDING_USSR_MONUMENT</BuildingType>
         </Building>
+        <Building>
+          <BuildingClassType>BUILDINGCLASS_SCOTLAND_YARD</BuildingClassType>
+          <BuildingType>BUILDING_LUBYANKA</BuildingType>
+        </Building>
       </Buildings>
       <Units>
         <Unit>
