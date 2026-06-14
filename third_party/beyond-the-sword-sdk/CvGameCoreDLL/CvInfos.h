@@ -6308,6 +6308,9 @@ public:
 	int getCounterespionageMod() const;
 	int getDifficultyMod() const;
 	int getPlantBuildingType() const;
+	int getRequiresPlantedBuilding() const;
+	int getCivWideUnhappinessCounter() const;
+	bool isRemovePlantedBuilding() const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -6348,6 +6351,9 @@ protected:
 	int m_iCounterespionageMod;
 	int m_iDifficultyMod;
 	int m_iPlantBuildingType;
+	int m_iRequiresPlantedBuilding;
+	int m_iCivWideUnhappinessCounter;
+	bool m_bRemovePlantedBuilding;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

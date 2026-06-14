@@ -23789,6 +23789,9 @@ bool CvEventInfo::readPass2(CvXMLLoadUtility* pXML)
 CvEspionageMissionInfo::CvEspionageMissionInfo()
 {
 	m_iPlantBuildingType = -1;
+	m_iRequiresPlantedBuilding = -1;
+	m_iCivWideUnhappinessCounter = 0;
+	m_bRemovePlantedBuilding = false;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -23962,6 +23965,21 @@ int CvEspionageMissionInfo::getPlantBuildingType() const
 	return m_iPlantBuildingType;
 }
 
+int CvEspionageMissionInfo::getRequiresPlantedBuilding() const
+{
+	return m_iRequiresPlantedBuilding;
+}
+
+int CvEspionageMissionInfo::getCivWideUnhappinessCounter() const
+{
+	return m_iCivWideUnhappinessCounter;
+}
+
+bool CvEspionageMissionInfo::isRemovePlantedBuilding() const
+{
+	return m_bRemovePlantedBuilding;
+}
+
 bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 {
 	CvString szTextVal;
@@ -24014,6 +24032,18 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 	{
 		m_iPlantBuildingType = -1;
 	}
+
+	if (pXML->GetChildXmlValByName(szTextVal, "RequiresPlantedBuilding"))
+	{
+		m_iRequiresPlantedBuilding = pXML->FindInInfoClass(szTextVal);
+	}
+	else
+	{
+		m_iRequiresPlantedBuilding = -1;
+	}
+
+	pXML->GetChildXmlValByName(&m_iCivWideUnhappinessCounter, "iCivWideUnhappinessCounter");
+	pXML->GetChildXmlValByName(&m_bRemovePlantedBuilding, "bRemovePlantedBuilding");
 
 	return true;
 }

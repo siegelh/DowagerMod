@@ -1196,6 +1196,9 @@
 	<ElementType name="iCounterespionageNumTurns" content="textOnly" dt:type="int"/>
 	<ElementType name="iCounterespionageMod" content="textOnly" dt:type="int"/>
 	<ElementType name="PlantBuildingType" content="textOnly" dt:type="string"/>
+	<ElementType name="RequiresPlantedBuilding" content="textOnly" dt:type="string"/>
+	<ElementType name="iCivWideUnhappinessCounter" content="textOnly" dt:type="int"/>
+	<ElementType name="bRemovePlantedBuilding" content="textOnly" dt:type="boolean"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -1231,6 +1234,9 @@
 		<element type="iCounterespionageNumTurns"/>
 		<element type="iCounterespionageMod"/>
 		<element type="PlantBuildingType" minOccurs="0"/>
+		<element type="RequiresPlantedBuilding" minOccurs="0"/>
+		<element type="iCivWideUnhappinessCounter" minOccurs="0"/>
+		<element type="bRemovePlantedBuilding" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="EspionageMissionInfos" content="eltOnly">
 		<element type="EspionageMissionInfo" maxOccurs="*"/>

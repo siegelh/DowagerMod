@@ -13253,6 +13253,24 @@ bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes
 		}
 	}
 
+	// DM: Sleeper Activation -- requires that a specific building has been planted in the target city
+	if (kMission.getRequiresPlantedBuilding() != -1)
+	{
+		if (getLeaderType() != (LeaderHeadTypes)GC.getInfoTypeForString("LEADER_STALIN"))
+		{
+			return false;
+		}
+		if (NULL == pPlot)
+		{
+			return false;
+		}
+		CvCity* pPrereqCity = pPlot->getPlotCity();
+		if (NULL == pPrereqCity || pPrereqCity->getNumRealBuilding((BuildingTypes)kMission.getRequiresPlantedBuilding()) <= 0)
+		{
+			return false;
+		}
+	}
+
 	// Need Tech Prereq, if applicable
 	if (kMission.getTechPrereq() != NO_TECH)
 	{
@@ -13698,6 +13716,12 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 			iMissionCost = iBaseMissionCost;
 		}
 	}
+	else if (kMission.getCivWideUnhappinessCounter() > 0)
+	{
+		// DM: civ-wide unhappiness payload (e.g. Sleeper Activation). Always priced; the
+		// can-do guard checks the planted-building prereq.
+		iMissionCost = iBaseMissionCost;
+	}
 	else
 	{
 		iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
@@ -14100,6 +14124,40 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_PLANT_BUILDING", GC.getBuildingInfo(ePlantBuilding).getDescription(), pCity->getNameKey()).GetCString();
 					bShowExplosion = true;
 					bSomethingHappened = true;
+				}
+			}
+		}
+	}
+
+	//////////////////////////////
+	// DM: Civ-wide unhappiness payload (Sleeper Activation)
+
+	if (kMission.getCivWideUnhappinessCounter() > 0)
+	{
+		int iLoop;
+		for (CvCity* pLoopCity = GET_PLAYER(eTargetPlayer).firstCity(&iLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(eTargetPlayer).nextCity(&iLoop))
+		{
+			pLoopCity->changeEspionageHappinessCounter(kMission.getCivWideUnhappinessCounter());
+		}
+		szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_CIVWIDE_UNHAPPY", GET_PLAYER(eTargetPlayer).getCivilizationDescription()).GetCString();
+		bShowExplosion = true;
+		bSomethingHappened = true;
+	}
+
+	//////////////////////////////
+	// DM: Remove the planted-building prereq from the target city (Sleeper Activation consumes the Sleeper Cell)
+
+	if (kMission.isRemovePlantedBuilding() && kMission.getRequiresPlantedBuilding() != -1)
+	{
+		if (NULL != pPlot)
+		{
+			CvCity* pCity = pPlot->getPlotCity();
+			if (NULL != pCity)
+			{
+				BuildingTypes eRemoveBuilding = (BuildingTypes)kMission.getRequiresPlantedBuilding();
+				if (pCity->getNumRealBuilding(eRemoveBuilding) > 0)
+				{
+					pCity->setNumRealBuilding(eRemoveBuilding, 0);
 				}
 			}
 		}

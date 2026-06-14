@@ -184,4 +184,20 @@
     <Italian>Impiantata in una citta nemica dalla missione spia di Stalin [COLOR_HIGHLIGHT_TEXT]Reclutare un Agente di Cambridge[COLOR_REVERT]. Non offre alcun bonus visibile -- ma una futura missione di Attivazione Dormienti (in arrivo) potra innescarla per un effetto devastante a livello di civilta. Non puo essere costruita direttamente.</Italian>
     <Spanish>Implantada en una ciudad enemiga por la mision de espionaje [COLOR_HIGHLIGHT_TEXT]Reclutar Agente de Cambridge[COLOR_REVERT] de Stalin. No proporciona ningun bono visible -- pero una futura mision de Activacion de Durmientes (proximamente) podra detonarla para un efecto devastador a nivel civilizatorio. No se puede construir directamente.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_SLEEPER_ACTIVATION</Tag>
+    <English>Activate Sleeper Cell</English>
+    <French>Activer les Dormants</French>
+    <German>Schlaferzelle aktivieren</German>
+    <Italian>Attivare la Cellula Dormiente</Italian>
+    <Spanish>Activar Celula Durmiente</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_CIVWIDE_UNHAPPY</Tag>
+    <English>The NKVD sleeper network erupts across %s1_civdesc! Riots and dissent grip every city.</English>
+    <French>Le reseau de dormants du NKVD s'eveille a travers %s1_civdesc ! Emeutes et dissidence frappent chaque ville.</French>
+    <German>Das NKWD-Schlafernetzwerk bricht in %s1_civdesc los! Unruhen und Dissens erfassen jede Stadt.</German>
+    <Italian>La rete di dormienti dell'NKVD esplode in %s1_civdesc! Rivolte e dissenso colpiscono ogni citta.</Italian>
+    <Spanish>La red durmiente del NKVD estalla en %s1_civdesc! Disturbios y disidencia sacuden cada ciudad.</Spanish>
+  </TEXT>
 </Civ4GameText>
