@@ -23800,6 +23800,7 @@ CvEspionageMissionInfo::CvEspionageMissionInfo()
 	m_iCurrentTechResearchModifier = 0;
 	m_iCurrentTechResearchDuration = 0;
 	m_iSelfCapitalProductionBoost = 0;
+	m_iStealGreatPersonChance = 0;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -24028,6 +24029,11 @@ int CvEspionageMissionInfo::getSelfCapitalProductionBoost() const
 	return m_iSelfCapitalProductionBoost;
 }
 
+int CvEspionageMissionInfo::getStealGreatPersonChance() const
+{
+	return m_iStealGreatPersonChance;
+}
+
 bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 {
 	CvString szTextVal;
@@ -24100,6 +24106,7 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iCurrentTechResearchModifier, "iCurrentTechResearchModifier");
 	pXML->GetChildXmlValByName(&m_iCurrentTechResearchDuration, "iCurrentTechResearchDuration");
 	pXML->GetChildXmlValByName(&m_iSelfCapitalProductionBoost, "iSelfCapitalProductionBoost");
+	pXML->GetChildXmlValByName(&m_iStealGreatPersonChance, "iStealGreatPersonChance");
 
 	return true;
 }

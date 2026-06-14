@@ -13357,6 +13357,38 @@ bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes
 		}
 	}
 
+	// DM Sprint 4b: Defect Great Person -- Stalin-only; target city must have a GP-class specialist and we need a capital to spawn into
+	if (kMission.getStealGreatPersonChance() > 0)
+	{
+		if (getLeaderType() != (LeaderHeadTypes)GC.getInfoTypeForString("LEADER_STALIN"))
+		{
+			return false;
+		}
+		if (NULL == getCapitalCity() || NULL == pPlot)
+		{
+			return false;
+		}
+		CvCity* pTargetCity = pPlot->getPlotCity();
+		if (NULL == pTargetCity)
+		{
+			return false;
+		}
+		bool bFoundGP = false;
+		for (int iI = 0; iI < GC.getNumSpecialistInfos(); iI++)
+		{
+			if (GC.getSpecialistInfo((SpecialistTypes)iI).getGreatPeopleUnitClass() != NO_UNITCLASS
+				&& pTargetCity->getSpecialistCount((SpecialistTypes)iI) > 0)
+			{
+				bFoundGP = true;
+				break;
+			}
+		}
+		if (!bFoundGP)
+		{
+			return false;
+		}
+	}
+
 	// Need Tech Prereq, if applicable
 	if (kMission.getTechPrereq() != NO_TECH)
 	{
@@ -13826,6 +13858,11 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 	else if (kMission.getSelfCapitalProductionBoost() > 0)
 	{
 		// DM Sprint 4a: Stakhanovite -- always priced (effect is on YOUR capital).
+		iMissionCost = iBaseMissionCost;
+	}
+	else if (kMission.getStealGreatPersonChance() > 0)
+	{
+		// DM Sprint 4b: Defect Great Person.
 		iMissionCost = iBaseMissionCost;
 	}
 	else
@@ -14330,6 +14367,51 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 			szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_STAKHANOVITE_HIT", kMission.getSelfCapitalProductionBoost(), pCapital->getNameKey()).GetCString();
 			bShowExplosion = true;
 			bSomethingHappened = true;
+		}
+	}
+
+	//////////////////////////////
+	// DM Sprint 4b: Defect Great Person -- roll to steal a GP from the target city to our capital
+
+	if (kMission.getStealGreatPersonChance() > 0)
+	{
+		CvCity* pCapital = getCapitalCity();
+		CvCity* pTargetCity = (NULL != pPlot) ? pPlot->getPlotCity() : NULL;
+		if (NULL != pCapital && NULL != pTargetCity)
+		{
+			SpecialistTypes eStolenSpecialist = NO_SPECIALIST;
+			for (int iI = 0; iI < GC.getNumSpecialistInfos(); iI++)
+			{
+				if (GC.getSpecialistInfo((SpecialistTypes)iI).getGreatPeopleUnitClass() != NO_UNITCLASS
+					&& pTargetCity->getSpecialistCount((SpecialistTypes)iI) > 0)
+				{
+					eStolenSpecialist = (SpecialistTypes)iI;
+					break;
+				}
+			}
+			if (eStolenSpecialist != NO_SPECIALIST)
+			{
+				// Always remove the specialist from the target (either they defected or were eliminated).
+				pTargetCity->changeSpecialistCount(eStolenSpecialist, -1);
+
+				bool bSuccess = (GC.getGameINLINE().getSorenRandNum(100, "Defect GP") < kMission.getStealGreatPersonChance());
+				if (bSuccess)
+				{
+					UnitClassTypes eUnitClass = (UnitClassTypes)GC.getSpecialistInfo(eStolenSpecialist).getGreatPeopleUnitClass();
+					UnitTypes eGreatPersonUnit = (UnitTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eUnitClass);
+					if (eGreatPersonUnit != NO_UNIT)
+					{
+						initUnit(eGreatPersonUnit, pCapital->getX_INLINE(), pCapital->getY_INLINE(), UNITAI_UNKNOWN, NO_DIRECTION);
+					}
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_DEFECT_GP_SUCCESS", GC.getSpecialistInfo(eStolenSpecialist).getDescription(), pTargetCity->getNameKey(), pCapital->getNameKey()).GetCString();
+				}
+				else
+				{
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_DEFECT_GP_FAILED", GC.getSpecialistInfo(eStolenSpecialist).getDescription(), pTargetCity->getNameKey()).GetCString();
+				}
+				bShowExplosion = true;
+				bSomethingHappened = true;
+			}
 		}
 	}
 

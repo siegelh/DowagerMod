@@ -6319,6 +6319,7 @@ public:
 	int getCurrentTechResearchModifier() const;
 	int getCurrentTechResearchDuration() const;
 	int getSelfCapitalProductionBoost() const;
+	int getStealGreatPersonChance() const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -6370,6 +6371,7 @@ protected:
 	int m_iCurrentTechResearchModifier;
 	int m_iCurrentTechResearchDuration;
 	int m_iSelfCapitalProductionBoost;
+	int m_iStealGreatPersonChance;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

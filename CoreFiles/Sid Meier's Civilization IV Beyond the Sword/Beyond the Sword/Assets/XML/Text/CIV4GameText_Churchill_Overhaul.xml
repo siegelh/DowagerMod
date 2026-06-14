@@ -264,4 +264,28 @@
     <Italian>L'intelligence industriale dall'estero accende una campagna stachanovista! +%d1_num produzione a %s2_city.</Italian>
     <Spanish>La inteligencia industrial extranjera enciende una campana estajanovista! +%d1_num de produccion en %s2_city.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_DEFECT_GP</Tag>
+    <English>Engineer Defection</English>
+    <French>Organiser une Defection</French>
+    <German>Uberlauf einfadeln</German>
+    <Italian>Orchestrare una Defezione</Italian>
+    <Spanish>Orquestar una Defeccion</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_DEFECT_GP_SUCCESS</Tag>
+    <English>A %s1_specialist from %s2_city defects to the Motherland! They appear in %s3_capital.</English>
+    <French>Un %s1_specialist de %s2_city fait defection vers la Patrie ! Il apparait a %s3_capital.</French>
+    <German>Ein %s1_specialist aus %s2_city lauft zum Vaterland uber! Er erscheint in %s3_capital.</German>
+    <Italian>Un %s1_specialist da %s2_city defeziona verso la Madrepatria! Appare a %s3_capital.</Italian>
+    <Spanish>Un %s1_specialist de %s2_city deserta a la Madre Patria! Aparece en %s3_capital.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_DEFECT_GP_FAILED</Tag>
+    <English>The %s1_specialist in %s2_city was eliminated before defection could be completed.</English>
+    <French>Le %s1_specialist a %s2_city a ete elimine avant que la defection ne puisse aboutir.</French>
+    <German>Der %s1_specialist in %s2_city wurde ausgeschaltet, bevor der Uberlauf gelang.</German>
+    <Italian>Il %s1_specialist a %s2_city e stato eliminato prima che la defezione potesse riuscire.</Italian>
+    <Spanish>El %s1_specialist en %s2_city fue eliminado antes de que la defeccion pudiera concretarse.</Spanish>
+  </TEXT>
 </Civ4GameText>
