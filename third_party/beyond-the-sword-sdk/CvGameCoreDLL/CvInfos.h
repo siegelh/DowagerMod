@@ -6318,6 +6318,7 @@ public:
 	int getCurrentTechProgressSetbackPct() const;
 	int getCurrentTechResearchModifier() const;
 	int getCurrentTechResearchDuration() const;
+	int getSelfCapitalProductionBoost() const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -6368,6 +6369,7 @@ protected:
 	int m_iCurrentTechProgressSetbackPct;
 	int m_iCurrentTechResearchModifier;
 	int m_iCurrentTechResearchDuration;
+	int m_iSelfCapitalProductionBoost;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

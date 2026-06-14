@@ -23799,6 +23799,7 @@ CvEspionageMissionInfo::CvEspionageMissionInfo()
 	m_iCurrentTechProgressSetbackPct = 0;
 	m_iCurrentTechResearchModifier = 0;
 	m_iCurrentTechResearchDuration = 0;
+	m_iSelfCapitalProductionBoost = 0;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -24022,6 +24023,11 @@ int CvEspionageMissionInfo::getCurrentTechResearchDuration() const
 	return m_iCurrentTechResearchDuration;
 }
 
+int CvEspionageMissionInfo::getSelfCapitalProductionBoost() const
+{
+	return m_iSelfCapitalProductionBoost;
+}
+
 bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 {
 	CvString szTextVal;
@@ -24093,6 +24099,7 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iCurrentTechProgressSetbackPct, "iCurrentTechProgressSetbackPct");
 	pXML->GetChildXmlValByName(&m_iCurrentTechResearchModifier, "iCurrentTechResearchModifier");
 	pXML->GetChildXmlValByName(&m_iCurrentTechResearchDuration, "iCurrentTechResearchDuration");
+	pXML->GetChildXmlValByName(&m_iSelfCapitalProductionBoost, "iSelfCapitalProductionBoost");
 
 	return true;
 }

@@ -248,4 +248,20 @@
     <Italian>Progetti falsi sabotano la ricerca su %s1_tech in %s2_civdesc!</Italian>
     <Spanish>Planos falsos sabotean la investigacion de %s1_tech en %s2_civdesc!</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_STAKHANOVITE</Tag>
+    <English>Stakhanovite Initiative</English>
+    <French>Initiative Stakhanoviste</French>
+    <German>Stachanow-Initiative</German>
+    <Italian>Iniziativa Stachanovista</Italian>
+    <Spanish>Iniciativa Estajanovista</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_STAKHANOVITE_HIT</Tag>
+    <English>Industrial intelligence from abroad sparks a Stakhanovite drive! +%d1_num production in %s2_city.</English>
+    <French>Le renseignement industriel etranger lance une campagne stakhanoviste ! +%d1_num de production a %s2_city.</French>
+    <German>Industrieaufklarung aus dem Ausland entfacht eine Stachanow-Kampagne! +%d1_num Produktion in %s2_city.</German>
+    <Italian>L'intelligence industriale dall'estero accende una campagna stachanovista! +%d1_num produzione a %s2_city.</Italian>
+    <Spanish>La inteligencia industrial extranjera enciende una campana estajanovista! +%d1_num de produccion en %s2_city.</Spanish>
+  </TEXT>
 </Civ4GameText>

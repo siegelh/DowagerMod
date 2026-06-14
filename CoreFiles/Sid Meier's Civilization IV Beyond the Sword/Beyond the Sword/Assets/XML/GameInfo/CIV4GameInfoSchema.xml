@@ -1206,6 +1206,7 @@
 	<ElementType name="iCurrentTechProgressSetbackPct" content="textOnly" dt:type="int"/>
 	<ElementType name="iCurrentTechResearchModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iCurrentTechResearchDuration" content="textOnly" dt:type="int"/>
+	<ElementType name="iSelfCapitalProductionBoost" content="textOnly" dt:type="int"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -1251,6 +1252,7 @@
 		<element type="iCurrentTechProgressSetbackPct" minOccurs="0"/>
 		<element type="iCurrentTechResearchModifier" minOccurs="0"/>
 		<element type="iCurrentTechResearchDuration" minOccurs="0"/>
+		<element type="iSelfCapitalProductionBoost" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="EspionageMissionInfos" content="eltOnly">
 		<element type="EspionageMissionInfo" maxOccurs="*"/>

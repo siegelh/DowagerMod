@@ -13344,6 +13344,19 @@ bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes
 		}
 	}
 
+	// DM Sprint 4a: Stakhanovite -- Stalin-only; spy must be returnable to a capital city for the boost
+	if (kMission.getSelfCapitalProductionBoost() > 0)
+	{
+		if (getLeaderType() != (LeaderHeadTypes)GC.getInfoTypeForString("LEADER_STALIN"))
+		{
+			return false;
+		}
+		if (NULL == getCapitalCity())
+		{
+			return false;
+		}
+	}
+
 	// Need Tech Prereq, if applicable
 	if (kMission.getTechPrereq() != NO_TECH)
 	{
@@ -13808,6 +13821,11 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 	else if (kMission.getCurrentTechResearchDuration() > 0 || kMission.getCurrentTechProgressSetbackPct() > 0)
 	{
 		// DM: Fake Blueprints -- tech-specific sabotage.
+		iMissionCost = iBaseMissionCost;
+	}
+	else if (kMission.getSelfCapitalProductionBoost() > 0)
+	{
+		// DM Sprint 4a: Stakhanovite -- always priced (effect is on YOUR capital).
 		iMissionCost = iBaseMissionCost;
 	}
 	else
@@ -14295,6 +14313,21 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 				GET_PLAYER(eTargetPlayer).applyDMTechSabotage((int)eCurrentTech, kMission.getCurrentTechResearchModifier(), kMission.getCurrentTechResearchDuration());
 			}
 			szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_FAKE_BLUEPRINTS_HIT", GC.getTechInfo(eCurrentTech).getDescription(), GET_PLAYER(eTargetPlayer).getCivilizationDescription()).GetCString();
+			bShowExplosion = true;
+			bSomethingHappened = true;
+		}
+	}
+
+	//////////////////////////////
+	// DM Sprint 4a: Stakhanovite -- instant lump-sum production boost to spying player's capital
+
+	if (kMission.getSelfCapitalProductionBoost() > 0)
+	{
+		CvCity* pCapital = getCapitalCity();
+		if (NULL != pCapital)
+		{
+			pCapital->changeProduction(kMission.getSelfCapitalProductionBoost());
+			szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_STAKHANOVITE_HIT", kMission.getSelfCapitalProductionBoost(), pCapital->getNameKey()).GetCString();
 			bShowExplosion = true;
 			bSomethingHappened = true;
 		}
