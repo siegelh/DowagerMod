@@ -965,5 +965,42 @@
 			<iCounterespionageMod>0</iCounterespionageMod>
 			<iStealGreatPersonChance>50</iStealGreatPersonChance>
 		</EspionageMissionInfo>
+		<EspionageMissionInfo>
+			<Type>ESPIONAGEMISSION_DM_FALSE_FLAG</Type>
+			<Description>TXT_KEY_ESPIONAGE_DM_FALSE_FLAG</Description>
+			<iCost>2000</iCost>
+			<bIsPassive>0</bIsPassive>
+			<bIsTwoPhases>0</bIsTwoPhases>
+			<bTargetsCity>1</bTargetsCity>
+			<bSelectPlot>0</bSelectPlot>
+			<TechPrereq>TECH_RADIO</TechPrereq>
+			<iVisibilityLevel>0</iVisibilityLevel>
+			<bInvestigateCity>0</bInvestigateCity>
+			<bSeeDemographics>0</bSeeDemographics>
+			<bNoActiveMissions>0</bNoActiveMissions>
+			<bSeeResearch>0</bSeeResearch>
+			<bDestroyImprovement>0</bDestroyImprovement>
+			<iDifficultyMod>0</iDifficultyMod>
+			<iDestroyBuildingCostFactor>0</iDestroyBuildingCostFactor>
+			<iDestroyUnitCostFactor>0</iDestroyUnitCostFactor>
+			<iDestroyProjectCostFactor>0</iDestroyProjectCostFactor>
+			<iDestroyProductionCostFactor>0</iDestroyProductionCostFactor>
+			<iBuyUnitCostFactor>0</iBuyUnitCostFactor>
+			<iBuyCityCostFactor>0</iBuyCityCostFactor>
+			<iStealTreasuryTypes>0</iStealTreasuryTypes>
+			<iCityInsertCultureAmountFactor>0</iCityInsertCultureAmountFactor>
+			<iCityInsertCultureCostFactor>0</iCityInsertCultureCostFactor>
+			<iCityPoisonWaterCounter>0</iCityPoisonWaterCounter>
+			<iCityUnhappinessCounter>0</iCityUnhappinessCounter>
+			<iCityRevoltCounter>0</iCityRevoltCounter>
+			<iBuyTechCostFactor>0</iBuyTechCostFactor>
+			<iSwitchCivicCostFactor>0</iSwitchCivicCostFactor>
+			<iSwitchReligionCostFactor>0</iSwitchReligionCostFactor>
+			<iPlayerAnarchyCounter>0</iPlayerAnarchyCounter>
+			<iCounterespionageNumTurns>0</iCounterespionageNumTurns>
+			<iCounterespionageMod>0</iCounterespionageMod>
+			<iFalseFlagProductionDestroyPct>50</iFalseFlagProductionDestroyPct>
+			<iFalseFlagDiploHit>3</iFalseFlagDiploHit>
+		</EspionageMissionInfo>
 	</EspionageMissionInfos>
 </Civ4EspionageMissionInfo>

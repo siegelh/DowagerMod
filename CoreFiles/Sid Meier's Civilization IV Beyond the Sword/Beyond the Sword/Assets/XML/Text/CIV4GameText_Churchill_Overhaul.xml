@@ -288,4 +288,20 @@
     <Italian>Il %s1_specialist a %s2_city e stato eliminato prima che la defezione potesse riuscire.</Italian>
     <Spanish>El %s1_specialist en %s2_city fue eliminado antes de que la defeccion pudiera concretarse.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_FALSE_FLAG</Tag>
+    <English>False Flag Operation</English>
+    <French>Operation sous Faux Drapeau</French>
+    <German>Operation unter falscher Flagge</German>
+    <Italian>Operazione sotto Falsa Bandiera</Italian>
+    <Spanish>Operacion de Bandera Falsa</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_FALSE_FLAG_HIT</Tag>
+    <English>Sabotage in %s1_city! The plot is traced to %s2_civdesc -- the truth never surfaces.</English>
+    <French>Sabotage a %s1_city ! Le complot est attribue a %s2_civdesc -- la verite ne sera jamais connue.</French>
+    <German>Sabotage in %s1_city! Die Spur fuhrt zu %s2_civdesc -- die Wahrheit bleibt verborgen.</German>
+    <Italian>Sabotaggio a %s1_city! Il complotto viene attribuito a %s2_civdesc -- la verita non emerge mai.</Italian>
+    <Spanish>Sabotaje en %s1_city! La trama se atribuye a %s2_civdesc -- la verdad nunca sale a la luz.</Spanish>
+  </TEXT>
 </Civ4GameText>

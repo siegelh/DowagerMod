@@ -1208,6 +1208,8 @@
 	<ElementType name="iCurrentTechResearchDuration" content="textOnly" dt:type="int"/>
 	<ElementType name="iSelfCapitalProductionBoost" content="textOnly" dt:type="int"/>
 	<ElementType name="iStealGreatPersonChance" content="textOnly" dt:type="int"/>
+	<ElementType name="iFalseFlagProductionDestroyPct" content="textOnly" dt:type="int"/>
+	<ElementType name="iFalseFlagDiploHit" content="textOnly" dt:type="int"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -1255,6 +1257,8 @@
 		<element type="iCurrentTechResearchDuration" minOccurs="0"/>
 		<element type="iSelfCapitalProductionBoost" minOccurs="0"/>
 		<element type="iStealGreatPersonChance" minOccurs="0"/>
+		<element type="iFalseFlagProductionDestroyPct" minOccurs="0"/>
+		<element type="iFalseFlagDiploHit" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="EspionageMissionInfos" content="eltOnly">
 		<element type="EspionageMissionInfo" maxOccurs="*"/>

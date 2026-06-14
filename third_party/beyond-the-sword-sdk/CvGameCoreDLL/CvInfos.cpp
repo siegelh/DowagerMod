@@ -23801,6 +23801,8 @@ CvEspionageMissionInfo::CvEspionageMissionInfo()
 	m_iCurrentTechResearchDuration = 0;
 	m_iSelfCapitalProductionBoost = 0;
 	m_iStealGreatPersonChance = 0;
+	m_iFalseFlagProductionDestroyPct = 0;
+	m_iFalseFlagDiploHit = 0;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -24034,6 +24036,16 @@ int CvEspionageMissionInfo::getStealGreatPersonChance() const
 	return m_iStealGreatPersonChance;
 }
 
+int CvEspionageMissionInfo::getFalseFlagProductionDestroyPct() const
+{
+	return m_iFalseFlagProductionDestroyPct;
+}
+
+int CvEspionageMissionInfo::getFalseFlagDiploHit() const
+{
+	return m_iFalseFlagDiploHit;
+}
+
 bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 {
 	CvString szTextVal;
@@ -24107,6 +24119,8 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iCurrentTechResearchDuration, "iCurrentTechResearchDuration");
 	pXML->GetChildXmlValByName(&m_iSelfCapitalProductionBoost, "iSelfCapitalProductionBoost");
 	pXML->GetChildXmlValByName(&m_iStealGreatPersonChance, "iStealGreatPersonChance");
+	pXML->GetChildXmlValByName(&m_iFalseFlagProductionDestroyPct, "iFalseFlagProductionDestroyPct");
+	pXML->GetChildXmlValByName(&m_iFalseFlagDiploHit, "iFalseFlagDiploHit");
 
 	return true;
 }

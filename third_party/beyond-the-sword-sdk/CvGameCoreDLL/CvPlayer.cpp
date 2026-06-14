@@ -13389,6 +13389,35 @@ bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes
 		}
 	}
 
+	// DM Sprint 4c: False Flag -- Stalin-only; target must have met another civ (else there's no one to blame)
+	if (kMission.getFalseFlagProductionDestroyPct() > 0 || kMission.getFalseFlagDiploHit() > 0)
+	{
+		if (getLeaderType() != (LeaderHeadTypes)GC.getInfoTypeForString("LEADER_STALIN"))
+		{
+			return false;
+		}
+		int iScapegoatCount = 0;
+		for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++)
+		{
+			if (iI == (int)getID() || iI == (int)eTargetPlayer)
+			{
+				continue;
+			}
+			if (!GET_PLAYER((PlayerTypes)iI).isAlive())
+			{
+				continue;
+			}
+			if (GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam()))
+			{
+				iScapegoatCount++;
+			}
+		}
+		if (iScapegoatCount == 0)
+		{
+			return false;
+		}
+	}
+
 	// Need Tech Prereq, if applicable
 	if (kMission.getTechPrereq() != NO_TECH)
 	{
@@ -13863,6 +13892,11 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 	else if (kMission.getStealGreatPersonChance() > 0)
 	{
 		// DM Sprint 4b: Defect Great Person.
+		iMissionCost = iBaseMissionCost;
+	}
+	else if (kMission.getFalseFlagProductionDestroyPct() > 0 || kMission.getFalseFlagDiploHit() > 0)
+	{
+		// DM Sprint 4c: False Flag.
 		iMissionCost = iBaseMissionCost;
 	}
 	else
@@ -14411,6 +14445,55 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 				}
 				bShowExplosion = true;
 				bSomethingHappened = true;
+			}
+		}
+	}
+
+	//////////////////////////////
+	// DM Sprint 4c: False Flag -- destroy production in target city AND attribute the attack to a random met third party
+
+	if (kMission.getFalseFlagProductionDestroyPct() > 0 || kMission.getFalseFlagDiploHit() > 0)
+	{
+		CvCity* pTargetCity = (NULL != pPlot) ? pPlot->getPlotCity() : NULL;
+		if (NULL != pTargetCity)
+		{
+			std::vector<int> aiScapegoats;
+			for (int iI = 0; iI < MAX_CIV_PLAYERS; iI++)
+			{
+					if (iI == (int)getID() || iI == (int)eTargetPlayer)
+					{
+						continue;
+					}
+					if (!GET_PLAYER((PlayerTypes)iI).isAlive())
+					{
+						continue;
+					}
+					if (GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).isHasMet(GET_PLAYER((PlayerTypes)iI).getTeam()))
+					{
+						aiScapegoats.push_back(iI);
+					}
+			}
+			if (!aiScapegoats.empty())
+			{
+					PlayerTypes eScapegoat = (PlayerTypes)aiScapegoats[GC.getGameINLINE().getSorenRandNum((int)aiScapegoats.size(), "False Flag scapegoat")];
+
+					if (kMission.getFalseFlagProductionDestroyPct() > 0)
+					{
+						int iCurrent = pTargetCity->getProduction();
+						int iDestroyed = (iCurrent * kMission.getFalseFlagProductionDestroyPct()) / 100;
+						if (iDestroyed > 0)
+						{
+							pTargetCity->setProduction(std::max(0, iCurrent - iDestroyed));
+						}
+					}
+					if (kMission.getFalseFlagDiploHit() > 0)
+					{
+						GET_PLAYER(eTargetPlayer).AI_changeMemoryCount(eScapegoat, MEMORY_SPY_CAUGHT, kMission.getFalseFlagDiploHit());
+					}
+
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_FALSE_FLAG_HIT", pTargetCity->getNameKey(), GET_PLAYER(eScapegoat).getCivilizationDescription()).GetCString();
+					bShowExplosion = true;
+					bSomethingHappened = true;
 			}
 		}
 	}

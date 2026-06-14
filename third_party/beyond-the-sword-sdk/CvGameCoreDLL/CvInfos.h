@@ -6320,6 +6320,8 @@ public:
 	int getCurrentTechResearchDuration() const;
 	int getSelfCapitalProductionBoost() const;
 	int getStealGreatPersonChance() const;
+	int getFalseFlagProductionDestroyPct() const;
+	int getFalseFlagDiploHit() const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -6372,6 +6374,8 @@ protected:
 	int m_iCurrentTechResearchDuration;
 	int m_iSelfCapitalProductionBoost;
 	int m_iStealGreatPersonChance;
+	int m_iFalseFlagProductionDestroyPct;
+	int m_iFalseFlagDiploHit;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
