@@ -102,6 +102,60 @@ play each chatter line as it is generated.
 `.env` and restart the sidecar. Bot disconnects, no more Speech API
 calls, text chatter unchanged.
 
+### Optional: ElevenLabs voice for the Dowager Countess
+
+The Dowager Countess can use a custom ElevenLabs voice instead of the
+default Azure Speech voice. Azure remains the fallback — if ElevenLabs
+errors, runs out of free-tier quota, or times out, the dispatcher
+silently falls back to Azure so playback never breaks.
+
+**Prerequisites:**
+
+1. Sign up at https://elevenlabs.io and grab an API key from
+   **Settings → API Keys**.
+2. In **Voice Lab**, design or pick the voice you want the Dowager to
+   use; copy its **Voice ID** (a ~20-char alphanumeric string).
+
+**Enable:** append to `.env`:
+
+```
+DOWAGER_CHATTER_ELEVENLABS_API_KEY=<your-elevenlabs-key>
+DOWAGER_CHATTER_ELEVENLABS_VOICE_ID_DOWAGER=<your-voice-id>
+DOWAGER_CHATTER_ELEVENLABS_MODEL=eleven_flash_v2_5
+```
+
+Pick the model that sounds best for your voice (`eleven_flash_v2_5` and
+`eleven_turbo_v2_5` cost 0.5 credits/char, `eleven_multilingual_v2`
+costs 1.0). Audition all three with:
+
+```powershell
+python -m tools.chatter.audition_elevenlabs `
+    --voice-id <your-voice-id> --model eleven_flash_v2_5 `
+    --text "Mr. Lincoln, your patience shall find that the Crown is refined."
+```
+
+Then restart the sidecar (`Stop-Chatter` → `Start-Chatter`).
+
+**Behavioural notes:**
+
+- Only leaders whose entry in `tools/chatter/leader_voices.json` has
+  `"tts_provider": "elevenlabs"` are routed to ElevenLabs (currently the
+  four Dowager aliases). Every other leader keeps using Azure.
+- When ElevenLabs succeeds, the leader's `post_process` ffmpeg preset
+  (e.g. `elderly_crone`) is **skipped** — your custom voice already
+  sounds the way you want.
+- When ElevenLabs fails and the dispatcher falls back to Azure, the
+  `post_process` preset is **re-engaged** so the listener still gets the
+  intended character.
+- Two consecutive failures trip a 10-minute circuit breaker. During
+  cooldown, ElevenLabs requests are short-circuited to Azure with no
+  HTTP round-trip — this is what lets the free-tier quota recover
+  without spamming the API or your logs. A single success closes the
+  circuit. Tune via `DOWAGER_CHATTER_ELEVENLABS_FAILURE_THRESHOLD` and
+  `DOWAGER_CHATTER_ELEVENLABS_COOLDOWN_SECONDS`.
+- **To disable:** leave `DOWAGER_CHATTER_ELEVENLABS_API_KEY` blank or
+  remove it. The dispatcher will route every leader straight to Azure.
+
 ## Running the sidecar
 
 ```powershell

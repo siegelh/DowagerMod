@@ -66,6 +66,16 @@ class VoiceSpec:
     # (e.g. Dowager Countess "elderly_crone" preset: deep formant + quaver +
     # rasp). Empty string = no post-processing.
     post_process: str = ""
+    # tts_provider: optional per-leader TTS backend override. Empty string
+    # (the default for every leader) means "use Azure Speech", which is the
+    # only path the daemon has historically taken. "elevenlabs" means the
+    # TtsDispatcher will try ElevenLabs first and fall back to Azure on any
+    # failure (auth, quota, network, timeout, 5xx, or open circuit). The
+    # `voice` field above is the AZURE voice used for that fallback; the
+    # ElevenLabs voice ID lives in .env as DOWAGER_CHATTER_ELEVENLABS_VOICE_ID_*
+    # so different operators can use their own custom voices without editing
+    # the checked-in JSON.
+    tts_provider: str = ""
 
     def derived_locale(self) -> str:
         """Return locale or, if empty, derive it from the voice ID."""
@@ -92,7 +102,8 @@ def _parse_entry(raw: Union[str, dict, None], default_voice: str) -> Optional[Vo
         locale = str(raw.get("locale", "")).strip()
         voice_native = str(raw.get("voice_native", "")).strip()
         post_process = str(raw.get("post_process", "")).strip()
-        return VoiceSpec(voice=v, rate=rate, pitch=pitch, lang=lang, locale=locale, voice_native=voice_native, post_process=post_process)
+        tts_provider = str(raw.get("tts_provider", "")).strip().lower()
+        return VoiceSpec(voice=v, rate=rate, pitch=pitch, lang=lang, locale=locale, voice_native=voice_native, post_process=post_process, tts_provider=tts_provider)
     return None
 
 

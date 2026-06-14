@@ -171,7 +171,8 @@
             "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
             "locale": "en-GB",
-            "post_process": "elderly_crone"
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
         },
         "dowager": {
             "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
@@ -179,7 +180,8 @@
             "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
             "locale": "en-GB",
-            "post_process": "elderly_crone"
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
         },
         "thedowager": {
             "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
@@ -187,7 +189,8 @@
             "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
             "locale": "en-GB",
-            "post_process": "elderly_crone"
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
         },
         "thedowagercountess": {
             "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
@@ -195,7 +198,8 @@
             "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
             "locale": "en-GB",
-            "post_process": "elderly_crone"
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
         },
         "elizabeth": {
             "voice": "en-GB-SoniaNeural",

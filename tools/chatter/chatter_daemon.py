@@ -494,14 +494,20 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
     """Initialize Speech client + Discord bot + voice picker if voiceover
     is configured.
 
-    Returns (speech_client, bot_worker, voice_picker) tuple. Any may be None
-    if not enabled or if startup failed. Failures are logged but don't kill
-    the daemon — text chatter remains unaffected.
+    Returns (speech_client, bot, voice_picker, tts_dispatcher) tuple. Any
+    may be None if not enabled or if startup failed. Failures are logged
+    but don't kill the daemon — text chatter remains unaffected.
+
+    ``tts_dispatcher`` is the per-leader provider router. When ElevenLabs
+    is configured (DOWAGER_CHATTER_ELEVENLABS_API_KEY set), leaders whose
+    leader_voices.json entry carries ``"tts_provider": "elevenlabs"`` try
+    ElevenLabs first and fall back to Azure on any failure. Otherwise the
+    dispatcher delegates straight to Azure -- the existing behaviour.
     """
     if not cfg.voiceover.is_ready():
         if cfg.voiceover.enabled:
             logger.info("voiceover enabled in config but missing fields; skipping")
-        return None, None, None
+        return None, None, None, None
 
     # Speech client
     try:
@@ -520,7 +526,7 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: Speech client init failed: %s", exc)
-        return None, None, None
+        return None, None, None, None
 
     # Voice picker (per-leader map)
     voice_picker = None
@@ -532,6 +538,50 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: voice picker init failed: %s", exc)
+
+    # Optional ElevenLabs client + dispatcher. Missing key = feature off;
+    # the dispatcher will route every leader straight to Azure.
+    elevenlabs_client = None
+    if cfg.voiceover.elevenlabs_enabled():
+        try:
+            from tools.chatter.elevenlabs_client import ElevenLabsClient
+            elevenlabs_client = ElevenLabsClient(
+                api_key=cfg.voiceover.elevenlabs_api_key,
+                endpoint=cfg.voiceover.elevenlabs_endpoint,
+                model_id=cfg.voiceover.elevenlabs_model,
+                timeout_seconds=cfg.voiceover.elevenlabs_timeout_seconds,
+                daily_char_cap=cfg.voiceover.elevenlabs_daily_char_cap,
+                logger=logger,
+            )
+            logger.info(
+                "voiceover: ElevenLabs client initialized endpoint=%s model=%s key=%s daily_cap=%d",
+                cfg.voiceover.elevenlabs_endpoint, cfg.voiceover.elevenlabs_model,
+                cfg.voiceover.redacted_elevenlabs_key(),
+                cfg.voiceover.elevenlabs_daily_char_cap,
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(
+                "voiceover: ElevenLabs client init failed (Azure-only mode): %s", exc,
+            )
+            elevenlabs_client = None
+    else:
+        logger.info("voiceover: ElevenLabs not configured; using Azure for every leader")
+
+    try:
+        from tools.chatter.tts_dispatcher import TtsDispatcher, build_elevenlabs_voice_id_map
+        tts_dispatcher = TtsDispatcher(
+            azure_client=speech_client,
+            elevenlabs_client=elevenlabs_client,
+            elevenlabs_voice_ids=build_elevenlabs_voice_id_map(
+                voice_id_dowager=cfg.voiceover.elevenlabs_voice_id_dowager,
+            ),
+            failure_threshold=cfg.voiceover.elevenlabs_failure_threshold,
+            cooldown_seconds=cfg.voiceover.elevenlabs_cooldown_seconds,
+            logger=logger,
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("voiceover: TTS dispatcher init failed: %s", exc)
+        tts_dispatcher = None
 
     # Discord bot
     try:
@@ -549,6 +599,7 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         _install_user_speak_handler(
             bot, speech_client, voice_picker, spool_path, logger,
             client=client, llm_max_tokens=cfg.ask_max_tokens,
+            tts_dispatcher=tts_dispatcher,
         )
         bot.start()
         logger.info(
@@ -557,9 +608,9 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: Discord bot init failed: %s", exc)
-        return speech_client, None, voice_picker
+        return speech_client, None, voice_picker, tts_dispatcher
 
-    return speech_client, bot, voice_picker
+    return speech_client, bot, voice_picker, tts_dispatcher
 
 
 _ASK_PATTERN = re.compile(
@@ -668,27 +719,31 @@ def _parse_say_command(text: str) -> Optional[tuple[Optional[str], str]]:
     return leader, spoken
 
 
-def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple[str, str, str, str, str]:
-    """Resolve (voice, rate, pitch, persona_description, post_process) for an ask request.
+def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple:
+    """Resolve (voice, rate, pitch, persona_description, post_process, tts_provider) for an ask request.
 
     leader_name=None -> default Gandhi-flavored persona + Hindi-accented voice.
     leader_name set  -> look up via voice_picker; persona becomes that leader.
     post_process is an ffmpeg preset name (see audio_postprocess.PRESETS) or "".
+    tts_provider is the optional TTS backend override (currently "elevenlabs" for
+    the Dowager Countess; "" for everyone else => Azure as before).
     """
     if not leader_name:
-        return _ASK_DEFAULT_VOICE, "", "", _ASK_DEFAULT_PERSONA, ""
+        return _ASK_DEFAULT_VOICE, "", "", _ASK_DEFAULT_PERSONA, "", ""
     spec = voice_picker.pick_spec(leader_name) if voice_picker is not None else None
     voice = spec.voice if spec is not None else _ASK_DEFAULT_VOICE
     rate = spec.rate if (spec is not None and spec.rate) else ""
     pitch = spec.pitch if (spec is not None and spec.pitch) else ""
     post_process = spec.post_process if (spec is not None and spec.post_process) else ""
+    tts_provider = spec.tts_provider if (spec is not None and spec.tts_provider) else ""
     persona = "the historical leader %s -- their actual personality, era, and worldview, in their own voice" % leader_name
-    return voice, rate, pitch, persona, post_process
+    return voice, rate, pitch, persona, post_process, tts_provider
 
 
 def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Path,
                                 logger: logging.Logger, *, client=None,
-                                llm_max_tokens: int = 4000):
+                                llm_max_tokens: int = 4000,
+                                tts_dispatcher=None):
     """Register an on_message handler so users can:
 
     1. @mention DowagerBot with arbitrary text  -> she speaks it verbatim
@@ -722,19 +777,40 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
     lock = _t.Lock()
 
     def _speak(text: str, voice: str, rate: str, pitch: str,
-               author_name: str, kind: str, post_process: str = "") -> None:
+               author_name: str, kind: str, post_process: str = "",
+               tts_provider: str = "", leader_name: str = "") -> None:
         """Synthesize ``text`` with the given voice/prosody and enqueue
         for playback. ``kind`` is just a log tag ('say' or 'ask').
         ``post_process`` is an optional ffmpeg preset name (see
-        audio_postprocess.PRESETS)."""
+        audio_postprocess.PRESETS). ``tts_provider`` + ``leader_name`` route
+        the request through :class:`TtsDispatcher` (ElevenLabs first with
+        Azure fallback for opted-in leaders; Azure direct for everyone else).
+        """
         try:
             logger.info(
-                "user-%s: author=%s chars=%d voice=%s rate=%r pitch=%r post=%r",
+                "user-%s: author=%s chars=%d voice=%s rate=%r pitch=%r post=%r provider=%r leader=%r",
                 kind, author_name, len(text), voice, rate, pitch, post_process,
+                tts_provider, leader_name,
             )
-            result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
-            audio_bytes = result.audio_bytes
-            if post_process:
+            if tts_dispatcher is not None:
+                from tools.chatter.voice_picker import VoiceSpec, normalize_name
+                synth_spec = VoiceSpec(
+                    voice=voice, rate=rate, pitch=pitch,
+                    post_process=post_process, tts_provider=tts_provider,
+                )
+                dispatch = tts_dispatcher.synthesize(
+                    text=text, spec=synth_spec,
+                    leader_key=normalize_name(leader_name),
+                    leader_name=leader_name or author_name,
+                    locale_override="",
+                )
+                audio_bytes = dispatch.audio_bytes
+                skip_post = dispatch.skip_post_process
+            else:
+                result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
+                audio_bytes = result.audio_bytes
+                skip_post = False
+            if post_process and not skip_post:
                 try:
                     from .audio_postprocess import apply_postprocess
                 except ImportError:
@@ -752,16 +828,17 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
         # (the original @-mention behavior). When a leader is named, route
         # through voice_picker so 'say as Stalin: hi' speaks in Stalin's voice.
         if leader_name:
-            voice, rate, pitch, _persona, post_process = _resolve_ask_voice(voice_picker, leader_name)
+            voice, rate, pitch, _persona, post_process, tts_provider = _resolve_ask_voice(voice_picker, leader_name)
         else:
-            voice, rate, pitch, post_process = _ASK_DEFAULT_VOICE, "", "", ""
-        _speak(text, voice, rate, pitch, author_name, "say", post_process)
+            voice, rate, pitch, post_process, tts_provider = _ASK_DEFAULT_VOICE, "", "", "", ""
+        _speak(text, voice, rate, pitch, author_name, "say", post_process,
+               tts_provider=tts_provider, leader_name=leader_name or "")
 
     def _ask_worker(question: str, leader_name: Optional[str], author_name: str) -> None:
         if client is None:
             logger.warning("user-ask: LLM client not wired; cannot answer ask: from %s", author_name)
             return
-        voice, rate, pitch, persona, post_process = _resolve_ask_voice(voice_picker, leader_name)
+        voice, rate, pitch, persona, post_process, tts_provider = _resolve_ask_voice(voice_picker, leader_name)
         # 'ask as <Leader>:' -> bare prompt, leader's voice only, no persona/spicy dressing.
         # 'ask:'             -> default Gandhi persona + spicy/anti-cliche directives.
         if leader_name:
@@ -793,7 +870,8 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             author_name, len(reply),
             api_result.input_tokens, api_result.output_tokens, api_result.latency_ms,
         )
-        _speak(reply, voice, rate, pitch, author_name, "ask", post_process)
+        _speak(reply, voice, rate, pitch, author_name, "ask", post_process,
+               tts_provider=tts_provider, leader_name=leader_name or "")
 
     def handler(text: str, author_name: str, author_id: int, is_dm: bool):
         text = (text or "").strip()
@@ -847,7 +925,7 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
 
 
 def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, logger: logging.Logger,
-                       voice_picker=None, cfg=None) -> None:
+                       voice_picker=None, cfg=None, tts_dispatcher=None) -> None:
     """If voiceover is wired up, synthesize each response line and enqueue
     it to the Discord bot for playback. Failures log + continue (text
     chatter is unaffected).
@@ -859,6 +937,12 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
     cfg is optional. When provided and cfg.voiceover.speech_rate is set,
     that value is used as the default <prosody rate=...> for any leader
     whose voice_picker spec doesn't override rate.
+
+    tts_dispatcher is optional. When provided, every synthesis is routed
+    through it so that ElevenLabs-opted-in leaders (currently just the
+    Dowager Countess) try ElevenLabs first and silently fall back to Azure
+    on any failure. When None, falls back to calling ``speech_client``
+    directly -- the legacy code path.
     """
     if speech_client is None or bot is None:
         return
@@ -874,6 +958,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
 
     rid = response.get("request_id") or "unknown"
     from tools.chatter.azure_speech_client import SpeechAuthError, SpeechApiError, SpeechBudgetExhausted
+    from tools.chatter.voice_picker import VoiceSpec, normalize_name
     last_synth_at = 0.0
     for idx, ln in enumerate(lines):
         text = (ln.get("text") or "").strip()
@@ -886,6 +971,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         pitch = ""
         locale = ""
         post_process = ""
+        tts_provider = ""
         # Use native text when available and a locale is configured for speaker
         synth_text = text_native if text_native else text
         if voice_picker is not None and speaker_name:
@@ -900,6 +986,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
                 rate = spec.rate
                 pitch = spec.pitch
                 post_process = spec.post_process
+                tts_provider = spec.tts_provider
                 if text_native:
                     locale = spec.derived_locale()
             except Exception as exc:  # noqa: BLE001
@@ -925,10 +1012,34 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         elapsed = time.time() - last_synth_at
         if elapsed < 0.5 and last_synth_at > 0:
             time.sleep(0.5 - elapsed)
+        skip_post = False
         try:
-            result = speech_client.synthesize(
-                synth_text, voice=chosen_voice, rate=rate, pitch=pitch, locale=locale,
-            )
+            if tts_dispatcher is not None:
+                synth_spec = VoiceSpec(
+                    voice=chosen_voice or "",
+                    rate=rate, pitch=pitch,
+                    post_process=post_process,
+                    tts_provider=tts_provider,
+                )
+                dispatch = tts_dispatcher.synthesize(
+                    text=synth_text, spec=synth_spec,
+                    leader_key=normalize_name(speaker_name),
+                    leader_name=speaker_name,
+                    locale_override=locale,
+                )
+                result_audio = dispatch.audio_bytes
+                result_voice = dispatch.voice
+                result_chars = dispatch.char_count
+                result_latency = dispatch.latency_ms
+                skip_post = dispatch.skip_post_process
+            else:
+                result = speech_client.synthesize(
+                    synth_text, voice=chosen_voice, rate=rate, pitch=pitch, locale=locale,
+                )
+                result_audio = result.audio_bytes
+                result_voice = result.voice
+                result_chars = result.char_count
+                result_latency = result.latency_ms
         except SpeechBudgetExhausted as exc:
             logger.warning("voiceover: %s", exc)
             return
@@ -943,8 +1054,8 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
             continue
         wav_path = audio_dir / f"tts-{rid}-{idx}.wav"
         try:
-            audio_bytes = result.audio_bytes
-            if post_process:
+            audio_bytes = result_audio
+            if post_process and not skip_post:
                 try:
                     from .audio_postprocess import apply_postprocess
                 except ImportError:
@@ -957,7 +1068,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         last_synth_at = time.time()
         logger.info(
             "voiceover: synth ok rid=%s line=%d speaker=%r voice=%s chars=%d latency=%dms",
-            rid, idx, speaker_name, result.voice, result.char_count, result.latency_ms,
+            rid, idx, speaker_name, result_voice, result_chars, result_latency,
         )
         try:
             bot.enqueue_audio(wav_path)
@@ -994,7 +1105,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         max_turns=cfg.chat_max_history_turns,
     )
 
-    speech_client, bot, voice_picker = setup_voiceover(cfg, spool_path, logger, client=client)
+    speech_client, bot, voice_picker, tts_dispatcher = setup_voiceover(cfg, spool_path, logger, client=client)
 
     last_call_at = 0.0
     last_heartbeat = 0.0
@@ -1097,7 +1208,8 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
             write_response(spool_path, response, logger)
             voiceover_response(response, speech_client=speech_client, bot=bot,
                                spool_path=spool_path, logger=logger,
-                               voice_picker=voice_picker, cfg=cfg)
+                               voice_picker=voice_picker, cfg=cfg,
+                               tts_dispatcher=tts_dispatcher)
             spool_mod.safe_unlink(req_path)
             last_call_at = time.time()
             processed += 1

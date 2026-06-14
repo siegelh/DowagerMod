@@ -83,6 +83,23 @@ DEFAULTS = {
     # event log (subtitles). Trade-off: slightly higher token use, voice
     # quality varies on rare languages. False = English audio for all leaders.
     "native_tongue_mode": False,
+    # ElevenLabs (optional, per-leader override). When the API key is empty
+    # the dispatcher skips ElevenLabs entirely and all leaders use Azure
+    # Speech as today. When set, leaders whose leader_voices.json entry
+    # carries "tts_provider": "elevenlabs" try ElevenLabs first and fall
+    # back to Azure Speech on any failure.
+    "elevenlabs_api_key": "",
+    "elevenlabs_endpoint": "https://api.elevenlabs.io",
+    "elevenlabs_model": "eleven_flash_v2_5",
+    "elevenlabs_voice_id_dowager": "",
+    "elevenlabs_timeout_seconds": 20.0,
+    "elevenlabs_daily_char_cap": 0,
+    # Circuit-breaker tuning for the ElevenLabs provider. Two consecutive
+    # failures trip the breaker for 600 seconds; while open, the dispatcher
+    # skips ElevenLabs and goes straight to Azure. Azure failures are
+    # unaffected by this counter.
+    "elevenlabs_failure_threshold": 2,
+    "elevenlabs_cooldown_seconds": 600,
 }
 
 
@@ -123,6 +140,32 @@ class VoiceoverConfig:
     discord_guild_id: str = ""
     discord_voice_channel_id: str = ""
     native_tongue_mode: bool = False
+    # ElevenLabs (optional per-leader override; Azure remains the fallback).
+    elevenlabs_api_key: str = ""
+    elevenlabs_endpoint: str = "https://api.elevenlabs.io"
+    elevenlabs_model: str = "eleven_flash_v2_5"
+    elevenlabs_voice_id_dowager: str = ""
+    elevenlabs_timeout_seconds: float = 20.0
+    elevenlabs_daily_char_cap: int = 0
+    elevenlabs_failure_threshold: int = 2
+    elevenlabs_cooldown_seconds: int = 600
+
+    def elevenlabs_enabled(self) -> bool:
+        """True iff ElevenLabs is configured to be attempted at all.
+
+        Missing key => feature off; voiceover still works on Azure.
+        """
+        return bool(
+            self.elevenlabs_api_key
+            and not is_placeholder(self.elevenlabs_api_key)
+        )
+
+    def redacted_elevenlabs_key(self) -> str:
+        if not self.elevenlabs_api_key:
+            return "<empty>"
+        if len(self.elevenlabs_api_key) <= 8:
+            return "***"
+        return self.elevenlabs_api_key[:4] + "..." + self.elevenlabs_api_key[-4:]
 
     def is_ready(self) -> bool:
         """True iff all fields needed to actually run voiceover are populated."""
@@ -295,6 +338,15 @@ _ENV_MAP: Dict[str, Tuple[str, callable]] = {
     "DOWAGER_CHATTER_DISCORD_GUILD_ID": ("discord_guild_id", str),
     "DOWAGER_CHATTER_DISCORD_VOICE_CHANNEL_ID": ("discord_voice_channel_id", str),
     "DOWAGER_CHATTER_NATIVE_TONGUE_MODE": ("native_tongue_mode", _as_bool),
+    # --- ElevenLabs (optional per-leader override) ---
+    "DOWAGER_CHATTER_ELEVENLABS_API_KEY": ("elevenlabs_api_key", str),
+    "DOWAGER_CHATTER_ELEVENLABS_ENDPOINT": ("elevenlabs_endpoint", str),
+    "DOWAGER_CHATTER_ELEVENLABS_MODEL": ("elevenlabs_model", str),
+    "DOWAGER_CHATTER_ELEVENLABS_VOICE_ID_DOWAGER": ("elevenlabs_voice_id_dowager", str),
+    "DOWAGER_CHATTER_ELEVENLABS_TIMEOUT_SECONDS": ("elevenlabs_timeout_seconds", float),
+    "DOWAGER_CHATTER_ELEVENLABS_DAILY_CHAR_CAP": ("elevenlabs_daily_char_cap", int),
+    "DOWAGER_CHATTER_ELEVENLABS_FAILURE_THRESHOLD": ("elevenlabs_failure_threshold", int),
+    "DOWAGER_CHATTER_ELEVENLABS_COOLDOWN_SECONDS": ("elevenlabs_cooldown_seconds", int),
     # --- Chat-reply tunables ---
     "DOWAGER_CHATTER_CHAT_IDLE_SECONDS": ("chat_idle_seconds", float),
     "DOWAGER_CHATTER_CHAT_HISTORY_SECONDS": ("chat_history_seconds", float),
@@ -410,6 +462,14 @@ def load_config(path: Optional[Path] = None) -> Config:
             discord_guild_id=str(raw.get("discord_guild_id", "")),
             discord_voice_channel_id=str(raw.get("discord_voice_channel_id", "")),
             native_tongue_mode=bool(raw.get("native_tongue_mode", False)),
+            elevenlabs_api_key=str(raw.get("elevenlabs_api_key", "")),
+            elevenlabs_endpoint=str(raw.get("elevenlabs_endpoint", "https://api.elevenlabs.io")),
+            elevenlabs_model=str(raw.get("elevenlabs_model", "eleven_flash_v2_5")),
+            elevenlabs_voice_id_dowager=str(raw.get("elevenlabs_voice_id_dowager", "")),
+            elevenlabs_timeout_seconds=float(raw.get("elevenlabs_timeout_seconds", 20.0)),
+            elevenlabs_daily_char_cap=int(raw.get("elevenlabs_daily_char_cap", 0)),
+            elevenlabs_failure_threshold=int(raw.get("elevenlabs_failure_threshold", 2)),
+            elevenlabs_cooldown_seconds=int(raw.get("elevenlabs_cooldown_seconds", 600)),
         ),
         env_file=env_file_used,
     )

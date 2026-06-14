@@ -237,6 +237,49 @@ sounds wrong.
 
 After any tweak: `Stop-Chatter` → `Start-Chatter` to pick it up.
 
+### Per-leader TTS provider override (ElevenLabs with Azure fallback)
+
+Some leaders deserve a fully custom voice that Azure's catalogue can't
+produce. The dispatcher (`tools/chatter/tts_dispatcher.py`) supports an
+optional per-leader TTS backend override:
+
+- Add `"tts_provider": "elevenlabs"` to the leader's entry in
+  `leader_voices.json`. The `voice` field still holds the **Azure**
+  voice used as the fallback target.
+- Set `DOWAGER_CHATTER_ELEVENLABS_API_KEY` and the matching
+  `DOWAGER_CHATTER_ELEVENLABS_VOICE_ID_<NAME>` (currently only the
+  Dowager Countess has a configured slot) in `.env`.
+- When ElevenLabs succeeds the dispatcher returns its WAV bytes directly
+  and **skips** the leader's `post_process` preset (the operator's
+  custom ElevenLabs voice already sounds the way they want; further
+  ffmpeg munging would degrade it).
+- On any failure (auth, quota/429, network, timeout, 5xx) the dispatcher
+  silently falls back to the Azure path **with the leader's normal
+  `post_process` preset re-engaged**, so the listener gets the next-best
+  available sound rather than nothing.
+- Two consecutive failures trip a circuit breaker for 10 minutes during
+  which ElevenLabs requests are short-circuited to Azure without an
+  HTTP round-trip. A single success closes the circuit again. Tunable
+  via `DOWAGER_CHATTER_ELEVENLABS_FAILURE_THRESHOLD` /
+  `DOWAGER_CHATTER_ELEVENLABS_COOLDOWN_SECONDS`.
+
+This is the only backend that costs the operator quota (free tier ≈20k
+characters/month on `eleven_flash_v2_5`). Leaders without
+`tts_provider` set keep using Azure exactly as before — the feature is
+opt-in per leader and the missing-key path is a no-op.
+
+Audition helper for picking the right ElevenLabs model:
+
+```powershell
+python -m tools.chatter.audition_elevenlabs `
+    --voice-id MQN9MRlBsPTICAJvyqWI `
+    --model eleven_flash_v2_5 `
+    --text "Mr. Lincoln, your republic shall find that the Crown's patience is refined."
+```
+
+Repeat with `--model eleven_turbo_v2_5` and `--model eleven_multilingual_v2`
+to A/B; the WAVs land in `%TEMP%` and open in your default player.
+
 ### Single-line audition helper
 
 ```powershell
