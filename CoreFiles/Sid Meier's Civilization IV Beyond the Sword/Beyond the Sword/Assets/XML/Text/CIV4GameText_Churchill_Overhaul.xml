@@ -152,4 +152,36 @@
     <Italian>Impiantato in una citta nemica dalla missione spia di Stalin [COLOR_HIGHLIGHT_TEXT]Esportare il Lysenkoismo[COLOR_REVERT]. Paralizza la produzione di ricerca della citta del 75%, costa 2 martelli per turno e aggiunge 2 cittadini infelici fino alla rimozione. Non puo essere costruito direttamente.</Italian>
     <Spanish>Implantado en una ciudad enemiga por la mision de espionaje [COLOR_HIGHLIGHT_TEXT]Exportar el Lysenkoismo[COLOR_REVERT] de Stalin. Paraliza la produccion de investigacion de la ciudad en un 75%, cuesta 2 martillos por turno y agrega 2 ciudadanos infelices hasta su eliminacion. No se puede construir directamente.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_CAMBRIDGE_ASSET</Tag>
+    <English>Recruit Cambridge Asset</English>
+    <French>Recruter un Agent de Cambridge</French>
+    <German>Cambridge-Agenten anwerben</German>
+    <Italian>Reclutare un Agente di Cambridge</Italian>
+    <Spanish>Reclutar Agente de Cambridge</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_DM_NKVD_SLEEPER_CELL</Tag>
+    <English>NKVD Sleeper Cell</English>
+    <French>Cellule Dormante du NKVD</French>
+    <German>NKWD-Schlaferzelle</German>
+    <Italian>Cellula Dormiente del NKVD</Italian>
+    <Spanish>Celula Durmiente del NKVD</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_DM_NKVD_SLEEPER_CELL_PEDIA</Tag>
+    <English>The Cambridge Five -- Philby, Burgess, Maclean, Blunt, Cairncross -- were recruited as students in the 1930s and rose to the top of British intelligence while reporting to Moscow for decades. The NKVD's other long-term assets were embedded in foreign ministries, military commands, scientific establishments, and journalist circles across the Western world. A sleeper cell waited, did nothing visible, and at the right moment delivered everything.</English>
+    <French>Les Cinq de Cambridge -- Philby, Burgess, Maclean, Blunt, Cairncross -- furent recrutes etudiants dans les annees 1930 et atteignirent le sommet du renseignement britannique tout en faisant leurs rapports a Moscou pendant des decennies. Une cellule dormante attendait, ne faisait rien de visible, et au bon moment livrait tout.</French>
+    <German>Die Cambridge Five -- Philby, Burgess, Maclean, Blunt, Cairncross -- wurden in den 1930er Jahren als Studenten angeworben und stiegen an die Spitze des britischen Geheimdienstes auf, wahrend sie jahrzehntelang an Moskau berichteten. Eine Schlaferzelle wartete, tat nichts Sichtbares und lieferte im richtigen Moment alles.</German>
+    <Italian>I Cinque di Cambridge -- Philby, Burgess, Maclean, Blunt, Cairncross -- furono reclutati come studenti negli anni '30 e salirono ai vertici dell'intelligence britannica riferendo a Mosca per decenni. Una cellula dormiente aspettava, non faceva nulla di visibile e al momento giusto consegnava tutto.</Italian>
+    <Spanish>Los Cinco de Cambridge -- Philby, Burgess, Maclean, Blunt, Cairncross -- fueron reclutados como estudiantes en la decada de 1930 y ascendieron a la cima de la inteligencia britanica mientras informaban a Moscu durante decadas. Una celula durmiente esperaba, no hacia nada visible y en el momento adecuado lo entregaba todo.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_DM_NKVD_SLEEPER_CELL_STRATEGY</Tag>
+    <English>Planted in an enemy city by Stalin's [COLOR_HIGHLIGHT_TEXT]Recruit Cambridge Asset[COLOR_REVERT] spy mission. Provides no visible bonus on its own -- but a future Sleeper Activation mission (coming soon) will be able to fire it for a devastating civ-wide payload. Cannot be built directly.</English>
+    <French>Implantee dans une ville ennemie par la mission d'espionnage [COLOR_HIGHLIGHT_TEXT]Recruter un Agent de Cambridge[COLOR_REVERT] de Staline. Ne donne aucun bonus visible -- mais une future mission d'Activation des Dormants (a venir) pourra la declencher pour un effet devastateur a l'echelle de la civilisation. Ne peut etre construite directement.</French>
+    <German>Wird in einer feindlichen Stadt durch Stalins Spionagemission [COLOR_HIGHLIGHT_TEXT]Cambridge-Agenten anwerben[COLOR_REVERT] eingeschleust. Bietet keinen sichtbaren Bonus -- aber eine zukunftige Schlafer-Aktivierungsmission (in Kurze) kann sie fur eine verheerende zivilisationsweite Wirkung auslosen. Kann nicht direkt gebaut werden.</German>
+    <Italian>Impiantata in una citta nemica dalla missione spia di Stalin [COLOR_HIGHLIGHT_TEXT]Reclutare un Agente di Cambridge[COLOR_REVERT]. Non offre alcun bonus visibile -- ma una futura missione di Attivazione Dormienti (in arrivo) potra innescarla per un effetto devastante a livello di civilta. Non puo essere costruita direttamente.</Italian>
+    <Spanish>Implantada en una ciudad enemiga por la mision de espionaje [COLOR_HIGHLIGHT_TEXT]Reclutar Agente de Cambridge[COLOR_REVERT] de Stalin. No proporciona ningun bono visible -- pero una futura mision de Activacion de Durmientes (proximamente) podra detonarla para un efecto devastador a nivel civilizatorio. No se puede construir directamente.</Spanish>
+  </TEXT>
 </Civ4GameText>

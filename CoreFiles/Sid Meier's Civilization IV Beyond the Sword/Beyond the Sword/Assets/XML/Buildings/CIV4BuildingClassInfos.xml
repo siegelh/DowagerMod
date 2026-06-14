@@ -2650,5 +2650,17 @@
 			<DefaultBuilding>BUILDING_DM_LYSENKOIST_CORRUPTION</DefaultBuilding>
 			<VictoryThresholds/>
 		</BuildingClassInfo>
+		<BuildingClassInfo>
+			<Type>BUILDINGCLASS_DM_NKVD_SLEEPER_CELL</Type>
+			<Description>TXT_KEY_BUILDING_DM_NKVD_SLEEPER_CELL</Description>
+			<iMaxGlobalInstances>-1</iMaxGlobalInstances>
+			<iMaxTeamInstances>-1</iMaxTeamInstances>
+			<iMaxPlayerInstances>-1</iMaxPlayerInstances>
+			<iExtraPlayerInstances>0</iExtraPlayerInstances>
+			<bNoLimit>1</bNoLimit>
+			<bMonument>0</bMonument>
+			<DefaultBuilding>BUILDING_DM_NKVD_SLEEPER_CELL</DefaultBuilding>
+			<VictoryThresholds/>
+		</BuildingClassInfo>
 	</BuildingClassInfos>
 </Civ4BuildingClassInfos>
