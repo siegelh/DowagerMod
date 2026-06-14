@@ -153,5 +153,56 @@ class TestBuildAskPromptBare(unittest.TestCase):
         self.assertEqual(user_msg, q)
 
 
+class TestParseSayCommand(unittest.TestCase):
+    def test_plain_say_returns_no_leader(self):
+        out = cd._parse_say_command("say: hello there")
+        self.assertEqual(out, (None, "hello there"))
+
+    def test_say_as_leader_extracts_name(self):
+        out = cd._parse_say_command("say as Stalin: glory to the motherland")
+        self.assertEqual(out, ("Stalin", "glory to the motherland"))
+
+    def test_say_as_multi_word_leader(self):
+        out = cd._parse_say_command("say as Dowager Countess: what insolence")
+        self.assertEqual(out, ("Dowager Countess", "what insolence"))
+
+    def test_say_is_case_insensitive(self):
+        self.assertEqual(cd._parse_say_command("Say: hi"), (None, "hi"))
+        self.assertEqual(cd._parse_say_command("SAY AS GANDHI: hi"), ("GANDHI", "hi"))
+
+    def test_say_tolerates_leading_whitespace(self):
+        self.assertEqual(
+            cd._parse_say_command("   say:   spaced  "),
+            (None, "spaced"),
+        )
+
+    def test_say_multiline_preserved(self):
+        self.assertEqual(
+            cd._parse_say_command("say: line one\nline two"),
+            (None, "line one\nline two"),
+        )
+
+    def test_non_say_text_returns_none(self):
+        self.assertIsNone(cd._parse_say_command("hello there"))
+        self.assertIsNone(cd._parse_say_command(""))
+        self.assertIsNone(cd._parse_say_command(None))
+
+    def test_say_without_text_returns_none(self):
+        self.assertIsNone(cd._parse_say_command("say:"))
+        self.assertIsNone(cd._parse_say_command("say as Stalin:    "))
+
+    def test_does_not_match_say_in_middle(self):
+        # "I want to say: hello" is conversational, not a command.
+        self.assertIsNone(cd._parse_say_command("I want to say: hello"))
+
+    def test_say_does_not_match_ask(self):
+        # Make sure say pattern doesn't swallow ask: prefix.
+        self.assertIsNone(cd._parse_say_command("ask: what time is it"))
+
+    def test_ask_does_not_match_say(self):
+        # And vice versa.
+        self.assertIsNone(cd._parse_ask_command("say: hello"))
+
+
 if __name__ == "__main__":
     unittest.main()

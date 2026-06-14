@@ -565,6 +565,15 @@ _ASK_PATTERN = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
+# Matches:
+#   "say: <text>"             -> (None, "<text>")        default voice, literal
+#   "say as <Leader>: <text>" -> ("<Leader>", "<text>")  leader's voice, literal
+# Mirror of _ASK_PATTERN. Literal speech only -- never hits the LLM.
+_SAY_PATTERN = re.compile(
+    r"^\s*say(?:\s+as\s+([A-Za-z][A-Za-z0-9 .'\-]*?))?\s*:\s*(.+)$",
+    re.IGNORECASE | re.DOTALL,
+)
+
 # Default persona used when the user just types "ask: <prompt>" with no
 # leader override. Hindi-accented Gandhi voice; persona matches that voice.
 _ASK_DEFAULT_PERSONA = (
@@ -635,6 +644,28 @@ def _parse_ask_command(text: str) -> Optional[tuple[Optional[str], str]]:
     return leader, question
 
 
+def _parse_say_command(text: str) -> Optional[tuple[Optional[str], str]]:
+    """Return (leader_name_or_None, spoken_text) if text is a say: command.
+
+    Matches:
+        "say: hello there"               -> (None, "hello there")        default voice
+        "say as Stalin: hello comrade"   -> ("Stalin", "hello comrade")  Stalin's voice
+
+    Returns None if text is not an explicit say command. (Plain @-mention
+    with no prefix is handled separately as the legacy default-voice path.)
+    """
+    if not text:
+        return None
+    m = _SAY_PATTERN.match(text)
+    if not m:
+        return None
+    leader = (m.group(1) or "").strip() or None
+    spoken = (m.group(2) or "").strip()
+    if not spoken:
+        return None
+    return leader, spoken
+
+
 def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple[str, str, str, str]:
     """Resolve (voice, rate, pitch, persona_description) for an ask request.
 
@@ -703,9 +734,15 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
         except Exception as exc:  # noqa: BLE001
             logger.warning("user-%s: failed to speak for %s: %s", kind, author_name, exc)
 
-    def _say_worker(text: str, author_name: str) -> None:
-        # Hardcoded thick-accent voice: Hindi voice on English text.
-        _speak(text, _ASK_DEFAULT_VOICE, "", "", author_name, "say")
+    def _say_worker(text: str, author_name: str, leader_name: Optional[str] = None) -> None:
+        # When no leader is named, use the default thick-accent Indian voice
+        # (the original @-mention behavior). When a leader is named, route
+        # through voice_picker so 'say as Stalin: hi' speaks in Stalin's voice.
+        if leader_name:
+            voice, rate, pitch, _persona = _resolve_ask_voice(voice_picker, leader_name)
+        else:
+            voice, rate, pitch = _ASK_DEFAULT_VOICE, "", ""
+        _speak(text, voice, rate, pitch, author_name, "say")
 
     def _ask_worker(question: str, leader_name: Optional[str], author_name: str) -> None:
         if client is None:
@@ -767,7 +804,13 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             )
             t.start()
             return
-        # Fall through: plain say.
+        # Explicit say command: 'say: <text>' or 'say as <Leader>: <text>'.
+        # Same literal-speech path as a plain @-mention, but with an optional
+        # leader-voice override.
+        say = _parse_say_command(text)
+        say_leader: Optional[str] = None
+        if say is not None:
+            say_leader, text = say
         if len(text) > MAX_CHARS:
             text = text[:MAX_CHARS]
         with lock:
@@ -777,15 +820,15 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
                 return
             last_say[author_id] = now
         t = _t.Thread(
-            target=_say_worker, args=(text, author_name),
+            target=_say_worker, args=(text, author_name, say_leader),
             name="UserSpeak", daemon=True,
         )
         t.start()
 
     bot.set_message_handler(handler)
     logger.info(
-        "voiceover: user-speak handler registered (say + ask: + ask as <leader>: ; "
-        "llm_wired=%s ask_max_tokens=%d)",
+        "voiceover: user-speak handler registered (say + say as <leader>: + "
+        "ask: + ask as <leader>: ; llm_wired=%s ask_max_tokens=%d)",
         client is not None, llm_max_tokens,
     )
 
