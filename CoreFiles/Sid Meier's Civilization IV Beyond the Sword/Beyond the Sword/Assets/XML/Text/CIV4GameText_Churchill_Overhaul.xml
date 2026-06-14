@@ -200,4 +200,52 @@
     <Italian>La rete di dormienti dell'NKVD esplode in %s1_civdesc! Rivolte e dissenso colpiscono ogni citta.</Italian>
     <Spanish>La red durmiente del NKVD estalla en %s1_civdesc! Disturbios y disidencia sacuden cada ciudad.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_DEZINFORMATSIYA</Tag>
+    <English>Spread Dezinformatsiya</English>
+    <French>Repandre la Dezinformatsiya</French>
+    <German>Desinformation verbreiten</German>
+    <Italian>Diffondere Dezinformatsiya</Italian>
+    <Spanish>Difundir Dezinformatsiya</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_DEZINFORMATSIYA_HIT</Tag>
+    <English>NKVD disinformation cripples research in %s1_civdesc by %d2_num%% for %d3_num turns!</English>
+    <French>La desinformation du NKVD entrave la recherche en %s1_civdesc de %d2_num%% pendant %d3_num tours !</French>
+    <German>NKWD-Desinformation lahmt die Forschung in %s1_civdesc um %d2_num%% fur %d3_num Runden!</German>
+    <Italian>La disinformazione del NKVD paralizza la ricerca in %s1_civdesc del %d2_num%% per %d3_num turni!</Italian>
+    <Spanish>La desinformacion del NKVD paraliza la investigacion en %s1_civdesc un %d2_num%% durante %d3_num turnos!</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_SHOW_TRIAL</Tag>
+    <English>Stage Show Trial</English>
+    <French>Organiser un Proces Spectacle</French>
+    <German>Schauprozess inszenieren</German>
+    <Italian>Inscenare un Processo Farsa</Italian>
+    <Spanish>Montar un Juicio Espectaculo</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_SHOW_TRIAL_HIT</Tag>
+    <English>A Show Trial in %s1_civdesc disgraces the regime: -%d2_num diplomacy with all other civilizations for %d3_num turns.</English>
+    <French>Un Proces Spectacle en %s1_civdesc deshonore le regime : -%d2_num en diplomatie avec toutes les autres civilisations pendant %d3_num tours.</French>
+    <German>Ein Schauprozess in %s1_civdesc beschamt das Regime: -%d2_num Diplomatie mit allen anderen Zivilisationen fur %d3_num Runden.</German>
+    <Italian>Un Processo Farsa in %s1_civdesc disonora il regime: -%d2_num di diplomazia con tutte le altre civilta per %d3_num turni.</Italian>
+    <Spanish>Un Juicio Espectaculo en %s1_civdesc deshonra al regimen: -%d2_num de diplomacia con todas las demas civilizaciones durante %d3_num turnos.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_FAKE_BLUEPRINTS</Tag>
+    <English>Plant Fake Blueprints</English>
+    <French>Implanter de Faux Plans</French>
+    <German>Falsche Blaupausen unterschieben</German>
+    <Italian>Piantare Progetti Falsi</Italian>
+    <Spanish>Plantar Planos Falsos</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_ESPIONAGE_DM_FAKE_BLUEPRINTS_HIT</Tag>
+    <English>Fake blueprints sabotage %s1_tech research in %s2_civdesc!</English>
+    <French>De faux plans sabotent la recherche %s1_tech en %s2_civdesc !</French>
+    <German>Falsche Blaupausen sabotieren die %s1_tech-Forschung in %s2_civdesc!</German>
+    <Italian>Progetti falsi sabotano la ricerca su %s1_tech in %s2_civdesc!</Italian>
+    <Spanish>Planos falsos sabotean la investigacion de %s1_tech en %s2_civdesc!</Spanish>
+  </TEXT>
 </Civ4GameText>

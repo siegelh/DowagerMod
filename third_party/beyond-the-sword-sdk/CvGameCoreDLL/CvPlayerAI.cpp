@@ -4843,6 +4843,9 @@ int CvPlayerAI::AI_getAttitudeVal(PlayerTypes ePlayer, bool bForced) const
 	iAttitude += AI_getColonyAttitude(ePlayer);
 	iAttitude += AI_getAttitudeExtra(ePlayer);
 
+	// DM Sprint 3: Show Trial -- global diplo penalty against the targeted player
+	iAttitude += GET_PLAYER(ePlayer).getDMGlobalDiploPenalty();
+
 	return range(iAttitude, -100, 100);
 }
 

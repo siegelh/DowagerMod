@@ -1199,6 +1199,13 @@
 	<ElementType name="RequiresPlantedBuilding" content="textOnly" dt:type="string"/>
 	<ElementType name="iCivWideUnhappinessCounter" content="textOnly" dt:type="int"/>
 	<ElementType name="bRemovePlantedBuilding" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iTargetResearchModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iTargetResearchDuration" content="textOnly" dt:type="int"/>
+	<ElementType name="iGlobalDiploPenalty" content="textOnly" dt:type="int"/>
+	<ElementType name="iGlobalDiploDuration" content="textOnly" dt:type="int"/>
+	<ElementType name="iCurrentTechProgressSetbackPct" content="textOnly" dt:type="int"/>
+	<ElementType name="iCurrentTechResearchModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iCurrentTechResearchDuration" content="textOnly" dt:type="int"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -1237,6 +1244,13 @@
 		<element type="RequiresPlantedBuilding" minOccurs="0"/>
 		<element type="iCivWideUnhappinessCounter" minOccurs="0"/>
 		<element type="bRemovePlantedBuilding" minOccurs="0"/>
+		<element type="iTargetResearchModifier" minOccurs="0"/>
+		<element type="iTargetResearchDuration" minOccurs="0"/>
+		<element type="iGlobalDiploPenalty" minOccurs="0"/>
+		<element type="iGlobalDiploDuration" minOccurs="0"/>
+		<element type="iCurrentTechProgressSetbackPct" minOccurs="0"/>
+		<element type="iCurrentTechResearchModifier" minOccurs="0"/>
+		<element type="iCurrentTechResearchDuration" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="EspionageMissionInfos" content="eltOnly">
 		<element type="EspionageMissionInfo" maxOccurs="*"/>

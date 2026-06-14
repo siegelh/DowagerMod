@@ -6311,6 +6311,13 @@ public:
 	int getRequiresPlantedBuilding() const;
 	int getCivWideUnhappinessCounter() const;
 	bool isRemovePlantedBuilding() const;
+	int getTargetResearchModifier() const;
+	int getTargetResearchDuration() const;
+	int getGlobalDiploPenalty() const;
+	int getGlobalDiploDuration() const;
+	int getCurrentTechProgressSetbackPct() const;
+	int getCurrentTechResearchModifier() const;
+	int getCurrentTechResearchDuration() const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -6354,6 +6361,13 @@ protected:
 	int m_iRequiresPlantedBuilding;
 	int m_iCivWideUnhappinessCounter;
 	bool m_bRemovePlantedBuilding;
+	int m_iTargetResearchModifier;
+	int m_iTargetResearchDuration;
+	int m_iGlobalDiploPenalty;
+	int m_iGlobalDiploDuration;
+	int m_iCurrentTechProgressSetbackPct;
+	int m_iCurrentTechResearchModifier;
+	int m_iCurrentTechResearchDuration;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

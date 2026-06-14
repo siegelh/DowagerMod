@@ -23792,6 +23792,13 @@ CvEspionageMissionInfo::CvEspionageMissionInfo()
 	m_iRequiresPlantedBuilding = -1;
 	m_iCivWideUnhappinessCounter = 0;
 	m_bRemovePlantedBuilding = false;
+	m_iTargetResearchModifier = 0;
+	m_iTargetResearchDuration = 0;
+	m_iGlobalDiploPenalty = 0;
+	m_iGlobalDiploDuration = 0;
+	m_iCurrentTechProgressSetbackPct = 0;
+	m_iCurrentTechResearchModifier = 0;
+	m_iCurrentTechResearchDuration = 0;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -23980,6 +23987,41 @@ bool CvEspionageMissionInfo::isRemovePlantedBuilding() const
 	return m_bRemovePlantedBuilding;
 }
 
+int CvEspionageMissionInfo::getTargetResearchModifier() const
+{
+	return m_iTargetResearchModifier;
+}
+
+int CvEspionageMissionInfo::getTargetResearchDuration() const
+{
+	return m_iTargetResearchDuration;
+}
+
+int CvEspionageMissionInfo::getGlobalDiploPenalty() const
+{
+	return m_iGlobalDiploPenalty;
+}
+
+int CvEspionageMissionInfo::getGlobalDiploDuration() const
+{
+	return m_iGlobalDiploDuration;
+}
+
+int CvEspionageMissionInfo::getCurrentTechProgressSetbackPct() const
+{
+	return m_iCurrentTechProgressSetbackPct;
+}
+
+int CvEspionageMissionInfo::getCurrentTechResearchModifier() const
+{
+	return m_iCurrentTechResearchModifier;
+}
+
+int CvEspionageMissionInfo::getCurrentTechResearchDuration() const
+{
+	return m_iCurrentTechResearchDuration;
+}
+
 bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 {
 	CvString szTextVal;
@@ -24044,6 +24086,13 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 
 	pXML->GetChildXmlValByName(&m_iCivWideUnhappinessCounter, "iCivWideUnhappinessCounter");
 	pXML->GetChildXmlValByName(&m_bRemovePlantedBuilding, "bRemovePlantedBuilding");
+	pXML->GetChildXmlValByName(&m_iTargetResearchModifier, "iTargetResearchModifier");
+	pXML->GetChildXmlValByName(&m_iTargetResearchDuration, "iTargetResearchDuration");
+	pXML->GetChildXmlValByName(&m_iGlobalDiploPenalty, "iGlobalDiploPenalty");
+	pXML->GetChildXmlValByName(&m_iGlobalDiploDuration, "iGlobalDiploDuration");
+	pXML->GetChildXmlValByName(&m_iCurrentTechProgressSetbackPct, "iCurrentTechProgressSetbackPct");
+	pXML->GetChildXmlValByName(&m_iCurrentTechResearchModifier, "iCurrentTechResearchModifier");
+	pXML->GetChildXmlValByName(&m_iCurrentTechResearchDuration, "iCurrentTechResearchDuration");
 
 	return true;
 }

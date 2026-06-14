@@ -342,6 +342,18 @@ public:
 	int getGoldenAgeModifier() const;																																				// Exposed to Python 
 	void changeGoldenAgeModifier(int iChange);
 
+	// DM spy mission state (Sprint 3): all live on the TARGET player; decremented in doTurn.
+	int getDMResearchPenalty() const;
+	int getDMResearchPenaltyTurns() const;
+	void applyDMResearchPenalty(int iMod, int iTurns);
+	int getDMGlobalDiploPenalty() const;
+	int getDMGlobalDiploTurns() const;
+	void applyDMGlobalDiploPenalty(int iMod, int iTurns);
+	int getDMSabotagedTech() const;
+	int getDMSabotageMod() const;
+	int getDMSabotageTurns() const;
+	void applyDMTechSabotage(int iTech, int iMod, int iTurns);
+
 	int getHurryModifier() const;																																					// Exposed to Python
 	void changeHurryModifier(int iChange);
 
@@ -1149,6 +1161,13 @@ protected:
 	int m_iCombatExperience;
 	int m_iPopRushHurryCount;
 	int m_iInflationModifier;
+	int m_iDMResearchPenalty;
+	int m_iDMResearchPenaltyTurns;
+	int m_iDMGlobalDiploPenalty;
+	int m_iDMGlobalDiploTurns;
+	int m_iDMSabotagedTech;
+	int m_iDMSabotageMod;
+	int m_iDMSabotageTurns;
 
 	uint m_uiStartTime;  // XXX save these?
 

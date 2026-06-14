@@ -576,6 +576,13 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 	m_iCombatExperience = 0;
 	m_iPopRushHurryCount = 0;
 	m_iInflationModifier = 0;
+	m_iDMResearchPenalty = 0;
+	m_iDMResearchPenaltyTurns = 0;
+	m_iDMGlobalDiploPenalty = 0;
+	m_iDMGlobalDiploTurns = 0;
+	m_iDMSabotagedTech = -1;
+	m_iDMSabotageMod = 0;
+	m_iDMSabotageTurns = 0;
 	m_uiStartTime = 0;
 
 	m_bAlive = false;
@@ -2693,6 +2700,43 @@ void CvPlayer::doTurn()
 	if (getAnarchyTurns() > 0)
 	{
 		changeAnarchyTurns(-1);
+	}
+
+	// DM Sprint 3: decrement spy-mission debuff durations; clear payload when expired.
+	if (m_iDMResearchPenaltyTurns > 0)
+	{
+		m_iDMResearchPenaltyTurns--;
+		if (m_iDMResearchPenaltyTurns == 0)
+		{
+			m_iDMResearchPenalty = 0;
+		}
+	}
+	if (m_iDMGlobalDiploTurns > 0)
+	{
+		m_iDMGlobalDiploTurns--;
+		if (m_iDMGlobalDiploTurns == 0)
+		{
+			m_iDMGlobalDiploPenalty = 0;
+		}
+	}
+	if (m_iDMSabotageTurns > 0)
+	{
+		// Clear if player switched off the sabotaged tech (dodge) or finished it.
+		if (m_iDMSabotagedTech != -1 && getCurrentResearch() != (TechTypes)m_iDMSabotagedTech)
+		{
+			m_iDMSabotageTurns = 0;
+			m_iDMSabotageMod = 0;
+			m_iDMSabotagedTech = -1;
+		}
+		else
+		{
+			m_iDMSabotageTurns--;
+			if (m_iDMSabotageTurns == 0)
+			{
+				m_iDMSabotageMod = 0;
+				m_iDMSabotagedTech = -1;
+			}
+		}
 	}
 
 	verifyCivics();
@@ -6581,6 +6625,17 @@ int CvPlayer::calculateResearchModifier(TechTypes eTech) const
 	FAssertMsg(iPossiblePaths >= iUnknownPaths, "The number of possible paths is expected to match or exceed the number of unknown ones");
 
 	iModifier += (iPossiblePaths - iUnknownPaths) * GC.getDefineINT("TECH_COST_KNOWN_PREREQ_MODIFIER");
+
+	// DM Sprint 3: spy-mission research debuffs. Higher iModifier = more expensive research.
+	// A negative penalty (e.g. -20) makes research 20% slower by adding 20 to the cost modifier.
+	if (m_iDMResearchPenaltyTurns > 0 && m_iDMResearchPenalty != 0)
+	{
+		iModifier -= m_iDMResearchPenalty;
+	}
+	if (m_iDMSabotageTurns > 0 && m_iDMSabotagedTech == (int)eTech && m_iDMSabotageMod != 0)
+	{
+		iModifier -= m_iDMSabotageMod;
+	}
 
 	return iModifier;
 }
@@ -13271,6 +13326,24 @@ bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes
 		}
 	}
 
+	// DM Sprint 3: Stalin-only gates for civ-wide research debuff and global diplo penalty missions
+	if (kMission.getTargetResearchDuration() > 0 || kMission.getGlobalDiploDuration() > 0)
+	{
+		if (getLeaderType() != (LeaderHeadTypes)GC.getInfoTypeForString("LEADER_STALIN"))
+		{
+			return false;
+		}
+	}
+
+	// DM Sprint 3: Fake Blueprints requires the target player to currently be researching a tech
+	if (kMission.getCurrentTechResearchDuration() > 0 || kMission.getCurrentTechProgressSetbackPct() > 0)
+	{
+		if (GET_PLAYER(eTargetPlayer).getCurrentResearch() == NO_TECH)
+		{
+			return false;
+		}
+	}
+
 	// Need Tech Prereq, if applicable
 	if (kMission.getTechPrereq() != NO_TECH)
 	{
@@ -13722,6 +13795,21 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 		// can-do guard checks the planted-building prereq.
 		iMissionCost = iBaseMissionCost;
 	}
+	else if (kMission.getTargetResearchDuration() > 0)
+	{
+		// DM: Dezinformatsiya -- civ-wide research debuff for N turns.
+		iMissionCost = iBaseMissionCost;
+	}
+	else if (kMission.getGlobalDiploDuration() > 0)
+	{
+		// DM: Show Trial -- global diplo penalty for N turns.
+		iMissionCost = iBaseMissionCost;
+	}
+	else if (kMission.getCurrentTechResearchDuration() > 0 || kMission.getCurrentTechProgressSetbackPct() > 0)
+	{
+		// DM: Fake Blueprints -- tech-specific sabotage.
+		iMissionCost = iBaseMissionCost;
+	}
 	else
 	{
 		iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
@@ -14160,6 +14248,55 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 					pCity->setNumRealBuilding(eRemoveBuilding, 0);
 				}
 			}
+		}
+	}
+
+	//////////////////////////////
+	// DM Sprint 3: Dezinformatsiya -- civ-wide research debuff on target player
+
+	if (kMission.getTargetResearchDuration() > 0 && kMission.getTargetResearchModifier() != 0)
+	{
+		GET_PLAYER(eTargetPlayer).applyDMResearchPenalty(kMission.getTargetResearchModifier(), kMission.getTargetResearchDuration());
+		szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_DEZINFORMATSIYA_HIT", GET_PLAYER(eTargetPlayer).getCivilizationDescription(), -kMission.getTargetResearchModifier(), kMission.getTargetResearchDuration()).GetCString();
+		bShowExplosion = true;
+		bSomethingHappened = true;
+	}
+
+	//////////////////////////////
+	// DM Sprint 3: Show Trial -- global diplo penalty against target
+
+	if (kMission.getGlobalDiploDuration() > 0 && kMission.getGlobalDiploPenalty() != 0)
+	{
+		GET_PLAYER(eTargetPlayer).applyDMGlobalDiploPenalty(kMission.getGlobalDiploPenalty(), kMission.getGlobalDiploDuration());
+		szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_SHOW_TRIAL_HIT", GET_PLAYER(eTargetPlayer).getCivilizationDescription(), -kMission.getGlobalDiploPenalty(), kMission.getGlobalDiploDuration()).GetCString();
+		bShowExplosion = true;
+		bSomethingHappened = true;
+	}
+
+	//////////////////////////////
+	// DM Sprint 3: Fake Blueprints -- per-tech research setback + ongoing modifier on that tech
+
+	if (kMission.getCurrentTechResearchDuration() > 0 || kMission.getCurrentTechProgressSetbackPct() > 0)
+	{
+		TechTypes eCurrentTech = GET_PLAYER(eTargetPlayer).getCurrentResearch();
+		if (eCurrentTech != NO_TECH)
+		{
+			if (kMission.getCurrentTechProgressSetbackPct() > 0)
+			{
+				int iProgress = GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).getResearchProgress(eCurrentTech);
+				int iSetback = (iProgress * kMission.getCurrentTechProgressSetbackPct()) / 100;
+				if (iSetback > 0)
+				{
+					GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).changeResearchProgress(eCurrentTech, -iSetback, eTargetPlayer);
+				}
+			}
+			if (kMission.getCurrentTechResearchDuration() > 0 && kMission.getCurrentTechResearchModifier() != 0)
+			{
+				GET_PLAYER(eTargetPlayer).applyDMTechSabotage((int)eCurrentTech, kMission.getCurrentTechResearchModifier(), kMission.getCurrentTechResearchDuration());
+			}
+			szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DM_FAKE_BLUEPRINTS_HIT", GC.getTechInfo(eCurrentTech).getDescription(), GET_PLAYER(eTargetPlayer).getCivilizationDescription()).GetCString();
+			bShowExplosion = true;
+			bSomethingHappened = true;
 		}
 	}
 
@@ -16640,6 +16777,22 @@ void CvPlayer::read(FDataStreamBase* pStream)
 	pStream->Read(&m_iPopRushHurryCount);
 	pStream->Read(&m_iInflationModifier);
 
+	// DM spy mission state (Sprint 3) -- save-format change
+	m_iDMResearchPenalty = 0;
+	m_iDMResearchPenaltyTurns = 0;
+	m_iDMGlobalDiploPenalty = 0;
+	m_iDMGlobalDiploTurns = 0;
+	m_iDMSabotagedTech = -1;
+	m_iDMSabotageMod = 0;
+	m_iDMSabotageTurns = 0;
+	pStream->Read(&m_iDMResearchPenalty);
+	pStream->Read(&m_iDMResearchPenaltyTurns);
+	pStream->Read(&m_iDMGlobalDiploPenalty);
+	pStream->Read(&m_iDMGlobalDiploTurns);
+	pStream->Read(&m_iDMSabotagedTech);
+	pStream->Read(&m_iDMSabotageMod);
+	pStream->Read(&m_iDMSabotageTurns);
+
 	rebuildTraitGoldenAgeYieldChangeCache();
 	dllTrace("SAVE", "CvPlayer::read final scalars/cache id=%d", (int)m_eID);
 
@@ -17151,6 +17304,13 @@ void CvPlayer::write(FDataStreamBase* pStream)
 
 	pStream->Write(m_iPopRushHurryCount);
 	pStream->Write(m_iInflationModifier);
+	pStream->Write(m_iDMResearchPenalty);
+	pStream->Write(m_iDMResearchPenaltyTurns);
+	pStream->Write(m_iDMGlobalDiploPenalty);
+	pStream->Write(m_iDMGlobalDiploTurns);
+	pStream->Write(m_iDMSabotagedTech);
+	pStream->Write(m_iDMSabotageMod);
+	pStream->Write(m_iDMSabotageTurns);
 	dllTrace("SAVE", "END CvPlayer::write id=%d", (int)m_eID);
 }
 
@@ -22230,4 +22390,61 @@ bool CvPlayer::hasSpaceshipArrived() const
 	}
 
 	return false;
+}
+
+
+// DM Sprint 3: spy mission state accessors (target-player resident)
+
+int CvPlayer::getDMResearchPenalty() const
+{
+	return m_iDMResearchPenalty;
+}
+
+int CvPlayer::getDMResearchPenaltyTurns() const
+{
+	return m_iDMResearchPenaltyTurns;
+}
+
+void CvPlayer::applyDMResearchPenalty(int iMod, int iTurns)
+{
+	m_iDMResearchPenalty = iMod;
+	m_iDMResearchPenaltyTurns = iTurns;
+}
+
+int CvPlayer::getDMGlobalDiploPenalty() const
+{
+	return m_iDMGlobalDiploPenalty;
+}
+
+int CvPlayer::getDMGlobalDiploTurns() const
+{
+	return m_iDMGlobalDiploTurns;
+}
+
+void CvPlayer::applyDMGlobalDiploPenalty(int iMod, int iTurns)
+{
+	m_iDMGlobalDiploPenalty = iMod;
+	m_iDMGlobalDiploTurns = iTurns;
+}
+
+int CvPlayer::getDMSabotagedTech() const
+{
+	return m_iDMSabotagedTech;
+}
+
+int CvPlayer::getDMSabotageMod() const
+{
+	return m_iDMSabotageMod;
+}
+
+int CvPlayer::getDMSabotageTurns() const
+{
+	return m_iDMSabotageTurns;
+}
+
+void CvPlayer::applyDMTechSabotage(int iTech, int iMod, int iTurns)
+{
+	m_iDMSabotagedTech = iTech;
+	m_iDMSabotageMod = iMod;
+	m_iDMSabotageTurns = iTurns;
 }
