@@ -60,6 +60,12 @@ class VoiceSpec:
     # she should use ru-RU-SvetlanaNeural since a German voice can't render
     # Cyrillic). When empty, falls back to using `voice` for native too.
     voice_native: str = ""
+    # post_process: optional ffmpeg preset name (see audio_postprocess.PRESETS)
+    # applied to the synthesized WAV bytes before playback. Used for per-leader
+    # vocal character that SSML + Azure voice selection can't produce alone
+    # (e.g. Dowager Countess "elderly_crone" preset: deep formant + quaver +
+    # rasp). Empty string = no post-processing.
+    post_process: str = ""
 
     def derived_locale(self) -> str:
         """Return locale or, if empty, derive it from the voice ID."""
@@ -85,7 +91,8 @@ def _parse_entry(raw: Union[str, dict, None], default_voice: str) -> Optional[Vo
         lang = str(raw.get("lang", "")).strip()
         locale = str(raw.get("locale", "")).strip()
         voice_native = str(raw.get("voice_native", "")).strip()
-        return VoiceSpec(voice=v, rate=rate, pitch=pitch, lang=lang, locale=locale, voice_native=voice_native)
+        post_process = str(raw.get("post_process", "")).strip()
+        return VoiceSpec(voice=v, rate=rate, pitch=pitch, lang=lang, locale=locale, voice_native=voice_native, post_process=post_process)
     return None
 
 

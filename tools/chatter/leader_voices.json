@@ -166,33 +166,36 @@
             "locale": "fr-FR"
         },
         "dowagercountess": {
-            "voice": "en-GB-SoniaNeural",
-            "rate": "-18%",
-            "pitch": "-10%",
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
             "locale": "en-GB",
-            "voice_native": "en-US-AnaNeural"
+            "post_process": "elderly_crone"
         },
         "dowager": {
-            "voice": "en-GB-SoniaNeural",
-            "rate": "-18%",
-            "pitch": "-10%",
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
-            "locale": "en-GB"
+            "locale": "en-GB",
+            "post_process": "elderly_crone"
         },
         "thedowager": {
-            "voice": "en-GB-SoniaNeural",
-            "rate": "-18%",
-            "pitch": "-10%",
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
-            "locale": "en-GB"
+            "locale": "en-GB",
+            "post_process": "elderly_crone"
         },
         "thedowagercountess": {
-            "voice": "en-GB-SoniaNeural",
-            "rate": "-18%",
-            "pitch": "-10%",
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
-            "locale": "en-GB"
+            "locale": "en-GB",
+            "post_process": "elderly_crone"
         },
         "elizabeth": {
             "voice": "en-GB-SoniaNeural",

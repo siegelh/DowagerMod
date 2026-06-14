@@ -666,20 +666,22 @@ def _parse_say_command(text: str) -> Optional[tuple[Optional[str], str]]:
     return leader, spoken
 
 
-def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple[str, str, str, str]:
-    """Resolve (voice, rate, pitch, persona_description) for an ask request.
+def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple[str, str, str, str, str]:
+    """Resolve (voice, rate, pitch, persona_description, post_process) for an ask request.
 
     leader_name=None -> default Gandhi-flavored persona + Hindi-accented voice.
     leader_name set  -> look up via voice_picker; persona becomes that leader.
+    post_process is an ffmpeg preset name (see audio_postprocess.PRESETS) or "".
     """
     if not leader_name:
-        return _ASK_DEFAULT_VOICE, "", "", _ASK_DEFAULT_PERSONA
+        return _ASK_DEFAULT_VOICE, "", "", _ASK_DEFAULT_PERSONA, ""
     spec = voice_picker.pick_spec(leader_name) if voice_picker is not None else None
     voice = spec.voice if spec is not None else _ASK_DEFAULT_VOICE
     rate = spec.rate if (spec is not None and spec.rate) else ""
     pitch = spec.pitch if (spec is not None and spec.pitch) else ""
+    post_process = spec.post_process if (spec is not None and spec.post_process) else ""
     persona = "the historical leader %s -- their actual personality, era, and worldview, in their own voice" % leader_name
-    return voice, rate, pitch, persona
+    return voice, rate, pitch, persona, post_process
 
 
 def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Path,
@@ -718,18 +720,24 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
     lock = _t.Lock()
 
     def _speak(text: str, voice: str, rate: str, pitch: str,
-               author_name: str, kind: str) -> None:
+               author_name: str, kind: str, post_process: str = "") -> None:
         """Synthesize ``text`` with the given voice/prosody and enqueue
-        for playback. ``kind`` is just a log tag ('say' or 'ask')."""
+        for playback. ``kind`` is just a log tag ('say' or 'ask').
+        ``post_process`` is an optional ffmpeg preset name (see
+        audio_postprocess.PRESETS)."""
         try:
             logger.info(
-                "user-%s: author=%s chars=%d voice=%s rate=%r pitch=%r",
-                kind, author_name, len(text), voice, rate, pitch,
+                "user-%s: author=%s chars=%d voice=%s rate=%r pitch=%r post=%r",
+                kind, author_name, len(text), voice, rate, pitch, post_process,
             )
             result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
+            audio_bytes = result.audio_bytes
+            if post_process:
+                from audio_postprocess import apply_postprocess
+                audio_bytes = apply_postprocess(audio_bytes, post_process, logger=logger)
             ts = int(time.time() * 1000)
             wav = audio_dir / ("user_%s_%d.wav" % (kind, ts))
-            wav.write_bytes(result.audio_bytes)
+            wav.write_bytes(audio_bytes)
             bot.enqueue_audio(wav)
         except Exception as exc:  # noqa: BLE001
             logger.warning("user-%s: failed to speak for %s: %s", kind, author_name, exc)
@@ -739,16 +747,16 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
         # (the original @-mention behavior). When a leader is named, route
         # through voice_picker so 'say as Stalin: hi' speaks in Stalin's voice.
         if leader_name:
-            voice, rate, pitch, _persona = _resolve_ask_voice(voice_picker, leader_name)
+            voice, rate, pitch, _persona, post_process = _resolve_ask_voice(voice_picker, leader_name)
         else:
-            voice, rate, pitch = _ASK_DEFAULT_VOICE, "", ""
-        _speak(text, voice, rate, pitch, author_name, "say")
+            voice, rate, pitch, post_process = _ASK_DEFAULT_VOICE, "", "", ""
+        _speak(text, voice, rate, pitch, author_name, "say", post_process)
 
     def _ask_worker(question: str, leader_name: Optional[str], author_name: str) -> None:
         if client is None:
             logger.warning("user-ask: LLM client not wired; cannot answer ask: from %s", author_name)
             return
-        voice, rate, pitch, persona = _resolve_ask_voice(voice_picker, leader_name)
+        voice, rate, pitch, persona, post_process = _resolve_ask_voice(voice_picker, leader_name)
         # 'ask as <Leader>:' -> bare prompt, leader's voice only, no persona/spicy dressing.
         # 'ask:'             -> default Gandhi persona + spicy/anti-cliche directives.
         if leader_name:
@@ -780,7 +788,7 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             author_name, len(reply),
             api_result.input_tokens, api_result.output_tokens, api_result.latency_ms,
         )
-        _speak(reply, voice, rate, pitch, author_name, "ask")
+        _speak(reply, voice, rate, pitch, author_name, "ask", post_process)
 
     def handler(text: str, author_name: str, author_id: int, is_dm: bool):
         text = (text or "").strip()
@@ -872,6 +880,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         rate = ""
         pitch = ""
         locale = ""
+        post_process = ""
         # Use native text when available and a locale is configured for speaker
         synth_text = text_native if text_native else text
         if voice_picker is not None and speaker_name:
@@ -885,6 +894,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
                     chosen_voice = spec.voice
                 rate = spec.rate
                 pitch = spec.pitch
+                post_process = spec.post_process
                 if text_native:
                     locale = spec.derived_locale()
             except Exception as exc:  # noqa: BLE001
@@ -928,7 +938,11 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
             continue
         wav_path = audio_dir / f"tts-{rid}-{idx}.wav"
         try:
-            wav_path.write_bytes(result.audio_bytes)
+            audio_bytes = result.audio_bytes
+            if post_process:
+                from audio_postprocess import apply_postprocess
+                audio_bytes = apply_postprocess(audio_bytes, post_process, logger=logger)
+            wav_path.write_bytes(audio_bytes)
         except Exception as exc:  # noqa: BLE001
             logger.warning("voiceover: write WAV failed %s: %s", wav_path, exc)
             continue
