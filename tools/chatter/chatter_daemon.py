@@ -806,10 +806,12 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
                 )
                 audio_bytes = dispatch.audio_bytes
                 skip_post = dispatch.skip_post_process
+                provider_tag = "_el" if dispatch.provider == "elevenlabs" else ""
             else:
                 result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
                 audio_bytes = result.audio_bytes
                 skip_post = False
+                provider_tag = ""
             if post_process and not skip_post:
                 try:
                     from .audio_postprocess import apply_postprocess
@@ -817,7 +819,7 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
                     from audio_postprocess import apply_postprocess
                 audio_bytes = apply_postprocess(audio_bytes, post_process, logger=logger)
             ts = int(time.time() * 1000)
-            wav = audio_dir / ("user_%s_%d.wav" % (kind, ts))
+            wav = audio_dir / ("user_%s%s_%d.wav" % (kind, provider_tag, ts))
             wav.write_bytes(audio_bytes)
             bot.enqueue_audio(wav)
         except Exception as exc:  # noqa: BLE001
@@ -1032,6 +1034,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
                 result_chars = dispatch.char_count
                 result_latency = dispatch.latency_ms
                 skip_post = dispatch.skip_post_process
+                provider_tag = "-el" if dispatch.provider == "elevenlabs" else ""
             else:
                 result = speech_client.synthesize(
                     synth_text, voice=chosen_voice, rate=rate, pitch=pitch, locale=locale,
@@ -1040,6 +1043,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
                 result_voice = result.voice
                 result_chars = result.char_count
                 result_latency = result.latency_ms
+                provider_tag = ""
         except SpeechBudgetExhausted as exc:
             logger.warning("voiceover: %s", exc)
             return
@@ -1052,7 +1056,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         except Exception as exc:  # noqa: BLE001
             logger.warning("voiceover: unexpected synth failure for line %d: %s", idx, exc)
             continue
-        wav_path = audio_dir / f"tts-{rid}-{idx}.wav"
+        wav_path = audio_dir / f"tts-{rid}{provider_tag}-{idx}.wav"
         try:
             audio_bytes = result_audio
             if post_process and not skip_post:
