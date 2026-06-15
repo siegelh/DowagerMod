@@ -457,6 +457,19 @@ def write_response(spool_path: Path, response: dict, logger: logging.Logger) -> 
         logger.exception("failed to write response %s: %s", name, exc)
 
 
+def _sanitize_leader_slug(name: str) -> str:
+    """Slugify a leader name for use in audio filenames.
+
+    Strips non-alphanumerics so the result is filesystem-safe across Windows,
+    macOS and Linux. Caps at 32 chars so filenames stay short. Returns an
+    empty string for empty / all-symbol input.
+    """
+    if not name:
+        return ""
+    slug = re.sub(r"[^A-Za-z0-9]+", "", name)
+    return slug[:32]
+
+
 def gc_spool(spool_path: Path, cfg, logger: logging.Logger) -> None:
     try:
         n_req = spool_mod.gc_old_files(spool_path, spool_mod.REQ_PREFIX, cfg.request_ttl_seconds)
@@ -472,6 +485,13 @@ def gc_spool(spool_path: Path, cfg, logger: logging.Logger) -> None:
             for pattern in ("tts-*.wav", "user_say_*.wav", "user_ask_*.wav", "user_speak_*.wav"):
                 for p in audio_dir.glob(pattern):
                     try:
+                        # Preserve ElevenLabs outputs indefinitely: the user
+                        # asked us to keep these as a voice archive. The
+                        # ``_el_`` / ``-el-`` infix is added by the synth
+                        # path and never appears in Azure filenames.
+                        name = p.name
+                        if "_el_" in name or "-el-" in name:
+                            continue
                         if (now - p.stat().st_mtime) > 3600:
                             p.unlink()
                             removed += 1
@@ -806,7 +826,11 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
                 )
                 audio_bytes = dispatch.audio_bytes
                 skip_post = dispatch.skip_post_process
-                provider_tag = "_el" if dispatch.provider == "elevenlabs" else ""
+                if dispatch.provider == "elevenlabs":
+                    leader_slug = _sanitize_leader_slug(leader_name or author_name)
+                    provider_tag = f"_el_{leader_slug}" if leader_slug else "_el"
+                else:
+                    provider_tag = ""
             else:
                 result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
                 audio_bytes = result.audio_bytes
@@ -1034,7 +1058,11 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
                 result_chars = dispatch.char_count
                 result_latency = dispatch.latency_ms
                 skip_post = dispatch.skip_post_process
-                provider_tag = "-el" if dispatch.provider == "elevenlabs" else ""
+                if dispatch.provider == "elevenlabs":
+                    leader_slug = _sanitize_leader_slug(speaker_name)
+                    provider_tag = f"-el-{leader_slug}" if leader_slug else "-el"
+                else:
+                    provider_tag = ""
             else:
                 result = speech_client.synthesize(
                     synth_text, voice=chosen_voice, rate=rate, pitch=pitch, locale=locale,
