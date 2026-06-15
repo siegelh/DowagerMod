@@ -14561,6 +14561,18 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer &szBuffer, EspionageMis
 	szBuffer.append(NEWLINE);
 	szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_BASE_COST", iMissionCost));
 
+	// DowagerMod: append flavor help text for custom DM_* missions
+	{
+		CvString szTypeStr = kMission.getType();
+		if (szTypeStr.find("ESPIONAGEMISSION_DM_") == 0)
+		{
+			CvWString szHelpKey = kMission.getTextKeyWide();
+			szHelpKey += L"_HELP";
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText(szHelpKey));
+		}
+	}
+
 	if (kPlayer.getEspionageMissionCost(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit) > 0)
 	{
 		int iModifier = 100;
