@@ -3,12 +3,16 @@
     Set up the local TTS server virtual environment.
 .DESCRIPTION
     Creates a dedicated Python venv and installs all dependencies for the
-    local TTS server (XTTSv2, Qwen3-TTS, FastAPI, torch with CUDA).
+    local TTS server (XTTSv2, FastAPI, torch with CUDA). Optionally
+    pre-downloads the model weights so first server start is instant.
 .PARAMETER CpuOnly
-    Install CPU-only PyTorch (for laptops without CUDA toolkit).
+    Install CPU-only PyTorch (for machines without CUDA toolkit).
+.PARAMETER SkipModel
+    Skip the XTTSv2 model pre-download (it will download on first server start instead).
 #>
 param(
-    [switch]$CpuOnly
+    [switch]$CpuOnly,
+    [switch]$SkipModel
 )
 
 $ErrorActionPreference = "Stop"
@@ -46,11 +50,46 @@ Write-Host "Installing TTS server dependencies..." -ForegroundColor Yellow
 & $pip install -r (Join-Path $serverDir "requirements.txt") --quiet
 
 Write-Host ""
-Write-Host "=== Setup complete ===" -ForegroundColor Green
-Write-Host "Verify: & '$python' -c `"import torch; print(f'torch={torch.__version__} cuda={torch.cuda.is_available()}')`""
-Write-Host "Start:  .\tools\Start-TtsServer.ps1"
-Write-Host ""
+Write-Host "=== Dependencies installed ===" -ForegroundColor Green
 
 # Quick validation
 & $python -c "import torch; print(f'  torch={torch.__version__} cuda={torch.cuda.is_available()}')"
 & $python -c "import fastapi; print(f'  fastapi={fastapi.__version__}')"
+
+# Pre-download XTTSv2 model weights (~1.7 GB)
+if (-not $SkipModel) {
+    Write-Host ""
+    Write-Host "=== Downloading XTTSv2 model weights (~1.7 GB) ===" -ForegroundColor Cyan
+    Write-Host "This is a one-time download. The model is cached globally." -ForegroundColor DarkGray
+    Write-Host ""
+    $env:COQUI_TOS_AGREED = "1"
+    & $python -c @"
+import os
+os.environ['COQUI_TOS_AGREED'] = '1'
+# Monkey-patch torch.load for PyTorch 2.6+ compatibility
+import torch
+_orig = torch.load
+def _patched(*a, **kw):
+    kw.setdefault('weights_only', False)
+    return _orig(*a, **kw)
+torch.load = _patched
+
+from TTS.api import TTS
+print('Downloading/verifying XTTSv2 model...')
+tts = TTS('tts_models/multilingual/multi-dataset/xtts_v2', progress_bar=True)
+print('Model ready!')
+"@
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "WARNING: Model download may have failed. The server will retry on first start." -ForegroundColor Yellow
+    } else {
+        Write-Host "Model download complete!" -ForegroundColor Green
+    }
+} else {
+    Write-Host ""
+    Write-Host "Skipping model download (-SkipModel). It will download on first server start (~1.7 GB)." -ForegroundColor DarkGray
+}
+
+Write-Host ""
+Write-Host "=== Setup complete ===" -ForegroundColor Green
+Write-Host "Start the server: .\tools\Start-TtsServer.ps1" -ForegroundColor White
+Write-Host ""
