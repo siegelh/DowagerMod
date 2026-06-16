@@ -1,0 +1,11 @@
+{
+  "voices": {
+    "dowager": {
+      "display_name": "Dowager Countess",
+      "reference_wav": "voices/dowager_ref.wav",
+      "description": "Elderly aristocratic British lady. Zero-shot cloned from ElevenLabs reference."
+    }
+  },
+  "default_voice": "dowager",
+  "notes": "Add more voices by placing a 6-12 second reference WAV in voices/ and adding an entry here."
+}

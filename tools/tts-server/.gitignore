@@ -1,0 +1,16 @@
+# Local TTS Server
+#
+# Ignore the venv, model cache, and audition outputs
+.venv/
+__pycache__/
+*.pyc
+audition_output/
+*.egg-info/
+
+# Model weights downloaded by HuggingFace/Coqui are cached globally
+# (~/.cache/huggingface/ and ~/AppData/Local/tts/) so no local weight
+# files should appear here. If they do, they're accidental.
+*.pt
+*.bin
+*.safetensors
+*.onnx

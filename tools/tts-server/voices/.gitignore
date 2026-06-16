@@ -1,0 +1,2 @@
+# Ignore reference WAV files (generated per-machine, not committed)
+*.wav
