@@ -79,6 +79,9 @@ DOWAGER_LEADER_ALIASES = (
     "dowagercountess",
     "thedowager",
     "thedowagercountess",
+    "evildowagercountessofgrantham",
+    "evildowager",
+    "evildowagercountess",
 )
 
 

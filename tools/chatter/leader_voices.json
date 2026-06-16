@@ -201,6 +201,33 @@
             "post_process": "elderly_crone",
             "tts_provider": "elevenlabs"
         },
+        "evildowagercountessofgrantham": {
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB",
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
+        },
+        "evildowager": {
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB",
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
+        },
+        "evildowagercountess": {
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB",
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
+        },
         "elizabeth": {
             "voice": "en-GB-SoniaNeural",
             "rate": "-3%",
