@@ -485,12 +485,15 @@ def gc_spool(spool_path: Path, cfg, logger: logging.Logger) -> None:
             for pattern in ("tts-*.wav", "user_say_*.wav", "user_ask_*.wav", "user_speak_*.wav"):
                 for p in audio_dir.glob(pattern):
                     try:
-                        # Preserve ElevenLabs outputs indefinitely: the user
-                        # asked us to keep these as a voice archive. The
-                        # ``_el_`` / ``-el-`` infix is added by the synth
-                        # path and never appears in Azure filenames.
+                        # Preserve ElevenLabs and local TTS outputs
+                        # indefinitely: the user asked us to keep these as a
+                        # voice archive. The ``_el_`` / ``-el-`` / ``_local_``
+                        # / ``-local-`` infix is added by the synth path and
+                        # never appears in Azure filenames.
                         name = p.name
                         if "_el_" in name or "-el-" in name:
+                            continue
+                        if "_local_" in name or "-local-" in name:
                             continue
                         if (now - p.stat().st_mtime) > 3600:
                             p.unlink()
@@ -587,14 +590,45 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
     else:
         logger.info("voiceover: ElevenLabs not configured; using Azure for every leader")
 
+    # --- Local TTS client (optional, highest priority) ---
+    local_client = None
+    local_voice_ids = None
+    if cfg.voiceover.local_tts_enabled():
+        try:
+            from tools.chatter.local_tts_client import LocalTtsClient
+            local_client = LocalTtsClient(
+                base_url=cfg.voiceover.local_tts_url,
+                timeout=cfg.voiceover.local_tts_timeout_seconds,
+            )
+            # Build local voice ID map (same aliases as ElevenLabs)
+            from tools.chatter.tts_dispatcher import DOWAGER_LEADER_ALIASES
+            local_voice_ids = {}
+            if cfg.voiceover.local_tts_voice_id_dowager:
+                for alias in DOWAGER_LEADER_ALIASES:
+                    local_voice_ids[alias] = cfg.voiceover.local_tts_voice_id_dowager
+            logger.info(
+                "voiceover: Local TTS client initialized url=%s voice_id=%s",
+                cfg.voiceover.local_tts_url,
+                cfg.voiceover.local_tts_voice_id_dowager,
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(
+                "voiceover: Local TTS client init failed (skipping): %s", exc,
+            )
+            local_client = None
+    else:
+        logger.info("voiceover: Local TTS not configured")
+
     try:
         from tools.chatter.tts_dispatcher import TtsDispatcher, build_elevenlabs_voice_id_map
         tts_dispatcher = TtsDispatcher(
             azure_client=speech_client,
             elevenlabs_client=elevenlabs_client,
+            local_client=local_client,
             elevenlabs_voice_ids=build_elevenlabs_voice_id_map(
                 voice_id_dowager=cfg.voiceover.elevenlabs_voice_id_dowager,
             ),
+            local_voice_ids=local_voice_ids,
             failure_threshold=cfg.voiceover.elevenlabs_failure_threshold,
             cooldown_seconds=cfg.voiceover.elevenlabs_cooldown_seconds,
             logger=logger,
@@ -829,6 +863,9 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
                 if dispatch.provider == "elevenlabs":
                     leader_slug = _sanitize_leader_slug(leader_name or author_name)
                     provider_tag = f"_el_{leader_slug}" if leader_slug else "_el"
+                elif dispatch.provider == "local":
+                    leader_slug = _sanitize_leader_slug(leader_name or author_name)
+                    provider_tag = f"_local_{leader_slug}" if leader_slug else "_local"
                 else:
                     provider_tag = ""
             else:
@@ -1061,6 +1098,9 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
                 if dispatch.provider == "elevenlabs":
                     leader_slug = _sanitize_leader_slug(speaker_name)
                     provider_tag = f"-el-{leader_slug}" if leader_slug else "-el"
+                elif dispatch.provider == "local":
+                    leader_slug = _sanitize_leader_slug(speaker_name)
+                    provider_tag = f"-local-{leader_slug}" if leader_slug else "-local"
                 else:
                     provider_tag = ""
             else:

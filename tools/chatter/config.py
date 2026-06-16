@@ -100,6 +100,12 @@ DEFAULTS = {
     # unaffected by this counter.
     "elevenlabs_failure_threshold": 2,
     "elevenlabs_cooldown_seconds": 600,
+    # Local TTS server (optional). When set, leaders with ElevenLabs or
+    # local tts_provider try the local server first (free, GPU-accelerated)
+    # and fall back to ElevenLabs / Azure on failure.
+    "local_tts_url": "",
+    "local_tts_voice_id_dowager": "dowager",
+    "local_tts_timeout_seconds": 30.0,
 }
 
 
@@ -149,6 +155,10 @@ class VoiceoverConfig:
     elevenlabs_daily_char_cap: int = 0
     elevenlabs_failure_threshold: int = 2
     elevenlabs_cooldown_seconds: int = 600
+    # Local TTS server (optional; highest priority when running).
+    local_tts_url: str = ""
+    local_tts_voice_id_dowager: str = "dowager"
+    local_tts_timeout_seconds: float = 30.0
 
     def elevenlabs_enabled(self) -> bool:
         """True iff ElevenLabs is configured to be attempted at all.
@@ -166,6 +176,10 @@ class VoiceoverConfig:
         if len(self.elevenlabs_api_key) <= 8:
             return "***"
         return self.elevenlabs_api_key[:4] + "..." + self.elevenlabs_api_key[-4:]
+
+    def local_tts_enabled(self) -> bool:
+        """True iff a local TTS server URL is configured."""
+        return bool(self.local_tts_url and self.local_tts_url.strip())
 
     def is_ready(self) -> bool:
         """True iff all fields needed to actually run voiceover are populated."""
@@ -347,6 +361,10 @@ _ENV_MAP: Dict[str, Tuple[str, callable]] = {
     "DOWAGER_CHATTER_ELEVENLABS_DAILY_CHAR_CAP": ("elevenlabs_daily_char_cap", int),
     "DOWAGER_CHATTER_ELEVENLABS_FAILURE_THRESHOLD": ("elevenlabs_failure_threshold", int),
     "DOWAGER_CHATTER_ELEVENLABS_COOLDOWN_SECONDS": ("elevenlabs_cooldown_seconds", int),
+    # --- Local TTS server ---
+    "DOWAGER_CHATTER_LOCAL_TTS_URL": ("local_tts_url", str),
+    "DOWAGER_CHATTER_LOCAL_TTS_VOICE_ID_DOWAGER": ("local_tts_voice_id_dowager", str),
+    "DOWAGER_CHATTER_LOCAL_TTS_TIMEOUT_SECONDS": ("local_tts_timeout_seconds", float),
     # --- Chat-reply tunables ---
     "DOWAGER_CHATTER_CHAT_IDLE_SECONDS": ("chat_idle_seconds", float),
     "DOWAGER_CHATTER_CHAT_HISTORY_SECONDS": ("chat_history_seconds", float),
@@ -470,6 +488,9 @@ def load_config(path: Optional[Path] = None) -> Config:
             elevenlabs_daily_char_cap=int(raw.get("elevenlabs_daily_char_cap", 0)),
             elevenlabs_failure_threshold=int(raw.get("elevenlabs_failure_threshold", 2)),
             elevenlabs_cooldown_seconds=int(raw.get("elevenlabs_cooldown_seconds", 600)),
+            local_tts_url=str(raw.get("local_tts_url", "")),
+            local_tts_voice_id_dowager=str(raw.get("local_tts_voice_id_dowager", "dowager")),
+            local_tts_timeout_seconds=float(raw.get("local_tts_timeout_seconds", 30.0)),
         ),
         env_file=env_file_used,
     )
