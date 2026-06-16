@@ -1,2 +1,2 @@
-# Ignore reference WAV files (generated per-machine, not committed)
-*.wav
+# Only ignore test/temp outputs, not reference WAVs (those are committed)
+test_*.wav

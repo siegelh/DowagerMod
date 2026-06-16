@@ -14,11 +14,25 @@ import argparse
 import io
 import json
 import logging
+import os
 import struct
 import time
 import wave
 from pathlib import Path
 from typing import Optional
+
+# --- Compatibility shims (must run before importing TTS/torch downstream) ---
+# PyTorch 2.6 defaults torch.load(weights_only=True) which breaks Coqui TTS
+# model deserialization. Override globally for this process.
+import torch
+_original_torch_load = torch.load
+def _patched_torch_load(*args, **kwargs):
+    kwargs.setdefault("weights_only", False)
+    return _original_torch_load(*args, **kwargs)
+torch.load = _patched_torch_load
+
+# Coqui TTS requires license acceptance
+os.environ["COQUI_TOS_AGREED"] = "1"
 
 import numpy as np
 from fastapi import FastAPI, HTTPException

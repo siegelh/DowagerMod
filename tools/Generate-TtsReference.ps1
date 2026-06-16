@@ -34,12 +34,16 @@ Get-Content $envFile | ForEach-Object {
     }
 }
 
+# Support both prefixed (DOWAGER_CHATTER_) and bare env var names
+if (-not $ELEVENLABS_API_KEY) { $ELEVENLABS_API_KEY = (Get-Variable -Name "DOWAGER_CHATTER_ELEVENLABS_API_KEY" -ValueOnly -ErrorAction SilentlyContinue) }
+if (-not $ELEVENLABS_VOICE_ID_DOWAGER) { $ELEVENLABS_VOICE_ID_DOWAGER = (Get-Variable -Name "DOWAGER_CHATTER_ELEVENLABS_VOICE_ID_DOWAGER" -ValueOnly -ErrorAction SilentlyContinue) }
+
 if (-not $ELEVENLABS_API_KEY) {
-    Write-Error "ELEVENLABS_API_KEY not found in .env"
+    Write-Error "ELEVENLABS_API_KEY (or DOWAGER_CHATTER_ELEVENLABS_API_KEY) not found in .env"
     exit 1
 }
 if (-not $ELEVENLABS_VOICE_ID_DOWAGER) {
-    Write-Error "ELEVENLABS_VOICE_ID_DOWAGER not found in .env"
+    Write-Error "ELEVENLABS_VOICE_ID_DOWAGER (or DOWAGER_CHATTER_ELEVENLABS_VOICE_ID_DOWAGER) not found in .env"
     exit 1
 }
 
