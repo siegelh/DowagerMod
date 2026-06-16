@@ -1,0 +1,12 @@
+{
+  "voices": {
+    "dowager": {
+      "display_name": "Dowager Countess",
+      "reference_wav": "voices/dowager_ref.wav",
+      "reference_transcript": "I have always found that the people most determined to speak plainly are those with the least to say. One does admire the confidence, if not the content. Really, I cannot fathom why people are so very startled to find that reality fails to conform to their expectations. It does so rather reliably. Do they genuinely believe that enthusiasm compensates for competence? How very touching. And how entirely mistaken.",
+      "description": "Elderly aristocratic British lady. Zero-shot cloned from ElevenLabs reference."
+    }
+  },
+  "default_voice": "dowager",
+  "notes": "Add more voices by placing a 6-12 second reference WAV in voices/ and adding an entry here. For Qwen3-TTS, include reference_transcript (verbatim text matching the audio)."
+}
