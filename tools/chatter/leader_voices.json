@@ -110,7 +110,16 @@
         "maozedong": {
             "voice": "zh-CN-YunhaoNeural",
             "lang": "Mandarin Chinese",
-            "locale": "zh-CN"
+            "locale": "zh-CN",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "efMvkBw2ZQU2jPh8HSiG"
+        },
+        "mao": {
+            "voice": "zh-CN-YunhaoNeural",
+            "lang": "Mandarin Chinese",
+            "locale": "zh-CN",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "efMvkBw2ZQU2jPh8HSiG"
         },
         "qianlong": {
             "voice": "zh-CN-YunhaoNeural",

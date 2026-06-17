@@ -64,7 +64,7 @@ class _FakeEleven:
         self.next_exc = None  # set to raise on next call (then cleared)
         self.always_raise = None  # raise every call
 
-    def synthesize(self, *, text, voice_id):
+    def synthesize(self, *, text, voice_id, language_code=""):
         self.calls.append((text, voice_id))
         exc = self.always_raise or self.next_exc
         self.next_exc = None

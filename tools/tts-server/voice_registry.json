@@ -11,6 +11,12 @@
       "reference_wav": "voices/lincoln_ref.wav",
       "reference_transcript": "I have held this Union together while half of it was actively trying to kill the other half. I did it without proper sleep, adequate generals, or a single kind word from the press. You cannot seem to hold a simple plan together for one afternoon. My hat is taller and considerably better organized than your strategy.",
       "description": "High-pitched reedy tenor, Kentucky frontier accent. Zero-shot cloned from ElevenLabs reference."
+    },
+    "mao": {
+      "display_name": "Mao Zedong",
+      "reference_wav": "voices/mao_ref.wav",
+      "reference_transcript": "You call that an army? I crossed twenty-four mountain ranges and twenty rivers in bare feet, outran the entire Kuomintang, and still had time to write poetry. You have every advantage I was denied and you are losing to barbarians. The peasants of Hunan had more tactical sense than this.",
+      "description": "Hunanese-accented male, deliberate cadence, chain-smoker roughness. From ElevenLabs website generation."
     }
   },
   "default_voice": "dowager",

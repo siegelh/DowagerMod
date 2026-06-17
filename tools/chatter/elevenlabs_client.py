@@ -147,7 +147,7 @@ class ElevenLabsClient:
 
     # ----- public API -----
 
-    def synthesize(self, *, text: str, voice_id: str) -> ElevenLabsResult:
+    def synthesize(self, *, text: str, voice_id: str, language_code: str = "") -> ElevenLabsResult:
         """Return RIFF/WAV bytes for ``text`` spoken by ``voice_id``.
 
         Raises :class:`ElevenLabsAuthError`, :class:`ElevenLabsQuotaError`,
@@ -170,10 +170,10 @@ class ElevenLabsClient:
             + voice_id
             + "?output_format=pcm_24000"
         )
-        payload = json.dumps(
-            {"text": text, "model_id": self.model_id},
-            ensure_ascii=False,
-        ).encode("utf-8")
+        payload_dict = {"text": text, "model_id": self.model_id}
+        if language_code:
+            payload_dict["language_code"] = language_code
+        payload = json.dumps(payload_dict, ensure_ascii=False).encode("utf-8")
         headers = {
             "xi-api-key": self.api_key,
             "Content-Type": "application/json",

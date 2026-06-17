@@ -114,6 +114,29 @@ def build_elevenlabs_voice_id_map(*, voice_id_dowager: str) -> dict:
     return out
 
 
+def build_elevenlabs_language_map() -> dict:
+    """Return leader-key -> ElevenLabs language_code for accent hinting.
+
+    Reads ``elevenlabs_language_code`` from leader_voices.json entries.
+    Only multilingual models use this; it biases accent/pronunciation.
+    """
+    import json, pathlib
+    out = {}
+    lv_path = pathlib.Path(__file__).with_name("leader_voices.json")
+    try:
+        data = json.loads(lv_path.read_text(encoding="utf-8"))
+        voice_map = data.get("map", data)
+        for key, spec in voice_map.items():
+            if not isinstance(spec, dict):
+                continue
+            lang = spec.get("elevenlabs_language_code")
+            if lang:
+                out[key] = lang
+    except (OSError, json.JSONDecodeError):
+        pass
+    return out
+
+
 @dataclass
 class DispatchResult:
     """Provider-agnostic TTS result returned by :meth:`TtsDispatcher.synthesize`.
@@ -196,6 +219,7 @@ class TtsDispatcher:
         elevenlabs_client: Optional[ElevenLabsClient] = None,
         local_client: Optional[LocalTtsClient] = None,
         elevenlabs_voice_ids: Optional[dict] = None,
+        elevenlabs_language_codes: Optional[dict] = None,
         local_voice_ids: Optional[dict] = None,
         failure_threshold: int = 2,
         cooldown_seconds: int = 600,
@@ -210,6 +234,12 @@ class TtsDispatcher:
         self.voice_ids = {
             (k or "").strip().lower(): (v or "").strip()
             for k, v in (elevenlabs_voice_ids or {}).items()
+            if v
+        }
+        # ElevenLabs language codes for accent hinting (leader_key -> "zh", "fr", etc.)
+        self.elevenlabs_lang_codes = {
+            (k or "").strip().lower(): (v or "").strip()
+            for k, v in (elevenlabs_language_codes or {}).items()
             if v
         }
         # Local TTS voice IDs (leader_key -> voice_id in voice_registry.json)
@@ -389,10 +419,11 @@ class TtsDispatcher:
         leader_name: str,
     ) -> DispatchResult:
         voice_id = self.voice_ids.get(leader_key, "")
+        lang_code = self.elevenlabs_lang_codes.get(leader_key, "")
         t0 = time.perf_counter()
         try:
             result: ElevenLabsResult = self.elevenlabs_client.synthesize(
-                text=text, voice_id=voice_id,
+                text=text, voice_id=voice_id, language_code=lang_code,
             )
         except ElevenLabsAuthError as exc:
             self._handle_elevenlabs_failure("auth", exc, t0, leader_name)
@@ -485,6 +516,7 @@ __all__ = [
     "PROVIDER_ELEVENLABS",
     "DOWAGER_LEADER_ALIASES",
     "build_elevenlabs_voice_id_map",
+    "build_elevenlabs_language_map",
     "SpeechAuthError",
     "SpeechApiError",
     "SpeechBudgetExhausted",

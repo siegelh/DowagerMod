@@ -630,7 +630,7 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         logger.info("voiceover: Local TTS not configured")
 
     try:
-        from tools.chatter.tts_dispatcher import TtsDispatcher, build_elevenlabs_voice_id_map
+        from tools.chatter.tts_dispatcher import TtsDispatcher, build_elevenlabs_voice_id_map, build_elevenlabs_language_map
         tts_dispatcher = TtsDispatcher(
             azure_client=speech_client,
             elevenlabs_client=elevenlabs_client,
@@ -638,6 +638,7 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
             elevenlabs_voice_ids=build_elevenlabs_voice_id_map(
                 voice_id_dowager=cfg.voiceover.elevenlabs_voice_id_dowager,
             ),
+            elevenlabs_language_codes=build_elevenlabs_language_map(),
             local_voice_ids=local_voice_ids,
             failure_threshold=cfg.voiceover.elevenlabs_failure_threshold,
             cooldown_seconds=cfg.voiceover.elevenlabs_cooldown_seconds,
