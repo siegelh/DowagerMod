@@ -5,6 +5,12 @@
       "reference_wav": "voices/dowager_ref.wav",
       "reference_transcript": "I have always found that the people most determined to speak plainly are those with the least to say. One does admire the confidence, if not the content. Really, I cannot fathom why people are so very startled to find that reality fails to conform to their expectations. It does so rather reliably. Do they genuinely believe that enthusiasm compensates for competence? How very touching. And how entirely mistaken.",
       "description": "Elderly aristocratic British lady. Zero-shot cloned from ElevenLabs reference."
+    },
+    "lincoln": {
+      "display_name": "Abraham Lincoln",
+      "reference_wav": "voices/lincoln_ref.wav",
+      "reference_transcript": "I have held this Union together while half of it was actively trying to kill the other half. I did it without proper sleep, adequate generals, or a single kind word from the press. You cannot seem to hold a simple plan together for one afternoon. My hat is taller and considerably better organized than your strategy.",
+      "description": "High-pitched reedy tenor, Kentucky frontier accent. Zero-shot cloned from ElevenLabs reference."
     }
   },
   "default_voice": "dowager",

@@ -394,12 +394,16 @@
         "lincoln": {
             "voice": "en-US-DavisNeural",
             "rate": "-15%",
-            "pitch": "-12%"
+            "pitch": "-12%",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "FMV5kX1Dskr0Jg5Iz8Pc"
         },
         "abrahamlincoln": {
             "voice": "en-US-DavisNeural",
             "rate": "-15%",
-            "pitch": "-12%"
+            "pitch": "-12%",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "FMV5kX1Dskr0Jg5Iz8Pc"
         },
         "louisxiv": {
             "voice": "fr-FR-AlainNeural",

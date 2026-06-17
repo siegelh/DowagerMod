@@ -88,16 +88,29 @@ DOWAGER_LEADER_ALIASES = (
 def build_elevenlabs_voice_id_map(*, voice_id_dowager: str) -> dict:
     """Return a normalized-leader-key -> ElevenLabs voice ID map.
 
-    Centralised here so daemon + ``say.py`` + smoke tests stay in
-    lockstep with ``leader_voices.json``. Adding a new ElevenLabs leader
-    means (a) appending its config slot in ``VoiceoverConfig``, (b)
-    adding ``"tts_provider": "elevenlabs"`` to its JSON entries, and (c)
-    extending this map with its aliases.
+    Scans ``leader_voices.json`` for any entry that carries an
+    ``elevenlabs_voice_id`` field and builds the map automatically.
+    Dowager aliases are always included when *voice_id_dowager* is set.
     """
+    import json, pathlib
     out = {}
     if voice_id_dowager:
         for alias in DOWAGER_LEADER_ALIASES:
             out[alias] = voice_id_dowager
+
+    # Auto-discover from leader_voices.json
+    lv_path = pathlib.Path(__file__).with_name("leader_voices.json")
+    try:
+        data = json.loads(lv_path.read_text(encoding="utf-8"))
+        voice_map = data.get("map", data)
+        for key, spec in voice_map.items():
+            if not isinstance(spec, dict):
+                continue
+            el_id = spec.get("elevenlabs_voice_id")
+            if el_id:
+                out[key] = el_id
+    except (OSError, json.JSONDecodeError):
+        pass
     return out
 
 

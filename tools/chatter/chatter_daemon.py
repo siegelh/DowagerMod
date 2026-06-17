@@ -600,12 +600,22 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
                 base_url=cfg.voiceover.local_tts_url,
                 timeout=cfg.voiceover.local_tts_timeout_seconds,
             )
-            # Build local voice ID map (same aliases as ElevenLabs)
-            from tools.chatter.tts_dispatcher import DOWAGER_LEADER_ALIASES
+            # Build local voice ID map from voice_registry.json
+            import json as _json
             local_voice_ids = {}
             if cfg.voiceover.local_tts_voice_id_dowager:
+                from tools.chatter.tts_dispatcher import DOWAGER_LEADER_ALIASES
                 for alias in DOWAGER_LEADER_ALIASES:
                     local_voice_ids[alias] = cfg.voiceover.local_tts_voice_id_dowager
+            # Auto-discover voices from voice_registry.json
+            try:
+                _reg_path = Path(__file__).resolve().parent.parent / "tts-server" / "voice_registry.json"
+                _reg = _json.loads(_reg_path.read_text(encoding="utf-8"))
+                for vid in _reg.get("voices", {}):
+                    if vid not in local_voice_ids:
+                        local_voice_ids[vid] = vid
+            except (OSError, _json.JSONDecodeError):
+                pass
             logger.info(
                 "voiceover: Local TTS client initialized url=%s voice_id=%s",
                 cfg.voiceover.local_tts_url,
