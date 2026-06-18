@@ -23,6 +23,12 @@
       "reference_wav": "voices/washington_ref.wav",
       "reference_transcript": "I have faced British regulars, frozen rivers, and the Continental Congress — simultaneously, and in worse weather than this. So you will forgive me if your formation fails to inspire alarm. I have drilled Virginia militia with more instinct than this. Straighten that line. We have a republic to build. Today.",
       "description": "Deep commanding baritone, Virginia planter accent. Zero-shot cloned from ElevenLabs reference."
+    },
+    "charlemagne": {
+      "display_name": "Charlemagne",
+      "reference_wav": "voices/charlemagne_ref.wav",
+      "reference_transcript": "I taught my Frankish warriors to read. Between campaigns. I built the school at the palace, the cathedral at Aachen, and the first empire in the West in three hundred years — while also converting Saxony, which required considerably more persuasion than anyone expected. You cannot manage one frontier. I managed all of them simultaneously.",
+      "description": "Deep authoritative Frankish emperor, Germanic accent. Zero-shot cloned from ElevenLabs reference."
     }
   },
   "default_voice": "dowager",

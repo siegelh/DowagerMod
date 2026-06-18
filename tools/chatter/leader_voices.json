@@ -100,7 +100,9 @@
         "charlemagne": {
             "voice": "de-DE-KillianNeural",
             "lang": "German",
-            "locale": "de-DE"
+            "locale": "de-DE",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "6FIxHj18I5BBWqIj0ALY"
         },
         "chineseleader": {
             "voice": "zh-CN-YunhaoNeural",
