@@ -354,6 +354,23 @@ def _normalize_for_paralinguistic(name: str) -> str:
     return re.sub(r'[^a-z0-9]', '', name.lower())
 
 
+ACCENT_DIRECTIVE = (
+    "\n\nACCENTED ENGLISH (important): this leader speaks English with a heavy "
+    "{accent} accent. Rewrite your entire line in TTS-friendly accented English. "
+    "Use practical respellings that a text-to-speech model will pronounce with "
+    "a convincing {accent} accent — altered consonants, vowels, and rhythm. "
+    "Keep the meaning clear and intelligible. Avoid IPA, excessive hyphens, "
+    "all-caps stress marks, or parody-like comic spelling. "
+    "The result should SOUND accented when spoken aloud by the voice synthesizer, "
+    "not look like a comic-book dialect on the page."
+)
+
+
+def apply_accent(system_msg: str, accent: str) -> str:
+    """Append the accent directive for the given accent to the system prompt."""
+    return system_msg + ACCENT_DIRECTIVE.format(accent=accent)
+
+
 SYSTEM_DIRECTED = (
     "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
     "Sid Meier's Civilization IV. {action}.\n\n"
@@ -1000,7 +1017,8 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
                             chain_reply: bool = False,
                             prior_leader_speaker_name: str = "",
                             room_state: dict | None = None,
-                            chatterbox_voices: set = None) -> tuple[str, list]:
+                            chatterbox_voices: set = None,
+                            speaker_accent: str = "") -> tuple[str, list]:
     """Return (system_message, messages_list_for_llm) for a CHAT_REPLY call.
 
     history_messages is the full conversation so far as [{role, content}, ...].
@@ -1038,6 +1056,9 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
     # Paralinguistic tags for Chatterbox-voiced leaders
     if chatterbox_voices and _normalize_for_paralinguistic(speaker.get("leader_name", "")) in chatterbox_voices:
         sys_msg = apply_paralinguistic(sys_msg)
+    # Accent respelling
+    if speaker_accent:
+        sys_msg = apply_accent(sys_msg, speaker_accent)
     return sys_msg, list(history_messages)
 
 
@@ -1072,7 +1093,8 @@ def _format_recent_lines_block(recent_lines: list, speaker_leader: str) -> str:
 def build_single_line_prompt(request: dict, *, native_mode: bool = False,
                              speaker_native_lang: str = "",
                              recent_lines: list = None,
-                             chatterbox_voices: set = None) -> tuple[str, str]:
+                             chatterbox_voices: set = None,
+                             speaker_accent: str = "") -> tuple[str, str]:
     """Return (system_message, user_message) for a single-line directed/broadcast call.
 
     When native_mode is True AND speaker_native_lang is non-empty, the LLM
@@ -1152,6 +1174,9 @@ def build_single_line_prompt(request: dict, *, native_mode: bool = False,
     # Paralinguistic tags for Chatterbox-voiced leaders
     if chatterbox_voices and _normalize_for_paralinguistic(fmt["speaker_leader"]) in chatterbox_voices:
         system_msg = apply_paralinguistic(system_msg)
+    # Accent respelling for non-English-native leaders
+    if speaker_accent:
+        system_msg = apply_accent(system_msg, speaker_accent)
     user_msg = USER_TEMPLATE.format(
         game_turn=request.get("game_turn", 0),
         era=ctx.get("era", "unknown"),
@@ -1165,7 +1190,9 @@ def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
                             target_native_lang: str = "",
                             recent_lines: list = None,
                             target_recent_lines: list = None,
-                            chatterbox_voices: set = None) -> tuple[str, str]:
+                            chatterbox_voices: set = None,
+                            speaker_accent: str = "",
+                            target_accent: str = "") -> tuple[str, str]:
     """Return (system_message, user_message) for a one-shot multi-line script call.
 
     When native_mode is True AND both leaders have a configured native lang,
@@ -1237,5 +1264,21 @@ def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
         or _normalize_for_paralinguistic(fmt.get("target_leader", "")) in chatterbox_voices
     ):
         system_msg = apply_paralinguistic(system_msg)
+    # Accent respelling — tell the LLM which leaders speak accented English
+    if speaker_accent or target_accent:
+        accent_parts = []
+        if speaker_accent:
+            accent_parts.append(f"{fmt['speaker_leader']} speaks with a heavy {speaker_accent} accent")
+        if target_accent:
+            accent_parts.append(f"{fmt['target_leader']} speaks with a heavy {target_accent} accent")
+        system_msg += (
+            "\n\nACCENTED ENGLISH (important): " + "; ".join(accent_parts) + ". "
+            "Rewrite each leader's lines in TTS-friendly accented English matching "
+            "their accent. Use practical respellings that a text-to-speech model will "
+            "pronounce with a convincing accent — altered consonants, vowels, and "
+            "rhythm. Keep meaning clear. Avoid IPA, excessive hyphens, all-caps "
+            "stress marks, or parody spelling. Leaders without an accent speak "
+            "standard English."
+        )
     user_msg = "Generate the exchange now."
     return system_msg, user_msg

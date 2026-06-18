@@ -249,7 +249,8 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                     conversations: ConversationStore = None,
                     state: StateStore = None,
                     chat_reply_max_tokens: int = 120,
-                    chatterbox_voices: set = None) -> dict:
+                    chatterbox_voices: set = None,
+                    leader_accents: dict = None) -> dict:
     """Run one request through the API. Always returns a response dict.
 
     When native_mode is True, asks the LLM for both English and native-tongue
@@ -267,6 +268,13 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                msg="circuit OPEN, dropping")
         return make_response(request=request, ok=False, lines=[], error="circuit_open")
 
+    # Resolve accent for the speaker (and target for multi-turn)
+    _accents = leader_accents or {}
+    speaker_name_raw = (request.get("speaker") or {}).get("leader_name", "")
+    target_name_raw = (request.get("target") or {}).get("leader_name", "")
+    speaker_accent = _accents.get(speaker_name_raw.lower().replace(" ", ""), "")
+    target_accent = _accents.get(target_name_raw.lower().replace(" ", ""), "")
+
     # Live chat reply: route through the dedicated multi-turn handler.
     if request.get("trigger") == "CHAT_REPLY":
         if conversations is None:
@@ -279,6 +287,7 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                 request=request, store=conversations, client=client,
                 max_tokens=chat_reply_max_tokens, logger=logger,
                 chatterbox_voices=chatterbox_voices,
+                speaker_accent=speaker_accent,
             )
             latency_ms = int((time.time() - t_start) * 1000)
         except Exception as exc:  # noqa: BLE001
@@ -337,6 +346,8 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                 recent_lines=speaker_recent,
                 target_recent_lines=target_recent,
                 chatterbox_voices=chatterbox_voices,
+                speaker_accent=speaker_accent,
+                target_accent=target_accent,
             )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens_multi)
         else:
@@ -345,6 +356,7 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                 speaker_native_lang=speaker_native_lang,
                 recent_lines=speaker_recent,
                 chatterbox_voices=chatterbox_voices,
+                speaker_accent=speaker_accent,
             )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens)
         latency_ms = int((time.time() - t_start) * 1000)
@@ -521,13 +533,18 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
     """Initialize Speech client + Discord bot + voice picker if voiceover
     is configured.
 
-    Returns (speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices)
-    tuple. Any may be None if not enabled or if startup failed. Failures are
-    logged but don't kill the daemon — text chatter remains unaffected.
+    Returns (speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices,
+    leader_accents) tuple. Any may be None if not enabled or if startup failed.
+    Failures are logged but don't kill the daemon — text chatter remains
+    unaffected.
 
     ``chatterbox_voices`` is a set of normalized leader names whose local
     voice will be synthesized by Chatterbox. When non-empty, prompt builders
     enable paralinguistic sound tags ([laugh], [sigh], etc.) for these leaders.
+
+    ``leader_accents`` is a dict mapping normalized leader name -> accent
+    string (e.g. "French", "German"). When present, prompt builders add
+    an accent respelling directive so the TTS produces accented English.
 
     ``tts_dispatcher`` is the per-leader provider router. When ElevenLabs
     is configured (DOWAGER_CHATTER_ELEVENLABS_API_KEY set), leaders whose
@@ -643,6 +660,20 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         chatterbox_voices = set(local_voice_ids.keys())
         logger.info("voiceover: Chatterbox paralinguistic tags enabled for %d voice(s)", len(chatterbox_voices))
 
+    # Build accent lookup from leader_voices.json (for TTS accent respelling)
+    leader_accents: dict = {}
+    try:
+        import json as _json
+        lv_path = Path(__file__).resolve().parent / "leader_voices.json"
+        lv_data = _json.loads(lv_path.read_bytes().decode("utf-8"))
+        for k, v in (lv_data.get("map") or {}).items():
+            if isinstance(v, dict) and v.get("accent"):
+                leader_accents[str(k).lower()] = v["accent"]
+        if leader_accents:
+            logger.info("voiceover: Accent respelling enabled for %d leader(s)", len(leader_accents))
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("voiceover: Could not load leader accents: %s", exc)
+
     try:
         from tools.chatter.tts_dispatcher import TtsDispatcher, build_elevenlabs_voice_id_map, build_elevenlabs_language_map
         tts_dispatcher = TtsDispatcher(
@@ -680,6 +711,7 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
             client=client, llm_max_tokens=cfg.ask_max_tokens,
             tts_dispatcher=tts_dispatcher,
             chatterbox_voices=chatterbox_voices,
+            leader_accents=leader_accents,
         )
         bot.start()
         logger.info(
@@ -688,9 +720,9 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: Discord bot init failed: %s", exc)
-        return speech_client, None, voice_picker, tts_dispatcher, chatterbox_voices
+        return speech_client, None, voice_picker, tts_dispatcher, chatterbox_voices, leader_accents
 
-    return speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices
+    return speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices, leader_accents
 
 
 _ASK_PATTERN = re.compile(
@@ -747,26 +779,36 @@ def _build_ask_prompt(question: str, persona: str) -> tuple[str, str]:
 
 
 def _build_ask_prompt_bare(question: str, chatterbox_voices: set = None,
-                           leader_name: str = "") -> tuple[str, str]:
+                           leader_name: str = "",
+                           speaker_accent: str = "") -> tuple[str, str]:
     """Build (system, user) messages for 'ask as <Leader>:'.
 
     Intentionally bare: empty system message, raw question as user message.
     The user explicitly wants the leader's *voice only* with no persona or
     style prompt -- as if they were asking the model their question directly.
 
-    Exception: when the leader uses Chatterbox, we add a minimal system
-    prompt enabling paralinguistic tags so [laugh] etc. get used.
+    Exceptions:
+    - When the leader uses Chatterbox, we add paralinguistic tags.
+    - When the leader has an accent, we add accent respelling.
     """
+    has_paralinguistic = False
     if chatterbox_voices and leader_name:
         from tools.chatter.prompts import PARALINGUISTIC_DIRECTIVE, _normalize_for_paralinguistic
         if _normalize_for_paralinguistic(leader_name) in chatterbox_voices:
-            sys_msg = (
-                "You are answering as a historical leader over voice chat. "
-                "Your response will be spoken aloud by a voice synthesizer. "
-                "Plain prose only — no markdown, no asterisks, no bullet lists."
-                + PARALINGUISTIC_DIRECTIVE
-            )
-            return sys_msg, question
+            has_paralinguistic = True
+
+    if has_paralinguistic or speaker_accent:
+        from tools.chatter.prompts import ACCENT_DIRECTIVE
+        sys_msg = (
+            "You are answering as a historical leader over voice chat. "
+            "Your response will be spoken aloud by a voice synthesizer. "
+            "Plain prose only — no markdown, no asterisks, no bullet lists."
+        )
+        if has_paralinguistic:
+            sys_msg += PARALINGUISTIC_DIRECTIVE
+        if speaker_accent:
+            sys_msg += ACCENT_DIRECTIVE.format(accent=speaker_accent)
+        return sys_msg, question
     return "", question
 
 
@@ -838,7 +880,8 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
                                 logger: logging.Logger, *, client=None,
                                 llm_max_tokens: int = 4000,
                                 tts_dispatcher=None,
-                                chatterbox_voices: set = None):
+                                chatterbox_voices: set = None,
+                                leader_accents: dict = None):
     """Register an on_message handler so users can:
 
     1. @mention DowagerBot with arbitrary text  -> she speaks it verbatim
@@ -946,7 +989,8 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
         # 'ask as <Leader>:' -> bare prompt, leader's voice only, no persona/spicy dressing.
         # 'ask:'             -> default Gandhi persona + spicy/anti-cliche directives.
         if leader_name:
-            sys_msg, user_msg = _build_ask_prompt_bare(question, chatterbox_voices=chatterbox_voices, leader_name=leader_name)
+            _ask_accent = (leader_accents or {}).get(leader_name.lower().replace(" ", ""), "")
+            sys_msg, user_msg = _build_ask_prompt_bare(question, chatterbox_voices=chatterbox_voices, leader_name=leader_name, speaker_accent=_ask_accent)
         else:
             sys_msg, user_msg = _build_ask_prompt(question, persona)
         logger.info(
@@ -1218,7 +1262,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         max_turns=cfg.chat_max_history_turns,
     )
 
-    speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices = setup_voiceover(cfg, spool_path, logger, client=client)
+    speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices, leader_accents = setup_voiceover(cfg, spool_path, logger, client=client)
 
     last_call_at = 0.0
     last_heartbeat = 0.0
@@ -1311,6 +1355,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
                 state=state,
                 chat_reply_max_tokens=cfg.chat_reply_max_tokens,
                 chatterbox_voices=chatterbox_voices,
+                leader_accents=leader_accents,
             )
 
             # And refresh again after the API call completes, before writing
