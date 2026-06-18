@@ -13,15 +13,33 @@
     Skip model pre-download (it will download on first server start instead).
 #>
 param(
-    [ValidateSet("xtts", "chatterbox")]
-    [string]$Model = "xtts",
+    [ValidateSet("", "xtts", "chatterbox")]
+    [string]$Model = "",
     [switch]$CpuOnly,
     [switch]$SkipModel
 )
 
 $ErrorActionPreference = "Stop"
-$serverDir = Join-Path (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)) "tools\tts-server"
+$repoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$serverDir = Join-Path $repoRoot "tools\tts-server"
 $venvDir = Join-Path $serverDir ".venv"
+
+# Determine model: CLI param > .env > default
+if (-not $Model) {
+    $envFile = Join-Path $repoRoot ".env"
+    if (Test-Path $envFile) {
+        $envLine = Get-Content $envFile | Where-Object { $_ -match '^\s*TTS_MODEL\s*=' }
+        if ($envLine) {
+            $Model = ($envLine -split '=', 2)[1].Trim().Trim('"').Trim("'")
+        }
+    }
+    if (-not $Model) { $Model = "xtts" }
+}
+# Validate after .env read (ValidateSet can't catch .env values)
+if ($Model -notin @("xtts", "chatterbox")) {
+    Write-Host "ERROR: TTS_MODEL='$Model' is not valid. Use 'xtts' or 'chatterbox'." -ForegroundColor Red
+    exit 1
+}
 
 Write-Host "=== Setting up TTS Server venv ($Model backend) ===" -ForegroundColor Cyan
 Write-Host "Location: $venvDir"
