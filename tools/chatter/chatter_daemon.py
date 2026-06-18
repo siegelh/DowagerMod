@@ -248,7 +248,8 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                     native_mode: bool = False, voice_picker=None,
                     conversations: ConversationStore = None,
                     state: StateStore = None,
-                    chat_reply_max_tokens: int = 120) -> dict:
+                    chat_reply_max_tokens: int = 120,
+                    chatterbox_voices: set = None) -> dict:
     """Run one request through the API. Always returns a response dict.
 
     When native_mode is True, asks the LLM for both English and native-tongue
@@ -277,6 +278,7 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
             resp, line, tone = handle_chat_reply(
                 request=request, store=conversations, client=client,
                 max_tokens=chat_reply_max_tokens, logger=logger,
+                chatterbox_voices=chatterbox_voices,
             )
             latency_ms = int((time.time() - t_start) * 1000)
         except Exception as exc:  # noqa: BLE001
@@ -334,6 +336,7 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                 target_native_lang=target_native_lang,
                 recent_lines=speaker_recent,
                 target_recent_lines=target_recent,
+                chatterbox_voices=chatterbox_voices,
             )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens_multi)
         else:
@@ -341,6 +344,7 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                 request, native_mode=native_mode,
                 speaker_native_lang=speaker_native_lang,
                 recent_lines=speaker_recent,
+                chatterbox_voices=chatterbox_voices,
             )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens)
         latency_ms = int((time.time() - t_start) * 1000)
@@ -517,9 +521,13 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
     """Initialize Speech client + Discord bot + voice picker if voiceover
     is configured.
 
-    Returns (speech_client, bot, voice_picker, tts_dispatcher) tuple. Any
-    may be None if not enabled or if startup failed. Failures are logged
-    but don't kill the daemon — text chatter remains unaffected.
+    Returns (speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices)
+    tuple. Any may be None if not enabled or if startup failed. Failures are
+    logged but don't kill the daemon — text chatter remains unaffected.
+
+    ``chatterbox_voices`` is a set of normalized leader names whose local
+    voice will be synthesized by Chatterbox. When non-empty, prompt builders
+    enable paralinguistic sound tags ([laugh], [sigh], etc.) for these leaders.
 
     ``tts_dispatcher`` is the per-leader provider router. When ElevenLabs
     is configured (DOWAGER_CHATTER_ELEVENLABS_API_KEY set), leaders whose
@@ -629,6 +637,12 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
     else:
         logger.info("voiceover: Local TTS not configured")
 
+    # Build set of leader names that will use Chatterbox (for paralinguistic tags)
+    chatterbox_voices: set = set()
+    if local_voice_ids and os.environ.get("TTS_MODEL", "xtts") == "chatterbox":
+        chatterbox_voices = set(local_voice_ids.keys())
+        logger.info("voiceover: Chatterbox paralinguistic tags enabled for %d voice(s)", len(chatterbox_voices))
+
     try:
         from tools.chatter.tts_dispatcher import TtsDispatcher, build_elevenlabs_voice_id_map, build_elevenlabs_language_map
         tts_dispatcher = TtsDispatcher(
@@ -665,6 +679,7 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
             bot, speech_client, voice_picker, spool_path, logger,
             client=client, llm_max_tokens=cfg.ask_max_tokens,
             tts_dispatcher=tts_dispatcher,
+            chatterbox_voices=chatterbox_voices,
         )
         bot.start()
         logger.info(
@@ -673,9 +688,9 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: Discord bot init failed: %s", exc)
-        return speech_client, None, voice_picker, tts_dispatcher
+        return speech_client, None, voice_picker, tts_dispatcher, chatterbox_voices
 
-    return speech_client, bot, voice_picker, tts_dispatcher
+    return speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices
 
 
 _ASK_PATTERN = re.compile(
@@ -731,13 +746,27 @@ def _build_ask_prompt(question: str, persona: str) -> tuple[str, str]:
     return system_msg, question
 
 
-def _build_ask_prompt_bare(question: str) -> tuple[str, str]:
+def _build_ask_prompt_bare(question: str, chatterbox_voices: set = None,
+                           leader_name: str = "") -> tuple[str, str]:
     """Build (system, user) messages for 'ask as <Leader>:'.
 
     Intentionally bare: empty system message, raw question as user message.
     The user explicitly wants the leader's *voice only* with no persona or
     style prompt -- as if they were asking the model their question directly.
+
+    Exception: when the leader uses Chatterbox, we add a minimal system
+    prompt enabling paralinguistic tags so [laugh] etc. get used.
     """
+    if chatterbox_voices and leader_name:
+        from tools.chatter.prompts import PARALINGUISTIC_DIRECTIVE, _normalize_for_paralinguistic
+        if _normalize_for_paralinguistic(leader_name) in chatterbox_voices:
+            sys_msg = (
+                "You are answering as a historical leader over voice chat. "
+                "Your response will be spoken aloud by a voice synthesizer. "
+                "Plain prose only — no markdown, no asterisks, no bullet lists."
+                + PARALINGUISTIC_DIRECTIVE
+            )
+            return sys_msg, question
     return "", question
 
 
@@ -808,7 +837,8 @@ def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple:
 def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Path,
                                 logger: logging.Logger, *, client=None,
                                 llm_max_tokens: int = 4000,
-                                tts_dispatcher=None):
+                                tts_dispatcher=None,
+                                chatterbox_voices: set = None):
     """Register an on_message handler so users can:
 
     1. @mention DowagerBot with arbitrary text  -> she speaks it verbatim
@@ -916,7 +946,7 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
         # 'ask as <Leader>:' -> bare prompt, leader's voice only, no persona/spicy dressing.
         # 'ask:'             -> default Gandhi persona + spicy/anti-cliche directives.
         if leader_name:
-            sys_msg, user_msg = _build_ask_prompt_bare(question)
+            sys_msg, user_msg = _build_ask_prompt_bare(question, chatterbox_voices=chatterbox_voices, leader_name=leader_name)
         else:
             sys_msg, user_msg = _build_ask_prompt(question, persona)
         logger.info(
@@ -1188,7 +1218,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         max_turns=cfg.chat_max_history_turns,
     )
 
-    speech_client, bot, voice_picker, tts_dispatcher = setup_voiceover(cfg, spool_path, logger, client=client)
+    speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices = setup_voiceover(cfg, spool_path, logger, client=client)
 
     last_call_at = 0.0
     last_heartbeat = 0.0
@@ -1280,6 +1310,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
                 conversations=conversations,
                 state=state,
                 chat_reply_max_tokens=cfg.chat_reply_max_tokens,
+                chatterbox_voices=chatterbox_voices,
             )
 
             # And refresh again after the API call completes, before writing

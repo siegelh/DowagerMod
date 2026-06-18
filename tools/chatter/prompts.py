@@ -309,6 +309,50 @@ STRUCTURAL_VARIETY_DIRECTIVE = (
     "to the same template every time."
 )
 
+PARALINGUISTIC_DIRECTIVE = (
+    "\n\nEXPRESSIVE SOUNDS (important): your voice synthesizer supports "
+    "paralinguistic sound effects. You MAY insert these tags into your line "
+    "and they will be rendered as ACTUAL SOUNDS in the audio:\n"
+    "  [laugh]  [chuckle]  [sigh]  [groan]  [gasp]  [clear throat]  [sniff]  [cough]  [shush]\n"
+    "Use these INSTEAD of asterisk stage directions. Rules:\n"
+    "- Use at most ONE per line (two if it is genuinely hilarious).\n"
+    "- Place them where natural in the sentence — mid-sentence or at the end.\n"
+    "- Do NOT start a line with a tag.\n"
+    "- Use them when they would be FUNNY, DRAMATIC, or perfectly timed. "
+    "A well-placed [sigh] of exasperation, a [laugh] after a devastating insult, "
+    "a [clear throat] before a pompous pronouncement.\n"
+    "- Still NO asterisks (*laughs*) — only the square-bracketed tags listed above."
+)
+
+# The stage-direction ban line that appears in all SYSTEM_* templates.
+# When paralinguistic mode is active, this line is swapped out.
+_STAGE_DIRECTION_BAN = (
+    "- NEVER use stage directions or asterisks like *laughs* or *scoffs* "
+    "— those get spoken literally by the voice synthesizer.\n"
+)
+_STAGE_DIRECTION_BAN_SHORT = (
+    "- NEVER use stage directions or asterisks.\n"
+)
+
+
+def apply_paralinguistic(system_msg: str) -> str:
+    """Replace the stage-direction ban with the paralinguistic directive."""
+    result = system_msg.replace(_STAGE_DIRECTION_BAN, "")
+    result = result.replace(_STAGE_DIRECTION_BAN_SHORT, "")
+    # Also handle the chat-reply variant
+    result = result.replace(
+        "- NEVER use stage directions or asterisks like *laughs* *scoffs* "
+        "-- those get spoken literally.\n", ""
+    )
+    result += PARALINGUISTIC_DIRECTIVE
+    return result
+
+
+def _normalize_for_paralinguistic(name: str) -> str:
+    """Lowercase + strip non-alnum for matching against chatterbox_voices set."""
+    import re
+    return re.sub(r'[^a-z0-9]', '', name.lower())
+
 
 SYSTEM_DIRECTED = (
     "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
@@ -955,7 +999,8 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
                             other_humans_in_thread: list | None = None,
                             chain_reply: bool = False,
                             prior_leader_speaker_name: str = "",
-                            room_state: dict | None = None) -> tuple[str, list]:
+                            room_state: dict | None = None,
+                            chatterbox_voices: set = None) -> tuple[str, list]:
     """Return (system_message, messages_list_for_llm) for a CHAT_REPLY call.
 
     history_messages is the full conversation so far as [{role, content}, ...].
@@ -990,6 +1035,9 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
         prior_leader_speaker_name=prior_leader_speaker_name,
         room_state=room_state,
     )
+    # Paralinguistic tags for Chatterbox-voiced leaders
+    if chatterbox_voices and _normalize_for_paralinguistic(speaker.get("leader_name", "")) in chatterbox_voices:
+        sys_msg = apply_paralinguistic(sys_msg)
     return sys_msg, list(history_messages)
 
 
@@ -1023,7 +1071,8 @@ def _format_recent_lines_block(recent_lines: list, speaker_leader: str) -> str:
 
 def build_single_line_prompt(request: dict, *, native_mode: bool = False,
                              speaker_native_lang: str = "",
-                             recent_lines: list = None) -> tuple[str, str]:
+                             recent_lines: list = None,
+                             chatterbox_voices: set = None) -> tuple[str, str]:
     """Return (system_message, user_message) for a single-line directed/broadcast call.
 
     When native_mode is True AND speaker_native_lang is non-empty, the LLM
@@ -1100,6 +1149,9 @@ def build_single_line_prompt(request: dict, *, native_mode: bool = False,
     # recent-lines callout last (closest to the actual generation).
     if recent_lines:
         system_msg += _format_recent_lines_block(recent_lines, fmt["speaker_leader"])
+    # Paralinguistic tags for Chatterbox-voiced leaders
+    if chatterbox_voices and _normalize_for_paralinguistic(fmt["speaker_leader"]) in chatterbox_voices:
+        system_msg = apply_paralinguistic(system_msg)
     user_msg = USER_TEMPLATE.format(
         game_turn=request.get("game_turn", 0),
         era=ctx.get("era", "unknown"),
@@ -1112,7 +1164,8 @@ def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
                             speaker_native_lang: str = "",
                             target_native_lang: str = "",
                             recent_lines: list = None,
-                            target_recent_lines: list = None) -> tuple[str, str]:
+                            target_recent_lines: list = None,
+                            chatterbox_voices: set = None) -> tuple[str, str]:
     """Return (system_message, user_message) for a one-shot multi-line script call.
 
     When native_mode is True AND both leaders have a configured native lang,
@@ -1178,5 +1231,11 @@ def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
         system_msg += _format_recent_lines_block(recent_lines, fmt["speaker_leader"])
     if target_recent_lines:
         system_msg += _format_recent_lines_block(target_recent_lines, fmt["target_leader"])
+    # Paralinguistic tags — enable if either speaker or target uses Chatterbox
+    if chatterbox_voices and (
+        _normalize_for_paralinguistic(fmt["speaker_leader"]) in chatterbox_voices
+        or _normalize_for_paralinguistic(fmt.get("target_leader", "")) in chatterbox_voices
+    ):
+        system_msg = apply_paralinguistic(system_msg)
     user_msg = "Generate the exchange now."
     return system_msg, user_msg

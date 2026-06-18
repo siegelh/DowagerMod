@@ -109,7 +109,7 @@ def make_chat_reply_response(*, request: dict, ok: bool, line: str = "", tone: s
 
 def handle_chat_reply(*, request: dict, store: RoomStore,
                       client: AzureClient, max_tokens: int = 120,
-                      logger=None) -> Tuple[dict, str, str]:
+                      logger=None, chatterbox_voices: set = None) -> Tuple[dict, str, str]:
     """Run one CHAT_REPLY round-trip against the shared room.
 
     Reads the latest user message from request['context']['user_message'],
@@ -227,6 +227,7 @@ def handle_chat_reply(*, request: dict, store: RoomStore,
         chain_reply=chain_reply,
         prior_leader_speaker_name=prior_leader_speaker_name,
         room_state=room_state,
+        chatterbox_voices=chatterbox_voices,
     )
     full = [{"role": "system", "content": system_msg}] + msgs
 
