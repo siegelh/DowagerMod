@@ -2,10 +2,14 @@
 .SYNOPSIS
     Start the local TTS server (zero-shot voice cloning).
 .DESCRIPTION
-    Launches the FastAPI TTS server with XTTSv2 backend. Performs preflight
-    checks and guides the user through any missing prerequisites.
+    Launches the FastAPI TTS server with the configured backend (XTTSv2 or
+    Chatterbox Turbo). Reads TTS_MODEL from .env to determine which model.
+    Performs preflight checks and guides the user through any missing prerequisites.
 .PARAMETER Port
     Port to listen on (default: 8080).
+.PARAMETER Model
+    Override the TTS model backend: 'xtts' or 'chatterbox'. If not specified,
+    reads TTS_MODEL from .env (default: xtts).
 .PARAMETER Device
     Compute device: 'auto' (default), 'cuda', or 'cpu'.
 .PARAMETER SkipChecks
@@ -13,6 +17,8 @@
 #>
 param(
     [int]$Port = 8080,
+    [ValidateSet("", "xtts", "chatterbox")]
+    [string]$Model = "",
     [ValidateSet("auto", "cuda", "cpu")]
     [string]$Device = "auto",
     [switch]$SkipChecks
@@ -24,6 +30,19 @@ $serverDir = Join-Path $repoRoot "tools\tts-server"
 $venvPython = Join-Path $serverDir ".venv\Scripts\python.exe"
 $voicesDir = Join-Path $serverDir "voices"
 $registryFile = Join-Path $serverDir "voice_registry.json"
+
+# Determine TTS model: CLI param > .env > default
+if (-not $Model) {
+    $envFile = Join-Path $repoRoot ".env"
+    if (Test-Path $envFile) {
+        $envLine = Get-Content $envFile | Where-Object { $_ -match '^\s*TTS_MODEL\s*=' }
+        if ($envLine) {
+            $Model = ($envLine -split '=', 2)[1].Trim().Trim('"').Trim("'")
+        }
+    }
+    if (-not $Model) { $Model = "xtts" }
+}
+Write-Host "TTS Model: $Model" -ForegroundColor DarkGray
 
 # ===== Preflight Checks =====
 function Write-Check($name, $ok, $detail) {
@@ -70,10 +89,10 @@ if (-not $SkipChecks) {
     }
     $allOk = $allOk -and (Write-Check "torch + CUDA" $torchOk $torchInfo)
 
-    # 4. XTTSv2 model cached
+    # 4. Model cached (only check for xtts)
     $modelOk = $false
     $modelDetail = ""
-    if ($venvOk) {
+    if ($Model -eq "xtts" -and $venvOk) {
         try {
             $modelCheck = & $venvPython -c @"
 import os, pathlib
@@ -94,10 +113,13 @@ print('found' if found else 'missing')
             $modelDetail = "Could not check. Will download on first start (~1.7GB)."
             $modelOk = $true  # non-blocking
         }
+    } elseif ($Model -eq "chatterbox") {
+        $modelOk = $true
+        $modelDetail = "Chatterbox (downloads on first start if needed)"
     } else {
         $modelDetail = "(skipped — venv missing)"
     }
-    $allOk = $allOk -and (Write-Check "XTTSv2 model cached" $modelOk $modelDetail)
+    $allOk = $allOk -and (Write-Check "Model cached" $modelOk $modelDetail)
 
     # 5. Voice registry
     $regOk = Test-Path $registryFile
@@ -143,7 +165,7 @@ print('found' if found else 'missing')
 
 # ===== Launch Server =====
 Write-Host ""
-Write-Host "Starting local TTS server (port=$Port, device=$Device)..." -ForegroundColor Cyan
+Write-Host "Starting local TTS server (model=$Model, port=$Port, device=$Device)..." -ForegroundColor Cyan
 Write-Host "Endpoint: http://localhost:$Port" -ForegroundColor Green
 Write-Host "Health:   http://localhost:$Port/health" -ForegroundColor Green
 Write-Host "Stop:     Ctrl+C" -ForegroundColor DarkGray
@@ -152,4 +174,4 @@ Write-Host ""
 $env:TTS_SERVER_PORT = $Port
 $env:TTS_SERVER_DEVICE = $Device
 
-& $venvPython (Join-Path $serverDir "server.py") --port $Port --device $Device
+& $venvPython (Join-Path $serverDir "server.py") --port $Port --device $Device --model $Model

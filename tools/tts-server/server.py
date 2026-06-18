@@ -1,10 +1,10 @@
-"""Local TTS Server — zero-shot voice cloning via XTTSv2 and Qwen3-TTS.
+"""Local TTS Server — zero-shot voice cloning via XTTSv2 or Chatterbox Turbo.
 
 Exposes a FastAPI endpoint that accepts text + voice_id and returns WAV audio.
 Supports multiple voices via reference WAV files in the voice registry.
 
 Usage:
-    python -m tools.tts_server.server [--host 0.0.0.0] [--port 8080] [--model xtts|qwen3]
+    python -m tools.tts_server.server [--host 0.0.0.0] [--port 8080] [--model xtts|chatterbox]
     # or via the Start-TtsServer.ps1 script
 """
 
@@ -15,7 +15,6 @@ import io
 import json
 import logging
 import os
-import struct
 import time
 import wave
 from pathlib import Path
@@ -96,54 +95,42 @@ class XttsBackend(TtsBackend):
         return np.array(wav, dtype=np.float32), 24000
 
 
-class Qwen3TtsBackend(TtsBackend):
-    """Qwen3-TTS zero-shot voice cloning via HuggingFace transformers."""
+class ChatterboxBackend(TtsBackend):
+    """Chatterbox Turbo zero-shot voice cloning (Resemble AI)."""
 
-    name = "qwen3"
+    name = "chatterbox"
 
     def __init__(self):
-        self._processor = None
         self._model = None
         self._device = "cpu"
 
     def load(self, device: str) -> None:
-        from transformers import AutoProcessor, AutoModelForTextToWaveform
-        model_id = "Qwen/Qwen3-TTS"
-        logger.info("Loading Qwen3-TTS model (device=%s)...", device)
-        self._processor = AutoProcessor.from_pretrained(model_id)
-        self._model = AutoModelForTextToWaveform.from_pretrained(model_id).to(device)
+        from chatterbox.tts_turbo import ChatterboxTurboTTS
+        logger.info("Loading Chatterbox Turbo model (device=%s)...", device)
+        self._model = ChatterboxTurboTTS.from_pretrained(device=device)
         self._device = device
-        logger.info("Qwen3-TTS ready.")
+        logger.info("Chatterbox Turbo ready.")
 
     def synthesize(self, text: str, reference_wav: Path) -> tuple[np.ndarray, int]:
-        import torch
-        import soundfile as sf
-
         if self._model is None:
-            raise RuntimeError("Qwen3-TTS model not loaded")
+            raise RuntimeError("Chatterbox model not loaded")
 
-        # Load reference audio
-        ref_audio, ref_sr = sf.read(str(reference_wav))
-        if len(ref_audio.shape) > 1:
-            ref_audio = ref_audio.mean(axis=1)  # mono
-
-        inputs = self._processor(
+        wav = self._model.generate(
             text=text,
-            audio=ref_audio,
-            sampling_rate=ref_sr,
-            return_tensors="pt",
-        ).to(self._device)
-
-        with torch.no_grad():
-            output = self._model.generate(**inputs)
-
-        wav = output.cpu().numpy().squeeze()
-        return wav.astype(np.float32), 24000
+            audio_prompt_path=str(reference_wav),
+        )
+        # wav is a torch tensor [1, samples] or [samples]; model.sr is sample rate
+        samples = wav.squeeze().cpu().numpy().astype(np.float32)
+        # Normalize to [-1, 1] if needed
+        peak = np.abs(samples).max()
+        if peak > 1.0:
+            samples = samples / peak
+        return samples, self._model.sr
 
 
 BACKENDS = {
     "xtts": XttsBackend,
-    "qwen3": Qwen3TtsBackend,
+    "chatterbox": ChatterboxBackend,
 }
 
 # ---------------------------------------------------------------------------
