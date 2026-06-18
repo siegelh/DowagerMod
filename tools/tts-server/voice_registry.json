@@ -17,6 +17,12 @@
       "reference_wav": "voices/mao_ref.wav",
       "reference_transcript": "You call that an army? I crossed twenty-four mountain ranges and twenty rivers in bare feet, outran the entire Kuomintang, and still had time to write poetry. You have every advantage I was denied and you are losing to barbarians. The peasants of Hunan had more tactical sense than this.",
       "description": "Hunanese-accented male, deliberate cadence, chain-smoker roughness. From ElevenLabs website generation."
+    },
+    "washington": {
+      "display_name": "George Washington",
+      "reference_wav": "voices/washington_ref.wav",
+      "reference_transcript": "I have faced British regulars, frozen rivers, and the Continental Congress — simultaneously, and in worse weather than this. So you will forgive me if your formation fails to inspire alarm. I have drilled Virginia militia with more instinct than this. Straighten that line. We have a republic to build. Today.",
+      "description": "Deep commanding baritone, Virginia planter accent. Zero-shot cloned from ElevenLabs reference."
     }
   },
   "default_voice": "dowager",

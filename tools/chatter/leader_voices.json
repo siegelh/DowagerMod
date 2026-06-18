@@ -619,12 +619,16 @@
         "washington": {
             "voice": "en-US-AndrewNeural",
             "rate": "-8%",
-            "pitch": "-5%"
+            "pitch": "-5%",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "f758GTT3e7C24biZ3BXZ"
         },
         "georgewashington": {
             "voice": "en-US-AndrewNeural",
             "rate": "-8%",
-            "pitch": "-5%"
+            "pitch": "-5%",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "f758GTT3e7C24biZ3BXZ"
         },
         "willem": {
             "voice": "nl-NL-MaartenNeural",
