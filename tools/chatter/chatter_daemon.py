@@ -655,8 +655,22 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         logger.info("voiceover: Local TTS not configured")
 
     # Build set of leader names that will use Chatterbox (for paralinguistic tags)
+    # TTS_MODEL may be in os.environ (shell export) or only in .env (not injected).
+    # Read from .env as fallback, same pattern as Start-TtsServer.ps1.
+    _tts_model = os.environ.get("TTS_MODEL", "")
+    if not _tts_model:
+        try:
+            from tools.chatter.dotenv import find_dotenv, parse_dotenv_file
+            _dotenv_path = find_dotenv()
+            if _dotenv_path:
+                _dotenv_vals = parse_dotenv_file(_dotenv_path)
+                _tts_model = _dotenv_vals.get("TTS_MODEL", "xtts")
+        except Exception:
+            pass
+    if not _tts_model:
+        _tts_model = "xtts"
     chatterbox_voices: set = set()
-    if local_voice_ids and os.environ.get("TTS_MODEL", "xtts") == "chatterbox":
+    if local_voice_ids and _tts_model == "chatterbox":
         chatterbox_voices = set(local_voice_ids.keys())
         logger.info("voiceover: Chatterbox paralinguistic tags enabled for %d voice(s)", len(chatterbox_voices))
 
