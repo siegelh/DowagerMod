@@ -633,18 +633,38 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
                 for alias in DOWAGER_LEADER_ALIASES:
                     local_voice_ids[alias] = cfg.voiceover.local_tts_voice_id_dowager
             # Auto-discover voices from voice_registry.json
+            _registry_voice_ids: set = set()
             try:
                 _reg_path = Path(__file__).resolve().parent.parent / "tts-server" / "voice_registry.json"
                 _reg = _json.loads(_reg_path.read_text(encoding="utf-8"))
                 for vid in _reg.get("voices", {}):
+                    _registry_voice_ids.add(vid)
                     if vid not in local_voice_ids:
                         local_voice_ids[vid] = vid
             except (OSError, _json.JSONDecodeError):
                 pass
+            # Also add leader_voices.json aliases that map to a registered
+            # local voice so in-game names like "maozedong" resolve to "mao".
+            if _registry_voice_ids:
+                try:
+                    _lv_path = Path(__file__).resolve().parent / "leader_voices.json"
+                    _lv = _json.loads(_lv_path.read_text(encoding="utf-8"))
+                    for _lk in (_lv.get("map") or {}):
+                        _norm_lk = str(_lk).strip().lower()
+                        if _norm_lk not in local_voice_ids:
+                            # Match if any registry voice ID is a substring
+                            # of the alias, e.g. "mao" in "maozedong"
+                            for _rvid in _registry_voice_ids:
+                                if _rvid in _norm_lk:
+                                    local_voice_ids[_norm_lk] = _rvid
+                                    break
+                except (OSError, _json.JSONDecodeError):
+                    pass
             logger.info(
-                "voiceover: Local TTS client initialized url=%s voice_id=%s",
+                "voiceover: Local TTS client initialized url=%s voice_id=%s local_voices=%d",
                 cfg.voiceover.local_tts_url,
                 cfg.voiceover.local_tts_voice_id_dowager,
+                len(local_voice_ids),
             )
         except Exception as exc:  # noqa: BLE001
             logger.warning(
