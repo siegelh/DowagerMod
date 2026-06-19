@@ -377,13 +377,20 @@ class TtsDispatcher:
 
         if self.local_circuit.record_success():
             self.logger.info("tts: local circuit closed; retrying")
+        # Loudness-normalize local audio to match Azure's output level
+        audio = result.audio_bytes
+        try:
+            from tools.chatter.audio_postprocess import normalize_loudness
+        except ImportError:
+            from audio_postprocess import normalize_loudness
+        audio = normalize_loudness(audio, logger=self.logger)
         self.logger.info(
             "tts: ok provider=local voice=%s model=%s leader=%s chars=%d latency=%dms",
             result.voice_id, result.model, leader_name or "?",
             result.char_count, result.latency_ms,
         )
         return DispatchResult(
-            audio_bytes=result.audio_bytes,
+            audio_bytes=audio,
             voice=result.voice_id,
             char_count=result.char_count,
             latency_ms=result.latency_ms,
