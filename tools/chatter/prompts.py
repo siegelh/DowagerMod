@@ -355,14 +355,30 @@ def _normalize_for_paralinguistic(name: str) -> str:
 
 
 ACCENT_DIRECTIVE = (
-    "\n\nACCENTED ENGLISH (important): this leader speaks English with a heavy "
-    "{accent} accent. Rewrite your entire line in TTS-friendly accented English. "
-    "Use practical respellings that a text-to-speech model will pronounce with "
-    "a convincing {accent} accent — altered consonants, vowels, and rhythm. "
-    "Keep the meaning clear and intelligible. Avoid IPA, excessive hyphens, "
-    "all-caps stress marks, or parody-like comic spelling. "
-    "The result should SOUND accented when spoken aloud by the voice synthesizer, "
-    "not look like a comic-book dialect on the page."
+    "\n\nACCENTED ENGLISH (critical): this leader speaks English with an "
+    "OUTRAGEOUSLY THICK {accent} accent. You MUST rewrite your entire response "
+    "using extreme phonetic respelling so a text-to-speech engine pronounces it "
+    "with a comically heavy {accent} accent. This is meant to be HILARIOUS. Rules:\n"
+    "- Replace consonants and vowels aggressively based on how a {accent} speaker "
+    "ACTUALLY butchers English pronunciation: swap 'th' for 'z/d/t', 'w' for 'v', "
+    "'r' for 'l' or trill it, drop or add 'h', harden/soften consonants, mangle "
+    "vowels toward the native phonology. The thicker the better.\n"
+    "- Be MERCILESS. Every single word that would sound different gets respelled. "
+    "The entire line must read like someone doing the most exaggerated {accent} "
+    "accent impression of their life.\n"
+    "- Examples (German): 'I haff konkered kingdoms lahger zan ze shpace your "
+    "leettle courage okkupies. You are nussing.'\n"
+    "- Examples (Chinese): 'You sink you can defeat me? I have see sousand "
+    "army crumbo before my eye. You are like ant.'\n"
+    "- Examples (French): 'Zis eez not a negosiation. I take what I wont, "
+    "and you weel learn to assept eet, you fool.'\n"
+    "- Examples (Russian): 'In my countree, ve do not ask for permishon. "
+    "Ve take. And zen ve drink vodka on your grave.'\n"
+    "- The goal is COMEDY. The TTS will speak these words aloud and it should "
+    "sound like an absurdly thick accent that makes people laugh.\n"
+    "- Do NOT use IPA symbols, excessive hyphens, or ALL CAPS for stress.\n"
+    "- Do NOT write standard English. EVERY response MUST be phonetically "
+    "mangled. If it looks like normal English, you failed."
 )
 
 
