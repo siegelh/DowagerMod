@@ -993,6 +993,9 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             sys_msg, user_msg = _build_ask_prompt_bare(question, chatterbox_voices=chatterbox_voices, leader_name=leader_name, speaker_accent=_ask_accent)
         else:
             sys_msg, user_msg = _build_ask_prompt(question, persona)
+        _log_prompt = os.environ.get("CHATTER_LOG_PROMPT", "").strip().lower() in ("1", "true", "yes", "on")
+        if _log_prompt:
+            logger.info("user-ask: SYSTEM PROMPT:\n%s", sys_msg or "<empty>")
         logger.info(
             "user-ask: author=%s leader=%s mode=%s persona_chars=%d question_chars=%d voice=%s max_tokens=%d",
             author_name, leader_name or "(default)",
@@ -1018,6 +1021,8 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             author_name, len(reply),
             api_result.input_tokens, api_result.output_tokens, api_result.latency_ms,
         )
+        if _log_prompt:
+            logger.info("user-ask: REPLY TEXT:\n%s", reply)
         _speak(reply, voice, rate, pitch, author_name, "ask", post_process,
                tts_provider=tts_provider, leader_name=leader_name or "")
 
