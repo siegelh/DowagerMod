@@ -1009,6 +1009,13 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             sys_msg, user_msg = _build_ask_prompt(question, persona)
         _log_prompt = os.environ.get("CHATTER_LOG_PROMPT", "").strip().lower() in ("1", "true", "yes", "on")
         if _log_prompt:
+            from tools.chatter.prompts import _normalize_for_paralinguistic
+            _norm = _normalize_for_paralinguistic(leader_name) if leader_name else ""
+            logger.info(
+                "user-ask: DEBUG leader=%r norm=%r in_chatterbox=%s accent=%r chatterbox_voices_len=%d",
+                leader_name, _norm, _norm in (chatterbox_voices or set()),
+                _ask_accent if leader_name else "", len(chatterbox_voices or set()),
+            )
             logger.info("user-ask: SYSTEM PROMPT:\n%s", sys_msg or "<empty>")
         logger.info(
             "user-ask: author=%s leader=%s mode=%s persona_chars=%d question_chars=%d voice=%s max_tokens=%d",
