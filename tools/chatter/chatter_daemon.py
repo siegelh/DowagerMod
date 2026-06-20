@@ -776,10 +776,10 @@ _SAY_PATTERN = re.compile(
 # Default persona used when the user just types "ask: <prompt>" with no
 # leader override. Hindi-accented Gandhi voice; persona matches that voice.
 _ASK_DEFAULT_PERSONA = (
-    "a wise Indian elder with the bearing of Mahatma Gandhi: measured, "
-    "thoughtful, faintly amused, willing to be blunt when it serves the truth"
+    "the Dowager Countess of Grantham: imperious, witty, acid-tongued, "
+    "aristocratic, dripping with disdain for foolishness"
 )
-_ASK_DEFAULT_VOICE = "en-IN-PrabhatNeural"
+_ASK_DEFAULT_VOICE = "en-gb-sandoverture:DragonHDOmniLatestNeural"
 
 _ASK_SYSTEM_TEMPLATE = (
     "You are answering a user's question over a Discord voice channel "
@@ -899,7 +899,7 @@ def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple:
     the Dowager Countess; "" for everyone else => Azure as before).
     """
     if not leader_name:
-        return _ASK_DEFAULT_VOICE, "", "", _ASK_DEFAULT_PERSONA, "", ""
+        return _ASK_DEFAULT_VOICE, "-15%", "-3%", _ASK_DEFAULT_PERSONA, "elderly_crone", "local"
     spec = voice_picker.pick_spec(leader_name) if voice_picker is not None else None
     voice = spec.voice if spec is not None else _ASK_DEFAULT_VOICE
     rate = spec.rate if (spec is not None and spec.rate) else ""

@@ -62,21 +62,20 @@ class TestParseAskCommand(unittest.TestCase):
 
 
 class TestResolveAskVoice(unittest.TestCase):
-    def test_no_leader_uses_default_gandhi_voice(self):
+    def test_no_leader_uses_default_dowager_voice(self):
         voice, rate, pitch, persona, _, _provider = cd._resolve_ask_voice(None, None)
-        self.assertEqual(voice, "en-IN-PrabhatNeural")
-        self.assertEqual(rate, "")
-        self.assertEqual(pitch, "")
-        self.assertIn("Gandhi", persona)
-        self.assertIn("Indian", persona)
+        self.assertEqual(voice, "en-gb-sandoverture:DragonHDOmniLatestNeural")
+        self.assertEqual(rate, "-15%")
+        self.assertEqual(pitch, "-3%")
+        self.assertIn("Dowager", persona)
 
     def test_default_when_voice_picker_present_no_leader(self):
         vp = mock.Mock()
         voice, rate, pitch, persona, _, _provider = cd._resolve_ask_voice(vp, None)
-        self.assertEqual(voice, "en-IN-PrabhatNeural")
+        self.assertEqual(voice, "en-gb-sandoverture:DragonHDOmniLatestNeural")
         # voice_picker must NOT be consulted when no leader was named.
         vp.pick_spec.assert_not_called()
-        self.assertIn("Gandhi", persona)
+        self.assertIn("Dowager", persona)
 
     def test_named_leader_routes_through_voice_picker(self):
         vp = mock.Mock()
@@ -94,7 +93,7 @@ class TestResolveAskVoice(unittest.TestCase):
 
     def test_named_leader_with_no_voice_picker_falls_back_to_default(self):
         voice, rate, pitch, persona, _, _provider = cd._resolve_ask_voice(None, "Stalin")
-        self.assertEqual(voice, "en-IN-PrabhatNeural")
+        self.assertEqual(voice, "en-gb-sandoverture:DragonHDOmniLatestNeural")
         # Persona still reflects the requested leader, even though the
         # voice fell back.
         self.assertIn("Stalin", persona)
