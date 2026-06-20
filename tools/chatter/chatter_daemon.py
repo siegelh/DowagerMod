@@ -1005,13 +1005,12 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             logger.warning("user-%s: failed to speak for %s: %s", kind, author_name, exc)
 
     def _say_worker(text: str, author_name: str, leader_name: Optional[str] = None) -> None:
-        # When no leader is named, use the default thick-accent Indian voice
-        # (the original @-mention behavior). When a leader is named, route
-        # through voice_picker so 'say as Stalin: hi' speaks in Stalin's voice.
+        # When no leader is named, default to Dowager's local voice.
+        # When a leader is named, route through voice_picker.
         if leader_name:
             voice, rate, pitch, _persona, post_process, tts_provider = _resolve_ask_voice(voice_picker, leader_name)
         else:
-            voice, rate, pitch, post_process, tts_provider = _ASK_DEFAULT_VOICE, "", "", "", ""
+            voice, rate, pitch, _persona, post_process, tts_provider = _resolve_ask_voice(voice_picker, None)
         _speak(text, voice, rate, pitch, author_name, "say", post_process,
                tts_provider=tts_provider, leader_name=leader_name or "")
 
