@@ -8653,4 +8653,341 @@
 		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_3_HELP</Tag>
 		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
 	</TEXT>
+	<!-- DowagerMod quests batch 3b: late-era T2 -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SPICE_MERCHANT_1</Tag>
+		<English>A wealthy spice trader visits %s1_CivAdjective lands, urging your merchants to build the warehouses and stalls needed to anchor a permanent trade network in exotic flavors.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_SPICE_MERCHANT_DONE</Tag>
+		<English>%s1_CivAdjective has cornered the spice trade!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SPICE_MERCHANT_DONE_1</Tag>
+		<English>Your spice exchanges thrive. Caravans bound for every corner of the world haggle in your markets, and the smell of cardamom and pepper drifts through every alley.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_1</Tag>
+		<English>Spice Merchant</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_QUEST</Tag>
+		<English>Build a Market in 3 of your cities to anchor the spice trade.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_SPICE_MERCHANT</Tag>
+		<English>The spice trader has packed up and moved on. The Spice Merchant quest has been lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_1</Tag>
+		<English>Pocket the season's profits.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]220 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_2</Tag>
+		<English>Endow a merchant prince.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_2_HELP</Tag>
+		<English>A [COLOR_POSITIVE_TEXT]Great Merchant[COLOR_REVERT] settles in your capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_3</Tag>
+		<English>Throw a spice festival.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from the celebrations.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_STOIC_ACADEMY_1</Tag>
+		<English>A circle of philosopher-priests has petitioned the %s1_CivAdjective court for permission to establish a stoic academy, training young minds in the disciplines of your state faith.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_STOIC_ACADEMY_DONE</Tag>
+		<English>%s1_CivAdjective has founded a stoic academy.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_STOIC_ACADEMY_DONE_1</Tag>
+		<English>The stoic academy is consecrated. Tonsured scholars and white-robed priests debate doctrine in the colonnades, and your subjects look on with quiet pride.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_1</Tag>
+		<English>Stoic Academy</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_QUEST</Tag>
+		<English>Show the breadth of your state religion by raising 3 Libraries.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_STOIC_ACADEMY</Tag>
+		<English>The stoic academy never opened its doors. The quest has been lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_1</Tag>
+		<English>Bless the academy's halls.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from the rites.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_2</Tag>
+		<English>Settle a Great Priest among the masters.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_2_HELP</Tag>
+		<English>A [COLOR_POSITIVE_TEXT]Great Priest[COLOR_REVERT] settles in your capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_3</Tag>
+		<English>Commission a hymn cycle.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 [ICON_CULTURE] Culture per turn[COLOR_REVERT] for a generation.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MASTER_BREWER_1</Tag>
+		<English>A %s1_CivAdjective master brewer claims his ales and rice wines can rival any tavern in the known world, if only the crown will help him scale up production.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_MASTER_BREWER_DONE</Tag>
+		<English>%s1_CivAdjective has crowned a master brewer.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MASTER_BREWER_DONE_1</Tag>
+		<English>Casks roll out of the brewery in numbers no one thought possible. Your cities celebrate, and your treasury hums with the sound of mug after mug being slammed down on tavern counters.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASTER_BREWER_1</Tag>
+		<English>Master Brewer</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASTER_BREWER_QUEST</Tag>
+		<English>Build a Market in 2 more of your cities to distribute the brewer's wares.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_MASTER_BREWER</Tag>
+		<English>The master brewer's vats have gone sour. The Master Brewer quest has been lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_1</Tag>
+		<English>Toast the harvest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] Health[COLOR_REVERT] from the wholesome brew.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_2</Tag>
+		<English>Host a tavern festival.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from the merrymaking.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_3</Tag>
+		<English>Stake the brewer's expansion.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_3_HELP</Tag>
+		<English>A [COLOR_POSITIVE_TEXT]Great Merchant[COLOR_REVERT] settles in your capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_OIL_BARON_1</Tag>
+		<English>A ruthless oil prospector has staked claims across %s1_CivAdjective drilling country. He promises an industrial empire if you back his ambitions with steel and machinery.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_OIL_BARON_DONE</Tag>
+		<English>%s1_CivAdjective has crowned an oil baron.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_OIL_BARON_DONE_1</Tag>
+		<English>Refineries cough black smoke over a hundred miles of grasslands, and the first %s1_CivAdjective tank battalion rumbles past, its armor slick with fresh oil.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_OIL_BARON_1</Tag>
+		<English>Oil Baron</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_OIL_BARON_QUEST</Tag>
+		<English>Build a Factory in 2 of your cities and field a Tank to anchor the petroleum boom.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_OIL_BARON</Tag>
+		<English>The oil baron's wells have run dry. The Oil Baron quest has been lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_1</Tag>
+		<English>Roll out a free battalion.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_1_HELP</Tag>
+		<English>A free [COLOR_POSITIVE_TEXT]Tank[COLOR_REVERT] joins your forces.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_2</Tag>
+		<English>Tax the petroleum cartel.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_2_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]400 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_3</Tag>
+		<English>Hire the baron's chief engineer.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_3_HELP</Tag>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer[COLOR_REVERT] settles in your capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_JOINT_STOCK_COMPANY_1</Tag>
+		<English>%s1_CivAdjective financiers propose a chartered joint stock company, pooling capital from shareholders across your empire to fund overseas ventures.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_JOINT_STOCK_COMPANY_DONE</Tag>
+		<English>%s1_CivAdjective has chartered a joint stock company.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_JOINT_STOCK_COMPANY_DONE_1</Tag>
+		<English>Shares in the chartered company sell out within hours. Every market trades its scrip, and your treasury swells with subscription fees.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_1</Tag>
+		<English>Joint Stock Company</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_QUEST</Tag>
+		<English>Build a Bank in 2 of your cities to capitalize the joint stock company.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_JOINT_STOCK_COMPANY</Tag>
+		<English>The joint stock company's shares went unsold. The quest has been lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_1</Tag>
+		<English>Pay a dividend to coastal subscribers.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_1_HELP</Tag>
+		<English>Each of your coastal cities pays out a [COLOR_POSITIVE_TEXT]25 gold[COLOR_REVERT] dividend into your treasury.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_2</Tag>
+		<English>Reinvest the float in the Exchange.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_2_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_3</Tag>
+		<English>Charter the company in perpetuity.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_3_HELP</Tag>
+		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_TULIP_MANIA_1</Tag>
+		<English>Speculation in %s1_CivAdjective tulip bulbs has reached fever pitch. Fortunes change hands daily over a single rare bloom — the bubble is rising, but its base is paper thin.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_TULIP_MANIA_DONE</Tag>
+		<English>%s1_CivAdjective is gripped by tulip mania!</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_TULIP_MANIA_DONE_1</Tag>
+		<English>The tulip exchange is yours to direct. The bubble can be ridden, popped, or quietly abandoned — the choice will define %s1_CivAdjective finance for a generation.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TULIP_MANIA_1</Tag>
+		<English>Tulip Mania</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TULIP_MANIA_QUEST</Tag>
+		<English>Ride or pop the bubble: build a Market in 2 more cities to control the trade.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_TULIP_MANIA</Tag>
+		<English>The tulip bubble collapsed before you could profit. The Tulip Mania quest has been lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_1</Tag>
+		<English>Ride the bubble.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 gold[COLOR_REVERT] from the speculation.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_2</Tag>
+		<English>Pop the bubble early.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_2_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]150 gold[COLOR_REVERT] and your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from grateful smallholders.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_3</Tag>
+		<English>Stay sober and hire a real merchant.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_3_HELP</Tag>
+		<English>A [COLOR_POSITIVE_TEXT]Great Merchant[COLOR_REVERT] settles in your capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WORKER_SAFETY_1</Tag>
+		<English>A wave of factory accidents has galvanized %s1_CivAdjective reformers. They demand sweeping worker-safety acts to protect labor in the new industrial age.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_WORKER_SAFETY_DONE</Tag>
+		<English>%s1_CivAdjective has passed sweeping worker-safety acts.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WORKER_SAFETY_DONE_1</Tag>
+		<English>The worker-safety acts are signed into law. Foremen post the new rules in every factory, and a quiet hope spreads through the working districts.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_1</Tag>
+		<English>Worker Safety Acts</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_QUEST</Tag>
+		<English>Build a Levee in 1 of your cities to symbolize the new safety regime.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_WORKER_SAFETY</Tag>
+		<English>The worker-safety acts died in committee. The quest has been lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_1</Tag>
+		<English>Hold a victory rally.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from the celebrations.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_2</Tag>
+		<English>Open public clinics.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 [ICON_HEALTHY] Health[COLOR_REVERT] as factory injuries plummet.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_3</Tag>
+		<English>Promote a reformist engineer.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_3_HELP</Tag>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer[COLOR_REVERT] settles in your capital.</English>
+	</TEXT>
 </Civ4GameText>

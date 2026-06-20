@@ -4334,3 +4334,339 @@ def canTriggerSilkRoad(argsList):
 	if iOpenBordersCount < 2:
 		return false
 	return true
+
+######## SPICE_MERCHANT ###########
+
+def getHelpSpiceMerchant1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_SPICE_MERCHANT_QUEST", ())
+
+def getHelpSpiceMerchantDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_SPICE_MERCHANT_DONE_1_HELP", ())
+
+def getHelpSpiceMerchantDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_SPICE_MERCHANT_DONE_2_HELP", ())
+
+def getHelpSpiceMerchantDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_SPICE_MERCHANT_DONE_3_HELP", ())
+
+def canTriggerSpiceMerchant(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iPlantation = gc.getInfoTypeForString("IMPROVEMENT_PLANTATION")
+	iSpices = gc.getInfoTypeForString("BONUS_SPICES")
+	iIncense = gc.getInfoTypeForString("BONUS_INCENSE")
+	(loopCity, iter) = player.firstCity(false)
+	while loopCity:
+		for i in range(loopCity.getNumCityPlots()):
+			pPlot = loopCity.getCityIndexPlot(i)
+			if pPlot is None or pPlot.isNone():
+				continue
+			if pPlot.getOwner() != kTriggeredData.ePlayer:
+				continue
+			if pPlot.getImprovementType() != iPlantation:
+				continue
+			iBonus = pPlot.getBonusType(player.getTeam())
+			if iBonus == iSpices or iBonus == iIncense:
+				return true
+		(loopCity, iter) = player.nextCity(iter, false)
+	return false
+
+def applyEventSpiceMerchantDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHappiness(1)
+	return 1
+
+######## STOIC_ACADEMY ###########
+
+def getHelpStoicAcademy1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_STOIC_ACADEMY_QUEST", ())
+
+def getHelpStoicAcademyDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_STOIC_ACADEMY_DONE_1_HELP", ())
+
+def getHelpStoicAcademyDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_STOIC_ACADEMY_DONE_2_HELP", ())
+
+def getHelpStoicAcademyDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_STOIC_ACADEMY_DONE_3_HELP", ())
+
+def canTriggerStoicAcademy(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	if player.getStateReligion() == -1:
+		return false
+	return true
+
+def applyEventStoicAcademyDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHappiness(1)
+	return 1
+
+def applyEventStoicAcademyDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeCulture(player.getID(), 60, true)
+	return 1
+
+######## MASTER_BREWER ###########
+
+def getHelpMasterBrewer1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_MASTER_BREWER_QUEST", ())
+
+def getHelpMasterBrewerDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_MASTER_BREWER_DONE_1_HELP", ())
+
+def getHelpMasterBrewerDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_MASTER_BREWER_DONE_2_HELP", ())
+
+def getHelpMasterBrewerDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_MASTER_BREWER_DONE_3_HELP", ())
+
+def canTriggerMasterBrewer(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iWheat = gc.getInfoTypeForString("BONUS_WHEAT")
+	iRice = gc.getInfoTypeForString("BONUS_RICE")
+	iCorn = gc.getInfoTypeForString("BONUS_CORN")
+	if player.getNumCities() < 2:
+		return false
+	(loopCity, iter) = player.firstCity(false)
+	while loopCity:
+		for i in range(loopCity.getNumCityPlots()):
+			pPlot = loopCity.getCityIndexPlot(i)
+			if pPlot is None or pPlot.isNone():
+				continue
+			if pPlot.getOwner() != kTriggeredData.ePlayer:
+				continue
+			if pPlot.getImprovementType() == -1:
+				continue
+			iBonus = pPlot.getBonusType(player.getTeam())
+			if iBonus == iWheat or iBonus == iRice or iBonus == iCorn:
+				return true
+		(loopCity, iter) = player.nextCity(iter, false)
+	return false
+
+def applyEventMasterBrewerDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHealth(1)
+	return 1
+
+def applyEventMasterBrewerDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHappiness(1)
+	return 1
+
+######## OIL_BARON ###########
+
+def getHelpOilBaron1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_OIL_BARON_QUEST", ())
+
+def getHelpOilBaronDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_OIL_BARON_DONE_1_HELP", ())
+
+def getHelpOilBaronDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_OIL_BARON_DONE_2_HELP", ())
+
+def getHelpOilBaronDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_OIL_BARON_DONE_3_HELP", ())
+
+def canTriggerOilBaron(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iOil = gc.getInfoTypeForString("BONUS_OIL")
+	iCount = 0
+	(loopCity, iter) = player.firstCity(false)
+	while loopCity:
+		for i in range(loopCity.getNumCityPlots()):
+			pPlot = loopCity.getCityIndexPlot(i)
+			if pPlot is None or pPlot.isNone():
+				continue
+			if pPlot.getOwner() != kTriggeredData.ePlayer:
+				continue
+			if pPlot.getImprovementType() == -1:
+				continue
+			if pPlot.getBonusType(player.getTeam()) == iOil:
+				iCount += 1
+				if iCount >= 2:
+					return true
+		(loopCity, iter) = player.nextCity(iter, false)
+	return false
+
+######## JOINT_STOCK_COMPANY ###########
+
+def getHelpJointStockCompany1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_JOINT_STOCK_COMPANY_QUEST", ())
+
+def getHelpJointStockCompanyDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_1_HELP", ())
+
+def getHelpJointStockCompanyDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_2_HELP", ())
+
+def getHelpJointStockCompanyDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_3_HELP", ())
+
+def canTriggerJointStockCompany(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	if player.getGold() < 500:
+		return false
+	return true
+
+def applyEventJointStockCompanyDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iCount = 0
+	(loopCity, iter) = player.firstCity(false)
+	while loopCity:
+		if loopCity.isCoastal(10):
+			iCount += 1
+		(loopCity, iter) = player.nextCity(iter, false)
+	player.changeGold(iCount * 25)
+	return 1
+
+######## TULIP_MANIA ###########
+
+def getHelpTulipMania1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_TULIP_MANIA_QUEST", ())
+
+def getHelpTulipManiaDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_TULIP_MANIA_DONE_1_HELP", ())
+
+def getHelpTulipManiaDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_TULIP_MANIA_DONE_2_HELP", ())
+
+def getHelpTulipManiaDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_TULIP_MANIA_DONE_3_HELP", ())
+
+def applyEventTulipManiaDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHappiness(1)
+	return 1
+
+######## WORKER_SAFETY ###########
+
+def getHelpWorkerSafety1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_WORKER_SAFETY_QUEST", ())
+
+def getHelpWorkerSafetyDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_WORKER_SAFETY_DONE_1_HELP", ())
+
+def getHelpWorkerSafetyDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_WORKER_SAFETY_DONE_2_HELP", ())
+
+def getHelpWorkerSafetyDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_WORKER_SAFETY_DONE_3_HELP", ())
+
+def canTriggerWorkerSafety(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iEmancipation = gc.getInfoTypeForString("CIVIC_EMANCIPATION")
+	iSuffrage = gc.getInfoTypeForString("CIVIC_UNIVERSAL_SUFFRAGE")
+	iLabor = CivicOptionTypes.CIVICOPTION_LABOR
+	iGov = CivicOptionTypes.CIVICOPTION_GOVERNMENT
+	if player.getCivics(iLabor) == iEmancipation:
+		return true
+	if player.getCivics(iGov) == iSuffrage:
+		return true
+	return false
+
+def applyEventWorkerSafetyDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHappiness(1)
+	return 1
+
+def applyEventWorkerSafetyDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHealth(2)
+	return 1
+
+
