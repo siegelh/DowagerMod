@@ -428,21 +428,21 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 - **Rationale**: Rewards stoneworking civs; ties early wonders to terrain luck
 
 #### 49. Astronomers of the Plain (T1)
-- **Prereq**: Mathematics + 3 Libraries
-- **Objective**: Build Library in 2 more cities (5 total)
-- **Reward choices**: Free Great Scientist points / +1 science per Library / Free tech beaker (~200)
+- **Prereq**: Mathematics + 2 Libraries + Academy not yet built
+- **Objective**: Run 3 Scientist specialists for 10 turns
+- **Reward choices**: Free Great Scientist / +1 science per Scientist specialist / Free Academy placed in capital
 - **Weight**: 220 / 40% of games
-- **Rationale**: Reinforces science-focused early game
+- **Rationale**: Specialist-economy quest (none exist in vanilla); distinct from Library-count quests
 
 ### CLASSICAL ERA
 
 #### 50. Pax Romana (T2)
 - **Prereq**: Code of Laws + Currency + 5 cities + at peace for 30+ turns
 - **Trigger check**: Python verifies `getNumWars() == 0` and peace duration
-- **Objective**: Build Courthouse in 3 cities
-- **Reward choices**: +1 happy from every Courthouse / +25% trade route yield / Free Forum-style +1 commerce modifier in capital
+- **Objective**: Sign Open Borders with 3 different civs (or complete 30 more turns of peace if isolated)
+- **Reward choices**: +25% trade route yield with Open Borders partners / +1 happy in all cities / Free Great Merchant
 - **Weight**: 180 / 25% of games
-- **Rationale**: Rewards peaceful builders; underrepresented playstyle in vanilla quests
+- **Rationale**: Rewards peaceful diplomatic builders; no courthouse overlap with Census Taker
 
 #### 51. Aqueduct Engineers (T1)
 - **Prereq**: Masonry + Pottery + at least one city size 8
@@ -476,11 +476,11 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 - **Rationale**: Strengthens religious-victory paths; underused Monastery building
 
 #### 55. Royal Falconry (T1)
-- **Prereq**: Feudalism + 2 Castles + capital adjacent to Forest
-- **Objective**: Build Castle in 2 more cities + keep one adjacent forest
-- **Reward choices**: +1 happy from Castles / Castles give +1 culture / Free Knight in capital
+- **Prereq**: Feudalism + capital adjacent to 3+ Forest tiles + Hunting tech
+- **Objective**: Keep at least 3 adjacent forests standing for 25 turns + build 1 Camp improvement
+- **Reward choices**: Forest tiles give +1 commerce in this city / Free Great General points / +1 happy from Forest Preserve when later available
 - **Weight**: 180 / 25% of games
-- **Rationale**: Adds character to Castles which are otherwise generic defensive buildings
+- **Rationale**: Forest-preservation theme, no castle overlap with Tournament Grounds
 
 #### 56. Spice Merchant (T2)
 - **Prereq**: Calendar + Spice OR Incense resource + Market built
@@ -491,20 +491,20 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 - **Rationale**: Calendar-era luxury quest; gold/health hybrid reward
 
 #### 57. Cathedral Choir (T1)
-- **Prereq**: Music + 2 Cathedrals of state religion
-- **Objective**: Build 1 more Cathedral
-- **Reward choices**: Free Great Artist / +1 culture per Cathedral / +50% culture in capital for 20 turns
+- **Prereq**: Music + at least 1 Cathedral of state religion + 1 Theatre
+- **Objective**: Build 2 more Theatres
+- **Reward choices**: Free Great Artist / +1 culture per Theatre / +50% culture in capital for 20 turns
 - **Weight**: 200 / 30% of games
-- **Rationale**: Music tech currently only triggers Great Artist; quest adds replay variety
+- **Rationale**: Music tech focus — shifted to Theatres so it doesn't overlap with Cathedral Builders
 
 ### RENAISSANCE ERA
 
 #### 58. Printing Press Boom (T1)
-- **Prereq**: Printing Press + 3 Libraries
-- **Objective**: Build Library in 2 more cities + 1 University
-- **Reward choices**: +1 science per Library empire-wide / Free Great Scientist / Free tech beaker (~400)
+- **Prereq**: Printing Press + at least 1 University already built
+- **Objective**: Build 2 more Universities (3 total)
+- **Reward choices**: +1 science per University empire-wide / Free Great Scientist / +25% science in capital for 15 turns
 - **Weight**: 230 / 40% of games
-- **Rationale**: Capitalizes on a tech that otherwise just unlocks the University
+- **Rationale**: Pure University focus (no library overlap); rewards Printing Press tech directly
 
 #### 59. Joint Stock Company (T2)
 - **Prereq**: Banking + Treasury ≥ 500 + 3 Markets
@@ -515,11 +515,11 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 - **Rationale**: Real-world economic milestone; sets up financial-victory path
 
 #### 60. Royal Navy (T1)
-- **Prereq**: Astronomy + 2 Galleons OR Frigates + at least 1 coastal city
-- **Objective**: Build 4 Frigates
-- **Reward choices**: All naval units +1 movement / Free Drydock in capital / Frigates start with Combat I
+- **Prereq**: Gunpowder + 2 Frigates + at least 2 coastal cities
+- **Objective**: Build 3 more Frigates
+- **Reward choices**: All naval units +1 movement / Frigates start with Combat I / Free Ship of the Line (or Frigate) in capital
 - **Weight**: 220 / 35% of games
-- **Rationale**: Fills naval quest gap between Warships (renaissance+) and modern era
+- **Rationale**: Shifted prereq later (Gunpowder vs Astronomy) so it doesn't overlap with Naval Drydocks; unit-focused not building-focused
 
 #### 61. Tulip Mania (T2)
 - **Prereq**: Economics + has at least one Luxury resource monopolized (no other civ owns it)
@@ -547,11 +547,11 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 - **Rationale**: Rewards humane industrialization; mitigates pollution penalty
 
 #### 64. Telegraph Network (T1)
-- **Prereq**: Electricity + 3 Universities
-- **Objective**: Build Broadcast Tower? No — too late. Instead: build University in 2 more cities
-- **Reward choices**: +25% science empire-wide for 15 turns / Free Great Scientist / +1 espionage per University
-- **Weight**: 210 / 35% of games
-- **Rationale**: Bridges Renaissance science quests into Modern era
+- **Prereq**: Electricity + 2 Observatories
+- **Objective**: Build Observatory in 2 more cities
+- **Reward choices**: +1 science per Observatory empire-wide / Free Great Scientist / +25% Great Person rate in Observatory cities for 20 turns
+- **Weight**: 200 / 35% of games
+- **Rationale**: Observatory-focused (distinct from University quests); Observatories rarely targeted by quests
 
 ### MODERN ERA
 
@@ -570,11 +570,11 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 ### ANCIENT ERA
 
 #### 66. Wheel of Fortune (T1)
-- **Prereq**: The Wheel + Horse resource + 3 roads built
-- **Objective**: Build Stable + 2 Chariots
-- **Reward choices**: Free Chariot in capital / +1 commerce on roads empire-wide / Free Great General points
-- **Weight**: 200 / 30% of games
-- **Rationale**: Combines wheel/horse/road into a single early-mobility quest
+- **Prereq**: The Wheel + 3 cities + 4 road tiles already built
+- **Objective**: Connect 2 of your cities by road within 10 turns
+- **Reward choices**: +1 commerce on all roads / Free Worker / +1 trade route in capital
+- **Weight**: 220 / 35% of games
+- **Rationale**: Early road/connectivity quest (no horse/chariot overlap with vanilla Horse Whispering, War Chariots, or batch-1 Road Network which is Construction-era)
 
 #### 67. Fishing Village (T1)
 - **Prereq**: Fishing + coastal capital + 2 worked seafood tiles
@@ -591,11 +591,11 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 - **Rationale**: Hunting tech is dead-end for many civs; quest gives it identity
 
 #### 69. Pottery Wheel (T1)
-- **Prereq**: Pottery + 3 Granaries
-- **Objective**: Build Granary in 2 more cities (5 total)
-- **Reward choices**: +1 food per Granary / Free Great Scientist points / Free Settler
+- **Prereq**: Pottery + 2 Cottages worked + capital size 4+
+- **Objective**: Build 4 more Cottages near the capital
+- **Reward choices**: +1 commerce per Cottage in this city / Free Great Merchant points / Cottages grow 50% faster for 20 turns
 - **Weight**: 240 / 40% of games
-- **Rationale**: Reinforces the food-stable early game; helps slow-starts
+- **Rationale**: Pottery has no Cottage-focused quest in vanilla; distinct from Bread Basket (granaries)
 
 ### CLASSICAL ERA
 
@@ -622,12 +622,12 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 - **Rationale**: Terrain-specific quest rewarding mountainous starts
 
 #### 73. Stoic Academy (T2)
-- **Prereq**: Philosophy + state religion + 2 Temples
-- **Trigger check**: Python verifies state religion present and counts temples
-- **Objective**: Build 1 more Temple + 1 Monastery (state religion)
-- **Reward choices**: +1 happy from every Temple / Free Great Prophet / +1 science per Monastery
+- **Prereq**: Philosophy + state religion + 3 Temples (any religion)
+- **Trigger check**: Python verifies state religion + temple count
+- **Objective**: Run 3 Priest specialists for 10 turns across your empire
+- **Reward choices**: +1 happy per Temple / Free Great Prophet / +1 culture per Priest specialist
 - **Weight**: 200 / 30% of games
-- **Rationale**: Philosophy tech otherwise just unlocks Pacifism civic + Taoism
+- **Rationale**: Specialist-economy quest; no monastery overlap with Pilgrim's Path
 
 ### MEDIEVAL ERA
 
@@ -727,17 +727,51 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 
 ---
 
-## Updated Implementation Priority Tiers
+---
 
-**Tier 1 — Pure XML (easiest, no Python needed)**:
-- Batch 1: Blood and Iron, Bread Basket, Iron Horse, Mass Production, Propaganda Machine, Cathedral Builders, Feudal Levy
-- Batch 2: Salt Caravan, Sacred Grove, Mason's Guild, Astronomers of the Plain, Aqueduct Engineers, Census Taker, Pilgrim's Path, Royal Falconry, Cathedral Choir, Printing Press Boom, Royal Navy, Locomotive Works, Telegraph Network
-- Batch 3: Wheel of Fortune, Fishing Village, Hunters' Lodge, Pottery Wheel, Wine Country, Mountain Pass, Tournament Grounds, Goldsmiths' Guild, Crusader's Return, Coffee Houses, Naval Drydocks, Whalers' Fleet, Coal Country, Highway System
+## Overlap Audit & Tweaks (2026-06-19)
 
-**Tier 2 — Simple Python callbacks (canTrigger + apply)**:
-- Batch 1: Gold Fever, Border Dispute, Famine, Road Network, Mercantilism, Oil Baron, Mercenary Companies
-- Batch 2: Pax Romana, Silk Road, Spice Merchant, Joint Stock Company, Tulip Mania, Worker Safety Acts, Atomic Age Anxiety
-- Batch 3: Great Library Race, Stoic Academy, Master Brewer, Liberalism's Children, Universal Schooling, Oil Pipeline
+After adding 65 new quests (45 + 20 + 20), audited Tier 1–2 pool for thematic/mechanical overlap. Identified 9 conflict groups and applied surgical tweaks to differentiate:
+
+| # | Conflict | Resolution |
+|---|----------|------------|
+| 1 | Bread Basket (#5) ↔ Pottery Wheel (#69) — both granaries | Pottery Wheel → Cottage focus |
+| 2 | Astronomers of the Plain (#49) ↔ Printing Press Boom (#58) ↔ Great Library Race (#71) — all libraries | Astronomers → Scientist specialists + Academy; Printing Press → Universities only |
+| 3 | Telegraph Network (#64) ↔ Universal Schooling (#83) ↔ Liberalism's Children (#81) — late universities | Telegraph Network → Observatories |
+| 4 | Pax Romana (#50) ↔ Census Taker (#53) — both courthouses | Pax Romana → Open Borders diplomacy |
+| 5 | Royal Falconry (#55) ↔ Tournament Grounds (#74) — both Feudalism + castles | Royal Falconry → Forest preservation |
+| 6 | Cathedral Choir (#57) ↔ Cathedral Builders (#9) — both cathedrals | Cathedral Choir → Theatres |
+| 7 | Pilgrim's Path (#54) ↔ Stoic Academy (#73) — both monasteries | Stoic Academy → Priest specialists |
+| 8 | Wheel of Fortune (#66) ↔ vanilla Horse Whispering / War Chariots | Wheel of Fortune → Road connectivity (no horses) |
+| 9 | Royal Navy (#60) ↔ Naval Drydocks (#79) — both Astronomy + Galleons | Royal Navy → Gunpowder + Frigate-build focus |
+
+**Acceptable parallel patterns (intentional variation):**
+- "Luxury resource + Market" quests across eras: Salt Caravan / Wine Country / Spice Merchant / Goldsmiths' Guild — same shape, different resources/eras, fine
+- "Build Factory" variants: Mass Production / Coal Country / Locomotive Works / Worker Safety Acts / Oil Pipeline — distinct angles (scale / resource-tied / connectivity / ethics / military)
+
+---
+
+## Quest Frequency Note
+
+Adding 65 new quests does NOT increase the rate at which events fire per turn. That rate is hard-coded in `CIV4EraInfos.xml` via `iEventChancePerTurn`:
+
+| Era | Per-turn event chance |
+|-----|----------------------|
+| Ancient | 1% |
+| Classical | 2% |
+| Medieval | 4% |
+| Renaissance | 4% |
+| Industrial | 6% |
+| Modern | 8% |
+| Future | 10% |
+
+When an event fires, the engine weighted-picks ONE eligible trigger from the active pool. So with a 4× larger pool:
+- **Same** number of events per game
+- **Greater variety** — players see different quests across playthroughs
+- Each individual quest fires **less often** (more competition in the weighted draw)
+- `iPercentGamesActive` further means only ~25–40% of the new pool is enabled in any single game (~16–25 active quests on top of vanilla's 18)
+
+If you want quests to fire more often after adding these, bump `iEventChancePerTurn` in `CIV4EraInfos.xml` (e.g. Ancient 1→2, Classical 2→3, etc.). Not recommended without playtesting — could become noisy.
 
 **Tier 3 — Complex Python (tracking state over turns)**:
 - Scorched Earth, Warlord's Challenge, Enlightenment, Deforestation, Workers' Revolt, Succession Crisis
@@ -755,3 +789,19 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 4. Add text keys
 5. Test gate validation
 6. Manual smoke test in-game
+
+---
+
+## Updated Implementation Priority Tiers
+
+**Tier 1 — Pure XML (easiest, no Python needed)** — 20 quests:
+- Batch 1: Blood and Iron, Bread Basket, Iron Horse, Mass Production, Propaganda Machine, Cathedral Builders, Feudal Levy
+- Batch 2: Salt Caravan, Sacred Grove, Mason's Guild, Astronomers of the Plain, Aqueduct Engineers, Census Taker, Pilgrim's Path, Royal Falconry, Cathedral Choir, Printing Press Boom, Royal Navy, Locomotive Works, Telegraph Network
+- Batch 3: Wheel of Fortune, Fishing Village, Hunters' Lodge, Pottery Wheel, Wine Country, Mountain Pass, Tournament Grounds, Goldsmiths' Guild, Crusader's Return, Coffee Houses, Naval Drydocks, Whalers' Fleet, Coal Country, Highway System
+
+**Tier 2 — Simple Python callbacks (canTrigger + apply)** — 14 quests:
+- Batch 1: Gold Fever, Border Dispute, Famine, Road Network, Mercantilism, Oil Baron, Mercenary Companies
+- Batch 2: Pax Romana, Silk Road, Spice Merchant, Joint Stock Company, Tulip Mania, Worker Safety Acts, Atomic Age Anxiety
+- Batch 3: Great Library Race, Stoic Academy, Master Brewer, Liberalism's Children, Universal Schooling, Oil Pipeline
+
+**Total Tier 1+2 pool: 34 quests** (post-overlap audit)
