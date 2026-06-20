@@ -4120,3 +4120,217 @@ def canTriggerImpeachmentCity(argsList):
 		return true
 	return false
 
+
+
+# ==== DowagerMod Tier 2 batch 3a quests ====
+
+######## GOLD FEVER ###########
+
+def getHelpGoldFever1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_GOLD_FEVER_QUEST", ())
+
+def canTriggerGoldFever(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iMine = CvUtil.findInfoTypeNum(gc.getImprovementInfo, gc.getNumImprovementInfos(), 'IMPROVEMENT_MINE')
+	iGold = CvUtil.findInfoTypeNum(gc.getBonusInfo, gc.getNumBonusInfos(), 'BONUS_GOLD')
+	iSilver = CvUtil.findInfoTypeNum(gc.getBonusInfo, gc.getNumBonusInfos(), 'BONUS_SILVER')
+	iGems = CvUtil.findInfoTypeNum(gc.getBonusInfo, gc.getNumBonusInfos(), 'BONUS_GEMS')
+	iTeam = player.getTeam()
+	(loopCity, iter) = player.firstCity(false)
+	while loopCity:
+		for iPlot in range(loopCity.getNumCityPlots()):
+			pPlot = loopCity.getCityIndexPlot(iPlot)
+			if pPlot is None or pPlot.isNone():
+				continue
+			if pPlot.getOwner() != kTriggeredData.ePlayer:
+				continue
+			if pPlot.getImprovementType() != iMine:
+				continue
+			iBonus = pPlot.getBonusType(iTeam)
+			if iBonus == iGold or iBonus == iSilver or iBonus == iGems:
+				return true
+		(loopCity, iter) = player.nextCity(iter, false)
+	return false
+
+def applyEventGoldFeverDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHappiness(1)
+	return 1
+
+######## BORDER DISPUTE ###########
+
+def getHelpBorderDispute1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_BORDER_DISPUTE_QUEST", ())
+
+def canTriggerBorderDispute(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	team = gc.getTeam(player.getTeam())
+	iKnown = 0
+	iSharedBorder = 0
+	bAnyWar = false
+	for iTeam in range(gc.getMAX_CIV_TEAMS()):
+		if iTeam == player.getTeam():
+			continue
+		otherTeam = gc.getTeam(iTeam)
+		if not otherTeam.isAlive():
+			continue
+		if team.isHasMet(iTeam):
+			iKnown += 1
+			if team.isAtWar(iTeam):
+				bAnyWar = true
+	if iKnown < 2:
+		return false
+	if bAnyWar:
+		return false
+	return true
+
+def applyEventBorderDisputeDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHappiness(1)
+	return 1
+
+######## GREAT FAMINE ###########
+
+def getHelpGreatFamine1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_GREAT_FAMINE_QUEST", ())
+
+def canTriggerGreatFamine(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	(loopCity, iter) = player.firstCity(false)
+	while loopCity:
+		iBad = loopCity.badHealth(false)
+		iGood = loopCity.goodHealth()
+		if (iBad - iGood) >= 2:
+			return true
+		(loopCity, iter) = player.nextCity(iter, false)
+	return false
+
+def applyEventGreatFamineDone1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHealth(2)
+	return 1
+
+def applyEventGreatFamineDone3(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeFood(30)
+	return 1
+
+######## ROAD NETWORK ###########
+
+def getHelpRoadNetwork1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_ROAD_NETWORK_QUEST", ())
+
+def canTriggerRoadNetwork(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	if player.getNumCities() < 5:
+		return false
+	iTeam = player.getTeam()
+	iRoadCount = 0
+	map = gc.getMap()
+	for i in range(map.numPlots()):
+		pPlot = map.plotByIndex(i)
+		if pPlot.getOwner() != kTriggeredData.ePlayer:
+			continue
+		if pPlot.getRouteType() != -1:
+			iRoadCount += 1
+			if iRoadCount >= 1:
+				return true
+	return false
+
+######## MERCANTILISM ###########
+
+def getHelpMercantilism1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_MERCANTILISM_QUEST", ())
+
+def canTriggerMercantilism(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iCivicOption = CivicOptionTypes.CIVICOPTION_ECONOMY
+	iMercantilism = gc.getInfoTypeForString("CIVIC_MERCANTILISM")
+	if player.getCivics(iCivicOption) != iMercantilism:
+		return false
+	return true
+
+######## PAX ROMANA ###########
+
+def getHelpPaxRomana1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_PAX_ROMANA_QUEST", ())
+
+def canTriggerPaxRomana(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	team = gc.getTeam(player.getTeam())
+	if team.getAtWarCount(false) != 0:
+		return false
+	if gc.getGame().getGameTurn() < 30:
+		return false
+	if player.getNumCities() < 5:
+		return false
+	return true
+
+def applyEventPaxRomanaDone2(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is not None and not capital.isNone():
+		capital.changeExtraHappiness(2)
+	return 1
+
+######## SILK ROAD ###########
+
+def getHelpSilkRoad1(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	return localText.getText("TXT_KEY_EVENT_SILK_ROAD_QUEST", ())
+
+def canTriggerSilkRoad(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	team = gc.getTeam(player.getTeam())
+	if player.getNumCities() < 4:
+		return false
+	iOpenBordersCount = 0
+	for iTeam in range(gc.getMAX_CIV_TEAMS()):
+		if iTeam == player.getTeam():
+			continue
+		otherTeam = gc.getTeam(iTeam)
+		if not otherTeam.isAlive():
+			continue
+		if team.isOpenBorders(iTeam):
+			iOpenBordersCount += 1
+	if iOpenBordersCount < 2:
+		return false
+	return true

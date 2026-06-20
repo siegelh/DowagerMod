@@ -8316,4 +8316,341 @@
 		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_3_HELP</Tag>
 		<English>Your capital gains [COLOR_POSITIVE_TEXT]250 culture[COLOR_REVERT].</English>
 	</TEXT>
+	<!-- DowagerMod Tier 2 batch 3a quests -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_GOLD_FEVER_1</Tag>
+		<English>Word of glittering veins beneath your hills sends prospectors scrambling. Sink three Mines into your own soil to ride the fever.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_GOLD_FEVER_DONE</Tag>
+		<English>%s1_CivAdjective have struck it rich, taming the gold fever.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_GOLD_FEVER_DONE_1</Tag>
+		<English>Pickaxes ring in the hills. The motherlode is yours - how shall the windfall be spent?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLD_FEVER_1</Tag>
+		<English>Gold Fever</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLD_FEVER_QUEST</Tag>
+		<English>Build 3 Mines on your own territory to complete the Gold Fever quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_GOLD_FEVER</Tag>
+		<English>The seams run dry. The Gold Fever quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_1</Tag>
+		<English>Pour the bullion into the treasury.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_2</Tag>
+		<English>Court a merchant prince.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_3</Tag>
+		<English>Throw a festival in the capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BORDER_DISPUTE_1</Tag>
+		<English>A neighbour's banners crowd the frontier. Raise Walls in two cities to make plain that the line will hold.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_BORDER_DISPUTE_DONE</Tag>
+		<English>%s1_CivAdjective have settled the border dispute on their own terms.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BORDER_DISPUTE_DONE_1</Tag>
+		<English>The walls stand. The frontier holds. How shall the realm follow through?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_1</Tag>
+		<English>Border Dispute</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_QUEST</Tag>
+		<English>Build Walls in 2 cities to complete the Border Dispute quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_BORDER_DISPUTE</Tag>
+		<English>The frontier collapses into rumour and raid. The Border Dispute quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_1</Tag>
+		<English>Crown the frontier with celebration.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_2</Tag>
+		<English>Dispatch a spy across the line.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_2_HELP</Tag>
+		<English>You gain [COLOR_POSITIVE_TEXT]a free Great Spy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_3</Tag>
+		<English>Tax the marches.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_3_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_GREAT_FAMINE_1</Tag>
+		<English>Hunger gnaws at your cities. Raise Granaries in two more cities (three in all) before the lean season returns.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_GREAT_FAMINE_DONE</Tag>
+		<English>%s1_CivAdjective have weathered the famine and stocked the granaries full.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_GREAT_FAMINE_DONE_1</Tag>
+		<English>Bread is on every table once more. How shall the realm honour the harvest?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_1</Tag>
+		<English>Famine</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_QUEST</Tag>
+		<English>Build a Granary in 2 more cities (3 total) to complete the Famine quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_GREAT_FAMINE</Tag>
+		<English>The granaries stand empty. The Famine quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_1</Tag>
+		<English>Drain the swamps around the capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 [ICON_HEALTHY] health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_2</Tag>
+		<English>Reward the grain merchants.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_3</Tag>
+		<English>Stockpile the capital's stores.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]30 [ICON_FOOD] food[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_ROAD_NETWORK_1</Tag>
+		<English>The realm is wide and the roads are few. Field four Workers and let the highways stitch your provinces together.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_ROAD_NETWORK_DONE</Tag>
+		<English>%s1_CivAdjective have woven a road network across their realm.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_ROAD_NETWORK_DONE_1</Tag>
+		<English>Couriers ride from end to end of the realm in days, not weeks. How shall the gains be spent?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_1</Tag>
+		<English>Road Network</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_QUEST</Tag>
+		<English>Field 4 Workers to complete the Road Network quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_ROAD_NETWORK</Tag>
+		<English>Weeds choke the king's roads. The Road Network quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_1</Tag>
+		<English>Toll the highways.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_2</Tag>
+		<English>Found a great trading house.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_3</Tag>
+		<English>Levy another road crew.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_3_HELP</Tag>
+		<English>You gain [COLOR_POSITIVE_TEXT]a free Worker[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MERCANTILISM_1</Tag>
+		<English>The guilds whisper of new ledgers. Raise Banks in three cities to make the realm's coin truly your own.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_MERCANTILISM_DONE</Tag>
+		<English>%s1_CivAdjective have perfected the mercantile arts.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MERCANTILISM_DONE_1</Tag>
+		<English>Coin and credit flow as you command them. How shall the new wealth be invested?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MERCANTILISM_1</Tag>
+		<English>Mercantilism</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MERCANTILISM_QUEST</Tag>
+		<English>Build a Bank in 3 cities to complete the Mercantilism quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_MERCANTILISM</Tag>
+		<English>The ledgers fall to dust. The Mercantilism quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_1</Tag>
+		<English>Anoint a master of coin.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_2</Tag>
+		<English>Charter the banks empire-wide.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_2_HELP</Tag>
+		<English>Every Bank in your empire yields [COLOR_POSITIVE_TEXT]+2 [ICON_GOLD] gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_3</Tag>
+		<English>Levy a one-time tax.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_3_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_PAX_ROMANA_1</Tag>
+		<English>Your realm is at peace and the markets stir. Raise Markets in two more cities and the peace dividend shall pour into your coffers.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_PAX_ROMANA_DONE</Tag>
+		<English>%s1_CivAdjective have ushered in a great peace.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_PAX_ROMANA_DONE_1</Tag>
+		<English>Caravans roll unmolested from one end of the realm to the other. How shall the long peace be honoured?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PAX_ROMANA_1</Tag>
+		<English>Pax Romana</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PAX_ROMANA_QUEST</Tag>
+		<English>Build a Market in 2 more cities to complete the Pax Romana quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_PAX_ROMANA</Tag>
+		<English>War has broken the long peace. The Pax Romana quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_1</Tag>
+		<English>Distribute the peace dividend.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_2</Tag>
+		<English>Hold games in the capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 [ICON_HAPPY] happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_3</Tag>
+		<English>Reward a great trader.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SILK_ROAD_1</Tag>
+		<English>Caravans from distant courts press at your gates. Raise Markets in three more cities to grasp the silk trade.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_SILK_ROAD_DONE</Tag>
+		<English>%s1_CivAdjective have opened the great silk road.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SILK_ROAD_DONE_1</Tag>
+		<English>Caravans loaded with silk and spice arrive at every gate. How shall the windfall be steered?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SILK_ROAD_1</Tag>
+		<English>Silk Road</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SILK_ROAD_QUEST</Tag>
+		<English>Build a Market in 3 more cities to complete the Silk Road quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_SILK_ROAD</Tag>
+		<English>The caravans turn aside. The Silk Road quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_1</Tag>
+		<English>Tax the caravans.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_2</Tag>
+		<English>Endow a merchant prince.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_2_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 gold[COLOR_REVERT] and your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_3</Tag>
+		<English>Anoint a master trader.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
 </Civ4GameText>
