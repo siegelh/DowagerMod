@@ -17451,7 +17451,7 @@
 			<iUnitDistanceWeight>0</iUnitDistanceWeight>
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
-			<BuildingsRequired><BuildingClass>BUILDINGCLASS_MONUMENT</BuildingClass></BuildingsRequired>
+			<BuildingsRequired><BuildingClass>BUILDINGCLASS_OBELISK</BuildingClass></BuildingsRequired>
 			<iNumBuildings>1</iNumBuildings>
 			<iNumBuildingsGlobal>0</iNumBuildingsGlobal>
 			<iNumPlotsRequired>2</iNumPlotsRequired>
@@ -17764,7 +17764,7 @@
 			<FeaturesRequired/>
 			<TerrainsRequired/>
 			<ImprovementsRequired/>
-			<BonusesRequired><BonusType>BONUS_SALT</BonusType></BonusesRequired>
+			<BonusesRequired><BonusType>BONUS_INCENSE</BonusType></BonusesRequired>
 			<RoutesRequired/>
 			<ReligionsRequired/>
 			<iNumReligions>0</iNumReligions>
@@ -17840,7 +17840,7 @@
 			<FeaturesRequired/>
 			<TerrainsRequired/>
 			<ImprovementsRequired/>
-			<BonusesRequired><BonusType>BONUS_SALT</BonusType></BonusesRequired>
+			<BonusesRequired><BonusType>BONUS_INCENSE</BonusType></BonusesRequired>
 			<RoutesRequired/>
 			<ReligionsRequired/>
 			<iNumReligions>0</iNumReligions>
@@ -19428,7 +19428,7 @@
 			<iUnitDistanceWeight>0</iUnitDistanceWeight>
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
-			<BuildingsRequired><BuildingClass>BUILDINGCLASS_TEMPLE</BuildingClass></BuildingsRequired>
+			<BuildingsRequired><BuildingClass>BUILDINGCLASS_OBELISK</BuildingClass></BuildingsRequired>
 			<iNumBuildings>4</iNumBuildings>
 			<iNumBuildingsGlobal>0</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
@@ -19504,7 +19504,7 @@
 			<iUnitDistanceWeight>0</iUnitDistanceWeight>
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
-			<BuildingsRequired><BuildingClass>BUILDINGCLASS_CATHEDRAL</BuildingClass></BuildingsRequired>
+			<BuildingsRequired><BuildingClass>BUILDINGCLASS_THEATRE</BuildingClass></BuildingsRequired>
 			<iNumBuildings>4</iNumBuildings>
 			<iNumBuildingsGlobal>0</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
@@ -19649,7 +19649,7 @@
 			<MinDifficulty>NONE</MinDifficulty>
 			<iAngry>0</iAngry>
 			<iUnhealthy>0</iUnhealthy>
-			<UnitsRequired><UnitClass>UNITCLASS_AXEMAN</UnitClass><UnitClass>UNITCLASS_SWORDMAN</UnitClass><UnitClass>UNITCLASS_PIKEMAN</UnitClass><UnitClass>UNITCLASS_HORSE_ARCHER</UnitClass><UnitClass>UNITCLASS_LONGBOWMAN</UnitClass><UnitClass>UNITCLASS_MACEMAN</UnitClass></UnitsRequired>
+			<UnitsRequired><UnitClass>UNITCLASS_AXEMAN</UnitClass><UnitClass>UNITCLASS_SWORDSMAN</UnitClass><UnitClass>UNITCLASS_PIKEMAN</UnitClass><UnitClass>UNITCLASS_HORSE_ARCHER</UnitClass><UnitClass>UNITCLASS_LONGBOWMAN</UnitClass><UnitClass>UNITCLASS_MACEMAN</UnitClass></UnitsRequired>
 			<iNumUnits>8</iNumUnits>
 			<iNumUnitsGlobal>0</iNumUnitsGlobal>
 			<iUnitDamagedWeight>0</iUnitDamagedWeight>
@@ -19732,7 +19732,7 @@
 			<iUnitDistanceWeight>0</iUnitDistanceWeight>
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
-			<BuildingsRequired><BuildingClass>BUILDINGCLASS_MONASTERY</BuildingClass></BuildingsRequired>
+			<BuildingsRequired><BuildingClass>BUILDINGCLASS_LIBRARY</BuildingClass></BuildingsRequired>
 			<iNumBuildings>2</iNumBuildings>
 			<iNumBuildingsGlobal>0</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
@@ -19808,7 +19808,7 @@
 			<iUnitDistanceWeight>0</iUnitDistanceWeight>
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
-			<BuildingsRequired><BuildingClass>BUILDINGCLASS_MONASTERY</BuildingClass></BuildingsRequired>
+			<BuildingsRequired><BuildingClass>BUILDINGCLASS_LIBRARY</BuildingClass></BuildingsRequired>
 			<iNumBuildings>3</iNumBuildings>
 			<iNumBuildingsGlobal>0</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>

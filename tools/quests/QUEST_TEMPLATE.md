@@ -242,8 +242,24 @@ def expire<Name>1(argsList):
 After authoring a quest, run from the worktree root:
 ```powershell
 python tools\quests\validate_quest_chains.py
+python tools\quests\validate_quest_type_refs.py
 python tools\quests\smoke_quest_callbacks.py
 .\tools\test_gate.ps1
 ```
 
-All three must pass before committing.
+All four must pass before committing.
+
+**The `validate_quest_type_refs.py` check is critical** — it catches the most common authoring bug: referencing a TYPE that looks plausible (e.g. `BUILDINGCLASS_TEMPLE`, `BONUS_SALT`, `UNITCLASS_GREAT_PROPHET`) but doesn't exist in vanilla BtS XML. `test_gate.ps1` does NOT catch these because the schema only checks structure, not value. The game catches them at load time with errors like "Tag: X in Info class was incorrect" — by then the mod won't load.
+
+### Common naming gotchas
+
+| Wrong | Right |
+|-------|-------|
+| `UNITCLASS_GREAT_PROPHET` / `_MERCHANT` / `_ARTIST` etc. | `UNITCLASS_PROPHET` / `_MERCHANT` / `_ARTIST` (no `GREAT_`). Only `UNITCLASS_GREAT_GENERAL` and `UNITCLASS_GREAT_SPY` use the prefix. |
+| `UNITCLASS_WORK_BOAT` | `UNITCLASS_WORKBOAT` (no underscore) |
+| `UNITCLASS_SWORDMAN` | `UNITCLASS_SWORDSMAN` |
+| `BUILDINGCLASS_MONUMENT` | `BUILDINGCLASS_OBELISK` |
+| `BUILDINGCLASS_TEMPLE` / `_MONASTERY` / `_CATHEDRAL` | These don't exist generically. Either use a per-religion class (`BUILDINGCLASS_CHRISTIAN_TEMPLE` etc.) or use `<bStateReligion>1</bStateReligion>` with empty `<BuildingsRequired/>` |
+| `BONUS_SALT` | Doesn't exist in vanilla BtS. Use `BONUS_INCENSE` or similar luxury. |
+
+When grants free Great People as a reward, use `<FreeSpecialistCounts>` with `SPECIALIST_GREAT_PRIEST` / `_MERCHANT` / `_ARTIST` / `_SCIENTIST` / `_ENGINEER` / `_GENERAL` / `_SPY` — these settle the GP as a permanent specialist. The `SPECIALIST_GREAT_*` form exists; the `UNITCLASS_GREAT_*` form mostly does not.

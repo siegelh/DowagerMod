@@ -29015,7 +29015,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PROPHET</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PRIEST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -33309,7 +33309,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PROPHET</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PRIEST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -33795,7 +33795,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PROPHET</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PRIEST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -35577,7 +35577,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PROPHET</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PRIEST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
