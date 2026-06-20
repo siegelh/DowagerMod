@@ -970,9 +970,11 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
                     voice=voice, rate=rate, pitch=pitch,
                     post_process=post_process, tts_provider=tts_provider,
                 )
+                # Default to "dowager" key when no leader specified but local requested
+                lk = normalize_name(leader_name) if leader_name else "dowager"
                 dispatch = tts_dispatcher.synthesize(
                     text=text, spec=synth_spec,
-                    leader_key=normalize_name(leader_name),
+                    leader_key=lk,
                     leader_name=leader_name or author_name,
                     locale_override="",
                 )
