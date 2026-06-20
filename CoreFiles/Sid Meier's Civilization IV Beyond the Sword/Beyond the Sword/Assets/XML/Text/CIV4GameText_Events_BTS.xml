@@ -6779,4 +6779,628 @@
 		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_3_HELP</Tag>
 		<English>Receive [COLOR_POSITIVE_TEXT]2 free Axemen[COLOR_REVERT] in your capital.</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SACRED_GROVE_1</Tag>
+		<English>The druids speak of an ancient grove whose trees remember our forefathers. If we keep its forests intact for twenty turns, the spirits will bless our people.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_SACRED_GROVE_DONE</Tag>
+		<English>%s1_CivAdjective has consecrated the Sacred Grove.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SACRED_GROVE_DONE_1</Tag>
+		<English>The grove has stood untouched for a generation. The spirits offer their blessing. How shall we honor them?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SACRED_GROVE_1</Tag>
+		<English>Sacred Grove</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SACRED_GROVE_QUEST</Tag>
+		<English>Preserve the forests around your capital for twenty turns to complete the Sacred Grove quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_SACRED_GROVE</Tag>
+		<English>The grove has been felled. The spirits are silent. The Sacred Grove quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_1</Tag>
+		<English>Let the groves remain holy. (Receive culture and lasting joy in this city.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_1_HELP</Tag>
+		<English>Your capital receives [COLOR_POSITIVE_TEXT]+80 culture[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_2</Tag>
+		<English>Send pilgrims to learn from the spirits. (Free Great Prophet in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Prophet[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_3</Tag>
+		<English>Build a shrine among the trees. (+1 happy and +1 health in this city.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MASONS_GUILD_1</Tag>
+		<English>The stonecutters have organized themselves into a proud guild. They petition us to commission great works of masonry. Build Walls in three cities and they will return the favor.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_MASONS_GUILD_DONE</Tag>
+		<English>%s1_CivAdjective has founded a great Masons' Guild.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MASONS_GUILD_DONE_1</Tag>
+		<English>Walls now rise in three of our cities. The masons present themselves to our court. How shall we put their craft to use?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASONS_GUILD_1</Tag>
+		<English>Mason's Guild</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASONS_GUILD_QUEST</Tag>
+		<English>Build Walls in three of your cities to complete the Mason's Guild quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_MASONS_GUILD</Tag>
+		<English>The masons have wandered abroad. The Mason's Guild quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_1</Tag>
+		<English>Set them to work on a great wonder. (Free Great Engineer in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT] to hurry wonders.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_2</Tag>
+		<English>Fund a workshop in the capital. (Free Great Engineer plus 100 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]100 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_3</Tag>
+		<English>Let the masons carve civic monuments. (+100 culture and +1 happy in this city.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+100 culture[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SALT_CARAVAN_1</Tag>
+		<English>A caravan of salt traders has arrived seeking patronage. If we build a Market in our salt-producing city, they will make our name known across the trade routes.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_SALT_CARAVAN_DONE</Tag>
+		<English>%s1_CivAdjective has founded the great Salt Caravan.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_SALT_CARAVAN_DONE_1</Tag>
+		<English>The Market is open and the caravans flow freely. Our salt merchants offer us a share of their profits. How shall we use it?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_1</Tag>
+		<English>Salt Caravan</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_QUEST</Tag>
+		<English>Build a Market in your Salt-producing city to complete the Salt Caravan quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_SALT_CARAVAN</Tag>
+		<English>The caravan has moved on to richer lands. The Salt Caravan quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_1</Tag>
+		<English>Tax the caravan's profits. (Receive 150 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]150 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_2</Tag>
+		<English>Bind the merchants to our court. (Free Great Merchant in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_3</Tag>
+		<English>Spice the people's table. (+1 happy in this city and 80 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]80 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_HUNTERS_LODGE_1</Tag>
+		<English>Our hunters have built a fine lodge in the wilds. They ask that we raise Barracks in two cities so their sons may train as scouts and archers.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_HUNTERS_LODGE_DONE</Tag>
+		<English>%s1_CivAdjective has founded a great Hunters' Lodge.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_HUNTERS_LODGE_DONE_1</Tag>
+		<English>Two Barracks now stand ready, and the lodge masters present their gifts. How shall we reward our hunters?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_1</Tag>
+		<English>Hunters' Lodge</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_QUEST</Tag>
+		<English>Build Barracks in two cities to complete the Hunters' Lodge quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_HUNTERS_LODGE</Tag>
+		<English>The hunters have abandoned their lodge. The Hunters' Lodge quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_1</Tag>
+		<English>Stock the city's larders. (Capital gains stored food and +1 health.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+20 stored food[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_2</Tag>
+		<English>Let the people feast on game and wear fine furs. (+1 happy in this city.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_3</Tag>
+		<English>Conscript the best hunters as archers. (Free Archer in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Archer[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_FISHING_VILLAGE_1</Tag>
+		<English>Our fisherfolk speak of bountiful waters. If we raise a Lighthouse to guide them home, they will share their catch with the whole city.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_FISHING_VILLAGE_DONE</Tag>
+		<English>%s1_CivAdjective has founded a thriving Fishing Village.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_FISHING_VILLAGE_DONE_1</Tag>
+		<English>The Lighthouse burns bright, and the boats return laden with the sea's bounty. How shall we share their good fortune?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_1</Tag>
+		<English>Fishing Village</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_QUEST</Tag>
+		<English>Build a Lighthouse in your coastal capital to complete the Fishing Village quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_FISHING_VILLAGE</Tag>
+		<English>The boats have rotted at their moorings. The Fishing Village quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_1</Tag>
+		<English>Fill the city's nets and granaries. (Capital gains stored food and health.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+25 stored food[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_2</Tag>
+		<English>Commission a new fishing fleet. (Free Work Boat.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Work Boat[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_3</Tag>
+		<English>Send the catch to distant markets. (Free Great Merchant in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_POTTERY_WHEEL_1</Tag>
+		<English>Our potters have invented a wheel that quickens their craft. With more Cottages around our capital, this little revolution will spread far. Plant four more Cottages near the capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_POTTERY_WHEEL_DONE</Tag>
+		<English>%s1_CivAdjective has spread the Pottery Wheel throughout the land.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_POTTERY_WHEEL_DONE_1</Tag>
+		<English>Cottages now dot the countryside around our capital. The potters offer their wares for our pleasure. How shall we put them to use?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_1</Tag>
+		<English>Pottery Wheel</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_QUEST</Tag>
+		<English>Build four more Cottages near your capital to complete the Pottery Wheel quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_POTTERY_WHEEL</Tag>
+		<English>The wheel has gone silent. The Pottery Wheel quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_1</Tag>
+		<English>Tax the cottage trade. (Capital gains gold and culture.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]120 gold[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+40 culture[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_2</Tag>
+		<English>Send our finest pots to foreign markets. (Free Great Merchant.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_3</Tag>
+		<English>Bankroll the potters' guild. (Free Great Merchant and 80 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]80 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WHEEL_OF_FORTUNE_1</Tag>
+		<English>Our wainwrights demand finer roads. Build more roadways across our lands and the wheels of commerce will sing.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_WHEEL_OF_FORTUNE_DONE</Tag>
+		<English>%s1_CivAdjective has bound the realm with roads.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WHEEL_OF_FORTUNE_DONE_1</Tag>
+		<English>The new roads ring with traffic. Trade thrives where wagons may pass. How shall we capitalize on this prosperity?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_1</Tag>
+		<English>Wheel of Fortune</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_QUEST</Tag>
+		<English>Build at least eight road tiles within your borders to complete the Wheel of Fortune quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_WHEEL_OF_FORTUNE</Tag>
+		<English>The roads lie unused and overgrown. The Wheel of Fortune quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_1</Tag>
+		<English>Tax the wagoners. (Capital gains gold and culture.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]140 gold[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+30 culture[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_2</Tag>
+		<English>Send forth a new road-crew. (Free Worker.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Worker[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_3</Tag>
+		<English>Sponsor a great trading house. (Free Great Merchant.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BREAD_BASKET_1</Tag>
+		<English>Our farmers boast of overflowing granaries. If we raise a Granary in every city, the realm will never want for bread again.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_BREAD_BASKET_DONE</Tag>
+		<English>%s1_CivAdjective has become a Bread Basket of the world.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BREAD_BASKET_DONE_1</Tag>
+		<English>Granaries gleam in five cities. The harvest is secure and the people sing. How shall we reward the farmers?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BREAD_BASKET_1</Tag>
+		<English>Bread Basket</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BREAD_BASKET_QUEST</Tag>
+		<English>Build a Granary in at least five of your cities to complete the Bread Basket quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_BREAD_BASKET</Tag>
+		<English>The harvest has failed. The Bread Basket quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_1</Tag>
+		<English>Lay in a great store of grain. (Capital gains stored food and health.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+30 stored food[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_2</Tag>
+		<English>Pipe water to the millers. (Free Aqueduct in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Aqueduct[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_3</Tag>
+		<English>Encourage the people to raise families. (Capital grows by 2 population.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 population[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_ASTRONOMERS_OF_THE_PLAIN_1</Tag>
+		<English>Our learned men charted the heavens last night. They beg us to support their work with three Libraries and rooms for their scholars.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_ASTRONOMERS_OF_THE_PLAIN_DONE</Tag>
+		<English>%s1_CivAdjective has gathered the great Astronomers of the Plain.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_ASTRONOMERS_OF_THE_PLAIN_DONE_1</Tag>
+		<English>The scholars gather to share their findings. Their patrons in the libraries await our decision. How shall we reward them?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_1</Tag>
+		<English>Astronomers of the Plain</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_QUEST</Tag>
+		<English>Have at least three Libraries in your empire to complete the Astronomers of the Plain quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_ASTRONOMERS_OF_THE_PLAIN</Tag>
+		<English>The scholars have scattered. The Astronomers of the Plain quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_1</Tag>
+		<English>Found an academy! (Free Great Scientist in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Scientist[COLOR_REVERT] who may settle as an Academy.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_2</Tag>
+		<English>Publish their treatises. (Capital gains culture and gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+100 culture[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]80 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_3</Tag>
+		<English>Endow a chair of natural philosophy. (Free Great Scientist plus culture.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Scientist[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+50 culture[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_AQUEDUCT_ENGINEERS_1</Tag>
+		<English>Our engineers have mastered the art of stone channels and clay pipes. If we raise Aqueducts in three cities, the realm will know clean water.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_AQUEDUCT_ENGINEERS_DONE</Tag>
+		<English>%s1_CivAdjective has formed a great guild of Aqueduct Engineers.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_AQUEDUCT_ENGINEERS_DONE_1</Tag>
+		<English>Aqueducts flow into three cities. The engineers present their plans. How shall we reward their craft?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_1</Tag>
+		<English>Aqueduct Engineers</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_QUEST</Tag>
+		<English>Build Aqueducts in three of your cities to complete the Aqueduct Engineers quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_AQUEDUCT_ENGINEERS</Tag>
+		<English>The aqueducts have crumbled. The Aqueduct Engineers quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_1</Tag>
+		<English>Let the people drink deep. (+2 health in this city.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_2</Tag>
+		<English>Set them to a hanging garden. (Free Great Engineer in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT] to hurry wonders.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_3</Tag>
+		<English>Irrigate the city's fields. (Capital gains stored food.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+25 stored food[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CENSUS_TAKER_1</Tag>
+		<English>Our magistrates have begun a great census of the realm. With Courthouses in four more cities, our records will be the marvel of the world.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_CENSUS_TAKER_DONE</Tag>
+		<English>%s1_CivAdjective has completed the great Census.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CENSUS_TAKER_DONE_1</Tag>
+		<English>The census is complete and the magistrates kneel before us. How shall we put our newfound knowledge to use?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_1</Tag>
+		<English>Census Taker</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_QUEST</Tag>
+		<English>Build Courthouses in at least five of your cities to complete the Census Taker quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_CENSUS_TAKER</Tag>
+		<English>The records have been lost. The Census Taker quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_1</Tag>
+		<English>Audit the treasury. (Receive 200 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_2</Tag>
+		<English>Recruit a master of secrets. (Free Spy in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Spy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_3</Tag>
+		<English>Bribe the foreign clerks. (100 gold and 50 espionage points.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_3_HELP</Tag>
+		<English>You gain [COLOR_POSITIVE_TEXT]100 gold[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+50 espionage points[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MOUNTAIN_PASS_1</Tag>
+		<English>Our scouts have charted a pass through the highlands. If we fortify the road with a Fort, none shall threaten the route.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_MOUNTAIN_PASS_DONE</Tag>
+		<English>%s1_CivAdjective has secured the great Mountain Pass.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MOUNTAIN_PASS_DONE_1</Tag>
+		<English>The Fort overlooks the pass and our engineers stand at attention. How shall we make the most of this stronghold?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_1</Tag>
+		<English>Mountain Pass</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_QUEST</Tag>
+		<English>Build a Fort on a hill in your territory to complete the Mountain Pass quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_MOUNTAIN_PASS</Tag>
+		<English>The pass has been overrun. The Mountain Pass quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_1</Tag>
+		<English>Make the highlands a proud frontier. (Capital gains culture and happiness.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+60 culture[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_2</Tag>
+		<English>Open the pass to merchants. (Capital gains gold and health.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]100 gold[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_3</Tag>
+		<English>Garrison the Fort with siege engines. (Free Catapult.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Catapult[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WINE_COUNTRY_1</Tag>
+		<English>Our vintners have produced a vintage worthy of kings. Build a Market in the Wine city and we shall toast the realm's prosperity.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_WINE_COUNTRY_DONE</Tag>
+		<English>%s1_CivAdjective has founded a renowned Wine Country.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WINE_COUNTRY_DONE_1</Tag>
+		<English>The Market is awash in casks of wine and the merchants stand ready. How shall we share the bounty?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_1</Tag>
+		<English>Wine Country</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_QUEST</Tag>
+		<English>Build a Market in your Wine-producing city to complete the Wine Country quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_WINE_COUNTRY</Tag>
+		<English>The vines have withered. The Wine Country quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_1</Tag>
+		<English>Tax the vintage. (Receive 160 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]160 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_2</Tag>
+		<English>Pour wine for the people. (+1 happy in this city.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_3</Tag>
+		<English>Toast a great merchant of wine. (Free Great Merchant in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
 </Civ4GameText>
