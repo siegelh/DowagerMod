@@ -28053,6 +28053,14 @@
           <BuildingType>BUILDING_SCOTLAND_YARD</BuildingType>
           <bBuilding>1</bBuilding>
         </Building>
+        <Building>
+          <BuildingType>BUILDING_LUBYANKA</BuildingType>
+          <bBuilding>1</bBuilding>
+        </Building>
+        <Building>
+          <BuildingType>BUILDING_BRITISH_MI6</BuildingType>
+          <bBuilding>1</bBuilding>
+        </Building>
       </Buildings>
       <ForceBuildings />
       <HolyCity>NONE</HolyCity>
