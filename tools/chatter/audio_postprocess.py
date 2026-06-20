@@ -17,9 +17,13 @@ and logs the failure -- voice still works, just without aging.
 from __future__ import annotations
 
 import logging
+import os
 import shutil
 import subprocess
 from typing import Optional
+
+# Suppress console window popup on Windows when spawning ffmpeg
+_CREATE_NO_WINDOW = 0x08000000 if os.name == "nt" else 0
 
 
 # Source sample rate Azure returns for our DEFAULT_OUTPUT_FORMAT
@@ -79,6 +83,7 @@ def normalize_loudness(
         proc = subprocess.run(
             cmd, input=wav_bytes, capture_output=True,
             timeout=timeout_seconds, check=False,
+            creationflags=_CREATE_NO_WINDOW,
         )
     except (OSError, subprocess.TimeoutExpired) as exc:
         log.warning("normalize_loudness: ffmpeg failed (%s); skipping", exc)
@@ -140,6 +145,7 @@ def apply_postprocess(
             capture_output=True,
             timeout=timeout_seconds,
             check=False,
+            creationflags=_CREATE_NO_WINDOW,
         )
     except (OSError, subprocess.TimeoutExpired) as exc:
         log.warning("audio_postprocess: ffmpeg invocation failed (%s); returning raw audio", exc)
