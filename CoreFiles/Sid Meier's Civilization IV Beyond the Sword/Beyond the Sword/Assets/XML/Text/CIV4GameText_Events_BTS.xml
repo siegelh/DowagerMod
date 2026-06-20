@@ -7582,7 +7582,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_2</Tag>
-		<English>Anoint the master falconer. (Free Great General in capital.)</English>
+		<English>Anoint the master falconer. (Free Great General specialist in capital -- generates Great General points toward your next general's birth.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_2_HELP</Tag>

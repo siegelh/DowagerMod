@@ -28534,7 +28534,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -28878,7 +28878,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29202,7 +29202,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29526,7 +29526,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29850,7 +29850,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30174,7 +30174,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30498,7 +30498,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30822,7 +30822,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31146,7 +31146,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31470,7 +31470,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31794,7 +31794,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32118,7 +32118,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32442,7 +32442,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32766,7 +32766,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33091,7 +33091,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33415,7 +33415,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33739,7 +33739,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34063,7 +34063,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34387,7 +34387,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34711,7 +34711,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35035,7 +35035,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35359,7 +35359,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35683,7 +35683,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36007,7 +36007,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36331,7 +36331,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36655,7 +36655,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36979,7 +36979,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37303,7 +37303,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37627,7 +37627,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37951,7 +37951,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38275,7 +38275,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38599,7 +38599,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38923,7 +38923,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerQuestHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>

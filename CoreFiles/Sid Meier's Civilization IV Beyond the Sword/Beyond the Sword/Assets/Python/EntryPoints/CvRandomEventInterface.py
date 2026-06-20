@@ -4670,3 +4670,22 @@ def applyEventWorkerSafetyDone2(argsList):
 	return 1
 
 
+######## DowagerMod generic quest help ###########
+
+# Resolves the quest-log objective text for any DowagerMod start event
+# (Tier 1 and Tier 2). The XML wires every start event's <PythonHelp>
+# to this single callback. We derive the matching text key from the
+# event Type by stripping the trailing "_1" and appending "_QUEST".
+#
+# Example: EVENT_BLOOD_AND_IRON_1 -> TXT_KEY_EVENT_BLOOD_AND_IRON_QUEST
+def getDowagerQuestHelp(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	eventInfo = gc.getEventInfo(iEvent)
+	szType = eventInfo.getType()
+	if szType.endswith("_1"):
+		szBase = szType[:-2]
+	else:
+		szBase = szType
+	szKey = "TXT_KEY_" + szBase + "_QUEST"
+	return localText.getText(szKey, ())
