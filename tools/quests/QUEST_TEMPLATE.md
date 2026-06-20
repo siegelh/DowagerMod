@@ -262,4 +262,22 @@ All four must pass before committing.
 | `BUILDINGCLASS_TEMPLE` / `_MONASTERY` / `_CATHEDRAL` | These don't exist generically. Either use a per-religion class (`BUILDINGCLASS_CHRISTIAN_TEMPLE` etc.) or use `<bStateReligion>1</bStateReligion>` with empty `<BuildingsRequired/>` |
 | `BONUS_SALT` | Doesn't exist in vanilla BtS. Use `BONUS_INCENSE` or similar luxury. |
 
-When grants free Great People as a reward, use `<FreeSpecialistCounts>` with `SPECIALIST_GREAT_PRIEST` / `_MERCHANT` / `_ARTIST` / `_SCIENTIST` / `_ENGINEER` / `_GENERAL` / `_SPY` — these settle the GP as a permanent specialist. The `SPECIALIST_GREAT_*` form exists; the `UNITCLASS_GREAT_*` form mostly does not.
+When granting free Great People as a reward, use `<FreeSpecialistCounts>` with `SPECIALIST_GREAT_PRIEST` / `_MERCHANT` / `_ARTIST` / `_SCIENTIST` / `_ENGINEER` / `_GENERAL` / `_SPY` — these settle the GP as a permanent specialist. The `SPECIALIST_GREAT_*` form exists; the `UNITCLASS_GREAT_*` form mostly does not.
+
+### CRITICAL: `bPickPlayer` semantics
+
+**Solo quests (just about you and your empire) MUST use `<bPickPlayer>0</bPickPlayer>`.**
+
+`bPickPlayer=1` tells the engine to pick *another* civ as the "other player" for the trigger. If the quest has no other-player constraints (e.g. `bOtherPlayerWar`, `iOtherPlayerShareBorders`, `bOtherPlayerHasReligion`), the picker fails to find a valid target and the trigger is **silently skipped — the quest never fires.**
+
+Use `bPickPlayer=1` only when the quest's flavor requires interaction with another civ (e.g. vanilla Crusade picks an opposing-religion civ to crusade against, vanilla Greed picks a civ to demand tribute from). When you do set `bPickPlayer=1`, also set at least one of:
+- `<bOtherPlayerWar>1</bOtherPlayerWar>` (other player must be at war)
+- `<bOtherPlayerHasReligion>1</bOtherPlayerHasReligion>` (other player must have our religion)
+- `<bOtherPlayerHasOtherReligion>1</bOtherPlayerHasOtherReligion>` (other player has a different religion)
+- `<iOtherPlayerShareBorders>1</iOtherPlayerShareBorders>` (other player shares borders)
+
+Otherwise the pick will fail and the quest will never fire.
+
+Done triggers (the `_DONE` half of the chain) should ALWAYS use `<bPickPlayer>0</bPickPlayer>`.
+
+## Validation
