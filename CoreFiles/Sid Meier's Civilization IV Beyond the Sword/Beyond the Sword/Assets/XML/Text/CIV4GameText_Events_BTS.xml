@@ -8028,4 +8028,292 @@
 		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_3_HELP</Tag>
 		<English>Your treasury gains [COLOR_POSITIVE_TEXT]240 gold[COLOR_REVERT].</English>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_IRON_HORSE_1</Tag>
+		<English>Iron rails will bind the realm. Lay down a network of factories along your great trunk lines, and Industrialism shall follow.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_IRON_HORSE_DONE</Tag>
+		<English>%s1_CivAdjective has built an iron-horse industrial heartland.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_IRON_HORSE_DONE_1</Tag>
+		<English>Locomotives whistle from forge town to forge town. How shall the realm capitalize on the new industrial age?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IRON_HORSE_1</Tag>
+		<English>Iron Horse</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IRON_HORSE_QUEST</Tag>
+		<English>Build a Factory in 3 cities to complete the Iron Horse quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_IRON_HORSE</Tag>
+		<English>The iron horse stalls on rusted track. The Iron Horse quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_1</Tag>
+		<English>Pour capital into Industrialism research.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_1_HELP</Tag>
+		<English>Your civilization gains [COLOR_POSITIVE_TEXT]25% of the beakers toward Industrialism[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_2</Tag>
+		<English>Summon a great engineer.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_3</Tag>
+		<English>Reinvest in the capital's foundries.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_3_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]350 gold[COLOR_REVERT] to fuel further industrial expansion.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MASS_PRODUCTION_1</Tag>
+		<English>The assembly line transforms the workshop. Spread Factories across five cities and the empire shall churn with new output.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_MASS_PRODUCTION_DONE</Tag>
+		<English>%s1_CivAdjective has perfected the mass-production line.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_MASS_PRODUCTION_DONE_1</Tag>
+		<English>Factory whistles call shifts from coast to coast. How shall the realm reward this new industrial order?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_1</Tag>
+		<English>Mass Production</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_QUEST</Tag>
+		<English>Build a Factory in 5 cities total to complete the Mass Production quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_MASS_PRODUCTION</Tag>
+		<English>The assembly lines fall silent. The Mass Production quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_1</Tag>
+		<English>Standardize the production line.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_1_HELP</Tag>
+		<English>Every Factory in your empire yields [COLOR_POSITIVE_TEXT]+2 [ICON_PRODUCTION] production[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_2</Tag>
+		<English>Promote the chief engineer.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_3</Tag>
+		<English>Build sanitary works around the plants.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_3_HELP</Tag>
+		<English>Every Factory in your empire gains [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_LOCOMOTIVE_WORKS_1</Tag>
+		<English>Found a great Locomotive Works. With factory floors humming and rails snaking outward, the age of steam shall belong to the realm.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_LOCOMOTIVE_WORKS_DONE</Tag>
+		<English>%s1_CivAdjective has founded a renowned Locomotive Works.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_LOCOMOTIVE_WORKS_DONE_1</Tag>
+		<English>Polished engines roll out of the shop, gleaming and ready. How shall the realm dispatch them?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_1</Tag>
+		<English>Locomotive Works</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_QUEST</Tag>
+		<English>Build a Factory in 1 city to complete the Locomotive Works quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_LOCOMOTIVE_WORKS</Tag>
+		<English>The locomotive works falls into disuse. The Locomotive Works quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_1</Tag>
+		<English>Lay rails to every city.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 gold[COLOR_REVERT] and a [COLOR_POSITIVE_TEXT]free Worker[COLOR_REVERT] to lay new rail.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_2</Tag>
+		<English>Levy a freight tariff.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_2_HELP</Tag>
+		<English>Every Factory in your empire yields [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_3</Tag>
+		<English>Recruit the chief engineer.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_TELEGRAPH_NETWORK_1</Tag>
+		<English>Wires hum with messages from every horizon. Erect Observatories in two more cities and bind the realm with the telegraph.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_TELEGRAPH_NETWORK_DONE</Tag>
+		<English>%s1_CivAdjective has woven a continental Telegraph Network.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_TELEGRAPH_NETWORK_DONE_1</Tag>
+		<English>Words leap across the realm in moments. How shall the new network serve your civilization?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_1</Tag>
+		<English>Telegraph Network</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_QUEST</Tag>
+		<English>Build an Observatory in 4 cities total to complete the Telegraph Network quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_TELEGRAPH_NETWORK</Tag>
+		<English>The wires fall silent. The Telegraph Network quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_1</Tag>
+		<English>Pipe science down the wires.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_1_HELP</Tag>
+		<English>Every Observatory in your empire yields [COLOR_POSITIVE_TEXT]+1 [ICON_RESEARCH] research[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_2</Tag>
+		<English>Recruit a brilliant scientist.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Scientist[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_3</Tag>
+		<English>Celebrate the achievement.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]200 culture[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_COAL_COUNTRY_1</Tag>
+		<English>Black seams of coal beckon the steam age. Raise a Factory in your coal country and the realm shall thunder forward.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_COAL_COUNTRY_DONE</Tag>
+		<English>%s1_CivAdjective has industrialized the coal country.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_COAL_COUNTRY_DONE_1</Tag>
+		<English>Smokestacks rise above the coal pits. How shall the realm harvest the new bounty?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_1</Tag>
+		<English>Coal Country</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_QUEST</Tag>
+		<English>Build a Factory in a city with worked Coal to complete the Coal Country quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_COAL_COUNTRY</Tag>
+		<English>The coal pits fall idle. The Coal Country quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_1</Tag>
+		<English>Stoke the furnaces.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_1_HELP</Tag>
+		<English>Every Factory in your empire yields [COLOR_POSITIVE_TEXT]+1 [ICON_PRODUCTION] production[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_2</Tag>
+		<English>Promote the chief engineer.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_3</Tag>
+		<English>Ship coal abroad.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_3_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_PROPAGANDA_MACHINE_1</Tag>
+		<English>The airwaves wait to be claimed. Build Broadcast Towers in two more cities and the message shall be yours.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_PROPAGANDA_MACHINE_DONE</Tag>
+		<English>%s1_CivAdjective has perfected the modern propaganda machine.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_PROPAGANDA_MACHINE_DONE_1</Tag>
+		<English>Every household hears the realm's chosen voice. How shall the new media be used?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_1</Tag>
+		<English>Propaganda Machine</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_QUEST</Tag>
+		<English>Build a Broadcast Tower in 4 cities total to complete the Propaganda Machine quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_PROPAGANDA_MACHINE</Tag>
+		<English>The towers fall silent. The Propaganda Machine quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_1</Tag>
+		<English>Broadcast cheerful programming.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_1_HELP</Tag>
+		<English>Every Broadcast Tower in your empire yields [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_2</Tag>
+		<English>Anoint a great artist.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Artist[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_3</Tag>
+		<English>Stage spectacles in the capital.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]250 culture[COLOR_REVERT].</English>
+	</TEXT>
 </Civ4GameText>
