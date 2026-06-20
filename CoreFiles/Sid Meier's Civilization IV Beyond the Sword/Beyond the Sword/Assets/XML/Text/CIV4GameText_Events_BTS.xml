@@ -6707,7 +6707,7 @@
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_EARTHDAY_HELP_2</Tag>
 		<English>[ICON_BULLET]Persuade other nations to convert to [COLOR_HIGHLIGHT_TEXT]Environmentalism[COLOR_REVERT] (at least one civilization must have the ability to do so).</English>
-		<French>[ICON_BULLET]Persuader d'autres nations de se convertir à l'[COLOR_HIGHLIGHT_TEXT]écologie[COLOR_REVERT] (au moins une civilisation doit posséder cette capacité).</French>
+		<French>[ICON_BULLET]Persuader d'autres nations de se convertir ï¿½ l'[COLOR_HIGHLIGHT_TEXT]ï¿½cologie[COLOR_REVERT] (au moins une civilisation doit possï¿½der cette capacitï¿½).</French>
 		<German>[ICON_BULLET]&#220;berzeugt andere Nationen, zum [COLOR_HIGHLIGHT_TEXT]Umweltschutz[COLOR_REVERT] zu wechseln (mindestens eine Zivilisation muss dazu f&#228;hig sein).</German>
 		<Italian>[ICON_BULLET]Persuadi altre nazioni a convertirsi all'[COLOR_HIGHLIGHT_TEXT]Ambientalismo[COLOR_REVERT] (almeno una delle altre civilt&#224; deve essere in grado di farlo).</Italian>
 		<Spanish>[ICON_BULLET]Convence a otras naciones de que se conviertan al [COLOR_HIGHLIGHT_TEXT]Ecologismo[COLOR_REVERT] (al menos una civilizaci&#243;n debe poseer la capacidad de hacerlo).</Spanish>
@@ -6715,7 +6715,7 @@
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SALTPETER_DISCOVERED</Tag>
 		<English>Saltpeter Discovered.</English>
-		<French>Salpêtre découvert.</French>
+		<French>Salpï¿½tre dï¿½couvert.</French>
 		<German>Salpeter entdeckt.</German>
 		<Italian>Scoperto il salnitro.</Italian>
 		<Spanish>Has descubierto el salitre.</Spanish>
@@ -6727,5 +6727,56 @@
    		<German>Alle Informationen &#252;ber die alte Spiele sind f&#252;r immer verloren worden.</German>
    		<Italian>Tutte le informazioni sui giochi antichi sono state perse per sempre.</Italian>
    		<Spanish>Toda la informaci&#243;n sobre los juegos antiguos se ha perdido por siempre.</Spanish>
+	</TEXT>
+	<!-- ============================================================ -->
+	<!-- DowagerMod new quests (Tier 1 + Tier 2)                       -->
+	<!-- ============================================================ -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BLOOD_AND_IRON_1</Tag>
+		<English>The clang of hammer on bronze rings out across our forges. Our warriors clamor for sharper axes and stronger blades. If we raise an army of six axemen, our neighbors will think twice before crossing our borders.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_BLOOD_AND_IRON_DONE</Tag>
+		<English>%s1_CivAdjective has forged an army of bronze.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_BLOOD_AND_IRON_DONE_1</Tag>
+		<English>Six axemen now stand ready in our ranks. The smiths have done their work. How shall we reward the legions of bronze?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_1</Tag>
+		<English>Blood and Iron</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_QUEST</Tag>
+		<English>Build six Axemen to complete this quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_BLOOD_AND_IRON</Tag>
+		<English>The forges have gone cold. The Blood and Iron quest has been lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_1</Tag>
+		<English>Let the warriors train at arms. (All melee units gain the Combat I promotion.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_1_HELP</Tag>
+		<English>All existing melee units immediately gain the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_2</Tag>
+		<English>The state shall pay the soldiers' upkeep. (+4 free unit support.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_2_HELP</Tag>
+		<English>Your empire receives [COLOR_POSITIVE_TEXT]+4 free unit support[COLOR_REVERT] permanently.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_3</Tag>
+		<English>Conscript new legions! (Receive 2 free Axemen.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_3_HELP</Tag>
+		<English>Receive [COLOR_POSITIVE_TEXT]2 free Axemen[COLOR_REVERT] in your capital.</English>
 	</TEXT>
 </Civ4GameText>
