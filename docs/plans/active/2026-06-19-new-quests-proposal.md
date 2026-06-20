@@ -400,13 +400,180 @@ Each quest consists of:
 
 ---
 
+## Additional Tier 1–2 Proposals (20 more)
+
+These are intentionally low-complexity — Tier 1 fits entirely in XML (`BuildingsRequired`, `UnitsRequired`, `BonusesRequired`, `iNumBuildings`, `Civic`, `OrPreReqs`), Tier 2 needs a small `canTrigger` or `applyEvent` Python callback.
+
+### ANCIENT ERA
+
+#### 46. Salt Caravan (T1)
+- **Prereq**: Pottery + Salt resource worked + 2 cities
+- **Objective**: Build a Market in a city working Salt
+- **Reward choices**: +2 gold per Salt / Free trade route in that city / +1 happy from Salt empire-wide
+- **Weight**: 200 / 35% of games
+- **Rationale**: Salt is an underused luxury; gives early commerce path
+
+#### 47. Sacred Grove (T1)
+- **Prereq**: Mysticism + capital adjacent to 2+ forest tiles + Monument built
+- **Objective**: Keep the adjacent forests standing for 20 turns (just leave them)
+- **Reward choices**: +1 culture per forest worked / Free Great Prophet points / +1 happy from forests in this city
+- **Weight**: 250 / 35% of games
+- **Rationale**: Anti-chop incentive; thematic druidic flavor
+
+#### 48. Mason's Guild (T1)
+- **Prereq**: Masonry + Stone OR Marble resource + 3 cities
+- **Objective**: Build Walls in 3 cities
+- **Reward choices**: Free Pyramids hammers (250) / +25% wonder production in capital / Walls give +1 culture
+- **Weight**: 200 / 30% of games
+- **Rationale**: Rewards stoneworking civs; ties early wonders to terrain luck
+
+#### 49. Astronomers of the Plain (T1)
+- **Prereq**: Mathematics + 3 Libraries
+- **Objective**: Build Library in 2 more cities (5 total)
+- **Reward choices**: Free Great Scientist points / +1 science per Library / Free tech beaker (~200)
+- **Weight**: 220 / 40% of games
+- **Rationale**: Reinforces science-focused early game
+
+### CLASSICAL ERA
+
+#### 50. Pax Romana (T2)
+- **Prereq**: Code of Laws + Currency + 5 cities + at peace for 30+ turns
+- **Trigger check**: Python verifies `getNumWars() == 0` and peace duration
+- **Objective**: Build Courthouse in 3 cities
+- **Reward choices**: +1 happy from every Courthouse / +25% trade route yield / Free Forum-style +1 commerce modifier in capital
+- **Weight**: 180 / 25% of games
+- **Rationale**: Rewards peaceful builders; underrepresented playstyle in vanilla quests
+
+#### 51. Aqueduct Engineers (T1)
+- **Prereq**: Masonry + Pottery + at least one city size 8
+- **Objective**: Build Aqueduct in 3 cities
+- **Reward choices**: +2 health in all Aqueduct cities / Free Hanging Gardens points (200) / +1 food in capital
+- **Weight**: 220 / 35% of games
+- **Rationale**: Encourages city growth; pairs naturally with cottage economies
+
+#### 52. Silk Road (T2)
+- **Prereq**: Currency + Open Borders with 2+ civs + 4 cities
+- **Trigger check**: Python counts foreign trade routes ≥ 4
+- **Objective**: Maintain 6 foreign trade routes for 10 turns
+- **Reward choices**: +1 trade route in all cities / +50% gold from foreign routes / Free Great Merchant
+- **Weight**: 190 / 30% of games
+- **Rationale**: Rewards diplomatic/trading civs; reinforces open-borders strategy
+
+#### 53. Census Taker (T1)
+- **Prereq**: Currency + 5 cities + 1 Courthouse already built
+- **Objective**: Build Courthouse in 4 more cities
+- **Reward choices**: -25% maintenance for 30 turns / Free Spy / +1 commerce per Courthouse
+- **Weight**: 200 / 30% of games
+- **Rationale**: Helps mid-game ICS/economy strategies
+
+### MEDIEVAL ERA
+
+#### 54. Pilgrim's Path (T1)
+- **Prereq**: Theology + ownership of a Holy City + 2 Monasteries of state religion
+- **Objective**: Build Monastery in 3 more cities (state religion)
+- **Reward choices**: +50% Great Prophet rate in Holy City / Free Apostolic Palace points / +2 gold per Monastery
+- **Weight**: 230 / 35% of games
+- **Rationale**: Strengthens religious-victory paths; underused Monastery building
+
+#### 55. Royal Falconry (T1)
+- **Prereq**: Feudalism + 2 Castles + capital adjacent to Forest
+- **Objective**: Build Castle in 2 more cities + keep one adjacent forest
+- **Reward choices**: +1 happy from Castles / Castles give +1 culture / Free Knight in capital
+- **Weight**: 180 / 25% of games
+- **Rationale**: Adds character to Castles which are otherwise generic defensive buildings
+
+#### 56. Spice Merchant (T2)
+- **Prereq**: Calendar + Spice OR Incense resource + Market built
+- **Trigger check**: Python verifies improved plantation on resource
+- **Objective**: Build Market in 3 cities
+- **Reward choices**: +2 gold per Spice/Incense / Free Great Merchant points / +1 happy from luxury
+- **Weight**: 220 / 35% of games
+- **Rationale**: Calendar-era luxury quest; gold/health hybrid reward
+
+#### 57. Cathedral Choir (T1)
+- **Prereq**: Music + 2 Cathedrals of state religion
+- **Objective**: Build 1 more Cathedral
+- **Reward choices**: Free Great Artist / +1 culture per Cathedral / +50% culture in capital for 20 turns
+- **Weight**: 200 / 30% of games
+- **Rationale**: Music tech currently only triggers Great Artist; quest adds replay variety
+
+### RENAISSANCE ERA
+
+#### 58. Printing Press Boom (T1)
+- **Prereq**: Printing Press + 3 Libraries
+- **Objective**: Build Library in 2 more cities + 1 University
+- **Reward choices**: +1 science per Library empire-wide / Free Great Scientist / Free tech beaker (~400)
+- **Weight**: 230 / 40% of games
+- **Rationale**: Capitalizes on a tech that otherwise just unlocks the University
+
+#### 59. Joint Stock Company (T2)
+- **Prereq**: Banking + Treasury ≥ 500 + 3 Markets
+- **Trigger check**: Python verifies treasury and market count
+- **Objective**: Build Bank in 2 cities
+- **Reward choices**: +1 trade route in all coastal cities / Free Wall Street hammers (300) / +25% gold in capital
+- **Weight**: 200 / 30% of games
+- **Rationale**: Real-world economic milestone; sets up financial-victory path
+
+#### 60. Royal Navy (T1)
+- **Prereq**: Astronomy + 2 Galleons OR Frigates + at least 1 coastal city
+- **Objective**: Build 4 Frigates
+- **Reward choices**: All naval units +1 movement / Free Drydock in capital / Frigates start with Combat I
+- **Weight**: 220 / 35% of games
+- **Rationale**: Fills naval quest gap between Warships (renaissance+) and modern era
+
+#### 61. Tulip Mania (T2)
+- **Prereq**: Economics + has at least one Luxury resource monopolized (no other civ owns it)
+- **Trigger check**: Python compares bonus access across players
+- **Objective**: Choose to ride or pop the bubble
+- **Reward choices**: Ride bubble: +200 gold immediately, -50 gold per turn for 10 turns / Pop bubble: +100 gold flat, +1 happy from that luxury permanently / Stay sober: +1 trade route empire-wide
+- **Weight**: 150 / 20% of games
+- **Rationale**: Historical flavor, interesting risk/reward decision (still simple to implement)
+
+### INDUSTRIAL ERA
+
+#### 62. Locomotive Works (T1)
+- **Prereq**: Railroad + 4 railed tiles already built
+- **Objective**: Build Factory in 1 city + connect 3 cities via railroad
+- **Reward choices**: Free railroad to all cities / +1 commerce on rail tiles / Free Great Engineer
+- **Weight**: 220 / 35% of games
+- **Rationale**: Distinct from Iron Horse (which is about hammers); this is about connectivity
+
+#### 63. Worker Safety Acts (T2)
+- **Prereq**: Industrialism + Universal Suffrage OR Emancipation civic + 3 Factories
+- **Trigger check**: Python verifies civic adoption
+- **Objective**: Build Levee OR Public Transportation in 2 cities
+- **Reward choices**: +1 happy in all Factory cities / -50% factory unhealthiness / Free Great Engineer
+- **Weight**: 180 / 25% of games
+- **Rationale**: Rewards humane industrialization; mitigates pollution penalty
+
+#### 64. Telegraph Network (T1)
+- **Prereq**: Electricity + 3 Universities
+- **Objective**: Build Broadcast Tower? No — too late. Instead: build University in 2 more cities
+- **Reward choices**: +25% science empire-wide for 15 turns / Free Great Scientist / +1 espionage per University
+- **Weight**: 210 / 35% of games
+- **Rationale**: Bridges Renaissance science quests into Modern era
+
+### MODERN ERA
+
+#### 65. Atomic Age Anxiety (T2)
+- **Prereq**: Fission researched + at least 1 rival civ has nukes
+- **Trigger check**: Python iterates rival civs for nuke count
+- **Objective**: Build 2 Bomb Shelters
+- **Reward choices**: Bomb Shelters in all cities give +1 happy / Free SDI / +1 espionage in capital
+- **Weight**: 200 / 30% of games (only fires if rivals have nukes)
+- **Rationale**: Reactive late-game quest; rewards defensive prep against nuclear threat
+
+---
+
 ## Implementation Priority Tiers
 
 **Tier 1 — Pure XML (easiest, no Python needed)**:
-- Blood and Iron, Bread Basket, Iron Horse, Mass Production, Propaganda Machine, Cathedral Builders, Feudal Levy
+- Original: Blood and Iron, Bread Basket, Iron Horse, Mass Production, Propaganda Machine, Cathedral Builders, Feudal Levy
+- New: Salt Caravan, Sacred Grove, Mason's Guild, Astronomers of the Plain, Aqueduct Engineers, Census Taker, Pilgrim's Path, Royal Falconry, Cathedral Choir, Printing Press Boom, Royal Navy, Locomotive Works, Telegraph Network
 
 **Tier 2 — Simple Python callbacks (canTrigger + apply)**:
-- Gold Fever, Border Dispute, Famine, Road Network, Mercantilism, Oil Baron, Mercenary Companies
+- Original: Gold Fever, Border Dispute, Famine, Road Network, Mercantilism, Oil Baron, Mercenary Companies
+- New: Pax Romana, Silk Road, Spice Merchant, Joint Stock Company, Tulip Mania, Worker Safety Acts, Atomic Age Anxiety
 
 **Tier 3 — Complex Python (tracking state over turns)**:
 - Scorched Earth, Warlord's Challenge, Enlightenment, Deforestation, Workers' Revolt, Succession Crisis
