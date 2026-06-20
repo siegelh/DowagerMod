@@ -565,15 +565,179 @@ These are intentionally low-complexity — Tier 1 fits entirely in XML (`Buildin
 
 ---
 
-## Implementation Priority Tiers
+## Additional Tier 1–2 Proposals — Batch 3 (20 more)
+
+### ANCIENT ERA
+
+#### 66. Wheel of Fortune (T1)
+- **Prereq**: The Wheel + Horse resource + 3 roads built
+- **Objective**: Build Stable + 2 Chariots
+- **Reward choices**: Free Chariot in capital / +1 commerce on roads empire-wide / Free Great General points
+- **Weight**: 200 / 30% of games
+- **Rationale**: Combines wheel/horse/road into a single early-mobility quest
+
+#### 67. Fishing Village (T1)
+- **Prereq**: Fishing + coastal capital + 2 worked seafood tiles
+- **Objective**: Build Lighthouse
+- **Reward choices**: +1 food per ocean tile in capital / Free Work Boat / Free Great Merchant points
+- **Weight**: 230 / 40% of games
+- **Rationale**: First quest specifically for fishing-start coastal civs
+
+#### 68. Hunters' Lodge (T1)
+- **Prereq**: Hunting + Deer OR Fur resource worked + Camp improvement
+- **Objective**: Build Barracks in 2 cities
+- **Reward choices**: +1 food per Camp / +1 happy from Deer/Fur / Free Archer in capital
+- **Weight**: 200 / 35% of games
+- **Rationale**: Hunting tech is dead-end for many civs; quest gives it identity
+
+#### 69. Pottery Wheel (T1)
+- **Prereq**: Pottery + 3 Granaries
+- **Objective**: Build Granary in 2 more cities (5 total)
+- **Reward choices**: +1 food per Granary / Free Great Scientist points / Free Settler
+- **Weight**: 240 / 40% of games
+- **Rationale**: Reinforces the food-stable early game; helps slow-starts
+
+### CLASSICAL ERA
+
+#### 70. Wine Country (T1)
+- **Prereq**: Monarchy + Wine resource + Plantation/Winery improvement
+- **Objective**: Build Market in Wine city
+- **Reward choices**: +2 gold per Wine / +1 happy from Wine empire-wide / Free Great Merchant
+- **Weight**: 230 / 35% of games
+- **Rationale**: Wine is iconic but underused in quests
+
+#### 71. Great Library Race (T2)
+- **Prereq**: Literature + 4 Libraries + Great Library not yet built (any civ)
+- **Trigger check**: Python verifies Great Library status across players
+- **Objective**: Build the Great Library OR 3 more libraries before another civ finishes it
+- **Reward choices**: Free Great Scientist / +1 science per Library / 500 beakers toward a future tech
+- **Weight**: 180 / 25% of games
+- **Rationale**: Creates urgency around a well-known wonder race
+
+#### 72. Mountain Pass (T1)
+- **Prereq**: Mathematics + capital adjacent to peak + 3 Hills worked
+- **Objective**: Build Road through 3 hill tiles + a fortress in one
+- **Reward choices**: +25% defense in all hill cities / +1 production on hills in this city / Free Catapult
+- **Weight**: 170 / 25% of games
+- **Rationale**: Terrain-specific quest rewarding mountainous starts
+
+#### 73. Stoic Academy (T2)
+- **Prereq**: Philosophy + state religion + 2 Temples
+- **Trigger check**: Python verifies state religion present and counts temples
+- **Objective**: Build 1 more Temple + 1 Monastery (state religion)
+- **Reward choices**: +1 happy from every Temple / Free Great Prophet / +1 science per Monastery
+- **Weight**: 200 / 30% of games
+- **Rationale**: Philosophy tech otherwise just unlocks Pacifism civic + Taoism
+
+### MEDIEVAL ERA
+
+#### 74. Tournament Grounds (T1)
+- **Prereq**: Feudalism + 2 Castles + Horse resource
+- **Objective**: Build Stable + 2 Knights
+- **Reward choices**: Free Castle in capital / +1 happy from Castles / Knights start with Combat I
+- **Weight**: 200 / 30% of games
+- **Rationale**: Castle/Knight pairing feels missing from existing chivalry quests
+
+#### 75. Goldsmiths' Guild (T1)
+- **Prereq**: Currency + Gold OR Silver OR Gems resource + Forge built
+- **Objective**: Build Forge in 2 more cities
+- **Reward choices**: +2 gold per Gold/Silver/Gems / +1 happy from luxury / Free Great Merchant
+- **Weight**: 220 / 35% of games
+- **Rationale**: Forge synergy with precious metals; thematic medieval guild
+
+#### 76. Crusader's Return (T1)
+- **Prereq**: Theology + state religion + 2 Knights + at war with a different-religion civ
+- **Objective**: Win 3 battles with Knights against the heretical civ
+- **Reward choices**: All melee units get Holy War promotion (+10% vs other religions) / +1 happy from same-religion civs / Free Great Prophet
+- **Weight**: 180 / 25% of games
+- **Rationale**: Lighter-weight version of vanilla Crusade quest with different reward profile
+
+#### 77. Master Brewer (T2)
+- **Prereq**: Monarchy + Wheat OR Rice OR Corn worked + 2 cities
+- **Trigger check**: Python verifies cereal bonus and city count
+- **Objective**: Build Granary + Market in 2 cities
+- **Reward choices**: +1 health per Granary / +1 happy per Market / Free Great Merchant
+- **Weight**: 200 / 30% of games
+- **Rationale**: Cereal-grain civs lack their own quest; brewing flavor is fun
+
+### RENAISSANCE ERA
+
+#### 78. Coffee Houses (T1)
+- **Prereq**: Economics + 3 Markets
+- **Objective**: Build Grocer in 2 cities
+- **Reward choices**: +1 happy per Market / Free Great Merchant / +25% gold in capital
+- **Weight**: 220 / 35% of games
+- **Rationale**: Bridges Markets and Grocers; reinforces commerce path
+
+#### 79. Naval Drydocks (T1)
+- **Prereq**: Astronomy + 2 Galleons + 2 coastal cities
+- **Objective**: Build Harbor + Drydock in 1 coastal city
+- **Reward choices**: +1 food per sea tile in coastal cities / Free Frigate / +1 happy in coastal cities
+- **Weight**: 210 / 35% of games
+- **Rationale**: Drydock is a rarely-built building; quest gives it spotlight
+
+#### 80. Whalers' Fleet (T1)
+- **Prereq**: Optics + Whale resource + Work Boat improvement on whale
+- **Objective**: Build 2 more Work Boats and improve a second Whale OR Fish
+- **Reward choices**: +2 commerce per Whale / +1 health from sea food / Free Great Merchant
+- **Weight**: 200 / 30% of games
+- **Rationale**: Whales typically just sit idle; rewards exploiting them
+
+#### 81. Liberalism's Children (T2)
+- **Prereq**: Liberalism + Free Speech civic + 3 Universities
+- **Trigger check**: Python verifies civic adoption
+- **Objective**: Build 1 more University + 1 Library
+- **Reward choices**: +25% culture empire-wide for 15 turns / Free Great Artist / Free Speech gives extra +25% culture
+- **Weight**: 180 / 25% of games
+- **Rationale**: Reinforces the civic-tech combo and rewards culture-victory path
+
+### INDUSTRIAL ERA
+
+#### 82. Coal Country (T1)
+- **Prereq**: Steam Power + Coal resource + 2 Mines
+- **Objective**: Build Factory in a city with Coal
+- **Reward choices**: +1 production per Coal / Free Great Engineer / +25% factory production for 20 turns
+- **Weight**: 220 / 35% of games
+- **Rationale**: Coal is the iconic industrial resource; deserves its own quest
+
+#### 83. Universal Schooling (T2)
+- **Prereq**: Democracy + Universal Suffrage OR Free Religion civic + 3 Universities
+- **Trigger check**: Python verifies civic adoption
+- **Objective**: Build University in 2 more cities (5 total)
+- **Reward choices**: +1 science per University empire-wide / Free Great Scientist / +1 happy per University
+- **Weight**: 200 / 30% of games
+- **Rationale**: Real-world public-education milestone; industrial science boost
+
+#### 84. Oil Pipeline (T2)
+- **Prereq**: Combustion + Oil resource + 2 Oil wells worked
+- **Trigger check**: Python verifies improved oil count
+- **Objective**: Build Factory + 2 Tanks
+- **Reward choices**: +2 production per Oil / Free Tank / +25% military production for 15 turns
+- **Weight**: 200 / 30% of games
+- **Rationale**: Oil is critical to industrial military but lacks a dedicated quest
+
+### MODERN ERA
+
+#### 85. Highway System (T1)
+- **Prereq**: Combustion + 5 cities + Industrialism
+- **Objective**: Build Highway connecting 3 cities (Combustion-era roads)
+- **Reward choices**: +25% trade route yield / Free Great Engineer / +1 commerce on all roads
+- **Weight**: 220 / 35% of games
+- **Rationale**: Modern infrastructure quest; modernizes the Road Network theme
+
+---
+
+## Updated Implementation Priority Tiers
 
 **Tier 1 — Pure XML (easiest, no Python needed)**:
-- Original: Blood and Iron, Bread Basket, Iron Horse, Mass Production, Propaganda Machine, Cathedral Builders, Feudal Levy
-- New: Salt Caravan, Sacred Grove, Mason's Guild, Astronomers of the Plain, Aqueduct Engineers, Census Taker, Pilgrim's Path, Royal Falconry, Cathedral Choir, Printing Press Boom, Royal Navy, Locomotive Works, Telegraph Network
+- Batch 1: Blood and Iron, Bread Basket, Iron Horse, Mass Production, Propaganda Machine, Cathedral Builders, Feudal Levy
+- Batch 2: Salt Caravan, Sacred Grove, Mason's Guild, Astronomers of the Plain, Aqueduct Engineers, Census Taker, Pilgrim's Path, Royal Falconry, Cathedral Choir, Printing Press Boom, Royal Navy, Locomotive Works, Telegraph Network
+- Batch 3: Wheel of Fortune, Fishing Village, Hunters' Lodge, Pottery Wheel, Wine Country, Mountain Pass, Tournament Grounds, Goldsmiths' Guild, Crusader's Return, Coffee Houses, Naval Drydocks, Whalers' Fleet, Coal Country, Highway System
 
 **Tier 2 — Simple Python callbacks (canTrigger + apply)**:
-- Original: Gold Fever, Border Dispute, Famine, Road Network, Mercantilism, Oil Baron, Mercenary Companies
-- New: Pax Romana, Silk Road, Spice Merchant, Joint Stock Company, Tulip Mania, Worker Safety Acts, Atomic Age Anxiety
+- Batch 1: Gold Fever, Border Dispute, Famine, Road Network, Mercantilism, Oil Baron, Mercenary Companies
+- Batch 2: Pax Romana, Silk Road, Spice Merchant, Joint Stock Company, Tulip Mania, Worker Safety Acts, Atomic Age Anxiety
+- Batch 3: Great Library Race, Stoic Academy, Master Brewer, Liberalism's Children, Universal Schooling, Oil Pipeline
 
 **Tier 3 — Complex Python (tracking state over turns)**:
 - Scorched Earth, Warlord's Challenge, Enlightenment, Deforestation, Workers' Revolt, Succession Crisis
