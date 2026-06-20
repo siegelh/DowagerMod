@@ -7403,4 +7403,629 @@
 		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_3_HELP</Tag>
 		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
 	</TEXT>
+	<!-- DowagerMod quests batch 2b (Medieval + Renaissance) -->
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CATHEDRAL_BUILDERS_1</Tag>
+		<English>Our faithful clamor for cathedrals worthy of the realm. Raise four great cathedrals in your cities and the heavens shall smile upon us.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_CATHEDRAL_BUILDERS_DONE</Tag>
+		<English>%s1_CivAdjective has completed the Cathedral Builders quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CATHEDRAL_BUILDERS_DONE_1</Tag>
+		<English>Choirs ring from four cathedrals across the land. How shall the bishops crown our piety?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_1</Tag>
+		<English>Cathedral Builders</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_QUEST</Tag>
+		<English>Build a Cathedral in 4 cities of your state religion to complete the Cathedral Builders quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_CATHEDRAL_BUILDERS</Tag>
+		<English>The cathedral works have stalled. The Cathedral Builders quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_1</Tag>
+		<English>Endow the cathedrals with culture. (+3 culture in capital from religious works.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+3 culture[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_2</Tag>
+		<English>Commission a master artist. (Free Great Artist in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Artist[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_3</Tag>
+		<English>Send out missionaries. (Free Great Prophet to spread the faith.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Prophet[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_FEUDAL_LEVY_1</Tag>
+		<English>The crown calls upon its vassals. Muster eight new soldiers from your fields and forges to prove our might.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_FEUDAL_LEVY_DONE</Tag>
+		<English>%s1_CivAdjective has raised a great Feudal Levy.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_FEUDAL_LEVY_DONE_1</Tag>
+		<English>Eight banners now ride beneath the royal standard. How shall the levy be honored?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_1</Tag>
+		<English>Feudal Levy</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_QUEST</Tag>
+		<English>Train 8 military units (Axemen, Swordsmen, Pikemen, Horse Archers, Longbowmen or Macemen) to complete the Feudal Levy quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_FEUDAL_LEVY</Tag>
+		<English>The levy disbands without honor. The Feudal Levy quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_1</Tag>
+		<English>Drill the levy. (Melee units gain Combat I.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_1_HELP</Tag>
+		<English>All Melee units receive the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_2</Tag>
+		<English>Reward the captains with gold. (Receive 200 gold for armament.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_2_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_3</Tag>
+		<English>Anoint a war-leader. (Free Great General in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great General[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_PILGRIMS_PATH_1</Tag>
+		<English>Pilgrims gather on the road to our Holy City. Raise a third monastery of the true faith and the path shall be hallowed forever.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_PILGRIMS_PATH_DONE</Tag>
+		<English>%s1_CivAdjective has consecrated the Pilgrim's Path.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_PILGRIMS_PATH_DONE_1</Tag>
+		<English>The faithful flock from afar to walk our hallowed road. How shall the Holy City profit from their devotion?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_1</Tag>
+		<English>Pilgrim's Path</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_QUEST</Tag>
+		<English>Build a Monastery of your state religion in 3 cities to complete the Pilgrim's Path quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_PILGRIMS_PATH</Tag>
+		<English>The pilgrims turn back. The Pilgrim's Path quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_1</Tag>
+		<English>Anoint a great prophet of the order. (Free Great Prophet in Holy City.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Prophet[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_2</Tag>
+		<English>Spread the faith with espionage. (+100 espionage points on the Holy City's enemies.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_2_HELP</Tag>
+		<English>You gain [COLOR_POSITIVE_TEXT]+100 espionage points[COLOR_REVERT] against rival faiths.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_3</Tag>
+		<English>Tax the pilgrims' alms. (Receive 180 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_3_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]180 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_ROYAL_FALCONRY_1</Tag>
+		<English>Hawks circle the forests around the capital. Protect three woodland tiles and raise a Camp to honor the king's falconers.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_ROYAL_FALCONRY_DONE</Tag>
+		<English>%s1_CivAdjective has founded a Royal Falconry.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_ROYAL_FALCONRY_DONE_1</Tag>
+		<English>The royal mews ring with the cry of falcons. How shall our woodlands be rewarded?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_1</Tag>
+		<English>Royal Falconry</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_QUEST</Tag>
+		<English>Keep 3 forest tiles standing near the capital and build a Camp improvement to complete the Royal Falconry quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_ROYAL_FALCONRY</Tag>
+		<English>The royal mews fall silent. The Royal Falconry quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_1</Tag>
+		<English>Endow the foresters. (+2 culture in capital from preserved woods.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 culture[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_2</Tag>
+		<English>Anoint the master falconer. (Free Great General in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great General[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_3</Tag>
+		<English>Cheer the king's hunts. (+1 happy in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CATHEDRAL_CHOIR_1</Tag>
+		<English>The cathedral choir longs for a wider stage. Build two more Theatres so their hymns may be heard across the realm.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_CATHEDRAL_CHOIR_DONE</Tag>
+		<English>%s1_CivAdjective has founded a renowned Cathedral Choir.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CATHEDRAL_CHOIR_DONE_1</Tag>
+		<English>Theatres echo with sacred song from coast to coast. How shall the realm celebrate?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_1</Tag>
+		<English>Cathedral Choir</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_QUEST</Tag>
+		<English>Build 2 more Theatres (3 total) to complete the Cathedral Choir quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_CATHEDRAL_CHOIR</Tag>
+		<English>The choir disbands in silence. The Cathedral Choir quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_1</Tag>
+		<English>Anoint a great artist. (Free Great Artist in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Artist[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_2</Tag>
+		<English>Endow the choirs. (+4 culture in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+4 culture[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_3</Tag>
+		<English>Celebrate the choir's renown. (+1 happy in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_TOURNAMENT_GROUNDS_1</Tag>
+		<English>Knights from across the realm clamor for glory. Raise a Stable and two Knights to host the grandest tournament our age has seen.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_TOURNAMENT_GROUNDS_DONE</Tag>
+		<English>%s1_CivAdjective has founded the Tournament Grounds.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_TOURNAMENT_GROUNDS_DONE_1</Tag>
+		<English>Lances clash on the tourney field and crowds roar. How shall the victors be crowned?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_1</Tag>
+		<English>Tournament Grounds</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_QUEST</Tag>
+		<English>Build a Stable and train 2 Knights to complete the Tournament Grounds quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_TOURNAMENT_GROUNDS</Tag>
+		<English>The tourney field falls silent. The Tournament Grounds quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_1</Tag>
+		<English>Build a royal Castle. (Free Castle in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Castle[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_2</Tag>
+		<English>Cheer the tournament heroes. (+1 happy in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_3</Tag>
+		<English>Drill the knights of the realm. (Mounted units gain Combat I.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_3_HELP</Tag>
+		<English>All Mounted units receive the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_GOLDSMITHS_GUILD_1</Tag>
+		<English>Master goldsmiths petition the crown for a guild of their own. Forge two more workshops and the artisans shall enrich the realm.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_GOLDSMITHS_GUILD_DONE</Tag>
+		<English>%s1_CivAdjective has founded the Goldsmiths' Guild.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_GOLDSMITHS_GUILD_DONE_1</Tag>
+		<English>The guild halls overflow with jewels and bullion. How shall the wealth be shared?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_1</Tag>
+		<English>Goldsmiths' Guild</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_QUEST</Tag>
+		<English>Build a Forge in 2 more cities (3 total) to complete the Goldsmiths' Guild quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_GOLDSMITHS_GUILD</Tag>
+		<English>The goldsmiths disperse. The Goldsmiths' Guild quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_1</Tag>
+		<English>Tax the bullion. (Receive 220 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]220 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_2</Tag>
+		<English>Adorn the people. (+1 happy in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_3</Tag>
+		<English>Anoint a master merchant. (Free Great Merchant in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CRUSADERS_RETURN_1</Tag>
+		<English>Knights of the true faith ride out against the heretics. Muster a host of three Knights and bring the holy war to its triumph.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_CRUSADERS_RETURN_DONE</Tag>
+		<English>%s1_CivAdjective has welcomed home the Crusaders.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_CRUSADERS_RETURN_DONE_1</Tag>
+		<English>Three holy banners return in glory from the war against the heretics. How shall the crown honor them?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_1</Tag>
+		<English>Crusader's Return</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_QUEST</Tag>
+		<English>Field 3 Knights while at war with a civilization of a different religion to complete the Crusader's Return quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_CRUSADERS_RETURN</Tag>
+		<English>The crusade is broken. The Crusader's Return quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_1</Tag>
+		<English>Drill the holy host. (Melee units gain Combat I.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_1_HELP</Tag>
+		<English>All Melee units receive the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_2</Tag>
+		<English>Bless the people. (+1 happy in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_3</Tag>
+		<English>Anoint a great prophet of war. (Free Great Prophet in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Prophet[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_PRINTING_PRESS_BOOM_1</Tag>
+		<English>The presses thunder day and night. Endow two more Universities and our age of learning shall outshine all others.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_PRINTING_PRESS_BOOM_DONE</Tag>
+		<English>%s1_CivAdjective has ushered in a Printing Press Boom.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_PRINTING_PRESS_BOOM_DONE_1</Tag>
+		<English>Books pour forth from three great Universities. How shall the realm reward its scholars?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_1</Tag>
+		<English>Printing Press Boom</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_QUEST</Tag>
+		<English>Build 2 more Universities (3 total) to complete the Printing Press Boom quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_PRINTING_PRESS_BOOM</Tag>
+		<English>The presses fall idle. The Printing Press Boom quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_1</Tag>
+		<English>Endow the universities. (+5 culture in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+5 culture[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_2</Tag>
+		<English>Anoint a great scholar. (Free Great Scientist in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Scientist[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_3</Tag>
+		<English>Fund the printing houses. (Receive 250 gold for new works.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_3_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_ROYAL_NAVY_1</Tag>
+		<English>The admiralty calls for a true Royal Navy. Build three more Frigates and our flag shall rule the waves.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_ROYAL_NAVY_DONE</Tag>
+		<English>%s1_CivAdjective has founded a great Royal Navy.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_ROYAL_NAVY_DONE_1</Tag>
+		<English>Five proud Frigates put to sea beneath the royal banner. How shall the admiralty be honored?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_1</Tag>
+		<English>Royal Navy</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_QUEST</Tag>
+		<English>Field 5 Frigates to complete the Royal Navy quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_ROYAL_NAVY</Tag>
+		<English>The fleet rots at anchor. The Royal Navy quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_1</Tag>
+		<English>Drill the captains. (Naval units gain Combat I.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_1_HELP</Tag>
+		<English>All Naval units receive the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_2</Tag>
+		<English>Launch a Ship of the Line. (Free Frigate in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Frigate[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_3</Tag>
+		<English>Fund the admiralty. (Receive 240 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_3_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]240 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_NAVAL_DRYDOCKS_1</Tag>
+		<English>Our shipwrights need proper drydocks. Raise a Harbor and Drydock in a coastal city to anchor the nation's seapower.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_NAVAL_DRYDOCKS_DONE</Tag>
+		<English>%s1_CivAdjective has opened great Naval Drydocks.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_NAVAL_DRYDOCKS_DONE_1</Tag>
+		<English>The Drydocks ring with hammers and saws. How shall the shipwrights be rewarded?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_1</Tag>
+		<English>Naval Drydocks</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_QUEST</Tag>
+		<English>Build a Drydock in a coastal city to complete the Naval Drydocks quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_NAVAL_DRYDOCKS</Tag>
+		<English>The shipyards stand idle. The Naval Drydocks quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_1</Tag>
+		<English>Launch a fresh Frigate. (Free Frigate in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Frigate[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_2</Tag>
+		<English>Celebrate the launch. (+1 happy in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_3</Tag>
+		<English>Stock the larders from the sea. (+1 health in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WHALERS_FLEET_1</Tag>
+		<English>The whaling captains beg for a true fleet. Launch two more Work Boats and bring home the wealth of the deep.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_WHALERS_FLEET_DONE</Tag>
+		<English>%s1_CivAdjective has founded a great Whalers' Fleet.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_WHALERS_FLEET_DONE_1</Tag>
+		<English>Casks of whale oil and salted fish line the docks. How shall the catch be shared?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_1</Tag>
+		<English>Whalers' Fleet</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_QUEST</Tag>
+		<English>Build 2 more Work Boats to complete the Whalers' Fleet quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_WHALERS_FLEET</Tag>
+		<English>The whaling fleet returns empty. The Whalers' Fleet quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_1</Tag>
+		<English>Sell the oil at market. (Receive 200 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_1_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_2</Tag>
+		<English>Feed the people. (+1 health in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_3</Tag>
+		<English>Anoint a great trader. (Free Great Merchant in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_3_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_COFFEE_HOUSES_1</Tag>
+		<English>The merchants gather in fragrant coffee houses. Raise two Grocers and the cafes shall fuel a new age of commerce.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENTTRIGGER_COFFEE_HOUSES_DONE</Tag>
+		<English>%s1_CivAdjective has founded a circuit of fashionable Coffee Houses.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_TRIGGER_COFFEE_HOUSES_DONE_1</Tag>
+		<English>Coffee houses bustle from dawn to dusk with merchants and wits. How shall the realm profit?</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_1</Tag>
+		<English>Coffee Houses</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_QUEST</Tag>
+		<English>Build a Grocer in 2 cities to complete the Coffee Houses quest.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_FAIL_COFFEE_HOUSES</Tag>
+		<English>The coffee houses shutter their doors. The Coffee Houses quest is lost.</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_1</Tag>
+		<English>Toast the merchants. (+1 happy in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_1_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_2</Tag>
+		<English>Anoint a great merchant. (Free Great Merchant in capital.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_2_HELP</Tag>
+		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_3</Tag>
+		<English>Tax the cafes. (Receive 240 gold.)</English>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_3_HELP</Tag>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]240 gold[COLOR_REVERT].</English>
+	</TEXT>
 </Civ4GameText>
