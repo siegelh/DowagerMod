@@ -28625,7 +28625,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -28711,7 +28711,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -28797,7 +28797,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -28959,7 +28959,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29015,7 +29015,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PRIEST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -29037,10 +29037,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SACRED_GROVE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29121,7 +29121,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29258,7 +29258,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ENGINEER</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -29280,10 +29280,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASONS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29339,7 +29339,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ENGINEER</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -29361,10 +29361,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASONS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29445,7 +29445,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29607,7 +29607,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29663,7 +29663,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -29685,10 +29685,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SALT_CARAVAN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29769,7 +29769,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -29931,7 +29931,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30012,7 +30012,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30093,7 +30093,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30255,7 +30255,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30336,7 +30336,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30392,7 +30392,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -30414,10 +30414,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_FISHING_VILLAGE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30579,7 +30579,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30635,7 +30635,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -30657,10 +30657,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_POTTERY_WHEEL_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30716,7 +30716,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -30738,10 +30738,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_POTTERY_WHEEL_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30903,7 +30903,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -30984,7 +30984,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31040,7 +31040,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -31062,10 +31062,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WHEEL_OF_FORTUNE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31227,7 +31227,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31268,8 +31268,8 @@
 			<UnitName/>
 			<UnitCombatPromotions/>
 			<UnitClassPromotions/>
-			<BuildingClass>BUILDINGCLASS_AQUEDUCT</BuildingClass>
-			<iBuildingChange>1</iBuildingChange>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
@@ -31305,10 +31305,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_BREAD_BASKET_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalFreeBuilding</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31389,7 +31389,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31526,7 +31526,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_SCIENTIST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -31548,10 +31548,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ASTRONOMERS_OF_THE_PLAIN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31632,7 +31632,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31688,7 +31688,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_SCIENTIST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -31710,10 +31710,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ASTRONOMERS_OF_THE_PLAIN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31875,7 +31875,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -31931,7 +31931,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ENGINEER</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -31953,10 +31953,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_AQUEDUCT_ENGINEERS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32037,7 +32037,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32199,7 +32199,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32280,7 +32280,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32361,7 +32361,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32523,7 +32523,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32604,7 +32604,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32685,7 +32685,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32847,7 +32847,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32928,7 +32928,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -32984,7 +32984,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -33006,10 +33006,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WINE_COUNTRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33172,7 +33172,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33228,7 +33228,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ARTIST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -33250,10 +33250,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CATHEDRAL_BUILDERS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33309,7 +33309,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PRIEST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -33331,10 +33331,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CATHEDRAL_BUILDERS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33496,7 +33496,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33577,7 +33577,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33633,7 +33633,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_GENERAL</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -33655,10 +33655,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_FEUDAL_LEVY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33795,7 +33795,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PRIEST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -33817,10 +33817,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PILGRIMS_PATH_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33901,7 +33901,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -33982,7 +33982,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34144,7 +34144,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34200,7 +34200,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_GENERAL</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -34222,10 +34222,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ROYAL_FALCONRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34306,7 +34306,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34443,7 +34443,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ARTIST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -34465,10 +34465,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CATHEDRAL_CHOIR_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34549,7 +34549,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34630,7 +34630,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34752,8 +34752,8 @@
 			<UnitName/>
 			<UnitCombatPromotions/>
 			<UnitClassPromotions/>
-			<BuildingClass>BUILDINGCLASS_CASTLE</BuildingClass>
-			<iBuildingChange>1</iBuildingChange>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
@@ -34789,10 +34789,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_TOURNAMENT_GROUNDS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalFreeBuilding</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34873,7 +34873,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -34954,7 +34954,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35116,7 +35116,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35197,7 +35197,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35253,7 +35253,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -35275,10 +35275,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_GOLDSMITHS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35440,7 +35440,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35521,7 +35521,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35577,7 +35577,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PRIEST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -35599,10 +35599,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CRUSADERS_RETURN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35764,7 +35764,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35820,7 +35820,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_SCIENTIST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -35842,10 +35842,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PRINTING_PRESS_BOOM_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -35926,7 +35926,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36088,7 +36088,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36169,7 +36169,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36250,7 +36250,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36412,7 +36412,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36493,7 +36493,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36574,7 +36574,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36736,7 +36736,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36817,7 +36817,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -36873,7 +36873,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -36895,10 +36895,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WHALERS_FLEET_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37060,7 +37060,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37116,7 +37116,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -37138,10 +37138,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_COFFEE_HOUSES_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37222,7 +37222,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37384,7 +37384,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37440,7 +37440,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ENGINEER</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -37462,10 +37462,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_IRON_HORSE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37546,7 +37546,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37708,7 +37708,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37764,7 +37764,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ENGINEER</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -37786,10 +37786,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASS_PRODUCTION_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -37870,7 +37870,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38032,7 +38032,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38113,7 +38113,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38169,7 +38169,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ENGINEER</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -38191,10 +38191,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_LOCOMOTIVE_WORKS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38356,7 +38356,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38412,7 +38412,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_SCIENTIST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -38434,10 +38434,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_TELEGRAPH_NETWORK_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38518,7 +38518,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38680,7 +38680,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38736,7 +38736,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ENGINEER</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -38758,10 +38758,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_COAL_COUNTRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -38842,7 +38842,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -39004,7 +39004,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -39060,7 +39060,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ARTIST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -39082,10 +39082,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PROPAGANDA_MACHINE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -39166,7 +39166,7 @@
 			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -39385,7 +39385,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -39407,7 +39407,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_GOLD_FEVER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp></PythonHelp>
@@ -40033,7 +40033,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -40055,7 +40055,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_GREAT_FAMINE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp></PythonHelp>
@@ -40357,7 +40357,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -40379,7 +40379,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ROAD_NETWORK_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp></PythonHelp>
@@ -40600,7 +40600,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -40622,7 +40622,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MERCANTILISM_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp></PythonHelp>
@@ -41086,7 +41086,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -41108,7 +41108,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PAX_ROMANA_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp></PythonHelp>
@@ -41329,7 +41329,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -41351,7 +41351,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SILK_ROAD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp></PythonHelp>
@@ -41410,7 +41410,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -41432,7 +41432,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SILK_ROAD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp></PythonHelp>
@@ -41654,7 +41654,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -41676,7 +41676,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SPICE_MERCHANT_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getHelpSpiceMerchantDone2</PythonHelp>
@@ -41978,7 +41978,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_PRIEST</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -42000,7 +42000,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_STOIC_ACADEMY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getHelpStoicAcademyDone2</PythonHelp>
@@ -42383,7 +42383,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -42405,7 +42405,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASTER_BREWER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getHelpMasterBrewerDone3</PythonHelp>
@@ -42707,7 +42707,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ENGINEER</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -42729,7 +42729,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_OIL_BARON_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getHelpOilBaronDone3</PythonHelp>
@@ -43355,7 +43355,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_MERCHANT</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -43377,7 +43377,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_TULIP_MANIA_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getHelpTulipManiaDone3</PythonHelp>
@@ -43679,7 +43679,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts><FreeSpecialistCount><SpecialistType>SPECIALIST_GREAT_ENGINEER</SpecialistType><iFreeSpecialistCount>1</iFreeSpecialistCount></FreeSpecialistCount></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -43701,7 +43701,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WORKER_SAFETY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getHelpWorkerSafetyDone3</PythonHelp>

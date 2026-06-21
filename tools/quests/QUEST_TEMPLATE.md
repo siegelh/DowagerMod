@@ -243,13 +243,16 @@ After authoring a quest, run from the worktree root:
 ```powershell
 python tools\quests\validate_quest_chains.py
 python tools\quests\validate_quest_type_refs.py
+python tools\quests\validate_quest_rewards.py
 python tools\quests\smoke_quest_callbacks.py
 .\tools\test_gate.ps1
 ```
 
-All four must pass before committing.
+All five must pass before committing.
 
-**The `validate_quest_type_refs.py` check is critical** — it catches the most common authoring bug: referencing a TYPE that looks plausible (e.g. `BUILDINGCLASS_TEMPLE`, `BONUS_SALT`, `UNITCLASS_GREAT_PROPHET`) but doesn't exist in vanilla BtS XML. `test_gate.ps1` does NOT catch these because the schema only checks structure, not value. The game catches them at load time with errors like "Tag: X in Info class was incorrect" — by then the mod won't load.
+**`validate_quest_type_refs.py`** catches invalid TYPE values (e.g. `BONUS_SALT`, `UNITCLASS_GREAT_PROPHET`) that the XML schema accepts but the game rejects at load.
+
+**`validate_quest_rewards.py`** catches `FreeSpecialistCounts` and `BuildingClass+iBuildingChange` rewards that would be silently dropped because they have `bPickCity=0` and no Python callback.
 
 ### Common naming gotchas
 
@@ -279,5 +282,43 @@ Use `bPickPlayer=1` only when the quest's flavor requires interaction with anoth
 Otherwise the pick will fail and the quest will never fire.
 
 Done triggers (the `_DONE` half of the chain) should ALWAYS use `<bPickPlayer>0</bPickPlayer>`.
+
+### CRITICAL: `bPickCity` semantics and silently-dropped rewards
+
+The XML field `<bPickCity>` is loaded into `m_bCityEffect` (confirmed: `CvInfos.cpp:23474`). The engine's `CvPlayer::applyEvent` (line 18385) only calls `CvCity::applyEvent` when `isCityEffect()` returns true. That means **the following reward fields are SILENTLY DROPPED when `<bPickCity>0</bPickCity>`** — the XML data loads fine, the choice is offered, the player clicks it, and nothing happens:
+
+- `<FreeSpecialistCounts>` (Great Person settled in city)
+- `<BuildingClass>X</BuildingClass>` + `<iBuildingChange>1</iBuildingChange>` (free building)
+
+To deliver these rewards when `bPickCity=0`, use a Python `<PythonCallback>` that calls `capital.changeFreeSpecialistCount(iSpec, 1)` or `capital.setNumRealBuilding(...)` directly. This is what DowagerMod does via `applyDowagerCapitalSpecialist` and `applyDowagerCapitalFreeBuilding` (see `CvRandomEventInterface.py`).
+
+**Fields with player-level fallback** (work empire-wide when `bPickCity=0`, work per-city when `bPickCity=1`): `iHappy`, `iHealth`, `iFood`, `iFoodPercent`, `iCulture`, `iPopulationChange`, `BuildingExtraYields/Commerces/Happies/Healths`, `iHappyTurns`, `iHurryAnger`.
+
+**Fields that always work regardless of `bPickCity`**: `iGold`, `iRandomGold`, `iEspionagePoints`, `bGoldenAge`, `iInflationMod`, `iFreeUnitSupport`, `Tech`+`iTechPercent`, `UnitClass`+`iNumFreeUnits` (spawns in pCity or capital), `UnitCombatPromotions`, `UnitClassPromotions`, `ClearEvents`.
+
+### CRITICAL: done triggers with `iWeight=-1` fire INSTANTLY when prereqs pass
+
+Source: `CvPlayer.cpp:19131-19134`:
+```cpp
+if (iWeight == -1) {
+    trigger((EventTriggerTypes)i);   // Fire EVERY turn it's eligible
+}
+```
+
+There is no random delay, no "wait N turns" buffer. The engine polls every player's turn-start. If your done trigger's XML `<iNumBuildings>` / `<iNumUnits>` etc. are already met at the moment the start event fires, **the done trigger fires the very next turn — your quest auto-completes**.
+
+Common authoring mistake: setting `<iNumBuildings>0</iNumBuildings>` while having `<BuildingsRequired>...</BuildingsRequired>` populated. The engine reads "0 required" → trivially passes → instant fire.
+
+**Fix patterns:**
+1. Set a real `<iNumBuildings>N</iNumBuildings>` that the player won't already have (e.g. N=5 for "build 5 granaries" when the start prereq was "have 3 granaries")
+2. Add a `<PythonCanDo>` callback that uses `getEventOccured(prereqEvent)` to compare current state vs. quest-start state, OR enforces a time delay via `gc.getGame().getGameTurn() >= kOrigData.iTurn + N`
+
+See `canTriggerSacredGroveDone` etc. in `CvRandomEventInterface.py` for examples.
+
+### CRITICAL: reward choice tooltips need explicit `<PythonHelp>`
+
+Mouseover tooltips on choice buttons are driven exclusively by the EventInfo's `<PythonHelp>` field. **There is no engine-level fallback to a `TXT_KEY` pattern.** If `<PythonHelp/>` is empty, the choice has no tooltip.
+
+DowagerMod uses a generic `getDowagerChoiceHelp` callback that looks up `TXT_KEY_<EVENT_TYPE>_HELP` at runtime. Wire it as `<PythonHelp>getDowagerChoiceHelp</PythonHelp>` on each done EventInfo, and define a matching `TXT_KEY_<EVENT_TYPE>_HELP` in the text XML.
 
 ## Validation

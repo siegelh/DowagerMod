@@ -17567,7 +17567,7 @@
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bShowPlot>0</bShowPlot>
 			<iCityFoodWeight>0</iCityFoodWeight>
-			<PythonCanDo/>
+			<PythonCanDo>canTriggerSacredGroveDone</PythonCanDo>
 			<PythonCanDoCity/>
 			<PythonCanDoUnit/>
 			<PythonCallback/>
@@ -17680,7 +17680,7 @@
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
 			<BuildingsRequired><BuildingClass>BUILDINGCLASS_WALLS</BuildingClass></BuildingsRequired>
-			<iNumBuildings>0</iNumBuildings>
+			<iNumBuildings>3</iNumBuildings>
 			<iNumBuildingsGlobal>3</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
 			<bOwnPlot>0</bOwnPlot>
@@ -17984,7 +17984,7 @@
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
 			<BuildingsRequired><BuildingClass>BUILDINGCLASS_BARRACKS</BuildingClass></BuildingsRequired>
-			<iNumBuildings>0</iNumBuildings>
+			<iNumBuildings>2</iNumBuildings>
 			<iNumBuildingsGlobal>2</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
 			<bOwnPlot>0</bOwnPlot>
@@ -18479,7 +18479,7 @@
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bShowPlot>0</bShowPlot>
 			<iCityFoodWeight>0</iCityFoodWeight>
-			<PythonCanDo/>
+			<PythonCanDo>canTriggerWheelOfFortuneDone</PythonCanDo>
 			<PythonCanDoCity/>
 			<PythonCanDoUnit/>
 			<PythonCallback/>
@@ -18592,7 +18592,7 @@
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
 			<BuildingsRequired><BuildingClass>BUILDINGCLASS_GRANARY</BuildingClass></BuildingsRequired>
-			<iNumBuildings>0</iNumBuildings>
+			<iNumBuildings>5</iNumBuildings>
 			<iNumBuildingsGlobal>5</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
 			<bOwnPlot>0</bOwnPlot>
@@ -18744,7 +18744,7 @@
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
 			<BuildingsRequired><BuildingClass>BUILDINGCLASS_LIBRARY</BuildingClass></BuildingsRequired>
-			<iNumBuildings>0</iNumBuildings>
+			<iNumBuildings>2</iNumBuildings>
 			<iNumBuildingsGlobal>3</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
 			<bOwnPlot>0</bOwnPlot>
@@ -18783,7 +18783,7 @@
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bShowPlot>0</bShowPlot>
 			<iCityFoodWeight>0</iCityFoodWeight>
-			<PythonCanDo/>
+			<PythonCanDo>canTriggerAstronomersDone</PythonCanDo>
 			<PythonCanDoCity/>
 			<PythonCanDoUnit/>
 			<PythonCallback/>
@@ -18896,7 +18896,7 @@
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
 			<BuildingsRequired><BuildingClass>BUILDINGCLASS_AQUEDUCT</BuildingClass></BuildingsRequired>
-			<iNumBuildings>0</iNumBuildings>
+			<iNumBuildings>3</iNumBuildings>
 			<iNumBuildingsGlobal>3</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
 			<bOwnPlot>0</bOwnPlot>
@@ -19048,7 +19048,7 @@
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
 			<BuildingsRequired><BuildingClass>BUILDINGCLASS_COURTHOUSE</BuildingClass></BuildingsRequired>
-			<iNumBuildings>0</iNumBuildings>
+			<iNumBuildings>5</iNumBuildings>
 			<iNumBuildingsGlobal>5</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
 			<bOwnPlot>0</bOwnPlot>
@@ -19963,7 +19963,7 @@
 			<BuildingsRequired/>
 			<iNumBuildings>0</iNumBuildings>
 			<iNumBuildingsGlobal>0</iNumBuildingsGlobal>
-			<iNumPlotsRequired>0</iNumPlotsRequired>
+			<iNumPlotsRequired>1</iNumPlotsRequired>
 			<bOwnPlot>0</bOwnPlot>
 			<iPlotType>-1</iPlotType>
 			<FeaturesRequired/>
@@ -20000,7 +20000,7 @@
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bShowPlot>0</bShowPlot>
 			<iCityFoodWeight>0</iCityFoodWeight>
-			<PythonCanDo/>
+			<PythonCanDo>canTriggerRoyalFalconryDone</PythonCanDo>
 			<PythonCanDoCity/>
 			<PythonCanDoUnit/>
 			<PythonCallback/>

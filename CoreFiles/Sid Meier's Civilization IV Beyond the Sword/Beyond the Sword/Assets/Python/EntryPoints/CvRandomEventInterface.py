@@ -4689,3 +4689,246 @@ def getDowagerQuestHelp(argsList):
 		szBase = szType
 	szKey = "TXT_KEY_" + szBase + "_QUEST"
 	return localText.getText(szKey, ())
+
+
+######## DowagerMod generic quest helpers (v2) ###########
+#
+# These helpers replace per-event Python callbacks for our 47 quests.
+# They look up per-event configuration from dictionaries below.
+#
+# Why generic dispatchers instead of per-quest functions:
+#   - 42 quests need the same "settle Great Person specialist in capital" reward
+#   - 99 Tier 1 done-event choices need tooltip text from TXT_KEYs
+#   - Centralizing keeps CvRandomEventInterface.py maintainable.
+
+# Maps EVENT type -> SPECIALIST type to settle in capital.
+DOWAGER_CAPITAL_SPECIALISTS = {
+	"EVENT_SACRED_GROVE_DONE_2": "SPECIALIST_GREAT_PRIEST",
+	"EVENT_MASONS_GUILD_DONE_1": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_MASONS_GUILD_DONE_2": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_SALT_CARAVAN_DONE_2": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_FISHING_VILLAGE_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_POTTERY_WHEEL_DONE_2": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_POTTERY_WHEEL_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_WHEEL_OF_FORTUNE_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_1": "SPECIALIST_GREAT_SCIENTIST",
+	"EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_3": "SPECIALIST_GREAT_SCIENTIST",
+	"EVENT_AQUEDUCT_ENGINEERS_DONE_2": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_WINE_COUNTRY_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_CATHEDRAL_BUILDERS_DONE_2": "SPECIALIST_GREAT_ARTIST",
+	"EVENT_CATHEDRAL_BUILDERS_DONE_3": "SPECIALIST_GREAT_PRIEST",
+	"EVENT_FEUDAL_LEVY_DONE_3": "SPECIALIST_GREAT_GENERAL",
+	"EVENT_PILGRIMS_PATH_DONE_1": "SPECIALIST_GREAT_PRIEST",
+	"EVENT_ROYAL_FALCONRY_DONE_2": "SPECIALIST_GREAT_GENERAL",
+	"EVENT_CATHEDRAL_CHOIR_DONE_1": "SPECIALIST_GREAT_ARTIST",
+	"EVENT_GOLDSMITHS_GUILD_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_CRUSADERS_RETURN_DONE_3": "SPECIALIST_GREAT_PRIEST",
+	"EVENT_PRINTING_PRESS_BOOM_DONE_2": "SPECIALIST_GREAT_SCIENTIST",
+	"EVENT_WHALERS_FLEET_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_COFFEE_HOUSES_DONE_2": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_IRON_HORSE_DONE_2": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_MASS_PRODUCTION_DONE_2": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_LOCOMOTIVE_WORKS_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_TELEGRAPH_NETWORK_DONE_2": "SPECIALIST_GREAT_SCIENTIST",
+	"EVENT_COAL_COUNTRY_DONE_2": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_PROPAGANDA_MACHINE_DONE_2": "SPECIALIST_GREAT_ARTIST",
+	"EVENT_GOLD_FEVER_DONE_2": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_GREAT_FAMINE_DONE_2": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_ROAD_NETWORK_DONE_2": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_MERCANTILISM_DONE_1": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_PAX_ROMANA_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_SILK_ROAD_DONE_2": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_SILK_ROAD_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_SPICE_MERCHANT_DONE_2": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_STOIC_ACADEMY_DONE_2": "SPECIALIST_GREAT_PRIEST",
+	"EVENT_MASTER_BREWER_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_OIL_BARON_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_TULIP_MANIA_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_WORKER_SAFETY_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+}
+
+# Maps EVENT type -> BUILDINGCLASS for "free building in capital" rewards.
+DOWAGER_CAPITAL_BUILDINGS = {
+	"EVENT_BREAD_BASKET_DONE_2": "BUILDINGCLASS_AQUEDUCT",
+	"EVENT_TOURNAMENT_GROUNDS_DONE_1": "BUILDINGCLASS_CASTLE",
+}
+
+
+def applyDowagerCapitalSpecialist(argsList):
+	# Settles a Great Person specialist in the player's capital city.
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	eventInfo = gc.getEventInfo(iEvent)
+	szType = eventInfo.getType()
+	if szType not in DOWAGER_CAPITAL_SPECIALISTS:
+		return 0
+	specName = DOWAGER_CAPITAL_SPECIALISTS[szType]
+	iSpec = gc.getInfoTypeForString(specName)
+	if iSpec < 0:
+		return 0
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is None or capital.isNone():
+		return 0
+	capital.changeFreeSpecialistCount(iSpec, 1)
+	return 1
+
+
+def applyDowagerCapitalFreeBuilding(argsList):
+	# Grants a free building in the player's capital city.
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	eventInfo = gc.getEventInfo(iEvent)
+	szType = eventInfo.getType()
+	if szType not in DOWAGER_CAPITAL_BUILDINGS:
+		return 0
+	bldgClassName = DOWAGER_CAPITAL_BUILDINGS[szType]
+	iBldgClass = gc.getInfoTypeForString(bldgClassName)
+	if iBldgClass < 0:
+		return 0
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is None or capital.isNone():
+		return 0
+	iBldg = gc.getCivilizationInfo(player.getCivilizationType()).getCivilizationBuildings(iBldgClass)
+	if iBldg < 0:
+		return 0
+	capital.setNumRealBuilding(iBldg, capital.getNumRealBuilding(iBldg) + 1)
+	return 1
+
+
+def getDowagerChoiceHelp(argsList):
+	# Returns mouseover tooltip text for any DowagerMod done-event choice.
+	# Looks up TXT_KEY_<EVENT_TYPE>_HELP.
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	eventInfo = gc.getEventInfo(iEvent)
+	szType = eventInfo.getType()
+	szKey = "TXT_KEY_" + szType + "_HELP"
+	return localText.getText(szKey, ())
+
+
+######## DowagerMod auto-completion fixes (Bug A) ###########
+
+def canTriggerSacredGroveDone(argsList):
+	# Sacred Grove done: keep 2+ forest tiles adjacent to capital for 20+ turns.
+	kTriggeredData = argsList[0]
+	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iPrereq = trigger.getPrereqEvent(0)
+	kOrigData = player.getEventOccured(iPrereq)
+	if kOrigData is None:
+		return false
+	if gc.getGame().getGameTurn() < kOrigData.iTurn + 20:
+		return false
+	capital = player.getCapitalCity()
+	if capital is None or capital.isNone():
+		return false
+	iForest = gc.getInfoTypeForString('FEATURE_FOREST')
+	if iForest < 0:
+		return false
+	iCount = 0
+	cx = capital.getX()
+	cy = capital.getY()
+	for dx in range(-1, 2):
+		for dy in range(-1, 2):
+			if dx == 0 and dy == 0:
+				continue
+			p = gc.getMap().plot(cx + dx, cy + dy)
+			if p is None or p.isNone():
+				continue
+			if p.getFeatureType() == iForest:
+				iCount += 1
+	return iCount >= 2
+
+
+def canTriggerWheelOfFortuneDone(argsList):
+	# Wheel of Fortune done: connect 2 cities by road within 10 turns.
+	kTriggeredData = argsList[0]
+	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iPrereq = trigger.getPrereqEvent(0)
+	kOrigData = player.getEventOccured(iPrereq)
+	if kOrigData is None:
+		return false
+	if gc.getGame().getGameTurn() > kOrigData.iTurn + 10:
+		return false
+	capital = player.getCapitalCity()
+	if capital is None or capital.isNone():
+		return false
+	iConnected = 0
+	(loopCity, iter) = player.firstCity(False)
+	while loopCity is not None:
+		if not loopCity.isNone() and loopCity.getID() != capital.getID():
+			if loopCity.isConnectedToCapital(kTriggeredData.ePlayer):
+				iConnected += 1
+		(loopCity, iter) = player.nextCity(iter, False)
+	return iConnected >= 2
+
+
+def canTriggerAstronomersDone(argsList):
+	# Astronomers of the Plain done: have 3+ Scientist specialists for 10+ turns.
+	kTriggeredData = argsList[0]
+	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iPrereq = trigger.getPrereqEvent(0)
+	kOrigData = player.getEventOccured(iPrereq)
+	if kOrigData is None:
+		return false
+	if gc.getGame().getGameTurn() < kOrigData.iTurn + 10:
+		return false
+	iScientist = gc.getInfoTypeForString('SPECIALIST_SCIENTIST')
+	if iScientist < 0:
+		return false
+	iTotal = 0
+	(loopCity, iter) = player.firstCity(False)
+	while loopCity is not None:
+		if not loopCity.isNone():
+			iTotal += loopCity.getSpecialistCount(iScientist)
+		(loopCity, iter) = player.nextCity(iter, False)
+	return iTotal >= 3
+
+
+def canTriggerRoyalFalconryDone(argsList):
+	# Royal Falconry done: 3+ forest adj capital + 1 Camp anywhere, 25+ turns.
+	kTriggeredData = argsList[0]
+	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iPrereq = trigger.getPrereqEvent(0)
+	kOrigData = player.getEventOccured(iPrereq)
+	if kOrigData is None:
+		return false
+	if gc.getGame().getGameTurn() < kOrigData.iTurn + 25:
+		return false
+	capital = player.getCapitalCity()
+	if capital is None or capital.isNone():
+		return false
+	iForest = gc.getInfoTypeForString('FEATURE_FOREST')
+	if iForest < 0:
+		return false
+	iCamp = gc.getInfoTypeForString('IMPROVEMENT_CAMP')
+	iForestCount = 0
+	cx = capital.getX()
+	cy = capital.getY()
+	for dx in range(-1, 2):
+		for dy in range(-1, 2):
+			if dx == 0 and dy == 0:
+				continue
+			p = gc.getMap().plot(cx + dx, cy + dy)
+			if p is None or p.isNone():
+				continue
+			if p.getFeatureType() == iForest:
+				iForestCount += 1
+	if iForestCount < 3:
+		return false
+	if iCamp < 0:
+		return true
+	for i in range(gc.getMap().numPlots()):
+		p = gc.getMap().plotByIndex(i)
+		if p is None or p.isNone():
+			continue
+		if p.getOwner() != kTriggeredData.ePlayer:
+			continue
+		if p.getImprovementType() == iCamp:
+			return true
+	return false
