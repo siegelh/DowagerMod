@@ -6857,7 +6857,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT] to hurry wonders.</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital, providing its yields permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_2</Tag>
@@ -7193,7 +7193,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Scientist[COLOR_REVERT] who may settle as an Academy.</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Scientist specialist[COLOR_REVERT] settles in your capital, providing its yields permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_2</Tag>
@@ -7249,7 +7249,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT] to hurry wonders.</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital, providing its yields permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_3</Tag>
@@ -7526,7 +7526,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_1</Tag>
-		<English>Anoint a great prophet of the order. (Free Great Prophet in Holy City.)</English>
+		<English>Anoint a great prophet of the order. (Free Great Prophet settles in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_1_HELP</Tag>
@@ -7534,7 +7534,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_2</Tag>
-		<English>Spread the faith with espionage. (+100 espionage points on the Holy City's enemies.)</English>
+		<English>Spread the faith with espionage. (+100 espionage points to spend at your discretion.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_2_HELP</Tag>
@@ -8748,7 +8748,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 [ICON_CULTURE] Culture per turn[COLOR_REVERT] for a generation.</English>
+		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]+60 [ICON_CULTURE] Culture[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_MASTER_BREWER_1</Tag>

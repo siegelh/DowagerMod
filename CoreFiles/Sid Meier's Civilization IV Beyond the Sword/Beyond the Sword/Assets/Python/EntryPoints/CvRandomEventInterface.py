@@ -4834,7 +4834,7 @@ def canTriggerSacredGroveDone(argsList):
 		for dy in range(-1, 2):
 			if dx == 0 and dy == 0:
 				continue
-			p = gc.getMap().plot(cx + dx, cy + dy)
+			p = plotXY(cx, cy, dx, dy)
 			if p is None or p.isNone():
 				continue
 			if p.getFeatureType() == iForest:
@@ -4916,7 +4916,7 @@ def canTriggerRoyalFalconryDone(argsList):
 		for dy in range(-1, 2):
 			if dx == 0 and dy == 0:
 				continue
-			p = gc.getMap().plot(cx + dx, cy + dy)
+			p = plotXY(cx, cy, dx, dy)
 			if p is None or p.isNone():
 				continue
 			if p.getFeatureType() == iForest:
