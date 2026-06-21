@@ -4141,7 +4141,7 @@ def canTriggerGoldFever(argsList):
 	iTeam = player.getTeam()
 	(loopCity, iter) = player.firstCity(false)
 	while loopCity:
-		for iPlot in range(loopCity.getNumCityPlots()):
+		for iPlot in range(gc.getNUM_CITY_PLOTS()):
 			pPlot = loopCity.getCityIndexPlot(iPlot)
 			if pPlot is None or pPlot.isNone():
 				continue
@@ -4275,7 +4275,7 @@ def getHelpMercantilism1(argsList):
 def canTriggerMercantilism(argsList):
 	kTriggeredData = argsList[0]
 	player = gc.getPlayer(kTriggeredData.ePlayer)
-	iCivicOption = CivicOptionTypes.CIVICOPTION_ECONOMY
+	iCivicOption = CvUtil.findInfoTypeNum(gc.getCivicOptionInfo, gc.getNumCivicOptionInfos(), 'CIVICOPTION_ECONOMY')
 	iMercantilism = gc.getInfoTypeForString("CIVIC_MERCANTILISM")
 	if player.getCivics(iCivicOption) != iMercantilism:
 		return false
@@ -4365,7 +4365,7 @@ def canTriggerSpiceMerchant(argsList):
 	iIncense = gc.getInfoTypeForString("BONUS_INCENSE")
 	(loopCity, iter) = player.firstCity(false)
 	while loopCity:
-		for i in range(loopCity.getNumCityPlots()):
+		for i in range(gc.getNUM_CITY_PLOTS()):
 			pPlot = loopCity.getCityIndexPlot(i)
 			if pPlot is None or pPlot.isNone():
 				continue
@@ -4467,7 +4467,7 @@ def canTriggerMasterBrewer(argsList):
 		return false
 	(loopCity, iter) = player.firstCity(false)
 	while loopCity:
-		for i in range(loopCity.getNumCityPlots()):
+		for i in range(gc.getNUM_CITY_PLOTS()):
 			pPlot = loopCity.getCityIndexPlot(i)
 			if pPlot is None or pPlot.isNone():
 				continue
@@ -4528,7 +4528,7 @@ def canTriggerOilBaron(argsList):
 	iCount = 0
 	(loopCity, iter) = player.firstCity(false)
 	while loopCity:
-		for i in range(loopCity.getNumCityPlots()):
+		for i in range(gc.getNUM_CITY_PLOTS()):
 			pPlot = loopCity.getCityIndexPlot(i)
 			if pPlot is None or pPlot.isNone():
 				continue
@@ -4643,8 +4643,8 @@ def canTriggerWorkerSafety(argsList):
 	player = gc.getPlayer(kTriggeredData.ePlayer)
 	iEmancipation = gc.getInfoTypeForString("CIVIC_EMANCIPATION")
 	iSuffrage = gc.getInfoTypeForString("CIVIC_UNIVERSAL_SUFFRAGE")
-	iLabor = CivicOptionTypes.CIVICOPTION_LABOR
-	iGov = CivicOptionTypes.CIVICOPTION_GOVERNMENT
+	iLabor = CvUtil.findInfoTypeNum(gc.getCivicOptionInfo, gc.getNumCivicOptionInfos(), 'CIVICOPTION_LABOR')
+	iGov = CvUtil.findInfoTypeNum(gc.getCivicOptionInfo, gc.getNumCivicOptionInfos(), 'CIVICOPTION_GOVERNMENT')
 	if player.getCivics(iLabor) == iEmancipation:
 		return true
 	if player.getCivics(iGov) == iSuffrage:
@@ -4843,15 +4843,17 @@ def canTriggerSacredGroveDone(argsList):
 
 
 def canTriggerWheelOfFortuneDone(argsList):
-	# Wheel of Fortune done: connect 2 cities by road within 10 turns.
+	# Wheel of Fortune done: connect 2 cities by road. The original "within 10
+	# turns" gate was inverted (using > instead of <) which let the quest
+	# auto-complete instantly and then refuse to fire ever after. Removed --
+	# the connectivity check below is the real gate. If we want a true expiry,
+	# add a separate PythonExpireCheck on EVENT_WHEEL_OF_FORTUNE_1.
 	kTriggeredData = argsList[0]
 	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
 	player = gc.getPlayer(kTriggeredData.ePlayer)
 	iPrereq = trigger.getPrereqEvent(0)
 	kOrigData = player.getEventOccured(iPrereq)
 	if kOrigData is None:
-		return false
-	if gc.getGame().getGameTurn() > kOrigData.iTurn + 10:
 		return false
 	capital = player.getCapitalCity()
 	if capital is None or capital.isNone():
