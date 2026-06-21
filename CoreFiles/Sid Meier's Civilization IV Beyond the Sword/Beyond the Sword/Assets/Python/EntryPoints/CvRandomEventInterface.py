@@ -4176,7 +4176,6 @@ def canTriggerBorderDispute(argsList):
 	player = gc.getPlayer(kTriggeredData.ePlayer)
 	team = gc.getTeam(player.getTeam())
 	iKnown = 0
-	iSharedBorder = 0
 	bAnyWar = false
 	for iTeam in range(gc.getMAX_CIV_TEAMS()):
 		if iTeam == player.getTeam():
@@ -4192,6 +4191,7 @@ def canTriggerBorderDispute(argsList):
 		return false
 	if bAnyWar:
 		return false
+	# Shared-border check is enforced by the XML trigger's iOtherPlayerShareBorders=1.
 	return true
 
 def applyEventBorderDisputeDone1(argsList):
@@ -4252,7 +4252,6 @@ def canTriggerRoadNetwork(argsList):
 	player = gc.getPlayer(kTriggeredData.ePlayer)
 	if player.getNumCities() < 5:
 		return false
-	iTeam = player.getTeam()
 	iRoadCount = 0
 	map = gc.getMap()
 	for i in range(map.numPlots()):
@@ -4261,7 +4260,7 @@ def canTriggerRoadNetwork(argsList):
 			continue
 		if pPlot.getRouteType() != -1:
 			iRoadCount += 1
-			if iRoadCount >= 1:
+			if iRoadCount >= 4:
 				return true
 	return false
 
