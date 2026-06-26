@@ -20456,7 +20456,7 @@
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bShowPlot>0</bShowPlot>
 			<iCityFoodWeight>0</iCityFoodWeight>
-			<PythonCanDo/>
+			<PythonCanDo>canTriggerGoldsmithsGuildDone</PythonCanDo>
 			<PythonCanDoCity/>
 			<PythonCanDoUnit/>
 			<PythonCallback/>
@@ -22842,8 +22842,8 @@
 			<MinDifficulty>NONE</MinDifficulty>
 			<iAngry>0</iAngry>
 			<iUnhealthy>0</iUnhealthy>
-			<UnitsRequired><UnitClass>UNITCLASS_WORKER</UnitClass></UnitsRequired>
-			<iNumUnits>4</iNumUnits>
+			<UnitsRequired/>
+			<iNumUnits>0</iNumUnits>
 			<iNumUnitsGlobal>0</iNumUnitsGlobal>
 			<iUnitDamagedWeight>0</iUnitDamagedWeight>
 			<iUnitDistanceWeight>0</iUnitDistanceWeight>
@@ -22889,7 +22889,7 @@
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bShowPlot>0</bShowPlot>
 			<iCityFoodWeight>0</iCityFoodWeight>
-			<PythonCanDo/>
+			<PythonCanDo>canTriggerRoadNetworkDoneNew</PythonCanDo>
 			<PythonCanDoCity/>
 			<PythonCanDoUnit/>
 			<PythonCallback/>
@@ -23610,8 +23610,8 @@
 			<iUnitDistanceWeight>0</iUnitDistanceWeight>
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
-			<BuildingsRequired><BuildingClass>BUILDINGCLASS_LIBRARY</BuildingClass></BuildingsRequired>
-			<iNumBuildings>3</iNumBuildings>
+			<BuildingsRequired/>
+			<iNumBuildings>0</iNumBuildings>
 			<iNumBuildingsGlobal>0</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
 			<bOwnPlot>0</bOwnPlot>
@@ -23650,7 +23650,7 @@
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bShowPlot>0</bShowPlot>
 			<iCityFoodWeight>0</iCityFoodWeight>
-			<PythonCanDo/>
+			<PythonCanDo>canTriggerStoicAcademyDoneNew</PythonCanDo>
 			<PythonCanDoCity/>
 			<PythonCanDoUnit/>
 			<PythonCallback/>
@@ -23762,7 +23762,7 @@
 			<iUnitDistanceWeight>0</iUnitDistanceWeight>
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
-			<BuildingsRequired><BuildingClass>BUILDINGCLASS_MARKET</BuildingClass></BuildingsRequired>
+			<BuildingsRequired><BuildingClass>BUILDINGCLASS_GRANARY</BuildingClass></BuildingsRequired>
 			<iNumBuildings>2</iNumBuildings>
 			<iNumBuildingsGlobal>0</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
@@ -24151,7 +24151,7 @@
 			<FeaturesRequired/>
 			<TerrainsRequired/>
 			<ImprovementsRequired/>
-			<BonusesRequired><BonusType>BONUS_WINE</BonusType></BonusesRequired>
+			<BonusesRequired/>
 			<RoutesRequired/>
 			<ReligionsRequired/>
 			<iNumReligions>0</iNumReligions>
@@ -24370,8 +24370,8 @@
 			<iUnitDistanceWeight>0</iUnitDistanceWeight>
 			<iUnitExperienceWeight>0</iUnitExperienceWeight>
 			<bUnitsOnPlot>0</bUnitsOnPlot>
-			<BuildingsRequired><BuildingClass>BUILDINGCLASS_LEVEE</BuildingClass></BuildingsRequired>
-			<iNumBuildings>1</iNumBuildings>
+			<BuildingsRequired><BuildingClass>BUILDINGCLASS_FACTORY</BuildingClass></BuildingsRequired>
+			<iNumBuildings>5</iNumBuildings>
 			<iNumBuildingsGlobal>0</iNumBuildingsGlobal>
 			<iNumPlotsRequired>0</iNumPlotsRequired>
 			<bOwnPlot>0</bOwnPlot>

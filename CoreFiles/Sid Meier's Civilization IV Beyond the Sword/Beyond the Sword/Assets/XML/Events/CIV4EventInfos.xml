@@ -28573,12 +28573,7 @@
 			<iUnitImmobileTurns>0</iUnitImmobileTurns>
 			<UnitPromotion/>
 			<UnitName/>
-			<UnitCombatPromotions>
-				<UnitCombatPromotion>
-					<UnitCombat>UNITCOMBAT_MELEE</UnitCombat>
-					<UnitPromotion>PROMOTION_COMBAT1</UnitPromotion>
-				</UnitCombatPromotion>
-			</UnitCombatPromotions>
+			<UnitCombatPromotions><UnitCombatPromotion><UnitCombat>UNITCOMBAT_MELEE</UnitCombat><UnitPromotion>PROMOTION_COMBAT1</UnitPromotion></UnitCombatPromotion></UnitCombatPromotions>
 			<UnitClassPromotions/>
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
@@ -28622,7 +28617,7 @@
 					<iEventChance>100</iEventChance>
 				</EventChance>
 			</ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -28708,7 +28703,7 @@
 					<iEventChance>100</iEventChance>
 				</EventChance>
 			</ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -28794,7 +28789,7 @@
 					<iEventChance>100</iEventChance>
 				</EventChance>
 			</ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -28898,7 +28893,7 @@
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>80</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -28956,7 +28951,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SACRED_GROVE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -28966,6 +28961,87 @@
 		<EventInfo>
 			<Type>EVENT_SACRED_GROVE_DONE_2</Type>
 			<Description>TXT_KEY_EVENT_SACRED_GROVE_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields><PlotExtraYield><YieldType>YIELD_COMMERCE</YieldType><iExtraYield>1</iExtraYield></PlotExtraYield></PlotExtraYields>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_SACRED_GROVE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_SACRED_GROVE_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_SACRED_GROVE_DONE_3</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -29038,87 +29114,6 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SACRED_GROVE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_SACRED_GROVE_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_SACRED_GROVE_DONE_3</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
-			<iHealth>1</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_SACRED_GROVE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -29248,6 +29243,87 @@
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
+			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_WALLS</BuildingClass><iHealth>1</iHealth></BuildingExtraHealth></BuildingExtraHealths>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_MASONS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_MASONS_GUILD_DONE_2</Type>
+			<Description>TXT_KEY_EVENT_MASONS_GUILD_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
@@ -29280,7 +29356,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASONS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback>applyDowagerCapitalFreeBuilding</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -29288,8 +29364,8 @@
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
 		<EventInfo>
-			<Type>EVENT_MASONS_GUILD_DONE_2</Type>
-			<Description>TXT_KEY_EVENT_MASONS_GUILD_DONE_2</Description>
+			<Type>EVENT_MASONS_GUILD_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_MASONS_GUILD_DONE_3</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -29300,7 +29376,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>100</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -29362,87 +29438,6 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASONS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_MASONS_GUILD_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_MASONS_GUILD_DONE_3</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>100</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_MASONS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -29543,7 +29538,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>150</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -29570,7 +29565,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_MARKET</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -29604,7 +29599,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SALT_CARAVAN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -29705,7 +29700,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>80</iGold>
+			<iGold>150</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -29735,7 +29730,7 @@
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
+			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -29766,7 +29761,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SALT_CARAVAN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -29890,7 +29885,7 @@
 			<UnitPromotion/>
 			<UnitName/>
 			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
+			<UnitClassPromotions><UnitClassPromotion><UnitClass>UNITCLASS_ARCHER</UnitClass><UnitPromotion>PROMOTION_COMBAT1</UnitPromotion></UnitClassPromotion></UnitClassPromotions>
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
@@ -29898,13 +29893,13 @@
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
-			<iHealth>1</iHealth>
+			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
 			<iRevoltTurns>0</iRevoltTurns>
 			<iMinPillage>0</iMinPillage>
 			<iMaxPillage>0</iMaxPillage>
-			<iFood>20</iFood>
+			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
 			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
@@ -29928,7 +29923,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_HUNTERS_LODGE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -29978,7 +29973,7 @@
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
+			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -30009,7 +30004,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_HUNTERS_LODGE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalFoodBomb</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -30090,7 +30085,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_HUNTERS_LODGE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -30218,17 +30213,17 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_LIGHTHOUSE</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
-			<iHealth>1</iHealth>
+			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
 			<iRevoltTurns>0</iRevoltTurns>
 			<iMinPillage>0</iMinPillage>
 			<iMaxPillage>0</iMaxPillage>
-			<iFood>25</iFood>
+			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
 			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
@@ -30252,7 +30247,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_FISHING_VILLAGE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -30333,7 +30328,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_FISHING_VILLAGE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -30403,7 +30398,7 @@
 			<iRouteChange>0</iRouteChange>
 			<BonusRevealed>NONE</BonusRevealed>
 			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
+			<PlotExtraYields><PlotExtraYield><YieldType>YIELD_FOOD</YieldType><iExtraYield>1</iExtraYield></PlotExtraYield></PlotExtraYields>
 			<iConvertOwnCities>0</iConvertOwnCities>
 			<iConvertOtherCities>0</iConvertOtherCities>
 			<iMaxNumReligions>-1</iMaxNumReligions>
@@ -30414,7 +30409,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_FISHING_VILLAGE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -30515,10 +30510,10 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>120</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>40</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -30541,7 +30536,7 @@
 			<UnitClassPromotions/>
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
+			<BuildingExtraYields><BuildingExtraYield><BuildingClass>BUILDINGCLASS_GRANARY</BuildingClass><YieldType>YIELD_PRODUCTION</YieldType><iExtraYield>1</iExtraYield></BuildingExtraYield></BuildingExtraYields>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
@@ -30576,7 +30571,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_POTTERY_WHEEL_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -30596,7 +30591,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
+			<iGold>120</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -30657,7 +30652,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_POTTERY_WHEEL_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -30677,7 +30672,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>80</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -30839,10 +30834,10 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>140</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>30</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -30866,7 +30861,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_FORGE</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -30900,7 +30895,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WHEEL_OF_FORTUNE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -30981,7 +30976,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WHEEL_OF_FORTUNE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -31192,15 +31187,15 @@
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
+			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_GRANARY</BuildingClass><iHealth>1</iHealth></BuildingExtraHealth></BuildingExtraHealths>
 			<iHappy>0</iHappy>
-			<iHealth>1</iHealth>
+			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
 			<iRevoltTurns>0</iRevoltTurns>
 			<iMinPillage>0</iMinPillage>
 			<iMaxPillage>0</iMaxPillage>
-			<iFood>30</iFood>
+			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
 			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
@@ -31224,7 +31219,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_BREAD_BASKET_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -31356,7 +31351,7 @@
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
-			<iHealth>1</iHealth>
+			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
 			<iRevoltTurns>0</iRevoltTurns>
@@ -31382,11 +31377,11 @@
 			<iOurAttitudeModifier>0</iOurAttitudeModifier>
 			<iAttitudeModifier>0</iAttitudeModifier>
 			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>2</iPopulationChange>
+			<iPopulationChange>0</iPopulationChange>
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_BREAD_BASKET_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalFoodBomb</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -31514,7 +31509,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_LIBRARY</BuildingClass><CommerceType>COMMERCE_RESEARCH</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -31548,7 +31543,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ASTRONOMERS_OF_THE_PLAIN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -31568,10 +31563,10 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>80</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>100</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -31579,7 +31574,7 @@
 			<iSpaceProductionMod>0</iSpaceProductionMod>
 			<Tech>NONE</Tech>
 			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
+			<iTechPercent>30</iTechPercent>
 			<iTechCostPercent>0</iTechCostPercent>
 			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
 			<PrereqTech>NONE</PrereqTech>
@@ -31629,7 +31624,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ASTRONOMERS_OF_THE_PLAIN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -31652,7 +31647,7 @@
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>50</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -31840,9 +31835,9 @@
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
+			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_AQUEDUCT</BuildingClass><iHealth>1</iHealth></BuildingExtraHealth></BuildingExtraHealths>
 			<iHappy>0</iHappy>
-			<iHealth>2</iHealth>
+			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
 			<iRevoltTurns>0</iRevoltTurns>
@@ -31872,7 +31867,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_AQUEDUCT_ENGINEERS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -31882,6 +31877,87 @@
 		<EventInfo>
 			<Type>EVENT_AQUEDUCT_ENGINEERS_DONE_2</Type>
 			<Description>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>1</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_AQUEDUCT_ENGINEERS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_AQUEDUCT_ENGINEERS_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_3</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -31954,87 +32030,6 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_AQUEDUCT_ENGINEERS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_AQUEDUCT_ENGINEERS_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_3</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>25</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_AQUEDUCT_ENGINEERS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -32135,7 +32130,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>200</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -32162,7 +32157,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_COURTHOUSE</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -32196,7 +32191,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CENSUS_TAKER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -32277,7 +32272,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CENSUS_TAKER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -32297,11 +32292,11 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>100</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
-			<iEspionagePoints>50</iEspionagePoints>
+			<iEspionagePoints>100</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
 			<iInflationMod>0</iInflationMod>
@@ -32358,7 +32353,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CENSUS_TAKER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -32462,7 +32457,7 @@
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>60</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -32487,9 +32482,9 @@
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
+			<BuildingExtraHappies><BuildingExtraHappy><BuildingClass>BUILDINGCLASS_CASTLE</BuildingClass><iHappy>1</iHappy></BuildingExtraHappy></BuildingExtraHappies>
 			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
+			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -32520,7 +32515,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MOUNTAIN_PASS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -32540,7 +32535,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>100</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -32571,7 +32566,7 @@
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
-			<iHealth>1</iHealth>
+			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
 			<iRevoltTurns>0</iRevoltTurns>
@@ -32601,7 +32596,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MOUNTAIN_PASS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalCultureBomb</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -32682,7 +32677,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MOUNTAIN_PASS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -32783,7 +32778,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>160</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -32811,7 +32806,7 @@
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
+			<BuildingExtraHappies><BuildingExtraHappy><BuildingClass>BUILDINGCLASS_MARKET</BuildingClass><iHappy>1</iHappy></BuildingExtraHappy></BuildingExtraHappies>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
@@ -32844,7 +32839,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WINE_COUNTRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -32925,7 +32920,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WINE_COUNTRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -33111,7 +33106,7 @@
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>3</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -33135,7 +33130,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_THEATRE</BuildingClass><CommerceType>COMMERCE_CULTURE</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -33169,7 +33164,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CATHEDRAL_BUILDERS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -33321,7 +33316,7 @@
 			<BonusRevealed>NONE</BonusRevealed>
 			<BonusGift>NONE</BonusGift>
 			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOwnCities>5</iConvertOwnCities>
 			<iConvertOtherCities>0</iConvertOtherCities>
 			<iMaxNumReligions>-1</iMaxNumReligions>
 			<iOurAttitudeModifier>0</iOurAttitudeModifier>
@@ -33331,7 +33326,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CATHEDRAL_BUILDERS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -33493,7 +33488,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_FEUDAL_LEVY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -33513,7 +33508,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>200</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -33539,7 +33534,7 @@
 			<UnitClassPromotions/>
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
+			<BuildingExtraYields><BuildingExtraYield><BuildingClass>BUILDINGCLASS_BARRACKS</BuildingClass><YieldType>YIELD_PRODUCTION</YieldType><iExtraYield>1</iExtraYield></BuildingExtraYield></BuildingExtraYields>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
@@ -33574,7 +33569,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_FEUDAL_LEVY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -33817,7 +33812,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PILGRIMS_PATH_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback>applyDowagerReligionSpreadWorld</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -33827,6 +33822,87 @@
 		<EventInfo>
 			<Type>EVENT_PILGRIMS_PATH_DONE_2</Type>
 			<Description>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_PILGRIMS_PATH_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_PILGRIMS_PATH_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_3</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -33898,88 +33974,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PILGRIMS_PATH_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_PILGRIMS_PATH_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_3</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>180</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_PILGRIMS_PATH_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -34083,87 +34078,6 @@
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>2</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_ROYAL_FALCONRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_ROYAL_FALCONRY_DONE_2</Type>
-			<Description>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_2</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
@@ -34211,6 +34125,87 @@
 			<iRouteChange>0</iRouteChange>
 			<BonusRevealed>NONE</BonusRevealed>
 			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields><PlotExtraYield><YieldType>YIELD_COMMERCE</YieldType><iExtraYield>1</iExtraYield></PlotExtraYield></PlotExtraYields>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_ROYAL_FALCONRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_ROYAL_FALCONRY_DONE_2</Type>
+			<Description>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions><UnitClassPromotion><UnitClass>UNITCLASS_SCOUT</UnitClass><UnitPromotion>PROMOTION_COMBAT1</UnitPromotion></UnitClassPromotion></UnitClassPromotions>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
 			<PlotExtraYields/>
 			<iConvertOwnCities>0</iConvertOwnCities>
 			<iConvertOtherCities>0</iConvertOtherCities>
@@ -34222,7 +34217,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ROYAL_FALCONRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -34303,7 +34298,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ROYAL_FALCONRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -34431,7 +34426,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_THEATRE</BuildingClass><CommerceType>COMMERCE_CULTURE</CommerceType><iExtraCommerce>2</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -34465,7 +34460,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CATHEDRAL_CHOIR_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -34488,7 +34483,7 @@
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>4</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -34546,7 +34541,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CATHEDRAL_CHOIR_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -34596,7 +34591,7 @@
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
+			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -34627,7 +34622,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CATHEDRAL_CHOIR_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalCultureBomb</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -34751,7 +34746,7 @@
 			<UnitPromotion/>
 			<UnitName/>
 			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
+			<UnitClassPromotions><UnitClassPromotion><UnitClass>UNITCLASS_KNIGHT</UnitClass><UnitPromotion>PROMOTION_COMBAT1</UnitPromotion></UnitClassPromotion></UnitClassPromotions>
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
@@ -34789,7 +34784,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_TOURNAMENT_GROUNDS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalFreeBuilding</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -34837,9 +34832,9 @@
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
+			<BuildingExtraHappies><BuildingExtraHappy><BuildingClass>BUILDINGCLASS_CASTLE</BuildingClass><iHappy>1</iHappy></BuildingExtraHappy></BuildingExtraHappies>
 			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
+			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -34870,7 +34865,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_TOURNAMENT_GROUNDS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -34912,7 +34907,7 @@
 			<iUnitImmobileTurns>0</iUnitImmobileTurns>
 			<UnitPromotion/>
 			<UnitName/>
-			<UnitCombatPromotions><UnitCombatPromotion><UnitCombat>UNITCOMBAT_MOUNTED</UnitCombat><UnitPromotion>PROMOTION_COMBAT1</UnitPromotion></UnitCombatPromotion></UnitCombatPromotions>
+			<UnitCombatPromotions/>
 			<UnitClassPromotions/>
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
@@ -34951,7 +34946,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_TOURNAMENT_GROUNDS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalFreeBuilding</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -35052,6 +35047,87 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_FORGE</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_GOLDSMITHS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_GOLDSMITHS_GUILD_DONE_2</Type>
+			<Description>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
 			<iGold>220</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
@@ -35113,88 +35189,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_GOLDSMITHS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_GOLDSMITHS_GUILD_DONE_2</Type>
-			<Description>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_2</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_GOLDSMITHS_GUILD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -35437,7 +35432,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CRUSADERS_RETURN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -35487,7 +35482,7 @@
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
+			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -35518,7 +35513,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_CRUSADERS_RETURN_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerReligionSpreadWorld</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -35703,7 +35698,7 @@
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>5</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -35712,6 +35707,87 @@
 			<Tech>NONE</Tech>
 			<TechFlavors/>
 			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_UNIVERSITY</BuildingClass><CommerceType>COMMERCE_RESEARCH</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_PRINTING_PRESS_BOOM_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_PRINTING_PRESS_BOOM_DONE_2</Type>
+			<Description>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>40</iTechPercent>
 			<iTechCostPercent>0</iTechCostPercent>
 			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
 			<PrereqTech>NONE</PrereqTech>
@@ -35761,7 +35837,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PRINTING_PRESS_BOOM_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -35769,8 +35845,8 @@
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
 		<EventInfo>
-			<Type>EVENT_PRINTING_PRESS_BOOM_DONE_2</Type>
-			<Description>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_2</Description>
+			<Type>EVENT_PRINTING_PRESS_BOOM_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_3</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -35843,87 +35919,6 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PRINTING_PRESS_BOOM_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_PRINTING_PRESS_BOOM_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_3</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>250</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_PRINTING_PRESS_BOOM_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -36046,7 +36041,7 @@
 			<iUnitImmobileTurns>0</iUnitImmobileTurns>
 			<UnitPromotion/>
 			<UnitName/>
-			<UnitCombatPromotions><UnitCombatPromotion><UnitCombat>UNITCOMBAT_NAVAL</UnitCombat><UnitPromotion>PROMOTION_COMBAT1</UnitPromotion></UnitCombatPromotion></UnitCombatPromotions>
+			<UnitCombatPromotions><UnitCombatPromotion><UnitCombat>UNITCOMBAT_NAVAL</UnitCombat><UnitPromotion>PROMOTION_NAVIGATION1</UnitPromotion></UnitCombatPromotion></UnitCombatPromotions>
 			<UnitClassPromotions/>
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
@@ -36085,7 +36080,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ROYAL_NAVY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -36166,7 +36161,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ROYAL_NAVY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -36186,7 +36181,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>240</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -36208,7 +36203,7 @@
 			<iUnitImmobileTurns>0</iUnitImmobileTurns>
 			<UnitPromotion/>
 			<UnitName/>
-			<UnitCombatPromotions/>
+			<UnitCombatPromotions><UnitCombatPromotion><UnitCombat>UNITCOMBAT_NAVAL</UnitCombat><UnitPromotion>PROMOTION_COMBAT1</UnitPromotion></UnitCombatPromotion></UnitCombatPromotions>
 			<UnitClassPromotions/>
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
@@ -36247,7 +36242,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ROYAL_NAVY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -36363,6 +36358,87 @@
 			<iTechCostPercent>0</iTechCostPercent>
 			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
 			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_NAVAL_DRYDOCKS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_NAVAL_DRYDOCKS_DONE_2</Type>
+			<Description>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
 			<UnitClass>UNITCLASS_FRIGATE</UnitClass>
 			<iNumFreeUnits>1</iNumFreeUnits>
 			<bDisbandUnit>0</bDisbandUnit>
@@ -36409,88 +36485,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_NAVAL_DRYDOCKS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_NAVAL_DRYDOCKS_DONE_2</Type>
-			<Description>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_2</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_NAVAL_DRYDOCKS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -36539,9 +36534,9 @@
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
+			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass><iHealth>1</iHealth></BuildingExtraHealth></BuildingExtraHealths>
 			<iHappy>0</iHappy>
-			<iHealth>1</iHealth>
+			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
 			<iRevoltTurns>0</iRevoltTurns>
@@ -36571,7 +36566,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_NAVAL_DRYDOCKS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -36672,7 +36667,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>200</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -36699,7 +36694,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_LIGHTHOUSE</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -36733,7 +36728,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WHALERS_FLEET_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -36784,7 +36779,7 @@
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
-			<iHealth>1</iHealth>
+			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
 			<iRevoltTurns>0</iRevoltTurns>
@@ -36803,7 +36798,7 @@
 			<iRouteChange>0</iRouteChange>
 			<BonusRevealed>NONE</BonusRevealed>
 			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
+			<PlotExtraYields><PlotExtraYield><YieldType>YIELD_COMMERCE</YieldType><iExtraYield>2</iExtraYield></PlotExtraYield></PlotExtraYields>
 			<iConvertOwnCities>0</iConvertOwnCities>
 			<iConvertOtherCities>0</iConvertOtherCities>
 			<iMaxNumReligions>-1</iMaxNumReligions>
@@ -36814,7 +36809,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WHALERS_FLEET_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -36895,7 +36890,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WHALERS_FLEET_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback>applyDowagerCapitalFoodBomb</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -37024,9 +37019,9 @@
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
+			<BuildingExtraHappies><BuildingExtraHappy><BuildingClass>BUILDINGCLASS_GROCER</BuildingClass><iHappy>1</iHappy></BuildingExtraHappy></BuildingExtraHappies>
 			<BuildingExtraHealths/>
-			<iHappy>1</iHappy>
+			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -37057,7 +37052,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_COFFEE_HOUSES_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -37067,6 +37062,87 @@
 		<EventInfo>
 			<Type>EVENT_COFFEE_HOUSES_DONE_2</Type>
 			<Description>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_MARKET</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_COFFEE_HOUSES_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_COFFEE_HOUSES_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_3</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -37139,87 +37215,6 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_COFFEE_HOUSES_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_COFFEE_HOUSES_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_3</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>240</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_COFFEE_HOUSES_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -37381,7 +37376,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_IRON_HORSE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -37391,6 +37386,87 @@
 		<EventInfo>
 			<Type>EVENT_IRON_HORSE_DONE_2</Type>
 			<Description>TXT_KEY_EVENT_IRON_HORSE_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields><BuildingExtraYield><BuildingClass>BUILDINGCLASS_FACTORY</BuildingClass><YieldType>YIELD_PRODUCTION</YieldType><iExtraYield>1</iExtraYield></BuildingExtraYield></BuildingExtraYields>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_IRON_HORSE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_IRON_HORSE_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_IRON_HORSE_DONE_3</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -37463,87 +37539,6 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_IRON_HORSE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_IRON_HORSE_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_IRON_HORSE_DONE_3</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>350</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_IRON_HORSE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -37705,7 +37700,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASS_PRODUCTION_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -37715,6 +37710,87 @@
 		<EventInfo>
 			<Type>EVENT_MASS_PRODUCTION_DONE_2</Type>
 			<Description>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText/>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_FACTORY</BuildingClass><iHealth>1</iHealth></BuildingExtraHealth></BuildingExtraHealths>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_MASS_PRODUCTION_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_MASS_PRODUCTION_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_3</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -37787,87 +37863,6 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASS_PRODUCTION_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_MASS_PRODUCTION_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_3</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText/>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_FACTORY</BuildingClass><iHealth>1</iHealth></BuildingExtraHealth></BuildingExtraHealths>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_MASS_PRODUCTION_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -38029,7 +38024,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_LOCOMOTIVE_WORKS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -38110,7 +38105,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_LOCOMOTIVE_WORKS_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -38353,7 +38348,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_TELEGRAPH_NETWORK_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -38457,7 +38452,7 @@
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>200</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -38484,7 +38479,7 @@
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
+			<iHappy>1</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -38515,7 +38510,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_TELEGRAPH_NETWORK_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -38677,7 +38672,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_COAL_COUNTRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -38778,7 +38773,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>300</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -38828,7 +38823,7 @@
 			<iRouteChange>0</iRouteChange>
 			<BonusRevealed>NONE</BonusRevealed>
 			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
+			<PlotExtraYields><PlotExtraYield><YieldType>YIELD_PRODUCTION</YieldType><iExtraYield>1</iExtraYield></PlotExtraYield></PlotExtraYields>
 			<iConvertOwnCities>0</iConvertOwnCities>
 			<iConvertOtherCities>0</iConvertOtherCities>
 			<iMaxNumReligions>-1</iMaxNumReligions>
@@ -38839,7 +38834,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_COAL_COUNTRY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -39001,7 +38996,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PROPAGANDA_MACHINE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -39105,7 +39100,7 @@
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
-			<iCulture>250</iCulture>
+			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
 			<bGoldenAge>0</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
@@ -39163,7 +39158,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PROPAGANDA_MACHINE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback/>
+			<PythonCallback>applyDowagerCapitalCultureBomb</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -39265,6 +39260,87 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>BONUS_GOLD</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_GOLD_FEVER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_GOLD_FEVER_DONE_2</Type>
+			<Description>TXT_KEY_EVENT_GOLD_FEVER_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText></QuestFailText>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
 			<iGold>200</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
@@ -39327,87 +39403,6 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_GOLD_FEVER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback></PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_GOLD_FEVER_DONE_2</Type>
-			<Description>TXT_KEY_EVENT_GOLD_FEVER_DONE_2</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText></QuestFailText>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_GOLD_FEVER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -39488,7 +39483,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_GOLD_FEVER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventGoldFeverDone3</PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -39650,7 +39645,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_BORDER_DISPUTE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventBorderDisputeDone1</PythonCallback>
+			<PythonCallback>applyDowagerAttitudeAllCivs</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -39751,7 +39746,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>200</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -39780,7 +39775,7 @@
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
+			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_WALLS</BuildingClass><iHealth>1</iHealth></BuildingExtraHealth></BuildingExtraHealths>
 			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
@@ -39942,7 +39937,7 @@
 			<BuildingExtraYields/>
 			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
+			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_GRANARY</BuildingClass><iHealth>1</iHealth></BuildingExtraHealth></BuildingExtraHealths>
 			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
@@ -39974,7 +39969,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_GREAT_FAMINE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventGreatFamineDone1</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -40055,7 +40050,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_GREAT_FAMINE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback>applyDowagerCapitalFoodBomb</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -40106,7 +40101,7 @@
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
+			<iHealth>1</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
 			<iRevoltTurns>0</iRevoltTurns>
@@ -40136,7 +40131,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_GREAT_FAMINE_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventGreatFamineDone3</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -40237,6 +40232,87 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_MARKET</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_ROAD_NETWORK_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_ROAD_NETWORK_DONE_2</Type>
+			<Description>TXT_KEY_EVENT_ROAD_NETWORK_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText></QuestFailText>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
 			<iGold>200</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
@@ -40299,87 +40375,6 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_ROAD_NETWORK_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback></PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_ROAD_NETWORK_DONE_2</Type>
-			<Description>TXT_KEY_EVENT_ROAD_NETWORK_DONE_2</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText></QuestFailText>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_ROAD_NETWORK_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -40588,87 +40583,6 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_MERCANTILISM_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_MERCANTILISM_DONE_2</Type>
-			<Description>TXT_KEY_EVENT_MERCANTILISM_DONE_2</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText></QuestFailText>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
 			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_BANK</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>2</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
@@ -40711,8 +40625,8 @@
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
 		<EventInfo>
-			<Type>EVENT_MERCANTILISM_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_MERCANTILISM_DONE_3</Description>
+			<Type>EVENT_MERCANTILISM_DONE_2</Type>
+			<Description>TXT_KEY_EVENT_MERCANTILISM_DONE_2</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -40785,6 +40699,87 @@
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MERCANTILISM_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
 			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_MERCANTILISM_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_MERCANTILISM_DONE_3</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText></QuestFailText>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_MERCANTILISM_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback>applyDowagerScaledGold</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -40885,12 +40880,12 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>250</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
 			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
+			<bGoldenAge>1</bGoldenAge>
 			<iFreeUnitSupport>0</iFreeUnitSupport>
 			<iInflationMod>0</iInflationMod>
 			<iSpaceProductionMod>0</iSpaceProductionMod>
@@ -41027,7 +41022,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PAX_ROMANA_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventPaxRomanaDone2</PythonCallback>
+			<PythonCallback>applyDowagerAttitudeAllCivs</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -41047,7 +41042,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
+			<iGold>250</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -41108,7 +41103,7 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_PAX_ROMANA_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -41209,7 +41204,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>200</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -41236,7 +41231,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_MARKET</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -41280,87 +41275,6 @@
 		<EventInfo>
 			<Type>EVENT_SILK_ROAD_DONE_2</Type>
 			<Description>TXT_KEY_EVENT_SILK_ROAD_DONE_2</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText></QuestFailText>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>250</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces/>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts/>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_SILK_ROAD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_SILK_ROAD_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_SILK_ROAD_DONE_3</Description>
 			<LocalInfoText/>
 			<WorldNewsTexts/>
 			<OtherPlayerPopup/>
@@ -41432,7 +41346,88 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SILK_ROAD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback>applyDowagerScaledGold</PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_SILK_ROAD_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_SILK_ROAD_DONE_3</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText></QuestFailText>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>BONUS_SILK</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_SILK_ROAD_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
 			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
@@ -41534,87 +41529,6 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>220</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_SPICE_MERCHANT_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getHelpSpiceMerchantDone1</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_SPICE_MERCHANT_DONE_2</Type>
-			<Description>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_2</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText></QuestFailText>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
 			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
@@ -41642,7 +41556,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_MARKET</BuildingClass><CommerceType>COMMERCE_GOLD</CommerceType><iExtraCommerce>2</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -41676,10 +41590,91 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SPICE_MERCHANT_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpSpiceMerchantDone2</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_SPICE_MERCHANT_DONE_2</Type>
+			<Description>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_2</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText></QuestFailText>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>220</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_SPICE_MERCHANT_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -41723,7 +41718,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -41735,7 +41730,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -41757,10 +41752,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_SPICE_MERCHANT_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventSpiceMerchantDone3</PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpSpiceMerchantDone3</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -41885,7 +41880,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces><BuildingExtraCommerce><BuildingClass>BUILDINGCLASS_LIBRARY</BuildingClass><CommerceType>COMMERCE_CULTURE</CommerceType><iExtraCommerce>1</iExtraCommerce></BuildingExtraCommerce></BuildingExtraCommerces>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -41897,7 +41892,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -41919,10 +41914,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_STOIC_ACADEMY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventStoicAcademyDone1</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpStoicAcademyDone1</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -41966,10 +41961,10 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
+			<iHappy>1</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -42000,10 +41995,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_STOIC_ACADEMY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpStoicAcademyDone2</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -42047,7 +42042,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -42059,7 +42054,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -42081,10 +42076,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_STOIC_ACADEMY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventStoicAcademyDone3</PythonCallback>
+			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpStoicAcademyDone3</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -42209,8 +42204,8 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
-			<BuildingExtraHappies/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies><BuildingExtraHappy><BuildingClass>BUILDINGCLASS_MARKET</BuildingClass><iHappy>1</iHappy></BuildingExtraHappy></BuildingExtraHappies>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
@@ -42221,7 +42216,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -42243,10 +42238,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASTER_BREWER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventMasterBrewerDone1</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpMasterBrewerDone1</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -42290,7 +42285,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -42302,7 +42297,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -42324,10 +42319,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASTER_BREWER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventMasterBrewerDone2</PythonCallback>
+			<PythonCallback>applyDowagerCapitalFoodBomb</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpMasterBrewerDone2</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -42371,9 +42366,9 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
+			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_GRANARY</BuildingClass><iHealth>1</iHealth></BuildingExtraHealth></BuildingExtraHealths>
 			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
@@ -42405,10 +42400,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_MASTER_BREWER_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpMasterBrewerDone3</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -42521,8 +42516,8 @@
 			<iTechCostPercent>0</iTechCostPercent>
 			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
 			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>UNITCLASS_TANK</UnitClass>
-			<iNumFreeUnits>1</iNumFreeUnits>
+			<UnitClass>NONE</UnitClass>
+			<iNumFreeUnits>0</iNumFreeUnits>
 			<bDisbandUnit>0</bDisbandUnit>
 			<iUnitExperience>0</iUnitExperience>
 			<iUnitImmobileTurns>0</iUnitImmobileTurns>
@@ -42532,8 +42527,8 @@
 			<UnitClassPromotions/>
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraYields><BuildingExtraYield><BuildingClass>BUILDINGCLASS_FACTORY</BuildingClass><YieldType>YIELD_PRODUCTION</YieldType><iExtraYield>1</iExtraYield></BuildingExtraYield></BuildingExtraYields>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -42545,7 +42540,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -42570,7 +42565,7 @@
 			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpOilBaronDone1</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -42614,88 +42609,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
-			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
-			<iHealth>0</iHealth>
-			<iHurryAnger>0</iHurryAnger>
-			<iHappyTurns>0</iHappyTurns>
-			<iRevoltTurns>0</iRevoltTurns>
-			<iMinPillage>0</iMinPillage>
-			<iMaxPillage>0</iMaxPillage>
-			<iFood>0</iFood>
-			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
-			<FeatureType>NONE</FeatureType>
-			<iFeatureChange>0</iFeatureChange>
-			<ImprovementType>NONE</ImprovementType>
-			<iImprovementChange>0</iImprovementChange>
-			<BonusType>NONE</BonusType>
-			<iBonusChange>0</iBonusChange>
-			<RouteType>NONE</RouteType>
-			<iRouteChange>0</iRouteChange>
-			<BonusRevealed>NONE</BonusRevealed>
-			<BonusGift>NONE</BonusGift>
-			<PlotExtraYields/>
-			<iConvertOwnCities>0</iConvertOwnCities>
-			<iConvertOtherCities>0</iConvertOtherCities>
-			<iMaxNumReligions>-1</iMaxNumReligions>
-			<iOurAttitudeModifier>0</iOurAttitudeModifier>
-			<iAttitudeModifier>0</iAttitudeModifier>
-			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
-			<iPopulationChange>0</iPopulationChange>
-			<AdditionalEvents/>
-			<EventTimes/>
-			<ClearEvents><EventChance><Event>EVENT_OIL_BARON_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback></PythonCallback>
-			<PythonExpireCheck/>
-			<PythonCanDo/>
-			<PythonHelp>getHelpOilBaronDone2</PythonHelp>
-			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
-			<iAIValue>1000</iAIValue>
-		</EventInfo>
-		<EventInfo>
-			<Type>EVENT_OIL_BARON_DONE_3</Type>
-			<Description>TXT_KEY_EVENT_OIL_BARON_DONE_3</Description>
-			<LocalInfoText/>
-			<WorldNewsTexts/>
-			<OtherPlayerPopup/>
-			<QuestFailText></QuestFailText>
-			<bQuest>0</bQuest>
-			<bGlobal>1</bGlobal>
-			<bTeam>0</bTeam>
-			<bPickCity>0</bPickCity>
-			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
-			<bDeclareWar>0</bDeclareWar>
-			<iGold>0</iGold>
-			<bGoldToPlayer>0</bGoldToPlayer>
-			<iRandomGold>0</iRandomGold>
-			<iCulture>0</iCulture>
-			<iEspionagePoints>0</iEspionagePoints>
-			<bGoldenAge>0</bGoldenAge>
-			<iFreeUnitSupport>0</iFreeUnitSupport>
-			<iInflationMod>0</iInflationMod>
-			<iSpaceProductionMod>0</iSpaceProductionMod>
-			<Tech>NONE</Tech>
-			<TechFlavors/>
-			<iTechPercent>0</iTechPercent>
-			<iTechCostPercent>0</iTechCostPercent>
-			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
-			<PrereqTech>NONE</PrereqTech>
-			<UnitClass>NONE</UnitClass>
-			<iNumFreeUnits>0</iNumFreeUnits>
-			<bDisbandUnit>0</bDisbandUnit>
-			<iUnitExperience>0</iUnitExperience>
-			<iUnitImmobileTurns>0</iUnitImmobileTurns>
-			<UnitPromotion/>
-			<UnitName/>
-			<UnitCombatPromotions/>
-			<UnitClassPromotions/>
-			<BuildingClass>NONE</BuildingClass>
-			<iBuildingChange>0</iBuildingChange>
-			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -42729,10 +42643,91 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_OIL_BARON_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpOilBaronDone3</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_OIL_BARON_DONE_3</Type>
+			<Description>TXT_KEY_EVENT_OIL_BARON_DONE_3</Description>
+			<LocalInfoText/>
+			<WorldNewsTexts/>
+			<OtherPlayerPopup/>
+			<QuestFailText></QuestFailText>
+			<bQuest>0</bQuest>
+			<bGlobal>1</bGlobal>
+			<bTeam>0</bTeam>
+			<bPickCity>0</bPickCity>
+			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
+			<bDeclareWar>0</bDeclareWar>
+			<iGold>0</iGold>
+			<bGoldToPlayer>0</bGoldToPlayer>
+			<iRandomGold>0</iRandomGold>
+			<iCulture>0</iCulture>
+			<iEspionagePoints>0</iEspionagePoints>
+			<bGoldenAge>0</bGoldenAge>
+			<iFreeUnitSupport>0</iFreeUnitSupport>
+			<iInflationMod>0</iInflationMod>
+			<iSpaceProductionMod>0</iSpaceProductionMod>
+			<Tech>NONE</Tech>
+			<TechFlavors/>
+			<iTechPercent>0</iTechPercent>
+			<iTechCostPercent>0</iTechCostPercent>
+			<iTechMinTurnsLeft>0</iTechMinTurnsLeft>
+			<PrereqTech>NONE</PrereqTech>
+			<UnitClass>UNITCLASS_TANK</UnitClass>
+			<iNumFreeUnits>1</iNumFreeUnits>
+			<bDisbandUnit>0</bDisbandUnit>
+			<iUnitExperience>0</iUnitExperience>
+			<iUnitImmobileTurns>0</iUnitImmobileTurns>
+			<UnitPromotion/>
+			<UnitName/>
+			<UnitCombatPromotions/>
+			<UnitClassPromotions/>
+			<BuildingClass>NONE</BuildingClass>
+			<iBuildingChange>0</iBuildingChange>
+			<BuildingExtraYields/>
+			<BuildingExtraCommerces/>
+			<BuildingExtraHappies/>
+			<BuildingExtraHealths/>
+			<iHappy>0</iHappy>
+			<iHealth>0</iHealth>
+			<iHurryAnger>0</iHurryAnger>
+			<iHappyTurns>0</iHappyTurns>
+			<iRevoltTurns>0</iRevoltTurns>
+			<iMinPillage>0</iMinPillage>
+			<iMaxPillage>0</iMaxPillage>
+			<iFood>0</iFood>
+			<iFoodPercent>0</iFoodPercent>
+			<FreeSpecialistCounts/>
+			<FeatureType>NONE</FeatureType>
+			<iFeatureChange>0</iFeatureChange>
+			<ImprovementType>NONE</ImprovementType>
+			<iImprovementChange>0</iImprovementChange>
+			<BonusType>NONE</BonusType>
+			<iBonusChange>0</iBonusChange>
+			<RouteType>NONE</RouteType>
+			<iRouteChange>0</iRouteChange>
+			<BonusRevealed>NONE</BonusRevealed>
+			<BonusGift>NONE</BonusGift>
+			<PlotExtraYields/>
+			<iConvertOwnCities>0</iConvertOwnCities>
+			<iConvertOtherCities>0</iConvertOtherCities>
+			<iMaxNumReligions>-1</iMaxNumReligions>
+			<iOurAttitudeModifier>0</iOurAttitudeModifier>
+			<iAttitudeModifier>0</iAttitudeModifier>
+			<iTheirEnemyAttitudeModifier>0</iTheirEnemyAttitudeModifier>
+			<iPopulationChange>0</iPopulationChange>
+			<AdditionalEvents/>
+			<EventTimes/>
+			<ClearEvents><EventChance><Event>EVENT_OIL_BARON_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
+			<PythonCallback></PythonCallback>
+			<PythonExpireCheck/>
+			<PythonCanDo/>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -42857,7 +42852,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -42869,7 +42864,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -42891,10 +42886,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_JOINT_STOCK_COMPANY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventJointStockCompanyDone1</PythonCallback>
+			<PythonCallback>applyDowagerScaledGold</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpJointStockCompanyDone1</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -42938,7 +42933,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -42950,7 +42945,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -42975,7 +42970,7 @@
 			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpJointStockCompanyDone2</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -43031,7 +43026,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -43056,7 +43051,7 @@
 			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpJointStockCompanyDone3</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -43181,7 +43176,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -43193,7 +43188,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -43218,7 +43213,7 @@
 			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpTulipManiaDone1</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -43235,7 +43230,7 @@
 			<bPickCity>0</bPickCity>
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
-			<iGold>150</iGold>
+			<iGold>0</iGold>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -43262,10 +43257,10 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
+			<iHappy>1</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -43274,7 +43269,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -43296,10 +43291,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_TULIP_MANIA_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventTulipManiaDone2</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpTulipManiaDone2</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -43343,7 +43338,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -43380,7 +43375,7 @@
 			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpTulipManiaDone3</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -43505,10 +43500,10 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
-			<iHappy>0</iHappy>
+			<iHappy>1</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
 			<iHappyTurns>0</iHappyTurns>
@@ -43517,7 +43512,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -43539,10 +43534,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WORKER_SAFETY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventWorkerSafetyDone1</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpWorkerSafetyDone1</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -43586,9 +43581,9 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
-			<BuildingExtraHealths/>
+			<BuildingExtraHealths><BuildingExtraHealth><BuildingClass>BUILDINGCLASS_FACTORY</BuildingClass><iHealth>2</iHealth></BuildingExtraHealth></BuildingExtraHealths>
 			<iHappy>0</iHappy>
 			<iHealth>0</iHealth>
 			<iHurryAnger>0</iHurryAnger>
@@ -43598,7 +43593,7 @@
 			<iMaxPillage>0</iMaxPillage>
 			<iFood>0</iFood>
 			<iFoodPercent>0</iFoodPercent>
-			<FreeSpecialistCounts></FreeSpecialistCounts>
+			<FreeSpecialistCounts/>
 			<FeatureType>NONE</FeatureType>
 			<iFeatureChange>0</iFeatureChange>
 			<ImprovementType>NONE</ImprovementType>
@@ -43620,10 +43615,10 @@
 			<AdditionalEvents/>
 			<EventTimes/>
 			<ClearEvents><EventChance><Event>EVENT_WORKER_SAFETY_1</Event><iEventChance>100</iEventChance></EventChance></ClearEvents>
-			<PythonCallback>applyEventWorkerSafetyDone2</PythonCallback>
+			<PythonCallback></PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpWorkerSafetyDone2</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -43667,7 +43662,7 @@
 			<BuildingClass>NONE</BuildingClass>
 			<iBuildingChange>0</iBuildingChange>
 			<BuildingExtraYields/>
-			<BuildingExtraCommerces></BuildingExtraCommerces>
+			<BuildingExtraCommerces/>
 			<BuildingExtraHappies/>
 			<BuildingExtraHealths/>
 			<iHappy>0</iHappy>
@@ -43704,7 +43699,7 @@
 			<PythonCallback>applyDowagerCapitalSpecialist</PythonCallback>
 			<PythonExpireCheck/>
 			<PythonCanDo/>
-			<PythonHelp>getHelpWorkerSafetyDone3</PythonHelp>
+			<PythonHelp>getDowagerChoiceHelp</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>

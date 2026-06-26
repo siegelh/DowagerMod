@@ -4669,14 +4669,9 @@ def applyEventWorkerSafetyDone2(argsList):
 	return 1
 
 
-######## DowagerMod generic quest help ###########
+######## DowagerMod generic quest help (v3 - round 6 redesign) ###########
 
-# Resolves the quest-log objective text for any DowagerMod start event
-# (Tier 1 and Tier 2). The XML wires every start event's <PythonHelp>
-# to this single callback. We derive the matching text key from the
-# event Type by stripping the trailing "_1" and appending "_QUEST".
-#
-# Example: EVENT_BLOOD_AND_IRON_1 -> TXT_KEY_EVENT_BLOOD_AND_IRON_QUEST
+# Resolves the quest-log objective text for any DowagerMod start event.
 def getDowagerQuestHelp(argsList):
 	iEvent = argsList[0]
 	kTriggeredData = argsList[1]
@@ -4690,79 +4685,94 @@ def getDowagerQuestHelp(argsList):
 	return localText.getText(szKey, ())
 
 
-######## DowagerMod generic quest helpers (v2) ###########
-#
-# These helpers replace per-event Python callbacks for our 47 quests.
-# They look up per-event configuration from dictionaries below.
-#
-# Why generic dispatchers instead of per-quest functions:
-#   - 42 quests need the same "settle Great Person specialist in capital" reward
-#   - 99 Tier 1 done-event choices need tooltip text from TXT_KEYs
-#   - Centralizing keeps CvRandomEventInterface.py maintainable.
-
-# Maps EVENT type -> SPECIALIST type to settle in capital.
-DOWAGER_CAPITAL_SPECIALISTS = {
-	"EVENT_SACRED_GROVE_DONE_2": "SPECIALIST_GREAT_PRIEST",
-	"EVENT_MASONS_GUILD_DONE_1": "SPECIALIST_GREAT_ENGINEER",
-	"EVENT_MASONS_GUILD_DONE_2": "SPECIALIST_GREAT_ENGINEER",
-	"EVENT_SALT_CARAVAN_DONE_2": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_FISHING_VILLAGE_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_POTTERY_WHEEL_DONE_2": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_POTTERY_WHEEL_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_WHEEL_OF_FORTUNE_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_1": "SPECIALIST_GREAT_SCIENTIST",
-	"EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_3": "SPECIALIST_GREAT_SCIENTIST",
-	"EVENT_AQUEDUCT_ENGINEERS_DONE_2": "SPECIALIST_GREAT_ENGINEER",
-	"EVENT_WINE_COUNTRY_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_CATHEDRAL_BUILDERS_DONE_2": "SPECIALIST_GREAT_ARTIST",
-	"EVENT_CATHEDRAL_BUILDERS_DONE_3": "SPECIALIST_GREAT_PRIEST",
-	"EVENT_FEUDAL_LEVY_DONE_3": "SPECIALIST_GREAT_GENERAL",
-	"EVENT_PILGRIMS_PATH_DONE_1": "SPECIALIST_GREAT_PRIEST",
-	"EVENT_ROYAL_FALCONRY_DONE_2": "SPECIALIST_GREAT_GENERAL",
-	"EVENT_CATHEDRAL_CHOIR_DONE_1": "SPECIALIST_GREAT_ARTIST",
-	"EVENT_GOLDSMITHS_GUILD_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_CRUSADERS_RETURN_DONE_3": "SPECIALIST_GREAT_PRIEST",
-	"EVENT_PRINTING_PRESS_BOOM_DONE_2": "SPECIALIST_GREAT_SCIENTIST",
-	"EVENT_WHALERS_FLEET_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_COFFEE_HOUSES_DONE_2": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_IRON_HORSE_DONE_2": "SPECIALIST_GREAT_ENGINEER",
-	"EVENT_MASS_PRODUCTION_DONE_2": "SPECIALIST_GREAT_ENGINEER",
-	"EVENT_LOCOMOTIVE_WORKS_DONE_3": "SPECIALIST_GREAT_ENGINEER",
-	"EVENT_TELEGRAPH_NETWORK_DONE_2": "SPECIALIST_GREAT_SCIENTIST",
-	"EVENT_COAL_COUNTRY_DONE_2": "SPECIALIST_GREAT_ENGINEER",
-	"EVENT_PROPAGANDA_MACHINE_DONE_2": "SPECIALIST_GREAT_ARTIST",
-	"EVENT_GOLD_FEVER_DONE_2": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_GREAT_FAMINE_DONE_2": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_ROAD_NETWORK_DONE_2": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_MERCANTILISM_DONE_1": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_PAX_ROMANA_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_SILK_ROAD_DONE_2": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_SILK_ROAD_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_SPICE_MERCHANT_DONE_2": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_STOIC_ACADEMY_DONE_2": "SPECIALIST_GREAT_PRIEST",
-	"EVENT_MASTER_BREWER_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_OIL_BARON_DONE_3": "SPECIALIST_GREAT_ENGINEER",
-	"EVENT_TULIP_MANIA_DONE_3": "SPECIALIST_GREAT_MERCHANT",
-	"EVENT_WORKER_SAFETY_DONE_3": "SPECIALIST_GREAT_ENGINEER",
-}
-
-# Maps EVENT type -> BUILDINGCLASS for "free building in capital" rewards.
-DOWAGER_CAPITAL_BUILDINGS = {
-	"EVENT_BREAD_BASKET_DONE_2": "BUILDINGCLASS_AQUEDUCT",
-	"EVENT_TOURNAMENT_GROUNDS_DONE_1": "BUILDINGCLASS_CASTLE",
-}
-
-
-def applyDowagerCapitalSpecialist(argsList):
-	# Settles a Great Person specialist in the player's capital city.
+# Resolves the mouseover tooltip for any DowagerMod done event choice.
+def getDowagerChoiceHelp(argsList):
 	iEvent = argsList[0]
 	kTriggeredData = argsList[1]
 	eventInfo = gc.getEventInfo(iEvent)
 	szType = eventInfo.getType()
+	szKey = "TXT_KEY_" + szType + "_HELP"
+	return localText.getText(szKey, ())
+
+
+######## DowagerMod reward dispatch dictionaries ###########
+
+DOWAGER_CAPITAL_SPECIALISTS = {
+	"EVENT_AQUEDUCT_ENGINEERS_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_3": "SPECIALIST_GREAT_SCIENTIST",
+	"EVENT_CATHEDRAL_BUILDERS_DONE_2": "SPECIALIST_GREAT_ARTIST",
+	"EVENT_CATHEDRAL_CHOIR_DONE_2": "SPECIALIST_GREAT_ARTIST",
+	"EVENT_COAL_COUNTRY_DONE_2": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_COFFEE_HOUSES_DONE_3": "SPECIALIST_GREAT_SCIENTIST",
+	"EVENT_CRUSADERS_RETURN_DONE_3": "SPECIALIST_GREAT_PRIEST",
+	"EVENT_FEUDAL_LEVY_DONE_3": "SPECIALIST_GREAT_GENERAL",
+	"EVENT_GOLDSMITHS_GUILD_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_GOLD_FEVER_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_IRON_HORSE_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_LOCOMOTIVE_WORKS_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_MASONS_GUILD_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_MASS_PRODUCTION_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_PILGRIMS_PATH_DONE_2": "SPECIALIST_GREAT_PRIEST",
+	"EVENT_POTTERY_WHEEL_DONE_3": "SPECIALIST_GREAT_ARTIST",
+	"EVENT_PRINTING_PRESS_BOOM_DONE_3": "SPECIALIST_GREAT_SCIENTIST",
+	"EVENT_PROPAGANDA_MACHINE_DONE_2": "SPECIALIST_GREAT_ARTIST",
+	"EVENT_SACRED_GROVE_DONE_3": "SPECIALIST_GREAT_PRIEST",
+	"EVENT_SALT_CARAVAN_DONE_2": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_SPICE_MERCHANT_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_STOIC_ACADEMY_DONE_3": "SPECIALIST_GREAT_PRIEST",
+	"EVENT_TELEGRAPH_NETWORK_DONE_2": "SPECIALIST_GREAT_SCIENTIST",
+	"EVENT_TULIP_MANIA_DONE_3": "SPECIALIST_GREAT_MERCHANT",
+	"EVENT_WHEEL_OF_FORTUNE_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+	"EVENT_WINE_COUNTRY_DONE_3": "SPECIALIST_GREAT_ARTIST",
+	"EVENT_WORKER_SAFETY_DONE_3": "SPECIALIST_GREAT_ENGINEER",
+}
+
+DOWAGER_CAPITAL_BUILDINGS = {
+	"EVENT_BREAD_BASKET_DONE_2": "BUILDINGCLASS_AQUEDUCT",
+	"EVENT_MASONS_GUILD_DONE_2": "BUILDINGCLASS_PYRAMIDS",
+	"EVENT_TOURNAMENT_GROUNDS_DONE_3": "BUILDINGCLASS_CASTLE",
+}
+
+DOWAGER_ATTITUDE_AMOUNTS = {
+	"EVENT_BORDER_DISPUTE_DONE_1": 2,
+	"EVENT_PAX_ROMANA_DONE_2": 2,
+}
+
+DOWAGER_RELIGION_WORLD_COUNTS = {
+	"EVENT_CRUSADERS_RETURN_DONE_2": 5,
+	"EVENT_PILGRIMS_PATH_DONE_1": 5,
+}
+
+DOWAGER_CULTURE_BOMB_AMOUNTS = {
+	"EVENT_CATHEDRAL_CHOIR_DONE_3": 150,
+	"EVENT_MOUNTAIN_PASS_DONE_2": 200,
+	"EVENT_PROPAGANDA_MACHINE_DONE_3": 250,
+}
+
+DOWAGER_FOOD_BOMB_AMOUNTS = {
+	"EVENT_BREAD_BASKET_DONE_3": 40,
+	"EVENT_GREAT_FAMINE_DONE_2": 50,
+	"EVENT_HUNTERS_LODGE_DONE_2": 30,
+	"EVENT_MASTER_BREWER_DONE_2": 40,
+	"EVENT_WHALERS_FLEET_DONE_3": 35,
+}
+
+# Maps event type -> (unit_kind, amount_per_unit)
+# unit_kind: "MARKET" / "COASTAL_CITY" / "OPEN_BORDERS"
+DOWAGER_SCALED_GOLD = {
+	"EVENT_JOINT_STOCK_COMPANY_DONE_1": ("COASTAL_CITY", 35),
+	"EVENT_MERCANTILISM_DONE_3": ("MARKET", 20),
+	"EVENT_SILK_ROAD_DONE_2": ("OPEN_BORDERS", 80),
+}
+
+
+def applyDowagerCapitalSpecialist(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	szType = gc.getEventInfo(iEvent).getType()
 	if szType not in DOWAGER_CAPITAL_SPECIALISTS:
 		return 0
-	specName = DOWAGER_CAPITAL_SPECIALISTS[szType]
-	iSpec = gc.getInfoTypeForString(specName)
+	iSpec = gc.getInfoTypeForString(DOWAGER_CAPITAL_SPECIALISTS[szType])
 	if iSpec < 0:
 		return 0
 	player = gc.getPlayer(kTriggeredData.ePlayer)
@@ -4774,15 +4784,12 @@ def applyDowagerCapitalSpecialist(argsList):
 
 
 def applyDowagerCapitalFreeBuilding(argsList):
-	# Grants a free building in the player's capital city.
 	iEvent = argsList[0]
 	kTriggeredData = argsList[1]
-	eventInfo = gc.getEventInfo(iEvent)
-	szType = eventInfo.getType()
+	szType = gc.getEventInfo(iEvent).getType()
 	if szType not in DOWAGER_CAPITAL_BUILDINGS:
 		return 0
-	bldgClassName = DOWAGER_CAPITAL_BUILDINGS[szType]
-	iBldgClass = gc.getInfoTypeForString(bldgClassName)
+	iBldgClass = gc.getInfoTypeForString(DOWAGER_CAPITAL_BUILDINGS[szType])
 	if iBldgClass < 0:
 		return 0
 	player = gc.getPlayer(kTriggeredData.ePlayer)
@@ -4796,21 +4803,131 @@ def applyDowagerCapitalFreeBuilding(argsList):
 	return 1
 
 
-def getDowagerChoiceHelp(argsList):
-	# Returns mouseover tooltip text for any DowagerMod done-event choice.
-	# Looks up TXT_KEY_<EVENT_TYPE>_HELP.
+def applyDowagerAttitudeAllCivs(argsList):
 	iEvent = argsList[0]
 	kTriggeredData = argsList[1]
-	eventInfo = gc.getEventInfo(iEvent)
-	szType = eventInfo.getType()
-	szKey = "TXT_KEY_" + szType + "_HELP"
-	return localText.getText(szKey, ())
+	szType = gc.getEventInfo(iEvent).getType()
+	if szType not in DOWAGER_ATTITUDE_AMOUNTS:
+		return 0
+	iN = DOWAGER_ATTITUDE_AMOUNTS[szType]
+	ePlayer = kTriggeredData.ePlayer
+	player = gc.getPlayer(ePlayer)
+	team = gc.getTeam(player.getTeam())
+	for iLoop in range(gc.getMAX_CIV_PLAYERS()):
+		if iLoop == ePlayer:
+			continue
+		other = gc.getPlayer(iLoop)
+		if not other.isAlive():
+			continue
+		if team.isHasMet(other.getTeam()):
+			other.AI_changeAttitudeExtra(ePlayer, iN)
+	return 1
 
 
-######## DowagerMod auto-completion fixes (Bug A) ###########
+def applyDowagerReligionSpreadWorld(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	szType = gc.getEventInfo(iEvent).getType()
+	if szType not in DOWAGER_RELIGION_WORLD_COUNTS:
+		return 0
+	iN = DOWAGER_RELIGION_WORLD_COUNTS[szType]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	eReligion = player.getStateReligion()
+	if eReligion < 0:
+		return 0
+	capital = player.getCapitalCity()
+	if capital is None or capital.isNone():
+		return 0
+	cx = capital.getX()
+	cy = capital.getY()
+	# Find all foreign cities, sort by distance from capital, spread to nearest N.
+	candidates = []
+	for iLoop in range(gc.getMAX_CIV_PLAYERS()):
+		if iLoop == kTriggeredData.ePlayer:
+			continue
+		other = gc.getPlayer(iLoop)
+		if not other.isAlive():
+			continue
+		(loopCity, it) = other.firstCity(False)
+		while loopCity is not None:
+			if not loopCity.isNone() and not loopCity.isHasReligion(eReligion):
+				d = plotDistance(cx, cy, loopCity.getX(), loopCity.getY())
+				candidates.append((d, loopCity))
+			(loopCity, it) = other.nextCity(it, False)
+	candidates.sort()
+	for d, c in candidates[:iN]:
+		c.setHasReligion(eReligion, True, True, False)
+	return 1
 
+
+def applyDowagerCapitalCultureBomb(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	szType = gc.getEventInfo(iEvent).getType()
+	if szType not in DOWAGER_CULTURE_BOMB_AMOUNTS:
+		return 0
+	amount = DOWAGER_CULTURE_BOMB_AMOUNTS[szType]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is None or capital.isNone():
+		return 0
+	capital.changeCulture(kTriggeredData.ePlayer, amount, true)
+	return 1
+
+
+def applyDowagerCapitalFoodBomb(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	szType = gc.getEventInfo(iEvent).getType()
+	if szType not in DOWAGER_FOOD_BOMB_AMOUNTS:
+		return 0
+	amount = DOWAGER_FOOD_BOMB_AMOUNTS[szType]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	capital = player.getCapitalCity()
+	if capital is None or capital.isNone():
+		return 0
+	capital.changeFood(amount)
+	return 1
+
+
+def applyDowagerScaledGold(argsList):
+	iEvent = argsList[0]
+	kTriggeredData = argsList[1]
+	szType = gc.getEventInfo(iEvent).getType()
+	if szType not in DOWAGER_SCALED_GOLD:
+		return 0
+	per_unit, amount = DOWAGER_SCALED_GOLD[szType]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	team = gc.getTeam(player.getTeam())
+	count = 0
+	if per_unit == "COASTAL_CITY":
+		(loopCity, it) = player.firstCity(False)
+		while loopCity is not None:
+			if not loopCity.isNone() and loopCity.isCoastal(10):
+				count += 1
+			(loopCity, it) = player.nextCity(it, False)
+	elif per_unit == "MARKET":
+		iMarket = gc.getInfoTypeForString("BUILDINGCLASS_MARKET")
+		if iMarket < 0:
+			return 0
+		count = player.getBuildingClassCount(iMarket)
+	elif per_unit == "OPEN_BORDERS":
+		for iTeam in range(gc.getMAX_CIV_TEAMS()):
+			if iTeam == player.getTeam():
+				continue
+			otherTeam = gc.getTeam(iTeam)
+			if not otherTeam.isAlive():
+				continue
+			if team.isOpenBorders(iTeam):
+				count += 1
+	player.changeGold(count * amount)
+	return 1
+
+
+######## DowagerMod completion-condition fixes (round 6) ###########
+
+# Sacred Grove done: 2+ forest adj capital for 20+ turns (unchanged from round 5).
 def canTriggerSacredGroveDone(argsList):
-	# Sacred Grove done: keep 2+ forest tiles adjacent to capital for 20+ turns.
 	kTriggeredData = argsList[0]
 	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
 	player = gc.getPlayer(kTriggeredData.ePlayer)
@@ -4841,12 +4958,8 @@ def canTriggerSacredGroveDone(argsList):
 	return iCount >= 2
 
 
+# Wheel of Fortune done: connect 2 cities by road (unchanged).
 def canTriggerWheelOfFortuneDone(argsList):
-	# Wheel of Fortune done: connect 2 cities by road. The original "within 10
-	# turns" gate was inverted (using > instead of <) which let the quest
-	# auto-complete instantly and then refuse to fire ever after. Removed --
-	# the connectivity check below is the real gate. If we want a true expiry,
-	# add a separate PythonExpireCheck on EVENT_WHEEL_OF_FORTUNE_1.
 	kTriggeredData = argsList[0]
 	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
 	player = gc.getPlayer(kTriggeredData.ePlayer)
@@ -4867,8 +4980,8 @@ def canTriggerWheelOfFortuneDone(argsList):
 	return iConnected >= 2
 
 
+# Astronomers Done: 3+ Scientist specialists for 10+ turns (unchanged).
 def canTriggerAstronomersDone(argsList):
-	# Astronomers of the Plain done: have 3+ Scientist specialists for 10+ turns.
 	kTriggeredData = argsList[0]
 	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
 	player = gc.getPlayer(kTriggeredData.ePlayer)
@@ -4890,8 +5003,8 @@ def canTriggerAstronomersDone(argsList):
 	return iTotal >= 3
 
 
+# Royal Falconry Done (unchanged).
 def canTriggerRoyalFalconryDone(argsList):
-	# Royal Falconry done: 3+ forest adj capital + 1 Camp anywhere, 25+ turns.
 	kTriggeredData = argsList[0]
 	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
 	player = gc.getPlayer(kTriggeredData.ePlayer)
@@ -4932,4 +5045,64 @@ def canTriggerRoyalFalconryDone(argsList):
 			continue
 		if p.getImprovementType() == iCamp:
 			return true
+	return false
+
+
+# Goldsmiths Guild Done (NEW round 6): require 2+ MORE forges since quest start.
+def canTriggerGoldsmithsGuildDone(argsList):
+	kTriggeredData = argsList[0]
+	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iForge = gc.getInfoTypeForString('BUILDINGCLASS_FORGE')
+	if iForge < 0:
+		return false
+	# Need at least 3 forges and at least 2 built since quest started.
+	# We approximate the latter by requiring 3+ forges; if the player already
+	# had 3+ when quest fired, the start trigger required only 1 forge so the
+	# quest still wouldn't be trivial. To make it tougher, require 4 forges total.
+	if player.getBuildingClassCount(iForge) < 4:
+		return false
+	return true
+
+
+# Stoic Academy Done (NEW round 6): 3+ Priest specialists for 10+ turns.
+def canTriggerStoicAcademyDoneNew(argsList):
+	kTriggeredData = argsList[0]
+	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iPrereq = trigger.getPrereqEvent(0)
+	kOrigData = player.getEventOccured(iPrereq)
+	if kOrigData is None:
+		return false
+	if gc.getGame().getGameTurn() < kOrigData.iTurn + 10:
+		return false
+	iPriest = gc.getInfoTypeForString('SPECIALIST_PRIEST')
+	if iPriest < 0:
+		return false
+	iTotal = 0
+	(loopCity, iter) = player.firstCity(False)
+	while loopCity is not None:
+		if not loopCity.isNone():
+			iTotal += loopCity.getSpecialistCount(iPriest)
+		(loopCity, iter) = player.nextCity(iter, False)
+	return iTotal >= 3
+
+
+# Road Network Done (NEW round 6): 8+ road tiles in player territory.
+def canTriggerRoadNetworkDoneNew(argsList):
+	kTriggeredData = argsList[0]
+	player = gc.getPlayer(kTriggeredData.ePlayer)
+	iRoad = gc.getInfoTypeForString('ROUTE_ROAD')
+	iRailroad = gc.getInfoTypeForString('ROUTE_RAILROAD')
+	count = 0
+	map = gc.getMap()
+	for i in range(map.numPlots()):
+		pPlot = map.plotByIndex(i)
+		if pPlot.getOwner() != kTriggeredData.ePlayer:
+			continue
+		r = pPlot.getRouteType()
+		if r == iRoad or r == iRailroad:
+			count += 1
+			if count >= 8:
+				return true
 	return false

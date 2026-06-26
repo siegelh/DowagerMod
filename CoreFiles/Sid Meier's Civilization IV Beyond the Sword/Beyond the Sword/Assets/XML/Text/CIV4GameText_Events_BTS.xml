@@ -6757,11 +6757,11 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_1</Tag>
-		<English>Let the warriors train at arms. (All melee units gain the Combat I promotion.)</English>
+		<English>Let the warriors train at arms.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_1_HELP</Tag>
-		<English>All existing melee units immediately gain the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+		<English>All your [COLOR_POSITIVE_TEXT]melee units[COLOR_REVERT] (existing and future) gain the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_2</Tag>
@@ -6769,7 +6769,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_2_HELP</Tag>
-		<English>Your empire receives [COLOR_POSITIVE_TEXT]+4 free unit support[COLOR_REVERT] permanently.</English>
+		<English>Your empire gains [COLOR_POSITIVE_TEXT]+4 free unit support[COLOR_REVERT] permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_3</Tag>
@@ -6777,7 +6777,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BLOOD_AND_IRON_DONE_3_HELP</Tag>
-		<English>Receive [COLOR_POSITIVE_TEXT]2 free Axemen[COLOR_REVERT] in your capital.</English>
+		<English>[COLOR_POSITIVE_TEXT]2 Axemen[COLOR_REVERT] are conscripted in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_SACRED_GROVE_1</Tag>
@@ -6805,27 +6805,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_1</Tag>
-		<English>Let the groves remain holy. (Receive culture and lasting joy in this city.)</English>
+		<English>Let the groves remain holy. (+1 happy in all cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_1_HELP</Tag>
-		<English>Your capital receives [COLOR_POSITIVE_TEXT]+80 culture[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>All your cities gain [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_2</Tag>
-		<English>Send pilgrims to learn from the spirits. (Free Great Prophet in capital.)</English>
+		<English>Tend the grove as a wonder of nature.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Prophet[COLOR_REVERT].</English>
+		<English>The triggered forest plot permanently produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] commerce[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_3</Tag>
-		<English>Build a shrine among the trees. (+1 happy and +1 health in this city.)</English>
+		<English>Send pilgrims to learn from the spirits. (Settled Great Prophet in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SACRED_GROVE_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Prophet specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_MASONS_GUILD_1</Tag>
@@ -6853,27 +6853,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_1</Tag>
-		<English>Set them to work on a great wonder. (Free Great Engineer in capital.)</English>
+		<English>Master the art of fortification. (All Walls +1 health.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_1_HELP</Tag>
-		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital, providing its yields permanently.</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Walls[COLOR_REVERT] you build (existing and future) provides [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_2</Tag>
-		<English>Fund a workshop in the capital. (Free Great Engineer plus 100 gold.)</English>
+		<English>Build a wonder to honor the guild. (Free Pyramids in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]100 gold[COLOR_REVERT].</English>
+		<English>A free [COLOR_POSITIVE_TEXT]Pyramids[COLOR_REVERT] wonder is constructed in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_3</Tag>
-		<English>Let the masons carve civic monuments. (+100 culture and +1 happy in this city.)</English>
+		<English>Promote the master mason. (Settled Great Engineer in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASONS_GUILD_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+100 culture[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_SALT_CARAVAN_1</Tag>
@@ -6901,27 +6901,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_1</Tag>
-		<English>Tax the caravan's profits. (Receive 150 gold.)</English>
+		<English>License the caravan to trade everywhere. (All Markets +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]150 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_2</Tag>
-		<English>Bind the merchants to our court. (Free Great Merchant in capital.)</English>
+		<English>Bind the merchants to our court. (Settled Great Merchant in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Merchant specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_3</Tag>
-		<English>Spice the people's table. (+1 happy in this city and 80 gold.)</English>
+		<English>Tax the caravan's profits. (Receive 150 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SALT_CARAVAN_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]80 gold[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]150 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_HUNTERS_LODGE_1</Tag>
@@ -6949,19 +6949,19 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_1</Tag>
-		<English>Stock the city's larders. (Capital gains stored food and +1 health.)</English>
+		<English>Drill the hunters into archers. (All Archers gain Combat I.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+20 stored food[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Archer[COLOR_REVERT] in your empire (existing and future) gains the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_2</Tag>
-		<English>Let the people feast on game and wear fine furs. (+1 happy in this city.)</English>
+		<English>Stock the city's larders. (Capital gains a great harvest.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]30 stored food[COLOR_REVERT], speeding population growth.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_3</Tag>
@@ -6969,7 +6969,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_HUNTERS_LODGE_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Archer[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Archer[COLOR_REVERT] is conscripted in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_FISHING_VILLAGE_1</Tag>
@@ -6997,27 +6997,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_1</Tag>
-		<English>Fill the city's nets and granaries. (Capital gains stored food and health.)</English>
+		<English>License every coastal port. (All Lighthouses +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+25 stored food[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Lighthouse[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_2</Tag>
-		<English>Commission a new fishing fleet. (Free Work Boat.)</English>
+		<English>Commission a new fishing fleet. (Free Work Boat in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Work Boat[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Work Boat[COLOR_REVERT] is built in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_3</Tag>
-		<English>Send the catch to distant markets. (Free Great Merchant in capital.)</English>
+		<English>Make the fishery a legend. (Triggered sea plot +1 food forever.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FISHING_VILLAGE_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+		<English>The triggered seafood plot permanently produces [COLOR_POSITIVE_TEXT]+1 [ICON_FOOD] food[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_POTTERY_WHEEL_1</Tag>
@@ -7045,27 +7045,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_1</Tag>
-		<English>Tax the cottage trade. (Capital gains gold and culture.)</English>
+		<English>Industrialize the kilns. (All Granaries +1 [ICON_PRODUCTION] production.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]120 gold[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+40 culture[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Granary[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_PRODUCTION] production[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_2</Tag>
-		<English>Send our finest pots to foreign markets. (Free Great Merchant.)</English>
+		<English>Tax the cottage trade. (Receive 120 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]120 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_3</Tag>
-		<English>Bankroll the potters' guild. (Free Great Merchant and 80 gold.)</English>
+		<English>Anoint a master potter. (Settled Great Artist in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_POTTERY_WHEEL_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]80 gold[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Artist specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_WHEEL_OF_FORTUNE_1</Tag>
@@ -7093,27 +7093,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_1</Tag>
-		<English>Tax the wagoners. (Capital gains gold and culture.)</English>
+		<English>Tax the wagon routes. (All Forges +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]140 gold[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+30 culture[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Forge[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_2</Tag>
-		<English>Send forth a new road-crew. (Free Worker.)</English>
+		<English>Send forth a new road-crew. (Free Worker in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Worker[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Worker[COLOR_REVERT] is conscripted in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_3</Tag>
-		<English>Sponsor a great trading house. (Free Great Merchant.)</English>
+		<English>Promote the master engineer. (Settled Great Engineer in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHEEL_OF_FORTUNE_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_BREAD_BASKET_1</Tag>
@@ -7141,11 +7141,11 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_1</Tag>
-		<English>Lay in a great store of grain. (Capital gains stored food and health.)</English>
+		<English>Master the art of storage. (All Granaries +1 [ICON_HEALTHY] health.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+30 stored food[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Granary[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_2</Tag>
@@ -7153,15 +7153,15 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Aqueduct[COLOR_REVERT].</English>
+		<English>A free [COLOR_POSITIVE_TEXT]Aqueduct[COLOR_REVERT] is constructed in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_3</Tag>
-		<English>Encourage the people to raise families. (Capital grows by 2 population.)</English>
+		<English>Celebrate the bumper harvest. (Capital food bomb.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BREAD_BASKET_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 population[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]40 stored food[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_ASTRONOMERS_OF_THE_PLAIN_1</Tag>
@@ -7189,27 +7189,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_1</Tag>
-		<English>Found an academy! (Free Great Scientist in capital.)</English>
+		<English>Endow the libraries. (All Libraries +1 [ICON_RESEARCH] research.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_1_HELP</Tag>
-		<English>A [COLOR_POSITIVE_TEXT]Great Scientist specialist[COLOR_REVERT] settles in your capital, providing its yields permanently.</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Library[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_RESEARCH] research[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_2</Tag>
-		<English>Publish their treatises. (Capital gains culture and gold.)</English>
+		<English>Apply the new mathematics to your current research.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+100 culture[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]80 gold[COLOR_REVERT].</English>
+		<English>Your current research project gains [COLOR_POSITIVE_TEXT]+30%[COLOR_REVERT] of its cost as beakers.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_3</Tag>
-		<English>Endow a chair of natural philosophy. (Free Great Scientist plus culture.)</English>
+		<English>Anoint the first astronomer royal. (Settled Great Scientist in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ASTRONOMERS_OF_THE_PLAIN_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Scientist[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+50 culture[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Scientist specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_AQUEDUCT_ENGINEERS_1</Tag>
@@ -7237,27 +7237,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_1</Tag>
-		<English>Let the people drink deep. (+2 health in this city.)</English>
+		<English>Pipe pure water to every aqueduct. (All Aqueducts +1 [ICON_HEALTHY] health.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 health[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Aqueduct[COLOR_REVERT] in your empire provides an additional [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_2</Tag>
-		<English>Set them to a hanging garden. (Free Great Engineer in capital.)</English>
+		<English>Spread sanitary engineering everywhere. (+1 health in all cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_2_HELP</Tag>
-		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital, providing its yields permanently.</English>
+		<English>All your cities gain [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_3</Tag>
-		<English>Irrigate the city's fields. (Capital gains stored food.)</English>
+		<English>Promote the master hydraulic engineer.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_AQUEDUCT_ENGINEERS_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+25 stored food[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_CENSUS_TAKER_1</Tag>
@@ -7285,11 +7285,11 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_1</Tag>
-		<English>Audit the treasury. (Receive 200 gold.)</English>
+		<English>Streamline the bureaucracy. (All Courthouses +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Courthouse[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_2</Tag>
@@ -7297,15 +7297,15 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Spy[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Spy[COLOR_REVERT] is dispatched from your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_3</Tag>
-		<English>Bribe the foreign clerks. (100 gold and 50 espionage points.)</English>
+		<English>Bribe the foreign clerks. (+100 espionage points.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CENSUS_TAKER_DONE_3_HELP</Tag>
-		<English>You gain [COLOR_POSITIVE_TEXT]100 gold[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+50 espionage points[COLOR_REVERT].</English>
+		<English>You gain [COLOR_POSITIVE_TEXT]+100 [ICON_ESPIONAGE] espionage points[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_MOUNTAIN_PASS_1</Tag>
@@ -7333,27 +7333,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_1</Tag>
-		<English>Make the highlands a proud frontier. (Capital gains culture and happiness.)</English>
+		<English>Raise a banner over the pass. (All Castles +1 [ICON_HAPPY] happy.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+60 culture[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Castle[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_2</Tag>
-		<English>Open the pass to merchants. (Capital gains gold and health.)</English>
+		<English>Build a great monument in the pass. (Capital culture bomb.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]100 gold[COLOR_REVERT] and [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]200 [ICON_CULTURE] culture[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_3</Tag>
-		<English>Garrison the Fort with siege engines. (Free Catapult.)</English>
+		<English>Garrison the pass with siege engines. (Free Catapult.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MOUNTAIN_PASS_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]1 free Catapult[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Catapult[COLOR_REVERT] is built in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_WINE_COUNTRY_1</Tag>
@@ -7381,27 +7381,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_1</Tag>
-		<English>Tax the vintage. (Receive 160 gold.)</English>
+		<English>Bottle the vintage for export. (All Markets +1 [ICON_HAPPY] happy.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]160 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_2</Tag>
-		<English>Pour wine for the people. (+1 happy in this city.)</English>
+		<English>Pour wine for the people. (+1 happy in all cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>All your cities gain [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_3</Tag>
-		<English>Toast a great merchant of wine. (Free Great Merchant in capital.)</English>
+		<English>Toast a great vintner. (Settled Great Artist in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WINE_COUNTRY_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Artist specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<!-- DowagerMod quests batch 2b (Medieval + Renaissance) -->
 	<TEXT>
@@ -7430,27 +7430,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_1</Tag>
-		<English>Endow the cathedrals with culture. (+3 culture in capital from religious works.)</English>
+		<English>Endow the choirs everywhere. (All Theatres +1 [ICON_CULTURE] culture.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+3 culture[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Theatre[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_CULTURE] culture[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_2</Tag>
-		<English>Commission a master artist. (Free Great Artist in capital.)</English>
+		<English>Commission a master artist. (Settled Great Artist in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Artist[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Artist specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_3</Tag>
-		<English>Send out missionaries. (Free Great Prophet to spread the faith.)</English>
+		<English>Send out missionaries. (Convert 5 of your cities to state religion.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_BUILDERS_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Prophet[COLOR_REVERT].</English>
+		<English>Your state religion automatically spreads to [COLOR_POSITIVE_TEXT]5 of your cities[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_FEUDAL_LEVY_1</Tag>
@@ -7478,27 +7478,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_1</Tag>
-		<English>Drill the levy. (Melee units gain Combat I.)</English>
+		<English>Drill the levy. (All melee units gain Combat I.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_1_HELP</Tag>
-		<English>All Melee units receive the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+		<English>All your [COLOR_POSITIVE_TEXT]melee units[COLOR_REVERT] (existing and future) gain the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_2</Tag>
-		<English>Reward the captains with gold. (Receive 200 gold for armament.)</English>
+		<English>Industrialize the levy yards. (All Barracks +1 [ICON_PRODUCTION] production.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_2_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Barracks[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_PRODUCTION] production[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_3</Tag>
-		<English>Anoint a war-leader. (Free Great General in capital.)</English>
+		<English>Anoint a war-leader. (Settled Great General in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_FEUDAL_LEVY_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great General[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great General specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_PILGRIMS_PATH_1</Tag>
@@ -7526,27 +7526,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_1</Tag>
-		<English>Anoint a great prophet of the order. (Free Great Prophet settles in capital.)</English>
+		<English>Send missionaries across the world. (Religion spreads to 5 nearest foreign cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Prophet[COLOR_REVERT].</English>
+		<English>Your state religion spreads to the [COLOR_POSITIVE_TEXT]5 nearest cities of other civs[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_2</Tag>
-		<English>Spread the faith with espionage. (+100 espionage points to spend at your discretion.)</English>
+		<English>Anoint a great prophet of the order. (Settled Great Prophet in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_2_HELP</Tag>
-		<English>You gain [COLOR_POSITIVE_TEXT]+100 espionage points[COLOR_REVERT] against rival faiths.</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Prophet specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_3</Tag>
-		<English>Tax the pilgrims' alms. (Receive 180 gold.)</English>
+		<English>Spread the faith with espionage. (+100 espionage points.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PILGRIMS_PATH_DONE_3_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]180 gold[COLOR_REVERT].</English>
+		<English>You gain [COLOR_POSITIVE_TEXT]+100 [ICON_ESPIONAGE] espionage points[COLOR_REVERT] to spend at your discretion.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_ROYAL_FALCONRY_1</Tag>
@@ -7574,27 +7574,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_1</Tag>
-		<English>Endow the foresters. (+2 culture in capital from preserved woods.)</English>
+		<English>Tend the king's hunting forest. (Triggered forest plot +1 commerce.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 culture[COLOR_REVERT].</English>
+		<English>The triggered forest plot permanently produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] commerce[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_2</Tag>
-		<English>Anoint the master falconer. (Free Great General specialist in capital -- generates Great General points toward your next general's birth.)</English>
+		<English>Train rangers from the foresters. (All Scouts gain Combat I.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great General[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Scout[COLOR_REVERT] in your empire (existing and future) gains the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_3</Tag>
-		<English>Cheer the king's hunts. (+1 happy in capital.)</English>
+		<English>Cheer the king's hunts. (+1 happy in all cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_FALCONRY_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>All your cities gain [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_CATHEDRAL_CHOIR_1</Tag>
@@ -7622,27 +7622,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_1</Tag>
-		<English>Anoint a great artist. (Free Great Artist in capital.)</English>
+		<English>Endow the choirs richly. (All Theatres +2 [ICON_CULTURE] culture.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Artist[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Theatre[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+2 [ICON_CULTURE] culture[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_2</Tag>
-		<English>Endow the choirs. (+4 culture in capital.)</English>
+		<English>Anoint the choirmaster. (Settled Great Artist in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+4 culture[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Artist specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_3</Tag>
-		<English>Celebrate the choir's renown. (+1 happy in capital.)</English>
+		<English>Celebrate the choir's renown. (Capital culture bomb.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CATHEDRAL_CHOIR_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]150 [ICON_CULTURE] culture[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_TOURNAMENT_GROUNDS_1</Tag>
@@ -7670,27 +7670,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_1</Tag>
-		<English>Build a royal Castle. (Free Castle in capital.)</English>
+		<English>Drill the knights of the realm. (All Knights gain Combat I.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Castle[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Knight[COLOR_REVERT] in your empire (existing and future) gains the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_2</Tag>
-		<English>Cheer the tournament heroes. (+1 happy in capital.)</English>
+		<English>Festoon every castle with banners. (All Castles +1 [ICON_HAPPY] happy.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Castle[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_3</Tag>
-		<English>Drill the knights of the realm. (Mounted units gain Combat I.)</English>
+		<English>Raise a royal Castle. (Free Castle in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TOURNAMENT_GROUNDS_DONE_3_HELP</Tag>
-		<English>All Mounted units receive the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+		<English>A free [COLOR_POSITIVE_TEXT]Castle[COLOR_REVERT] is built in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_GOLDSMITHS_GUILD_1</Tag>
@@ -7718,27 +7718,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_1</Tag>
-		<English>Tax the bullion. (Receive 220 gold.)</English>
+		<English>License every forge to mint coin. (All Forges +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]220 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Forge[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_2</Tag>
-		<English>Adorn the people. (+1 happy in capital.)</English>
+		<English>Tax the bullion. (Receive 220 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]220 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_3</Tag>
-		<English>Anoint a master merchant. (Free Great Merchant in capital.)</English>
+		<English>Anoint a master goldsmith. (Settled Great Merchant in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLDSMITHS_GUILD_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Merchant specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_CRUSADERS_RETURN_1</Tag>
@@ -7766,27 +7766,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_1</Tag>
-		<English>Drill the holy host. (Melee units gain Combat I.)</English>
+		<English>Drill the holy host. (All melee units gain Combat I.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_1_HELP</Tag>
-		<English>All Melee units receive the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+		<English>All your [COLOR_POSITIVE_TEXT]melee units[COLOR_REVERT] (existing and future) gain the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_2</Tag>
-		<English>Bless the people. (+1 happy in capital.)</English>
+		<English>Spread the faith by the sword. (Religion spreads to 5 nearest foreign cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>Your state religion spreads to the [COLOR_POSITIVE_TEXT]5 nearest cities of other civs[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_3</Tag>
-		<English>Anoint a great prophet of war. (Free Great Prophet in capital.)</English>
+		<English>Anoint a great prophet of war. (Settled Great Prophet in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_CRUSADERS_RETURN_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Prophet[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Prophet specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_PRINTING_PRESS_BOOM_1</Tag>
@@ -7814,27 +7814,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_1</Tag>
-		<English>Endow the universities. (+5 culture in capital.)</English>
+		<English>Print every scholar's treatise. (All Universities +1 [ICON_RESEARCH] research.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+5 culture[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]University[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_RESEARCH] research[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_2</Tag>
-		<English>Anoint a great scholar. (Free Great Scientist in capital.)</English>
+		<English>Apply the press to your current research.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Scientist[COLOR_REVERT].</English>
+		<English>Your current research project gains [COLOR_POSITIVE_TEXT]+40%[COLOR_REVERT] of its cost as beakers.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_3</Tag>
-		<English>Fund the printing houses. (Receive 250 gold for new works.)</English>
+		<English>Anoint a great scholar. (Settled Great Scientist in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PRINTING_PRESS_BOOM_DONE_3_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 gold[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Scientist specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_ROYAL_NAVY_1</Tag>
@@ -7862,11 +7862,11 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_1</Tag>
-		<English>Drill the captains. (Naval units gain Combat I.)</English>
+		<English>Drill the captains in navigation. (All naval units gain Navigation I.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_1_HELP</Tag>
-		<English>All Naval units receive the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
+		<English>All your [COLOR_POSITIVE_TEXT]naval units[COLOR_REVERT] (existing and future) gain the [COLOR_POSITIVE_TEXT]Navigation I[COLOR_REVERT] promotion.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_2</Tag>
@@ -7874,15 +7874,15 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Frigate[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Frigate[COLOR_REVERT] is launched from your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_3</Tag>
-		<English>Fund the admiralty. (Receive 240 gold.)</English>
+		<English>Drill the captains in combat. (All naval units gain Combat I.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROYAL_NAVY_DONE_3_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]240 gold[COLOR_REVERT].</English>
+		<English>All your [COLOR_POSITIVE_TEXT]naval units[COLOR_REVERT] (existing and future) gain the [COLOR_POSITIVE_TEXT]Combat I[COLOR_REVERT] promotion.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_NAVAL_DRYDOCKS_1</Tag>
@@ -7910,27 +7910,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_1</Tag>
-		<English>Launch a fresh Frigate. (Free Frigate in capital.)</English>
+		<English>Make every harbor a customs house. (All Harbors +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Frigate[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Harbor[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_2</Tag>
-		<English>Celebrate the launch. (+1 happy in capital.)</English>
+		<English>Launch a fresh Frigate. (Free Frigate in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Frigate[COLOR_REVERT] is launched from your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_3</Tag>
-		<English>Stock the larders from the sea. (+1 health in capital.)</English>
+		<English>Provision the fleet from the sea. (All Harbors +1 [ICON_HEALTHY] health.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_NAVAL_DRYDOCKS_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Harbor[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_WHALERS_FLEET_1</Tag>
@@ -7958,27 +7958,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_1</Tag>
-		<English>Sell the oil at market. (Receive 200 gold.)</English>
+		<English>Tax the whaling trade. (All Lighthouses +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Lighthouse[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_2</Tag>
-		<English>Feed the people. (+1 health in capital.)</English>
+		<English>Make the whaling ground a legend. (Triggered Whale plot +2 commerce.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 health[COLOR_REVERT].</English>
+		<English>The triggered Whale plot permanently produces [COLOR_POSITIVE_TEXT]+2 [ICON_GOLD] commerce[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_3</Tag>
-		<English>Anoint a great trader. (Free Great Merchant in capital.)</English>
+		<English>Feed the people from the sea. (Capital food bomb.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WHALERS_FLEET_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]35 stored food[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_COFFEE_HOUSES_1</Tag>
@@ -8006,27 +8006,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_1</Tag>
-		<English>Toast the merchants. (+1 happy in capital.)</English>
+		<English>Make every grocer a coffeehouse. (All Grocers +1 [ICON_HAPPY] happy.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 happy[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Grocer[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_2</Tag>
-		<English>Anoint a great merchant. (Free Great Merchant in capital.)</English>
+		<English>Tax the cafe trade. (All Markets +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Merchant[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_3</Tag>
-		<English>Tax the cafes. (Receive 240 gold.)</English>
+		<English>Anoint a salon philosopher. (Settled Great Scientist in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COFFEE_HOUSES_DONE_3_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]240 gold[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Scientist specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_IRON_HORSE_1</Tag>
@@ -8054,27 +8054,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_1</Tag>
-		<English>Pour capital into Industrialism research.</English>
+		<English>Pour capital into Industrialism research. (+25% beakers toward Industrialism.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_1_HELP</Tag>
-		<English>Your civilization gains [COLOR_POSITIVE_TEXT]25% of the beakers toward Industrialism[COLOR_REVERT].</English>
+		<English>Your research toward [COLOR_POSITIVE_TEXT]Industrialism[COLOR_REVERT] gains [COLOR_POSITIVE_TEXT]+25%[COLOR_REVERT] of its cost as beakers.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_2</Tag>
-		<English>Summon a great engineer.</English>
+		<English>Industrialize every factory. (All Factories +1 [ICON_PRODUCTION] production.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Factory[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_PRODUCTION] production[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_3</Tag>
-		<English>Reinvest in the capital's foundries.</English>
+		<English>Summon a great engineer. (Settled Great Engineer in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_IRON_HORSE_DONE_3_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]350 gold[COLOR_REVERT] to fuel further industrial expansion.</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_MASS_PRODUCTION_1</Tag>
@@ -8102,27 +8102,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_1</Tag>
-		<English>Standardize the production line.</English>
+		<English>Standardize the production line. (All Factories +2 [ICON_PRODUCTION] production.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_1_HELP</Tag>
-		<English>Every Factory in your empire yields [COLOR_POSITIVE_TEXT]+2 [ICON_PRODUCTION] production[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Factory[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+2 [ICON_PRODUCTION] production[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_2</Tag>
-		<English>Promote the chief engineer.</English>
+		<English>Build sanitary works around the plants. (All Factories +1 [ICON_HEALTHY] health.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Factory[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_3</Tag>
-		<English>Build sanitary works around the plants.</English>
+		<English>Promote the chief engineer. (Settled Great Engineer in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASS_PRODUCTION_DONE_3_HELP</Tag>
-		<English>Every Factory in your empire gains [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_LOCOMOTIVE_WORKS_1</Tag>
@@ -8150,27 +8150,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_1</Tag>
-		<English>Lay rails to every city.</English>
+		<English>Lay rails to every city. (250 [ICON_GOLD] gold and a free Worker.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 gold[COLOR_REVERT] and a [COLOR_POSITIVE_TEXT]free Worker[COLOR_REVERT] to lay new rail.</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 [ICON_GOLD] gold[COLOR_REVERT] and a [COLOR_POSITIVE_TEXT]free Worker[COLOR_REVERT] is conscripted.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_2</Tag>
-		<English>Levy a freight tariff.</English>
+		<English>Levy a freight tariff. (All Factories +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_2_HELP</Tag>
-		<English>Every Factory in your empire yields [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Factory[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_3</Tag>
-		<English>Recruit the chief engineer.</English>
+		<English>Recruit the chief engineer. (Settled Great Engineer in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_LOCOMOTIVE_WORKS_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_TELEGRAPH_NETWORK_1</Tag>
@@ -8198,27 +8198,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_1</Tag>
-		<English>Pipe science down the wires.</English>
+		<English>Pipe science down the wires. (All Observatories +1 [ICON_RESEARCH] research.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_1_HELP</Tag>
-		<English>Every Observatory in your empire yields [COLOR_POSITIVE_TEXT]+1 [ICON_RESEARCH] research[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Observatory[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_RESEARCH] research[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_2</Tag>
-		<English>Recruit a brilliant scientist.</English>
+		<English>Recruit a brilliant scientist. (Settled Great Scientist in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Scientist[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Scientist specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_3</Tag>
-		<English>Celebrate the achievement.</English>
+		<English>Broadcast cheerful news everywhere. (+1 happy in all cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TELEGRAPH_NETWORK_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]200 culture[COLOR_REVERT].</English>
+		<English>All your cities gain [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_COAL_COUNTRY_1</Tag>
@@ -8246,27 +8246,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_1</Tag>
-		<English>Stoke the furnaces.</English>
+		<English>Stoke every furnace. (All Factories +1 [ICON_PRODUCTION] production.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_1_HELP</Tag>
-		<English>Every Factory in your empire yields [COLOR_POSITIVE_TEXT]+1 [ICON_PRODUCTION] production[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Factory[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_PRODUCTION] production[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_2</Tag>
-		<English>Promote the chief engineer.</English>
+		<English>Promote the chief engineer. (Settled Great Engineer in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Engineer[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_3</Tag>
-		<English>Ship coal abroad.</English>
+		<English>Industrialize the coal seam. (Triggered Coal plot +1 production.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_COAL_COUNTRY_DONE_3_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 gold[COLOR_REVERT].</English>
+		<English>The triggered Coal plot permanently produces [COLOR_POSITIVE_TEXT]+1 [ICON_PRODUCTION] production[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_PROPAGANDA_MACHINE_1</Tag>
@@ -8294,27 +8294,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_1</Tag>
-		<English>Broadcast cheerful programming.</English>
+		<English>Broadcast cheerful programming. (All Broadcast Towers +1 [ICON_HAPPY] happy.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_1_HELP</Tag>
-		<English>Every Broadcast Tower in your empire yields [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Broadcast Tower[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_2</Tag>
-		<English>Anoint a great artist.</English>
+		<English>Anoint a great propagandist. (Settled Great Artist in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a free Great Artist[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Artist specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_3</Tag>
-		<English>Stage spectacles in the capital.</English>
+		<English>Stage spectacles in the capital. (Capital culture bomb.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PROPAGANDA_MACHINE_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]250 culture[COLOR_REVERT].</English>
+		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]250 [ICON_CULTURE] culture[COLOR_REVERT].</English>
 	</TEXT>
 	<!-- DowagerMod Tier 2 batch 3a quests -->
 	<TEXT>
@@ -8343,27 +8343,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_1</Tag>
-		<English>Pour the bullion into the treasury.</English>
+		<English>Survey for hidden veins. (Reveals all Gold deposits worldwide.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+		<English>All [COLOR_POSITIVE_TEXT]Gold deposits[COLOR_REVERT] across the entire map are revealed to you.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_2</Tag>
-		<English>Court a merchant prince.</English>
+		<English>Pour the bullion into the treasury. (Receive 200 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_3</Tag>
-		<English>Throw a festival in the capital.</English>
+		<English>Court a merchant prince. (Settled Great Merchant in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GOLD_FEVER_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Merchant specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_BORDER_DISPUTE_1</Tag>
@@ -8391,27 +8391,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_1</Tag>
-		<English>Crown the frontier with celebration.</English>
+		<English>Resolve the dispute diplomatically. (+2 attitude with all met civs.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT].</English>
+		<English>All civilizations you have met gain [COLOR_POSITIVE_TEXT]+2 attitude[COLOR_REVERT] toward you.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_2</Tag>
-		<English>Dispatch a spy across the line.</English>
+		<English>Dispatch a spy across the line. (Free Great Spy in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_2_HELP</Tag>
-		<English>You gain [COLOR_POSITIVE_TEXT]a free Great Spy[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Great Spy[COLOR_REVERT] is dispatched from your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_3</Tag>
-		<English>Tax the marches.</English>
+		<English>Fortify the frontier permanently. (All Walls +1 [ICON_HEALTHY] health.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_BORDER_DISPUTE_DONE_3_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Walls[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_GREAT_FAMINE_1</Tag>
@@ -8439,27 +8439,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_1</Tag>
-		<English>Drain the swamps around the capital.</English>
+		<English>Master grain preservation. (All Granaries +1 [ICON_HEALTHY] health.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 [ICON_HEALTHY] health[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Granary[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_2</Tag>
-		<English>Reward the grain merchants.</English>
+		<English>Stockpile the capital's stores. (Capital food bomb.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]50 stored food[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_3</Tag>
-		<English>Stockpile the capital's stores.</English>
+		<English>Drain the swamps everywhere. (+1 health in all cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GREAT_FAMINE_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]30 [ICON_FOOD] food[COLOR_REVERT].</English>
+		<English>All your cities gain [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_ROAD_NETWORK_1</Tag>
@@ -8487,27 +8487,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_1</Tag>
-		<English>Toll the highways.</English>
+		<English>Toll the highways forever. (All Markets +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_2</Tag>
-		<English>Found a great trading house.</English>
+		<English>Levy a one-time road tax. (Receive 200 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_3</Tag>
-		<English>Levy another road crew.</English>
+		<English>Levy another road crew. (Free Worker.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ROAD_NETWORK_DONE_3_HELP</Tag>
-		<English>You gain [COLOR_POSITIVE_TEXT]a free Worker[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Worker[COLOR_REVERT] is conscripted in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_MERCANTILISM_1</Tag>
@@ -8535,27 +8535,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_1</Tag>
-		<English>Anoint a master of coin.</English>
+		<English>Charter the banks empire-wide. (All Banks +2 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Bank[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+2 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_2</Tag>
-		<English>Charter the banks empire-wide.</English>
+		<English>Levy a one-time tax. (Receive 300 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_2_HELP</Tag>
-		<English>Every Bank in your empire yields [COLOR_POSITIVE_TEXT]+2 [ICON_GOLD] gold[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_3</Tag>
-		<English>Levy a one-time tax.</English>
+		<English>Inspect every market. (+20 gold per Market in your empire.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MERCANTILISM_DONE_3_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 gold[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]20 [ICON_GOLD] gold[COLOR_REVERT] per [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_PAX_ROMANA_1</Tag>
@@ -8583,27 +8583,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_1</Tag>
-		<English>Distribute the peace dividend.</English>
+		<English>Proclaim a Golden Age of peace.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 gold[COLOR_REVERT].</English>
+		<English>Your empire enters a [COLOR_POSITIVE_TEXT]Golden Age[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_2</Tag>
-		<English>Hold games in the capital.</English>
+		<English>Host the great peace conference. (+2 attitude with all met civs.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 [ICON_HAPPY] happy[COLOR_REVERT].</English>
+		<English>All civilizations you have met gain [COLOR_POSITIVE_TEXT]+2 attitude[COLOR_REVERT] toward you.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_3</Tag>
-		<English>Reward a great trader.</English>
+		<English>Distribute the peace dividend. (Receive 250 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_PAX_ROMANA_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_SILK_ROAD_1</Tag>
@@ -8631,27 +8631,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_1</Tag>
-		<English>Tax the caravans.</English>
+		<English>License the caravans permanently. (All Markets +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]200 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_2</Tag>
-		<English>Endow a merchant prince.</English>
+		<English>Toll every trade partner. (+80 gold per open-borders partner.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_2_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]250 gold[COLOR_REVERT] and your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]80 [ICON_GOLD] gold[COLOR_REVERT] per civilization with which you have Open Borders.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_3</Tag>
-		<English>Anoint a master trader.</English>
+		<English>Map the silk traders' routes. (Reveals all Silk deposits worldwide.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SILK_ROAD_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]a settled Great Merchant[COLOR_REVERT].</English>
+		<English>All [COLOR_POSITIVE_TEXT]Silk deposits[COLOR_REVERT] across the entire map are revealed to you.</English>
 	</TEXT>
 	<!-- DowagerMod quests batch 3b: late-era T2 -->
 	<TEXT>
@@ -8680,27 +8680,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_1</Tag>
-		<English>Pocket the season's profits.</English>
+		<English>Tax the spice trade richly. (All Markets +2 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]220 gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+2 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_2</Tag>
-		<English>Endow a merchant prince.</English>
+		<English>Pocket the season's profits. (Receive 220 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_2_HELP</Tag>
-		<English>A [COLOR_POSITIVE_TEXT]Great Merchant[COLOR_REVERT] settles in your capital.</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]220 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_3</Tag>
-		<English>Throw a spice festival.</English>
+		<English>Endow a merchant prince. (Settled Great Merchant in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_SPICE_MERCHANT_DONE_3_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from the celebrations.</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Merchant specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_STOIC_ACADEMY_1</Tag>
@@ -8728,27 +8728,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_1</Tag>
-		<English>Bless the academy's halls.</English>
+		<English>Carve philosophy into every library. (All Libraries +1 [ICON_CULTURE] culture.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from the rites.</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Library[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_CULTURE] culture[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_2</Tag>
-		<English>Settle a Great Priest among the masters.</English>
+		<English>Teach equanimity to the people. (+1 happy in all cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_2_HELP</Tag>
-		<English>A [COLOR_POSITIVE_TEXT]Great Priest[COLOR_REVERT] settles in your capital.</English>
+		<English>All your cities gain [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_3</Tag>
-		<English>Commission a hymn cycle.</English>
+		<English>Anoint the academy's high priest. (Settled Great Prophet in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_STOIC_ACADEMY_DONE_3_HELP</Tag>
-		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]+60 [ICON_CULTURE] Culture[COLOR_REVERT].</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Prophet specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_MASTER_BREWER_1</Tag>
@@ -8776,27 +8776,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_1</Tag>
-		<English>Toast the harvest.</English>
+		<English>Pour the brew at every market. (All Markets +1 [ICON_HAPPY] happy.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] Health[COLOR_REVERT] from the wholesome brew.</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_2</Tag>
-		<English>Host a tavern festival.</English>
+		<English>Toast the harvest. (Capital food bomb.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from the merrymaking.</English>
+		<English>Your capital instantly gains [COLOR_POSITIVE_TEXT]40 stored food[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_3</Tag>
-		<English>Stake the brewer's expansion.</English>
+		<English>Ferment surplus grain into mead. (All Granaries +1 [ICON_HEALTHY] health.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_MASTER_BREWER_DONE_3_HELP</Tag>
-		<English>A [COLOR_POSITIVE_TEXT]Great Merchant[COLOR_REVERT] settles in your capital.</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Granary[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+1 [ICON_HEALTHY] health[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_OIL_BARON_1</Tag>
@@ -8824,27 +8824,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_1</Tag>
-		<English>Roll out a free battalion.</English>
+		<English>Industrialize the refineries. (All Factories +1 [ICON_PRODUCTION] production.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_1_HELP</Tag>
-		<English>A free [COLOR_POSITIVE_TEXT]Tank[COLOR_REVERT] joins your forces.</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Factory[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_PRODUCTION] production[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_2</Tag>
-		<English>Tax the petroleum cartel.</English>
+		<English>Tax the petroleum cartel. (Receive 400 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_2_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]400 gold[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]400 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_3</Tag>
-		<English>Hire the baron's chief engineer.</English>
+		<English>Roll out a free battalion. (Free Tank in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_OIL_BARON_DONE_3_HELP</Tag>
-		<English>A [COLOR_POSITIVE_TEXT]Great Engineer[COLOR_REVERT] settles in your capital.</English>
+		<English>A [COLOR_POSITIVE_TEXT]free Tank[COLOR_REVERT] is built in your capital.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_JOINT_STOCK_COMPANY_1</Tag>
@@ -8872,27 +8872,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_1</Tag>
-		<English>Pay a dividend to coastal subscribers.</English>
+		<English>Pay a dividend to coastal subscribers. (+35 gold per coastal city.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_1_HELP</Tag>
-		<English>Each of your coastal cities pays out a [COLOR_POSITIVE_TEXT]25 gold[COLOR_REVERT] dividend into your treasury.</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]35 [ICON_GOLD] gold[COLOR_REVERT] per coastal city in your empire.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_2</Tag>
-		<English>Reinvest the float in the Exchange.</English>
+		<English>Reinvest the float in the Exchange. (Receive 300 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_2_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 gold[COLOR_REVERT].</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 [ICON_GOLD] gold[COLOR_REVERT].</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_3</Tag>
-		<English>Charter the company in perpetuity.</English>
+		<English>Charter the company in perpetuity. (All Markets +1 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_JOINT_STOCK_COMPANY_DONE_3_HELP</Tag>
-		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT].</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Market[COLOR_REVERT] in your empire produces [COLOR_POSITIVE_TEXT]+1 [ICON_GOLD] gold[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_TULIP_MANIA_1</Tag>
@@ -8920,27 +8920,27 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_1</Tag>
-		<English>Ride the bubble.</English>
+		<English>Ride the bubble. (Receive 300 [ICON_GOLD] gold.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_1_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 gold[COLOR_REVERT] from the speculation.</English>
+		<English>Your treasury gains [COLOR_POSITIVE_TEXT]300 [ICON_GOLD] gold[COLOR_REVERT] from the speculation.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_2</Tag>
-		<English>Pop the bubble early.</English>
+		<English>Pop the bubble early and feed the people. (+1 happy in all cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_2_HELP</Tag>
-		<English>Your treasury gains [COLOR_POSITIVE_TEXT]150 gold[COLOR_REVERT] and your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from grateful smallholders.</English>
+		<English>All your cities gain [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_3</Tag>
-		<English>Stay sober and hire a real merchant.</English>
+		<English>Stay sober and hire a real merchant. (Settled Great Merchant in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TULIP_MANIA_DONE_3_HELP</Tag>
-		<English>A [COLOR_POSITIVE_TEXT]Great Merchant[COLOR_REVERT] settles in your capital.</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Merchant specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_TRIGGER_WORKER_SAFETY_1</Tag>
@@ -8968,26 +8968,26 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_1</Tag>
-		<English>Hold a victory rally.</English>
+		<English>Hold a victory rally everywhere. (+1 happy in all cities.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_1_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] Happy[COLOR_REVERT] from the celebrations.</English>
+		<English>All your cities gain [COLOR_POSITIVE_TEXT]+1 [ICON_HAPPY] happy[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_2</Tag>
-		<English>Open public clinics.</English>
+		<English>Build public clinics by every factory. (All Factories +2 [ICON_HEALTHY] health.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_2_HELP</Tag>
-		<English>Your capital gains [COLOR_POSITIVE_TEXT]+2 [ICON_HEALTHY] Health[COLOR_REVERT] as factory injuries plummet.</English>
+		<English>Every [COLOR_POSITIVE_TEXT]Factory[COLOR_REVERT] in your empire provides [COLOR_POSITIVE_TEXT]+2 [ICON_HEALTHY] health[COLOR_REVERT] forever.</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_3</Tag>
-		<English>Promote a reformist engineer.</English>
+		<English>Promote a reformist engineer. (Settled Great Engineer in capital.)</English>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_WORKER_SAFETY_DONE_3_HELP</Tag>
-		<English>A [COLOR_POSITIVE_TEXT]Great Engineer[COLOR_REVERT] settles in your capital.</English>
+		<English>A [COLOR_POSITIVE_TEXT]Great Engineer specialist[COLOR_REVERT] settles in your capital permanently.</English>
 	</TEXT>
 </Civ4GameText>
