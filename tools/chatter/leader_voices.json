@@ -682,6 +682,10 @@
             "locale": "ja-JP",
             "accent": "Japanese"
         },
+        "trump": {
+            "voice": "en-US-DavisNeural",
+            "tts_provider": "elevenlabs"
+        },
         "victoria": {
             "voice": "en-GB-MiaNeural",
             "rate": "-8%",
