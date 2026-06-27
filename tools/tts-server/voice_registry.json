@@ -29,6 +29,12 @@
       "reference_wav": "voices/charlemagne_ref.wav",
       "reference_transcript": "I taught my Frankish warriors to read. Between campaigns. I built the school at the palace, the cathedral at Aachen, and the first empire in the West in three hundred years — while also converting Saxony, which required considerably more persuasion than anyone expected. You cannot manage one frontier. I managed all of them simultaneously.",
       "description": "Deep authoritative Frankish emperor, Germanic accent. Zero-shot cloned from ElevenLabs reference."
+    },
+    "trump": {
+      "display_name": "Donald Trump",
+      "reference_wav": "voices/trump_ref.wav",
+      "reference_transcript": "Did I make you satisfied? He's a good man. We've dealt successfully together for a long time. Oh, that's so much better without that noise. Thank you very much for turning that stupid machine off.",
+      "description": "American male, distinctive Queens/NY cadence. Zero-shot cloned from user-supplied reference."
     }
   },
   "default_voice": "dowager",
