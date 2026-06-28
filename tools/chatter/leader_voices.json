@@ -602,9 +602,18 @@
             "locale": "ar-EG",
             "accent": "Arabic"
         },
-        "reginaldendicottbarclay": "en-GB-ElliotNeural",
-        "reginaldbarclay": "en-GB-ElliotNeural",
-        "barclay": "en-GB-ElliotNeural",
+        "reginaldendicottbarclay": {
+            "voice": "en-GB-ElliotNeural",
+            "tts_provider": "elevenlabs"
+        },
+        "reginaldbarclay": {
+            "voice": "en-GB-ElliotNeural",
+            "tts_provider": "elevenlabs"
+        },
+        "barclay": {
+            "voice": "en-GB-ElliotNeural",
+            "tts_provider": "elevenlabs"
+        },
         "saladin": {
             "voice": "ar-SA-HamedNeural",
             "lang": "Arabic",
