@@ -243,6 +243,7 @@ These items may still be useful, but they should not be treated as primary archi
 - Planned Symphony job types: issue delivery first, then PR review, issue triage, and hygiene/audit jobs
 - Generated Art Masterpiece content: `tools/generate_art_masterpieces.py`, `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Python/CvArtMasterpieceData.py`, `docs/art_masterpiece_sources.csv`
 - Industry content generation: `tools/apply_supply_chain_overhaul.py`, `tools/apply_industry_wave2.py`, `tools/rebuild_industry_buttons_v2.py`
+- Unused-art inventory (Phase 1 for LLM-suggested leaders/civs): `tools/art_inventory.py` (generates `docs/art_inventory/`)
 
 ## What Not To Assume
 
