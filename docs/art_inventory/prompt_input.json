@@ -1,0 +1,1078 @@
+{
+  "task": "Propose new DowagerMod leaders/civilizations that REUSE the unused leaderhead art listed below. Follow the 1:1 pattern: one NEW leader gets exactly ONE bespoke custom trait and is paired with exactly ONE civilization.",
+  "output_schema": "tools/leader_suggest/suggestion_spec.schema.json",
+  "rules": [
+    "Each proposal: exactly one NEW custom_trait (TRAIT_* that does NOT already exist) unique to that leader.",
+    "leader_type and (if new_civilization) civilization_type must not collide with any existing id below.",
+    "favorite_civic must be one of available_civics; art_style (for a new civ) must be one of available_art_styles.",
+    "leaderhead.nif and leaderhead.kfm MUST be copied verbatim from a candidate below (they are verified-unused, on-disk art).",
+    "Only add a unique_unit / unique_building if you can point it at an unused art path from candidate_units / candidate_buildings.",
+    "Prefer historically coherent leader+civ+trait triples that fit the mod's era/dynasty-specific civ style."
+  ],
+  "existing_leaders": [
+    "LEADER_ALEXANDER",
+    "LEADER_ASOKA",
+    "LEADER_AUGUSTUS",
+    "LEADER_BARBARIAN",
+    "LEADER_BISMARCK",
+    "LEADER_BOUDICA",
+    "LEADER_BRENNUS",
+    "LEADER_CASIMIR",
+    "LEADER_CATHERINE",
+    "LEADER_CHARLEMAGNE",
+    "LEADER_CHINESE_LEADER",
+    "LEADER_CHURCHILL",
+    "LEADER_CYRUS",
+    "LEADER_DARIUS",
+    "LEADER_DE_GAULLE",
+    "LEADER_DOWAGER_COUNTESS",
+    "LEADER_ELIZABETH",
+    "LEADER_ENRICO_DANDOLO",
+    "LEADER_FRANKLIN_ROOSEVELT",
+    "LEADER_FREDERICK",
+    "LEADER_GANDHI",
+    "LEADER_GENGHIS_KHAN",
+    "LEADER_GERONIMO_BTG",
+    "LEADER_GILGAMESH",
+    "LEADER_HAILE_SELASSIE",
+    "LEADER_HAMMURABI",
+    "LEADER_HANNIBAL",
+    "LEADER_HATSHEPSUT",
+    "LEADER_HUAYNA_CAPAC",
+    "LEADER_ISABELLA",
+    "LEADER_JOAO",
+    "LEADER_JULIUS_CAESAR",
+    "LEADER_JUSTINIAN",
+    "LEADER_KUBLAI_KHAN",
+    "LEADER_LINCOLN",
+    "LEADER_LOUIS_XIV",
+    "LEADER_MANSA_MUSA",
+    "LEADER_MEHMED",
+    "LEADER_MONTEZUMA",
+    "LEADER_NAPOLEON",
+    "LEADER_PACAL",
+    "LEADER_PERICLES",
+    "LEADER_PETER",
+    "LEADER_QIN_SHI_HUANG",
+    "LEADER_RAGNAR",
+    "LEADER_RAMESSES",
+    "LEADER_REGINALD_ENDICOTT_BARCLAY",
+    "LEADER_SALADIN",
+    "LEADER_SALAMASINA_BTG",
+    "LEADER_SHAKA",
+    "LEADER_SITTING_BULL",
+    "LEADER_STALIN",
+    "LEADER_SULEIMAN",
+    "LEADER_SURYAVARMAN",
+    "LEADER_TOKUGAWA",
+    "LEADER_VICTORIA",
+    "LEADER_WANGKON",
+    "LEADER_WASHINGTON",
+    "LEADER_WILLEM_VAN_ORANJE",
+    "LEADER_ZARA_YAQOB"
+  ],
+  "existing_civilizations": [
+    "CIVILIZATION_AMERICA_FEDERAL",
+    "CIVILIZATION_AMERICA_FOUNDING_REPUBLIC",
+    "CIVILIZATION_AMERICA_NEW_DEAL",
+    "CIVILIZATION_AMERICA_UNION",
+    "CIVILIZATION_APACHE_CONFEDERACY",
+    "CIVILIZATION_ARABIA",
+    "CIVILIZATION_ATHENIAN_GREECE",
+    "CIVILIZATION_AZTEC",
+    "CIVILIZATION_BABYLON",
+    "CIVILIZATION_BARBARIAN",
+    "CIVILIZATION_BRITISH_REGENCY",
+    "CIVILIZATION_BYZANTIUM",
+    "CIVILIZATION_CARTHAGE",
+    "CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY",
+    "CIVILIZATION_EGYPT_NEW_KINGDOM",
+    "CIVILIZATION_ELIZABETHAN_ENGLAND",
+    "CIVILIZATION_ETHIOPIA_IMPERIAL",
+    "CIVILIZATION_ETHIOPIA_SOLOMONIC",
+    "CIVILIZATION_FRANCE_BOURBON",
+    "CIVILIZATION_FRANCE_FIFTH_REPUBLIC",
+    "CIVILIZATION_FRANCE_FIRST_EMPIRE",
+    "CIVILIZATION_GAULIC_CONFEDERATION",
+    "CIVILIZATION_GERMAN_EMPIRE",
+    "CIVILIZATION_HOLY_ROMAN",
+    "CIVILIZATION_ICENI_BRITAIN",
+    "CIVILIZATION_IMPERIAL_RUSSIA",
+    "CIVILIZATION_INCA",
+    "CIVILIZATION_INDIA",
+    "CIVILIZATION_JAPAN",
+    "CIVILIZATION_KHMER",
+    "CIVILIZATION_KOREA",
+    "CIVILIZATION_MACEDONIAN_EMPIRE",
+    "CIVILIZATION_MALI",
+    "CIVILIZATION_MAURYA",
+    "CIVILIZATION_MAYA",
+    "CIVILIZATION_MINOR",
+    "CIVILIZATION_MONGOL_EMPIRE",
+    "CIVILIZATION_NATIVE_AMERICA",
+    "CIVILIZATION_NETHERLANDS",
+    "CIVILIZATION_OTTOMAN_CLASSICAL",
+    "CIVILIZATION_OTTOMAN_CONQUEST",
+    "CIVILIZATION_PEOPLES_REPUBLIC_CHINA",
+    "CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID",
+    "CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID",
+    "CIVILIZATION_PETRINE_RUSSIA",
+    "CIVILIZATION_POLAND",
+    "CIVILIZATION_POLYNESIA_BTG",
+    "CIVILIZATION_PORTUGAL",
+    "CIVILIZATION_PRUSSIA",
+    "CIVILIZATION_QIN_DYNASTY",
+    "CIVILIZATION_ROMAN_PRINCIPATE",
+    "CIVILIZATION_ROMAN_REPUBLIC_LATE",
+    "CIVILIZATION_SPAIN",
+    "CIVILIZATION_SUMERIA",
+    "CIVILIZATION_USSR",
+    "CIVILIZATION_VENICE",
+    "CIVILIZATION_VICTORIAN_BRITAIN",
+    "CIVILIZATION_VIKING",
+    "CIVILIZATION_WARTIME_BRITAIN",
+    "CIVILIZATION_YUAN_DYNASTY",
+    "CIVILIZATION_ZULU"
+  ],
+  "existing_traits": [
+    "TRAIT_AGGRESSIVE",
+    "TRAIT_ALEXANDER",
+    "TRAIT_ASOKA",
+    "TRAIT_AUGUSTUS_CAESAR",
+    "TRAIT_BISMARCK",
+    "TRAIT_BOUDICA",
+    "TRAIT_BRENNUS",
+    "TRAIT_CASIMIR",
+    "TRAIT_CATHERINE",
+    "TRAIT_CHARISMATIC",
+    "TRAIT_CHARLEMAGNE",
+    "TRAIT_CHURCHILL",
+    "TRAIT_CREATIVE",
+    "TRAIT_CYRUS",
+    "TRAIT_DANDOLO",
+    "TRAIT_DARIUS",
+    "TRAIT_DE_GAULLE",
+    "TRAIT_ELIZABETH",
+    "TRAIT_EXPANSIVE",
+    "TRAIT_FINANCIAL",
+    "TRAIT_FREDERICK",
+    "TRAIT_GENGHIS_KAHN",
+    "TRAIT_GEORGE_WASHINGTON",
+    "TRAIT_GHANDI",
+    "TRAIT_GILGAMESH",
+    "TRAIT_GRANDE_ARMEE",
+    "TRAIT_HAMMURABI",
+    "TRAIT_HANNIBAL",
+    "TRAIT_HATSHEPSUT",
+    "TRAIT_HELLENIC_LEGACY",
+    "TRAIT_HUAYNA_CAPAC",
+    "TRAIT_IMPERIALIST",
+    "TRAIT_INDUSTRIOUS",
+    "TRAIT_ISABELLA",
+    "TRAIT_JOAO",
+    "TRAIT_JULIUS",
+    "TRAIT_JUSTINIAN",
+    "TRAIT_KUBLAI",
+    "TRAIT_LEADER_GERONIMO",
+    "TRAIT_LINCOLN",
+    "TRAIT_LOUIS",
+    "TRAIT_MANSA_MUSA",
+    "TRAIT_MAO_MASS_LINE",
+    "TRAIT_MEHMED",
+    "TRAIT_MONTEZUMA",
+    "TRAIT_ORANGE",
+    "TRAIT_ORGANIZED",
+    "TRAIT_PACAL",
+    "TRAIT_PACIFIST",
+    "TRAIT_PARANOID",
+    "TRAIT_PERICLES",
+    "TRAIT_PETER",
+    "TRAIT_PHILOSOPHICAL",
+    "TRAIT_PROTECTIVE",
+    "TRAIT_QIN_SHI_HUANG",
+    "TRAIT_RAGNAR",
+    "TRAIT_RAMESSES",
+    "TRAIT_ROOSEVELT",
+    "TRAIT_SALADIN",
+    "TRAIT_SALAMASINA_BTG",
+    "TRAIT_SELASSIE",
+    "TRAIT_SHAKA",
+    "TRAIT_SITTING_BULL",
+    "TRAIT_SPIRITUAL",
+    "TRAIT_STALIN",
+    "TRAIT_SULEIMAN",
+    "TRAIT_SURYAVARMAN",
+    "TRAIT_TOKUGAWA",
+    "TRAIT_VICTORIA",
+    "TRAIT_WANGKON",
+    "TRAIT_ZARA"
+  ],
+  "available_civics": [
+    "CIVIC_BARBARISM",
+    "CIVIC_BUREAUCRACY",
+    "CIVIC_CASTE_SYSTEM",
+    "CIVIC_DECENTRALIZATION",
+    "CIVIC_DESPOTISM",
+    "CIVIC_EMANCIPATION",
+    "CIVIC_ENVIRONMENTALISM",
+    "CIVIC_FREE_MARKET",
+    "CIVIC_FREE_RELIGION",
+    "CIVIC_FREE_SPEECH",
+    "CIVIC_HEREDITARY_RULE",
+    "CIVIC_MERCANTILISM",
+    "CIVIC_NATIONHOOD",
+    "CIVIC_ORGANIZED_RELIGION",
+    "CIVIC_PACIFISM",
+    "CIVIC_PAGANISM",
+    "CIVIC_POLICE_STATE",
+    "CIVIC_REPRESENTATION",
+    "CIVIC_SERFDOM",
+    "CIVIC_SLAVERY",
+    "CIVIC_STATE_PROPERTY",
+    "CIVIC_THEOCRACY",
+    "CIVIC_TRIBALISM",
+    "CIVIC_UNIVERSAL_SUFFRAGE",
+    "CIVIC_VASSALAGE"
+  ],
+  "available_art_styles": [
+    "ARTSTYLE_ASIAN",
+    "ARTSTYLE_BARBARIAN",
+    "ARTSTYLE_EUROPEAN",
+    "ARTSTYLE_GRECO_ROMAN",
+    "ARTSTYLE_MIDDLE_EAST",
+    "ARTSTYLE_SOUTH_AMERICA"
+  ],
+  "candidate_leaderheads": [
+    {
+      "leader_label": "Ruga",
+      "source_folder": "Art/BTG/Huns/leaderheads/Ruga",
+      "source_tier": "BTG",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "asian",
+        "middle_eastern"
+      ],
+      "nif": "Art/BTG/Huns/leaderheads/Ruga/genghis_khan.nif",
+      "kfm": "Art/BTG/Huns/leaderheads/Ruga/genghis_khan.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "Franz Joseph",
+      "source_folder": "Art/BTG/LeaderHeads/Franz Joseph",
+      "source_tier": "BTG",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/BTG/LeaderHeads/Franz Joseph/napoleon.nif",
+      "kfm": "Art/BTG/LeaderHeads/Franz Joseph/napoleon.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "Hirohito",
+      "source_folder": "Art/Leaderheads/new/Emperor Hirohito 0.1/LeaderHeads/Hirohito",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/Emperor Hirohito 0.1/LeaderHeads/Hirohito/napoleon.nif",
+      "kfm": "Art/Leaderheads/new/Emperor Hirohito 0.1/LeaderHeads/Hirohito/napoleon.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "George I",
+      "source_folder": "Art/Leaderheads/new/George I/Assets/Modules/Custom LeaderHeads/George I",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/George I/Assets/Modules/Custom LeaderHeads/George I/fdr.nif",
+      "kfm": "Art/Leaderheads/new/George I/Assets/Modules/Custom LeaderHeads/George I/fdr.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "Alexander the  Great",
+      "source_folder": "Art/Leaderheads/new/alexander_take_this_firaxis/art/leaderheads/Alexander_the _Great",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "asian",
+        "middle_eastern"
+      ],
+      "nif": "Art/Leaderheads/new/alexander_take_this_firaxis/art/leaderheads/Alexander_the _Great/alexander.nif",
+      "kfm": "Art/Leaderheads/new/alexander_take_this_firaxis/art/leaderheads/Alexander_the _Great/alexander.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [
+        "Art/Units/GreatPeople/Merchant/Great_Merchant_128.dds",
+        "Art/Units/Great_Spy_Ancient/AncientSpy_128.dds",
+        "Art/Units/Great_Spy_Ancient/Great_Spy_Ancient_DIFF.dds",
+        "Art/Units/Great_Spy_Ancient/Great_Spy_Ancient_freeze0000.nif",
+        "Art/Units/Great_Spy_Ancient/Great_Spy_Ancient_freeze0001.nif",
+        "Art/Units/Great_Spy_Ancient/Great_Spy_Ancient_freeze1000.nif"
+      ],
+      "candidate_buildings": [
+        "Art/Structures/Buildings/Christ_The_Redeemer/ChristTheRedeemer_DIFF.dds",
+        "Art/Structures/Buildings/Christ_The_Redeemer/ChristTheRedeemer_SHADOW.dds"
+      ]
+    },
+    {
+      "leader_label": "christian",
+      "source_folder": "Art/Leaderheads/new/christian",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/christian/peter.nif",
+      "kfm": "Art/Leaderheads/new/christian/peter.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": [
+        "Art/Structures/Buildings/Monastery/Christian/ChristianMonastery-shadowMap.dds",
+        "Art/Structures/Buildings/Monastery/Christian/christian_monastery-MAP.dds"
+      ]
+    },
+    {
+      "leader_label": "dompedro v3",
+      "source_folder": "Art/Leaderheads/new/dompedro_v3",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/dompedro_v3/napoleon.nif",
+      "kfm": "Art/Leaderheads/new/dompedro_v3/napoleon.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "dufour",
+      "source_folder": "Art/Leaderheads/new/dufour",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/dufour/John_Adams.nif",
+      "kfm": "Art/Leaderheads/new/dufour/John_Adams.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "freydis",
+      "source_folder": "Art/Leaderheads/new/freydis",
+      "source_tier": "base-game",
+      "era_hints": [
+        "medieval"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/freydis/victoria.nif",
+      "kfm": "Art/Leaderheads/new/freydis/victoria.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "Harold",
+      "source_folder": "Art/Leaderheads/new/harold/Harold",
+      "source_tier": "base-game",
+      "era_hints": [
+        "medieval"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/harold/Harold/ragnar_lodbrok.nif",
+      "kfm": "Art/Leaderheads/new/harold/Harold/ragnar_lodbrok.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "john hunyadi",
+      "source_folder": "Art/Leaderheads/new/john_hunyadi",
+      "source_tier": "base-game",
+      "era_hints": [
+        "medieval"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/john_hunyadi/alexander.nif",
+      "kfm": "Art/Leaderheads/new/john_hunyadi/alexander.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "kanishka",
+      "source_folder": "Art/Leaderheads/new/kanishka",
+      "source_tier": "base-game",
+      "era_hints": [
+        "medieval"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/kanishka/ragnar_lodbrok.nif",
+      "kfm": "Art/Leaderheads/new/kanishka/ragnar_lodbrok.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "lmm",
+      "source_folder": "Art/Leaderheads/new/lmm",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/lmm/charles de gaulle.nif",
+      "kfm": "Art/Leaderheads/new/lmm/Charles De Gaulle.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "louis xvi",
+      "source_folder": "Art/Leaderheads/new/louis_xvi",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/louis_xvi/King_English.nif",
+      "kfm": "Art/Leaderheads/new/louis_xvi/King_English.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "macha mong ruad",
+      "source_folder": "Art/Leaderheads/new/macha_mong_ruad",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/macha_mong_ruad/Macha Mong Ruad.nif",
+      "kfm": "Art/Leaderheads/new/macha_mong_ruad/Macha Mong Ruad.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "mongkut",
+      "source_folder": "Art/Leaderheads/new/mongkut",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/mongkut/Tachnechobrus.nif",
+      "kfm": "Art/Leaderheads/new/mongkut/Tachnechobrus.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "pyrrhusfinal",
+      "source_folder": "Art/Leaderheads/new/pyrrhusfinal",
+      "source_tier": "base-game",
+      "era_hints": [
+        "medieval"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/pyrrhusfinal/alexander.nif",
+      "kfm": "Art/Leaderheads/new/pyrrhusfinal/alexander.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "rahman",
+      "source_folder": "Art/Leaderheads/new/rahman",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/rahman/Zara Yaqob.nif",
+      "kfm": "Art/Leaderheads/new/rahman/Zara Yaqob.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "robert bruce gabihime",
+      "source_folder": "Art/Leaderheads/new/robert_bruce_gabihime",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/robert_bruce_gabihime/napoleon.nif",
+      "kfm": "Art/Leaderheads/new/robert_bruce_gabihime/napoleon.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "ruga",
+      "source_folder": "Art/Leaderheads/new/ruga",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "asian",
+        "middle_eastern"
+      ],
+      "nif": "Art/Leaderheads/new/ruga/genghis_khan.nif",
+      "kfm": "Art/Leaderheads/new/ruga/genghis_khan.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "seleucus",
+      "source_folder": "Art/Leaderheads/new/seleucus",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/seleucus/hannibal.nif",
+      "kfm": "Art/Leaderheads/new/seleucus/hannibal.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "suppiluliuma  hittite    amra",
+      "source_folder": "Art/Leaderheads/new/suppiluliuma__hittite____amra",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "asian"
+      ],
+      "nif": "Art/Leaderheads/new/suppiluliuma__hittite____amra/kublai_khan.nif",
+      "kfm": "Art/Leaderheads/new/suppiluliuma__hittite____amra/kublai_khan.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "szechenyi",
+      "source_folder": "Art/Leaderheads/new/szechenyi",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/szechenyi/Szechenyi.nif",
+      "kfm": "Art/Leaderheads/new/szechenyi/Szechenyi.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "Trader",
+      "source_folder": "Art/Leaderheads/new/venice_v3/Assets/Modules/Custom Civilizations/Venice/Trader",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "asian"
+      ],
+      "nif": "Art/Leaderheads/new/venice_v3/Assets/Modules/Custom Civilizations/Venice/Trader/greatmerchantancient.nif",
+      "kfm": "Art/Leaderheads/new/venice_v3/Assets/Modules/Custom Civilizations/Venice/Trader/greatmerchantancient.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "william",
+      "source_folder": "Art/Leaderheads/new/william",
+      "source_tier": "base-game",
+      "era_hints": [
+        "medieval"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/william/Charlemagne.nif",
+      "kfm": "Art/Leaderheads/new/william/Charlemagne.kfm",
+      "model_pair_confidence": "high",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "austin2",
+      "source_folder": "Art/Leaderheads/new/austin2",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/austin2/austin.nif",
+      "kfm": "Art/Leaderheads/new/austin2/Samuel_de_Champlain.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "cardenas",
+      "source_folder": "Art/Leaderheads/new/cardenas",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/cardenas/NewEarth.nif",
+      "kfm": "Art/Leaderheads/new/cardenas/napoleon.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "francisco franco v2",
+      "source_folder": "Art/Leaderheads/new/francisco_franco_v2",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/francisco_franco_v2/Francisco_Franco_V2_Cap.nif",
+      "kfm": "Art/Leaderheads/new/francisco_franco_v2/josef_stalin.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "giovanni messe",
+      "source_folder": "Art/Leaderheads/new/giovanni_messe",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/giovanni_messe/Messe.nif",
+      "kfm": "Art/Leaderheads/new/giovanni_messe/josef_stalin.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "gunnhild",
+      "source_folder": "Art/Leaderheads/new/gunnhild",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "asian",
+        "middle_eastern"
+      ],
+      "nif": "Art/Leaderheads/new/gunnhild/Gunnhild.nif",
+      "kfm": "Art/Leaderheads/new/gunnhild/alexander_BG.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "hselassie",
+      "source_folder": "Art/Leaderheads/new/hselassie",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/hselassie/Hselassie.nif",
+      "kfm": "Art/Leaderheads/new/hselassie/saladin.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "napoleoniii",
+      "source_folder": "Art/Leaderheads/new/napoleoniii",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/napoleoniii/napoleonIII.nif",
+      "kfm": "Art/Leaderheads/new/napoleoniii/cyrus.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "Antiochus",
+      "source_folder": "Art/Leaderheads/new/newgreeks/Antiochus",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/newgreeks/Antiochus/AlexWCrown.nif",
+      "kfm": "Art/Leaderheads/new/newgreeks/Antiochus/alexander.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "Pyrrhus",
+      "source_folder": "Art/Leaderheads/new/newgreeks/Pyrrhus",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient",
+        "medieval"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/newgreeks/Pyrrhus/AlexWHelm.nif",
+      "kfm": "Art/Leaderheads/new/newgreeks/Pyrrhus/alexander.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "o higgins",
+      "source_folder": "Art/Leaderheads/new/o_higgins",
+      "source_tier": "base-game",
+      "era_hints": [
+        "colonial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/o_higgins/OHiggins.nif",
+      "kfm": "Art/Leaderheads/new/o_higgins/augustus_caesar.kfm",
+      "model_pair_confidence": "low",
+      "candidate_units": [],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "European Saminfantry",
+      "source_folder": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/Europe/European Saminfantry",
+      "source_tier": "base-game",
+      "era_hints": [
+        "modern"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/Europe/European Saminfantry/saminfantry.nif",
+      "kfm": null,
+      "model_pair_confidence": "low",
+      "candidate_units": [
+        "Art/Units/Archer_European/Archer.nif",
+        "Art/Units/Archer_European/Archer_freeze0000.nif",
+        "Art/Units/Archer_European/Archer_freeze0001.nif",
+        "Art/Units/Archer_European/Archer_freeze1000.nif",
+        "Art/Units/Archer_European/Archer_freeze1021.nif",
+        "Art/Units/Archer_European/Archer_freeze1031.nif"
+      ],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "European War Elephant",
+      "source_folder": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/Europe/European War Elephant",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/Europe/European War Elephant/warelephant_fx.nif",
+      "kfm": null,
+      "model_pair_confidence": "low",
+      "candidate_units": [
+        "Art/Units/Archer_European/Archer.nif",
+        "Art/Units/Archer_European/Archer_freeze0000.nif",
+        "Art/Units/Archer_European/Archer_freeze0001.nif",
+        "Art/Units/Archer_European/Archer_freeze1000.nif",
+        "Art/Units/Archer_European/Archer_freeze1021.nif",
+        "Art/Units/Archer_European/Archer_freeze1031.nif"
+      ],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "celtic worker",
+      "source_folder": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/Europe/celtic worker",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/Europe/celtic worker/worker_celtic.nif",
+      "kfm": null,
+      "model_pair_confidence": "low",
+      "candidate_units": [
+        "Art/Units/Chariot_European/Celtic_Chariot_128.dds",
+        "Art/Units/Chariot_European/Celtic_Chariot_Horse_128.dds",
+        "Art/Units/Chariot_European/Celtic_Chariot_Rider_128.dds",
+        "Art/Units/Chariot_European/Chariot_Celtic.nif",
+        "Art/Units/Chariot_European/Chariot_Celtic_freeze1000.nif",
+        "Art/Units/Chariot_European/Chariot_Celtic_freeze1021.nif"
+      ],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "Holy Roman Musketman",
+      "source_folder": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/holy rome/Holy Roman Musketman",
+      "source_tier": "base-game",
+      "era_hints": [
+        "ancient",
+        "colonial",
+        "medieval"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/holy rome/Holy Roman Musketman/musketman.nif",
+      "kfm": null,
+      "model_pair_confidence": "low",
+      "candidate_units": [
+        "Art/Units/Crossbowman_Greco_Roman/BoundShape.nif",
+        "Art/Units/Crossbowman_Greco_Roman/Crossbowman.nif",
+        "Art/Units/Crossbowman_Greco_Roman/Crossbowman_freeze0000.nif",
+        "Art/Units/Crossbowman_Greco_Roman/Crossbowman_freeze0001.nif",
+        "Art/Units/Crossbowman_Greco_Roman/Crossbowman_freeze1000.nif",
+        "Art/Units/Crossbowman_Greco_Roman/Crossbowman_freeze1021.nif"
+      ],
+      "candidate_buildings": []
+    },
+    {
+      "leader_label": "Italy Cavalry",
+      "source_folder": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/italy/Italy Cavalry",
+      "source_tier": "base-game",
+      "era_hints": [
+        "industrial"
+      ],
+      "culture_hints": [
+        "european"
+      ],
+      "nif": "Art/Leaderheads/new/venice_v3/Assets/Modules/Varietas Delectat/Art/Units/italy/Italy Cavalry/italiancavalry.nif",
+      "kfm": null,
+      "model_pair_confidence": "low",
+      "candidate_units": [
+        "Art/Units/Knight_South_America/Companion_Cavalry.nif",
+        "Art/Units/Knight_South_America/Companion_Cavalry_freeze0000.nif",
+        "Art/Units/Knight_South_America/Companion_Cavalry_freeze0001.nif",
+        "Art/Units/Knight_South_America/Companion_Cavalry_freeze1000.nif",
+        "Art/Units/Knight_South_America/Companion_Cavalry_freeze1021.nif",
+        "Art/Units/Knight_South_America/Companion_Cavalry_freeze2021.nif"
+      ],
+      "candidate_buildings": []
+    }
+  ],
+  "candidate_portraits_need_model": [
+    {
+      "leader_label": "Leaderheads",
+      "source_folder": "Art/BTG/Amazon Civilization/Art/Interface/Buttons/Leaderheads",
+      "source_tier": "BTG"
+    },
+    {
+      "leader_label": "abubakr",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/abubakr",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "afonso",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/afonso",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "atotoztli",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/atotoztli",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "basil",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/basil",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "caligula",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/caligula",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "cetshwayo",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/cetshwayo",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "charles v",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/charles_v",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "cleopatra",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/cleopatra",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "dewitt",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/dewitt",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "dido",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/dido",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "franco",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/franco",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "hadrian",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/hadrian",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "harun",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/harun",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "henry the navigator",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/henry_the_navigator",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "henry viii",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/henry_viii",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "hiawatha",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/hiawatha",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "hirohito",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/hirohito",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "hitler",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/hitler",
+      "source_tier": "caveman2cosmos"
+    },
+    {
+      "leader_label": "itzcoatl",
+      "source_folder": "Art/Caveman2Cosmos/art/custom_leaderheads/itzcoatl",
+      "source_tier": "caveman2cosmos"
+    }
+  ],
+  "manifest_summary": {
+    "referenced_art_tokens": 9089,
+    "ondisk_art_files": 40479,
+    "unused_candidate_assets": 33165,
+    "unused_by_type": {
+      "building": 5127,
+      "leaderhead": 6745,
+      "other": 9833,
+      "unit": 11460
+    },
+    "unused_by_source_tier": {
+      "BTG": 2837,
+      "base-game": 8194,
+      "caveman2cosmos": 22134
+    },
+    "dangling_references": 2727,
+    "referenced_leaderhead_models": 221,
+    "candidate_leaderhead_folders": 285,
+    "leaderhead_folders_in_use_with_stray_files": 24,
+    "portrait_only_leaderhead_folders": 72,
+    "candidate_roots": [
+      "art/leaderheads",
+      "art/units",
+      "art/structures",
+      "art/btg",
+      "art/caveman2cosmos"
+    ],
+    "notes": [
+      "unused = on-disk art under candidate_roots with no XML reference.",
+      "dangling is NOISY in this repo: stock art lives in git-excluded .fpk archives, so many 'missing' interface/terrain/unit refs are false positives. Interpret with the .fpk caveat; do NOT gate on it.",
+      "leaderhead groups exclude folders already in use and folders without a .nif/.kfm model.",
+      "full per-asset unit/building/other rows are in unused_art_manifest.csv, not duplicated in this JSON."
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DowagerMod leader/civ suggestion batch",
+  "description": "Structured output contract for Phase 2 LLM suggestions of new leaders/civilizations that reuse currently-unused art. Core pattern: exactly ONE bespoke custom trait per new leader, and each leader is paired 1:1 with a single civilization, so the leader+civ+trait triple is customized together. Validated by tools/leader_suggest/suggest_leaders.py.",
+  "type": "object",
+  "required": ["proposals"],
+  "properties": {
+    "generated_by": {"type": "string"},
+    "notes": {"type": "string"},
+    "proposals": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/proposal"}
+    }
+  },
+  "definitions": {
+    "proposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "leader_type", "leader_display_name", "civilization_type",
+        "new_civilization", "custom_trait", "favorite_civic", "leaderhead", "rationale"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+        "leader_type": {"type": "string", "pattern": "^LEADER_[A-Z0-9_]+$"},
+        "leader_display_name": {"type": "string"},
+
+        "civilization_type": {"type": "string", "pattern": "^CIVILIZATION_[A-Z0-9_]+$"},
+        "new_civilization": {"type": "boolean"},
+        "civilization_display_name": {"type": "string"},
+        "adjective": {"type": "string"},
+        "art_style": {"type": "string", "pattern": "^ARTSTYLE_[A-Z0-9_]+$"},
+
+        "custom_trait": {"$ref": "#/definitions/custom_trait"},
+        "favorite_civic": {"type": "string", "pattern": "^CIVIC_[A-Z0-9_]+$"},
+
+        "leaderhead": {"$ref": "#/definitions/leaderhead_art"},
+        "unique_unit": {"$ref": "#/definitions/unique_unit"},
+        "unique_building": {"$ref": "#/definitions/unique_building"},
+        "cities": {"type": "array", "items": {"type": "string"}},
+
+        "era_hint": {"type": "string"},
+        "culture_hint": {"type": "string"},
+        "rationale": {"type": "string"}
+      }
+    },
+
+    "custom_trait": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Exactly one NEW bespoke trait, unique to this leader. trait_type must NOT already exist in CIV4TraitInfos.xml. 'design' describes the intended mechanical effect in plain language; concrete XML tags are resolved in the Phase 3 generator.",
+      "required": ["trait_type", "name", "design"],
+      "properties": {
+        "trait_type": {"type": "string", "pattern": "^TRAIT_[A-Z0-9_]+$"},
+        "name": {"type": "string"},
+        "design": {"type": "string"},
+        "flavor": {"type": "string"}
+      }
+    },
+
+    "leaderhead_art": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_folder", "nif", "kfm"],
+      "description": "All model paths must be unused, on-disk art from the current manifest (Assets-relative).",
+      "properties": {
+        "source_folder": {"type": "string"},
+        "nif": {"type": "string"},
+        "kfm": {"type": "string"},
+        "button": {"type": "string"},
+        "source_tier": {"type": "string", "enum": ["base-game", "BTG", "caveman2cosmos"]}
+      }
+    },
+
+    "unique_unit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "replaces_unitclass"],
+      "properties": {
+        "name": {"type": "string"},
+        "replaces_unitclass": {"type": "string", "pattern": "^UNITCLASS_[A-Z0-9_]+$"},
+        "art_source_folder": {"type": "string"},
+        "nif": {"type": "string"},
+        "kfm": {"type": "string"},
+        "design": {"type": "string"}
+      }
+    },
+
+    "unique_building": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "replaces_buildingclass"],
+      "properties": {
+        "name": {"type": "string"},
+        "replaces_buildingclass": {"type": "string", "pattern": "^BUILDINGCLASS_[A-Z0-9_]+$"},
+        "art_source_folder": {"type": "string"},
+        "nif": {"type": "string"},
+        "design": {"type": "string"}
+      }
+    }
+  }
+}

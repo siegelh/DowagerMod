@@ -63,6 +63,9 @@
 - [`art_inventory/README.md`](art_inventory/README.md) - `Current`. Generated unused-art
   inventory (manifest + CSVs) produced by [`../tools/art_inventory.py`](../tools/art_inventory.py);
   Phase 1 foundation for LLM-suggested leaders/civs that reuse unused art.
+- [`../tools/leader_suggest/README.md`](../tools/leader_suggest/README.md) - `Current`. Phase 2
+  leader/civ suggestion harness: builds an LLM prompt from the manifest and validates structured
+  proposals (one bespoke trait per new leader, paired 1:1 with a civilization).
 
 ### Repo-Local Skills
 

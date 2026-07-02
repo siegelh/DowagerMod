@@ -1,0 +1,110 @@
+{
+  "generated_by": "Phase 2 demo batch (hand-authored from prompt_input.json to exercise the validator)",
+  "notes": "All leaderhead nif/kfm are verified-unused, high-confidence pairs copied verbatim from the manifest. Visual identity of reskinned imports should still be confirmed by an in-game smoke test in Phase 3.",
+  "proposals": [
+    {
+      "id": "seleucus-seleucid-empire",
+      "leader_type": "LEADER_SELEUCUS",
+      "leader_display_name": "Seleucus I Nicator",
+      "civilization_type": "CIVILIZATION_SELEUCID_EMPIRE",
+      "new_civilization": true,
+      "civilization_display_name": "Seleucid Empire",
+      "adjective": "Seleucid",
+      "art_style": "ARTSTYLE_GRECO_ROMAN",
+      "custom_trait": {
+        "trait_type": "TRAIT_SELEUCUS",
+        "name": "Diadochi Inheritor",
+        "design": "Cheaper courthouses and +1 trade route in cities on other continents; represents holding together a sprawling successor empire across Asia.",
+        "flavor": "The spear-won land is held by roads, coin, and Greek cities."
+      },
+      "favorite_civic": "CIVIC_VASSALAGE",
+      "leaderhead": {
+        "source_folder": "Art/Leaderheads/new/seleucus",
+        "nif": "Art/Leaderheads/new/seleucus/hannibal.nif",
+        "kfm": "Art/Leaderheads/new/seleucus/hannibal.kfm",
+        "source_tier": "base-game"
+      },
+      "era_hint": "ancient",
+      "culture_hint": "middle_eastern",
+      "rationale": "Fills the Hellenistic successor-state gap alongside Macedon and the Roman variants; reuses an unused Hannibal-based leaderhead mesh."
+    },
+    {
+      "id": "kanishka-kushan-empire",
+      "leader_type": "LEADER_KANISHKA",
+      "leader_display_name": "Kanishka the Great",
+      "civilization_type": "CIVILIZATION_KUSHAN_EMPIRE",
+      "new_civilization": true,
+      "civilization_display_name": "Kushan Empire",
+      "adjective": "Kushan",
+      "art_style": "ARTSTYLE_ASIAN",
+      "custom_trait": {
+        "trait_type": "TRAIT_KANISHKA",
+        "name": "Silk Road Patron",
+        "design": "+25% gold from trade routes and a free Buddhist missionary-equivalent bonus in the capital; models the Kushan role linking Rome, Persia, India, and China along the Silk Road.",
+        "flavor": "Between the four empires, all caravans pass through Kushan hands."
+      },
+      "favorite_civic": "CIVIC_ORGANIZED_RELIGION",
+      "leaderhead": {
+        "source_folder": "Art/Leaderheads/new/kanishka",
+        "nif": "Art/Leaderheads/new/kanishka/ragnar_lodbrok.nif",
+        "kfm": "Art/Leaderheads/new/kanishka/ragnar_lodbrok.kfm",
+        "source_tier": "base-game"
+      },
+      "era_hint": "ancient",
+      "culture_hint": "asian",
+      "rationale": "A Central Asian trade civ that does not overlap India/Persia/Mongol; reuses an unused Ragnar-based mesh."
+    },
+    {
+      "id": "franz-joseph-austria-hungary",
+      "leader_type": "LEADER_FRANZ_JOSEPH",
+      "leader_display_name": "Franz Joseph I",
+      "civilization_type": "CIVILIZATION_AUSTRIA_HUNGARY",
+      "new_civilization": true,
+      "civilization_display_name": "Austria-Hungary",
+      "adjective": "Austro-Hungarian",
+      "art_style": "ARTSTYLE_EUROPEAN",
+      "custom_trait": {
+        "trait_type": "TRAIT_FRANZ_JOSEPH",
+        "name": "Dual Monarchy",
+        "design": "Reduced maintenance from distance and +1 happiness from a courthouse-tier building; represents administering a multi-ethnic empire through bureaucracy and compromise.",
+        "flavor": "One crown, many nations, held together by paperwork and patience."
+      },
+      "favorite_civic": "CIVIC_BUREAUCRACY",
+      "leaderhead": {
+        "source_folder": "Art/BTG/LeaderHeads/Franz Joseph",
+        "nif": "Art/BTG/LeaderHeads/Franz Joseph/napoleon.nif",
+        "kfm": "Art/BTG/LeaderHeads/Franz Joseph/napoleon.kfm",
+        "source_tier": "BTG"
+      },
+      "era_hint": "industrial",
+      "culture_hint": "european",
+      "rationale": "A Central European great power distinct from German Empire/Prussia; reuses an unused BTG Franz Joseph leaderhead."
+    },
+    {
+      "id": "suppiluliuma-hittite-empire",
+      "leader_type": "LEADER_SUPPILULIUMA",
+      "leader_display_name": "Suppiluliuma I",
+      "civilization_type": "CIVILIZATION_HITTITE_EMPIRE",
+      "new_civilization": true,
+      "civilization_display_name": "Hittite Empire",
+      "adjective": "Hittite",
+      "art_style": "ARTSTYLE_MIDDLE_EAST",
+      "custom_trait": {
+        "trait_type": "TRAIT_SUPPILULIUMA",
+        "name": "Iron of Hatti",
+        "design": "Free promotion for melee/chariot units built in the capital and faster iron-connected unit production; reflects the Hittites' early ironworking and chariot warfare.",
+        "flavor": "From Hattusa came iron edges the Bronze Age could not answer."
+      },
+      "favorite_civic": "CIVIC_VASSALAGE",
+      "leaderhead": {
+        "source_folder": "Art/Leaderheads/new/suppiluliuma__hittite____amra",
+        "nif": "Art/Leaderheads/new/suppiluliuma__hittite____amra/kublai_khan.nif",
+        "kfm": "Art/Leaderheads/new/suppiluliuma__hittite____amra/kublai_khan.kfm",
+        "source_tier": "base-game"
+      },
+      "era_hint": "ancient",
+      "culture_hint": "middle_eastern",
+      "rationale": "A Bronze Age Anatolian power to rival Egypt/Babylon/Sumeria; reuses an unused Kublai-based mesh."
+    }
+  ]
+}

@@ -198,5 +198,8 @@
   archives → documented; NOT suitable as a gate without `.fpk`-awareness (answers deferred Q3).
 - Remaining risks: keyword era/culture enrichment is best-effort; C2C nested-path refs inflate
   dangling; JSON is a curated grouped view (full flat data is in the CSV).
-- Follow-up tasks: Phase 2 (LLM suggestion over the manifest); Phase 3 (XML generator +
-  art-path existence validation + smoke test); optional `.fpk`-aware dangling gate.
+- Follow-up tasks: **Phase 2 delivered in this branch** — `tools/leader_suggest/` harness
+  (`build-input` + `validate`) with `suggestion_spec.schema.json` and a validated 4-proposal
+  demo (`docs/art_inventory/suggested_leaders.sample.json`). Remaining: Phase 3 (XML generator
+  applying a validated proposal per §A.2 + art-path existence validation + smoke test);
+  optional `.fpk`-aware dangling gate.
