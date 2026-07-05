@@ -614,6 +614,10 @@
             "voice": "en-GB-ElliotNeural",
             "tts_provider": "elevenlabs"
         },
+        "ltreginoldendicottbarclay": {
+            "voice": "en-GB-ElliotNeural",
+            "tts_provider": "elevenlabs"
+        },
         "saladin": {
             "voice": "ar-SA-HamedNeural",
             "lang": "Arabic",
