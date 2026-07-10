@@ -17381,7 +17381,7 @@
         <iRangedWaveSize>3</iRangedWaveSize>
         <UnitMeshGroup>
           <iRequired>3</iRequired>
-          <EarlyArtDefineTag>ART_DEF_UNIT_HUSSAR</EarlyArtDefineTag>
+          <EarlyArtDefineTag>ART_DEF_UNIT_IMPERIAL_RUSSIA_BLACK_SEA_HUSSAR</EarlyArtDefineTag>
         </UnitMeshGroup>
       </UnitMeshGroups>
       <FormationType>FORMATION_TYPE_DEFAULT</FormationType>
@@ -28051,6 +28051,14 @@
       <Buildings>
         <Building>
           <BuildingType>BUILDING_SCOTLAND_YARD</BuildingType>
+          <bBuilding>1</bBuilding>
+        </Building>
+        <Building>
+          <BuildingType>BUILDING_LUBYANKA</BuildingType>
+          <bBuilding>1</bBuilding>
+        </Building>
+        <Building>
+          <BuildingType>BUILDING_BRITISH_MI6</BuildingType>
           <bBuilding>1</bBuilding>
         </Building>
       </Buildings>

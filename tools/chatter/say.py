@@ -31,7 +31,37 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from tools.chatter import config as cfg_mod
 from tools.chatter.azure_speech_client import AzureSpeechClient
 from tools.chatter.discord_bot import DiscordBotWorker
-from tools.chatter.voice_picker import VoicePicker
+from tools.chatter.voice_picker import VoicePicker, VoiceSpec, normalize_name
+
+
+def _build_dispatcher(vo, speech: AzureSpeechClient, logger: logging.Logger):
+    """Build a TtsDispatcher if ElevenLabs is configured, else None."""
+    if not vo.elevenlabs_enabled():
+        return None
+    try:
+        from tools.chatter.elevenlabs_client import ElevenLabsClient
+        from tools.chatter.tts_dispatcher import TtsDispatcher, build_elevenlabs_voice_id_map
+        eleven = ElevenLabsClient(
+            api_key=vo.elevenlabs_api_key,
+            endpoint=vo.elevenlabs_endpoint,
+            model_id=vo.elevenlabs_model,
+            timeout_seconds=vo.elevenlabs_timeout_seconds,
+            daily_char_cap=vo.elevenlabs_daily_char_cap,
+            logger=logger,
+        )
+        return TtsDispatcher(
+            azure_client=speech,
+            elevenlabs_client=eleven,
+            elevenlabs_voice_ids=build_elevenlabs_voice_id_map(
+                voice_id_dowager=vo.elevenlabs_voice_id_dowager,
+            ),
+            failure_threshold=vo.elevenlabs_failure_threshold,
+            cooldown_seconds=vo.elevenlabs_cooldown_seconds,
+            logger=logger,
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("ElevenLabs dispatcher init failed; using Azure only: %s", exc)
+        return None
 
 
 def main() -> int:
@@ -61,13 +91,18 @@ def main() -> int:
     voice = vo.azure_speech_voice
     rate = ""
     pitch = ""
+    post_process = ""
+    tts_provider = ""
     if args.leader:
         picker = VoicePicker(default_voice=vo.azure_speech_voice, logger=log)
         spec = picker.pick_spec(args.leader)
         voice = spec.voice
         rate = spec.rate
         pitch = spec.pitch
-        log.info("leader=%s -> voice=%s rate=%r pitch=%r", args.leader, voice, rate, pitch)
+        post_process = spec.post_process
+        tts_provider = spec.tts_provider
+        log.info("leader=%s -> voice=%s rate=%r pitch=%r provider=%r post=%r",
+                 args.leader, voice, rate, pitch, tts_provider, post_process)
     if args.voice:
         voice = args.voice
     if args.rate is not None:
@@ -82,11 +117,39 @@ def main() -> int:
         default_voice=voice,
         daily_char_cap=vo.daily_char_cap,
     )
-    result = speech.synthesize(args.text, voice=voice, rate=rate, pitch=pitch)
-    log.info("speech ok: %d bytes, %d ms", len(result.audio_bytes), result.latency_ms)
+    dispatcher = _build_dispatcher(vo, speech, log)
+    if dispatcher is not None:
+        synth_spec = VoiceSpec(
+            voice=voice, rate=rate, pitch=pitch,
+            post_process=post_process, tts_provider=tts_provider,
+        )
+        dispatch = dispatcher.synthesize(
+            text=args.text, spec=synth_spec,
+            leader_key=normalize_name(args.leader),
+            leader_name=args.leader or "",
+            locale_override="",
+        )
+        audio_bytes = dispatch.audio_bytes
+        log.info("speech ok via %s: %d bytes, %d ms (fallback=%s, skip_post=%s)",
+                 dispatch.provider, len(audio_bytes), dispatch.latency_ms,
+                 dispatch.used_fallback, dispatch.skip_post_process)
+        skip_post = dispatch.skip_post_process
+    else:
+        result = speech.synthesize(args.text, voice=voice, rate=rate, pitch=pitch)
+        audio_bytes = result.audio_bytes
+        log.info("speech ok via azure: %d bytes, %d ms", len(audio_bytes), result.latency_ms)
+        skip_post = False
+
+    if post_process and not skip_post:
+        try:
+            from tools.chatter.audio_postprocess import apply_postprocess
+            audio_bytes = apply_postprocess(audio_bytes, post_process, logger=log)
+            log.info("applied post_process=%s (%d bytes after)", post_process, len(audio_bytes))
+        except Exception as exc:  # noqa: BLE001
+            log.warning("post_process %s failed: %s", post_process, exc)
 
     wav_path = Path(tempfile.gettempdir()) / ("dowager_say_%d.wav" % int(time.time()))
-    wav_path.write_bytes(result.audio_bytes)
+    wav_path.write_bytes(audio_bytes)
     log.info("wav: %s", wav_path)
 
     bot = DiscordBotWorker(

@@ -309,6 +309,86 @@ STRUCTURAL_VARIETY_DIRECTIVE = (
     "to the same template every time."
 )
 
+PARALINGUISTIC_DIRECTIVE = (
+    "\n\nEXPRESSIVE SOUNDS (important): your voice synthesizer supports "
+    "paralinguistic sound effects. You MAY insert these tags into your line "
+    "and they will be rendered as ACTUAL SOUNDS in the audio:\n"
+    "  [laugh]  [chuckle]  [sigh]  [groan]  [gasp]  [clear throat]  [sniff]  [cough]  [shush]\n"
+    "Use these INSTEAD of asterisk stage directions. Rules:\n"
+    "- Use at most ONE per line (two if it is genuinely hilarious).\n"
+    "- Place them where natural in the sentence — mid-sentence or at the end.\n"
+    "- Do NOT start a line with a tag.\n"
+    "- Use them when they would be FUNNY, DRAMATIC, or perfectly timed. "
+    "A well-placed [sigh] of exasperation, a [laugh] after a devastating insult, "
+    "a [clear throat] before a pompous pronouncement.\n"
+    "- Still NO asterisks (*laughs*) — only the square-bracketed tags listed above."
+)
+
+# The stage-direction ban line that appears in all SYSTEM_* templates.
+# When paralinguistic mode is active, this line is swapped out.
+_STAGE_DIRECTION_BAN = (
+    "- NEVER use stage directions or asterisks like *laughs* or *scoffs* "
+    "— those get spoken literally by the voice synthesizer.\n"
+)
+_STAGE_DIRECTION_BAN_SHORT = (
+    "- NEVER use stage directions or asterisks.\n"
+)
+
+
+def apply_paralinguistic(system_msg: str) -> str:
+    """Replace the stage-direction ban with the paralinguistic directive."""
+    result = system_msg.replace(_STAGE_DIRECTION_BAN, "")
+    result = result.replace(_STAGE_DIRECTION_BAN_SHORT, "")
+    # Also handle the chat-reply variant
+    result = result.replace(
+        "- NEVER use stage directions or asterisks like *laughs* *scoffs* "
+        "-- those get spoken literally.\n", ""
+    )
+    result += PARALINGUISTIC_DIRECTIVE
+    return result
+
+
+def _normalize_for_paralinguistic(name: str) -> str:
+    """Lowercase + strip non-alnum for matching against chatterbox_voices set."""
+    import re
+    return re.sub(r'[^a-z0-9]', '', name.lower())
+
+
+ACCENT_DIRECTIVE = (
+    "\n\nACCENTED ENGLISH (critical): this leader speaks English with an "
+    "OUTRAGEOUSLY THICK {accent} accent. You MUST rewrite your entire response "
+    "using extreme phonetic respelling so a text-to-speech engine pronounces it "
+    "with a comically heavy {accent} accent. This is meant to be HILARIOUS. Rules:\n"
+    "- Replace consonants and vowels aggressively based on how a {accent} speaker "
+    "ACTUALLY butchers English pronunciation: swap 'th' for 'z/d/t', 'w' for 'v', "
+    "'r' for 'l' or trill it, drop or add 'h', harden/soften consonants, mangle "
+    "vowels toward the native phonology. The thicker the better.\n"
+    "- Be MERCILESS. Every single word that would sound different gets respelled. "
+    "The entire line must read like someone doing the most exaggerated {accent} "
+    "accent impression of their life.\n"
+    "- NEVER modify text inside square brackets like [laugh], [sigh], [chuckle], "
+    "[groan], [gasp], [clear throat], [sniff], [cough], [shush]. These are "
+    "synthesis control tags — copy them EXACTLY as-is into your output.\n"
+    "- Examples (German): 'I haff konkered kingdoms lahger zan ze shpace your "
+    "leettle courage okkupies. You are nussing.'\n"
+    "- Examples (Chinese): 'You sink you can defeat me? I have see sousand "
+    "army crumbo before my eye. You are like ant.'\n"
+    "- Examples (French): 'Zis eez not a negosiation. I take what I wont, "
+    "and you weel learn to assept eet, you fool.'\n"
+    "- Examples (Russian): 'In my countree, ve do not ask for permishon. "
+    "Ve take. And zen ve drink vodka on your grave.'\n"
+    "- The goal is COMEDY. The TTS will speak these words aloud and it should "
+    "sound like an absurdly thick accent that makes people laugh.\n"
+    "- Do NOT use IPA symbols, excessive hyphens, or ALL CAPS for stress.\n"
+    "- Do NOT write standard English. EVERY response MUST be phonetically "
+    "mangled. If it looks like normal English, you failed."
+)
+
+
+def apply_accent(system_msg: str, accent: str) -> str:
+    """Append the accent directive for the given accent to the system prompt."""
+    return system_msg + ACCENT_DIRECTIVE.format(accent=accent)
+
 
 SYSTEM_DIRECTED = (
     "You are {speaker_leader} of {speaker_civ}, a historical figure as portrayed in "
@@ -955,7 +1035,9 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
                             other_humans_in_thread: list | None = None,
                             chain_reply: bool = False,
                             prior_leader_speaker_name: str = "",
-                            room_state: dict | None = None) -> tuple[str, list]:
+                            room_state: dict | None = None,
+                            chatterbox_voices: set = None,
+                            speaker_accent: str = "") -> tuple[str, list]:
     """Return (system_message, messages_list_for_llm) for a CHAT_REPLY call.
 
     history_messages is the full conversation so far as [{role, content}, ...].
@@ -990,6 +1072,12 @@ def build_chat_reply_prompt(request: dict, history_messages: list,
         prior_leader_speaker_name=prior_leader_speaker_name,
         room_state=room_state,
     )
+    # Paralinguistic tags for Chatterbox-voiced leaders
+    if chatterbox_voices and _normalize_for_paralinguistic(speaker.get("leader_name", "")) in chatterbox_voices:
+        sys_msg = apply_paralinguistic(sys_msg)
+    # Accent respelling
+    if speaker_accent:
+        sys_msg = apply_accent(sys_msg, speaker_accent)
     return sys_msg, list(history_messages)
 
 
@@ -1023,7 +1111,9 @@ def _format_recent_lines_block(recent_lines: list, speaker_leader: str) -> str:
 
 def build_single_line_prompt(request: dict, *, native_mode: bool = False,
                              speaker_native_lang: str = "",
-                             recent_lines: list = None) -> tuple[str, str]:
+                             recent_lines: list = None,
+                             chatterbox_voices: set = None,
+                             speaker_accent: str = "") -> tuple[str, str]:
     """Return (system_message, user_message) for a single-line directed/broadcast call.
 
     When native_mode is True AND speaker_native_lang is non-empty, the LLM
@@ -1100,6 +1190,12 @@ def build_single_line_prompt(request: dict, *, native_mode: bool = False,
     # recent-lines callout last (closest to the actual generation).
     if recent_lines:
         system_msg += _format_recent_lines_block(recent_lines, fmt["speaker_leader"])
+    # Paralinguistic tags for Chatterbox-voiced leaders
+    if chatterbox_voices and _normalize_for_paralinguistic(fmt["speaker_leader"]) in chatterbox_voices:
+        system_msg = apply_paralinguistic(system_msg)
+    # Accent respelling for non-English-native leaders
+    if speaker_accent:
+        system_msg = apply_accent(system_msg, speaker_accent)
     user_msg = USER_TEMPLATE.format(
         game_turn=request.get("game_turn", 0),
         era=ctx.get("era", "unknown"),
@@ -1112,7 +1208,10 @@ def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
                             speaker_native_lang: str = "",
                             target_native_lang: str = "",
                             recent_lines: list = None,
-                            target_recent_lines: list = None) -> tuple[str, str]:
+                            target_recent_lines: list = None,
+                            chatterbox_voices: set = None,
+                            speaker_accent: str = "",
+                            target_accent: str = "") -> tuple[str, str]:
     """Return (system_message, user_message) for a one-shot multi-line script call.
 
     When native_mode is True AND both leaders have a configured native lang,
@@ -1178,5 +1277,27 @@ def build_multi_turn_prompt(request: dict, *, native_mode: bool = False,
         system_msg += _format_recent_lines_block(recent_lines, fmt["speaker_leader"])
     if target_recent_lines:
         system_msg += _format_recent_lines_block(target_recent_lines, fmt["target_leader"])
+    # Paralinguistic tags — enable if either speaker or target uses Chatterbox
+    if chatterbox_voices and (
+        _normalize_for_paralinguistic(fmt["speaker_leader"]) in chatterbox_voices
+        or _normalize_for_paralinguistic(fmt.get("target_leader", "")) in chatterbox_voices
+    ):
+        system_msg = apply_paralinguistic(system_msg)
+    # Accent respelling — tell the LLM which leaders speak accented English
+    if speaker_accent or target_accent:
+        accent_parts = []
+        if speaker_accent:
+            accent_parts.append(f"{fmt['speaker_leader']} speaks with a heavy {speaker_accent} accent")
+        if target_accent:
+            accent_parts.append(f"{fmt['target_leader']} speaks with a heavy {target_accent} accent")
+        system_msg += (
+            "\n\nACCENTED ENGLISH (important): " + "; ".join(accent_parts) + ". "
+            "Rewrite each leader's lines in TTS-friendly accented English matching "
+            "their accent. Use practical respellings that a text-to-speech model will "
+            "pronounce with a convincing accent — altered consonants, vowels, and "
+            "rhythm. Keep meaning clear. Avoid IPA, excessive hyphens, all-caps "
+            "stress marks, or parody spelling. Leaders without an accent speak "
+            "standard English."
+        )
     user_msg = "Generate the exchange now."
     return system_msg, user_msg

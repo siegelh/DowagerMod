@@ -1,0 +1,48 @@
+{
+  "voices": {
+    "dowager": {
+      "display_name": "Dowager Countess",
+      "reference_wav": "voices/dowager_ref.wav",
+      "reference_transcript": "I have always found that the people most determined to speak plainly are those with the least to say. One does admire the confidence, if not the content. Really, I cannot fathom why people are so very startled to find that reality fails to conform to their expectations. It does so rather reliably. Do they genuinely believe that enthusiasm compensates for competence? How very touching. And how entirely mistaken.",
+      "description": "Elderly aristocratic British lady. Zero-shot cloned from ElevenLabs reference."
+    },
+    "lincoln": {
+      "display_name": "Abraham Lincoln",
+      "reference_wav": "voices/lincoln_ref.wav",
+      "reference_transcript": "I have held this Union together while half of it was actively trying to kill the other half. I did it without proper sleep, adequate generals, or a single kind word from the press. You cannot seem to hold a simple plan together for one afternoon. My hat is taller and considerably better organized than your strategy.",
+      "description": "High-pitched reedy tenor, Kentucky frontier accent. Zero-shot cloned from ElevenLabs reference."
+    },
+    "mao": {
+      "display_name": "Mao Zedong",
+      "reference_wav": "voices/mao_ref.wav",
+      "reference_transcript": "You call that an army? I crossed twenty-four mountain ranges and twenty rivers in bare feet, outran the entire Kuomintang, and still had time to write poetry. You have every advantage I was denied and you are losing to barbarians. The peasants of Hunan had more tactical sense than this.",
+      "description": "Hunanese-accented male, deliberate cadence, chain-smoker roughness. From ElevenLabs website generation."
+    },
+    "washington": {
+      "display_name": "George Washington",
+      "reference_wav": "voices/washington_ref.wav",
+      "reference_transcript": "I have faced British regulars, frozen rivers, and the Continental Congress — simultaneously, and in worse weather than this. So you will forgive me if your formation fails to inspire alarm. I have drilled Virginia militia with more instinct than this. Straighten that line. We have a republic to build. Today.",
+      "description": "Deep commanding baritone, Virginia planter accent. Zero-shot cloned from ElevenLabs reference."
+    },
+    "charlemagne": {
+      "display_name": "Charlemagne",
+      "reference_wav": "voices/charlemagne_ref.wav",
+      "reference_transcript": "I taught my Frankish warriors to read. Between campaigns. I built the school at the palace, the cathedral at Aachen, and the first empire in the West in three hundred years — while also converting Saxony, which required considerably more persuasion than anyone expected. You cannot manage one frontier. I managed all of them simultaneously.",
+      "description": "Deep authoritative Frankish emperor, Germanic accent. Zero-shot cloned from ElevenLabs reference."
+    },
+    "trump": {
+      "display_name": "Donald Trump",
+      "reference_wav": "voices/trump_ref.wav",
+      "reference_transcript": "Did I make you satisfied? He's a good man. We've dealt successfully together for a long time. Oh, that's so much better without that noise. Thank you very much for turning that stupid machine off.",
+      "description": "American male, distinctive Queens/NY cadence. Zero-shot cloned from user-supplied reference."
+    },
+    "barclay": {
+      "display_name": "Donald Trump (Barclay routing)",
+      "reference_wav": "voices/trump_ref.wav",
+      "reference_transcript": "Did I make you satisfied? He's a good man. We've dealt successfully together for a long time. Oh, that's so much better without that noise. Thank you very much for turning that stupid machine off.",
+      "description": "Routes the Civ4 Barclay (Reginald Endicott Barclay) leader to the Trump clone. Shares voices/trump_ref.wav with the 'trump' voice id; exists so the chatter daemon's substring auto-bind maps Barclay's leader_voices.json aliases to this voice."
+    }
+  },
+  "default_voice": "dowager",
+  "notes": "Add more voices by placing a 6-12 second reference WAV in voices/ and adding an entry here. For Qwen3-TTS, include reference_transcript (verbatim text matching the audio)."
+}

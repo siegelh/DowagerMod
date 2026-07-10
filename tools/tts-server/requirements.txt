@@ -1,0 +1,30 @@
+# Local TTS Server — zero-shot voice cloning
+# Install: pip install -r requirements.txt
+#
+# For GPU (CUDA 12.x):
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+#   pip install -r requirements.txt
+#
+# For CPU-only (slower, for prototyping):
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements.txt
+
+# --- Server ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# --- TTS Models ---
+# XTTSv2 (Coqui TTS)
+TTS>=0.22.0
+
+# Coqui TTS imports BeamSearchScorer which was removed in transformers 4.44+.
+# Pin to <4.44 for XTTSv2 compatibility. Qwen3-TTS needs >=4.45 but is not
+# supported yet — when we add it, we'll need a separate venv or a shim.
+transformers>=4.40.0,<4.44
+
+# --- Utilities ---
+soundfile>=0.12.0
+# numpy: let TTS and torch resolve the compatible version automatically
+scipy>=1.11.0
+pydantic>=2.0
+httpx>=0.27.0

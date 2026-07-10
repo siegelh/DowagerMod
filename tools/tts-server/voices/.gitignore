@@ -1,0 +1,2 @@
+# Only ignore test/temp outputs, not reference WAVs (those are committed)
+test_*.wav

@@ -1,5 +1,5 @@
 {
-    "_meta": "Per-leader voice mapping for DowagerMod Chatter voiceover. v5: prosody + native-tongue. Map values may be a bare voice name string OR a {voice, rate, pitch, lang, locale} object. rate/pitch examples: '-15%' / '+10%'. lang = human-readable language name (e.g. 'Russian', 'Mongolian'); when set AND DOWAGER_CHATTER_NATIVE_TONGUE_MODE=true, the LLM generates a translation that the TTS speaks instead of English. Leaders without 'lang' stay English even in native mode.",
+    "_meta": "Per-leader voice mapping for DowagerMod Chatter voiceover. v6: prosody + native-tongue + accent. Map values may be a bare voice name string OR a {voice, rate, pitch, lang, locale, accent} object. rate/pitch examples: '-15%' / '+10%'. lang = human-readable language name (e.g. 'Russian', 'Mongolian'); when set AND DOWAGER_CHATTER_NATIVE_TONGUE_MODE=true, the LLM generates a translation that the TTS speaks instead of English. Leaders without 'lang' stay English even in native mode. accent = the accent the leader would have speaking English (e.g. 'French', 'German'); when set, the LLM rewrites lines in TTS-friendly accented English so the voice synthesizer produces convincingly accented speech. Leaders without 'accent' (native English speakers) speak standard English.",
     "_native_tongue_meta": "When DOWAGER_CHATTER_NATIVE_TONGUE_MODE=true, the LLM also generates a 'line_native' translation for each line in the speaker's actual language. The TTS speaks the native version; in-game text shows English (subtitles). Leaders without a 'lang' field below stay English-only even in native-tongue mode (English natives, ambiguous historical languages, or where translation quality is doubtful). The 'lang' value is the human-readable language name passed to the LLM in its prompt.",
     "_fallback_male": [
         "en-US-DavisNeural",
@@ -35,7 +35,8 @@
             "voice": "mk-MK-AleksandarNeural",
             "lang": "Modern Greek (the closest living language to Ancient Greek)",
             "locale": "el-GR",
-            "voice_native": "el-GR-NestorasNeural"
+            "voice_native": "el-GR-NestorasNeural",
+            "accent": "Greek"
         },
         "asoka": {
             "voice": "en-IN-PrabhatNeural",
@@ -43,79 +44,108 @@
             "pitch": "-6%",
             "lang": "Hindi",
             "locale": "hi-IN",
-            "voice_native": "hi-IN-AaravNeural"
+            "voice_native": "hi-IN-AaravNeural",
+            "accent": "Indian"
         },
         "augustus": {
             "voice": "it-IT-LisandroNeural",
             "lang": "Latin",
-            "locale": "it-IT"
+            "locale": "it-IT",
+            "accent": "Italian"
         },
         "augustuscaesar": {
             "voice": "it-IT-LisandroNeural",
             "lang": "Latin",
-            "locale": "it-IT"
+            "locale": "it-IT",
+            "accent": "Italian"
         },
         "bismarck": {
             "voice": "de-DE-RalfNeural",
             "rate": "-8%",
             "pitch": "-5%",
             "lang": "German",
-            "locale": "de-DE"
+            "locale": "de-DE",
+            "accent": "German"
         },
         "ottovonbismarck": {
             "voice": "de-DE-RalfNeural",
             "rate": "-8%",
             "pitch": "-5%",
             "lang": "German",
-            "locale": "de-DE"
+            "locale": "de-DE",
+            "accent": "German"
         },
-        "boudica": "en-IE-EmilyNeural",
+        "boudica": {
+            "voice": "en-IE-EmilyNeural",
+            "accent": "Irish"
+        },
         "brennus": {
             "voice": "fr-FR-ClaudeNeural",
             "lang": "French",
-            "locale": "fr-FR"
+            "locale": "fr-FR",
+            "accent": "French"
         },
         "casimir": {
             "voice": "pl-PL-MarekNeural",
             "lang": "Polish",
-            "locale": "pl-PL"
+            "locale": "pl-PL",
+            "accent": "Polish"
         },
         "casimiriii": {
             "voice": "pl-PL-MarekNeural",
             "lang": "Polish",
-            "locale": "pl-PL"
+            "locale": "pl-PL",
+            "accent": "Polish"
         },
         "catherine": {
             "voice": "de-DE-MajaNeural",
             "lang": "Russian",
             "locale": "ru-RU",
-            "voice_native": "ru-RU-SvetlanaNeural"
+            "voice_native": "ru-RU-SvetlanaNeural",
+            "accent": "German"
         },
         "catherinethegreat": {
             "voice": "de-DE-MajaNeural",
             "lang": "Russian",
             "locale": "ru-RU",
-            "voice_native": "ru-RU-SvetlanaNeural"
+            "voice_native": "ru-RU-SvetlanaNeural",
+            "accent": "German"
         },
         "charlemagne": {
             "voice": "de-DE-KillianNeural",
             "lang": "German",
-            "locale": "de-DE"
+            "locale": "de-DE",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "6FIxHj18I5BBWqIj0ALY",
+            "accent": "German"
         },
         "chineseleader": {
             "voice": "zh-CN-YunhaoNeural",
             "lang": "Mandarin Chinese",
-            "locale": "zh-CN"
+            "locale": "zh-CN",
+            "accent": "Chinese"
         },
         "maozedong": {
             "voice": "zh-CN-YunhaoNeural",
             "lang": "Mandarin Chinese",
-            "locale": "zh-CN"
+            "locale": "zh-CN",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "efMvkBw2ZQU2jPh8HSiG",
+            "accent": "Chinese"
+        },
+        "mao": {
+            "voice": "zh-CN-YunhaoNeural",
+            "lang": "Mandarin Chinese",
+            "locale": "zh-CN",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "efMvkBw2ZQU2jPh8HSiG",
+            "accent": "Chinese"
         },
         "qianlong": {
             "voice": "zh-CN-YunhaoNeural",
             "lang": "Mandarin Chinese",
-            "locale": "zh-CN"
+            "locale": "zh-CN",
+            "accent": "Chinese"
         },
         "churchill": {
             "voice": "en-GB-OliverNeural",
@@ -131,39 +161,45 @@
             "voice": "ps-AF-GulNawazNeural",
             "lang": "Persian (Farsi)",
             "locale": "fa-IR",
-            "voice_native": "fa-IR-FaridNeural"
+            "voice_native": "fa-IR-FaridNeural",
+            "accent": "Persian"
         },
         "cyrusthegreat": {
             "voice": "ps-AF-GulNawazNeural",
             "lang": "Persian (Farsi)",
             "locale": "fa-IR",
-            "voice_native": "fa-IR-FaridNeural"
+            "voice_native": "fa-IR-FaridNeural",
+            "accent": "Persian"
         },
         "darius": {
             "voice": "ar-IQ-BasselNeural",
             "lang": "Persian (Farsi)",
             "locale": "fa-IR",
-            "voice_native": "fa-IR-FaridNeural"
+            "voice_native": "fa-IR-FaridNeural",
+            "accent": "Persian"
         },
         "dariusi": {
             "voice": "ar-IQ-BasselNeural",
             "lang": "Persian (Farsi)",
             "locale": "fa-IR",
-            "voice_native": "fa-IR-FaridNeural"
+            "voice_native": "fa-IR-FaridNeural",
+            "accent": "Persian"
         },
         "degaulle": {
             "voice": "fr-FR-MauriceNeural",
             "rate": "-8%",
             "pitch": "-3%",
             "lang": "French",
-            "locale": "fr-FR"
+            "locale": "fr-FR",
+            "accent": "French"
         },
         "charlesdegaulle": {
             "voice": "fr-FR-MauriceNeural",
             "rate": "-8%",
             "pitch": "-3%",
             "lang": "French",
-            "locale": "fr-FR"
+            "locale": "fr-FR",
+            "accent": "French"
         },
         "dowagercountess": {
             "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
@@ -171,7 +207,8 @@
             "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
             "locale": "en-GB",
-            "post_process": "elderly_crone"
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
         },
         "dowager": {
             "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
@@ -179,7 +216,8 @@
             "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
             "locale": "en-GB",
-            "post_process": "elderly_crone"
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
         },
         "thedowager": {
             "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
@@ -187,7 +225,8 @@
             "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
             "locale": "en-GB",
-            "post_process": "elderly_crone"
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
         },
         "thedowagercountess": {
             "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
@@ -195,7 +234,35 @@
             "pitch": "-3%",
             "lang": "English (elderly British aristocrat)",
             "locale": "en-GB",
-            "post_process": "elderly_crone"
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
+        },
+        "evildowagercountessofgrantham": {
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB",
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
+        },
+        "evildowager": {
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB",
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
+        },
+        "evildowagercountess": {
+            "voice": "en-gb-sandoverture:DragonHDOmniLatestNeural",
+            "rate": "-15%",
+            "pitch": "-3%",
+            "lang": "English (elderly British aristocrat)",
+            "locale": "en-GB",
+            "post_process": "elderly_crone",
+            "tts_provider": "elevenlabs"
         },
         "elizabeth": {
             "voice": "en-GB-SoniaNeural",
@@ -210,7 +277,8 @@
         "enricodandolo": {
             "voice": "it-IT-CalimeroNeural",
             "lang": "Italian",
-            "locale": "it-IT"
+            "locale": "it-IT",
+            "accent": "Italian"
         },
         "franklinroosevelt": "en-US-GuyNeural",
         "fdr": "en-US-GuyNeural",
@@ -220,40 +288,46 @@
             "rate": "-5%",
             "pitch": "-3%",
             "lang": "German",
-            "locale": "de-DE"
+            "locale": "de-DE",
+            "accent": "German"
         },
         "frederickthegreat": {
             "voice": "de-DE-ChristophNeural",
             "rate": "-5%",
             "pitch": "-3%",
             "lang": "German",
-            "locale": "de-DE"
+            "locale": "de-DE",
+            "accent": "German"
         },
         "fredericki": {
             "voice": "de-DE-ChristophNeural",
             "rate": "-5%",
             "pitch": "-3%",
             "lang": "German",
-            "locale": "de-DE"
+            "locale": "de-DE",
+            "accent": "German"
         },
         "gandhi": {
             "voice": "en-IN-PrabhatNeural",
             "lang": "Hindi",
             "locale": "hi-IN",
-            "voice_native": "hi-IN-AaravNeural"
+            "voice_native": "hi-IN-AaravNeural",
+            "accent": "Indian"
         },
         "mahatmagandhi": {
             "voice": "en-IN-PrabhatNeural",
             "lang": "Hindi",
             "locale": "hi-IN",
-            "voice_native": "hi-IN-AaravNeural"
+            "voice_native": "hi-IN-AaravNeural",
+            "accent": "Indian"
         },
         "genghiskhan": {
             "voice": "mn-MN-BataaNeural",
             "rate": "-3%",
             "pitch": "-5%",
             "lang": "Mongolian",
-            "locale": "mn-MN"
+            "locale": "mn-MN",
+            "accent": "Mongolian"
         },
         "geronimo": {
             "voice": "en-US-BrianNeural",
@@ -271,13 +345,15 @@
             "pitch": "-3%",
             "lang": "Arabic",
             "locale": "ar-SA",
-            "voice_native": "ar-SA-HamedNeural"
+            "voice_native": "ar-SA-HamedNeural",
+            "accent": "Arabic"
         },
         "haileselassie": {
             "voice": "en-KE-ChilembaNeural",
             "lang": "Amharic",
             "locale": "am-ET",
-            "voice_native": "am-ET-AmehaNeural"
+            "voice_native": "am-ET-AmehaNeural",
+            "accent": "Ethiopian"
         },
         "hammurabi": {
             "voice": "ar-JO-TaimNeural",
@@ -285,215 +361,268 @@
             "pitch": "-3%",
             "lang": "Arabic",
             "locale": "ar-SA",
-            "voice_native": "ar-SA-HamedNeural"
+            "voice_native": "ar-SA-HamedNeural",
+            "accent": "Arabic"
         },
         "hannibal": {
             "voice": "ar-TN-HediNeural",
             "lang": "Arabic",
-            "locale": "ar-TN"
+            "locale": "ar-TN",
+            "accent": "Arabic"
         },
         "hannibalbarca": {
             "voice": "ar-TN-HediNeural",
             "lang": "Arabic",
-            "locale": "ar-TN"
+            "locale": "ar-TN",
+            "accent": "Arabic"
         },
         "hatshepsut": {
             "voice": "ar-EG-SalmaNeural",
             "lang": "Arabic",
-            "locale": "ar-EG"
+            "locale": "ar-EG",
+            "accent": "Arabic"
         },
         "huaynacapac": {
             "voice": "es-PE-AlexNeural",
             "lang": "Spanish",
-            "locale": "es-PE"
+            "locale": "es-PE",
+            "accent": "Spanish"
         },
         "isabella": {
             "voice": "es-ES-ElviraNeural",
             "lang": "Spanish",
-            "locale": "es-ES"
+            "locale": "es-ES",
+            "accent": "Spanish"
         },
         "isabellai": {
             "voice": "es-ES-ElviraNeural",
             "lang": "Spanish",
-            "locale": "es-ES"
+            "locale": "es-ES",
+            "accent": "Spanish"
         },
         "joao": {
             "voice": "pt-PT-DuarteNeural",
             "lang": "Portuguese",
-            "locale": "pt-PT"
+            "locale": "pt-PT",
+            "accent": "Portuguese"
         },
         "joaoii": {
             "voice": "pt-PT-DuarteNeural",
             "lang": "Portuguese",
-            "locale": "pt-PT"
+            "locale": "pt-PT",
+            "accent": "Portuguese"
         },
         "johnii": {
             "voice": "pt-PT-DuarteNeural",
             "lang": "Portuguese",
-            "locale": "pt-PT"
+            "locale": "pt-PT",
+            "accent": "Portuguese"
         },
         "juliuscaesar": {
             "voice": "it-IT-RinaldoNeural",
             "lang": "Latin",
-            "locale": "it-IT"
+            "locale": "it-IT",
+            "accent": "Italian"
         },
         "caesar": {
             "voice": "it-IT-RinaldoNeural",
             "lang": "Latin",
-            "locale": "it-IT"
+            "locale": "it-IT",
+            "accent": "Italian"
         },
         "justinian": {
             "voice": "it-IT-GianniNeural",
             "lang": "Greek",
             "locale": "el-GR",
-            "voice_native": "el-GR-NestorasNeural"
+            "voice_native": "el-GR-NestorasNeural",
+            "accent": "Greek"
         },
         "justiniani": {
             "voice": "it-IT-GianniNeural",
             "lang": "Greek",
             "locale": "el-GR",
-            "voice_native": "el-GR-NestorasNeural"
+            "voice_native": "el-GR-NestorasNeural",
+            "accent": "Greek"
         },
         "kublaikhan": {
             "voice": "kk-KZ-DauletNeural",
             "lang": "Mongolian",
             "locale": "mn-MN",
-            "voice_native": "mn-MN-BataaNeural"
+            "voice_native": "mn-MN-BataaNeural",
+            "accent": "Mongolian"
         },
         "lincoln": {
             "voice": "en-US-DavisNeural",
             "rate": "-15%",
-            "pitch": "-12%"
+            "pitch": "-12%",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "FMV5kX1Dskr0Jg5Iz8Pc"
         },
         "abrahamlincoln": {
             "voice": "en-US-DavisNeural",
             "rate": "-15%",
-            "pitch": "-12%"
+            "pitch": "-12%",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "FMV5kX1Dskr0Jg5Iz8Pc"
         },
         "louisxiv": {
             "voice": "fr-FR-AlainNeural",
             "rate": "-5%",
             "pitch": "+3%",
             "lang": "French",
-            "locale": "fr-FR"
+            "locale": "fr-FR",
+            "accent": "French"
         },
         "louisthexiv": {
             "voice": "fr-FR-AlainNeural",
             "rate": "-5%",
             "pitch": "+3%",
             "lang": "French",
-            "locale": "fr-FR"
+            "locale": "fr-FR",
+            "accent": "French"
         },
         "mansamusa": {
             "voice": "en-NG-AbeoNeural",
             "lang": "Arabic",
             "locale": "ar-SA",
-            "voice_native": "ar-SA-HamedNeural"
+            "voice_native": "ar-SA-HamedNeural",
+            "accent": "West African"
         },
         "mehmed": {
             "voice": "tr-TR-AhmetNeural",
             "lang": "Turkish",
-            "locale": "tr-TR"
+            "locale": "tr-TR",
+            "accent": "Turkish"
         },
         "mehmedii": {
             "voice": "tr-TR-AhmetNeural",
             "lang": "Turkish",
-            "locale": "tr-TR"
+            "locale": "tr-TR",
+            "accent": "Turkish"
         },
         "montezuma": {
             "voice": "es-MX-CecilioNeural",
             "rate": "+8%",
             "pitch": "+5%",
             "lang": "Spanish",
-            "locale": "es-MX"
+            "locale": "es-MX",
+            "accent": "Spanish"
         },
         "napoleon": {
             "voice": "fr-FR-YvesNeural",
             "lang": "French",
-            "locale": "fr-FR"
+            "locale": "fr-FR",
+            "accent": "French"
         },
         "napoleonbonaparte": {
             "voice": "fr-FR-YvesNeural",
             "lang": "French",
-            "locale": "fr-FR"
+            "locale": "fr-FR",
+            "accent": "French"
         },
         "pacal": {
             "voice": "es-MX-LibertoNeural",
             "lang": "Spanish",
-            "locale": "es-MX"
+            "locale": "es-MX",
+            "accent": "Spanish"
         },
         "pacalii": {
             "voice": "es-MX-LibertoNeural",
             "lang": "Spanish",
-            "locale": "es-MX"
+            "locale": "es-MX",
+            "accent": "Spanish"
         },
         "pericles": {
             "voice": "el-GR-NestorasNeural",
             "lang": "Greek",
-            "locale": "el-GR"
+            "locale": "el-GR",
+            "accent": "Greek"
         },
         "peter": {
             "voice": "ru-RU-DmitryNeural",
             "lang": "Russian",
-            "locale": "ru-RU"
+            "locale": "ru-RU",
+            "accent": "Russian"
         },
         "peterthegreat": {
             "voice": "ru-RU-DmitryNeural",
             "lang": "Russian",
-            "locale": "ru-RU"
+            "locale": "ru-RU",
+            "accent": "Russian"
         },
         "qinshihuang": {
             "voice": "zh-CN-YunjianNeural",
             "lang": "Mandarin Chinese",
-            "locale": "zh-CN"
+            "locale": "zh-CN",
+            "accent": "Chinese"
         },
         "qinshihuangdi": {
             "voice": "zh-CN-YunjianNeural",
             "lang": "Mandarin Chinese",
-            "locale": "zh-CN"
+            "locale": "zh-CN",
+            "accent": "Chinese"
         },
         "ragnar": {
             "voice": "da-DK-JeppeNeural",
             "rate": "-5%",
             "pitch": "-8%",
             "lang": "Danish",
-            "locale": "da-DK"
+            "locale": "da-DK",
+            "accent": "Scandinavian"
         },
         "ragnarlothbrok": {
             "voice": "da-DK-JeppeNeural",
             "rate": "-5%",
             "pitch": "-8%",
             "lang": "Danish",
-            "locale": "da-DK"
+            "locale": "da-DK",
+            "accent": "Scandinavian"
         },
         "ramesses": {
             "voice": "ar-EG-ShakirNeural",
             "rate": "-5%",
             "pitch": "-3%",
             "lang": "Arabic",
-            "locale": "ar-EG"
+            "locale": "ar-EG",
+            "accent": "Arabic"
         },
         "ramessesii": {
             "voice": "ar-EG-ShakirNeural",
             "rate": "-5%",
             "pitch": "-3%",
             "lang": "Arabic",
-            "locale": "ar-EG"
+            "locale": "ar-EG",
+            "accent": "Arabic"
         },
         "ramses": {
             "voice": "ar-EG-ShakirNeural",
             "rate": "-5%",
             "pitch": "-3%",
             "lang": "Arabic",
-            "locale": "ar-EG"
+            "locale": "ar-EG",
+            "accent": "Arabic"
         },
-        "reginaldendicottbarclay": "en-GB-ElliotNeural",
-        "reginaldbarclay": "en-GB-ElliotNeural",
-        "barclay": "en-GB-ElliotNeural",
+        "reginaldendicottbarclay": {
+            "voice": "en-GB-ElliotNeural",
+            "tts_provider": "elevenlabs"
+        },
+        "reginaldbarclay": {
+            "voice": "en-GB-ElliotNeural",
+            "tts_provider": "elevenlabs"
+        },
+        "barclay": {
+            "voice": "en-GB-ElliotNeural",
+            "tts_provider": "elevenlabs"
+        },
+        "ltreginoldendicottbarclay": {
+            "voice": "en-GB-ElliotNeural",
+            "tts_provider": "elevenlabs"
+        },
         "saladin": {
             "voice": "ar-SA-HamedNeural",
             "lang": "Arabic",
-            "locale": "ar-SA"
+            "locale": "ar-SA",
+            "accent": "Arabic"
         },
         "salamasina": "en-AU-NatashaNeural",
         "salamasinabtg": "en-AU-NatashaNeural",
@@ -502,7 +631,8 @@
             "rate": "+5%",
             "pitch": "+3%",
             "lang": "isiZulu",
-            "locale": "zu-ZA"
+            "locale": "zu-ZA",
+            "accent": "South African"
         },
         "sittingbull": {
             "voice": "en-US-TonyNeural",
@@ -515,7 +645,8 @@
             "pitch": "-8%",
             "lang": "Russian (with Georgian accent in spirit)",
             "locale": "ru-RU",
-            "voice_native": "ru-RU-DmitryNeural"
+            "voice_native": "ru-RU-DmitryNeural",
+            "accent": "Russian"
         },
         "josephstalin": {
             "voice": "ka-GE-GiorgiNeural",
@@ -523,39 +654,50 @@
             "pitch": "-8%",
             "lang": "Russian (with Georgian accent in spirit)",
             "locale": "ru-RU",
-            "voice_native": "ru-RU-DmitryNeural"
+            "voice_native": "ru-RU-DmitryNeural",
+            "accent": "Russian"
         },
         "suleiman": {
             "voice": "az-AZ-BabekNeural",
             "lang": "Turkish",
             "locale": "tr-TR",
-            "voice_native": "tr-TR-AhmetNeural"
+            "voice_native": "tr-TR-AhmetNeural",
+            "accent": "Turkish"
         },
         "suleimanthemagnificent": {
             "voice": "az-AZ-BabekNeural",
             "lang": "Turkish",
             "locale": "tr-TR",
-            "voice_native": "tr-TR-AhmetNeural"
+            "voice_native": "tr-TR-AhmetNeural",
+            "accent": "Turkish"
         },
         "suryavarman": {
             "voice": "th-TH-NiwatNeural",
             "lang": "Thai",
-            "locale": "th-TH"
+            "locale": "th-TH",
+            "accent": "Thai"
         },
         "suryavarmanii": {
             "voice": "th-TH-NiwatNeural",
             "lang": "Thai",
-            "locale": "th-TH"
+            "locale": "th-TH",
+            "accent": "Thai"
         },
         "tokugawa": {
             "voice": "ja-JP-KeitaNeural",
             "lang": "Japanese",
-            "locale": "ja-JP"
+            "locale": "ja-JP",
+            "accent": "Japanese"
         },
         "tokugawaieyasu": {
             "voice": "ja-JP-KeitaNeural",
             "lang": "Japanese",
-            "locale": "ja-JP"
+            "locale": "ja-JP",
+            "accent": "Japanese"
+        },
+        "trump": {
+            "voice": "en-US-DavisNeural",
+            "tts_provider": "elevenlabs"
         },
         "victoria": {
             "voice": "en-GB-MiaNeural",
@@ -565,42 +707,52 @@
         "wangkon": {
             "voice": "ko-KR-InJoonNeural",
             "lang": "Korean",
-            "locale": "ko-KR"
+            "locale": "ko-KR",
+            "accent": "Korean"
         },
         "wang": {
             "voice": "ko-KR-InJoonNeural",
             "lang": "Korean",
-            "locale": "ko-KR"
+            "locale": "ko-KR",
+            "accent": "Korean"
         },
         "washington": {
             "voice": "en-US-AndrewNeural",
             "rate": "-8%",
-            "pitch": "-5%"
+            "pitch": "-5%",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "f758GTT3e7C24biZ3BXZ"
         },
         "georgewashington": {
             "voice": "en-US-AndrewNeural",
             "rate": "-8%",
-            "pitch": "-5%"
+            "pitch": "-5%",
+            "tts_provider": "elevenlabs",
+            "elevenlabs_voice_id": "f758GTT3e7C24biZ3BXZ"
         },
         "willem": {
             "voice": "nl-NL-MaartenNeural",
             "lang": "Dutch",
-            "locale": "nl-NL"
+            "locale": "nl-NL",
+            "accent": "Dutch"
         },
         "willemvanoranje": {
             "voice": "nl-NL-MaartenNeural",
             "lang": "Dutch",
-            "locale": "nl-NL"
+            "locale": "nl-NL",
+            "accent": "Dutch"
         },
         "williamoforange": {
             "voice": "nl-NL-MaartenNeural",
             "lang": "Dutch",
-            "locale": "nl-NL"
+            "locale": "nl-NL",
+            "accent": "Dutch"
         },
         "zarayaqob": {
             "voice": "am-ET-AmehaNeural",
             "lang": "Amharic",
-            "locale": "am-ET"
+            "locale": "am-ET",
+            "accent": "Ethiopian"
         }
     }
 }

@@ -248,7 +248,9 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                     native_mode: bool = False, voice_picker=None,
                     conversations: ConversationStore = None,
                     state: StateStore = None,
-                    chat_reply_max_tokens: int = 120) -> dict:
+                    chat_reply_max_tokens: int = 120,
+                    chatterbox_voices: set = None,
+                    leader_accents: dict = None) -> dict:
     """Run one request through the API. Always returns a response dict.
 
     When native_mode is True, asks the LLM for both English and native-tongue
@@ -266,6 +268,13 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                msg="circuit OPEN, dropping")
         return make_response(request=request, ok=False, lines=[], error="circuit_open")
 
+    # Resolve accent for the speaker (and target for multi-turn)
+    _accents = leader_accents or {}
+    speaker_name_raw = (request.get("speaker") or {}).get("leader_name", "")
+    target_name_raw = (request.get("target") or {}).get("leader_name", "")
+    speaker_accent = _accents.get(speaker_name_raw.lower().replace(" ", ""), "")
+    target_accent = _accents.get(target_name_raw.lower().replace(" ", ""), "")
+
     # Live chat reply: route through the dedicated multi-turn handler.
     if request.get("trigger") == "CHAT_REPLY":
         if conversations is None:
@@ -277,6 +286,8 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
             resp, line, tone = handle_chat_reply(
                 request=request, store=conversations, client=client,
                 max_tokens=chat_reply_max_tokens, logger=logger,
+                chatterbox_voices=chatterbox_voices,
+                speaker_accent=speaker_accent,
             )
             latency_ms = int((time.time() - t_start) * 1000)
         except Exception as exc:  # noqa: BLE001
@@ -334,6 +345,9 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                 target_native_lang=target_native_lang,
                 recent_lines=speaker_recent,
                 target_recent_lines=target_recent,
+                chatterbox_voices=chatterbox_voices,
+                speaker_accent=speaker_accent,
+                target_accent=target_accent,
             )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens_multi)
         else:
@@ -341,6 +355,8 @@ def process_request(req_path: Path, request: dict, *, client: AzureClient, break
                 request, native_mode=native_mode,
                 speaker_native_lang=speaker_native_lang,
                 recent_lines=speaker_recent,
+                chatterbox_voices=chatterbox_voices,
+                speaker_accent=speaker_accent,
             )
             api_result = client.call_responses(sys_msg, user_msg, max_tokens=max_tokens)
         latency_ms = int((time.time() - t_start) * 1000)
@@ -457,6 +473,19 @@ def write_response(spool_path: Path, response: dict, logger: logging.Logger) -> 
         logger.exception("failed to write response %s: %s", name, exc)
 
 
+def _sanitize_leader_slug(name: str) -> str:
+    """Slugify a leader name for use in audio filenames.
+
+    Strips non-alphanumerics so the result is filesystem-safe across Windows,
+    macOS and Linux. Caps at 32 chars so filenames stay short. Returns an
+    empty string for empty / all-symbol input.
+    """
+    if not name:
+        return ""
+    slug = re.sub(r"[^A-Za-z0-9]+", "", name)
+    return slug[:32]
+
+
 def gc_spool(spool_path: Path, cfg, logger: logging.Logger) -> None:
     try:
         n_req = spool_mod.gc_old_files(spool_path, spool_mod.REQ_PREFIX, cfg.request_ttl_seconds)
@@ -472,6 +501,16 @@ def gc_spool(spool_path: Path, cfg, logger: logging.Logger) -> None:
             for pattern in ("tts-*.wav", "user_say_*.wav", "user_ask_*.wav", "user_speak_*.wav"):
                 for p in audio_dir.glob(pattern):
                     try:
+                        # Preserve ElevenLabs and local TTS outputs
+                        # indefinitely: the user asked us to keep these as a
+                        # voice archive. The ``_el_`` / ``-el-`` / ``_local_``
+                        # / ``-local-`` infix is added by the synth path and
+                        # never appears in Azure filenames.
+                        name = p.name
+                        if "_el_" in name or "-el-" in name:
+                            continue
+                        if "_local_" in name or "-local-" in name:
+                            continue
                         if (now - p.stat().st_mtime) > 3600:
                             p.unlink()
                             removed += 1
@@ -494,14 +533,29 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
     """Initialize Speech client + Discord bot + voice picker if voiceover
     is configured.
 
-    Returns (speech_client, bot_worker, voice_picker) tuple. Any may be None
-    if not enabled or if startup failed. Failures are logged but don't kill
-    the daemon — text chatter remains unaffected.
+    Returns (speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices,
+    leader_accents) tuple. Any may be None if not enabled or if startup failed.
+    Failures are logged but don't kill the daemon — text chatter remains
+    unaffected.
+
+    ``chatterbox_voices`` is a set of normalized leader names whose local
+    voice will be synthesized by Chatterbox. When non-empty, prompt builders
+    enable paralinguistic sound tags ([laugh], [sigh], etc.) for these leaders.
+
+    ``leader_accents`` is a dict mapping normalized leader name -> accent
+    string (e.g. "French", "German"). When present, prompt builders add
+    an accent respelling directive so the TTS produces accented English.
+
+    ``tts_dispatcher`` is the per-leader provider router. When ElevenLabs
+    is configured (DOWAGER_CHATTER_ELEVENLABS_API_KEY set), leaders whose
+    leader_voices.json entry carries ``"tts_provider": "elevenlabs"`` try
+    ElevenLabs first and fall back to Azure on any failure. Otherwise the
+    dispatcher delegates straight to Azure -- the existing behaviour.
     """
     if not cfg.voiceover.is_ready():
         if cfg.voiceover.enabled:
             logger.info("voiceover enabled in config but missing fields; skipping")
-        return None, None, None
+        return None, None, None, None
 
     # Speech client
     try:
@@ -520,7 +574,7 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: Speech client init failed: %s", exc)
-        return None, None, None
+        return None, None, None, None
 
     # Voice picker (per-leader map)
     voice_picker = None
@@ -532,6 +586,146 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: voice picker init failed: %s", exc)
+
+    # Optional ElevenLabs client + dispatcher. Missing key = feature off;
+    # the dispatcher will route every leader straight to Azure.
+    elevenlabs_client = None
+    if cfg.voiceover.elevenlabs_enabled():
+        try:
+            from tools.chatter.elevenlabs_client import ElevenLabsClient
+            elevenlabs_client = ElevenLabsClient(
+                api_key=cfg.voiceover.elevenlabs_api_key,
+                endpoint=cfg.voiceover.elevenlabs_endpoint,
+                model_id=cfg.voiceover.elevenlabs_model,
+                timeout_seconds=cfg.voiceover.elevenlabs_timeout_seconds,
+                daily_char_cap=cfg.voiceover.elevenlabs_daily_char_cap,
+                logger=logger,
+            )
+            logger.info(
+                "voiceover: ElevenLabs client initialized endpoint=%s model=%s key=%s daily_cap=%d",
+                cfg.voiceover.elevenlabs_endpoint, cfg.voiceover.elevenlabs_model,
+                cfg.voiceover.redacted_elevenlabs_key(),
+                cfg.voiceover.elevenlabs_daily_char_cap,
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(
+                "voiceover: ElevenLabs client init failed (Azure-only mode): %s", exc,
+            )
+            elevenlabs_client = None
+    else:
+        logger.info("voiceover: ElevenLabs not configured; using Azure for every leader")
+
+    # --- Local TTS client (optional, highest priority) ---
+    local_client = None
+    local_voice_ids = None
+    if cfg.voiceover.local_tts_enabled():
+        try:
+            from tools.chatter.local_tts_client import LocalTtsClient
+            local_client = LocalTtsClient(
+                base_url=cfg.voiceover.local_tts_url,
+                timeout=cfg.voiceover.local_tts_timeout_seconds,
+            )
+            # Build local voice ID map from voice_registry.json
+            import json as _json
+            local_voice_ids = {}
+            if cfg.voiceover.local_tts_voice_id_dowager:
+                from tools.chatter.tts_dispatcher import DOWAGER_LEADER_ALIASES
+                for alias in DOWAGER_LEADER_ALIASES:
+                    local_voice_ids[alias] = cfg.voiceover.local_tts_voice_id_dowager
+            # Auto-discover voices from voice_registry.json
+            _registry_voice_ids: set = set()
+            try:
+                _reg_path = Path(__file__).resolve().parent.parent / "tts-server" / "voice_registry.json"
+                _reg = _json.loads(_reg_path.read_text(encoding="utf-8"))
+                for vid in _reg.get("voices", {}):
+                    _registry_voice_ids.add(vid)
+                    if vid not in local_voice_ids:
+                        local_voice_ids[vid] = vid
+            except (OSError, _json.JSONDecodeError):
+                pass
+            # Also add leader_voices.json aliases that map to a registered
+            # local voice so in-game names like "maozedong" resolve to "mao".
+            if _registry_voice_ids:
+                try:
+                    _lv_path = Path(__file__).resolve().parent / "leader_voices.json"
+                    _lv = _json.loads(_lv_path.read_text(encoding="utf-8"))
+                    for _lk in (_lv.get("map") or {}):
+                        _norm_lk = str(_lk).strip().lower()
+                        if _norm_lk not in local_voice_ids:
+                            # Match if any registry voice ID is a substring
+                            # of the alias, e.g. "mao" in "maozedong"
+                            for _rvid in _registry_voice_ids:
+                                if _rvid in _norm_lk:
+                                    local_voice_ids[_norm_lk] = _rvid
+                                    break
+                except (OSError, _json.JSONDecodeError):
+                    pass
+            logger.info(
+                "voiceover: Local TTS client initialized url=%s voice_id=%s local_voices=%d",
+                cfg.voiceover.local_tts_url,
+                cfg.voiceover.local_tts_voice_id_dowager,
+                len(local_voice_ids),
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(
+                "voiceover: Local TTS client init failed (skipping): %s", exc,
+            )
+            local_client = None
+    else:
+        logger.info("voiceover: Local TTS not configured")
+
+    # Build set of leader names that will use Chatterbox (for paralinguistic tags)
+    # TTS_MODEL may be in os.environ (shell export) or only in .env (not injected).
+    # Read from .env as fallback, same pattern as Start-TtsServer.ps1.
+    _tts_model = os.environ.get("TTS_MODEL", "")
+    if not _tts_model:
+        try:
+            from tools.chatter.dotenv import find_dotenv, parse_dotenv_file
+            _dotenv_path = find_dotenv()
+            if _dotenv_path:
+                _dotenv_vals = parse_dotenv_file(_dotenv_path)
+                _tts_model = _dotenv_vals.get("TTS_MODEL", "xtts")
+        except Exception:
+            pass
+    if not _tts_model:
+        _tts_model = "xtts"
+    chatterbox_voices: set = set()
+    if local_voice_ids and _tts_model == "chatterbox":
+        chatterbox_voices = set(local_voice_ids.keys())
+        logger.info("voiceover: Chatterbox paralinguistic tags enabled for %d voice(s)", len(chatterbox_voices))
+
+    # Build accent lookup from leader_voices.json (for TTS accent respelling)
+    leader_accents: dict = {}
+    try:
+        import json as _json
+        lv_path = Path(__file__).resolve().parent / "leader_voices.json"
+        lv_data = _json.loads(lv_path.read_bytes().decode("utf-8"))
+        for k, v in (lv_data.get("map") or {}).items():
+            if isinstance(v, dict) and v.get("accent"):
+                leader_accents[str(k).lower()] = v["accent"]
+        if leader_accents:
+            logger.info("voiceover: Accent respelling enabled for %d leader(s)", len(leader_accents))
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("voiceover: Could not load leader accents: %s", exc)
+
+    try:
+        from tools.chatter.tts_dispatcher import TtsDispatcher, build_elevenlabs_voice_id_map, build_elevenlabs_language_map
+        tts_dispatcher = TtsDispatcher(
+            azure_client=speech_client,
+            elevenlabs_client=elevenlabs_client,
+            local_client=local_client,
+            elevenlabs_voice_ids=build_elevenlabs_voice_id_map(
+                voice_id_dowager=cfg.voiceover.elevenlabs_voice_id_dowager,
+            ),
+            elevenlabs_language_codes=build_elevenlabs_language_map(),
+            local_voice_ids=local_voice_ids,
+            failure_threshold=cfg.voiceover.elevenlabs_failure_threshold,
+            cooldown_seconds=cfg.voiceover.elevenlabs_cooldown_seconds,
+            logger=logger,
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("voiceover: TTS dispatcher init failed: %s", exc)
+        tts_dispatcher = None
 
     # Discord bot
     try:
@@ -549,6 +743,9 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         _install_user_speak_handler(
             bot, speech_client, voice_picker, spool_path, logger,
             client=client, llm_max_tokens=cfg.ask_max_tokens,
+            tts_dispatcher=tts_dispatcher,
+            chatterbox_voices=chatterbox_voices,
+            leader_accents=leader_accents,
         )
         bot.start()
         logger.info(
@@ -557,9 +754,9 @@ def setup_voiceover(cfg, spool_path: Path, logger: logging.Logger, *, client=Non
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("voiceover: Discord bot init failed: %s", exc)
-        return speech_client, None, voice_picker
+        return speech_client, None, voice_picker, tts_dispatcher, chatterbox_voices, leader_accents
 
-    return speech_client, bot, voice_picker
+    return speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices, leader_accents
 
 
 _ASK_PATTERN = re.compile(
@@ -579,10 +776,10 @@ _SAY_PATTERN = re.compile(
 # Default persona used when the user just types "ask: <prompt>" with no
 # leader override. Hindi-accented Gandhi voice; persona matches that voice.
 _ASK_DEFAULT_PERSONA = (
-    "a wise Indian elder with the bearing of Mahatma Gandhi: measured, "
-    "thoughtful, faintly amused, willing to be blunt when it serves the truth"
+    "the Dowager Countess of Grantham: imperious, witty, acid-tongued, "
+    "aristocratic, dripping with disdain for foolishness"
 )
-_ASK_DEFAULT_VOICE = "en-IN-PrabhatNeural"
+_ASK_DEFAULT_VOICE = "en-gb-sandoverture:DragonHDOmniLatestNeural"
 
 _ASK_SYSTEM_TEMPLATE = (
     "You are answering a user's question over a Discord voice channel "
@@ -615,13 +812,37 @@ def _build_ask_prompt(question: str, persona: str) -> tuple[str, str]:
     return system_msg, question
 
 
-def _build_ask_prompt_bare(question: str) -> tuple[str, str]:
+def _build_ask_prompt_bare(question: str, chatterbox_voices: set = None,
+                           leader_name: str = "",
+                           speaker_accent: str = "") -> tuple[str, str]:
     """Build (system, user) messages for 'ask as <Leader>:'.
 
     Intentionally bare: empty system message, raw question as user message.
     The user explicitly wants the leader's *voice only* with no persona or
     style prompt -- as if they were asking the model their question directly.
+
+    Exceptions:
+    - When the leader uses Chatterbox, we add paralinguistic tags.
+    - When the leader has an accent, we add accent respelling.
     """
+    has_paralinguistic = False
+    if chatterbox_voices and leader_name:
+        from tools.chatter.prompts import PARALINGUISTIC_DIRECTIVE, _normalize_for_paralinguistic
+        if _normalize_for_paralinguistic(leader_name) in chatterbox_voices:
+            has_paralinguistic = True
+
+    if has_paralinguistic or speaker_accent:
+        from tools.chatter.prompts import ACCENT_DIRECTIVE
+        sys_msg = (
+            "You are answering as a historical leader over voice chat. "
+            "Your response will be spoken aloud by a voice synthesizer. "
+            "Plain prose only — no markdown, no asterisks, no bullet lists."
+        )
+        if has_paralinguistic:
+            sys_msg += PARALINGUISTIC_DIRECTIVE
+        if speaker_accent:
+            sys_msg += ACCENT_DIRECTIVE.format(accent=speaker_accent)
+        return sys_msg, question
     return "", question
 
 
@@ -668,27 +889,33 @@ def _parse_say_command(text: str) -> Optional[tuple[Optional[str], str]]:
     return leader, spoken
 
 
-def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple[str, str, str, str, str]:
-    """Resolve (voice, rate, pitch, persona_description, post_process) for an ask request.
+def _resolve_ask_voice(voice_picker, leader_name: Optional[str]) -> tuple:
+    """Resolve (voice, rate, pitch, persona_description, post_process, tts_provider) for an ask request.
 
     leader_name=None -> default Gandhi-flavored persona + Hindi-accented voice.
     leader_name set  -> look up via voice_picker; persona becomes that leader.
     post_process is an ffmpeg preset name (see audio_postprocess.PRESETS) or "".
+    tts_provider is the optional TTS backend override (currently "elevenlabs" for
+    the Dowager Countess; "" for everyone else => Azure as before).
     """
     if not leader_name:
-        return _ASK_DEFAULT_VOICE, "", "", _ASK_DEFAULT_PERSONA, ""
+        return _ASK_DEFAULT_VOICE, "-15%", "-3%", _ASK_DEFAULT_PERSONA, "elderly_crone", "local"
     spec = voice_picker.pick_spec(leader_name) if voice_picker is not None else None
     voice = spec.voice if spec is not None else _ASK_DEFAULT_VOICE
     rate = spec.rate if (spec is not None and spec.rate) else ""
     pitch = spec.pitch if (spec is not None and spec.pitch) else ""
     post_process = spec.post_process if (spec is not None and spec.post_process) else ""
+    tts_provider = spec.tts_provider if (spec is not None and spec.tts_provider) else ""
     persona = "the historical leader %s -- their actual personality, era, and worldview, in their own voice" % leader_name
-    return voice, rate, pitch, persona, post_process
+    return voice, rate, pitch, persona, post_process, tts_provider
 
 
 def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Path,
                                 logger: logging.Logger, *, client=None,
-                                llm_max_tokens: int = 4000):
+                                llm_max_tokens: int = 4000,
+                                tts_dispatcher=None,
+                                chatterbox_voices: set = None,
+                                leader_accents: dict = None):
     """Register an on_message handler so users can:
 
     1. @mention DowagerBot with arbitrary text  -> she speaks it verbatim
@@ -722,52 +949,95 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
     lock = _t.Lock()
 
     def _speak(text: str, voice: str, rate: str, pitch: str,
-               author_name: str, kind: str, post_process: str = "") -> None:
+               author_name: str, kind: str, post_process: str = "",
+               tts_provider: str = "", leader_name: str = "") -> None:
         """Synthesize ``text`` with the given voice/prosody and enqueue
         for playback. ``kind`` is just a log tag ('say' or 'ask').
         ``post_process`` is an optional ffmpeg preset name (see
-        audio_postprocess.PRESETS)."""
+        audio_postprocess.PRESETS). ``tts_provider`` + ``leader_name`` route
+        the request through :class:`TtsDispatcher` (ElevenLabs first with
+        Azure fallback for opted-in leaders; Azure direct for everyone else).
+        """
         try:
             logger.info(
-                "user-%s: author=%s chars=%d voice=%s rate=%r pitch=%r post=%r",
+                "user-%s: author=%s chars=%d voice=%s rate=%r pitch=%r post=%r provider=%r leader=%r",
                 kind, author_name, len(text), voice, rate, pitch, post_process,
+                tts_provider, leader_name,
             )
-            result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
-            audio_bytes = result.audio_bytes
-            if post_process:
+            if tts_dispatcher is not None:
+                from tools.chatter.voice_picker import VoiceSpec, normalize_name
+                synth_spec = VoiceSpec(
+                    voice=voice, rate=rate, pitch=pitch,
+                    post_process=post_process, tts_provider=tts_provider,
+                )
+                # Default to "dowager" key when no leader specified but local requested
+                lk = normalize_name(leader_name) if leader_name else "dowager"
+                dispatch = tts_dispatcher.synthesize(
+                    text=text, spec=synth_spec,
+                    leader_key=lk,
+                    leader_name=leader_name or author_name,
+                    locale_override="",
+                )
+                audio_bytes = dispatch.audio_bytes
+                skip_post = dispatch.skip_post_process
+                if dispatch.provider == "elevenlabs":
+                    leader_slug = _sanitize_leader_slug(leader_name or author_name)
+                    provider_tag = f"_el_{leader_slug}" if leader_slug else "_el"
+                elif dispatch.provider == "local":
+                    leader_slug = _sanitize_leader_slug(leader_name or author_name)
+                    provider_tag = f"_local_{leader_slug}" if leader_slug else "_local"
+                else:
+                    provider_tag = ""
+            else:
+                result = speech_client.synthesize(text=text, voice=voice, rate=rate, pitch=pitch)
+                audio_bytes = result.audio_bytes
+                skip_post = False
+                provider_tag = ""
+            if post_process and not skip_post:
                 try:
                     from .audio_postprocess import apply_postprocess
                 except ImportError:
                     from audio_postprocess import apply_postprocess
                 audio_bytes = apply_postprocess(audio_bytes, post_process, logger=logger)
             ts = int(time.time() * 1000)
-            wav = audio_dir / ("user_%s_%d.wav" % (kind, ts))
+            wav = audio_dir / ("user_%s%s_%d.wav" % (kind, provider_tag, ts))
             wav.write_bytes(audio_bytes)
             bot.enqueue_audio(wav)
         except Exception as exc:  # noqa: BLE001
             logger.warning("user-%s: failed to speak for %s: %s", kind, author_name, exc)
 
     def _say_worker(text: str, author_name: str, leader_name: Optional[str] = None) -> None:
-        # When no leader is named, use the default thick-accent Indian voice
-        # (the original @-mention behavior). When a leader is named, route
-        # through voice_picker so 'say as Stalin: hi' speaks in Stalin's voice.
+        # When no leader is named, default to Dowager's local voice.
+        # When a leader is named, route through voice_picker.
         if leader_name:
-            voice, rate, pitch, _persona, post_process = _resolve_ask_voice(voice_picker, leader_name)
+            voice, rate, pitch, _persona, post_process, tts_provider = _resolve_ask_voice(voice_picker, leader_name)
         else:
-            voice, rate, pitch, post_process = _ASK_DEFAULT_VOICE, "", "", ""
-        _speak(text, voice, rate, pitch, author_name, "say", post_process)
+            voice, rate, pitch, _persona, post_process, tts_provider = _resolve_ask_voice(voice_picker, None)
+        _speak(text, voice, rate, pitch, author_name, "say", post_process,
+               tts_provider=tts_provider, leader_name=leader_name or "")
 
     def _ask_worker(question: str, leader_name: Optional[str], author_name: str) -> None:
         if client is None:
             logger.warning("user-ask: LLM client not wired; cannot answer ask: from %s", author_name)
             return
-        voice, rate, pitch, persona, post_process = _resolve_ask_voice(voice_picker, leader_name)
+        voice, rate, pitch, persona, post_process, tts_provider = _resolve_ask_voice(voice_picker, leader_name)
         # 'ask as <Leader>:' -> bare prompt, leader's voice only, no persona/spicy dressing.
         # 'ask:'             -> default Gandhi persona + spicy/anti-cliche directives.
         if leader_name:
-            sys_msg, user_msg = _build_ask_prompt_bare(question)
+            _ask_accent = (leader_accents or {}).get(leader_name.lower().replace(" ", ""), "")
+            sys_msg, user_msg = _build_ask_prompt_bare(question, chatterbox_voices=chatterbox_voices, leader_name=leader_name, speaker_accent=_ask_accent)
         else:
             sys_msg, user_msg = _build_ask_prompt(question, persona)
+        _log_prompt = os.environ.get("CHATTER_LOG_PROMPT", "").strip().lower() in ("1", "true", "yes", "on")
+        if _log_prompt:
+            from tools.chatter.prompts import _normalize_for_paralinguistic
+            _norm = _normalize_for_paralinguistic(leader_name) if leader_name else ""
+            logger.info(
+                "user-ask: DEBUG leader=%r norm=%r in_chatterbox=%s accent=%r chatterbox_voices_len=%d",
+                leader_name, _norm, _norm in (chatterbox_voices or set()),
+                _ask_accent if leader_name else "", len(chatterbox_voices or set()),
+            )
+            logger.info("user-ask: SYSTEM PROMPT:\n%s", sys_msg or "<empty>")
         logger.info(
             "user-ask: author=%s leader=%s mode=%s persona_chars=%d question_chars=%d voice=%s max_tokens=%d",
             author_name, leader_name or "(default)",
@@ -793,7 +1063,10 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
             author_name, len(reply),
             api_result.input_tokens, api_result.output_tokens, api_result.latency_ms,
         )
-        _speak(reply, voice, rate, pitch, author_name, "ask", post_process)
+        if _log_prompt:
+            logger.info("user-ask: REPLY TEXT:\n%s", reply)
+        _speak(reply, voice, rate, pitch, author_name, "ask", post_process,
+               tts_provider=tts_provider, leader_name=leader_name or "")
 
     def handler(text: str, author_name: str, author_id: int, is_dm: bool):
         text = (text or "").strip()
@@ -847,7 +1120,7 @@ def _install_user_speak_handler(bot, speech_client, voice_picker, spool_path: Pa
 
 
 def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, logger: logging.Logger,
-                       voice_picker=None, cfg=None) -> None:
+                       voice_picker=None, cfg=None, tts_dispatcher=None) -> None:
     """If voiceover is wired up, synthesize each response line and enqueue
     it to the Discord bot for playback. Failures log + continue (text
     chatter is unaffected).
@@ -859,6 +1132,12 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
     cfg is optional. When provided and cfg.voiceover.speech_rate is set,
     that value is used as the default <prosody rate=...> for any leader
     whose voice_picker spec doesn't override rate.
+
+    tts_dispatcher is optional. When provided, every synthesis is routed
+    through it so that ElevenLabs-opted-in leaders (currently just the
+    Dowager Countess) try ElevenLabs first and silently fall back to Azure
+    on any failure. When None, falls back to calling ``speech_client``
+    directly -- the legacy code path.
     """
     if speech_client is None or bot is None:
         return
@@ -874,6 +1153,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
 
     rid = response.get("request_id") or "unknown"
     from tools.chatter.azure_speech_client import SpeechAuthError, SpeechApiError, SpeechBudgetExhausted
+    from tools.chatter.voice_picker import VoiceSpec, normalize_name
     last_synth_at = 0.0
     for idx, ln in enumerate(lines):
         text = (ln.get("text") or "").strip()
@@ -886,6 +1166,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         pitch = ""
         locale = ""
         post_process = ""
+        tts_provider = ""
         # Use native text when available and a locale is configured for speaker
         synth_text = text_native if text_native else text
         if voice_picker is not None and speaker_name:
@@ -900,6 +1181,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
                 rate = spec.rate
                 pitch = spec.pitch
                 post_process = spec.post_process
+                tts_provider = spec.tts_provider
                 if text_native:
                     locale = spec.derived_locale()
             except Exception as exc:  # noqa: BLE001
@@ -925,10 +1207,43 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         elapsed = time.time() - last_synth_at
         if elapsed < 0.5 and last_synth_at > 0:
             time.sleep(0.5 - elapsed)
+        skip_post = False
         try:
-            result = speech_client.synthesize(
-                synth_text, voice=chosen_voice, rate=rate, pitch=pitch, locale=locale,
-            )
+            if tts_dispatcher is not None:
+                synth_spec = VoiceSpec(
+                    voice=chosen_voice or "",
+                    rate=rate, pitch=pitch,
+                    post_process=post_process,
+                    tts_provider=tts_provider,
+                )
+                dispatch = tts_dispatcher.synthesize(
+                    text=synth_text, spec=synth_spec,
+                    leader_key=normalize_name(speaker_name),
+                    leader_name=speaker_name,
+                    locale_override=locale,
+                )
+                result_audio = dispatch.audio_bytes
+                result_voice = dispatch.voice
+                result_chars = dispatch.char_count
+                result_latency = dispatch.latency_ms
+                skip_post = dispatch.skip_post_process
+                if dispatch.provider == "elevenlabs":
+                    leader_slug = _sanitize_leader_slug(speaker_name)
+                    provider_tag = f"-el-{leader_slug}" if leader_slug else "-el"
+                elif dispatch.provider == "local":
+                    leader_slug = _sanitize_leader_slug(speaker_name)
+                    provider_tag = f"-local-{leader_slug}" if leader_slug else "-local"
+                else:
+                    provider_tag = ""
+            else:
+                result = speech_client.synthesize(
+                    synth_text, voice=chosen_voice, rate=rate, pitch=pitch, locale=locale,
+                )
+                result_audio = result.audio_bytes
+                result_voice = result.voice
+                result_chars = result.char_count
+                result_latency = result.latency_ms
+                provider_tag = ""
         except SpeechBudgetExhausted as exc:
             logger.warning("voiceover: %s", exc)
             return
@@ -941,10 +1256,10 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         except Exception as exc:  # noqa: BLE001
             logger.warning("voiceover: unexpected synth failure for line %d: %s", idx, exc)
             continue
-        wav_path = audio_dir / f"tts-{rid}-{idx}.wav"
+        wav_path = audio_dir / f"tts-{rid}{provider_tag}-{idx}.wav"
         try:
-            audio_bytes = result.audio_bytes
-            if post_process:
+            audio_bytes = result_audio
+            if post_process and not skip_post:
                 try:
                     from .audio_postprocess import apply_postprocess
                 except ImportError:
@@ -957,7 +1272,7 @@ def voiceover_response(response: dict, *, speech_client, bot, spool_path: Path, 
         last_synth_at = time.time()
         logger.info(
             "voiceover: synth ok rid=%s line=%d speaker=%r voice=%s chars=%d latency=%dms",
-            rid, idx, speaker_name, result.voice, result.char_count, result.latency_ms,
+            rid, idx, speaker_name, result_voice, result_chars, result_latency,
         )
         try:
             bot.enqueue_audio(wav_path)
@@ -994,7 +1309,7 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
         max_turns=cfg.chat_max_history_turns,
     )
 
-    speech_client, bot, voice_picker = setup_voiceover(cfg, spool_path, logger, client=client)
+    speech_client, bot, voice_picker, tts_dispatcher, chatterbox_voices, leader_accents = setup_voiceover(cfg, spool_path, logger, client=client)
 
     last_call_at = 0.0
     last_heartbeat = 0.0
@@ -1086,6 +1401,8 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
                 conversations=conversations,
                 state=state,
                 chat_reply_max_tokens=cfg.chat_reply_max_tokens,
+                chatterbox_voices=chatterbox_voices,
+                leader_accents=leader_accents,
             )
 
             # And refresh again after the API call completes, before writing
@@ -1097,7 +1414,8 @@ def main_loop(cfg, spool_path: Path, logger: logging.Logger) -> int:
             write_response(spool_path, response, logger)
             voiceover_response(response, speech_client=speech_client, bot=bot,
                                spool_path=spool_path, logger=logger,
-                               voice_picker=voice_picker, cfg=cfg)
+                               voice_picker=voice_picker, cfg=cfg,
+                               tts_dispatcher=tts_dispatcher)
             spool_mod.safe_unlink(req_path)
             last_call_at = time.time()
             processed += 1

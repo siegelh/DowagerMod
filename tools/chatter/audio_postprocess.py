@@ -17,9 +17,13 @@ and logs the failure -- voice still works, just without aging.
 from __future__ import annotations
 
 import logging
+import os
 import shutil
 import subprocess
 from typing import Optional
+
+# Suppress console window popup on Windows when spawning ffmpeg
+_CREATE_NO_WINDOW = 0x08000000 if os.name == "nt" else 0
 
 
 # Source sample rate Azure returns for our DEFAULT_OUTPUT_FORMAT
@@ -47,6 +51,51 @@ _ELDERLY_CRONE_FILTER = (
 PRESETS: dict[str, str] = {
     "elderly_crone": _ELDERLY_CRONE_FILTER,
 }
+
+
+def normalize_loudness(
+    wav_bytes: bytes,
+    *,
+    target_lufs: float = -16.0,
+    logger: Optional[logging.Logger] = None,
+    timeout_seconds: float = 10.0,
+) -> bytes:
+    """EBU R128 loudness-normalize *wav_bytes* to *target_lufs*.
+
+    Uses ffmpeg ``loudnorm`` in single-pass mode so every provider's
+    output ends up at the same perceived volume.  On any failure returns
+    the original bytes unmodified.
+    """
+    log = logger or logging.getLogger(__name__)
+    if not wav_bytes:
+        return wav_bytes
+    if shutil.which("ffmpeg") is None:
+        log.warning("normalize_loudness: ffmpeg not on PATH; skipping")
+        return wav_bytes
+    af = f"loudnorm=I={target_lufs}:LRA=11:TP=-1.5"
+    cmd = [
+        "ffmpeg", "-y", "-loglevel", "error",
+        "-f", "wav", "-i", "pipe:0",
+        "-af", af,
+        "-f", "wav", "pipe:1",
+    ]
+    try:
+        proc = subprocess.run(
+            cmd, input=wav_bytes, capture_output=True,
+            timeout=timeout_seconds, check=False,
+            creationflags=_CREATE_NO_WINDOW,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        log.warning("normalize_loudness: ffmpeg failed (%s); skipping", exc)
+        return wav_bytes
+    if proc.returncode != 0:
+        stderr = (proc.stderr or b"").decode("utf-8", errors="replace")[:300]
+        log.warning("normalize_loudness: ffmpeg exit=%d stderr=%s; skipping", proc.returncode, stderr)
+        return wav_bytes
+    if not proc.stdout:
+        log.warning("normalize_loudness: ffmpeg produced empty output; skipping")
+        return wav_bytes
+    return proc.stdout
 
 
 class PostProcessError(Exception):
@@ -96,6 +145,7 @@ def apply_postprocess(
             capture_output=True,
             timeout=timeout_seconds,
             check=False,
+            creationflags=_CREATE_NO_WINDOW,
         )
     except (OSError, subprocess.TimeoutExpired) as exc:
         log.warning("audio_postprocess: ffmpeg invocation failed (%s); returning raw audio", exc)
