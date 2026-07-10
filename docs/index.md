@@ -56,6 +56,16 @@
 - [`plans/active/2026-03-12-symphony-worktree-cleanup.md`](plans/active/2026-03-12-symphony-worktree-cleanup.md) - `Current active plan`. Conservative cleanup flow for merged/completed Symphony worktrees.
 - [`plans/active/2026-03-13-symphony-squad-integration.md`](plans/active/2026-03-13-symphony-squad-integration.md) - `Current active plan`. Squad roles, GitHub-facing job routing, observability, and human workflow for Symphony.
 - [`plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md`](plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md) - `Current active plan`. Auto-prune clean Symphony worktrees only after merged PR plus closed issue.
+- [`plans/active/2026-07-02-unused-art-inventory-scanner.md`](plans/active/2026-07-02-unused-art-inventory-scanner.md) - `Current active plan`. Phase 1 unused-art inventory scanner + manifest for LLM-suggested leaders/civs.
+
+### Engineering / Runbooks
+
+- [`art_inventory/README.md`](art_inventory/README.md) - `Current`. Generated unused-art
+  inventory (manifest + CSVs) produced by [`../tools/art_inventory.py`](../tools/art_inventory.py);
+  Phase 1 foundation for LLM-suggested leaders/civs that reuse unused art.
+- [`../tools/leader_suggest/README.md`](../tools/leader_suggest/README.md) - `Current`. Phase 2
+  leader/civ suggestion harness: builds an LLM prompt from the manifest and validates structured
+  proposals (one bespoke trait per new leader, paired 1:1 with a civilization).
 
 ### Repo-Local Skills
 
