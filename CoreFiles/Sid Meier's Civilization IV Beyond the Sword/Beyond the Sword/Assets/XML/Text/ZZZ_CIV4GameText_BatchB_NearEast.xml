@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_OTTOMAN_SIPAHI</Tag>
+    <English>Sipahi</English>
+    <French>Sipahi</French>
+    <German>Sipahi</German>
+    <Italian>Sipahi</Italian>
+    <Spanish>Sipahi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_OTTOMAN_SIPAHI_PEDIA</Tag>
+    <English>Sipahis were provincial cavalrymen whose service tied land revenue to the Ottoman army. Under Suleiman they supplied a mobile, disciplined arm for imperial campaigns across Europe and the Mediterranean.</English>
+    <French>Sipahis were provincial cavalrymen whose service tied land revenue to the Ottoman army. Under Suleiman they supplied a mobile, disciplined arm for imperial campaigns across Europe and the Mediterranean.</French>
+    <German>Sipahis were provincial cavalrymen whose service tied land revenue to the Ottoman army. Under Suleiman they supplied a mobile, disciplined arm for imperial campaigns across Europe and the Mediterranean.</German>
+    <Italian>Sipahis were provincial cavalrymen whose service tied land revenue to the Ottoman army. Under Suleiman they supplied a mobile, disciplined arm for imperial campaigns across Europe and the Mediterranean.</Italian>
+    <Spanish>Sipahis were provincial cavalrymen whose service tied land revenue to the Ottoman army. Under Suleiman they supplied a mobile, disciplined arm for imperial campaigns across Europe and the Mediterranean.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_OTTOMAN_SIPAHI_STRATEGY</Tag>
+    <English>Ottoman Classical Cuirassier replacement. Strength 12, 2 movement, and a 25% withdrawal chance instead of 15%.</English>
+    <French>Ottoman Classical Cuirassier replacement. Strength 12, 2 movement, and a 25% withdrawal chance instead of 15%.</French>
+    <German>Ottoman Classical Cuirassier replacement. Strength 12, 2 movement, and a 25% withdrawal chance instead of 15%.</German>
+    <Italian>Ottoman Classical Cuirassier replacement. Strength 12, 2 movement, and a 25% withdrawal chance instead of 15%.</Italian>
+    <Spanish>Ottoman Classical Cuirassier replacement. Strength 12, 2 movement, and a 25% withdrawal chance instead of 15%.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_OTTOMAN_GALLEASS</Tag>
+    <English>Ottoman Galleass</English>
+    <French>Ottoman Galleass</French>
+    <German>Ottoman Galleass</German>
+    <Italian>Ottoman Galleass</Italian>
+    <Spanish>Ottoman Galleass</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_OTTOMAN_GALLEASS_PEDIA</Tag>
+    <English>The galleass combined oars, sails, and heavy artillery in a broad fighting hull. It represents the specialized gun-armed vessels that contested the sixteenth-century Mediterranean rather than an ancient galley.</English>
+    <French>The galleass combined oars, sails, and heavy artillery in a broad fighting hull. It represents the specialized gun-armed vessels that contested the sixteenth-century Mediterranean rather than an ancient galley.</French>
+    <German>The galleass combined oars, sails, and heavy artillery in a broad fighting hull. It represents the specialized gun-armed vessels that contested the sixteenth-century Mediterranean rather than an ancient galley.</German>
+    <Italian>The galleass combined oars, sails, and heavy artillery in a broad fighting hull. It represents the specialized gun-armed vessels that contested the sixteenth-century Mediterranean rather than an ancient galley.</Italian>
+    <Spanish>The galleass combined oars, sails, and heavy artillery in a broad fighting hull. It represents the specialized gun-armed vessels that contested the sixteenth-century Mediterranean rather than an ancient galley.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_OTTOMAN_GALLEASS_STRATEGY</Tag>
+    <English>Ottoman Classical Caravel replacement available at Optics. Costs 70, has Strength 5, moves 3, carries no units, and bombards city defenses by 5% per turn. It uses Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</English>
+    <French>Ottoman Classical Caravel replacement available at Optics. Costs 70, has Strength 5, moves 3, carries no units, and bombards city defenses by 5% per turn. It uses Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</French>
+    <German>Ottoman Classical Caravel replacement available at Optics. Costs 70, has Strength 5, moves 3, carries no units, and bombards city defenses by 5% per turn. It uses Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</German>
+    <Italian>Ottoman Classical Caravel replacement available at Optics. Costs 70, has Strength 5, moves 3, carries no units, and bombards city defenses by 5% per turn. It uses Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</Italian>
+    <Spanish>Ottoman Classical Caravel replacement available at Optics. Costs 70, has Strength 5, moves 3, carries no units, and bombards city defenses by 5% per turn. It uses Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PERSIA_TAKABARA</Tag>
+    <English>Takabara</English>
+    <French>Takabara</French>
+    <German>Takabara</German>
+    <Italian>Takabara</Italian>
+    <Spanish>Takabara</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PERSIA_TAKABARA_PEDIA</Tag>
+    <English>Takabara were shield-bearing infantry recruited across the Achaemenid lands. Their disciplined spear formations supported the imperial army against cavalry while embodying the diverse provincial forces organized under Darius.</English>
+    <French>Takabara were shield-bearing infantry recruited across the Achaemenid lands. Their disciplined spear formations supported the imperial army against cavalry while embodying the diverse provincial forces organized under Darius.</French>
+    <German>Takabara were shield-bearing infantry recruited across the Achaemenid lands. Their disciplined spear formations supported the imperial army against cavalry while embodying the diverse provincial forces organized under Darius.</German>
+    <Italian>Takabara were shield-bearing infantry recruited across the Achaemenid lands. Their disciplined spear formations supported the imperial army against cavalry while embodying the diverse provincial forces organized under Darius.</Italian>
+    <Spanish>Takabara were shield-bearing infantry recruited across the Achaemenid lands. Their disciplined spear formations supported the imperial army against cavalry while embodying the diverse provincial forces organized under Darius.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PERSIA_TAKABARA_STRATEGY</Tag>
+    <English>Imperial Achaemenid Spearman replacement. Strength 4 and +125% against Mounted units instead of +100%; it retains Reserve, Counter, and City Counter AI roles.</English>
+    <French>Imperial Achaemenid Spearman replacement. Strength 4 and +125% against Mounted units instead of +100%; it retains Reserve, Counter, and City Counter AI roles.</French>
+    <German>Imperial Achaemenid Spearman replacement. Strength 4 and +125% against Mounted units instead of +100%; it retains Reserve, Counter, and City Counter AI roles.</German>
+    <Italian>Imperial Achaemenid Spearman replacement. Strength 4 and +125% against Mounted units instead of +100%; it retains Reserve, Counter, and City Counter AI roles.</Italian>
+    <Spanish>Imperial Achaemenid Spearman replacement. Strength 4 and +125% against Mounted units instead of +100%; it retains Reserve, Counter, and City Counter AI roles.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_PERIA_IMMORTAL_STRATEGY</Tag>
+    <English>Founding Achaemenid Chariot replacement. Strength 4, +50% against Archery units, +100% against Axemen, and a 20% withdrawal chance instead of 10%.</English>
+    <French>Founding Achaemenid Chariot replacement. Strength 4, +50% against Archery units, +100% against Axemen, and a 20% withdrawal chance instead of 10%.</French>
+    <German>Founding Achaemenid Chariot replacement. Strength 4, +50% against Archery units, +100% against Axemen, and a 20% withdrawal chance instead of 10%.</German>
+    <Italian>Founding Achaemenid Chariot replacement. Strength 4, +50% against Archery units, +100% against Axemen, and a 20% withdrawal chance instead of 10%.</Italian>
+    <Spanish>Founding Achaemenid Chariot replacement. Strength 4, +50% against Archery units, +100% against Axemen, and a 20% withdrawal chance instead of 10%.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_OTTOMAN_DEVSHIRME_BARRACKS</Tag>
+    <English>Devshirme Barracks</English>
+    <French>Devshirme Barracks</French>
+    <German>Devshirme Barracks</German>
+    <Italian>Devshirme Barracks</Italian>
+    <Spanish>Devshirme Barracks</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_OTTOMAN_DEVSHIRME_BARRACKS_PEDIA</Tag>
+    <English>Mehmed's military household developed trained troops through institutions that supplied, drilled, and advanced promising recruits. The Devshirme Barracks represents the disciplined manpower behind sustained Ottoman conquest.</English>
+    <French>Mehmed's military household developed trained troops through institutions that supplied, drilled, and advanced promising recruits. The Devshirme Barracks represents the disciplined manpower behind sustained Ottoman conquest.</French>
+    <German>Mehmed's military household developed trained troops through institutions that supplied, drilled, and advanced promising recruits. The Devshirme Barracks represents the disciplined manpower behind sustained Ottoman conquest.</German>
+    <Italian>Mehmed's military household developed trained troops through institutions that supplied, drilled, and advanced promising recruits. The Devshirme Barracks represents the disciplined manpower behind sustained Ottoman conquest.</Italian>
+    <Spanish>Mehmed's military household developed trained troops through institutions that supplied, drilled, and advanced promising recruits. The Devshirme Barracks represents the disciplined manpower behind sustained Ottoman conquest.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_OTTOMAN_DEVSHIRME_BARRACKS_STRATEGY</Tag>
+    <English>Ottoman Conquest Barracks replacement costing 60. Grants 3 experience to all land units, 2 additional experience to Gunpowder units, and +15% military unit production.</English>
+    <French>Ottoman Conquest Barracks replacement costing 60. Grants 3 experience to all land units, 2 additional experience to Gunpowder units, and +15% military unit production.</French>
+    <German>Ottoman Conquest Barracks replacement costing 60. Grants 3 experience to all land units, 2 additional experience to Gunpowder units, and +15% military unit production.</German>
+    <Italian>Ottoman Conquest Barracks replacement costing 60. Grants 3 experience to all land units, 2 additional experience to Gunpowder units, and +15% military unit production.</Italian>
+    <Spanish>Ottoman Conquest Barracks replacement costing 60. Grants 3 experience to all land units, 2 additional experience to Gunpowder units, and +15% military unit production.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_OTTOMAN_KULLIYE</Tag>
+    <English>Kulliye</English>
+    <French>Kulliye</French>
+    <German>Kulliye</German>
+    <Italian>Kulliye</Italian>
+    <Spanish>Kulliye</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_OTTOMAN_KULLIYE_PEDIA</Tag>
+    <English>A kulliye gathered a mosque, school, charitable kitchen, bath, and other civic services into one endowed complex. Suleiman's architectural foundations joined public welfare, learning, and imperial culture.</English>
+    <French>A kulliye gathered a mosque, school, charitable kitchen, bath, and other civic services into one endowed complex. Suleiman's architectural foundations joined public welfare, learning, and imperial culture.</French>
+    <German>A kulliye gathered a mosque, school, charitable kitchen, bath, and other civic services into one endowed complex. Suleiman's architectural foundations joined public welfare, learning, and imperial culture.</German>
+    <Italian>A kulliye gathered a mosque, school, charitable kitchen, bath, and other civic services into one endowed complex. Suleiman's architectural foundations joined public welfare, learning, and imperial culture.</Italian>
+    <Spanish>A kulliye gathered a mosque, school, charitable kitchen, bath, and other civic services into one endowed complex. Suleiman's architectural foundations joined public welfare, learning, and imperial culture.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_OTTOMAN_KULLIYE_STRATEGY</Tag>
+    <English>Ottoman Classical Aqueduct replacement. Provides 2 Health, 1 Happiness, 2 Culture, and one Priest specialist slot.</English>
+    <French>Ottoman Classical Aqueduct replacement. Provides 2 Health, 1 Happiness, 2 Culture, and one Priest specialist slot.</French>
+    <German>Ottoman Classical Aqueduct replacement. Provides 2 Health, 1 Happiness, 2 Culture, and one Priest specialist slot.</German>
+    <Italian>Ottoman Classical Aqueduct replacement. Provides 2 Health, 1 Happiness, 2 Culture, and one Priest specialist slot.</Italian>
+    <Spanish>Ottoman Classical Aqueduct replacement. Provides 2 Health, 1 Happiness, 2 Culture, and one Priest specialist slot.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PERSIA_PASARGADAE_DECREE</Tag>
+    <English>Pasargadae Decree</English>
+    <French>Pasargadae Decree</French>
+    <German>Pasargadae Decree</German>
+    <Italian>Pasargadae Decree</Italian>
+    <Spanish>Pasargadae Decree</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PERSIA_PASARGADAE_DECREE_PEDIA</Tag>
+    <English>From his capital at Pasargadae, Cyrus presented royal authority as protection for the customs and communities gathered into his new empire. The decree represents an early public statement of Achaemenid legitimacy and accommodation.</English>
+    <French>From his capital at Pasargadae, Cyrus presented royal authority as protection for the customs and communities gathered into his new empire. The decree represents an early public statement of Achaemenid legitimacy and accommodation.</French>
+    <German>From his capital at Pasargadae, Cyrus presented royal authority as protection for the customs and communities gathered into his new empire. The decree represents an early public statement of Achaemenid legitimacy and accommodation.</German>
+    <Italian>From his capital at Pasargadae, Cyrus presented royal authority as protection for the customs and communities gathered into his new empire. The decree represents an early public statement of Achaemenid legitimacy and accommodation.</Italian>
+    <Spanish>From his capital at Pasargadae, Cyrus presented royal authority as protection for the customs and communities gathered into his new empire. The decree represents an early public statement of Achaemenid legitimacy and accommodation.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_PERSIA_PASARGADAE_DECREE_STRATEGY</Tag>
+    <English>Founding Achaemenid Monument replacement costing 35. Provides 1 Culture and 1 Gold; Cyrus's trait adds 1 further Culture after it is built.</English>
+    <French>Founding Achaemenid Monument replacement costing 35. Provides 1 Culture and 1 Gold; Cyrus's trait adds 1 further Culture after it is built.</French>
+    <German>Founding Achaemenid Monument replacement costing 35. Provides 1 Culture and 1 Gold; Cyrus's trait adds 1 further Culture after it is built.</German>
+    <Italian>Founding Achaemenid Monument replacement costing 35. Provides 1 Culture and 1 Gold; Cyrus's trait adds 1 further Culture after it is built.</Italian>
+    <Spanish>Founding Achaemenid Monument replacement costing 35. Provides 1 Culture and 1 Gold; Cyrus's trait adds 1 further Culture after it is built.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_SALADIN_DIVERSITY</Tag>
+    <English>Caravan Sultanate</English>
+    <French>Caravan Sultanate</French>
+    <German>Caravan Sultanate</German>
+    <Italian>Caravan Sultanate</Italian>
+    <Spanish>Caravan Sultanate</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_SALADIN_DIVERSITY_SHORT</Tag>
+    <English>Caravan Sultanate</English>
+    <French>Caravan Sultanate</French>
+    <German>Caravan Sultanate</German>
+    <Italian>Caravan Sultanate</Italian>
+    <Spanish>Caravan Sultanate</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_SALADIN_HELP</Tag>
+    <English>No Anarchy. +25% Commerce from trade routes. Incense and Spices yield +1 Commerce. Merchants produce +1 Gold.</English>
+    <French>No Anarchy. +25% Commerce from trade routes. Incense and Spices yield +1 Commerce. Merchants produce +1 Gold.</French>
+    <German>No Anarchy. +25% Commerce from trade routes. Incense and Spices yield +1 Commerce. Merchants produce +1 Gold.</German>
+    <Italian>No Anarchy. +25% Commerce from trade routes. Incense and Spices yield +1 Commerce. Merchants produce +1 Gold.</Italian>
+    <Spanish>No Anarchy. +25% Commerce from trade routes. Incense and Spices yield +1 Commerce. Merchants produce +1 Gold.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_MEHMED</Tag>
+    <English>Conqueror of Constantinople</English>
+    <French>Conqueror of Constantinople</French>
+    <German>Conqueror of Constantinople</German>
+    <Italian>Conqueror of Constantinople</Italian>
+    <Spanish>Conqueror of Constantinople</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_MEHMED_SHORT</Tag>
+    <English>Conqueror of Constantinople</English>
+    <French>Conqueror of Constantinople</French>
+    <German>Conqueror of Constantinople</German>
+    <Italian>Conqueror of Constantinople</Italian>
+    <Spanish>Conqueror of Constantinople</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_MEHMED_HELP</Tag>
+    <English>No Anarchy. Units require 20% less experience to gain levels. +50% Great General emergence.</English>
+    <French>No Anarchy. Units require 20% less experience to gain levels. +50% Great General emergence.</French>
+    <German>No Anarchy. Units require 20% less experience to gain levels. +50% Great General emergence.</German>
+    <Italian>No Anarchy. Units require 20% less experience to gain levels. +50% Great General emergence.</Italian>
+    <Spanish>No Anarchy. Units require 20% less experience to gain levels. +50% Great General emergence.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_SULEIMAN_DIVERSITY</Tag>
+    <English>Kanun and Commerce</English>
+    <French>Kanun and Commerce</French>
+    <German>Kanun and Commerce</German>
+    <Italian>Kanun and Commerce</Italian>
+    <Spanish>Kanun and Commerce</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_SULEIMAN_DIVERSITY_SHORT</Tag>
+    <English>Kanun and Commerce</English>
+    <French>Kanun and Commerce</French>
+    <German>Kanun and Commerce</German>
+    <Italian>Kanun and Commerce</Italian>
+    <Spanish>Kanun and Commerce</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_SULEIMAN_HELP</Tag>
+    <English>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</English>
+    <French>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</French>
+    <German>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</German>
+    <Italian>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</Italian>
+    <Spanish>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_CYRUS</Tag>
+    <English>Founding Compact</English>
+    <French>Founding Compact</French>
+    <German>Founding Compact</German>
+    <Italian>Founding Compact</Italian>
+    <Spanish>Founding Compact</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_CYRUS_SHORT</Tag>
+    <English>Founding Compact</English>
+    <French>Founding Compact</French>
+    <German>Founding Compact</German>
+    <Italian>Founding Compact</Italian>
+    <Spanish>Founding Compact</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_CYRUS_HELP</Tag>
+    <English>+1 Happiness per city. Monuments provide +1 Culture. Mounted units receive free Mobility.</English>
+    <French>+1 Happiness per city. Monuments provide +1 Culture. Mounted units receive free Mobility.</French>
+    <German>+1 Happiness per city. Monuments provide +1 Culture. Mounted units receive free Mobility.</German>
+    <Italian>+1 Happiness per city. Monuments provide +1 Culture. Mounted units receive free Mobility.</Italian>
+    <Spanish>+1 Happiness per city. Monuments provide +1 Culture. Mounted units receive free Mobility.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_DARIUS</Tag>
+    <English>Royal Road Administration</English>
+    <French>Royal Road Administration</French>
+    <German>Royal Road Administration</German>
+    <Italian>Royal Road Administration</Italian>
+    <Spanish>Royal Road Administration</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_DARIUS_SHORT</Tag>
+    <English>Royal Road Administration</English>
+    <French>Royal Road Administration</French>
+    <German>Royal Road Administration</German>
+    <Italian>Royal Road Administration</Italian>
+    <Spanish>Royal Road Administration</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_DARIUS_HELP</Tag>
+    <English>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</English>
+    <French>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</French>
+    <German>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</German>
+    <Italian>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</Italian>
+    <Spanish>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</Spanish>
+  </TEXT>
+</Civ4GameText>

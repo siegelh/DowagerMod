@@ -26,11 +26,11 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_IMPROVEMENT_EGYPT_SPHINX_PEDIA</Tag>
-		<English>A royal monument of New Kingdom Egypt. Can only be built on flat desert (not Flood Plains), yields +3 Commerce on the tile, and under Hatshepsut grants +1 Culture to the city when worked.</English>
-		<French>Un monument royal du Nouvel Empire. Ne peut etre construit que sur desert plat (pas de plaines inondables), donne +3 Commerce sur la case et, avec Hatshepsut, +1 Culture a la ville lorsqu'il est exploite.</French>
-		<German>Ein konigliches Monument des Neuen Reiches. Kann nur auf flacher Wuste (nicht auf Schwemmebene) gebaut werden, liefert +3 Kommerz auf dem Feld und unter Hatschepsut +1 Kultur fur die Stadt, wenn das Feld bewirtschaftet wird.</German>
-		<Italian>Un monumento reale del Nuovo Regno. Costruibile solo su deserto pianeggiante (non pianure alluvionali), fornisce +3 Commercio sulla casella e, con Hatshepsut, +1 Cultura alla citta quando lavorata.</Italian>
-		<Spanish>Un monumento real del Imperio Nuevo. Solo puede construirse en desierto llano (no en llanuras aluviales), da +3 Comercio en la casilla y, con Hatshepsut, +1 Cultura a la ciudad cuando se trabaja.</Spanish>
+		<English>A royal monument of Eighteenth Dynasty Egypt. Can only be built on flat desert (not Flood Plains), yields +3 Commerce on the tile, and under Hatshepsut grants +1 Culture to the city when worked.</English>
+		<French>Un monument royal de la XVIIIe dynastie egyptienne. Ne peut etre construit que sur desert plat (pas de plaines inondables), donne +3 Commerce sur la case et, avec Hatshepsut, +1 Culture a la ville lorsqu'il est exploite.</French>
+		<German>Ein konigliches Monument der 18. Dynastie Agyptens. Kann nur auf flacher Wuste (nicht auf Schwemmebene) gebaut werden, liefert +3 Kommerz auf dem Feld und unter Hatschepsut +1 Kultur fur die Stadt, wenn das Feld bewirtschaftet wird.</German>
+		<Italian>Un monumento reale della XVIII dinastia egizia. Costruibile solo su deserto pianeggiante (non pianure alluvionali), fornisce +3 Commercio sulla casella e, con Hatshepsut, +1 Cultura alla citta quando lavorata.</Italian>
+		<Spanish>Un monumento real de la Dinastia XVIII de Egipto. Solo puede construirse en desierto llano (no en llanuras aluviales), da +3 Comercio en la casilla y, con Hatshepsut, +1 Cultura a la ciudad cuando se trabaja.</Spanish>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_TRAIT_IMPROVEMENT_YIELD_ON_TERRAIN</Tag>

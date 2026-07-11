@@ -6584,5 +6584,231 @@
 			<KFM/>
 			<Button>Art/Interface/Buttons/Buildings/Industries/illuminated_theatre.dds</Button>
 		</BuildingArtInfo>
-	</BuildingArtInfos>
+	<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MACEDONIAN_COMPANION_BARRACKS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.27</fScale>
+			<fInterfaceScale>0.52</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Barracks/Barracks.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Buildings/Barracks.dds,Art/Interface/Buttons/Buildings_Atlas.dds,6,1</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ATHENIAN_ODEON</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.17</fScale>
+			<fInterfaceScale>0.48</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Odeon/Odeon.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Buildings/Colosseum.dds,Art/Interface/Buttons/Warlords_Atlas_1.dds,4,1</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ROMAN_REPUBLIC_CASTRUM</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.27</fScale>
+			<fInterfaceScale>0.52</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Barracks/Barracks.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Buildings/Barracks.dds,Art/Interface/Buttons/Buildings_Atlas.dds,6,1</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ROMAN_PRINCIPATE_COLONIA</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.26</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Granary/Granary.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Buildings/Granary.dds,Art/Interface/Buttons/Buildings_Atlas.dds,1,3</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_BYZANTINE_CORPUS_JURIS</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.61</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Courthouse/Courthouse.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Buildings/Courthouse.dds,Art/Interface/Buttons/Buildings_Atlas.dds,4,2</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_GAUL_NEMETON</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>.90</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/rodnovery_cathedral/celtic_temple.nif</NIF>
+			<KFM/>
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/rodnovery_cathedral.dds</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_ICENI_HALL</Type>
+			<LSystem>LSYSTEM_1x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.26</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Granary/Granary.nif</NIF>
+			<KFM/>
+			<Button>,Art/Interface/Buttons/Buildings/Granary.dds,Art/Interface/Buttons/Buildings_Atlas.dds,1,3</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_OTTOMAN_DEVSHIRME_BARRACKS</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.25</fScale>
+			<fInterfaceScale>0.52</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/barracks/middle_east_barracks/barracks_mid.nif</NIF>
+			<KFM/>
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/militarybase.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_OTTOMAN_KULLIYE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>0.5</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/great_bath/bath_middle_east.nif</NIF>
+			<KFM/>
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/great_bath_of_mohenjo_daro.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PERSIA_PASARGADAE_DECREE</Type>
+			<LSystem>LSYSTEM_2x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>5.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/BTG/Buildings/Tomb of Cyrus/cyrustomb.nif</NIF>
+			<KFM/>
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cyrustomb.dds</Button>
+		</BuildingArtInfo>
+
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_MANUFACTURE_ROYALE</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>1.31</fScale>
+			<fInterfaceScale>0.47</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Forge/Forge.nif</NIF>
+			<KFM/>
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/blacksmith_guild.dds</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NAPOLEONIC_PREFECTURE</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.61</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Courthouse/Courthouse.nif</NIF>
+			<KFM/>
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/district_courthouse.dds</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_CAROLINGIAN_SCRIPTORIUM</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>1</bAnimated>
+			<fScale>2.63</fScale>
+			<fInterfaceScale>0.44</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Monastery/Christian/christian monastery.nif</NIF>
+			<KFM/>
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/scriptorium.dds</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_PRUSSIAN_ACADEMY</Type>
+			<LSystem>LSYSTEM_2x1</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>2.3</fScale>
+			<fInterfaceScale>0.43</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/Military_Academy/Military_Academy.nif</NIF>
+			<KFM/>
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/militaryacademy2.dds</Button>
+		</BuildingArtInfo>
+<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_COUNTRY_ESTATE</Type>
+			<LSystem>LSYSTEM_3x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.3</fScale>
+			<fInterfaceScale>0.4</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/estate/manor.nif</NIF>
+			<KFM/>
+			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/estate.dds</Button>
+		</BuildingArtInfo>
+
+    <BuildingArtInfo>
+      <Type>ART_DEF_BUILDING_EGYPT_HATSHEPSUT_KARNAK_OBELISK</Type>
+      <LSystem>LSYSTEM_2x2</LSystem>
+      <bAnimated>0</bAnimated>
+      <fScale>1.5</fScale>
+      <fInterfaceScale>1.30</fInterfaceScale>
+      <NIF>Art/Caveman2Cosmos/art/structures/buildings/egyptmyth/ptah.nif</NIF>
+      <KFM />
+      <Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/kemetism/egypt_temple.dds</Button>
+    </BuildingArtInfo>
+
+    <BuildingArtInfo>
+      <Type>ART_DEF_BUILDING_EGYPT_RAMESSES_TEMPLE</Type>
+      <LSystem>LSYSTEM_2x2</LSystem>
+      <bAnimated>0</bAnimated>
+      <fScale>0.75</fScale>
+      <fInterfaceScale>0.70</fInterfaceScale>
+      <NIF>Art/Caveman2Cosmos/art/structures/buildings/mtrushmore/egypt_mtrushmore/mtrushmore.nif</NIF>
+      <KFM />
+      <Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/kemetism/temple_of_ptah.dds</Button>
+    </BuildingArtInfo>
+
+    <BuildingArtInfo>
+      <Type>ART_DEF_BUILDING_ETHIOPIA_ZARA_TABOT_SHRINE</Type>
+      <LSystem>LSYSTEM_2x2</LSystem>
+      <bAnimated>0</bAnimated>
+      <fScale>1.0</fScale>
+      <fInterfaceScale>0.75</fInterfaceScale>
+      <NIF>Art/Caveman2Cosmos/art/structures/buildings/canaanite_temple/temple_an.nif</NIF>
+      <KFM />
+      <Button>,Art/Caveman2Cosmos/art/structures/buildings/canaanite_temple/temple.dds</Button>
+    </BuildingArtInfo>
+
+    <BuildingArtInfo>
+      <Type>ART_DEF_BUILDING_ETHIOPIA_SELASSIE_IMPERIAL_UNIVERSITY</Type>
+      <LSystem>LSYSTEM_2x2</LSystem>
+      <bAnimated>0</bAnimated>
+      <fScale>0.75</fScale>
+      <fInterfaceScale>0.70</fInterfaceScale>
+      <NIF>Art/Caveman2Cosmos/art/structures/buildings/academy/afro_academy/mosque_of_kairouan.nif</NIF>
+      <KFM />
+      <Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/harvarduniversity.dds</Button>
+    </BuildingArtInfo>
+
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_LAND_GRANT_COLLEGE</Type>
+			<LSystem>LSYSTEM_2x3</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.35</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/BatchE/LandGrantCollege/nypl.nif</NIF>
+			<KFM/>
+			<Button>Art/Structures/Buildings/BatchE/LandGrantCollege/LandGrantCollege_128.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_NEW_DEAL_FEDERAL_RELIEF_DEPOT</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.4</fScale>
+			<fInterfaceScale>0.67</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/BatchE/ReliefDepot/warehouse_upgrade.nif</NIF>
+			<KFM/>
+			<Button>Art/Structures/Buildings/BatchE/ReliefDepot/ReliefDepot_128.dds</Button>
+		</BuildingArtInfo>
+		<BuildingArtInfo>
+			<Type>ART_DEF_BUILDING_FEDERAL_BUREAU</Type>
+			<LSystem>LSYSTEM_3x2</LSystem>
+			<bAnimated>0</bAnimated>
+			<fScale>1.8</fScale>
+			<fInterfaceScale>0.61</fInterfaceScale>
+			<NIF>Art/Structures/Buildings/BatchE/FederalBureau/town_hall.nif</NIF>
+			<KFM/>
+			<Button>Art/Structures/Buildings/BatchE/FederalBureau/FederalBureau_128.dds</Button>
+		</BuildingArtInfo>
+</BuildingArtInfos>
 </Civ4ArtDefines>

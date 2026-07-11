@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_MACEDONIAN_HYPASPIST</Tag>
+    <English>Hypaspist</English>
+    <French>Hypaspist</French>
+    <German>Hypaspist</German>
+    <Italian>Hypaspist</Italian>
+    <Spanish>Hypaspist</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_MACEDONIAN_HYPASPIST_PEDIA</Tag>
+    <English>The hypaspists formed an elite link between the Macedonian phalanx and Alexander's mobile striking forces. Their lighter equipment and disciplined maneuver let them protect exposed flanks, seize difficult ground, and keep pace with combined-arms attacks.</English>
+    <French>The hypaspists formed an elite link between the Macedonian phalanx and Alexander's mobile striking forces. Their lighter equipment and disciplined maneuver let them protect exposed flanks, seize difficult ground, and keep pace with combined-arms attacks.</French>
+    <German>The hypaspists formed an elite link between the Macedonian phalanx and Alexander's mobile striking forces. Their lighter equipment and disciplined maneuver let them protect exposed flanks, seize difficult ground, and keep pace with combined-arms attacks.</German>
+    <Italian>The hypaspists formed an elite link between the Macedonian phalanx and Alexander's mobile striking forces. Their lighter equipment and disciplined maneuver let them protect exposed flanks, seize difficult ground, and keep pace with combined-arms attacks.</Italian>
+    <Spanish>The hypaspists formed an elite link between the Macedonian phalanx and Alexander's mobile striking forces. Their lighter equipment and disciplined maneuver let them protect exposed flanks, seize difficult ground, and keep pace with combined-arms attacks.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_MACEDONIAN_HYPASPIST_STRATEGY</Tag>
+    <English>Macedonian Axeman replacement. Strength 6, +25% against Melee units, and +10% city attack; it gives up the Phalanx's specialized Chariot defense.</English>
+    <French>Macedonian Axeman replacement. Strength 6, +25% against Melee units, and +10% city attack; it gives up the Phalanx's specialized Chariot defense.</French>
+    <German>Macedonian Axeman replacement. Strength 6, +25% against Melee units, and +10% city attack; it gives up the Phalanx's specialized Chariot defense.</German>
+    <Italian>Macedonian Axeman replacement. Strength 6, +25% against Melee units, and +10% city attack; it gives up the Phalanx's specialized Chariot defense.</Italian>
+    <Spanish>Macedonian Axeman replacement. Strength 6, +25% against Melee units, and +10% city attack; it gives up the Phalanx's specialized Chariot defense.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ATHENIAN_TRIREME</Tag>
+    <English>Athenian Trireme</English>
+    <French>Athenian Trireme</French>
+    <German>Athenian Trireme</German>
+    <Italian>Athenian Trireme</Italian>
+    <Spanish>Athenian Trireme</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ATHENIAN_TRIREME_PEDIA</Tag>
+    <English>Athens built its fifth-century power on citizen-rowed triremes. The fleet protected Aegean routes, supplied distant expeditions, and made the revenues of the maritime alliance available for the city's ambitious cultural program.</English>
+    <French>Athens built its fifth-century power on citizen-rowed triremes. The fleet protected Aegean routes, supplied distant expeditions, and made the revenues of the maritime alliance available for the city's ambitious cultural program.</French>
+    <German>Athens built its fifth-century power on citizen-rowed triremes. The fleet protected Aegean routes, supplied distant expeditions, and made the revenues of the maritime alliance available for the city's ambitious cultural program.</German>
+    <Italian>Athens built its fifth-century power on citizen-rowed triremes. The fleet protected Aegean routes, supplied distant expeditions, and made the revenues of the maritime alliance available for the city's ambitious cultural program.</Italian>
+    <Spanish>Athens built its fifth-century power on citizen-rowed triremes. The fleet protected Aegean routes, supplied distant expeditions, and made the revenues of the maritime alliance available for the city's ambitious cultural program.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ATHENIAN_TRIREME_STRATEGY</Tag>
+    <English>Athenian Trireme replacement. Costs 45 instead of 50 and moves 3 tiles instead of 2. It retains Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</English>
+    <French>Athenian Trireme replacement. Costs 45 instead of 50 and moves 3 tiles instead of 2. It retains Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</French>
+    <German>Athenian Trireme replacement. Costs 45 instead of 50 and moves 3 tiles instead of 2. It retains Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</German>
+    <Italian>Athenian Trireme replacement. Costs 45 instead of 50 and moves 3 tiles instead of 2. It retains Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</Italian>
+    <Spanish>Athenian Trireme replacement. Costs 45 instead of 50 and moves 3 tiles instead of 2. It retains Attack Sea, Reserve Sea, Escort Sea, and Explore Sea AI roles.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ROMAN_REPUBLIC_LEGIONARY</Tag>
+    <English>Legionary</English>
+    <French>Legionary</French>
+    <German>Legionary</German>
+    <Italian>Legionary</Italian>
+    <Spanish>Legionary</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ROMAN_REPUBLIC_LEGIONARY_PEDIA</Tag>
+    <English>The late Republican legionary fought in a flexible cohort system and endured long operational campaigns under commanders such as Julius Caesar. Legionaries combined battlefield discipline with rapid marches, field engineering, and assaults on fortified settlements.</English>
+    <French>The late Republican legionary fought in a flexible cohort system and endured long operational campaigns under commanders such as Julius Caesar. Legionaries combined battlefield discipline with rapid marches, field engineering, and assaults on fortified settlements.</French>
+    <German>The late Republican legionary fought in a flexible cohort system and endured long operational campaigns under commanders such as Julius Caesar. Legionaries combined battlefield discipline with rapid marches, field engineering, and assaults on fortified settlements.</German>
+    <Italian>The late Republican legionary fought in a flexible cohort system and endured long operational campaigns under commanders such as Julius Caesar. Legionaries combined battlefield discipline with rapid marches, field engineering, and assaults on fortified settlements.</Italian>
+    <Spanish>The late Republican legionary fought in a flexible cohort system and endured long operational campaigns under commanders such as Julius Caesar. Legionaries combined battlefield discipline with rapid marches, field engineering, and assaults on fortified settlements.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ROMAN_REPUBLIC_LEGIONARY_STRATEGY</Tag>
+    <English>Late Roman Republic Swordsman replacement. Strength 7 with +15% city attack. Its lower raw strength than the stock Praetorian keeps Julius's free March promotion from over-stacking.</English>
+    <French>Late Roman Republic Swordsman replacement. Strength 7 with +15% city attack. Its lower raw strength than the stock Praetorian keeps Julius's free March promotion from over-stacking.</French>
+    <German>Late Roman Republic Swordsman replacement. Strength 7 with +15% city attack. Its lower raw strength than the stock Praetorian keeps Julius's free March promotion from over-stacking.</German>
+    <Italian>Late Roman Republic Swordsman replacement. Strength 7 with +15% city attack. Its lower raw strength than the stock Praetorian keeps Julius's free March promotion from over-stacking.</Italian>
+    <Spanish>Late Roman Republic Swordsman replacement. Strength 7 with +15% city attack. Its lower raw strength than the stock Praetorian keeps Julius's free March promotion from over-stacking.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ROMAN_PRINCIPATE_PRAETORIAN</Tag>
+    <English>Praetorian Guard</English>
+    <French>Praetorian Guard</French>
+    <German>Praetorian Guard</German>
+    <Italian>Praetorian Guard</Italian>
+    <Spanish>Praetorian Guard</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ROMAN_PRINCIPATE_PRAETORIAN_PEDIA</Tag>
+    <English>Augustus established the Praetorian Guard as the permanent bodyguard of the imperial household. Concentrated near Rome, these veteran cohorts represented protection, political authority, and the new regime's preference for controlled stability.</English>
+    <French>Augustus established the Praetorian Guard as the permanent bodyguard of the imperial household. Concentrated near Rome, these veteran cohorts represented protection, political authority, and the new regime's preference for controlled stability.</French>
+    <German>Augustus established the Praetorian Guard as the permanent bodyguard of the imperial household. Concentrated near Rome, these veteran cohorts represented protection, political authority, and the new regime's preference for controlled stability.</German>
+    <Italian>Augustus established the Praetorian Guard as the permanent bodyguard of the imperial household. Concentrated near Rome, these veteran cohorts represented protection, political authority, and the new regime's preference for controlled stability.</Italian>
+    <Spanish>Augustus established the Praetorian Guard as the permanent bodyguard of the imperial household. Concentrated near Rome, these veteran cohorts represented protection, political authority, and the new regime's preference for controlled stability.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ROMAN_PRINCIPATE_PRAETORIAN_STRATEGY</Tag>
+    <English>Roman Principate Swordsman replacement. Strength 7, +25% city defense, and 1 first strike, with City Defense as its default AI role.</English>
+    <French>Roman Principate Swordsman replacement. Strength 7, +25% city defense, and 1 first strike, with City Defense as its default AI role.</French>
+    <German>Roman Principate Swordsman replacement. Strength 7, +25% city defense, and 1 first strike, with City Defense as its default AI role.</German>
+    <Italian>Roman Principate Swordsman replacement. Strength 7, +25% city defense, and 1 first strike, with City Defense as its default AI role.</Italian>
+    <Spanish>Roman Principate Swordsman replacement. Strength 7, +25% city defense, and 1 first strike, with City Defense as its default AI role.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_GAUL_GAESATAE</Tag>
+    <English>Gaesatae</English>
+    <French>Gaesatae</French>
+    <German>Gaesatae</German>
+    <Italian>Gaesatae</Italian>
+    <Spanish>Gaesatae</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_GAUL_GAESATAE_PEDIA</Tag>
+    <English>The Gaesatae were renowned Celtic warriors who served for reward and reputation in the war leagues of Iron Age Gaul. Their aggressive charges made them dangerous assault infantry, though not the hill-defense specialists represented by the older Gallic Warrior.</English>
+    <French>The Gaesatae were renowned Celtic warriors who served for reward and reputation in the war leagues of Iron Age Gaul. Their aggressive charges made them dangerous assault infantry, though not the hill-defense specialists represented by the older Gallic Warrior.</French>
+    <German>The Gaesatae were renowned Celtic warriors who served for reward and reputation in the war leagues of Iron Age Gaul. Their aggressive charges made them dangerous assault infantry, though not the hill-defense specialists represented by the older Gallic Warrior.</German>
+    <Italian>The Gaesatae were renowned Celtic warriors who served for reward and reputation in the war leagues of Iron Age Gaul. Their aggressive charges made them dangerous assault infantry, though not the hill-defense specialists represented by the older Gallic Warrior.</Italian>
+    <Spanish>The Gaesatae were renowned Celtic warriors who served for reward and reputation in the war leagues of Iron Age Gaul. Their aggressive charges made them dangerous assault infantry, though not the hill-defense specialists represented by the older Gallic Warrior.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_GAUL_GAESATAE_STRATEGY</Tag>
+    <English>Gaulic Swordsman replacement. Strength 6, +15% city attack, and a 10% withdrawal chance. It does not receive the Gallic Warrior's free Guerrilla I.</English>
+    <French>Gaulic Swordsman replacement. Strength 6, +15% city attack, and a 10% withdrawal chance. It does not receive the Gallic Warrior's free Guerrilla I.</French>
+    <German>Gaulic Swordsman replacement. Strength 6, +15% city attack, and a 10% withdrawal chance. It does not receive the Gallic Warrior's free Guerrilla I.</German>
+    <Italian>Gaulic Swordsman replacement. Strength 6, +15% city attack, and a 10% withdrawal chance. It does not receive the Gallic Warrior's free Guerrilla I.</Italian>
+    <Spanish>Gaulic Swordsman replacement. Strength 6, +15% city attack, and a 10% withdrawal chance. It does not receive the Gallic Warrior's free Guerrilla I.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ICENI_BOUDICCAN_CHARIOT</Tag>
+    <English>Boudiccan Chariot</English>
+    <French>Boudiccan Chariot</French>
+    <German>Boudiccan Chariot</German>
+    <Italian>Boudiccan Chariot</Italian>
+    <Spanish>Boudiccan Chariot</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ICENI_BOUDICCAN_CHARIOT_PEDIA</Tag>
+    <English>Chariots carried the prestige and mobility of the Iceni elite. During Boudica's revolt they served as platforms for command, display, skirmishing, and rapid movement across the battlefield.</English>
+    <French>Chariots carried the prestige and mobility of the Iceni elite. During Boudica's revolt they served as platforms for command, display, skirmishing, and rapid movement across the battlefield.</French>
+    <German>Chariots carried the prestige and mobility of the Iceni elite. During Boudica's revolt they served as platforms for command, display, skirmishing, and rapid movement across the battlefield.</German>
+    <Italian>Chariots carried the prestige and mobility of the Iceni elite. During Boudica's revolt they served as platforms for command, display, skirmishing, and rapid movement across the battlefield.</Italian>
+    <Spanish>Chariots carried the prestige and mobility of the Iceni elite. During Boudica's revolt they served as platforms for command, display, skirmishing, and rapid movement across the battlefield.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_ICENI_BOUDICCAN_CHARIOT_STRATEGY</Tag>
+    <English>Iceni Chariot replacement. Retains Strength 4 and +100% against Axemen, but withdraws 25% of the time instead of 10%.</English>
+    <French>Iceni Chariot replacement. Retains Strength 4 and +100% against Axemen, but withdraws 25% of the time instead of 10%.</French>
+    <German>Iceni Chariot replacement. Retains Strength 4 and +100% against Axemen, but withdraws 25% of the time instead of 10%.</German>
+    <Italian>Iceni Chariot replacement. Retains Strength 4 and +100% against Axemen, but withdraws 25% of the time instead of 10%.</Italian>
+    <Spanish>Iceni Chariot replacement. Retains Strength 4 and +100% against Axemen, but withdraws 25% of the time instead of 10%.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_MACEDONIAN_COMPANION_BARRACKS</Tag>
+    <English>Companion Barracks</English>
+    <French>Companion Barracks</French>
+    <German>Companion Barracks</German>
+    <Italian>Companion Barracks</Italian>
+    <Spanish>Companion Barracks</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_MACEDONIAN_COMPANION_BARRACKS_PEDIA</Tag>
+    <English>Macedonian combined-arms warfare depended on trained infantry and mounted companions operating as one force. The Companion Barracks represents the institutions that prepared both arms for coordinated campaigning.</English>
+    <French>Macedonian combined-arms warfare depended on trained infantry and mounted companions operating as one force. The Companion Barracks represents the institutions that prepared both arms for coordinated campaigning.</French>
+    <German>Macedonian combined-arms warfare depended on trained infantry and mounted companions operating as one force. The Companion Barracks represents the institutions that prepared both arms for coordinated campaigning.</German>
+    <Italian>Macedonian combined-arms warfare depended on trained infantry and mounted companions operating as one force. The Companion Barracks represents the institutions that prepared both arms for coordinated campaigning.</Italian>
+    <Spanish>Macedonian combined-arms warfare depended on trained infantry and mounted companions operating as one force. The Companion Barracks represents the institutions that prepared both arms for coordinated campaigning.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_MACEDONIAN_COMPANION_BARRACKS_STRATEGY</Tag>
+    <English>Macedonian Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Mounted units.</English>
+    <French>Macedonian Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Mounted units.</French>
+    <German>Macedonian Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Mounted units.</German>
+    <Italian>Macedonian Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Mounted units.</Italian>
+    <Spanish>Macedonian Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Mounted units.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ATHENIAN_ODEON</Tag>
+    <English>Athenian Odeon</English>
+    <French>Athenian Odeon</French>
+    <German>Athenian Odeon</German>
+    <Italian>Athenian Odeon</Italian>
+    <Spanish>Athenian Odeon</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ATHENIAN_ODEON_PEDIA</Tag>
+    <English>The Athenian odeon joined public performance and civic prestige to the wealth of a maritime city. Festivals, artists, visiting merchants, and the naval infrastructure of the Piraeus all contributed to Athens' cultural reach.</English>
+    <French>The Athenian odeon joined public performance and civic prestige to the wealth of a maritime city. Festivals, artists, visiting merchants, and the naval infrastructure of the Piraeus all contributed to Athens' cultural reach.</French>
+    <German>The Athenian odeon joined public performance and civic prestige to the wealth of a maritime city. Festivals, artists, visiting merchants, and the naval infrastructure of the Piraeus all contributed to Athens' cultural reach.</German>
+    <Italian>The Athenian odeon joined public performance and civic prestige to the wealth of a maritime city. Festivals, artists, visiting merchants, and the naval infrastructure of the Piraeus all contributed to Athens' cultural reach.</Italian>
+    <Spanish>The Athenian odeon joined public performance and civic prestige to the wealth of a maritime city. Festivals, artists, visiting merchants, and the naval infrastructure of the Piraeus all contributed to Athens' cultural reach.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ATHENIAN_ODEON_STRATEGY</Tag>
+    <English>Athenian Colosseum replacement. Provides 2 Happiness, 3 Culture, +25% Great People generation, 2 Artist slots, one coastal trade route, and 2 experience to naval units.</English>
+    <French>Athenian Colosseum replacement. Provides 2 Happiness, 3 Culture, +25% Great People generation, 2 Artist slots, one coastal trade route, and 2 experience to naval units.</French>
+    <German>Athenian Colosseum replacement. Provides 2 Happiness, 3 Culture, +25% Great People generation, 2 Artist slots, one coastal trade route, and 2 experience to naval units.</German>
+    <Italian>Athenian Colosseum replacement. Provides 2 Happiness, 3 Culture, +25% Great People generation, 2 Artist slots, one coastal trade route, and 2 experience to naval units.</Italian>
+    <Spanish>Athenian Colosseum replacement. Provides 2 Happiness, 3 Culture, +25% Great People generation, 2 Artist slots, one coastal trade route, and 2 experience to naval units.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ROMAN_REPUBLIC_CASTRUM</Tag>
+    <English>Castrum</English>
+    <French>Castrum</French>
+    <German>Castrum</German>
+    <Italian>Castrum</Italian>
+    <Spanish>Castrum</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ROMAN_REPUBLIC_CASTRUM_PEDIA</Tag>
+    <English>A Roman marching camp was a standardized fortified base built at the end of a day's movement. Its ordered defenses, workshops, and drill spaces supported both legionary discipline and the engineers and artillery attached to a campaign army.</English>
+    <French>A Roman marching camp was a standardized fortified base built at the end of a day's movement. Its ordered defenses, workshops, and drill spaces supported both legionary discipline and the engineers and artillery attached to a campaign army.</French>
+    <German>A Roman marching camp was a standardized fortified base built at the end of a day's movement. Its ordered defenses, workshops, and drill spaces supported both legionary discipline and the engineers and artillery attached to a campaign army.</German>
+    <Italian>A Roman marching camp was a standardized fortified base built at the end of a day's movement. Its ordered defenses, workshops, and drill spaces supported both legionary discipline and the engineers and artillery attached to a campaign army.</Italian>
+    <Spanish>A Roman marching camp was a standardized fortified base built at the end of a day's movement. Its ordered defenses, workshops, and drill spaces supported both legionary discipline and the engineers and artillery attached to a campaign army.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ROMAN_REPUBLIC_CASTRUM_STRATEGY</Tag>
+    <English>Late Roman Republic Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Siege units.</English>
+    <French>Late Roman Republic Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Siege units.</French>
+    <German>Late Roman Republic Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Siege units.</German>
+    <Italian>Late Roman Republic Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Siege units.</Italian>
+    <Spanish>Late Roman Republic Barracks replacement. Grants the normal 3 experience to land units and 2 additional experience to Siege units.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ROMAN_PRINCIPATE_COLONIA</Tag>
+    <English>Colonia</English>
+    <French>Colonia</French>
+    <German>Colonia</German>
+    <Italian>Colonia</Italian>
+    <Spanish>Colonia</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ROMAN_PRINCIPATE_COLONIA_PEDIA</Tag>
+    <English>Augustan colonies settled veterans, secured strategic regions, and spread Roman civic institutions. Their planned communities linked agricultural settlement to the durable administration of the Principate.</English>
+    <French>Augustan colonies settled veterans, secured strategic regions, and spread Roman civic institutions. Their planned communities linked agricultural settlement to the durable administration of the Principate.</French>
+    <German>Augustan colonies settled veterans, secured strategic regions, and spread Roman civic institutions. Their planned communities linked agricultural settlement to the durable administration of the Principate.</German>
+    <Italian>Augustan colonies settled veterans, secured strategic regions, and spread Roman civic institutions. Their planned communities linked agricultural settlement to the durable administration of the Principate.</Italian>
+    <Spanish>Augustan colonies settled veterans, secured strategic regions, and spread Roman civic institutions. Their planned communities linked agricultural settlement to the durable administration of the Principate.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ROMAN_PRINCIPATE_COLONIA_STRATEGY</Tag>
+    <English>Roman Principate Granary replacement. Provides 1 Food and 1 Culture and preserves 60% of stored food after growth instead of 50%.</English>
+    <French>Roman Principate Granary replacement. Provides 1 Food and 1 Culture and preserves 60% of stored food after growth instead of 50%.</French>
+    <German>Roman Principate Granary replacement. Provides 1 Food and 1 Culture and preserves 60% of stored food after growth instead of 50%.</German>
+    <Italian>Roman Principate Granary replacement. Provides 1 Food and 1 Culture and preserves 60% of stored food after growth instead of 50%.</Italian>
+    <Spanish>Roman Principate Granary replacement. Provides 1 Food and 1 Culture and preserves 60% of stored food after growth instead of 50%.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_BYZANTINE_CORPUS_JURIS</Tag>
+    <English>Corpus Juris</English>
+    <French>Corpus Juris</French>
+    <German>Corpus Juris</German>
+    <Italian>Corpus Juris</Italian>
+    <Spanish>Corpus Juris</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_BYZANTINE_CORPUS_JURIS_PEDIA</Tag>
+    <English>Justinian's codification collected, reconciled, and organized centuries of Roman law. The resulting Corpus Juris Civilis strengthened imperial administration and became one of Byzantium's most enduring legal legacies.</English>
+    <French>Justinian's codification collected, reconciled, and organized centuries of Roman law. The resulting Corpus Juris Civilis strengthened imperial administration and became one of Byzantium's most enduring legal legacies.</French>
+    <German>Justinian's codification collected, reconciled, and organized centuries of Roman law. The resulting Corpus Juris Civilis strengthened imperial administration and became one of Byzantium's most enduring legal legacies.</German>
+    <Italian>Justinian's codification collected, reconciled, and organized centuries of Roman law. The resulting Corpus Juris Civilis strengthened imperial administration and became one of Byzantium's most enduring legal legacies.</Italian>
+    <Spanish>Justinian's codification collected, reconciled, and organized centuries of Roman law. The resulting Corpus Juris Civilis strengthened imperial administration and became one of Byzantium's most enduring legal legacies.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_BYZANTINE_CORPUS_JURIS_STRATEGY</Tag>
+    <English>Byzantine Courthouse replacement. Reduces city maintenance by 60%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</English>
+    <French>Byzantine Courthouse replacement. Reduces city maintenance by 60%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</French>
+    <German>Byzantine Courthouse replacement. Reduces city maintenance by 60%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</German>
+    <Italian>Byzantine Courthouse replacement. Reduces city maintenance by 60%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</Italian>
+    <Spanish>Byzantine Courthouse replacement. Reduces city maintenance by 60%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_GAUL_NEMETON</Tag>
+    <English>Nemeton</English>
+    <French>Nemeton</French>
+    <German>Nemeton</German>
+    <Italian>Nemeton</Italian>
+    <Spanish>Nemeton</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_GAUL_NEMETON_PEDIA</Tag>
+    <English>A nemeton was a sacred Celtic gathering place associated with ritual, learned religious specialists, and communal identity. Such sanctuaries gave a dispersed war league a shared cultural and spiritual center.</English>
+    <French>A nemeton was a sacred Celtic gathering place associated with ritual, learned religious specialists, and communal identity. Such sanctuaries gave a dispersed war league a shared cultural and spiritual center.</French>
+    <German>A nemeton was a sacred Celtic gathering place associated with ritual, learned religious specialists, and communal identity. Such sanctuaries gave a dispersed war league a shared cultural and spiritual center.</German>
+    <Italian>A nemeton was a sacred Celtic gathering place associated with ritual, learned religious specialists, and communal identity. Such sanctuaries gave a dispersed war league a shared cultural and spiritual center.</Italian>
+    <Spanish>A nemeton was a sacred Celtic gathering place associated with ritual, learned religious specialists, and communal identity. Such sanctuaries gave a dispersed war league a shared cultural and spiritual center.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_GAUL_NEMETON_STRATEGY</Tag>
+    <English>Gaulic Courthouse replacement available at Mysticism. Costs 80, reduces maintenance by 25%, provides 2 Culture, and allows one Priest specialist.</English>
+    <French>Gaulic Courthouse replacement available at Mysticism. Costs 80, reduces maintenance by 25%, provides 2 Culture, and allows one Priest specialist.</French>
+    <German>Gaulic Courthouse replacement available at Mysticism. Costs 80, reduces maintenance by 25%, provides 2 Culture, and allows one Priest specialist.</German>
+    <Italian>Gaulic Courthouse replacement available at Mysticism. Costs 80, reduces maintenance by 25%, provides 2 Culture, and allows one Priest specialist.</Italian>
+    <Spanish>Gaulic Courthouse replacement available at Mysticism. Costs 80, reduces maintenance by 25%, provides 2 Culture, and allows one Priest specialist.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ICENI_HALL</Tag>
+    <English>Iceni Hall</English>
+    <French>Iceni Hall</French>
+    <German>Iceni Hall</German>
+    <Italian>Iceni Hall</Italian>
+    <Spanish>Iceni Hall</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ICENI_HALL_PEDIA</Tag>
+    <English>The hall of an Iceni community stored food, hosted retainers, and anchored the obligations of kin and warrior elites. It supported both local resilience and the mounted households that rallied to revolt.</English>
+    <French>The hall of an Iceni community stored food, hosted retainers, and anchored the obligations of kin and warrior elites. It supported both local resilience and the mounted households that rallied to revolt.</French>
+    <German>The hall of an Iceni community stored food, hosted retainers, and anchored the obligations of kin and warrior elites. It supported both local resilience and the mounted households that rallied to revolt.</German>
+    <Italian>The hall of an Iceni community stored food, hosted retainers, and anchored the obligations of kin and warrior elites. It supported both local resilience and the mounted households that rallied to revolt.</Italian>
+    <Spanish>The hall of an Iceni community stored food, hosted retainers, and anchored the obligations of kin and warrior elites. It supported both local resilience and the mounted households that rallied to revolt.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_ICENI_HALL_STRATEGY</Tag>
+    <English>Iceni Granary replacement. Provides 1 Food, preserves 50% of stored food after growth, and grants 2 experience to Mounted units.</English>
+    <French>Iceni Granary replacement. Provides 1 Food, preserves 50% of stored food after growth, and grants 2 experience to Mounted units.</French>
+    <German>Iceni Granary replacement. Provides 1 Food, preserves 50% of stored food after growth, and grants 2 experience to Mounted units.</German>
+    <Italian>Iceni Granary replacement. Provides 1 Food, preserves 50% of stored food after growth, and grants 2 experience to Mounted units.</Italian>
+    <Spanish>Iceni Granary replacement. Provides 1 Food, preserves 50% of stored food after growth, and grants 2 experience to Mounted units.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_BYZANTINE_CATAPHRACT_DIVERSITY_STRATEGY</Tag>
+    <English>The Cataphract is the Byzantine Knight replacement. It has Strength 12 and inflicts 10% collateral damage on up to 2 units, capped at 50% damage.</English>
+    <French>The Cataphract is the Byzantine Knight replacement. It has Strength 12 and inflicts 10% collateral damage on up to 2 units, capped at 50% damage.</French>
+    <German>The Cataphract is the Byzantine Knight replacement. It has Strength 12 and inflicts 10% collateral damage on up to 2 units, capped at 50% damage.</German>
+    <Italian>The Cataphract is the Byzantine Knight replacement. It has Strength 12 and inflicts 10% collateral damage on up to 2 units, capped at 50% damage.</Italian>
+    <Spanish>The Cataphract is the Byzantine Knight replacement. It has Strength 12 and inflicts 10% collateral damage on up to 2 units, capped at 50% damage.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_SUMERIAN_ZIGGURAT_DIVERSITY_STRATEGY</Tag>
+    <English>Sumerian Courthouse replacement. Available at Priesthood for 90 production; reduces maintenance by 50%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</English>
+    <French>Sumerian Courthouse replacement. Available at Priesthood for 90 production; reduces maintenance by 50%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</French>
+    <German>Sumerian Courthouse replacement. Available at Priesthood for 90 production; reduces maintenance by 50%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</German>
+    <Italian>Sumerian Courthouse replacement. Available at Priesthood for 90 production; reduces maintenance by 50%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</Italian>
+    <Spanish>Sumerian Courthouse replacement. Available at Priesthood for 90 production; reduces maintenance by 50%, provides 1 Culture and 2 Espionage, and allows one Priest and one Spy specialist.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_ALEXANDER</Tag>
+    <English>Combined Arms</English>
+    <French>Combined Arms</French>
+    <German>Combined Arms</German>
+    <Italian>Combined Arms</Italian>
+    <Spanish>Combined Arms</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_ALEXANDER_SHORT</Tag>
+    <English>Combined Arms</English>
+    <French>Combined Arms</French>
+    <German>Combined Arms</German>
+    <Italian>Combined Arms</Italian>
+    <Spanish>Combined Arms</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_PERICLES</Tag>
+    <English>Maritime Democracy</English>
+    <French>Maritime Democracy</French>
+    <German>Maritime Democracy</German>
+    <Italian>Maritime Democracy</Italian>
+    <Spanish>Maritime Democracy</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_PERICLES_SHORT</Tag>
+    <English>Maritime Democracy</English>
+    <French>Maritime Democracy</French>
+    <German>Maritime Democracy</German>
+    <Italian>Maritime Democracy</Italian>
+    <Spanish>Maritime Democracy</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_JULIUS</Tag>
+    <English>Rapid Campaigner</English>
+    <French>Rapid Campaigner</French>
+    <German>Rapid Campaigner</German>
+    <Italian>Rapid Campaigner</Italian>
+    <Spanish>Rapid Campaigner</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_JULIUS_SHORT</Tag>
+    <English>Rapid Campaigner</English>
+    <French>Rapid Campaigner</French>
+    <German>Rapid Campaigner</German>
+    <Italian>Rapid Campaigner</Italian>
+    <Spanish>Rapid Campaigner</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_AUGUSTUS_CAESAR</Tag>
+    <English>Augustan Settlement</English>
+    <French>Augustan Settlement</French>
+    <German>Augustan Settlement</German>
+    <Italian>Augustan Settlement</Italian>
+    <Spanish>Augustan Settlement</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_AUGUSTUS_CAESAR_SHORT</Tag>
+    <English>Augustan Settlement</English>
+    <French>Augustan Settlement</French>
+    <German>Augustan Settlement</German>
+    <Italian>Augustan Settlement</Italian>
+    <Spanish>Augustan Settlement</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_JUSTINIAN</Tag>
+    <English>Renovatio Imperii</English>
+    <French>Renovatio Imperii</French>
+    <German>Renovatio Imperii</German>
+    <Italian>Renovatio Imperii</Italian>
+    <Spanish>Renovatio Imperii</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_JUSTINIAN_SHORT</Tag>
+    <English>Renovatio Imperii</English>
+    <French>Renovatio Imperii</French>
+    <German>Renovatio Imperii</German>
+    <Italian>Renovatio Imperii</Italian>
+    <Spanish>Renovatio Imperii</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_BRENNUS</Tag>
+    <English>Gallic War League</English>
+    <French>Gallic War League</French>
+    <German>Gallic War League</German>
+    <Italian>Gallic War League</Italian>
+    <Spanish>Gallic War League</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_BRENNUS_SHORT</Tag>
+    <English>Gallic War League</English>
+    <French>Gallic War League</French>
+    <German>Gallic War League</German>
+    <Italian>Gallic War League</Italian>
+    <Spanish>Gallic War League</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_BOUDICA</Tag>
+    <English>Iceni Revolt</English>
+    <French>Iceni Revolt</French>
+    <German>Iceni Revolt</German>
+    <Italian>Iceni Revolt</Italian>
+    <Spanish>Iceni Revolt</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_BOUDICA_SHORT</Tag>
+    <English>Iceni Revolt</English>
+    <French>Iceni Revolt</French>
+    <German>Iceni Revolt</German>
+    <Italian>Iceni Revolt</Italian>
+    <Spanish>Iceni Revolt</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_GILGAMESH</Tag>
+    <English>First Cities</English>
+    <French>First Cities</French>
+    <German>First Cities</German>
+    <Italian>First Cities</Italian>
+    <Spanish>First Cities</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_GILGAMESH_SHORT</Tag>
+    <English>First Cities</English>
+    <French>First Cities</French>
+    <German>First Cities</German>
+    <Italian>First Cities</Italian>
+    <Spanish>First Cities</Spanish>
+  </TEXT>
+</Civ4GameText>

@@ -90,7 +90,7 @@
           <BuildingType>BUILDING_NATIONAL_BANK</BuildingType>
         </Building>
       </Buildings>
-      <Units />
+      <Units><Unit><UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType><UnitType>UNIT_UNION_USCT_RIFLEMAN</UnitType></Unit></Units>
       <FreeUnitClasses>
         <FreeUnitClass>
           <UnitClassType>UNITCLASS_SETTLER</UnitClassType>
@@ -516,6 +516,10 @@
           <BuildingClassType>BUILDINGCLASS_THEATRE</BuildingClassType>
           <BuildingType>BUILDING_BYZANTINE_HIPPODROME</BuildingType>
         </Building>
+        <Building>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_BYZANTINE_CORPUS_JURIS</BuildingType>
+        </Building>
       </Buildings>
       <Units>
         <Unit>
@@ -523,32 +527,8 @@
           <UnitType>UNIT_BYZANTINE_CATAPHRACT</UnitType>
         </Unit>
         <Unit>
-          <UnitClassType>UNITCLASS_JEWISH_MISSIONARY</UnitClassType>
-          <UnitType>UNIT_JUSTINIAN_JEWISH_MISSIONARY</UnitType>
-        </Unit>
-        <Unit>
           <UnitClassType>UNITCLASS_CHRISTIAN_MISSIONARY</UnitClassType>
           <UnitType>UNIT_JUSTINIAN_CHRISTIAN_MISSIONARY</UnitType>
-        </Unit>
-        <Unit>
-          <UnitClassType>UNITCLASS_ISLAMIC_MISSIONARY</UnitClassType>
-          <UnitType>UNIT_JUSTINIAN_ISLAMIC_MISSIONARY</UnitType>
-        </Unit>
-        <Unit>
-          <UnitClassType>UNITCLASS_BUDDHIST_MISSIONARY</UnitClassType>
-          <UnitType>UNIT_JUSTINIAN_BUDDHIST_MISSIONARY</UnitType>
-        </Unit>
-        <Unit>
-          <UnitClassType>UNITCLASS_HINDU_MISSIONARY</UnitClassType>
-          <UnitType>UNIT_JUSTINIAN_HINDU_MISSIONARY</UnitType>
-        </Unit>
-        <Unit>
-          <UnitClassType>UNITCLASS_TAOIST_MISSIONARY</UnitClassType>
-          <UnitType>UNIT_JUSTINIAN_TAOIST_MISSIONARY</UnitType>
-        </Unit>
-        <Unit>
-          <UnitClassType>UNITCLASS_CONFUCIAN_MISSIONARY</UnitClassType>
-          <UnitType>UNIT_JUSTINIAN_CONFUCIAN_MISSIONARY</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -878,14 +858,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
-          <BuildingType>BUILDING_HOLY_ROMAN_RATHAUS</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+          <BuildingType>BUILDING_CAROLINGIAN_SCRIPTORIUM</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_PIKEMAN</UnitClassType>
-          <UnitType>UNIT_HOLY_ROMAN_LANDSKNECHT</UnitType>
+          <UnitClassType>UNITCLASS_AXEMAN</UnitClassType>
+          <UnitType>UNIT_FRANKISH_AXETHROWER</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -4093,14 +4073,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
-          <BuildingType>BUILDING_ENGLISH_STOCK_EXCHANGE</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_CASTLE</BuildingClassType>
+          <BuildingType>BUILDING_COUNTRY_ESTATE</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
-          <UnitType>UNIT_ENGLISH_REDCOAT</UnitType>
+          <UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
+          <UnitType>UNIT_COUNTY_LANCERS</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -4548,8 +4528,8 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
-          <BuildingType>BUILDING_PERSIA_SATRAPY_ARCHIVE</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
+          <BuildingType>BUILDING_PERSIA_PASARGADAE_DECREE</BuildingType>
         </Building>
       </Buildings>
       <Units>
@@ -4685,8 +4665,8 @@
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_CHARIOT</UnitClassType>
-          <UnitType>UNIT_PERSIA_IMMORTAL</UnitType>
+          <UnitClassType>UNITCLASS_SPEARMAN</UnitClassType>
+          <UnitType>UNIT_PERSIA_TAKABARA</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -4932,13 +4912,13 @@
       <Buildings>
         <Building>
           <BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
-          <BuildingType>BUILDING_AMERICAN_MALL</BuildingType>
+          <BuildingType>BUILDING_NEW_DEAL_FEDERAL_RELIEF_DEPOT</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_MARINE</UnitClassType>
-          <UnitType>UNIT_AMERICAN_NAVY_SEAL</UnitType>
+          <UnitType>UNIT_NEW_DEAL_MARINE_RAIDER</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -5057,14 +5037,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType>
-          <BuildingType>BUILDING_AMERICAN_MALL</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_FEDERAL_BUREAU</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_MARINE</UnitClassType>
-          <UnitType>UNIT_AMERICAN_NAVY_SEAL</UnitType>
+          <UnitClassType>UNITCLASS_PARATROOPER</UnitClassType>
+          <UnitType>UNIT_FEDERAL_BORDER_PATROL_AGENT</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -5180,13 +5160,13 @@
       <Buildings>
         <Building>
           <BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
-          <BuildingType>BUILDING_EGYPTIAN_OBELISK</BuildingType>
+          <BuildingType>BUILDING_EGYPT_HATSHEPSUT_KARNAK_OBELISK</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_CHARIOT</UnitClassType>
-          <UnitType>UNIT_EGYPT_WARCHARIOT</UnitType>
+          <UnitType>UNIT_EGYPT_HATSHEPSUT_ROYAL_EXPEDITION_CHARIOT</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -5302,13 +5282,13 @@
       <Buildings>
         <Building>
           <BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
-          <BuildingType>BUILDING_EGYPTIAN_OBELISK</BuildingType>
+          <BuildingType>BUILDING_EGYPT_RAMESSES_TEMPLE</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_CHARIOT</UnitClassType>
-          <UnitType>UNIT_EGYPT_WARCHARIOT</UnitType>
+          <UnitType>UNIT_EGYPT_RAMESSES_BATTLE_CHARIOT</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -5403,8 +5383,8 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_AQUEDUCT</BuildingClassType>
-          <BuildingType>BUILDING_OTTOMAN_HAMMAM</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType>
+          <BuildingType>BUILDING_OTTOMAN_DEVSHIRME_BARRACKS</BuildingType>
         </Building>
       </Buildings>
       <Units>
@@ -5510,17 +5490,17 @@
       <Buildings>
         <Building>
           <BuildingClassType>BUILDINGCLASS_AQUEDUCT</BuildingClassType>
-          <BuildingType>BUILDING_OTTOMAN_HAMMAM</BuildingType>
+          <BuildingType>BUILDING_OTTOMAN_KULLIYE</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
-          <UnitType>UNIT_OTTOMAN_JANISSARY</UnitType>
+          <UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
+          <UnitType>UNIT_OTTOMAN_SIPAHI</UnitType>
         </Unit>
         <Unit>
-          <UnitClassType>UNITCLASS_CANNON</UnitClassType>
-          <UnitType>UNIT_BOMBARD</UnitType>
+          <UnitClassType>UNITCLASS_CARAVEL</UnitClassType>
+          <UnitType>UNIT_OTTOMAN_GALLEASS</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -5618,13 +5598,13 @@
       <Buildings>
         <Building>
           <BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
-          <BuildingType>BUILDING_ETHIOPIAN_STELE</BuildingType>
+          <BuildingType>BUILDING_ETHIOPIA_ZARA_TABOT_SHRINE</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
-          <UnitType>UNIT_ETHIOPIAN_OROMO_WARRIOR</UnitType>
+          <UnitClassType>UNITCLASS_MACEMAN</UnitClassType>
+          <UnitType>UNIT_ETHIOPIA_ZARA_AGAW_INFANTRY</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -5721,14 +5701,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
-          <BuildingType>BUILDING_ETHIOPIAN_STELE</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
+          <BuildingType>BUILDING_ETHIOPIA_SELASSIE_IMPERIAL_UNIVERSITY</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
-          <UnitType>UNIT_ETHIOPIAN_OROMO_WARRIOR</UnitType>
+          <UnitClassType>UNITCLASS_RIFLEMAN</UnitClassType>
+          <UnitType>UNIT_ETHIOPIA_SELASSIE_ARBEGNOCH_RIFLEMAN</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -5832,14 +5812,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
-          <BuildingType>BUILDING_CELTIC_DUN</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_GAUL_NEMETON</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_SWORDSMAN</UnitClassType>
-          <UnitType>UNIT_CELTIC_GALLIC_WARRIOR</UnitType>
+          <UnitType>UNIT_GAUL_GAESATAE</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -5943,14 +5923,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
-          <BuildingType>BUILDING_CELTIC_DUN</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType>
+          <BuildingType>BUILDING_ICENI_HALL</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_SWORDSMAN</UnitClassType>
-          <UnitType>UNIT_CELTIC_GALLIC_WARRIOR</UnitType>
+          <UnitClassType>UNITCLASS_CHARIOT</UnitClassType>
+          <UnitType>UNIT_ICENI_BOUDICCAN_CHARIOT</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -6260,8 +6240,8 @@
           <BuildingType>BUILDING_FRENCH_SALON</BuildingType>
         </Building>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType>
-          <BuildingType>BUILDING_FRENCH_BROADCAST_TOWER</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
+          <BuildingType>BUILDING_MANUFACTURE_ROYALE</BuildingType>
         </Building>
       </Buildings>
       <Units>
@@ -6366,18 +6346,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_OBSERVATORY</BuildingClassType>
-          <BuildingType>BUILDING_FRENCH_SALON</BuildingType>
-        </Building>
-        <Building>
-          <BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType>
-          <BuildingType>BUILDING_FRENCH_BROADCAST_TOWER</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
+          <BuildingType>BUILDING_NAPOLEONIC_PREFECTURE</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_MUSKETMAN</UnitClassType>
-          <UnitType>UNIT_FRENCH_MUSKETEER</UnitType>
+          <UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
+          <UnitType>UNIT_NAPOLEONIC_DRAGOON</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -6481,14 +6457,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_COLOSSEUM</BuildingClassType>
-          <BuildingType>BUILDING_GREEK_ODEON</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType>
+          <BuildingType>BUILDING_MACEDONIAN_COMPANION_BARRACKS</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_AXEMAN</UnitClassType>
-          <UnitType>UNIT_GREEK_PHALANX</UnitType>
+          <UnitType>UNIT_MACEDONIAN_HYPASPIST</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -6593,13 +6569,13 @@
       <Buildings>
         <Building>
           <BuildingClassType>BUILDINGCLASS_COLOSSEUM</BuildingClassType>
-          <BuildingType>BUILDING_GREEK_ODEON</BuildingType>
+          <BuildingType>BUILDING_ATHENIAN_ODEON</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_AXEMAN</UnitClassType>
-          <UnitType>UNIT_GREEK_PHALANX</UnitType>
+          <UnitClassType>UNITCLASS_TRIREME</UnitClassType>
+          <UnitType>UNIT_ATHENIAN_TRIREME</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -6919,14 +6895,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType>
-          <BuildingType>BUILDING_ROMAN_FORUM</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType>
+          <BuildingType>BUILDING_ROMAN_REPUBLIC_CASTRUM</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_SWORDSMAN</UnitClassType>
-          <UnitType>UNIT_ROME_PRAETORIAN</UnitType>
+          <UnitType>UNIT_ROMAN_REPUBLIC_LEGIONARY</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -7040,14 +7016,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType>
-          <BuildingType>BUILDING_ROMAN_FORUM</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType>
+          <BuildingType>BUILDING_ROMAN_PRINCIPATE_COLONIA</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_SWORDSMAN</UnitClassType>
-          <UnitType>UNIT_ROME_PRAETORIAN</UnitType>
+          <UnitType>UNIT_ROMAN_PRINCIPATE_PRAETORIAN</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -7379,14 +7355,14 @@
       </Cities>
       <Buildings>
         <Building>
-          <BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType>
-          <BuildingType>BUILDING_GERMAN_ASSEMBLY_PLANT</BuildingType>
+          <BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+          <BuildingType>BUILDING_PRUSSIAN_ACADEMY</BuildingType>
         </Building>
       </Buildings>
       <Units>
         <Unit>
-          <UnitClassType>UNITCLASS_TANK</UnitClassType>
-          <UnitType>UNIT_GERMAN_PANZER</UnitType>
+          <UnitClassType>UNITCLASS_CUIRASSIER</UnitClassType>
+          <UnitType>UNIT_PRUSSIAN_HUSSAR</UnitType>
         </Unit>
       </Units>
       <FreeUnitClasses>
@@ -7550,5 +7526,3 @@
     </CivilizationInfo>
   </CivilizationInfos>
 </Civ4CivilizationInfos>
-
-

@@ -29851,8 +29851,8 @@
     </LeaderHeadInfo>
     <LeaderHeadInfo>
       <Type>LEADER_DOWAGER_COUNTESS</Type>
-      <Description>Evil Dowager Countess of Grantham</Description>
-      <Civilopedia>Evil Dowager Countess Maggie Smith</Civilopedia>
+      <Description>TXT_KEY_LEADER_DOWAGER_COUNTESS</Description>
+      <Civilopedia>TXT_KEY_LEADER_DOWAGER_COUNTESS_PEDIA</Civilopedia>
       <ArtDefineTag>ART_DEF_LEADER_DOWAGER_COUNTESS</ArtDefineTag>
       <iWonderConstructRand>20</iWonderConstructRand>
       <iBaseAttitude>-1</iBaseAttitude>
@@ -29929,11 +29929,7 @@
       <FavoriteReligion>RELIGION_CHRISTIANITY</FavoriteReligion>
       <Traits>
         <Trait>
-          <TraitType>TRAIT_PARANOID</TraitType>
-          <bTrait>1</bTrait>
-        </Trait>
-        <Trait>
-          <TraitType>TRAIT_PACIFIST</TraitType>
+          <TraitType>TRAIT_DOWAGER_COUNTESS</TraitType>
           <bTrait>1</bTrait>
         </Trait>
       </Traits>
@@ -30409,8 +30405,8 @@
     </LeaderHeadInfo>
     <LeaderHeadInfo>
       <Type>LEADER_REGINALD_ENDICOTT_BARCLAY</Type>
-      <Description>Lt. Reginold Endicott Barclay</Description>
-      <Civilopedia>Reginold Endicott Barclay</Civilopedia>
+      <Description>TXT_KEY_LEADER_REGINALD_ENDICOTT_BARCLAY</Description>
+      <Civilopedia>TXT_KEY_LEADER_REGINALD_ENDICOTT_BARCLAY_PEDIA</Civilopedia>
       <ArtDefineTag>ART_DEF_LEADER_REGINALD_ENDICOTT_BARCLAY</ArtDefineTag>
       <iWonderConstructRand>20</iWonderConstructRand>
       <iBaseAttitude>3</iBaseAttitude>
@@ -30485,16 +30481,7 @@
       <iFreedomAppreciation>10</iFreedomAppreciation>
       <FavoriteCivic>CIVIC_PACIFISM</FavoriteCivic>
       <FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
-      <Traits>
-        <Trait>
-          <TraitType>TRAIT_PROTECTIVE</TraitType>
-          <bTrait>1</bTrait>
-        </Trait>
-        <Trait>
-          <TraitType>TRAIT_ORGANIZED</TraitType>
-          <bTrait>1</bTrait>
-        </Trait>
-      </Traits>
+      <Traits><Trait><TraitType>TRAIT_BARCLAY</TraitType><bTrait>1</bTrait></Trait></Traits>
       <Flavors>
         <Flavor>
           <FlavorType>FLAVOR_PRODUCTION</FlavorType>

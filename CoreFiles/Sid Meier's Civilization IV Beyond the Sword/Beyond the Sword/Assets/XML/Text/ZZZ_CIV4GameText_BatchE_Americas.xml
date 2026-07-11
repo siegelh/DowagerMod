@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_UNION_USCT_RIFLEMAN</Tag>
+    <English>USCT Rifleman</English>
+    <French>USCT Rifleman</French>
+    <German>USCT Rifleman</German>
+    <Italian>USCT Rifleman</Italian>
+    <Spanish>USCT Rifleman</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_UNION_USCT_RIFLEMAN_STRATEGY</Tag>
+    <English>Replaces the Rifleman. Costs 105 Production instead of 110, has 14 Strength, +20% city defense, +25% against Mounted units, and starts with City Garrison I. Best used for rapid domestic mobilization and city defense.</English>
+    <French>Replaces the Rifleman. Costs 105 Production instead of 110, has 14 Strength, +20% city defense, +25% against Mounted units, and starts with City Garrison I. Best used for rapid domestic mobilization and city defense.</French>
+    <German>Replaces the Rifleman. Costs 105 Production instead of 110, has 14 Strength, +20% city defense, +25% against Mounted units, and starts with City Garrison I. Best used for rapid domestic mobilization and city defense.</German>
+    <Italian>Replaces the Rifleman. Costs 105 Production instead of 110, has 14 Strength, +20% city defense, +25% against Mounted units, and starts with City Garrison I. Best used for rapid domestic mobilization and city defense.</Italian>
+    <Spanish>Replaces the Rifleman. Costs 105 Production instead of 110, has 14 Strength, +20% city defense, +25% against Mounted units, and starts with City Garrison I. Best used for rapid domestic mobilization and city defense.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_UNION_USCT_RIFLEMAN_PEDIA</Tag>
+    <English>The United States Colored Troops were regiments of African American soldiers organized by the Union during the American Civil War after federal policy opened enlistment. They served in combat, garrison, and support duties, strengthening Union manpower while making military service part of the struggle for emancipation and citizenship.</English>
+    <French>The United States Colored Troops were regiments of African American soldiers organized by the Union during the American Civil War after federal policy opened enlistment. They served in combat, garrison, and support duties, strengthening Union manpower while making military service part of the struggle for emancipation and citizenship.</French>
+    <German>The United States Colored Troops were regiments of African American soldiers organized by the Union during the American Civil War after federal policy opened enlistment. They served in combat, garrison, and support duties, strengthening Union manpower while making military service part of the struggle for emancipation and citizenship.</German>
+    <Italian>The United States Colored Troops were regiments of African American soldiers organized by the Union during the American Civil War after federal policy opened enlistment. They served in combat, garrison, and support duties, strengthening Union manpower while making military service part of the struggle for emancipation and citizenship.</Italian>
+    <Spanish>The United States Colored Troops were regiments of African American soldiers organized by the Union during the American Civil War after federal policy opened enlistment. They served in combat, garrison, and support duties, strengthening Union manpower while making military service part of the struggle for emancipation and citizenship.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_LINCOLN</Tag>
+    <English>Union Mobilization</English>
+    <French>Union Mobilization</French>
+    <German>Union Mobilization</German>
+    <Italian>Union Mobilization</Italian>
+    <Spanish>Union Mobilization</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_LINCOLN_SHORT</Tag>
+    <English>Union Mobilization</English>
+    <French>Union Mobilization</French>
+    <German>Union Mobilization</German>
+    <Italian>Union Mobilization</Italian>
+    <Spanish>Union Mobilization</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_LINCOLN_HELP</Tag>
+    <English>+50% Great General emergence inside cultural borders; Farms gain +1 Commerce; Railroads gain +1 Production; Scientist specialists gain +1 Research.</English>
+    <French>+50% Great General emergence inside cultural borders; Farms gain +1 Commerce; Railroads gain +1 Production; Scientist specialists gain +1 Research.</French>
+    <German>+50% Great General emergence inside cultural borders; Farms gain +1 Commerce; Railroads gain +1 Production; Scientist specialists gain +1 Research.</German>
+    <Italian>+50% Great General emergence inside cultural borders; Farms gain +1 Commerce; Railroads gain +1 Production; Scientist specialists gain +1 Research.</Italian>
+    <Spanish>+50% Great General emergence inside cultural borders; Farms gain +1 Commerce; Railroads gain +1 Production; Scientist specialists gain +1 Research.</Spanish>
+  </TEXT>
+
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_NEW_DEAL_MARINE_RAIDER</Tag>
+    <English>Marine Raider</English>
+    <French>Marine Raider</French>
+    <German>Marine Raider</German>
+    <Italian>Marine Raider</Italian>
+    <Spanish>Marine Raider</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_NEW_DEAL_MARINE_RAIDER_STRATEGY</Tag>
+    <English>Replaces the Marine. Has 24 Strength, +10% city attack, a 15% withdrawal chance, +50% against Machine Guns and Artillery, and starts with Amphibious. It is a bounded assault upgrade without the Navy SEAL's March promotion.</English>
+    <French>Replaces the Marine. Has 24 Strength, +10% city attack, a 15% withdrawal chance, +50% against Machine Guns and Artillery, and starts with Amphibious. It is a bounded assault upgrade without the Navy SEAL's March promotion.</French>
+    <German>Replaces the Marine. Has 24 Strength, +10% city attack, a 15% withdrawal chance, +50% against Machine Guns and Artillery, and starts with Amphibious. It is a bounded assault upgrade without the Navy SEAL's March promotion.</German>
+    <Italian>Replaces the Marine. Has 24 Strength, +10% city attack, a 15% withdrawal chance, +50% against Machine Guns and Artillery, and starts with Amphibious. It is a bounded assault upgrade without the Navy SEAL's March promotion.</Italian>
+    <Spanish>Replaces the Marine. Has 24 Strength, +10% city attack, a 15% withdrawal chance, +50% against Machine Guns and Artillery, and starts with Amphibious. It is a bounded assault upgrade without the Navy SEAL's March promotion.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_NEW_DEAL_MARINE_RAIDER_PEDIA</Tag>
+    <English>The Marine Raiders were United States Marine Corps units formed in 1942 for amphibious raids and operations in the Pacific. Their early-war service emphasized small-unit initiative, reconnaissance, and attacks from the sea before the battalions were reorganized into conventional Marine formations in 1944.</English>
+    <French>The Marine Raiders were United States Marine Corps units formed in 1942 for amphibious raids and operations in the Pacific. Their early-war service emphasized small-unit initiative, reconnaissance, and attacks from the sea before the battalions were reorganized into conventional Marine formations in 1944.</French>
+    <German>The Marine Raiders were United States Marine Corps units formed in 1942 for amphibious raids and operations in the Pacific. Their early-war service emphasized small-unit initiative, reconnaissance, and attacks from the sea before the battalions were reorganized into conventional Marine formations in 1944.</German>
+    <Italian>The Marine Raiders were United States Marine Corps units formed in 1942 for amphibious raids and operations in the Pacific. Their early-war service emphasized small-unit initiative, reconnaissance, and attacks from the sea before the battalions were reorganized into conventional Marine formations in 1944.</Italian>
+    <Spanish>The Marine Raiders were United States Marine Corps units formed in 1942 for amphibious raids and operations in the Pacific. Their early-war service emphasized small-unit initiative, reconnaissance, and attacks from the sea before the battalions were reorganized into conventional Marine formations in 1944.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_NEW_DEAL_FEDERAL_RELIEF_DEPOT</Tag>
+    <English>Federal Relief Depot</English>
+    <French>Federal Relief Depot</French>
+    <German>Federal Relief Depot</German>
+    <Italian>Federal Relief Depot</Italian>
+    <Spanish>Federal Relief Depot</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_NEW_DEAL_FEDERAL_RELIEF_DEPOT_STRATEGY</Tag>
+    <English>Replaces the Supermarket. Costs 140 Production, provides +1 Food and +1 Health, and grants +1 Health from Cow, Deer, Pig, and Sheep. It has no Mall gold bonus or entertainment-resource happiness.</English>
+    <French>Replaces the Supermarket. Costs 140 Production, provides +1 Food and +1 Health, and grants +1 Health from Cow, Deer, Pig, and Sheep. It has no Mall gold bonus or entertainment-resource happiness.</French>
+    <German>Replaces the Supermarket. Costs 140 Production, provides +1 Food and +1 Health, and grants +1 Health from Cow, Deer, Pig, and Sheep. It has no Mall gold bonus or entertainment-resource happiness.</German>
+    <Italian>Replaces the Supermarket. Costs 140 Production, provides +1 Food and +1 Health, and grants +1 Health from Cow, Deer, Pig, and Sheep. It has no Mall gold bonus or entertainment-resource happiness.</Italian>
+    <Spanish>Replaces the Supermarket. Costs 140 Production, provides +1 Food and +1 Health, and grants +1 Health from Cow, Deer, Pig, and Sheep. It has no Mall gold bonus or entertainment-resource happiness.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_NEW_DEAL_FEDERAL_RELIEF_DEPOT_PEDIA</Tag>
+    <English>New Deal relief agencies distributed food and other necessities through federal, state, and local networks during the Great Depression. This depot represents public provisioning and health-oriented distribution rather than postwar consumer entertainment.</English>
+    <French>New Deal relief agencies distributed food and other necessities through federal, state, and local networks during the Great Depression. This depot represents public provisioning and health-oriented distribution rather than postwar consumer entertainment.</French>
+    <German>New Deal relief agencies distributed food and other necessities through federal, state, and local networks during the Great Depression. This depot represents public provisioning and health-oriented distribution rather than postwar consumer entertainment.</German>
+    <Italian>New Deal relief agencies distributed food and other necessities through federal, state, and local networks during the Great Depression. This depot represents public provisioning and health-oriented distribution rather than postwar consumer entertainment.</Italian>
+    <Spanish>New Deal relief agencies distributed food and other necessities through federal, state, and local networks during the Great Depression. This depot represents public provisioning and health-oriented distribution rather than postwar consumer entertainment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_ROOSEVELT</Tag>
+    <English>New Deal Mobilization</English>
+    <French>New Deal Mobilization</French>
+    <German>New Deal Mobilization</German>
+    <Italian>New Deal Mobilization</Italian>
+    <Spanish>New Deal Mobilization</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_ROOSEVELT_SHORT</Tag>
+    <English>New Deal Mobilization</English>
+    <French>New Deal Mobilization</French>
+    <German>New Deal Mobilization</German>
+    <Italian>New Deal Mobilization</Italian>
+    <Spanish>New Deal Mobilization</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_ROOSEVELT_HELP</Tag>
+    <English>Plots already producing at least 4 Production gain +1 Production; Engineers gain +1 Production; Factories gain +1 Culture. Trade-yield array order is Food, Production, Commerce: 0%, +200%, -300%. Trade Production equals twice route profit; -300 percentage points apply to the final trade Commerce modifier, and a nonpositive result yields zero rather than negative Commerce.</English>
+    <French>Plots already producing at least 4 Production gain +1 Production; Engineers gain +1 Production; Factories gain +1 Culture. Trade-yield array order is Food, Production, Commerce: 0%, +200%, -300%. Trade Production equals twice route profit; -300 percentage points apply to the final trade Commerce modifier, and a nonpositive result yields zero rather than negative Commerce.</French>
+    <German>Plots already producing at least 4 Production gain +1 Production; Engineers gain +1 Production; Factories gain +1 Culture. Trade-yield array order is Food, Production, Commerce: 0%, +200%, -300%. Trade Production equals twice route profit; -300 percentage points apply to the final trade Commerce modifier, and a nonpositive result yields zero rather than negative Commerce.</German>
+    <Italian>Plots already producing at least 4 Production gain +1 Production; Engineers gain +1 Production; Factories gain +1 Culture. Trade-yield array order is Food, Production, Commerce: 0%, +200%, -300%. Trade Production equals twice route profit; -300 percentage points apply to the final trade Commerce modifier, and a nonpositive result yields zero rather than negative Commerce.</Italian>
+    <Spanish>Plots already producing at least 4 Production gain +1 Production; Engineers gain +1 Production; Factories gain +1 Culture. Trade-yield array order is Food, Production, Commerce: 0%, +200%, -300%. Trade Production equals twice route profit; -300 percentage points apply to the final trade Commerce modifier, and a nonpositive result yields zero rather than negative Commerce.</Spanish>
+  </TEXT>
+
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_FEDERAL_BORDER_PATROL_AGENT</Tag>
+    <English>Border Patrol Agent</English>
+    <French>Border Patrol Agent</French>
+    <German>Border Patrol Agent</German>
+    <Italian>Border Patrol Agent</Italian>
+    <Spanish>Border Patrol Agent</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_FEDERAL_BORDER_PATROL_AGENT_STRATEGY</Tag>
+    <English>Replaces the Paratrooper. Has 24 Strength, +20% city defense, a 3-tile paradrop range, and 25% evasion. Reserve, city-defense, and paradrop AI roles make it a rapid-response interceptor rather than an amphibious attacker.</English>
+    <French>Replaces the Paratrooper. Has 24 Strength, +20% city defense, a 3-tile paradrop range, and 25% evasion. Reserve, city-defense, and paradrop AI roles make it a rapid-response interceptor rather than an amphibious attacker.</French>
+    <German>Replaces the Paratrooper. Has 24 Strength, +20% city defense, a 3-tile paradrop range, and 25% evasion. Reserve, city-defense, and paradrop AI roles make it a rapid-response interceptor rather than an amphibious attacker.</German>
+    <Italian>Replaces the Paratrooper. Has 24 Strength, +20% city defense, a 3-tile paradrop range, and 25% evasion. Reserve, city-defense, and paradrop AI roles make it a rapid-response interceptor rather than an amphibious attacker.</Italian>
+    <Spanish>Replaces the Paratrooper. Has 24 Strength, +20% city defense, a 3-tile paradrop range, and 25% evasion. Reserve, city-defense, and paradrop AI roles make it a rapid-response interceptor rather than an amphibious attacker.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_FEDERAL_BORDER_PATROL_AGENT_PEDIA</Tag>
+    <English>This Border Patrol Agent is a fictionalized gameplay unit for Barclay's satirical Federal America. It deliberately exaggerates a modern enforcement bureaucracy into a rapid-deployment military formation; it is not a claim about any historical unit or real person's command.</English>
+    <French>This Border Patrol Agent is a fictionalized gameplay unit for Barclay's satirical Federal America. It deliberately exaggerates a modern enforcement bureaucracy into a rapid-deployment military formation; it is not a claim about any historical unit or real person's command.</French>
+    <German>This Border Patrol Agent is a fictionalized gameplay unit for Barclay's satirical Federal America. It deliberately exaggerates a modern enforcement bureaucracy into a rapid-deployment military formation; it is not a claim about any historical unit or real person's command.</German>
+    <Italian>This Border Patrol Agent is a fictionalized gameplay unit for Barclay's satirical Federal America. It deliberately exaggerates a modern enforcement bureaucracy into a rapid-deployment military formation; it is not a claim about any historical unit or real person's command.</Italian>
+    <Spanish>This Border Patrol Agent is a fictionalized gameplay unit for Barclay's satirical Federal America. It deliberately exaggerates a modern enforcement bureaucracy into a rapid-deployment military formation; it is not a claim about any historical unit or real person's command.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_FEDERAL_BUREAU</Tag>
+    <English>Federal Bureau</English>
+    <French>Federal Bureau</French>
+    <German>Federal Bureau</German>
+    <Italian>Federal Bureau</Italian>
+    <Spanish>Federal Bureau</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_FEDERAL_BUREAU_STRATEGY</Tag>
+    <English>Replaces the Courthouse. Costs 120 Production, reduces city maintenance by 40%, provides 3 Espionage, one Spy specialist slot, and +25% espionage defense. It trades part of the normal Courthouse's maintenance reduction for internal-security capacity.</English>
+    <French>Replaces the Courthouse. Costs 120 Production, reduces city maintenance by 40%, provides 3 Espionage, one Spy specialist slot, and +25% espionage defense. It trades part of the normal Courthouse's maintenance reduction for internal-security capacity.</French>
+    <German>Replaces the Courthouse. Costs 120 Production, reduces city maintenance by 40%, provides 3 Espionage, one Spy specialist slot, and +25% espionage defense. It trades part of the normal Courthouse's maintenance reduction for internal-security capacity.</German>
+    <Italian>Replaces the Courthouse. Costs 120 Production, reduces city maintenance by 40%, provides 3 Espionage, one Spy specialist slot, and +25% espionage defense. It trades part of the normal Courthouse's maintenance reduction for internal-security capacity.</Italian>
+    <Spanish>Replaces the Courthouse. Costs 120 Production, reduces city maintenance by 40%, provides 3 Espionage, one Spy specialist slot, and +25% espionage defense. It trades part of the normal Courthouse's maintenance reduction for internal-security capacity.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_FEDERAL_BUREAU_PEDIA</Tag>
+    <English>The Federal Bureau is a fictional satirical institution created for Barclay's scenario. Its multiplying desks, files, clearances, and overlapping jurisdictions parody administrative overreach; it is not presented as a historical agency or an account of real federal administration.</English>
+    <French>The Federal Bureau is a fictional satirical institution created for Barclay's scenario. Its multiplying desks, files, clearances, and overlapping jurisdictions parody administrative overreach; it is not presented as a historical agency or an account of real federal administration.</French>
+    <German>The Federal Bureau is a fictional satirical institution created for Barclay's scenario. Its multiplying desks, files, clearances, and overlapping jurisdictions parody administrative overreach; it is not presented as a historical agency or an account of real federal administration.</German>
+    <Italian>The Federal Bureau is a fictional satirical institution created for Barclay's scenario. Its multiplying desks, files, clearances, and overlapping jurisdictions parody administrative overreach; it is not presented as a historical agency or an account of real federal administration.</Italian>
+    <Spanish>The Federal Bureau is a fictional satirical institution created for Barclay's scenario. Its multiplying desks, files, clearances, and overlapping jurisdictions parody administrative overreach; it is not presented as a historical agency or an account of real federal administration.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_BARCLAY</Tag>
+    <English>Administrative Security State</English>
+    <French>Administrative Security State</French>
+    <German>Administrative Security State</German>
+    <Italian>Administrative Security State</Italian>
+    <Spanish>Administrative Security State</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_BARCLAY_SHORT</Tag>
+    <English>Administrative Security State</English>
+    <French>Administrative Security State</French>
+    <German>Administrative Security State</German>
+    <Italian>Administrative Security State</Italian>
+    <Spanish>Administrative Security State</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_BARCLAY_HELP</Tag>
+    <English>-10% civic upkeep; +15% Espionage; Spy specialists gain +1 Espionage; Gunpowder units receive City Garrison I and Drill I.</English>
+    <French>-10% civic upkeep; +15% Espionage; Spy specialists gain +1 Espionage; Gunpowder units receive City Garrison I and Drill I.</French>
+    <German>-10% civic upkeep; +15% Espionage; Spy specialists gain +1 Espionage; Gunpowder units receive City Garrison I and Drill I.</German>
+    <Italian>-10% civic upkeep; +15% Espionage; Spy specialists gain +1 Espionage; Gunpowder units receive City Garrison I and Drill I.</Italian>
+    <Spanish>-10% civic upkeep; +15% Espionage; Spy specialists gain +1 Espionage; Gunpowder units receive City Garrison I and Drill I.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_REGINALD_ENDICOTT_BARCLAY</Tag>
+    <English>Reginald Endicott Barclay</English>
+    <French>Reginald Endicott Barclay</French>
+    <German>Reginald Endicott Barclay</German>
+    <Italian>Reginald Endicott Barclay</Italian>
+    <Spanish>Reginald Endicott Barclay</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_REGINALD_ENDICOTT_BARCLAY_PEDIA</Tag>
+    <English>Reginald Endicott Barclay is a fictional satirical leader created for this mod. He caricatures a self-important security bureaucrat whose answer to every problem is another bureau, checkpoint, or classified memorandum. No historical office, career, or accomplishment is claimed for him.</English>
+    <French>Reginald Endicott Barclay is a fictional satirical leader created for this mod. He caricatures a self-important security bureaucrat whose answer to every problem is another bureau, checkpoint, or classified memorandum. No historical office, career, or accomplishment is claimed for him.</French>
+    <German>Reginald Endicott Barclay is a fictional satirical leader created for this mod. He caricatures a self-important security bureaucrat whose answer to every problem is another bureau, checkpoint, or classified memorandum. No historical office, career, or accomplishment is claimed for him.</German>
+    <Italian>Reginald Endicott Barclay is a fictional satirical leader created for this mod. He caricatures a self-important security bureaucrat whose answer to every problem is another bureau, checkpoint, or classified memorandum. No historical office, career, or accomplishment is claimed for him.</Italian>
+    <Spanish>Reginald Endicott Barclay is a fictional satirical leader created for this mod. He caricatures a self-important security bureaucrat whose answer to every problem is another bureau, checkpoint, or classified memorandum. No historical office, career, or accomplishment is claimed for him.</Spanish>
+  </TEXT>
+</Civ4GameText>
