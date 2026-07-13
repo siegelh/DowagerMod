@@ -56,6 +56,8 @@
 - [`plans/active/2026-03-12-symphony-worktree-cleanup.md`](plans/active/2026-03-12-symphony-worktree-cleanup.md) - `Current active plan`. Conservative cleanup flow for merged/completed Symphony worktrees.
 - [`plans/active/2026-03-13-symphony-squad-integration.md`](plans/active/2026-03-13-symphony-squad-integration.md) - `Current active plan`. Squad roles, GitHub-facing job routing, observability, and human workflow for Symphony.
 - [`plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md`](plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md) - `Current active plan`. Auto-prune clean Symphony worktrees only after merged PR plus closed issue.
+- [`plans/active/2026-07-12-remaining-roster-expansion.md`](plans/active/2026-07-12-remaining-roster-expansion.md) - `Current active plan`. Tiered audit and guarded expansion of the 32 playable packages outside the recent 27-package overhaul.
+- [`../tools/baselines/roster_baseline.json`](../tools/baselines/roster_baseline.json) - `Generated reference`. Commit-pinned playable roster, synchronized InfoType order, and deterministic XML/Python/DLL digest baseline.
 
 ### Repo-Local Skills
 

@@ -1,0 +1,2585 @@
+{
+  "schema_version": 1,
+  "source_commit": "12e22297f8eb6cd20020033f6e333fe760914ba1",
+  "assets_root": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets",
+  "scope": {
+    "playable_mapping_count": 59,
+    "recent_27_count": 27,
+    "remaining_32_count": 32,
+    "excluded_from_playable_packages": [
+      "CIVILIZATION_BARBARIAN",
+      "CIVILIZATION_MINOR"
+    ],
+    "structural_snapshots_include_excluded_types": true
+  },
+  "packages": [
+    {
+      "leader": "LEADER_REGINALD_ENDICOTT_BARCLAY",
+      "civilization": "CIVILIZATION_AMERICA_FEDERAL",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_BARCLAY"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_PARATROOPER",
+          "UnitType": "UNIT_FEDERAL_BORDER_PATROL_AGENT"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_FEDERAL_BUREAU"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_WASHINGTON",
+      "civilization": "CIVILIZATION_AMERICA_FOUNDING_REPUBLIC",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_GEORGE_WASHINGTON"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_MUSKETMAN",
+          "UnitType": "UNIT_CONTINENTAL_LINE_INFANTRY"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_FEDERAL_HALL"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_FRANKLIN_ROOSEVELT",
+      "civilization": "CIVILIZATION_AMERICA_NEW_DEAL",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_ROOSEVELT"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_MARINE",
+          "UnitType": "UNIT_NEW_DEAL_MARINE_RAIDER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_SUPERMARKET",
+          "BuildingType": "BUILDING_NEW_DEAL_FEDERAL_RELIEF_DEPOT"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_LINCOLN",
+      "civilization": "CIVILIZATION_AMERICA_UNION",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_LINCOLN"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_RIFLEMAN",
+          "UnitType": "UNIT_UNION_USCT_RIFLEMAN"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_UNIVERSITY",
+          "BuildingType": "BUILDING_LAND_GRANT_COLLEGE"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_BANK",
+          "BuildingType": "BUILDING_NATIONAL_BANK"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_GERONIMO_BTG",
+      "civilization": "CIVILIZATION_APACHE_CONFEDERACY",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_LEADER_GERONIMO"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_SCOUT",
+          "UnitType": "UNIT_APACHE_MEDICINE_MAN_BTG"
+        },
+        {
+          "UnitClassType": "UNITCLASS_CUIRASSIER",
+          "UnitType": "UNIT_APACHE_RAIDER_BTG"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_BARRACKS",
+          "BuildingType": "BUILDING_APACHE_WAR_COUNCIL_BTG"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_SALADIN",
+      "civilization": "CIVILIZATION_ARABIA",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_SALADIN"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_KNIGHT",
+          "UnitType": "UNIT_ARABIA_CAMELARCHER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_LIBRARY",
+          "BuildingType": "BUILDING_ARABIAN_MADRASSA"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_PERICLES",
+      "civilization": "CIVILIZATION_ATHENIAN_GREECE",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_PERICLES"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_TRIREME",
+          "UnitType": "UNIT_ATHENIAN_TRIREME"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COLOSSEUM",
+          "BuildingType": "BUILDING_ATHENIAN_ODEON"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_MONTEZUMA",
+      "civilization": "CIVILIZATION_AZTEC",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_MONTEZUMA"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_SWORDSMAN",
+          "UnitType": "UNIT_AZTEC_JAGUAR"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_AZTEC_SACRIFICIAL_ALTAR"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_GREAT_PALACE",
+          "BuildingType": "BUILDING_AZTEC_PALACE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_HAMMURABI",
+      "civilization": "CIVILIZATION_BABYLON",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_HAMMURABI"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_ARCHER",
+          "UnitType": "UNIT_BABYLON_BOWMAN"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_PALACE",
+          "BuildingType": "BUILDING_BABYLON_ROYAL_PALACE"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_COLOSSEUM",
+          "BuildingType": "BUILDING_BABYLON_GARDEN"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_BABYLON_COURTHOUSE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_DOWAGER_COUNTESS",
+      "civilization": "CIVILIZATION_BRITISH_REGENCY",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_DOWAGER_COUNTESS"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CUIRASSIER",
+          "UnitType": "UNIT_COUNTY_LANCERS"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_CASTLE",
+          "BuildingType": "BUILDING_COUNTRY_ESTATE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_JUSTINIAN",
+      "civilization": "CIVILIZATION_BYZANTIUM",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_JUSTINIAN"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_KNIGHT",
+          "UnitType": "UNIT_BYZANTINE_CATAPHRACT"
+        },
+        {
+          "UnitClassType": "UNITCLASS_CHRISTIAN_MISSIONARY",
+          "UnitType": "UNIT_JUSTINIAN_CHRISTIAN_MISSIONARY"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_THEATRE",
+          "BuildingType": "BUILDING_BYZANTINE_HIPPODROME"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_BYZANTINE_CORPUS_JURIS"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_HANNIBAL",
+      "civilization": "CIVILIZATION_CARTHAGE",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_HANNIBAL"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_HORSE_ARCHER",
+          "UnitType": "UNIT_CARTHAGE_NUMIDIAN_CAVALRY"
+        },
+        {
+          "UnitClassType": "UNITCLASS_WAR_ELEPHANT",
+          "UnitType": "UNIT_CARTHAGE_AFRICAN_WAR_ELEPHANT"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_HARBOR",
+          "BuildingType": "BUILDING_CARTHAGE_COTHON"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_GREAT_PALACE",
+          "BuildingType": "BUILDING_CARTHAGE_BYRSA_ELEPHANT_TREASURY"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_HATSHEPSUT",
+      "civilization": "CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_HATSHEPSUT"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CHARIOT",
+          "UnitType": "UNIT_EGYPT_HATSHEPSUT_ROYAL_EXPEDITION_CHARIOT"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBELISK",
+          "BuildingType": "BUILDING_EGYPT_HATSHEPSUT_KARNAK_OBELISK"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_RAMESSES",
+      "civilization": "CIVILIZATION_EGYPT_NEW_KINGDOM",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_RAMESSES"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CHARIOT",
+          "UnitType": "UNIT_EGYPT_RAMESSES_BATTLE_CHARIOT"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBELISK",
+          "BuildingType": "BUILDING_EGYPT_RAMESSES_TEMPLE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_ELIZABETH",
+      "civilization": "CIVILIZATION_ELIZABETHAN_ENGLAND",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_ELIZABETH"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_GALLEY",
+          "UnitType": "UNIT_ENGLISH_SEA_DOG"
+        },
+        {
+          "UnitClassType": "UNITCLASS_TRIREME",
+          "UnitType": "UNIT_ENGLISH_SEA_DOG"
+        },
+        {
+          "UnitClassType": "UNITCLASS_PRIVATEER",
+          "UnitType": "UNIT_ENGLISH_SEA_DOG"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_BANK",
+          "BuildingType": "BUILDING_ENGLISH_ROYAL_EXCHANGE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_HAILE_SELASSIE",
+      "civilization": "CIVILIZATION_ETHIOPIA_IMPERIAL",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_SELASSIE"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_RIFLEMAN",
+          "UnitType": "UNIT_ETHIOPIA_SELASSIE_ARBEGNOCH_RIFLEMAN"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_UNIVERSITY",
+          "BuildingType": "BUILDING_ETHIOPIA_SELASSIE_IMPERIAL_UNIVERSITY"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_ZARA_YAQOB",
+      "civilization": "CIVILIZATION_ETHIOPIA_SOLOMONIC",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_ZARA"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_MACEMAN",
+          "UnitType": "UNIT_ETHIOPIA_ZARA_AGAW_INFANTRY"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBELISK",
+          "BuildingType": "BUILDING_ETHIOPIA_ZARA_TABOT_SHRINE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_LOUIS_XIV",
+      "civilization": "CIVILIZATION_FRANCE_BOURBON",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_LOUIS"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_MUSKETMAN",
+          "UnitType": "UNIT_FRENCH_MUSKETEER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBSERVATORY",
+          "BuildingType": "BUILDING_FRENCH_SALON"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_FORGE",
+          "BuildingType": "BUILDING_MANUFACTURE_ROYALE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_DE_GAULLE",
+      "civilization": "CIVILIZATION_FRANCE_FIFTH_REPUBLIC",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_DE_GAULLE"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_MUSKETMAN",
+          "UnitType": "UNIT_FRENCH_MUSKETEER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_BROADCAST_TOWER",
+          "BuildingType": "BUILDING_FRENCH_BROADCAST_TOWER"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBELISK",
+          "BuildingType": "BUILDING_FRENCH_FIFTH_REPUBLIC_MONUMENT"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_NAPOLEON",
+      "civilization": "CIVILIZATION_FRANCE_FIRST_EMPIRE",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_GRANDE_ARMEE"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CUIRASSIER",
+          "UnitType": "UNIT_NAPOLEONIC_DRAGOON"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_NAPOLEONIC_PREFECTURE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_BRENNUS",
+      "civilization": "CIVILIZATION_GAULIC_CONFEDERATION",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_BRENNUS"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_SWORDSMAN",
+          "UnitType": "UNIT_GAUL_GAESATAE"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_GAUL_NEMETON"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_BISMARCK",
+      "civilization": "CIVILIZATION_GERMAN_EMPIRE",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_BISMARCK"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_TANK",
+          "UnitType": "UNIT_GERMAN_PANZER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_FACTORY",
+          "BuildingType": "BUILDING_GERMAN_ASSEMBLY_PLANT"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_CHARLEMAGNE",
+      "civilization": "CIVILIZATION_HOLY_ROMAN",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_CHARLEMAGNE"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_AXEMAN",
+          "UnitType": "UNIT_FRANKISH_AXETHROWER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_LIBRARY",
+          "BuildingType": "BUILDING_CAROLINGIAN_SCRIPTORIUM"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_BOUDICA",
+      "civilization": "CIVILIZATION_ICENI_BRITAIN",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_BOUDICA"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CHARIOT",
+          "UnitType": "UNIT_ICENI_BOUDICCAN_CHARIOT"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_GRANARY",
+          "BuildingType": "BUILDING_ICENI_HALL"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_CATHERINE",
+      "civilization": "CIVILIZATION_IMPERIAL_RUSSIA",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_CATHERINE"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CUIRASSIER",
+          "UnitType": "UNIT_IMPERIAL_RUSSIA_BLACK_SEA_HUSSAR"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_IMPERIAL_RUSSIA_NOBLE_ASSEMBLY"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_HUAYNA_CAPAC",
+      "civilization": "CIVILIZATION_INCA",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_HUAYNA_CAPAC"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_WARRIOR",
+          "UnitType": "UNIT_INCAN_QUECHUA"
+        },
+        {
+          "UnitClassType": "UNITCLASS_WORKER",
+          "UnitType": "UNIT_HUAYNA_WORKER"
+        },
+        {
+          "UnitClassType": "UNITCLASS_SETTLER",
+          "UnitType": "UNIT_HUAYNA_SETTLER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_GRANARY",
+          "BuildingType": "BUILDING_INCAN_TERRACE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_GANDHI",
+      "civilization": "CIVILIZATION_INDIA",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_GHANDI"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_WORKER",
+          "UnitType": "UNIT_INDIAN_FAST_WORKER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_JAIL",
+          "BuildingType": "BUILDING_INDIAN_MAUSOLEUM"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_FORGE",
+          "BuildingType": "BUILDING_GANDHI_FORGE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_TOKUGAWA",
+      "civilization": "CIVILIZATION_JAPAN",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_TOKUGAWA"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_MACEMAN",
+          "UnitType": "UNIT_JAPAN_SAMURAI"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_JAPAN_BAKUFU_MAGISTRACY"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_SURYAVARMAN",
+      "civilization": "CIVILIZATION_KHMER",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_SURYAVARMAN"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_WAR_ELEPHANT",
+          "UnitType": "UNIT_KHMER_BALLISTA_ELEPHANT"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_AQUEDUCT",
+          "BuildingType": "BUILDING_KHMER_BARAY"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_WANGKON",
+      "civilization": "CIVILIZATION_KOREA",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_WANGKON"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CATAPULT",
+          "UnitType": "UNIT_KOREAN_HWACHA"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_UNIVERSITY",
+          "BuildingType": "BUILDING_KOREAN_SEOWON"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_LIBRARY",
+          "BuildingType": "BUILDING_KOREAN_LIBRARY"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_ACADEMY",
+          "BuildingType": "BUILDING_KOREAN_ACADEMY"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_ALEXANDER",
+      "civilization": "CIVILIZATION_MACEDONIAN_EMPIRE",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_ALEXANDER"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_AXEMAN",
+          "UnitType": "UNIT_MACEDONIAN_HYPASPIST"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_BARRACKS",
+          "BuildingType": "BUILDING_MACEDONIAN_COMPANION_BARRACKS"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_MANSA_MUSA",
+      "civilization": "CIVILIZATION_MALI",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_MANSA_MUSA"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_ARCHER",
+          "UnitType": "UNIT_MALI_SKIRMISHER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_FORGE",
+          "BuildingType": "BUILDING_MALI_MINT"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_MARKET",
+          "BuildingType": "BUILDING_MALI_MARKET"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_ASOKA",
+      "civilization": "CIVILIZATION_MAURYA",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_ASOKA"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_WORKER",
+          "UnitType": "UNIT_INDIAN_FAST_WORKER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBELISK",
+          "BuildingType": "BUILDING_MAURYAN_OBELISK"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_GREAT_PALACE",
+          "BuildingType": "BUILDING_MAURYAN_GREAT_PALACE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_PACAL",
+      "civilization": "CIVILIZATION_MAYA",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_PACAL"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_SPEARMAN",
+          "UnitType": "UNIT_MAYA_HOLKAN"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COLOSSEUM",
+          "BuildingType": "BUILDING_MAYA_BALL_COURT"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_GENGHIS_KHAN",
+      "civilization": "CIVILIZATION_MONGOL_EMPIRE",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_GENGHIS_KAHN"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_HORSE_ARCHER",
+          "UnitType": "UNIT_MONGOL_KESHIK"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_STABLE",
+          "BuildingType": "BUILDING_MONGOL_GER"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_GREAT_PALACE",
+          "BuildingType": "BUILDING_MONGOLIAN_PALACE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_SITTING_BULL",
+      "civilization": "CIVILIZATION_NATIVE_AMERICA",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_SITTING_BULL"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_AXEMAN",
+          "UnitType": "UNIT_NATIVE_AMERICA_DOG_SOLDIER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBELISK",
+          "BuildingType": "BUILDING_NATIVE_AMERICA_TOTEM"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_WILLEM_VAN_ORANJE",
+      "civilization": "CIVILIZATION_NETHERLANDS",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_ORANGE"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_GALLEON",
+          "UnitType": "UNIT_NETHERLANDS_OOSTINDIEVAARDER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_LEVEE",
+          "BuildingType": "BUILDING_NETHERLANDS_DIKE"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_LIGHTHOUSE",
+          "BuildingType": "BUILDING_ORANGE_LIGHTHOUSE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_SULEIMAN",
+      "civilization": "CIVILIZATION_OTTOMAN_CLASSICAL",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_SULEIMAN"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CUIRASSIER",
+          "UnitType": "UNIT_OTTOMAN_SIPAHI"
+        },
+        {
+          "UnitClassType": "UNITCLASS_CARAVEL",
+          "UnitType": "UNIT_OTTOMAN_GALLEASS"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_AQUEDUCT",
+          "BuildingType": "BUILDING_OTTOMAN_KULLIYE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_MEHMED",
+      "civilization": "CIVILIZATION_OTTOMAN_CONQUEST",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_MEHMED"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_MUSKETMAN",
+          "UnitType": "UNIT_OTTOMAN_JANISSARY"
+        },
+        {
+          "UnitClassType": "UNITCLASS_CANNON",
+          "UnitType": "UNIT_BOMBARD"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_BARRACKS",
+          "BuildingType": "BUILDING_OTTOMAN_DEVSHIRME_BARRACKS"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_CHINESE_LEADER",
+      "civilization": "CIVILIZATION_PEOPLES_REPUBLIC_CHINA",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_MAO_MASS_LINE"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_INFANTRY",
+          "UnitType": "UNIT_PRC_PEOPLES_VOLUNTEER"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_PRC_DANWEI_COMMITTEE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_CYRUS",
+      "civilization": "CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_CYRUS"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CHARIOT",
+          "UnitType": "UNIT_PERSIA_IMMORTAL"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBELISK",
+          "BuildingType": "BUILDING_PERSIA_PASARGADAE_DECREE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_DARIUS",
+      "civilization": "CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_DARIUS"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_SPEARMAN",
+          "UnitType": "UNIT_PERSIA_TAKABARA"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_PERSIA_SATRAPY_ARCHIVE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_PETER",
+      "civilization": "CIVILIZATION_PETRINE_RUSSIA",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_PETER"
+      ],
+      "unit_replacements": [],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_HARBOR",
+          "BuildingType": "BUILDING_PETER_ADMIRALTY"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_CASIMIR",
+      "civilization": "CIVILIZATION_POLAND",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_CASIMIR"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CUIRASSIER",
+          "UnitType": "UNIT_POLISH_DRAGOON"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_CASTLE",
+          "BuildingType": "BUILDING_POLISH_ROYAL_CASTLE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_SALAMASINA_BTG",
+      "civilization": "CIVILIZATION_POLYNESIA_BTG",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_SALAMASINA_BTG"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_GALLEY",
+          "UnitType": "UNIT_POLYNESIA_OCEAN_CANOE_BTG"
+        },
+        {
+          "UnitClassType": "UNITCLASS_WORKBOAT",
+          "UnitType": "UNIT_POLYNESIA_WAYFINDER_WORKBOAT_BTG"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBELISK",
+          "BuildingType": "BUILDING_POLYNESIA_MARAE_BTG"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_JOAO",
+      "civilization": "CIVILIZATION_PORTUGAL",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_JOAO"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CARAVEL",
+          "UnitType": "UNIT_PORTUGAL_CARRACK"
+        },
+        {
+          "UnitClassType": "UNITCLASS_SCOUT",
+          "UnitType": "UNIT_JOAO_SCOUT"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_CUSTOM_HOUSE",
+          "BuildingType": "BUILDING_PORTUGAL_FEITORIA"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_FREDERICK",
+      "civilization": "CIVILIZATION_PRUSSIA",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_FREDERICK"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CUIRASSIER",
+          "UnitType": "UNIT_PRUSSIAN_HUSSAR"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_LIBRARY",
+          "BuildingType": "BUILDING_PRUSSIAN_ACADEMY"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_QIN_SHI_HUANG",
+      "civilization": "CIVILIZATION_QIN_DYNASTY",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_QIN_SHI_HUANG"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CROSSBOWMAN",
+          "UnitType": "UNIT_CHINA_CHOKONU"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_THEATRE",
+          "BuildingType": "BUILDING_CHINESE_PAVILLION"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_AUGUSTUS",
+      "civilization": "CIVILIZATION_ROMAN_PRINCIPATE",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_AUGUSTUS_CAESAR"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_SWORDSMAN",
+          "UnitType": "UNIT_ROMAN_PRINCIPATE_PRAETORIAN"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_GRANARY",
+          "BuildingType": "BUILDING_ROMAN_PRINCIPATE_COLONIA"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_JULIUS_CAESAR",
+      "civilization": "CIVILIZATION_ROMAN_REPUBLIC_LATE",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_JULIUS"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_SWORDSMAN",
+          "UnitType": "UNIT_ROMAN_REPUBLIC_LEGIONARY"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_BARRACKS",
+          "BuildingType": "BUILDING_ROMAN_REPUBLIC_CASTRUM"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_ISABELLA",
+      "civilization": "CIVILIZATION_SPAIN",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_ISABELLA"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CUIRASSIER",
+          "UnitType": "UNIT_SPANISH_CONQUISTADOR"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_CASTLE",
+          "BuildingType": "BUILDING_SPANISH_CITADEL"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_GILGAMESH",
+      "civilization": "CIVILIZATION_SUMERIA",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_GILGAMESH"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_AXEMAN",
+          "UnitType": "UNIT_SUMERIAN_VULTURE"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_COURTHOUSE",
+          "BuildingType": "BUILDING_SUMERIAN_ZIGGURAT"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_STALIN",
+      "civilization": "CIVILIZATION_USSR",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_STALIN"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_CAVALRY",
+          "UnitType": "UNIT_RUSSIA_COSSACK"
+        },
+        {
+          "UnitClassType": "UNITCLASS_SPY",
+          "UnitType": "UNIT_RUSSIA_SPY"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_LABORATORY",
+          "BuildingType": "BUILDING_RUSSIAN_RESEARCH_INSTITUTE"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_OBELISK",
+          "BuildingType": "BUILDING_USSR_MONUMENT"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_SCOTLAND_YARD",
+          "BuildingType": "BUILDING_LUBYANKA"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_ENRICO_DANDOLO",
+      "civilization": "CIVILIZATION_VENICE",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_DANDOLO"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_SETTLER",
+          "UnitType": "UNIT_VENICE_FOUNDER"
+        },
+        {
+          "UnitClassType": "UNITCLASS_MERCHANT",
+          "UnitType": "UNIT_VENETIAN_MERCHANT"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_PALACE",
+          "BuildingType": "BUILDING_VENETIAN_DOGE_PALACE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_VICTORIA",
+      "civilization": "CIVILIZATION_VICTORIAN_BRITAIN",
+      "scope_cohort": "recent_27",
+      "traits": [
+        "TRAIT_VICTORIA"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_RIFLEMAN",
+          "UnitType": "UNIT_ENGLISH_REDCOAT"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_BANK",
+          "BuildingType": "BUILDING_ENGLISH_STOCK_EXCHANGE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_RAGNAR",
+      "civilization": "CIVILIZATION_VIKING",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_RAGNAR"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_MACEMAN",
+          "UnitType": "UNIT_VIKING_BESERKER"
+        },
+        {
+          "UnitClassType": "UNITCLASS_SWORDSMAN",
+          "UnitType": "UNIT_VIKING_SWORDSMAN"
+        },
+        {
+          "UnitClassType": "UNITCLASS_AXEMAN",
+          "UnitType": "UNIT_VIKING_AXEMAN"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_LIGHTHOUSE",
+          "BuildingType": "BUILDING_VIKING_TRADING_POST"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_CHURCHILL",
+      "civilization": "CIVILIZATION_WARTIME_BRITAIN",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_CHURCHILL"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_FIGHTER",
+          "UnitType": "UNIT_BRITISH_FIGHTER_COMMAND"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_BANK",
+          "BuildingType": "BUILDING_BRITISH_WAR_ROOMS"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_SCOTLAND_YARD",
+          "BuildingType": "BUILDING_BRITISH_MI6"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_KUBLAI_KHAN",
+      "civilization": "CIVILIZATION_YUAN_DYNASTY",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_KUBLAI"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_HORSE_ARCHER",
+          "UnitType": "UNIT_YUAN_QIANHU_CAVALRY"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_STABLE",
+          "BuildingType": "BUILDING_YUAN_ORTOO_HUB"
+        },
+        {
+          "BuildingClassType": "BUILDINGCLASS_GREAT_PALACE",
+          "BuildingType": "BUILDING_MONGOLIAN_PALACE"
+        }
+      ]
+    },
+    {
+      "leader": "LEADER_SHAKA",
+      "civilization": "CIVILIZATION_ZULU",
+      "scope_cohort": "remaining_32",
+      "traits": [
+        "TRAIT_SHAKA"
+      ],
+      "unit_replacements": [
+        {
+          "UnitClassType": "UNITCLASS_SPEARMAN",
+          "UnitType": "UNIT_ZULU_IMPI"
+        }
+      ],
+      "building_replacements": [
+        {
+          "BuildingClassType": "BUILDINGCLASS_BARRACKS",
+          "BuildingType": "BUILDING_ZULU_IKHANDA"
+        }
+      ]
+    }
+  ],
+  "info_type_snapshots": {
+    "civilizations": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Civilizations/CIV4CivilizationInfos.xml",
+      "entry": "CivilizationInfo",
+      "count": 61,
+      "type_order": [
+        "CIVILIZATION_AMERICA_UNION",
+        "CIVILIZATION_ARABIA",
+        "CIVILIZATION_AZTEC",
+        "CIVILIZATION_BABYLON",
+        "CIVILIZATION_BYZANTIUM",
+        "CIVILIZATION_CARTHAGE",
+        "CIVILIZATION_FRANCE_FIFTH_REPUBLIC",
+        "CIVILIZATION_HOLY_ROMAN",
+        "CIVILIZATION_INCA",
+        "CIVILIZATION_INDIA",
+        "CIVILIZATION_MAURYA",
+        "CIVILIZATION_JAPAN",
+        "CIVILIZATION_KHMER",
+        "CIVILIZATION_KOREA",
+        "CIVILIZATION_MALI",
+        "CIVILIZATION_MAYA",
+        "CIVILIZATION_NATIVE_AMERICA",
+        "CIVILIZATION_NETHERLANDS",
+        "CIVILIZATION_PORTUGAL",
+        "CIVILIZATION_POLAND",
+        "CIVILIZATION_USSR",
+        "CIVILIZATION_SPAIN",
+        "CIVILIZATION_SUMERIA",
+        "CIVILIZATION_VIKING",
+        "CIVILIZATION_ZULU",
+        "CIVILIZATION_VENICE",
+        "CIVILIZATION_MINOR",
+        "CIVILIZATION_BARBARIAN",
+        "CIVILIZATION_APACHE_CONFEDERACY",
+        "CIVILIZATION_POLYNESIA_BTG",
+        "CIVILIZATION_BRITISH_REGENCY",
+        "CIVILIZATION_ELIZABETHAN_ENGLAND",
+        "CIVILIZATION_VICTORIAN_BRITAIN",
+        "CIVILIZATION_WARTIME_BRITAIN",
+        "CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID",
+        "CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID",
+        "CIVILIZATION_AMERICA_FOUNDING_REPUBLIC",
+        "CIVILIZATION_AMERICA_NEW_DEAL",
+        "CIVILIZATION_AMERICA_FEDERAL",
+        "CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY",
+        "CIVILIZATION_EGYPT_NEW_KINGDOM",
+        "CIVILIZATION_OTTOMAN_CONQUEST",
+        "CIVILIZATION_OTTOMAN_CLASSICAL",
+        "CIVILIZATION_ETHIOPIA_SOLOMONIC",
+        "CIVILIZATION_ETHIOPIA_IMPERIAL",
+        "CIVILIZATION_GAULIC_CONFEDERATION",
+        "CIVILIZATION_ICENI_BRITAIN",
+        "CIVILIZATION_PETRINE_RUSSIA",
+        "CIVILIZATION_IMPERIAL_RUSSIA",
+        "CIVILIZATION_FRANCE_BOURBON",
+        "CIVILIZATION_FRANCE_FIRST_EMPIRE",
+        "CIVILIZATION_MACEDONIAN_EMPIRE",
+        "CIVILIZATION_ATHENIAN_GREECE",
+        "CIVILIZATION_MONGOL_EMPIRE",
+        "CIVILIZATION_YUAN_DYNASTY",
+        "CIVILIZATION_ROMAN_REPUBLIC_LATE",
+        "CIVILIZATION_ROMAN_PRINCIPATE",
+        "CIVILIZATION_QIN_DYNASTY",
+        "CIVILIZATION_PEOPLES_REPUBLIC_CHINA",
+        "CIVILIZATION_PRUSSIA",
+        "CIVILIZATION_GERMAN_EMPIRE"
+      ]
+    },
+    "leaders": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Civilizations/CIV4LeaderHeadInfos.xml",
+      "entry": "LeaderHeadInfo",
+      "count": 60,
+      "type_order": [
+        "LEADER_BARBARIAN",
+        "LEADER_ALEXANDER",
+        "LEADER_ASOKA",
+        "LEADER_AUGUSTUS",
+        "LEADER_BISMARCK",
+        "LEADER_BOUDICA",
+        "LEADER_BRENNUS",
+        "LEADER_CATHERINE",
+        "LEADER_CHARLEMAGNE",
+        "LEADER_CHURCHILL",
+        "LEADER_CYRUS",
+        "LEADER_DARIUS",
+        "LEADER_DE_GAULLE",
+        "LEADER_ELIZABETH",
+        "LEADER_FREDERICK",
+        "LEADER_GANDHI",
+        "LEADER_GERONIMO_BTG",
+        "LEADER_GENGHIS_KHAN",
+        "LEADER_GILGAMESH",
+        "LEADER_HAMMURABI",
+        "LEADER_HANNIBAL",
+        "LEADER_HATSHEPSUT",
+        "LEADER_HUAYNA_CAPAC",
+        "LEADER_ISABELLA",
+        "LEADER_JOAO",
+        "LEADER_JULIUS_CAESAR",
+        "LEADER_JUSTINIAN",
+        "LEADER_KUBLAI_KHAN",
+        "LEADER_LINCOLN",
+        "LEADER_LOUIS_XIV",
+        "LEADER_MANSA_MUSA",
+        "LEADER_CHINESE_LEADER",
+        "LEADER_MEHMED",
+        "LEADER_MONTEZUMA",
+        "LEADER_NAPOLEON",
+        "LEADER_PACAL",
+        "LEADER_PERICLES",
+        "LEADER_PETER",
+        "LEADER_QIN_SHI_HUANG",
+        "LEADER_RAMESSES",
+        "LEADER_RAGNAR",
+        "LEADER_FRANKLIN_ROOSEVELT",
+        "LEADER_SALADIN",
+        "LEADER_SALAMASINA_BTG",
+        "LEADER_SHAKA",
+        "LEADER_SITTING_BULL",
+        "LEADER_STALIN",
+        "LEADER_SULEIMAN",
+        "LEADER_SURYAVARMAN",
+        "LEADER_TOKUGAWA",
+        "LEADER_VICTORIA",
+        "LEADER_WANGKON",
+        "LEADER_WASHINGTON",
+        "LEADER_WILLEM_VAN_ORANJE",
+        "LEADER_ZARA_YAQOB",
+        "LEADER_DOWAGER_COUNTESS",
+        "LEADER_REGINALD_ENDICOTT_BARCLAY",
+        "LEADER_CASIMIR",
+        "LEADER_ENRICO_DANDOLO",
+        "LEADER_HAILE_SELASSIE"
+      ]
+    },
+    "traits": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Civilizations/CIV4TraitInfos.xml",
+      "entry": "TraitInfo",
+      "count": 73,
+      "type_order": [
+        "TRAIT_PHILOSOPHICAL",
+        "TRAIT_AGGRESSIVE",
+        "TRAIT_SPIRITUAL",
+        "TRAIT_EXPANSIVE",
+        "TRAIT_INDUSTRIOUS",
+        "TRAIT_CREATIVE",
+        "TRAIT_FINANCIAL",
+        "TRAIT_ORGANIZED",
+        "TRAIT_CHARISMATIC",
+        "TRAIT_PROTECTIVE",
+        "TRAIT_IMPERIALIST",
+        "TRAIT_PACIFIST",
+        "TRAIT_GEORGE_WASHINGTON",
+        "TRAIT_ROOSEVELT",
+        "TRAIT_MAO_MASS_LINE",
+        "TRAIT_JUSTINIAN",
+        "TRAIT_ORANGE",
+        "TRAIT_PARANOID",
+        "TRAIT_GENGHIS_KAHN",
+        "TRAIT_STALIN",
+        "TRAIT_WANGKON",
+        "TRAIT_GRANDE_ARMEE",
+        "TRAIT_JOAO",
+        "TRAIT_AUGUSTUS_CAESAR",
+        "TRAIT_CATHERINE",
+        "TRAIT_DE_GAULLE",
+        "TRAIT_HUAYNA_CAPAC",
+        "TRAIT_LOUIS",
+        "TRAIT_QIN_SHI_HUANG",
+        "TRAIT_BISMARCK",
+        "TRAIT_BOUDICA",
+        "TRAIT_RAMESSES",
+        "TRAIT_ALEXANDER",
+        "TRAIT_HELLENIC_LEGACY",
+        "TRAIT_PERICLES",
+        "TRAIT_MONTEZUMA",
+        "TRAIT_LINCOLN",
+        "TRAIT_CHARLEMAGNE",
+        "TRAIT_CHURCHILL",
+        "TRAIT_CYRUS",
+        "TRAIT_DARIUS",
+        "TRAIT_ELIZABETH",
+        "TRAIT_FREDERICK",
+        "TRAIT_MANSA_MUSA",
+        "TRAIT_HANNIBAL",
+        "TRAIT_GHANDI",
+        "TRAIT_GILGAMESH",
+        "TRAIT_HAMMURABI",
+        "TRAIT_KUBLAI",
+        "TRAIT_JULIUS",
+        "TRAIT_HATSHEPSUT",
+        "TRAIT_ISABELLA",
+        "TRAIT_RAGNAR",
+        "TRAIT_BRENNUS",
+        "TRAIT_MEHMED",
+        "TRAIT_PACAL",
+        "TRAIT_PETER",
+        "TRAIT_SITTING_BULL",
+        "TRAIT_CASIMIR",
+        "TRAIT_DANDOLO",
+        "TRAIT_SELASSIE",
+        "TRAIT_SALAMASINA_BTG",
+        "TRAIT_LEADER_GERONIMO",
+        "TRAIT_ASOKA",
+        "TRAIT_SALADIN",
+        "TRAIT_SHAKA",
+        "TRAIT_SULEIMAN",
+        "TRAIT_SURYAVARMAN",
+        "TRAIT_TOKUGAWA",
+        "TRAIT_VICTORIA",
+        "TRAIT_ZARA",
+        "TRAIT_DOWAGER_COUNTESS",
+        "TRAIT_BARCLAY"
+      ]
+    },
+    "unit_classes": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4UnitClassInfos.xml",
+      "entry": "UnitClassInfo",
+      "count": 89,
+      "type_order": [
+        "UNITCLASS_LION",
+        "UNITCLASS_BEAR",
+        "UNITCLASS_PANTHER",
+        "UNITCLASS_WOLF",
+        "UNITCLASS_SETTLER",
+        "UNITCLASS_WORKER",
+        "UNITCLASS_SCOUT",
+        "UNITCLASS_EXPLORER",
+        "UNITCLASS_SPY",
+        "UNITCLASS_EXECUTIVE_1",
+        "UNITCLASS_EXECUTIVE_2",
+        "UNITCLASS_EXECUTIVE_3",
+        "UNITCLASS_EXECUTIVE_4",
+        "UNITCLASS_EXECUTIVE_5",
+        "UNITCLASS_EXECUTIVE_6",
+        "UNITCLASS_EXECUTIVE_7",
+        "UNITCLASS_JEWISH_MISSIONARY",
+        "UNITCLASS_CHRISTIAN_MISSIONARY",
+        "UNITCLASS_ISLAMIC_MISSIONARY",
+        "UNITCLASS_HINDU_MISSIONARY",
+        "UNITCLASS_BUDDHIST_MISSIONARY",
+        "UNITCLASS_CONFUCIAN_MISSIONARY",
+        "UNITCLASS_TAOIST_MISSIONARY",
+        "UNITCLASS_WARRIOR",
+        "UNITCLASS_SWORDSMAN",
+        "UNITCLASS_AXEMAN",
+        "UNITCLASS_MACEMAN",
+        "UNITCLASS_SPEARMAN",
+        "UNITCLASS_PIKEMAN",
+        "UNITCLASS_MUSKETMAN",
+        "UNITCLASS_RIFLEMAN",
+        "UNITCLASS_GRENADIER",
+        "UNITCLASS_INFANTRY",
+        "UNITCLASS_AT_INFANTRY",
+        "UNITCLASS_SAM_INFANTRY",
+        "UNITCLASS_MOBILE_SAM",
+        "UNITCLASS_MARINE",
+        "UNITCLASS_PARATROOPER",
+        "UNITCLASS_MECHANIZED_INFANTRY",
+        "UNITCLASS_ARCHER",
+        "UNITCLASS_LONGBOWMAN",
+        "UNITCLASS_CROSSBOWMAN",
+        "UNITCLASS_CHARIOT",
+        "UNITCLASS_HORSE_ARCHER",
+        "UNITCLASS_KNIGHT",
+        "UNITCLASS_CUIRASSIER",
+        "UNITCLASS_CAVALRY",
+        "UNITCLASS_WAR_ELEPHANT",
+        "UNITCLASS_TANK",
+        "UNITCLASS_MODERN_ARMOR",
+        "UNITCLASS_GUNSHIP",
+        "UNITCLASS_CATAPULT",
+        "UNITCLASS_TREBUCHET",
+        "UNITCLASS_CANNON",
+        "UNITCLASS_MACHINE_GUN",
+        "UNITCLASS_ARTILLERY",
+        "UNITCLASS_MOBILE_ARTILLERY",
+        "UNITCLASS_WORKBOAT",
+        "UNITCLASS_GALLEY",
+        "UNITCLASS_TRIREME",
+        "UNITCLASS_CARAVEL",
+        "UNITCLASS_GALLEON",
+        "UNITCLASS_PRIVATEER",
+        "UNITCLASS_FRIGATE",
+        "UNITCLASS_SHIP_OF_THE_LINE",
+        "UNITCLASS_IRONCLAD",
+        "UNITCLASS_TRANSPORT",
+        "UNITCLASS_DESTROYER",
+        "UNITCLASS_STEALTH_DESTROYER",
+        "UNITCLASS_BATTLESHIP",
+        "UNITCLASS_MISSILE_CRUISER",
+        "UNITCLASS_SUBMARINE",
+        "UNITCLASS_ATTACK_SUBMARINE",
+        "UNITCLASS_CARRIER",
+        "UNITCLASS_AIRSHIP",
+        "UNITCLASS_FIGHTER",
+        "UNITCLASS_JET_FIGHTER",
+        "UNITCLASS_BOMBER",
+        "UNITCLASS_STEALTH_BOMBER",
+        "UNITCLASS_GUIDED_MISSILE",
+        "UNITCLASS_ICBM",
+        "UNITCLASS_TACTICAL_NUKE",
+        "UNITCLASS_PROPHET",
+        "UNITCLASS_ARTIST",
+        "UNITCLASS_SCIENTIST",
+        "UNITCLASS_MERCHANT",
+        "UNITCLASS_ENGINEER",
+        "UNITCLASS_GREAT_GENERAL",
+        "UNITCLASS_GREAT_SPY"
+      ]
+    },
+    "units": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4UnitInfos.xml",
+      "entry": "UnitInfo",
+      "count": 172,
+      "type_order": [
+        "UNIT_LION",
+        "UNIT_BEAR",
+        "UNIT_PANTHER",
+        "UNIT_WOLF",
+        "UNIT_SETTLER",
+        "UNIT_VENICE_FOUNDER",
+        "UNIT_HUAYNA_SETTLER",
+        "UNIT_WORKER",
+        "UNIT_INDIAN_FAST_WORKER",
+        "UNIT_HUAYNA_WORKER",
+        "UNIT_SCOUT",
+        "UNIT_JOAO_SCOUT",
+        "UNIT_EXPLORER",
+        "UNIT_SPY",
+        "UNIT_RUSSIA_SPY",
+        "UNIT_EXECUTIVE_1",
+        "UNIT_EXECUTIVE_2",
+        "UNIT_EXECUTIVE_3",
+        "UNIT_EXECUTIVE_4",
+        "UNIT_EXECUTIVE_5",
+        "UNIT_EXECUTIVE_6",
+        "UNIT_EXECUTIVE_7",
+        "UNIT_JUSTINIAN_JEWISH_MISSIONARY",
+        "UNIT_JUSTINIAN_CHRISTIAN_MISSIONARY",
+        "UNIT_JUSTINIAN_ISLAMIC_MISSIONARY",
+        "UNIT_JUSTINIAN_HINDU_MISSIONARY",
+        "UNIT_JUSTINIAN_BUDDHIST_MISSIONARY",
+        "UNIT_JUSTINIAN_CONFUCIAN_MISSIONARY",
+        "UNIT_JUSTINIAN_TAOIST_MISSIONARY",
+        "UNIT_JEWISH_MISSIONARY",
+        "UNIT_CHRISTIAN_MISSIONARY",
+        "UNIT_ISLAMIC_MISSIONARY",
+        "UNIT_HINDU_MISSIONARY",
+        "UNIT_BUDDHIST_MISSIONARY",
+        "UNIT_CONFUCIAN_MISSIONARY",
+        "UNIT_TAOIST_MISSIONARY",
+        "UNIT_WARRIOR",
+        "UNIT_INCAN_QUECHUA",
+        "UNIT_SWORDSMAN",
+        "UNIT_VIKING_SWORDSMAN",
+        "UNIT_AZTEC_JAGUAR",
+        "UNIT_CELTIC_GALLIC_WARRIOR",
+        "UNIT_ROME_PRAETORIAN",
+        "UNIT_AXEMAN",
+        "UNIT_VIKING_AXEMAN",
+        "UNIT_GREEK_PHALANX",
+        "UNIT_SUMERIAN_VULTURE",
+        "UNIT_NATIVE_AMERICA_DOG_SOLDIER",
+        "UNIT_MACEMAN",
+        "UNIT_JAPAN_SAMURAI",
+        "UNIT_VIKING_BESERKER",
+        "UNIT_SPEARMAN",
+        "UNIT_ZULU_IMPI",
+        "UNIT_MAYA_HOLKAN",
+        "UNIT_PIKEMAN",
+        "UNIT_HOLY_ROMAN_LANDSKNECHT",
+        "UNIT_MUSKETMAN",
+        "UNIT_CONTINENTAL_LINE_INFANTRY",
+        "UNIT_FRENCH_MUSKETEER",
+        "UNIT_OTTOMAN_JANISSARY",
+        "UNIT_ETHIOPIAN_OROMO_WARRIOR",
+        "UNIT_RIFLEMAN",
+        "UNIT_UNION_USCT_RIFLEMAN",
+        "UNIT_ENGLISH_REDCOAT",
+        "UNIT_GRENADIER",
+        "UNIT_AT_INFANTRY",
+        "UNIT_INFANTRY",
+        "UNIT_PRC_PEOPLES_VOLUNTEER",
+        "UNIT_SAM_INFANTRY",
+        "UNIT_MOBILE_SAM",
+        "UNIT_MARINE",
+        "UNIT_NEW_DEAL_MARINE_RAIDER",
+        "UNIT_AMERICAN_NAVY_SEAL",
+        "UNIT_PARATROOPER",
+        "UNIT_FEDERAL_BORDER_PATROL_AGENT",
+        "UNIT_MECHANIZED_INFANTRY",
+        "UNIT_ARCHER",
+        "UNIT_MALI_SKIRMISHER",
+        "UNIT_BABYLON_BOWMAN",
+        "UNIT_LONGBOWMAN",
+        "UNIT_CROSSBOWMAN",
+        "UNIT_CHINA_CHOKONU",
+        "UNIT_CHARIOT",
+        "UNIT_EGYPT_WARCHARIOT",
+        "UNIT_PERSIA_IMMORTAL",
+        "UNIT_HORSE_ARCHER",
+        "UNIT_CARTHAGE_NUMIDIAN_CAVALRY",
+        "UNIT_MONGOL_KESHIK",
+        "UNIT_YUAN_QIANHU_CAVALRY",
+        "UNIT_KNIGHT",
+        "UNIT_ARABIA_CAMELARCHER",
+        "UNIT_BYZANTINE_CATAPHRACT",
+        "UNIT_SPANISH_CONQUISTADOR",
+        "UNIT_CUIRASSIER",
+        "UNIT_IMPERIAL_RUSSIA_BLACK_SEA_HUSSAR",
+        "UNIT_POLISH_DRAGOON",
+        "UNIT_CAVALRY",
+        "UNIT_RUSSIA_COSSACK",
+        "UNIT_WAR_ELEPHANT",
+        "UNIT_CARTHAGE_AFRICAN_WAR_ELEPHANT",
+        "UNIT_KHMER_BALLISTA_ELEPHANT",
+        "UNIT_TANK",
+        "UNIT_GERMAN_PANZER",
+        "UNIT_MODERN_ARMOR",
+        "UNIT_GUNSHIP",
+        "UNIT_CATAPULT",
+        "UNIT_KOREAN_HWACHA",
+        "UNIT_TREBUCHET",
+        "UNIT_CANNON",
+        "UNIT_BOMBARD",
+        "UNIT_MACHINE_GUN",
+        "UNIT_ARTILLERY",
+        "UNIT_MOBILE_ARTILLERY",
+        "UNIT_WORKBOAT",
+        "UNIT_GALLEY",
+        "UNIT_TRIREME",
+        "UNIT_CARAVEL",
+        "UNIT_PORTUGAL_CARRACK",
+        "UNIT_GALLEON",
+        "UNIT_NETHERLANDS_OOSTINDIEVAARDER",
+        "UNIT_PRIVATEER",
+        "UNIT_ENGLISH_SEA_DOG",
+        "UNIT_FRIGATE",
+        "UNIT_SHIP_OF_THE_LINE",
+        "UNIT_IRONCLAD",
+        "UNIT_TRANSPORT",
+        "UNIT_DESTROYER",
+        "UNIT_BATTLESHIP",
+        "UNIT_MISSILE_CRUISER",
+        "UNIT_STEALTH_DESTROYER",
+        "UNIT_SUBMARINE",
+        "UNIT_ATTACK_SUBMARINE",
+        "UNIT_CARRIER",
+        "UNIT_AIRSHIP",
+        "UNIT_FIGHTER",
+        "UNIT_BRITISH_FIGHTER_COMMAND",
+        "UNIT_JET_FIGHTER",
+        "UNIT_BOMBER",
+        "UNIT_STEALTH_BOMBER",
+        "UNIT_GUIDED_MISSILE",
+        "UNIT_TACTICAL_NUKE",
+        "UNIT_ICBM",
+        "UNIT_PROPHET",
+        "UNIT_ARTIST",
+        "UNIT_SCIENTIST",
+        "UNIT_MERCHANT",
+        "UNIT_VENETIAN_MERCHANT",
+        "UNIT_MINI_MERCHANT",
+        "UNIT_ENGINEER",
+        "UNIT_GREAT_GENERAL",
+        "UNIT_GREAT_SPY",
+        "UNIT_APACHE_MEDICINE_MAN_BTG",
+        "UNIT_APACHE_RAIDER_BTG",
+        "UNIT_POLYNESIA_WAYFINDER_WORKBOAT_BTG",
+        "UNIT_POLYNESIA_OCEAN_CANOE_BTG",
+        "UNIT_MACEDONIAN_HYPASPIST",
+        "UNIT_ATHENIAN_TRIREME",
+        "UNIT_ROMAN_REPUBLIC_LEGIONARY",
+        "UNIT_ROMAN_PRINCIPATE_PRAETORIAN",
+        "UNIT_GAUL_GAESATAE",
+        "UNIT_ICENI_BOUDICCAN_CHARIOT",
+        "UNIT_OTTOMAN_SIPAHI",
+        "UNIT_OTTOMAN_GALLEASS",
+        "UNIT_PERSIA_TAKABARA",
+        "UNIT_NAPOLEONIC_DRAGOON",
+        "UNIT_FRANKISH_AXETHROWER",
+        "UNIT_PRUSSIAN_HUSSAR",
+        "UNIT_COUNTY_LANCERS",
+        "UNIT_EGYPT_HATSHEPSUT_ROYAL_EXPEDITION_CHARIOT",
+        "UNIT_EGYPT_RAMESSES_BATTLE_CHARIOT",
+        "UNIT_ETHIOPIA_ZARA_AGAW_INFANTRY",
+        "UNIT_ETHIOPIA_SELASSIE_ARBEGNOCH_RIFLEMAN"
+      ]
+    },
+    "building_classes": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Buildings/CIV4BuildingClassInfos.xml",
+      "entry": "BuildingClassInfo",
+      "count": 219,
+      "type_order": [
+        "BUILDINGCLASS_PALACE",
+        "BUILDINGCLASS_GREAT_PALACE",
+        "BUILDINGCLASS_VERSAILLES",
+        "BUILDINGCLASS_WALLS",
+        "BUILDINGCLASS_CASTLE",
+        "BUILDINGCLASS_BARRACKS",
+        "BUILDINGCLASS_STABLE",
+        "BUILDINGCLASS_BUNKER",
+        "BUILDINGCLASS_BOMB_SHELTER",
+        "BUILDINGCLASS_GRANARY",
+        "BUILDINGCLASS_AQUEDUCT",
+        "BUILDINGCLASS_HOSPITAL",
+        "BUILDINGCLASS_RECYCLING_CENTER",
+        "BUILDINGCLASS_LIGHTHOUSE",
+        "BUILDINGCLASS_HARBOR",
+        "BUILDINGCLASS_CUSTOM_HOUSE",
+        "BUILDINGCLASS_DRYDOCK",
+        "BUILDINGCLASS_AIRPORT",
+        "BUILDINGCLASS_FORGE",
+        "BUILDINGCLASS_FACTORY",
+        "BUILDINGCLASS_COAL_PLANT",
+        "BUILDINGCLASS_HYDRO_PLANT",
+        "BUILDINGCLASS_NUCLEAR_PLANT",
+        "BUILDINGCLASS_INDUSTRIAL_PARK",
+        "BUILDINGCLASS_OBELISK",
+        "BUILDINGCLASS_PUBLIC_TRANSPORTATION",
+        "BUILDINGCLASS_ACADEMY",
+        "BUILDINGCLASS_LIBRARY",
+        "BUILDINGCLASS_UNIVERSITY",
+        "BUILDINGCLASS_OBSERVATORY",
+        "BUILDINGCLASS_LABORATORY",
+        "BUILDINGCLASS_THEATRE",
+        "BUILDINGCLASS_COLOSSEUM",
+        "BUILDINGCLASS_BROADCAST_TOWER",
+        "BUILDINGCLASS_MARKET",
+        "BUILDINGCLASS_GROCER",
+        "BUILDINGCLASS_BANK",
+        "BUILDINGCLASS_SUPERMARKET",
+        "BUILDINGCLASS_COURTHOUSE",
+        "BUILDINGCLASS_JAIL",
+        "BUILDINGCLASS_LEVEE",
+        "BUILDINGCLASS_INTELLIGENCE_AGENCY",
+        "BUILDINGCLASS_NATIONAL_SECURITY",
+        "BUILDINGCLASS_JEWISH_TEMPLE",
+        "BUILDINGCLASS_JEWISH_CATHEDRAL",
+        "BUILDINGCLASS_JEWISH_MONASTERY",
+        "BUILDINGCLASS_JEWISH_SHRINE",
+        "BUILDINGCLASS_CHRISTIAN_TEMPLE",
+        "BUILDINGCLASS_CHRISTIAN_CATHEDRAL",
+        "BUILDINGCLASS_CHRISTIAN_MONASTERY",
+        "BUILDINGCLASS_CHRISTIAN_SHRINE",
+        "BUILDINGCLASS_ISLAMIC_TEMPLE",
+        "BUILDINGCLASS_ISLAMIC_CATHEDRAL",
+        "BUILDINGCLASS_ISLAMIC_MONASTERY",
+        "BUILDINGCLASS_ISLAMIC_SHRINE",
+        "BUILDINGCLASS_HINDU_TEMPLE",
+        "BUILDINGCLASS_HINDU_CATHEDRAL",
+        "BUILDINGCLASS_HINDU_MONASTERY",
+        "BUILDINGCLASS_HINDU_SHRINE",
+        "BUILDINGCLASS_BUDDHIST_TEMPLE",
+        "BUILDINGCLASS_BUDDHIST_CATHEDRAL",
+        "BUILDINGCLASS_BUDDHIST_MONASTERY",
+        "BUILDINGCLASS_BUDDHIST_SHRINE",
+        "BUILDINGCLASS_CONFUCIAN_TEMPLE",
+        "BUILDINGCLASS_CONFUCIAN_CATHEDRAL",
+        "BUILDINGCLASS_CONFUCIAN_MONASTERY",
+        "BUILDINGCLASS_CONFUCIAN_SHRINE",
+        "BUILDINGCLASS_TAOIST_TEMPLE",
+        "BUILDINGCLASS_TAOIST_CATHEDRAL",
+        "BUILDINGCLASS_TAOIST_MONASTERY",
+        "BUILDINGCLASS_TAOIST_SHRINE",
+        "BUILDINGCLASS_HEROIC_EPIC",
+        "BUILDINGCLASS_NATIONAL_EPIC",
+        "BUILDINGCLASS_GLOBE_THEATRE",
+        "BUILDINGCLASS_NATIONAL_PARK",
+        "BUILDINGCLASS_HERMITAGE",
+        "BUILDINGCLASS_OXFORD_UNIVERSITY",
+        "BUILDINGCLASS_WALL_STREET",
+        "BUILDINGCLASS_IRON_WORKS",
+        "BUILDINGCLASS_WEST_POINT",
+        "BUILDINGCLASS_MT_RUSHMORE",
+        "BUILDINGCLASS_RED_CROSS",
+        "BUILDINGCLASS_SCOTLAND_YARD",
+        "BUILDINGCLASS_PYRAMID",
+        "BUILDINGCLASS_STONEHENGE",
+        "BUILDINGCLASS_GREAT_LIBRARY",
+        "BUILDINGCLASS_GREAT_LIGHTHOUSE",
+        "BUILDINGCLASS_HANGING_GARDEN",
+        "BUILDINGCLASS_COLOSSUS",
+        "BUILDINGCLASS_ORACLE",
+        "BUILDINGCLASS_PARTHENON",
+        "BUILDINGCLASS_ANGKOR_WAT",
+        "BUILDINGCLASS_HAGIA_SOPHIA",
+        "BUILDINGCLASS_CHICHEN_ITZA",
+        "BUILDINGCLASS_SISTINE_CHAPEL",
+        "BUILDINGCLASS_NOTRE_DAME",
+        "BUILDINGCLASS_SPIRAL_MINARET",
+        "BUILDINGCLASS_TAJ_MAHAL",
+        "BUILDINGCLASS_KREMLIN",
+        "BUILDINGCLASS_EIFFEL_TOWER",
+        "BUILDINGCLASS_STATUE_OF_LIBERTY",
+        "BUILDINGCLASS_BROADWAY",
+        "BUILDINGCLASS_ROCKNROLL",
+        "BUILDINGCLASS_HOLLYWOOD",
+        "BUILDINGCLASS_GREAT_DAM",
+        "BUILDINGCLASS_PENTAGON",
+        "BUILDINGCLASS_UNITED_NATIONS",
+        "BUILDINGCLASS_SPACE_ELEVATOR",
+        "BUILDINGCLASS_MILITARY_ACADEMY",
+        "BUILDINGCLASS_ARTEMIS",
+        "BUILDINGCLASS_SANKORE",
+        "BUILDINGCLASS_GREAT_WALL",
+        "BUILDINGCLASS_STATUE_OF_ZEUS",
+        "BUILDINGCLASS_COPERNICUS_OBSERVATORY",
+        "BUILDINGCLASS_ADAM_SMITH",
+        "BUILDINGCLASS_ARCHIMEDES_WORKSHOP",
+        "BUILDINGCLASS_LEONARDOS_WORKSHOP",
+        "BUILDINGCLASS_LIBRARY_OF_NINEVEH",
+        "BUILDINGCLASS_LONDON_EYE",
+        "BUILDINGCLASS_MAGELLANS_VOYAGE",
+        "BUILDINGCLASS_MARCO_POLOS_EMBASSY",
+        "BUILDINGCLASS_NEUSCHWANSTEIN",
+        "BUILDINGCLASS_OLYMPIC",
+        "BUILDINGCLASS_PERGAMON_ALTAR",
+        "BUILDINGCLASS_PIAZZA_SAN_MARCO",
+        "BUILDINGCLASS_PLATOS_ACADEMY",
+        "BUILDINGCLASS_REICHSTAG",
+        "BUILDINGCLASS_SUN_TZUS_ART_OF_WAR",
+        "BUILDINGCLASS_TERRACOTTA_ARMY",
+        "BUILDINGCLASS_THE_GREAT_SPHINX",
+        "BUILDINGCLASS_THE_MOTHERLAND_CALLS",
+        "BUILDINGCLASS_THEATRE_OF_DIONYSUS",
+        "BUILDINGCLASS_TOMB_OF_CYRUS",
+        "BUILDINGCLASS_TOPKAPI_PALACE",
+        "BUILDINGCLASS_TSUKIJI_FISH_MARKET",
+        "BUILDINGCLASS_CENTRAL_BANK",
+        "BUILDINGCLASS_MAXIMUM_SECURITY_PRISON",
+        "BUILDINGCLASS_MAUSOLEUM_OF_MAUSSOLLOS",
+        "BUILDINGCLASS_CRISTO_REDENTOR",
+        "BUILDINGCLASS_SHWEDAGON_PAYA",
+        "BUILDINGCLASS_MOAI_STATUES",
+        "BUILDINGCLASS_CORPORATION_1",
+        "BUILDINGCLASS_CORPORATION_2",
+        "BUILDINGCLASS_CORPORATION_3",
+        "BUILDINGCLASS_CORPORATION_4",
+        "BUILDINGCLASS_CORPORATION_5",
+        "BUILDINGCLASS_CORPORATION_6",
+        "BUILDINGCLASS_CORPORATION_7",
+        "BUILDINGCLASS_APOSTOLIC_PALACE",
+        "BUILDINGCLASS_INDUSTRY_AGRARIAN_BOARD",
+        "BUILDINGCLASS_INDUSTRY_EXCHANGE_HALL",
+        "BUILDINGCLASS_INDUSTRY_MINING_BUREAU",
+        "BUILDINGCLASS_INDUSTRY_MANUFACTORIES_OFFICE",
+        "BUILDINGCLASS_INDUSTRY_FORESTRY_COMMISSION",
+        "BUILDINGCLASS_INDUSTRY_HYDRAULIC_OFFICE",
+        "BUILDINGCLASS_INDUSTRY_ESTATE_OFFICE",
+        "BUILDINGCLASS_INDUSTRY_PASTORAL_BOARD",
+        "BUILDINGCLASS_INDUSTRY_FRONTIER_LODGE",
+        "BUILDINGCLASS_INDUSTRY_MARITIME_EXCHANGE",
+        "BUILDINGCLASS_INDUSTRY_ENERGY_DIRECTORATE",
+        "BUILDINGCLASS_INDUSTRY_DYE_WORKS",
+        "BUILDINGCLASS_INDUSTRY_FURRIERS_HALL",
+        "BUILDINGCLASS_INDUSTRY_JEWELERS_QUARTER",
+        "BUILDINGCLASS_INDUSTRY_MINTING_HOUSE",
+        "BUILDINGCLASS_INDUSTRY_PERFUMERS_SANCTUARY",
+        "BUILDINGCLASS_INDUSTRY_IVORY_CARVERS_ATELIER",
+        "BUILDINGCLASS_INDUSTRY_SILK_WEAVERS_WORKSHOP",
+        "BUILDINGCLASS_INDUSTRY_SILVERSMITHS_HALL",
+        "BUILDINGCLASS_INDUSTRY_SPICE_EXCHANGE",
+        "BUILDINGCLASS_INDUSTRY_CONFECTIONERS_GUILD",
+        "BUILDINGCLASS_INDUSTRY_VINTNERS_GUILD",
+        "BUILDINGCLASS_INDUSTRY_WHALE_OIL_CHANDLERY",
+        "BUILDINGCLASS_INDUSTRY_PLAYWRIGHTS_GUILD",
+        "BUILDINGCLASS_INDUSTRY_RECORDING_HOUSE",
+        "BUILDINGCLASS_INDUSTRY_FILM_STUDIO_DISTRICT",
+        "BUILDINGCLASS_INDUSTRY_ROYAL_GARMENTS_HOUSE",
+        "BUILDINGCLASS_INDUSTRY_NOBLE_TAILORS_HALL",
+        "BUILDINGCLASS_INDUSTRY_COURT_REGALIA_ATELIER",
+        "BUILDINGCLASS_INDUSTRY_DYED_FUR_SALON",
+        "BUILDINGCLASS_INDUSTRY_CROWN_JEWELER",
+        "BUILDINGCLASS_INDUSTRY_ROYAL_MINT",
+        "BUILDINGCLASS_INDUSTRY_GEMCUTTERS_EXCHANGE",
+        "BUILDINGCLASS_INDUSTRY_REGAL_TREASURES_COURT",
+        "BUILDINGCLASS_INDUSTRY_PERFUMERS_QUARTER",
+        "BUILDINGCLASS_INDUSTRY_GRAND_BANQUET_HALL",
+        "BUILDINGCLASS_INDUSTRY_CONFECTIONERS_EXCHANGE",
+        "BUILDINGCLASS_INDUSTRY_CEREMONIAL_CELLARS",
+        "BUILDINGCLASS_INDUSTRY_FESTIVAL_MARKET",
+        "BUILDINGCLASS_INDUSTRY_IMPERIAL_OUTFITTERS",
+        "BUILDINGCLASS_INDUSTRY_ADMIRALTY_CURIOS_HOUSE",
+        "BUILDINGCLASS_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS",
+        "BUILDINGCLASS_INDUSTRY_OPERA_HOUSE",
+        "BUILDINGCLASS_INDUSTRY_CINEMA_PALACE",
+        "BUILDINGCLASS_INDUSTRY_SOUNDSTAGE_COMPLEX",
+        "BUILDINGCLASS_INDUSTRY_MASS_ENTERTAINMENT_NETWORK",
+        "BUILDINGCLASS_INDUSTRY_MILLERS_GUILD",
+        "BUILDINGCLASS_INDUSTRY_SMOKEHOUSE",
+        "BUILDINGCLASS_INDUSTRY_CANNERY",
+        "BUILDINGCLASS_INDUSTRY_FRUIT_PRESERVERS",
+        "BUILDINGCLASS_INDUSTRY_BAKERS_EXCHANGE",
+        "BUILDINGCLASS_INDUSTRY_FESTIVAL_KITCHENS",
+        "BUILDINGCLASS_INDUSTRY_ROYAL_KITCHENS",
+        "BUILDINGCLASS_INDUSTRY_SPICED_CARVERY",
+        "BUILDINGCLASS_INDUSTRY_MARITIME_SUPPER_CLUB",
+        "BUILDINGCLASS_INDUSTRY_PRESERVES_MARKET",
+        "BUILDINGCLASS_INDUSTRY_SCULPTORS_YARD",
+        "BUILDINGCLASS_INDUSTRY_HALL_OF_CAMEOS",
+        "BUILDINGCLASS_INDUSTRY_TRIUMPHAL_COURT",
+        "BUILDINGCLASS_INDUSTRY_GALLERY_OF_ANTIQUITIES",
+        "BUILDINGCLASS_INDUSTRY_SACRED_PRECINCT",
+        "BUILDINGCLASS_INDUSTRY_PASTRY_HOUSE",
+        "BUILDINGCLASS_INDUSTRY_VICTUALLERS_EXCHANGE",
+        "BUILDINGCLASS_INDUSTRY_SPICED_FISH_MARKET",
+        "BUILDINGCLASS_INDUSTRY_DESSERT_CELLARS",
+        "BUILDINGCLASS_INDUSTRY_PERFUMED_SALON",
+        "BUILDINGCLASS_INDUSTRY_LANTERN_PROCESSION_WORKS",
+        "BUILDINGCLASS_INDUSTRY_CURIO_AUCTION_HOUSE",
+        "BUILDINGCLASS_INDUSTRY_ILLUMINATED_THEATRE",
+        "BUILDINGCLASS_ART_MASTERPIECE_TRIGGER"
+      ]
+    },
+    "buildings": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Buildings/CIV4BuildingInfos.xml",
+      "entry": "BuildingInfo",
+      "count": 305,
+      "type_order": [
+        "BUILDING_PALACE",
+        "BUILDING_VENETIAN_DOGE_PALACE",
+        "BUILDING_BABYLON_ROYAL_PALACE",
+        "BUILDING_GREAT_PALACE",
+        "BUILDING_CARTHAGE_BYRSA_ELEPHANT_TREASURY",
+        "BUILDING_AZTEC_PALACE",
+        "BUILDING_MONGOLIAN_PALACE",
+        "BUILDING_MAURYAN_GREAT_PALACE",
+        "BUILDING_VERSAILLES",
+        "BUILDING_WALLS",
+        "BUILDING_CELTIC_DUN",
+        "BUILDING_CASTLE",
+        "BUILDING_SPANISH_CITADEL",
+        "BUILDING_POLISH_ROYAL_CASTLE",
+        "BUILDING_BARRACKS",
+        "BUILDING_ZULU_IKHANDA",
+        "BUILDING_STABLE",
+        "BUILDING_MONGOL_GER",
+        "BUILDING_YUAN_ORTOO_HUB",
+        "BUILDING_BUNKER",
+        "BUILDING_BOMB_SHELTER",
+        "BUILDING_GRANARY",
+        "BUILDING_INCAN_TERRACE",
+        "BUILDING_AQUEDUCT",
+        "BUILDING_OTTOMAN_HAMMAM",
+        "BUILDING_KHMER_BARAY",
+        "BUILDING_HOSPITAL",
+        "BUILDING_RECYCLING_CENTER",
+        "BUILDING_LIGHTHOUSE",
+        "BUILDING_VIKING_TRADING_POST",
+        "BUILDING_ORANGE_LIGHTHOUSE",
+        "BUILDING_HARBOR",
+        "BUILDING_PETER_ADMIRALTY",
+        "BUILDING_CARTHAGE_COTHON",
+        "BUILDING_CUSTOM_HOUSE",
+        "BUILDING_PORTUGAL_FEITORIA",
+        "BUILDING_DRYDOCK",
+        "BUILDING_AIRPORT",
+        "BUILDING_FORGE",
+        "BUILDING_GANDHI_FORGE",
+        "BUILDING_MALI_MINT",
+        "BUILDING_FACTORY",
+        "BUILDING_GERMAN_ASSEMBLY_PLANT",
+        "BUILDING_COAL_PLANT",
+        "BUILDING_JAPANESE_SHALE_PLANT",
+        "BUILDING_HYDRO_PLANT",
+        "BUILDING_NUCLEAR_PLANT",
+        "BUILDING_INDUSTRIAL_PARK",
+        "BUILDING_OBELISK",
+        "BUILDING_FRENCH_FIFTH_REPUBLIC_MONUMENT",
+        "BUILDING_USSR_MONUMENT",
+        "BUILDING_EGYPTIAN_OBELISK",
+        "BUILDING_MAURYAN_OBELISK",
+        "BUILDING_ETHIOPIAN_STELE",
+        "BUILDING_NATIVE_AMERICA_TOTEM",
+        "BUILDING_PUBLIC_TRANSPORTATION",
+        "BUILDING_ACADEMY",
+        "BUILDING_KOREAN_ACADEMY",
+        "BUILDING_LIBRARY",
+        "BUILDING_KOREAN_LIBRARY",
+        "BUILDING_ARABIAN_MADRASSA",
+        "BUILDING_UNIVERSITY",
+        "BUILDING_KOREAN_SEOWON",
+        "BUILDING_LAND_GRANT_COLLEGE",
+        "BUILDING_OBSERVATORY",
+        "BUILDING_FRENCH_SALON",
+        "BUILDING_LABORATORY",
+        "BUILDING_RUSSIAN_RESEARCH_INSTITUTE",
+        "BUILDING_THEATRE",
+        "BUILDING_CHINESE_PAVILLION",
+        "BUILDING_BYZANTINE_HIPPODROME",
+        "BUILDING_COLOSSEUM",
+        "BUILDING_GREEK_ODEON",
+        "BUILDING_MAYA_BALL_COURT",
+        "BUILDING_BABYLON_GARDEN",
+        "BUILDING_BROADCAST_TOWER",
+        "BUILDING_FRENCH_BROADCAST_TOWER",
+        "BUILDING_MARKET",
+        "BUILDING_MALI_MARKET",
+        "BUILDING_ROMAN_FORUM",
+        "BUILDING_GROCER",
+        "BUILDING_PERSIA_SATRAPY_ARCHIVE",
+        "BUILDING_BANK",
+        "BUILDING_ENGLISH_STOCK_EXCHANGE",
+        "BUILDING_NATIONAL_BANK",
+        "BUILDING_ENGLISH_ROYAL_EXCHANGE",
+        "BUILDING_SUPERMARKET",
+        "BUILDING_NEW_DEAL_FEDERAL_RELIEF_DEPOT",
+        "BUILDING_AMERICAN_MALL",
+        "BUILDING_COURTHOUSE",
+        "BUILDING_FEDERAL_BUREAU",
+        "BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS",
+        "BUILDING_IMPERIAL_RUSSIA_NOBLE_ASSEMBLY",
+        "BUILDING_FEDERAL_HALL",
+        "BUILDING_PRC_DANWEI_COMMITTEE",
+        "BUILDING_AZTEC_SACRIFICIAL_ALTAR",
+        "BUILDING_BABYLON_COURTHOUSE",
+        "BUILDING_JAPAN_BAKUFU_MAGISTRACY",
+        "BUILDING_HOLY_ROMAN_RATHAUS",
+        "BUILDING_SUMERIAN_ZIGGURAT",
+        "BUILDING_JAIL",
+        "BUILDING_INDIAN_MAUSOLEUM",
+        "BUILDING_LEVEE",
+        "BUILDING_NETHERLANDS_DIKE",
+        "BUILDING_INTELLIGENCE_AGENCY",
+        "BUILDING_BRITISH_WAR_ROOMS",
+        "BUILDING_NATIONAL_SECURITY",
+        "BUILDING_JEWISH_TEMPLE",
+        "BUILDING_JEWISH_CATHEDRAL",
+        "BUILDING_JEWISH_MONASTERY",
+        "BUILDING_JEWISH_SHRINE",
+        "BUILDING_CHRISTIAN_TEMPLE",
+        "BUILDING_CHRISTIAN_CATHEDRAL",
+        "BUILDING_CHRISTIAN_MONASTERY",
+        "BUILDING_CHRISTIAN_SHRINE",
+        "BUILDING_ISLAMIC_TEMPLE",
+        "BUILDING_ISLAMIC_CATHEDRAL",
+        "BUILDING_ISLAMIC_MONASTERY",
+        "BUILDING_ISLAMIC_SHRINE",
+        "BUILDING_HINDU_TEMPLE",
+        "BUILDING_HINDU_CATHEDRAL",
+        "BUILDING_HINDU_MONASTERY",
+        "BUILDING_HINDU_SHRINE",
+        "BUILDING_BUDDHIST_TEMPLE",
+        "BUILDING_BUDDHIST_CATHEDRAL",
+        "BUILDING_BUDDHIST_MONASTERY",
+        "BUILDING_BUDDHIST_SHRINE",
+        "BUILDING_CONFUCIAN_TEMPLE",
+        "BUILDING_CONFUCIAN_CATHEDRAL",
+        "BUILDING_CONFUCIAN_MONASTERY",
+        "BUILDING_CONFUCIAN_SHRINE",
+        "BUILDING_TAOIST_TEMPLE",
+        "BUILDING_TAOIST_CATHEDRAL",
+        "BUILDING_TAOIST_MONASTERY",
+        "BUILDING_TAOIST_SHRINE",
+        "BUILDING_HEROIC_EPIC",
+        "BUILDING_NATIONAL_EPIC",
+        "BUILDING_GLOBE_THEATRE",
+        "BUILDING_NATIONAL_PARK",
+        "BUILDING_HERMITAGE",
+        "BUILDING_OXFORD_UNIVERSITY",
+        "BUILDING_WALL_STREET",
+        "BUILDING_IRON_WORKS",
+        "BUILDING_WEST_POINT",
+        "BUILDING_MT_RUSHMORE",
+        "BUILDING_RED_CROSS",
+        "BUILDING_SCOTLAND_YARD",
+        "BUILDING_BRITISH_MI6",
+        "BUILDING_LUBYANKA",
+        "BUILDING_PYRAMID",
+        "BUILDING_STONEHENGE",
+        "BUILDING_GREAT_LIBRARY",
+        "BUILDING_GREAT_LIGHTHOUSE",
+        "BUILDING_HANGING_GARDEN",
+        "BUILDING_COLOSSUS",
+        "BUILDING_ORACLE",
+        "BUILDING_PARTHENON",
+        "BUILDING_ANGKOR_WAT",
+        "BUILDING_HAGIA_SOPHIA",
+        "BUILDING_CHICHEN_ITZA",
+        "BUILDING_SISTINE_CHAPEL",
+        "BUILDING_SPIRAL_MINARET",
+        "BUILDING_NOTRE_DAME",
+        "BUILDING_TAJ_MAHAL",
+        "BUILDING_KREMLIN",
+        "BUILDING_EIFFEL_TOWER",
+        "BUILDING_STATUE_OF_LIBERTY",
+        "BUILDING_BROADWAY",
+        "BUILDING_ROCKNROLL",
+        "BUILDING_HOLLYWOOD",
+        "BUILDING_GREAT_DAM",
+        "BUILDING_PENTAGON",
+        "BUILDING_UNITED_NATIONS",
+        "BUILDING_SPACE_ELEVATOR",
+        "BUILDING_MILITARY_ACADEMY",
+        "BUILDING_ARTEMIS",
+        "BUILDING_SANKORE",
+        "BUILDING_GREAT_WALL",
+        "BUILDING_STATUE_OF_ZEUS",
+        "BUILDING_MAUSOLEUM_OF_MAUSSOLLOS",
+        "BUILDING_CRISTO_REDENTOR",
+        "BUILDING_SHWEDAGON_PAYA",
+        "BUILDING_MOAI_STATUES",
+        "BUILDING_CORPORATION_1",
+        "BUILDING_CORPORATION_2",
+        "BUILDING_CORPORATION_3",
+        "BUILDING_CORPORATION_4",
+        "BUILDING_CORPORATION_5",
+        "BUILDING_CORPORATION_6",
+        "BUILDING_CORPORATION_7",
+        "BUILDING_APOSTOLIC_PALACE",
+        "BUILDING_COPERNICUS_OBSERVATORY",
+        "BUILDING_ADAM_SMITH",
+        "BUILDING_ARCHIMEDES_WORKSHOP",
+        "BUILDING_LEONARDOS_WORKSHOP",
+        "BUILDING_LIBRARY_OF_NINEVEH",
+        "BUILDING_LONDON_EYE",
+        "BUILDING_MAGELLANS_VOYAGE",
+        "BUILDING_MARCO_POLOS_EMBASSY",
+        "BUILDING_NEUSCHWANSTEIN",
+        "BUILDING_OLYMPIC",
+        "BUILDING_PERGAMON_ALTAR",
+        "BUILDING_PIAZZA_SAN_MARCO",
+        "BUILDING_REICHSTAG",
+        "BUILDING_SUN_TZUS_ART_OF_WAR",
+        "BUILDING_TERRACOTTA_ARMY",
+        "BUILDING_THE_GREAT_SPHINX",
+        "BUILDING_THE_MOTHERLAND_CALLS",
+        "BUILDING_THEATRE_OF_DIONYSUS",
+        "BUILDING_TOMB_OF_CYRUS",
+        "BUILDING_TOPKAPI_PALACE",
+        "BUILDING_TSUKIJI_FISH_MARKET",
+        "BUILDING_CENTRAL_BANK",
+        "BUILDING_MAXIMUM_SECURITY_PRISON",
+        "BUILDING_APACHE_WAR_COUNCIL_BTG",
+        "BUILDING_POLYNESIA_MARAE_BTG",
+        "BUILDING_INDUSTRY_AGRARIAN_BOARD",
+        "BUILDING_INDUSTRY_EXCHANGE_HALL",
+        "BUILDING_INDUSTRY_MINING_BUREAU",
+        "BUILDING_INDUSTRY_MANUFACTORIES_OFFICE",
+        "BUILDING_INDUSTRY_FORESTRY_COMMISSION",
+        "BUILDING_INDUSTRY_HYDRAULIC_OFFICE",
+        "BUILDING_INDUSTRY_ESTATE_OFFICE",
+        "BUILDING_INDUSTRY_PASTORAL_BOARD",
+        "BUILDING_INDUSTRY_FRONTIER_LODGE",
+        "BUILDING_INDUSTRY_MARITIME_EXCHANGE",
+        "BUILDING_INDUSTRY_ENERGY_DIRECTORATE",
+        "BUILDING_INDUSTRY_DYE_WORKS",
+        "BUILDING_INDUSTRY_FURRIERS_HALL",
+        "BUILDING_INDUSTRY_JEWELERS_QUARTER",
+        "BUILDING_INDUSTRY_MINTING_HOUSE",
+        "BUILDING_INDUSTRY_PERFUMERS_SANCTUARY",
+        "BUILDING_INDUSTRY_IVORY_CARVERS_ATELIER",
+        "BUILDING_INDUSTRY_SILK_WEAVERS_WORKSHOP",
+        "BUILDING_INDUSTRY_SILVERSMITHS_HALL",
+        "BUILDING_INDUSTRY_SPICE_EXCHANGE",
+        "BUILDING_INDUSTRY_CONFECTIONERS_GUILD",
+        "BUILDING_INDUSTRY_VINTNERS_GUILD",
+        "BUILDING_INDUSTRY_WHALE_OIL_CHANDLERY",
+        "BUILDING_INDUSTRY_PLAYWRIGHTS_GUILD",
+        "BUILDING_INDUSTRY_RECORDING_HOUSE",
+        "BUILDING_INDUSTRY_FILM_STUDIO_DISTRICT",
+        "BUILDING_INDUSTRY_ROYAL_GARMENTS_HOUSE",
+        "BUILDING_INDUSTRY_NOBLE_TAILORS_HALL",
+        "BUILDING_INDUSTRY_COURT_REGALIA_ATELIER",
+        "BUILDING_INDUSTRY_DYED_FUR_SALON",
+        "BUILDING_INDUSTRY_CROWN_JEWELER",
+        "BUILDING_INDUSTRY_ROYAL_MINT",
+        "BUILDING_INDUSTRY_GEMCUTTERS_EXCHANGE",
+        "BUILDING_INDUSTRY_REGAL_TREASURES_COURT",
+        "BUILDING_INDUSTRY_PERFUMERS_QUARTER",
+        "BUILDING_INDUSTRY_GRAND_BANQUET_HALL",
+        "BUILDING_INDUSTRY_CONFECTIONERS_EXCHANGE",
+        "BUILDING_INDUSTRY_CEREMONIAL_CELLARS",
+        "BUILDING_INDUSTRY_FESTIVAL_MARKET",
+        "BUILDING_INDUSTRY_IMPERIAL_OUTFITTERS",
+        "BUILDING_INDUSTRY_ADMIRALTY_CURIOS_HOUSE",
+        "BUILDING_INDUSTRY_NAVIGATORS_INSTRUMENT_WORKS",
+        "BUILDING_INDUSTRY_OPERA_HOUSE",
+        "BUILDING_INDUSTRY_CINEMA_PALACE",
+        "BUILDING_INDUSTRY_SOUNDSTAGE_COMPLEX",
+        "BUILDING_INDUSTRY_MASS_ENTERTAINMENT_NETWORK",
+        "BUILDING_INDUSTRY_MILLERS_GUILD",
+        "BUILDING_INDUSTRY_SMOKEHOUSE",
+        "BUILDING_INDUSTRY_CANNERY",
+        "BUILDING_INDUSTRY_FRUIT_PRESERVERS",
+        "BUILDING_INDUSTRY_BAKERS_EXCHANGE",
+        "BUILDING_INDUSTRY_FESTIVAL_KITCHENS",
+        "BUILDING_INDUSTRY_ROYAL_KITCHENS",
+        "BUILDING_INDUSTRY_SPICED_CARVERY",
+        "BUILDING_INDUSTRY_MARITIME_SUPPER_CLUB",
+        "BUILDING_INDUSTRY_PRESERVES_MARKET",
+        "BUILDING_INDUSTRY_SCULPTORS_YARD",
+        "BUILDING_INDUSTRY_HALL_OF_CAMEOS",
+        "BUILDING_INDUSTRY_TRIUMPHAL_COURT",
+        "BUILDING_INDUSTRY_GALLERY_OF_ANTIQUITIES",
+        "BUILDING_INDUSTRY_SACRED_PRECINCT",
+        "BUILDING_INDUSTRY_PASTRY_HOUSE",
+        "BUILDING_INDUSTRY_VICTUALLERS_EXCHANGE",
+        "BUILDING_INDUSTRY_SPICED_FISH_MARKET",
+        "BUILDING_INDUSTRY_DESSERT_CELLARS",
+        "BUILDING_INDUSTRY_PERFUMED_SALON",
+        "BUILDING_INDUSTRY_LANTERN_PROCESSION_WORKS",
+        "BUILDING_INDUSTRY_CURIO_AUCTION_HOUSE",
+        "BUILDING_INDUSTRY_ILLUMINATED_THEATRE",
+        "BUILDING_ART_MASTERPIECE_TRIGGER",
+        "BUILDING_MACEDONIAN_COMPANION_BARRACKS",
+        "BUILDING_ATHENIAN_ODEON",
+        "BUILDING_ROMAN_REPUBLIC_CASTRUM",
+        "BUILDING_ROMAN_PRINCIPATE_COLONIA",
+        "BUILDING_BYZANTINE_CORPUS_JURIS",
+        "BUILDING_GAUL_NEMETON",
+        "BUILDING_ICENI_HALL",
+        "BUILDING_OTTOMAN_DEVSHIRME_BARRACKS",
+        "BUILDING_OTTOMAN_KULLIYE",
+        "BUILDING_PERSIA_PASARGADAE_DECREE",
+        "BUILDING_MANUFACTURE_ROYALE",
+        "BUILDING_NAPOLEONIC_PREFECTURE",
+        "BUILDING_CAROLINGIAN_SCRIPTORIUM",
+        "BUILDING_PRUSSIAN_ACADEMY",
+        "BUILDING_COUNTRY_ESTATE",
+        "BUILDING_EGYPT_HATSHEPSUT_KARNAK_OBELISK",
+        "BUILDING_EGYPT_RAMESSES_TEMPLE",
+        "BUILDING_ETHIOPIA_ZARA_TABOT_SHRINE",
+        "BUILDING_ETHIOPIA_SELASSIE_IMPERIAL_UNIVERSITY"
+      ]
+    },
+    "civics": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/GameInfo/CIV4CivicInfos.xml",
+      "entry": "CivicInfo",
+      "count": 25,
+      "type_order": [
+        "CIVIC_DESPOTISM",
+        "CIVIC_HEREDITARY_RULE",
+        "CIVIC_REPRESENTATION",
+        "CIVIC_POLICE_STATE",
+        "CIVIC_UNIVERSAL_SUFFRAGE",
+        "CIVIC_BARBARISM",
+        "CIVIC_VASSALAGE",
+        "CIVIC_BUREAUCRACY",
+        "CIVIC_NATIONHOOD",
+        "CIVIC_FREE_SPEECH",
+        "CIVIC_TRIBALISM",
+        "CIVIC_SLAVERY",
+        "CIVIC_SERFDOM",
+        "CIVIC_CASTE_SYSTEM",
+        "CIVIC_EMANCIPATION",
+        "CIVIC_DECENTRALIZATION",
+        "CIVIC_MERCANTILISM",
+        "CIVIC_FREE_MARKET",
+        "CIVIC_STATE_PROPERTY",
+        "CIVIC_ENVIRONMENTALISM",
+        "CIVIC_PAGANISM",
+        "CIVIC_ORGANIZED_RELIGION",
+        "CIVIC_THEOCRACY",
+        "CIVIC_PACIFISM",
+        "CIVIC_FREE_RELIGION"
+      ]
+    },
+    "builds": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4BuildInfos.xml",
+      "entry": "BuildInfo",
+      "count": 34,
+      "type_order": [
+        "BUILD_ROAD",
+        "BUILD_RAILROAD",
+        "BUILD_FARM",
+        "BUILD_FISHING_BOATS",
+        "BUILD_WHALING_BOATS",
+        "BUILD_MINE",
+        "BUILD_WORKSHOP",
+        "BUILD_LUMBERMILL",
+        "BUILD_WINDMILL",
+        "BUILD_WATERMILL",
+        "BUILD_PLANTATION",
+        "BUILD_QUARRY",
+        "BUILD_PASTURE",
+        "BUILD_CAMP",
+        "BUILD_WELL",
+        "BUILD_OFFSHORE_PLATFORM",
+        "BUILD_WINERY",
+        "BUILD_COTTAGE",
+        "BUILD_FORT",
+        "BUILD_REMOVE_JUNGLE",
+        "BUILD_REMOVE_FOREST",
+        "BUILD_SCRUB_FALLOUT",
+        "BUILD_FOREST_PRESERVE",
+        "BUILD_FOREST",
+        "BUILD_HILL",
+        "BUILD_TERRAFORM",
+        "BUILD_POLYNESIA_FISHING_BOATS_BTG",
+        "BUILD_POLYNESIA_WHALING_BOATS_BTG",
+        "BUILD_POLYNESIA_OFFSHORE_PLATFORM_BTG",
+        "BUILD_GRAND_COLOSSEUM_BTG",
+        "BUILD_POLYNESIA_REEF_WORKS_BTG",
+        "BUILD_EGYPT_SPHINX",
+        "BUILD_JAPAN_CASTLE_TOWN",
+        "BUILD_PERSIA_ROYAL_STATION"
+      ]
+    },
+    "improvements": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Terrain/CIV4ImprovementInfos.xml",
+      "entry": "ImprovementInfo",
+      "count": 35,
+      "type_order": [
+        "IMPROVEMENT_LAND_WORKED",
+        "IMPROVEMENT_WATER_WORKED",
+        "IMPROVEMENT_CITY_RUINS",
+        "IMPROVEMENT_GOODY_HUT",
+        "IMPROVEMENT_FARM",
+        "IMPROVEMENT_FISHING_BOATS",
+        "IMPROVEMENT_WHALING_BOATS",
+        "IMPROVEMENT_MINE",
+        "IMPROVEMENT_WORKSHOP",
+        "IMPROVEMENT_LUMBERMILL",
+        "IMPROVEMENT_WINDMILL",
+        "IMPROVEMENT_WATERMILL",
+        "IMPROVEMENT_PLANTATION",
+        "IMPROVEMENT_QUARRY",
+        "IMPROVEMENT_PASTURE",
+        "IMPROVEMENT_CAMP",
+        "IMPROVEMENT_WELL",
+        "IMPROVEMENT_OFFSHORE_PLATFORM",
+        "IMPROVEMENT_WINERY",
+        "IMPROVEMENT_COTTAGE",
+        "IMPROVEMENT_HAMLET",
+        "IMPROVEMENT_VILLAGE",
+        "IMPROVEMENT_TOWN",
+        "IMPROVEMENT_FORT",
+        "IMPROVEMENT_FOREST_PRESERVE",
+        "IMPROVEMENT_TREE_NURSERY",
+        "IMPROVEMENT_FOREST",
+        "IMPROVEMENT_HILL",
+        "IMPROVEMENT_TERRAFORM",
+        "IMPROVEMENT_TERRAFORMED_TERRAIN",
+        "IMPROVEMENT_GRAND_COLOSSEUM_BTG",
+        "IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG",
+        "IMPROVEMENT_EGYPT_SPHINX",
+        "IMPROVEMENT_JAPAN_CASTLE_TOWN",
+        "IMPROVEMENT_PERSIA_ROYAL_STATION"
+      ]
+    },
+    "promotions": {
+      "file": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4PromotionInfos.xml",
+      "entry": "PromotionInfo",
+      "count": 64,
+      "type_order": [
+        "PROMOTION_COMBAT1",
+        "PROMOTION_COMBAT2",
+        "PROMOTION_COMBAT3",
+        "PROMOTION_COMBAT4",
+        "PROMOTION_COMBAT5",
+        "PROMOTION_COVER",
+        "PROMOTION_SHOCK",
+        "PROMOTION_PILLAGE1",
+        "PROMOTION_PILLAGE2",
+        "PROMOTION_PILLAGE3",
+        "PROMOTION_PINCH",
+        "PROMOTION_FORMATION",
+        "PROMOTION_CHARGE",
+        "PROMOTION_AMBUSH",
+        "PROMOTION_AMPHIBIOUS",
+        "PROMOTION_MARCH",
+        "PROMOTION_BLITZ",
+        "PROMOTION_COMMANDO",
+        "PROMOTION_MEDIC1",
+        "PROMOTION_MEDIC2",
+        "PROMOTION_GUERILLA1",
+        "PROMOTION_GUERILLA2",
+        "PROMOTION_GUERILLA3",
+        "PROMOTION_WOODSMAN1",
+        "PROMOTION_WOODSMAN2",
+        "PROMOTION_WOODSMAN3",
+        "PROMOTION_MONTEZUMA",
+        "PROMOTION_CITY_RAIDER1",
+        "PROMOTION_CITY_RAIDER2",
+        "PROMOTION_CITY_RAIDER3",
+        "PROMOTION_CITY_GARRISON1",
+        "PROMOTION_CITY_GARRISON2",
+        "PROMOTION_CITY_GARRISON3",
+        "PROMOTION_DRILL1",
+        "PROMOTION_DRILL2",
+        "PROMOTION_DRILL3",
+        "PROMOTION_DRILL4",
+        "PROMOTION_BARRAGE1",
+        "PROMOTION_BARRAGE2",
+        "PROMOTION_BARRAGE3",
+        "PROMOTION_ACCURACY",
+        "PROMOTION_FLANKING1",
+        "PROMOTION_FLANKING2",
+        "PROMOTION_FLANKING_GEORGE_WASHINGTON",
+        "PROMOTION_SENTRY",
+        "PROMOTION_MOBILITY",
+        "PROMOTION_NAVIGATION1",
+        "PROMOTION_NAVIGATION2",
+        "PROMOTION_LEADER",
+        "PROMOTION_LEADERSHIP",
+        "PROMOTION_TACTICS",
+        "PROMOTION_COMBAT6",
+        "PROMOTION_MORALE",
+        "PROMOTION_MEDIC3",
+        "PROMOTION_RANGE1",
+        "PROMOTION_RANGE2",
+        "PROMOTION_INTERCEPTION1",
+        "PROMOTION_INTERCEPTION2",
+        "PROMOTION_ACE",
+        "PROMOTION_GIGA",
+        "PROMOTION_KAMIKAZE_PREREQ",
+        "PROMOTION_KAMIKAZE",
+        "PROMOTION_JOAO",
+        "PROMOTION_HUAYNA_CAPAC"
+      ]
+    }
+  },
+  "hashes": {
+    "algorithm": "SHA-256",
+    "tree_digest_contract": "Select Git-tracked regular files below the root and sort by repository-relative POSIX path; for each append UTF-8 path, NUL, lowercase file SHA-256, and LF; SHA-256 the concatenated byte stream.",
+    "relevant_xml_files": {
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Buildings/CIV4BuildingClassInfos.xml": "5ecfc897a948df57c70eef280c91613c80cfa992a5591b34547681a82dcd441f",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Buildings/CIV4BuildingInfos.xml": "2f0e7ce5d61ac8e4ea661126ce24c1932708b43c074defc912ca344b933de298",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Civilizations/CIV4CivilizationInfos.xml": "116dae5d89e168e62c71bc4631e45530a79bdf557f86cfac0f0c6348939737b9",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Civilizations/CIV4LeaderHeadInfos.xml": "c555b4fb62b80544c6863b4089e28974a597fb7ec88716f48ccbbff88eeb767c",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Civilizations/CIV4TraitInfos.xml": "bae2577a9f1a15070e7d1a4875d305ea9785ddc7468926ab17540123a0975c60",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/GameInfo/CIV4CivicInfos.xml": "e82def0a8a50266c285307422ad87733dbb5ca0d267dd6076d56153484868289",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Terrain/CIV4ImprovementInfos.xml": "2d4bbcf55b0791be02d06ca542cf811cc91222a94266d0bdb5bc25576c0c56bb",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4BuildInfos.xml": "b4616eb62d194222bb0ec6cffa12068ab94c1295bb956e36327f4bc3cda3758a",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4PromotionInfos.xml": "7bec730691a840b5a58730ea77f32af388dc2b294cf5fd871022bf56e5f2cc47",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4UnitClassInfos.xml": "af36c9b5948188b88d6fe35a6ea243caf315df1bb18f0e05446f7380484676c2",
+      "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4UnitInfos.xml": "9842731e9305dc5d2982f6088c859c260ce21add32d0afac839f3d5f15f0b67c"
+    },
+    "trees": {
+      "xml": {
+        "root": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML",
+        "file_count": 158,
+        "total_bytes": 19883609,
+        "sha256": "12ddbe980be75791ad9d8ad36fd6c6bba2389f13b2f2709b87ca6e886af9a7de"
+      },
+      "python": {
+        "root": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Python",
+        "file_count": 66,
+        "total_bytes": 1734301,
+        "sha256": "762fbd1962dca3c121de209999f57aad18edc08b400785137dbaa6668fc3a028"
+      },
+      "dll_source": {
+        "root": "third_party/beyond-the-sword-sdk/CvGameCoreDLL",
+        "file_count": 3236,
+        "total_bytes": 29221912,
+        "sha256": "7afb90b4009800ea39d585e641d755f2842900948559e5276b70da6d9ca4b85d"
+      }
+    }
+  }
+}

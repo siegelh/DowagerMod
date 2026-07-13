@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "generated_on": "2026-07-12",
+  "scope": "all non-Keep packages in remaining_roster_implementation_matrix.json",
+  "verdict": {
+    "new_dll_mechanics_required": false,
+    "new_xml_tags": [],
+    "new_missions_or_commands": [],
+    "new_python_bindings": [],
+    "condition": "Declare the pass new-game-only or separately approve migration of serialized CvPlayer trait caches."
+  },
+  "matrix_correction": {
+    "package": "LEADER_GENGHIS_KHAN",
+    "matrix_phrase": "ImprovementCommerceChanges",
+    "exact_live_tag": "ImprovementCityCommerceChangesWorked"
+  },
+  "packages": [
+    {"leader":"LEADER_WASHINGTON","new_dll":false,"channels":["ImprovementYieldChanges","BuildingYieldChanges","BuildingCommerceChanges","SpecialistCommerceChanges","BonusYieldChanges","RouteYieldChanges"]},
+    {"leader":"LEADER_GERONIMO_BTG","new_dll":false,"channels":["leader_personality_scalars"]},
+    {"leader":"LEADER_HAMMURABI","new_dll":false,"channels":["building_yield_and_commerce_arrays"]},
+    {"leader":"LEADER_ELIZABETH","new_dll":false,"channels":["civilization_unit_class_overrides"]},
+    {"leader":"LEADER_HUAYNA_CAPAC","new_dll":false,"channels":["text_only"]},
+    {"leader":"LEADER_WANGKON","new_dll":false,"channels":["civilization_building_class_overrides"]},
+    {"leader":"LEADER_ASOKA","new_dll":false,"channels":["building_trait_and_war_weariness_fields"]},
+    {"leader":"LEADER_GENGHIS_KHAN","new_dll":false,"channels":["ImprovementCityCommerceChangesWorked"]},
+    {"leader":"LEADER_SITTING_BULL","new_dll":false,"channels":["TradeYieldModifiers"]},
+    {"leader":"LEADER_CHINESE_LEADER","new_dll":false,"channels":["ImprovementCityCommerceChangesWorked"]},
+    {"leader":"LEADER_CASIMIR","new_dll":false,"channels":["leader_flavors"]},
+    {"leader":"LEADER_SALAMASINA_BTG","new_dll":false,"channels":["trait_health_happiness"]},
+    {"leader":"LEADER_STALIN","new_dll":false,"channels":["trait_CommerceChanges","BuildingYieldChanges","civilization_unit_class_overrides","building_fields"]},
+    {"leader":"LEADER_ENRICO_DANDOLO","new_dll":false,"channels":["TradeYieldModifiers","trait_upkeep","civilization_unit_class_overrides","unit_existing_actions","building_fields","leader_fields"]},
+    {"leader":"LEADER_CHURCHILL","new_dll":false,"channels":["building_fields","leader_flavors"]},
+    {"leader":"LEADER_KUBLAI_KHAN","new_dll":false,"channels":["building_fields","civilization_building_class_overrides"]}
+  ],
+  "changed_custom_channels": [
+    {
+      "id": "trait_trade_and_scalars",
+      "consumers": ["LEADER_SITTING_BULL","LEADER_SALAMASINA_BTG","LEADER_STALIN","LEADER_ENRICO_DANDOLO"],
+      "state": "derived_at_player_init_then_serialized",
+      "python": "trait scalar/trade getters and player trade getter exposed",
+      "old_save_behavior": "retains serialized pre-change player totals",
+      "deterministic": true,
+      "tests": ["exact trade yield arithmetic","health/happiness/upkeep/free-commerce totals","help","new-save roundtrip","old-save policy","MP checksum"]
+    },
+    {
+      "id": "ImprovementYieldChanges",
+      "consumers": ["LEADER_WASHINGTON"],
+      "state": "derived_player_array_then_serialized",
+      "python": "CvTraitInfo getter exposed; aggregate player getter not exposed",
+      "old_save_behavior": "retains serialized pre-change Town bonus",
+      "deterministic": true,
+      "tests": ["Town exact yield","other improvements unchanged","help","governor","new-save roundtrip","old-save policy","MP checksum"]
+    },
+    {
+      "id": "ImprovementCityCommerceChangesWorked",
+      "consumers": ["LEADER_GENGHIS_KHAN","LEADER_CHINESE_LEADER"],
+      "state": "derived_city_cache_recomputed_on_load_and_plot_changes",
+      "python": "trait getter not exposed",
+      "old_save_behavior": "recomputes from current XML",
+      "deterministic": true,
+      "tests": ["work-unwork","pillage-rebuild","civic swap","city transfer","save roundtrip","MP checksum"]
+    },
+    {
+      "id": "trait_building_yield_and_commerce",
+      "consumers": ["LEADER_WASHINGTON","LEADER_STALIN"],
+      "state": "derived_player_class_arrays_then_serialized_and_applied_to_cities",
+      "python": "trait getters not exposed",
+      "old_save_behavior": "retains serialized pre-change class arrays",
+      "deterministic": true,
+      "tests": ["active building counts","replacement class","disable-obsolete-capture","help","AI assignment","new-save roundtrip","old-save policy","MP checksum"]
+    },
+    {
+      "id": "SpecialistCommerceChanges",
+      "consumers": ["LEADER_WASHINGTON"],
+      "state": "derived_player_array_then_serialized",
+      "python": "trait getter not exposed",
+      "old_save_behavior": "retains serialized pre-change specialist values",
+      "deterministic": true,
+      "tests": ["assigned and free specialists","governor","help","new-save roundtrip","old-save policy","MP checksum"]
+    },
+    {
+      "id": "BonusYieldChanges",
+      "consumers": ["LEADER_WASHINGTON"],
+      "state": "derived_player_array_then_serialized",
+      "python": "trait getter not exposed",
+      "old_save_behavior": "retains serialized pre-change resource values",
+      "deterministic": true,
+      "tests": ["Wheat and Horse exact yields","connect-disconnect","pillage","help","new-save roundtrip","old-save policy","MP checksum"]
+    },
+    {
+      "id": "RouteYieldChanges",
+      "consumers": ["LEADER_WASHINGTON"],
+      "state": "derived_player_array_then_serialized",
+      "python": "trait getter not exposed",
+      "old_save_behavior": "unchanged retained Road value",
+      "deterministic": true,
+      "tests": ["Road exact yield","Railroad non-inheritance","pillage-rebuild","capture","help","save roundtrip","MP checksum"]
+    },
+    {
+      "id": "unit_existing_actions",
+      "consumers": ["LEADER_ENRICO_DANDOLO"],
+      "state": "immutable CvUnitInfo; mission queues persisted",
+      "python": "unit Found/Builds/Buildings/GreatPeoples/WorkRate/GreatWork getters exposed",
+      "old_save_behavior": "existing units use current info; queued removed actions require cancellation smoke",
+      "deterministic": true,
+      "tests": ["action bar allowlist","trade gold and consumption","AI retained-action selection","queued mission load-cancel","ordinary Great Merchant regression","MP AI Venice checksum"]
+    }
+  ],
+  "release_gates": [
+    "tools/test_gate.ps1",
+    "machine contract parses and has all 16 non-Keep packages",
+    "channel scenarios recorded",
+    "save compatibility policy decided",
+    "manual Civilopedia/action/yield smoke",
+    "matched-assets MP checksum smoke"
+  ]
+}

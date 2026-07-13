@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-07-12",
+  "scope": "remaining-32 frozen implementation matrix",
+  "policy": "no-art-no-action",
+  "new_worker_actions_approved": 0,
+  "existing_action": {
+    "leader": "LEADER_SALAMASINA_BTG",
+    "build": "BUILD_POLYNESIA_REEF_WORKS_BTG",
+    "improvement": "IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG",
+    "unit": "UNIT_POLYNESIA_WAYFINDER_WORKBOAT_BTG",
+    "static_functional_wiring": "approve",
+    "release_approval": "reject",
+    "blockers": [
+      "referenced Nets NIF and KFM are absent from repository asset layers",
+      "direct BuildFishingBoats button is absent from repository asset layers",
+      "available action atlas is not tracked",
+      "human build legality permits replacing resource-tile improvements",
+      "player-level city AI can rank Reef Works for civilizations without a capable unit",
+      "in-game render, interaction, AI, save/reload, and multiplayer states remain unproved"
+    ]
+  },
+  "packages": [
+    {"leader": "LEADER_WASHINGTON", "tier": "Targeted differentiation", "decision": "reject_new_action"},
+    {"leader": "LEADER_GERONIMO_BTG", "tier": "Polish", "decision": "reject_new_action"},
+    {"leader": "LEADER_HAMMURABI", "tier": "Targeted differentiation", "decision": "reject_new_action"},
+    {"leader": "LEADER_ELIZABETH", "tier": "Targeted differentiation", "decision": "reject_new_action"},
+    {"leader": "LEADER_HUAYNA_CAPAC", "tier": "Polish", "decision": "reject_new_action", "reason": "only stock actions and cross-civ-gated custom permissions"},
+    {"leader": "LEADER_WANGKON", "tier": "Targeted differentiation", "decision": "reject_new_action"},
+    {"leader": "LEADER_ASOKA", "tier": "Targeted differentiation", "decision": "reject_new_action", "reason": "only stock actions and cross-civ-gated custom permissions"},
+    {"leader": "LEADER_GENGHIS_KHAN", "tier": "Targeted differentiation", "decision": "reject_new_action"},
+    {"leader": "LEADER_SITTING_BULL", "tier": "Targeted differentiation", "decision": "reject_new_action"},
+    {"leader": "LEADER_CHINESE_LEADER", "tier": "Targeted differentiation", "decision": "reject_new_action"},
+    {"leader": "LEADER_CASIMIR", "tier": "Polish", "decision": "reject_new_action"},
+    {"leader": "LEADER_SALAMASINA_BTG", "tier": "Polish", "decision": "retain_existing_for_validation_reject_release"},
+    {"leader": "LEADER_STALIN", "tier": "Major redesign", "decision": "reject_new_action"},
+    {"leader": "LEADER_ENRICO_DANDOLO", "tier": "Major redesign", "decision": "approve_existing_action_removal_reject_new_action"},
+    {"leader": "LEADER_CHURCHILL", "tier": "Targeted differentiation", "decision": "reject_new_action"},
+    {"leader": "LEADER_KUBLAI_KHAN", "tier": "Targeted differentiation", "decision": "reject_new_action"}
+  ],
+  "manual_proof_required": [
+    "button normal hover pressed disabled and hotkey states",
+    "tech terrain resource feature and ownership legality states",
+    "construction progress animation and repeat survival",
+    "coast and ocean tile rendering across zoom graphics fog work and adjacency states",
+    "pillage removal and culture ownership transfer",
+    "AI production targeting avoidance demand and cross-civilization isolation",
+    "save reload and multiplayer checksum"
+  ]
+}

@@ -1,5 +1,5 @@
 param(
-    [string]$RepoRoot = "C:\DowagerMod",
+    [string]$RepoRoot = "",
     [string]$VsToolsVersion = "14.38.33130",
     [string]$Target = "Release",
     [string]$Civ4SdkRoot = "",
@@ -7,6 +7,10 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+
+if (-not $RepoRoot) {
+    $RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
+}
 
 $sdkRoot = Join-Path $RepoRoot "third_party\beyond-the-sword-sdk\CvGameCoreDLL"
 $assetsOut = Join-Path $RepoRoot "CoreFiles\Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Assets"

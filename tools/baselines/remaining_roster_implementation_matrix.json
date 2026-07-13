@@ -1,0 +1,1966 @@
+{
+  "schema_version": 1,
+  "status": "implementation-ready design freeze",
+  "generated_on": "2026-07-12",
+  "scope": "remaining_32 only; no runtime edits authorized",
+  "source_files": [
+    "tools/baselines/remaining_roster_audit_matrix.json",
+    "docs/plans/active/2026-07-12-remaining-roster-audit.md",
+    "docs/plans/active/2026-07-10-leader-civ-diversity-overhaul.md",
+    "live BtS XML"
+  ],
+  "tier_counts": {
+    "Targeted differentiation": 10,
+    "Polish": 4,
+    "Keep": 16,
+    "Major redesign": 2
+  },
+  "guardrails": {
+    "keep": "No change except validation/docs.",
+    "polish": "Only bounded AI/text/power cleanup.",
+    "targeted": "Exactly one bounded correction theme.",
+    "major": "Dedicated package redesign permitted.",
+    "worker_actions": "No new worker action proposed; existing Polynesian Reef Works is validation-only.",
+    "type_order": "Never delete/reorder live InfoTypes; append only BUILDING_YUAN_IMPERIAL_SECRETARIAT if approved."
+  },
+  "dll_mechanics": {
+    "proposed_new": [],
+    "decision": "No new DLL mechanics. All proposals use existing XML/custom channels.",
+    "existing_channels_consumers": [
+      {
+        "channel": "extended trait route/improvement/resource/specialist yield tables",
+        "packages": [
+          "LEADER_WASHINGTON",
+          "LEADER_HUAYNA_CAPAC",
+          "LEADER_GENGHIS_KHAN",
+          "LEADER_CHINESE_LEADER",
+          "LEADER_KUBLAI_KHAN"
+        ]
+      },
+      {
+        "channel": "trait free-promotion tables",
+        "packages": [
+          "LEADER_MONTEZUMA",
+          "LEADER_TOKUGAWA",
+          "LEADER_QIN_SHI_HUANG",
+          "LEADER_ISABELLA",
+          "LEADER_SHAKA",
+          "LEADER_SALAMASINA_BTG"
+        ]
+      },
+      {
+        "channel": "building improvement/sea-plot yield tables",
+        "packages": [
+          "LEADER_SURYAVARMAN",
+          "LEADER_WILLEM_VAN_ORANJE",
+          "LEADER_JOAO"
+        ]
+      },
+      {
+        "channel": "existing unit trade/build actions",
+        "packages": [
+          "LEADER_WILLEM_VAN_ORANJE",
+          "LEADER_SALAMASINA_BTG",
+          "LEADER_ENRICO_DANDOLO"
+        ]
+      }
+    ]
+  },
+  "distinctiveness_freeze": [
+    {
+      "leader": "LEADER_WASHINGTON",
+      "civilization": "CIVILIZATION_AMERICA_FOUNDING_REPUBLIC",
+      "tier": "Targeted differentiation",
+      "primary_axis": "A clear revolutionary army plus federal administration identity with good early-to-midgame continuity.",
+      "collision": "The trait occupies ten economic/military channels and overlaps generic American growth, commerce, espionage, and command identities; it is difficult to read and budget.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_GERONIMO_BTG",
+      "civilization": "CIVILIZATION_APACHE_CONFEDERACY",
+      "tier": "Polish",
+      "primary_axis": "Coherent mobile resistance and field-support package; every component reinforces mobility and endurance.",
+      "collision": "Personality is materially redundant with Sitting Bull, and the Raider is carrying many advantages at once.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_MONTEZUMA",
+      "civilization": "CIVILIZATION_AZTEC",
+      "tier": "Keep",
+      "primary_axis": "Exceptionally unified conquest, sacrifice, forest warfare and priest economy.",
+      "collision": "Some thematic overlap with other extreme warmongers, but the hurry/priest axis is distinct.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_HAMMURABI",
+      "civilization": "CIVILIZATION_BABYLON",
+      "tier": "Targeted differentiation",
+      "primary_axis": "Law/administration and urban prosperity are strongly expressed and the earlier Hammurabi work is visible in live XML.",
+      "collision": "Three enhanced buildings plus a large Palace cause cumulative city-economy overlap; the culture-10 personality underplays administration and expansion.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_HANNIBAL",
+      "civilization": "CIVILIZATION_CARTHAGE",
+      "tier": "Keep",
+      "primary_axis": "Combined-arms mobility, elephant access and port commerce form a recognizable Carthaginian package.",
+      "collision": "Shares mounted aggression with several leaders, but Cothon/trade and generated Ivory give it a distinct strategic arc.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_ELIZABETH",
+      "civilization": "CIVILIZATION_ELIZABETHAN_ENGLAND",
+      "tier": "Targeted differentiation",
+      "primary_axis": "Naval defense, commerce and Great People create a strong Elizabethan maritime-economy identity.",
+      "collision": "The same unit replacing three eras/classes collapses naval progression and creates AI/upgrade ambiguity; Royal Exchange and trait are already powerful.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_DE_GAULLE",
+      "civilization": "CIVILIZATION_FRANCE_FIFTH_REPUBLIC",
+      "tier": "Keep",
+      "primary_axis": "Distinct late national-resilience package with useful early civic identity and mobile gunpowder.",
+      "collision": "Some defensive morale overlap with Churchill, but era and production channels differ.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_BISMARCK",
+      "civilization": "CIVILIZATION_GERMAN_EMPIRE",
+      "tier": "Keep",
+      "primary_axis": "Industrial military identity is compact, legible and AI-friendly.",
+      "collision": "Late timing overlaps other industrial leaders, but the armor/engineer combination remains distinct.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_CATHERINE",
+      "civilization": "CIVILIZATION_IMPERIAL_RUSSIA",
+      "tier": "Keep",
+      "primary_axis": "Culture, elite cavalry and provincial administration combine into a broad but coherent imperial-expansion package.",
+      "collision": "Some overlap with other Russian cavalry leaders, but the culture/assembly angle distinguishes it.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_HUAYNA_CAPAC",
+      "civilization": "CIVILIZATION_INCA",
+      "tier": "Polish",
+      "primary_axis": "Strong early expansion and infrastructure identity with a famous, functional Quechua/Terrace core.",
+      "collision": "Leader-wide promotion plus separate Worker/Settler replacements broadens the package without making their actual advantage obvious.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_GANDHI",
+      "civilization": "CIVILIZATION_INDIA",
+      "tier": "Keep",
+      "primary_axis": "A clear nonmilitary Great People and civil-society package with real tradeoffs.",
+      "collision": "Asoka shares the Fast Worker, but their buildings, trait and personality diverge.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_TOKUGAWA",
+      "civilization": "CIVILIZATION_JAPAN",
+      "tier": "Keep",
+      "primary_axis": "Earlier Tokugawa work produces a focused disciplined-army plus bakufu administration identity.",
+      "collision": "Military promotion breadth is strong but coherent; limited overlap with Qin/Churchill defensive promotions is offset by Samurai and espionage court.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_SURYAVARMAN",
+      "civilization": "CIVILIZATION_KHMER",
+      "tier": "Keep",
+      "primary_axis": "Water management, growth and elephant warfare create a compact Khmer identity.",
+      "collision": "Farm growth overlaps other agrarian packages but the Aqueduct attachment is distinctive.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_WANGKON",
+      "civilization": "CIVILIZATION_KOREA",
+      "tier": "Targeted differentiation",
+      "primary_axis": "Very legible scholarship plus defensive artillery identity.",
+      "collision": "Library, University and Academy all amplify the same science channel, producing redundant multiplicative scaling and crowding other scholar civilizations.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_ASOKA",
+      "civilization": "CIVILIZATION_MAURYA",
+      "tier": "Targeted differentiation",
+      "primary_axis": "Dharma, Buddhist spread and low-upkeep governance form a strong nonconquest identity.",
+      "collision": "Fast Worker overlaps Gandhi; the Ramesses coupling appears accidental and the Obelisk's +25% war weariness cuts against the intended thesis.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_PACAL",
+      "civilization": "CIVILIZATION_MAYA",
+      "tier": "Keep",
+      "primary_axis": "Simple growth/culture package with an early defensive UU.",
+      "collision": "Generic health/commerce is less evocative than newer traits but the Ball Court supplies identity.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_GENGHIS_KHAN",
+      "civilization": "CIVILIZATION_MONGOL_EMPIRE",
+      "tier": "Targeted differentiation",
+      "primary_axis": "Mounted mobility, horse access and Great Generals strongly communicate steppe conquest.",
+      "collision": "The Japanese Castle Town reference is unrelated leakage; broad building/resource/specialist bonuses overfill an already excellent Keshik/Ger/Palace package.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_SITTING_BULL",
+      "civilization": "CIVILIZATION_NATIVE_AMERICA",
+      "tier": "Targeted differentiation",
+      "primary_axis": "Defensive denial, health and archer development offer a recognizable survival identity.",
+      "collision": "Personality overlaps Geronimo; extreme negative trade-yield values look like a brittle exploit/penalty rather than legible differentiation.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_WILLEM_VAN_ORANJE",
+      "civilization": "CIVILIZATION_NETHERLANDS",
+      "tier": "Keep",
+      "primary_axis": "Exceptionally coherent water, shipping and trade-city package.",
+      "collision": "Strong trade overlap with Portugal/Venice, but Dike terrain dependence and Galleon timing distinguish it.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_CHINESE_LEADER",
+      "civilization": "CIVILIZATION_PEOPLES_REPUBLIC_CHINA",
+      "tier": "Targeted differentiation",
+      "primary_axis": "Mass mobilization, cheaper infantry, workplace organization and state administration are mechanically integrated.",
+      "collision": "Trait and Danwei both stack production, espionage and administration; the package is much denser than comparable modern leaders.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_PETER",
+      "civilization": "CIVILIZATION_PETRINE_RUSSIA",
+      "tier": "Keep",
+      "primary_axis": "Modernization, maritime development, bureaucracy and knowledge transfer are sharply expressed without another Russian cavalry unit.",
+      "collision": "No-UU shape differs from most packages but avoids Russian cavalry redundancy.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_CASIMIR",
+      "civilization": "CIVILIZATION_POLAND",
+      "tier": "Polish",
+      "primary_axis": "Peaceful domestic identity paired with a bounded mounted military reserve.",
+      "collision": "Trait is generic and thin; Dragoon/castle military focus does not fully express the AI's growth, law and culture themes.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_SALAMASINA_BTG",
+      "civilization": "CIVILIZATION_POLYNESIA_BTG",
+      "tier": "Polish",
+      "primary_axis": "Excellent seafaring, ocean development and ceremonial/community package.",
+      "collision": "Large unconditional health/happiness is generic and may overshadow the more distinctive navigation/reef system.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_JOAO",
+      "civilization": "CIVILIZATION_PORTUGAL",
+      "tier": "Keep",
+      "primary_axis": "Exploration, overseas settlement and maritime commerce are clear and highly playable.",
+      "collision": "Some overlap with Willem/Elizabeth, but fast scouting and transport capacity distinguish Portugal.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_QIN_SHI_HUANG",
+      "civilization": "CIVILIZATION_QIN_DYNASTY",
+      "tier": "Keep",
+      "primary_axis": "Strong fortified-state, mass construction and ranged-army identity.",
+      "collision": "Defensive promotion overlap with Churchill/Tokugawa, but collateral crossbows and production AI differentiate it.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_ISABELLA",
+      "civilization": "CIVILIZATION_SPAIN",
+      "tier": "Keep",
+      "primary_axis": "Compact religious-expansion and combined mounted/naval identity.",
+      "collision": "Mounted overlap is common, but naval Morale and siege Citadel provide breadth.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_STALIN",
+      "civilization": "CIVILIZATION_USSR",
+      "tier": "Major redesign",
+      "primary_axis": "Production, research and secret-police identity is unmistakable.",
+      "collision": "Numbers are outliers: +50 trait commerce, 100 Spy slots, 5-cost Spy, +5 happiness Lubyanka and multiple research/espionage buildings erase normal constraints.",
+      "verdict": "dedicated redesign spec"
+    },
+    {
+      "leader": "LEADER_ENRICO_DANDOLO",
+      "civilization": "CIVILIZATION_VENICE",
+      "tier": "Major redesign",
+      "primary_axis": "Venetian trade and merchant-government identity is immediately visible.",
+      "collision": "Package bypasses normal city, worker, Great Person, health, happiness and trade constraints; copied peaceful AI does not express Dandolo's crusading opportunism.",
+      "verdict": "dedicated redesign spec"
+    },
+    {
+      "leader": "LEADER_RAGNAR",
+      "civilization": "CIVILIZATION_VIKING",
+      "tier": "Keep",
+      "primary_axis": "A direct, legible amphibious raiding progression across land and sea.",
+      "collision": "Extreme warmonger overlap with Genghis/Shaka/Montezuma, but amphibious and naval progression distinguishes Ragnar.",
+      "verdict": "unchanged"
+    },
+    {
+      "leader": "LEADER_CHURCHILL",
+      "civilization": "CIVILIZATION_WARTIME_BRITAIN",
+      "tier": "Targeted differentiation",
+      "primary_axis": "Excellent air defense, national resilience and intelligence identity.",
+      "collision": "War Rooms and MI6 double-stack espionage while the Bank replacement also improves gold; defensive promotions overlap Qin/Tokugawa.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_KUBLAI_KHAN",
+      "civilization": "CIVILIZATION_YUAN_DYNASTY",
+      "tier": "Targeted differentiation",
+      "primary_axis": "Road logistics, postal/trade hub and culturally oriented conquest are a strong Yuan identity.",
+      "collision": "Shared Palace blurs Genghis/Kublai; mounted package still closely parallels Keshik/Ger.",
+      "verdict": "bounded correction"
+    },
+    {
+      "leader": "LEADER_SHAKA",
+      "civilization": "CIVILIZATION_ZULU",
+      "tier": "Keep",
+      "primary_axis": "Compact, powerful military expansion package with a real economic enabler.",
+      "collision": "Warmonger overlap is inevitable, but fast spear plus maintenance Barracks is unique.",
+      "verdict": "unchanged"
+    }
+  ],
+  "packages": [
+    {
+      "leader": "LEADER_WASHINGTON",
+      "civilization": "CIVILIZATION_AMERICA_FOUNDING_REPUBLIC",
+      "tier": "Targeted differentiation",
+      "identity": "A clear revolutionary army plus federal administration identity with good early-to-midgame continuity.",
+      "distinctiveness": {
+        "primary_axis": "A clear revolutionary army plus federal administration identity with good early-to-midgame continuity.",
+        "collision": "The trait occupies ten economic/military channels and overlaps generic American growth, commerce, espionage, and command identities; it is difficult to read and budget.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_GEORGE_WASHINGTON"
+        ],
+        "units": [
+          "UNIT_CONTINENTAL_LINE_INFANTRY"
+        ],
+        "buildings": [
+          "BUILDING_FEDERAL_HALL"
+        ]
+      },
+      "thesis": "Revolutionary command backed by federal institutions and road logistics, not a grab bag of unrelated yields.",
+      "power_budget": "Mid: retain +50% Great General and domestic Great General rates plus one map-dependent route channel; delete eight passive channels.",
+      "decisions": [
+        {
+          "decision": "MODIFY",
+          "object_id": "TRAIT_GEORGE_WASHINGTON",
+          "proposal": "Keep iGreatGeneralRateModifier=50, iDomesticGreatGeneralRateModifier=50 and RouteYieldChanges ROAD commerce +1; delete Town +1 commerce, Barracks +1 production, Courthouse +2 espionage, Bank +2 gold, Spy +1 espionage, Merchant +1 gold, Wheat +1 food and Horse +1 production."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_CONTINENTAL_LINE_INFANTRY",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_FEDERAL_HALL",
+          "proposal": "No field changes."
+        }
+      ],
+      "art_plan": "Reuse all current art definitions; no new art or tags.",
+      "risks": "AI loses scattered passive income but understands Great Generals; route help must display. XML-only existing trait tables; existing saves retain type order; deterministic MP.",
+      "validation": "Trait-help snapshot; test Road versus non-Road commerce; verify deleted eight channels; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_GERONIMO_BTG",
+      "civilization": "CIVILIZATION_APACHE_CONFEDERACY",
+      "tier": "Polish",
+      "identity": "Coherent mobile resistance and field-support package; every component reinforces mobility and endurance.",
+      "distinctiveness": {
+        "primary_axis": "Coherent mobile resistance and field-support package; every component reinforces mobility and endurance.",
+        "collision": "Personality is materially redundant with Sitting Bull, and the Raider is carrying many advantages at once.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_LEADER_GERONIMO"
+        ],
+        "units": [
+          "UNIT_APACHE_MEDICINE_MAN_BTG",
+          "UNIT_APACHE_RAIDER_BTG"
+        ],
+        "buildings": [
+          "BUILDING_APACHE_WAR_COUNCIL_BTG"
+        ]
+      },
+      "thesis": "Mobile resistance and field medicine with an AI willing to conduct limited raids.",
+      "power_budget": "Power-neutral Polish: gameplay objects unchanged; personality-only differentiation.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_LEADER_GERONIMO",
+          "proposal": "No numeric changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_APACHE_MEDICINE_MAN_BTG",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_APACHE_RAIDER_BTG",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_APACHE_WAR_COUNCIL_BTG",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "LEADER_GERONIMO_BTG",
+          "proposal": "iBasePeaceWeight 8->4 and iLimitedWarRand 200->120; all other diplomacy values unchanged."
+        }
+      ],
+      "art_plan": "Reuse current Apache leader/unit/building art; mandatory Raider and Medicine Man animation smoke.",
+      "risks": "AI behavior changes but synchronized data/type order do not; no save schema or MP logic change.",
+      "validation": "Leader XML diff assertion; 3 seeded AI autoplays tracking limited wars and Raider production; diplomacy regression; save/reload/MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_MONTEZUMA",
+      "civilization": "CIVILIZATION_AZTEC",
+      "tier": "Keep",
+      "identity": "Exceptionally unified conquest, sacrifice, forest warfare and priest economy.",
+      "distinctiveness": {
+        "primary_axis": "Exceptionally unified conquest, sacrifice, forest warfare and priest economy.",
+        "collision": "Some thematic overlap with other extreme warmongers, but the hurry/priest axis is distinct.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_MONTEZUMA"
+        ],
+        "units": [
+          "UNIT_AZTEC_JAGUAR"
+        ],
+        "buildings": [
+          "BUILDING_AZTEC_SACRIFICIAL_ALTAR",
+          "BUILDING_AZTEC_PALACE"
+        ]
+      },
+      "thesis": "The package captures militarized Mexica state religion, though sacrificial framing should remain precise rather than sensationalized.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_MONTEZUMA",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_AZTEC_JAGUAR",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_AZTEC_SACRIFICIAL_ALTAR",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_AZTEC_PALACE",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Exceptionally unified conquest, sacrifice, forest warfare and priest economy. Some thematic overlap with other extreme warmongers, but the hurry/priest axis is distinct.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; promotion recipients; Jaguar/Altar/Palace mapping; early hurry/priest economy; palace/help render; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_HAMMURABI",
+      "civilization": "CIVILIZATION_BABYLON",
+      "tier": "Targeted differentiation",
+      "identity": "Law/administration and urban prosperity are strongly expressed and the earlier Hammurabi work is visible in live XML.",
+      "distinctiveness": {
+        "primary_axis": "Law/administration and urban prosperity are strongly expressed and the earlier Hammurabi work is visible in live XML.",
+        "collision": "Three enhanced buildings plus a large Palace cause cumulative city-economy overlap; the culture-10 personality underplays administration and expansion.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_HAMMURABI"
+        ],
+        "units": [
+          "UNIT_BABYLON_BOWMAN"
+        ],
+        "buildings": [
+          "BUILDING_BABYLON_ROYAL_PALACE",
+          "BUILDING_BABYLON_GARDEN",
+          "BUILDING_BABYLON_COURTHOUSE"
+        ]
+      },
+      "thesis": "Legal administration remains the center; the Palace should not duplicate every urban-economy reward.",
+      "power_budget": "Mid after correction: remove the Palace raw production/espionage spike while retaining health, happiness, maintenance, trade and Great Spy identity.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_HAMMURABI",
+          "proposal": "-35% civic upkeep unchanged."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_BABYLON_BOWMAN",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "BUILDING_BABYLON_ROYAL_PALACE",
+          "proposal": "YieldChanges [0,2,8]->[0,0,8]; CommerceChanges [0,3,2,8]->[0,3,2,2]; all other fields unchanged."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_BABYLON_GARDEN",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_BABYLON_COURTHOUSE",
+          "proposal": "No field changes."
+        }
+      ],
+      "art_plan": "Reuse ART_DEF_BUILDING_PALACE and all current unit/building art.",
+      "risks": "Passive AI-safe reduction; no new IDs/schema; save and MP safe apart from deterministic recalculation.",
+      "validation": "Capital yield before/after fixture; courthouse/garden unchanged assertions; AI city-value autoplay; save/reload/MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_HANNIBAL",
+      "civilization": "CIVILIZATION_CARTHAGE",
+      "tier": "Keep",
+      "identity": "Combined-arms mobility, elephant access and port commerce form a recognizable Carthaginian package.",
+      "distinctiveness": {
+        "primary_axis": "Combined-arms mobility, elephant access and port commerce form a recognizable Carthaginian package.",
+        "collision": "Shares mounted aggression with several leaders, but Cothon/trade and generated Ivory give it a distinct strategic arc.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_HANNIBAL"
+        ],
+        "units": [
+          "UNIT_CARTHAGE_NUMIDIAN_CAVALRY",
+          "UNIT_CARTHAGE_AFRICAN_WAR_ELEPHANT"
+        ],
+        "buildings": [
+          "BUILDING_CARTHAGE_COTHON",
+          "BUILDING_CARTHAGE_BYRSA_ELEPHANT_TREASURY"
+        ]
+      },
+      "thesis": "Carthage's maritime commerce and Hannibal's mixed army are well represented.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_HANNIBAL",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_CARTHAGE_NUMIDIAN_CAVALRY",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_CARTHAGE_AFRICAN_WAR_ELEPHANT",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_CARTHAGE_COTHON",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_CARTHAGE_BYRSA_ELEPHANT_TREASURY",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Combined-arms mobility, elephant access and port commerce form a recognizable Carthaginian package. Shares mounted aggression with several leaders, but Cothon/trade and generated Ivory give it a distinct strategic arc.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Ivory generation/yields; both mounted uniques; Cothon route; elephant treasury render; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_ELIZABETH",
+      "civilization": "CIVILIZATION_ELIZABETHAN_ENGLAND",
+      "tier": "Targeted differentiation",
+      "identity": "Naval defense, commerce and Great People create a strong Elizabethan maritime-economy identity.",
+      "distinctiveness": {
+        "primary_axis": "Naval defense, commerce and Great People create a strong Elizabethan maritime-economy identity.",
+        "collision": "The same unit replacing three eras/classes collapses naval progression and creates AI/upgrade ambiguity; Royal Exchange and trait are already powerful.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_ELIZABETH"
+        ],
+        "units": [
+          "UNIT_ENGLISH_SEA_DOG",
+          "UNIT_ENGLISH_SEA_DOG",
+          "UNIT_ENGLISH_SEA_DOG"
+        ],
+        "buildings": [
+          "BUILDING_ENGLISH_ROYAL_EXCHANGE"
+        ]
+      },
+      "thesis": "Elizabethan maritime commerce peaks with the privateering Sea Dog instead of collapsing three naval eras.",
+      "power_budget": "Mid-high package retained; correction removes two premature replacement mappings without buffing Sea Dog or Royal Exchange.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_ELIZABETH",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "CIVILIZATION_ELIZABETHAN_ENGLAND",
+          "proposal": "UnitClassOverrides: UNITCLASS_GALLEY -> UNIT_GALLEY; UNITCLASS_TRIREME -> UNIT_TRIREME; retain UNITCLASS_PRIVATEER -> UNIT_ENGLISH_SEA_DOG."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_ENGLISH_SEA_DOG",
+          "proposal": "Strength 6, moves 3, cargo 4 and current promotions/AIs unchanged."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_ENGLISH_ROYAL_EXCHANGE",
+          "proposal": "No field changes."
+        }
+      ],
+      "art_plan": "Use stock Galley/Trireme art and current Sea Dog/Royal Exchange art; no imports.",
+      "risks": "Fixes AI class ambiguity; existing Sea Dogs remain valid because UnitType is unchanged. Mapping change is synchronized; old saves and MP scenario required.",
+      "validation": "Mapping assertion; Galley/Trireme/Privateer build-list and upgrade tests; naval AI autoplay; Sea Dog animation; old save and deterministic MP.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_DE_GAULLE",
+      "civilization": "CIVILIZATION_FRANCE_FIFTH_REPUBLIC",
+      "tier": "Keep",
+      "identity": "Distinct late national-resilience package with useful early civic identity and mobile gunpowder.",
+      "distinctiveness": {
+        "primary_axis": "Distinct late national-resilience package with useful early civic identity and mobile gunpowder.",
+        "collision": "Some defensive morale overlap with Churchill, but era and production channels differ.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_DE_GAULLE"
+        ],
+        "units": [
+          "UNIT_FRENCH_MUSKETEER"
+        ],
+        "buildings": [
+          "BUILDING_FRENCH_BROADCAST_TOWER",
+          "BUILDING_FRENCH_FIFTH_REPUBLIC_MONUMENT"
+        ]
+      },
+      "thesis": "Nationhood, resistance and mass communication fit de Gaulle's wartime and Fifth Republic careers.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_DE_GAULLE",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_FRENCH_MUSKETEER",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_FRENCH_BROADCAST_TOWER",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_FRENCH_FIFTH_REPUBLIC_MONUMENT",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Distinct late national-resilience package with useful early civic identity and mobile gunpowder. Some defensive morale overlap with Churchill, but era and production channels differ.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Musketeer movement; Broadcast Tower resilience; Monument culture persistence; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_BISMARCK",
+      "civilization": "CIVILIZATION_GERMAN_EMPIRE",
+      "tier": "Keep",
+      "identity": "Industrial military identity is compact, legible and AI-friendly.",
+      "distinctiveness": {
+        "primary_axis": "Industrial military identity is compact, legible and AI-friendly.",
+        "collision": "Late timing overlaps other industrial leaders, but the armor/engineer combination remains distinct.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_BISMARCK"
+        ],
+        "units": [
+          "UNIT_GERMAN_PANZER"
+        ],
+        "buildings": [
+          "BUILDING_GERMAN_ASSEMBLY_PLANT"
+        ]
+      },
+      "thesis": "Industrialization and state military power fit imperial Germany under Bismarck, even if the Panzer is chronologically later.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_BISMARCK",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_GERMAN_PANZER",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_GERMAN_ASSEMBLY_PLANT",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Industrial military identity is compact, legible and AI-friendly. Late timing overlaps other industrial leaders, but the armor/engineer combination remains distinct.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Panzer armor modifier; Assembly Plant coal/engineers; late AI build; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_CATHERINE",
+      "civilization": "CIVILIZATION_IMPERIAL_RUSSIA",
+      "tier": "Keep",
+      "identity": "Culture, elite cavalry and provincial administration combine into a broad but coherent imperial-expansion package.",
+      "distinctiveness": {
+        "primary_axis": "Culture, elite cavalry and provincial administration combine into a broad but coherent imperial-expansion package.",
+        "collision": "Some overlap with other Russian cavalry leaders, but the culture/assembly angle distinguishes it.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_CATHERINE"
+        ],
+        "units": [
+          "UNIT_IMPERIAL_RUSSIA_BLACK_SEA_HUSSAR"
+        ],
+        "buildings": [
+          "BUILDING_IMPERIAL_RUSSIA_NOBLE_ASSEMBLY"
+        ]
+      },
+      "thesis": "Elite cavalry, court culture and noble administration plausibly fit Catherine's imperial program.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_CATHERINE",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_IMPERIAL_RUSSIA_BLACK_SEA_HUSSAR",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_IMPERIAL_RUSSIA_NOBLE_ASSEMBLY",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Culture, elite cavalry and provincial administration combine into a broad but coherent imperial-expansion package. Some overlap with other Russian cavalry leaders, but the culture/assembly angle distinguishes it.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Hussar movement/promotions; Noble Assembly culture/gold; Russian package comparison; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_HUAYNA_CAPAC",
+      "civilization": "CIVILIZATION_INCA",
+      "tier": "Polish",
+      "identity": "Strong early expansion and infrastructure identity with a famous, functional Quechua/Terrace core.",
+      "distinctiveness": {
+        "primary_axis": "Strong early expansion and infrastructure identity with a famous, functional Quechua/Terrace core.",
+        "collision": "Leader-wide promotion plus separate Worker/Settler replacements broadens the package without making their actual advantage obvious.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_HUAYNA_CAPAC"
+        ],
+        "units": [
+          "UNIT_INCAN_QUECHUA",
+          "UNIT_HUAYNA_WORKER",
+          "UNIT_HUAYNA_SETTLER"
+        ],
+        "buildings": [
+          "BUILDING_INCAN_TERRACE"
+        ]
+      },
+      "thesis": "Keep the proven early-expansion package; expose exactly what civilian promotion replacements do.",
+      "power_budget": "Power-neutral Polish; text only.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_HUAYNA_CAPAC",
+          "proposal": "No numeric changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_INCAN_QUECHUA",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_HUAYNA_WORKER",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_HUAYNA_SETTLER",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_INCAN_TERRACE",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "TXT_KEY_TRAIT_HUAYNA_CAPAC",
+          "proposal": "Rewrite help/strategy text to enumerate promotion recipients and observable civilian effects; no mechanic changes."
+        }
+      ],
+      "art_plan": "Reuse current stock/civilian art; inspect Worker and Settler animation groups.",
+      "risks": "Localization/UI only; no AI, save, schema or MP behavior change.",
+      "validation": "Text-key resolution; pedia and hover review at 1024x768; Worker/Settler movement/build/found smoke; baseline digest unchanged outside text.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_GANDHI",
+      "civilization": "CIVILIZATION_INDIA",
+      "tier": "Keep",
+      "identity": "A clear nonmilitary Great People and civil-society package with real tradeoffs.",
+      "distinctiveness": {
+        "primary_axis": "A clear nonmilitary Great People and civil-society package with real tradeoffs.",
+        "collision": "Asoka shares the Fast Worker, but their buildings, trait and personality diverge.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_GHANDI"
+        ],
+        "units": [
+          "UNIT_INDIAN_FAST_WORKER"
+        ],
+        "buildings": [
+          "BUILDING_INDIAN_MAUSOLEUM",
+          "BUILDING_GANDHI_FORGE"
+        ]
+      },
+      "thesis": "The pacific/civic emphasis is recognizable and not overdesigned.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_GHANDI",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_INDIAN_FAST_WORKER",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_INDIAN_MAUSOLEUM",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_GANDHI_FORGE",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "A clear nonmilitary Great People and civil-society package with real tradeoffs. Asoka shares the Fast Worker, but their buildings, trait and personality diverge.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Fast Worker; Mausoleum/Forge tradeoffs; pacific AI; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_TOKUGAWA",
+      "civilization": "CIVILIZATION_JAPAN",
+      "tier": "Keep",
+      "identity": "Earlier Tokugawa work produces a focused disciplined-army plus bakufu administration identity.",
+      "distinctiveness": {
+        "primary_axis": "Earlier Tokugawa work produces a focused disciplined-army plus bakufu administration identity.",
+        "collision": "Military promotion breadth is strong but coherent; limited overlap with Qin/Churchill defensive promotions is offset by Samurai and espionage court.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_TOKUGAWA"
+        ],
+        "units": [
+          "UNIT_JAPAN_SAMURAI"
+        ],
+        "buildings": [
+          "BUILDING_JAPAN_BAKUFU_MAGISTRACY"
+        ]
+      },
+      "thesis": "Samurai and bakufu administration fit Tokugawa rule; science flavor prevents a purely isolationist caricature.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_TOKUGAWA",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_JAPAN_SAMURAI",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_JAPAN_BAKUFU_MAGISTRACY",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Earlier Tokugawa work produces a focused disciplined-army plus bakufu administration identity. Military promotion breadth is strong but coherent; limited overlap with Qin/Churchill defensive promotions is offset by Samurai and espionage court.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Samurai prerequisite/promotion stack; Magistracy XP/espionage; AI unit valuation; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_SURYAVARMAN",
+      "civilization": "CIVILIZATION_KHMER",
+      "tier": "Keep",
+      "identity": "Water management, growth and elephant warfare create a compact Khmer identity.",
+      "distinctiveness": {
+        "primary_axis": "Water management, growth and elephant warfare create a compact Khmer identity.",
+        "collision": "Farm growth overlaps other agrarian packages but the Aqueduct attachment is distinctive.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_SURYAVARMAN"
+        ],
+        "units": [
+          "UNIT_KHMER_BALLISTA_ELEPHANT"
+        ],
+        "buildings": [
+          "BUILDING_KHMER_BARAY"
+        ]
+      },
+      "thesis": "Baray/reservoir infrastructure and monumental religious state power are good Angkorian signals.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_SURYAVARMAN",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_KHMER_BALLISTA_ELEPHANT",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_KHMER_BARAY",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Water management, growth and elephant warfare create a compact Khmer identity. Farm growth overlaps other agrarian packages but the Aqueduct attachment is distinctive.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Ballista target logic; Baray Farm yield/help; AI improvement valuation; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_WANGKON",
+      "civilization": "CIVILIZATION_KOREA",
+      "tier": "Targeted differentiation",
+      "identity": "Very legible scholarship plus defensive artillery identity.",
+      "distinctiveness": {
+        "primary_axis": "Very legible scholarship plus defensive artillery identity.",
+        "collision": "Library, University and Academy all amplify the same science channel, producing redundant multiplicative scaling and crowding other scholar civilizations.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_WANGKON"
+        ],
+        "units": [
+          "UNIT_KOREAN_HWACHA"
+        ],
+        "buildings": [
+          "BUILDING_KOREAN_SEOWON",
+          "BUILDING_KOREAN_LIBRARY",
+          "BUILDING_KOREAN_ACADEMY"
+        ]
+      },
+      "thesis": "Defensive artillery plus one signature university; ordinary Library and Academy pacing prevents triple multiplicative science.",
+      "power_budget": "Mid: retain Hwacha, trait and 35% Seowon; remove two redundant unique building mappings.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_WANGKON",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_KOREAN_HWACHA",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_KOREAN_SEOWON",
+          "proposal": "35% research unchanged."
+        },
+        {
+          "decision": "REPLACE",
+          "object_id": "BUILDING_KOREAN_LIBRARY",
+          "proposal": "CIVILIZATION_KOREA BUILDINGCLASS_LIBRARY mapping -> BUILDING_LIBRARY; leave dormant type in place for save/type-order stability."
+        },
+        {
+          "decision": "REPLACE",
+          "object_id": "BUILDING_KOREAN_ACADEMY",
+          "proposal": "CIVILIZATION_KOREA BUILDINGCLASS_ACADEMY mapping -> default BUILDING_ACADEMY resolved from BuildingClassInfos; leave dormant type in place."
+        }
+      ],
+      "art_plan": "Use stock Library/Academy and current Seowon/Hwacha art; no new art.",
+      "risks": "AI science curve normalizes; dormant types preserve InfoType order, but mapping affects build availability in existing saves. MP synchronized XML.",
+      "validation": "Resolve default class IDs; mapping/build-list assertions; science multiplier comparison; AI tech autoplay; old-save city production and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_ASOKA",
+      "civilization": "CIVILIZATION_MAURYA",
+      "tier": "Targeted differentiation",
+      "identity": "Dharma, Buddhist spread and low-upkeep governance form a strong nonconquest identity.",
+      "distinctiveness": {
+        "primary_axis": "Dharma, Buddhist spread and low-upkeep governance form a strong nonconquest identity.",
+        "collision": "Fast Worker overlaps Gandhi; the Ramesses coupling appears accidental and the Obelisk's +25% war weariness cuts against the intended thesis.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_ASOKA"
+        ],
+        "units": [
+          "UNIT_INDIAN_FAST_WORKER"
+        ],
+        "buildings": [
+          "BUILDING_MAURYAN_OBELISK",
+          "BUILDING_MAURYAN_GREAT_PALACE"
+        ]
+      },
+      "thesis": "Dharma pillar rewards Asoka rather than another leader and represents reduced, not increased, conflict burden.",
+      "power_budget": "Power-neutral bounded bug correction: ownership coupling fixed and war-weariness sign corrected; no added channel.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_ASOKA",
+          "proposal": "-50% civic upkeep unchanged."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_INDIAN_FAST_WORKER",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "BUILDING_MAURYAN_OBELISK",
+          "proposal": "ProductionTraitType TRAIT_RAMESSES->TRAIT_ASOKA at 50; HappinessTraitType TRAIT_RAMESSES->TRAIT_ASOKA at +1; iWarWearinessModifier 25->-25."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_MAURYAN_GREAT_PALACE",
+          "proposal": "No field changes."
+        }
+      ],
+      "art_plan": "Reuse current pillar/palace/worker art.",
+      "risks": "AI-safe passive effects; changes city calculations but no schema/type order. Validate Ramesses no longer receives Mauryan benefit; synchronized MP.",
+      "validation": "Asoka/Ramesses trait matrix test; war-weariness sign test; pedia help; AI peace autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_PACAL",
+      "civilization": "CIVILIZATION_MAYA",
+      "tier": "Keep",
+      "identity": "Simple growth/culture package with an early defensive UU.",
+      "distinctiveness": {
+        "primary_axis": "Simple growth/culture package with an early defensive UU.",
+        "collision": "Generic health/commerce is less evocative than newer traits but the Ball Court supplies identity.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_PACAL"
+        ],
+        "units": [
+          "UNIT_MAYA_HOLKAN"
+        ],
+        "buildings": [
+          "BUILDING_MAYA_BALL_COURT"
+        ]
+      },
+      "thesis": "Monumental court culture and dynastic growth are plausible without forcing speculative mechanics.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_PACAL",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_MAYA_HOLKAN",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_MAYA_BALL_COURT",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Simple growth/culture package with an early defensive UU. Generic health/commerce is less evocative than newer traits but the Ball Court supplies identity.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Holkan prerequisites/combat; Ball Court happiness/culture; early AI growth; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_GENGHIS_KHAN",
+      "civilization": "CIVILIZATION_MONGOL_EMPIRE",
+      "tier": "Targeted differentiation",
+      "identity": "Mounted mobility, horse access and Great Generals strongly communicate steppe conquest.",
+      "distinctiveness": {
+        "primary_axis": "Mounted mobility, horse access and Great Generals strongly communicate steppe conquest.",
+        "collision": "The Japanese Castle Town reference is unrelated leakage; broad building/resource/specialist bonuses overfill an already excellent Keshik/Ger/Palace package.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_GENGHIS_KAHN"
+        ],
+        "units": [
+          "UNIT_MONGOL_KESHIK"
+        ],
+        "buildings": [
+          "BUILDING_MONGOL_GER",
+          "BUILDING_MONGOLIAN_PALACE"
+        ]
+      },
+      "thesis": "Mounted command and steppe logistics without unrelated Japanese urban income.",
+      "power_budget": "High package reduced by exactly one leaked improvement-commerce channel.",
+      "decisions": [
+        {
+          "decision": "MODIFY",
+          "object_id": "TRAIT_GENGHIS_KAHN",
+          "proposal": "Delete ImprovementCommerceChanges entry for IMPROVEMENT_JAPAN_CASTLE_TOWN; every other trait field unchanged."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_MONGOL_KESHIK",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_MONGOL_GER",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_MONGOLIAN_PALACE",
+          "proposal": "No field changes."
+        }
+      ],
+      "art_plan": "Reuse current Keshik/Ger/Palace art.",
+      "risks": "No AI planning loss for an inaccessible foreign improvement; existing Castle Town tiles lose accidental bonus. XML-only, save/MP deterministic.",
+      "validation": "Trait parser fixture; Japanese Castle Town before/after with Genghis and Japanese owners; pedia; autoplay; save/reload/MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_SITTING_BULL",
+      "civilization": "CIVILIZATION_NATIVE_AMERICA",
+      "tier": "Targeted differentiation",
+      "identity": "Defensive denial, health and archer development offer a recognizable survival identity.",
+      "distinctiveness": {
+        "primary_axis": "Defensive denial, health and archer development offer a recognizable survival identity.",
+        "collision": "Personality overlaps Geronimo; extreme negative trade-yield values look like a brittle exploit/penalty rather than legible differentiation.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_SITTING_BULL"
+        ],
+        "units": [
+          "UNIT_NATIVE_AMERICA_DOG_SOLDIER"
+        ],
+        "buildings": [
+          "BUILDING_NATIVE_AMERICA_TOTEM"
+        ]
+      },
+      "thesis": "Healthy defensive communities and trained archers, with transparent trade rather than punitive yield corruption.",
+      "power_budget": "Mid: normalize trade array to neutral [0,0,0]; +2 health, Dog Soldier and Totem remain the complete budget.",
+      "decisions": [
+        {
+          "decision": "MODIFY",
+          "object_id": "TRAIT_SITTING_BULL",
+          "proposal": "TradeYieldModifiers [150,-500,-500]->[0,0,0]; iHealth=2 unchanged."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_NATIVE_AMERICA_DOG_SOLDIER",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_NATIVE_AMERICA_TOTEM",
+          "proposal": "No field changes."
+        }
+      ],
+      "art_plan": "Reuse all stock/current art.",
+      "risks": "Large removal of pathological arithmetic should improve AI; economy of existing saves changes immediately but no schema/type drift; MP deterministic.",
+      "validation": "Domestic/foreign route yield cases; negative/overflow regression; tooltip; AI economy autoplay; old-save load and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_WILLEM_VAN_ORANJE",
+      "civilization": "CIVILIZATION_NETHERLANDS",
+      "tier": "Keep",
+      "identity": "Exceptionally coherent water, shipping and trade-city package.",
+      "distinctiveness": {
+        "primary_axis": "Exceptionally coherent water, shipping and trade-city package.",
+        "collision": "Strong trade overlap with Portugal/Venice, but Dike terrain dependence and Galleon timing distinguish it.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_ORANGE"
+        ],
+        "units": [
+          "UNIT_NETHERLANDS_OOSTINDIEVAARDER"
+        ],
+        "buildings": [
+          "BUILDING_NETHERLANDS_DIKE",
+          "BUILDING_ORANGE_LIGHTHOUSE"
+        ]
+      },
+      "thesis": "Dutch maritime commerce, water engineering and religious tolerance are well aligned.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_ORANGE",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_NETHERLANDS_OOSTINDIEVAARDER",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_NETHERLANDS_DIKE",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_ORANGE_LIGHTHOUSE",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Exceptionally coherent water, shipping and trade-city package. Strong trade overlap with Portugal/Venice, but Dike terrain dependence and Galleon timing distinguish it.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Oostindievaarder missions; Dike sea production; Lighthouse trade routes; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_CHINESE_LEADER",
+      "civilization": "CIVILIZATION_PEOPLES_REPUBLIC_CHINA",
+      "tier": "Targeted differentiation",
+      "identity": "Mass mobilization, cheaper infantry, workplace organization and state administration are mechanically integrated.",
+      "distinctiveness": {
+        "primary_axis": "Mass mobilization, cheaper infantry, workplace organization and state administration are mechanically integrated.",
+        "collision": "Trait and Danwei both stack production, espionage and administration; the package is much denser than comparable modern leaders.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_MAO_MASS_LINE"
+        ],
+        "units": [
+          "UNIT_PRC_PEOPLES_VOLUNTEER"
+        ],
+        "buildings": [
+          "BUILDING_PRC_DANWEI_COMMITTEE"
+        ]
+      },
+      "thesis": "Mass mobilization and danwei administration; remove duplicated farm espionage while keeping workshop production.",
+      "power_budget": "High-to-mid correction: delete only Farm +1 espionage from trait; Volunteer, Danwei and all other trait channels stay.",
+      "decisions": [
+        {
+          "decision": "MODIFY",
+          "object_id": "TRAIT_MAO_MASS_LINE",
+          "proposal": "Delete ImprovementCityCommerceChanges IMPROVEMENT_FARM espionage +1; retain Workshop production and Spy espionage entries."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_PRC_PEOPLES_VOLUNTEER",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_PRC_DANWEI_COMMITTEE",
+          "proposal": "No field changes."
+        }
+      ],
+      "art_plan": "Reuse current Volunteer and Danwei art.",
+      "risks": "AI does not deliberately exploit farm espionage, so clarity improves; recalculates city commerce without save/type change; MP deterministic.",
+      "validation": "Worked Farm/Workshop/Spy channel tests; tooltip; AI espionage/production autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_PETER",
+      "civilization": "CIVILIZATION_PETRINE_RUSSIA",
+      "tier": "Keep",
+      "identity": "Modernization, maritime development, bureaucracy and knowledge transfer are sharply expressed without another Russian cavalry unit.",
+      "distinctiveness": {
+        "primary_axis": "Modernization, maritime development, bureaucracy and knowledge transfer are sharply expressed without another Russian cavalry unit.",
+        "collision": "No-UU shape differs from most packages but avoids Russian cavalry redundancy.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_PETER"
+        ],
+        "units": [],
+        "buildings": [
+          "BUILDING_PETER_ADMIRALTY",
+          "BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS"
+        ]
+      },
+      "thesis": "Admiralty and collegial administration fit Petrine reform.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_PETER",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_PETER_ADMIRALTY",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Modernization, maritime development, bureaucracy and knowledge transfer are sharply expressed without another Russian cavalry unit. No-UU shape differs from most packages but avoids Russian cavalry redundancy.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; intentional no-UU mapping; Admiralty and Collegium; science/espionage AI; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_CASIMIR",
+      "civilization": "CIVILIZATION_POLAND",
+      "tier": "Polish",
+      "identity": "Peaceful domestic identity paired with a bounded mounted military reserve.",
+      "distinctiveness": {
+        "primary_axis": "Peaceful domestic identity paired with a bounded mounted military reserve.",
+        "collision": "Trait is generic and thin; Dragoon/castle military focus does not fully express the AI's growth, law and culture themes.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_CASIMIR"
+        ],
+        "units": [
+          "UNIT_POLISH_DRAGOON"
+        ],
+        "buildings": [
+          "BUILDING_POLISH_ROYAL_CASTLE"
+        ]
+      },
+      "thesis": "Peaceful legal-cultural development with a mounted reserve.",
+      "power_budget": "Power-neutral Polish: AI flavor redistribution only.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_CASIMIR",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_POLISH_DRAGOON",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_POLISH_ROYAL_CASTLE",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "LEADER_CASIMIR",
+          "proposal": "FLAVOR_GROWTH 6->5 and FLAVOR_CULTURE 3->4; all war/diplomacy values unchanged."
+        }
+      ],
+      "art_plan": "Reuse current Dragoon and Royal Castle art; animation smoke remains required.",
+      "risks": "AI build priorities shift slightly; no save schema/type drift; same synchronized values required in MP.",
+      "validation": "Leader flavor diff; seeded AI city/culture/autoplay comparison; Dragoon collateral regression; art smoke; MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_SALAMASINA_BTG",
+      "civilization": "CIVILIZATION_POLYNESIA_BTG",
+      "tier": "Polish",
+      "identity": "Excellent seafaring, ocean development and ceremonial/community package.",
+      "distinctiveness": {
+        "primary_axis": "Excellent seafaring, ocean development and ceremonial/community package.",
+        "collision": "Large unconditional health/happiness is generic and may overshadow the more distinctive navigation/reef system.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_SALAMASINA_BTG"
+        ],
+        "units": [
+          "UNIT_POLYNESIA_OCEAN_CANOE_BTG",
+          "UNIT_POLYNESIA_WAYFINDER_WORKBOAT_BTG"
+        ],
+        "buildings": [
+          "BUILDING_POLYNESIA_MARAE_BTG"
+        ]
+      },
+      "thesis": "Navigation, reef stewardship and ceremonial community should lead; unconditional welfare is support.",
+      "power_budget": "High-to-mid Polish: iHealth 5->3 and iHappiness 3->2; Navigation I and all uniques unchanged.",
+      "decisions": [
+        {
+          "decision": "MODIFY",
+          "object_id": "TRAIT_SALAMASINA_BTG",
+          "proposal": "iHealth 5->3; iHappiness 3->2; naval Navigation I unchanged."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_POLYNESIA_OCEAN_CANOE_BTG",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_POLYNESIA_WAYFINDER_WORKBOAT_BTG",
+          "proposal": "No field changes and no new worker action."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_POLYNESIA_MARAE_BTG",
+          "proposal": "No field changes."
+        }
+      ],
+      "art_plan": "Reuse existing canoe/workboat/Marae and complete Reef Works tile art only; no new worker action proposed.",
+      "risks": "Passive AI-safe nerf. Existing Reef action remains a high render/placement/persistence risk; no new action/schema. MP synchronized.",
+      "validation": "Health/happiness regression; existing Reef Works full build-button-placement-render-pillage-repair-save/AI test; naval animation; MP checksum.",
+      "worker_action": "No new worker action; validate existing Reef Works only."
+    },
+    {
+      "leader": "LEADER_JOAO",
+      "civilization": "CIVILIZATION_PORTUGAL",
+      "tier": "Keep",
+      "identity": "Exploration, overseas settlement and maritime commerce are clear and highly playable.",
+      "distinctiveness": {
+        "primary_axis": "Exploration, overseas settlement and maritime commerce are clear and highly playable.",
+        "collision": "Some overlap with Willem/Elizabeth, but fast scouting and transport capacity distinguish Portugal.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_JOAO"
+        ],
+        "units": [
+          "UNIT_PORTUGAL_CARRACK",
+          "UNIT_JOAO_SCOUT"
+        ],
+        "buildings": [
+          "BUILDING_PORTUGAL_FEITORIA"
+        ]
+      },
+      "thesis": "Portuguese oceanic expansion and feitoria trade network fit strongly.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_JOAO",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_PORTUGAL_CARRACK",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_JOAO_SCOUT",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_PORTUGAL_FEITORIA",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Exploration, overseas settlement and maritime commerce are clear and highly playable. Some overlap with Willem/Elizabeth, but fast scouting and transport capacity distinguish Portugal.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Carrack settler AI/cargo; Scout animation; Feitoria sea commerce; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_QIN_SHI_HUANG",
+      "civilization": "CIVILIZATION_QIN_DYNASTY",
+      "tier": "Keep",
+      "identity": "Strong fortified-state, mass construction and ranged-army identity.",
+      "distinctiveness": {
+        "primary_axis": "Strong fortified-state, mass construction and ranged-army identity.",
+        "collision": "Defensive promotion overlap with Churchill/Tokugawa, but collateral crossbows and production AI differentiate it.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_QIN_SHI_HUANG"
+        ],
+        "units": [
+          "UNIT_CHINA_CHOKONU"
+        ],
+        "buildings": [
+          "BUILDING_CHINESE_PAVILLION"
+        ]
+      },
+      "thesis": "Centralization, fortification and standardization are plausible Qin themes.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_QIN_SHI_HUANG",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_CHINA_CHOKONU",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_CHINESE_PAVILLION",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Strong fortified-state, mass construction and ranged-army identity. Defensive promotion overlap with Churchill/Tokugawa, but collateral crossbows and production AI differentiate it.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Cho-Ko-Nu collateral; promotion grants; Pavilion culture; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_ISABELLA",
+      "civilization": "CIVILIZATION_SPAIN",
+      "tier": "Keep",
+      "identity": "Compact religious-expansion and combined mounted/naval identity.",
+      "distinctiveness": {
+        "primary_axis": "Compact religious-expansion and combined mounted/naval identity.",
+        "collision": "Mounted overlap is common, but naval Morale and siege Citadel provide breadth.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_ISABELLA"
+        ],
+        "units": [
+          "UNIT_SPANISH_CONQUISTADOR"
+        ],
+        "buildings": [
+          "BUILDING_SPANISH_CITADEL"
+        ]
+      },
+      "thesis": "Theocracy and overseas conquest fit, though later text should avoid reducing Isabella solely to religious warfare.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_ISABELLA",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_SPANISH_CONQUISTADOR",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_SPANISH_CITADEL",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Compact religious-expansion and combined mounted/naval identity. Mounted overlap is common, but naval Morale and siege Citadel provide breadth.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; mounted/naval Morale; Conquistador melee modifier; Citadel siege XP; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_STALIN",
+      "civilization": "CIVILIZATION_USSR",
+      "tier": "Major redesign",
+      "identity": "Production, research and secret-police identity is unmistakable.",
+      "distinctiveness": {
+        "primary_axis": "Production, research and secret-police identity is unmistakable.",
+        "collision": "Numbers are outliers: +50 trait commerce, 100 Spy slots, 5-cost Spy, +5 happiness Lubyanka and multiple research/espionage buildings erase normal constraints.",
+        "frozen_verdict": "dedicated redesign spec"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_STALIN"
+        ],
+        "units": [
+          "UNIT_RUSSIA_COSSACK",
+          "UNIT_RUSSIA_SPY"
+        ],
+        "buildings": [
+          "BUILDING_RUSSIAN_RESEARCH_INSTITUTE",
+          "BUILDING_USSR_MONUMENT",
+          "BUILDING_LUBYANKA"
+        ]
+      },
+      "thesis": "Forced industrialization and research at a visible happiness cost; espionage remains bounded support.",
+      "power_budget": "Major rebudget to high-but-comparable: one production/research strength and -2 happiness cost; eliminate constraint-breaking Spy/slot/commerce outliers.",
+      "decisions": [
+        {
+          "decision": "MODIFY",
+          "object_id": "TRAIT_STALIN",
+          "proposal": "Keep iHappiness=-2; change CommerceChanges espionage +50->0 and add existing BuildingYieldChanges entry BUILDINGCLASS_FACTORY production +1; no new DLL field."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_RUSSIA_COSSACK",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "REPLACE",
+          "object_id": "UNIT_RUSSIA_SPY",
+          "proposal": "CIVILIZATION_USSR UNITCLASS_SPY mapping -> UNIT_SPY; retain dormant type for type-order/save stability."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "BUILDING_RUSSIAN_RESEARCH_INSTITUTE",
+          "proposal": "Free SPECIALIST_SCIENTIST count 2->1; all other fields unchanged."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "BUILDING_USSR_MONUMENT",
+          "proposal": "iCost 10->30; SPECIALIST_SPY slots 100->1; durable espionage CommerceChange 10->1."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "BUILDING_LUBYANKA",
+          "proposal": "iHappiness 5->-1; espionage CommerceChange 50->0; CommerceModifier 100 retained."
+        }
+      ],
+      "art_plan": "Reuse Cossack, stock Spy, current Institute/Monument/Lubyanka art and buttons; no imports.",
+      "risks": "Major economy/AI valuation change but no IDs removed. Confirm negative building happiness UI. Old saves may contain UNIT_RUSSIA_SPY and keep it valid; MP requires identical XML.",
+      "validation": "Exact outlier assertions; capital/city budget model; Spy build mapping; AI industrial/espionage autoplay; pedia; all art; old saves with legacy Spy; MP OOS test.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_ENRICO_DANDOLO",
+      "civilization": "CIVILIZATION_VENICE",
+      "tier": "Major redesign",
+      "identity": "Venetian trade and merchant-government identity is immediately visible.",
+      "distinctiveness": {
+        "primary_axis": "Venetian trade and merchant-government identity is immediately visible.",
+        "collision": "Package bypasses normal city, worker, Great Person, health, happiness and trade constraints; copied peaceful AI does not express Dandolo's crusading opportunism.",
+        "frozen_verdict": "dedicated redesign spec"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_DANDOLO"
+        ],
+        "units": [
+          "UNIT_VENICE_FOUNDER",
+          "UNIT_VENETIAN_MERCHANT"
+        ],
+        "buildings": [
+          "BUILDING_VENETIAN_DOGE_PALACE"
+        ]
+      },
+      "thesis": "Hard-bargaining Venetian trade and expedition logistics through one merchant mission and a normal capital.",
+      "power_budget": "Major rebudget to mid-high: remove +100% upkeep penalty, normalize Palace, and restrict merchant to trade mission only.",
+      "decisions": [
+        {
+          "decision": "MODIFY",
+          "object_id": "TRAIT_DANDOLO",
+          "proposal": "iUpkeepModifier 100->0; set existing TradeYieldModifiers [food, production, commerce] from [0,0,0] to [0,0,25]; no new mechanic."
+        },
+        {
+          "decision": "REPLACE",
+          "object_id": "UNIT_VENICE_FOUNDER",
+          "proposal": "CIVILIZATION_VENICE UNITCLASS_SETTLER mapping -> UNIT_SETTLER; retain dormant type."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "UNIT_VENETIAN_MERCHANT",
+          "proposal": "Keep UNITCLASS_MERCHANT trade mission; remove Found, Build Road, BUILDING_GRAND_COLOSSEUM construction, Great Work and worker build actions; iWorkRate 1000->0; retain current movement/cost and art."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "BUILDING_VENETIAN_DOGE_PALACE",
+          "proposal": "iGreatPeopleRateChange 4->2; iHealth 30->2; iHappiness 15->2; iTradeRoutes 6->2; iTradeRouteModifier 50->25; iForeignTradeRouteModifier 50->25; YieldChanges [0,0,8]->[0,0,8]; CommerceChanges espionage 4->0."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "LEADER_ENRICO_DANDOLO",
+          "proposal": "iBasePeaceWeight 8->4; FLAVOR_GROWTH 6->3; add/replace FLAVOR_GOLD=6 and FLAVOR_MILITARY=3; keep Caste System."
+        }
+      ],
+      "art_plan": "Reuse stock Settler plus current Venetian Merchant and Palace art. No new worker/build/improvement art and no new action.",
+      "risks": "Removing unit missions changes UI/AI action set but uses existing XML flags. Legacy Founders/Merchants remain loadable. Validate AI trade mission, save and deterministic MP.",
+      "validation": "Action enumeration must show trade mission only; Palace numeric snapshot; AI merchant mission/expedition autoplay; pedia/buttons/models; legacy-unit save; MP OOS test.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_RAGNAR",
+      "civilization": "CIVILIZATION_VIKING",
+      "tier": "Keep",
+      "identity": "A direct, legible amphibious raiding progression across land and sea.",
+      "distinctiveness": {
+        "primary_axis": "A direct, legible amphibious raiding progression across land and sea.",
+        "collision": "Extreme warmonger overlap with Genghis/Shaka/Montezuma, but amphibious and naval progression distinguishes Ragnar.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_RAGNAR"
+        ],
+        "units": [
+          "UNIT_VIKING_BESERKER",
+          "UNIT_VIKING_SWORDSMAN",
+          "UNIT_VIKING_AXEMAN"
+        ],
+        "buildings": [
+          "BUILDING_VIKING_TRADING_POST"
+        ]
+      },
+      "thesis": "Viking-Age raiding and ship mobility fit the intended semi-legendary leader archetype.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_RAGNAR",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_VIKING_BESERKER",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_VIKING_SWORDSMAN",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_VIKING_AXEMAN",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_VIKING_TRADING_POST",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "A direct, legible amphibious raiding progression across land and sea. Extreme warmonger overlap with Genghis/Shaka/Montezuma, but amphibious and naval progression distinguishes Ragnar.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; three raider units and Pillage I; amphibious combat; Trading Post navigation; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_CHURCHILL",
+      "civilization": "CIVILIZATION_WARTIME_BRITAIN",
+      "tier": "Targeted differentiation",
+      "identity": "Excellent air defense, national resilience and intelligence identity.",
+      "distinctiveness": {
+        "primary_axis": "Excellent air defense, national resilience and intelligence identity.",
+        "collision": "War Rooms and MI6 double-stack espionage while the Bank replacement also improves gold; defensive promotions overlap Qin/Tokugawa.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_CHURCHILL"
+        ],
+        "units": [
+          "UNIT_BRITISH_FIGHTER_COMMAND"
+        ],
+        "buildings": [
+          "BUILDING_BRITISH_WAR_ROOMS",
+          "BUILDING_BRITISH_MI6"
+        ]
+      },
+      "thesis": "Air defense and war-room intelligence, with MI6 normalized to the stock national-agency envelope.",
+      "power_budget": "High-to-mid correction: MI6 espionage modifier 200->100 and free Spies 2->0; one Spy slot retained.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_CHURCHILL",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_BRITISH_FIGHTER_COMMAND",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_BRITISH_WAR_ROOMS",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "BUILDING_BRITISH_MI6",
+          "proposal": "Espionage CommerceModifier 200->100; free SPECIALIST_SPY count 2->0; specialist Spy slot 1 retained."
+        },
+        {
+          "decision": "MODIFY",
+          "object_id": "LEADER_CHURCHILL",
+          "proposal": "Add FLAVOR_ESPIONAGE=3 while retaining military 5 and gold 2."
+        }
+      ],
+      "art_plan": "Reuse current Fighter Command, War Rooms and stock Scotland Yard art for MI6.",
+      "risks": "AI gains aligned flavor while building loses passive specialists; no schema/type change; synchronized MP.",
+      "validation": "MI6 field snapshot/help; Fighter/War Rooms unchanged; interception and espionage AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_KUBLAI_KHAN",
+      "civilization": "CIVILIZATION_YUAN_DYNASTY",
+      "tier": "Targeted differentiation",
+      "identity": "Road logistics, postal/trade hub and culturally oriented conquest are a strong Yuan identity.",
+      "distinctiveness": {
+        "primary_axis": "Road logistics, postal/trade hub and culturally oriented conquest are a strong Yuan identity.",
+        "collision": "Shared Palace blurs Genghis/Kublai; mounted package still closely parallels Keshik/Ger.",
+        "frozen_verdict": "bounded correction"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_KUBLAI"
+        ],
+        "units": [
+          "UNIT_YUAN_QIANHU_CAVALRY"
+        ],
+        "buildings": [
+          "BUILDING_YUAN_ORTOO_HUB",
+          "BUILDING_MONGOLIAN_PALACE"
+        ]
+      },
+      "thesis": "Yuan road administration and cultural integration capped by a distinct bureaucratic Palace.",
+      "power_budget": "Mid-high but bounded: replace shared resource/Golden Age Palace with a normal Palace variant offering +1 trade route and +2 culture.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_KUBLAI",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_YUAN_QIANHU_CAVALRY",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_YUAN_ORTOO_HUB",
+          "proposal": "No field changes."
+        },
+        {
+          "decision": "REPLACE",
+          "object_id": "BUILDING_MONGOLIAN_PALACE",
+          "proposal": "Create BUILDING_YUAN_IMPERIAL_SECRETARIAT in BUILDINGCLASS_PALACE, copied from stock Palace: iTradeRoutes=1, CommerceChanges culture +2, no free Horse, no Golden Age/stable prerequisite; map only CIVILIZATION_YUAN_DYNASTY to it. Genghis retains BUILDING_MONGOLIAN_PALACE."
+        }
+      ],
+      "art_plan": "Reuse ART_DEF_BUILDING_PALACE and its button; no new model or texture.",
+      "risks": "One appended BuildingInfo changes synchronized InfoType count/order and save compatibility; must append, never insert. AI handles passive trade/culture; MP manifest update mandatory.",
+      "validation": "Type append/order assertion; civ mapping isolation; no Horse/Golden Age trigger; capital trade/culture; pedia; old save and MP OOS test.",
+      "worker_action": "None proposed."
+    },
+    {
+      "leader": "LEADER_SHAKA",
+      "civilization": "CIVILIZATION_ZULU",
+      "tier": "Keep",
+      "identity": "Compact, powerful military expansion package with a real economic enabler.",
+      "distinctiveness": {
+        "primary_axis": "Compact, powerful military expansion package with a real economic enabler.",
+        "collision": "Warmonger overlap is inevitable, but fast spear plus maintenance Barracks is unique.",
+        "frozen_verdict": "unchanged"
+      },
+      "current_objects": {
+        "traits": [
+          "TRAIT_SHAKA"
+        ],
+        "units": [
+          "UNIT_ZULU_IMPI"
+        ],
+        "buildings": [
+          "BUILDING_ZULU_IKHANDA"
+        ]
+      },
+      "thesis": "Regimental warfare and centralized military expansion fit the Shakan package.",
+      "power_budget": "Frozen at live values; zero numeric, mapping, type, art, AI or text changes.",
+      "decisions": [
+        {
+          "decision": "KEEP",
+          "object_id": "TRAIT_SHAKA",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "UNIT_ZULU_IMPI",
+          "proposal": "No changes."
+        },
+        {
+          "decision": "KEEP",
+          "object_id": "BUILDING_ZULU_IKHANDA",
+          "proposal": "No changes."
+        }
+      ],
+      "no_change_rationale": "Compact, powerful military expansion package with a real economic enabler. Warmonger overlap is inevitable, but fast spear plus maintenance Barracks is unique.",
+      "art_plan": "Retain every current art tag and repository asset; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change.",
+      "validation": "Baseline/type/mapping digest unchanged; Impi mobility; Ikhanda maintenance; trait XP/GG and promotion stack; pedia/art smoke; AI autoplay; save/reload and MP checksum.",
+      "worker_action": "None proposed."
+    }
+  ]
+}

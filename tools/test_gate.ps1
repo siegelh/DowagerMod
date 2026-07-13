@@ -116,6 +116,22 @@ if (-not $SkipXml) {
         $failed = $true
         Write-Host "[GATE] XML checks failed: $($_.Exception.Message)"
     }
+
+    try {
+        $rosterArgs = @("--repo-root", $RepoRoot)
+        if ($All) {
+            $rosterArgs += "--all"
+        }
+        & python (Join-Path $RepoRoot "tools\validate_roster_safety.py") @rosterArgs
+        if ($LASTEXITCODE -ne 0) {
+            throw "validate_roster_safety.py reported issues (exit $LASTEXITCODE)."
+        }
+        Write-Host "[GATE] Roster safety checks passed."
+    }
+    catch {
+        $failed = $true
+        Write-Host "[GATE] Roster safety checks failed: $($_.Exception.Message)"
+    }
 }
 
 $shouldRunDllBuild = $false
