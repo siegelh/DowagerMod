@@ -46,6 +46,7 @@ import json
 import os
 import re
 import shutil
+import stat
 import string
 import subprocess
 import sys
@@ -703,7 +704,7 @@ def clean_user_data(user_data: Path) -> None:
             continue
         try:
             if child.is_dir():
-                shutil.rmtree(child, ignore_errors=False)
+                shutil.rmtree(child, ignore_errors=False, onerror=_remove_readonly)
                 removed_dirs += 1
             else:
                 child.unlink()
@@ -711,6 +712,12 @@ def clean_user_data(user_data: Path) -> None:
         except OSError as e:
             print(f"  WARNING: could not remove {child.name}: {e}")
     print(f"  Removed {removed_dirs} folder(s) and {removed_files} file(s).")
+
+
+def _remove_readonly(func, path: str, _exc_info) -> None:
+    """Retry deletion after clearing Windows' read-only attribute."""
+    os.chmod(path, stat.S_IWRITE)
+    func(path)
 
 
 def ensure_disable_caching(user_data: Path) -> None:
