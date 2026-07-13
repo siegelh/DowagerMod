@@ -13,6 +13,18 @@
     <English>+1 Trade Route, +1 Gold, and +1 XP for mounted units built in this city.</English>
   </TEXT>
   <TEXT>
+    <Tag>TXT_KEY_BUILDING_YUAN_IMPERIAL_SECRETARIAT</Tag>
+    <English>Yuan Imperial Secretariat</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_YUAN_IMPERIAL_SECRETARIAT_PEDIA</Tag>
+    <English>The central administration of the Yuan court coordinated imperial decrees, provincial government, and the exchange of peoples and ideas across the empire.</English>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_YUAN_IMPERIAL_SECRETARIAT_STRATEGY</Tag>
+    <English>Replaces the Palace. Provides +1 Trade Route and +2 Culture.</English>
+  </TEXT>
+  <TEXT>
     <Tag>TXT_KEY_UNIT_YUAN_QIANHU_CAVALRY</Tag>
     <English>Qianhu Cavalry</English>
   </TEXT>

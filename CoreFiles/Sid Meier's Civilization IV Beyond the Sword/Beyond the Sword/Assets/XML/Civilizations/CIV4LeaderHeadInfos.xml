@@ -4647,6 +4647,10 @@
           <FlavorType>FLAVOR_GOLD</FlavorType>
           <iFlavor>2</iFlavor>
         </Flavor>
+        <Flavor>
+          <FlavorType>FLAVOR_ESPIONAGE</FlavorType>
+          <iFlavor>3</iFlavor>
+        </Flavor>
       </Flavors>
       <ContactRands>
         <ContactRand>
@@ -8373,7 +8377,7 @@
       <ArtDefineTag>ART_DEF_LEADER_GERONIMO</ArtDefineTag>
       <iWonderConstructRand>0</iWonderConstructRand>
       <iBaseAttitude>0</iBaseAttitude>
-      <iBasePeaceWeight>8</iBasePeaceWeight>
+      <iBasePeaceWeight>4</iBasePeaceWeight>
       <iPeaceWeightRand>3</iPeaceWeightRand>
       <iWarmongerRespect>0</iWarmongerRespect>
       <iEspionageWeight>120</iEspionageWeight>
@@ -8386,7 +8390,7 @@
       <iMaxWarNearbyPowerRatio>130</iMaxWarNearbyPowerRatio>
       <iMaxWarDistantPowerRatio>0</iMaxWarDistantPowerRatio>
       <iMaxWarMinAdjacentLandPercent>4</iMaxWarMinAdjacentLandPercent>
-      <iLimitedWarRand>200</iLimitedWarRand>
+      <iLimitedWarRand>120</iLimitedWarRand>
       <iLimitedWarPowerRatio>100</iLimitedWarPowerRatio>
       <iDogpileWarRand>100</iDogpileWarRand>
       <iMakePeaceRand>120</iMakePeaceRand>
@@ -31043,11 +31047,11 @@
       <Flavors>
         <Flavor>
           <FlavorType>FLAVOR_GROWTH</FlavorType>
-          <iFlavor>6</iFlavor>
+          <iFlavor>5</iFlavor>
         </Flavor>
         <Flavor>
           <FlavorType>FLAVOR_CULTURE</FlavorType>
-          <iFlavor>3</iFlavor>
+          <iFlavor>4</iFlavor>
         </Flavor>
         <Flavor>
           <FlavorType>FLAVOR_RELIGION</FlavorType>
@@ -31540,7 +31544,7 @@
       <ArtDefineTag>ART_DEF_LEADER_ENRICO_DANDOLO</ArtDefineTag>
       <iWonderConstructRand>40</iWonderConstructRand>
       <iBaseAttitude>0</iBaseAttitude>
-      <iBasePeaceWeight>8</iBasePeaceWeight>
+      <iBasePeaceWeight>4</iBasePeaceWeight>
       <iPeaceWeightRand>3</iPeaceWeightRand>
       <iWarmongerRespect>0</iWarmongerRespect>
       <iEspionageWeight>100</iEspionageWeight>
@@ -31620,7 +31624,7 @@
       <Flavors>
         <Flavor>
           <FlavorType>FLAVOR_GROWTH</FlavorType>
-          <iFlavor>6</iFlavor>
+          <iFlavor>3</iFlavor>
         </Flavor>
         <Flavor>
           <FlavorType>FLAVOR_CULTURE</FlavorType>
@@ -31629,6 +31633,14 @@
         <Flavor>
           <FlavorType>FLAVOR_RELIGION</FlavorType>
           <iFlavor>2</iFlavor>
+        </Flavor>
+        <Flavor>
+          <FlavorType>FLAVOR_GOLD</FlavorType>
+          <iFlavor>6</iFlavor>
+        </Flavor>
+        <Flavor>
+          <FlavorType>FLAVOR_MILITARY</FlavorType>
+          <iFlavor>3</iFlavor>
         </Flavor>
       </Flavors>
       <ContactRands>

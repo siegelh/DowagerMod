@@ -27673,8 +27673,8 @@
       <Invisible>NONE</Invisible>
       <SeeInvisible>NONE</SeeInvisible>
       <Description>TXT_KEY_UNIT_VENETIAN_MERCHANT</Description>
-      <Civilopedia>A patrician merchant-banker of Venice, able to move quickly between ports and turn diplomacy, credit, and convoy access into extraordinary trade mission profits.</Civilopedia>
-      <Strategy>Venice's unique Great Merchant. Faster movement and stronger trade missions make it ideal for long-distance gold spikes and flexible economic play.</Strategy>
+      <Civilopedia>TXT_KEY_UNIT_VENETIAN_MERCHANT_PEDIA</Civilopedia>
+      <Strategy>TXT_KEY_UNIT_VENETIAN_MERCHANT_STRATEGY</Strategy>
       <Advisor>ADVISOR_GROWTH</Advisor>
       <bAnimal>0</bAnimal>
       <bFood>0</bFood>
@@ -27693,7 +27693,7 @@
       <bStealPlans>0</bStealPlans>
       <bInvestigate>0</bInvestigate>
       <bCounterSpy>0</bCounterSpy>
-      <bFound>1</bFound>
+      <bFound>0</bFound>
       <bGoldenAge>1</bGoldenAge>
       <bInvisible>0</bInvisible>
       <bFirstStrikeImmune>0</bFirstStrikeImmune>
@@ -27723,16 +27723,7 @@
         </UnitAI>
       </UnitAIs>
       <NotUnitAIs />
-      <Builds>
-        <Build>
-          <BuildType>BUILD_ROAD</BuildType>
-          <bBuild>1</bBuild>
-        </Build>
-        <Build>
-          <BuildType>BUILD_GRAND_COLOSSEUM_BTG</BuildType>
-          <bBuild>1</bBuild>
-        </Build>
-      </Builds>
+      <Builds />
       <ReligionSpreads />
       <CorporationSpreads />
       <GreatPeoples>
@@ -27797,14 +27788,14 @@
       <iAirUnitCap>0</iAirUnitCap>
       <iDropRange>0</iDropRange>
       <iNukeRange>-1</iNukeRange>
-      <iWorkRate>1000</iWorkRate>
+      <iWorkRate>0</iWorkRate>
       <iBaseDiscover>1000</iBaseDiscover>
       <iDiscoverMultiplier>2</iDiscoverMultiplier>
       <iBaseHurry>0</iBaseHurry>
       <iHurryMultiplier>0</iHurryMultiplier>
       <iBaseTrade>1000</iBaseTrade>
       <iTradeMultiplier>400</iTradeMultiplier>
-      <iGreatWorkCulture>4000</iGreatWorkCulture>
+      <iGreatWorkCulture>0</iGreatWorkCulture>
       <iEspionagePoints>0</iEspionagePoints>
       <TerrainImpassables />
       <FeatureImpassables />
