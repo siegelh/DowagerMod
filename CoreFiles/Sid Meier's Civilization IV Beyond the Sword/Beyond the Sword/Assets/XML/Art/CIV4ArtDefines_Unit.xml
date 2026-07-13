@@ -88738,7 +88738,7 @@
 		</UnitArtInfo>
 	<UnitArtInfo>
 			<Type>ART_DEF_UNIT_MACEDONIAN_HYPASPIST</Type>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/hypaspistai.dds</Button>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/hypaspistai.dds</Button>
 			<fScale>0.44</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/units/unique/macedonia/hypaspistai/spearman.nif</NIF>
@@ -88842,7 +88842,7 @@
 		</UnitArtInfo>
 <UnitArtInfo>
 			<Type>ART_DEF_UNIT_GAUL_GAESATAE</Type>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/light_swordsman.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/light_swordsman.dds</Button>
 			<fScale>0.44</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/units/celtic_sparth/light_swordsman/celticswordsmannoshirt.nif</NIF>
@@ -88894,7 +88894,7 @@
 		</UnitArtInfo>
 		<UnitArtInfo>
 			<Type>ART_DEF_UNIT_OTTOMAN_SIPAHI</Type>
-			<Button>,Art/Caveman2Cosmos/art/culture/sipahi.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/culture/sipahi.dds</Button>
 			<fScale>0.42</fScale>
 			<fInterfaceScale>0.9</fInterfaceScale>
 			<bActAsLand>0</bActAsLand>
@@ -88913,7 +88913,7 @@
 		</UnitArtInfo>
 		<UnitArtInfo>
 			<Type>ART_DEF_UNIT_OTTOMAN_GALLEASS</Type>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/galleas.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/galleas.dds</Button>
 			<fScale>0.25</fScale>
 			<fInterfaceScale>0.82</fInterfaceScale>
 			<NIF>Art/BTG/Units/uu_venice_galleass/ee2_galleas.nif</NIF>
@@ -88936,7 +88936,7 @@
 		</UnitArtInfo>
 		<UnitArtInfo>
 			<Type>ART_DEF_UNIT_PERSIA_TAKABARA</Type>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/immortal.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/immortal.dds</Button>
 			<fScale>0.44</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<bActAsLand>0</bActAsLand>
@@ -88955,7 +88955,7 @@
 		</UnitArtInfo>
 <UnitArtInfo>
 			<Type>ART_DEF_UNIT_NAPOLEONIC_DRAGOON</Type>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/dragoon.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/dragoon.dds</Button>
 			<fScale>0.42</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<bActAsLand>0</bActAsLand>
@@ -88974,7 +88974,7 @@
 		</UnitArtInfo>
 <UnitArtInfo>
 			<Type>ART_DEF_UNIT_FRANKISH_AXETHROWER</Type>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/axethrower.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/axethrower.dds</Button>
 			<fScale>0.44</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/units/unique/frank/axethrower/tomahawk.nif</NIF>
@@ -88986,7 +88986,7 @@
 		</UnitArtInfo>
 <UnitArtInfo>
 			<Type>ART_DEF_UNIT_PRUSSIAN_HUSSAR</Type>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/uhlan.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/uhlan.dds</Button>
 			<fScale>0.42</fScale>
 			<fInterfaceScale>0.93</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/units/unique/prussia/uhlan/hussar.nif</NIF>
@@ -89019,7 +89019,7 @@
 
     <UnitArtInfo>
       <Type>ART_DEF_UNIT_EGYPT_HATSHEPSUT_ROYAL_EXPEDITION_CHARIOT</Type>
-      <Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/early_chariot.dds</Button>
+      <Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/early_chariot.dds</Button>
       <fScale>0.35</fScale>
       <fInterfaceScale>0.9</fInterfaceScale>
       <NIF>Art/Caveman2Cosmos/art/units/egyptian_sparth/chariot/chariot_fx.nif</NIF>
@@ -89044,7 +89044,7 @@
 
     <UnitArtInfo>
       <Type>ART_DEF_UNIT_EGYPT_RAMESSES_BATTLE_CHARIOT</Type>
-      <Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/warchariot.dds</Button>
+      <Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/culture/warchariot.dds</Button>
       <fScale>0.37</fScale>
       <fInterfaceScale>0.8</fInterfaceScale>
       <bActAsLand>0</bActAsLand>
@@ -89072,7 +89072,7 @@
 
     <UnitArtInfo>
       <Type>ART_DEF_UNIT_ETHIOPIA_ZARA_AGAW_INFANTRY</Type>
-      <Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/heavy_swordsman.dds</Button>
+      <Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/heavy_swordsman.dds</Button>
       <fScale>0.44</fScale>
       <fInterfaceScale>1.0</fInterfaceScale>
       <NIF>Art/Caveman2Cosmos/art/units/african_sparth/heavy_swordsman/ethiopianhvyfootfinalx3.nif</NIF>
@@ -89090,7 +89090,7 @@
 
     <UnitArtInfo>
       <Type>ART_DEF_UNIT_ETHIOPIA_SELASSIE_ARBEGNOCH_RIFLEMAN</Type>
-      <Button>,Art/Caveman2Cosmos/art/interface/buttons/units/sparth/rifleman.dds</Button>
+      <Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/rifleman.dds</Button>
       <fScale>0.44</fScale>
       <fInterfaceScale>1.0</fInterfaceScale>
       <NIF>Art/Caveman2Cosmos/art/units/african_sparth/rifleman/rifleman_african_fx.nif</NIF>
@@ -89133,7 +89133,7 @@
 		</UnitArtInfo>
 		<UnitArtInfo>
 			<Type>ART_DEF_UNIT_NEW_DEAL_MARINE_RAIDER</Type>
-			<Button>Art/Units/BatchE/MarineRaider/marine_128.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/units/sparth/modern_marine.dds</Button>
 			<fScale>0.44</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<bActAsLand>0</bActAsLand>

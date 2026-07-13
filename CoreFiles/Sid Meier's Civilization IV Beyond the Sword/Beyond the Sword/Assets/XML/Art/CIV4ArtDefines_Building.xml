@@ -6642,7 +6642,7 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/rodnovery_cathedral/celtic_temple.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/rodnovery_cathedral.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/rodnovery_cathedral.dds</Button>
 		</BuildingArtInfo>
 <BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_ICENI_HALL</Type>
@@ -6662,7 +6662,7 @@
 			<fInterfaceScale>0.52</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/barracks/middle_east_barracks/barracks_mid.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/militarybase.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/militarybase.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_OTTOMAN_KULLIYE</Type>
@@ -6672,7 +6672,7 @@
 			<fInterfaceScale>0.5</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/great_bath/bath_middle_east.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/great_bath_of_mohenjo_daro.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/great_bath_of_mohenjo_daro.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_PERSIA_PASARGADAE_DECREE</Type>
@@ -6682,7 +6682,7 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/BTG/Buildings/Tomb of Cyrus/cyrustomb.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cyrustomb.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cyrustomb.dds</Button>
 		</BuildingArtInfo>
 
 <BuildingArtInfo>
@@ -6693,7 +6693,7 @@
 			<fInterfaceScale>0.47</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Forge/Forge.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/blacksmith_guild.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/national_wonders/blacksmith_guild.dds</Button>
 		</BuildingArtInfo>
 <BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_NAPOLEONIC_PREFECTURE</Type>
@@ -6703,7 +6703,7 @@
 			<fInterfaceScale>0.61</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Courthouse/Courthouse.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/district_courthouse.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/national_wonders/district_courthouse.dds</Button>
 		</BuildingArtInfo>
 <BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_CAROLINGIAN_SCRIPTORIUM</Type>
@@ -6713,7 +6713,7 @@
 			<fInterfaceScale>0.44</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Monastery/Christian/christian monastery.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/scriptorium.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/scriptorium.dds</Button>
 		</BuildingArtInfo>
 <BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_PRUSSIAN_ACADEMY</Type>
@@ -6723,7 +6723,7 @@
 			<fInterfaceScale>0.43</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Military_Academy/Military_Academy.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/militaryacademy2.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/militaryacademy2.dds</Button>
 		</BuildingArtInfo>
 <BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_COUNTRY_ESTATE</Type>
@@ -6733,7 +6733,7 @@
 			<fInterfaceScale>0.4</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/estate/manor.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/estate.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/estate.dds</Button>
 		</BuildingArtInfo>
 
     <BuildingArtInfo>
@@ -6744,7 +6744,7 @@
       <fInterfaceScale>1.30</fInterfaceScale>
       <NIF>Art/Caveman2Cosmos/art/structures/buildings/egyptmyth/ptah.nif</NIF>
       <KFM />
-      <Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/kemetism/egypt_temple.dds</Button>
+      <Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/kemetism/egypt_temple.dds</Button>
     </BuildingArtInfo>
 
     <BuildingArtInfo>
@@ -6755,7 +6755,7 @@
       <fInterfaceScale>0.70</fInterfaceScale>
       <NIF>Art/Caveman2Cosmos/art/structures/buildings/mtrushmore/egypt_mtrushmore/mtrushmore.nif</NIF>
       <KFM />
-      <Button>,Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/kemetism/temple_of_ptah.dds</Button>
+      <Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/religions/kemetism/temple_of_ptah.dds</Button>
     </BuildingArtInfo>
 
     <BuildingArtInfo>
@@ -6766,7 +6766,7 @@
       <fInterfaceScale>0.75</fInterfaceScale>
       <NIF>Art/Caveman2Cosmos/art/structures/buildings/canaanite_temple/temple_an.nif</NIF>
       <KFM />
-      <Button>,Art/Caveman2Cosmos/art/structures/buildings/canaanite_temple/temple.dds</Button>
+      <Button>Art/Caveman2Cosmos/art/structures/buildings/canaanite_temple/temple.dds</Button>
     </BuildingArtInfo>
 
     <BuildingArtInfo>
@@ -6777,7 +6777,7 @@
       <fInterfaceScale>0.70</fInterfaceScale>
       <NIF>Art/Caveman2Cosmos/art/structures/buildings/academy/afro_academy/mosque_of_kairouan.nif</NIF>
       <KFM />
-      <Button>,Art/Caveman2Cosmos/art/interface/buttons/group_wonders/harvarduniversity.dds</Button>
+      <Button>Art/Caveman2Cosmos/art/interface/buttons/group_wonders/harvarduniversity.dds</Button>
     </BuildingArtInfo>
 
 		<BuildingArtInfo>
