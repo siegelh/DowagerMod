@@ -43,6 +43,20 @@ def civic(civic_type: str) -> ET.Element:
 
 
 class CivicRebalanceTests(unittest.TestCase):
+    def test_free_market_has_no_town_food_bonus(self) -> None:
+        free_market = civic("CIVIC_FREE_MARKET")
+        changes = next(
+            node
+            for node in free_market
+            if local_name(node.tag) == "ImprovementYieldChanges"
+        )
+        towns = [
+            node
+            for node in changes
+            if child_text(node, "ImprovementType") == "IMPROVEMENT_TOWN"
+        ]
+        self.assertEqual(towns, [])
+
     def test_pacifism_has_no_town_food_bonus(self) -> None:
         pacifism = civic("CIVIC_PACIFISM")
         changes = next(

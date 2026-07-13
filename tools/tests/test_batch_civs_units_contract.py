@@ -16,6 +16,8 @@ XML = (
 )
 CIVILIZATIONS = XML / "Civilizations" / "CIV4CivilizationInfos.xml"
 UNITS = XML / "Units" / "CIV4UnitInfos.xml"
+
+
 def local_name(tag: str) -> str:
     return tag.rsplit("}", 1)[-1]
 
@@ -45,14 +47,24 @@ def mappings(civilization: str, container: str, key: str, value: str) -> dict[st
 
 class BatchCivilizationsUnitsContractTests(unittest.TestCase):
     def test_frozen_civilization_mappings(self) -> None:
+        babylon = mappings(
+            "CIVILIZATION_BABYLON",
+            "Buildings",
+            "BuildingClassType",
+            "BuildingType",
+        )
+        self.assertEqual(
+            babylon["BUILDINGCLASS_PALACE"], "BUILDING_BABYLON_ROYAL_PALACE"
+        )
+
         england = mappings(
             "CIVILIZATION_ELIZABETHAN_ENGLAND",
             "Units",
             "UnitClassType",
             "UnitType",
         )
-        self.assertEqual(england["UNITCLASS_GALLEY"], "UNIT_GALLEY")
-        self.assertEqual(england["UNITCLASS_TRIREME"], "UNIT_TRIREME")
+        self.assertEqual(england["UNITCLASS_GALLEY"], "UNIT_ENGLISH_SEA_DOG")
+        self.assertEqual(england["UNITCLASS_TRIREME"], "UNIT_ENGLISH_SEA_DOG")
         self.assertEqual(
             england["UNITCLASS_PRIVATEER"], "UNIT_ENGLISH_SEA_DOG"
         )
@@ -63,8 +75,12 @@ class BatchCivilizationsUnitsContractTests(unittest.TestCase):
             "BuildingClassType",
             "BuildingType",
         )
-        self.assertEqual(korea["BUILDINGCLASS_LIBRARY"], "BUILDING_LIBRARY")
-        self.assertEqual(korea["BUILDINGCLASS_ACADEMY"], "BUILDING_ACADEMY")
+        self.assertEqual(
+            korea["BUILDINGCLASS_LIBRARY"], "BUILDING_KOREAN_LIBRARY"
+        )
+        self.assertEqual(
+            korea["BUILDINGCLASS_ACADEMY"], "BUILDING_KOREAN_ACADEMY"
+        )
         self.assertEqual(
             korea["BUILDINGCLASS_UNIVERSITY"], "BUILDING_KOREAN_SEOWON"
         )
@@ -72,7 +88,48 @@ class BatchCivilizationsUnitsContractTests(unittest.TestCase):
         ussr = mappings(
             "CIVILIZATION_USSR", "Units", "UnitClassType", "UnitType"
         )
-        self.assertEqual(ussr["UNITCLASS_SPY"], "UNIT_SPY")
+        self.assertEqual(ussr["UNITCLASS_SPY"], "UNIT_RUSSIA_SPY")
+        ussr_buildings = mappings(
+            "CIVILIZATION_USSR",
+            "Buildings",
+            "BuildingClassType",
+            "BuildingType",
+        )
+        self.assertEqual(
+            ussr_buildings["BUILDINGCLASS_LABORATORY"],
+            "BUILDING_RUSSIAN_RESEARCH_INSTITUTE",
+        )
+        self.assertEqual(
+            ussr_buildings["BUILDINGCLASS_OBELISK"], "BUILDING_USSR_MONUMENT"
+        )
+        self.assertEqual(
+            ussr_buildings["BUILDINGCLASS_SCOTLAND_YARD"], "BUILDING_LUBYANKA"
+        )
+
+        wartime_britain = mappings(
+            "CIVILIZATION_WARTIME_BRITAIN",
+            "Buildings",
+            "BuildingClassType",
+            "BuildingType",
+        )
+        self.assertEqual(
+            wartime_britain["BUILDINGCLASS_SCOTLAND_YARD"],
+            "BUILDING_BRITISH_MI6",
+        )
+
+        petrine_russia = mappings(
+            "CIVILIZATION_PETRINE_RUSSIA",
+            "Buildings",
+            "BuildingClassType",
+            "BuildingType",
+        )
+        self.assertEqual(
+            petrine_russia["BUILDINGCLASS_HARBOR"], "BUILDING_PETER_ADMIRALTY"
+        )
+        self.assertEqual(
+            petrine_russia["BUILDINGCLASS_COURTHOUSE"],
+            "BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS",
+        )
 
         venice = mappings(
             "CIVILIZATION_VENICE", "Units", "UnitClassType", "UnitType"
@@ -80,6 +137,16 @@ class BatchCivilizationsUnitsContractTests(unittest.TestCase):
         self.assertEqual(venice["UNITCLASS_SETTLER"], "UNIT_VENICE_FOUNDER")
         self.assertEqual(
             venice["UNITCLASS_MERCHANT"], "UNIT_VENETIAN_MERCHANT"
+        )
+        venice_buildings = mappings(
+            "CIVILIZATION_VENICE",
+            "Buildings",
+            "BuildingClassType",
+            "BuildingType",
+        )
+        self.assertEqual(
+            venice_buildings["BUILDINGCLASS_PALACE"],
+            "BUILDING_VENETIAN_DOGE_PALACE",
         )
 
         yuan = mappings(
@@ -103,6 +170,7 @@ class BatchCivilizationsUnitsContractTests(unittest.TestCase):
             if local_name(node.tag) == "UnitInfo"
         }
         self.assertIn("UNIT_RUSSIA_SPY", unit_types)
+        self.assertIn("UNIT_ENGLISH_SEA_DOG", unit_types)
         self.assertIn("UNIT_VENICE_FOUNDER", unit_types)
 
         building_files = list((XML / "Buildings").glob("*.xml"))
@@ -112,8 +180,21 @@ class BatchCivilizationsUnitsContractTests(unittest.TestCase):
             for node in ET.parse(path).getroot().iter()
             if local_name(node.tag) == "BuildingInfo"
         }
-        self.assertIn("BUILDING_KOREAN_LIBRARY", building_types)
-        self.assertIn("BUILDING_KOREAN_ACADEMY", building_types)
+        for building_type in (
+            "BUILDING_BABYLON_ROYAL_PALACE",
+            "BUILDING_KOREAN_LIBRARY",
+            "BUILDING_KOREAN_SEOWON",
+            "BUILDING_KOREAN_ACADEMY",
+            "BUILDING_RUSSIAN_RESEARCH_INSTITUTE",
+            "BUILDING_USSR_MONUMENT",
+            "BUILDING_LUBYANKA",
+            "BUILDING_BRITISH_MI6",
+            "BUILDING_PETER_ADMIRALTY",
+            "BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS",
+            "BUILDING_MONGOLIAN_PALACE",
+            "BUILDING_YUAN_IMPERIAL_SECRETARIAT",
+        ):
+            self.assertIn(building_type, building_types)
 
     def test_venetian_merchant_original_actions_are_preserved(self) -> None:
         merchant = info(UNITS, "UnitInfo", "UNIT_VENETIAN_MERCHANT")

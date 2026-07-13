@@ -1392,16 +1392,7 @@
 			<BuildingHappinessChanges/>
 			<BuildingHealthChanges/>
 			<FeatureHappinessChanges/>
-			<ImprovementYieldChanges>
-				<ImprovementYieldChange>
-					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
-					<ImprovementYields>
-						<iYield>1</iYield>
-						<iYield>0</iYield>
-						<iYield>0</iYield>
-					</ImprovementYields>
-				</ImprovementYieldChange>
-			</ImprovementYieldChanges>
+			<ImprovementYieldChanges/>
 				<ImprovementCityCommerceChangesWorked/>
 			<ImprovementCityCommerceChangesBFC/>
 			<WeLoveTheKing/>

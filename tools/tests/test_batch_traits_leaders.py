@@ -18,6 +18,7 @@ XML = (
 TRAITS = XML / "Civilizations" / "CIV4TraitInfos.xml"
 LEADERS = XML / "Civilizations" / "CIV4LeaderHeadInfos.xml"
 TEXT = XML / "Text" / "ZZZ_CIV4GameText_BatchTraitsLeaders.xml"
+PETER_TEXT = XML / "Text" / "ZZZ_CIV4GameText_Peter_Overhaul.xml"
 LOCALES = {"English", "French", "German", "Italian", "Spanish"}
 TOKEN_RE = re.compile(r"%%|%(?:\d+\$)?[A-Za-z](?:\d+(?:_[A-Za-z0-9]+)?)?")
 
@@ -66,18 +67,50 @@ def flavor_map(node: ET.Element) -> dict[str, int]:
 
 
 class BatchTraitsLeadersTests(unittest.TestCase):
-    def test_washington_removes_eight_channels_and_retains_command_and_road(self) -> None:
+    def test_washington_restores_all_eight_channels_and_retains_command_and_road(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_GEORGE_WASHINGTON")
         self.assertEqual(child_text(trait, "iGreatGeneralRateModifier"), "50")
         self.assertEqual(child_text(trait, "iDomesticGreatGeneralRateModifier"), "50")
-        for container in (
-            "ImprovementYieldChanges",
-            "BuildingYieldChanges",
-            "BuildingCommerceChanges",
-            "SpecialistCommerceChanges",
-            "BonusYieldChanges",
-        ):
-            self.assertEqual(len(child(trait, container)), 0, container)
+
+        improvements = keyed_entries(trait, "ImprovementYieldChanges", "ImprovementType")
+        self.assertEqual(set(improvements), {"IMPROVEMENT_TOWN"})
+        self.assertEqual(values(improvements["IMPROVEMENT_TOWN"], "ImprovementYields", "iYield"), [0, 0, 1])
+
+        building_yields = keyed_entries(trait, "BuildingYieldChanges", "BuildingClassType")
+        self.assertEqual(set(building_yields), {"BUILDINGCLASS_BARRACKS"})
+        self.assertEqual(values(building_yields["BUILDINGCLASS_BARRACKS"], "BuildingYields", "iYield"), [0, 1, 0])
+
+        building_commerce = keyed_entries(trait, "BuildingCommerceChanges", "BuildingClassType")
+        self.assertEqual(set(building_commerce), {"BUILDINGCLASS_COURTHOUSE", "BUILDINGCLASS_BANK"})
+        self.assertEqual(
+            values(building_commerce["BUILDINGCLASS_COURTHOUSE"], "BuildingCommerces", "iCommerce"),
+            [0, 0, 0, 2],
+        )
+        self.assertEqual(
+            values(building_commerce["BUILDINGCLASS_BANK"], "BuildingCommerces", "iCommerce"),
+            [2, 0, 0, 0],
+        )
+
+        specialists = keyed_entries(trait, "SpecialistCommerceChanges", "SpecialistType")
+        self.assertEqual(set(specialists), {"SPECIALIST_SPY", "SPECIALIST_MERCHANT"})
+        self.assertEqual(
+            values(specialists["SPECIALIST_SPY"], "SpecialistCommerces", "iCommerce"),
+            [0, 0, 0, 1],
+        )
+        self.assertEqual(
+            values(specialists["SPECIALIST_MERCHANT"], "SpecialistCommerces", "iCommerce"),
+            [1, 0, 0, 0],
+        )
+
+        bonuses = keyed_entries(trait, "BonusYieldChanges", "BonusType")
+        self.assertEqual(set(bonuses), {"BONUS_WHEAT", "BONUS_HORSE"})
+        self.assertEqual(values(bonuses["BONUS_WHEAT"], "BonusYields", "iYield"), [1, 0, 0])
+        self.assertEqual(values(bonuses["BONUS_HORSE"], "BonusYields", "iYield"), [0, 1, 0])
+        self.assertEqual(
+            sum(map(len, (improvements, building_yields, building_commerce, specialists, bonuses))),
+            8,
+        )
+
         roads = keyed_entries(trait, "RouteYieldChanges", "RouteType")
         self.assertEqual(set(roads), {"ROUTE_ROAD"})
         self.assertEqual(values(roads["ROUTE_ROAD"], "RouteYields", "iYield"), [0, 0, 1])
@@ -113,22 +146,39 @@ class BatchTraitsLeadersTests(unittest.TestCase):
             self.assertIn("double movement on Hills", value)
             self.assertEqual(TOKEN_RE.findall(value), [])
 
-    def test_genghis_removes_only_castle_town_worked_commerce_coupling(self) -> None:
+    def test_genghis_restores_castle_town_worked_commerce_and_retains_additions(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_GENGHIS_KAHN")
-        self.assertEqual(len(child(trait, "ImprovementCityCommerceChangesWorked")), 0)
+        worked = keyed_entries(
+            trait,
+            "ImprovementCityCommerceChangesWorked",
+            "ImprovementType",
+        )
+        self.assertEqual(set(worked), {"IMPROVEMENT_JAPAN_CASTLE_TOWN"})
+        self.assertEqual(
+            values(worked["IMPROVEMENT_JAPAN_CASTLE_TOWN"], "ImprovementCommerces", "iCommerce"),
+            [0, 0, 3, 0],
+        )
         workshop = keyed_entries(trait, "ImprovementYieldChanges", "ImprovementType")
         self.assertEqual(values(workshop["IMPROVEMENT_WORKSHOP"], "ImprovementYields", "iYield"), [0, 1, 0])
         self.assertIn("IMPROVEMENT_FARM", keyed_entries(trait, "ImprovementTerrainYieldChanges", "ImprovementType"))
 
-    def test_sitting_bull_zeros_trade_yields_and_retains_health(self) -> None:
+    def test_sitting_bull_restores_trade_yields_and_retains_health(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_SITTING_BULL")
-        self.assertEqual(values(trait, "TradeYieldModifiers", "iYield"), [0, 0, 0])
-        self.assertNotEqual(values(trait, "TradeYieldModifiers", "iYield"), [150, -500, -500])
+        self.assertEqual(values(trait, "TradeYieldModifiers", "iYield"), [150, -500, -500])
         self.assertEqual(child_text(trait, "iHealth"), "2")
 
-    def test_mao_removes_farm_espionage_and_retains_workshop_and_spy(self) -> None:
+    def test_mao_restores_farm_espionage_and_retains_workshop_and_spy(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_MAO_MASS_LINE")
-        self.assertEqual(len(child(trait, "ImprovementCityCommerceChangesWorked")), 0)
+        worked = keyed_entries(
+            trait,
+            "ImprovementCityCommerceChangesWorked",
+            "ImprovementType",
+        )
+        self.assertEqual(set(worked), {"IMPROVEMENT_FARM"})
+        self.assertEqual(
+            values(worked["IMPROVEMENT_FARM"], "ImprovementCommerces", "iCommerce"),
+            [0, 0, 0, 1],
+        )
         workshop = keyed_entries(trait, "ImprovementYieldChanges", "ImprovementType")
         self.assertEqual(values(workshop["IMPROVEMENT_WORKSHOP"], "ImprovementYields", "iYield"), [0, 1, 0])
         spy = keyed_entries(trait, "SpecialistCommerceChanges", "SpecialistType")
@@ -140,22 +190,62 @@ class BatchTraitsLeadersTests(unittest.TestCase):
         self.assertEqual(child_text(leader, "iBasePeaceWeight"), "8")
         self.assertEqual(child_text(leader, "iLimitedWarRand"), "160")
 
-    def test_salamasina_reduces_health_happiness_and_retains_navigation(self) -> None:
+    def test_salamasina_restores_health_happiness_and_retains_navigation(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_SALAMASINA_BTG")
-        self.assertEqual(child_text(trait, "iHealth"), "3")
-        self.assertEqual(child_text(trait, "iHappiness"), "2")
+        self.assertEqual(child_text(trait, "iHealth"), "5")
+        self.assertEqual(child_text(trait, "iHappiness"), "3")
         promotions = keyed_entries(trait, "FreePromotions", "PromotionType")
         self.assertEqual(set(promotions), {"PROMOTION_NAVIGATION1"})
         recipients = keyed_entries(trait, "FreePromotionUnitCombats", "UnitCombatType")
         self.assertEqual(set(recipients), {"UNITCOMBAT_NAVAL"})
 
-    def test_stalin_rebudgets_espionage_into_factory_production(self) -> None:
+    def test_stalin_restores_espionage_and_retains_factory_production(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_STALIN")
         self.assertEqual(child_text(trait, "iHappiness"), "-2")
-        self.assertEqual(values(trait, "CommerceChanges", "iCommerce"), [0, 0, 0, 0])
+        self.assertEqual(values(trait, "CommerceChanges", "iCommerce"), [0, 0, 0, 50])
         factories = keyed_entries(trait, "BuildingYieldChanges", "BuildingClassType")
         self.assertEqual(set(factories), {"BUILDINGCLASS_FACTORY"})
         self.assertEqual(values(factories["BUILDINGCLASS_FACTORY"], "BuildingYields", "iYield"), [0, 1, 0])
+
+    def test_peter_strengthens_research_without_removing_culture_or_adding_scientists(self) -> None:
+        trait = info(TRAITS, "TraitInfo", "TRAIT_PETER")
+        self.assertEqual(child_text(trait, "Help"), "TXT_KEY_TRAIT_PETER_HELP")
+        self.assertEqual(child_text(trait, "iGreatPeopleRateModifier"), "50")
+
+        buildings = keyed_entries(trait, "BuildingCommerceChanges", "BuildingClassType")
+        self.assertEqual(
+            set(buildings),
+            {"BUILDINGCLASS_LIBRARY", "BUILDINGCLASS_UNIVERSITY"},
+        )
+        self.assertEqual(
+            values(buildings["BUILDINGCLASS_LIBRARY"], "BuildingCommerces", "iCommerce"),
+            [0, 2, 1, 0],
+        )
+        self.assertEqual(
+            values(buildings["BUILDINGCLASS_UNIVERSITY"], "BuildingCommerces", "iCommerce"),
+            [0, 3, 1, 0],
+        )
+
+        specialists = keyed_entries(trait, "SpecialistCommerceChanges", "SpecialistType")
+        self.assertEqual(set(specialists), {"SPECIALIST_SPY"})
+        self.assertEqual(
+            values(specialists["SPECIALIST_SPY"], "SpecialistCommerces", "iCommerce"),
+            [0, 1, 0, 0],
+        )
+
+        help_text = info(PETER_TEXT, "TEXT", "TXT_KEY_TRAIT_PETER_HELP", "Tag")
+        translations = {
+            local_name(item.tag): (item.text or "").strip()
+            for item in help_text
+            if local_name(item.tag) != "Tag"
+        }
+        self.assertEqual(set(translations), LOCALES)
+        expected = (
+            "+50% Great Person birth rate. Libraries provide +2 Research and +1 Culture; "
+            "Universities provide +3 Research and +1 Culture; Spies provide +1 Research."
+        )
+        self.assertEqual(set(translations.values()), {expected})
+        self.assertNotIn("Scientist", expected)
 
     def test_dandolo_original_trait_and_leader_are_preserved(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_DANDOLO")

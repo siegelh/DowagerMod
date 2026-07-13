@@ -9,6 +9,14 @@
     <English>Westernizer</English>
   </TEXT>
   <TEXT>
+    <Tag>TXT_KEY_TRAIT_PETER_HELP</Tag>
+    <English>+50% Great Person birth rate. Libraries provide +2 Research and +1 Culture; Universities provide +3 Research and +1 Culture; Spies provide +1 Research.</English>
+    <French>+50% Great Person birth rate. Libraries provide +2 Research and +1 Culture; Universities provide +3 Research and +1 Culture; Spies provide +1 Research.</French>
+    <German>+50% Great Person birth rate. Libraries provide +2 Research and +1 Culture; Universities provide +3 Research and +1 Culture; Spies provide +1 Research.</German>
+    <Italian>+50% Great Person birth rate. Libraries provide +2 Research and +1 Culture; Universities provide +3 Research and +1 Culture; Spies provide +1 Research.</Italian>
+    <Spanish>+50% Great Person birth rate. Libraries provide +2 Research and +1 Culture; Universities provide +3 Research and +1 Culture; Spies provide +1 Research.</Spanish>
+  </TEXT>
+  <TEXT>
     <Tag>TXT_KEY_BUILDING_PETER_ADMIRALTY</Tag>
     <English>Admiralty</English>
   </TEXT>
@@ -18,7 +26,7 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_PETER_ADMIRALTY_STRATEGY</Tag>
-    <English>Petrine Russia unique Harbor replacement. Keeps the Harbor's trade and seafood health benefits while adding 1 Trade Route, 10% Research, and 1 Culture.</English>
+    <English>Petrine Russia unique Harbor replacement. Keeps the Harbor's trade and seafood health benefits while adding 1 Trade Route, 25% Research, and 1 Culture.</English>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS</Tag>
@@ -30,11 +38,7 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS_STRATEGY</Tag>
-    <English>Petrine Russia unique Courthouse replacement. Keeps the normal maintenance reduction and improves espionage, research, culture, and Spy capacity.</English>
-  </TEXT>
-  <TEXT>
-    <Tag>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_PEDIA</Tag>
-    <English>Petrine Russia under Peter I represents an early eighteenth-century drive to westernize elite culture, restructure administration, expand diplomatic reach, and open the empire to the Baltic. This variant emphasizes courtly modernization, foreign affairs, and maritime reorientation.</English>
+    <English>Petrine Russia unique Courthouse replacement. Keeps the normal maintenance reduction while adding 25% Research, 4 Espionage, 1 Culture, and 2 Spy slots.</English>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_LEADER_PETER_PEDIA</Tag>

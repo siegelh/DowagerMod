@@ -18,6 +18,7 @@ XML = (
 BUILDINGS = XML / "Buildings" / "CIV4BuildingInfos.xml"
 ART = XML / "Art" / "CIV4ArtDefines_Building.xml"
 TEXT_DIR = XML / "Text"
+PETER_TEXT = TEXT_DIR / "ZZZ_CIV4GameText_Peter_Overhaul.xml"
 
 
 def local_name(tag: str) -> str:
@@ -47,8 +48,8 @@ class BuildingBatchTests(unittest.TestCase):
 
     def test_hammurabi_royal_palace_budget_and_retained_fields(self) -> None:
         node = self.by_type["BUILDING_BABYLON_ROYAL_PALACE"]
-        self.assertEqual(values(node, "YieldChanges"), [0, 0, 8])
-        self.assertEqual(values(node, "CommerceChanges"), [0, 3, 2, 2])
+        self.assertEqual(values(node, "YieldChanges"), [0, 2, 8])
+        self.assertEqual(values(node, "CommerceChanges"), [0, 3, 2, 8])
         self.assertEqual(text(node, "iMaintenanceModifier"), "-10")
         self.assertEqual(text(node, "iHealth"), "2")
         self.assertEqual(text(node, "iHappiness"), "2")
@@ -73,19 +74,19 @@ class BuildingBatchTests(unittest.TestCase):
         institute = self.by_type["BUILDING_RUSSIAN_RESEARCH_INSTITUTE"]
         free_scientist = child(institute, "FreeSpecialistCounts")[0]
         self.assertEqual(text(free_scientist, "SpecialistType"), "SPECIALIST_SCIENTIST")
-        self.assertEqual(text(free_scientist, "iFreeSpecialistCount"), "1")
+        self.assertEqual(text(free_scientist, "iFreeSpecialistCount"), "2")
         self.assertEqual(values(institute, "CommerceModifiers"), [0, 25])
 
         monument = self.by_type["BUILDING_USSR_MONUMENT"]
-        self.assertEqual(text(monument, "iCost"), "30")
-        self.assertEqual(values(monument, "ObsoleteSafeCommerceChanges"), [0, 0, 0, 1])
+        self.assertEqual(text(monument, "iCost"), "10")
+        self.assertEqual(values(monument, "ObsoleteSafeCommerceChanges"), [0, 0, 0, 10])
         spy_slot = child(monument, "SpecialistCounts")[0]
         self.assertEqual(text(spy_slot, "SpecialistType"), "SPECIALIST_SPY")
-        self.assertEqual(text(spy_slot, "iSpecialistCount"), "1")
+        self.assertEqual(text(spy_slot, "iSpecialistCount"), "100")
 
         lubyanka = self.by_type["BUILDING_LUBYANKA"]
-        self.assertEqual(text(lubyanka, "iHappiness"), "-1")
-        self.assertEqual(values(lubyanka, "CommerceChanges"), [0, 0, 0, 0])
+        self.assertEqual(text(lubyanka, "iHappiness"), "5")
+        self.assertEqual(values(lubyanka, "CommerceChanges"), [0, 0, 0, 50])
         self.assertEqual(values(lubyanka, "CommerceModifiers"), [0, 0, 0, 100])
 
     def test_doge_palace_original_budget_is_preserved(self) -> None:
@@ -114,10 +115,45 @@ class BuildingBatchTests(unittest.TestCase):
 
     def test_mi6_budget_and_retained_spy_slot(self) -> None:
         node = self.by_type["BUILDING_BRITISH_MI6"]
-        self.assertEqual(values(node, "CommerceModifiers"), [0, 0, 0, 100])
+        self.assertEqual(values(node, "CommerceModifiers"), [0, 0, 0, 200])
         self.assertEqual(text(child(node, "SpecialistCounts")[0], "iSpecialistCount"), "1")
         self.assertEqual(
-            text(child(node, "FreeSpecialistCounts")[0], "iFreeSpecialistCount"), "0"
+            text(child(node, "FreeSpecialistCounts")[0], "iFreeSpecialistCount"), "2"
+        )
+
+    def test_peter_building_research_and_exact_strategy_text(self) -> None:
+        admiralty = self.by_type["BUILDING_PETER_ADMIRALTY"]
+        self.assertEqual(values(admiralty, "CommerceModifiers"), [0, 25, 0, 0])
+        self.assertEqual(values(admiralty, "CommerceChanges"), [0, 0, 1, 0])
+        self.assertEqual(text(admiralty, "iTradeRoutes"), "1")
+        self.assertEqual(text(admiralty, "iTradeRouteModifier"), "50")
+
+        collegium = self.by_type["BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS"]
+        self.assertEqual(values(collegium, "CommerceModifiers"), [0, 25, 0, 0])
+        self.assertEqual(values(collegium, "CommerceChanges"), [0, 0, 1, 4])
+        self.assertEqual(text(collegium, "iMaintenanceModifier"), "-50")
+        self.assertEqual(
+            text(child(collegium, "SpecialistCounts")[0], "iSpecialistCount"), "2"
+        )
+
+        text_by_tag = {
+            text(node, "Tag"): text(node, "English")
+            for node in ET.parse(PETER_TEXT).getroot()
+            if local_name(node.tag) == "TEXT"
+        }
+        self.assertEqual(
+            text_by_tag["TXT_KEY_BUILDING_PETER_ADMIRALTY_STRATEGY"],
+            "Petrine Russia unique Harbor replacement. Keeps the Harbor's trade "
+            "and seafood health benefits while adding 1 Trade Route, 25% Research, "
+            "and 1 Culture.",
+        )
+        self.assertEqual(
+            text_by_tag[
+                "TXT_KEY_BUILDING_PETER_COLLEGIUM_OF_FOREIGN_AFFAIRS_STRATEGY"
+            ],
+            "Petrine Russia unique Courthouse replacement. Keeps the normal "
+            "maintenance reduction while adding 25% Research, 4 Espionage, "
+            "1 Culture, and 2 Spy slots.",
         )
 
     def test_yuan_secretariat_is_last_and_only_differs_as_frozen(self) -> None:
