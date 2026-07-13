@@ -1,6 +1,6 @@
 # Remaining Roster Expansion
 
-- Status: `in_progress`
+- Status: `implementation_complete_runtime_acceptance_pending`
 - Owner / agent: Copilot
 - Last updated: `2026-07-12`
 
@@ -15,6 +15,37 @@
 - Why this is a real repo/code problem: uneven review leaves duplicated,
   under-expressed, or fragile packages in a roster intended to give every
   playable leader/civilization pairing a distinct identity.
+
+## Implementation And Release Evidence
+
+- The 32-package audit is complete: 16 `Keep`, 4 `Polish`, 10 `Targeted`, and
+  2 `Major`. The frozen decisions are in
+  `2026-07-12-remaining-roster-implementation-matrix.md`.
+- Civic behavior was committed separately in `38b587f84`: Pacifism no longer
+  gives Town food, and Emancipation gives `+2` city gold per worked Town.
+- Roster behavior was committed separately in `797b79a14`; no new DLL
+  mechanic or worker action was required.
+- Installer cleanup was hardened in `cd878e25a` and the packaged installer was
+  rebuilt in `69c1f97cd`. The installed cleanup removed the read-only OneDrive
+  `CustomAssets`/cache overlay while preserving `Saves` and
+  `CivilizationIV.ini`.
+- The packaged install records version
+  `agent-baseline-2026-03-09-174-g69c1f97cd`. Repository and installed
+  synchronized payloads match across 224 files with aggregate SHA-256
+  `1009407c9300d747d2950149a5f592d64e3709de326ab3d21bb44067d23cec9b`.
+- Final automated evidence: 32 focused contracts passed; full XML validation
+  passed for 157 files with the 7 documented unresolved-schema skips; full
+  roster safety validation passed; the deliberate manifest alteration was
+  detected; and the DLL compiled successfully.
+- The DLL compile used detected MSVC `14.44.35207` rather than the unavailable
+  pinned `14.38.33130` and emitted a different binary. Because no DLL source
+  changed, that generated binary was not shipped; the previously validated
+  repository/deployed DLL was restored byte-for-byte.
+- Automated game launch acceptance is not claimed. Direct launch started
+  Steam and exited `0`; a subsequent Steam app `8800` request did not spawn a
+  Civ4 process or game logs. Installed main-menu, mechanic, save/reload, AI
+  autoplay, art/UI, and fresh two-client multiplayer checks remain manual
+  release blockers. A fresh game is mandatory.
 
 ## Why This Matters
 
@@ -212,8 +243,8 @@
 - [x] Trusted sources of truth were verified from code/config/scripts.
 - [x] Existing docs/plans in this area were reviewed and classified for trustworthiness.
 - [x] Assumptions needing human confirmation were recorded.
-- [ ] All 32 package audits and tier assignments are completed.
-- [ ] Approved implementation steps are completed or explicitly deferred.
+- [x] All 32 package audits and tier assignments are completed.
+- [x] Approved implementation steps are completed or explicitly deferred.
 - [x] Baseline validation ran and results were recorded.
 - [ ] Required gameplay/manual validation ran, or is recorded as a later-slice gate.
 - [x] Related baseline docs were updated.
@@ -221,12 +252,16 @@
 
 ## Final Outcome Summary
 
-- What changed: established the active plan and deterministic pre-change roster
-  baseline; no runtime behavior changed.
-- Validation performed: baseline JSON parse, mapping/reference/count/order/path
-  checks, cohort checks, and deterministic hash regeneration.
-- Docs updated: this active plan.
-- Remaining risks: package tiers and all gameplay implementation remain future
-  approved work.
-- Follow-up tasks: audit the 32 packages, approve tiered slices, then implement
-  and validate each slice independently.
+- What changed: completed the tiered remaining-roster and civic implementation,
+  safety infrastructure, deterministic deployment, and installer cache-cleanup
+  hardening.
+- Validation performed: focused semantic contracts, full XML and roster gates,
+  clean DLL compile, packaged install, installed manifest comparison, and
+  deliberate mismatch detection.
+- Docs updated: this plan, the package audit/matrix, worker-action gate, and
+  manual civic smoke steps.
+- Remaining risks: no installed GUI/mechanic, save/reload, long AI autoplay, or
+  two-client multiplayer acceptance evidence exists yet. Reef Works remains an
+  unchanged pre-existing release risk documented in the worker-action gate.
+- Required next actions: run the installed manual smoke matrix and fresh-game
+  two-client multiplayer suite, record results, then approve push/merge.
