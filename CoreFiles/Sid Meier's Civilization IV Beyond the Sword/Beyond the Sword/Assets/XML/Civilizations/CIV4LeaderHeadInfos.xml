@@ -31544,7 +31544,7 @@
       <ArtDefineTag>ART_DEF_LEADER_ENRICO_DANDOLO</ArtDefineTag>
       <iWonderConstructRand>40</iWonderConstructRand>
       <iBaseAttitude>0</iBaseAttitude>
-      <iBasePeaceWeight>4</iBasePeaceWeight>
+      <iBasePeaceWeight>8</iBasePeaceWeight>
       <iPeaceWeightRand>3</iPeaceWeightRand>
       <iWarmongerRespect>0</iWarmongerRespect>
       <iEspionageWeight>100</iEspionageWeight>
@@ -31624,7 +31624,7 @@
       <Flavors>
         <Flavor>
           <FlavorType>FLAVOR_GROWTH</FlavorType>
-          <iFlavor>3</iFlavor>
+          <iFlavor>6</iFlavor>
         </Flavor>
         <Flavor>
           <FlavorType>FLAVOR_CULTURE</FlavorType>
@@ -31633,14 +31633,6 @@
         <Flavor>
           <FlavorType>FLAVOR_RELIGION</FlavorType>
           <iFlavor>2</iFlavor>
-        </Flavor>
-        <Flavor>
-          <FlavorType>FLAVOR_GOLD</FlavorType>
-          <iFlavor>6</iFlavor>
-        </Flavor>
-        <Flavor>
-          <FlavorType>FLAVOR_MILITARY</FlavorType>
-          <iFlavor>3</iFlavor>
         </Flavor>
       </Flavors>
       <ContactRands>
@@ -32682,6 +32674,4 @@
     </LeaderHeadInfo>
   </LeaderHeadInfos>
 </Civ4LeaderHeadInfos>
-
-
 

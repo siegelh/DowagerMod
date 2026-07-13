@@ -12,8 +12,8 @@
   "tier_counts": {
     "Targeted differentiation": 10,
     "Polish": 4,
-    "Keep": 16,
-    "Major redesign": 2
+    "Keep": 17,
+    "Major redesign": 1
   },
   "guardrails": {
     "keep": "No change except validation/docs.",
@@ -286,10 +286,10 @@
     {
       "leader": "LEADER_ENRICO_DANDOLO",
       "civilization": "CIVILIZATION_VENICE",
-      "tier": "Major redesign",
+      "tier": "Keep",
       "primary_axis": "Venetian trade and merchant-government identity is immediately visible.",
-      "collision": "Package bypasses normal city, worker, Great Person, health, happiness and trade constraints; copied peaceful AI does not express Dandolo's crusading opportunism.",
-      "verdict": "dedicated redesign spec"
+      "collision": "User-directed preservation: the package's unusual founder, multi-role merchant, Palace and trait are its intended identity.",
+      "verdict": "unchanged"
     },
     {
       "leader": "LEADER_RAGNAR",
@@ -1698,12 +1698,12 @@
     {
       "leader": "LEADER_ENRICO_DANDOLO",
       "civilization": "CIVILIZATION_VENICE",
-      "tier": "Major redesign",
+      "tier": "Keep",
       "identity": "Venetian trade and merchant-government identity is immediately visible.",
       "distinctiveness": {
         "primary_axis": "Venetian trade and merchant-government identity is immediately visible.",
-        "collision": "Package bypasses normal city, worker, Great Person, health, happiness and trade constraints; copied peaceful AI does not express Dandolo's crusading opportunism.",
-        "frozen_verdict": "dedicated redesign spec"
+        "collision": "User-directed preservation: the package's unusual founder, multi-role merchant, Palace and trait are its intended identity.",
+        "frozen_verdict": "unchanged"
       },
       "current_objects": {
         "traits": [
@@ -1717,39 +1717,39 @@
           "BUILDING_VENETIAN_DOGE_PALACE"
         ]
       },
-      "thesis": "Hard-bargaining Venetian trade and expedition logistics through one merchant mission and a normal capital.",
-      "power_budget": "Major rebudget to mid-high: remove +100% upkeep penalty, normalize Palace, and restrict merchant to trade mission only.",
+      "thesis": "Preserve the existing highly distinctive Venetian package exactly.",
+      "power_budget": "Frozen at the previous branch's live values; zero numeric, mapping, action, art, AI or text changes.",
       "decisions": [
         {
-          "decision": "MODIFY",
+          "decision": "KEEP",
           "object_id": "TRAIT_DANDOLO",
-          "proposal": "iUpkeepModifier 100->0; set existing TradeYieldModifiers [food, production, commerce] from [0,0,0] to [0,0,25]; no new mechanic."
+          "proposal": "No changes."
         },
         {
-          "decision": "REPLACE",
+          "decision": "KEEP",
           "object_id": "UNIT_VENICE_FOUNDER",
-          "proposal": "CIVILIZATION_VENICE UNITCLASS_SETTLER mapping -> UNIT_SETTLER; retain dormant type."
+          "proposal": "Keep CIVILIZATION_VENICE UNITCLASS_SETTLER mapped to UNIT_VENICE_FOUNDER."
         },
         {
-          "decision": "MODIFY",
+          "decision": "KEEP",
           "object_id": "UNIT_VENETIAN_MERCHANT",
-          "proposal": "Keep UNITCLASS_MERCHANT trade mission; remove Found, Build Road, BUILDING_GRAND_COLOSSEUM construction, Great Work and worker build actions; iWorkRate 1000->0; retain current movement/cost and art."
+          "proposal": "Preserve founding, Build Road, BUILD_GRAND_COLOSSEUM_BTG, Great Work, work rate, trade mission, movement, cost and art exactly."
         },
         {
-          "decision": "MODIFY",
+          "decision": "KEEP",
           "object_id": "BUILDING_VENETIAN_DOGE_PALACE",
-          "proposal": "iGreatPeopleRateChange 4->2; iHealth 30->2; iHappiness 15->2; iTradeRoutes 6->2; iTradeRouteModifier 50->25; iForeignTradeRouteModifier 50->25; YieldChanges [0,0,8]->[0,0,8]; CommerceChanges espionage 4->0."
+          "proposal": "No changes."
         },
         {
-          "decision": "MODIFY",
+          "decision": "KEEP",
           "object_id": "LEADER_ENRICO_DANDOLO",
-          "proposal": "iBasePeaceWeight 8->4; FLAVOR_GROWTH 6->3; add/replace FLAVOR_GOLD=6 and FLAVOR_MILITARY=3; keep Caste System."
+          "proposal": "No changes."
         }
       ],
-      "art_plan": "Reuse stock Settler plus current Venetian Merchant and Palace art. No new worker/build/improvement art and no new action.",
-      "risks": "Removing unit missions changes UI/AI action set but uses existing XML flags. Legacy Founders/Merchants remain loadable. Validate AI trade mission, save and deterministic MP.",
-      "validation": "Action enumeration must show trade mission only; Palace numeric snapshot; AI merchant mission/expedition autoplay; pedia/buttons/models; legacy-unit save; MP OOS test.",
-      "worker_action": "None proposed."
+      "art_plan": "Retain every current Venetian Founder, Merchant and Palace art reference; smoke only.",
+      "risks": "Regression-only: no intended AI/UI/save/MP behavior change from the previous branch.",
+      "validation": "Exact previous-branch node equality; Founder mapping; complete Merchant action enumeration; Palace/trait/personality snapshots; pedia/buttons/models; save/reload and MP checksum.",
+      "worker_action": "Preserve the existing Venetian Merchant road and Grand Colosseum actions; add nothing."
     },
     {
       "leader": "LEADER_RAGNAR",

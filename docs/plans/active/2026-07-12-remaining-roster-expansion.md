@@ -18,9 +18,11 @@
 
 ## Implementation And Release Evidence
 
-- The 32-package audit is complete: 16 `Keep`, 4 `Polish`, 10 `Targeted`, and
-  2 `Major`. The frozen decisions are in
-  `2026-07-12-remaining-roster-implementation-matrix.md`.
+- The 32-package audit originally classified 16 `Keep`, 4 `Polish`, 10
+  `Targeted`, and 2 `Major`. Explicit user direction subsequently restored
+  Enrico Dandolo/Venice exactly to the previous branch, so final implementation
+  tiers are 17 `Keep`, 4 `Polish`, 10 `Targeted`, and 1 `Major`. The final
+  decisions are in `2026-07-12-remaining-roster-implementation-matrix.md`.
 - Civic behavior was committed separately in `38b587f84`: Pacifism no longer
   gives Town food, and Emancipation gives `+2` city gold per worked Town.
 - Roster behavior was committed separately in `797b79a14`; no new DLL

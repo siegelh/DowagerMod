@@ -7,7 +7,7 @@
 
 ## Frozen rules
 
-* Tiers remain 16 Keep, 4 Polish, 10 Targeted differentiation, 2 Major redesign.
+* Final implementation tiers are 17 Keep, 4 Polish, 10 Targeted differentiation, and 1 Major redesign. Enrico Dandolo was restored to Keep by explicit user direction.
 * Keep packages receive no gameplay changes. Polish and Targeted packages are limited to the exact decisions below. Major specs are whole-package budgets, not permission to invent additional mechanics.
 * No new DLL mechanic is proposed. Existing custom channels and consuming packages are frozen in the JSON.
 * No new worker action is proposed. Salamasina keeps the already-wired Reef Works action and must pass its complete render/wiring test.
@@ -44,7 +44,7 @@
 | `LEADER_QIN_SHI_HUANG` / `CIVILIZATION_QIN_DYNASTY` | Keep | Strong fortified-state, mass construction and ranged-army identity. | unchanged; Defensive promotion overlap with Churchill/Tokugawa, but collateral crossbows and production AI differentiate it. |
 | `LEADER_ISABELLA` / `CIVILIZATION_SPAIN` | Keep | Compact religious-expansion and combined mounted/naval identity. | unchanged; Mounted overlap is common, but naval Morale and siege Citadel provide breadth. |
 | `LEADER_STALIN` / `CIVILIZATION_USSR` | Major redesign | Production, research and secret-police identity is unmistakable. | dedicated redesign spec; Numbers are outliers: +50 trait commerce, 100 Spy slots, 5-cost Spy, +5 happiness Lubyanka and multiple research/espionage buildings erase normal constraints. |
-| `LEADER_ENRICO_DANDOLO` / `CIVILIZATION_VENICE` | Major redesign | Venetian trade and merchant-government identity is immediately visible. | dedicated redesign spec; Package bypasses normal city, worker, Great Person, health, happiness and trade constraints; copied peaceful AI does not express Dandolo's crusading opportunism. |
+| `LEADER_ENRICO_DANDOLO` / `CIVILIZATION_VENICE` | Keep | Venetian trade and merchant-government identity is immediately visible. | unchanged by explicit user direction; preserve the unusual founder, multi-role merchant, Palace, trait and personality exactly. |
 | `LEADER_RAGNAR` / `CIVILIZATION_VIKING` | Keep | A direct, legible amphibious raiding progression across land and sea. | unchanged; Extreme warmonger overlap with Genghis/Shaka/Montezuma, but amphibious and naval progression distinguishes Ragnar. |
 | `LEADER_CHURCHILL` / `CIVILIZATION_WARTIME_BRITAIN` | Targeted differentiation | Excellent air defense, national resilience and intelligence identity. | bounded correction; War Rooms and MI6 double-stack espionage while the Bank replacement also improves gold; defensive promotions overlap Qin/Tokugawa. |
 | `LEADER_KUBLAI_KHAN` / `CIVILIZATION_YUAN_DYNASTY` | Targeted differentiation | Road logistics, postal/trade hub and culturally oriented conquest are a strong Yuan identity. | bounded correction; Shared Palace blurs Genghis/Kublai; mounted package still closely parallels Keshik/Ger. |
@@ -52,7 +52,7 @@
 
 ## DLL and worker-action decision
 
-No new DLL fields, readers, hooks, serialization, AI valuation, Python exposure, or network behavior are proposed. Existing extended trait-yield tables are consumed by Washington, Huayna Capac, Genghis, Mao, and Kublai; free-promotion tables by Montezuma, Tokugawa, Qin, Isabella, Shaka, and Salamasina; building improvement/sea-yield tables by Suryavarman, Willem, and Joao; existing unit action paths by Willem, Salamasina, and Dandolo. Dandolo removes actions rather than adding one.
+No new DLL fields, readers, hooks, serialization, AI valuation, Python exposure, or network behavior are proposed. Existing extended trait-yield tables are consumed by Washington, Huayna Capac, Genghis, Mao, and Kublai; free-promotion tables by Montezuma, Tokugawa, Qin, Isabella, Shaka, and Salamasina; building improvement/sea-yield tables by Suryavarman, Willem, and Joao; existing unit action paths by Willem, Salamasina, and Dandolo. Dandolo retains all existing actions unchanged.
 
 ## Package implementation records
 
@@ -648,27 +648,27 @@ No new DLL fields, readers, hooks, serialization, AI valuation, Python exposure,
 
 **Validation.** Exact outlier assertions; capital/city budget model; Spy build mapping; AI industrial/espionage autoplay; pedia; all art; old saves with legacy Spy; MP OOS test.
 
-### 28. `LEADER_ENRICO_DANDOLO` — `CIVILIZATION_VENICE` (Major redesign)
+### 28. `LEADER_ENRICO_DANDOLO` — `CIVILIZATION_VENICE` (Keep)
 
-**Historical/gameplay thesis.** Hard-bargaining Venetian trade and expedition logistics through one merchant mission and a normal capital.
+**Historical/gameplay thesis.** Preserve the highly distinctive Venetian package exactly as it existed on the previous branch.
 
-**Power budget.** Major rebudget to mid-high: remove +100% upkeep penalty, normalize Palace, and restrict merchant to trade mission only.
+**Power budget.** Frozen at previous-branch values; zero numeric, mapping, action, art, AI or text changes.
 
 **Frozen object decisions.**
 
-- **MODIFY** `TRAIT_DANDOLO` — iUpkeepModifier 100->0; set existing TradeYieldModifiers [food, production, commerce] from [0,0,0] to [0,0,25]; no new mechanic.
-- **REPLACE** `UNIT_VENICE_FOUNDER` — CIVILIZATION_VENICE UNITCLASS_SETTLER mapping -> UNIT_SETTLER; retain dormant type.
-- **MODIFY** `UNIT_VENETIAN_MERCHANT` — Keep UNITCLASS_MERCHANT trade mission; remove Found, Build Road, BUILDING_GRAND_COLOSSEUM construction, Great Work and worker build actions; iWorkRate 1000->0; retain current movement/cost and art.
-- **MODIFY** `BUILDING_VENETIAN_DOGE_PALACE` — iGreatPeopleRateChange 4->2; iHealth 30->2; iHappiness 15->2; iTradeRoutes 6->2; iTradeRouteModifier 50->25; iForeignTradeRouteModifier 50->25; YieldChanges [0,0,8]->[0,0,8]; CommerceChanges espionage 4->0.
-- **MODIFY** `LEADER_ENRICO_DANDOLO` — iBasePeaceWeight 8->4; FLAVOR_GROWTH 6->3; add/replace FLAVOR_GOLD=6 and FLAVOR_MILITARY=3; keep Caste System.
+- **KEEP** `TRAIT_DANDOLO` — No changes.
+- **KEEP** `UNIT_VENICE_FOUNDER` — Keep CIVILIZATION_VENICE UNITCLASS_SETTLER mapped to the Founder.
+- **KEEP** `UNIT_VENETIAN_MERCHANT` — Preserve Found, Build Road, Grand Colosseum construction, Great Work, work rate, trade mission, movement, cost and art exactly.
+- **KEEP** `BUILDING_VENETIAN_DOGE_PALACE` — No changes.
+- **KEEP** `LEADER_ENRICO_DANDOLO` — No changes.
 
-**Art.** Reuse stock Settler plus current Venetian Merchant and Palace art. No new worker/build/improvement art and no new action.
+**Art.** Retain every existing Venetian Founder, Merchant and Palace art reference; smoke only.
 
-**AI/UI/save/MP risk.** Removing unit missions changes UI/AI action set but uses existing XML flags. Legacy Founders/Merchants remain loadable. Validate AI trade mission, save and deterministic MP.
+**AI/UI/save/MP risk.** Regression-only: no intended behavior change from the previous branch.
 
-**Worker action.** None proposed.
+**Worker action.** Preserve the existing Venetian Merchant road and Grand Colosseum actions; add nothing.
 
-**Validation.** Action enumeration must show trade mission only; Palace numeric snapshot; AI merchant mission/expedition autoplay; pedia/buttons/models; legacy-unit save; MP OOS test.
+**Validation.** Exact previous-branch node equality; Founder mapping; complete Merchant action enumeration; Palace/trait/personality snapshots; pedia/buttons/models; save/reload and MP checksum.
 
 ### 29. `LEADER_RAGNAR` — `CIVILIZATION_VIKING` (Keep)
 

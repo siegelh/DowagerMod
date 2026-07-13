@@ -2591,7 +2591,7 @@
   <iHealth>0</iHealth>
   <iHappiness>0</iHappiness>
   <iMaxAnarchy>-1</iMaxAnarchy>
-  <iUpkeepModifier>0</iUpkeepModifier>
+  <iUpkeepModifier>100</iUpkeepModifier>
   <iLevelExperienceModifier>0</iLevelExperienceModifier>
   <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
   <iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
@@ -2607,7 +2607,7 @@
   <TradeYieldModifiers>
     <iYield>0</iYield>
     <iYield>0</iYield>
-    <iYield>25</iYield>
+    <iYield>0</iYield>
   </TradeYieldModifiers>
   <CommerceChanges>
     <iCommerce>0</iCommerce>

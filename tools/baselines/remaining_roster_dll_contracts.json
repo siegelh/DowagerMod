@@ -29,14 +29,13 @@
     {"leader":"LEADER_CASIMIR","new_dll":false,"channels":["leader_flavors"]},
     {"leader":"LEADER_SALAMASINA_BTG","new_dll":false,"channels":["trait_health_happiness"]},
     {"leader":"LEADER_STALIN","new_dll":false,"channels":["trait_CommerceChanges","BuildingYieldChanges","civilization_unit_class_overrides","building_fields"]},
-    {"leader":"LEADER_ENRICO_DANDOLO","new_dll":false,"channels":["TradeYieldModifiers","trait_upkeep","civilization_unit_class_overrides","unit_existing_actions","building_fields","leader_fields"]},
     {"leader":"LEADER_CHURCHILL","new_dll":false,"channels":["building_fields","leader_flavors"]},
     {"leader":"LEADER_KUBLAI_KHAN","new_dll":false,"channels":["building_fields","civilization_building_class_overrides"]}
   ],
   "changed_custom_channels": [
     {
       "id": "trait_trade_and_scalars",
-      "consumers": ["LEADER_SITTING_BULL","LEADER_SALAMASINA_BTG","LEADER_STALIN","LEADER_ENRICO_DANDOLO"],
+      "consumers": ["LEADER_SITTING_BULL","LEADER_SALAMASINA_BTG","LEADER_STALIN"],
       "state": "derived_at_player_init_then_serialized",
       "python": "trait scalar/trade getters and player trade getter exposed",
       "old_save_behavior": "retains serialized pre-change player totals",
@@ -96,20 +95,11 @@
       "old_save_behavior": "unchanged retained Road value",
       "deterministic": true,
       "tests": ["Road exact yield","Railroad non-inheritance","pillage-rebuild","capture","help","save roundtrip","MP checksum"]
-    },
-    {
-      "id": "unit_existing_actions",
-      "consumers": ["LEADER_ENRICO_DANDOLO"],
-      "state": "immutable CvUnitInfo; mission queues persisted",
-      "python": "unit Found/Builds/Buildings/GreatPeoples/WorkRate/GreatWork getters exposed",
-      "old_save_behavior": "existing units use current info; queued removed actions require cancellation smoke",
-      "deterministic": true,
-      "tests": ["action bar allowlist","trade gold and consumption","AI retained-action selection","queued mission load-cancel","ordinary Great Merchant regression","MP AI Venice checksum"]
     }
   ],
   "release_gates": [
     "tools/test_gate.ps1",
-    "machine contract parses and has all 16 non-Keep packages",
+    "machine contract parses and has all 15 non-Keep packages",
     "channel scenarios recorded",
     "save compatibility policy decided",
     "manual Civilopedia/action/yield smoke",

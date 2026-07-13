@@ -157,22 +157,19 @@ class BatchTraitsLeadersTests(unittest.TestCase):
         self.assertEqual(set(factories), {"BUILDINGCLASS_FACTORY"})
         self.assertEqual(values(factories["BUILDINGCLASS_FACTORY"], "BuildingYields", "iYield"), [0, 1, 0])
 
-    def test_dandolo_trait_and_leader_use_frozen_rebudget(self) -> None:
+    def test_dandolo_original_trait_and_leader_are_preserved(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_DANDOLO")
-        self.assertEqual(child_text(trait, "iUpkeepModifier"), "0")
-        self.assertNotEqual(child_text(trait, "iUpkeepModifier"), "100")
-        self.assertEqual(values(trait, "TradeYieldModifiers", "iYield"), [0, 0, 25])
+        self.assertEqual(child_text(trait, "iUpkeepModifier"), "100")
+        self.assertEqual(values(trait, "TradeYieldModifiers", "iYield"), [0, 0, 0])
         leader = info(LEADERS, "LeaderHeadInfo", "LEADER_ENRICO_DANDOLO")
-        self.assertEqual(child_text(leader, "iBasePeaceWeight"), "4")
+        self.assertEqual(child_text(leader, "iBasePeaceWeight"), "8")
         self.assertEqual(child_text(leader, "FavoriteCivic"), "CIVIC_CASTE_SYSTEM")
         self.assertEqual(
             flavor_map(leader),
             {
-                "FLAVOR_GROWTH": 3,
+                "FLAVOR_GROWTH": 6,
                 "FLAVOR_CULTURE": 3,
                 "FLAVOR_RELIGION": 2,
-                "FLAVOR_GOLD": 6,
-                "FLAVOR_MILITARY": 3,
             },
         )
 

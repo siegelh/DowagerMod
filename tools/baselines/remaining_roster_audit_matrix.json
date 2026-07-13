@@ -14,8 +14,8 @@
   "tier_counts": {
     "Targeted differentiation": 10,
     "Polish": 4,
-    "Keep": 16,
-    "Major redesign": 2
+    "Keep": 17,
+    "Major redesign": 1
   },
   "packages": [
     {
@@ -2688,16 +2688,16 @@
     },
     {
       "leader": "LEADER_ENRICO_DANDOLO",
-      "intervention_tier": "Major redesign",
+      "intervention_tier": "Keep",
       "trait_effect_summary": "TRAIT_DANDOLO: +100% civic upkeep.",
       "personality_theme": "Peace-weight 8, growth 6/culture 3/religion 2, Caste System; peaceful builder personality identical to Casimir's key fields.",
       "replacement_package_summary": "Founder is functionally the default Settler; Venetian Merchant combines founding, roads, Grand Colosseum build, trade mission, great work and 1000 work rate; Doge Palace gives +6 trade routes, +50% domestic/foreign trade, +15 happiness, +30 health and +4 Great People.",
       "unique_palace_improvement_or_dll_mechanic": "Unique Palace and a multi-role Great Merchant/worker/founder unit; several unusual DLL/UI action paths.",
       "current_strengths": "Venetian trade and merchant-government identity is immediately visible.",
-      "overlap_or_redundancy": "Package bypasses normal city, worker, Great Person, health, happiness and trade constraints; copied peaceful AI does not express Dandolo's crusading opportunism.",
-      "historical_fit": "Dandolo's diplomacy, commerce and Fourth Crusade role support a hard bargaining/expeditionary identity, not an effectively limitless capital.",
-      "ai_and_art_risks": "Very high AI/action risk for the Merchant's many missions; custom Palace and unit art require full render/action checks; huge yields threaten saves/UI/economy.",
-      "recommendation": "Design anew around merchant diplomacy and expedition logistics, with one clear Merchant action and a normally budgeted Palace.",
+      "overlap_or_redundancy": "User-directed preservation: the unusual founder, multi-role merchant, Palace, trait and personality are the package's intended identity.",
+      "historical_fit": "The package intentionally emphasizes Venice's exceptional merchant government and Enrico Dandolo's outsized role.",
+      "ai_and_art_risks": "Regression-only after the user-directed Keep decision; preserve all existing actions and art, then smoke the complete package.",
+      "recommendation": "No redesign.",
       "historical_sources": [
         "https://www.britannica.com/biography/Enrico-Dandolo"
       ],

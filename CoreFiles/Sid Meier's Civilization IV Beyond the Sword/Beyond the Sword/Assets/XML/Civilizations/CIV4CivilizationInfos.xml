@@ -2897,7 +2897,7 @@
       <Units>
         <Unit>
           <UnitClassType>UNITCLASS_SETTLER</UnitClassType>
-          <UnitType>UNIT_SETTLER</UnitType>
+          <UnitType>UNIT_VENICE_FOUNDER</UnitType>
         </Unit>
         <Unit>
           <UnitClassType>UNITCLASS_MERCHANT</UnitClassType>

@@ -34,7 +34,7 @@
     {"leader": "LEADER_CASIMIR", "tier": "Polish", "decision": "reject_new_action"},
     {"leader": "LEADER_SALAMASINA_BTG", "tier": "Polish", "decision": "retain_existing_for_validation_reject_release"},
     {"leader": "LEADER_STALIN", "tier": "Major redesign", "decision": "reject_new_action"},
-    {"leader": "LEADER_ENRICO_DANDOLO", "tier": "Major redesign", "decision": "approve_existing_action_removal_reject_new_action"},
+    {"leader": "LEADER_ENRICO_DANDOLO", "tier": "Keep", "decision": "retain_existing_actions_reject_new_action"},
     {"leader": "LEADER_CHURCHILL", "tier": "Targeted differentiation", "decision": "reject_new_action"},
     {"leader": "LEADER_KUBLAI_KHAN", "tier": "Targeted differentiation", "decision": "reject_new_action"}
   ],

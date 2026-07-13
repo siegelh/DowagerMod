@@ -88,7 +88,7 @@ class BuildingBatchTests(unittest.TestCase):
         self.assertEqual(values(lubyanka, "CommerceChanges"), [0, 0, 0, 0])
         self.assertEqual(values(lubyanka, "CommerceModifiers"), [0, 0, 0, 100])
 
-    def test_doge_palace_budget_and_retained_yields(self) -> None:
+    def test_doge_palace_original_budget_is_preserved(self) -> None:
         node = self.by_type["BUILDING_VENETIAN_DOGE_PALACE"]
         actual = {
             name: text(node, name)
@@ -102,15 +102,15 @@ class BuildingBatchTests(unittest.TestCase):
             )
         }
         self.assertEqual(actual, {
-            "iGreatPeopleRateChange": "2",
-            "iHealth": "2",
-            "iHappiness": "2",
-            "iTradeRoutes": "2",
-            "iTradeRouteModifier": "25",
-            "iForeignTradeRouteModifier": "25",
+            "iGreatPeopleRateChange": "4",
+            "iHealth": "30",
+            "iHappiness": "15",
+            "iTradeRoutes": "6",
+            "iTradeRouteModifier": "50",
+            "iForeignTradeRouteModifier": "50",
         })
         self.assertEqual(values(node, "YieldChanges"), [0, 0, 8])
-        self.assertEqual(values(node, "CommerceChanges"), [0, 0, 0, 0])
+        self.assertEqual(values(node, "CommerceChanges"), [0, 0, 0, 4])
 
     def test_mi6_budget_and_retained_spy_slot(self) -> None:
         node = self.by_type["BUILDING_BRITISH_MI6"]

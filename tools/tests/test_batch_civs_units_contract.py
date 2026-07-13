@@ -16,10 +16,6 @@ XML = (
 )
 CIVILIZATIONS = XML / "Civilizations" / "CIV4CivilizationInfos.xml"
 UNITS = XML / "Units" / "CIV4UnitInfos.xml"
-VENICE_TEXT = XML / "Text" / "BTG_Venice_Text.xml"
-REQUIRED_LOCALES = {"English", "French", "German", "Italian", "Spanish"}
-
-
 def local_name(tag: str) -> str:
     return tag.rsplit("}", 1)[-1]
 
@@ -81,7 +77,7 @@ class BatchCivilizationsUnitsContractTests(unittest.TestCase):
         venice = mappings(
             "CIVILIZATION_VENICE", "Units", "UnitClassType", "UnitType"
         )
-        self.assertEqual(venice["UNITCLASS_SETTLER"], "UNIT_SETTLER")
+        self.assertEqual(venice["UNITCLASS_SETTLER"], "UNIT_VENICE_FOUNDER")
         self.assertEqual(
             venice["UNITCLASS_MERCHANT"], "UNIT_VENETIAN_MERCHANT"
         )
@@ -119,12 +115,16 @@ class BatchCivilizationsUnitsContractTests(unittest.TestCase):
         self.assertIn("BUILDING_KOREAN_LIBRARY", building_types)
         self.assertIn("BUILDING_KOREAN_ACADEMY", building_types)
 
-    def test_venetian_merchant_has_only_contracted_actions(self) -> None:
+    def test_venetian_merchant_original_actions_are_preserved(self) -> None:
         merchant = info(UNITS, "UnitInfo", "UNIT_VENETIAN_MERCHANT")
-        self.assertEqual(child_text(merchant, "bFound"), "0")
-        self.assertEqual(list(child(merchant, "Builds")), [])
-        self.assertEqual(child_text(merchant, "iWorkRate"), "0")
-        self.assertEqual(child_text(merchant, "iGreatWorkCulture"), "0")
+        self.assertEqual(child_text(merchant, "bFound"), "1")
+        builds = {
+            child_text(node, "BuildType")
+            for node in child(merchant, "Builds")
+        }
+        self.assertEqual(builds, {"BUILD_ROAD", "BUILD_GRAND_COLOSSEUM_BTG"})
+        self.assertEqual(child_text(merchant, "iWorkRate"), "1000")
+        self.assertEqual(child_text(merchant, "iGreatWorkCulture"), "4000")
 
         self.assertEqual(child_text(merchant, "bGoldenAge"), "1")
         self.assertEqual(child_text(merchant, "iCost"), "-1")
@@ -157,36 +157,20 @@ class BatchCivilizationsUnitsContractTests(unittest.TestCase):
             {"ART_DEF_UNIT_MERCHANT", "ART_DEF_UNIT_MERCHANT_MODERN"},
         )
 
-    def test_venetian_help_is_localized_and_trade_only(self) -> None:
+    def test_venetian_merchant_original_inline_help_is_preserved(self) -> None:
         merchant = info(UNITS, "UnitInfo", "UNIT_VENETIAN_MERCHANT")
-        tags = {
-            child_text(merchant, "Civilopedia"),
-            child_text(merchant, "Strategy"),
-        }
-        texts = {
-            child_text(node, "Tag"): node
-            for node in ET.parse(VENICE_TEXT).getroot()
-        }
         self.assertEqual(
-            tags,
-            {
-                "TXT_KEY_UNIT_VENETIAN_MERCHANT_PEDIA",
-                "TXT_KEY_UNIT_VENETIAN_MERCHANT_STRATEGY",
-            },
+            child_text(merchant, "Civilopedia"),
+            "A patrician merchant-banker of Venice, able to move quickly "
+            "between ports and turn diplomacy, credit, and convoy access "
+            "into extraordinary trade mission profits.",
         )
-        for tag in tags:
-            translations = {
-                local_name(node.tag): (node.text or "").strip()
-                for node in texts[tag]
-                if local_name(node.tag) != "Tag"
-            }
-            self.assertEqual(set(translations), REQUIRED_LOCALES)
-            for value in translations.values():
-                self.assertIn("trade mission", value.lower())
-                self.assertNotIn("build road", value.lower())
-                self.assertNotIn("found cit", value.lower())
-                self.assertNotIn("grand colosseum", value.lower())
-                self.assertNotIn("great work", value.lower())
+        self.assertEqual(
+            child_text(merchant, "Strategy"),
+            "Venice's unique Great Merchant. Faster movement and stronger "
+            "trade missions make it ideal for long-distance gold spikes and "
+            "flexible economic play.",
+        )
 
 
 if __name__ == "__main__":

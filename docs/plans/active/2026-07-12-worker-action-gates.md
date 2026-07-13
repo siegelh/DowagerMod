@@ -64,7 +64,7 @@ custom build/art/AI contract” in
 | Casimir | Polish | None | REJECT NEW ACTION |
 | Salamasina | Polish | Existing Reef Works only; no new action. Static functional wiring passes, but resource/AI isolation and repository-art closure fail. | RETAIN FOR VALIDATION; REJECT RELEASE APPROVAL |
 | Stalin | Major | None | REJECT NEW ACTION |
-| Enrico Dandolo | Major | Existing Venetian Merchant Grand Colosseum action is explicitly slated for removal. Its tracked model/textures exist, but referenced stock direct/atlas buttons are absent from repository layers. | APPROVE REMOVAL; REJECT NEW ACTION |
+| Enrico Dandolo | Keep | Existing Venetian Merchant road and Grand Colosseum actions are explicitly preserved by user direction. No new action is proposed. | RETAIN EXISTING ACTIONS; REJECT NEW ACTION |
 | Churchill | Targeted | None | REJECT NEW ACTION |
 | Kublai Khan | Targeted | None | REJECT NEW ACTION |
 

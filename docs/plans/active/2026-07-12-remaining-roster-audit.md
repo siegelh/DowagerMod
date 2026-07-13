@@ -52,13 +52,13 @@ implementation approval.
 | `LEADER_QIN_SHI_HUANG` / `CIVILIZATION_QIN_DYNASTY` | **Keep** | Strong fortified-state, mass construction and ranged-army identity | No redesign |
 | `LEADER_ISABELLA` / `CIVILIZATION_SPAIN` | **Keep** | Compact religious-expansion and combined mounted/naval identity | No redesign |
 | `LEADER_STALIN` / `CIVILIZATION_USSR` | **Major redesign** | Production, research and secret-police identity is unmistakable | Rebuild around one production/research strength and one explicit coercion cost; retain recognizable names but rebudget every component together |
-| `LEADER_ENRICO_DANDOLO` / `CIVILIZATION_VENICE` | **Major redesign** | Venetian trade and merchant-government identity is immediately visible | Design anew around merchant diplomacy and expedition logistics, with one clear Merchant action and a normally budgeted Palace |
+| `LEADER_ENRICO_DANDOLO` / `CIVILIZATION_VENICE` | **Keep** | Venetian trade and merchant-government identity is immediately visible | No redesign; preserve the complete package by explicit user direction |
 | `LEADER_RAGNAR` / `CIVILIZATION_VIKING` | **Keep** | A direct, legible amphibious raiding progression across land and sea | No redesign |
 | `LEADER_CHURCHILL` / `CIVILIZATION_WARTIME_BRITAIN` | **Targeted differentiation** | Excellent air defense, national resilience and intelligence identity | Keep Fighter Command and War Rooms; normalize MI6 or the duplicated espionage channel and align AI flavor/weight |
 | `LEADER_KUBLAI_KHAN` / `CIVILIZATION_YUAN_DYNASTY` | **Targeted differentiation** | Road logistics, postal/trade hub and culturally oriented conquest are a strong Yuan identity | Retain Qianhu/Ortoo logistics and replace or specialize the shared Palace so Yuan administration, not generic Mongol horse supply, is the capstone |
 | `LEADER_SHAKA` / `CIVILIZATION_ZULU` | **Keep** | Compact, powerful military expansion package with a real economic enabler | No redesign |
 
-Tier totals: **Targeted differentiation 10**, **Polish 4**, **Keep 16**, **Major redesign 2**.
+Tier totals: **Targeted differentiation 10**, **Polish 4**, **Keep 17**, **Major redesign 1**.
 
 ## Package audits
 
@@ -469,16 +469,16 @@ Tier totals: **Targeted differentiation 10**, **Polish 4**, **Keep 16**, **Major
 
 ### 28. `LEADER_ENRICO_DANDOLO` — `CIVILIZATION_VENICE`
 
-- **Tier:** Major redesign
+- **Tier:** Keep
 - **Current trait:** TRAIT_DANDOLO: +100% civic upkeep.
 - **Personality theme:** Peace-weight 8, growth 6/culture 3/religion 2, Caste System; peaceful builder personality identical to Casimir's key fields.
 - **UU/UB/replacement package:** Founder is functionally the default Settler; Venetian Merchant combines founding, roads, Grand Colosseum build, trade mission, great work and 1000 work rate; Doge Palace gives +6 trade routes, +50% domestic/foreign trade, +15 happiness, +30 health and +4 Great People.
 - **Palace/improvement/DLL dependency:** Unique Palace and a multi-role Great Merchant/worker/founder unit; several unusual DLL/UI action paths.
 - **Current strengths:** Venetian trade and merchant-government identity is immediately visible.
-- **Overlap/redundancy:** Package bypasses normal city, worker, Great Person, health, happiness and trade constraints; copied peaceful AI does not express Dandolo's crusading opportunism.
-- **Historical fit:** Dandolo's diplomacy, commerce and Fourth Crusade role support a hard bargaining/expeditionary identity, not an effectively limitless capital.
-- **AI/art risks:** Very high AI/action risk for the Merchant's many missions; custom Palace and unit art require full render/action checks; huge yields threaten saves/UI/economy.
-- **Design input:** Design anew around merchant diplomacy and expedition logistics, with one clear Merchant action and a normally budgeted Palace.
+- **Overlap/redundancy:** User-directed preservation: the unusual founder, multi-role merchant, Palace, trait and personality are the package's intended identity.
+- **Historical fit:** The package intentionally emphasizes Venice's exceptional merchant government and Enrico Dandolo's outsized role.
+- **AI/art risks:** Regression-only after the user-directed Keep decision; preserve all existing actions and art, then smoke the complete package.
+- **Design input:** No redesign.
 - **Historical research:** [https://www.britannica.com/biography/Enrico-Dandolo](https://www.britannica.com/biography/Enrico-Dandolo)
 - **Live evidence:** leader `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Civilizations/CIV4LeaderHeadInfos.xml:31536-32112`; trait `CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Civilizations/CIV4TraitInfos.xml:2669-2708`; units `UNIT_VENICE_FOUNDER` (CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4UnitInfos.xml:918-1092), `UNIT_VENETIAN_MERCHANT` (CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Units/CIV4UnitInfos.xml:27645-27875); buildings `BUILDING_VENETIAN_DOGE_PALACE` (CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Buildings/CIV4BuildingInfos.xml:179-348).
 
@@ -549,9 +549,8 @@ Tier totals: **Targeted differentiation 10**, **Polish 4**, **Keep 16**, **Major
 2. Treat Washington, Elizabeth, Hammurabi, Genghis, Sitting Bull, Wang Kon,
    Asoka, Mao, Churchill, and Kublai as bounded package slices; do not turn
    their findings into shared-system refactors.
-3. Give Stalin and Dandolo separate design records before editing. Their live
-   numbers and action breadth cross too many normal constraints for piecemeal
-   tuning.
+3. Give Stalin a separate design record before editing. Preserve Dandolo and
+   Venice exactly as directed by the user.
 4. Reuse no new DLL mechanic until existing extended trait/building channels
    have tooltip, AI valuation, save/load, and deterministic MP evidence.
 5. Salamasina's Reef Works and Elizabeth's multi-class Sea Dog require

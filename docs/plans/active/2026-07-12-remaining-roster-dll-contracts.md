@@ -38,7 +38,6 @@ matrix. The matrix itself proposes no migration
 | Casimir | Growth/Culture flavor rebalance | stock leader flavor array | No |
 | Salamasina | Health/happiness reductions | stock trait scalars | No |
 | Stalin | Replace flat espionage with Factory production; tune units/buildings | trait commerce/building-yield arrays plus stock mappings/building fields | No |
-| Enrico Dandolo | Trade commerce, ordinary Settler, restricted Merchant actions, Palace/personality rebalance | trait trade array, stock civ mapping/unit actions/building/leader fields | No |
 | Churchill | MI6 and espionage-flavor rebalance | stock building specialist/commerce and leader flavor fields | No |
 | Kublai Khan | Append and map Yuan Palace replacement | stock building fields and civ building-class override | No |
 
@@ -70,9 +69,9 @@ entry (`CvInfos.cpp:16935-17079`; declarations and storage
 
 ### 1. Trait scalar and `TradeYieldModifiers`
 
-**Consumers:** Sitting Bull (`[150,-500,-500]→[0,0,0]`), Dandolo
-(`[0,0,0]→[0,0,25]`), Salamasina (`iHealth 5→3`, `iHappiness 3→2`), Stalin
-(flat espionage `CommerceChanges` 50→0), Dandolo (`iUpkeepModifier 100→0`).
+**Consumers:** Sitting Bull (`[150,-500,-500]→[0,0,0]`), Salamasina
+(`iHealth 5→3`, `iHappiness 3→2`), and Stalin (flat espionage
+`CommerceChanges` 50→0).
 
 - **Getters/runtime:** traits are accumulated during player initialization
   (`CvPlayer.cpp:231-254`). Trade yield is
@@ -101,13 +100,11 @@ entry (`CvInfos.cpp:16935-17079`; declarations and storage
   active-player dependency is introduced.
 - **Exact tests:** (a) Sitting Bull city with a known domestic and foreign
   trade route returns ordinary food/production/commerce, not 150/-500/-500;
-  (b) Dandolo's same route produces exactly +25% commerce yield after integer
-  truncation; (c) trait help shows Dandolo +25 commerce and no Sitting Bull
-  trade modifiers; (d) Salamasina empire totals change by -2 health/-1
-  happiness versus baseline; (e) Stalin loses exactly 50 free espionage per
-  city; (f) save/reload a new game and compare all values; (g) load a
-  pre-change save and confirm/document the expected stale-cache policy; (h)
-  two-player MP checksum smoke after route recalculation.
+  (b) Salamasina empire totals change by -2 health/-1 happiness versus
+  baseline; (c) Stalin loses exactly 50 free espionage per city; (d)
+  save/reload a new game and compare all values; (e) load a pre-change save
+  and confirm/document the expected stale-cache policy; (f) two-player MP
+  checksum smoke after route recalculation.
 
 ### 2. `ImprovementYieldChanges`
 
@@ -259,13 +256,13 @@ long-tail entries. This retained value must not be accidentally removed.
   not inherit the Road entry unless its own XML says so; pillage/rebuild,
   capture, save/reload, help, worker behavior and MP checksum pass.
 
-### 8. Venetian Merchant action contraction
+### 8. Venetian Merchant action preservation
 
-**Consumer:** Enrico Dandolo only. Keep the existing Merchant trade mission,
-movement/cost/art, Golden Age, discovery, joining and corporation construction
-unless the matrix is amended. Set `bFound=0`, clear `Builds` (Road and Grand
-Colosseum), set `iWorkRate=0`, and set `iGreatWorkCulture=0`. The live action
-surface is at `CIV4UnitInfos.xml:27647-27921`.
+**Consumer:** Enrico Dandolo only. Preserve the existing Merchant action
+surface exactly: founding, Road and Grand Colosseum builds, Great Work, trade
+mission, Golden Age, discovery, joining, corporation construction, work rate,
+movement, cost and art. The live action surface is at
+`CIV4UnitInfos.xml:27647-27921`.
 
 - **Schema/loader/getters:** `bFound`, `Builds`, `Buildings`, `GreatPeoples`,
   `iWorkRate` and `iGreatWorkCulture` are existing unit schema fields
@@ -277,33 +274,23 @@ surface is at `CIV4UnitInfos.xml:27647-27921`.
   (`CvUnit.cpp:5599-5638`); trade validates a foreign city, grants deterministic
   gold and consumes the unit (`CvUnit.cpp:5872-5920`); Great Work is disabled
   when culture is zero (`CvUnit.cpp:5928-5999`).
-- **AI valuation:** removing `bFound` deliberately bypasses the custom
-  Venetian Prince chooser (`CvUnitAI.cpp:3769-3783`, `14472-14555`). The
-  normal merchant cascade still tries construct, discover, trade, Golden Age
-  and join (`CvUnitAI.cpp:3758-3820`). Clearing `Builds` removes worker build
-  choices. This is deletion of access to existing actions, not a new action.
-- **Help/UI:** action buttons are generated from the same capability checks;
-  disabled actions disappear. Update the unit strategy/help because current
-  prose promises only the trade role but stale action buttons are observable.
+- **AI valuation:** retain the custom Venetian Prince chooser
+  (`CvUnitAI.cpp:3769-3783`, `14472-14555`) and the normal merchant cascade
+  (`CvUnitAI.cpp:3758-3820`) unchanged.
+- **Help/UI:** action buttons remain generated from the existing capability
+  checks. Preserve the previous branch's inline help.
 - **State/cache:** capabilities are immutable `CvUnitInfo` data, not copied
-  into each unit. Existing unit instances adopt current XML on load. Unit
-  mission queues are persisted: do not release with an old save paused during
-  an action that is being removed without a cancellation smoke test.
+  into each unit. Existing unit instances and persisted mission queues retain
+  the same available actions.
 - **Python:** unit-info getters for work rate, Great Work, Found, Builds,
   GreatPeoples and Buildings are exposed
   (`CyInfoInterface1.cpp:206-213,286,334-341`). No new binding.
-- **Determinism/save/MP:** all retained actions are deterministic under
-  existing mission rules. Removing the custom chooser reduces, rather than
-  adds, MP risk; its prior active-player announcement was already removed for
-  OOS safety (`CvUnitAI.cpp:14516-14534`). Identical XML remains mandatory.
-- **Exact tests:** Civilopedia/action bar show Trade, Discover, Golden Age,
-  Join and permitted corporation construction; they show no Found, Road,
-  Grand Colosseum or Great Work. Human trade mission grants the exact previewed
-  gold and consumes the unit. AI merchant selects only retained actions and
-  never enters `AI_venetianPrinceChoice`. Save/reload an idle Merchant and one
-  with each legal queued mission; load/cancel a pre-change queued removed
-  build; verify ordinary Great Merchant behavior is unchanged; run two-player
-  MP turns with AI Venice and compare checksums.
+- **Determinism/save/MP:** no behavior changes from the previous branch.
+  Identical XML remains mandatory.
+- **Exact tests:** verify previous-branch node equality; Civilopedia/action bar
+  retain Found, Road, Grand Colosseum, Great Work, Trade, Discover, Golden Age,
+  Join and permitted corporation construction; save/reload each legal mission;
+  run two-player MP turns with AI Venice and compare checksums.
 
 ## Standard-channel implementation checks
 
@@ -337,4 +324,3 @@ dormant types remain addressable.
    release.
 5. Manual Civilopedia/action/yield and MP checksum smoke is completed; there
    is no automated gameplay suite.
-
