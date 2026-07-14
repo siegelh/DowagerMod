@@ -265,6 +265,18 @@ Grand Colosseum, must not move because savegames persist numeric IDs.
   cannot beat the current deterministic winner.
 - [x] Add static regression contracts for all three performance fast paths.
 
+### Industrial Zone AI placement correction
+
+- [x] Gate AI Industrial Zone candidates on the authoritative
+  `getLandmarkAdjacencyYield` Production value used by the runtime preview.
+- [x] Require at least `+3 Production` from Watermill, Workshop, Mine, and
+  Quarry adjacency before applying first-copy encouragement or generic
+  improvement scoring.
+- [x] Add a regression contract proving the quality gate precedes the
+  first-copy bonus.
+- [ ] Installed-game AI autoplay: confirm every AI-built Industrial Zone
+  previews at least `+3 Production` from landmark adjacency.
+
 ### UX enhancement — exact output preview + breakdown
 
 Approved option: **"Exact total + adjacency breakdown (Recommended)."** Surface

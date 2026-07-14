@@ -69,7 +69,7 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - Legality: confirm a landmark cannot be placed on a resource tile, outside a workable owned city radius, or over an existing improvement via the AI path
   - Pillage/ownership: pillage a landmark and confirm it is destroyed completely; flip a plot's owner and confirm owned-only adjacency and the Foundry aura recompute correctly
   - Venetian preservation: confirm the Merchant Prince still Founds cities, builds Roads and the Grand Colosseum, and performs every prior action; confirm it can also build both Merchant landmarks
-  - AI: run autoplay and confirm Great Engineers/Scientists/Merchants/Prophets place their landmarks on sensible tiles, the empire's first copy of each type is placed at least once, and Venice still expands (Founder safety) while also scoring both Merchant landmarks
+  - AI: run autoplay and confirm Great Engineers/Scientists/Merchants/Prophets place their landmarks on sensible tiles, every AI-built Industrial Zone previews at least `+3 Production` from its Watermill/Workshop/Mine/Quarry adjacency before any generic modifiers, the empire's first copy of each type is placed at least once, and Venice still expands (Founder safety) while also scoring both Merchant landmarks
   - Save/reload: save with landmarks placed and reload; confirm yields, city Research, and art persist
   - MP: start the same fresh scenario on two clients; place landmarks and run AI; confirm identical yields and no OOS
 - AI Leader Chatter (`Chatter\CvLeaderChatter.py`, sidecar in `tools\chatter\`):

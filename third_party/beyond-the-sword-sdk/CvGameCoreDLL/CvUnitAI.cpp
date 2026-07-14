@@ -14511,6 +14511,15 @@ int CvUnitAI::AI_scoreLandmarkBuild(BuildTypes eBuild, CvPlot** ppBestPlot)
 			continue;
 		}
 
+		// Industrial Zones consume a Great Engineer, so generic improvement
+		// modifiers must not make a weak site look productive. Gate placement
+		// on the exact landmark-created adjacency shown by the tooltip.
+		if (GC.getImprovementInfo(eImprovement).getLandmarkType() == LANDMARK_INDUSTRIAL_ZONE &&
+			pLoopPlot->getLandmarkAdjacencyYield(eImprovement, YIELD_PRODUCTION, getOwnerINLINE()) < 3)
+		{
+			continue;
+		}
+
 		int iValue = AI_landmarkPlotValue(pLoopPlot, eImprovement);
 		if (iValue <= 0)
 		{

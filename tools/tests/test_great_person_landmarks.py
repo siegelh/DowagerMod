@@ -373,6 +373,16 @@ class DllContractTests(unittest.TestCase):
         )
         self.assertLess(upper_bound, pathfind)
 
+    def test_industrial_zone_ai_requires_productive_adjacency(self):
+        ai = read_dll("CvUnitAI.cpp")
+        quality_gate = ai.index(
+            "getLandmarkAdjacencyYield(eImprovement, YIELD_PRODUCTION"
+        )
+        first_copy_bonus = ai.index("iValue += 250", quality_gate)
+        self.assertLess(quality_gate, first_copy_bonus)
+        self.assertContains(ai, "LANDMARK_INDUSTRIAL_ZONE")
+        self.assertContains(ai, "< 3")
+
 
 class LandmarkPreviewTooltipTests(unittest.TestCase):
     """UX enhancement: exact plot-specific total + adjacency/contributor
