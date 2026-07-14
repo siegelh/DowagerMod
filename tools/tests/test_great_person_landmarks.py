@@ -209,6 +209,25 @@ class ArtTests(unittest.TestCase):
             imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
             self.assertIn(child_text(imp, "ArtDefineTag"), art_types, k)
 
+    def test_new_landmarks_use_half_map_scale(self):
+        for k in LANDMARK_ORDER:
+            art = find_entry(ART, "ImprovementArtInfo", f"ART_DEF_IMPROVEMENT_{k}")
+            self.assertIsNotNone(art, k)
+            self.assertEqual(child_text(art, "fScale"), "0.5", k)
+
+    def test_new_landmarks_keep_full_interface_scale(self):
+        for k in LANDMARK_ORDER:
+            art = find_entry(ART, "ImprovementArtInfo", f"ART_DEF_IMPROVEMENT_{k}")
+            self.assertIsNotNone(art, k)
+            self.assertEqual(child_text(art, "fInterfaceScale"), "1.0", k)
+
+    def test_grand_colosseum_scale_unchanged(self):
+        art = find_entry(ART, "ImprovementArtInfo", "ART_DEF_IMPROVEMENT_GRAND_COLOSSEUM_BTG")
+        self.assertIsNotNone(art)
+        self.assertEqual(child_text(art, "fScale"), "1.5")
+        self.assertEqual(child_text(art, "fInterfaceScale"), "1.0")
+
+
 class UnitPermissionTests(unittest.TestCase):
     def unit_builds(self, unit_type):
         unit = find_entry(UNITS, "UnitInfo", unit_type)

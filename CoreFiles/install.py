@@ -53,18 +53,15 @@ import sys
 import time
 from pathlib import Path
 
-# Local sibling module
-try:
-    from . import install_hot  # type: ignore
-except ImportError:
-    # When invoked as a script, package import won't work
-    sys.path.insert(0, str(Path(__file__).resolve().parent))
-    import install_hot  # type: ignore
-
 PAYLOAD_DIRNAME = "Sid Meier's Civilization IV Beyond the Sword"
 PRISTINE_SUFFIX = " - PRISTINE"
-PRISTINE_HOT_SUFFIX = " - PRISTINE_HOT"
 SENTINEL_NAME = "_DOWAGERMOD_INSTALLED.txt"
+
+# Obsolete sibling folders created by the retired rename-based hot-swap fast
+# path (see INSTALLER.md, "Why the old installer left ' - DELETE_ME'"). The
+# current installer never creates these; the exact suffixes are retained only
+# so migration cleanup can remove leftovers from older installer versions.
+LEGACY_HOT_SUFFIXES = (" - PRISTINE_HOT", " - DELETE_ME")
 SOUND_FILENAME = "install_noise.wav"
 
 # Hand-crafted by the project author. Do not regenerate or modify.
@@ -720,6 +717,79 @@ def _remove_readonly(func, path: str, _exc_info) -> None:
     func(path)
 
 
+def _rmtree_with_retry(target: Path, *, attempts: int = 5, delay: float = 0.5) -> bool:
+    """Best-effort recursive delete of ``target``.
+
+    Clears the Windows read-only attribute (via ``_remove_readonly``) and
+    retries a bounded number of times to ride out *transient* file locks held
+    by Explorer, antivirus, the search indexer, or a still-running game. This
+    is deliberately not an infinite loop: Windows permits arbitrary long-lived
+    locks, so a genuinely locked folder must be surfaced, not spun on forever.
+
+    Returns True only if the tree is gone afterwards.
+    """
+    for attempt in range(1, attempts + 1):
+        if not target.exists():
+            return True
+        try:
+            shutil.rmtree(target, ignore_errors=False, onerror=_remove_readonly)
+        except OSError:
+            if attempt >= attempts:
+                break
+            time.sleep(delay)
+    return not target.exists()
+
+
+def cleanup_legacy_hot_artifacts(live: Path, pristine: Path) -> None:
+    """Remove obsolete hot-swap sibling folders left by older installers.
+
+    Older installer versions used a rename-based fast path that produced two
+    exact sibling directories next to the live install:
+
+      * ``<live> - PRISTINE_HOT`` -- a same-drive staged clone of pristine.
+      * ``<live> - DELETE_ME``    -- the previous live tree awaiting deletion,
+        occasionally orphaned when a Windows lock blocked ``rmtree``.
+
+    The current installer never creates either folder. This migration step
+    removes any that a previous version left behind. It only ever touches the
+    two exact derived sibling paths; the live and pristine trees are never
+    candidates. A stale sibling that stays locked never blocks the install --
+    the exact path is reported as a warning and the install continues.
+    """
+    live_resolved = _safe_resolve(live)
+    pristine_resolved = _safe_resolve(pristine)
+    for suffix in LEGACY_HOT_SUFFIXES:
+        stale = Path(str(live) + suffix)
+        # Defensive: never delete the live or pristine trees, whatever a caller
+        # or filesystem quirk resolves them to.
+        stale_resolved = _safe_resolve(stale)
+        if stale_resolved == live_resolved or stale_resolved == pristine_resolved:
+            continue
+        if not stale.exists():
+            continue
+        print(f"Migration: removing obsolete installer artifact:\n  {stale}")
+        if _rmtree_with_retry(stale):
+            print(f"  Removed {stale.name}.")
+        else:
+            bar = "!" * 60
+            print(f"  {bar}")
+            print(f"  WARNING: could NOT remove a stale installer folder (locked):")
+            print(f"    {stale}")
+            print(f"  This does not affect your install -- DowagerMod is still")
+            print(f"  installed correctly. To clear it: close Civ4, Explorer,")
+            print(f"  and antivirus, then delete the folder above by hand, or")
+            print(f"  just re-run this installer later and it will retry.")
+            print(f"  {bar}")
+
+
+def _safe_resolve(path: Path) -> Path:
+    """Resolve ``path`` for identity comparison, tolerating missing paths."""
+    try:
+        return path.resolve()
+    except OSError:
+        return Path(os.path.normcase(os.path.abspath(str(path))))
+
+
 def ensure_disable_caching(user_data: Path) -> None:
     """Set DisableCaching = 1 in CivilizationIV.ini so the game does not
     cache XML between launches (cache shadowing causes mod XML to silently
@@ -822,18 +892,15 @@ def install(args: argparse.Namespace) -> None:
         live = discover_install_dir()
         cfg["install_dir"] = str(live)
 
-    # Resolve pristine dir + the HOT pre-staged clone
+    # Resolve pristine dir.
     pristine = Path(str(live) + PRISTINE_SUFFIX)
-    pristine_hot = Path(str(live) + PRISTINE_HOT_SUFFIX)
     cfg["pristine_dir"] = str(pristine)
-    cfg["pristine_hot_dir"] = str(pristine_hot)
-    # Refresh pristine if requested -- also nukes HOT (it would be stale).
+    # Drop any obsolete hot-swap state left by older installer versions.
+    cfg.pop("pristine_hot_dir", None)
+    # Refresh pristine if requested.
     if args.refresh_pristine and pristine.exists():
         print(f"--refresh-pristine: deleting existing pristine at {pristine}")
-        shutil.rmtree(pristine)
-        if pristine_hot.exists():
-            print(f"  also deleting stale HOT clone at {pristine_hot}")
-            shutil.rmtree(pristine_hot)
+        shutil.rmtree(pristine, onerror=_remove_readonly)
 
     # Bootstrap pristine if missing.
     if not pristine.exists():
@@ -848,20 +915,16 @@ def install(args: argparse.Namespace) -> None:
     print("-" * 60)
     print(f"  Live install dir:   {live}")
     print(f"  Pristine snapshot:  {pristine}  ({'present' if pristine.exists() else 'MISSING'})")
-    if pristine_hot.exists():
-        try:
-            n = sum(1 for _ in pristine_hot.iterdir())
-        except OSError:
-            n = -1
-        print(f"  PRISTINE_HOT clone: {pristine_hot}  (present, ~{n} items at root) -> FAST PATH")
-    else:
-        print(f"  PRISTINE_HOT clone: {pristine_hot}  (NOT YET BUILT) -> SLOW PATH this run")
-        print(f"                      (background rebuild after install will make NEXT run fast)")
     if cfg.get("last_install_at"):
         print(f"  Last install at:    {cfg['last_install_at']}")
         print(f"  Last mod version:   {cfg.get('last_mod_version', '<unknown>')}")
     else:
         print(f"  Last install at:    <never on this machine>")
+
+    # Remove obsolete hot-swap sibling folders left by older installer
+    # versions. Never blocks the install; only warns if a stale folder is
+    # still locked. This installer never creates these folders itself.
+    cleanup_legacy_hot_artifacts(live, pristine)
 
     # ---- The actual install ----
     print()
@@ -869,8 +932,14 @@ def install(args: argparse.Namespace) -> None:
     print("Installing DowagerMod")
     print("-" * 60)
 
-    install_used_hot = install_hot.install_from_pristine_or_hot(live, pristine, pristine_hot, robocopy)
-    robocopy(payload_root, live, mirror=False, label="overlay mod payload")    # Sentinel
+    # Always mirror-restore live from pristine, then overlay the mod payload.
+    # The mirror wipes any prior mod/orphan files back to a clean baseline. It
+    # copies in place and never renames the live tree, so it can never leave a
+    # '<live> - DELETE_ME' sibling behind (the old hot-swap failure mode).
+    robocopy(pristine, live, mirror=True, label="restore pristine")
+    robocopy(payload_root, live, mirror=False, label="overlay mod payload")
+
+    # Sentinel
     version = get_mod_version()
     sentinel = live / SENTINEL_NAME
     sentinel.write_text(
@@ -895,30 +964,6 @@ def install(args: argparse.Namespace) -> None:
     print(f"  Pristine:    {pristine}")
     print(f"  Config:      {CONFIG_FILE}")
     print("=" * 60)
-
-    # Build PRISTINE_HOT so the NEXT install is just a rename. Synchronous --
-    # detached spawn proved unreliable on UAC-elevated PyInstaller .exe.
-    should_build = (install_used_hot or
-                    (pristine.exists() and not pristine_hot.exists()))
-    if should_build:
-        print()
-        print("-" * 60)
-        if install_used_hot:
-            print("Re-staging PRISTINE_HOT for next install (please wait)...")
-        else:
-            print("Pre-staging PRISTINE_HOT for next install (please wait)...")
-        print("-" * 60)
-        result = install_hot.build_pristine_hot(pristine, pristine_hot)
-        if result.get("ok"):
-            secs = result.get("elapsed", 0)
-            print()
-            print(f"PRISTINE_HOT ready (took {secs:.0f}s). Next install will be instant.")
-            cfg["pristine_hot_dir"] = str(pristine_hot)
-            save_config(cfg)
-        else:
-            print()
-            print(f"WARN: PRISTINE_HOT build failed: {result.get('error')}")
-            print(f"  (Non-fatal -- mod IS installed; next install will be slow again.)")
 
 
 def main(argv: list[str]) -> int:

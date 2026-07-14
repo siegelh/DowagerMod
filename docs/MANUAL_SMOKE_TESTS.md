@@ -48,6 +48,9 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
 - Great Person landmarks (Industrial Zone, Naval Foundry, Research Campus, Commercial District, Grand Bazaar, Sacred Grove):
   - Start a **fresh game** (new InfoTypes are appended; old saves are not acceptance evidence)
   - Rendering: build each landmark and confirm its model and build-button render with no pink boxes or missing icons; hover the tile and the build action and confirm the generated help lists the correct adjacency mechanics
+  - Map model scale: confirm each of the 13 new landmarks (Industrial Zone, Naval Foundry, Research Campus, Commercial District, Grand Bazaar, and all 8 Sacred Grove variants) renders at roughly half size on the map (`fScale = 0.5`) and no longer reads as large as a city; check readability at normal and strategic zoom
+  - Interface scale unchanged: confirm the Civilopedia entry and the build/action buttons for each landmark are still normal size (`fInterfaceScale` stays `1.0`) — only the on-map model shrank
+  - Grand Colosseum unchanged: build (or view) the Great Artist's Grand Colosseum and confirm its on-map size is visually identical to before (still `fScale = 1.5`, not shrunk)
   - Landmark output tooltips (exact total + breakdown), for **each** landmark type, check **both** places:
     - Build-action hover (before construction): select the Great Person, hover its "Create ..." build action, and confirm a **"Projected landmark output:"** block appears with an exact total and a per-contributor breakdown, and that the generic ", +N" native-yield line is **not** duplicated for the landmark
     - Built-map hover (after construction): build the landmark, then mouse over its tile and confirm a **"Current landmark output:"** block appears with the same numbers the tile actually produces
@@ -77,6 +80,15 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - Quit, ensure sidecar is not running, launch fresh; confirm the game is normal with no chatter and no errors
   - 2-client MP (LAN or two instances): force a DoW; verify exactly ONE entry in your sidecar's `daemon.log` AND BOTH clients display the SAME chat line; confirm no OOS warning fires
   - See [`CHATTER_RUNBOOK.md`](CHATTER_RUNBOOK.md) for detailed troubleshooting
+
+- Installer reliability (wipe-and-restore; retired hot-swap fast path):
+  - Close Civ4 completely, then run the rebuilt installer (`Install DowagerMod.bat` / `CoreFiles\dist\DowagerMod-Installer\DowagerMod-Installer.exe`)
+  - Confirm the install completes and the game launches with DowagerMod applied
+  - Confirm **no** new sibling folder named `<install> - DELETE_ME` or `<install> - PRISTINE_HOT` is created next to the live install (the retired fast path used to create these)
+  - Migration: if an **older** installer previously left a `<install> - DELETE_ME` or `<install> - PRISTINE_HOT` folder and it is not locked, confirm the installer reports removing it and it is gone afterward
+  - Locked migration: if such a stale folder is held open (e.g. Explorer window inside it), confirm the installer prints a prominent path-specific WARNING, does **not** claim success for that folder, and still completes the install
+  - Confirm the `<install> - PRISTINE` snapshot and the live install are both intact and untouched by migration cleanup
+  - Re-run the installer a second time and confirm it wipes back to pristine and reapplies cleanly (still no `DELETE_ME`/`PRISTINE_HOT` siblings)
 
 ## What to report
 

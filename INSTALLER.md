@@ -52,6 +52,15 @@ Because step 2 is a full mirror from the pristine, deleting a file from
 the repo *does* remove it from the live install. There are no
 mod-version-vs-mod-version drift bugs.
 
+Step 2 always copies **in place** — the installer never renames the live
+tree out of the way. This is deliberate: an earlier version of the
+installer had a same-drive "hot-swap" fast path that renamed the live
+folder aside before swapping in a pre-staged clone, and that rename could
+strand an undeletable folder on some machines (see *Migration* below).
+Copying in place is slightly slower than a directory rename, but it needs
+no extra full-size clone on disk and it can never leave a stranded sibling
+folder behind. Reliability and bounded disk usage win over raw speed here.
+
 ## Pristine snapshot
 
 The pristine snapshot is a sibling folder of the live install, named with
@@ -92,6 +101,48 @@ If the pristine ever needs to be recaptured (rare — only if Steam pushes
 an update or the snapshot got corrupted), run with `--refresh-pristine`.
 The installer will delete the existing snapshot and recapture from the
 current live install, which must pass the same validation.
+
+## Migration: retired hot-swap fast path
+
+Older installer builds tried to make the *next* install "instant" by
+keeping a same-drive pre-staged clone of pristine and swapping it into
+place with directory renames:
+
+- `<install> - PRISTINE_HOT` — a full same-drive clone of pristine,
+  staged after an install so the following run could avoid a copy.
+- `<install> - DELETE_ME` — the old live tree, renamed aside during the
+  swap and then deleted.
+
+That design promised an instant next install, but it was **not** reliable:
+the final `rmtree` of `<install> - DELETE_ME` could fail whenever Windows
+held any file in the old tree open (a running game, an Explorer window,
+antivirus, or the search indexer). When that happened the folder was left
+stranded, and only machines that had successfully staged a `PRISTINE_HOT`
+ever hit the rename path at all — so behavior differed machine to machine.
+
+The hot-swap architecture is now **fully retired**. There is no
+"instant next install" contract anymore. Every install mirror-restores in
+place (see *Wipe-and-restore design*), which cannot create either sibling
+folder.
+
+**Automatic migration cleanup.** Because older installers may have left
+these folders behind, every install now looks for the two exact sibling
+paths `<install> - PRISTINE_HOT` and `<install> - DELETE_ME` and removes
+them:
+
+- It clears the Windows read-only attribute and retries a bounded number
+  of times to ride out *transient* locks.
+- If a folder deletes, the installer reports it.
+- If a folder is still locked after retries, the installer prints a
+  prominent, path-specific WARNING and **continues** — a stale sibling
+  never blocks an otherwise valid install, and the installer never claims
+  it removed a folder it could not remove.
+- Only those two exact derived paths are ever touched. The live install
+  and the `<install> - PRISTINE` snapshot are never candidates for
+  deletion.
+
+The obsolete `pristine_hot_dir` config key is dropped from
+`config.json` the next time the installer runs.
 
 ## Friend launcher (`Install DowagerMod.bat`)
 
@@ -144,6 +195,10 @@ one-folder for unsigned installers.
 
 After the first successful install, subsequent runs skip discovery and
 read these from config. Pass `--install-dir <path>` to override.
+
+> Obsolete: older installers also wrote a `pristine_hot_dir` key for the
+> retired hot-swap fast path. The current installer never writes it and
+> drops it from `config.json` on the next run.
 
 ## Install discovery
 
@@ -207,3 +262,12 @@ DowagerMod-Installer.exe [--install-dir PATH] [--refresh-pristine]
   current installer handles this automatically; if they're on an older
   installer, have them delete `Documents\My Games\Beyond the Sword\cache\`
   manually and set `DisableCaching = 1` in `CivilizationIV.ini`.
+- **A `... - DELETE_ME` or `... - PRISTINE_HOT` folder sits next to the
+  install**: it was left by an older installer's retired hot-swap fast
+  path (see *Migration*). The current installer never creates these and
+  tries to remove them on every run. If the installer warns it could not
+  delete one, it was locked — close Civ4, any Explorer window inside that
+  folder, and antivirus, then re-run the installer or delete the folder by
+  hand. It is safe to delete and does not affect the installed mod.
+  Never delete `... - PRISTINE` (that is your clean snapshot) or the live
+  install folder itself.

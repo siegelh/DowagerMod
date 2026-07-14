@@ -256,6 +256,15 @@ Grand Colosseum, must not move because savegames persist numeric IDs.
 - [x] Add a regression test requiring every landmark builder to retain that
   positive work rate alongside zero-time, unit-consuming BuildInfo records.
 
+### Multiplayer turn-processing optimization
+
+- [x] Skip Naval Foundry radius scans when the player owns no Foundry.
+- [x] Reject nonmatching Sacred Grove religion variants before whole-map AI
+  candidate scans.
+- [x] Skip danger/pathfinding work when a candidate's maximum possible score
+  cannot beat the current deterministic winner.
+- [x] Add static regression contracts for all three performance fast paths.
+
 ### UX enhancement — exact output preview + breakdown
 
 Approved option: **"Exact total + adjacency breakdown (Recommended)."** Surface
@@ -289,6 +298,26 @@ paths, sharing one authoritative preview so text can never drift from gameplay.
   Release and payload DLL SHA-256 confirmed identical.
 - [ ] Installed-game manual acceptance: build-hover and built-map-hover checks
   per landmark (see `docs/MANUAL_SMOKE_TESTS.md`), plus save/reload and MP OOS.
+
+### Map model scale correction
+
+The 13 new landmarks reuse stock building NIFs, which render at roughly city
+size at the stock `fScale=1.0`. Map scale is pinned to `0.5` so each landmark
+reads as an improvement rather than a city. Interface rendering is unchanged.
+Tracked in full in
+[`2026-07-13-landmark-scale-installer-reliability.md`](2026-07-13-landmark-scale-installer-reliability.md).
+
+- [x] Set `fScale` to `0.5` for all 13 new landmark art records in
+`CIV4ArtDefines_Improvement.xml`.
+- [x] Keep `fInterfaceScale` at `1.0` (Civilopedia/button size unchanged).
+- [x] Leave the pre-existing Grand Colosseum at `fScale=1.5` (not shrunk).
+- [x] Add exact art-scale regression tests (all 13 map scales `0.5`, all
+interface scales `1.0`, Grand Colosseum `1.5`) in
+`tools/tests/test_great_person_landmarks.py`.
+- [ ] Installed-game manual acceptance: confirm the 13 landmarks render at
+half size (readable, no longer city-sized) at normal and strategic zoom,
+buttons/Civilopedia stay normal size, and Grand Colosseum is visually
+unchanged (see `docs/MANUAL_SMOKE_TESTS.md`).
 
 ## Readiness
 
