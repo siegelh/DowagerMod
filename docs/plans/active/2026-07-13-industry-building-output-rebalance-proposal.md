@@ -1,12 +1,16 @@
 # Industry Building Output Rebalance Proposal
 
-- Status: `review-only / no runtime changes`
+- Status: `approved and implemented`
 - Owner / agent: Copilot
 - Last updated: `2026-07-13`
 
 ## Purpose and non-negotiable scope
 
-This is a data-backed proposal only. It does **not** change XML, Python, DLL, recipes, prerequisites, category limits, corporation thresholds, AI wiring, or mechanics. If approved, a later implementation may alter only `<iCost>` and the direct output fields recorded in the companion manifest.
+This data-backed proposal was approved on `2026-07-14` and applied to the
+live BtS building XML. The implementation changes only `<iCost>` and the
+direct output fields recorded in the companion manifest. It does **not**
+change Python, DLL behavior, recipes, prerequisites, category limits,
+corporation thresholds, AI wiring, or mechanics.
 
 Live sources reviewed:
 

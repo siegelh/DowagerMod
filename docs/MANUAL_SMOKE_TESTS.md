@@ -26,13 +26,18 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
 - Persistence:
   - save and reload once, then confirm the changed state still exists
 - Pacifism / Emancipation civic rebalance:
-  - SP: compare a worked Town before and after adopting Emancipation; confirm the city receives exactly +2 gold and no other commerce
+  - SP: compare a worked Town before and after adopting Emancipation; confirm the tile receives exactly +2 Commerce yield and that the city slider distributes it normally
   - SP: adopt Pacifism and confirm a worked Town receives no civic food bonus
   - SP: adopt Free Market and confirm a worked Town receives no civic food bonus
-  - Help: hover Emancipation and confirm its civic help lists +2 gold per worked Town with a valid gold icon
-  - Save/reload: save with Emancipation active, reload, and reconfirm the worked-Town gold
+  - Help: hover Emancipation and confirm its civic help lists +2 Commerce per Town with the standard Commerce icon
+  - Save/reload: save with Emancipation active, reload, and reconfirm the worked-Town Commerce
   - MP: load the same setup on two clients, adopt Emancipation, and confirm identical yields with no OOS
   - These installed SP, save/reload, and MP checks remain required acceptance gates unless their actual runs are reported
+- Approved industry-building rebalance:
+  - Build representative CORE, LUXURY, and COMPOSITE entries and confirm their city-screen costs and outputs match `tools/manifests/industry_building_rebalance_proposal.json`
+  - In a food-rich test city, confirm the designated food/hospitality buildings each add exactly +2 literal Food over their prior output and still obey the existing 2 CORE / 2 LUXURY / 3 COMPOSITE caps
+  - Confirm recipes, local/connected resource gates, synthetic goods, corporation thresholds, and advisor chains are unchanged
+  - Stress the maximum permitted food-building stack and check growth, health, happiness, AI construction choices, save/reload, and two-client OOS behavior
 - Remaining-roster additive release:
   - Start a **fresh game** for every SP and MP run; old saves are not acceptance evidence
   - Confirm Washington, Hammurabi, Elizabeth, Wang Kon, Genghis Khan, Sitting Bull, Mao/Chinese Leader, Salamasina, Stalin, and Churchill retain their complete baseline features with no last-pass removals or reductions

@@ -39406,7 +39406,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>1</iYield>
+				<iYield>3</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -39657,7 +39657,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>10</iCommerce>
+				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -39868,7 +39868,7 @@
 			</YieldChanges>
 			<YieldModifiers>
 				<iYield>0</iYield>
-				<iYield>10</iYield>
+				<iYield>15</iYield>
 				<iYield>0</iYield>
 			</YieldModifiers>
 			<PowerYieldModifiers/>
@@ -40075,7 +40075,7 @@
 			<iGlobalHappiness>0</iGlobalHappiness>
 			<iStateReligionHappiness>0</iStateReligionHappiness>
 			<iWorkerSpeedModifier>0</iWorkerSpeedModifier>
-			<iMilitaryProductionModifier>10</iMilitaryProductionModifier>
+			<iMilitaryProductionModifier>15</iMilitaryProductionModifier>
 			<iSpaceProductionModifier>0</iSpaceProductionModifier>
 			<iGlobalSpaceProductionModifier>0</iGlobalSpaceProductionModifier>
 			<iTradeRoutes>0</iTradeRoutes>
@@ -40335,7 +40335,7 @@
 			<CommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>2</iCommerce>
+				<iCommerce>3</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceChanges>
 			<ObsoleteSafeCommerceChanges>
@@ -40563,7 +40563,7 @@
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
 				<iYield>0</iYield>
-				<iYield>1</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
 			<YieldModifiers>
@@ -40826,7 +40826,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>25</iCommerce>
+				<iCommerce>30</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -41028,7 +41028,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>1</iYield>
+				<iYield>3</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -41222,7 +41222,7 @@
 			<iHealth>0</iHealth>
 			<iAreaHealth>0</iAreaHealth>
 			<iGlobalHealth>0</iGlobalHealth>
-			<iHappiness>1</iHappiness>
+			<iHappiness>2</iHappiness>
 			<iAreaHappiness>0</iAreaHappiness>
 			<iGlobalHappiness>0</iGlobalHappiness>
 			<iStateReligionHappiness>0</iStateReligionHappiness>
@@ -41453,7 +41453,7 @@
 			<iTradeRoutes>0</iTradeRoutes>
 			<iCoastalTradeRoutes>0</iCoastalTradeRoutes>
 			<iGlobalTradeRoutes>0</iGlobalTradeRoutes>
-			<iTradeRouteModifier>10</iTradeRouteModifier>
+			<iTradeRouteModifier>15</iTradeRouteModifier>
 			<iForeignTradeRouteModifier>0</iForeignTradeRouteModifier>
 			<iGlobalPopulationChange>0</iGlobalPopulationChange>
 			<iFreeTechs>0</iFreeTechs>
@@ -41468,7 +41468,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -41638,7 +41638,7 @@
 			<IndustryCategory>CORE</IndustryCategory>
 			<bRequiresActiveLocalPrereqs>1</bRequiresActiveLocalPrereqs>
 			<iAIWeight>0</iAIWeight>
-			<iCost>200</iCost>
+			<iCost>190</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -41707,7 +41707,7 @@
 			</YieldChanges>
 			<YieldModifiers>
 				<iYield>0</iYield>
-				<iYield>10</iYield>
+				<iYield>20</iYield>
 				<iYield>0</iYield>
 			</YieldModifiers>
 			<PowerYieldModifiers/>
@@ -41950,7 +41950,7 @@
 			<CommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>2</iCommerce>
+				<iCommerce>3</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceChanges>
 			<ObsoleteSafeCommerceChanges>
@@ -42163,7 +42163,7 @@
 			<AreaYieldModifiers/>
 			<GlobalYieldModifiers/>
 			<CommerceChanges>
-				<iCommerce>2</iCommerce>
+				<iCommerce>3</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>1</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -42400,7 +42400,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>10</iCommerce>
+				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -42619,7 +42619,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>15</iCommerce>
+				<iCommerce>25</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -42777,7 +42777,7 @@
 			<iHealth>0</iHealth>
 			<iAreaHealth>0</iAreaHealth>
 			<iGlobalHealth>0</iGlobalHealth>
-			<iHappiness>1</iHappiness>
+			<iHappiness>2</iHappiness>
 			<iAreaHappiness>0</iAreaHappiness>
 			<iGlobalHappiness>0</iGlobalHappiness>
 			<iStateReligionHappiness>0</iStateReligionHappiness>
@@ -43038,7 +43038,7 @@
 			<CommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>2</iCommerce>
+				<iCommerce>3</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceChanges>
 			<ObsoleteSafeCommerceChanges>
@@ -43260,7 +43260,7 @@
 			<AreaYieldModifiers/>
 			<GlobalYieldModifiers/>
 			<CommerceChanges>
-				<iCommerce>2</iCommerce>
+				<iCommerce>3</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>2</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -43497,7 +43497,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>10</iCommerce>
+				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -43656,7 +43656,7 @@
 			<iGlobalWarWearinessModifier>0</iGlobalWarWearinessModifier>
 			<iEnemyWarWearinessModifier>0</iEnemyWarWearinessModifier>
 			<iHealRateChange>0</iHealRateChange>
-			<iHealth>1</iHealth>
+			<iHealth>2</iHealth>
 			<iAreaHealth>0</iAreaHealth>
 			<iGlobalHealth>0</iGlobalHealth>
 			<iHappiness>1</iHappiness>
@@ -43685,7 +43685,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -43904,7 +43904,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -44097,7 +44097,7 @@
 			<iHealth>0</iHealth>
 			<iAreaHealth>0</iAreaHealth>
 			<iGlobalHealth>0</iGlobalHealth>
-			<iHappiness>1</iHappiness>
+			<iHappiness>2</iHappiness>
 			<iAreaHappiness>0</iAreaHappiness>
 			<iGlobalHappiness>0</iGlobalHappiness>
 			<iStateReligionHappiness>0</iStateReligionHappiness>
@@ -44123,7 +44123,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -44343,7 +44343,7 @@
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
 				<iYield>0</iYield>
-				<iYield>1</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
 			<YieldModifiers>
@@ -44576,7 +44576,7 @@
 			<CommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>4</iCommerce>
+				<iCommerce>5</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceChanges>
 			<ObsoleteSafeCommerceChanges>
@@ -44708,7 +44708,7 @@
 			<bRequiresActiveLocalPrereqs>1</bRequiresActiveLocalPrereqs>
 			<iPlayerMaxInstances>0</iPlayerMaxInstances>
 			<iAIWeight>0</iAIWeight>
-			<iCost>180</iCost>
+			<iCost>170</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -44786,7 +44786,7 @@
 			<CommerceChanges>
 				<iCommerce>2</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>3</iCommerce>
+				<iCommerce>4</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceChanges>
 			<ObsoleteSafeCommerceChanges>
@@ -44917,7 +44917,7 @@
 			<bRequiresActiveLocalPrereqs>1</bRequiresActiveLocalPrereqs>
 			<iPlayerMaxInstances>0</iPlayerMaxInstances>
 			<iAIWeight>0</iAIWeight>
-			<iCost>200</iCost>
+			<iCost>190</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -44993,7 +44993,7 @@
 			<AreaYieldModifiers/>
 			<GlobalYieldModifiers/>
 			<CommerceChanges>
-				<iCommerce>3</iCommerce>
+				<iCommerce>4</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>2</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -45099,7 +45099,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -45220,7 +45220,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>25</iCommerce>
+				<iCommerce>30</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -45322,7 +45322,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -45443,7 +45443,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -45540,7 +45540,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -45663,7 +45663,7 @@
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -45763,7 +45763,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -45886,7 +45886,7 @@
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>20</iCommerce>
+				<iCommerce>25</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -45981,7 +45981,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -46102,7 +46102,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>25</iCommerce>
+				<iCommerce>30</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -46200,7 +46200,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -46321,7 +46321,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>20</iCommerce>
+				<iCommerce>25</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -46414,7 +46414,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -46535,7 +46535,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -46632,7 +46632,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -46753,7 +46753,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>10</iCommerce>
+				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -46855,7 +46855,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -46978,7 +46978,7 @@
 			<CommerceModifiers>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -47163,7 +47163,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -47291,7 +47291,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -47381,7 +47381,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -47412,7 +47412,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -47509,7 +47509,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -47630,7 +47630,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>10</iCommerce>
+				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -47732,7 +47732,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -47822,7 +47822,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -47853,7 +47853,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -47950,7 +47950,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -48071,7 +48071,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -48168,7 +48168,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -48289,7 +48289,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>10</iCommerce>
+				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -48386,7 +48386,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -48507,7 +48507,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -48605,7 +48605,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -48632,7 +48632,7 @@
 			<bRequiresActiveLocalPrereqs>1</bRequiresActiveLocalPrereqs>
 			<iPlayerMaxInstances>1</iPlayerMaxInstances>
 			<iAIWeight>0</iAIWeight>
-			<iCost>220</iCost>
+			<iCost>210</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -48728,7 +48728,7 @@
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>20</iCommerce>
+				<iCommerce>25</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -48824,7 +48824,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -48851,7 +48851,7 @@
 			<bRequiresActiveLocalPrereqs>1</bRequiresActiveLocalPrereqs>
 			<iPlayerMaxInstances>1</iPlayerMaxInstances>
 			<iAIWeight>0</iAIWeight>
-			<iCost>220</iCost>
+			<iCost>210</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -48947,7 +48947,7 @@
 			<CommerceModifiers>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -49042,7 +49042,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -49069,7 +49069,7 @@
 			<bRequiresActiveLocalPrereqs>1</bRequiresActiveLocalPrereqs>
 			<iPlayerMaxInstances>1</iPlayerMaxInstances>
 			<iAIWeight>0</iAIWeight>
-			<iCost>220</iCost>
+			<iCost>210</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -49163,7 +49163,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>10</iCommerce>
+				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -49260,7 +49260,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -49287,7 +49287,7 @@
 			<bRequiresActiveLocalPrereqs>1</bRequiresActiveLocalPrereqs>
 			<iPlayerMaxInstances>1</iPlayerMaxInstances>
 			<iAIWeight>0</iAIWeight>
-			<iCost>280</iCost>
+			<iCost>260</iCost>
 			<iHurryCostModifier>0</iHurryCostModifier>
 			<iAdvancedStartCost>100</iAdvancedStartCost>
 			<iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -49383,7 +49383,7 @@
 			<CommerceModifiers>
 				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>25</iCommerce>
+				<iCommerce>30</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -49541,7 +49541,7 @@
 			<iGlobalHurryModifier>0</iGlobalHurryModifier>
 			<iExperience>0</iExperience>
 			<iGlobalExperience>0</iGlobalExperience>
-			<iFoodKept>10</iFoodKept>
+			<iFoodKept>20</iFoodKept>
 			<iAirlift>0</iAirlift>
 			<iAirModifier>0</iAirModifier>
 			<iAirUnitCapacity>0</iAirUnitCapacity>
@@ -49584,7 +49584,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -49806,7 +49806,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>1</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -50029,7 +50029,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -50251,7 +50251,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -50475,7 +50475,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -50693,7 +50693,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -50911,7 +50911,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -51129,7 +51129,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>1</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -51347,7 +51347,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -51565,7 +51565,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -51798,7 +51798,7 @@
 			<CommerceChanges>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>2</iCommerce>
+				<iCommerce>3</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceChanges>
 			<ObsoleteSafeCommerceChanges>
@@ -51918,7 +51918,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -52039,7 +52039,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -52136,7 +52136,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -52259,7 +52259,7 @@
 			<CommerceModifiers>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>20</iCommerce>
+				<iCommerce>25</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -52354,7 +52354,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -52477,7 +52477,7 @@
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>20</iCommerce>
+				<iCommerce>25</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -52573,7 +52573,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -52696,7 +52696,7 @@
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -52886,7 +52886,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -53104,7 +53104,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>1</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -53322,7 +53322,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -53540,7 +53540,7 @@
 			<RiverPlotYieldChanges/>
 			<GlobalSeaPlotYieldChanges/>
 			<YieldChanges>
-				<iYield>0</iYield>
+				<iYield>2</iYield>
 				<iYield>0</iYield>
 				<iYield>0</iYield>
 			</YieldChanges>
@@ -53668,7 +53668,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -53789,7 +53789,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>10</iCommerce>
+				<iCommerce>15</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -53886,7 +53886,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -54009,7 +54009,7 @@
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>
@@ -54109,7 +54109,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -54230,7 +54230,7 @@
 				<iCommerce>0</iCommerce>
 			</CommerceChangeDoubleTimes>
 			<CommerceModifiers>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 				<iCommerce>10</iCommerce>
 				<iCommerce>0</iCommerce>
@@ -54327,7 +54327,7 @@
 			<FreePromotion>NONE</FreePromotion>
 			<CivicOption>NONE</CivicOption>
 			<GreatPeopleUnitClass>NONE</GreatPeopleUnitClass>
-			<iGreatPeopleRateChange>3</iGreatPeopleRateChange>
+			<iGreatPeopleRateChange>4</iGreatPeopleRateChange>
 			<iHurryAngerModifier>0</iHurryAngerModifier>
 			<bBorderObstacle>0</bBorderObstacle>
 			<bTeamShare>0</bTeamShare>
@@ -54450,7 +54450,7 @@
 			<CommerceModifiers>
 				<iCommerce>0</iCommerce>
 				<iCommerce>0</iCommerce>
-				<iCommerce>15</iCommerce>
+				<iCommerce>20</iCommerce>
 				<iCommerce>0</iCommerce>
 			</CommerceModifiers>
 			<GlobalCommerceModifiers/>

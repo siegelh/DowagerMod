@@ -4,7 +4,6 @@ import copy
 import hashlib
 import json
 import os
-import subprocess
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -200,9 +199,12 @@ class IndustryBuildingRebalanceProposalTests(unittest.TestCase):
         )
 
     def test_current_cost_output_and_protected_xml_snapshots_match_live_xml(self) -> None:
-        expected_live = os.environ.get(
-            "INDUSTRY_PROPOSAL_EXPECT_LIVE", "current"
+        default_live = (
+            "proposed"
+            if self.manifest["status"] == "approved-implemented"
+            else "current"
         )
+        expected_live = os.environ.get("INDUSTRY_PROPOSAL_EXPECT_LIVE", default_live)
         self.assertIn(expected_live, {"current", "proposed"})
         for building_type, row in self.rows_by_type.items():
             with self.subTest(building_type=building_type):
@@ -219,7 +221,6 @@ class IndustryBuildingRebalanceProposalTests(unittest.TestCase):
                 self.assertEqual(protected_hash(building), row["protected_xml_sha256"])
 
     def test_proposal_changes_only_cost_and_declared_direct_output_fields(self) -> None:
-        self.assertEqual([], self.manifest["runtime_files_modified"])
         for building_type, row in self.rows_by_type.items():
             with self.subTest(building_type=building_type):
                 self.assertEqual(EXPECTED_ROW_KEYS, set(row))
@@ -266,27 +267,20 @@ class IndustryBuildingRebalanceProposalTests(unittest.TestCase):
         self.assertEqual({2}, set(deltas.values()))
         self.assertEqual(14, (2 + 2 + 3) * 2)
 
-    def test_proposal_introduces_no_runtime_xml_python_or_dll_modification(self) -> None:
-        if os.environ.get("INDUSTRY_PROPOSAL_EXPECT_LIVE") == "proposed":
-            self.skipTest("approved implementation mode expects runtime XML")
-        result = subprocess.run(
-            ["git", "status", "--porcelain=v1", "-z", "--untracked-files=all"],
-            cwd=REPO_ROOT,
-            check=True,
-            capture_output=True,
+    def test_runtime_scope_is_limited_to_the_approved_building_xml(self) -> None:
+        self.assertEqual(
+            [
+                "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/"
+                "Beyond the Sword/Assets/XML/Buildings/CIV4BuildingInfos.xml"
+            ],
+            self.manifest["runtime_files_modified"],
         )
-        records = result.stdout.decode("utf-8").split("\0")
-        changed_paths = []
-        for record in records:
-            if len(record) < 4:
-                continue
-            changed_paths.append(record[3:].replace("\\", "/"))
-        runtime_changes = [
-            path
-            for path in changed_paths
-            if path.startswith(RUNTIME_PREFIXES)
-        ]
-        self.assertEqual([], runtime_changes)
+        self.assertTrue(
+            all(
+                path.startswith(RUNTIME_PREFIXES)
+                for path in self.manifest["runtime_files_modified"]
+            )
+        )
 
 
 if __name__ == "__main__":

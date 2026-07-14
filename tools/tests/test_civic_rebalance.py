@@ -69,23 +69,29 @@ class CivicRebalanceTests(unittest.TestCase):
         ]
         self.assertEqual(towns, [])
 
-    def test_emancipation_has_exactly_town_plus_two_gold(self) -> None:
+    def test_emancipation_has_exactly_town_plus_two_commerce_yield(self) -> None:
         emancipation = civic("CIVIC_EMANCIPATION")
+        changes = next(
+            node
+            for node in emancipation
+            if local_name(node.tag) == "ImprovementYieldChanges"
+        )
+        self.assertEqual(len(changes), 1)
+        entry = changes[0]
+        self.assertEqual(child_text(entry, "ImprovementType"), "IMPROVEMENT_TOWN")
+        yields = next(
+            node for node in entry if local_name(node.tag) == "ImprovementYields"
+        )
+        self.assertEqual(
+            [int((node.text or "0").strip()) for node in yields],
+            [0, 0, 2],
+        )
         worked = next(
             node
             for node in emancipation
             if local_name(node.tag) == "ImprovementCityCommerceChangesWorked"
         )
-        self.assertEqual(len(worked), 1)
-        entry = worked[0]
-        self.assertEqual(child_text(entry, "ImprovementType"), "IMPROVEMENT_TOWN")
-        commerces = next(
-            node for node in entry if local_name(node.tag) == "ImprovementCommerces"
-        )
-        self.assertEqual(
-            [int((node.text or "0").strip()) for node in commerces],
-            [2, 0, 0, 0],
-        )
+        self.assertEqual(len(worked), 0)
 
     def test_gold_is_first_commerce_in_live_xml_and_dll(self) -> None:
         xml_types = [

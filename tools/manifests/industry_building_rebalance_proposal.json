@@ -1,7 +1,9 @@
 {
   "proposal": "2026-07-13 industry building output rebalance",
-  "status": "review-only",
-  "runtime_files_modified": [],
+  "status": "approved-implemented",
+  "runtime_files_modified": [
+    "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Buildings/CIV4BuildingInfos.xml"
+  ],
   "source_xml": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/XML/Buildings/CIV4BuildingInfos.xml",
   "proposal_category_counts": {
     "CORE": 11,
