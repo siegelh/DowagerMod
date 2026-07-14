@@ -17,7 +17,7 @@ BTS = (
 MAIN_MENUS = BTS / "XML" / "Art" / "CIV4MainMenus.xml"
 INTERFACE_ART = BTS / "XML" / "Art" / "CIV4ArtDefines_Interface.xml"
 LOADING_ART = BTS / "Art" / "Interface" / "Screens" / "Loading"
-HOME_ART = BTS / "Art" / "Interface" / "Main Menu"
+HOME_ART = BTS / "Art" / "Interface" / "Classical Main Menu"
 
 EXPECTED_ART = {
     "MAINMENU_LOAD_DOWAGER": (
@@ -101,17 +101,17 @@ class SolLoadingArtTests(unittest.TestCase):
         }
         self.assertEqual(
             mappings["MAINMENU_SCENE_DOWAGER"],
-            "Art/Interface/Main Menu/CIV4MainMenuBGDowager.nif",
+            "Art/Interface/Classical Main Menu/CIV4MainMenuBGSol.nif",
         )
-        scene = (HOME_ART / "CIV4MainMenuBGDowager.nif").read_bytes()
-        self.assertIn(b"DowagerMod_Sol_Home_Screen.dds", scene)
-        self.assertNotIn(b"Beyond_The_Sword_Main_Menu.dds", scene)
+        scene = (HOME_ART / "CIV4MainMenuBGSol.nif").read_bytes()
+        self.assertIn(b"SolBG3.dds", scene)
+        self.assertNotIn(b"Duomo3.dds", scene)
 
-        header = (HOME_ART / "DowagerMod_Sol_Home_Screen.dds").read_bytes()[:128]
+        header = (HOME_ART / "SolBG3.dds").read_bytes()[:128]
         self.assertEqual(header[:4], b"DDS ")
         height, width = struct.unpack_from("<II", header, 12)
         self.assertEqual((width, height), (1024, 1024))
-        self.assertEqual(header[84:88], b"DXT3")
+        self.assertEqual(header[84:88], b"\x00\x00\x00\x00")
 
     def test_stock_loading_art_remains_available(self) -> None:
         for name in (
@@ -126,4 +126,6 @@ class SolLoadingArtTests(unittest.TestCase):
 
     def test_stock_home_scene_remains_available(self) -> None:
         self.assertTrue((HOME_ART / "CIV4MainMenuBG.nif").is_file())
-        self.assertTrue((HOME_ART / "Beyond_The_Sword_Main_Menu.dds").is_file())
+        self.assertTrue((HOME_ART / "Duomo3.dds").is_file())
+        self.assertTrue((HOME_ART / "Bird.dds").is_file())
+        self.assertTrue((HOME_ART / "Sky.dds").is_file())

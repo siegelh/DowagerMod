@@ -16,16 +16,16 @@ ART = (
     / "Assets"
     / "Art"
     / "Interface"
-    / "Main Menu"
+    / "Classical Main Menu"
 )
 FONT_ROOT = Path(r"C:\Windows\Fonts")
 FONT_BOLD = FONT_ROOT / "constanb.ttf"
 FONT_REGULAR = FONT_ROOT / "constan.ttf"
 
-SOURCE_TEXTURE = ART / "Beyond_The_Sword_Main_Menu.dds"
-TARGET_TEXTURE = ART / "DowagerMod_Sol_Home_Screen.dds"
+SOURCE_TEXTURE = ART / "Duomo3.dds"
+TARGET_TEXTURE = ART / "SolBG3.dds"
 SOURCE_NIF = ART / "CIV4MainMenuBG.nif"
-TARGET_NIF = ART / "CIV4MainMenuBGDowager.nif"
+TARGET_NIF = ART / "CIV4MainMenuBGSol.nif"
 
 GOLD = (224, 184, 91, 255)
 LIGHT_GOLD = (247, 224, 157, 255)
@@ -39,7 +39,6 @@ def centered_text(
     font: ImageFont.FreeTypeFont,
     fill: tuple[int, int, int, int],
     stroke_width: int = 0,
-    stroke_fill: tuple[int, int, int, int] | None = None,
 ) -> None:
     left, top, right, bottom = box
     bounds = draw.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
@@ -54,29 +53,25 @@ def centered_text(
         font=font,
         fill=fill,
         stroke_width=stroke_width,
-        stroke_fill=stroke_fill,
+        stroke_fill=(31, 17, 8, 255),
     )
 
 
-def draw_sol_badge(
-    layer: Image.Image,
-    center: tuple[int, int],
-    radius: int,
-) -> None:
+def draw_sol_badge(layer: Image.Image) -> None:
     draw = ImageDraw.Draw(layer)
-    cx, cy = center
+    cx, cy, radius = 666, 518, 29
     for index in range(24):
-        radians = math.radians(index * 15)
+        angle = math.radians(index * 15)
         inner = radius + (4 if index % 2 else 2)
-        outer = radius + (12 if index % 2 else 18)
+        outer = radius + (13 if index % 2 else 19)
         draw.line(
             (
-                cx + math.cos(radians) * inner,
-                cy + math.sin(radians) * inner,
-                cx + math.cos(radians) * outer,
-                cy + math.sin(radians) * outer,
+                cx + math.cos(angle) * inner,
+                cy + math.sin(angle) * inner,
+                cx + math.cos(angle) * outer,
+                cy + math.sin(angle) * outer,
             ),
-            fill=(208, 160, 67, 220),
+            fill=(208, 160, 67, 225),
             width=2 if index % 2 else 4,
         )
     draw.ellipse(
@@ -97,61 +92,60 @@ def draw_sol_badge(
         ImageFont.truetype(str(FONT_BOLD), 19),
         LIGHT_GOLD,
         stroke_width=1,
-        stroke_fill=(47, 27, 11, 255),
     )
 
 
 def build_texture() -> None:
-    image = Image.open(SOURCE_TEXTURE).convert("RGBA")
-    overlay = Image.new("RGBA", image.size, (0, 0, 0, 0))
+    foreground = Image.open(SOURCE_TEXTURE).convert("RGBA")
+    foreground = foreground.crop((0, 0, 1024, 1024))
+    overlay = Image.new("RGBA", foreground.size, (0, 0, 0, 0))
 
-    shadow = Image.new("RGBA", image.size, (0, 0, 0, 0))
+    shadow = Image.new("RGBA", foreground.size, (0, 0, 0, 0))
     ImageDraw.Draw(shadow).rounded_rectangle(
-        (493, 378, 972, 479),
-        radius=16,
-        fill=(0, 0, 0, 185),
+        (625, 475, 933, 579),
+        radius=17,
+        fill=(0, 0, 0, 190),
     )
     overlay.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(7)))
 
     draw = ImageDraw.Draw(overlay)
     draw.rounded_rectangle(
-        (486, 370, 965, 471),
-        radius=16,
-        fill=(27, 19, 13, 225),
+        (617, 466, 925, 570),
+        radius=17,
+        fill=(27, 19, 13, 238),
         outline=GOLD,
         width=3,
     )
     draw.rounded_rectangle(
-        (493, 377, 958, 464),
-        radius=11,
-        outline=(133, 88, 28, 225),
+        (624, 473, 918, 563),
+        radius=12,
+        outline=(133, 88, 28, 235),
         width=2,
     )
-    draw_sol_badge(overlay, (535, 421), 28)
+    draw_sol_badge(overlay)
     draw = ImageDraw.Draw(overlay)
     centered_text(
         draw,
-        (590, 383, 943, 425),
-        "DOWAGERMOD",
-        ImageFont.truetype(str(FONT_BOLD), 32),
+        (716, 482, 905, 524),
+        "THE SOL PATCH",
+        ImageFont.truetype(str(FONT_BOLD), 23),
         LIGHT_GOLD,
         stroke_width=1,
-        stroke_fill=(24, 12, 6, 255),
     )
-    draw.line((610, 426, 923, 426), fill=GOLD, width=2)
+    draw.line((730, 526, 891, 526), fill=GOLD, width=2)
     centered_text(
         draw,
-        (590, 430, 943, 458),
-        "THE SOL PATCH",
-        ImageFont.truetype(str(FONT_REGULAR), 20),
+        (716, 531, 905, 555),
+        "DOWAGERMOD 2026",
+        ImageFont.truetype(str(FONT_REGULAR), 15),
         (235, 211, 153, 255),
     )
-    Image.alpha_composite(image, overlay).save(TARGET_TEXTURE, pixel_format="DXT3")
+    Image.alpha_composite(foreground, overlay).save(TARGET_TEXTURE)
 
 
 def build_scene() -> None:
-    source_name = b"Beyond_The_Sword_Main_Menu.dds"
-    target_name = b"DowagerMod_Sol_Home_Screen.dds"
+    source_name = b"Duomo3.dds"
+    target_name = b"SolBG3.dds"
     scene = SOURCE_NIF.read_bytes()
     if len(source_name) != len(target_name) or scene.count(source_name) != 1:
         raise RuntimeError("NIF texture reference cannot be replaced safely")
@@ -160,28 +154,19 @@ def build_scene() -> None:
 
 def write_previews(preview_dir: Path) -> None:
     preview_dir.mkdir(parents=True, exist_ok=True)
-    decoded = Image.open(TARGET_TEXTURE).convert("RGBA")
-    decoded.save(preview_dir / "DowagerMod_Sol_Home_Screen.png")
+    foreground = Image.open(TARGET_TEXTURE).convert("RGBA")
+    foreground.save(preview_dir / "Classical_Main_Menu_Sol_foreground_preview.png")
 
-    checker = Image.new("RGBA", decoded.size, (0, 0, 0, 255))
-    draw = ImageDraw.Draw(checker)
-    for y in range(0, 1024, 64):
-        for x in range(0, 1024, 64):
-            color = (
-                (45, 45, 45, 255)
-                if (x // 64 + y // 64) % 2
-                else (85, 85, 85, 255)
-            )
-            draw.rectangle((x, y, x + 63, y + 63), fill=color)
-    checker.alpha_composite(decoded)
-    checker.convert("RGB").save(
-        preview_dir / "DowagerMod_Sol_Home_Screen_checker.png"
+    sky = Image.open(ART / "Sky.dds").convert("RGBA")
+    sky = sky.resize(foreground.size, Image.Resampling.LANCZOS)
+    Image.alpha_composite(sky, foreground).convert("RGB").save(
+        preview_dir / "Classical_Main_Menu_Sol_composite_preview.png"
     )
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Build the dedicated DowagerMod Sol Patch home scene."
+        description="Build the Sol Patch variant of the customized home scene."
     )
     parser.add_argument(
         "--preview-dir",
