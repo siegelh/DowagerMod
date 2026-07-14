@@ -84,7 +84,7 @@ class BatchTraitsLeadersTests(unittest.TestCase):
         self.assertEqual(set(building_commerce), {"BUILDINGCLASS_COURTHOUSE", "BUILDINGCLASS_BANK"})
         self.assertEqual(
             values(building_commerce["BUILDINGCLASS_COURTHOUSE"], "BuildingCommerces", "iCommerce"),
-            [0, 0, 0, 2],
+            [0, 0, 1, 2],
         )
         self.assertEqual(
             values(building_commerce["BUILDINGCLASS_BANK"], "BuildingCommerces", "iCommerce"),
@@ -215,7 +215,11 @@ class BatchTraitsLeadersTests(unittest.TestCase):
         buildings = keyed_entries(trait, "BuildingCommerceChanges", "BuildingClassType")
         self.assertEqual(
             set(buildings),
-            {"BUILDINGCLASS_LIBRARY", "BUILDINGCLASS_UNIVERSITY"},
+            {
+                "BUILDINGCLASS_LIBRARY",
+                "BUILDINGCLASS_UNIVERSITY",
+                "BUILDINGCLASS_HARBOR",
+            },
         )
         self.assertEqual(
             values(buildings["BUILDINGCLASS_LIBRARY"], "BuildingCommerces", "iCommerce"),
@@ -224,6 +228,10 @@ class BatchTraitsLeadersTests(unittest.TestCase):
         self.assertEqual(
             values(buildings["BUILDINGCLASS_UNIVERSITY"], "BuildingCommerces", "iCommerce"),
             [0, 3, 1, 0],
+        )
+        self.assertEqual(
+            values(buildings["BUILDINGCLASS_HARBOR"], "BuildingCommerces", "iCommerce"),
+            [0, 1, 0, 0],
         )
 
         specialists = keyed_entries(trait, "SpecialistCommerceChanges", "SpecialistType")

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import subprocess
 import unittest
 import xml.etree.ElementTree as ET
@@ -22,6 +23,40 @@ CORPORATIONS = f"{XML_ROOT}/GameInfo/CIV4CorporationInfo.xml"
 BUILDS = f"{XML_ROOT}/Units/CIV4BuildInfos.xml"
 UNITS = f"{XML_ROOT}/Units/CIV4UnitInfos.xml"
 IMPROVEMENTS = f"{XML_ROOT}/Terrain/CIV4ImprovementInfos.xml"
+SIGNATURE_MANIFEST = {
+    row["trait"]: row
+    for row in json.loads(
+        (ROOT / "tools/manifests/additive_signature_manifest.json").read_text(
+            encoding="utf-8"
+        )
+    )
+}
+UNIQUE_COLOR_CIVS = {
+    "CIVILIZATION_AMERICA_FOUNDING_REPUBLIC",
+    "CIVILIZATION_AMERICA_NEW_DEAL",
+    "CIVILIZATION_AMERICA_FEDERAL",
+    "CIVILIZATION_FRANCE_BOURBON",
+    "CIVILIZATION_FRANCE_FIRST_EMPIRE",
+    "CIVILIZATION_MAURYA",
+    "CIVILIZATION_POLAND",
+    "CIVILIZATION_POLYNESIA_BTG",
+    "CIVILIZATION_APACHE_CONFEDERACY",
+    "CIVILIZATION_PETRINE_RUSSIA",
+    "CIVILIZATION_IMPERIAL_RUSSIA",
+    "CIVILIZATION_MACEDONIAN_EMPIRE",
+    "CIVILIZATION_ATHENIAN_GREECE",
+    "CIVILIZATION_ELIZABETHAN_ENGLAND",
+    "CIVILIZATION_VICTORIAN_BRITAIN",
+    "CIVILIZATION_WARTIME_BRITAIN",
+    "CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID",
+    "CIVILIZATION_EGYPT_NEW_KINGDOM",
+    "CIVILIZATION_OTTOMAN_CLASSICAL",
+    "CIVILIZATION_ETHIOPIA_IMPERIAL",
+    "CIVILIZATION_ICENI_BRITAIN",
+    "CIVILIZATION_YUAN_DYNASTY",
+    "CIVILIZATION_ROMAN_PRINCIPATE",
+    "CIVILIZATION_GERMAN_EMPIRE",
+}
 
 
 def local_name(tag: str) -> str:
@@ -125,10 +160,80 @@ class AdditiveRosterExactContractTests(unittest.TestCase):
     def pair(
         self, repo_path: str, entry_name: str, type_name: str
     ) -> tuple[ET.Element, ET.Element]:
-        return (
-            self.node("current", repo_path, entry_name, type_name),
-            self.node("baseline", repo_path, entry_name, type_name),
+        current = self.node("current", repo_path, entry_name, type_name)
+        baseline = self.node("baseline", repo_path, entry_name, type_name)
+        if repo_path == TRAITS and type_name in SIGNATURE_MANIFEST:
+            self.normalize_signature_addition(
+                current, baseline, SIGNATURE_MANIFEST[type_name]
+            )
+        if repo_path == CIVILIZATIONS and type_name in UNIQUE_COLOR_CIVS:
+            child(current, "DefaultPlayerColor").text = child(
+                baseline, "DefaultPlayerColor"
+            ).text
+        return current, baseline
+
+    def normalize_signature_addition(
+        self,
+        current: ET.Element,
+        baseline: ET.Element,
+        row: dict,
+    ) -> None:
+        container_name = (
+            "BuildingCommerceChanges"
+            if row["channel"] == "commerce"
+            else "BuildingYieldChanges"
         )
+        entry_name = (
+            "BuildingCommerceChange"
+            if row["channel"] == "commerce"
+            else "BuildingYieldChange"
+        )
+        vector_name = (
+            "BuildingCommerces"
+            if row["channel"] == "commerce"
+            else "BuildingYields"
+        )
+        item_name = (
+            "iCommerce" if row["channel"] == "commerce" else "iYield"
+        )
+        current_container = child(current, container_name)
+        matches = [
+            item for item in current_container
+            if local_name(item.tag) == entry_name
+            and text(item, "BuildingClassType") == row["building_class"]
+        ]
+        self.assertEqual(len(matches), 1)
+        current_entry = matches[0]
+
+        baseline_containers = direct_children(baseline, container_name)
+        baseline_matches = []
+        if baseline_containers:
+            baseline_matches = [
+                item for item in baseline_containers[0]
+                if local_name(item.tag) == entry_name
+                and text(item, "BuildingClassType")
+                == row["building_class"]
+            ]
+        if baseline_matches:
+            current_values = direct_children(
+                child(current_entry, vector_name), item_name
+            )
+            baseline_values = direct_children(
+                child(baseline_matches[0], vector_name), item_name
+            )
+            self.assertEqual(len(current_values), len(row["delta"]))
+            for item, baseline_item, delta in zip(
+                current_values, baseline_values, row["delta"]
+            ):
+                self.assertEqual(
+                    int((item.text or "0").strip()),
+                    int((baseline_item.text or "0").strip()) + delta,
+                )
+                item.text = baseline_item.text
+        else:
+            current_container.remove(current_entry)
+            if not list(current_container) and not baseline_containers:
+                current.remove(current_container)
 
     def assert_node_equal(
         self,

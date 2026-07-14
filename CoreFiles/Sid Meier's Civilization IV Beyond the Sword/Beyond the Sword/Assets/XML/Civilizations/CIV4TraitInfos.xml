@@ -356,12 +356,7 @@
 			<BuildingCommerceChanges>
 				<BuildingCommerceChange>
 					<BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType>
-					<BuildingCommerces>
-						<iCommerce>0</iCommerce>
-						<iCommerce>0</iCommerce>
-						<iCommerce>0</iCommerce>
-						<iCommerce>2</iCommerce>
-					</BuildingCommerces>
+					<BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>2</iCommerce></BuildingCommerces>
 				</BuildingCommerceChange>
 				<BuildingCommerceChange>
 					<BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
@@ -429,7 +424,7 @@
   <Type>TRAIT_ROOSEVELT</Type><Description>TXT_KEY_TRAIT_ROOSEVELT</Description><ShortDescription>TXT_KEY_TRAIT_ROOSEVELT_SHORT</ShortDescription><Help>TXT_KEY_TRAIT_ROOSEVELT_HELP</Help>
   <iHealth>0</iHealth><iHappiness>0</iHappiness><iMaxAnarchy>-1</iMaxAnarchy><iUpkeepModifier>0</iUpkeepModifier><iLevelExperienceModifier>0</iLevelExperienceModifier><iGreatPeopleRateModifier>0</iGreatPeopleRateModifier><iGreatGeneralRateModifier>0</iGreatGeneralRateModifier><iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier><iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier><iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier><iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
   <ExtraYieldThresholds><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>4</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold></ExtraYieldThresholds><TradeYieldModifiers><iYield>0</iYield><iYield>200</iYield><iYield>-300</iYield></TradeYieldModifiers><CommerceChanges><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceChanges><CommerceModifiers><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceModifiers>
-  <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges/><BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><SpecialistYieldChanges><SpecialistYieldChange><SpecialistType>SPECIALIST_ENGINEER</SpecialistType><SpecialistYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></SpecialistYields></SpecialistYieldChange></SpecialistYieldChanges><SpecialistCommerceChanges/><BonusYieldChanges/><RouteYieldChanges/><FreePromotions/><FreePromotionUnitCombats/>
+  <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_SUPERMARKET</BuildingClassType><BuildingYields><iYield>1</iYield><iYield>0</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><SpecialistYieldChanges><SpecialistYieldChange><SpecialistType>SPECIALIST_ENGINEER</SpecialistType><SpecialistYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></SpecialistYields></SpecialistYieldChange></SpecialistYieldChanges><SpecialistCommerceChanges/><BonusYieldChanges/><RouteYieldChanges/><FreePromotions/><FreePromotionUnitCombats/>
 </TraitInfo>
 	<TraitInfo>
   <Type>TRAIT_MAO_MASS_LINE</Type>
@@ -498,7 +493,7 @@
   </ImprovementCityCommerceChangesWorked>
   <ImprovementCityCommerceChangesBFC />
   <BuildingYieldChanges />
-  <BuildingCommerceChanges />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <SpecialistYieldChanges />
   <SpecialistCommerceChanges>
     <SpecialistCommerceChange>
@@ -553,7 +548,7 @@
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
 
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_ORANGE</Type>
@@ -592,7 +587,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_LIGHTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_PARANOID</Type>
@@ -721,7 +716,7 @@
         <iYield>0</iYield>
       </BuildingYields>
     </BuildingYieldChange>
-  </BuildingYieldChanges>
+  <BuildingYieldChange><BuildingClassType>BUILDINGCLASS_STABLE</BuildingClassType><BuildingYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges>
   <BuildingCommerceChanges>
     <BuildingCommerceChange>
       <BuildingClassType>BUILDINGCLASS_CASTLE</BuildingClassType>
@@ -845,7 +840,7 @@
       </BuildingYields>
     </BuildingYieldChange>
   </BuildingYieldChanges>
-<FreePromotions />
+<BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_LABORATORY</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
 <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_WANGKON</Type>
@@ -884,7 +879,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_GRANDE_ARMEE</Type>
@@ -911,7 +906,7 @@
   <ImprovementFeatureYieldChanges />
   <ImprovementCityCommerceChangesWorked />
   <ImprovementCityCommerceChangesBFC />
-  <BuildingYieldChanges></BuildingYieldChanges>
+  <BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges>
   <BuildingCommerceChanges></BuildingCommerceChanges>
   <SpecialistYieldChanges></SpecialistYieldChanges>
   <SpecialistCommerceChanges></SpecialistCommerceChanges>
@@ -962,7 +957,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_CUSTOM_HOUSE</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_JOAO</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -1011,7 +1006,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType><BuildingYields><iYield>1</iYield><iYield>0</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_CATHERINE</Type>
@@ -1050,7 +1045,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_DE_GAULLE</Type>
@@ -1089,7 +1084,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_HUAYNA_CAPAC</Type>
@@ -1129,7 +1124,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType><BuildingYields><iYield>1</iYield><iYield>0</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_HUAYNA_CAPAC</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -1182,7 +1177,7 @@
       <BuildingClassType>BUILDINGCLASS_FORGE</BuildingClassType>
       <BuildingYields><iYield>0</iYield><iYield>2</iYield><iYield>0</iYield></BuildingYields>
     </BuildingYieldChange></BuildingYieldChanges>
-  <BuildingCommerceChanges></BuildingCommerceChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_OBSERVATORY</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <SpecialistYieldChanges><SpecialistYieldChange>
       <SpecialistType>SPECIALIST_ARTIST</SpecialistType>
       <SpecialistYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></SpecialistYields>
@@ -1232,7 +1227,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_THEATRE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_CITY_GARRISON1</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -1293,7 +1288,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_BOUDICA</Type>
@@ -1332,7 +1327,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-	<FreePromotions>
+	<BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_GRANARY</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions>
 		<FreePromotion>
 			<PromotionType>PROMOTION_SHOCK</PromotionType>
 			<bFreePromotion>1</bFreePromotion>
@@ -1355,7 +1350,7 @@
   <iMaxGlobalBuildingProductionModifier>10</iMaxGlobalBuildingProductionModifier><iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier><iMaxPlayerBuildingProductionModifier>15</iMaxPlayerBuildingProductionModifier>
   <ExtraYieldThresholds><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold></ExtraYieldThresholds>
   <TradeYieldModifiers><iYield>0</iYield><iYield>0</iYield><iYield>0</iYield></TradeYieldModifiers><CommerceChanges><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceChanges><CommerceModifiers><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceModifiers>
-  <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges/><BuildingCommerceChanges/>
+  <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges/><BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <SpecialistYieldChanges><SpecialistYieldChange><SpecialistType>SPECIALIST_ENGINEER</SpecialistType><SpecialistYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></SpecialistYields></SpecialistYieldChange></SpecialistYieldChanges>
   <SpecialistCommerceChanges><SpecialistCommerceChange><SpecialistType>SPECIALIST_ENGINEER</SpecialistType><SpecialistCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></SpecialistCommerces></SpecialistCommerceChange></SpecialistCommerceChanges><BonusYieldChanges/><RouteYieldChanges/>
   <FreePromotions><FreePromotion><PromotionType>PROMOTION_FLANKING1</PromotionType><bFreePromotion>1</bFreePromotion></FreePromotion></FreePromotions>
@@ -1397,7 +1392,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType><BuildingYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_COMBAT1</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -1499,7 +1494,7 @@
         <iCommerce>0</iCommerce>
       </BuildingCommerces>
     </BuildingCommerceChange>
-  </BuildingCommerceChanges>
+  <BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COLOSSEUM</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
@@ -1539,7 +1534,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_MONTEZUMA</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -1564,7 +1559,7 @@
   <Type>TRAIT_LINCOLN</Type><Description>TXT_KEY_TRAIT_LINCOLN</Description><ShortDescription>TXT_KEY_TRAIT_LINCOLN_SHORT</ShortDescription><Help>TXT_KEY_TRAIT_LINCOLN_HELP</Help>
   <iHealth>0</iHealth><iHappiness>0</iHappiness><iMaxAnarchy>-1</iMaxAnarchy><iUpkeepModifier>0</iUpkeepModifier><iLevelExperienceModifier>0</iLevelExperienceModifier><iGreatPeopleRateModifier>0</iGreatPeopleRateModifier><iGreatGeneralRateModifier>0</iGreatGeneralRateModifier><iDomesticGreatGeneralRateModifier>50</iDomesticGreatGeneralRateModifier><iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier><iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier><iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
   <ExtraYieldThresholds><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold></ExtraYieldThresholds><TradeYieldModifiers><iYield>0</iYield><iYield>0</iYield><iYield>0</iYield></TradeYieldModifiers><CommerceChanges><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceChanges><CommerceModifiers><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceModifiers>
-  <ImprovementYieldChanges><ImprovementYieldChange><ImprovementType>IMPROVEMENT_FARM</ImprovementType><ImprovementYields><iYield>0</iYield><iYield>0</iYield><iYield>1</iYield></ImprovementYields></ImprovementYieldChange></ImprovementYieldChanges><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges/><BuildingCommerceChanges/><SpecialistYieldChanges/><SpecialistCommerceChanges><SpecialistCommerceChange><SpecialistType>SPECIALIST_SCIENTIST</SpecialistType><SpecialistCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></SpecialistCommerces></SpecialistCommerceChange></SpecialistCommerceChanges><BonusYieldChanges/><RouteYieldChanges><RouteYieldChange><RouteType>ROUTE_RAILROAD</RouteType><RouteYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></RouteYields></RouteYieldChange></RouteYieldChanges><FreePromotions/><FreePromotionUnitCombats/>
+  <ImprovementYieldChanges><ImprovementYieldChange><ImprovementType>IMPROVEMENT_FARM</ImprovementType><ImprovementYields><iYield>0</iYield><iYield>0</iYield><iYield>1</iYield></ImprovementYields></ImprovementYieldChange></ImprovementYieldChanges><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType><BuildingYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><BuildingCommerceChanges/><SpecialistYieldChanges/><SpecialistCommerceChanges><SpecialistCommerceChange><SpecialistType>SPECIALIST_SCIENTIST</SpecialistType><SpecialistCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></SpecialistCommerces></SpecialistCommerceChange></SpecialistCommerceChanges><BonusYieldChanges/><RouteYieldChanges><RouteYieldChange><RouteType>ROUTE_RAILROAD</RouteType><RouteYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></RouteYields></RouteYieldChange></RouteYieldChanges><FreePromotions/><FreePromotionUnitCombats/>
 </TraitInfo><TraitInfo>
   <Type>TRAIT_CHARLEMAGNE</Type>
   <Description>TXT_KEY_TRAIT_CHARLEMAGNE</Description>
@@ -1593,7 +1588,7 @@
   <BuildingYieldChanges></BuildingYieldChanges>
   <BuildingCommerceChanges><BuildingCommerceChange>
       <BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
-      <BuildingCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces>
+      <BuildingCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces>
     </BuildingCommerceChange></BuildingCommerceChanges>
   <SpecialistYieldChanges></SpecialistYieldChanges>
   <SpecialistCommerceChanges><SpecialistCommerceChange>
@@ -1641,7 +1636,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <SpecialistCommerceChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_SCOTLAND_YARD</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><SpecialistCommerceChanges>
     <SpecialistCommerceChange>
       <SpecialistType>SPECIALIST_SPY</SpecialistType>
       <SpecialistCommerces>
@@ -1716,12 +1711,7 @@
   <BuildingCommerceChanges>
     <BuildingCommerceChange>
       <BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType>
-      <BuildingCommerces>
-        <iCommerce>0</iCommerce>
-        <iCommerce>0</iCommerce>
-        <iCommerce>1</iCommerce>
-        <iCommerce>0</iCommerce>
-      </BuildingCommerces>
+      <BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces>
     </BuildingCommerceChange>
   </BuildingCommerceChanges>
   <FreePromotions>
@@ -1773,7 +1763,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <SpecialistCommerceChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><SpecialistCommerceChanges>
     <SpecialistCommerceChange>
       <SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
       <SpecialistCommerces>
@@ -1833,7 +1823,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_FREDERICK</Type>
@@ -1861,7 +1851,7 @@
   <ImprovementCityCommerceChangesWorked />
   <ImprovementCityCommerceChangesBFC />
   <BuildingYieldChanges></BuildingYieldChanges>
-  <BuildingCommerceChanges></BuildingCommerceChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <SpecialistYieldChanges></SpecialistYieldChanges>
   <SpecialistCommerceChanges></SpecialistCommerceChanges>
   <BonusYieldChanges />
@@ -1881,7 +1871,7 @@
   <CommerceChanges><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceChanges>
   <CommerceModifiers><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceModifiers>
   <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/>
-  <BuildingYieldChanges/><BuildingCommerceChanges/><SpecialistYieldChanges/>
+  <BuildingYieldChanges/><BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><SpecialistYieldChanges/>
   <SpecialistCommerceChanges><SpecialistCommerceChange><SpecialistType>SPECIALIST_MERCHANT</SpecialistType><SpecialistCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></SpecialistCommerces></SpecialistCommerceChange></SpecialistCommerceChanges>
   <BonusYieldChanges><BonusYieldChange><BonusType>BONUS_GOLD</BonusType><BonusYields><iYield>0</iYield><iYield>0</iYield><iYield>1</iYield></BonusYields></BonusYieldChange></BonusYieldChanges>
   <RouteYieldChanges><RouteYieldChange><RouteType>ROUTE_ROAD</RouteType><RouteYields><iYield>0</iYield><iYield>0</iYield><iYield>1</iYield></RouteYields></RouteYieldChange></RouteYieldChanges>
@@ -1923,7 +1913,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <BonusYieldChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_HARBOR</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><BonusYieldChanges>
     <BonusYieldChange>
       <BonusType>BONUS_IVORY</BonusType>
       <BonusYields>
@@ -1972,7 +1962,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_JAIL</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_GILGAMESH</Type>
@@ -2032,7 +2022,7 @@
       </BuildingYields>
     </BuildingYieldChange>
   </BuildingYieldChanges>
-			<FreePromotions>
+			<BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions>
 				<FreePromotion>
 					<PromotionType>PROMOTION_CITY_GARRISON1</PromotionType>
 					<bFreePromotion>1</bFreePromotion>
@@ -2089,7 +2079,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_KUBLAI</Type>
@@ -2128,7 +2118,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <RouteYieldChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_STABLE</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><RouteYieldChanges>
     <RouteYieldChange>
       <RouteType>ROUTE_ROAD</RouteType>
       <RouteYields>
@@ -2185,7 +2175,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType><BuildingYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_MARCH</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -2270,7 +2260,7 @@
   </ImprovementCityCommerceChangesWorked>
   <ImprovementCityCommerceChangesBFC />
 
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_ISABELLA</Type>
@@ -2309,7 +2299,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_CASTLE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_MORALE</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -2362,7 +2352,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_LIGHTHOUSE</BuildingClassType><BuildingYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_PILLAGE1</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -2415,7 +2405,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <SpecialistCommerceChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><SpecialistCommerceChanges>
     <SpecialistCommerceChange>
       <SpecialistType>SPECIALIST_PRIEST</SpecialistType>
       <SpecialistCommerces>
@@ -2479,7 +2469,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType><BuildingYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_PACAL</Type>
@@ -2518,7 +2508,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COLOSSEUM</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_PETER</Type>
@@ -2583,7 +2573,7 @@
         <iCommerce>0</iCommerce>
       </BuildingCommerces>
     </BuildingCommerceChange>
-  </BuildingCommerceChanges>
+  <BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_HARBOR</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <SpecialistYieldChanges />
   <SpecialistCommerceChanges>
     <SpecialistCommerceChange>
@@ -2637,7 +2627,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_CASIMIR</Type>
@@ -2676,7 +2666,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_CASTLE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_DANDOLO</Type>
@@ -2715,13 +2705,13 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_SELASSIE</Type><Description>TXT_KEY_TRAIT_SELASSIE_DIVERSITY</Description><ShortDescription>TXT_KEY_TRAIT_SELASSIE_DIVERSITY_SHORT</ShortDescription><Help>TXT_KEY_TRAIT_SELASSIE_HELP</Help>
   <iHealth>0</iHealth><iHappiness>1</iHappiness><iMaxAnarchy>-1</iMaxAnarchy><iUpkeepModifier>-10</iUpkeepModifier><iLevelExperienceModifier>0</iLevelExperienceModifier><iGreatPeopleRateModifier>10</iGreatPeopleRateModifier><iGreatGeneralRateModifier>0</iGreatGeneralRateModifier><iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier><iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier><iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier><iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
   <ExtraYieldThresholds><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold></ExtraYieldThresholds><TradeYieldModifiers><iYield>0</iYield><iYield>0</iYield><iYield>0</iYield></TradeYieldModifiers><CommerceChanges><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceChanges><CommerceModifiers><iCommerce>0</iCommerce><iCommerce>10</iCommerce><iCommerce>0</iCommerce><iCommerce>15</iCommerce></CommerceModifiers>
-  <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges/><BuildingCommerceChanges/>
+  <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges/><BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <SpecialistYieldChanges><SpecialistYieldChange><SpecialistType>SPECIALIST_ENGINEER</SpecialistType><SpecialistYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></SpecialistYields></SpecialistYieldChange></SpecialistYieldChanges>
   <SpecialistCommerceChanges><SpecialistCommerceChange><SpecialistType>SPECIALIST_SPY</SpecialistType><SpecialistCommerces><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></SpecialistCommerces></SpecialistCommerceChange></SpecialistCommerceChanges><BonusYieldChanges/><RouteYieldChanges/>
   <FreePromotions><FreePromotion><PromotionType>PROMOTION_GUERILLA1</PromotionType><bFreePromotion>1</bFreePromotion></FreePromotion></FreePromotions><FreePromotionUnitCombats><FreePromotionUnitCombat><UnitCombatType>UNITCOMBAT_GUN</UnitCombatType><bFreePromotionUnitCombat>1</bFreePromotionUnitCombat></FreePromotionUnitCombat></FreePromotionUnitCombats>
@@ -2762,7 +2752,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_NAVIGATION1</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -2812,7 +2802,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType><BuildingYields><iYield>1</iYield><iYield>0</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_COMBAT1</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -2866,7 +2856,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_SALADIN</Type>
@@ -2905,7 +2895,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <SpecialistCommerceChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><SpecialistCommerceChanges>
     <SpecialistCommerceChange>
       <SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
       <SpecialistCommerces>
@@ -2973,7 +2963,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingYieldChanges><BuildingYieldChange><BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType><BuildingYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></BuildingYields></BuildingYieldChange></BuildingYieldChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_PINCH</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -3040,7 +3030,7 @@
         <iCommerce>0</iCommerce>
       </BuildingCommerces>
     </BuildingCommerceChange>
-  </BuildingCommerceChanges>
+  <BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_AQUEDUCT</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <RouteYieldChanges>
     <RouteYieldChange>
       <RouteType>ROUTE_ROAD</RouteType>
@@ -3090,7 +3080,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions />
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_AQUEDUCT</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo><TraitInfo>
   <Type>TRAIT_TOKUGAWA</Type>
@@ -3129,7 +3119,7 @@
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceModifiers>
-  <FreePromotions>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><FreePromotions>
     <FreePromotion>
       <PromotionType>PROMOTION_COMBAT1</PromotionType>
       <bFreePromotion>1</bFreePromotion>
@@ -3188,7 +3178,7 @@
     </BuildingYieldChange></BuildingYieldChanges>
   <BuildingCommerceChanges><BuildingCommerceChange>
       <BuildingClassType>BUILDINGCLASS_BANK</BuildingClassType>
-      <BuildingCommerces><iCommerce>3</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces>
+      <BuildingCommerces><iCommerce>3</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces>
     </BuildingCommerceChange>
     <BuildingCommerceChange>
       <BuildingClassType>BUILDINGCLASS_HARBOR</BuildingClassType>
@@ -3225,7 +3215,7 @@
   <iHealth>0</iHealth><iHappiness>0</iHappiness><iMaxAnarchy>-1</iMaxAnarchy><iUpkeepModifier>0</iUpkeepModifier><iLevelExperienceModifier>0</iLevelExperienceModifier><iGreatPeopleRateModifier>0</iGreatPeopleRateModifier><iGreatGeneralRateModifier>0</iGreatGeneralRateModifier><iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier><iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier><iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier><iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
   <ExtraYieldThresholds><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold></ExtraYieldThresholds><TradeYieldModifiers><iYield>0</iYield><iYield>0</iYield><iYield>0</iYield></TradeYieldModifiers><CommerceChanges><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceChanges><CommerceModifiers><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>15</iCommerce><iCommerce>0</iCommerce></CommerceModifiers>
   <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges/>
-  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_CHRISTIAN_TEMPLE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_OBELISK</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <SpecialistYieldChanges><SpecialistYieldChange><SpecialistType>SPECIALIST_PRIEST</SpecialistType><SpecialistYields><iYield>0</iYield><iYield>1</iYield><iYield>0</iYield></SpecialistYields></SpecialistYieldChange></SpecialistYieldChanges>
   <SpecialistCommerceChanges><SpecialistCommerceChange><SpecialistType>SPECIALIST_PRIEST</SpecialistType><SpecialistCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></SpecialistCommerces></SpecialistCommerceChange></SpecialistCommerceChanges><BonusYieldChanges/><RouteYieldChanges/>
   <FreePromotions/><FreePromotionUnitCombats/>
@@ -3256,7 +3246,7 @@
   <ImprovementCityCommerceChangesWorked />
   <ImprovementCityCommerceChangesBFC />
   <BuildingYieldChanges></BuildingYieldChanges>
-  <BuildingCommerceChanges></BuildingCommerceChanges>
+  <BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_CASTLE</BuildingClassType><BuildingCommerces><iCommerce>1</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges>
   <SpecialistYieldChanges></SpecialistYieldChanges>
   <SpecialistCommerceChanges><SpecialistCommerceChange>
       <SpecialistType>SPECIALIST_ARTIST</SpecialistType>
@@ -3275,7 +3265,7 @@
   <Type>TRAIT_BARCLAY</Type><Description>TXT_KEY_TRAIT_BARCLAY</Description><ShortDescription>TXT_KEY_TRAIT_BARCLAY_SHORT</ShortDescription><Help>TXT_KEY_TRAIT_BARCLAY_HELP</Help>
   <iHealth>0</iHealth><iHappiness>0</iHappiness><iMaxAnarchy>-1</iMaxAnarchy><iUpkeepModifier>-10</iUpkeepModifier><iLevelExperienceModifier>0</iLevelExperienceModifier><iGreatPeopleRateModifier>0</iGreatPeopleRateModifier><iGreatGeneralRateModifier>0</iGreatGeneralRateModifier><iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier><iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier><iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier><iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
   <ExtraYieldThresholds><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold><iExtraYieldThreshold>0</iExtraYieldThreshold></ExtraYieldThresholds><TradeYieldModifiers><iYield>0</iYield><iYield>0</iYield><iYield>0</iYield></TradeYieldModifiers><CommerceChanges><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce></CommerceChanges><CommerceModifiers><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>15</iCommerce></CommerceModifiers>
-  <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges/><BuildingCommerceChanges/><SpecialistYieldChanges/><SpecialistCommerceChanges><SpecialistCommerceChange><SpecialistType>SPECIALIST_SPY</SpecialistType><SpecialistCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce></SpecialistCommerces></SpecialistCommerceChange></SpecialistCommerceChanges><BonusYieldChanges/><RouteYieldChanges/><FreePromotions><FreePromotion><PromotionType>PROMOTION_CITY_GARRISON1</PromotionType><bFreePromotion>1</bFreePromotion></FreePromotion><FreePromotion><PromotionType>PROMOTION_DRILL1</PromotionType><bFreePromotion>1</bFreePromotion></FreePromotion></FreePromotions><FreePromotionUnitCombats><FreePromotionUnitCombat><UnitCombatType>UNITCOMBAT_GUN</UnitCombatType><bFreePromotionUnitCombat>1</bFreePromotionUnitCombat></FreePromotionUnitCombat></FreePromotionUnitCombats>
+  <ImprovementYieldChanges/><ImprovementTerrainYieldChanges/><ImprovementFeatureYieldChanges/><ImprovementCityCommerceChangesWorked/><ImprovementCityCommerceChangesBFC/><BuildingYieldChanges/><BuildingCommerceChanges><BuildingCommerceChange><BuildingClassType>BUILDINGCLASS_COURTHOUSE</BuildingClassType><BuildingCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce></BuildingCommerces></BuildingCommerceChange></BuildingCommerceChanges><SpecialistYieldChanges/><SpecialistCommerceChanges><SpecialistCommerceChange><SpecialistType>SPECIALIST_SPY</SpecialistType><SpecialistCommerces><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce></SpecialistCommerces></SpecialistCommerceChange></SpecialistCommerceChanges><BonusYieldChanges/><RouteYieldChanges/><FreePromotions><FreePromotion><PromotionType>PROMOTION_CITY_GARRISON1</PromotionType><bFreePromotion>1</bFreePromotion></FreePromotion><FreePromotion><PromotionType>PROMOTION_DRILL1</PromotionType><bFreePromotion>1</bFreePromotion></FreePromotion></FreePromotions><FreePromotionUnitCombats><FreePromotionUnitCombat><UnitCombatType>UNITCOMBAT_GUN</UnitCombatType><bFreePromotionUnitCombat>1</bFreePromotionUnitCombat></FreePromotionUnitCombat></FreePromotionUnitCombats>
 </TraitInfo>
 </TraitInfos>
 </Civ4TraitInfos>

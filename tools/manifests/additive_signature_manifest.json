@@ -1,0 +1,757 @@
+[
+  {
+    "trait": "TRAIT_BARCLAY",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "signature": "Federal Bureau",
+    "rationale": "Federal intelligence bureaucracy"
+  },
+  {
+    "trait": "TRAIT_GEORGE_WASHINGTON",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Federal Hall",
+    "rationale": "Republican civic institutions"
+  },
+  {
+    "trait": "TRAIT_ROOSEVELT",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_SUPERMARKET",
+    "delta": [
+      1,
+      0,
+      0
+    ],
+    "signature": "Federal Relief Depot",
+    "rationale": "New Deal food relief"
+  },
+  {
+    "trait": "TRAIT_LINCOLN",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_UNIVERSITY",
+    "delta": [
+      0,
+      1,
+      0
+    ],
+    "signature": "Land Grant College",
+    "rationale": "Land-grant practical industry"
+  },
+  {
+    "trait": "TRAIT_LEADER_GERONIMO",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_BARRACKS",
+    "delta": [
+      1,
+      0,
+      0
+    ],
+    "signature": "Apache War Council",
+    "rationale": "Campaign provisioning"
+  },
+  {
+    "trait": "TRAIT_SALADIN",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_LIBRARY",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Madrassa",
+    "rationale": "Madrasa scholarship and civic culture"
+  },
+  {
+    "trait": "TRAIT_PERICLES",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COLOSSEUM",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Athenian Odeon",
+    "rationale": "Festival culture under naval democracy"
+  },
+  {
+    "trait": "TRAIT_MONTEZUMA",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Sacrificial Altar",
+    "rationale": "Ritual tribute legitimized rule"
+  },
+  {
+    "trait": "TRAIT_HAMMURABI",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "signature": "Babylon Courthouse",
+    "rationale": "Written law and recordkeeping"
+  },
+  {
+    "trait": "TRAIT_DOWAGER_COUNTESS",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_CASTLE",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Country Estate",
+    "rationale": "Estate rents and patronage"
+  },
+  {
+    "trait": "TRAIT_JUSTINIAN",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Corpus Juris",
+    "rationale": "Roman-law revival"
+  },
+  {
+    "trait": "TRAIT_HANNIBAL",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_HARBOR",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Cothon",
+    "rationale": "Carthaginian port revenue"
+  },
+  {
+    "trait": "TRAIT_HATSHEPSUT",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_OBELISK",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Karnak Obelisk",
+    "rationale": "Punt trade funded temple construction"
+  },
+  {
+    "trait": "TRAIT_RAMESSES",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_OBELISK",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Temple of Ramesses",
+    "rationale": "Monumental kingship"
+  },
+  {
+    "trait": "TRAIT_ELIZABETH",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_BANK",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Royal Exchange",
+    "rationale": "Chartered commerce financed sea power"
+  },
+  {
+    "trait": "TRAIT_SELASSIE",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_UNIVERSITY",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Imperial University",
+    "rationale": "Modernizing imperial education"
+  },
+  {
+    "trait": "TRAIT_ZARA",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_OBELISK",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Tabot Shrine",
+    "rationale": "Orthodox cultural consolidation"
+  },
+  {
+    "trait": "TRAIT_LOUIS",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_OBSERVATORY",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Salon",
+    "rationale": "Court science and artistic patronage"
+  },
+  {
+    "trait": "TRAIT_DE_GAULLE",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_BROADCAST_TOWER",
+    "delta": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "signature": "Fifth Republic Broadcast Tower",
+    "rationale": "Resistance communications and intelligence"
+  },
+  {
+    "trait": "TRAIT_GRANDE_ARMEE",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      1,
+      0
+    ],
+    "signature": "Prefecture",
+    "rationale": "Prefectoral mobilization"
+  },
+  {
+    "trait": "TRAIT_BRENNUS",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Nemeton",
+    "rationale": "Druidic civic center"
+  },
+  {
+    "trait": "TRAIT_BISMARCK",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_FACTORY",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Assembly Plant",
+    "rationale": "Industrial export economy"
+  },
+  {
+    "trait": "TRAIT_CHARLEMAGNE",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_LIBRARY",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Scriptorium",
+    "rationale": "Carolingian Renaissance"
+  },
+  {
+    "trait": "TRAIT_BOUDICA",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_GRANARY",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Iceni Hall",
+    "rationale": "Tribal stores and identity"
+  },
+  {
+    "trait": "TRAIT_CATHERINE",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Noble Assembly",
+    "rationale": "Courtly patronage and provincial nobility"
+  },
+  {
+    "trait": "TRAIT_HUAYNA_CAPAC",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_GRANARY",
+    "delta": [
+      1,
+      0,
+      0
+    ],
+    "signature": "Terrace",
+    "rationale": "State-supported terrace agriculture"
+  },
+  {
+    "trait": "TRAIT_GHANDI",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_JAIL",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Mausoleum",
+    "rationale": "Satyagraha memorialization"
+  },
+  {
+    "trait": "TRAIT_TOKUGAWA",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Bakufu Magistracy",
+    "rationale": "Tokugawa fiscal administration"
+  },
+  {
+    "trait": "TRAIT_SURYAVARMAN",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_AQUEDUCT",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Baray",
+    "rationale": "Temple-waterworks civilization"
+  },
+  {
+    "trait": "TRAIT_WANGKON",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_LIBRARY",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Korean Library",
+    "rationale": "Goryeo learning and printing culture"
+  },
+  {
+    "trait": "TRAIT_ALEXANDER",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_BARRACKS",
+    "delta": [
+      0,
+      1,
+      0
+    ],
+    "signature": "Companion Barracks",
+    "rationale": "Combined-arms drill and logistics"
+  },
+  {
+    "trait": "TRAIT_MANSA_MUSA",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_MARKET",
+    "delta": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "signature": "Mali Market",
+    "rationale": "Trans-Saharan wealth funded scholarship"
+  },
+  {
+    "trait": "TRAIT_ASOKA",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_OBELISK",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Mauryan Obelisk",
+    "rationale": "Edicts projected ethical state culture"
+  },
+  {
+    "trait": "TRAIT_PACAL",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COLOSSEUM",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Ball Court",
+    "rationale": "Dynastic ritual spectacle"
+  },
+  {
+    "trait": "TRAIT_GENGHIS_KAHN",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_STABLE",
+    "delta": [
+      0,
+      1,
+      0
+    ],
+    "signature": "Mongol Ger",
+    "rationale": "Horse logistics and remounts"
+  },
+  {
+    "trait": "TRAIT_SITTING_BULL",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_OBELISK",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Totem",
+    "rationale": "Community memory and sovereignty"
+  },
+  {
+    "trait": "TRAIT_ORANGE",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_LIGHTHOUSE",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Orange Lighthouse",
+    "rationale": "Dutch maritime commercial network"
+  },
+  {
+    "trait": "TRAIT_SULEIMAN",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_AQUEDUCT",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Kulliye",
+    "rationale": "Ottoman civic-religious complexes"
+  },
+  {
+    "trait": "TRAIT_MEHMED",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_BARRACKS",
+    "delta": [
+      0,
+      1,
+      0
+    ],
+    "signature": "Devshirme Barracks",
+    "rationale": "Centralized military training"
+  },
+  {
+    "trait": "TRAIT_MAO_MASS_LINE",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "signature": "Danwei Committee",
+    "rationale": "Party-cell surveillance and state capacity"
+  },
+  {
+    "trait": "TRAIT_CYRUS",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_OBELISK",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Pasargadae Decree",
+    "rationale": "Imperial tribute and tolerance"
+  },
+  {
+    "trait": "TRAIT_DARIUS",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Satrapy Archive",
+    "rationale": "Satrapal taxation and accounting"
+  },
+  {
+    "trait": "TRAIT_PETER",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_HARBOR",
+    "delta": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "signature": "Admiralty",
+    "rationale": "Westernized naval science"
+  },
+  {
+    "trait": "TRAIT_CASIMIR",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_CASTLE",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Polish Royal Castle",
+    "rationale": "Royal and urban cultural synthesis"
+  },
+  {
+    "trait": "TRAIT_SALAMASINA_BTG",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_OBELISK",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Marae",
+    "rationale": "Polynesian ceremonial continuity"
+  },
+  {
+    "trait": "TRAIT_JOAO",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_CUSTOM_HOUSE",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Feitoria",
+    "rationale": "Portuguese imperial customs"
+  },
+  {
+    "trait": "TRAIT_FREDERICK",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_LIBRARY",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Prussian Academy",
+    "rationale": "Enlightenment administration and culture"
+  },
+  {
+    "trait": "TRAIT_QIN_SHI_HUANG",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_THEATRE",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Chinese Pavilion",
+    "rationale": "Imperial standardization and court culture"
+  },
+  {
+    "trait": "TRAIT_AUGUSTUS_CAESAR",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_GRANARY",
+    "delta": [
+      1,
+      0,
+      0
+    ],
+    "signature": "Colonia",
+    "rationale": "Veteran settlement and grain security"
+  },
+  {
+    "trait": "TRAIT_JULIUS",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_BARRACKS",
+    "delta": [
+      0,
+      1,
+      0
+    ],
+    "signature": "Castrum",
+    "rationale": "Legionary engineering"
+  },
+  {
+    "trait": "TRAIT_ISABELLA",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_CASTLE",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Spanish Citadel",
+    "rationale": "Confessional frontier culture"
+  },
+  {
+    "trait": "TRAIT_GILGAMESH",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_COURTHOUSE",
+    "delta": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "signature": "Ziggurat",
+    "rationale": "Temple-city administration"
+  },
+  {
+    "trait": "TRAIT_STALIN",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_LABORATORY",
+    "delta": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "signature": "Research Institute",
+    "rationale": "State-directed science"
+  },
+  {
+    "trait": "TRAIT_DANDOLO",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_PALACE",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Doge Palace",
+    "rationale": "Venetian state-commercial revenue"
+  },
+  {
+    "trait": "TRAIT_VICTORIA",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_BANK",
+    "delta": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "signature": "Stock Exchange",
+    "rationale": "Imperial finance and technical investment"
+  },
+  {
+    "trait": "TRAIT_RAGNAR",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_LIGHTHOUSE",
+    "delta": [
+      0,
+      1,
+      0
+    ],
+    "signature": "Viking Trading Post",
+    "rationale": "Coastal shipbuilding economy"
+  },
+  {
+    "trait": "TRAIT_CHURCHILL",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_SCOTLAND_YARD",
+    "delta": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "signature": "MI6",
+    "rationale": "Wartime intelligence coordination"
+  },
+  {
+    "trait": "TRAIT_KUBLAI",
+    "channel": "commerce",
+    "building_class": "BUILDINGCLASS_STABLE",
+    "delta": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "signature": "Ortoo Hub",
+    "rationale": "Relay-post commerce and horse administration"
+  },
+  {
+    "trait": "TRAIT_SHAKA",
+    "channel": "yield",
+    "building_class": "BUILDINGCLASS_BARRACKS",
+    "delta": [
+      0,
+      1,
+      0
+    ],
+    "signature": "Ikhanda",
+    "rationale": "Amabutho regimental organization"
+  }
+]

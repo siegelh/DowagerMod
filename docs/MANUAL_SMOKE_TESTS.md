@@ -77,6 +77,11 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - Confirm no two civilizations use the same territory or minimap color, especially the American, British, French, Russian, Greek, Persian, Egyptian, Ottoman, Ethiopian, Mongol/Yuan, Roman, and German/Prussian package pairs
   - Inspect normal terrain, strategic view, borders in fog, diplomacy colors, scoreboard text, and the minimap; confirm light and dark neighbors remain distinguishable
   - Review the same map with protanopia, deuteranopia, and tritanopia simulation; record any pairs that still read as merged even though their RGB values differ
+- Experimental 59-package additive signatures:
+  - Start a fresh game and inspect every playable leader trait; confirm its one manifest building-class bonus appears in generated help without replacing any existing effect
+  - Exercise representative early, middle, and late signatures across Food, Production, Gold, Research, Culture, and Espionage; confirm the listed normal or unique building receives exactly +1 in the stated channel
+  - Run AI autoplay with a representative military, cultural, scientific, commercial, and growth package; confirm the AI still constructs the affected building class and does not stall
+  - Start the same fresh scenario on two clients with identical assets; construct representative signature buildings and confirm identical city values and no OOS
 - AI Leader Chatter (`Chatter\CvLeaderChatter.py`, sidecar in `tools\chatter\`):
   - SP: start a game with at least 2 AI civs; force a DoW via WorldBuilder; confirm a chat line appears within ~10s
   - If multi-turn fired: confirm follow-up lines arrive ~5-10s after the first
