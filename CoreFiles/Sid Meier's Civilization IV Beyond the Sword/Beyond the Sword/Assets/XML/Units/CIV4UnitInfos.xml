@@ -26809,7 +26809,40 @@
         </UnitAI>
       </UnitAIs>
       <NotUnitAIs />
-      <Builds />
+      <Builds>
+        <Build>
+          <BuildType>BUILD_SACRED_GROVE_NONE_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_SACRED_GROVE_JUDAISM_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_SACRED_GROVE_CHRISTIANITY_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_SACRED_GROVE_ISLAM_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_SACRED_GROVE_HINDUISM_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_SACRED_GROVE_BUDDHISM_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_SACRED_GROVE_CONFUCIANISM_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_SACRED_GROVE_TAOISM_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+      </Builds>
       <ReligionSpreads />
       <CorporationSpreads />
       <GreatPeoples>
@@ -26878,7 +26911,7 @@
       <iAirUnitCap>0</iAirUnitCap>
       <iDropRange>0</iDropRange>
       <iNukeRange>-1</iNukeRange>
-      <iWorkRate>0</iWorkRate>
+      <iWorkRate>1000</iWorkRate>
       <iBaseDiscover>1000</iBaseDiscover>
       <iDiscoverMultiplier>2</iDiscoverMultiplier>
       <iBaseHurry>0</iBaseHurry>
@@ -27283,7 +27316,12 @@
         </UnitAI>
       </UnitAIs>
       <NotUnitAIs />
-      <Builds />
+      <Builds>
+        <Build>
+          <BuildType>BUILD_RESEARCH_CAMPUS_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+      </Builds>
       <ReligionSpreads />
       <CorporationSpreads />
       <GreatPeoples>
@@ -27332,7 +27370,7 @@
       <iAirUnitCap>0</iAirUnitCap>
       <iDropRange>0</iDropRange>
       <iNukeRange>-1</iNukeRange>
-      <iWorkRate>0</iWorkRate>
+      <iWorkRate>1000</iWorkRate>
       <iBaseDiscover>1500</iBaseDiscover>
       <iDiscoverMultiplier>3</iDiscoverMultiplier>
       <iBaseHurry>0</iBaseHurry>
@@ -27501,7 +27539,16 @@
         </UnitAI>
       </UnitAIs>
       <NotUnitAIs />
-      <Builds />
+      <Builds>
+        <Build>
+          <BuildType>BUILD_COMMERCIAL_DISTRICT_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_GRAND_BAZAAR_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+      </Builds>
       <ReligionSpreads />
       <CorporationSpreads />
       <GreatPeoples>
@@ -27566,7 +27613,7 @@
       <iAirUnitCap>0</iAirUnitCap>
       <iDropRange>0</iDropRange>
       <iNukeRange>-1</iNukeRange>
-      <iWorkRate>0</iWorkRate>
+      <iWorkRate>1000</iWorkRate>
       <iBaseDiscover>1000</iBaseDiscover>
       <iDiscoverMultiplier>2</iDiscoverMultiplier>
       <iBaseHurry>0</iBaseHurry>
@@ -27730,6 +27777,14 @@
         </Build>
         <Build>
           <BuildType>BUILD_GRAND_COLOSSEUM_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_COMMERCIAL_DISTRICT_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_GRAND_BAZAAR_BTG</BuildType>
           <bBuild>1</bBuild>
         </Build>
       </Builds>
@@ -28141,7 +28196,16 @@
         </UnitAI>
       </UnitAIs>
       <NotUnitAIs />
-      <Builds />
+      <Builds>
+        <Build>
+          <BuildType>BUILD_INDUSTRIAL_ZONE_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+        <Build>
+          <BuildType>BUILD_NAVAL_FOUNDRY_BTG</BuildType>
+          <bBuild>1</bBuild>
+        </Build>
+      </Builds>
       <ReligionSpreads />
       <CorporationSpreads />
       <GreatPeoples>
@@ -28181,7 +28245,7 @@
       <iAirUnitCap>0</iAirUnitCap>
       <iDropRange>0</iDropRange>
       <iNukeRange>-1</iNukeRange>
-      <iWorkRate>0</iWorkRate>
+      <iWorkRate>1000</iWorkRate>
       <iBaseDiscover>1000</iBaseDiscover>
       <iDiscoverMultiplier>2</iDiscoverMultiplier>
       <iBaseHurry>500</iBaseHurry>

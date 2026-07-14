@@ -9094,6 +9094,16 @@ int CvCity::calculateImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eC
 			continue;
 		}
 
+		// Research Campus (a Great Person landmark) injects Research directly
+		// into the city working it, before normal Research modifiers. It rides
+		// the worked-plot bucket so it refreshes on the same triggers as the
+		// trait/civic improvement commerce below.
+		if (bWorkedOnly && eCommerce == COMMERCE_RESEARCH &&
+			GC.getImprovementInfo(eImprovement).getLandmarkType() == LANDMARK_RESEARCH_CAMPUS)
+		{
+			iTotalChange += pLoopPlot->getLandmarkResearchCampusValue(getOwnerINLINE());
+		}
+
 		for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
 		{
 			if (kPlayer.hasTrait((TraitTypes)iTrait))

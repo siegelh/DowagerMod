@@ -12010,6 +12010,15 @@ m_bWater(false),
 m_bGoody(false),							
 m_bPermanent(false),							
 m_bOutsideBorders(false),
+m_bLandmark(false),
+m_iLandmarkType(NO_LANDMARK_TYPE),
+m_iLandmarkGroup(-1),
+m_iLandmarkMinDistance(0),
+m_bLandmarkRequiresCityAdjacency(false),
+m_bLandmarkNoAdjacentSameGroup(false),
+m_bLandmarkRequiresCoastalLand(false),
+m_bLandmarkStateReligionGated(false),
+m_iLandmarkStateReligion(NO_RELIGION),
 m_iWorldSoundscapeScriptId(0),
 m_piPrereqNatureYield(NULL),
 m_piYieldChange(NULL),
@@ -12120,6 +12129,51 @@ int CvImprovementInfo::getPillageGold() const
 bool CvImprovementInfo::isOutsideBorders() const
 {
 	return m_bOutsideBorders; 
+}
+
+bool CvImprovementInfo::isLandmark() const
+{
+	return m_bLandmark;
+}
+
+int CvImprovementInfo::getLandmarkType() const
+{
+	return m_iLandmarkType;
+}
+
+int CvImprovementInfo::getLandmarkGroup() const
+{
+	return m_iLandmarkGroup;
+}
+
+int CvImprovementInfo::getLandmarkMinDistance() const
+{
+	return m_iLandmarkMinDistance;
+}
+
+bool CvImprovementInfo::isLandmarkRequiresCityAdjacency() const
+{
+	return m_bLandmarkRequiresCityAdjacency;
+}
+
+bool CvImprovementInfo::isLandmarkNoAdjacentSameGroup() const
+{
+	return m_bLandmarkNoAdjacentSameGroup;
+}
+
+bool CvImprovementInfo::isLandmarkRequiresCoastalLand() const
+{
+	return m_bLandmarkRequiresCoastalLand;
+}
+
+bool CvImprovementInfo::isLandmarkStateReligionGated() const
+{
+	return m_bLandmarkStateReligionGated;
+}
+
+int CvImprovementInfo::getLandmarkStateReligion() const
+{
+	return m_iLandmarkStateReligion;
 }
 
 int CvImprovementInfo::getImprovementPillage() const			
@@ -12417,6 +12471,19 @@ void CvImprovementInfo::read(FDataStreamBase* stream)
 	stream->Read(&m_bPermanent);							
 	stream->Read(&m_bOutsideBorders);
 
+	if (uiFlag >= 1)
+	{
+		stream->Read(&m_bLandmark);
+		stream->Read(&m_iLandmarkType);
+		stream->Read(&m_iLandmarkGroup);
+		stream->Read(&m_iLandmarkMinDistance);
+		stream->Read(&m_bLandmarkRequiresCityAdjacency);
+		stream->Read(&m_bLandmarkNoAdjacentSameGroup);
+		stream->Read(&m_bLandmarkRequiresCoastalLand);
+		stream->Read(&m_bLandmarkStateReligionGated);
+		stream->Read(&m_iLandmarkStateReligion);
+	}
+
 	stream->ReadString(m_szArtDefineTag);
 
 	stream->Read(&m_iWorldSoundscapeScriptId);
@@ -12496,7 +12563,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream)
 {
 	CvInfoBase::write(stream);
 
-	uint uiFlag=0;
+	uint uiFlag=1;
 	stream->Write(uiFlag);		// flag for expansion
 
 	stream->Write(m_iAdvancedStartCost);
@@ -12527,6 +12594,16 @@ void CvImprovementInfo::write(FDataStreamBase* stream)
 	stream->Write(m_bGoody);							
 	stream->Write(m_bPermanent);							
 	stream->Write(m_bOutsideBorders);
+
+	stream->Write(m_bLandmark);
+	stream->Write(m_iLandmarkType);
+	stream->Write(m_iLandmarkGroup);
+	stream->Write(m_iLandmarkMinDistance);
+	stream->Write(m_bLandmarkRequiresCityAdjacency);
+	stream->Write(m_bLandmarkNoAdjacentSameGroup);
+	stream->Write(m_bLandmarkRequiresCoastalLand);
+	stream->Write(m_bLandmarkStateReligionGated);
+	stream->Write(m_iLandmarkStateReligion);
 
 	stream->WriteString(m_szArtDefineTag);
 
@@ -12650,6 +12727,27 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iHappiness, "iHappiness");
 	pXML->GetChildXmlValByName(&m_iPillageGold, "iPillageGold");
 	pXML->GetChildXmlValByName(&m_bOutsideBorders, "bOutsideBorders");
+
+	// Great Person landmark support. All neutral-default so stock improvements
+	// that omit these tags keep their exact behavior.
+	pXML->GetChildXmlValByName(&m_bLandmark, "bLandmark", false);
+	pXML->GetChildXmlValByName(&m_iLandmarkType, "iLandmarkType", 0);
+	pXML->GetChildXmlValByName(&m_iLandmarkGroup, "iLandmarkGroup", -1);
+	pXML->GetChildXmlValByName(&m_iLandmarkMinDistance, "iLandmarkMinDistance", 0);
+	pXML->GetChildXmlValByName(&m_bLandmarkRequiresCityAdjacency, "bLandmarkRequiresCityAdjacency", false);
+	pXML->GetChildXmlValByName(&m_bLandmarkNoAdjacentSameGroup, "bLandmarkNoAdjacentSameGroup", false);
+	pXML->GetChildXmlValByName(&m_bLandmarkRequiresCoastalLand, "bLandmarkRequiresCoastalLand", false);
+	pXML->GetChildXmlValByName(&m_bLandmarkStateReligionGated, "bLandmarkStateReligionGated", false);
+	szTextVal.clear();
+	pXML->GetChildXmlValByName(szTextVal, "LandmarkStateReligion");
+	if (szTextVal.GetLength() > 0)
+	{
+		m_iLandmarkStateReligion = pXML->FindInInfoClass(szTextVal);
+	}
+	else
+	{
+		m_iLandmarkStateReligion = NO_RELIGION;
+	}
 
 	pXML->SetVariableListTagPair(&m_pbTerrainMakesValid, "TerrainMakesValids", sizeof(GC.getTerrainInfo((TerrainTypes)0)), GC.getNumTerrainInfos());
 	pXML->SetVariableListTagPair(&m_pbFeatureMakesValid, "FeatureMakesValids", sizeof(GC.getFeatureInfo((FeatureTypes)0)), GC.getNumFeatureInfos());

@@ -45,6 +45,20 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - Run representative AI autoplay for Geronimo, Casimir, Churchill, Peter, Stalin, and Kublai; report observed behavior and any stalls
   - Start the same fresh scenario on two clients with identical assets; confirm the restored/additive values match and no OOS occurs
   - Confirm no new worker action or art appears; Salamasina and Enrico retain only their baseline action surfaces
+- Great Person landmarks (Industrial Zone, Naval Foundry, Research Campus, Commercial District, Grand Bazaar, Sacred Grove):
+  - Start a **fresh game** (new InfoTypes are appended; old saves are not acceptance evidence)
+  - Rendering: build each landmark and confirm its model and build-button render with no pink boxes or missing icons; hover the tile and the build action and confirm the generated help lists the correct adjacency mechanics
+  - Great Engineer: confirm Industrial Zone (flat owned land) shows +3/+2/+1 Production for adjacent owned Watermill/Workshop/Mine or Quarry; Naval Foundry (flat coastal land) shows +2 Production on its tile and grants +1 Production (+2 more on resources) to your water tiles within 2, and confirm two overlapping Foundries do **not** stack the aura
+  - Great Scientist: confirm Research Campus adds base Research to the working city before Research modifiers (+3 on Tundra/Snow; adjacent Peak +3, Jungle +2, Hill +1, Tundra +1, Snow +2 stack, including Jungle Hills and Snow Peaks); verify the number lands in the city's base Research, not slider-split commerce
+  - Great Merchant / Venetian Merchant Prince: confirm Commercial District must border your city center (+6 Commerce) and adds +1/+2/+3/+4 for adjacent owned Cottage/Hamlet/Village/Town, and that two Districts cannot be built adjacent; confirm Grand Bazaar gives +4 per adjacent owned happiness resource and +2 more when connected; confirm both remain slider-dependent
+  - Great Prophet: with each state religion (and none), confirm only the matching Sacred Grove variant is buildable, its art is the expected shrine/Naiku model, adjacent Forest/Jungle gives +1 Food, an owned adjacent Forest Preserve adds +1 Food/+1 Commerce, adjacent water adds +1 Food, and the art stays fixed after a later state-religion change
+  - Spacing: confirm same-type landmarks require plot distance 4, all eight Sacred Grove variants share one spacing group, and Commercial Districts are exempt from distance 4 but cannot be adjacent
+  - Legality: confirm a landmark cannot be placed on a resource tile, outside a workable owned city radius, or over an existing improvement via the AI path
+  - Pillage/ownership: pillage a landmark and confirm it is destroyed completely; flip a plot's owner and confirm owned-only adjacency and the Foundry aura recompute correctly
+  - Venetian preservation: confirm the Merchant Prince still Founds cities, builds Roads and the Grand Colosseum, and performs every prior action; confirm it can also build both Merchant landmarks
+  - AI: run autoplay and confirm Great Engineers/Scientists/Merchants/Prophets place their landmarks on sensible tiles, the empire's first copy of each type is placed at least once, and Venice still expands (Founder safety) while also scoring both Merchant landmarks
+  - Save/reload: save with landmarks placed and reload; confirm yields, city Research, and art persist
+  - MP: start the same fresh scenario on two clients; place landmarks and run AI; confirm identical yields and no OOS
 - AI Leader Chatter (`Chatter\CvLeaderChatter.py`, sidecar in `tools\chatter\`):
   - SP: start a game with at least 2 AI civs; force a DoW via WorldBuilder; confirm a chat line appears within ~10s
   - If multi-turn fired: confirm follow-up lines arrive ~5-10s after the first

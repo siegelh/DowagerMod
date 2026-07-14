@@ -3400,6 +3400,12 @@ void CvUnitAI::AI_prophetMove()
 		return;
 	}
 
+	// Exercise a Sacred Grove once, after the very-high-value shrine construct.
+	if (AI_buildGreatPersonLandmark(true))
+	{
+		return;
+	}
+
 	if (AI_discover(true, true))
 	{
 		return;
@@ -3409,7 +3415,13 @@ void CvUnitAI::AI_prophetMove()
 	{
 		return;
 	}
-	
+
+	// Normal-threshold Sacred Grove: only a strong site beats a Golden Age.
+	if (AI_buildGreatPersonLandmark(false))
+	{
+		return;
+	}
+
 	int iGoldenAgeValue = (GET_PLAYER(getOwnerINLINE()).AI_calculateGoldenAgeValue() / (GET_PLAYER(getOwnerINLINE()).unitsRequiredForGoldenAge()));
 	int iDiscoverValue = std::max(1, getDiscoverResearch(NO_TECH));
 
@@ -3609,6 +3621,18 @@ void CvUnitAI::AI_scientistMove()
 		}
 	}
 
+	// Exercise a Research Campus once, after academy/join options.
+	if (AI_buildGreatPersonLandmark(true))
+	{
+		return;
+	}
+
+	// Normal-threshold Research Campus: only a strong site beats a Golden Age.
+	if (AI_buildGreatPersonLandmark(false))
+	{
+		return;
+	}
+
 	int iGoldenAgeValue = (GET_PLAYER(getOwnerINLINE()).AI_calculateGoldenAgeValue() / (GET_PLAYER(getOwnerINLINE()).unitsRequiredForGoldenAge()));
 	int iDiscoverValue = std::max(1, getDiscoverResearch(NO_TECH));
 
@@ -3791,12 +3815,27 @@ void CvUnitAI::AI_merchantMove()
 		return;
 	}
 
+	// Exercise a Merchant landmark (Commercial District / Grand Bazaar) once
+	// for vanilla Great Merchants. Venetian Merchant Princes score these inside
+	// AI_venetianPrinceChoice instead, so they never reach this path.
+	if (AI_buildGreatPersonLandmark(true))
+	{
+		return;
+	}
+
 	int iGoldenAgeValue = (GET_PLAYER(getOwnerINLINE()).AI_calculateGoldenAgeValue() / (GET_PLAYER(getOwnerINLINE()).unitsRequiredForGoldenAge()));
 	int iDiscoverValue = std::max(1, getDiscoverResearch(NO_TECH));
 
 	if (AI_trade(iGoldenAgeValue * 2))
 	{
 	    return;
+	}
+
+	// Normal-threshold Merchant landmark: only a strong, high-value site beats
+	// a high-value trade mission or Golden Age.
+	if (AI_buildGreatPersonLandmark(false))
+	{
+		return;
 	}
 
 	if (((iGoldenAgeValue * 100) / iDiscoverValue) > 60)
@@ -3872,6 +3911,13 @@ void CvUnitAI::AI_engineerMove()
 		return;
 	}
 
+	// Exercise a Great Person landmark (Industrial Zone / Naval Foundry) once
+	// per logical type even on a modest site, after high-value construction.
+	if (AI_buildGreatPersonLandmark(true))
+	{
+		return;
+	}
+
 	if (AI_switchHurry())
 	{
 		return;
@@ -3883,6 +3929,13 @@ void CvUnitAI::AI_engineerMove()
 	}
 
 	if (AI_discover(true, true))
+	{
+		return;
+	}
+
+	// Normal-threshold landmark: only a strong, high-value site beats a Golden
+	// Age or tech discovery.
+	if (AI_buildGreatPersonLandmark(false))
 	{
 		return;
 	}
@@ -14301,6 +14354,256 @@ bool CvUnitAI::AI_buildReefWorks()
 	return false;
 }
 
+// AI_ownerHasLandmarkGroup
+// ------------------------
+// True when this unit's owner already controls at least one built improvement
+// belonging to the given logical landmark group. Drives the strong one-time
+// first-copy scoring bonus and the first-freebie exercise path.
+bool CvUnitAI::AI_ownerHasLandmarkGroup(int iGroup)
+{
+	if (iGroup < 0)
+	{
+		return false;
+	}
+	CvPlayer& kOwner = GET_PLAYER(getOwnerINLINE());
+	for (int iI = 0; iI < GC.getNumImprovementInfos(); ++iI)
+	{
+		CvImprovementInfo& kImp = GC.getImprovementInfo((ImprovementTypes)iI);
+		if (kImp.isLandmark() && kImp.getLandmarkGroup() == iGroup)
+		{
+			if (kOwner.getImprovementCount((ImprovementTypes)iI) > 0)
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+
+// AI_landmarkPlotValue
+// --------------------
+// Deterministic yield-point estimate of placing eImprovement on pPlot. Uses the
+// exact runtime yield math (calculateImprovementYieldChange already includes the
+// landmark's adjacency contribution) plus the Research Campus city Research and
+// the Naval Foundry radius-two water aura, which are not plot yields. Food,
+// Production, and Commerce are weighted like the vanilla worker AI.
+int CvUnitAI::AI_landmarkPlotValue(CvPlot* pPlot, ImprovementTypes eImprovement)
+{
+	if (pPlot == NULL || eImprovement == NO_IMPROVEMENT)
+	{
+		return 0;
+	}
+	const PlayerTypes ePlayer = getOwnerINLINE();
+	CvImprovementInfo& kImp = GC.getImprovementInfo(eImprovement);
+
+	const int iFood = pPlot->calculateImprovementYieldChange(eImprovement, YIELD_FOOD, ePlayer);
+	const int iProd = pPlot->calculateImprovementYieldChange(eImprovement, YIELD_PRODUCTION, ePlayer);
+	const int iComm = pPlot->calculateImprovementYieldChange(eImprovement, YIELD_COMMERCE, ePlayer);
+	int iValue = (iFood * 40) + (iProd * 30) + (iComm * 30);
+
+	switch (kImp.getLandmarkType())
+	{
+	case LANDMARK_RESEARCH_CAMPUS:
+		iValue += pPlot->getLandmarkResearchCampusValue(ePlayer) * 30;
+		break;
+
+	case LANDMARK_NAVAL_FOUNDRY:
+		{
+			// Estimate the radius-two water aura the Foundry would provide.
+			const TeamTypes eTeam = GET_PLAYER(ePlayer).getTeam();
+			int iAura = 0;
+			for (int iDX = -2; iDX <= 2; ++iDX)
+			{
+				for (int iDY = -2; iDY <= 2; ++iDY)
+				{
+					CvPlot* pWater = plotXY(pPlot->getX_INLINE(), pPlot->getY_INLINE(), iDX, iDY);
+					if (pWater == NULL || !pWater->isWater() || pWater->isImpassable())
+					{
+						continue;
+					}
+					if (pWater->getOwnerINLINE() != ePlayer)
+					{
+						continue;
+					}
+					iAura += 1;
+					if (pWater->getBonusType(eTeam) != NO_BONUS)
+					{
+						iAura += 2;
+					}
+				}
+			}
+			iValue += iAura * 30;
+		}
+		break;
+
+	default:
+		break;
+	}
+
+	return iValue;
+}
+
+
+// AI_scoreLandmarkBuild
+// ---------------------
+// Scans owned, workable, empty, reachable tiles for the best placement of one
+// specific landmark build. Rejects unsafe/unreachable/unworkable/resource-
+// destroying/replacement candidates (canBuild enforces landmark legality; this
+// adds danger, enemy, path, and non-empty-tile guards). Applies the strong
+// one-time first-copy bonus. Returns the best path-scaled score (0 if none) and
+// reports the winning plot. Tie-break is deterministic: the first plot (lowest
+// map index) with a strictly greater score wins.
+int CvUnitAI::AI_scoreLandmarkBuild(BuildTypes eBuild, CvPlot** ppBestPlot)
+{
+	if (ppBestPlot != NULL)
+	{
+		*ppBestPlot = NULL;
+	}
+	if (eBuild == NO_BUILD)
+	{
+		return 0;
+	}
+	if (!GC.getUnitInfo(getUnitType()).getBuilds(eBuild))
+	{
+		return 0;
+	}
+
+	const ImprovementTypes eImprovement = (ImprovementTypes)GC.getBuildInfo(eBuild).getImprovement();
+	if (eImprovement == NO_IMPROVEMENT || !GC.getImprovementInfo(eImprovement).isLandmark())
+	{
+		return 0;
+	}
+
+	CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
+	const int iGroup = GC.getImprovementInfo(eImprovement).getLandmarkGroup();
+	const bool bFirstOfGroup = !AI_ownerHasLandmarkGroup(iGroup);
+
+	CvPlot* pBestPlot = NULL;
+	int iBestScore = 0;
+
+	const int iNumPlots = GC.getMapINLINE().numPlotsINLINE();
+	for (int iI = 0; iI < iNumPlots; ++iI)
+	{
+		CvPlot* pLoopPlot = GC.getMapINLINE().plotByIndexINLINE(iI);
+		if (pLoopPlot == NULL)
+		{
+			continue;
+		}
+		if (pLoopPlot->getOwnerINLINE() != getOwnerINLINE())
+		{
+			continue;
+		}
+		if (pLoopPlot->isCity())
+		{
+			continue;
+		}
+		// Never replace an existing improvement (avoids resource-negative and
+		// replacement-negative placements). Human players may still overbuild.
+		if (pLoopPlot->getImprovementType() != NO_IMPROVEMENT)
+		{
+			continue;
+		}
+		// Shared legality: spacing, city adjacency, coastal, workable radius,
+		// resource preservation, and state-religion gating.
+		if (!canBuild(pLoopPlot, eBuild))
+		{
+			continue;
+		}
+		if (pLoopPlot->isVisibleEnemyUnit(this))
+		{
+			continue;
+		}
+		if (kOwner.AI_getPlotDanger(pLoopPlot, 2) > 0)
+		{
+			continue;
+		}
+		int iPathTurns;
+		if (!generatePath(pLoopPlot, MOVE_SAFE_TERRITORY, true, &iPathTurns))
+		{
+			continue;
+		}
+
+		int iValue = AI_landmarkPlotValue(pLoopPlot, eImprovement);
+		if (iValue <= 0)
+		{
+			continue;
+		}
+		if (bFirstOfGroup)
+		{
+			iValue += 250;
+		}
+
+		long long iScore64 = ((long long)iValue * 3000LL) / (long long)(1 + iPathTurns);
+		int iScore = (iScore64 > 2000000000LL) ? 2000000000 : (int)iScore64;
+
+		if (iScore > iBestScore)
+		{
+			iBestScore = iScore;
+			pBestPlot = pLoopPlot;
+		}
+	}
+
+	if (ppBestPlot != NULL)
+	{
+		*ppBestPlot = pBestPlot;
+	}
+	return iBestScore;
+}
+
+
+// AI_buildGreatPersonLandmark
+// ---------------------------
+// Generic Great Person landmark planner. Considers every landmark build this
+// unit can perform, scores the best placement of each deterministically, and
+// builds the single best candidate if it clears the threshold. bFirstFreebie
+// lowers the threshold and restricts consideration to landmark groups the owner
+// does not yet control, so the AI exercises each landmark type once even on a
+// modest site while normal placements demand a strong, high-value tile.
+bool CvUnitAI::AI_buildGreatPersonLandmark(bool bFirstFreebie)
+{
+	CvUnitInfo& kUnitInfo = GC.getUnitInfo(getUnitType());
+
+	BuildTypes eBestBuild = NO_BUILD;
+	CvPlot* pBestPlot = NULL;
+	int iBestScore = 0;
+
+	for (int iBuild = 0; iBuild < GC.getNumBuildInfos(); ++iBuild)
+	{
+		if (!kUnitInfo.getBuilds(iBuild))
+		{
+			continue;
+		}
+		const ImprovementTypes eImp = (ImprovementTypes)GC.getBuildInfo((BuildTypes)iBuild).getImprovement();
+		if (eImp == NO_IMPROVEMENT || !GC.getImprovementInfo(eImp).isLandmark())
+		{
+			continue;
+		}
+		if (bFirstFreebie && AI_ownerHasLandmarkGroup(GC.getImprovementInfo(eImp).getLandmarkGroup()))
+		{
+			continue;
+		}
+
+		CvPlot* pPlot = NULL;
+		const int iScore = AI_scoreLandmarkBuild((BuildTypes)iBuild, &pPlot);
+		if (iScore > iBestScore)
+		{
+			iBestScore = iScore;
+			pBestPlot = pPlot;
+			eBestBuild = (BuildTypes)iBuild;
+		}
+	}
+
+	const int iThreshold = bFirstFreebie ? 20000 : 200000;
+	if (pBestPlot == NULL || eBestBuild == NO_BUILD || iBestScore < iThreshold)
+	{
+		return false;
+	}
+
+	return AI_improvePlot(pBestPlot, eBestBuild);
+}
+
+
 // AI_buildGrandColosseum
 // ----------------------
 // Picks a tile in our cultural borders to drop a Grand Colosseum on, scoring
@@ -14895,6 +15198,33 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		"  [GoldenAge] eligible=%d  ->  iValueGoldenAge=%d",
 		bGAEligible ? 1 : 0, iValueGoldenAge).c_str());
 
+	// (f) Commercial District and (g) Grand Bazaar. Score the best legal
+	// placement of each Merchant landmark separately and deterministically on
+	// the same normalized scale as the options above. Scoring them apart means a
+	// weak site for one never masks a strong site for the other. Founder safety
+	// is preserved: these compete against Found but never scale it down, and the
+	// Found urgency multipliers above keep expansion dominant when land is open.
+	static BuildTypes eCommDistBuild = (BuildTypes)GC.getInfoTypeForString("BUILD_COMMERCIAL_DISTRICT_BTG", true);
+	static BuildTypes eBazaarBuild = (BuildTypes)GC.getInfoTypeForString("BUILD_GRAND_BAZAAR_BTG", true);
+
+	CvPlot* pCommDistPlot = NULL;
+	int iValueCommDist = 0;
+	if (eCommDistBuild != NO_BUILD && GC.getUnitInfo(getUnitType()).getBuilds(eCommDistBuild))
+	{
+		iValueCommDist = AI_scoreLandmarkBuild(eCommDistBuild, &pCommDistPlot);
+	}
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [CommDist] -> iValueCommDist=%d", iValueCommDist).c_str());
+
+	CvPlot* pBazaarPlot = NULL;
+	int iValueBazaar = 0;
+	if (eBazaarBuild != NO_BUILD && GC.getUnitInfo(getUnitType()).getBuilds(eBazaarBuild))
+	{
+		iValueBazaar = AI_scoreLandmarkBuild(eBazaarBuild, &pBazaarPlot);
+	}
+	gDLL->logMsg("VenicePrince.log", CvString::format(
+		"  [Bazaar] -> iValueBazaar=%d", iValueBazaar).c_str());
+
 
 	// --- Apply flavor multipliers (tenths) ---
 	const int* pMult = kFlavorMultipliersX10[(int)eFlavor];
@@ -14903,18 +15233,24 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 	int iScoreTrade  = (int)(((long long)iValueTrade      * pMult[2]) / 10);
 	int iScoreColos  = (int)(((long long)iValueColos      * pMult[3]) / 10);
 	int iScoreGA     = (int)(((long long)iValueGoldenAge  * pMult[4]) / 10);
+	// Merchant landmarks are flavor-neutral (already merchant-appropriate for
+	// every Prince flavor), so they take the value straight through.
+	int iScoreCommDist = iValueCommDist;
+	int iScoreBazaar   = iValueBazaar;
 
 	gDLL->logMsg("VenicePrince.log", CvString::format(
 		"  [Mults] flavor=%s  F=%d/10 J=%d/10 T=%d/10 C=%d/10 GA=%d/10",
 		getFlavorAsciiName(eFlavor),
 		pMult[0], pMult[1], pMult[2], pMult[3], pMult[4]).c_str());
 	gDLL->logMsg("VenicePrince.log", CvString::format(
-		"  [Scores] F=%d J=%d T=%d C=%d GA=%d",
-		iScoreFound, iScoreJoin, iScoreTrade, iScoreColos, iScoreGA).c_str());
+		"  [Scores] F=%d J=%d T=%d C=%d GA=%d CD=%d BZ=%d",
+		iScoreFound, iScoreJoin, iScoreTrade, iScoreColos, iScoreGA,
+		iScoreCommDist, iScoreBazaar).c_str());
 
-	enum { OPT_FOUND, OPT_JOIN, OPT_TRADE, OPT_COLOS, OPT_GA, OPT_COUNT };
+	enum { OPT_FOUND, OPT_JOIN, OPT_TRADE, OPT_COLOS, OPT_GA, OPT_COMMDIST, OPT_BAZAAR, OPT_COUNT };
 	int aWeights[OPT_COUNT] = {
-		iScoreFound, iScoreJoin, iScoreTrade, iScoreColos, iScoreGA
+		iScoreFound, iScoreJoin, iScoreTrade, iScoreColos, iScoreGA,
+		iScoreCommDist, iScoreBazaar
 	};
 
 	int iBest = 0;
@@ -14942,6 +15278,8 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			case OPT_TRADE: return "TRADE";
 			case OPT_COLOS: return "COLOS";
 			case OPT_GA:    return "GOLDEN_AGE";
+			case OPT_COMMDIST: return "COMMERCIAL_DISTRICT";
+			case OPT_BAZAAR:   return "GRAND_BAZAAR";
 			}
 			return "?";
 		}
@@ -14954,6 +15292,8 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 			case OPT_TRADE: return "TXT_KEY_VENICE_PRINCE_DECISION_TRADE";
 			case OPT_COLOS: return "TXT_KEY_VENICE_PRINCE_DECISION_COLOS";
 			case OPT_GA:    return "TXT_KEY_VENICE_PRINCE_DECISION_GOLDEN_AGE";
+			case OPT_COMMDIST: return "TXT_KEY_VENICE_PRINCE_DECISION_COLOS";
+			case OPT_BAZAAR:   return "TXT_KEY_VENICE_PRINCE_DECISION_COLOS";
 			}
 			return "TXT_KEY_VENICE_PRINCE_DECISION_FOUND";
 		}
@@ -14999,6 +15339,14 @@ bool CvUnitAI::AI_venetianPrinceChoice()
 		case OPT_TRADE: bDone = AI_trade(0);                 break;
 		case OPT_COLOS: bDone = AI_buildGrandColosseum(false); break;
 		case OPT_GA:    bDone = AI_goldenAge();              break;
+		case OPT_COMMDIST:
+			bDone = (pCommDistPlot != NULL && eCommDistBuild != NO_BUILD &&
+				AI_improvePlot(pCommDistPlot, eCommDistBuild));
+			break;
+		case OPT_BAZAAR:
+			bDone = (pBazaarPlot != NULL && eBazaarBuild != NO_BUILD &&
+				AI_improvePlot(pBazaarPlot, eBazaarBuild));
+			break;
 		}
 
 		gDLL->logMsg("VenicePrince.log", CvString::format(

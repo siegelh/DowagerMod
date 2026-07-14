@@ -181,6 +181,12 @@ protected:
 	bool AI_buildReefWorks();
 	bool AI_buildGrandColosseum(bool bFirstFreebie = false);
 	bool AI_venetianPrinceChoice();
+	// Great Person landmark planner (Industrial Zone, Naval Foundry, Research
+	// Campus, Commercial District, Grand Bazaar, Sacred Grove).
+	bool AI_buildGreatPersonLandmark(bool bFirstFreebie = false);
+	int AI_scoreLandmarkBuild(BuildTypes eBuild, CvPlot** ppBestPlot);
+	int AI_landmarkPlotValue(CvPlot* pPlot, ImprovementTypes eImprovement);
+	bool AI_ownerHasLandmarkGroup(int iGroup);
 	bool AI_travelToUpgradeCity();
 	bool AI_retreatToCity(bool bPrimary = false, bool bAirlift = false, int iMaxPath = MAX_INT);
 	bool AI_pickup(UnitAITypes eUnitAI);

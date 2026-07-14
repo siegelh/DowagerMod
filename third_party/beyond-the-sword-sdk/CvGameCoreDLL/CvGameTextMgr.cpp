@@ -490,6 +490,74 @@ namespace
 		}
 	}
 
+	// Great Person landmark help, generated from the improvement's landmark
+	// fields so the mechanics stay in sync with the DLL behavior.
+	void appendLandmarkHelp(CvWStringBuffer& szBuffer, ImprovementTypes eImprovement)
+	{
+		if (eImprovement == NO_IMPROVEMENT)
+		{
+			return;
+		}
+		CvImprovementInfo& info = GC.getImprovementInfo(eImprovement);
+		if (!info.isLandmark())
+		{
+			return;
+		}
+
+		const char* szMechanicKey = NULL;
+		switch (info.getLandmarkType())
+		{
+		case LANDMARK_INDUSTRIAL_ZONE:    szMechanicKey = "TXT_KEY_LANDMARK_INDUSTRIAL_ZONE_HELP"; break;
+		case LANDMARK_NAVAL_FOUNDRY:      szMechanicKey = "TXT_KEY_LANDMARK_NAVAL_FOUNDRY_HELP"; break;
+		case LANDMARK_RESEARCH_CAMPUS:    szMechanicKey = "TXT_KEY_LANDMARK_RESEARCH_CAMPUS_HELP"; break;
+		case LANDMARK_COMMERCIAL_DISTRICT:szMechanicKey = "TXT_KEY_LANDMARK_COMMERCIAL_DISTRICT_HELP"; break;
+		case LANDMARK_GRAND_BAZAAR:       szMechanicKey = "TXT_KEY_LANDMARK_GRAND_BAZAAR_HELP"; break;
+		case LANDMARK_SACRED_GROVE:       szMechanicKey = "TXT_KEY_LANDMARK_SACRED_GROVE_HELP"; break;
+		default: break;
+		}
+
+		if (szMechanicKey != NULL)
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText(szMechanicKey));
+		}
+
+		if (info.isLandmarkRequiresCityAdjacency())
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_REQUIRES_CITY_ADJACENCY"));
+		}
+		if (info.isLandmarkRequiresCoastalLand())
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_REQUIRES_COASTAL_LAND"));
+		}
+		if (info.getLandmarkMinDistance() > 0)
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_SPACING", info.getLandmarkMinDistance()));
+		}
+		if (info.isLandmarkNoAdjacentSameGroup())
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_NO_ADJACENT_SAME"));
+		}
+		if (info.isLandmarkStateReligionGated())
+		{
+			const int iReligion = info.getLandmarkStateReligion();
+			szBuffer.append(NEWLINE);
+			if (iReligion >= 0 && iReligion < GC.getNumReligionInfos())
+			{
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_STATE_RELIGION",
+					GC.getReligionInfo((ReligionTypes)iReligion).getTextKeyWide()));
+			}
+			else
+			{
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_NO_STATE_RELIGION"));
+			}
+		}
+	}
+
 	void appendPlotIndustryHelp(CvWStringBuffer& szBuffer, CvPlot* pPlot, ImprovementTypes eImprovement)
 	{
 		if (pPlot == NULL || eImprovement == NO_IMPROVEMENT)
@@ -11453,6 +11521,7 @@ void CvGameTextMgr::setImprovementHelp(CvWStringBuffer &szBuffer, ImprovementTyp
 	}
 
 	appendImprovementIndustryHelp(szBuffer, eImprovement);
+	appendLandmarkHelp(szBuffer, eImprovement);
 }
 
 

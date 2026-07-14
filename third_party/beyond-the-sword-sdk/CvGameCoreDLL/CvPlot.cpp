@@ -2230,6 +2230,18 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible)
 			return false;
 		}
 
+		// Great Person landmark placement legality is enforced centrally so
+		// humans and AI (both routed through CvPlot::canBuild) share the exact
+		// same rules: spacing, city adjacency, coastal land, workable owned
+		// city radius, resource preservation, and state-religion gating.
+		if (ePlayer != NO_PLAYER && GC.getImprovementInfo(eImprovement).isLandmark())
+		{
+			if (!canBuildLandmark(eImprovement, ePlayer, bTestVisible))
+			{
+				return false;
+			}
+		}
+
 		if (getImprovementType() != NO_IMPROVEMENT)
 		{
 			if (GC.getImprovementInfo(getImprovementType()).isPermanent())
@@ -2335,6 +2347,157 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible)
 	}
 
 	return bValid;
+}
+
+
+// canBuildLandmark
+// ----------------
+// Shared Great Person landmark placement legality. Enforced from canBuild so
+// human and AI paths use identical rules. Returns true only when eImprovement
+// (a landmark) may legally be constructed on this plot by ePlayer.
+//
+// Global rules (see plan 2026-07-13-great-person-landmark-improvements):
+//   * Must sit on an owned, workable city-radius plot.
+//   * Never destroys a resource (no visible bonus on the tile).
+//   * State-religion-gated variants require the matching owner state religion.
+//   * Coastal-land landmarks require adjacency to water.
+//   * City-adjacency landmarks must border an owned city center.
+//   * Same logical group requires >= min plot distance (Commercial District is
+//     exempt but may not be directly adjacent to another of its group).
+// Diagonals count as adjacent throughout.
+bool CvPlot::canBuildLandmark(ImprovementTypes eImprovement, PlayerTypes ePlayer, bool bTestVisible) const
+{
+	if (eImprovement == NO_IMPROVEMENT || ePlayer == NO_PLAYER)
+	{
+		return false;
+	}
+
+	CvImprovementInfo& kImp = GC.getImprovementInfo(eImprovement);
+	if (!kImp.isLandmark())
+	{
+		return true;
+	}
+
+	const TeamTypes eTeam = GET_PLAYER(ePlayer).getTeam();
+
+	// State-religion gating. Gated variants (Sacred Grove) require the owner's
+	// current state religion to match the configured religion. NO_RELIGION
+	// means "requires no state religion" (the Shinto Naiku variant).
+	if (kImp.isLandmarkStateReligionGated())
+	{
+		if (GET_PLAYER(ePlayer).getStateReligion() != (ReligionTypes)kImp.getLandmarkStateReligion())
+		{
+			return false;
+		}
+	}
+
+	// Never destroy a resource.
+	if (getBonusType(eTeam) != NO_BONUS)
+	{
+		return false;
+	}
+
+	// Must be an owned, workable city-radius plot. The plot must be owned by the
+	// builder and fall inside one of the builder's cities' workable radius.
+	if (getOwnerINLINE() != ePlayer)
+	{
+		return false;
+	}
+	{
+		CvCity* pWorkingCity = getWorkingCity();
+		if (pWorkingCity == NULL || pWorkingCity->getOwnerINLINE() != ePlayer)
+		{
+			return false;
+		}
+	}
+
+	// Coastal-land requirement (Naval Foundry): a land tile adjacent to water.
+	if (kImp.isLandmarkRequiresCoastalLand())
+	{
+		if (isWater() || !isCoastalLand())
+		{
+			return false;
+		}
+	}
+
+	// City-adjacency requirement (Commercial District): must border an owned
+	// city center.
+	if (kImp.isLandmarkRequiresCityAdjacency())
+	{
+		bool bFoundCity = false;
+		for (int iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
+		{
+			CvPlot* pAdjacent = plotDirection(getX_INLINE(), getY_INLINE(), (DirectionTypes)iI);
+			if (pAdjacent != NULL && pAdjacent->isCity())
+			{
+				CvCity* pAdjCity = pAdjacent->getPlotCity();
+				if (pAdjCity != NULL && pAdjCity->getOwnerINLINE() == ePlayer)
+				{
+					bFoundCity = true;
+					break;
+				}
+			}
+		}
+		if (!bFoundCity)
+		{
+			return false;
+		}
+	}
+
+	// Logical-group spacing. Same-group landmarks owned by the same player must
+	// be at least min plot distance apart. Commercial District uses min distance
+	// 0 but sets bLandmarkNoAdjacentSameGroup, forbidding direct adjacency.
+	const int iGroup = kImp.getLandmarkGroup();
+	if (iGroup >= 0)
+	{
+		const int iMinDistance = kImp.getLandmarkMinDistance();
+		const bool bNoAdjacent = kImp.isLandmarkNoAdjacentSameGroup();
+		const int iScanRange = std::max(iMinDistance, bNoAdjacent ? 1 : 0);
+		if (iScanRange > 0)
+		{
+			for (int iDX = -iScanRange; iDX <= iScanRange; ++iDX)
+			{
+				for (int iDY = -iScanRange; iDY <= iScanRange; ++iDY)
+				{
+					if (iDX == 0 && iDY == 0)
+					{
+						continue;
+					}
+					CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+					if (pLoopPlot == NULL)
+					{
+						continue;
+					}
+					const ImprovementTypes eOther = pLoopPlot->getImprovementType();
+					if (eOther == NO_IMPROVEMENT)
+					{
+						continue;
+					}
+					CvImprovementInfo& kOther = GC.getImprovementInfo(eOther);
+					if (!kOther.isLandmark() || kOther.getLandmarkGroup() != iGroup)
+					{
+						continue;
+					}
+					if (pLoopPlot->getOwnerINLINE() != ePlayer)
+					{
+						continue;
+					}
+					const int iDist = plotDistance(getX_INLINE(), getY_INLINE(),
+						pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE());
+					if (iMinDistance > 0 && iDist < iMinDistance)
+					{
+						return false;
+					}
+					if (bNoAdjacent && iDist <= 1)
+					{
+						return false;
+					}
+				}
+			}
+		}
+	}
+
+	return true;
 }
 
 
@@ -4645,6 +4808,9 @@ void CvPlot::setOwner(PlayerTypes eNewValue, bool bCheckUnits, bool bUpdatePlotG
 
 			updateIrrigated();
 			updateYield();
+			// Landmark owned-only adjacency and the Naval Foundry water aura
+			// depend on plot ownership, so refresh neighbors out to radius two.
+			updateLandmarkYieldsInRange(2);
 
 			if (bUpdatePlotGroup)
 			{
@@ -4996,6 +5162,8 @@ void CvPlot::setTerrainType(TerrainTypes eNewValue, bool bRecalculate, bool bReb
 		m_eTerrainType = eNewValue;
 
 		updateYield();
+		// Research Campus research reads adjacent Tundra/Snow terrain.
+		updateLandmarkYieldsInRange(1);
 		updatePlotGroup();
 
 		if (bUpdateSight)
@@ -5071,6 +5239,8 @@ void CvPlot::setFeatureType(FeatureTypes eNewValue, int iVariety)
 		m_iFeatureVariety = iVariety;
 
 		updateYield();
+		// Sacred Grove food and Research Campus research read adjacent features.
+		updateLandmarkYieldsInRange(1);
 
 		if (bUpdateSight)
 		{
@@ -5232,6 +5402,9 @@ void CvPlot::setBonusType(BonusTypes eNewValue)
 		}
 
 		updateYield();
+		// Grand Bazaar commerce and the Naval Foundry water-resource aura read
+		// adjacent owned bonuses.
+		updateLandmarkYieldsInRange(2);
 
 		for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI)
 		{
@@ -5314,6 +5487,20 @@ void CvPlot::setImprovementType(ImprovementTypes eNewValue)
 
 		updateIrrigated();
 		updateYield();
+
+		// Great Person landmark refresh. A landmark reads owned adjacent
+		// infrastructure and (for the Naval Foundry) projects a radius-two water
+		// aura, so building or removing any improvement must refresh neighbor
+		// plot yields out to radius two.
+		if ((NO_IMPROVEMENT != getImprovementType() && GC.getImprovementInfo(getImprovementType()).isLandmark()) ||
+			(NO_IMPROVEMENT != eOldImprovement && GC.getImprovementInfo(eOldImprovement).isLandmark()))
+		{
+			updateLandmarkYieldsInRange(2);
+		}
+		else
+		{
+			updateLandmarkYieldsInRange(1);
+		}
 
 		for (iI = 0; iI < NUM_CITY_PLOTS; ++iI)
 		{
@@ -5939,7 +6126,295 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 		}
 	}
 
+	// Great Person landmark source-tile adjacency yields (this tile carries the
+	// landmark improvement). Owned-only for infrastructure/resources; natural
+	// terrain/features/water count regardless of ownership.
+	if (ePlayer != NO_PLAYER && GC.getImprovementInfo(eImprovement).isLandmark())
+	{
+		iYield += getLandmarkAdjacencyYield(eImprovement, eYield, ePlayer);
+	}
+
 	return iYield;
+}
+
+
+// getLandmarkAdjacencyYield
+// -------------------------
+// Adjacency yield delivered to the landmark's own tile (this plot). Diagonals
+// count as adjacent. Infrastructure and resources count only when owned by
+// ePlayer; natural terrain/features/water count regardless of ownership.
+int CvPlot::getLandmarkAdjacencyYield(ImprovementTypes eImprovement, YieldTypes eYield, PlayerTypes ePlayer) const
+{
+	if (ePlayer == NO_PLAYER)
+	{
+		return 0;
+	}
+
+	CvImprovementInfo& kImp = GC.getImprovementInfo(eImprovement);
+	const int iLandmark = kImp.getLandmarkType();
+	if (iLandmark == NO_LANDMARK_TYPE)
+	{
+		return 0;
+	}
+
+	// Cache the improvement / feature identities we compare against. Indices are
+	// stable for the life of the loaded XML set.
+	static ImprovementTypes eWatermill = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_WATERMILL", true);
+	static ImprovementTypes eWorkshop = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_WORKSHOP", true);
+	static ImprovementTypes eMine = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_MINE", true);
+	static ImprovementTypes eQuarry = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_QUARRY", true);
+	static ImprovementTypes eCottage = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_COTTAGE", true);
+	static ImprovementTypes eHamlet = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_HAMLET", true);
+	static ImprovementTypes eVillage = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_VILLAGE", true);
+	static ImprovementTypes eTown = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_TOWN", true);
+	static ImprovementTypes eForestPreserve = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_FOREST_PRESERVE", true);
+	static FeatureTypes eForest = (FeatureTypes)GC.getInfoTypeForString("FEATURE_FOREST", true);
+	static FeatureTypes eJungle = (FeatureTypes)GC.getInfoTypeForString("FEATURE_JUNGLE", true);
+
+	const TeamTypes eTeam = GET_PLAYER(ePlayer).getTeam();
+	int iYield = 0;
+
+	for (int iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
+	{
+		CvPlot* pAdjacent = plotDirection(getX_INLINE(), getY_INLINE(), (DirectionTypes)iI);
+		if (pAdjacent == NULL)
+		{
+			continue;
+		}
+
+		const bool bOwned = (pAdjacent->getOwnerINLINE() == ePlayer);
+		const ImprovementTypes eAdjImp = pAdjacent->getImprovementType();
+		const FeatureTypes eAdjFeature = pAdjacent->getFeatureType();
+		const bool bForestOrJungle = (eAdjFeature != NO_FEATURE &&
+			(eAdjFeature == eForest || eAdjFeature == eJungle));
+
+		switch (iLandmark)
+		{
+		case LANDMARK_INDUSTRIAL_ZONE:
+			if (eYield == YIELD_PRODUCTION && bOwned && eAdjImp != NO_IMPROVEMENT)
+			{
+				if (eAdjImp == eWatermill) iYield += 3;
+				else if (eAdjImp == eWorkshop) iYield += 2;
+				else if (eAdjImp == eMine || eAdjImp == eQuarry) iYield += 1;
+			}
+			break;
+
+		case LANDMARK_COMMERCIAL_DISTRICT:
+			if (eYield == YIELD_COMMERCE)
+			{
+				if (pAdjacent->isCity())
+				{
+					CvCity* pAdjCity = pAdjacent->getPlotCity();
+					if (pAdjCity != NULL && pAdjCity->getOwnerINLINE() == ePlayer)
+					{
+						iYield += 6;
+					}
+				}
+				else if (bOwned && eAdjImp != NO_IMPROVEMENT)
+				{
+					if (eAdjImp == eCottage) iYield += 1;
+					else if (eAdjImp == eHamlet) iYield += 2;
+					else if (eAdjImp == eVillage) iYield += 3;
+					else if (eAdjImp == eTown) iYield += 4;
+				}
+			}
+			break;
+
+		case LANDMARK_GRAND_BAZAAR:
+			if (eYield == YIELD_COMMERCE && bOwned)
+			{
+				const BonusTypes eAdjBonus = pAdjacent->getBonusType(eTeam);
+				if (eAdjBonus != NO_BONUS && GC.getBonusInfo(eAdjBonus).getHappiness() > 0)
+				{
+					iYield += 4;
+					if (eAdjImp != NO_IMPROVEMENT &&
+						GC.getImprovementInfo(eAdjImp).isImprovementBonusTrade(eAdjBonus))
+					{
+						iYield += 2;
+					}
+				}
+			}
+			break;
+
+		case LANDMARK_SACRED_GROVE:
+			if (eYield == YIELD_FOOD)
+			{
+				if (bForestOrJungle)
+				{
+					iYield += 1;
+				}
+				if (pAdjacent->isWater())
+				{
+					iYield += 1;
+				}
+				if (bOwned && bForestOrJungle && eAdjImp == eForestPreserve)
+				{
+					iYield += 1;
+				}
+			}
+			else if (eYield == YIELD_COMMERCE)
+			{
+				if (bOwned && bForestOrJungle && eAdjImp == eForestPreserve)
+				{
+					iYield += 1;
+				}
+			}
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	return iYield;
+}
+
+
+// getLandmarkWaterAuraYield
+// -------------------------
+// Naval Foundry radius-two water aura, applied to THIS tile when it is an owned
+// passable water tile within radius two of at least one owned Naval Foundry.
+// The aura is non-stacking: multiple overlapping Foundries grant the bonus once.
+int CvPlot::getLandmarkWaterAuraYield(YieldTypes eYield, PlayerTypes ePlayer) const
+{
+	if (eYield != YIELD_PRODUCTION || ePlayer == NO_PLAYER)
+	{
+		return 0;
+	}
+	if (!isWater() || isImpassable())
+	{
+		return 0;
+	}
+	if (getOwnerINLINE() != ePlayer)
+	{
+		return 0;
+	}
+
+	static ImprovementTypes eNavalFoundry = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_NAVAL_FOUNDRY_BTG", true);
+	if (eNavalFoundry == NO_IMPROVEMENT)
+	{
+		return 0;
+	}
+
+	bool bInAura = false;
+	for (int iDX = -2; iDX <= 2 && !bInAura; ++iDX)
+	{
+		for (int iDY = -2; iDY <= 2; ++iDY)
+		{
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+			if (pLoopPlot == NULL)
+			{
+				continue;
+			}
+			if (pLoopPlot->getImprovementType() == eNavalFoundry &&
+				pLoopPlot->getOwnerINLINE() == ePlayer)
+			{
+				bInAura = true;
+				break;
+			}
+		}
+	}
+
+	if (!bInAura)
+	{
+		return 0;
+	}
+
+	int iYield = 1;
+	if (getBonusType(GET_PLAYER(ePlayer).getTeam()) != NO_BONUS)
+	{
+		iYield += 2;
+	}
+	return iYield;
+}
+
+
+// getLandmarkResearchCampusValue
+// ------------------------------
+// Direct Research contributed by a Research Campus on THIS tile. Fed to the
+// worked city before normal Research modifiers. Own-tile Tundra/Snow gives a
+// base bonus; adjacency components (Peak/Jungle/Hill/Tundra/Snow) stack and
+// count regardless of ownership (natural terrain).
+int CvPlot::getLandmarkResearchCampusValue(PlayerTypes ePlayer) const
+{
+	static TerrainTypes eTundra = (TerrainTypes)GC.getInfoTypeForString("TERRAIN_TUNDRA", true);
+	static TerrainTypes eSnow = (TerrainTypes)GC.getInfoTypeForString("TERRAIN_SNOW", true);
+	static FeatureTypes eJungle = (FeatureTypes)GC.getInfoTypeForString("FEATURE_JUNGLE", true);
+
+	int iResearch = 0;
+
+	// Own-tile Tundra/Snow base.
+	if (getTerrainType() == eTundra || getTerrainType() == eSnow)
+	{
+		iResearch += 3;
+	}
+
+	for (int iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
+	{
+		CvPlot* pAdjacent = plotDirection(getX_INLINE(), getY_INLINE(), (DirectionTypes)iI);
+		if (pAdjacent == NULL)
+		{
+			continue;
+		}
+		if (pAdjacent->isPeak())
+		{
+			iResearch += 3;
+		}
+		if (pAdjacent->getFeatureType() == eJungle)
+		{
+			iResearch += 2;
+		}
+		if (pAdjacent->isHills())
+		{
+			iResearch += 1;
+		}
+		const TerrainTypes eAdjTerrain = pAdjacent->getTerrainType();
+		if (eAdjTerrain == eTundra)
+		{
+			iResearch += 1;
+		}
+		else if (eAdjTerrain == eSnow)
+		{
+			iResearch += 2;
+		}
+	}
+
+	return iResearch;
+}
+
+
+// updateLandmarkYieldsInRange
+// ---------------------------
+// Refresh cached plot yields for every plot within iRange, so that landmark
+// adjacency and radius-two water auras stay current when a neighboring
+// improvement, terrain, feature, bonus, or ownership state changes. Research
+// Campus output is city Research rather than plot yield, so any working city of
+// a landmark plot in range also has its cached landmark commerce refreshed.
+void CvPlot::updateLandmarkYieldsInRange(int iRange) const
+{
+	for (int iDX = -iRange; iDX <= iRange; ++iDX)
+	{
+		for (int iDY = -iRange; iDY <= iRange; ++iDY)
+		{
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+			if (pLoopPlot == NULL)
+			{
+				continue;
+			}
+			pLoopPlot->updateYield();
+
+			const ImprovementTypes eLoopImp = pLoopPlot->getImprovementType();
+			if (eLoopImp != NO_IMPROVEMENT &&
+				GC.getImprovementInfo(eLoopImp).getLandmarkType() == LANDMARK_RESEARCH_CAMPUS)
+			{
+				CvCity* pWorkingCity = pLoopPlot->getWorkingCity();
+				if (pWorkingCity != NULL)
+				{
+					pWorkingCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
+				}
+			}
+		}
+	}
 }
 
 
@@ -6035,6 +6510,9 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const
 			if (!isImpassable())
 			{
 				iYield += GET_PLAYER(ePlayer).getSeaPlotYield(eYield);
+
+				// Naval Foundry radius-two water aura (non-stacking).
+				iYield += getLandmarkWaterAuraYield(eYield, ePlayer);
 
 				pWorkingCity = getWorkingCity();
 

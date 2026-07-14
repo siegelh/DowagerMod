@@ -18,6 +18,7 @@ GAME_DIR = Path("CoreFiles/Sid Meier's Civilization IV Beyond the Sword")
 BTS_ASSETS = GAME_DIR / "Beyond the Sword" / "Assets"
 INHERITED_ASSETS = (GAME_DIR / "Assets", GAME_DIR / "Warlords" / "Assets")
 BASELINE = Path("tools/baselines/roster_baseline.json")
+PACKED_STOCK_ART = Path("tools/baselines/packed_stock_art.json")
 ART_EXTENSIONS = {".dds", ".nif", ".kfm", ".kf"}
 NULL_TYPES = {"", "NONE", "NO_UNIT", "NO_BUILDING", "NO_PROMOTION", "NO_TECH",
               "NO_CIVIC", "NO_RELIGION", "NO_CORPORATION", "NO_IMPROVEMENT",
@@ -60,6 +61,21 @@ class Validator:
         self.changed = self.changed_paths()
         self.xml_files = sorted((self.bts / "XML").rglob("*.xml"))
         self._case_maps: dict[Path, dict[str, Path]] = {}
+        self._packed_stock_art = self._load_packed_stock_art()
+
+    def _load_packed_stock_art(self) -> set[str]:
+        path = self.root / PACKED_STOCK_ART
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return set()
+        result: set[str] = set()
+        for entry in data.get("paths", []):
+            result.add(self.normalize_art(entry).lower())
+        return result
+
+    def is_packed_stock_art(self, value: str) -> bool:
+        return self.normalize_art(value).lower() in self._packed_stock_art
 
     def fail(self, message: str) -> None:
         self.errors.append(message)
@@ -455,12 +471,15 @@ class Validator:
                 continue
             repo_path = relative(path, self.root)
             current = self.art_values(root)
-            new_values.update(current - self.old_xml_art_values(repo_path))
+            new_in_file = current - self.old_xml_art_values(repo_path)
+            new_values.update(new_in_file)
             for node in root.iter():
                 if local_name(node.tag) != "Button":
                     continue
                 value = (node.text or "").strip()
-                if value not in current:
+                # Only validate newly-added buttons; leave grandfathered stock
+                # entries (e.g. the -1,-1 "no atlas cell" sentinel) untouched.
+                if value not in new_in_file:
                     continue
                 parts = self.button_parts(value)
                 if value.startswith(","):
@@ -477,6 +496,10 @@ class Validator:
         for value in sorted(new_values):
             for part in self.button_parts(value):
                 if Path(part).suffix.lower() not in ART_EXTENSIONS:
+                    continue
+                # Reused stock Firaxis/BtG art ships in FPK packages with no loose
+                # copy; accept known packed-stock aliases without a filesystem hit.
+                if self.is_packed_stock_art(part):
                     continue
                 found = self.resolve_art(part)
                 if found is None:

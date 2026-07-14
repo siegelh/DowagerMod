@@ -1,0 +1,32 @@
+{
+  "_comment": "Accepted packed-stock art paths. The roster-safety art check resolves references against loose files in the BtS/base/Warlords Art trees. Stock Firaxis/BtG art ships inside FPK packages, so these known-good stock paths (each already referenced by a stock CIV4ArtDefines_*.xml building/religion art define) have no loose copy and are accepted here as packed-stock aliases. Paths are normalized lowercase with forward slashes.",
+  "paths": [
+    "art/structures/buildings/factory/factory.nif",
+    "art/structures/buildings/ironworks/ironworks.nif",
+    "art/structures/buildings/observatory/observatory.nif",
+    "art/structures/buildings/roman forum/forum.nif",
+    "art/structures/buildings/market/market.nif",
+    "art/btg/choosereligions/shinto_files/buildings/shintonaiku.nif",
+    "art/btg/choosereligions/shinto_files/buildings/shintonaiku_button.dds",
+    "art/structures/buildings/shrine/jewish-shrine.nif",
+    "art/structures/buildings/shrine/christian shrine.nif",
+    "art/structures/buildings/shrine/islamic_shrine.nif",
+    "art/structures/buildings/shrine/hindu_shrine.nif",
+    "art/structures/buildings/shrine/buddhist_shrine.nif",
+    "art/structures/buildings/shrine/confuscian_shrine.nif",
+    "art/structures/buildings/shrine/taoist_shrine.nif",
+    "art/interface/buttons/buildings/factory.dds",
+    "art/interface/buttons/buildings/ironworks.dds",
+    "art/interface/buttons/buildings/observatory.dds",
+    "art/interface/buttons/buildings/market.dds",
+    "art/interface/buttons/buildings/shrine_jewish.dds",
+    "art/interface/buttons/buildings/shrine_christian.dds",
+    "art/interface/buttons/buildings/shrine_islamic.dds",
+    "art/interface/buttons/buildings/shrine_hindu.dds",
+    "art/interface/buttons/buildings/shrine_buddhist.dds",
+    "art/interface/buttons/buildings/shrine_confuscianist.dds",
+    "art/interface/buttons/buildings/shrine_taoist.dds",
+    "art/interface/buttons/buildings_atlas.dds",
+    "art/interface/buttons/warlords_atlas_1.dds"
+  ]
+}

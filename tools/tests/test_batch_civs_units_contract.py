@@ -203,7 +203,18 @@ class BatchCivilizationsUnitsContractTests(unittest.TestCase):
             child_text(node, "BuildType")
             for node in child(merchant, "Builds")
         }
-        self.assertEqual(builds, {"BUILD_ROAD", "BUILD_GRAND_COLOSSEUM_BTG"})
+        # Original Merchant Prince actions must be preserved exactly...
+        self.assertTrue({"BUILD_ROAD", "BUILD_GRAND_COLOSSEUM_BTG"} <= builds)
+        # ...plus the approved additive Great Merchant landmark builds.
+        self.assertEqual(
+            builds,
+            {
+                "BUILD_ROAD",
+                "BUILD_GRAND_COLOSSEUM_BTG",
+                "BUILD_COMMERCIAL_DISTRICT_BTG",
+                "BUILD_GRAND_BAZAAR_BTG",
+            },
+        )
         self.assertEqual(child_text(merchant, "iWorkRate"), "1000")
         self.assertEqual(child_text(merchant, "iGreatWorkCulture"), "4000")
 

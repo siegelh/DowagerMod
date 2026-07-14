@@ -117,6 +117,14 @@ public:
 	bool canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam = NO_TEAM, bool bPotential = false) const;		// Exposed to Python
 
 	bool canBuild(BuildTypes eBuild, PlayerTypes ePlayer = NO_PLAYER, bool bTestVisible = false) const;														// Exposed to Python
+
+	// Great Person landmark support.
+	bool canBuildLandmark(ImprovementTypes eImprovement, PlayerTypes ePlayer, bool bTestVisible) const;
+	int getLandmarkAdjacencyYield(ImprovementTypes eImprovement, YieldTypes eYield, PlayerTypes ePlayer) const;
+	int getLandmarkWaterAuraYield(YieldTypes eYield, PlayerTypes ePlayer) const;
+	int getLandmarkResearchCampusValue(PlayerTypes ePlayer) const;
+	void updateLandmarkYieldsInRange(int iRange) const;
+
 	int getBuildTime(BuildTypes eBuild) const;																																										// Exposed to Python
 	int getBuildTurnsLeft(BuildTypes eBuild, int iNowExtra, int iThenExtra) const;																			// Exposed to Python
 	int getFeatureProduction(BuildTypes eBuild, TeamTypes eTeam, CvCity** ppCity) const;																// Exposed to Python

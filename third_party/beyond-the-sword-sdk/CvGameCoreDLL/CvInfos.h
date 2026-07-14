@@ -2836,6 +2836,28 @@ protected:
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
+//  Great Person landmark families (see 2026-07-13-great-person-landmark-improvements
+//  plan). Zero is the neutral default that preserves every stock improvement.
+//  The integer drives the specialized adjacency / radius / worked-commerce math
+//  in CvPlot / CvCity / CvGameTextMgr, while the scalar landmark fields on
+//  CvImprovementInfo drive generic placement legality.
+//
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+enum LandmarkTypes
+{
+	NO_LANDMARK_TYPE = 0,
+	LANDMARK_INDUSTRIAL_ZONE,
+	LANDMARK_NAVAL_FOUNDRY,
+	LANDMARK_RESEARCH_CAMPUS,
+	LANDMARK_COMMERCIAL_DISTRICT,
+	LANDMARK_GRAND_BAZAAR,
+	LANDMARK_SACRED_GROVE,
+
+	NUM_LANDMARK_TYPES
+};
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
 //  class : CvImprovementInfo
 //
 //  DESC:   
@@ -2881,6 +2903,17 @@ public:
 	DllExport bool isGoody() const;				// Exposed to Python
 	bool isPermanent() const;				// Exposed to Python
 	bool isOutsideBorders() const;				// Exposed to Python
+
+	// Great Person landmark support (neutral defaults preserve stock behavior).
+	bool isLandmark() const;
+	int getLandmarkType() const;
+	int getLandmarkGroup() const;
+	int getLandmarkMinDistance() const;
+	bool isLandmarkRequiresCityAdjacency() const;
+	bool isLandmarkNoAdjacentSameGroup() const;
+	bool isLandmarkRequiresCoastalLand() const;
+	bool isLandmarkStateReligionGated() const;
+	int getLandmarkStateReligion() const;
 
 	const TCHAR* getArtDefineTag() const;
 	void setArtDefineTag(const TCHAR* szVal);
@@ -2959,6 +2992,17 @@ protected:
 	bool m_bGoody;
 	bool m_bPermanent;
 	bool m_bOutsideBorders;
+
+	// Great Person landmark support (neutral defaults preserve stock behavior).
+	bool m_bLandmark;
+	int m_iLandmarkType;
+	int m_iLandmarkGroup;
+	int m_iLandmarkMinDistance;
+	bool m_bLandmarkRequiresCityAdjacency;
+	bool m_bLandmarkNoAdjacentSameGroup;
+	bool m_bLandmarkRequiresCoastalLand;
+	bool m_bLandmarkStateReligionGated;
+	int m_iLandmarkStateReligion;
 
 	CvString m_szArtDefineTag;
 

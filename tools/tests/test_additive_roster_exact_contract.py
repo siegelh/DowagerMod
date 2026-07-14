@@ -223,7 +223,6 @@ class AdditiveRosterExactContractTests(unittest.TestCase):
             "UnitInfo",
             "UNIT_POLYNESIA_OCEAN_CANOE_BTG",
             "UNIT_POLYNESIA_WAYFINDER_WORKBOAT_BTG",
-            "UNIT_VENETIAN_MERCHANT",
             "UNIT_RUSSIA_SPY",
         )
         self.assert_exact(
@@ -235,6 +234,33 @@ class AdditiveRosterExactContractTests(unittest.TestCase):
             IMPROVEMENTS,
             "ImprovementInfo",
             "IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG",
+        )
+
+    def test_venetian_merchant_has_only_approved_build_additions(self) -> None:
+        # The Venetian Merchant Prince gains the approved Great Merchant landmark
+        # builds additively; every other node detail must equal the restored
+        # baseline, and the original actions (Road, Grand Colosseum) preserved.
+        current, baseline = self.pair(UNITS, "UnitInfo", "UNIT_VENETIAN_MERCHANT")
+        current_builds = child(current, "Builds")
+        baseline_builds = child(baseline, "Builds")
+        current_set = {text(b, "BuildType") for b in current_builds}
+        baseline_set = {text(b, "BuildType") for b in baseline_builds}
+        self.assertEqual(
+            baseline_set, {"BUILD_ROAD", "BUILD_GRAND_COLOSSEUM_BTG"}
+        )
+        self.assertEqual(
+            current_set,
+            baseline_set
+            | {"BUILD_COMMERCIAL_DISTRICT_BTG", "BUILD_GRAND_BAZAAR_BTG"},
+        )
+        # Normalize only the approved additive Builds delta, then require the
+        # rest of the node to match the restored baseline exactly.
+        for item in list(current_builds):
+            current_builds.remove(item)
+        for item in baseline_builds:
+            current_builds.append(copy.deepcopy(item))
+        self.assert_node_equal(
+            current, baseline, UNITS, "UNIT_VENETIAN_MERCHANT"
         )
 
     def test_geronimo_has_only_approved_personality_deltas(self) -> None:

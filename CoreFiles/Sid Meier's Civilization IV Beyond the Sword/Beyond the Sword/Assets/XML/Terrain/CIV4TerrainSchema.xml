@@ -399,6 +399,16 @@
 	<ElementType name="iTilesPerGoody" content="textOnly" dt:type="int"/>
 	<ElementType name="iUpgradeTime" content="textOnly" dt:type="int"/>
 	<ElementType name="bMakesValid" content="textOnly" dt:type="boolean"/>
+	<!-- Great Person landmark support (neutral defaults). -->
+	<ElementType name="bLandmark" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iLandmarkType" content="textOnly" dt:type="int"/>
+	<ElementType name="iLandmarkGroup" content="textOnly" dt:type="int"/>
+	<ElementType name="iLandmarkMinDistance" content="textOnly" dt:type="int"/>
+	<ElementType name="bLandmarkRequiresCityAdjacency" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bLandmarkNoAdjacentSameGroup" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bLandmarkRequiresCoastalLand" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bLandmarkStateReligionGated" content="textOnly" dt:type="boolean"/>
+	<ElementType name="LandmarkStateReligion" content="textOnly"/>
 	<ElementType name="TerrainMakesValid" content="eltOnly">
 		<element type="TerrainType"/>
 		<element type="bMakesValid"/>
@@ -458,6 +468,15 @@
 		<element type="RouteYieldChanges"/>
 		<element type="WorldSoundscapeAudioScript" minOccurs="0"/>
 		<element type="bGraphicalOnly"/>
+		<element type="bLandmark" minOccurs="0"/>
+		<element type="iLandmarkType" minOccurs="0"/>
+		<element type="iLandmarkGroup" minOccurs="0"/>
+		<element type="iLandmarkMinDistance" minOccurs="0"/>
+		<element type="bLandmarkRequiresCityAdjacency" minOccurs="0"/>
+		<element type="bLandmarkNoAdjacentSameGroup" minOccurs="0"/>
+		<element type="bLandmarkRequiresCoastalLand" minOccurs="0"/>
+		<element type="bLandmarkStateReligionGated" minOccurs="0"/>
+		<element type="LandmarkStateReligion" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="ImprovementInfos" content="eltOnly">
 		<element type="ImprovementInfo" maxOccurs="*"/>
