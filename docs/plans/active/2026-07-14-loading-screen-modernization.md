@@ -1,6 +1,6 @@
 # Loading Screen Modernization
 
-- Status: `investigation complete / visual direction pending`
+- Status: `implemented / installed-game validation pending`
 - Owner / agent: Copilot
 - Last updated: `2026-07-14`
 
@@ -125,7 +125,13 @@ references to leaders, industries, and landmarks without embedding gameplay
 text. Produce both layouts from the same master composition rather than
 cropping the square image mechanically.
 
-Human confirmation is required for:
+The approved implementation uses the stock BtS Florence composition with a
+restrained dark-gold plaque, sunburst seal, `DOWAGERMOD`, and
+`THE SOL PATCH`. The original five DDS assets remain unchanged; the two new
+files are generated from copies of the BtS source pair by
+`tools/build_sol_loading_art.py`.
+
+Future visual revisions may revisit:
 
 - final title/logo treatment;
 - whether the art should emphasize a single historical figure, a broad
@@ -164,15 +170,15 @@ Human confirmation is required for:
 - [x] Python and DLL ownership ruled out.
 - [x] Asset format and dimensions verified.
 - [x] Installer payload behavior identified.
-- [ ] Visual brief approved.
-- [ ] Master art and two DDS exports created.
-- [ ] Dedicated art keys and menu bindings implemented.
-- [ ] Automated asset-reference checks added.
+- [x] Visual brief approved.
+- [x] Master art and two DDS exports created.
+- [x] Dedicated art keys and menu bindings implemented.
+- [x] Automated asset-reference checks added.
 - [ ] Installed-game visual smoke test completed.
 
 ## Final Outcome Summary
 
-- Investigation is complete.
-- No loading-screen runtime file has been changed.
-- Implementation is ready once the visual direction and source art are
-  approved.
+- Investigation and implementation are complete.
+- Both Classical and Beyond the Sword menu profiles use the dedicated Sol Patch
+  art keys.
+- Installed-game aspect-ratio and progress-text validation remains required.

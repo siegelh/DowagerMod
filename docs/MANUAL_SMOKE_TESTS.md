@@ -38,6 +38,11 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - In a food-rich test city, confirm the designated food/hospitality buildings each add exactly +2 literal Food over their prior output and still obey the existing 2 CORE / 2 LUXURY / 3 COMPOSITE caps
   - Confirm recipes, local/connected resource gates, synthetic goods, corporation thresholds, and advisor chains are unchanged
   - Stress the maximum permitted food-building stack and check growth, health, happiness, AI construction choices, save/reload, and two-client OOS behavior
+- Sol Patch loading artwork:
+  - Launch with both the Classical and Beyond the Sword menu profiles and confirm each uses the DowagerMod / The Sol Patch plaque
+  - Start a new game and load an existing save; confirm both the full and slideshow layouts render without missing textures
+  - Check 4:3 and widescreen resolutions for clipping, stretching, progress-text overlap, and DXT compression artifacts
+  - Confirm Vanilla and Warlords menu profiles remain stock and advisor backgrounds are unchanged
 - Remaining-roster additive release:
   - Start a **fresh game** for every SP and MP run; old saves are not acceptance evidence
   - Confirm Washington, Hammurabi, Elizabeth, Wang Kon, Genghis Khan, Sitting Bull, Mao/Chinese Leader, Salamasina, Stalin, and Churchill retain their complete baseline features with no last-pass removals or reductions

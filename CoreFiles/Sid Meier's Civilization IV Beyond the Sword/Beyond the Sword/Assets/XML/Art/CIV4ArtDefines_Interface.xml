@@ -759,6 +759,14 @@
 			<Path>Art/Interface/Screens/Loading/LoadingScreenBGslideshowBeyondtheSword.dds</Path>
 		</InterfaceArtInfo>
 		<InterfaceArtInfo>
+			<Type>MAINMENU_LOAD_DOWAGER</Type>
+			<Path>Art/Interface/Screens/Loading/LoadingScreenBGDowager.dds</Path>
+		</InterfaceArtInfo>
+		<InterfaceArtInfo>
+			<Type>MAINMENU_SLIDESHOW_LOAD_DOWAGER</Type>
+			<Path>Art/Interface/Screens/Loading/LoadingScreenBGslideshowDowager.dds</Path>
+		</InterfaceArtInfo>
+		<InterfaceArtInfo>
 			<Type>INTRO_LOGOS</Type>
 			<Path>Art/Interface/Screens/Credits/Logos.dds</Path>
 		</InterfaceArtInfo>
