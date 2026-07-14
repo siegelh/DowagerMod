@@ -2479,11 +2479,16 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct &widgetDataStruct, CvWS
 				eRoute = ((RouteTypes)(GC.getBuildInfo(eBuild).getRoute()));
 				eBonus = pMissionPlot->getBonusType(pHeadSelectedUnit->getTeam());
 
+				// Great Person landmarks report their exact output through the
+				// dedicated "Projected landmark output" block below, so skip the
+				// generic native-yield delta line for them to avoid duplication.
+				bool bLandmarkBuild = (eImprovement != NO_IMPROVEMENT && GC.getImprovementInfo(eImprovement).isLandmark());
+
 				for (iI = 0; iI < NUM_YIELD_TYPES; iI++)
 				{
 					iYield = 0;
 
-					if (eImprovement != NO_IMPROVEMENT)
+					if (!bLandmarkBuild && eImprovement != NO_IMPROVEMENT)
 					{
 						iYield += pMissionPlot->calculateImprovementYieldChange(eImprovement, ((YieldTypes)iI), pHeadSelectedUnit->getOwnerINLINE());
 						if (pMissionPlot->getImprovementType() != NO_IMPROVEMENT)
@@ -2841,6 +2846,14 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct &widgetDataStruct, CvWS
 				if (!CvWString(GC.getBuildInfo(eBuild).getHelp()).empty())
 				{
 					szBuffer.append(CvWString::format(L"%s%s", NEWLINE, GC.getBuildInfo(eBuild).getHelp()).c_str());
+				}
+
+				// Projected landmark output block for Great Person landmark
+				// Builds. Read-only preview based on the actual mission plot,
+				// candidate improvement, and the acting player.
+				if (bLandmarkBuild)
+				{
+					GAMETEXT.setLandmarkPreviewHelp(szBuffer, pMissionPlot, eImprovement, pHeadSelectedUnit->getOwnerINLINE(), false);
 				}
 			}
 

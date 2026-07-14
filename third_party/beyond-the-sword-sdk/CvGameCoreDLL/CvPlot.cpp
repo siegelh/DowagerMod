@@ -6143,18 +6143,40 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 // Adjacency yield delivered to the landmark's own tile (this plot). Diagonals
 // count as adjacent. Infrastructure and resources count only when owned by
 // ePlayer; natural terrain/features/water count regardless of ownership.
+//
+// This is a thin wrapper over accumulateLandmarkAdjacency so the runtime yield
+// and the tooltip preview share a single authoritative scan and can never drift.
 int CvPlot::getLandmarkAdjacencyYield(ImprovementTypes eImprovement, YieldTypes eYield, PlayerTypes ePlayer) const
 {
+	int aiYield[NUM_YIELD_TYPES];
+	accumulateLandmarkAdjacency(eImprovement, ePlayer, aiYield, NULL);
+	return aiYield[eYield];
+}
+
+
+// accumulateLandmarkAdjacency
+// ---------------------------
+// Single authoritative source-tile adjacency scan. Fills aiYield[] with the
+// landmark-created yield per YieldTypes and, when pBreakdown != NULL, records
+// the per-contributor counts/contributions for tooltip display. Read-only:
+// stable diagonal scan order, no state mutation, no RNG.
+void CvPlot::accumulateLandmarkAdjacency(ImprovementTypes eImprovement, PlayerTypes ePlayer, int aiYield[NUM_YIELD_TYPES], LandmarkBreakdown* pBreakdown) const
+{
+	for (int iY = 0; iY < NUM_YIELD_TYPES; ++iY)
+	{
+		aiYield[iY] = 0;
+	}
+
 	if (ePlayer == NO_PLAYER)
 	{
-		return 0;
+		return;
 	}
 
 	CvImprovementInfo& kImp = GC.getImprovementInfo(eImprovement);
 	const int iLandmark = kImp.getLandmarkType();
 	if (iLandmark == NO_LANDMARK_TYPE)
 	{
-		return 0;
+		return;
 	}
 
 	// Cache the improvement / feature identities we compare against. Indices are
@@ -6172,7 +6194,6 @@ int CvPlot::getLandmarkAdjacencyYield(ImprovementTypes eImprovement, YieldTypes 
 	static FeatureTypes eJungle = (FeatureTypes)GC.getInfoTypeForString("FEATURE_JUNGLE", true);
 
 	const TeamTypes eTeam = GET_PLAYER(ePlayer).getTeam();
-	int iYield = 0;
 
 	for (int iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
 	{
@@ -6191,72 +6212,99 @@ int CvPlot::getLandmarkAdjacencyYield(ImprovementTypes eImprovement, YieldTypes 
 		switch (iLandmark)
 		{
 		case LANDMARK_INDUSTRIAL_ZONE:
-			if (eYield == YIELD_PRODUCTION && bOwned && eAdjImp != NO_IMPROVEMENT)
+			if (bOwned && eAdjImp != NO_IMPROVEMENT)
 			{
-				if (eAdjImp == eWatermill) iYield += 3;
-				else if (eAdjImp == eWorkshop) iYield += 2;
-				else if (eAdjImp == eMine || eAdjImp == eQuarry) iYield += 1;
+				if (eAdjImp == eWatermill)
+				{
+					aiYield[YIELD_PRODUCTION] += 3;
+					if (pBreakdown) { pBreakdown->iWatermillCount++; pBreakdown->iWatermillYield += 3; }
+				}
+				else if (eAdjImp == eWorkshop)
+				{
+					aiYield[YIELD_PRODUCTION] += 2;
+					if (pBreakdown) { pBreakdown->iWorkshopCount++; pBreakdown->iWorkshopYield += 2; }
+				}
+				else if (eAdjImp == eMine || eAdjImp == eQuarry)
+				{
+					aiYield[YIELD_PRODUCTION] += 1;
+					if (pBreakdown) { pBreakdown->iMineQuarryCount++; pBreakdown->iMineQuarryYield += 1; }
+				}
 			}
 			break;
 
 		case LANDMARK_COMMERCIAL_DISTRICT:
-			if (eYield == YIELD_COMMERCE)
+			if (pAdjacent->isCity())
 			{
-				if (pAdjacent->isCity())
+				CvCity* pAdjCity = pAdjacent->getPlotCity();
+				if (pAdjCity != NULL && pAdjCity->getOwnerINLINE() == ePlayer)
 				{
-					CvCity* pAdjCity = pAdjacent->getPlotCity();
-					if (pAdjCity != NULL && pAdjCity->getOwnerINLINE() == ePlayer)
-					{
-						iYield += 6;
-					}
+					aiYield[YIELD_COMMERCE] += 6;
+					if (pBreakdown) { pBreakdown->iCityCenterCount++; pBreakdown->iCityCenterYield += 6; }
 				}
-				else if (bOwned && eAdjImp != NO_IMPROVEMENT)
+			}
+			else if (bOwned && eAdjImp != NO_IMPROVEMENT)
+			{
+				if (eAdjImp == eCottage)
 				{
-					if (eAdjImp == eCottage) iYield += 1;
-					else if (eAdjImp == eHamlet) iYield += 2;
-					else if (eAdjImp == eVillage) iYield += 3;
-					else if (eAdjImp == eTown) iYield += 4;
+					aiYield[YIELD_COMMERCE] += 1;
+					if (pBreakdown) { pBreakdown->iCottageCount++; pBreakdown->iCottageYield += 1; }
+				}
+				else if (eAdjImp == eHamlet)
+				{
+					aiYield[YIELD_COMMERCE] += 2;
+					if (pBreakdown) { pBreakdown->iHamletCount++; pBreakdown->iHamletYield += 2; }
+				}
+				else if (eAdjImp == eVillage)
+				{
+					aiYield[YIELD_COMMERCE] += 3;
+					if (pBreakdown) { pBreakdown->iVillageCount++; pBreakdown->iVillageYield += 3; }
+				}
+				else if (eAdjImp == eTown)
+				{
+					aiYield[YIELD_COMMERCE] += 4;
+					if (pBreakdown) { pBreakdown->iTownCount++; pBreakdown->iTownYield += 4; }
 				}
 			}
 			break;
 
 		case LANDMARK_GRAND_BAZAAR:
-			if (eYield == YIELD_COMMERCE && bOwned)
+			if (bOwned)
 			{
 				const BonusTypes eAdjBonus = pAdjacent->getBonusType(eTeam);
 				if (eAdjBonus != NO_BONUS && GC.getBonusInfo(eAdjBonus).getHappiness() > 0)
 				{
-					iYield += 4;
+					aiYield[YIELD_COMMERCE] += 4;
+					if (pBreakdown) { pBreakdown->iHappyResourceCount++; pBreakdown->iHappyResourceYield += 4; }
 					if (eAdjImp != NO_IMPROVEMENT &&
 						GC.getImprovementInfo(eAdjImp).isImprovementBonusTrade(eAdjBonus))
 					{
-						iYield += 2;
+						aiYield[YIELD_COMMERCE] += 2;
+						if (pBreakdown) { pBreakdown->iHappyResourceTradeCount++; pBreakdown->iHappyResourceTradeYield += 2; }
 					}
 				}
 			}
 			break;
 
 		case LANDMARK_SACRED_GROVE:
-			if (eYield == YIELD_FOOD)
+			if (bForestOrJungle)
 			{
-				if (bForestOrJungle)
-				{
-					iYield += 1;
-				}
-				if (pAdjacent->isWater())
-				{
-					iYield += 1;
-				}
-				if (bOwned && bForestOrJungle && eAdjImp == eForestPreserve)
-				{
-					iYield += 1;
-				}
+				aiYield[YIELD_FOOD] += 1;
+				if (pBreakdown) { pBreakdown->iGroveForestJungleCount++; pBreakdown->iGroveForestJungleFood += 1; }
 			}
-			else if (eYield == YIELD_COMMERCE)
+			if (pAdjacent->isWater())
 			{
-				if (bOwned && bForestOrJungle && eAdjImp == eForestPreserve)
+				aiYield[YIELD_FOOD] += 1;
+				if (pBreakdown) { pBreakdown->iGroveWaterCount++; pBreakdown->iGroveWaterFood += 1; }
+			}
+			if (bOwned && bForestOrJungle && eAdjImp == eForestPreserve)
+			{
+				aiYield[YIELD_FOOD] += 1;
+				aiYield[YIELD_COMMERCE] += 1;
+				if (pBreakdown)
 				{
-					iYield += 1;
+					pBreakdown->iGrovePreserveCount++;
+					pBreakdown->iGrovePreserveFood += 1;
+					pBreakdown->iGrovePreserveCommerce += 1;
 				}
 			}
 			break;
@@ -6265,8 +6313,6 @@ int CvPlot::getLandmarkAdjacencyYield(ImprovementTypes eImprovement, YieldTypes 
 			break;
 		}
 	}
-
-	return iYield;
 }
 
 
@@ -6274,10 +6320,16 @@ int CvPlot::getLandmarkAdjacencyYield(ImprovementTypes eImprovement, YieldTypes 
 // -------------------------
 // Naval Foundry radius-two water aura, applied to THIS tile when it is an owned
 // passable water tile within radius two of at least one owned Naval Foundry.
-// The aura is non-stacking: multiple overlapping Foundries grant the bonus once.
-int CvPlot::getLandmarkWaterAuraYield(YieldTypes eYield, PlayerTypes ePlayer) const
+// getNavalFoundryAuraTileValue
+// ----------------------------
+// Production a water tile receives from a Naval Foundry aura IF it lies within
+// range of an owned Foundry (proximity is evaluated by the caller). Returns 0
+// for tiles that can never receive the aura (non-water, impassable, or not
+// owned by ePlayer). Shared by the runtime per-tile aura and the tooltip
+// footprint preview so the per-tile value formula cannot drift.
+int CvPlot::getNavalFoundryAuraTileValue(PlayerTypes ePlayer) const
 {
-	if (eYield != YIELD_PRODUCTION || ePlayer == NO_PLAYER)
+	if (ePlayer == NO_PLAYER)
 	{
 		return 0;
 	}
@@ -6286,6 +6338,29 @@ int CvPlot::getLandmarkWaterAuraYield(YieldTypes eYield, PlayerTypes ePlayer) co
 		return 0;
 	}
 	if (getOwnerINLINE() != ePlayer)
+	{
+		return 0;
+	}
+
+	int iYield = 1;
+	if (getBonusType(GET_PLAYER(ePlayer).getTeam()) != NO_BONUS)
+	{
+		iYield += 2;
+	}
+	return iYield;
+}
+
+
+// The aura is non-stacking: multiple overlapping Foundries grant the bonus once.
+int CvPlot::getLandmarkWaterAuraYield(YieldTypes eYield, PlayerTypes ePlayer) const
+{
+	if (eYield != YIELD_PRODUCTION)
+	{
+		return 0;
+	}
+
+	const int iTileValue = getNavalFoundryAuraTileValue(ePlayer);
+	if (iTileValue == 0)
 	{
 		return 0;
 	}
@@ -6320,22 +6395,99 @@ int CvPlot::getLandmarkWaterAuraYield(YieldTypes eYield, PlayerTypes ePlayer) co
 		return 0;
 	}
 
-	int iYield = 1;
-	if (getBonusType(GET_PLAYER(ePlayer).getTeam()) != NO_BONUS)
+	return iTileValue;
+}
+
+
+// accumulateNavalFoundryFootprint
+// -------------------------------
+// Exact effective (non-stacking) Naval Foundry aura preview for THIS plot,
+// treated as the candidate/actual Foundry. For every owned passable water tile
+// within radius two, the aura is attributed to this Foundry only when no OTHER
+// owned Foundry already covers that tile, so overlapping auras are never
+// double-counted. Read-only: stable scan order, no mutation, no RNG.
+void CvPlot::accumulateNavalFoundryFootprint(PlayerTypes ePlayer, LandmarkBreakdown& kOut) const
+{
+	if (ePlayer == NO_PLAYER)
 	{
-		iYield += 2;
+		return;
 	}
-	return iYield;
+
+	static ImprovementTypes eNavalFoundry = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_NAVAL_FOUNDRY_BTG", true);
+	if (eNavalFoundry == NO_IMPROVEMENT)
+	{
+		return;
+	}
+
+	for (int iDX = -2; iDX <= 2; ++iDX)
+	{
+		for (int iDY = -2; iDY <= 2; ++iDY)
+		{
+			CvPlot* pWater = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+			if (pWater == NULL)
+			{
+				continue;
+			}
+			const int iTileValue = pWater->getNavalFoundryAuraTileValue(ePlayer);
+			if (iTileValue == 0)
+			{
+				continue;
+			}
+
+			// Skip tiles already covered by a different owned Foundry: removing
+			// this Foundry would leave their aura intact, so they add nothing.
+			bool bCoveredByOther = false;
+			for (int iEX = -2; iEX <= 2 && !bCoveredByOther; ++iEX)
+			{
+				for (int iEY = -2; iEY <= 2; ++iEY)
+				{
+					CvPlot* pFoundry = plotXY(pWater->getX_INLINE(), pWater->getY_INLINE(), iEX, iEY);
+					if (pFoundry == NULL || pFoundry == this)
+					{
+						continue;
+					}
+					if (pFoundry->getImprovementType() == eNavalFoundry &&
+						pFoundry->getOwnerINLINE() == ePlayer)
+					{
+						bCoveredByOther = true;
+						break;
+					}
+				}
+			}
+			if (bCoveredByOther)
+			{
+				continue;
+			}
+
+			kOut.iFoundryAuraTileCount++;
+			kOut.iFoundryAuraProduction += iTileValue;
+			if (iTileValue > 1)
+			{
+				kOut.iFoundryAuraResourceCount++;
+			}
+		}
+	}
 }
 
 
 // getLandmarkResearchCampusValue
 // ------------------------------
 // Direct Research contributed by a Research Campus on THIS tile. Fed to the
-// worked city before normal Research modifiers. Own-tile Tundra/Snow gives a
-// base bonus; adjacency components (Peak/Jungle/Hill/Tundra/Snow) stack and
-// count regardless of ownership (natural terrain).
+// worked city before normal Research modifiers. Thin wrapper over the shared
+// accumulateLandmarkResearchCampus scan so runtime and tooltip agree exactly.
 int CvPlot::getLandmarkResearchCampusValue(PlayerTypes ePlayer) const
+{
+	return accumulateLandmarkResearchCampus(ePlayer, NULL);
+}
+
+
+// accumulateLandmarkResearchCampus
+// --------------------------------
+// Single authoritative Research Campus scan. Own-tile Tundra/Snow gives a base
+// bonus; adjacency components (Peak/Jungle/Hill/Tundra/Snow) stack and count
+// regardless of ownership (natural terrain). Records the component breakdown
+// when pBreakdown != NULL. Read-only: stable scan order, no mutation, no RNG.
+int CvPlot::accumulateLandmarkResearchCampus(PlayerTypes ePlayer, LandmarkBreakdown* pBreakdown) const
 {
 	static TerrainTypes eTundra = (TerrainTypes)GC.getInfoTypeForString("TERRAIN_TUNDRA", true);
 	static TerrainTypes eSnow = (TerrainTypes)GC.getInfoTypeForString("TERRAIN_SNOW", true);
@@ -6347,6 +6499,7 @@ int CvPlot::getLandmarkResearchCampusValue(PlayerTypes ePlayer) const
 	if (getTerrainType() == eTundra || getTerrainType() == eSnow)
 	{
 		iResearch += 3;
+		if (pBreakdown) { pBreakdown->iCampusOwnCount++; pBreakdown->iCampusOwnYield += 3; }
 	}
 
 	for (int iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
@@ -6359,27 +6512,95 @@ int CvPlot::getLandmarkResearchCampusValue(PlayerTypes ePlayer) const
 		if (pAdjacent->isPeak())
 		{
 			iResearch += 3;
+			if (pBreakdown) { pBreakdown->iCampusPeakCount++; pBreakdown->iCampusPeakYield += 3; }
 		}
 		if (pAdjacent->getFeatureType() == eJungle)
 		{
 			iResearch += 2;
+			if (pBreakdown) { pBreakdown->iCampusJungleCount++; pBreakdown->iCampusJungleYield += 2; }
 		}
 		if (pAdjacent->isHills())
 		{
 			iResearch += 1;
+			if (pBreakdown) { pBreakdown->iCampusHillCount++; pBreakdown->iCampusHillYield += 1; }
 		}
 		const TerrainTypes eAdjTerrain = pAdjacent->getTerrainType();
 		if (eAdjTerrain == eTundra)
 		{
 			iResearch += 1;
+			if (pBreakdown) { pBreakdown->iCampusTundraCount++; pBreakdown->iCampusTundraYield += 1; }
 		}
 		else if (eAdjTerrain == eSnow)
 		{
 			iResearch += 2;
+			if (pBreakdown) { pBreakdown->iCampusSnowCount++; pBreakdown->iCampusSnowYield += 2; }
 		}
 	}
 
 	return iResearch;
+}
+
+
+// buildLandmarkPreview
+// --------------------
+// Assemble the full read-only preview for a landmark improvement on THIS plot,
+// as it would be built/operated by ePlayer. Reuses the shared authoritative
+// scans (accumulateLandmarkAdjacency, accumulateLandmarkResearchCampus,
+// accumulateNavalFoundryFootprint) so tooltip totals equal runtime yields.
+void CvPlot::buildLandmarkPreview(ImprovementTypes eImprovement, PlayerTypes ePlayer, LandmarkBreakdown& kOut) const
+{
+	// Zero-initialise every component. All members are int (see struct comment),
+	// so clearing them as a contiguous int block is portable on the VC7.1
+	// toolkit, which does not reliably value-initialize plain aggregates.
+	int* piZero = reinterpret_cast<int*>(&kOut);
+	const int iNumInts = (int)(sizeof(kOut) / sizeof(int));
+	for (int iZ = 0; iZ < iNumInts; ++iZ)
+	{
+		piZero[iZ] = 0;
+	}
+	kOut.iLandmarkType = NO_LANDMARK_TYPE;
+
+	if (eImprovement == NO_IMPROVEMENT || ePlayer == NO_PLAYER)
+	{
+		return;
+	}
+
+	CvImprovementInfo& kImp = GC.getImprovementInfo(eImprovement);
+	if (!kImp.isLandmark())
+	{
+		return;
+	}
+
+	const int iLandmark = kImp.getLandmarkType();
+	kOut.iLandmarkType = iLandmark;
+
+	// Base XML source-tile yield (e.g. Naval Foundry +2 Production).
+	for (int iY = 0; iY < NUM_YIELD_TYPES; ++iY)
+	{
+		kOut.aiSourceYield[iY] += kImp.getYieldChange(iY);
+	}
+
+	// Source-tile adjacency (Industrial Zone, Commercial District, Grand Bazaar,
+	// Sacred Grove).
+	int aiAdj[NUM_YIELD_TYPES];
+	accumulateLandmarkAdjacency(eImprovement, ePlayer, aiAdj, &kOut);
+	for (int iY = 0; iY < NUM_YIELD_TYPES; ++iY)
+	{
+		kOut.aiSourceYield[iY] += aiAdj[iY];
+	}
+
+	// Research Campus direct Research (city output, not a plot yield).
+	if (iLandmark == LANDMARK_RESEARCH_CAMPUS)
+	{
+		kOut.iResearchTotal = accumulateLandmarkResearchCampus(ePlayer, &kOut);
+	}
+
+	// Naval Foundry own-tile Production plus the exact effective radius-two aura.
+	if (iLandmark == LANDMARK_NAVAL_FOUNDRY)
+	{
+		kOut.iFoundryOwnTileYield = kImp.getYieldChange(YIELD_PRODUCTION);
+		accumulateNavalFoundryFootprint(ePlayer, kOut);
+	}
 }
 
 

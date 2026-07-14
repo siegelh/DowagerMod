@@ -326,5 +326,165 @@ class DllContractTests(unittest.TestCase):
         self.assertContains(ai, "iValueBazaar = AI_scoreLandmarkBuild(eBazaarBuild")
 
 
+class LandmarkPreviewTooltipTests(unittest.TestCase):
+    """UX enhancement: exact plot-specific total + adjacency/contributor
+    breakdown surfaced in BOTH the build-action tooltip and the map plot
+    tooltip, driven by one shared, authoritative preview API."""
+
+    def assertContains(self, text, needle):
+        self.assertTrue(needle in text, f"DLL source missing: {needle!r}")
+
+    def assertMissing(self, text, needle, context):
+        self.assertFalse(needle in text, f"{context} unexpectedly contains {needle!r}")
+
+    @staticmethod
+    def _slice(text, start, end):
+        i = text.index(start)
+        j = text.index(end, i + len(start))
+        return text[i:j]
+
+    # --- One shared preview API, declared const (read-only) --------------
+    def test_shared_preview_api_declared_and_const(self):
+        header = (DLL / "CvPlot.h").read_text(encoding="utf-8", errors="ignore")
+        self.assertContains(header, "struct LandmarkBreakdown")
+        for decl in (
+            "void buildLandmarkPreview(ImprovementTypes eImprovement, PlayerTypes ePlayer, LandmarkBreakdown& kOut) const;",
+            "void accumulateLandmarkAdjacency(ImprovementTypes eImprovement, PlayerTypes ePlayer, int aiYield[NUM_YIELD_TYPES], LandmarkBreakdown* pBreakdown) const;",
+            "int accumulateLandmarkResearchCampus(PlayerTypes ePlayer, LandmarkBreakdown* pBreakdown) const;",
+            "int getNavalFoundryAuraTileValue(PlayerTypes ePlayer) const;",
+            "void accumulateNavalFoundryFootprint(PlayerTypes ePlayer, LandmarkBreakdown& kOut) const;",
+        ):
+            self.assertContains(header, decl)
+
+        tmgr_h = (DLL / "CvGameTextMgr.h").read_text(encoding="utf-8", errors="ignore")
+        self.assertContains(tmgr_h, "void setLandmarkPreviewHelp(CvWStringBuffer &szString, CvPlot* pPlot, ImprovementTypes eImprovement, PlayerTypes ePlayer, bool bBuilt);")
+
+    # --- Both tooltip paths call the one formatter ----------------------
+    def test_build_action_tooltip_wired(self):
+        widget = read_dll("CvDLLWidgetData.cpp")
+        # Landmark builds are detected and the generic native-yield delta line
+        # is skipped for them (avoids duplicating the projected-output block).
+        self.assertContains(widget, "bool bLandmarkBuild = (eImprovement != NO_IMPROVEMENT && GC.getImprovementInfo(eImprovement).isLandmark());")
+        self.assertContains(widget, "if (!bLandmarkBuild && eImprovement != NO_IMPROVEMENT)")
+        # Projected output block based on the actual mission plot + acting player.
+        self.assertContains(widget, "GAMETEXT.setLandmarkPreviewHelp(szBuffer, pMissionPlot, eImprovement, pHeadSelectedUnit->getOwnerINLINE(), false);")
+
+    def test_map_plot_tooltip_wired_with_revealed_semantics(self):
+        tmgr = read_dll("CvGameTextMgr.cpp")
+        # setPlotHelp renders an existing revealed landmark using the revealed
+        # improvement + revealed owner (no unrevealed-data leak).
+        self.assertContains(tmgr, "eImprovement = pPlot->getRevealedImprovementType(GC.getGameINLINE().getActiveTeam(), true);")
+        self.assertContains(tmgr, "setLandmarkPreviewHelp(szString, pPlot, eImprovement, eRevealOwner, true);")
+
+    # --- Formatter renders the shared breakdown, every landmark ----------
+    def test_formatter_covers_every_landmark_type(self):
+        block = self._slice(
+            read_dll("CvGameTextMgr.cpp"),
+            "void CvGameTextMgr::setLandmarkPreviewHelp(",
+            "void CvGameTextMgr::setPlotHelp(",
+        )
+        self.assertContains(block, "pPlot->buildLandmarkPreview(eImprovement, ePlayer, kB);")
+        for case in (
+            "case LANDMARK_INDUSTRIAL_ZONE:",
+            "case LANDMARK_NAVAL_FOUNDRY:",
+            "case LANDMARK_RESEARCH_CAMPUS:",
+            "case LANDMARK_COMMERCIAL_DISTRICT:",
+            "case LANDMARK_GRAND_BAZAAR:",
+            "case LANDMARK_SACRED_GROVE:",
+        ):
+            self.assertContains(block, case)
+        # Research total is rendered from the exact preview value (the reported
+        # missing-Research fix: Research is not a native plot yield).
+        self.assertContains(block, "TXT_KEY_LANDMARK_PREVIEW_RESEARCH_TOTAL")
+        self.assertContains(block, "kB.iResearchTotal")
+        # Naval Foundry distinguishes source tile from effective aura footprint.
+        self.assertContains(block, "kB.iFoundryOwnTileYield + kB.iFoundryAuraProduction")
+
+    # --- Non-duplication: text reuses the authoritative runtime scans ----
+    def test_runtime_helpers_reused_not_reimplemented(self):
+        plot = read_dll("CvPlot.cpp")
+        # Runtime yield is a thin wrapper over the shared adjacency scan.
+        self.assertContains(plot, "accumulateLandmarkAdjacency(eImprovement, ePlayer, aiYield, NULL);")
+        # Runtime Research value is a thin wrapper over the shared campus scan.
+        self.assertContains(plot, "return accumulateLandmarkResearchCampus(ePlayer, NULL);")
+        # Runtime water aura reuses the shared per-tile value formula.
+        self.assertContains(plot, "getNavalFoundryAuraTileValue(ePlayer)")
+        # Preview assembles from those same scans.
+        preview = self._slice(plot, "void CvPlot::buildLandmarkPreview(", "void CvPlot::updateLandmarkYieldsInRange(")
+        self.assertContains(preview, "accumulateLandmarkAdjacency(eImprovement, ePlayer, aiAdj, &kOut);")
+        self.assertContains(preview, "accumulateLandmarkResearchCampus(ePlayer, &kOut);")
+        self.assertContains(preview, "accumulateNavalFoundryFootprint(ePlayer, kOut);")
+
+    def test_naval_foundry_effective_non_stacking(self):
+        footprint = self._slice(
+            read_dll("CvPlot.cpp"),
+            "void CvPlot::accumulateNavalFoundryFootprint(",
+            "// getLandmarkResearchCampusValue",
+        )
+        # Tiles already covered by a DIFFERENT owned Foundry are excluded, so the
+        # preview reflects exact effective (non-stacking) contribution.
+        self.assertContains(footprint, "bool bCoveredByOther = false")
+        self.assertContains(footprint, "pFoundry == this")
+
+    # --- Read-only: no RNG, no state mutation in the preview paths --------
+    def test_preview_paths_are_read_only(self):
+        plot = read_dll("CvPlot.cpp")
+        preview = self._slice(plot, "void CvPlot::buildLandmarkPreview(", "void CvPlot::updateLandmarkYieldsInRange(")
+        for forbidden in ("Rand(", "setImprovementType", "setFeatureType", "->setYield", "changeYield"):
+            self.assertMissing(preview, forbidden, "landmark preview scans")
+        fmt = self._slice(
+            read_dll("CvGameTextMgr.cpp"),
+            "void CvGameTextMgr::setLandmarkPreviewHelp(",
+            "void CvGameTextMgr::setPlotHelp(",
+        )
+        for forbidden in ("Rand(", "setImprovementType", "changeYield"):
+            self.assertMissing(fmt, forbidden, "landmark tooltip formatter")
+
+    # --- Localization keys for headings/labels ---------------------------
+    def test_preview_text_keys_present(self):
+        text = TEXT.read_text(encoding="ISO-8859-1")
+        for key in (
+            "TXT_KEY_LANDMARK_PREVIEW_HEADER",
+            "TXT_KEY_LANDMARK_OUTPUT_HEADER",
+            "TXT_KEY_LANDMARK_PREVIEW_PROD_TOTAL",
+            "TXT_KEY_LANDMARK_PREVIEW_COMMERCE_TOTAL",
+            "TXT_KEY_LANDMARK_PREVIEW_FOOD_TOTAL",
+            "TXT_KEY_LANDMARK_PREVIEW_RESEARCH_TOTAL",
+            "TXT_KEY_LANDMARK_PREVIEW_NF_TOTAL",
+            "TXT_KEY_LANDMARK_PREVIEW_IZ_WATERMILL",
+            "TXT_KEY_LANDMARK_PREVIEW_IZ_WORKSHOP",
+            "TXT_KEY_LANDMARK_PREVIEW_IZ_MINE",
+            "TXT_KEY_LANDMARK_PREVIEW_IZ_NONE",
+            "TXT_KEY_LANDMARK_PREVIEW_NF_OWN",
+            "TXT_KEY_LANDMARK_PREVIEW_NF_AURA",
+            "TXT_KEY_LANDMARK_PREVIEW_NF_AURA_RESOURCE",
+            "TXT_KEY_LANDMARK_PREVIEW_NF_AURA_NONE",
+            "TXT_KEY_LANDMARK_PREVIEW_RC_OWN",
+            "TXT_KEY_LANDMARK_PREVIEW_RC_PEAK",
+            "TXT_KEY_LANDMARK_PREVIEW_RC_JUNGLE",
+            "TXT_KEY_LANDMARK_PREVIEW_RC_HILL",
+            "TXT_KEY_LANDMARK_PREVIEW_RC_TUNDRA",
+            "TXT_KEY_LANDMARK_PREVIEW_RC_SNOW",
+            "TXT_KEY_LANDMARK_PREVIEW_RC_NONE",
+            "TXT_KEY_LANDMARK_PREVIEW_CD_CITY",
+            "TXT_KEY_LANDMARK_PREVIEW_CD_COTTAGE",
+            "TXT_KEY_LANDMARK_PREVIEW_CD_HAMLET",
+            "TXT_KEY_LANDMARK_PREVIEW_CD_VILLAGE",
+            "TXT_KEY_LANDMARK_PREVIEW_CD_TOWN",
+            "TXT_KEY_LANDMARK_PREVIEW_CD_NONE",
+            "TXT_KEY_LANDMARK_PREVIEW_GB_HAPPY",
+            "TXT_KEY_LANDMARK_PREVIEW_GB_TRADE",
+            "TXT_KEY_LANDMARK_PREVIEW_GB_NONE",
+            "TXT_KEY_LANDMARK_PREVIEW_SG_FORESTJUNGLE",
+            "TXT_KEY_LANDMARK_PREVIEW_SG_WATER",
+            "TXT_KEY_LANDMARK_PREVIEW_SG_PRESERVE",
+            "TXT_KEY_LANDMARK_PREVIEW_SG_NONE",
+        ):
+            self.assertIn(f"<Tag>{key}</Tag>", text, key)
+            # Convention: English duplicated across the four other languages.
+            for lang in ("French", "German", "Italian", "Spanish"):
+                self.assertIn(f"<{lang}>", text)
+
+
 if __name__ == "__main__":
     unittest.main()

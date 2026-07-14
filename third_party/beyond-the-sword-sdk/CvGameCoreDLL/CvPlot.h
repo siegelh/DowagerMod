@@ -26,6 +26,62 @@ class CvFlagEntity;
 typedef bool (*ConstPlotUnitFunc)( const CvUnit* pUnit, int iData1, int iData2);
 typedef bool (*PlotUnitFunc)(CvUnit* pUnit, int iData1, int iData2);
 
+// Great Person landmark preview breakdown. Filled by
+// CvPlot::buildLandmarkPreview from the same authoritative scans that back the
+// runtime yield/Research helpers, then rendered by CvGameTextMgr. This lets the
+// build-action tooltip and the map plot tooltip show an exact plot-specific
+// total plus a component breakdown without duplicating the gameplay formulas.
+// Plain aggregate; callers must fill it through buildLandmarkPreview, which
+// zeroes it first. Every member is a plain int (no bools, no padding) so the
+// zeroing loop in buildLandmarkPreview can clear the whole struct portably on
+// the Civ4 VC7.1 toolkit without relying on value-initialization or memset.
+struct LandmarkBreakdown
+{
+	int iLandmarkType;
+
+	// Landmark-created output on the source tile (base XML yield + adjacency),
+	// indexed by YieldTypes. This equals the landmark contribution that
+	// calculateImprovementYieldChange adds for this improvement.
+	int aiSourceYield[NUM_YIELD_TYPES];
+
+	// Industrial Zone (Production).
+	int iWatermillCount;    int iWatermillYield;
+	int iWorkshopCount;     int iWorkshopYield;
+	int iMineQuarryCount;   int iMineQuarryYield;
+
+	// Commercial District (Commerce).
+	int iCityCenterCount;   int iCityCenterYield;
+	int iCottageCount;      int iCottageYield;
+	int iHamletCount;       int iHamletYield;
+	int iVillageCount;      int iVillageYield;
+	int iTownCount;         int iTownYield;
+
+	// Grand Bazaar (Commerce).
+	int iHappyResourceCount;        int iHappyResourceYield;
+	int iHappyResourceTradeCount;   int iHappyResourceTradeYield;
+
+	// Sacred Grove (Food + Commerce).
+	int iGroveForestJungleCount;    int iGroveForestJungleFood;
+	int iGroveWaterCount;           int iGroveWaterFood;
+	int iGrovePreserveCount;        int iGrovePreserveFood;   int iGrovePreserveCommerce;
+
+	// Research Campus (direct Research to the working city, before modifiers).
+	int iResearchTotal;
+	int iCampusOwnCount;            int iCampusOwnYield;   // own Tundra/Snow
+	int iCampusPeakCount;           int iCampusPeakYield;
+	int iCampusJungleCount;         int iCampusJungleYield;
+	int iCampusHillCount;           int iCampusHillYield;
+	int iCampusTundraCount;         int iCampusTundraYield;
+	int iCampusSnowCount;           int iCampusSnowYield;
+
+	// Naval Foundry (Production). Aura values are exact effective (non-stacking):
+	// water tiles already covered by another owned Foundry are excluded.
+	int iFoundryOwnTileYield;
+	int iFoundryAuraTileCount;
+	int iFoundryAuraResourceCount;
+	int iFoundryAuraProduction;
+};
+
 class CvPlot
 {
 
@@ -124,6 +180,14 @@ public:
 	int getLandmarkWaterAuraYield(YieldTypes eYield, PlayerTypes ePlayer) const;
 	int getLandmarkResearchCampusValue(PlayerTypes ePlayer) const;
 	void updateLandmarkYieldsInRange(int iRange) const;
+
+	// Shared, read-only landmark preview used by both tooltip paths. Fills kOut
+	// from the same scans that the runtime yield/Research helpers use.
+	void buildLandmarkPreview(ImprovementTypes eImprovement, PlayerTypes ePlayer, LandmarkBreakdown& kOut) const;
+	void accumulateLandmarkAdjacency(ImprovementTypes eImprovement, PlayerTypes ePlayer, int aiYield[NUM_YIELD_TYPES], LandmarkBreakdown* pBreakdown) const;
+	int accumulateLandmarkResearchCampus(PlayerTypes ePlayer, LandmarkBreakdown* pBreakdown) const;
+	int getNavalFoundryAuraTileValue(PlayerTypes ePlayer) const;
+	void accumulateNavalFoundryFootprint(PlayerTypes ePlayer, LandmarkBreakdown& kOut) const;
 
 	int getBuildTime(BuildTypes eBuild) const;																																										// Exposed to Python
 	int getBuildTurnsLeft(BuildTypes eBuild, int iNowExtra, int iThenExtra) const;																			// Exposed to Python

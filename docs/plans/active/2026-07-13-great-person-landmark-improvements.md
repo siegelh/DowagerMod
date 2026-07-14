@@ -3,7 +3,6 @@
 - Status: `in_progress`
 - Owner / agent: GitHub Copilot CLI
 - Last updated: `2026-07-13`
-
 ## Problem Statement
 
 - Task: give Great Engineers, Scientists, Merchants, Prophets, and the Venetian
@@ -256,6 +255,40 @@ Grand Colosseum, must not move because savegames persist numeric IDs.
   proven Great Artist/Venetian Merchant Prince value (`1000`).
 - [x] Add a regression test requiring every landmark builder to retain that
   positive work rate alongside zero-time, unit-consuming BuildInfo records.
+
+### UX enhancement — exact output preview + breakdown
+
+Approved option: **"Exact total + adjacency breakdown (Recommended)."** Surface
+an exact plot-specific total plus a short contributor breakdown in both tooltip
+paths, sharing one authoritative preview so text can never drift from gameplay.
+
+- [x] Added the shared, read-only `CvPlot::buildLandmarkPreview` +
+  `LandmarkBreakdown` struct, filled from the same scans that back the runtime
+  helpers. Runtime `getLandmarkAdjacencyYield`, `getLandmarkResearchCampusValue`,
+  and `getLandmarkWaterAuraYield` were refactored to reuse those scans
+  (`accumulateLandmarkAdjacency`, `accumulateLandmarkResearchCampus`,
+  `getNavalFoundryAuraTileValue`) — no second rule implementation.
+- [x] Added `CvGameTextMgr::setLandmarkPreviewHelp`, rendering exact totals and
+  per-contributor counts for every landmark type, including the exact Research
+  Campus value (Research is not a native plot yield, which is why it was missing).
+- [x] Build-action tooltip (`CvDLLWidgetData::parseActionHelp`, `MISSION_BUILD`)
+  appends a "Projected landmark output" block and suppresses the duplicate
+  generic native-yield delta line for landmark Builds.
+- [x] Map plot tooltip (`CvGameTextMgr::setPlotHelp`) appends a "Current landmark
+  output" block for an existing revealed landmark, using revealed
+  improvement/owner semantics (no unrevealed-data leak).
+- [x] Naval Foundry aura preview is exact effective (non-stacking): water tiles
+  already covered by another owned Foundry are excluded.
+- [x] Localized heading/label keys added to `ZZZ_CIV4GameText_Landmarks.xml`
+  following the English-duplicated-across-languages convention.
+- [x] Focused regression tests added in
+  `tools/tests/test_great_person_landmarks.py` (both tooltip paths, Research
+  exact preview, per-landmark breakdown, non-duplication/reuse contract,
+  localization keys, read-only/no-RNG checks).
+- [x] `.\tools\test_gate.ps1 -All -CheckDll` rebuilds/deploys the payload DLL;
+  Release and payload DLL SHA-256 confirmed identical.
+- [ ] Installed-game manual acceptance: build-hover and built-map-hover checks
+  per landmark (see `docs/MANUAL_SMOKE_TESTS.md`), plus save/reload and MP OOS.
 
 ## Readiness
 

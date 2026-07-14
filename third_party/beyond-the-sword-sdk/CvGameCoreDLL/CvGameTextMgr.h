@@ -58,6 +58,10 @@ public:
 	DllExport void setPlotListHelp(CvWStringBuffer &szString, CvPlot* pPlot, bool bOneLine, bool bShort);
 	DllExport bool setCombatPlotHelp(CvWStringBuffer &szString, CvPlot* pPlot);
 	DllExport void setPlotHelp(CvWStringBuffer &szString, CvPlot* pPlot);
+	// Great Person landmark output preview. Shared by the build-action tooltip
+	// (bBuilt=false) and the map plot tooltip for an existing landmark
+	// (bBuilt=true). Read-only; renders CvPlot::buildLandmarkPreview.
+	void setLandmarkPreviewHelp(CvWStringBuffer &szString, CvPlot* pPlot, ImprovementTypes eImprovement, PlayerTypes ePlayer, bool bBuilt);
 	DllExport void setCityBarHelp(CvWStringBuffer &szString, CvCity* pCity);
 	DllExport void setScoreHelp(CvWStringBuffer &szString, PlayerTypes ePlayer);
 

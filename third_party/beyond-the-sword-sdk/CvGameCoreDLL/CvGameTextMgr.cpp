@@ -2774,6 +2774,230 @@ void createTestFontString(CvWStringBuffer& szString)
 		szString.append(CvWString::format(L"%c", gDLL->getSymbolID(iI)));
 }
 
+void CvGameTextMgr::setLandmarkPreviewHelp(CvWStringBuffer& szBuffer, CvPlot* pPlot, ImprovementTypes eImprovement, PlayerTypes ePlayer, bool bBuilt)
+{
+	if (pPlot == NULL || eImprovement == NO_IMPROVEMENT || ePlayer == NO_PLAYER)
+	{
+		return;
+	}
+	if (!GC.getImprovementInfo(eImprovement).isLandmark())
+	{
+		return;
+	}
+
+	LandmarkBreakdown kB;
+	pPlot->buildLandmarkPreview(eImprovement, ePlayer, kB);
+	if (kB.iLandmarkType == NO_LANDMARK_TYPE)
+	{
+		return;
+	}
+
+	szBuffer.append(NEWLINE);
+	szBuffer.append(gDLL->getText(bBuilt ? "TXT_KEY_LANDMARK_OUTPUT_HEADER" : "TXT_KEY_LANDMARK_PREVIEW_HEADER"));
+
+	switch (kB.iLandmarkType)
+	{
+	case LANDMARK_INDUSTRIAL_ZONE:
+		{
+			bool bAny = false;
+			if (kB.iWatermillCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_IZ_WATERMILL", kB.iWatermillCount, kB.iWatermillYield));
+				bAny = true;
+			}
+			if (kB.iWorkshopCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_IZ_WORKSHOP", kB.iWorkshopCount, kB.iWorkshopYield));
+				bAny = true;
+			}
+			if (kB.iMineQuarryCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_IZ_MINE", kB.iMineQuarryCount, kB.iMineQuarryYield));
+				bAny = true;
+			}
+			if (!bAny)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_IZ_NONE"));
+			}
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_PROD_TOTAL", kB.aiSourceYield[YIELD_PRODUCTION]));
+		}
+		break;
+
+	case LANDMARK_NAVAL_FOUNDRY:
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_NF_OWN", kB.iFoundryOwnTileYield));
+			if (kB.iFoundryAuraTileCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_NF_AURA", kB.iFoundryAuraTileCount, kB.iFoundryAuraProduction));
+				if (kB.iFoundryAuraResourceCount > 0)
+				{
+					szBuffer.append(NEWLINE);
+					szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_NF_AURA_RESOURCE", kB.iFoundryAuraResourceCount));
+				}
+			}
+			else
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_NF_AURA_NONE"));
+			}
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_NF_TOTAL", kB.iFoundryOwnTileYield + kB.iFoundryAuraProduction));
+		}
+		break;
+
+	case LANDMARK_RESEARCH_CAMPUS:
+		{
+			bool bAny = false;
+			if (kB.iCampusOwnYield > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_OWN", kB.iCampusOwnYield));
+				bAny = true;
+			}
+			if (kB.iCampusPeakCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_PEAK", kB.iCampusPeakCount, kB.iCampusPeakYield));
+				bAny = true;
+			}
+			if (kB.iCampusJungleCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_JUNGLE", kB.iCampusJungleCount, kB.iCampusJungleYield));
+				bAny = true;
+			}
+			if (kB.iCampusHillCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_HILL", kB.iCampusHillCount, kB.iCampusHillYield));
+				bAny = true;
+			}
+			if (kB.iCampusTundraCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_TUNDRA", kB.iCampusTundraCount, kB.iCampusTundraYield));
+				bAny = true;
+			}
+			if (kB.iCampusSnowCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_SNOW", kB.iCampusSnowCount, kB.iCampusSnowYield));
+				bAny = true;
+			}
+			if (!bAny)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_NONE"));
+			}
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RESEARCH_TOTAL", kB.iResearchTotal));
+		}
+		break;
+
+	case LANDMARK_COMMERCIAL_DISTRICT:
+		{
+			if (kB.iCityCenterYield > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_CD_CITY", kB.iCityCenterYield));
+			}
+			if (kB.iCottageCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_CD_COTTAGE", kB.iCottageCount, kB.iCottageYield));
+			}
+			if (kB.iHamletCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_CD_HAMLET", kB.iHamletCount, kB.iHamletYield));
+			}
+			if (kB.iVillageCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_CD_VILLAGE", kB.iVillageCount, kB.iVillageYield));
+			}
+			if (kB.iTownCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_CD_TOWN", kB.iTownCount, kB.iTownYield));
+			}
+			if (kB.aiSourceYield[YIELD_COMMERCE] == 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_CD_NONE"));
+			}
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_COMMERCE_TOTAL", kB.aiSourceYield[YIELD_COMMERCE]));
+		}
+		break;
+
+	case LANDMARK_GRAND_BAZAAR:
+		{
+			if (kB.iHappyResourceCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_GB_HAPPY", kB.iHappyResourceCount, kB.iHappyResourceYield));
+				if (kB.iHappyResourceTradeCount > 0)
+				{
+					szBuffer.append(NEWLINE);
+					szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_GB_TRADE", kB.iHappyResourceTradeCount, kB.iHappyResourceTradeYield));
+				}
+			}
+			else
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_GB_NONE"));
+			}
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_COMMERCE_TOTAL", kB.aiSourceYield[YIELD_COMMERCE]));
+		}
+		break;
+
+	case LANDMARK_SACRED_GROVE:
+		{
+			bool bAny = false;
+			if (kB.iGroveForestJungleCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_SG_FORESTJUNGLE", kB.iGroveForestJungleCount, kB.iGroveForestJungleFood));
+				bAny = true;
+			}
+			if (kB.iGroveWaterCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_SG_WATER", kB.iGroveWaterCount, kB.iGroveWaterFood));
+				bAny = true;
+			}
+			if (kB.iGrovePreserveCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_SG_PRESERVE", kB.iGrovePreserveCount, kB.iGrovePreserveFood, kB.iGrovePreserveCommerce));
+				bAny = true;
+			}
+			if (!bAny)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_SG_NONE"));
+			}
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_FOOD_TOTAL", kB.aiSourceYield[YIELD_FOOD]));
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_COMMERCE_TOTAL", kB.aiSourceYield[YIELD_COMMERCE]));
+		}
+		break;
+
+	default:
+		break;
+	}
+}
+
 void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot)
 {
 	PROFILE_FUNC();
@@ -3699,6 +3923,14 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot)
 			}
 
 			appendPlotIndustryHelp(szString, pPlot, eImprovement);
+
+			// Current landmark output for an existing revealed Great Person
+			// landmark. Uses the revealed owner so we never leak unrevealed
+			// ownership; buildLandmarkPreview is read-only.
+			if (GC.getImprovementInfo(eImprovement).isLandmark() && eRevealOwner != NO_PLAYER)
+			{
+				setLandmarkPreviewHelp(szString, pPlot, eImprovement, eRevealOwner, true);
+			}
 		}
 
 		if (pPlot->getRevealedRouteType(GC.getGameINLINE().getActiveTeam(), true) != NO_ROUTE)
