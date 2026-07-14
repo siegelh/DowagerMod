@@ -14510,6 +14510,26 @@ int CvUnitAI::AI_scoreLandmarkBuild(BuildTypes eBuild, CvPlot** ppBestPlot)
 		{
 			continue;
 		}
+
+		int iValue = AI_landmarkPlotValue(pLoopPlot, eImprovement);
+		if (iValue <= 0)
+		{
+			continue;
+		}
+		if (bFirstOfGroup)
+		{
+			iValue += 250;
+		}
+
+		// Path turns can only reduce this upper bound. Once it cannot beat the
+		// current winner, skip danger evaluation and pathfinding entirely.
+		long long iUpperScore64 = (long long)iValue * 3000LL;
+		int iUpperScore = (iUpperScore64 > 2000000000LL) ? 2000000000 : (int)iUpperScore64;
+		if (iUpperScore <= iBestScore)
+		{
+			continue;
+		}
+
 		if (pLoopPlot->isVisibleEnemyUnit(this))
 		{
 			continue;
@@ -14522,16 +14542,6 @@ int CvUnitAI::AI_scoreLandmarkBuild(BuildTypes eBuild, CvPlot** ppBestPlot)
 		if (!generatePath(pLoopPlot, MOVE_SAFE_TERRITORY, true, &iPathTurns))
 		{
 			continue;
-		}
-
-		int iValue = AI_landmarkPlotValue(pLoopPlot, eImprovement);
-		if (iValue <= 0)
-		{
-			continue;
-		}
-		if (bFirstOfGroup)
-		{
-			iValue += 250;
 		}
 
 		long long iScore64 = ((long long)iValue * 3000LL) / (long long)(1 + iPathTurns);
@@ -14579,7 +14589,18 @@ bool CvUnitAI::AI_buildGreatPersonLandmark(bool bFirstFreebie)
 		{
 			continue;
 		}
-		if (bFirstFreebie && AI_ownerHasLandmarkGroup(GC.getImprovementInfo(eImp).getLandmarkGroup()))
+		CvImprovementInfo& kImp = GC.getImprovementInfo(eImp);
+
+		// Sacred Grove units carry all eight art variants, but only the variant
+		// matching the current state religion can ever be legal. Reject the
+		// other seven before they each trigger a full-map candidate scan.
+		if (kImp.isLandmarkStateReligionGated() &&
+			kImp.getLandmarkStateReligion() != (int)GET_PLAYER(getOwnerINLINE()).getStateReligion())
+		{
+			continue;
+		}
+
+		if (bFirstFreebie && AI_ownerHasLandmarkGroup(kImp.getLandmarkGroup()))
 		{
 			continue;
 		}

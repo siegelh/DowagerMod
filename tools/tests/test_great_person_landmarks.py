@@ -209,7 +209,6 @@ class ArtTests(unittest.TestCase):
             imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
             self.assertIn(child_text(imp, "ArtDefineTag"), art_types, k)
 
-
 class UnitPermissionTests(unittest.TestCase):
     def unit_builds(self, unit_type):
         unit = find_entry(UNITS, "UnitInfo", unit_type)
@@ -324,6 +323,36 @@ class DllContractTests(unittest.TestCase):
         self.assertContains(ai, "OPT_BAZAAR")
         self.assertContains(ai, "iValueCommDist = AI_scoreLandmarkBuild(eCommDistBuild")
         self.assertContains(ai, "iValueBazaar = AI_scoreLandmarkBuild(eBazaarBuild")
+
+    def test_landmark_turn_processing_fast_paths(self):
+        plot = read_dll("CvPlot.cpp")
+        ai = read_dll("CvUnitAI.cpp")
+
+        # The frequent water-Production path must not scan a 5x5 radius before
+        # the player owns any Naval Foundry.
+        self.assertContains(
+            plot,
+            "GET_PLAYER(ePlayer).getImprovementCount(eNavalFoundry) == 0",
+        )
+
+        # A Prophet carries eight Grove art builds; reject the seven religion
+        # mismatches before AI_scoreLandmarkBuild performs a full-map scan.
+        religion_guard = ai.index("kImp.isLandmarkStateReligionGated()")
+        score_call = ai.index(
+            "AI_scoreLandmarkBuild((BuildTypes)iBuild, &pPlot)",
+            religion_guard,
+        )
+        self.assertLess(religion_guard, score_call)
+        self.assertContains(ai, "GET_PLAYER(getOwnerINLINE()).getStateReligion()")
+
+        # Score is an upper bound before pathfinding, allowing candidates that
+        # mathematically cannot win to skip the expensive generatePath call.
+        upper_bound = ai.index("iUpperScore <= iBestScore")
+        pathfind = ai.index(
+            "generatePath(pLoopPlot, MOVE_SAFE_TERRITORY",
+            upper_bound,
+        )
+        self.assertLess(upper_bound, pathfind)
 
 
 class LandmarkPreviewTooltipTests(unittest.TestCase):

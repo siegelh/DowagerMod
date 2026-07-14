@@ -6370,6 +6370,12 @@ int CvPlot::getLandmarkWaterAuraYield(YieldTypes eYield, PlayerTypes ePlayer) co
 	{
 		return 0;
 	}
+	// Production yields are evaluated frequently by city and worker AI. Avoid
+	// the radius scan entirely until this player actually owns a Foundry.
+	if (GET_PLAYER(ePlayer).getImprovementCount(eNavalFoundry) == 0)
+	{
+		return 0;
+	}
 
 	bool bInAura = false;
 	for (int iDX = -2; iDX <= 2 && !bInAura; ++iDX)
@@ -10618,4 +10624,3 @@ bool CvPlot::checkLateEra() const
 
 	return (GET_PLAYER(ePlayer).getCurrentEra() > GC.getNumEraInfos() / 2);
 }
-
