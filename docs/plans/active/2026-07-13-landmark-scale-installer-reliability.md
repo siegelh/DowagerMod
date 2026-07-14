@@ -1,8 +1,8 @@
 # Landmark Map Scale and Installer Reliability
 
-- Status: `in_progress`
+- Status: `implemented; installed-game validation pending`
 - Owner / agent: GitHub Copilot CLI
-- Last updated: `2026-07-13`
+- Last updated: `2026-07-14`
 
 ## Problem Statement
 

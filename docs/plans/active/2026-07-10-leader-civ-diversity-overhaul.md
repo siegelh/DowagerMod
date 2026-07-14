@@ -2,7 +2,7 @@
 
 - Status: `implementation complete; installed-game validation pending`
 - Owner / agent: Copilot
-- Last updated: `2026-07-10`
+- Last updated: `2026-07-14`
 
 ## Problem Statement
 
@@ -330,8 +330,8 @@ not depend on them.
   completed a clean DLL compatibility build. The build's generated DLL and
   backup were removed afterward, leaving no native binary or source delta.
 - No installed-game validation or deployment claim is made here.
-  Civilopedia review, gameplay smoke tests, and the one-commit handoff remain
-  open.
+  Civilopedia review and gameplay smoke tests remain open; the dedicated
+  implementation handoff is complete.
 
 ## Final Outcome Summary
 

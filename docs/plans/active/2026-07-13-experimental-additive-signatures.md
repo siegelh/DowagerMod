@@ -1,8 +1,8 @@
 # Experimental Additive Signature Layer
 
-- Status: `implemented_experimental`
+- Status: `implemented experimental; gameplay validation pending`
 - Owner / agent: GitHub Copilot CLI
-- Last updated: `2026-07-13`
+- Last updated: `2026-07-14`
 - Rollback boundary: the single commit titled
   `Add experimental signatures to all 59 packages`
 

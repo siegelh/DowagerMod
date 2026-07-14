@@ -1,8 +1,8 @@
 # Remaining roster implementation and release contract
 
-- Status: `approved_additive_direction_runtime_pending`
-- Last updated: `2026-07-13`
-- Runtime edits in this task: **none**
+- Status: `implementation complete; installed-game validation pending`
+- Last updated: `2026-07-14`
+- Runtime implementation: landed in `b4020964e`
 
 ## Release scope
 
@@ -78,7 +78,8 @@ Use `docs/MANUAL_SMOKE_TESTS.md`.
 
 ## Release verdict
 
-**Not ready for merge/deploy until runtime implementation, automated gates,
-installed fresh-game smoke, and fresh two-client MP acceptance are recorded.**
+**Implementation and automated gates are complete. Not ready for merge/deploy
+until installed fresh-game smoke and fresh two-client MP acceptance are
+recorded.**
 
 Old-save loading does not satisfy any release gate.

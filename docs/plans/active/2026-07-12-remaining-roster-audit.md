@@ -1,8 +1,8 @@
 # Remaining 32 roster audit — approved additive direction
 
-- Status: `approved_contract`
-- Last updated: `2026-07-13`
-- Runtime changes in this task: **none**
+- Status: `implemented; installed-game validation pending`
+- Last updated: `2026-07-14`
+- Runtime implementation: landed in `b4020964e` with exact-contract coverage
 - Machine-readable contract:
   `tools/baselines/remaining_roster_implementation_matrix.json`
 

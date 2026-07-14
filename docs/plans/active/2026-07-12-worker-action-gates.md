@@ -1,7 +1,7 @@
 # Remaining-roster worker-action gate
 
-- Status: `approved_additive_freeze`
-- Last updated: `2026-07-13`
+- Status: `implemented contract satisfied`
+- Last updated: `2026-07-14`
 - Scope: remaining-roster implementation only
 
 ## Decision

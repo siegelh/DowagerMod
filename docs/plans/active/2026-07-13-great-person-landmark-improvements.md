@@ -1,8 +1,8 @@
 # Great Person landmark improvements
 
-- Status: `in_progress`
+- Status: `implemented; installed-game validation pending`
 - Owner / agent: GitHub Copilot CLI
-- Last updated: `2026-07-13`
+- Last updated: `2026-07-14`
 ## Problem Statement
 
 - Task: give Great Engineers, Scientists, Merchants, Prophets, and the Venetian
@@ -333,8 +333,8 @@ unchanged (see `docs/MANUAL_SMOKE_TESTS.md`).
 
 ## Readiness
 
-**Ready for implementation: Yes.**
+**Ready for implementation: Yes (implemented).**
 
-**Ready for merge/deploy: No.** Implementation, automated gates, user-run
-installation, fresh-game rendering/mechanics checks, AI autoplay, save/reload,
-and fresh two-client multiplayer acceptance remain required.
+**Ready for merge/deploy: No.** Implementation and automated gates are
+complete. Fresh-game rendering/mechanics checks, AI autoplay, save/reload, and
+fresh two-client multiplayer acceptance remain required.

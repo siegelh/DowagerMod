@@ -1,8 +1,8 @@
 # Industry Building Output Rebalance Proposal
 
-- Status: `approved and implemented`
+- Status: `approved and implemented; gameplay validation pending`
 - Owner / agent: Copilot
-- Last updated: `2026-07-13`
+- Last updated: `2026-07-14`
 
 ## Purpose and non-negotiable scope
 
@@ -128,8 +128,10 @@ retain its live category and propose no category or recipe change.
 ## Implementation boundary and validation
 
 - The companion machine-readable review artifact is [`../../../tools/manifests/industry_building_rebalance_proposal.json`](../../../tools/manifests/industry_building_rebalance_proposal.json).
-- [`../../../tools/tests/test_industry_building_rebalance_proposal.py`](../../../tools/tests/test_industry_building_rebalance_proposal.py) validates all 69 live types, both the requested 11/19/39 review partition and true 11/20/38 mechanical split, live cost/output snapshots, immutable non-output fingerprints, monotonic outputs, an independent exact set of 23 food/hospitality buildings, literal Food gains, and the absence of runtime modifications.
-- This proposal deliberately does **not** prescribe an XML patch. Before implementation, run `python -m unittest tools.tests.test_industry_building_rebalance_proposal`. After an approved XML implementation, retain the protected fingerprints and run `$env:INDUSTRY_PROPOSAL_EXPECT_LIVE='proposed'; python -m unittest tools.tests.test_industry_building_rebalance_proposal`, `.\tools\test_gate.ps1`, and the Industry Advisor/manual gameplay smoke test.
+- [`../../../tools/tests/test_industry_building_rebalance_proposal.py`](../../../tools/tests/test_industry_building_rebalance_proposal.py) validates all 69 live types, both the requested 11/19/39 review partition and true 11/20/38 mechanical split, implemented cost/output snapshots, immutable non-output fingerprints, monotonic outputs, an independent exact set of 23 food/hospitality buildings, literal Food gains, and the single approved runtime XML path.
+- The approved XML implementation landed in `15fa7e404`. Protected
+  fingerprints remain enforced; manual Industry Advisor and gameplay balance
+  testing remain required.
 
 ## Risks and review questions
 
@@ -139,6 +141,9 @@ retain its live category and propose no category or recipe change.
 
 ## Final outcome
 
-- Created a review-only, implementable 69-row cost/output proposal and a locked live-XML snapshot.
-- No runtime XML, Python, or DLL file was edited.
-- Ready for design review; not ready to claim gameplay balance validation until an approved implementation is applied and manually smoke-tested.
+- Created and implemented the approved 69-row cost/output matrix.
+- Runtime scope is limited to `CIV4BuildingInfos.xml`; recipes, prerequisites,
+  category caps, corporation thresholds, Python, and DLL behavior remain
+  unchanged.
+- Automated implementation contracts pass. Gameplay balance acceptance remains
+  pending the documented manual smoke tests.

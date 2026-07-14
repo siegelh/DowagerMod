@@ -1,8 +1,8 @@
 # Remaining 32 implementation matrix — additive freeze
 
-- Status: **approved; runtime implementation pending**
-- Last updated: `2026-07-13`
-- Runtime changes in this task: **none**
+- Status: **implemented; installed-game validation pending**
+- Last updated: `2026-07-14`
+- Runtime implementation: `b4020964e`
 - Machine-readable source:
   `tools/baselines/remaining_roster_implementation_matrix.json`
 

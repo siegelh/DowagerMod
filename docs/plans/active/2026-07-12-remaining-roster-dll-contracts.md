@@ -1,7 +1,7 @@
 # Remaining-roster DLL contract
 
-- Status: `no_dll_work_authorized`
-- Last updated: `2026-07-13`
+- Status: `contract satisfied; no roster DLL work introduced`
+- Last updated: `2026-07-14`
 - Runtime edits in this task: **none**
 
 ## Verdict
