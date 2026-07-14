@@ -17,6 +17,7 @@ BTS = (
 MAIN_MENUS = BTS / "XML" / "Art" / "CIV4MainMenus.xml"
 INTERFACE_ART = BTS / "XML" / "Art" / "CIV4ArtDefines_Interface.xml"
 LOADING_ART = BTS / "Art" / "Interface" / "Screens" / "Loading"
+HOME_ART = BTS / "Art" / "Interface" / "Main Menu"
 
 EXPECTED_ART = {
     "MAINMENU_LOAD_DOWAGER": (
@@ -77,6 +78,41 @@ class SolLoadingArtTests(unittest.TestCase):
                 self.assertEqual((width, height), dimensions)
                 self.assertEqual(header[84:88], b"DXT1")
 
+    def test_classical_and_bts_profiles_use_dedicated_home_scene(self) -> None:
+        profiles = {
+            child_text(menu, "Type"): menu
+            for menu in ET.parse(MAIN_MENUS).getroot().iter()
+            if local(menu.tag) == "MainMenu"
+        }
+        for profile_name in ("MAIN_MENU_CLASSICAL", "MAIN_MENU_BEYOND_SWORD"):
+            with self.subTest(profile=profile_name):
+                profile = profiles[profile_name]
+                self.assertEqual(child_text(profile, "Scene"), "MAINMENU_SCENE_DOWAGER")
+                self.assertEqual(
+                    child_text(profile, "SceneNoShader"),
+                    "MAINMENU_SCENE_DOWAGER",
+                )
+
+    def test_dedicated_home_scene_resolves_to_dxt3_sol_texture(self) -> None:
+        mappings = {
+            child_text(info, "Type"): child_text(info, "Path")
+            for info in ET.parse(INTERFACE_ART).getroot().iter()
+            if local(info.tag) == "InterfaceArtInfo"
+        }
+        self.assertEqual(
+            mappings["MAINMENU_SCENE_DOWAGER"],
+            "Art/Interface/Main Menu/CIV4MainMenuBGDowager.nif",
+        )
+        scene = (HOME_ART / "CIV4MainMenuBGDowager.nif").read_bytes()
+        self.assertIn(b"DowagerMod_Sol_Home_Screen.dds", scene)
+        self.assertNotIn(b"Beyond_The_Sword_Main_Menu.dds", scene)
+
+        header = (HOME_ART / "DowagerMod_Sol_Home_Screen.dds").read_bytes()[:128]
+        self.assertEqual(header[:4], b"DDS ")
+        height, width = struct.unpack_from("<II", header, 12)
+        self.assertEqual((width, height), (1024, 1024))
+        self.assertEqual(header[84:88], b"DXT3")
+
     def test_stock_loading_art_remains_available(self) -> None:
         for name in (
             "LoadingScreenBGBeyondtheSword.dds",
@@ -87,3 +123,7 @@ class SolLoadingArtTests(unittest.TestCase):
         ):
             with self.subTest(name=name):
                 self.assertTrue((LOADING_ART / name).is_file())
+
+    def test_stock_home_scene_remains_available(self) -> None:
+        self.assertTrue((HOME_ART / "CIV4MainMenuBG.nif").is_file())
+        self.assertTrue((HOME_ART / "Beyond_The_Sword_Main_Menu.dds").is_file())

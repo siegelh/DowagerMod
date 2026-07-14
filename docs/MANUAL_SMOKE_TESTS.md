@@ -39,6 +39,7 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - Confirm recipes, local/connected resource gates, synthetic goods, corporation thresholds, and advisor chains are unchanged
   - Stress the maximum permitted food-building stack and check growth, health, happiness, AI construction choices, save/reload, and two-client OOS behavior
 - Sol Patch loading artwork:
+  - At the persistent home screen, confirm the DowagerMod / The Sol Patch plaque appears directly beneath the Beyond the Sword title and does not overlap menu controls
   - Launch with both the Classical and Beyond the Sword menu profiles and confirm each uses the DowagerMod / The Sol Patch plaque
   - Start a new game and load an existing save; confirm both the full and slideshow layouts render without missing textures
   - Check 4:3 and widescreen resolutions for clipping, stretching, progress-text overlap, and DXT compression artifacts

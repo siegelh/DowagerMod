@@ -9,8 +9,8 @@
 		<MainMenu>
 			<Type>MAIN_MENU_CLASSICAL</Type>
 			<Description>BTS Classical</Description>
-			<Scene>MAINMENU_SCENE_CLASSICAL</Scene>
-			<SceneNoShader>MAINMENU_SCENE_CLASSICAL</SceneNoShader>
+			<Scene>MAINMENU_SCENE_DOWAGER</Scene>
+			<SceneNoShader>MAINMENU_SCENE_DOWAGER</SceneNoShader>
 			<Soundtrack>AS2D_OPENING_MENU</Soundtrack>
 			<Loading>MAINMENU_LOAD_DOWAGER</Loading>
 			<LoadingSlideshow>MAINMENU_SLIDESHOW_LOAD_DOWAGER</LoadingSlideshow>
@@ -36,8 +36,8 @@
 		<MainMenu>
 			<Type>MAIN_MENU_BEYOND_SWORD</Type>
 			<Description>Beyond the Sword</Description>
-			<Scene>MAINMENU_SCENE</Scene>
-			<SceneNoShader>MAINMENU_SCENE</SceneNoShader>
+			<Scene>MAINMENU_SCENE_DOWAGER</Scene>
+			<SceneNoShader>MAINMENU_SCENE_DOWAGER</SceneNoShader>
 			<Soundtrack>AS2D_OPENING_MENU</Soundtrack>
 			<Loading>MAINMENU_LOAD_DOWAGER</Loading>
 			<LoadingSlideshow>MAINMENU_SLIDESHOW_LOAD_DOWAGER</LoadingSlideshow>

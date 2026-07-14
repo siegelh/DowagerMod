@@ -1,4 +1,4 @@
-# Loading Screen Modernization
+# Loading and Home Screen Modernization
 
 - Status: `implemented / installed-game validation pending`
 - Owner / agent: Copilot
@@ -25,6 +25,11 @@ game executable:
 3. The Civilization IV executable renders the selected pair while loading.
    There is no matching Python or custom-DLL loading-screen implementation in
    the live BtS tree.
+
+The persistent home screen is a separate path. Each menu profile's `Scene` and
+`SceneNoShader` keys resolve through `CIV4ArtDefines_Interface.xml` to a NIF
+scene. The BtS scene is `Art/Interface/Main Menu/CIV4MainMenuBG.nif`, whose
+foreground texture is `Beyond_The_Sword_Main_Menu.dds`.
 
 The relevant live bindings are:
 
@@ -61,6 +66,7 @@ Evidence:
 ## Scope
 
 - Add a DowagerMod full loading texture and matching slideshow texture.
+- Add a copied DowagerMod home-scene NIF and branded DXT3 foreground texture.
 - Add dedicated DowagerMod interface-art keys.
 - Point both the Classical and Beyond the Sword profiles at those dedicated
   keys so the branding does not depend on a player's remembered menu style.
@@ -116,6 +122,9 @@ Evidence:
    tracked file paths.
 7. Update the manual smoke-test runbook with startup and save-load checks at
    representative aspect ratios.
+8. Point the Classical and BtS `Scene` and `SceneNoShader` fields at a
+   dedicated copied scene so the persistent home screen also displays the Sol
+   branding.
 
 ## Visual Brief Requiring Approval
 
@@ -174,11 +183,13 @@ Future visual revisions may revisit:
 - [x] Master art and two DDS exports created.
 - [x] Dedicated art keys and menu bindings implemented.
 - [x] Automated asset-reference checks added.
+- [x] Dedicated copied home scene and DXT3 foreground added.
+- [x] Classical and BtS home-scene bindings implemented.
 - [ ] Installed-game visual smoke test completed.
 
 ## Final Outcome Summary
 
 - Investigation and implementation are complete.
 - Both Classical and Beyond the Sword menu profiles use the dedicated Sol Patch
-  art keys.
+  loading and home-scene art keys.
 - Installed-game aspect-ratio and progress-text validation remains required.

@@ -807,6 +807,10 @@
 			<Path>Art/Interface/Main Menu/CIV4MainMenuBG.nif</Path>
 		</InterfaceArtInfo>
 		<InterfaceArtInfo>
+			<Type>MAINMENU_SCENE_DOWAGER</Type>
+			<Path>Art/Interface/Main Menu/CIV4MainMenuBGDowager.nif</Path>
+		</InterfaceArtInfo>
+		<InterfaceArtInfo>
 			<Type>MAINMENU_SCENE_CLASSICAL</Type>
 			<Path>Art/Interface/Classical Main Menu/CIV4MainMenuBG.nif</Path>
 		</InterfaceArtInfo>
