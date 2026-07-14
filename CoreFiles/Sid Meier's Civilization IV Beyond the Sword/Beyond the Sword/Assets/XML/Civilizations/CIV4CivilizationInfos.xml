@@ -1189,7 +1189,7 @@
       <ShortDescription>TXT_KEY_CIV_MAURYA_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_MAURYA_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_MAURYA_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_PURPLE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_MAURYA</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_INDIA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_ASIAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
@@ -2232,7 +2232,7 @@
       <ShortDescription>Poland</ShortDescription>
       <Adjective>Polish</Adjective>
       <Civilopedia>TXT_KEY_CIV_POLAND_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_RED</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_POLAND</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_POLAND</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -3801,7 +3801,7 @@
       <ShortDescription>TXT_KEY_CIV_APACHE_CONFEDERACY_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_APACHE_CONFEDERACY_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_APACHE_CONFEDERACY_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_DARK_ORANGE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_APACHE</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_NATIVE_AMERICA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_SOUTH_AMERICA</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_SOUTH_AMERICA</UnitArtStyleType>
@@ -3913,7 +3913,7 @@
       <ShortDescription>TXT_KEY_CIV_POLYNESIA_BTG_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_POLYNESIA_BTG_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_POLYNESIA_BTG_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_LIGHT_BROWN</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_POLYNESIA</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_NATIVE_AMERICA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_SOUTH_AMERICA</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_SOUTH_AMERICA</UnitArtStyleType>
@@ -4129,7 +4129,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_ELIZABETHAN_ENGLAND_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_ELIZABETHAN_ENGLAND_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_ELIZABETHAN_ENGLAND_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_WHITE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_ELIZABETHAN_ENGLAND</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_ENGLAND</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -4241,7 +4241,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_VICTORIAN_BRITAIN_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_VICTORIAN_BRITAIN_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_VICTORIAN_BRITAIN_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_WHITE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_VICTORIAN_BRITAIN</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_ENGLAND</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -4345,7 +4345,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_WARTIME_BRITAIN_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_WARTIME_BRITAIN_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_WARTIME_BRITAIN_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_WHITE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_WARTIME_BRITAIN</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_ENGLAND</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -4584,7 +4584,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_CYAN</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_PERSIA_IMPERIAL</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_PERSIA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_MIDDLE_EAST</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
@@ -4715,7 +4715,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_AMERICA_FOUNDING_REPUBLIC_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_AMERICA_FOUNDING_REPUBLIC_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_AMERICA_FOUNDING_REPUBLIC_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_BLUE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_AMERICA_FOUNDING</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -4841,7 +4841,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_AMERICA_NEW_DEAL_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_AMERICA_NEW_DEAL_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_AMERICA_NEW_DEAL_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_BLUE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_AMERICA_NEW_DEAL</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -4967,7 +4967,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_AMERICA_FEDERAL_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_AMERICA_FEDERAL_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_AMERICA_FEDERAL_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_BLUE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_AMERICA_FEDERAL</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -5215,7 +5215,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_EGYPT_NEW_KINGDOM_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_EGYPT_NEW_KINGDOM_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_EGYPT_NEW_KINGDOM_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_YELLOW</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_EGYPT_NEW_KINGDOM</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_EGYPT</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_MIDDLE_EAST</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
@@ -5443,7 +5443,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CLASSICAL_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CLASSICAL_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CLASSICAL_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_DARK_GREEN</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_OTTOMAN_CLASSICAL</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_OTTOMANS</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_MIDDLE_EAST</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
@@ -5653,7 +5653,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_IMPERIAL_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_IMPERIAL_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_IMPERIAL_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_MIDDLE_GREEN</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_ETHIOPIA_IMPERIAL</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_ETHIOPIA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_MIDDLE_EAST</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
@@ -5868,7 +5868,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_ICENI_BRITAIN_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_ICENI_BRITAIN_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_ICENI_BRITAIN_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_LIGHT_ORANGE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_ICENI</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_CELTS</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -5979,7 +5979,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_DARK_RED</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_PETRINE_RUSSIA</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_RUSSIA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -6082,7 +6082,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_IMPERIAL_RUSSIA_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_IMPERIAL_RUSSIA_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_IMPERIAL_RUSSIA_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_DARK_RED</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_IMPERIAL_RUSSIA</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_RUSSIA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -6186,7 +6186,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_FRANCE_BOURBON_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_FRANCE_BOURBON_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_FRANCE_BOURBON_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_DARK_BLUE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_FRANCE_BOURBON</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_FRANCE</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -6296,7 +6296,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIRST_EMPIRE_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIRST_EMPIRE_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIRST_EMPIRE_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_DARK_BLUE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_FRANCE_FIRST_EMPIRE</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_FRANCE</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
@@ -6402,7 +6402,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_MACEDONIAN_EMPIRE_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_MACEDONIAN_EMPIRE_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_MACEDONIAN_EMPIRE_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_LIGHT_BLUE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_MACEDON</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_GREECE</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_GRECO_ROMAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_GRECO_ROMAN</UnitArtStyleType>
@@ -6513,7 +6513,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_ATHENIAN_GREECE_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_ATHENIAN_GREECE_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_ATHENIAN_GREECE_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_LIGHT_BLUE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_ATHENS</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_GREECE</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_GRECO_ROMAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_GRECO_ROMAN</UnitArtStyleType>
@@ -6727,7 +6727,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_YUAN_DYNASTY_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_YUAN_DYNASTY_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_YUAN_DYNASTY_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_BROWN</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_YUAN</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_MONGOL</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_ASIAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_ASIAN</UnitArtStyleType>
@@ -6955,7 +6955,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_ROMAN_PRINCIPATE_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_ROMAN_PRINCIPATE_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_ROMAN_PRINCIPATE_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_DARK_PURPLE</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_ROMAN_PRINCIPATE</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_ROME</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_GRECO_ROMAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_GRECO_ROMAN</UnitArtStyleType>
@@ -7415,7 +7415,7 @@
       <ShortDescription>TXT_KEY_CIV_CIVILIZATION_GERMAN_EMPIRE_SHORT_DESC</ShortDescription>
       <Adjective>TXT_KEY_CIV_CIVILIZATION_GERMAN_EMPIRE_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_GERMAN_EMPIRE_PEDIA</Civilopedia>
-      <DefaultPlayerColor>PLAYERCOLOR_GRAY</DefaultPlayerColor>
+      <DefaultPlayerColor>PLAYERCOLOR_GERMAN_EMPIRE</DefaultPlayerColor>
       <ArtDefineTag>ART_DEF_CIVILIZATION_GERMANY</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>

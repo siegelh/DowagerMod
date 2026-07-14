@@ -58,6 +58,7 @@
 - [`plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md`](plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md) - `Current active plan`. Auto-prune clean Symphony worktrees only after merged PR plus closed issue.
 - [`plans/active/2026-07-13-great-person-landmark-improvements.md`](plans/active/2026-07-13-great-person-landmark-improvements.md) - `Current active plan`. Approved Great Person landmark mechanics, generic DLL/XML architecture, deterministic AI, art, and validation contract.
 - [`plans/active/2026-07-13-landmark-scale-installer-reliability.md`](plans/active/2026-07-13-landmark-scale-installer-reliability.md) - `Current active plan`. Landmark map-scale reduction to 0.5 and retirement of the installer hot-swap fast path in favor of always-mirror restore with safe migration cleanup.
+- [`plans/active/2026-07-13-unique-civilization-colors.md`](plans/active/2026-07-13-unique-civilization-colors.md) - `Current active plan`. Append-only unique default border colors for all 59 playable civilizations, with full mapping and contrast contracts.
 - [`plans/active/2026-07-12-remaining-roster-expansion.md`](plans/active/2026-07-12-remaining-roster-expansion.md) - `Current active plan`. Tiered audit and guarded expansion of the 32 playable packages outside the recent 27-package overhaul.
 - [`../tools/baselines/roster_baseline.json`](../tools/baselines/roster_baseline.json) - `Generated reference`. Commit-pinned playable roster, synchronized InfoType order, and deterministic XML/Python/DLL digest baseline.
 

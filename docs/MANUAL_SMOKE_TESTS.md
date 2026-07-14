@@ -72,6 +72,11 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - AI: run autoplay and confirm Great Engineers/Scientists/Merchants/Prophets place their landmarks on sensible tiles, every AI-built Industrial Zone previews at least `+3 Production` from its Watermill/Workshop/Mine/Quarry adjacency before any generic modifiers, the empire's first copy of each type is placed at least once, and Venice still expands (Founder safety) while also scoring both Merchant landmarks
   - Save/reload: save with landmarks placed and reload; confirm yields, city Research, and art persist
   - MP: start the same fresh scenario on two clients; place landmarks and run AI; confirm identical yields and no OOS
+- Civilization border colors:
+  - Start a fresh large custom game with as many playable civilizations as practical and reveal the map
+  - Confirm no two civilizations use the same territory or minimap color, especially the American, British, French, Russian, Greek, Persian, Egyptian, Ottoman, Ethiopian, Mongol/Yuan, Roman, and German/Prussian package pairs
+  - Inspect normal terrain, strategic view, borders in fog, diplomacy colors, scoreboard text, and the minimap; confirm light and dark neighbors remain distinguishable
+  - Review the same map with protanopia, deuteranopia, and tritanopia simulation; record any pairs that still read as merged even though their RGB values differ
 - AI Leader Chatter (`Chatter\CvLeaderChatter.py`, sidecar in `tools\chatter\`):
   - SP: start a game with at least 2 AI civs; force a DoW via WorldBuilder; confirm a chat line appears within ~10s
   - If multi-turn fired: confirm follow-up lines arrive ~5-10s after the first
