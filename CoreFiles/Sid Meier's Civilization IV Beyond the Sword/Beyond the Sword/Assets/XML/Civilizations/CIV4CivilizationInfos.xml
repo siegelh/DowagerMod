@@ -13,7 +13,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_AMERICA_UNION_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_AMERICA_UNION_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_BLUE</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA_UNION</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -693,7 +693,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIFTH_REPUBLIC_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIFTH_REPUBLIC_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_DARK_BLUE</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_FRANCE</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_FRANCE_FIFTH_REPUBLIC</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -1023,7 +1023,7 @@
       <Adjective>TXT_KEY_CIV_INDIA_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_INDIA_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_PURPLE</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_INDIA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_INDIA_GANDHI</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_ASIAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -1887,7 +1887,7 @@
       <Adjective>TXT_KEY_CIV_NATIVE_AMERICA_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_NATIVE_AMERICA_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_LIGHT_BROWN</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_POLYNESIA_BTG</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_NATIVE_AMERICA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_SOUTH_AMERICA</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_SOUTH_AMERICA</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -2319,7 +2319,7 @@
       <Adjective>TXT_KEY_CIV_RUSSIA_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_USSR_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_DARK_RED</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_RUSSIA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_RUSSIA_USSR</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -3802,7 +3802,7 @@
       <Adjective>TXT_KEY_CIV_APACHE_CONFEDERACY_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_APACHE_CONFEDERACY_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_APACHE</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_NATIVE_AMERICA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_APACHE_CONFEDERACY</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_SOUTH_AMERICA</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_SOUTH_AMERICA</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -3914,7 +3914,7 @@
       <Adjective>TXT_KEY_CIV_POLYNESIA_BTG_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_POLYNESIA_BTG_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_POLYNESIA</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_NATIVE_AMERICA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_POLYNESIA_BTG</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_SOUTH_AMERICA</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_SOUTH_AMERICA</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -4026,7 +4026,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_BRITISH_REGENCY_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_BRITISH_REGENCY_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_WHITE</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_ENGLAND</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_ENGLAND_REGENCY</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -4242,7 +4242,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_VICTORIAN_BRITAIN_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_VICTORIAN_BRITAIN_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_VICTORIAN_BRITAIN</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_ENGLAND</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_ENGLAND_VICTORIAN</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -4346,7 +4346,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_WARTIME_BRITAIN_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_WARTIME_BRITAIN_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_WARTIME_BRITAIN</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_ENGLAND</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_ENGLAND_WARTIME</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -4454,7 +4454,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_CYAN</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_PERSIA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_MIDDLE_EAST</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -4585,7 +4585,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_PERSIA_IMPERIAL</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_PERSIA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_MIDDLE_EAST</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -4842,7 +4842,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_AMERICA_NEW_DEAL_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_AMERICA_NEW_DEAL_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_AMERICA_NEW_DEAL</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA_NEW_DEAL</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -4968,7 +4968,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_AMERICA_FEDERAL_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_AMERICA_FEDERAL_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_AMERICA_FEDERAL</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_AMERICA_FEDERAL</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -5094,7 +5094,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_YELLOW</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_EGYPT</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_MIDDLE_EAST</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -5444,7 +5444,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CLASSICAL_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_OTTOMAN_CLASSICAL_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_OTTOMAN_CLASSICAL</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_OTTOMANS</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_OTTOMAN_CLASSICAL</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_MIDDLE_EAST</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -5550,7 +5550,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_SOLOMONIC_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_ETHIOPIA_SOLOMONIC_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_MIDDLE_GREEN</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_ETHIOPIA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_ETHIOPIA_SOLOMONIC</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_MIDDLE_EAST</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -5758,7 +5758,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_GAULIC_CONFEDERATION_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_GAULIC_CONFEDERATION_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_LIGHT_ORANGE</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_CELTS</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_GAULIC_CONFEDERATION</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -5869,7 +5869,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_ICENI_BRITAIN_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_ICENI_BRITAIN_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_ICENI</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_CELTS</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_ICENI_BRITAIN</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -5980,7 +5980,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_PETRINE_RUSSIA_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_PETRINE_RUSSIA</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_RUSSIA</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_RUSSIA_PETRINE</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -6297,7 +6297,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIRST_EMPIRE_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_FRANCE_FIRST_EMPIRE_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_FRANCE_FIRST_EMPIRE</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_FRANCE</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_FRANCE_FIRST_EMPIRE</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -6403,7 +6403,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_MACEDONIAN_EMPIRE_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_MACEDONIAN_EMPIRE_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_MACEDON</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_GREECE</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_MACEDONIAN_EMPIRE</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_GRECO_ROMAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_GRECO_ROMAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -6728,7 +6728,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_YUAN_DYNASTY_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_YUAN_DYNASTY_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_YUAN</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_MONGOL</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_YUAN_DYNASTY</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_ASIAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_ASIAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -6835,7 +6835,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_ROMAN_REPUBLIC_LATE_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_ROMAN_REPUBLIC_LATE_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_DARK_PURPLE</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_ROME</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_ROMAN_REPUBLIC_LATE</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_GRECO_ROMAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_GRECO_ROMAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -7297,7 +7297,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_PRUSSIA_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_PRUSSIA_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_GRAY</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_GERMANY</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_PRUSSIA</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>
@@ -7416,7 +7416,7 @@
       <Adjective>TXT_KEY_CIV_CIVILIZATION_GERMAN_EMPIRE_ADJECTIVE</Adjective>
       <Civilopedia>TXT_KEY_CIV_CIVILIZATION_GERMAN_EMPIRE_PEDIA</Civilopedia>
       <DefaultPlayerColor>PLAYERCOLOR_GERMAN_EMPIRE</DefaultPlayerColor>
-      <ArtDefineTag>ART_DEF_CIVILIZATION_GERMANY</ArtDefineTag>
+      <ArtDefineTag>ART_DEF_CIVILIZATION_GERMAN_EMPIRE</ArtDefineTag>
       <ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
       <UnitArtStyleType>UNIT_ARTSTYLE_EUROPEAN</UnitArtStyleType>
       <bPlayable>1</bPlayable>

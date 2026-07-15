@@ -57,6 +57,14 @@ UNIQUE_COLOR_CIVS = {
     "CIVILIZATION_ROMAN_PRINCIPATE",
     "CIVILIZATION_GERMAN_EMPIRE",
 }
+# Civs whose package intentionally repoints ArtDefineTag at a new, unique
+# flag decal instead of sharing the restored baseline's flag. Every other
+# node/delta for these civs must still match the restored baseline exactly.
+UNIQUE_FLAG_CIVS = {
+    "CIVILIZATION_POLYNESIA_BTG",
+    "CIVILIZATION_YUAN_DYNASTY",
+    "CIVILIZATION_USSR",
+}
 
 
 def local_name(tag: str) -> str:
@@ -169,6 +177,10 @@ class AdditiveRosterExactContractTests(unittest.TestCase):
         if repo_path == CIVILIZATIONS and type_name in UNIQUE_COLOR_CIVS:
             child(current, "DefaultPlayerColor").text = child(
                 baseline, "DefaultPlayerColor"
+            ).text
+        if repo_path == CIVILIZATIONS and type_name in UNIQUE_FLAG_CIVS:
+            child(current, "ArtDefineTag").text = child(
+                baseline, "ArtDefineTag"
             ).text
         return current, baseline
 
