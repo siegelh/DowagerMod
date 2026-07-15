@@ -12,6 +12,10 @@ first user of every existing color unchanged, append 24 new primary colors and
 24 matching `PlayerColorInfo` records, and reassign only the duplicate users.
 Flags, decals, and every pre-existing enum position remain unchanged.
 
+Unique era-specific flags and the Native America/Apache/Polynesia ArtDefine
+cross-wiring correction are a separate follow-up tracked in
+[`2026-07-14-worker-civic-landmark-flag-followup.md`](2026-07-14-worker-civic-landmark-flag-followup.md).
+
 The appended palette was selected by greedy maximum CIE Lab distance against
 all existing primary colors and each previously selected addition. Every new
 primary is at least 20 CIE76 units from that comparison set. This deliberately

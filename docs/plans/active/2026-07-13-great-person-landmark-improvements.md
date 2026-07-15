@@ -357,6 +357,10 @@ buttons/Civilopedia stay normal size, and Grand Colosseum is visually
 unchanged (see `docs/MANUAL_SMOKE_TESTS.md`).
 - [x] Installed-game user acceptance reported for the reduced Merchant
   landmark scales on 2026-07-14.
+- [ ] Reopened after later runtime feedback: Commercial District and Grand
+  Bazaar remain too large at `0.25`. The next calibration and acceptance are
+  tracked in
+  [`2026-07-14-worker-civic-landmark-flag-followup.md`](2026-07-14-worker-civic-landmark-flag-followup.md).
 
 ### Landmark rotation and vegetation follow-up
 
