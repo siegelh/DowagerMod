@@ -297,6 +297,8 @@ Grand Colosseum, must not move because savegames persist numeric IDs.
   confirm the Release and active payload DLL hashes match.
 - [ ] Installed-game city governor: confirm a strong Campus is worked over a
   weaker ordinary tile and relinquished when a genuinely better tile exists.
+- [x] Installed-game user acceptance reported for the Campus governor
+  valuation on 2026-07-14.
 
 ### UX enhancement — exact output preview + breakdown
 
@@ -353,6 +355,8 @@ landmark map scales `0.25`, all interface scales `1.0`, Grand Colosseum `1.5`) i
 render at `0.65`, Commercial District and Grand Bazaar render at `0.25`,
 buttons/Civilopedia stay normal size, and Grand Colosseum is visually
 unchanged (see `docs/MANUAL_SMOKE_TESTS.md`).
+- [x] Installed-game user acceptance reported for the reduced Merchant
+  landmark scales on 2026-07-14.
 
 ### Landmark rotation and vegetation follow-up
 
@@ -375,6 +379,8 @@ unchanged (see `docs/MANUAL_SMOKE_TESTS.md`).
 - [ ] Complete installed-game acceptance for orientation distribution,
   diagonal pivots, feature handling, save/reload stability, and two-client
   consistency.
+- [x] Installed-game testing confirmed that landmark rotation is visibly
+  occurring; comprehensive save/reload and two-client checks remain open.
 
 ## Readiness
 
