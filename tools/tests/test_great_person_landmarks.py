@@ -19,6 +19,7 @@ SCHEMA = XML / "Terrain" / "CIV4TerrainSchema.xml"
 BUILDS = XML / "Units" / "CIV4BuildInfos.xml"
 UNITS = XML / "Units" / "CIV4UnitInfos.xml"
 ART = XML / "Art" / "CIV4ArtDefines_Improvement.xml"
+PLOT_LSYSTEM = XML / "Buildings" / "CIV4PlotLSystem.xml"
 TEXT = XML / "Text" / "ZZZ_CIV4GameText_Landmarks.xml"
 
 DLL = ROOT / "third_party" / "beyond-the-sword-sdk" / "CvGameCoreDLL"
@@ -40,6 +41,40 @@ LANDMARK_ORDER = [
     "SACRED_GROVE_CONFUCIANISM_BTG",
     "SACRED_GROVE_TAOISM_BTG",
 ]
+ROTATION_LANDMARK_ORDER = ["GRAND_COLOSSEUM_BTG", *LANDMARK_ORDER]
+ROTATION_ANGLES = {"0", "45", "90", "135", "180", "225", "270", "315"}
+BASELINE_LSYSTEM_IMPROVEMENTS = {
+    "IMPROVEMENT_COTTAGE",
+    "IMPROVEMENT_FARM",
+    "IMPROVEMENT_FOREST",
+    "IMPROVEMENT_FOREST_PRESERVE",
+    "IMPROVEMENT_FORT",
+    "IMPROVEMENT_HAMLET",
+    "IMPROVEMENT_HILL",
+    "IMPROVEMENT_PLANTATION",
+    "IMPROVEMENT_TERRAFORM",
+    "IMPROVEMENT_TERRAFORMED_TERRAIN",
+    "IMPROVEMENT_TOWN",
+    "IMPROVEMENT_TREE_NURSERY",
+    "IMPROVEMENT_VILLAGE",
+    "IMPROVEMENT_WINERY",
+}
+BASELINE_GENERIC_ROOT_EXCLUSIONS = {
+    "IMPROVEMENT_FORT",
+    "IMPROVEMENT_MINE",
+    "IMPROVEMENT_PASTURE",
+    "IMPROVEMENT_QUARRY",
+    "IMPROVEMENT_WATER_WORKED",
+    "IMPROVEMENT_WHALING_BOATS",
+    "IMPROVEMENT_WINDMILL",
+}
+FEATURE_CLEARING_LANDMARKS = {
+    "GRAND_COLOSSEUM_BTG",
+    "INDUSTRIAL_ZONE_BTG",
+    "NAVAL_FOUNDRY_BTG",
+    "COMMERCIAL_DISTRICT_BTG",
+    "GRAND_BAZAAR_BTG",
+}
 
 # key -> (ltype, group, mindist, cityadj, noadj, coastal, relgated, religion)
 LANDMARK_FIELDS = {
@@ -167,6 +202,45 @@ class DataOrderTests(unittest.TestCase):
             self.assertEqual(child_text(build, "bKill"), "1", k)
             self.assertEqual(child_text(build, "iTime"), "0", k)
 
+    def test_landmark_builds_have_exact_feature_removal_policy(self):
+        for key in ROTATION_LANDMARK_ORDER:
+            build = find_entry(BUILDS, "BuildInfo", f"BUILD_{key}")
+            self.assertIsNotNone(build, key)
+            feature_structs = find_child(build, "FeatureStructs")
+            features = {}
+            for feature_struct in feature_structs:
+                feature = child_text(feature_struct, "FeatureType")
+                features[feature] = {
+                    child: child_text(feature_struct, child)
+                    for child in (
+                        "PrereqTech",
+                        "iTime",
+                        "iProduction",
+                        "bRemove",
+                    )
+                }
+            if key in FEATURE_CLEARING_LANDMARKS:
+                self.assertEqual(
+                    features,
+                    {
+                        "FEATURE_FOREST": {
+                            "PrereqTech": "NONE",
+                            "iTime": "0",
+                            "iProduction": "0",
+                            "bRemove": "1",
+                        },
+                        "FEATURE_JUNGLE": {
+                            "PrereqTech": "NONE",
+                            "iTime": "0",
+                            "iProduction": "0",
+                            "bRemove": "1",
+                        },
+                    },
+                    key,
+                )
+            else:
+                self.assertEqual(features, {}, key)
+
     def test_improvement_landmark_fields(self):
         for k, fields in LANDMARK_FIELDS.items():
             imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
@@ -209,11 +283,11 @@ class ArtTests(unittest.TestCase):
             imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
             self.assertIn(child_text(imp, "ArtDefineTag"), art_types, k)
 
-    def test_new_landmarks_use_half_map_scale(self):
+    def test_new_landmarks_use_approved_map_scale(self):
         for k in LANDMARK_ORDER:
             art = find_entry(ART, "ImprovementArtInfo", f"ART_DEF_IMPROVEMENT_{k}")
             self.assertIsNotNone(art, k)
-            self.assertEqual(child_text(art, "fScale"), "0.5", k)
+            self.assertEqual(child_text(art, "fScale"), "0.65", k)
 
     def test_new_landmarks_keep_full_interface_scale(self):
         for k in LANDMARK_ORDER:
@@ -226,6 +300,196 @@ class ArtTests(unittest.TestCase):
         self.assertIsNotNone(art)
         self.assertEqual(child_text(art, "fScale"), "1.5")
         self.assertEqual(child_text(art, "fInterfaceScale"), "1.0")
+        self.assertEqual(
+            child_text(art, "NIF"),
+            "Art/Structures/Buildings/Colosseum/Colosseum.nif",
+        )
+
+
+class LandmarkRotationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.root = ET.parse(PLOT_LSYSTEM).getroot()
+        cls.nodes = {
+            node.attrib["Name"]: node
+            for node in cls.root
+            if local_name(node.tag) == "LNode"
+        }
+        cls.productions = [
+            node for node in cls.root if local_name(node.tag) == "LProduction"
+        ]
+
+    @staticmethod
+    def improvement_selector(production):
+        for attribute in production:
+            if (
+                local_name(attribute.tag) == "Attribute"
+                and attribute.attrib.get("Class") == "Improvement"
+            ):
+                return (attribute.text or "").strip().split(",")
+        return []
+
+    @classmethod
+    def production_matches(cls, production, improvement):
+        selector = cls.improvement_selector(production)
+        return improvement in selector or (
+            "IMPROVEMENT_ALL" in selector
+            and f"!{improvement}" not in selector
+        )
+
+    def test_only_rotation_landmarks_enable_new_lsystem_rendering(self):
+        enabled = {
+            child_text(info, "Type")
+            for info in entries(IMPROVEMENTS, "ImprovementInfo")
+            if child_text(info, "bUseLSystem") == "1"
+        }
+        self.assertEqual(
+            enabled,
+            BASELINE_LSYSTEM_IMPROVEMENTS
+            | {f"IMPROVEMENT_{key}" for key in ROTATION_LANDMARK_ORDER},
+        )
+
+    def test_rotation_leaf_has_one_original_artdefine_goal_per_landmark(self):
+        leaf = self.nodes["Leaf_Dowager_GreatPersonRotation_4x4"]
+        art_refs = [
+            child for child in leaf if local_name(child.tag) == "ArtRef"
+        ]
+        self.assertEqual(len(art_refs), len(ROTATION_LANDMARK_ORDER))
+        self.assertEqual(
+            {art_ref.attrib["Name"] for art_ref in art_refs},
+            {
+                f"goal:IMPROVEMENT_{key}"
+                for key in ROTATION_LANDMARK_ORDER
+            },
+        )
+        for art_ref in art_refs:
+            improvement = art_ref.attrib["Name"].removeprefix("goal:")
+            attributes = [
+                child for child in art_ref if local_name(child.tag) == "Attribute"
+            ]
+            self.assertEqual(
+                [
+                    (attribute.text or "").strip()
+                    for attribute in attributes
+                    if attribute.attrib.get("Class") == "Improvement"
+                ],
+                [improvement],
+            )
+            scalars = {
+                (attribute.text or "").strip()
+                for attribute in attributes
+                if attribute.attrib.get("Class") == "Scalar"
+            }
+            self.assertEqual(
+                scalars,
+                {"bIsPartOfImprovement:1", "bApplyRotation:1"},
+                improvement,
+            )
+            self.assertFalse(
+                {
+                    local_name(child.tag)
+                    for child in art_ref
+                    if local_name(child.tag) in {"Scale", "Rotate", "Translate"}
+                },
+                improvement,
+            )
+
+    def test_rotation_hub_has_exact_eight_angles(self):
+        productions = [
+            production
+            for production in self.productions
+            if production.attrib.get("From")
+            == "Node_Dowager_GreatPersonRotation_4x4"
+        ]
+        self.assertEqual(len(productions), 8)
+        angles = set()
+        for production in productions:
+            destinations = [
+                child
+                for child in production
+                if local_name(child.tag) == "To"
+            ]
+            self.assertEqual(len(destinations), 1)
+            self.assertEqual(
+                destinations[0].attrib.get("Name"),
+                "Leaf_Dowager_GreatPersonRotation_4x4",
+            )
+            angles.add(child_text(destinations[0], "Rotate"))
+        self.assertEqual(angles, ROTATION_ANGLES)
+
+    def test_each_landmark_has_one_exclusive_root_route(self):
+        root_productions = [
+            production
+            for production in self.productions
+            if production.attrib.get("From") == "PLOT_ROOT"
+        ]
+        for key in ROTATION_LANDMARK_ORDER:
+            improvement = f"IMPROVEMENT_{key}"
+            matches = [
+                production
+                for production in root_productions
+                if self.production_matches(production, improvement)
+            ]
+            self.assertEqual(len(matches), 1, improvement)
+            destinations = [
+                child.attrib.get("Name")
+                for child in matches[0]
+                if local_name(child.tag) == "To"
+            ]
+            self.assertEqual(
+                destinations,
+                ["Node_Dowager_GreatPersonRotation_4x4"],
+                improvement,
+            )
+
+    def test_non_landmarks_retain_baseline_generic_root_routing(self):
+        landmark_types = {
+            f"IMPROVEMENT_{key}" for key in ROTATION_LANDMARK_ORDER
+        }
+        root_productions = [
+            production
+            for production in self.productions
+            if production.attrib.get("From") == "PLOT_ROOT"
+        ]
+        for info in entries(IMPROVEMENTS, "ImprovementInfo"):
+            improvement = child_text(info, "Type")
+            if (
+                improvement in landmark_types
+                or improvement in BASELINE_GENERIC_ROOT_EXCLUSIONS
+            ):
+                continue
+            destinations = {
+                child.attrib.get("Name")
+                for production in root_productions
+                if self.production_matches(production, improvement)
+                for child in production
+                if local_name(child.tag) == "To"
+            }
+            self.assertIn("Node_12x12", destinations, improvement)
+
+    def test_nodes_precede_productions(self):
+        element_types = [local_name(child.tag) for child in self.root]
+        last_node = max(
+            index
+            for index, element_type in enumerate(element_types)
+            if element_type == "LNode"
+        )
+        first_production = min(
+            index
+            for index, element_type in enumerate(element_types)
+            if element_type == "LProduction"
+        )
+        self.assertLess(last_node, first_production)
+
+    def test_improvement_selectors_stay_within_working_baseline_limit(self):
+        for attribute in self.root.iter():
+            if (
+                local_name(attribute.tag) == "Attribute"
+                and attribute.attrib.get("Class") == "Improvement"
+            ):
+                selector = (attribute.text or "").strip()
+                with self.subTest(selector=selector):
+                    self.assertLessEqual(len(selector), 182)
 
 
 class UnitPermissionTests(unittest.TestCase):

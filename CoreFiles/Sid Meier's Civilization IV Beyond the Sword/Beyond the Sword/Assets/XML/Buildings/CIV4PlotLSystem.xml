@@ -3149,6 +3149,88 @@
 	</LNode>
 
 	<!-- *************************************************************************** -->
+	<LNode Name="Node_Dowager_GreatPersonRotation_4x4">
+		<Width>4</Width>
+		<Height>4</Height>
+	</LNode>
+	<LNode Name="Leaf_Dowager_GreatPersonRotation_4x4">
+		<Width>4</Width>
+		<Height>4</Height>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<Attribute Class="RegionTest">0NW</Attribute>
+		<ArtRef Name="goal:IMPROVEMENT_GRAND_COLOSSEUM_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_GRAND_COLOSSEUM_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_INDUSTRIAL_ZONE_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_INDUSTRIAL_ZONE_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NAVAL_FOUNDRY_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_NAVAL_FOUNDRY_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_RESEARCH_CAMPUS_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_RESEARCH_CAMPUS_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_COMMERCIAL_DISTRICT_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_COMMERCIAL_DISTRICT_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_GRAND_BAZAAR_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_GRAND_BAZAAR_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_NONE_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_NONE_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_JUDAISM_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_JUDAISM_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_CHRISTIANITY_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_CHRISTIANITY_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_ISLAM_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_ISLAM_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_HINDUISM_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_HINDUISM_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_BUDDHISM_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_BUDDHISM_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_CONFUCIANISM_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_CONFUCIANISM_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_TAOISM_BTG">
+			<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_TAOISM_BTG</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+	</LNode>
+
+	<!-- *************************************************************************** -->
 	<!-- *************************************************************************** -->
 	<!-- *************************************************************************** -->
 	<LNode Name="Node_4x4">
@@ -3164,8 +3246,80 @@
 	<!-- *************************************************************************** -->
 
 	<LProduction From="PLOT_ROOT">
-		<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_WATER_WORKED,!IMPROVEMENT_MINE,!IMPROVEMENT_PASTURE,!IMPROVEMENT_QUARRY,!IMPROVEMENT_WHALING_BOATS,!IMPROVEMENT_WINDMILL,!IMPROVEMENT_FORT</Attribute>
+		<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_LAND_WORKED,IMPROVEMENT_CITY_RUINS,IMPROVEMENT_GOODY_HUT,IMPROVEMENT_FARM,IMPROVEMENT_FISHING_BOATS,IMPROVEMENT_WORKSHOP,IMPROVEMENT_LUMBERMILL</Attribute>
 		<To Name="Node_12x12"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT">
+		<Attribute Class="Improvement">IMPROVEMENT_WATERMILL,IMPROVEMENT_PLANTATION,IMPROVEMENT_CAMP,IMPROVEMENT_WELL,IMPROVEMENT_OFFSHORE_PLATFORM,IMPROVEMENT_WINERY,IMPROVEMENT_COTTAGE,IMPROVEMENT_HAMLET</Attribute>
+		<To Name="Node_12x12"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT">
+		<Attribute Class="Improvement">IMPROVEMENT_VILLAGE,IMPROVEMENT_TOWN,IMPROVEMENT_FOREST_PRESERVE,IMPROVEMENT_TREE_NURSERY,IMPROVEMENT_FOREST,IMPROVEMENT_HILL,IMPROVEMENT_TERRAFORM</Attribute>
+		<To Name="Node_12x12"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT">
+		<Attribute Class="Improvement">IMPROVEMENT_TERRAFORMED_TERRAIN,IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG,IMPROVEMENT_EGYPT_SPHINX,IMPROVEMENT_JAPAN_CASTLE_TOWN,IMPROVEMENT_PERSIA_ROYAL_STATION</Attribute>
+		<To Name="Node_12x12"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerGreatPersonRotationRoute1">
+		<Attribute Class="Improvement">IMPROVEMENT_GRAND_COLOSSEUM_BTG,IMPROVEMENT_INDUSTRIAL_ZONE_BTG,IMPROVEMENT_NAVAL_FOUNDRY_BTG,IMPROVEMENT_RESEARCH_CAMPUS_BTG,IMPROVEMENT_COMMERCIAL_DISTRICT_BTG</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_GreatPersonRotation_4x4"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerGreatPersonRotationRoute2">
+		<Attribute Class="Improvement">IMPROVEMENT_GRAND_BAZAAR_BTG,IMPROVEMENT_SACRED_GROVE_NONE_BTG,IMPROVEMENT_SACRED_GROVE_JUDAISM_BTG,IMPROVEMENT_SACRED_GROVE_CHRISTIANITY_BTG</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_GreatPersonRotation_4x4"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerGreatPersonRotationRoute3">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_ISLAM_BTG,IMPROVEMENT_SACRED_GROVE_HINDUISM_BTG,IMPROVEMENT_SACRED_GROVE_BUDDHISM_BTG,IMPROVEMENT_SACRED_GROVE_CONFUCIANISM_BTG</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_GreatPersonRotation_4x4"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerGreatPersonRotationRoute4">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_TAOISM_BTG</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_GreatPersonRotation_4x4"/>
+	</LProduction>
+	<LProduction From="Node_Dowager_GreatPersonRotation_4x4" Name="DowagerGreatPersonRotate0">
+		<To Name="Leaf_Dowager_GreatPersonRotation_4x4">
+			<Rotate>0</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_GreatPersonRotation_4x4" Name="DowagerGreatPersonRotate45">
+		<To Name="Leaf_Dowager_GreatPersonRotation_4x4">
+			<Rotate>45</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_GreatPersonRotation_4x4" Name="DowagerGreatPersonRotate90">
+		<To Name="Leaf_Dowager_GreatPersonRotation_4x4">
+			<Rotate>90</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_GreatPersonRotation_4x4" Name="DowagerGreatPersonRotate135">
+		<To Name="Leaf_Dowager_GreatPersonRotation_4x4">
+			<Rotate>135</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_GreatPersonRotation_4x4" Name="DowagerGreatPersonRotate180">
+		<To Name="Leaf_Dowager_GreatPersonRotation_4x4">
+			<Rotate>180</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_GreatPersonRotation_4x4" Name="DowagerGreatPersonRotate225">
+		<To Name="Leaf_Dowager_GreatPersonRotation_4x4">
+			<Rotate>225</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_GreatPersonRotation_4x4" Name="DowagerGreatPersonRotate270">
+		<To Name="Leaf_Dowager_GreatPersonRotation_4x4">
+			<Rotate>270</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_GreatPersonRotation_4x4" Name="DowagerGreatPersonRotate315">
+		<To Name="Leaf_Dowager_GreatPersonRotation_4x4">
+			<Rotate>315</Rotate>
+		</To>
 	</LProduction>
 	<LProduction From="PLOT_ROOT">
 		<Attribute Class="Improvement">IMPROVEMENT_MINE,IMPROVEMENT_WINDMILL,IMPROVEMENT_FORT</Attribute>

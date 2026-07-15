@@ -56,12 +56,15 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - Run representative AI autoplay for Geronimo, Casimir, Churchill, Peter, Stalin, and Kublai; report observed behavior and any stalls
   - Start the same fresh scenario on two clients with identical assets; confirm the restored/additive values match and no OOS occurs
   - Confirm no new worker action or art appears; Salamasina and Enrico retain only their baseline action surfaces
-- Great Person landmarks (Industrial Zone, Naval Foundry, Research Campus, Commercial District, Grand Bazaar, Sacred Grove):
+- Great Person landmarks (Grand Colosseum, Industrial Zone, Naval Foundry, Research Campus, Commercial District, Grand Bazaar, and all Sacred Grove variants):
   - Start a **fresh game** (new InfoTypes are appended; old saves are not acceptance evidence)
   - Rendering: build each landmark and confirm its model and build-button render with no pink boxes or missing icons; hover the tile and the build action and confirm the generated help lists the correct adjacency mechanics
-  - Map model scale: confirm each of the 13 new landmarks (Industrial Zone, Naval Foundry, Research Campus, Commercial District, Grand Bazaar, and all 8 Sacred Grove variants) renders at roughly half size on the map (`fScale = 0.5`) and no longer reads as large as a city; check readability at normal and strategic zoom
-  - Interface scale unchanged: confirm the Civilopedia entry and the build/action buttons for each landmark are still normal size (`fInterfaceScale` stays `1.0`) — only the on-map model shrank
+  - Rotation: place at least eight well-separated copies of each of the 14 landmarks and confirm multiple orientations appear from the exact eight-angle candidate set (`0`, `45`, `90`, `135`, `180`, `225`, `270`, `315`); confirm only one copy of the original model renders on each plot, with no added props
+  - Diagonal placement: inspect the `45`, `135`, `225`, and `315` degree candidates for pivot drift, road overlap, neighboring-tile overlap, and terrain clipping
+  - Map model scale: confirm each of the 13 new landmarks (Industrial Zone, Naval Foundry, Research Campus, Commercial District, Grand Bazaar, and all 8 Sacred Grove variants) renders at the modestly enlarged map scale (`fScale = 0.65`) while remaining clearly smaller than a city; check readability at normal and strategic zoom
+  - Interface scale unchanged: confirm the Civilopedia entry and the build/action buttons for each landmark are still normal size (`fInterfaceScale` stays `1.0`) — only the on-map scale differs
   - Grand Colosseum unchanged: build (or view) the Great Artist's Grand Colosseum and confirm its on-map size is visually identical to before (still `fScale = 1.5`, not shrunk)
+  - Feature handling: build Grand Colosseum, Industrial Zone, Naval Foundry, Commercial District, and Grand Bazaar separately on Forest and Jungle; confirm the feature is removed immediately with no chop production. Build Research Campus and every Sacred Grove variant on both features and confirm the Forest/Jungle remains
   - Landmark output tooltips (exact total + breakdown), for **each** landmark type, check **both** places:
     - Build-action hover (before construction): select the Great Person, hover its "Create ..." build action, and confirm a **"Projected landmark output:"** block appears with an exact total and a per-contributor breakdown, and that the generic ", +N" native-yield line is **not** duplicated for the landmark
     - Built-map hover (after construction): build the landmark, then mouse over its tile and confirm a **"Current landmark output:"** block appears with the same numbers the tile actually produces
@@ -81,8 +84,8 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - Pillage/ownership: pillage a landmark and confirm it is destroyed completely; flip a plot's owner and confirm owned-only adjacency and the Foundry aura recompute correctly
   - Venetian preservation: confirm the Merchant Prince still Founds cities, builds Roads and the Grand Colosseum, and performs every prior action; confirm it can also build both Merchant landmarks
   - AI: run autoplay and confirm Great Engineers/Scientists/Merchants/Prophets place their landmarks on sensible tiles, every AI-built Industrial Zone previews at least `+3 Production` from its Watermill/Workshop/Mine/Quarry adjacency before any generic modifiers, the empire's first copy of each type is placed at least once, and Venice still expands (Founder safety) while also scoring both Merchant landmarks
-  - Save/reload: save with landmarks placed and reload; confirm yields, city Research, and art persist
-  - MP: start the same fresh scenario on two clients; place landmarks and run AI; confirm identical yields and no OOS
+  - Save/reload: save with landmarks placed and reload; confirm yields, city Research, model identity, scale, and each selected orientation persist
+  - MP: start the same fresh scenario on two clients; place landmarks and run AI; confirm matching landmark orientations, identical yields, and no OOS
 - Civilization border colors:
   - Start a fresh large custom game with as many playable civilizations as practical and reveal the map
   - Confirm no two civilizations use the same territory or minimap color, especially the American, British, French, Russian, Greek, Persian, Egyptian, Ottoman, Ethiopian, Mongol/Yuan, Roman, and German/Prussian package pairs

@@ -332,27 +332,51 @@ paths, sharing one authoritative preview so text can never drift from gameplay.
 ### Map model scale correction
 
 The 13 new landmarks reuse stock building NIFs, which render at roughly city
-size at the stock `fScale=1.0`. Map scale is pinned to `0.5` so each landmark
-reads as an improvement rather than a city. Interface rendering is unchanged.
+size at the stock `fScale=1.0`. Their original corrective scale was `0.5`;
+the approved rotation follow-up modestly enlarges them to `0.65` while keeping
+them clearly smaller than a city. Interface rendering is unchanged.
 Tracked in full in
 [`2026-07-13-landmark-scale-installer-reliability.md`](2026-07-13-landmark-scale-installer-reliability.md).
 
-- [x] Set `fScale` to `0.5` for all 13 new landmark art records in
+- [x] Set `fScale` to `0.65` for all 13 new landmark art records in
 `CIV4ArtDefines_Improvement.xml`.
 - [x] Keep `fInterfaceScale` at `1.0` (Civilopedia/button size unchanged).
 - [x] Leave the pre-existing Grand Colosseum at `fScale=1.5` (not shrunk).
-- [x] Add exact art-scale regression tests (all 13 map scales `0.5`, all
+- [x] Add exact art-scale regression tests (all 13 map scales `0.65`, all
 interface scales `1.0`, Grand Colosseum `1.5`) in
 `tools/tests/test_great_person_landmarks.py`.
 - [ ] Installed-game manual acceptance: confirm the 13 landmarks render at
-half size (readable, no longer city-sized) at normal and strategic zoom,
+the approved `0.65` scale (readable, still not city-sized) at normal and strategic zoom,
 buttons/Civilopedia stay normal size, and Grand Colosseum is visually
 unchanged (see `docs/MANUAL_SMOKE_TESTS.md`).
+
+### Landmark rotation and vegetation follow-up
+
+- [x] Enable L-System rendering for exactly the 14 Great Person-buildable
+  landmarks while preserving the existing baseline-enabled improvements.
+- [x] Route all 14 landmarks through one shared principal-only leaf and eight
+  engine-selected rotations at `0`, `45`, `90`, `135`, `180`, `225`, `270`,
+  and `315` degrees.
+- [x] Retain every original ArtDefine/model and add no props, replacement NIFs,
+  translation, or L-System scale override.
+- [x] Keep every Improvement selector at or below the 182-character
+  known-working baseline limit.
+- [x] Remove Forest and Jungle, with zero build time and zero chop production,
+  for Grand Colosseum, Industrial Zone, Naval Foundry, Commercial District,
+  and Grand Bazaar.
+- [x] Preserve Forest and Jungle for Research Campus and all eight Sacred
+  Grove variants.
+- [x] Add exact automated contracts for coverage, routing, angle set, original
+  model usage, scale, and feature behavior.
+- [ ] Complete installed-game acceptance for orientation distribution,
+  diagonal pivots, feature handling, save/reload stability, and two-client
+  consistency.
 
 ## Readiness
 
 **Ready for implementation: Yes (implemented).**
 
 **Ready for merge/deploy: No.** Implementation and automated gates are
-complete. Fresh-game rendering/mechanics checks, AI autoplay, save/reload, and
-fresh two-client multiplayer acceptance remain required.
+complete for this follow-up. Fresh-game rendering/mechanics checks, AI
+autoplay, save/reload, and fresh two-client multiplayer acceptance remain
+required.

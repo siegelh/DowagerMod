@@ -299,7 +299,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_INDUSTRIAL_ZONE_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Factory/Factory.nif</NIF>
 			<KFM/>
@@ -308,7 +308,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_NAVAL_FOUNDRY_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/IronWorks/IronWorks.nif</NIF>
 			<KFM/>
@@ -317,7 +317,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_RESEARCH_CAMPUS_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Observatory/Observatory.nif</NIF>
 			<KFM/>
@@ -326,7 +326,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_COMMERCIAL_DISTRICT_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Roman Forum/Forum.nif</NIF>
 			<KFM/>
@@ -335,7 +335,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_GRAND_BAZAAR_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Market/Market.nif</NIF>
 			<KFM/>
@@ -344,7 +344,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_SACRED_GROVE_NONE_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/BTG/ChooseReligions/Shinto_Files/Buildings/ShintoNaiku.nif</NIF>
 			<KFM/>
@@ -353,7 +353,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_SACRED_GROVE_JUDAISM_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Shrine/jewish-shrine.nif</NIF>
 			<KFM/>
@@ -362,7 +362,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_SACRED_GROVE_CHRISTIANITY_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Shrine/christian shrine.nif</NIF>
 			<KFM/>
@@ -371,7 +371,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_SACRED_GROVE_ISLAM_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Shrine/Islamic_shrine.nif</NIF>
 			<KFM/>
@@ -380,7 +380,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_SACRED_GROVE_HINDUISM_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Shrine/hindu_shrine.nif</NIF>
 			<KFM/>
@@ -389,7 +389,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_SACRED_GROVE_BUDDHISM_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Shrine/Buddhist_shrine.nif</NIF>
 			<KFM/>
@@ -398,7 +398,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_SACRED_GROVE_CONFUCIANISM_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Shrine/confuscian_shrine.nif</NIF>
 			<KFM/>
@@ -407,7 +407,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_SACRED_GROVE_TAOISM_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.5</fScale>
+			<fScale>0.65</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Shrine/Taoist_shrine.nif</NIF>
 			<KFM/>
