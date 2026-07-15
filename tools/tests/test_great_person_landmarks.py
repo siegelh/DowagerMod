@@ -588,6 +588,38 @@ class DllContractTests(unittest.TestCase):
         self.assertContains(city, "getLandmarkResearchCampusValue(getOwnerINLINE())")
         self.assertContains(city, "LANDMARK_RESEARCH_CAMPUS")
 
+    def test_research_campus_governor_valuation_is_local_and_weighted(self):
+        city_ai = read_dll("CvCityAI.cpp")
+        block = city_ai.split("int CvCityAI::AI_plotValue(", 1)[1].split(
+            "int CvCityAI::AI_experienceWeight(", 1
+        )[0]
+        self.assertContains(
+            block,
+            'static ImprovementTypes eResearchCampus = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_RESEARCH_CAMPUS_BTG", true);',
+        )
+        self.assertContains(block, "if (eCurrentImprovement == eResearchCampus)")
+        self.assertContains(
+            block,
+            "aiCampusCommerceYields[COMMERCE_RESEARCH] = (short)pPlot->getLandmarkResearchCampusValue(getOwnerINLINE());",
+        )
+        self.assertContains(
+            block,
+            "AI_yieldValue(aiYields, aiCampusCommerceYields",
+        )
+        self.assertContains(block, "iValue += std::max(0, iCampusResearchValue);")
+        self.assertEqual(block.count("getLandmarkResearchCampusValue("), 1)
+        self.assertLess(
+            block.index("iYieldValue /= 16;"),
+            block.index("iValue += std::max(0, iCampusResearchValue);"),
+        )
+        for forbidden in (
+            "NUM_CITY_PLOTS",
+            "getCityIndexPlot(",
+            "getSorenRandNum(",
+            "getMapRandNum(",
+        ):
+            self.assertNotIn(forbidden, block)
+
     def test_generated_help(self):
         text_mgr = read_dll("CvGameTextMgr.cpp")
         self.assertContains(text_mgr, "appendLandmarkHelp")

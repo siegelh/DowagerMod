@@ -279,19 +279,22 @@ Grand Colosseum, must not move because savegames persist numeric IDs.
 
 ### Research Campus governor valuation correction
 
-- [ ] In the existing `CvCityAI::AI_plotValue` workable-plot evaluation, reuse
+- [x] In the existing `CvCityAI::AI_plotValue` workable-plot evaluation, reuse
   the candidate plot's Improvement type; do not add a second city-tile sweep.
-- [ ] For `IMPROVEMENT_RESEARCH_CAMPUS_BTG` only, add its existing
+- [x] For `IMPROVEMENT_RESEARCH_CAMPUS_BTG` only, add its existing
   `getLandmarkResearchCampusValue` result to the governor score using Research
   commerce weighting.
-- [ ] Keep actual Campus Research, XML plot yields, and visible map yields
+- [x] Keep actual Campus Research, XML plot yields, and visible map yields
   unchanged; do not add proxy Commerce.
-- [ ] Keep the hot path allocation-free and RNG-free. Ordinary plots may pay
+- [x] Keep the hot path allocation-free and RNG-free. Ordinary plots may pay
   only the single type branch; only the rare Campus may scan its eight
   neighbors.
-- [ ] Add regression coverage for Campus valuation, no double counting, and
-  deterministic ordering, then compare representative AI-autoplay turn times
-  before and after the change.
+- [x] Add regression coverage for Campus valuation, no double counting, and
+  deterministic ordering.
+- [ ] Compare representative AI-autoplay turn times before and after the
+  change.
+- [x] Rebuild the payload DLL through `.\tools\test_gate.ps1 -CheckDll` and
+  confirm the Release and active payload DLL hashes match.
 - [ ] Installed-game city governor: confirm a strong Campus is worked over a
   weaker ordinary tile and relinquished when a genuinely better tile exists.
 

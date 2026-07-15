@@ -7409,9 +7409,11 @@ int CvCityAI::AI_plotValue(CvPlot* pPlot, bool bAvoidGrowth, bool bRemove, bool 
 	int iValue;
 	int iI;
 	int iTotalDiff;
+	int iCampusResearchValue;
 
 	iValue = 0;
 	iTotalDiff = 0;
+	iCampusResearchValue = 0;
 
 	for (iI = 0; iI < NUM_YIELD_TYPES; iI++)
 	{
@@ -7428,6 +7430,14 @@ int CvCityAI::AI_plotValue(CvPlot* pPlot, bool bAvoidGrowth, bool bRemove, bool 
 	
 	
 	int iYieldValue = (AI_yieldValue(aiYields, NULL, bAvoidGrowth, bRemove, bIgnoreFood, bIgnoreGrowth, bIgnoreStarvation) * 100);
+
+	static ImprovementTypes eResearchCampus = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_RESEARCH_CAMPUS_BTG", true);
+	if (eCurrentImprovement == eResearchCampus)
+	{
+		short aiCampusCommerceYields[NUM_COMMERCE_TYPES] = { 0 };
+		aiCampusCommerceYields[COMMERCE_RESEARCH] = (short)pPlot->getLandmarkResearchCampusValue(getOwnerINLINE());
+		iCampusResearchValue = (AI_yieldValue(aiYields, aiCampusCommerceYields, bAvoidGrowth, bRemove, bIgnoreFood, bIgnoreGrowth, bIgnoreStarvation) * 100) - iYieldValue;
+	}
 
 	if (eFinalImprovement != NO_IMPROVEMENT)
 	{
@@ -7454,6 +7464,9 @@ int CvCityAI::AI_plotValue(CvPlot* pPlot, bool bAvoidGrowth, bool bRemove, bool 
 			// undervalue it even more!
 			iYieldValue /= 16;
 	iValue += iYieldValue;
+	// Direct Campus Research is real worked-plot output, so it must not receive
+	// the low-native-yield penalty intended for genuinely weak plots.
+	iValue += std::max(0, iCampusResearchValue);
 
 	if (eCurrentImprovement != NO_IMPROVEMENT)
 	{
