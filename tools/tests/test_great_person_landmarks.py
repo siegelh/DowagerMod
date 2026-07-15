@@ -75,6 +75,10 @@ FEATURE_CLEARING_LANDMARKS = {
     "COMMERCIAL_DISTRICT_BTG",
     "GRAND_BAZAAR_BTG",
 }
+SMALL_MERCHANT_LANDMARKS = {
+    "COMMERCIAL_DISTRICT_BTG",
+    "GRAND_BAZAAR_BTG",
+}
 
 # key -> (ltype, group, mindist, cityadj, noadj, coastal, relgated, religion)
 LANDMARK_FIELDS = {
@@ -287,7 +291,8 @@ class ArtTests(unittest.TestCase):
         for k in LANDMARK_ORDER:
             art = find_entry(ART, "ImprovementArtInfo", f"ART_DEF_IMPROVEMENT_{k}")
             self.assertIsNotNone(art, k)
-            self.assertEqual(child_text(art, "fScale"), "0.65", k)
+            expected_scale = "0.25" if k in SMALL_MERCHANT_LANDMARKS else "0.65"
+            self.assertEqual(child_text(art, "fScale"), expected_scale, k)
 
     def test_new_landmarks_keep_full_interface_scale(self):
         for k in LANDMARK_ORDER:

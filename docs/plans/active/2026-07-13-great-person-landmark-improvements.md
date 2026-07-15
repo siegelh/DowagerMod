@@ -332,21 +332,22 @@ paths, sharing one authoritative preview so text can never drift from gameplay.
 ### Map model scale correction
 
 The 13 new landmarks reuse stock building NIFs, which render at roughly city
-size at the stock `fScale=1.0`. Their original corrective scale was `0.5`;
-the approved rotation follow-up modestly enlarges them to `0.65` while keeping
-them clearly smaller than a city. Interface rendering is unchanged.
+size at the stock `fScale=1.0`. Their original corrective scale was `0.5`.
+The approved rotation follow-up uses `0.65` for Industrial Zone, Naval Foundry,
+Research Campus, and all Sacred Groves, while the oversized Commercial
+District and Grand Bazaar use `0.25`. Interface rendering is unchanged.
 Tracked in full in
 [`2026-07-13-landmark-scale-installer-reliability.md`](2026-07-13-landmark-scale-installer-reliability.md).
 
-- [x] Set `fScale` to `0.65` for all 13 new landmark art records in
-`CIV4ArtDefines_Improvement.xml`.
+- [x] Set `fScale` to `0.65` for 11 new landmark art records and `0.25` for
+Commercial District and Grand Bazaar in `CIV4ArtDefines_Improvement.xml`.
 - [x] Keep `fInterfaceScale` at `1.0` (Civilopedia/button size unchanged).
 - [x] Leave the pre-existing Grand Colosseum at `fScale=1.5` (not shrunk).
-- [x] Add exact art-scale regression tests (all 13 map scales `0.65`, all
-interface scales `1.0`, Grand Colosseum `1.5`) in
+- [x] Add exact art-scale regression tests (11 map scales `0.65`, both Merchant
+landmark map scales `0.25`, all interface scales `1.0`, Grand Colosseum `1.5`) in
 `tools/tests/test_great_person_landmarks.py`.
-- [ ] Installed-game manual acceptance: confirm the 13 landmarks render at
-the approved `0.65` scale (readable, still not city-sized) at normal and strategic zoom,
+- [ ] Installed-game manual acceptance: confirm the 11 standard landmarks
+render at `0.65`, Commercial District and Grand Bazaar render at `0.25`,
 buttons/Civilopedia stay normal size, and Grand Colosseum is visually
 unchanged (see `docs/MANUAL_SMOKE_TESTS.md`).
 
