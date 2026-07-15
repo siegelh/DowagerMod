@@ -6281,6 +6281,21 @@ int CvCity::getBaseGreatPeopleRate() const
 	return m_iBaseGreatPeopleRate;
 }
 
+int CvCity::getStatePropertyPalaceGreatPeopleRate() const
+{
+	static CivicTypes eStateProperty = (CivicTypes)GC.getInfoTypeForString("CIVIC_STATE_PROPERTY", true);
+	static BuildingClassTypes ePalaceClass = (BuildingClassTypes)GC.getInfoTypeForString("BUILDINGCLASS_PALACE", true);
+
+	if (eStateProperty == NO_CIVIC || ePalaceClass == NO_BUILDINGCLASS ||
+		!GET_PLAYER(getOwnerINLINE()).isCivic(eStateProperty))
+	{
+		return 0;
+	}
+
+	BuildingTypes ePalace = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(ePalaceClass);
+	return (ePalace != NO_BUILDING && getNumActiveBuilding(ePalace) > 0) ? 10 : 0;
+}
+
 
 int CvCity::getGreatPeopleRate() const
 {
@@ -6289,7 +6304,7 @@ int CvCity::getGreatPeopleRate() const
 		return 0;
 	}
 
-	return ((getBaseGreatPeopleRate() * getTotalGreatPeopleRateModifier()) / 100);
+	return (((getBaseGreatPeopleRate() + getStatePropertyPalaceGreatPeopleRate()) * getTotalGreatPeopleRateModifier()) / 100);
 }
 
 
@@ -12929,9 +12944,22 @@ void CvCity::doGreatPeople()
 
 	changeGreatPeopleProgress(getGreatPeopleRate());
 
+	static UnitClassTypes eEngineerClass = (UnitClassTypes)GC.getInfoTypeForString("UNITCLASS_ENGINEER", true);
+	UnitTypes eEngineer = NO_UNIT;
+	if (eEngineerClass != NO_UNITCLASS)
+	{
+		eEngineer = (UnitTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(eEngineerClass);
+	}
+	const int iStatePropertyPalaceRate = getStatePropertyPalaceGreatPeopleRate();
+
 	for (int iI = 0; iI < GC.getNumUnitInfos(); iI++)
 	{
-		changeGreatPeopleUnitProgress(((UnitTypes)iI), getGreatPeopleUnitRate((UnitTypes)iI));
+		int iUnitRate = getGreatPeopleUnitRate((UnitTypes)iI);
+		if (iI == eEngineer)
+		{
+			iUnitRate += iStatePropertyPalaceRate;
+		}
+		changeGreatPeopleUnitProgress(((UnitTypes)iI), iUnitRate);
 	}
 
 	if (getGreatPeopleProgress() >= GET_PLAYER(getOwnerINLINE()).greatPeopleThreshold(false))
@@ -14997,4 +15025,3 @@ void CvCity::getBuildQueue(std::vector<std::string>& astrQueue) const
 		pNode = nextOrderQueueNode(pNode);
 	}
 }
-

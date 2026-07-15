@@ -326,7 +326,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_COMMERCIAL_DISTRICT_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.25</fScale>
+			<fScale>0.10</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Roman Forum/Forum.nif</NIF>
 			<KFM/>
@@ -335,7 +335,7 @@
 		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_GRAND_BAZAAR_BTG</Type>
 			<bExtraAnimations>0</bExtraAnimations>
-			<fScale>0.25</fScale>
+			<fScale>0.10</fScale>
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Structures/Buildings/Market/Market.nif</NIF>
 			<KFM/>

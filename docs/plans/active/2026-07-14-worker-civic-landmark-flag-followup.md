@@ -1,8 +1,8 @@
 # Worker, State Property, Landmark, and Flag Follow-up
 
-- Status: `draft`
+- Status: `automated implementation/validation complete; installed runtime acceptance pending`
 - Owner / agent: GitHub Copilot CLI
-- Last updated: `2026-07-14`
+- Last updated: `2026-07-15`
 
 ## Problem Statement
 
@@ -18,11 +18,9 @@ This follow-up consolidates four approved investigation tracks:
    reuse many civilization flags, including one clear Native
    America/Apache/Polynesia cross-wiring defect.
 
-The current uncommitted State Property edit is user-owned and must be preserved.
-It sets `bMilitaryFoodProduction` to `0`, but the current
-`CIV4CivicInfos.xml` is malformed because it contains an unmatched
-`</SpecialistExtraCommerces>` closing tag
-(`Assets/XML/GameInfo/CIV4CivicInfos.xml:1426-1463`).
+The user-owned State Property edit was preserved, repaired, validated, and
+committed separately as `b42569d8b`. It sets `bMilitaryFoodProduction` to `0`;
+the canceled all-specialist commerce experiment is absent.
 
 ## Why This Matters
 
@@ -337,7 +335,7 @@ seals, or public-domain museum/reference material before asset production.
   prior ArtDefine.
 - Never revert or overwrite unrelated user work in `CIV4CivicInfos.xml`.
 
-## Assumptions That Need Human Confirmation
+## Locked Decisions
 
 - Use `+10` Palace base GPP under State Property, all attributed to Great
   Engineer progress.
@@ -348,11 +346,12 @@ seals, or public-domain museum/reference material before asset production.
 
 ## Completion Checklist
 
-- [ ] User State Property XML intent is repaired, validated, and committed
+- [x] User State Property XML intent is repaired, validated, and committed
   separately.
-- [ ] Worker-demand and Campus replacement fixes are implemented and compiled.
-- [ ] Palace State Property GPP is derived, displayed, AI-valued, and tested.
+- [x] Worker-demand and Campus replacement fixes are implemented and compiled.
+- [x] Palace State Property GPP is derived, displayed, AI-valued, and covered
+  by focused automated contracts.
 - [ ] Merchant landmarks pass final visual scale acceptance.
-- [ ] Complete targeted flag registry has unique, accurate, validated assets.
-- [ ] Full automated gates pass.
+- [x] Complete targeted flag registry has unique, accurate, validated assets.
+- [x] Full automated gates pass.
 - [ ] Installed worker, GPP, landmark, flag, save/reload, and MP checks pass.

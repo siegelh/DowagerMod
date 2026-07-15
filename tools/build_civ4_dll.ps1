@@ -69,9 +69,17 @@ $env:TARGET = $Target
 $env:INCLUDE = ""
 $env:LIB = ""
 
-& $nmake source_list /NOLOGO
-& $nmake fastdep /NOLOGO
-& $nmake dll /NOLOGO
+foreach ($nmakeTarget in @("source_list", "fastdep", "dll")) {
+    # NOTE: PowerShell variable names are case-insensitive, so a loop variable
+    # named "$target" would silently clobber the "-Target" (Release/Debug/...)
+    # script parameter once the loop reaches the "dll" nmake target, breaking
+    # the expected $Target\CvGameCoreDLL.dll output path below. Keep this
+    # loop variable name distinct from $Target.
+    & $nmake $nmakeTarget /NOLOGO
+    if ($LASTEXITCODE -ne 0) {
+        throw "nmake target '$nmakeTarget' failed with exit code $LASTEXITCODE"
+    }
+}
 
 $builtDll = Join-Path $sdkRoot "$Target\CvGameCoreDLL.dll"
 if (!(Test-Path $builtDll)) {

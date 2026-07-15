@@ -291,7 +291,7 @@ class ArtTests(unittest.TestCase):
         for k in LANDMARK_ORDER:
             art = find_entry(ART, "ImprovementArtInfo", f"ART_DEF_IMPROVEMENT_{k}")
             self.assertIsNotNone(art, k)
-            expected_scale = "0.25" if k in SMALL_MERCHANT_LANDMARKS else "0.65"
+            expected_scale = "0.10" if k in SMALL_MERCHANT_LANDMARKS else "0.65"
             self.assertEqual(child_text(art, "fScale"), expected_scale, k)
 
     def test_new_landmarks_keep_full_interface_scale(self):
@@ -619,6 +619,104 @@ class DllContractTests(unittest.TestCase):
             "getMapRandNum(",
         ):
             self.assertNotIn(forbidden, block)
+
+    def test_worker_demand_keeps_one_worker_for_valid_unworked_plots(self):
+        city_ai = read_dll("CvCityAI.cpp")
+        block = city_ai.split("void CvCityAI::AI_updateWorkersNeededHere()", 1)[1].split(
+            "int CvCityAI::AI_getWorkersNeeded()", 1
+        )[0]
+        floor = "if (iUnimprovedUnworkedPlotCount > 0)"
+        self.assertContains(block, floor)
+        self.assertContains(block, "iWorkersNeeded = std::max(1, iWorkersNeeded);")
+        self.assertLess(
+            block.index("iWorkersNeeded /= 2;"),
+            block.index(floor),
+        )
+        self.assertLess(
+            block.index("iWorkersNeeded = std::max((iUnimprovedWorkedPlotCount + 1) / 2, iWorkersNeeded);"),
+            block.index(floor),
+        )
+        for forbidden in ("scrap()", "getSorenRandNum(", "getMapRandNum("):
+            self.assertNotIn(forbidden, block)
+
+    def test_worker_replacement_values_existing_campus_research(self):
+        city_ai = read_dll("CvCityAI.cpp")
+        block = city_ai.split("void CvCityAI::AI_bestPlotBuild(", 1)[1].split(
+            "int CvCityAI::AI_getHappyFromHurry(", 1
+        )[0]
+        self.assertContains(block, "if (pPlot->getImprovementType() == eResearchCampus)")
+        self.assertContains(
+            block,
+            "pPlot->getLandmarkResearchCampusValue(getOwnerINLINE()) * 40",
+        )
+        self.assertContains(block, "AI_commerceWeight(COMMERCE_RESEARCH, this)")
+        self.assertContains(block, "getTotalCommerceRateModifier(COMMERCE_RESEARCH)")
+        self.assertContains(block, "AI_averageCommerceExchange(COMMERCE_RESEARCH)")
+        self.assertContains(block, "iValue -= iCurrentCampusResearchValue;")
+        self.assertEqual(block.count("getLandmarkResearchCampusValue("), 1)
+        for forbidden in ("NUM_CITY_PLOTS", "getSorenRandNum(", "getMapRandNum("):
+            self.assertNotIn(forbidden, block)
+
+    def test_state_property_palace_gpp_is_derived_and_engineer_attributed(self):
+        city = read_dll("CvCity.cpp")
+        helper = city.split("int CvCity::getStatePropertyPalaceGreatPeopleRate() const", 1)[1].split(
+            "int CvCity::getGreatPeopleRate() const", 1
+        )[0]
+        self.assertContains(helper, '"CIVIC_STATE_PROPERTY"')
+        self.assertContains(helper, '"BUILDINGCLASS_PALACE"')
+        self.assertContains(helper, "getNumActiveBuilding(ePalace) > 0")
+        self.assertContains(helper, "? 10 : 0")
+        self.assertNotIn("isGovernmentCenter", helper)
+
+        self.assertContains(
+            city,
+            "getBaseGreatPeopleRate() + getStatePropertyPalaceGreatPeopleRate()",
+        )
+        self.assertContains(city, '"UNITCLASS_ENGINEER"')
+        self.assertContains(city, "iUnitRate += iStatePropertyPalaceRate;")
+        for forbidden in (
+            "changeBaseGreatPeopleRate(10",
+            "changeGreatPeopleUnitRate(eEngineer",
+            "m_iStateProperty",
+        ):
+            self.assertNotIn(forbidden, city)
+
+    def test_state_property_palace_gpp_is_ai_valued_and_displayed(self):
+        player_ai = read_dll("CvPlayerAI.cpp")
+        self.assertContains(player_ai, "eCivic == eStateProperty")
+        self.assertContains(player_ai, "getBuildingClassCount(ePalaceClass) > 0")
+        self.assertContains(player_ai, "iValue += 40;")
+
+        text_mgr = read_dll("CvGameTextMgr.cpp")
+        self.assertContains(text_mgr, "TXT_KEY_STATE_PROPERTY_PALACE_GPP")
+        self.assertContains(text_mgr, "TXT_KEY_STATE_PROPERTY_PALACE_GPP_CITY")
+        self.assertContains(
+            text_mgr,
+            "city.getBaseGreatPeopleRate() + city.getStatePropertyPalaceGreatPeopleRate()",
+        )
+
+        text = (
+            XML / "Text" / "ZZZ_CIV4GameText_StatePropertyPalace.xml"
+        ).read_text(encoding="ISO-8859-1")
+        for key in (
+            "TXT_KEY_STATE_PROPERTY_PALACE_GPP",
+            "TXT_KEY_STATE_PROPERTY_PALACE_GPP_CITY",
+        ):
+            self.assertIn(f"<Tag>{key}</Tag>", text)
+
+    def test_dll_build_script_rejects_native_build_failures(self):
+        script = (ROOT / "tools" / "build_civ4_dll.ps1").read_text(
+            encoding="utf-8", errors="ignore"
+        )
+        # Verify all three targets run in the nmake loop
+        self.assertIn('foreach ($nmakeTarget in @("source_list", "fastdep", "dll"))', script)
+        # Verify error handling on build failure
+        self.assertIn("if ($LASTEXITCODE -ne 0)", script)
+        self.assertIn("nmake target '$nmakeTarget' failed", script)
+        # Guard against case-insensitive shadowing: $nmakeTarget (not $target)
+        # must be used to avoid clobbering the -Target parameter when the loop
+        # reaches "dll", which would break the output path construction.
+        self.assertNotIn("$target", script.split("foreach")[1].split("}")[0])
 
     def test_generated_help(self):
         text_mgr = read_dll("CvGameTextMgr.cpp")

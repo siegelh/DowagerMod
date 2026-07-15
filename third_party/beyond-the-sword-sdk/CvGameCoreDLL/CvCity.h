@@ -276,6 +276,7 @@ public:
 	void changeNumGreatPeople(int iChange);															
 
 	int getBaseGreatPeopleRate() const;																		// Exposed to Python
+	int getStatePropertyPalaceGreatPeopleRate() const;
 	int getGreatPeopleRate() const;																				// Exposed to Python
 	int getTotalGreatPeopleRateModifier() const;													// Exposed to Python
 	void changeBaseGreatPeopleRate(int iChange);										// Exposed to Python

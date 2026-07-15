@@ -5466,6 +5466,13 @@ void CvGameTextMgr::parseCivicInfo(CvWStringBuffer &szHelpText, CivicTypes eCivi
 		szHelpText.append(gDLL->getText("TXT_KEY_CIVIC_GREAT_PEOPLE_MOD", GC.getCivicInfo(eCivic).getGreatPeopleRateModifier()));
 	}
 
+	static CivicTypes eStateProperty = (CivicTypes)GC.getInfoTypeForString("CIVIC_STATE_PROPERTY", true);
+	if (eCivic == eStateProperty)
+	{
+		szHelpText.append(NEWLINE);
+		szHelpText.append(gDLL->getText("TXT_KEY_STATE_PROPERTY_PALACE_GPP", 10));
+	}
+
 	//	Great General Modifier...
 	if (GC.getCivicInfo(eCivic).getGreatGeneralRateModifier() != 0)
 	{
@@ -7920,6 +7927,13 @@ void CvGameTextMgr::setBuildingHelp(CvWStringBuffer &szBuffer, BuildingTypes eBu
 	{
 		szBuffer.append(NEWLINE);
 		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_BIRTH_RATE_MOD", kBuilding.getGreatPeopleRateModifier()));
+	}
+
+	static BuildingClassTypes ePalaceClass = (BuildingClassTypes)GC.getInfoTypeForString("BUILDINGCLASS_PALACE", true);
+	if (kBuilding.getBuildingClassType() == ePalaceClass)
+	{
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_STATE_PROPERTY_PALACE_GPP", 10));
 	}
 
 	if (kBuilding.getGreatGeneralRateModifier() != 0)
@@ -13321,6 +13335,11 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer &szBuffer, CvCity& city
 	szBuffer.append(NEWLINE);
 	szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_GREATPEOPLE_BASE_RATE", city.getBaseGreatPeopleRate()));
 	szBuffer.append(NEWLINE);
+	if (city.getStatePropertyPalaceGreatPeopleRate() > 0)
+	{
+		szBuffer.append(gDLL->getText("TXT_KEY_STATE_PROPERTY_PALACE_GPP_CITY", city.getStatePropertyPalaceGreatPeopleRate()));
+		szBuffer.append(NEWLINE);
+	}
 
 	int iModifier = 100;
 
@@ -13412,7 +13431,7 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer &szBuffer, CvCity& city
 		}
 	}
 
-	int iModGreatPeople = (iModifier * city.getBaseGreatPeopleRate()) / 100;
+	int iModGreatPeople = (iModifier * (city.getBaseGreatPeopleRate() + city.getStatePropertyPalaceGreatPeopleRate())) / 100;
 
 	FAssertMsg(iModGreatPeople == city.getGreatPeopleRate(), "Great person rate does not match actual value");
 

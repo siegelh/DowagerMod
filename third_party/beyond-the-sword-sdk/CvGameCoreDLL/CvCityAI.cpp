@@ -7595,6 +7595,21 @@ void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peB
 			}
 		}
 	}
+
+	int iCurrentCampusResearchValue = 0;
+	static ImprovementTypes eResearchCampus = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_RESEARCH_CAMPUS_BTG", true);
+	if (pPlot->getImprovementType() == eResearchCampus)
+	{
+		iCurrentCampusResearchValue = pPlot->getLandmarkResearchCampusValue(getOwnerINLINE()) * 40;
+		iCurrentCampusResearchValue *= iCommercePriority;
+		iCurrentCampusResearchValue /= 100;
+		iCurrentCampusResearchValue *= GET_PLAYER(getOwnerINLINE()).AI_commerceWeight(COMMERCE_RESEARCH, this);
+		iCurrentCampusResearchValue /= 100;
+		iCurrentCampusResearchValue *= getTotalCommerceRateModifier(COMMERCE_RESEARCH);
+		iCurrentCampusResearchValue /= 100;
+		iCurrentCampusResearchValue *= GET_PLAYER(getOwnerINLINE()).AI_averageCommerceExchange(COMMERCE_RESEARCH);
+		iCurrentCampusResearchValue /= 100;
+	}
 	
 	for (iJ = 0; iJ < NUM_YIELD_TYPES; iJ++)
 	{
@@ -7886,6 +7901,11 @@ void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peB
 					{
 					    aiFinalYields[iJ] /= 2;
 					    aiDiffYields[iJ] /= 2;
+					}
+
+					if (eImprovement != pPlot->getImprovementType())
+					{
+						iValue -= iCurrentCampusResearchValue;
 					}
 					
 					if (iValue > 0)
@@ -9486,6 +9506,10 @@ void CvCityAI::AI_updateWorkersNeededHere()
 	iWorkersNeeded += (iSpecialCount + 1) / 2;
 	
 	iWorkersNeeded = std::max((iUnimprovedWorkedPlotCount + 1) / 2, iWorkersNeeded);
+	if (iUnimprovedUnworkedPlotCount > 0)
+	{
+		iWorkersNeeded = std::max(1, iWorkersNeeded);
+	}
 	
 	m_iWorkersNeeded = iWorkersNeeded;
 	m_iWorkersHave = iWorkersHave;

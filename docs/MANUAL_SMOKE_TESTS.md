@@ -61,7 +61,7 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - Rendering: build each landmark and confirm its model and build-button render with no pink boxes or missing icons; hover the tile and the build action and confirm the generated help lists the correct adjacency mechanics
   - Rotation: place at least eight well-separated copies of each of the 14 landmarks and confirm multiple orientations appear from the exact eight-angle candidate set (`0`, `45`, `90`, `135`, `180`, `225`, `270`, `315`); confirm only one copy of the original model renders on each plot, with no added props
   - Diagonal placement: inspect the `45`, `135`, `225`, and `315` degree candidates for pivot drift, road overlap, neighboring-tile overlap, and terrain clipping
-  - Map model scale: confirm Industrial Zone, Naval Foundry, Research Campus, and all 8 Sacred Grove variants render at `fScale = 0.65`; confirm Commercial District and Grand Bazaar render substantially smaller at `fScale = 0.25`; check readability at normal and strategic zoom
+  - Map model scale: confirm Industrial Zone, Naval Foundry, Research Campus, and all 8 Sacred Grove variants render at `fScale = 0.65`; confirm Commercial District and Grand Bazaar render substantially smaller at `fScale = 0.10`; check readability at normal and strategic zoom
   - Interface scale unchanged: confirm the Civilopedia entry and the build/action buttons for each landmark are still normal size (`fInterfaceScale` stays `1.0`) — only the on-map scale differs
   - Grand Colosseum unchanged: build (or view) the Great Artist's Grand Colosseum and confirm its on-map size is visually identical to before (still `fScale = 1.5`, not shrunk)
   - Feature handling: build Grand Colosseum, Industrial Zone, Naval Foundry, Commercial District, and Grand Bazaar separately on Forest and Jungle; confirm the feature is removed immediately with no chop production. Build Research Campus and every Sacred Grove variant on both features and confirm the Forest/Jungle remains
@@ -86,6 +86,17 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - AI: run autoplay and confirm Great Engineers/Scientists/Merchants/Prophets place their landmarks on sensible tiles, every AI-built Industrial Zone previews at least `+3 Production` from its Watermill/Workshop/Mine/Quarry adjacency before any generic modifiers, the empire's first copy of each type is placed at least once, and Venice still expands (Founder safety) while also scoring both Merchant landmarks
   - Save/reload: save with landmarks placed and reload; confirm yields, city Research, model identity, scale, and each selected orientation persist
   - MP: start the same fresh scenario on two clients; place landmarks and run AI; confirm matching landmark orientations, identical yields, and no OOS
+- Worker automation:
+  - Give a city one or more valid unworked plots with cached improvement builds but no unimproved worked plots; automate a human Worker and run AI autoplay separately, confirming each keeps at least one Worker assigned and improves those plots rather than routing, skipping indefinitely, or scrapping
+  - Repeat with cities emphasizing Food, Production, and Commerce; confirm build choices still respond to each city's needs rather than following one universal improvement priority
+  - Place a worked Research Campus with strong direct Research, disable "Leave Old Improvements," and automate a Worker; confirm the Worker rejects weaker replacement builds while still replacing the Campus when a genuinely higher city-weighted option exists
+  - Save/reload with automated Workers active and repeat on two clients; confirm matching missions and no OOS
+- State Property Palace Great Engineer points:
+  - Before adopting State Property, confirm the active Palace city has no conditional bonus; adopt State Property and confirm its city breakdown immediately adds `+10` base Great People Points before modifiers and identifies Great Engineer as the source
+  - Confirm exactly `+10` unmodified source points accrue to the civilization's Great Engineer unit pool each turn, with no source points added to other Great Person types
+  - Move the Palace and confirm the bonus leaves the old capital and appears only in the new Palace city; repeal and re-adopt State Property and confirm immediate removal/restoration
+  - Exercise `BUILDING_PALACE`, `BUILDING_VENETIAN_DOGE_PALACE`, `BUILDING_BABYLON_ROYAL_PALACE`, and `BUILDING_YUAN_IMPERIAL_SECRETARIAT`; confirm Versailles and other government centers never receive the bonus
+  - Save/reload and repeat the same turn on two clients; confirm identical progress, Great Person probabilities, and no OOS
 - Civilization border colors:
   - Start a fresh large custom game with as many playable civilizations as practical and reveal the map
   - Confirm no two civilizations use the same territory or minimap color, especially the American, British, French, Russian, Greek, Persian, Egyptian, Ottoman, Ethiopian, Mongol/Yuan, Roman, and German/Prussian package pairs

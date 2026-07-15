@@ -9235,6 +9235,12 @@ int CvPlayerAI::AI_civicValue(CivicTypes eCivic) const
 	iValue += -(getSingleCivicUpkeep(eCivic, true));
 
 	iValue += ((kCivic.getGreatPeopleRateModifier() * getNumCities()) / 10);
+	static CivicTypes eStateProperty = (CivicTypes)GC.getInfoTypeForString("CIVIC_STATE_PROPERTY", true);
+	static BuildingClassTypes ePalaceClass = (BuildingClassTypes)GC.getInfoTypeForString("BUILDINGCLASS_PALACE", true);
+	if (eCivic == eStateProperty && ePalaceClass != NO_BUILDINGCLASS && getBuildingClassCount(ePalaceClass) > 0)
+	{
+		iValue += 40;
+	}
 	iValue += ((kCivic.getGreatGeneralRateModifier() * getNumMilitaryUnits()) / 50);
 	iValue += ((kCivic.getDomesticGreatGeneralRateModifier() * getNumMilitaryUnits()) / 100);
 	iValue += -((kCivic.getDistanceMaintenanceModifier() * std::max(0, (getNumCities() - 3))) / 8);
@@ -17065,5 +17071,4 @@ bool CvPlayerAI::AI_isFirstTech(TechTypes eTech) const
 
 	return false;
 }
-
 
