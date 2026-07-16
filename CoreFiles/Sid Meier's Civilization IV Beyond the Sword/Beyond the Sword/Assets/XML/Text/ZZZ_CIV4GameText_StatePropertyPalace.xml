@@ -2,18 +2,18 @@
 <Civ4GameText xmlns="http://www.firaxis.com">
 	<TEXT>
 		<Tag>TXT_KEY_STATE_PROPERTY_PALACE_GPP</Tag>
-		<English>Under State Property: +%d Great People Points in the Palace city (Great Engineer)</English>
-		<French>Under State Property: +%d Great People Points in the Palace city (Great Engineer)</French>
-		<German>Under State Property: +%d Great People Points in the Palace city (Great Engineer)</German>
-		<Italian>Under State Property: +%d Great People Points in the Palace city (Great Engineer)</Italian>
-		<Spanish>Under State Property: +%d Great People Points in the Palace city (Great Engineer)</Spanish>
+		<English>Under State Property: +%d1 Great People Points in the Palace city (Great Engineer)</English>
+		<French>Under State Property: +%d1 Great People Points in the Palace city (Great Engineer)</French>
+		<German>Under State Property: +%d1 Great People Points in the Palace city (Great Engineer)</German>
+		<Italian>Under State Property: +%d1 Great People Points in the Palace city (Great Engineer)</Italian>
+		<Spanish>Under State Property: +%d1 Great People Points in the Palace city (Great Engineer)</Spanish>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_STATE_PROPERTY_PALACE_GPP_CITY</Tag>
-		<English>State Property Palace: +%d base Great People Points (Great Engineer)</English>
-		<French>State Property Palace: +%d base Great People Points (Great Engineer)</French>
-		<German>State Property Palace: +%d base Great People Points (Great Engineer)</German>
-		<Italian>State Property Palace: +%d base Great People Points (Great Engineer)</Italian>
-		<Spanish>State Property Palace: +%d base Great People Points (Great Engineer)</Spanish>
+		<English>State Property Palace: +%d1 base Great People Points (Great Engineer)</English>
+		<French>State Property Palace: +%d1 base Great People Points (Great Engineer)</French>
+		<German>State Property Palace: +%d1 base Great People Points (Great Engineer)</German>
+		<Italian>State Property Palace: +%d1 base Great People Points (Great Engineer)</Italian>
+		<Spanish>State Property Palace: +%d1 base Great People Points (Great Engineer)</Spanish>
 	</TEXT>
 </Civ4GameText>

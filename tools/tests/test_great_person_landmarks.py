@@ -703,6 +703,8 @@ class DllContractTests(unittest.TestCase):
             "TXT_KEY_STATE_PROPERTY_PALACE_GPP_CITY",
         ):
             self.assertIn(f"<Tag>{key}</Tag>", text)
+        self.assertEqual(text.count("%d1"), 10)
+        self.assertNotIn("+%d ", text)
 
     def test_dll_build_script_rejects_native_build_failures(self):
         script = (ROOT / "tools" / "build_civ4_dll.ps1").read_text(
