@@ -103,6 +103,25 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - Confirm no two civilizations use the same territory or minimap color, especially the American, British, French, Russian, Greek, Persian, Egyptian, Ottoman, Ethiopian, Mongol/Yuan, Roman, and German/Prussian package pairs
   - Inspect normal terrain, strategic view, borders in fog, diplomacy colors, scoreboard text, and the minimap; confirm light and dark neighbors remain distinguishable
   - Review the same map with protanopia, deuteranopia, and tritanopia simulation; record any pairs that still read as merged even though their RGB values differ
+- Neutral world wonders v1:
+  - Start only **fresh generated games** for acceptance; appended InfoTypes make old saves unsuitable evidence
+  - With the option enabled, sample Duel, Tiny, Small, Standard, Large, and Huge maps and confirm target counts `3/4/5/6/6/6`; record any explicitly logged no-candidate skip rather than treating a hard-profile shortfall as silent success
+  - Repeat Standard-size generation on at least three materially different map scripts; confirm every wonder is on unowned non-peak land, on an area of at least 20 tiles, at least distance 6 from starts, at least distance 8 from another neutral wonder, and has no feature, resource, goody, city, or prior improvement
+  - Confirm the hard profiles: Sphinx on flat Desert; Nineveh on riverside flat Grass/Plains/Desert; Terracotta on Grass/Plains; Cyrus inland on Desert/Plains; Pergamon on a Grass/Plains hill; Sun Tzu on a Grass/Plains hill
+  - On Duel/Tiny/Small, regenerate several games and confirm the omitted candidate set can vary while both clients using the same seed receive identical candidates and locations
+  - Rendering: inspect all six models at normal and strategic zoom; confirm buttons resolve, scales are usable, pivots do not drift, models do not clip neighboring plots, and each plot renders exactly one original model with no props
+  - Rotation: inspect enough generated maps to observe multiple orientations from exactly `0/45/90/135/180/225/270/315`; pay special attention to diagonal overlap at `45/135/225/315`
+  - Tile yields: work each wonder and confirm Sphinx/Nineveh/Pergamon give +2 Commerce, Terracotta/Sun Tzu give +2 Production, and Cyrus gives +1 Production/+1 Commerce
+  - Ownership benefits: claim each wonder separately and confirm Sphinx +10% city Culture, Nineveh +10% Research, Terracotta +1 XP only to newly trained land combat units, Cyrus -10% final Civic Upkeep, Pergamon +10% Great Person rate, and Sun Tzu +10% military-unit Production
+  - Claim/loss/transfer: expand borders over an unowned wonder, culturally lose it, and transfer it directly between players; confirm localized notifications and help update immediately and the old owner's benefit disappears before the new owner's benefit appears
+  - Duplicate safety: add a second copy of one wonder with WorldBuilder and confirm owning two copies grants exactly the same civilization modifier as one; lose one copy and confirm the benefit remains until the final owned copy is lost
+  - Permanence: attempt Worker replacement, pillaging, air bombing, espionage improvement destruction, and founding a city directly on the wonder; confirm every action is blocked and the wonder remains while still changing hands through plot ownership
+  - Option/scenario gates: disable Neutral World Wonders and confirm a fresh generated game consumes no visible placement; load a WorldBuilder scenario with the option on and confirm no automatic wonders are added, while manually placed copies still function
+  - Help/fog: confirm Civilopedia and revealed plot help state permanence/capturability and the exact benefit; confirm unrevealed plots and hidden owners do not leak information
+  - AI: run representative autoplay and confirm AI city-site selection materially values nearby claimable wonders without choosing invalid starvation or freshwater-poor sites solely for the wonder
+  - Save/reload: save with neutral, singly owned, transferred, and duplicate copies; reload and confirm locations, orientations, ownership, yields, modifiers, and counts are unchanged
+  - Logs: enable logging and confirm `NeutralWorldWonders.log` has one record per candidate plus a final expected/attempted/spawned/skipped/duplicate/error reconciliation whose totals match the map
+  - MP: create the same fresh generated game on two clients, compare all wonder types/plot coordinates/orientations and initial logs, then claim/transfer wonders and play several turns; confirm identical yields/modifiers and no OOS
 - Experimental 59-package additive signatures:
   - Start a fresh game and inspect every playable leader trait; confirm its one manifest building-class bonus appears in generated help without replacing any existing effect
   - Exercise representative early, middle, and late signatures across Food, Production, Gold, Research, Culture, and Espionage; confirm the listed normal or unique building receives exactly +1 in the stated channel

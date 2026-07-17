@@ -42,6 +42,14 @@ LANDMARK_ORDER = [
     "SACRED_GROVE_TAOISM_BTG",
 ]
 ROTATION_LANDMARK_ORDER = ["GRAND_COLOSSEUM_BTG", *LANDMARK_ORDER]
+NEUTRAL_WORLD_WONDER_TYPES = {
+    "IMPROVEMENT_NEUTRAL_GREAT_SPHINX",
+    "IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH",
+    "IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY",
+    "IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS",
+    "IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR",
+    "IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR",
+}
 ROTATION_ANGLES = {"0", "45", "90", "135", "180", "225", "270", "315"}
 BASELINE_LSYSTEM_IMPROVEMENTS = {
     "IMPROVEMENT_COTTAGE",
@@ -191,7 +199,8 @@ class DataOrderTests(unittest.TestCase):
     def test_landmarks_appended_at_end_in_plan_order(self):
         order = type_order(IMPROVEMENTS, "ImprovementInfo")
         expected = [f"IMPROVEMENT_{k}" for k in LANDMARK_ORDER]
-        self.assertEqual(order[-13:], expected)
+        self.assertEqual(order[-19:-6], expected)
+        self.assertEqual(set(order[-6:]), NEUTRAL_WORLD_WONDER_TYPES)
 
     def test_grand_colosseum_not_moved(self):
         order = type_order(IMPROVEMENTS, "ImprovementInfo")
@@ -416,7 +425,8 @@ class LandmarkRotationTests(unittest.TestCase):
         self.assertEqual(
             enabled,
             BASELINE_LSYSTEM_IMPROVEMENTS
-            | {f"IMPROVEMENT_{key}" for key in ROTATION_LANDMARK_ORDER},
+            | {f"IMPROVEMENT_{key}" for key in ROTATION_LANDMARK_ORDER}
+            | NEUTRAL_WORLD_WONDER_TYPES,
         )
 
     def test_rotation_leaf_has_one_original_artdefine_goal_per_landmark(self):
@@ -515,7 +525,7 @@ class LandmarkRotationTests(unittest.TestCase):
     def test_non_landmarks_retain_baseline_generic_root_routing(self):
         landmark_types = {
             f"IMPROVEMENT_{key}" for key in ROTATION_LANDMARK_ORDER
-        }
+        } | NEUTRAL_WORLD_WONDER_TYPES
         root_productions = [
             production
             for production in self.productions
