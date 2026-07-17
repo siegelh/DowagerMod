@@ -1940,11 +1940,11 @@
 				<iYieldChange>8</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
-			<bRequiresFlatlands>1</bRequiresFlatlands>
+			<bRequiresFlatlands>0</bRequiresFlatlands>
 			<bRequiresRiverSide>0</bRequiresRiverSide>
 			<bRequiresIrrigation>0</bRequiresIrrigation>
 			<bCarriesIrrigation>0</bCarriesIrrigation>
@@ -2229,11 +2229,11 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
-			<bRequiresFlatlands>1</bRequiresFlatlands>
+			<bRequiresFlatlands>0</bRequiresFlatlands>
 			<bRequiresRiverSide>0</bRequiresRiverSide>
 			<bRequiresIrrigation>0</bRequiresIrrigation>
 			<bCarriesIrrigation>0</bCarriesIrrigation>
@@ -2284,7 +2284,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>1</iLandmarkType>
 			<iLandmarkGroup>0</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -2301,11 +2301,11 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
-			<bRequiresFlatlands>1</bRequiresFlatlands>
+			<bRequiresFlatlands>0</bRequiresFlatlands>
 			<bRequiresRiverSide>0</bRequiresRiverSide>
 			<bRequiresIrrigation>0</bRequiresIrrigation>
 			<bCarriesIrrigation>0</bCarriesIrrigation>
@@ -2356,7 +2356,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>2</iLandmarkType>
 			<iLandmarkGroup>1</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>1</bLandmarkRequiresCoastalLand>
@@ -2373,7 +2373,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -2428,7 +2428,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>3</iLandmarkType>
 			<iLandmarkGroup>2</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -2445,7 +2445,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -2517,7 +2517,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -2572,7 +2572,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>5</iLandmarkType>
 			<iLandmarkGroup>4</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -2589,7 +2589,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -2644,7 +2644,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>6</iLandmarkType>
 			<iLandmarkGroup>5</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -2661,7 +2661,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -2716,7 +2716,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>6</iLandmarkType>
 			<iLandmarkGroup>5</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -2734,7 +2734,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -2789,7 +2789,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>6</iLandmarkType>
 			<iLandmarkGroup>5</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -2807,7 +2807,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -2862,7 +2862,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>6</iLandmarkType>
 			<iLandmarkGroup>5</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -2880,7 +2880,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -2935,7 +2935,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>6</iLandmarkType>
 			<iLandmarkGroup>5</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -2953,7 +2953,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -3008,7 +3008,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>6</iLandmarkType>
 			<iLandmarkGroup>5</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -3026,7 +3026,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -3081,7 +3081,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>6</iLandmarkType>
 			<iLandmarkGroup>5</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>
@@ -3099,7 +3099,7 @@
 				<iYieldChange>0</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
-			<bHillsMakesValid>0</bHillsMakesValid>
+			<bHillsMakesValid>1</bHillsMakesValid>
 			<bFreshWaterMakesValid>0</bFreshWaterMakesValid>
 			<bRiverSideMakesValid>0</bRiverSideMakesValid>
 			<bNoFreshWater>0</bNoFreshWater>
@@ -3154,7 +3154,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>6</iLandmarkType>
 			<iLandmarkGroup>5</iLandmarkGroup>
-			<iLandmarkMinDistance>4</iLandmarkMinDistance>
+			<iLandmarkMinDistance>3</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>

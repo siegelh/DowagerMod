@@ -81,21 +81,30 @@ SMALL_MERCHANT_LANDMARKS = {
 }
 
 # key -> (ltype, group, mindist, cityadj, noadj, coastal, relgated, religion)
+# Min plot distance was tightened from 4 to 3 for every non-Commercial-District
+# logical type (see docs/plans/active/2026-07-13-great-person-landmark-improvements.md,
+# "Placement rule refinement" follow-up). Commercial District keeps min
+# distance 0 plus city-center adjacency and no-direct-adjacency instead.
 LANDMARK_FIELDS = {
-    "INDUSTRIAL_ZONE_BTG": ("1", "0", "4", "0", "0", "0", "0", None),
-    "NAVAL_FOUNDRY_BTG": ("2", "1", "4", "0", "0", "1", "0", None),
-    "RESEARCH_CAMPUS_BTG": ("3", "2", "4", "0", "0", "0", "0", None),
+    "INDUSTRIAL_ZONE_BTG": ("1", "0", "3", "0", "0", "0", "0", None),
+    "NAVAL_FOUNDRY_BTG": ("2", "1", "3", "0", "0", "1", "0", None),
+    "RESEARCH_CAMPUS_BTG": ("3", "2", "3", "0", "0", "0", "0", None),
     "COMMERCIAL_DISTRICT_BTG": ("4", "3", "0", "1", "1", "0", "0", None),
-    "GRAND_BAZAAR_BTG": ("5", "4", "4", "0", "0", "0", "0", None),
-    "SACRED_GROVE_NONE_BTG": ("6", "5", "4", "0", "0", "0", "1", None),
-    "SACRED_GROVE_JUDAISM_BTG": ("6", "5", "4", "0", "0", "0", "1", "RELIGION_JUDAISM"),
-    "SACRED_GROVE_CHRISTIANITY_BTG": ("6", "5", "4", "0", "0", "0", "1", "RELIGION_CHRISTIANITY"),
-    "SACRED_GROVE_ISLAM_BTG": ("6", "5", "4", "0", "0", "0", "1", "RELIGION_ISLAM"),
-    "SACRED_GROVE_HINDUISM_BTG": ("6", "5", "4", "0", "0", "0", "1", "RELIGION_HINDUISM"),
-    "SACRED_GROVE_BUDDHISM_BTG": ("6", "5", "4", "0", "0", "0", "1", "RELIGION_BUDDHISM"),
-    "SACRED_GROVE_CONFUCIANISM_BTG": ("6", "5", "4", "0", "0", "0", "1", "RELIGION_CONFUCIANISM"),
-    "SACRED_GROVE_TAOISM_BTG": ("6", "5", "4", "0", "0", "0", "1", "RELIGION_TAOISM"),
+    "GRAND_BAZAAR_BTG": ("5", "4", "3", "0", "0", "0", "0", None),
+    "SACRED_GROVE_NONE_BTG": ("6", "5", "3", "0", "0", "0", "1", None),
+    "SACRED_GROVE_JUDAISM_BTG": ("6", "5", "3", "0", "0", "0", "1", "RELIGION_JUDAISM"),
+    "SACRED_GROVE_CHRISTIANITY_BTG": ("6", "5", "3", "0", "0", "0", "1", "RELIGION_CHRISTIANITY"),
+    "SACRED_GROVE_ISLAM_BTG": ("6", "5", "3", "0", "0", "0", "1", "RELIGION_ISLAM"),
+    "SACRED_GROVE_HINDUISM_BTG": ("6", "5", "3", "0", "0", "0", "1", "RELIGION_HINDUISM"),
+    "SACRED_GROVE_BUDDHISM_BTG": ("6", "5", "3", "0", "0", "0", "1", "RELIGION_BUDDHISM"),
+    "SACRED_GROVE_CONFUCIANISM_BTG": ("6", "5", "3", "0", "0", "0", "1", "RELIGION_CONFUCIANISM"),
+    "SACRED_GROVE_TAOISM_BTG": ("6", "5", "3", "0", "0", "0", "1", "RELIGION_TAOISM"),
 }
+
+# Grand Colosseum is a legacy (pre-landmark-framework) Great Artist
+# improvement; it never sets bLandmark and is excluded from LANDMARK_ORDER,
+# but it shares the "allow hills, no flatland requirement" terrain relaxation.
+GREAT_PERSON_TILE_IMPROVEMENTS = ["GRAND_COLOSSEUM_BTG", *LANDMARK_ORDER]
 
 LANDMARK_NIF = {
     "INDUSTRIAL_ZONE_BTG": "Art/Structures/Buildings/Factory/Factory.nif",
@@ -268,10 +277,66 @@ class DataOrderTests(unittest.TestCase):
                 groups.add(child_text(imp, "iLandmarkGroup"))
         self.assertEqual(groups, {"5"})
 
+    def test_min_plot_distance_is_exactly_three_not_broader_or_narrower(self):
+        """Guards against accidental relaxation (e.g. back to 4, or down to 2/1)
+        of the per-logical-type spacing rule. Exactly 3 is allowed for
+        Industrial Zone, Naval Foundry, Research Campus, Grand Bazaar, and
+        every Sacred Grove variant; Commercial District is the sole exception
+        and keeps min distance 0 (city-adjacency + no-direct-adjacency instead)."""
+        for k in LANDMARK_ORDER:
+            imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
+            mindist = child_text(imp, "iLandmarkMinDistance")
+            if k == "COMMERCIAL_DISTRICT_BTG":
+                self.assertEqual(mindist, "0", k)
+                self.assertEqual(child_text(imp, "bLandmarkRequiresCityAdjacency"), "1", k)
+                self.assertEqual(child_text(imp, "bLandmarkNoAdjacentSameGroup"), "1", k)
+            else:
+                self.assertEqual(mindist, "3", k)
+        distances = {child_text(find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}"), "iLandmarkMinDistance") for k in LANDMARK_ORDER}
+        self.assertEqual(distances, {"0", "3"})
+
     def test_naval_foundry_has_base_production(self):
         imp = find_entry(IMPROVEMENTS, "ImprovementInfo", "IMPROVEMENT_NAVAL_FOUNDRY_BTG")
         yields = [n.text.strip() for n in find_child(imp, "YieldChanges")]
         self.assertEqual(yields, ["0", "2", "0"])
+
+
+class TerrainRelaxationTests(unittest.TestCase):
+    """Every Great Person tile improvement (Grand Colosseum + the 13 newer
+    landmarks) now allows hills in addition to flat land. This is a narrow,
+    additive relaxation: water/coastal and religion restrictions must stay
+    exactly as they were."""
+
+    def test_all_great_person_improvements_allow_hills_or_flatland(self):
+        for k in GREAT_PERSON_TILE_IMPROVEMENTS:
+            imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
+            self.assertIsNotNone(imp, k)
+            self.assertEqual(child_text(imp, "bHillsMakesValid"), "1", k)
+            self.assertEqual(child_text(imp, "bRequiresFlatlands"), "0", k)
+
+    def test_water_restriction_unchanged_none_are_water_tiles(self):
+        for k in GREAT_PERSON_TILE_IMPROVEMENTS:
+            imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
+            self.assertEqual(child_text(imp, "bWater"), "0", k)
+
+    def test_coastal_requirement_stays_exclusive_to_naval_foundry(self):
+        """Guards against the Naval Foundry siting exception (see
+        DllContractTests.test_naval_foundry_working_city_exception_is_narrowly_scoped)
+        leaking into the coastal-land *terrain* requirement of any other
+        landmark: only Naval Foundry may set bLandmarkRequiresCoastalLand."""
+        for k in LANDMARK_ORDER:
+            imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
+            expected = "1" if k == "NAVAL_FOUNDRY_BTG" else "0"
+            self.assertEqual(child_text(imp, "bLandmarkRequiresCoastalLand"), expected, k)
+
+    def test_grand_colosseum_still_outside_landmark_framework(self):
+        """Grand Colosseum's terrain relaxation must not come bundled with the
+        newer landmark semantics (resource-free / owned-workable-city-radius /
+        logical group spacing) -- it stays a plain improvement with only its
+        own standalone spacing rule (see DllContractTests)."""
+        imp = find_entry(IMPROVEMENTS, "ImprovementInfo", "IMPROVEMENT_GRAND_COLOSSEUM_BTG")
+        self.assertEqual(child_text(imp, "bLandmark", "0"), "0")
+        self.assertIsNone(child_text(imp, "iLandmarkMinDistance"))
 
 
 class ArtTests(unittest.TestCase):

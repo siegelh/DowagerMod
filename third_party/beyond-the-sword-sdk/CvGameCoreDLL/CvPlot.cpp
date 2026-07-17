@@ -2242,6 +2242,19 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible)
 			}
 		}
 
+		// Grand Colosseum is a legacy Great Artist improvement that predates the
+		// landmark framework above (it does not set bLandmark, so it must not
+		// gain the framework's resource-free / owned-workable-city-radius
+		// rules). It only gets one added restriction: minimum plot distance 3
+		// from another Grand Colosseum owned by the same player. This is
+		// checked here -- the same CvPlot::canBuild path both human UI builds
+		// and CvUnitAI::AI_buildGrandColosseum route through -- so human and AI
+		// placement share the identical rule.
+		if (ePlayer != NO_PLAYER && !canBuildGrandColosseumSpacing(eImprovement, ePlayer))
+		{
+			return false;
+		}
+
 		if (getImprovementType() != NO_IMPROVEMENT)
 		{
 			if (GC.getImprovementInfo(getImprovementType()).isPermanent())
@@ -2357,7 +2370,9 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible)
 // (a landmark) may legally be constructed on this plot by ePlayer.
 //
 // Global rules (see plan 2026-07-13-great-person-landmark-improvements):
-//   * Must sit on an owned, workable city-radius plot.
+//   * Must sit on an owned, workable city-radius plot -- except Naval Foundry,
+//     which only needs to be owned coastal land inside the builder's cultural
+//     borders (ownership already implies that) even with no claiming city.
 //   * Never destroys a resource (no visible bonus on the tile).
 //   * State-religion-gated variants require the matching owner state religion.
 //   * Coastal-land landmarks require adjacency to water.
@@ -2399,10 +2414,17 @@ bool CvPlot::canBuildLandmark(ImprovementTypes eImprovement, PlayerTypes ePlayer
 
 	// Must be an owned, workable city-radius plot. The plot must be owned by the
 	// builder and fall inside one of the builder's cities' workable radius.
+	//
+	// Naval Foundry is the one exception: it may be built anywhere on owned
+	// coastal land inside the builder's cultural borders (ownership already
+	// guarantees that), even when no owned city's work radius claims the plot.
+	// Every other landmark keeps the stricter owned-and-workable-city-radius
+	// requirement.
 	if (getOwnerINLINE() != ePlayer)
 	{
 		return false;
 	}
+	if (kImp.getLandmarkType() != LANDMARK_NAVAL_FOUNDRY)
 	{
 		CvCity* pWorkingCity = getWorkingCity();
 		if (pWorkingCity == NULL || pWorkingCity->getOwnerINLINE() != ePlayer)
@@ -2493,6 +2515,62 @@ bool CvPlot::canBuildLandmark(ImprovementTypes eImprovement, PlayerTypes ePlayer
 						return false;
 					}
 				}
+			}
+		}
+	}
+
+	return true;
+}
+
+
+// canBuildGrandColosseumSpacing
+// -----------------------------
+// Grand Colosseum (IMPROVEMENT_GRAND_COLOSSEUM_BTG) predates the landmark
+// framework above and intentionally does not set bLandmark -- so it must not
+// be folded into canBuildLandmark, which would additionally impose the
+// resource-free / owned-workable-city-radius rules onto it. All of its
+// legacy placement rules (flat land, own culture, etc., enforced elsewhere in
+// canBuild/canHaveImprovement) are left untouched.
+//
+// The only new restriction: no two Grand Colosseums owned by the same player
+// may be placed within plot distance < 3 of each other (distance 1-2
+// forbidden, distance 3 allowed). No-op (returns true) for every other
+// improvement. Deterministic plotDistance, bounded 3-plot scan, no RNG.
+bool CvPlot::canBuildGrandColosseumSpacing(ImprovementTypes eImprovement, PlayerTypes ePlayer) const
+{
+	static ImprovementTypes eGrandColosseum = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_GRAND_COLOSSEUM_BTG", true);
+	if (eGrandColosseum == NO_IMPROVEMENT || eImprovement != eGrandColosseum)
+	{
+		return true;
+	}
+
+	static const int iMinDistance = 3;
+	for (int iDX = -iMinDistance; iDX <= iMinDistance; ++iDX)
+	{
+		for (int iDY = -iMinDistance; iDY <= iMinDistance; ++iDY)
+		{
+			if (iDX == 0 && iDY == 0)
+			{
+				continue;
+			}
+			CvPlot* pLoopPlot = plotXY(getX_INLINE(), getY_INLINE(), iDX, iDY);
+			if (pLoopPlot == NULL)
+			{
+				continue;
+			}
+			if (pLoopPlot->getOwnerINLINE() != ePlayer)
+			{
+				continue;
+			}
+			if (pLoopPlot->getImprovementType() != eGrandColosseum)
+			{
+				continue;
+			}
+			const int iDist = plotDistance(getX_INLINE(), getY_INLINE(),
+				pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE());
+			if (iDist < iMinDistance)
+			{
+				return false;
 			}
 		}
 	}
@@ -6226,8 +6304,8 @@ void CvPlot::accumulateLandmarkAdjacency(ImprovementTypes eImprovement, PlayerTy
 				}
 				else if (eAdjImp == eMine || eAdjImp == eQuarry)
 				{
-					aiYield[YIELD_PRODUCTION] += 1;
-					if (pBreakdown) { pBreakdown->iMineQuarryCount++; pBreakdown->iMineQuarryYield += 1; }
+					aiYield[YIELD_PRODUCTION] += 2;
+					if (pBreakdown) { pBreakdown->iMineQuarryCount++; pBreakdown->iMineQuarryYield += 2; }
 				}
 			}
 			break;

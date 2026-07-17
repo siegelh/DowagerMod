@@ -176,6 +176,11 @@ public:
 
 	// Great Person landmark support.
 	bool canBuildLandmark(ImprovementTypes eImprovement, PlayerTypes ePlayer, bool bTestVisible) const;
+
+	// Grand Colosseum is a legacy (pre-landmark-framework) Great Person
+	// improvement; it gets only a same-player minimum plot distance rule,
+	// enforced separately from canBuildLandmark. See CvPlot.cpp for details.
+	bool canBuildGrandColosseumSpacing(ImprovementTypes eImprovement, PlayerTypes ePlayer) const;
 	int getLandmarkAdjacencyYield(ImprovementTypes eImprovement, YieldTypes eYield, PlayerTypes ePlayer) const;
 	int getLandmarkWaterAuraYield(YieldTypes eYield, PlayerTypes ePlayer) const;
 	int getLandmarkResearchCampusValue(PlayerTypes ePlayer) const;
