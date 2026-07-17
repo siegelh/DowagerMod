@@ -460,25 +460,87 @@ STOCK_BTS_MODS = {
     "World War II 1939-1945 (Solo)",
 }
 
-# Reference numbers for a complete vanilla Civ4 BTS install (from a freshly
-# Steam-installed copy, original_release_unsupported branch).
-# We check file count only -- it's stable across branches and locales.
-EXPECTED_FILE_COUNT = 30496
-# Tolerance: friends may be on a different beta branch with slightly
-# different locale/EXE versions. Tight enough to catch partial downloads
-# (which lose hundreds to thousands of files) and modded installs.
-MIN_FILE_COUNT = 28000   # ~92% -- below this, the download is incomplete
-MAX_FILE_COUNT = 33000   # ~108% -- above this, something extra is installed
+# Exact metadata fingerprint for the known-good Steam
+# original_release_unsupported install used by DowagerMod.
+EXPECTED_PRISTINE_FILE_COUNT = 30496
+EXPECTED_PRISTINE_TOTAL_BYTES = 3677850103
 
 
-def _count_install_files(live: Path) -> int:
-    n = 0
+def _measure_install_tree(root: Path) -> tuple[int, int]:
+    """Return recursive file count and total logical byte size."""
+    file_count = 0
+    total_bytes = 0
+
+    def raise_walk_error(exc: OSError) -> None:
+        raise RuntimeError(
+            f"Could not enumerate install tree:\n    {root}\n"
+            f"  {exc}"
+        ) from exc
+
     try:
-        for _dp, _dn, fns in os.walk(live):
-            n += len(fns)
-    except OSError:
-        pass
-    return n
+        for dirpath, _dirnames, filenames in os.walk(
+            root, onerror=raise_walk_error
+        ):
+            for filename in filenames:
+                path = Path(dirpath) / filename
+                try:
+                    total_bytes += path.stat().st_size
+                except OSError as exc:
+                    raise RuntimeError(
+                        f"Could not inspect pristine file:\n    {path}\n"
+                        f"  {exc}"
+                    ) from exc
+                file_count += 1
+    except OSError as exc:
+        raise RuntimeError(
+            f"Could not enumerate install tree:\n    {root}\n"
+            f"  {exc}"
+        ) from exc
+    return file_count, total_bytes
+
+
+def _pristine_metadata_problems(root: Path) -> list[str]:
+    """Return exact known-good metadata mismatches for an install tree."""
+    try:
+        file_count, total_bytes = _measure_install_tree(root)
+    except RuntimeError as exc:
+        return [str(exc)]
+
+    problems: list[str] = []
+    if file_count != EXPECTED_PRISTINE_FILE_COUNT:
+        problems.append(
+            f"File count mismatch: found {file_count:,}, expected exactly "
+            f"{EXPECTED_PRISTINE_FILE_COUNT:,}."
+        )
+    if total_bytes != EXPECTED_PRISTINE_TOTAL_BYTES:
+        problems.append(
+            f"Total size mismatch: found {total_bytes:,} bytes, expected "
+            f"exactly {EXPECTED_PRISTINE_TOTAL_BYTES:,} bytes."
+        )
+    return problems
+
+
+def validate_pristine_snapshot(pristine: Path) -> None:
+    """Refuse to restore from a pristine tree that differs from baseline."""
+    print("Validating pristine snapshot metadata...")
+    started = time.monotonic()
+    problems = _pristine_metadata_problems(pristine)
+    elapsed = time.monotonic() - started
+    if problems:
+        details = "\n".join(f"  - {problem}" for problem in problems)
+        raise SystemExit(
+            "ERROR: pristine snapshot validation FAILED:\n"
+            f"  {pristine}\n"
+            f"{details}\n"
+            "The installer will not restore from this snapshot. Delete the\n"
+            "corrupt pristine folder, restore/verify a clean Steam install,\n"
+            "then run the installer again."
+        )
+    print(
+        f"  OK: {EXPECTED_PRISTINE_FILE_COUNT:,} files, "
+        f"{EXPECTED_PRISTINE_TOTAL_BYTES:,} bytes "
+        f"({elapsed:.2f}s)."
+    )
 
 
 def _clean_install_problems(live: Path) -> list[str]:
@@ -507,24 +569,9 @@ def _clean_install_problems(live: Path) -> list[str]:
             "  ). Pristine must come from an UNMODIFIED Civ4 install."
         )
 
-    # File count sanity check -- catches incomplete download / extra mods.
-    n = _count_install_files(live)
-    if n < MIN_FILE_COUNT:
-        problems.append(
-            f"Install looks INCOMPLETE: found {n:,} files, expected at least\n"
-            f"  {MIN_FILE_COUNT:,} (a complete fresh install has ~{EXPECTED_FILE_COUNT:,}).\n"
-            "  Steam may still be downloading, or the previous download was\n"
-            "  interrupted. In Steam: right-click the game -> Properties ->\n"
-            "  Installed Files -> 'Verify integrity of game files' to fix."
-        )
-    elif n > MAX_FILE_COUNT:
-        problems.append(
-            f"Install has TOO MANY files: found {n:,}, expected at most\n"
-            f"  {MAX_FILE_COUNT:,} (a complete fresh install has ~{EXPECTED_FILE_COUNT:,}).\n"
-            "  This usually means another mod is already installed, or the\n"
-            "  install dir has accumulated extra files. Do a clean reinstall\n"
-            "  (steps below)."
-        )
+    # Exact metadata fingerprint catches incomplete, extra, or size-modified
+    # files before they can become the permanent restore baseline.
+    problems.extend(_pristine_metadata_problems(live))
 
     # Suspicious third-party mods under BTS/Mods/
     bts_mods = live / "Beyond the Sword" / "Mods"
@@ -628,8 +675,10 @@ def capture_pristine(live: Path, pristine: Path) -> None:
             "Installer cannot proceed until the above is fixed."
         )
 
-    n = _count_install_files(live)
-    print(f"  OK: {n:,} files (expected ~{EXPECTED_FILE_COUNT:,}).")
+    print(
+        f"  OK: {EXPECTED_PRISTINE_FILE_COUNT:,} files, "
+        f"{EXPECTED_PRISTINE_TOTAL_BYTES:,} bytes (exact baseline match)."
+    )
     print("  OK: looks like a clean Civ4 BtS install.")
     print()
     print("Final confirmation: is this install COMPLETELY UNMODIFIED?")
@@ -646,7 +695,41 @@ def capture_pristine(live: Path, pristine: Path) -> None:
     print()
     print(f"Capturing pristine snapshot (~3 GB, ~1-3 min on SSD)...")
     robocopy(live, pristine, mirror=True, label="capture pristine")
+    validate_pristine_snapshot(pristine)
     print("Pristine snapshot captured.")
+
+
+def refresh_pristine(live: Path, pristine: Path) -> None:
+    """Stage and validate a replacement before touching the current snapshot."""
+    staged = Path(str(pristine) + " - REFRESHING")
+    if staged.exists():
+        print(f"Removing stale pristine refresh staging folder:\n  {staged}")
+        shutil.rmtree(staged, onerror=_remove_readonly)
+
+    print(f"--refresh-pristine: staging replacement at:\n  {staged}")
+    captured = False
+    try:
+        capture_pristine(live, staged)
+        captured = True
+    finally:
+        if not captured and staged.exists():
+            shutil.rmtree(staged, onerror=_remove_readonly)
+
+    print("Replacing pristine from the validated staging snapshot...")
+    replaced = False
+    try:
+        robocopy(staged, pristine, mirror=True, label="replace pristine")
+        validate_pristine_snapshot(pristine)
+        replaced = True
+    finally:
+        if not replaced:
+            print(
+                "ERROR: pristine replacement failed. The validated staging\n"
+                f"snapshot remains available at:\n  {staged}"
+            )
+
+    shutil.rmtree(staged, onerror=_remove_readonly)
+    print("Pristine snapshot refreshed safely.")
 
 
 # ---------------------------------------------------------------------------
@@ -897,14 +980,18 @@ def install(args: argparse.Namespace) -> None:
     cfg["pristine_dir"] = str(pristine)
     # Drop any obsolete hot-swap state left by older installer versions.
     cfg.pop("pristine_hot_dir", None)
-    # Refresh pristine if requested.
+    # Refresh via a validated sibling so the current snapshot survives source
+    # validation, confirmation, and capture failures.
+    pristine_validated = False
     if args.refresh_pristine and pristine.exists():
-        print(f"--refresh-pristine: deleting existing pristine at {pristine}")
-        shutil.rmtree(pristine, onerror=_remove_readonly)
+        refresh_pristine(live, pristine)
+        pristine_validated = True
 
     # Bootstrap pristine if missing.
     if not pristine.exists():
         capture_pristine(live, pristine)
+    elif not pristine_validated:
+        validate_pristine_snapshot(pristine)
 
     save_config(cfg)
 
@@ -978,8 +1065,8 @@ def main(argv: list[str]) -> int:
     parser.add_argument(
         "--refresh-pristine",
         action="store_true",
-        help="Delete existing pristine snapshot and re-capture from current "
-             "live install (which must be clean).",
+        help="Safely stage and validate a replacement pristine snapshot from "
+             "the current live install (which must be clean).",
     )
     args = parser.parse_args(argv)
 
