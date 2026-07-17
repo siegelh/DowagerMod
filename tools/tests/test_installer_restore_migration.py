@@ -219,6 +219,8 @@ class InstallMirrorRestoreTests(unittest.TestCase):
             ), mock.patch.object(
                 install, "capture_pristine"
             ) as capture, mock.patch.object(
+                install, "validate_pristine_snapshot"
+            ), mock.patch.object(
                 install, "is_admin", return_value=True
             ), redirect_stdout(io.StringIO()):
                 install.install(args)
@@ -272,6 +274,7 @@ class InstallMirrorRestoreTests(unittest.TestCase):
                     mock.patch.object(install, "save_config"), \
                     mock.patch.object(install, "load_config", return_value={}), \
                     mock.patch.object(install, "capture_pristine"), \
+                    mock.patch.object(install, "validate_pristine_snapshot"), \
                     mock.patch.object(install, "is_admin", return_value=True), \
                     redirect_stdout(io.StringIO()):
                 install.install(args)

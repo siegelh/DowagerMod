@@ -83,9 +83,9 @@ Before capturing pristine, the installer runs sanity checks:
 
 - `Civ4BeyondSword.exe` and `Beyond the Sword/Assets/` must exist.
 - The DowagerMod sentinel must NOT exist.
-- File count must be in `[28000, 33000]`. A complete fresh install has
-  ~30,496 files. Below 28k means an interrupted/incomplete download;
-  above 33k means another mod or extra files are present.
+- The recursive metadata fingerprint must match the known-good Steam
+  `original_release_unsupported` install exactly: `30,496` files totaling
+  `3,677,850,103` logical bytes.
 - No third-party mods under `Beyond the Sword/Mods/` (whitelist of 14
   stock BTS mods).
 - `CustomAssets/` must be empty.
@@ -95,12 +95,32 @@ reinstall instructions (uninstall → manually delete leftover folder →
 reinstall via Steam → re-run installer). It will not proceed until the
 problems are fixed.
 
+### Fast pristine validation
+
+Every installer run validates an existing pristine snapshot before it is
+allowed to restore the live game. The same validation runs immediately after
+first-time capture. It recursively measures:
+
+- exact file count: `30,496`
+- exact total logical size: `3,677,850,103` bytes
+
+This metadata-only scan is intentionally fast because it does not hash file
+contents. It is a strong sanity check for ordinary missing, extra, truncated,
+or differently-sized-file corruption, but aggregate count and size are not a
+proof of byte-for-byte identity: offsetting size changes or same-size edits can
+pass. A mismatch aborts before `/MIR` can copy the pristine snapshot into the
+live install.
+
 ### Refreshing pristine
 
 If the pristine ever needs to be recaptured (rare — only if Steam pushes
 an update or the snapshot got corrupted), run with `--refresh-pristine`.
-The installer will delete the existing snapshot and recapture from the
-current live install, which must pass the same validation.
+The installer captures and validates a temporary ` - REFRESHING` sibling
+first. Only then does it mirror that validated staging copy into the canonical
+pristine folder and revalidate it. A source-validation, confirmation, or
+capture failure leaves the existing pristine untouched; a replacement failure
+leaves the validated staging snapshot available for recovery. The current live
+install must pass the same clean-source validation.
 
 ## Migration: retired hot-swap fast path
 
