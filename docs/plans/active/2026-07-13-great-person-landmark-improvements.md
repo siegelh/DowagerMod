@@ -2,7 +2,7 @@
 
 - Status: `implemented; installed-game validation pending`
 - Owner / agent: GitHub Copilot CLI
-- Last updated: `2026-07-14`
+- Last updated: `2026-07-16`
 ## Problem Statement
 
 - Task: give Great Engineers, Scientists, Merchants, Prophets, and the Venetian
@@ -69,12 +69,16 @@
 - Diagonals count as adjacent.
 - Natural terrain, features, peaks, and water count regardless of ownership.
 - Infrastructure and resources count only when owned by the landmark owner.
-- Same logical landmark types require plot distance four.
+- Same logical landmark types require plot distance three; exactly three is
+  allowed. Grand Colosseum uses the same per-type distance through its legacy
+  placement path.
 - Sacred Grove variants form one logical type.
-- Commercial District is exempt from distance four but cannot touch another
+- Commercial District is exempt from distance three but cannot touch another
   Commercial District.
 - Placement requires an owned, workable city-radius plot and never destroys a
-  resource.
+  resource. Naval Foundry is the sole radius exception: it may use any owned
+  coastal-land plot inside the builder's borders.
+- Every Great Person tile improvement permits either hills or flatland.
 - Pillaging destroys the landmark completely.
 - Each player's first copy of each logical type receives a strong one-time AI
   score bonus.
@@ -83,10 +87,11 @@
 
 ### Great Engineer
 
-- **Industrial Zone** — Factory art; owned workable flat land; zero base
+- **Industrial Zone** — Factory art; owned workable hill or flat land; zero base
   Production. Adjacent owned Watermill `+3 Production`, Workshop `+2`, and
-  Mine/Quarry `+1`.
-- **Naval Foundry** — Iron Works art; owned workable flat coastal land;
+  Mine/Quarry `+2`.
+- **Naval Foundry** — Iron Works art; owned hill or flat coastal land, whether
+  or not a city can work it;
   `+2 Production` on its tile. Owned water tiles within radius two gain
   `+1 Production`; owned water-resource tiles gain another `+2`. Overlapping
   Foundry auras do not stack.
@@ -276,6 +281,21 @@ Grand Colosseum, must not move because savegames persist numeric IDs.
   first-copy bonus.
 - [ ] Installed-game AI autoplay: confirm every AI-built Industrial Zone
   previews at least `+3 Production` from landmark adjacency.
+
+### Placement rule refinement
+
+- [x] Raise Industrial Zone Mine/Quarry adjacency from `+1` to `+2`
+  Production while preserving Watermill `+3` and Workshop `+2`.
+- [x] Set per-logical-type spacing to minimum plot distance three for every
+  non-Commercial landmark; keep Sacred Grove variants in one shared group.
+- [x] Give Grand Colosseum the same same-player, per-type distance-three rule
+  without applying the newer landmark resource/workable-radius framework.
+- [x] Keep Commercial District's owned-city-center and no-direct-adjacency
+  restrictions instead of a numeric minimum-distance rule.
+- [x] Allow every Great Person tile improvement on hills or flatland.
+- [x] Allow Naval Foundry on owned coastal land outside workable city radii;
+  keep ownership, coastal-land, resource, and spacing restrictions.
+- [ ] Installed-game placement and tooltip acceptance recorded.
 
 ### Research Campus governor valuation correction
 
