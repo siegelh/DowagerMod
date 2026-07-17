@@ -182,6 +182,87 @@ namespace
 		return formatYieldChangeList(aiYieldChanges, false);
 	}
 
+	CvWString buildNeutralWorldWonderEffectString(const CvImprovementInfo& kImprovement)
+	{
+		std::vector<CvWString> asEffects;
+
+		if (kImprovement.getNeutralWorldWonderCulturePercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_CULTURE", kImprovement.getNeutralWorldWonderCulturePercent()));
+		}
+
+		if (kImprovement.getNeutralWorldWonderResearchPercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_RESEARCH", kImprovement.getNeutralWorldWonderResearchPercent()));
+		}
+
+		if (kImprovement.getNeutralWorldWonderGreatPeopleRatePercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_GREAT_PEOPLE", kImprovement.getNeutralWorldWonderGreatPeopleRatePercent()));
+		}
+
+		if (kImprovement.getNeutralWorldWonderMilitaryProductionPercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_MILITARY_PRODUCTION", kImprovement.getNeutralWorldWonderMilitaryProductionPercent()));
+		}
+
+		if (kImprovement.getNeutralWorldWonderCivicUpkeepPercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_CIVIC_UPKEEP", abs(kImprovement.getNeutralWorldWonderCivicUpkeepPercent())));
+		}
+
+		if (kImprovement.getNeutralWorldWonderLandUnitExperience() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_LAND_UNIT_EXPERIENCE", kImprovement.getNeutralWorldWonderLandUnitExperience()));
+		}
+
+		CvWString szEffects;
+		for (size_t i = 0; i < asEffects.size(); ++i)
+		{
+			if (!szEffects.empty())
+			{
+				szEffects.append(L", " );
+			}
+			szEffects.append(asEffects[i]);
+		}
+
+		return szEffects;
+	}
+
+	void appendNeutralWorldWonderHelp(CvWStringBuffer& szBuffer, const CvImprovementInfo& kImprovement)
+	{
+		szBuffer.append(NEWLINE);
+		szBuffer.append(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_STATUS"));
+
+		const CvWString szEffects = buildNeutralWorldWonderEffectString(kImprovement);
+		if (!szEffects.empty())
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_OWNER_BONUS", szEffects.GetCString()));
+		}
+	}
+
+	void appendNeutralWorldWonderPlotStatus(CvWStringBuffer& szBuffer, CvPlot* pPlot, PlayerTypes eRevealOwner, const CvImprovementInfo& kImprovement)
+	{
+		const CvWString szEffects = buildNeutralWorldWonderEffectString(kImprovement);
+		if (szEffects.empty())
+		{
+			return;
+		}
+
+		const PlayerTypes eDisplayedOwner = pPlot->isActiveVisible(true) ? pPlot->getOwnerINLINE() : eRevealOwner;
+
+		szBuffer.append(NEWLINE);
+		if (eDisplayedOwner == NO_PLAYER)
+		{
+			szBuffer.append(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_PLOT_INACTIVE", szEffects.GetCString()));
+		}
+		else
+		{
+			szBuffer.append(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_PLOT_ACTIVE", GET_PLAYER(eDisplayedOwner).getCivilizationDescriptionKey(), szEffects.GetCString()));
+		}
+	}
+
 	void collectProcessingBuildingsForOutput(BonusTypes eBonus, std::vector<int>& aiBuildings)
 	{
 		for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)
@@ -3930,6 +4011,11 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot)
 			if (GC.getImprovementInfo(eImprovement).isLandmark() && eRevealOwner != NO_PLAYER)
 			{
 				setLandmarkPreviewHelp(szString, pPlot, eImprovement, eRevealOwner, true);
+			}
+
+			if (GC.getImprovementInfo(eImprovement).isNeutralWorldWonder())
+			{
+				appendNeutralWorldWonderPlotStatus(szString, pPlot, eRevealOwner, GC.getImprovementInfo(eImprovement));
 			}
 		}
 
@@ -11768,6 +11854,11 @@ void CvGameTextMgr::setImprovementHelp(CvWStringBuffer &szBuffer, ImprovementTyp
 
 	appendImprovementIndustryHelp(szBuffer, eImprovement);
 	appendLandmarkHelp(szBuffer, eImprovement);
+
+	if (info.isNeutralWorldWonder())
+	{
+		appendNeutralWorldWonderHelp(szBuffer, info);
+	}
 }
 
 

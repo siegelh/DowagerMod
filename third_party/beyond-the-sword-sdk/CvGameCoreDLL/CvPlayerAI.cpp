@@ -41,6 +41,72 @@ static bool isArtMasterpieceBonus(BonusTypes eBonus)
 	return (szType.find("BONUS_ART_") == 0);
 }
 
+namespace
+{
+	bool hasIntValue(const std::vector<int>& aiValues, int iValue)
+	{
+		for (size_t i = 0; i < aiValues.size(); ++i)
+		{
+			if (aiValues[i] == iValue)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	int getNeutralWorldWonderTileValue(const CvImprovementInfo& kImprovement)
+	{
+		int iValue = 0;
+		iValue += 40 * std::max(0, kImprovement.getYieldChange(YIELD_FOOD));
+		iValue += 35 * std::max(0, kImprovement.getYieldChange(YIELD_PRODUCTION));
+		iValue += 30 * std::max(0, kImprovement.getYieldChange(YIELD_COMMERCE));
+		return iValue;
+	}
+
+	int getNeutralWorldWonderEmpireEffectValue(const CvPlayerAI& kPlayer, const CvImprovementInfo& kImprovement)
+	{
+		const int iCultureExchange = (kPlayer.getNumCities() > 0) ? std::max(80, kPlayer.AI_averageCommerceExchange(COMMERCE_CULTURE)) : 100;
+		const int iResearchExchange = (kPlayer.getNumCities() > 0) ? std::max(100, kPlayer.AI_averageCommerceExchange(COMMERCE_RESEARCH)) : 100;
+		const int iProductionMultiplier = (kPlayer.getNumCities() > 0) ? std::max(100, kPlayer.AI_averageYieldMultiplier(YIELD_PRODUCTION)) : 100;
+		const int iGreatPeopleMultiplier = (kPlayer.getNumCities() > 0) ? std::max(100, kPlayer.AI_averageGreatPeopleMultiplier()) : 100;
+		const int iCivicUpkeep = std::max(20, kPlayer.getCivicUpkeep(NULL, true));
+
+		int iValue = 0;
+		iValue += abs(kImprovement.getNeutralWorldWonderCulturePercent()) * iCultureExchange / 10;
+		iValue += abs(kImprovement.getNeutralWorldWonderResearchPercent()) * iResearchExchange / 10;
+		iValue += abs(kImprovement.getNeutralWorldWonderGreatPeopleRatePercent()) * iGreatPeopleMultiplier / 12;
+		iValue += abs(kImprovement.getNeutralWorldWonderMilitaryProductionPercent()) * iProductionMultiplier / 12;
+		iValue += abs(kImprovement.getNeutralWorldWonderCivicUpkeepPercent()) * std::min(120, iCivicUpkeep + 20) / 8;
+		iValue += 120 * kImprovement.getNeutralWorldWonderLandUnitExperience();
+
+		return iValue;
+	}
+
+	int getNeutralWorldWonderFoundValueBonus(const CvPlayerAI& kPlayer, CvPlot* pCityPlot, CvPlot* pWonderPlot, const CvImprovementInfo& kImprovement, int iCultureMultiplier, bool bIncludeEmpireEffect)
+	{
+		if (pCityPlot == NULL || pWonderPlot == NULL || iCultureMultiplier <= 0)
+		{
+			return 0;
+		}
+
+		int iValue = bIncludeEmpireEffect ? getNeutralWorldWonderEmpireEffectValue(kPlayer, kImprovement) : 0;
+		iValue += (getNeutralWorldWonderTileValue(kImprovement) / 2);
+
+		if (stepDistance(pCityPlot->getX_INLINE(), pCityPlot->getY_INLINE(), pWonderPlot->getX_INLINE(), pWonderPlot->getY_INLINE()) > 1)
+		{
+			iValue *= 65;
+			iValue /= 100;
+		}
+
+		iValue *= std::max(50, std::min(100, iCultureMultiplier));
+		iValue /= 100;
+
+		return std::min(225, std::max(0, iValue));
+	}
+}
+
 // statics
 
 CvPlayerAI* CvPlayerAI::m_aPlayers = NULL;
@@ -1695,6 +1761,8 @@ int CvPlayerAI::AI_foundValue(int iX, int iY, int iMinRivalRange, bool bStarting
 	}
 	
 	std::vector<int> paiBonusCount;
+	std::vector<int> aiNeutralWorldWonderPlots;
+	std::vector<int> aiNeutralWorldWonderTypes;
 
     for (iI = 0; iI < GC.getNumBonusInfos(); iI++)
     {
@@ -2052,6 +2120,31 @@ int CvPlayerAI::AI_foundValue(int iX, int iY, int iMinRivalRange, bool bStarting
 			iTempValue /= 100;
 
 			iValue += iTempValue;
+
+			if (!bStartingLoc && iI != CITY_HOME_PLOT)
+			{
+				const ImprovementTypes eExistingImprovement = pLoopPlot->getImprovementType();
+				if (eExistingImprovement != NO_IMPROVEMENT)
+				{
+					const CvImprovementInfo& kExistingImprovement = GC.getImprovementInfo(eExistingImprovement);
+					if (kExistingImprovement.isNeutralWorldWonder())
+					{
+						const int iWonderPlotNum = GC.getMapINLINE().plotNum(pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE());
+						if (!hasIntValue(aiNeutralWorldWonderPlots, iWonderPlotNum))
+						{
+							aiNeutralWorldWonderPlots.push_back(iWonderPlotNum);
+							const bool bIncludeEmpireEffect =
+								(getImprovementCount(eExistingImprovement) == 0) &&
+								!hasIntValue(aiNeutralWorldWonderTypes, (int)eExistingImprovement);
+							if (!hasIntValue(aiNeutralWorldWonderTypes, (int)eExistingImprovement))
+							{
+								aiNeutralWorldWonderTypes.push_back((int)eExistingImprovement);
+							}
+							iValue += getNeutralWorldWonderFoundValueBonus(*this, pPlot, pLoopPlot, kExistingImprovement, iCultureMultiplier, bIncludeEmpireEffect);
+						}
+					}
+				}
+			}
 
 			if (iCultureMultiplier > 33) //ignore hopelessly entrenched tiles.
 			{
@@ -17071,4 +17164,3 @@ bool CvPlayerAI::AI_isFirstTech(TechTypes eTech) const
 
 	return false;
 }
-

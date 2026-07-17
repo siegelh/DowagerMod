@@ -43,6 +43,35 @@ static bool isArtMasterpieceBonus(BonusTypes eBonus)
 	return (szType.find("BONUS_ART_") == 0);
 }
 
+namespace
+{
+	typedef int (CvImprovementInfo::*NeutralWorldWonderEffectGetter)() const;
+
+	int getOwnedNeutralWorldWonderEffectSum(const CvPlayer& kPlayer, NeutralWorldWonderEffectGetter pGetter)
+	{
+		int iTotal = 0;
+
+		for (int iImprovement = 0; iImprovement < GC.getNumImprovementInfos(); ++iImprovement)
+		{
+			const ImprovementTypes eImprovement = (ImprovementTypes)iImprovement;
+			if (kPlayer.getImprovementCount(eImprovement) <= 0)
+			{
+				continue;
+			}
+
+			const CvImprovementInfo& kImprovement = GC.getImprovementInfo(eImprovement);
+			if (!kImprovement.isNeutralWorldWonder())
+			{
+				continue;
+			}
+
+			iTotal += (kImprovement.*pGetter)();
+		}
+
+		return iTotal;
+	}
+}
+
 // Public Functions...
 
 CvPlayer::CvPlayer()
@@ -5095,6 +5124,12 @@ bool CvPlayer::canFound(int iX, int iY, bool bTestVisible) const
 		return false;
 	}
 
+	if (pPlot->getImprovementType() != NO_IMPROVEMENT &&
+		GC.getImprovementInfo(pPlot->getImprovementType()).isNeutralWorldWonder())
+	{
+		return false;
+	}
+
 	if (pPlot->getFeatureType() != NO_FEATURE)
 	{
 		if (GC.getFeatureInfo(pPlot->getFeatureType()).isNoCity())
@@ -8212,7 +8247,7 @@ void CvPlayer::changeGreatGeneralsThresholdModifier(int iChange)
 
 int CvPlayer::getGreatPeopleRateModifier() const
 {
-	return m_iGreatPeopleRateModifier;
+	return (m_iGreatPeopleRateModifier + getNeutralWorldWonderGreatPeopleRatePercent());
 }
 
 
@@ -8344,7 +8379,7 @@ void CvPlayer::changeImprovementUpgradeRateModifier(int iChange)
 
 int CvPlayer::getMilitaryProductionModifier() const
 {
-	return m_iMilitaryProductionModifier;
+	return (m_iMilitaryProductionModifier + getNeutralWorldWonderMilitaryProductionPercent());
 }
 
 
@@ -10759,7 +10794,19 @@ int CvPlayer::getCommerceRateModifier(CommerceTypes eIndex) const
 {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < NUM_COMMERCE_TYPES, "eIndex is expected to be within maximum bounds (invalid Index)");
-	return m_aiCommerceRateModifier[eIndex];
+
+	int iModifier = m_aiCommerceRateModifier[eIndex];
+
+	if (eIndex == COMMERCE_CULTURE)
+	{
+		iModifier += getNeutralWorldWonderCulturePercent();
+	}
+	else if (eIndex == COMMERCE_RESEARCH)
+	{
+		iModifier += getNeutralWorldWonderResearchPercent();
+	}
+
+	return iModifier;
 }
 
 
@@ -11061,8 +11108,91 @@ void CvPlayer::changeImprovementCount(ImprovementTypes eIndex, int iChange)
 {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < GC.getNumImprovementInfos(), "eIndex is expected to be within maximum bounds (invalid Index)");
+
+	const int iOldCount = m_paiImprovementCount[eIndex];
 	m_paiImprovementCount[eIndex] = (m_paiImprovementCount[eIndex] + iChange);
 	FAssert(getImprovementCount(eIndex) >= 0);
+
+	if (iChange == 0)
+	{
+		return;
+	}
+
+	const CvImprovementInfo& kImprovement = GC.getImprovementInfo(eIndex);
+	if (!kImprovement.isNeutralWorldWonder())
+	{
+		return;
+	}
+
+	const bool bHadWonder = (iOldCount > 0);
+	const bool bHasWonder = (getImprovementCount(eIndex) > 0);
+	if (bHadWonder == bHasWonder)
+	{
+		return;
+	}
+
+	if (kImprovement.getNeutralWorldWonderCulturePercent() != 0)
+	{
+		updateCommerce(COMMERCE_CULTURE);
+	}
+
+	if (kImprovement.getNeutralWorldWonderResearchPercent() != 0)
+	{
+		updateCommerce(COMMERCE_RESEARCH);
+	}
+
+	if (kImprovement.getNeutralWorldWonderCivicUpkeepPercent() != 0)
+	{
+		updateMaintenance();
+	}
+
+	GC.getGameINLINE().AI_makeAssignWorkDirty();
+
+	if (getTeam() == GC.getGameINLINE().getActiveTeam())
+	{
+		gDLL->getInterfaceIFace()->setDirty(GameData_DIRTY_BIT, true);
+		gDLL->getInterfaceIFace()->setDirty(CityInfo_DIRTY_BIT, true);
+		gDLL->getInterfaceIFace()->setDirty(CityScreen_DIRTY_BIT, true);
+		gDLL->getInterfaceIFace()->setDirty(Financial_Screen_DIRTY_BIT, true);
+		gDLL->getInterfaceIFace()->setDirty(ResearchButtons_DIRTY_BIT, true);
+		gDLL->getInterfaceIFace()->setDirty(InfoPane_DIRTY_BIT, true);
+	}
+}
+
+
+int CvPlayer::getNeutralWorldWonderCulturePercent() const
+{
+	return getOwnedNeutralWorldWonderEffectSum(*this, &CvImprovementInfo::getNeutralWorldWonderCulturePercent);
+}
+
+
+int CvPlayer::getNeutralWorldWonderResearchPercent() const
+{
+	return getOwnedNeutralWorldWonderEffectSum(*this, &CvImprovementInfo::getNeutralWorldWonderResearchPercent);
+}
+
+
+int CvPlayer::getNeutralWorldWonderGreatPeopleRatePercent() const
+{
+	return getOwnedNeutralWorldWonderEffectSum(*this, &CvImprovementInfo::getNeutralWorldWonderGreatPeopleRatePercent);
+}
+
+
+int CvPlayer::getNeutralWorldWonderMilitaryProductionPercent() const
+{
+	return getOwnedNeutralWorldWonderEffectSum(*this, &CvImprovementInfo::getNeutralWorldWonderMilitaryProductionPercent);
+}
+
+
+int CvPlayer::getNeutralWorldWonderCivicUpkeepPercent() const
+{
+	return getOwnedNeutralWorldWonderEffectSum(*this, &CvImprovementInfo::getNeutralWorldWonderCivicUpkeepPercent);
+}
+
+
+int CvPlayer::getNeutralWorldWonderLandUnitExperience() const
+{
+	return getOwnedNeutralWorldWonderEffectSum(*this, &CvImprovementInfo::getNeutralWorldWonderLandUnitExperience);
 }
 
 
@@ -11729,6 +11859,9 @@ int CvPlayer::getCivicUpkeep(CivicTypes* paeCivics, bool bIgnoreAnarchy) const
 	{
 		iTotalUpkeep += getSingleCivicUpkeep(paeCivics[iI], bIgnoreAnarchy);
 	}
+
+	iTotalUpkeep *= std::max(0, (100 + getNeutralWorldWonderCivicUpkeepPercent()));
+	iTotalUpkeep /= 100;
 
 	return iTotalUpkeep;
 }

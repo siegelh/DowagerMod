@@ -90,6 +90,7 @@ void applyDefaultMultiplayerLobbySettings(CvInitCore& kInitCore)
 	{
 		kInitCore.setOption((GameOptionTypes)i, false);
 	}
+	kInitCore.setOption(GAMEOPTION_NEUTRAL_WORLD_WONDERS, true);
 	kInitCore.setOption(GAMEOPTION_NO_CITY_FLIPPING, true);
 	kInitCore.setOption(GAMEOPTION_PICK_RELIGION, true);
 	kInitCore.setOption(GAMEOPTION_NO_TECH_TRADING, true);

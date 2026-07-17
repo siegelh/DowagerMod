@@ -12019,6 +12019,13 @@ m_bLandmarkNoAdjacentSameGroup(false),
 m_bLandmarkRequiresCoastalLand(false),
 m_bLandmarkStateReligionGated(false),
 m_iLandmarkStateReligion(NO_RELIGION),
+m_bNeutralWorldWonder(false),
+m_iNeutralWorldWonderCulturePercent(0),
+m_iNeutralWorldWonderResearchPercent(0),
+m_iNeutralWorldWonderGreatPeopleRatePercent(0),
+m_iNeutralWorldWonderMilitaryProductionPercent(0),
+m_iNeutralWorldWonderCivicUpkeepPercent(0),
+m_iNeutralWorldWonderLandUnitExperience(0),
 m_iWorldSoundscapeScriptId(0),
 m_piPrereqNatureYield(NULL),
 m_piYieldChange(NULL),
@@ -12276,6 +12283,41 @@ int CvImprovementInfo::getWorldSoundscapeScriptId() const
 	return m_iWorldSoundscapeScriptId;
 }
 
+bool CvImprovementInfo::isNeutralWorldWonder() const
+{
+	return m_bNeutralWorldWonder;
+}
+
+int CvImprovementInfo::getNeutralWorldWonderCulturePercent() const
+{
+	return m_iNeutralWorldWonderCulturePercent;
+}
+
+int CvImprovementInfo::getNeutralWorldWonderResearchPercent() const
+{
+	return m_iNeutralWorldWonderResearchPercent;
+}
+
+int CvImprovementInfo::getNeutralWorldWonderGreatPeopleRatePercent() const
+{
+	return m_iNeutralWorldWonderGreatPeopleRatePercent;
+}
+
+int CvImprovementInfo::getNeutralWorldWonderMilitaryProductionPercent() const
+{
+	return m_iNeutralWorldWonderMilitaryProductionPercent;
+}
+
+int CvImprovementInfo::getNeutralWorldWonderCivicUpkeepPercent() const
+{
+	return m_iNeutralWorldWonderCivicUpkeepPercent;
+}
+
+int CvImprovementInfo::getNeutralWorldWonderLandUnitExperience() const
+{
+	return m_iNeutralWorldWonderLandUnitExperience;
+}
+
 // Arrays
 
 int CvImprovementInfo::getPrereqNatureYield(int i) const		
@@ -12442,6 +12484,14 @@ void CvImprovementInfo::read(FDataStreamBase* stream)
 	uint uiFlag=0;
 	stream->Read(&uiFlag);		// flag for expansion
 
+	m_bNeutralWorldWonder = false;
+	m_iNeutralWorldWonderCulturePercent = 0;
+	m_iNeutralWorldWonderResearchPercent = 0;
+	m_iNeutralWorldWonderGreatPeopleRatePercent = 0;
+	m_iNeutralWorldWonderMilitaryProductionPercent = 0;
+	m_iNeutralWorldWonderCivicUpkeepPercent = 0;
+	m_iNeutralWorldWonderLandUnitExperience = 0;
+
 	stream->Read(&m_iAdvancedStartCost);
 	stream->Read(&m_iAdvancedStartCostIncrease);
 
@@ -12482,6 +12532,17 @@ void CvImprovementInfo::read(FDataStreamBase* stream)
 		stream->Read(&m_bLandmarkRequiresCoastalLand);
 		stream->Read(&m_bLandmarkStateReligionGated);
 		stream->Read(&m_iLandmarkStateReligion);
+	}
+
+	if (uiFlag >= 2)
+	{
+		stream->Read(&m_bNeutralWorldWonder);
+		stream->Read(&m_iNeutralWorldWonderCulturePercent);
+		stream->Read(&m_iNeutralWorldWonderResearchPercent);
+		stream->Read(&m_iNeutralWorldWonderGreatPeopleRatePercent);
+		stream->Read(&m_iNeutralWorldWonderMilitaryProductionPercent);
+		stream->Read(&m_iNeutralWorldWonderCivicUpkeepPercent);
+		stream->Read(&m_iNeutralWorldWonderLandUnitExperience);
 	}
 
 	stream->ReadString(m_szArtDefineTag);
@@ -12563,7 +12624,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream)
 {
 	CvInfoBase::write(stream);
 
-	uint uiFlag=1;
+	uint uiFlag=2;
 	stream->Write(uiFlag);		// flag for expansion
 
 	stream->Write(m_iAdvancedStartCost);
@@ -12604,6 +12665,14 @@ void CvImprovementInfo::write(FDataStreamBase* stream)
 	stream->Write(m_bLandmarkRequiresCoastalLand);
 	stream->Write(m_bLandmarkStateReligionGated);
 	stream->Write(m_iLandmarkStateReligion);
+
+	stream->Write(m_bNeutralWorldWonder);
+	stream->Write(m_iNeutralWorldWonderCulturePercent);
+	stream->Write(m_iNeutralWorldWonderResearchPercent);
+	stream->Write(m_iNeutralWorldWonderGreatPeopleRatePercent);
+	stream->Write(m_iNeutralWorldWonderMilitaryProductionPercent);
+	stream->Write(m_iNeutralWorldWonderCivicUpkeepPercent);
+	stream->Write(m_iNeutralWorldWonderLandUnitExperience);
 
 	stream->WriteString(m_szArtDefineTag);
 
@@ -12748,6 +12817,14 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML)
 	{
 		m_iLandmarkStateReligion = NO_RELIGION;
 	}
+
+	pXML->GetChildXmlValByName(&m_bNeutralWorldWonder, "bNeutralWorldWonder", false);
+	pXML->GetChildXmlValByName(&m_iNeutralWorldWonderCulturePercent, "iNeutralWorldWonderCulturePercent", 0);
+	pXML->GetChildXmlValByName(&m_iNeutralWorldWonderResearchPercent, "iNeutralWorldWonderResearchPercent", 0);
+	pXML->GetChildXmlValByName(&m_iNeutralWorldWonderGreatPeopleRatePercent, "iNeutralWorldWonderGreatPeopleRatePercent", 0);
+	pXML->GetChildXmlValByName(&m_iNeutralWorldWonderMilitaryProductionPercent, "iNeutralWorldWonderMilitaryProductionPercent", 0);
+	pXML->GetChildXmlValByName(&m_iNeutralWorldWonderCivicUpkeepPercent, "iNeutralWorldWonderCivicUpkeepPercent", 0);
+	pXML->GetChildXmlValByName(&m_iNeutralWorldWonderLandUnitExperience, "iNeutralWorldWonderLandUnitExperience", 0);
 
 	pXML->SetVariableListTagPair(&m_pbTerrainMakesValid, "TerrainMakesValids", sizeof(GC.getTerrainInfo((TerrainTypes)0)), GC.getNumTerrainInfos());
 	pXML->SetVariableListTagPair(&m_pbFeatureMakesValid, "FeatureMakesValids", sizeof(GC.getFeatureInfo((FeatureTypes)0)), GC.getNumFeatureInfos());
@@ -24463,4 +24540,3 @@ bool CvMainMenuInfo::read(CvXMLLoadUtility* pXML)
 
 	return true;
 }
-

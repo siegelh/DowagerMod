@@ -409,6 +409,13 @@
 	<ElementType name="bLandmarkRequiresCoastalLand" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bLandmarkStateReligionGated" content="textOnly" dt:type="boolean"/>
 	<ElementType name="LandmarkStateReligion" content="textOnly"/>
+	<ElementType name="bNeutralWorldWonder" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iNeutralWorldWonderCulturePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iNeutralWorldWonderResearchPercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iNeutralWorldWonderGreatPeopleRatePercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iNeutralWorldWonderMilitaryProductionPercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iNeutralWorldWonderCivicUpkeepPercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iNeutralWorldWonderLandUnitExperience" content="textOnly" dt:type="int"/>
 	<ElementType name="TerrainMakesValid" content="eltOnly">
 		<element type="TerrainType"/>
 		<element type="bMakesValid"/>
@@ -477,6 +484,13 @@
 		<element type="bLandmarkRequiresCoastalLand" minOccurs="0"/>
 		<element type="bLandmarkStateReligionGated" minOccurs="0"/>
 		<element type="LandmarkStateReligion" minOccurs="0"/>
+		<element type="bNeutralWorldWonder" minOccurs="0"/>
+		<element type="iNeutralWorldWonderCulturePercent" minOccurs="0"/>
+		<element type="iNeutralWorldWonderResearchPercent" minOccurs="0"/>
+		<element type="iNeutralWorldWonderGreatPeopleRatePercent" minOccurs="0"/>
+		<element type="iNeutralWorldWonderMilitaryProductionPercent" minOccurs="0"/>
+		<element type="iNeutralWorldWonderCivicUpkeepPercent" minOccurs="0"/>
+		<element type="iNeutralWorldWonderLandUnitExperience" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="ImprovementInfos" content="eltOnly">
 		<element type="ImprovementInfo" maxOccurs="*"/>

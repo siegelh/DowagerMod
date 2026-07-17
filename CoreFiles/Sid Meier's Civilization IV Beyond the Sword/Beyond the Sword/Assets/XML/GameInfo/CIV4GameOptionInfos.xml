@@ -174,5 +174,12 @@
 			<bDefault>0</bDefault>
 			<bVisible>1</bVisible>
 		</GameOptionInfo>
+		<GameOptionInfo>
+			<Type>GAMEOPTION_NEUTRAL_WORLD_WONDERS</Type>
+			<Description>TXT_KEY_GAME_OPTION_NEUTRAL_WORLD_WONDERS</Description>
+			<Help>TXT_KEY_GAME_OPTION_NEUTRAL_WORLD_WONDERS_HELP</Help>
+			<bDefault>1</bDefault>
+			<bVisible>1</bVisible>
+		</GameOptionInfo>
 	</GameOptionInfos>
 </Civ4GameOptionInfos>

@@ -106,6 +106,60 @@
 			<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/bazaar.dds</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_NEUTRAL_GREAT_SPHINX</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.75</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/sphinx/sphinx.nif</NIF>
+			<KFM/>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/sphinx.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.75</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/nineveh/library_of_nineveh.nif</NIF>
+			<KFM/>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/library_of_nineveh.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.85</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/terracotta/xian.nif</NIF>
+			<KFM/>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/terracottaarmy.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>2.25</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cyrus_tomb/cyrustomb.nif</NIF>
+			<KFM/>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cyrustomb.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/pergamonaltar/pergamonaltar.nif</NIF>
+			<KFM/>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/pergamonaltar.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>0.85</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Caveman2Cosmos/art/structures/buildings/artofwar/artofwar.nif</NIF>
+			<KFM/>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/suntzu_art_of_war.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_WHALING_BOATS</Type>
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>1.0</fScale>
