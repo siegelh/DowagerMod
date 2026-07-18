@@ -30,6 +30,598 @@
 #include "CvDLLEngineIFaceBase.h"
 #include "CvDLLPythonIFaceBase.h"
 
+namespace
+{
+	static const char* NEUTRAL_WORLD_WONDER_LOG_FILE = "NeutralWorldWonders.log";
+	static const int NEUTRAL_WORLD_WONDER_COUNT = 14;
+
+	struct NeutralWorldWonderDefinition
+	{
+		const char* szLabel;
+		const char* szImprovementType;
+	};
+
+	struct NeutralWorldWonderCandidate
+	{
+		NeutralWorldWonderCandidate()
+			: pPlot(NULL)
+			, iPlotIndex(-1)
+			, iTotalScore(0)
+			, iSettlementScore(0)
+			, iAreaScore(0)
+			, iStartScore(0)
+			, iThemeScore(0)
+			, iPolarPenalty(0)
+			, iAccessPenalty(0)
+			, iNearestStartDistance(-1)
+			, iNearestWonderDistance(-1)
+		{
+		}
+
+		CvPlot* pPlot;
+		int iPlotIndex;
+		int iTotalScore;
+		int iSettlementScore;
+		int iAreaScore;
+		int iStartScore;
+		int iThemeScore;
+		int iPolarPenalty;
+		int iAccessPenalty;
+		int iNearestStartDistance;
+		int iNearestWonderDistance;
+	};
+
+	const NeutralWorldWonderDefinition g_aNeutralWorldWonderDefinitions[NEUTRAL_WORLD_WONDER_COUNT] =
+	{
+		{ "IMPROVEMENT_NEUTRAL_GREAT_SPHINX", "IMPROVEMENT_NEUTRAL_GREAT_SPHINX" },
+		{ "IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH", "IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH" },
+		{ "IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY", "IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY" },
+		{ "IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS", "IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS" },
+		{ "IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR", "IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR" },
+		{ "IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR", "IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR" },
+		{ "IMPROVEMENT_NEUTRAL_ISHTAR_GATE", "IMPROVEMENT_NEUTRAL_ISHTAR_GATE" },
+		{ "IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR", "IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR" },
+		{ "IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR", "IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR" },
+		{ "IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH", "IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH" },
+		{ "IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART", "IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART" },
+		{ "IMPROVEMENT_NEUTRAL_ERECHTHEUM", "IMPROVEMENT_NEUTRAL_ERECHTHEUM" },
+		{ "IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS", "IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS" },
+		{ "IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE", "IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE" }
+	};
+
+	inline int absoluteValue(int iValue)
+	{
+		return (iValue < 0 ? -iValue : iValue);
+	}
+
+	void logNeutralWorldWonder(const CvString& szMessage)
+	{
+		if (GC.getLogging())
+		{
+			gDLL->logMsg(NEUTRAL_WORLD_WONDER_LOG_FILE, szMessage.c_str());
+		}
+	}
+
+	int getNeutralWorldWonderTargetCount(WorldSizeTypes eWorldSize)
+	{
+		switch (eWorldSize)
+		{
+		case WORLDSIZE_DUEL:
+			return 3;
+		case WORLDSIZE_TINY:
+			return 4;
+		case WORLDSIZE_SMALL:
+			return 5;
+		case WORLDSIZE_STANDARD:
+		case WORLDSIZE_LARGE:
+		case WORLDSIZE_HUGE:
+			return 6;
+		default:
+			return 6;
+		}
+	}
+
+	const char* getTerrainTypeLabel(const CvPlot* pPlot)
+	{
+		if (pPlot == NULL)
+		{
+			return "NONE";
+		}
+
+		const TerrainTypes eTerrain = pPlot->getTerrainType();
+		if (eTerrain == NO_TERRAIN)
+		{
+			return "NO_TERRAIN";
+		}
+
+		return GC.getTerrainInfo(eTerrain).getType();
+	}
+
+	bool isNeutralWorldWonderBaseCandidate(
+		CvPlot* pPlot,
+		const std::vector<CvPlot*>& aStartingPlots,
+		const std::vector<CvPlot*>& aPlacedWonderPlots,
+		int& iNearestStartDistance,
+		int& iNearestWonderDistance)
+	{
+		if (pPlot == NULL)
+		{
+			return false;
+		}
+
+		if (pPlot->isWater() || pPlot->isPeak() || pPlot->isOwned())
+		{
+			return false;
+		}
+
+		if (pPlot->isCity())
+		{
+			return false;
+		}
+
+		if (pPlot->getFeatureType() != NO_FEATURE || pPlot->getImprovementType() != NO_IMPROVEMENT)
+		{
+			return false;
+		}
+
+		if (pPlot->isGoody() || pPlot->getBonusType() != NO_BONUS)
+		{
+			return false;
+		}
+
+		CvArea* pArea = pPlot->area();
+		if (pArea == NULL || pArea->isWater() || pArea->getNumTiles() < 20)
+		{
+			return false;
+		}
+
+		iNearestStartDistance = -1;
+		for (size_t i = 0; i < aStartingPlots.size(); ++i)
+		{
+			CvPlot* pStartingPlot = aStartingPlots[i];
+			if (pStartingPlot == NULL)
+			{
+				continue;
+			}
+
+			const int iDistance = plotDistance(
+				pPlot->getX_INLINE(), pPlot->getY_INLINE(),
+				pStartingPlot->getX_INLINE(), pStartingPlot->getY_INLINE());
+
+			if (iNearestStartDistance < 0 || iDistance < iNearestStartDistance)
+			{
+				iNearestStartDistance = iDistance;
+			}
+
+			if (iDistance < 6)
+			{
+				return false;
+			}
+		}
+
+		iNearestWonderDistance = -1;
+		for (size_t i = 0; i < aPlacedWonderPlots.size(); ++i)
+		{
+			CvPlot* pPlacedPlot = aPlacedWonderPlots[i];
+			if (pPlacedPlot == NULL)
+			{
+				continue;
+			}
+
+			const int iDistance = plotDistance(
+				pPlot->getX_INLINE(), pPlot->getY_INLINE(),
+				pPlacedPlot->getX_INLINE(), pPlacedPlot->getY_INLINE());
+
+			if (iNearestWonderDistance < 0 || iDistance < iNearestWonderDistance)
+			{
+				iNearestWonderDistance = iDistance;
+			}
+
+			if (iDistance < 8)
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	bool matchesNeutralWorldWonderProfile(
+		int iWonderIndex,
+		CvPlot* pPlot,
+		TerrainTypes eDesert,
+		TerrainTypes eGrass,
+		TerrainTypes ePlains)
+	{
+		const TerrainTypes eTerrain = pPlot->getTerrainType();
+
+		switch (iWonderIndex)
+		{
+		case 0:
+			return (pPlot->isFlatlands() && eTerrain == eDesert);
+		case 1:
+			return (pPlot->isFlatlands() && pPlot->isRiverSide() &&
+				(eTerrain == eGrass || eTerrain == ePlains || eTerrain == eDesert));
+		case 2:
+			return ((eTerrain == eGrass || eTerrain == ePlains) && (pPlot->isHills() || pPlot->isFlatlands()));
+		case 3:
+			return ((eTerrain == eDesert || eTerrain == ePlains) &&
+				(pPlot->isHills() || pPlot->isFlatlands()) &&
+				!pPlot->isCoastalLand());
+		case 4:
+			return ((eTerrain == eGrass || eTerrain == ePlains) && pPlot->isHills());
+		case 5:
+			return ((eTerrain == eGrass || eTerrain == ePlains) && pPlot->isHills());
+		case 6:
+			return (pPlot->isFlatlands() && pPlot->isRiverSide() &&
+				(eTerrain == eDesert || eTerrain == ePlains));
+		case 7:
+			return (pPlot->isFlatlands() && pPlot->isRiverSide() &&
+				(eTerrain == eDesert || eTerrain == ePlains));
+		case 8:
+			return ((eTerrain == eDesert || eTerrain == ePlains) &&
+				pPlot->isFlatlands() && !pPlot->isCoastalLand());
+		case 9:
+			return (pPlot->isFlatlands() && pPlot->isRiverSide() &&
+				(eTerrain == eDesert || eTerrain == ePlains));
+		case 10:
+			return ((eTerrain == eGrass || eTerrain == ePlains || eTerrain == eDesert) &&
+				pPlot->isFlatlands() && pPlot->isCoastalLand());
+		case 11:
+			return ((eTerrain == eGrass || eTerrain == ePlains) && pPlot->isHills());
+		case 12:
+			return ((eTerrain == eGrass || eTerrain == ePlains) && (pPlot->isHills() || pPlot->isFlatlands()));
+		case 13:
+			return ((eTerrain == eGrass || eTerrain == ePlains) && pPlot->isHills());
+		default:
+			return false;
+		}
+	}
+
+	int getNeutralWorldWonderSettlementScore(
+		CvPlot* pPlot,
+		TerrainTypes eDesert,
+		TerrainTypes eGrass,
+		TerrainTypes ePlains,
+		int& iViableTiles)
+	{
+		int iScore = 0;
+		iViableTiles = 0;
+
+		for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI)
+		{
+			CvPlot* pLoopPlot = plotCity(pPlot->getX_INLINE(), pPlot->getY_INLINE(), iI);
+			if (pLoopPlot == NULL || pLoopPlot == pPlot)
+			{
+				continue;
+			}
+
+			if (pLoopPlot->isWater() || pLoopPlot->isPeak())
+			{
+				continue;
+			}
+
+			++iViableTiles;
+
+			const TerrainTypes eLoopTerrain = pLoopPlot->getTerrainType();
+			if (eLoopTerrain == eGrass)
+			{
+				iScore += 6;
+			}
+			else if (eLoopTerrain == ePlains)
+			{
+				iScore += 5;
+			}
+			else if (eLoopTerrain == eDesert)
+			{
+				iScore += 2;
+			}
+			else
+			{
+				iScore += 1;
+			}
+
+			if (pLoopPlot->isRiverSide() || pLoopPlot->isFreshWater())
+			{
+				iScore += 2;
+			}
+
+			if (pLoopPlot->isHills())
+			{
+				iScore += 1;
+			}
+
+			if (pLoopPlot->isCoastalLand())
+			{
+				iScore += 1;
+			}
+		}
+
+		return iScore;
+	}
+
+	int getNeutralWorldWonderStartDistanceScore(int iNearestStartDistance)
+	{
+		if (iNearestStartDistance < 0)
+		{
+			return 0;
+		}
+
+		if (iNearestStartDistance >= 8 && iNearestStartDistance <= 12)
+		{
+			return 30 - (3 * absoluteValue(iNearestStartDistance - 10));
+		}
+
+		if (iNearestStartDistance < 8)
+		{
+			return 6 * (iNearestStartDistance - 6);
+		}
+
+		const int iScore = 20 - (2 * (iNearestStartDistance - 12));
+		return (iScore > 0 ? iScore : 0);
+	}
+
+	int getNeutralWorldWonderPolarPenalty(CvPlot* pPlot)
+	{
+		const int iAbsLatitude = absoluteValue(pPlot->getLatitude());
+		if (iAbsLatitude <= 55)
+		{
+			return 0;
+		}
+
+		if (iAbsLatitude <= 70)
+		{
+			return iAbsLatitude - 55;
+		}
+
+		return 15 + ((iAbsLatitude - 70) * 2);
+	}
+
+	int getNeutralWorldWonderAccessPenalty(CvPlot* pPlot, int iViableTiles)
+	{
+		int iAdjacentPassable = 0;
+		for (int iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
+		{
+			CvPlot* pAdjacentPlot = plotDirection(pPlot->getX_INLINE(), pPlot->getY_INLINE(), (DirectionTypes)iI);
+			if (pAdjacentPlot != NULL && !pAdjacentPlot->isWater() && !pAdjacentPlot->isPeak())
+			{
+				++iAdjacentPassable;
+			}
+		}
+
+		int iPenalty = 0;
+		if (iAdjacentPassable <= 1)
+		{
+			iPenalty += 24;
+		}
+		else if (iAdjacentPassable == 2)
+		{
+			iPenalty += 12;
+		}
+		else if (iAdjacentPassable == 3)
+		{
+			iPenalty += 6;
+		}
+
+		if (iViableTiles < 6)
+		{
+			iPenalty += 18;
+		}
+		else if (iViableTiles < 8)
+		{
+			iPenalty += 8;
+		}
+
+		return iPenalty;
+	}
+
+	int getNeutralWorldWonderThemeScore(
+		int iWonderIndex,
+		CvPlot* pPlot,
+		TerrainTypes eDesert,
+		TerrainTypes eGrass,
+		TerrainTypes ePlains,
+		FeatureTypes eFloodPlains,
+		FeatureTypes eForest)
+	{
+		int iScore = 0;
+
+		for (int iDX = -2; iDX <= 2; ++iDX)
+		{
+			for (int iDY = -2; iDY <= 2; ++iDY)
+			{
+				CvPlot* pLoopPlot = plotXY(pPlot->getX_INLINE(), pPlot->getY_INLINE(), iDX, iDY);
+				if (pLoopPlot == NULL)
+				{
+					continue;
+				}
+
+				const int iDistance = plotDistance(
+					pPlot->getX_INLINE(), pPlot->getY_INLINE(),
+					pLoopPlot->getX_INLINE(), pLoopPlot->getY_INLINE());
+
+				if (iDistance > 2)
+				{
+					continue;
+				}
+
+				const int iWeight = (iDistance == 0 ? 3 : (3 - iDistance));
+				const TerrainTypes eTerrain = pLoopPlot->getTerrainType();
+				const FeatureTypes eFeature = pLoopPlot->getFeatureType();
+
+				switch (iWonderIndex)
+				{
+				case 0:
+					if (pLoopPlot->isRiverSide())
+					{
+						iScore += 4 * iWeight;
+					}
+					if (eFeature == eFloodPlains)
+					{
+						iScore += 8 * iWeight;
+					}
+					break;
+				case 1:
+					if (pLoopPlot->isRiverSide())
+					{
+						iScore += 5 * iWeight;
+					}
+					if (eTerrain == eGrass || eTerrain == ePlains)
+					{
+						iScore += 2 * iWeight;
+					}
+					break;
+				case 2:
+					if (pLoopPlot->isHills())
+					{
+						iScore += 5 * iWeight;
+					}
+					break;
+				case 3:
+					if (eTerrain == eDesert)
+					{
+						iScore += 4 * iWeight;
+					}
+					else if (eTerrain == ePlains)
+					{
+						iScore += 2 * iWeight;
+					}
+					if (!pLoopPlot->isWater() && !pLoopPlot->isCoastalLand())
+					{
+						iScore += iWeight;
+					}
+					break;
+				case 4:
+					if (pLoopPlot->isWater())
+					{
+						iScore += 5 * iWeight;
+					}
+					break;
+				case 5:
+					if (eFeature == eForest)
+					{
+						iScore += 7 * iWeight;
+					}
+					if (pLoopPlot->isHills())
+					{
+						iScore += 4 * iWeight;
+					}
+					break;
+				case 6:
+					if (pLoopPlot->isRiverSide())
+					{
+						iScore += 5 * iWeight;
+					}
+					if (eTerrain == eDesert)
+					{
+						iScore += 3 * iWeight;
+					}
+					break;
+				case 7:
+					if (pLoopPlot->isRiverSide())
+					{
+						iScore += 5 * iWeight;
+					}
+					if (eTerrain == eGrass || eTerrain == ePlains)
+					{
+						iScore += 2 * iWeight;
+					}
+					break;
+				case 8:
+					if (eTerrain == eDesert)
+					{
+						iScore += 4 * iWeight;
+					}
+					else if (eTerrain == ePlains)
+					{
+						iScore += 2 * iWeight;
+					}
+					if (!pLoopPlot->isWater() && !pLoopPlot->isCoastalLand())
+					{
+						iScore += iWeight;
+					}
+					break;
+				case 9:
+					if (pLoopPlot->isRiverSide())
+					{
+						iScore += 5 * iWeight;
+					}
+					if (eTerrain == eDesert || eTerrain == ePlains)
+					{
+						iScore += 2 * iWeight;
+					}
+					break;
+				case 10:
+					if (pLoopPlot->isWater())
+					{
+						iScore += 5 * iWeight;
+					}
+					break;
+				case 11:
+					if (pLoopPlot->isHills())
+					{
+						iScore += 5 * iWeight;
+					}
+					break;
+				case 12:
+					if (pLoopPlot->isWater())
+					{
+						iScore += 3 * iWeight;
+					}
+					break;
+				case 13:
+					if (eTerrain == eDesert)
+					{
+						iScore += 2 * iWeight;
+					}
+					if (!pLoopPlot->isWater() && !pLoopPlot->isCoastalLand())
+					{
+						iScore += iWeight;
+					}
+					break;
+				default:
+					break;
+				}
+			}
+		}
+
+		if (iWonderIndex == 2 && pPlot->isHills())
+		{
+			iScore += 12;
+		}
+		else if (iWonderIndex == 4 && pPlot->isCoastalLand())
+		{
+			iScore += 20;
+		}
+		else if (iWonderIndex == 3 && !pPlot->isCoastalLand())
+		{
+			iScore += 10;
+		}
+		else if (iWonderIndex == 8 && !pPlot->isCoastalLand())
+		{
+			iScore += 10;
+		}
+		else if (iWonderIndex == 10 && pPlot->isCoastalLand())
+		{
+			iScore += 20;
+		}
+		else if (iWonderIndex == 11 && pPlot->isHills())
+		{
+			iScore += 12;
+		}
+		else if (iWonderIndex == 12 && pPlot->isCoastalLand())
+		{
+			iScore += 10;
+		}
+		else if (iWonderIndex == 13 && !pPlot->isCoastalLand())
+		{
+			iScore += 8;
+		}
+
+		return iScore;
+	}
+}
+
 // Public Functions...
 
 CvGame::CvGame()
@@ -273,6 +865,7 @@ void CvGame::setInitialItems()
 	initFreeState();
 	assignStartingPlots();
 	normalizeStartingPlots();
+	placeNeutralWorldWonders();
 	initFreeUnits();
 
 	for (int i = 0; i < MAX_PLAYERS; ++i)
@@ -285,6 +878,264 @@ void CvGame::setInitialItems()
 	}
 }
 
+void CvGame::placeNeutralWorldWonders()
+{
+	PROFILE_FUNC();
+
+	const unsigned long uiStartMs = timeGetTime();
+
+	if (GC.getInitCore().getWBMapScript())
+	{
+		logNeutralWorldWonder(CvString::format(
+			"[NWW][Summary] reason=wb_map_script expected=0 attempted=0 spawned=0 skipped=0 duplicate=0 error=0 duration_ms=%lu",
+			timeGetTime() - uiStartMs));
+		return;
+	}
+
+	const GameOptionTypes eNeutralWorldWondersOption =
+		(GameOptionTypes)GC.getInfoTypeForString("GAMEOPTION_NEUTRAL_WORLD_WONDERS", true);
+	if (eNeutralWorldWondersOption == NO_GAMEOPTION)
+	{
+		logNeutralWorldWonder(CvString::format(
+			"[NWW][Summary] reason=missing_option_type expected=0 attempted=0 spawned=0 skipped=0 duplicate=0 error=1 duration_ms=%lu",
+			timeGetTime() - uiStartMs));
+		return;
+	}
+
+	if (!isOption(eNeutralWorldWondersOption))
+	{
+		logNeutralWorldWonder(CvString::format(
+			"[NWW][Summary] reason=option_disabled expected=0 attempted=0 spawned=0 skipped=0 duplicate=0 error=0 duration_ms=%lu",
+			timeGetTime() - uiStartMs));
+		return;
+	}
+
+	static TerrainTypes eDesert = (TerrainTypes)GC.getInfoTypeForString("TERRAIN_DESERT", true);
+	static TerrainTypes eGrass = (TerrainTypes)GC.getInfoTypeForString("TERRAIN_GRASS", true);
+	static TerrainTypes ePlains = (TerrainTypes)GC.getInfoTypeForString("TERRAIN_PLAINS", true);
+	static FeatureTypes eFloodPlains = (FeatureTypes)GC.getInfoTypeForString("FEATURE_FLOOD_PLAINS", true);
+	static FeatureTypes eForest = (FeatureTypes)GC.getInfoTypeForString("FEATURE_FOREST", true);
+
+	CvMap& kMap = GC.getMapINLINE();
+	const WorldSizeTypes eWorldSize = kMap.getWorldSize();
+	const int iExpectedCount = getNeutralWorldWonderTargetCount(eWorldSize);
+
+	int aiWonderOrder[NEUTRAL_WORLD_WONDER_COUNT];
+	bool abSelectedWonder[NEUTRAL_WORLD_WONDER_COUNT];
+	for (int iI = 0; iI < NEUTRAL_WORLD_WONDER_COUNT; ++iI)
+	{
+		aiWonderOrder[iI] = iI;
+		abSelectedWonder[iI] = false;
+	}
+
+	for (int iI = 0; iI < NEUTRAL_WORLD_WONDER_COUNT - 1; ++iI)
+	{
+		const int iSwapIndex = iI + getMapRandNum(NEUTRAL_WORLD_WONDER_COUNT - iI, "Neutral World Wonder Order");
+		if (iSwapIndex != iI)
+		{
+			const int iTemp = aiWonderOrder[iI];
+			aiWonderOrder[iI] = aiWonderOrder[iSwapIndex];
+			aiWonderOrder[iSwapIndex] = iTemp;
+		}
+	}
+
+	for (int iI = 0; iI < iExpectedCount && iI < NEUTRAL_WORLD_WONDER_COUNT; ++iI)
+	{
+		abSelectedWonder[aiWonderOrder[iI]] = true;
+	}
+
+	std::vector<CvPlot*> aStartingPlots;
+	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
+	{
+		CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+		if (!kPlayer.isAlive())
+		{
+			continue;
+		}
+
+		CvPlot* pStartingPlot = kPlayer.getStartingPlot();
+		if (pStartingPlot != NULL)
+		{
+			aStartingPlots.push_back(pStartingPlot);
+		}
+	}
+
+	ImprovementTypes aeWonderImprovements[NEUTRAL_WORLD_WONDER_COUNT];
+	for (int iI = 0; iI < NEUTRAL_WORLD_WONDER_COUNT; ++iI)
+	{
+		aeWonderImprovements[iI] = (ImprovementTypes)GC.getInfoTypeForString(g_aNeutralWorldWonderDefinitions[iI].szImprovementType, true);
+	}
+
+	std::vector<CvPlot*> aPlacedWonderPlots;
+	int iAttempted = 0;
+	int iSpawned = 0;
+	int iSkipped = 0;
+	int iDuplicate = 0;
+	int iError = 0;
+	int iNotSelected = 0;
+
+	for (int iOrderIndex = 0; iOrderIndex < NEUTRAL_WORLD_WONDER_COUNT; ++iOrderIndex)
+	{
+		const int iWonder = aiWonderOrder[iOrderIndex];
+		const NeutralWorldWonderDefinition& kDefinition = g_aNeutralWorldWonderDefinitions[iWonder];
+		if (!abSelectedWonder[iWonder])
+		{
+			++iNotSelected;
+			logNeutralWorldWonder(CvString::format(
+				"[NWW][Wonder] id=%s status=not_selected reason=worldsize_subset candidate_count=0 plot_index=-1 x=-1 y=-1 terrain=NONE area=0 start_dist=-1 wonder_dist=-1 score=0 contributors=settlement:0,area:0,start:0,theme:0,polar_penalty:0,access_penalty:0 duration_ms=0",
+				kDefinition.szLabel));
+			continue;
+		}
+
+		++iAttempted;
+		const unsigned long uiWonderStartMs = timeGetTime();
+
+		if (aeWonderImprovements[iWonder] == NO_IMPROVEMENT)
+		{
+			++iError;
+			logNeutralWorldWonder(CvString::format(
+				"[NWW][Wonder] id=%s status=error reason=missing_improvement_type candidate_count=0 plot_index=-1 x=-1 y=-1 terrain=NONE area=0 start_dist=-1 wonder_dist=-1 score=0 contributors=settlement:0,area:0,start:0,theme:0,polar_penalty:0,access_penalty:0 duration_ms=%lu",
+				kDefinition.szLabel,
+				timeGetTime() - uiWonderStartMs));
+			continue;
+		}
+
+		bool bFoundCandidate = false;
+		int iCandidateCount = 0;
+		NeutralWorldWonderCandidate kBestCandidate;
+
+		for (int iPlotIndex = 0; iPlotIndex < kMap.numPlotsINLINE(); ++iPlotIndex)
+		{
+			CvPlot* pPlot = kMap.plotByIndexINLINE(iPlotIndex);
+			int iNearestStartDistance = -1;
+			int iNearestWonderDistance = -1;
+			if (!isNeutralWorldWonderBaseCandidate(pPlot, aStartingPlots, aPlacedWonderPlots, iNearestStartDistance, iNearestWonderDistance))
+			{
+				continue;
+			}
+
+			if (!matchesNeutralWorldWonderProfile(iWonder, pPlot, eDesert, eGrass, ePlains))
+			{
+				continue;
+			}
+
+			int iViableTiles = 0;
+			const int iSettlementScore = getNeutralWorldWonderSettlementScore(pPlot, eDesert, eGrass, ePlains, iViableTiles);
+			const int iAreaScore = ((pPlot->area()->getNumTiles() > 80 ? 80 : pPlot->area()->getNumTiles()) / 2);
+			const int iStartScore = getNeutralWorldWonderStartDistanceScore(iNearestStartDistance);
+			const int iThemeScore = getNeutralWorldWonderThemeScore(iWonder, pPlot, eDesert, eGrass, ePlains, eFloodPlains, eForest);
+			const int iPolarPenalty = getNeutralWorldWonderPolarPenalty(pPlot);
+			const int iAccessPenalty = getNeutralWorldWonderAccessPenalty(pPlot, iViableTiles);
+			const int iTotalScore = iSettlementScore + iAreaScore + iStartScore + iThemeScore - iPolarPenalty - iAccessPenalty;
+
+			++iCandidateCount;
+
+			if (!bFoundCandidate ||
+				iTotalScore > kBestCandidate.iTotalScore ||
+				(iTotalScore == kBestCandidate.iTotalScore && iPlotIndex < kBestCandidate.iPlotIndex))
+			{
+				bFoundCandidate = true;
+				kBestCandidate.pPlot = pPlot;
+				kBestCandidate.iPlotIndex = iPlotIndex;
+				kBestCandidate.iTotalScore = iTotalScore;
+				kBestCandidate.iSettlementScore = iSettlementScore;
+				kBestCandidate.iAreaScore = iAreaScore;
+				kBestCandidate.iStartScore = iStartScore;
+				kBestCandidate.iThemeScore = iThemeScore;
+				kBestCandidate.iPolarPenalty = iPolarPenalty;
+				kBestCandidate.iAccessPenalty = iAccessPenalty;
+				kBestCandidate.iNearestStartDistance = iNearestStartDistance;
+				kBestCandidate.iNearestWonderDistance = iNearestWonderDistance;
+			}
+		}
+
+		if (!bFoundCandidate || kBestCandidate.pPlot == NULL)
+		{
+			++iSkipped;
+			logNeutralWorldWonder(CvString::format(
+				"[NWW][Wonder] id=%s status=skipped reason=no_candidate candidate_count=%d plot_index=-1 x=-1 y=-1 terrain=NONE area=0 start_dist=-1 wonder_dist=-1 score=0 contributors=settlement:0,area:0,start:0,theme:0,polar_penalty:0,access_penalty:0 duration_ms=%lu",
+				kDefinition.szLabel,
+				iCandidateCount,
+				timeGetTime() - uiWonderStartMs));
+			continue;
+		}
+
+		bool bSpacingConflict = false;
+		for (size_t i = 0; i < aPlacedWonderPlots.size(); ++i)
+		{
+			CvPlot* pPlacedPlot = aPlacedWonderPlots[i];
+			if (pPlacedPlot != NULL &&
+				plotDistance(
+					kBestCandidate.pPlot->getX_INLINE(), kBestCandidate.pPlot->getY_INLINE(),
+					pPlacedPlot->getX_INLINE(), pPlacedPlot->getY_INLINE()) < 8)
+			{
+				bSpacingConflict = true;
+				break;
+			}
+		}
+
+		if (kBestCandidate.pPlot->getImprovementType() != NO_IMPROVEMENT || bSpacingConflict)
+		{
+			++iDuplicate;
+			logNeutralWorldWonder(CvString::format(
+				"[NWW][Wonder] id=%s status=duplicate reason=%s candidate_count=%d plot_index=%d x=%d y=%d terrain=%s area=%d start_dist=%d wonder_dist=%d score=%d contributors=settlement:%d,area:%d,start:%d,theme:%d,polar_penalty:%d,access_penalty:%d duration_ms=%lu",
+				kDefinition.szLabel,
+				(kBestCandidate.pPlot->getImprovementType() != NO_IMPROVEMENT) ? "plot_occupied" : "spacing_conflict",
+				iCandidateCount,
+				kBestCandidate.iPlotIndex,
+				kBestCandidate.pPlot->getX_INLINE(),
+				kBestCandidate.pPlot->getY_INLINE(),
+				getTerrainTypeLabel(kBestCandidate.pPlot),
+				kBestCandidate.pPlot->area()->getNumTiles(),
+				kBestCandidate.iNearestStartDistance,
+				kBestCandidate.iNearestWonderDistance,
+				kBestCandidate.iTotalScore,
+				kBestCandidate.iSettlementScore,
+				kBestCandidate.iAreaScore,
+				kBestCandidate.iStartScore,
+				kBestCandidate.iThemeScore,
+				kBestCandidate.iPolarPenalty,
+				kBestCandidate.iAccessPenalty,
+				timeGetTime() - uiWonderStartMs));
+			continue;
+		}
+
+		kBestCandidate.pPlot->setImprovementType(aeWonderImprovements[iWonder]);
+		aPlacedWonderPlots.push_back(kBestCandidate.pPlot);
+		++iSpawned;
+
+		logNeutralWorldWonder(CvString::format(
+			"[NWW][Wonder] id=%s status=spawned reason=placed candidate_count=%d plot_index=%d x=%d y=%d terrain=%s area=%d start_dist=%d wonder_dist=%d score=%d contributors=settlement:%d,area:%d,start:%d,theme:%d,polar_penalty:%d,access_penalty:%d duration_ms=%lu",
+			kDefinition.szLabel,
+			iCandidateCount,
+			kBestCandidate.iPlotIndex,
+			kBestCandidate.pPlot->getX_INLINE(),
+			kBestCandidate.pPlot->getY_INLINE(),
+			getTerrainTypeLabel(kBestCandidate.pPlot),
+			kBestCandidate.pPlot->area()->getNumTiles(),
+			kBestCandidate.iNearestStartDistance,
+			kBestCandidate.iNearestWonderDistance,
+			kBestCandidate.iTotalScore,
+			kBestCandidate.iSettlementScore,
+			kBestCandidate.iAreaScore,
+			kBestCandidate.iStartScore,
+			kBestCandidate.iThemeScore,
+			kBestCandidate.iPolarPenalty,
+			kBestCandidate.iAccessPenalty,
+			timeGetTime() - uiWonderStartMs));
+	}
+
+	logNeutralWorldWonder(CvString::format(
+		"[NWW][Summary] reason=complete expected=%d attempted=%d spawned=%d skipped=%d duplicate=%d error=%d not_selected=%d duration_ms=%lu",
+		iExpectedCount,
+		iAttempted,
+		iSpawned,
+		iSkipped,
+		iDuplicate,
+		iError,
+		iNotSelected,
+		timeGetTime() - uiStartMs));
+}
 
 void CvGame::regenerateMap()
 {
@@ -8986,4 +9837,3 @@ bool CvGame::pythonIsBonusIgnoreLatitudes() const
 
 	return false;
 }
-

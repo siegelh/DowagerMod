@@ -3229,6 +3229,86 @@
 			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
 		</ArtRef>
 	</LNode>
+	<LNode Name="Node_Dowager_NeutralWonderRotation_4x4">
+		<Width>4</Width>
+		<Height>4</Height>
+	</LNode>
+	<LNode Name="Leaf_Dowager_NeutralWonderRotation_4x4">
+		<Width>4</Width>
+		<Height>4</Height>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<Attribute Class="RegionTest">0NW</Attribute>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_GREAT_SPHINX">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_GREAT_SPHINX</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_ISHTAR_GATE">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ISHTAR_GATE</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_ERECHTHEUM">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ERECHTHEUM</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+	</LNode>
 
 	<!-- *************************************************************************** -->
 	<!-- *************************************************************************** -->
@@ -3318,6 +3398,66 @@
 	</LProduction>
 	<LProduction From="Node_Dowager_GreatPersonRotation_4x4" Name="DowagerGreatPersonRotate315">
 		<To Name="Leaf_Dowager_GreatPersonRotation_4x4">
+			<Rotate>315</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerNeutralWonderRotationRoute1">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_GREAT_SPHINX,IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH,IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_NeutralWonderRotation_4x4"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerNeutralWonderRotationRoute2">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS,IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR,IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_NeutralWonderRotation_4x4"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerNeutralWonderRotationRoute3">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ISHTAR_GATE,IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR,IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR,IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_NeutralWonderRotation_4x4"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerNeutralWonderRotationRoute4">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART,IMPROVEMENT_NEUTRAL_ERECHTHEUM,IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS,IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_NeutralWonderRotation_4x4"/>
+	</LProduction>
+	<LProduction From="Node_Dowager_NeutralWonderRotation_4x4" Name="DowagerNeutralWonderRotate0">
+		<To Name="Leaf_Dowager_NeutralWonderRotation_4x4">
+			<Rotate>0</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_NeutralWonderRotation_4x4" Name="DowagerNeutralWonderRotate45">
+		<To Name="Leaf_Dowager_NeutralWonderRotation_4x4">
+			<Rotate>45</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_NeutralWonderRotation_4x4" Name="DowagerNeutralWonderRotate90">
+		<To Name="Leaf_Dowager_NeutralWonderRotation_4x4">
+			<Rotate>90</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_NeutralWonderRotation_4x4" Name="DowagerNeutralWonderRotate135">
+		<To Name="Leaf_Dowager_NeutralWonderRotation_4x4">
+			<Rotate>135</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_NeutralWonderRotation_4x4" Name="DowagerNeutralWonderRotate180">
+		<To Name="Leaf_Dowager_NeutralWonderRotation_4x4">
+			<Rotate>180</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_NeutralWonderRotation_4x4" Name="DowagerNeutralWonderRotate225">
+		<To Name="Leaf_Dowager_NeutralWonderRotation_4x4">
+			<Rotate>225</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_NeutralWonderRotation_4x4" Name="DowagerNeutralWonderRotate270">
+		<To Name="Leaf_Dowager_NeutralWonderRotation_4x4">
+			<Rotate>270</Rotate>
+		</To>
+	</LProduction>
+	<LProduction From="Node_Dowager_NeutralWonderRotation_4x4" Name="DowagerNeutralWonderRotate315">
+		<To Name="Leaf_Dowager_NeutralWonderRotation_4x4">
 			<Rotate>315</Rotate>
 		</To>
 	</LProduction>

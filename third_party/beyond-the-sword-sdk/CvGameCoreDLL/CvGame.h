@@ -670,6 +670,7 @@ protected:
 	void processVote(const VoteTriggeredData& kData, int iChange);
 
 	int getTeamClosenessScore(int** aaiDistances, int* aiStartingLocs);
+	void placeNeutralWorldWonders();
 	void normalizeStartingPlotLocations();
 	void normalizeAddRiver();
 	void normalizeRemovePeaks();

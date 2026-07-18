@@ -2915,6 +2915,15 @@ public:
 	bool isLandmarkStateReligionGated() const;
 	int getLandmarkStateReligion() const;
 
+	// Neutral world wonder owner modifiers (neutral defaults preserve stock behavior).
+	bool isNeutralWorldWonder() const;
+	int getNeutralWorldWonderCulturePercent() const;
+	int getNeutralWorldWonderResearchPercent() const;
+	int getNeutralWorldWonderGreatPeopleRatePercent() const;
+	int getNeutralWorldWonderMilitaryProductionPercent() const;
+	int getNeutralWorldWonderCivicUpkeepPercent() const;
+	int getNeutralWorldWonderLandUnitExperience() const;
+
 	const TCHAR* getArtDefineTag() const;
 	void setArtDefineTag(const TCHAR* szVal);
 
@@ -3003,6 +3012,14 @@ protected:
 	bool m_bLandmarkRequiresCoastalLand;
 	bool m_bLandmarkStateReligionGated;
 	int m_iLandmarkStateReligion;
+
+	bool m_bNeutralWorldWonder;
+	int m_iNeutralWorldWonderCulturePercent;
+	int m_iNeutralWorldWonderResearchPercent;
+	int m_iNeutralWorldWonderGreatPeopleRatePercent;
+	int m_iNeutralWorldWonderMilitaryProductionPercent;
+	int m_iNeutralWorldWonderCivicUpkeepPercent;
+	int m_iNeutralWorldWonderLandUnitExperience;
 
 	CvString m_szArtDefineTag;
 

@@ -721,6 +721,12 @@ public:
 
 	int getImprovementCount(ImprovementTypes eIndex) const;																						// Exposed to Python
 	void changeImprovementCount(ImprovementTypes eIndex, int iChange);
+	int getNeutralWorldWonderCulturePercent() const;
+	int getNeutralWorldWonderResearchPercent() const;
+	int getNeutralWorldWonderGreatPeopleRatePercent() const;
+	int getNeutralWorldWonderMilitaryProductionPercent() const;
+	int getNeutralWorldWonderCivicUpkeepPercent() const;
+	int getNeutralWorldWonderLandUnitExperience() const;
 
 	int getFreeBuildingCount(BuildingTypes eIndex) const;
 	bool isBuildingFree(BuildingTypes eIndex) const;																									// Exposed to Python

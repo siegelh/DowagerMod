@@ -3348,6 +3348,11 @@ int CvCity::getProductionExperience(UnitTypes eUnit)
 		iExperience += getDomainFreeExperience((DomainTypes)(GC.getUnitInfo(eUnit).getDomainType()));
 
 		iExperience += getSpecialistFreeExperience();
+
+		if (GC.getUnitInfo(eUnit).getDomainType() == DOMAIN_LAND && GC.getUnitInfo(eUnit).getCombat() > 0)
+		{
+			iExperience += GET_PLAYER(getOwnerINLINE()).getNeutralWorldWonderLandUnitExperience();
+		}
 	}
 
 	if (GET_PLAYER(getOwnerINLINE()).getStateReligion() != NO_RELIGION)

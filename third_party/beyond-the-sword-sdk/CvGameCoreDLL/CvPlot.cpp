@@ -28,6 +28,71 @@
 
 #define STANDARD_MINIMAP_ALPHA		(0.6f)
 
+namespace
+{
+	CvWString buildNeutralWorldWonderEffectString(const CvImprovementInfo& kImprovement)
+	{
+		std::vector<CvWString> asEffects;
+
+		if (kImprovement.getNeutralWorldWonderCulturePercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_CULTURE", kImprovement.getNeutralWorldWonderCulturePercent()));
+		}
+
+		if (kImprovement.getNeutralWorldWonderResearchPercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_RESEARCH", kImprovement.getNeutralWorldWonderResearchPercent()));
+		}
+
+		if (kImprovement.getNeutralWorldWonderGreatPeopleRatePercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_GREAT_PEOPLE", kImprovement.getNeutralWorldWonderGreatPeopleRatePercent()));
+		}
+
+		if (kImprovement.getNeutralWorldWonderMilitaryProductionPercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_MILITARY_PRODUCTION", kImprovement.getNeutralWorldWonderMilitaryProductionPercent()));
+		}
+
+		if (kImprovement.getNeutralWorldWonderCivicUpkeepPercent() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_CIVIC_UPKEEP", abs(kImprovement.getNeutralWorldWonderCivicUpkeepPercent())));
+		}
+
+		if (kImprovement.getNeutralWorldWonderLandUnitExperience() != 0)
+		{
+			asEffects.push_back(gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_EFFECT_LAND_UNIT_EXPERIENCE", kImprovement.getNeutralWorldWonderLandUnitExperience()));
+		}
+
+		CvWString szEffects;
+		for (size_t i = 0; i < asEffects.size(); ++i)
+		{
+			if (!szEffects.empty())
+			{
+				szEffects.append(L", ");
+			}
+			szEffects.append(asEffects[i]);
+		}
+
+		return szEffects;
+	}
+
+	void addNeutralWorldWonderMessage(PlayerTypes ePlayer, const CvWString& szMessage, const char* szSound, ColorTypes eColor, const CvImprovementInfo& kImprovement, int iX, int iY)
+	{
+		if (ePlayer == NO_PLAYER)
+		{
+			return;
+		}
+
+		if (!GET_PLAYER(ePlayer).isAlive() || !GET_PLAYER(ePlayer).isHuman())
+		{
+			return;
+		}
+
+		gDLL->getInterfaceIFace()->addMessage(ePlayer, false, GC.getEVENT_MESSAGE_TIME(), szMessage, szSound, MESSAGE_TYPE_MAJOR_EVENT, kImprovement.getButton(), eColor, iX, iY, true, true);
+	}
+}
+
 
 // Public Functions...
 
@@ -4710,6 +4775,20 @@ void CvPlot::setOwner(PlayerTypes eNewValue, bool bCheckUnits, bool bUpdatePlotG
 
 	if (getOwnerINLINE() != eNewValue)
 	{
+		const PlayerTypes eOldOwner = getOwnerINLINE();
+		const ImprovementTypes eNeutralWorldWonder = getImprovementType();
+		const CvImprovementInfo* pkNeutralWorldWonder = NULL;
+		CvWString szNeutralWorldWonderEffects;
+		if (eNeutralWorldWonder != NO_IMPROVEMENT)
+		{
+			const CvImprovementInfo& kImprovement = GC.getImprovementInfo(eNeutralWorldWonder);
+			if (kImprovement.isNeutralWorldWonder() && getPlotCity() == NULL)
+			{
+				pkNeutralWorldWonder = &kImprovement;
+				szNeutralWorldWonderEffects = buildNeutralWorldWonderEffectString(kImprovement);
+			}
+		}
+
 		GC.getGameINLINE().addReplayMessage(REPLAY_MESSAGE_PLOT_OWNER_CHANGE, eNewValue, (char*)NULL, getX_INLINE(), getY_INLINE());
 
 		pOldCity = getPlotCity();
@@ -4898,6 +4977,30 @@ void CvPlot::setOwner(PlayerTypes eNewValue, bool bCheckUnits, bool bUpdatePlotG
 			if (bCheckUnits)
 			{
 				verifyUnitValidPlot();
+			}
+
+			if (pkNeutralWorldWonder != NULL)
+			{
+				const CvWString szWonderName = pkNeutralWorldWonder->getDescription();
+
+				if (eOldOwner == NO_PLAYER)
+				{
+					CvWString szMessage = gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_MESSAGE_CLAIM", szWonderName.GetCString(), getX_INLINE(), getY_INLINE(), szNeutralWorldWonderEffects.GetCString());
+					addNeutralWorldWonderMessage(eNewValue, szMessage, "AS2D_CULTUREEXPANDS", (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), *pkNeutralWorldWonder, getX_INLINE(), getY_INLINE());
+				}
+				else if (eNewValue == NO_PLAYER)
+				{
+					CvWString szMessage = gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_MESSAGE_LOSS", szWonderName.GetCString(), getX_INLINE(), getY_INLINE(), szNeutralWorldWonderEffects.GetCString());
+					addNeutralWorldWonderMessage(eOldOwner, szMessage, "AS2D_CULTUREFLIP", (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), *pkNeutralWorldWonder, getX_INLINE(), getY_INLINE());
+				}
+				else
+				{
+					CvWString szGainMessage = gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_MESSAGE_TRANSFER_GAIN", szWonderName.GetCString(), getX_INLINE(), getY_INLINE(), GET_PLAYER(eOldOwner).getCivilizationDescriptionKey(), szNeutralWorldWonderEffects.GetCString());
+					CvWString szLossMessage = gDLL->getText("TXT_KEY_NEUTRAL_WORLD_WONDER_MESSAGE_TRANSFER_LOSS", szWonderName.GetCString(), getX_INLINE(), getY_INLINE(), GET_PLAYER(eNewValue).getCivilizationDescriptionKey(), szNeutralWorldWonderEffects.GetCString());
+
+					addNeutralWorldWonderMessage(eNewValue, szGainMessage, "AS2D_CULTUREEXPANDS", (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), *pkNeutralWorldWonder, getX_INLINE(), getY_INLINE());
+					addNeutralWorldWonderMessage(eOldOwner, szLossMessage, "AS2D_CULTUREFLIP", (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), *pkNeutralWorldWonder, getX_INLINE(), getY_INLINE());
+				}
 			}
 
 			if (isOwned())
