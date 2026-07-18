@@ -3170,7 +3170,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
-				<iYieldChange>2</iYieldChange>
+				<iYieldChange>7</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>0</bHillsMakesValid>
@@ -3211,7 +3211,7 @@
 			<WorldSoundscapeAudioScript/>
 			<bGraphicalOnly>0</bGraphicalOnly>
 			<bNeutralWorldWonder>1</bNeutralWorldWonder>
-			<iNeutralWorldWonderCulturePercent>10</iNeutralWorldWonderCulturePercent>
+			<iNeutralWorldWonderCulturePercent>20</iNeutralWorldWonderCulturePercent>
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
@@ -3227,7 +3227,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
-				<iYieldChange>2</iYieldChange>
+				<iYieldChange>7</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>0</bHillsMakesValid>
@@ -3277,7 +3277,7 @@
 			<bGraphicalOnly>0</bGraphicalOnly>
 			<bNeutralWorldWonder>1</bNeutralWorldWonder>
 			<iNeutralWorldWonderCulturePercent>0</iNeutralWorldWonderCulturePercent>
-			<iNeutralWorldWonderResearchPercent>10</iNeutralWorldWonderResearchPercent>
+			<iNeutralWorldWonderResearchPercent>20</iNeutralWorldWonderResearchPercent>
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
@@ -3292,7 +3292,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>2</iYieldChange>
-				<iYieldChange>0</iYieldChange>
+				<iYieldChange>5</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>1</bHillsMakesValid>
@@ -3342,7 +3342,7 @@
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
-			<iNeutralWorldWonderLandUnitExperience>1</iNeutralWorldWonderLandUnitExperience>
+			<iNeutralWorldWonderLandUnitExperience>2</iNeutralWorldWonderLandUnitExperience>
 		</ImprovementInfo>
 		<ImprovementInfo>
 			<Type>IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS</Type>
@@ -3353,7 +3353,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>1</iYieldChange>
-				<iYieldChange>1</iYieldChange>
+				<iYieldChange>6</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>1</bHillsMakesValid>
@@ -3402,7 +3402,7 @@
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
-			<iNeutralWorldWonderCivicUpkeepPercent>-10</iNeutralWorldWonderCivicUpkeepPercent>
+			<iNeutralWorldWonderCivicUpkeepPercent>-20</iNeutralWorldWonderCivicUpkeepPercent>
 			<iNeutralWorldWonderLandUnitExperience>0</iNeutralWorldWonderLandUnitExperience>
 		</ImprovementInfo>
 		<ImprovementInfo>
@@ -3414,7 +3414,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
-				<iYieldChange>2</iYieldChange>
+				<iYieldChange>7</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>1</bHillsMakesValid>
@@ -3461,7 +3461,7 @@
 			<bNeutralWorldWonder>1</bNeutralWorldWonder>
 			<iNeutralWorldWonderCulturePercent>0</iNeutralWorldWonderCulturePercent>
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
-			<iNeutralWorldWonderGreatPeopleRatePercent>10</iNeutralWorldWonderGreatPeopleRatePercent>
+			<iNeutralWorldWonderGreatPeopleRatePercent>20</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
 			<iNeutralWorldWonderLandUnitExperience>0</iNeutralWorldWonderLandUnitExperience>
@@ -3475,7 +3475,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>2</iYieldChange>
-				<iYieldChange>0</iYieldChange>
+				<iYieldChange>5</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>1</bHillsMakesValid>
@@ -3523,7 +3523,7 @@
 			<iNeutralWorldWonderCulturePercent>0</iNeutralWorldWonderCulturePercent>
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
-			<iNeutralWorldWonderMilitaryProductionPercent>10</iNeutralWorldWonderMilitaryProductionPercent>
+			<iNeutralWorldWonderMilitaryProductionPercent>20</iNeutralWorldWonderMilitaryProductionPercent>
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
 			<iNeutralWorldWonderLandUnitExperience>0</iNeutralWorldWonderLandUnitExperience>
 		</ImprovementInfo>
@@ -3536,7 +3536,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
-				<iYieldChange>2</iYieldChange>
+				<iYieldChange>7</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>0</bHillsMakesValid>
@@ -3581,7 +3581,7 @@
 			<WorldSoundscapeAudioScript/>
 			<bGraphicalOnly>0</bGraphicalOnly>
 			<bNeutralWorldWonder>1</bNeutralWorldWonder>
-			<iNeutralWorldWonderCulturePercent>10</iNeutralWorldWonderCulturePercent>
+			<iNeutralWorldWonderCulturePercent>20</iNeutralWorldWonderCulturePercent>
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
@@ -3597,7 +3597,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>1</iYieldChange>
-				<iYieldChange>1</iYieldChange>
+				<iYieldChange>6</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>0</bHillsMakesValid>
@@ -3646,7 +3646,7 @@
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
-			<iNeutralWorldWonderCivicUpkeepPercent>-10</iNeutralWorldWonderCivicUpkeepPercent>
+			<iNeutralWorldWonderCivicUpkeepPercent>-20</iNeutralWorldWonderCivicUpkeepPercent>
 			<iNeutralWorldWonderLandUnitExperience>0</iNeutralWorldWonderLandUnitExperience>
 		</ImprovementInfo>
 		<ImprovementInfo>
@@ -3658,7 +3658,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>2</iYieldChange>
-				<iYieldChange>0</iYieldChange>
+				<iYieldChange>5</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>0</bHillsMakesValid>
@@ -3706,7 +3706,7 @@
 			<iNeutralWorldWonderCulturePercent>0</iNeutralWorldWonderCulturePercent>
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
-			<iNeutralWorldWonderMilitaryProductionPercent>10</iNeutralWorldWonderMilitaryProductionPercent>
+			<iNeutralWorldWonderMilitaryProductionPercent>20</iNeutralWorldWonderMilitaryProductionPercent>
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
 			<iNeutralWorldWonderLandUnitExperience>0</iNeutralWorldWonderLandUnitExperience>
 		</ImprovementInfo>
@@ -3719,7 +3719,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
-				<iYieldChange>2</iYieldChange>
+				<iYieldChange>7</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>0</bHillsMakesValid>
@@ -3765,7 +3765,7 @@
 			<bGraphicalOnly>0</bGraphicalOnly>
 			<bNeutralWorldWonder>1</bNeutralWorldWonder>
 			<iNeutralWorldWonderCulturePercent>0</iNeutralWorldWonderCulturePercent>
-			<iNeutralWorldWonderResearchPercent>10</iNeutralWorldWonderResearchPercent>
+			<iNeutralWorldWonderResearchPercent>20</iNeutralWorldWonderResearchPercent>
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
@@ -3780,7 +3780,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>2</iYieldChange>
-				<iYieldChange>0</iYieldChange>
+				<iYieldChange>5</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>0</bHillsMakesValid>
@@ -3834,7 +3834,7 @@
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
-			<iNeutralWorldWonderLandUnitExperience>1</iNeutralWorldWonderLandUnitExperience>
+			<iNeutralWorldWonderLandUnitExperience>2</iNeutralWorldWonderLandUnitExperience>
 		</ImprovementInfo>
 		<ImprovementInfo>
 			<Type>IMPROVEMENT_NEUTRAL_ERECHTHEUM</Type>
@@ -3845,7 +3845,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
-				<iYieldChange>2</iYieldChange>
+				<iYieldChange>7</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>1</bHillsMakesValid>
@@ -3892,7 +3892,7 @@
 			<bNeutralWorldWonder>1</bNeutralWorldWonder>
 			<iNeutralWorldWonderCulturePercent>0</iNeutralWorldWonderCulturePercent>
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
-			<iNeutralWorldWonderGreatPeopleRatePercent>10</iNeutralWorldWonderGreatPeopleRatePercent>
+			<iNeutralWorldWonderGreatPeopleRatePercent>20</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
 			<iNeutralWorldWonderLandUnitExperience>0</iNeutralWorldWonderLandUnitExperience>
@@ -3906,7 +3906,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>1</iYieldChange>
-				<iYieldChange>1</iYieldChange>
+				<iYieldChange>6</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>1</bHillsMakesValid>
@@ -3955,7 +3955,7 @@
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
 			<iNeutralWorldWonderGreatPeopleRatePercent>0</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
-			<iNeutralWorldWonderCivicUpkeepPercent>-10</iNeutralWorldWonderCivicUpkeepPercent>
+			<iNeutralWorldWonderCivicUpkeepPercent>-20</iNeutralWorldWonderCivicUpkeepPercent>
 			<iNeutralWorldWonderLandUnitExperience>0</iNeutralWorldWonderLandUnitExperience>
 		</ImprovementInfo>
 		<ImprovementInfo>
@@ -3967,7 +3967,7 @@
 			<YieldChanges>
 				<iYieldChange>0</iYieldChange>
 				<iYieldChange>0</iYieldChange>
-				<iYieldChange>2</iYieldChange>
+				<iYieldChange>7</iYieldChange>
 			</YieldChanges>
 			<bActsAsCity>0</bActsAsCity>
 			<bHillsMakesValid>1</bHillsMakesValid>
@@ -4014,7 +4014,7 @@
 			<bNeutralWorldWonder>1</bNeutralWorldWonder>
 			<iNeutralWorldWonderCulturePercent>0</iNeutralWorldWonderCulturePercent>
 			<iNeutralWorldWonderResearchPercent>0</iNeutralWorldWonderResearchPercent>
-			<iNeutralWorldWonderGreatPeopleRatePercent>10</iNeutralWorldWonderGreatPeopleRatePercent>
+			<iNeutralWorldWonderGreatPeopleRatePercent>20</iNeutralWorldWonderGreatPeopleRatePercent>
 			<iNeutralWorldWonderMilitaryProductionPercent>0</iNeutralWorldWonderMilitaryProductionPercent>
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
 			<iNeutralWorldWonderLandUnitExperience>0</iNeutralWorldWonderLandUnitExperience>

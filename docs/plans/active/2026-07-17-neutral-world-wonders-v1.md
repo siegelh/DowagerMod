@@ -73,20 +73,20 @@
 
 | Wonder | Placement | Tile yield | Owned benefit |
 |---|---|---:|---|
-| Great Sphinx | Flat Desert; favor river/floodplain proximity | +2 Commerce | +10% city Culture |
-| Library of Nineveh | Riverside flat Grass/Plains/Desert | +2 Commerce | +10% Research |
-| Terracotta Army | Grass/Plains hill or flat; favor hills | +2 Production | +1 XP to new land combat units |
-| Tomb of Cyrus | Inland Desert/Plains hill or flat | +1 Production, +1 Commerce | -10% Civic Upkeep |
-| Pergamon Altar | Grass/Plains hill; favor coast | +2 Commerce | +10% Great Person rate |
-| Sun Tzu's Art of War | Grass/Plains hill; favor Forest/Hills | +2 Production | +10% military-unit Production |
-| Ishtar Gate | Flat Desert/Plains; riverside required | +2 Commerce (+10 Culture) | +10% city Culture |
-| Great Ziggurat of Ur | Flat Desert/Plains; riverside required | +1 Production, +1 Commerce | -10% Civic Upkeep |
-| Ekur of Nippur | Flat Desert/Plains; inland required | +2 Production | +10% military-unit Production |
-| Temple of Thoth | Flat Desert/Plains; riverside required | +2 Commerce (+10 Research) | +10% Research |
-| Temple of Melqart | Flat Grass/Plains/Desert; coastal required | +2 Production | +1 XP to new land combat units |
-| Erechtheum | Grass/Plains hill | +2 Commerce (+10 GPP) | +10% Great Person rate |
-| Labyrinth of Knossos | Grass/Plains, hill or flat; coastal preferred | +1 Production, +1 Commerce | -10% Civic Upkeep |
-| Solomon's Temple | Grass/Plains hill; inland preferred | +2 Commerce (+10 GPP) | +10% Great Person rate |
+| Great Sphinx | Flat Desert; favor river/floodplain proximity | +7 Commerce | +20% city Culture |
+| Library of Nineveh | Riverside flat Grass/Plains/Desert | +7 Commerce | +20% Research |
+| Terracotta Army | Grass/Plains hill or flat; favor hills | +2 Production, +5 Commerce | +2 XP to new land combat units |
+| Tomb of Cyrus | Inland Desert/Plains hill or flat | +1 Production, +6 Commerce | -20% Civic Upkeep |
+| Pergamon Altar | Grass/Plains hill; favor coast | +7 Commerce | +20% Great Person rate |
+| Sun Tzu's Art of War | Grass/Plains hill; favor Forest/Hills | +2 Production, +5 Commerce | +20% military-unit Production |
+| Ishtar Gate | Flat Desert/Plains; riverside required | +7 Commerce | +20% city Culture |
+| Great Ziggurat of Ur | Flat Desert/Plains; riverside required | +1 Production, +6 Commerce | -20% Civic Upkeep |
+| Ekur of Nippur | Flat Desert/Plains; inland required | +2 Production, +5 Commerce | +20% military-unit Production |
+| Temple of Thoth | Flat Desert/Plains; riverside required | +7 Commerce | +20% Research |
+| Temple of Melqart | Flat Grass/Plains/Desert; coastal required | +2 Production, +5 Commerce | +2 XP to new land combat units |
+| Erechtheum | Grass/Plains hill | +7 Commerce | +20% Great Person rate |
+| Labyrinth of Knossos | Grass/Plains, hill or flat; coastal preferred | +1 Production, +6 Commerce | -20% Civic Upkeep |
+| Solomon's Temple | Grass/Plains hill; inland preferred | +7 Commerce | +20% Great Person rate |
 
 Global placement requires unowned non-peak land, area size at least 20, no city,
 feature, improvement, goody, or bonus, plot distance at least 6 from starts,
