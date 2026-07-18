@@ -32,7 +32,16 @@ WONDERS = [
     "TOMB_OF_CYRUS",
     "PERGAMON_ALTAR",
     "SUN_TZU_ART_OF_WAR",
+    "ISHTAR_GATE",
+    "GREAT_ZIGGURAT_OF_UR",
+    "EKUR_OF_NIPPUR",
+    "TEMPLE_OF_THOTH",
+    "TEMPLE_OF_MELQART",
+    "ERECHTHEUM",
+    "LABYRINTH_OF_KNOSSOS",
+    "SOLOMONS_TEMPLE",
 ]
+NEUTRAL_WORLD_WONDER_COUNT = len(WONDERS)
 IMPROVEMENT_TYPES = [f"IMPROVEMENT_NEUTRAL_{name}" for name in WONDERS]
 ART_TYPES = [f"ART_DEF_IMPROVEMENT_NEUTRAL_{name}" for name in WONDERS]
 ROTATION_ANGLES = {"0", "45", "90", "135", "180", "225", "270", "315"}
@@ -52,6 +61,29 @@ EXPECTED_DATA = {
     "TOMB_OF_CYRUS": ([0, 1, 1], [0, 0, 0, 0, -10, 0]),
     "PERGAMON_ALTAR": ([0, 0, 2], [0, 0, 10, 0, 0, 0]),
     "SUN_TZU_ART_OF_WAR": ([0, 2, 0], [0, 0, 0, 10, 0, 0]),
+    "ISHTAR_GATE": ([0, 0, 2], [10, 0, 0, 0, 0, 0]),
+    "GREAT_ZIGGURAT_OF_UR": ([0, 1, 1], [0, 0, 0, 0, -10, 0]),
+    "EKUR_OF_NIPPUR": ([0, 2, 0], [0, 0, 0, 10, 0, 0]),
+    "TEMPLE_OF_THOTH": ([0, 0, 2], [0, 10, 0, 0, 0, 0]),
+    "TEMPLE_OF_MELQART": ([0, 2, 0], [0, 0, 0, 0, 0, 1]),
+    "ERECHTHEUM": ([0, 0, 2], [0, 0, 10, 0, 0, 0]),
+    "LABYRINTH_OF_KNOSSOS": ([0, 1, 1], [0, 0, 0, 0, -10, 0]),
+    "SOLOMONS_TEMPLE": ([0, 0, 2], [0, 0, 10, 0, 0, 0]),
+}
+
+# Original six wonders' XML profile is unconstrained by the new set (flat Desert only,
+# no explicit riverside requirement recorded on the type itself for GREAT_SPHINX etc.);
+# the following table only records the append-only wonders' XML hard-filter flags that
+# the new spawn-engine profile cases (6-13) must mirror.
+APPENDED_PROFILE_FLAGS = {
+    "ISHTAR_GATE": {"bRequiresFlatlands": "1", "bRequiresRiverSide": "1"},
+    "GREAT_ZIGGURAT_OF_UR": {"bRequiresFlatlands": "1", "bRequiresRiverSide": "1"},
+    "EKUR_OF_NIPPUR": {"bRequiresFlatlands": "1", "bRequiresRiverSide": "0"},
+    "TEMPLE_OF_THOTH": {"bRequiresFlatlands": "1", "bRequiresRiverSide": "1"},
+    "TEMPLE_OF_MELQART": {"bRequiresFlatlands": "1", "bRequiresRiverSide": "0"},
+    "ERECHTHEUM": {"bHillsMakesValid": "1", "bRequiresFlatlands": "0"},
+    "LABYRINTH_OF_KNOSSOS": {"bHillsMakesValid": "1", "bRequiresFlatlands": "0"},
+    "SOLOMONS_TEMPLE": {"bHillsMakesValid": "1", "bRequiresFlatlands": "0"},
 }
 
 
@@ -116,7 +148,7 @@ class NeutralWorldWonderDataTests(unittest.TestCase):
             child_text(node, "Type")
             for node in entries(IMPROVEMENTS, "ImprovementInfo")
         ]
-        self.assertEqual(order[-6:], IMPROVEMENT_TYPES)
+        self.assertEqual(order[-NEUTRAL_WORLD_WONDER_COUNT:], IMPROVEMENT_TYPES)
 
     def test_exact_yields_modifiers_and_permanence(self):
         build_text = BUILDS.read_text(encoding="utf-8")
@@ -140,6 +172,8 @@ class NeutralWorldWonderDataTests(unittest.TestCase):
             modifiers = [int(child_text(info, tag, "0")) for tag in MODIFIER_TAGS]
             self.assertEqual((yields, modifiers), EXPECTED_DATA[name])
             self.assertNotIn(f"BUILD_NEUTRAL_{name}", build_text)
+            for flag_tag, expected_value in APPENDED_PROFILE_FLAGS.get(name, {}).items():
+                self.assertEqual(child_text(info, flag_tag), expected_value, (name, flag_tag))
 
     def test_schema_and_cache_are_symmetric(self):
         schema = SCHEMA.read_text(encoding="utf-8")
@@ -184,6 +218,34 @@ class NeutralWorldWonderDataTests(unittest.TestCase):
             self.assertIn(f"{key}_HELP", tags)
             self.assertIn(f"{key}_PEDIA", tags)
 
+    def test_game_option_help_describes_random_subset_of_fourteen(self):
+        node = next(
+            item
+            for item in entries(TEXT, "TEXT")
+            if child_text(item, "Tag") == "TXT_KEY_GAME_OPTION_NEUTRAL_WORLD_WONDERS_HELP"
+        )
+        english = child_text(node, "English")
+        self.assertIn("fourteen", english.lower())
+        self.assertIn("random", english.lower())
+        for language in ("French", "German", "Italian", "Spanish"):
+            self.assertEqual(child_text(node, language), english)
+
+    def test_named_source_text_keys_exist_with_english_fallback_in_all_languages(self):
+        tags = {child_text(node, "Tag"): node for node in entries(TEXT, "TEXT")}
+        for key in (
+            "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_COMMERCE_SOURCE",
+            "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_GREAT_PEOPLE_SOURCE",
+            "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_MILITARY_PRODUCTION_SOURCE",
+            "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_LAND_XP_SOURCE",
+            "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_CIVIC_UPKEEP_SOURCE",
+        ):
+            self.assertIn(key, tags, key)
+            node = tags[key]
+            english = child_text(node, "English")
+            self.assertTrue(english)
+            for language in ("French", "German", "Italian", "Spanish"):
+                self.assertEqual(child_text(node, language), english, key)
+
 
 class NeutralWorldWonderRotationTests(unittest.TestCase):
     def test_exclusive_route_contains_exact_wonder_set(self):
@@ -193,7 +255,7 @@ class NeutralWorldWonderRotationTests(unittest.TestCase):
                 "DowagerNeutralWonderRotationRoute"
             ):
                 routes.append(production)
-        self.assertGreaterEqual(len(routes), 1)
+        self.assertEqual(len(routes), 4)
         routed = set()
         for route in routes:
             improvement_attribute = next(
@@ -203,7 +265,9 @@ class NeutralWorldWonderRotationTests(unittest.TestCase):
             )
             selector = (improvement_attribute.text or "").strip()
             self.assertLessEqual(len(selector), 182)
-            routed.update(selector.split(","))
+            selector_types = selector.split(",")
+            self.assertFalse(routed.intersection(selector_types), route.attrib.get("Name"))
+            routed.update(selector_types)
             self.assertEqual(
                 child(route, "To").attrib.get("Name"),
                 "Node_Dowager_NeutralWonderRotation_4x4",
@@ -224,7 +288,7 @@ class NeutralWorldWonderRotationTests(unittest.TestCase):
             if node.attrib.get("Name") == "Leaf_Dowager_NeutralWonderRotation_4x4"
         )
         refs = children(leaf, "ArtRef")
-        self.assertEqual(len(refs), 6)
+        self.assertEqual(len(refs), NEUTRAL_WORLD_WONDER_COUNT)
         ref_improvements = []
         for ref in refs:
             attributes = children(ref, "Attribute")
@@ -317,6 +381,58 @@ class NeutralWorldWonderNativeTests(unittest.TestCase):
             1,
         )
 
+    def test_wonder_pool_is_fourteen_with_unconditional_full_shuffle(self):
+        # Fisher-Yates has exactly one call site (asserted above) but, because the
+        # loop bound is NEUTRAL_WORLD_WONDER_COUNT - 1 == 13 and the below-standard
+        # gate has been removed, it now performs 13 runtime swap iterations on
+        # every generated map regardless of world size.
+        self.assertIn("NEUTRAL_WORLD_WONDER_COUNT = 14", self.game)
+        self.assertNotIn("isBelowStandardWorldSize", self.game)
+
+        definitions_block = self.game.split(
+            "g_aNeutralWorldWonderDefinitions[NEUTRAL_WORLD_WONDER_COUNT] =", 1
+        )[1].split("};", 1)[0]
+        found_order = re.findall(r'"(IMPROVEMENT_NEUTRAL_[A-Z_]+)"', definitions_block)
+        self.assertEqual(found_order[0::2], IMPROVEMENT_TYPES)
+        self.assertEqual(found_order[1::2], IMPROVEMENT_TYPES)
+
+        spawn = self.game.split("void CvGame::placeNeutralWorldWonders()", 1)[1].split(
+            "\n}", 1
+        )[0]
+        self.assertIn(
+            "for (int iI = 0; iI < NEUTRAL_WORLD_WONDER_COUNT - 1; ++iI)",
+            spawn,
+        )
+        # The shuffle loop must not be nested inside any world-size conditional:
+        # the initialization loop assigning aiWonderOrder[iI] = iI must be the last
+        # thing before the shuffle loop begins, with no intervening "if" gate.
+        between = spawn.split("aiWonderOrder[iI] = iI;", 1)[1].split(
+            "for (int iI = 0; iI < NEUTRAL_WORLD_WONDER_COUNT - 1; ++iI)", 1
+        )[0]
+        self.assertNotIn("if (", between)
+
+    def test_profile_and_theme_hooks_cover_indices_six_through_thirteen(self):
+        profile_block = self.game.split(
+            "bool matchesNeutralWorldWonderProfile(", 1
+        )[1].split("int getNeutralWorldWonderSettlementScore(", 1)[0]
+        for index in range(6, 14):
+            self.assertIn(f"case {index}:", profile_block, index)
+
+        theme_block = self.game.split(
+            "int getNeutralWorldWonderThemeScore(", 1
+        )[1].split("// Public Functions", 1)[0]
+        for index in range(6, 14):
+            self.assertIn(f"case {index}:", theme_block, index)
+
+        for snippet in (
+            "iWonderIndex == 8 && !pPlot->isCoastalLand()",
+            "iWonderIndex == 10 && pPlot->isCoastalLand()",
+            "iWonderIndex == 11 && pPlot->isHills()",
+            "iWonderIndex == 12 && pPlot->isCoastalLand()",
+            "iWonderIndex == 13 && !pPlot->isCoastalLand()",
+        ):
+            self.assertIn(snippet, theme_block, snippet)
+
     def test_hard_filters_spacing_and_reconciliation_logging(self):
         for contract in [
             "pPlot->isOwned()",
@@ -397,6 +513,108 @@ class NeutralWorldWonderNativeTests(unittest.TestCase):
             "GC.getImprovementInfo(pPlot->getImprovementType()).isNeutralWorldWonder()",
             self.player,
         )
+
+    def test_named_source_ui_helper_exists_and_is_read_only(self):
+        helper = self.help.split(
+            "int appendActiveNeutralWorldWonderLines(", 1
+        )[1].split("\n\t}\n", 1)[0]
+        self.assertIn("kImprovement.isNeutralWorldWonder()", helper)
+        self.assertIn("kPlayer.getImprovementCount(eImprovement) <= 0", helper)
+        self.assertIn("(kImprovement.*pGetter)()", helper)
+        self.assertIn("return iAggregate", helper)
+        # Pure read-only enumeration: no map scan, no persisted state, no RNG.
+        self.assertNotIn("getMapRandNum", helper)
+        self.assertNotIn("GC.getMapINLINE()", helper)
+
+    def test_named_source_lines_wired_into_commerce_gpp_military_xp_upkeep(self):
+        for call in (
+            'appendActiveNeutralWorldWonderLines(szBuffer, owner, &CvImprovementInfo::getNeutralWorldWonderCulturePercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_COMMERCE_SOURCE")',
+            'appendActiveNeutralWorldWonderLines(szBuffer, owner, &CvImprovementInfo::getNeutralWorldWonderResearchPercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_COMMERCE_SOURCE")',
+            'appendActiveNeutralWorldWonderLines(szBuffer, owner, &CvImprovementInfo::getNeutralWorldWonderGreatPeopleRatePercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_GREAT_PEOPLE_SOURCE")',
+            'appendActiveNeutralWorldWonderLines(szBuffer, kCityOwner, &CvImprovementInfo::getNeutralWorldWonderMilitaryProductionPercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_MILITARY_PRODUCTION_SOURCE")',
+            'appendActiveNeutralWorldWonderLines(szBuffer, GET_PLAYER(pCity->getOwnerINLINE()), &CvImprovementInfo::getNeutralWorldWonderLandUnitExperience, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_LAND_XP_SOURCE")',
+            'appendActiveNeutralWorldWonderLines(szBuffer, player, &CvImprovementInfo::getNeutralWorldWonderCivicUpkeepPercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_CIVIC_UPKEEP_SOURCE")',
+        ):
+            self.assertIn(call, self.help, call)
+
+    def test_commerce_and_great_people_aggregate_includes_named_source_sum(self):
+        commerce_block = self.help.split(
+            "void CvGameTextMgr::setCommerceHelp(", 1
+        )[1].split("\nvoid CvGameTextMgr::", 1)[0]
+        self.assertIn(
+            "iModifier += appendActiveNeutralWorldWonderLines(szBuffer, owner, &CvImprovementInfo::getNeutralWorldWonderCulturePercent",
+            commerce_block,
+        )
+        self.assertIn(
+            "iModifier += appendActiveNeutralWorldWonderLines(szBuffer, owner, &CvImprovementInfo::getNeutralWorldWonderResearchPercent",
+            commerce_block,
+        )
+
+        gpp_block = self.help.split(
+            "void CvGameTextMgr::parseGreatPeopleHelp(", 1
+        )[1].split("\nvoid CvGameTextMgr::", 1)[0]
+        self.assertIn(
+            "iModifier += appendActiveNeutralWorldWonderLines(szBuffer, owner, &CvImprovementInfo::getNeutralWorldWonderGreatPeopleRatePercent",
+            gpp_block,
+        )
+        self.assertIn(
+            "FAssertMsg(iModGreatPeople == city.getGreatPeopleRate()", gpp_block
+        )
+
+    def test_military_production_help_splits_base_from_named_wonder_lines(self):
+        production_block = self.help.split(
+            "void CvGameTextMgr::setProductionHelp(", 1
+        )[1].split("\nvoid CvGameTextMgr::", 1)[0]
+        self.assertIn(
+            "const int iNeutralWorldWonderMilitaryMod = kCityOwner.getNeutralWorldWonderMilitaryProductionPercent();",
+            production_block,
+        )
+        self.assertIn(
+            "const int iBaseMilitaryMod = iMilitaryMod - iNeutralWorldWonderMilitaryMod;",
+            production_block,
+        )
+        self.assertIn(
+            'appendActiveNeutralWorldWonderLines(szBuffer, kCityOwner, &CvImprovementInfo::getNeutralWorldWonderMilitaryProductionPercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_MILITARY_PRODUCTION_SOURCE")',
+            production_block,
+        )
+        # Full iMilitaryMod (including the wonder contribution, once) still feeds the real
+        # total -- only the *displayed* base line above excludes the wonder contribution.
+        self.assertIn("iBaseModifier += iMilitaryMod;", production_block)
+
+    def test_unit_help_shows_xp_lines_only_for_land_combat_units_with_city(self):
+        for condition in (
+            "pCity != NULL && !bCivilopediaText &&",
+            "(DomainTypes)GC.getUnitInfo(eUnit).getDomainType() == DOMAIN_LAND &&",
+            "GC.getUnitInfo(eUnit).getCombat() > 0",
+        ):
+            self.assertIn(condition, self.help, condition)
+        self.assertIn(
+            'appendActiveNeutralWorldWonderLines(szBuffer, GET_PLAYER(pCity->getOwnerINLINE()), &CvImprovementInfo::getNeutralWorldWonderLandUnitExperience, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_LAND_XP_SOURCE")',
+            self.help,
+        )
+
+    def test_civic_upkeep_help_uses_signed_raw_percent_no_abs(self):
+        upkeep_block = self.help.split(
+            "void CvGameTextMgr::buildFinanceCivicUpkeepString(", 1
+        )[1].split("\nvoid CvGameTextMgr::", 1)[0]
+        self.assertIn(
+            'appendActiveNeutralWorldWonderLines(szBuffer, player, &CvImprovementInfo::getNeutralWorldWonderCivicUpkeepPercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_CIVIC_UPKEEP_SOURCE")',
+            upkeep_block,
+        )
+        self.assertNotIn("abs(", upkeep_block)
+
+    def test_active_source_lines_stack_distinct_wonders_but_not_duplicate_copies(self):
+        helper = self.help.split(
+            "int appendActiveNeutralWorldWonderLines(", 1
+        )[1].split("\n\t}\n", 1)[0]
+        # One iteration per distinct ImprovementInfo, guarded by ownership count, so
+        # duplicate copies of the SAME wonder type collapse to a single aggregated line
+        # while each DISTINCT active wonder type still gets its own separate line.
+        self.assertIn(
+            "for (int iImprovement = 0; iImprovement < GC.getNumImprovementInfos(); ++iImprovement)",
+            helper,
+        )
+        self.assertIn("if (kPlayer.getImprovementCount(eImprovement) <= 0)", helper)
 
 
 if __name__ == "__main__":

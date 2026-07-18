@@ -263,6 +263,48 @@ namespace
 		}
 	}
 
+	typedef int (CvImprovementInfo::*NeutralWorldWonderEffectGetterFn)() const;
+
+	// Enumerates all neutral world wonder ImprovementInfos the given player currently owns at
+	// least one copy of, appends one localized line per active wonder whose effect (per pGetter)
+	// is nonzero, and returns the sum of those effect values. Pure read-only enumeration over
+	// GC ImprovementInfos and player improvement counts; no map scan, no new state, no RNG.
+	int appendActiveNeutralWorldWonderLines(
+		CvWStringBuffer& szBuffer,
+		const CvPlayer& kPlayer,
+		NeutralWorldWonderEffectGetterFn pGetter,
+		const char* pcTextKey)
+	{
+		int iAggregate = 0;
+
+		for (int iImprovement = 0; iImprovement < GC.getNumImprovementInfos(); ++iImprovement)
+		{
+			const ImprovementTypes eImprovement = (ImprovementTypes)iImprovement;
+			const CvImprovementInfo& kImprovement = GC.getImprovementInfo(eImprovement);
+			if (!kImprovement.isNeutralWorldWonder())
+			{
+				continue;
+			}
+
+			if (kPlayer.getImprovementCount(eImprovement) <= 0)
+			{
+				continue;
+			}
+
+			const int iValue = (kImprovement.*pGetter)();
+			if (iValue == 0)
+			{
+				continue;
+			}
+
+			iAggregate += iValue;
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText(pcTextKey, iValue, kImprovement.getDescription()));
+		}
+
+		return iAggregate;
+	}
+
 	void collectProcessingBuildingsForOutput(BonusTypes eBonus, std::vector<int>& aiBuildings)
 	{
 		for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)
@@ -7343,6 +7385,13 @@ void CvGameTextMgr::setUnitHelp(CvWStringBuffer &szBuffer, UnitTypes eUnit, bool
 
 	setBasicUnitHelp(szBuffer, eUnit, bCivilopediaText);
 
+	if (pCity != NULL && !bCivilopediaText &&
+		(DomainTypes)GC.getUnitInfo(eUnit).getDomainType() == DOMAIN_LAND &&
+		GC.getUnitInfo(eUnit).getCombat() > 0)
+	{
+		appendActiveNeutralWorldWonderLines(szBuffer, GET_PLAYER(pCity->getOwnerINLINE()), &CvImprovementInfo::getNeutralWorldWonderLandUnitExperience, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_LAND_XP_SOURCE");
+	}
+
 	if ((pCity == NULL) || !(pCity->canTrain(eUnit)))
 	{
 		if (pCity != NULL)
@@ -12510,6 +12559,7 @@ void CvGameTextMgr::buildFinanceCivicUpkeepString(CvWStringBuffer& szBuffer, Pla
 	}
 
 	szBuffer.append(NEWLINE);
+	appendActiveNeutralWorldWonderLines(szBuffer, player, &CvImprovementInfo::getNeutralWorldWonderCivicUpkeepPercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_CIVIC_UPKEEP_SOURCE");
 	szBuffer.append(gDLL->getText("TXT_KEY_FINANCE_ADVISOR_CIVIC_UPKEEP_COST", szCivicOptionCosts.GetCString(), player.getCivicUpkeep()));
 }
 
@@ -12585,11 +12635,20 @@ void CvGameTextMgr::setProductionHelp(CvWStringBuffer &szBuffer, CvCity& city)
 		// Military
 		if (unit.isMilitaryProduction())
 		{
-			int iMilitaryMod = city.getMilitaryProductionModifier() + GET_PLAYER(city.getOwnerINLINE()).getMilitaryProductionModifier();
+			const CvPlayer& kCityOwner = GET_PLAYER(city.getOwnerINLINE());
+			const int iNeutralWorldWonderMilitaryMod = kCityOwner.getNeutralWorldWonderMilitaryProductionPercent();
+			int iMilitaryMod = city.getMilitaryProductionModifier() + kCityOwner.getMilitaryProductionModifier();
+			const int iBaseMilitaryMod = iMilitaryMod - iNeutralWorldWonderMilitaryMod;
+			if (0 != iBaseMilitaryMod)
+			{
+				szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_PROD_MILITARY", iBaseMilitaryMod));
+				szBuffer.append(NEWLINE);
+			}
+
+			appendActiveNeutralWorldWonderLines(szBuffer, kCityOwner, &CvImprovementInfo::getNeutralWorldWonderMilitaryProductionPercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_MILITARY_PRODUCTION_SOURCE");
+
 			if (0 != iMilitaryMod)
 			{
-				szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_PROD_MILITARY", iMilitaryMod));
-				szBuffer.append(NEWLINE);
 				iBaseModifier += iMilitaryMod;
 			}
 		}
@@ -13097,6 +13156,16 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer &szBuffer, CvCity& city, Com
 		iModifier += iCivicMod;
 	}
 
+	// Neutral world wonders
+	if (eCommerceType == COMMERCE_CULTURE)
+	{
+		iModifier += appendActiveNeutralWorldWonderLines(szBuffer, owner, &CvImprovementInfo::getNeutralWorldWonderCulturePercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_COMMERCE_SOURCE");
+	}
+	else if (eCommerceType == COMMERCE_RESEARCH)
+	{
+		iModifier += appendActiveNeutralWorldWonderLines(szBuffer, owner, &CvImprovementInfo::getNeutralWorldWonderResearchPercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_COMMERCE_SOURCE");
+	}
+
 	int iModYield = (iModifier * iBaseCommerceRate) / 100;
 
 	int iProductionToCommerce = city.getProductionToCommerceModifier(eCommerceType) * city.getYieldRate(YIELD_PRODUCTION);
@@ -13509,6 +13578,9 @@ void CvGameTextMgr::parseGreatPeopleHelp(CvWStringBuffer &szBuffer, CvCity& city
 			}
 		}
 	}
+
+	// Neutral world wonders
+	iModifier += appendActiveNeutralWorldWonderLines(szBuffer, owner, &CvImprovementInfo::getNeutralWorldWonderGreatPeopleRatePercent, "TXT_KEY_NEUTRAL_WORLD_WONDER_HELP_GREAT_PEOPLE_SOURCE");
 
 	if (owner.isGoldenAge())
 	{

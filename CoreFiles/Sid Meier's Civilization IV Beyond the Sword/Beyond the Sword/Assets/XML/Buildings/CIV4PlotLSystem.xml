@@ -3268,6 +3268,46 @@
 			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
 			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
 		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_ISHTAR_GATE">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ISHTAR_GATE</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_ERECHTHEUM">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ERECHTHEUM</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE">
+			<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		</ArtRef>
 	</LNode>
 
 	<!-- *************************************************************************** -->
@@ -3368,6 +3408,16 @@
 	</LProduction>
 	<LProduction From="PLOT_ROOT" Name="DowagerNeutralWonderRotationRoute2">
 		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS,IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR,IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_NeutralWonderRotation_4x4"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerNeutralWonderRotationRoute3">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ISHTAR_GATE,IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR,IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR,IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_NeutralWonderRotation_4x4"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerNeutralWonderRotationRoute4">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART,IMPROVEMENT_NEUTRAL_ERECHTHEUM,IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS,IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE</Attribute>
 		<Attribute Class="Scalar">bNotBFS:1</Attribute>
 		<To Name="Node_Dowager_NeutralWonderRotation_4x4"/>
 	</LProduction>

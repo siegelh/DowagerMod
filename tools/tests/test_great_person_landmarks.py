@@ -49,6 +49,14 @@ NEUTRAL_WORLD_WONDER_TYPES = {
     "IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS",
     "IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR",
     "IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR",
+    "IMPROVEMENT_NEUTRAL_ISHTAR_GATE",
+    "IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR",
+    "IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR",
+    "IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH",
+    "IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART",
+    "IMPROVEMENT_NEUTRAL_ERECHTHEUM",
+    "IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS",
+    "IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE",
 }
 ROTATION_ANGLES = {"0", "45", "90", "135", "180", "225", "270", "315"}
 BASELINE_LSYSTEM_IMPROVEMENTS = {
@@ -199,8 +207,11 @@ class DataOrderTests(unittest.TestCase):
     def test_landmarks_appended_at_end_in_plan_order(self):
         order = type_order(IMPROVEMENTS, "ImprovementInfo")
         expected = [f"IMPROVEMENT_{k}" for k in LANDMARK_ORDER]
-        self.assertEqual(order[-19:-6], expected)
-        self.assertEqual(set(order[-6:]), NEUTRAL_WORLD_WONDER_TYPES)
+        num_wonders = len(NEUTRAL_WORLD_WONDER_TYPES)
+        landmark_start = -(len(LANDMARK_ORDER) + num_wonders)
+        landmark_end = -num_wonders
+        self.assertEqual(order[landmark_start:landmark_end], expected)
+        self.assertEqual(set(order[-num_wonders:]), NEUTRAL_WORLD_WONDER_TYPES)
 
     def test_grand_colosseum_not_moved(self):
         order = type_order(IMPROVEMENTS, "ImprovementInfo")

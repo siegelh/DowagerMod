@@ -33,7 +33,7 @@
 namespace
 {
 	static const char* NEUTRAL_WORLD_WONDER_LOG_FILE = "NeutralWorldWonders.log";
-	static const int NEUTRAL_WORLD_WONDER_COUNT = 6;
+	static const int NEUTRAL_WORLD_WONDER_COUNT = 14;
 
 	struct NeutralWorldWonderDefinition
 	{
@@ -78,7 +78,15 @@ namespace
 		{ "IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY", "IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY" },
 		{ "IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS", "IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS" },
 		{ "IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR", "IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR" },
-		{ "IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR", "IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR" }
+		{ "IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR", "IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR" },
+		{ "IMPROVEMENT_NEUTRAL_ISHTAR_GATE", "IMPROVEMENT_NEUTRAL_ISHTAR_GATE" },
+		{ "IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR", "IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR" },
+		{ "IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR", "IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR" },
+		{ "IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH", "IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH" },
+		{ "IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART", "IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART" },
+		{ "IMPROVEMENT_NEUTRAL_ERECHTHEUM", "IMPROVEMENT_NEUTRAL_ERECHTHEUM" },
+		{ "IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS", "IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS" },
+		{ "IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE", "IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE" }
 	};
 
 	inline int absoluteValue(int iValue)
@@ -111,11 +119,6 @@ namespace
 		default:
 			return 6;
 		}
-	}
-
-	bool isBelowStandardWorldSize(WorldSizeTypes eWorldSize)
-	{
-		return (eWorldSize == WORLDSIZE_DUEL || eWorldSize == WORLDSIZE_TINY || eWorldSize == WORLDSIZE_SMALL);
 	}
 
 	const char* getTerrainTypeLabel(const CvPlot* pPlot)
@@ -248,6 +251,27 @@ namespace
 		case 4:
 			return ((eTerrain == eGrass || eTerrain == ePlains) && pPlot->isHills());
 		case 5:
+			return ((eTerrain == eGrass || eTerrain == ePlains) && pPlot->isHills());
+		case 6:
+			return (pPlot->isFlatlands() && pPlot->isRiverSide() &&
+				(eTerrain == eDesert || eTerrain == ePlains));
+		case 7:
+			return (pPlot->isFlatlands() && pPlot->isRiverSide() &&
+				(eTerrain == eDesert || eTerrain == ePlains));
+		case 8:
+			return ((eTerrain == eDesert || eTerrain == ePlains) &&
+				pPlot->isFlatlands() && !pPlot->isCoastalLand());
+		case 9:
+			return (pPlot->isFlatlands() && pPlot->isRiverSide() &&
+				(eTerrain == eDesert || eTerrain == ePlains));
+		case 10:
+			return ((eTerrain == eGrass || eTerrain == ePlains || eTerrain == eDesert) &&
+				pPlot->isFlatlands() && pPlot->isCoastalLand());
+		case 11:
+			return ((eTerrain == eGrass || eTerrain == ePlains) && pPlot->isHills());
+		case 12:
+			return ((eTerrain == eGrass || eTerrain == ePlains) && (pPlot->isHills() || pPlot->isFlatlands()));
+		case 13:
 			return ((eTerrain == eGrass || eTerrain == ePlains) && pPlot->isHills());
 		default:
 			return false;
@@ -483,6 +507,78 @@ namespace
 						iScore += 4 * iWeight;
 					}
 					break;
+				case 6:
+					if (pLoopPlot->isRiverSide())
+					{
+						iScore += 5 * iWeight;
+					}
+					if (eTerrain == eDesert)
+					{
+						iScore += 3 * iWeight;
+					}
+					break;
+				case 7:
+					if (pLoopPlot->isRiverSide())
+					{
+						iScore += 5 * iWeight;
+					}
+					if (eTerrain == eGrass || eTerrain == ePlains)
+					{
+						iScore += 2 * iWeight;
+					}
+					break;
+				case 8:
+					if (eTerrain == eDesert)
+					{
+						iScore += 4 * iWeight;
+					}
+					else if (eTerrain == ePlains)
+					{
+						iScore += 2 * iWeight;
+					}
+					if (!pLoopPlot->isWater() && !pLoopPlot->isCoastalLand())
+					{
+						iScore += iWeight;
+					}
+					break;
+				case 9:
+					if (pLoopPlot->isRiverSide())
+					{
+						iScore += 5 * iWeight;
+					}
+					if (eTerrain == eDesert || eTerrain == ePlains)
+					{
+						iScore += 2 * iWeight;
+					}
+					break;
+				case 10:
+					if (pLoopPlot->isWater())
+					{
+						iScore += 5 * iWeight;
+					}
+					break;
+				case 11:
+					if (pLoopPlot->isHills())
+					{
+						iScore += 5 * iWeight;
+					}
+					break;
+				case 12:
+					if (pLoopPlot->isWater())
+					{
+						iScore += 3 * iWeight;
+					}
+					break;
+				case 13:
+					if (eTerrain == eDesert)
+					{
+						iScore += 2 * iWeight;
+					}
+					if (!pLoopPlot->isWater() && !pLoopPlot->isCoastalLand())
+					{
+						iScore += iWeight;
+					}
+					break;
 				default:
 					break;
 				}
@@ -500,6 +596,26 @@ namespace
 		else if (iWonderIndex == 3 && !pPlot->isCoastalLand())
 		{
 			iScore += 10;
+		}
+		else if (iWonderIndex == 8 && !pPlot->isCoastalLand())
+		{
+			iScore += 10;
+		}
+		else if (iWonderIndex == 10 && pPlot->isCoastalLand())
+		{
+			iScore += 20;
+		}
+		else if (iWonderIndex == 11 && pPlot->isHills())
+		{
+			iScore += 12;
+		}
+		else if (iWonderIndex == 12 && pPlot->isCoastalLand())
+		{
+			iScore += 10;
+		}
+		else if (iWonderIndex == 13 && !pPlot->isCoastalLand())
+		{
+			iScore += 8;
 		}
 
 		return iScore;
@@ -804,19 +920,22 @@ void CvGame::placeNeutralWorldWonders()
 	const WorldSizeTypes eWorldSize = kMap.getWorldSize();
 	const int iExpectedCount = getNeutralWorldWonderTargetCount(eWorldSize);
 
-	int aiWonderOrder[NEUTRAL_WORLD_WONDER_COUNT] = { 0, 1, 2, 3, 4, 5 };
-	bool abSelectedWonder[NEUTRAL_WORLD_WONDER_COUNT] = { false, false, false, false, false, false };
-	if (isBelowStandardWorldSize(eWorldSize))
+	int aiWonderOrder[NEUTRAL_WORLD_WONDER_COUNT];
+	bool abSelectedWonder[NEUTRAL_WORLD_WONDER_COUNT];
+	for (int iI = 0; iI < NEUTRAL_WORLD_WONDER_COUNT; ++iI)
 	{
-		for (int iI = 0; iI < NEUTRAL_WORLD_WONDER_COUNT - 1; ++iI)
+		aiWonderOrder[iI] = iI;
+		abSelectedWonder[iI] = false;
+	}
+
+	for (int iI = 0; iI < NEUTRAL_WORLD_WONDER_COUNT - 1; ++iI)
+	{
+		const int iSwapIndex = iI + getMapRandNum(NEUTRAL_WORLD_WONDER_COUNT - iI, "Neutral World Wonder Order");
+		if (iSwapIndex != iI)
 		{
-			const int iSwapIndex = iI + getMapRandNum(NEUTRAL_WORLD_WONDER_COUNT - iI, "Neutral World Wonder Order");
-			if (iSwapIndex != iI)
-			{
-				const int iTemp = aiWonderOrder[iI];
-				aiWonderOrder[iI] = aiWonderOrder[iSwapIndex];
-				aiWonderOrder[iSwapIndex] = iTemp;
-			}
+			const int iTemp = aiWonderOrder[iI];
+			aiWonderOrder[iI] = aiWonderOrder[iSwapIndex];
+			aiWonderOrder[iSwapIndex] = iTemp;
 		}
 	}
 
