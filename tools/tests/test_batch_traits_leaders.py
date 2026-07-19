@@ -17,8 +17,10 @@ XML = (
 )
 TRAITS = XML / "Civilizations" / "CIV4TraitInfos.xml"
 LEADERS = XML / "Civilizations" / "CIV4LeaderHeadInfos.xml"
+UNITS = XML / "Units" / "CIV4UnitInfos.xml"
 TEXT = XML / "Text" / "ZZZ_CIV4GameText_BatchTraitsLeaders.xml"
 PETER_TEXT = XML / "Text" / "ZZZ_CIV4GameText_Peter_Overhaul.xml"
+EUROPE_TEXT = XML / "Text" / "ZZZ_CIV4GameText_BatchC_Europe.xml"
 LOCALES = {"English", "French", "German", "Italian", "Spanish"}
 TOKEN_RE = re.compile(r"%%|%(?:\d+\$)?[A-Za-z](?:\d+(?:_[A-Za-z0-9]+)?)?")
 
@@ -161,6 +163,37 @@ class BatchTraitsLeadersTests(unittest.TestCase):
         workshop = keyed_entries(trait, "ImprovementYieldChanges", "ImprovementType")
         self.assertEqual(values(workshop["IMPROVEMENT_WORKSHOP"], "ImprovementYields", "iYield"), [0, 1, 0])
         self.assertIn("IMPROVEMENT_FARM", keyed_entries(trait, "ImprovementTerrainYieldChanges", "ImprovementType"))
+
+    def test_charlemagne_removes_command_and_priest_research_but_retains_worker_penalty(self) -> None:
+        trait = info(TRAITS, "TraitInfo", "TRAIT_CHARLEMAGNE")
+        self.assertEqual(child_text(trait, "iGreatGeneralRateModifier"), "0")
+        self.assertEqual(child_text(trait, "iDomesticGreatGeneralRateModifier"), "0")
+        self.assertEqual(values(trait, "ExtraYieldThresholds", "iExtraYieldThreshold"), [4, 0, 0])
+
+        libraries = keyed_entries(trait, "BuildingCommerceChanges", "BuildingClassType")
+        self.assertEqual(set(libraries), {"BUILDINGCLASS_LIBRARY"})
+        self.assertEqual(
+            values(libraries["BUILDINGCLASS_LIBRARY"], "BuildingCommerces", "iCommerce"),
+            [0, 1, 1, 0],
+        )
+        self.assertEqual(keyed_entries(trait, "SpecialistCommerceChanges", "SpecialistType"), {})
+
+        worker = info(UNITS, "UnitInfo", "UNIT_WORKER")
+        production = keyed_entries(worker, "ProductionTraits", "ProductionTraitType")
+        self.assertEqual(child_text(production["TRAIT_CHARLEMAGNE"], "iProductionTrait"), "-50")
+
+        help_text = info(EUROPE_TEXT, "TEXT", "TXT_KEY_TRAIT_CHARLEMAGNE_HELP", "Tag")
+        translations = {
+            local_name(item.tag): (item.text or "").strip()
+            for item in help_text
+            if local_name(item.tag) != "Tag"
+        }
+        self.assertEqual(set(translations), LOCALES)
+        expected = (
+            "-50% production toward Workers; +1 food on tiles already producing 4 food; "
+            "Libraries produce +1 research and +1 culture."
+        )
+        self.assertEqual(set(translations.values()), {expected})
 
     def test_sitting_bull_restores_trade_yields_and_retains_health(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_SITTING_BULL")
