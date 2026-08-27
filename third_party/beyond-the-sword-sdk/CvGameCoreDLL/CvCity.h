@@ -53,6 +53,11 @@ public:
 	void clearWorkingOverride(int iIndex);														// Exposed to Python
 	int countNumImprovedPlots(ImprovementTypes eImprovement = NO_IMPROVEMENT, bool bPotential = false) const;																			// Exposed to Python
 	int countNumWaterPlots() const;																					// Exposed to Python
+	int countNumWaterPlotsInBFC() const;
+	int getPotentialHarborWaterFood() const;
+	int getHarborWaterFood() const;
+	BuildingTypes getActiveHarborBuilding() const;
+	void updateHarborWaterFood(bool bUpdateCity = true);
 	int countNumRiverPlots() const;																					// Exposed to Python
 
 	int findPopulationRank() const;																					// Exposed to Python
@@ -1034,6 +1039,7 @@ protected:
 	int m_iCitySizeBoost;
 	int m_iSpecialistFreeExperience;
 	int m_iEspionageDefenseModifier;
+	int m_iHarborWaterFood;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;

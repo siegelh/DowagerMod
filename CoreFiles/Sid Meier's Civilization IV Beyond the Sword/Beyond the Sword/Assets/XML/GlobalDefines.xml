@@ -42,6 +42,14 @@
 		<DefineTextVal>IMPROVEMENT_WATER_WORKED</DefineTextVal>
 	</Define>
 	<Define>
+		<DefineName>HARBOR_WATER_FOOD_DIVISOR</DefineName>
+		<iDefineIntVal>2</iDefineIntVal>
+	</Define>
+	<Define>
+		<DefineName>HARBOR_WATER_FOOD_CAP</DefineName>
+		<iDefineIntVal>8</iDefineIntVal>
+	</Define>
+	<Define>
 		<DefineName>RUINS_IMPROVEMENT</DefineName>
 		<DefineTextVal>IMPROVEMENT_CITY_RUINS</DefineTextVal>
 	</Define>

@@ -2801,6 +2801,8 @@ int CvCityAI::AI_buildingValueThreshold(BuildingTypes eBuilding, int iFocusFlags
 	CvPlayerAI& kOwner = GET_PLAYER(getOwnerINLINE());
 	CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
 	BuildingClassTypes eBuildingClass = (BuildingClassTypes) kBuilding.getBuildingClassType();
+	const BuildingClassTypes eHarborClass = (BuildingClassTypes)GC.getInfoTypeForString("BUILDINGCLASS_HARBOR", true);
+	const int iHarborWaterFood = (eBuildingClass == eHarborClass) ? getPotentialHarborWaterFood() : 0;
 	int iLimitedWonderLimit = limitedWonderClassLimit(eBuildingClass);
 	bool bIsLimitedWonder = (iLimitedWonderLimit >= 0);
 
@@ -3536,6 +3538,10 @@ int CvCityAI::AI_buildingValueThreshold(BuildingTypes eBuilding, int iFocusFlags
 					}
 					iTempValue += (kBuilding.getGlobalSeaPlotYieldChange(iI) * kOwner.countNumCoastalCities() * 8);
 					iTempValue += (kBuilding.getYieldChange(iI) * 6);
+					if (iI == YIELD_FOOD)
+					{
+						iTempValue += iHarborWaterFood * 6;
+					}
 					iTempValue += ((kBuilding.getYieldModifier(iI) * getBaseYieldRate((YieldTypes)iI)) / 10);
 					iTempValue += ((kBuilding.getPowerYieldModifier(iI) * getBaseYieldRate((YieldTypes)iI)) / ((bProvidesPower || isPower()) ? 12 : 15));
 					iTempValue += ((kBuilding.getAreaYieldModifier(iI) * iNumCitiesInArea) / 3);
@@ -3591,6 +3597,10 @@ int CvCityAI::AI_buildingValueThreshold(BuildingTypes eBuilding, int iFocusFlags
 				{
 
 					iValue += kBuilding.getFoodKept();
+					if (iHarborWaterFood > 0)
+					{
+						iValue += ((iHarborWaterFood * 4) / std::max(2, iFoodDifference));
+					}
 
 					if (kBuilding.getSeaPlotYieldChange(YIELD_FOOD) > 0)
 					{

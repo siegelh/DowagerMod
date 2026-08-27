@@ -19,6 +19,14 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - confirm the relevant object appears with expected text, costs, prereqs, and effects
 - DLL:
   - confirm the changed mechanic actually resolves in-game, not just in tooltips
+- Harbor water Food:
+  - In fresh cities with 0-1, 2-3, 14-15, and 16-20 water tiles in the full city radius, confirm the projected Harbor help shows +0, +1, +7, and +8 Food respectively
+  - Confirm Coast, Ocean, and lakes count; the city-center plot does not; and unowned, unassigned, and unworked water still counts
+  - Build a normal Harbor, Carthaginian Cothon, and Petrine Admiralty; confirm each adds the exact projected base Food and the city Food breakdown names the active building
+  - Confirm the Cothon's extra Trade Route and the Admiralty's Trade Route, Research, and Culture remain unchanged
+  - Load an existing save containing a Harbor-class building and confirm the bonus appears; create and reload a fresh save and confirm it is not doubled
+  - Observe representative AI coastal cities and confirm they construct Harbor-class buildings sensibly
+  - Load the same setup on two clients and confirm identical Food totals with no OOS
 - UI / HUD / advisors:
   - open the target screen from its real entrypoint and verify input, update, and close behavior
 - Art:

@@ -7694,7 +7694,14 @@ void CvGameTextMgr::setBuildingHelp(CvWStringBuffer &szBuffer, BuildingTypes eBu
 	}
 
 	CvBuildingInfo& kBuilding = GC.getBuildingInfo(eBuilding);
+	const BuildingClassTypes eHarborClass = (BuildingClassTypes)GC.getInfoTypeForString("BUILDINGCLASS_HARBOR", true);
+	const bool bHarbor = ((BuildingClassTypes)kBuilding.getBuildingClassType() == eHarborClass);
 
+	if (bCivilopediaText && bHarbor)
+	{
+		szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_HARBOR_WATER_FOOD"));
+		szBuffer.append(NEWLINE);
+	}
 
 	if (pCity != NULL)
 	{
@@ -7774,6 +7781,21 @@ void CvGameTextMgr::setBuildingHelp(CvWStringBuffer &szBuffer, BuildingTypes eBu
 			}
 		}
 		setYieldChangeHelp(szBuffer, L", ", L"", L"", aiYields, false, false);
+		if (bHarbor)
+		{
+			szBuffer.append(NEWLINE);
+			if (pCity != NULL)
+			{
+				szBuffer.append(gDLL->getText(
+					"TXT_KEY_BUILDING_HARBOR_WATER_FOOD_CITY",
+					pCity->getPotentialHarborWaterFood(),
+					pCity->countNumWaterPlotsInBFC()));
+			}
+			else
+			{
+				szBuffer.append(gDLL->getText("TXT_KEY_BUILDING_HARBOR_WATER_FOOD"));
+			}
+		}
 
 		int aiCommerces[NUM_COMMERCE_TYPES];
 		for (int iI = 0; iI < NUM_COMMERCE_TYPES; ++iI)
@@ -13231,6 +13253,19 @@ void CvGameTextMgr::setYieldHelp(CvWStringBuffer &szBuffer, CvCity& city, YieldT
 	int iBaseProduction = city.getBaseYieldRate(eYieldType);
 	szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_BASE_YIELD", info.getTextKeyWide(), iBaseProduction, info.getChar()));
 	szBuffer.append(NEWLINE);
+	if (eYieldType == YIELD_FOOD && city.getHarborWaterFood() > 0)
+	{
+		const BuildingTypes eHarbor = city.getActiveHarborBuilding();
+		if (eHarbor != NO_BUILDING)
+		{
+			szBuffer.append(gDLL->getText(
+				"TXT_KEY_BUILDING_HARBOR_WATER_FOOD_ACTIVE",
+				GC.getBuildingInfo(eHarbor).getTextKeyWide(),
+				city.getHarborWaterFood(),
+				city.countNumWaterPlotsInBFC()));
+			szBuffer.append(NEWLINE);
+		}
+	}
 
 	int iBaseModifier = 100;
 

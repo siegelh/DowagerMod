@@ -915,6 +915,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iCitySizeBoost = 0;
 	m_iSpecialistFreeExperience = 0;
 	m_iEspionageDefenseModifier = 0;
+	m_iHarborWaterFood = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -1483,6 +1484,10 @@ void CvCity::doTurn()
 
 			iCount += getTradeYield((YieldTypes)iI);
 			iCount += getCorporationYield((YieldTypes)iI);
+			if (iI == YIELD_FOOD)
+			{
+				iCount += getHarborWaterFood();
+			}
 
 			FAssert(iCount == getBaseYieldRate((YieldTypes)iI));
 		}
@@ -2423,6 +2428,76 @@ int CvCity::countNumWaterPlots() const
 	}
 
 	return iCount;
+}
+
+int CvCity::countNumWaterPlotsInBFC() const
+{
+	int iCount = 0;
+
+	for (int iI = 0; iI < NUM_CITY_PLOTS; ++iI)
+	{
+		if (iI == CITY_HOME_PLOT)
+		{
+			continue;
+		}
+
+		CvPlot* pLoopPlot = plotCity(getX_INLINE(), getY_INLINE(), iI);
+		if (pLoopPlot != NULL && pLoopPlot->isWater())
+		{
+			++iCount;
+		}
+	}
+
+	return iCount;
+}
+
+int CvCity::getPotentialHarborWaterFood() const
+{
+	const int iDivisor = std::max(1, GC.getDefineINT("HARBOR_WATER_FOOD_DIVISOR"));
+	const int iCap = std::max(0, GC.getDefineINT("HARBOR_WATER_FOOD_CAP"));
+	return std::min(iCap, countNumWaterPlotsInBFC() / iDivisor);
+}
+
+BuildingTypes CvCity::getActiveHarborBuilding() const
+{
+	const BuildingClassTypes eHarborClass = (BuildingClassTypes)GC.getInfoTypeForString("BUILDINGCLASS_HARBOR", true);
+	if (eHarborClass == NO_BUILDINGCLASS || getCivilizationType() == NO_CIVILIZATION)
+	{
+		return NO_BUILDING;
+	}
+
+	const BuildingTypes eHarbor = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eHarborClass);
+	if (eHarbor == NO_BUILDING || getNumActiveBuilding(eHarbor) <= 0)
+	{
+		return NO_BUILDING;
+	}
+
+	return eHarbor;
+}
+
+int CvCity::getHarborWaterFood() const
+{
+	return m_iHarborWaterFood;
+}
+
+void CvCity::updateHarborWaterFood(bool bUpdateCity)
+{
+	const int iNewValue = (getActiveHarborBuilding() == NO_BUILDING) ? 0 : getPotentialHarborWaterFood();
+	if (m_iHarborWaterFood == iNewValue)
+	{
+		return;
+	}
+
+	m_iHarborWaterFood = iNewValue;
+	FAssert(m_iHarborWaterFood >= 0);
+
+	GET_PLAYER(getOwnerINLINE()).invalidateYieldRankCache(YIELD_FOOD);
+	if (bUpdateCity)
+	{
+		updateCommerce();
+		AI_setAssignWorkDirty(true);
+		setInfoDirty(true);
+	}
 }
 
 int CvCity::countNumRiverPlots() const
@@ -4900,6 +4975,12 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 	}
 
 	updateBuildingCommerce();
+
+	if ((BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType() ==
+		(BuildingClassTypes)GC.getInfoTypeForString("BUILDINGCLASS_HARBOR", true))
+	{
+		updateHarborWaterFood();
+	}
 
 	setLayoutDirty(true);
 }
@@ -8684,7 +8765,7 @@ int CvCity::getBaseYieldRate(YieldTypes eIndex)	const
 {
 	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
 	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex expected to be < NUM_YIELD_TYPES");
-	return m_aiBaseYieldRate[eIndex];
+	return m_aiBaseYieldRate[eIndex] + ((eIndex == YIELD_FOOD) ? getHarborWaterFood() : 0);
 }
 
 
@@ -8733,12 +8814,15 @@ void CvCity::setBaseYieldRate(YieldTypes eIndex, int iNewValue)
 	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
 	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex expected to be < NUM_YIELD_TYPES");
 
-	if (getBaseYieldRate(eIndex) != iNewValue)
+	const int iDerivedValue = (eIndex == YIELD_FOOD) ? getHarborWaterFood() : 0;
+	const int iStoredValue = iNewValue - iDerivedValue;
+
+	if (m_aiBaseYieldRate[eIndex] != iStoredValue)
 	{
 		FAssertMsg(iNewValue >= 0, "iNewValue expected to be >= 0");
-		FAssertMsg(((iNewValue * 100) / 100) >= 0, "((iNewValue * 100) / 100) expected to be >= 0");
+		FAssertMsg(iStoredValue >= 0, "iStoredValue expected to be >= 0");
 
-		m_aiBaseYieldRate[eIndex] = iNewValue;
+		m_aiBaseYieldRate[eIndex] = iStoredValue;
 		FAssert(getYieldRate(eIndex) >= 0);
 
 		updateCommerce();
@@ -13337,6 +13421,7 @@ void CvCity::read(FDataStreamBase* pStream)
 		}
 
 		updateImprovementCityCommerceFromTraitsAndCivics(false);
+		updateHarborWaterFood(false);
 		// Save data already includes industry local-active state and city totals.
 		// Recomputing activation during deserialization can touch not-yet-stable
 		// map/network state and has been linked to save-load crashes.

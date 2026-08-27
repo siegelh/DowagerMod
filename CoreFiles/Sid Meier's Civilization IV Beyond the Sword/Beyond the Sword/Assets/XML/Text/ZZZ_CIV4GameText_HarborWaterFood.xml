@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HARBOR_WATER_FOOD</Tag>
+		<English>[ICON_BULLET]+1 [ICON_FOOD] per 2 water tiles in the city radius (maximum +8 [ICON_FOOD]).</English>
+		<French>[ICON_BULLET]+1 [ICON_FOOD] per 2 water tiles in the city radius (maximum +8 [ICON_FOOD]).</French>
+		<German>[ICON_BULLET]+1 [ICON_FOOD] per 2 water tiles in the city radius (maximum +8 [ICON_FOOD]).</German>
+		<Italian>[ICON_BULLET]+1 [ICON_FOOD] per 2 water tiles in the city radius (maximum +8 [ICON_FOOD]).</Italian>
+		<Spanish>[ICON_BULLET]+1 [ICON_FOOD] per 2 water tiles in the city radius (maximum +8 [ICON_FOOD]).</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HARBOR_WATER_FOOD_CITY</Tag>
+		<English>[ICON_BULLET]This city: +%d1 [ICON_FOOD] from %d2 water tiles (maximum +8 [ICON_FOOD]).</English>
+		<French>[ICON_BULLET]This city: +%d1 [ICON_FOOD] from %d2 water tiles (maximum +8 [ICON_FOOD]).</French>
+		<German>[ICON_BULLET]This city: +%d1 [ICON_FOOD] from %d2 water tiles (maximum +8 [ICON_FOOD]).</German>
+		<Italian>[ICON_BULLET]This city: +%d1 [ICON_FOOD] from %d2 water tiles (maximum +8 [ICON_FOOD]).</Italian>
+		<Spanish>[ICON_BULLET]This city: +%d1 [ICON_FOOD] from %d2 water tiles (maximum +8 [ICON_FOOD]).</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_HARBOR_WATER_FOOD_ACTIVE</Tag>
+		<English>[ICON_BULLET]%s1: +%d2 [ICON_FOOD] from %d3 water tiles.</English>
+		<French>[ICON_BULLET]%s1: +%d2 [ICON_FOOD] from %d3 water tiles.</French>
+		<German>[ICON_BULLET]%s1: +%d2 [ICON_FOOD] from %d3 water tiles.</German>
+		<Italian>[ICON_BULLET]%s1: +%d2 [ICON_FOOD] from %d3 water tiles.</Italian>
+		<Spanish>[ICON_BULLET]%s1: +%d2 [ICON_FOOD] from %d3 water tiles.</Spanish>
+	</TEXT>
+</Civ4GameText>
