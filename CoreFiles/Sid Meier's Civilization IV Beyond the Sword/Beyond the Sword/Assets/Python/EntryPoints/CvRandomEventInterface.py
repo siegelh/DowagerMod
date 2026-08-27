@@ -1789,6 +1789,13 @@ def getHelpImpactCrater2(argsList):
 	return szHelp
 
 
+BARBARIAN_UPRISING_MIN_ELAPSED_TURNS = 50
+
+
+def canTriggerBarbarianUprising():
+	return gc.getGame().getElapsedGameTurns() >= BARBARIAN_UPRISING_MIN_ELAPSED_TURNS
+
+
 ######## THE_HUNS ###########
 
 def canTriggerTheHuns(argsList):
@@ -1798,6 +1805,9 @@ def canTriggerTheHuns(argsList):
 	
 #   If Barbarians are disabled in this game, this event will not occur.
 	if gc.getGame().isOption(GameOptionTypes.GAMEOPTION_NO_BARBARIANS):
+		return false
+
+	if not canTriggerBarbarianUprising():
 		return false
 			
 #   At least one civ on the board must know Horseback Riding.
@@ -1910,6 +1920,9 @@ def canTriggerTheVandals(argsList):
 #   If Barbarians are disabled in this game, this event will not occur.
 	if gc.getGame().isOption(GameOptionTypes.GAMEOPTION_NO_BARBARIANS):
 		return false
+
+	if not canTriggerBarbarianUprising():
+		return false
 			
 #   At least one civ on the board must know Metal Casting.
 	bFoundValid = false
@@ -2020,6 +2033,9 @@ def canTriggerTheGoths(argsList):
 	
 #   If Barbarians are disabled in this game, this event will not occur.
 	if gc.getGame().isOption(GameOptionTypes.GAMEOPTION_NO_BARBARIANS):
+		return false
+
+	if not canTriggerBarbarianUprising():
 		return false
 			
 #   At least one civ on the board must know Mathematics.
@@ -2132,6 +2148,9 @@ def canTriggerThePhilistines(argsList):
 #   If Barbarians are disabled in this game, this event will not occur.
 	if gc.getGame().isOption(GameOptionTypes.GAMEOPTION_NO_BARBARIANS):
 		return false
+
+	if not canTriggerBarbarianUprising():
+		return false
 			
 #   At least one civ on the board must know Monotheism.
 	bFoundValid = false
@@ -2242,6 +2261,9 @@ def canTriggerTheVedicAryans(argsList):
 	
 #   If Barbarians are disabled in this game, this event will not occur.
 	if gc.getGame().isOption(GameOptionTypes.GAMEOPTION_NO_BARBARIANS):
+		return false
+
+	if not canTriggerBarbarianUprising():
 		return false
 			
 #   At least one civ on the board must know Polytheism.
@@ -4119,4 +4141,3 @@ def canTriggerImpeachmentCity(argsList):
 	if city.isCapital():
 		return true
 	return false
-
