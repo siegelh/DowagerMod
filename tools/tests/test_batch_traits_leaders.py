@@ -69,7 +69,7 @@ def flavor_map(node: ET.Element) -> dict[str, int]:
 
 
 class BatchTraitsLeadersTests(unittest.TestCase):
-    def test_washington_restores_all_eight_channels_and_retains_command_and_road(self) -> None:
+    def test_washington_retains_eight_channels_and_command_without_road_commerce(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_GEORGE_WASHINGTON")
         self.assertEqual(child_text(trait, "iGreatGeneralRateModifier"), "50")
         self.assertEqual(child_text(trait, "iDomesticGreatGeneralRateModifier"), "50")
@@ -113,9 +113,28 @@ class BatchTraitsLeadersTests(unittest.TestCase):
             8,
         )
 
-        roads = keyed_entries(trait, "RouteYieldChanges", "RouteType")
-        self.assertEqual(set(roads), {"ROUTE_ROAD"})
-        self.assertEqual(values(roads["ROUTE_ROAD"], "RouteYields", "iYield"), [0, 0, 1])
+        self.assertEqual(keyed_entries(trait, "RouteYieldChanges", "RouteType"), {})
+
+    def test_road_commerce_is_removed_from_all_five_packages(self) -> None:
+        expected_routes = {
+            "TRAIT_GEORGE_WASHINGTON": {},
+            "TRAIT_DARIUS": {},
+            "TRAIT_MANSA_MUSA": {},
+            "TRAIT_SULEIMAN": {},
+            "TRAIT_KUBLAI": {"ROUTE_RAILROAD": [0, 0, 1]},
+        }
+        for trait_name, expected in expected_routes.items():
+            with self.subTest(trait=trait_name):
+                trait = info(TRAITS, "TraitInfo", trait_name)
+                routes = keyed_entries(trait, "RouteYieldChanges", "RouteType")
+                self.assertNotIn("ROUTE_ROAD", routes)
+                self.assertEqual(
+                    {
+                        route_name: values(route, "RouteYields", "iYield")
+                        for route_name, route in routes.items()
+                    },
+                    expected,
+                )
 
     def test_geronimo_uses_frozen_peace_and_limited_war_values(self) -> None:
         leader = info(LEADERS, "LeaderHeadInfo", "LEADER_GERONIMO_BTG")

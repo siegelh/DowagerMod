@@ -292,7 +292,6 @@ class AdditiveRosterExactContractTests(unittest.TestCase):
         self.assert_exact(
             TRAITS,
             "TraitInfo",
-            "TRAIT_GEORGE_WASHINGTON",
             "TRAIT_HAMMURABI",
             "TRAIT_GENGHIS_KAHN",
             "TRAIT_SITTING_BULL",
@@ -352,6 +351,24 @@ class AdditiveRosterExactContractTests(unittest.TestCase):
             "ImprovementInfo",
             "IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG",
         )
+
+    def test_washington_only_removes_baseline_road_commerce(self) -> None:
+        type_name = "TRAIT_GEORGE_WASHINGTON"
+        current, baseline = self.pair(TRAITS, "TraitInfo", type_name)
+        current_routes = child(current, "RouteYieldChanges")
+        baseline_routes = child(baseline, "RouteYieldChanges")
+        self.assertEqual(len(current_routes), 0)
+        self.assertEqual(len(baseline_routes), 1)
+        self.assertEqual(text(baseline_routes[0], "RouteType"), "ROUTE_ROAD")
+        self.assertEqual(
+            [
+                (item.text or "").strip()
+                for item in child(baseline_routes[0], "RouteYields")
+            ],
+            ["0", "0", "1"],
+        )
+        current_routes.append(copy.deepcopy(baseline_routes[0]))
+        self.assert_node_equal(current, baseline, TRAITS, type_name)
 
     def test_venetian_merchant_has_only_approved_build_additions(self) -> None:
         # The Venetian Merchant Prince gains the approved Great Merchant landmark

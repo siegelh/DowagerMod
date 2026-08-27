@@ -57,8 +57,9 @@
 
 ## Restored baseline package contracts
 
-- **Washington:** retain the full baseline trait, including Town, Barracks,
-  Courthouse, Bank, Spy, Merchant, Wheat, Horse, and Road channels.
+- **Washington:** retain the baseline Town, Barracks, Courthouse, Bank, Spy,
+  Merchant, Wheat, and Horse channels; remove the over-scaling Road Commerce
+  channel.
 - **Hammurabi:** retain all baseline Royal Palace yields/commerce and all
   Garden/Courthouse features.
 - **Elizabeth:** retain the full baseline Sea Dog multi-class mapping,

@@ -106,18 +106,18 @@ ideas from any report.
 | Louis XIV / Bourbon France | Court culture, centralized finance, and royal manufactures | Keep Musketeer and Salon; replace Broadcast Tower with Manufacture Royale; rebalance Louis's extreme raw upkeep/GP/gold scalars into culture, Artists, and production | Musketeer KEEP/MODIFY; Salon MODIFY; Broadcast Tower REPLACE; trait REBALANCE |
 | Justinian / Byzantium | Reconquest, law, orthodoxy, and monumental urban culture | Keep Cataphract and Hippodrome; add Corpus Juris courthouse; activate only proven Cataphract combat fields; reduce trait/building maintenance stacking | UU KEEP/MODIFY; Hippodrome KEEP; second UB ADD; trait REBALANCE |
 | Mehmed / Ottoman Conquest | Gunpowder siege and conquest of Constantinople | Keep Janissary and Bombard; replace Hammam with Devshirme Barracks; rewrite trait around unit development and Great Generals | UUs KEEP; UB REPLACE; trait REWRITE |
-| Suleiman / Classical Ottoman | Law, commerce, architecture, and Mediterranean power | Sipahi and Ottoman Galleass; Kulliye aqueduct; road/courthouse commerce in trait | UUs REPLACE; UB MODIFY/RENAME; trait MODIFY |
+| Suleiman / Classical Ottoman | Law, commerce, architecture, and Mediterranean power | Sipahi and Ottoman Galleass; Kulliye aqueduct; trade-route/courthouse commerce in trait, with the over-scaling Road yield removed | UUs REPLACE; UB MODIFY/RENAME; trait MODIFY |
 | Barclay / Federal America | Fictional satirical security bureaucracy | Border Patrol Agent; Federal Bureau; consolidate Protective/Organized/espionage into one bespoke `TRAIT_BARCLAY` | UU REPLACE; UB REPLACE; traits REPLACE |
 | Napoleon / First Empire | Operational mobility, mass armies, and standardized administration | Napoleonic Dragoon using BTG art; Prefecture courthouse; rebuild `TRAIT_GRANDE_ARMEE` around mobility, faster leveling, and positive GG generation without free Leadership on every unit | Musketeer REPLACE; French UBs REPLACE; trait REWRITE |
 | Brennus / Gaulic Confederation | War league, mercenary shock infantry, druids, and oppida economy | Gaesatae; Nemeton courthouse/temple hybrid; retain pillage identity and add Priest/culture support | Gallic Warrior REPLACE; Dun REPLACE; trait MODIFY |
 | Boudica / Iceni Britain | Chariot-led anti-occupation revolt | Boudiccan Chariot using the female Celtic chariot package; Iceni Hall; mounted Shock/withdrawal identity | Gallic Warrior REPLACE; Dun REPLACE; trait MODIFY |
 | Charlemagne / Carolingian Empire | Frontier marches, Frankish warfare, and scriptoria | Frankish Axethrower using the dormant Frank package; Scriptorium; retain expansion/scriptoria identity without excessive Great General or Priest-research stacking | Landsknecht REPLACE; Rathaus REPLACE; trait MODIFY |
 | Cyrus / Founding Achaemenid | Mobile coalition, tolerance, and imperial foundation | Keep/tune Immortal; Pasargadae Decree monument using Tomb of Cyrus/Cylinder art; replace raw GG focus with happiness, culture, and mounted mobility | UU MODIFY; UB REPLACE; trait REWRITE |
-| Darius / Imperial Achaemenid | Satrapies, Royal Road, taxation, and standardization | Takabara spearman; keep Satrapy Archive exclusively; road/trade/Merchant trait | Immortal REPLACE; UB KEEP; trait REWRITE |
+| Darius / Imperial Achaemenid | Satrapies, Royal Road, taxation, and standardization | Takabara spearman; keep Satrapy Archive exclusively; trade/Merchant trait, with the over-scaling Road yield removed | Immortal REPLACE; UB KEEP; trait REWRITE |
 | Frederick / Prussia | Disciplined mobile army plus Enlightenment administration | Zieten Hussar; Prussian Academy; keep strong GP/upkeep core with only modest toleration polish | Panzer REPLACE; Assembly Plant REPLACE; trait KEEP/MINOR MODIFY |
 | Julius Caesar / Late Republic | Fast campaigning, siege engineering, and veteran legions | BTG Legionary; Castrum barracks; keep March-centered trait but balance its stacking | Praetorian REPLACE; Forum REPLACE; trait KEEP |
 | Augustus / Principate | Veteran settlement, infrastructure, and stable imperial administration | Defensive Praetorian; Colonia granary; shift some GG budget into the already-supported building-production field | UU MODIFY; Forum REPLACE; trait MODIFY |
-| Mansa Musa / Mali | Gold, caravan taxation, and scholarly commerce | Keep Skirmisher, Mint, and Mali Market; fill blank trait with gold-resource, road, and Merchant value | UUs/UBs KEEP; trait FILL |
+| Mansa Musa / Mali | Gold, caravan taxation, and scholarly commerce | Keep Skirmisher, Mint, and Mali Market; fill blank trait with gold-resource and Merchant value, without the over-scaling Road yield | UUs/UBs KEEP; trait FILL |
 | FDR / New Deal America | Public works converted into wartime production | Marine Raider; Federal Relief Depot; extend Roosevelt trait through Engineer production and civic culture | Navy SEAL REPLACE; Mall REPLACE; trait MODIFY |
 | Hatshepsut / Eighteenth Dynasty | Peaceful building program and Punt trade | Preserve Sphinx system; split shared entries into Royal Expedition Chariot and Karnak Obelisk; add AI weight only through existing XML fields | Shared UU/UB REPLACE with dedicated variants; trait KEEP |
 | Ramesses / New Kingdom | Kadesh chariot warfare and monumental kingship | Battle Chariot and Temple of Ramesses; fill blank trait with chariot promotion, Engineer production, and supported building-production bonus | Shared UU/UB REPLACE with dedicated variants; trait FILL |
@@ -177,7 +177,7 @@ not depend on them.
 
 4. **Batch B: Near East empires**
    - Arabia, Mehmed, Suleiman, Cyrus, Darius.
-   - Validate Galleass animation closure and road/trade trait tooltips.
+   - Validate Galleass animation closure and trade trait tooltips.
 
 5. **Batch C: Europe**
    - Louis, Napoleon, Charlemagne, Frederick, Victoria, Dowager.

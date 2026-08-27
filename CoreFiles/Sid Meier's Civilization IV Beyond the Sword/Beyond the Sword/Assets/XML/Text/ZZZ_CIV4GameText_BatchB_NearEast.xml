@@ -218,11 +218,11 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_SULEIMAN_HELP</Tag>
-    <English>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</English>
-    <French>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</French>
-    <German>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</German>
-    <Italian>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</Italian>
-    <Spanish>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Roads yield +1 Commerce. Courthouses provide +1 Gold and +1 Culture.</Spanish>
+    <English>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Courthouses provide +1 Gold and +1 Culture.</English>
+    <French>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Courthouses provide +1 Gold and +1 Culture.</French>
+    <German>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Courthouses provide +1 Gold and +1 Culture.</German>
+    <Italian>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Courthouses provide +1 Gold and +1 Culture.</Italian>
+    <Spanish>+25% Great People generation and +1 Culture per city. +15% Commerce from trade routes. Courthouses provide +1 Gold and +1 Culture.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_CYRUS</Tag>
@@ -266,10 +266,10 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_DARIUS_HELP</Tag>
-    <English>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</English>
-    <French>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</French>
-    <German>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</German>
-    <Italian>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</Italian>
-    <Spanish>+25% Commerce from trade routes. Roads yield +1 Commerce. Merchants produce +1 Gold.</Spanish>
+    <English>+25% Commerce from trade routes. Merchants produce +1 Gold.</English>
+    <French>+25% Commerce from trade routes. Merchants produce +1 Gold.</French>
+    <German>+25% Commerce from trade routes. Merchants produce +1 Gold.</German>
+    <Italian>+25% Commerce from trade routes. Merchants produce +1 Gold.</Italian>
+    <Spanish>+25% Commerce from trade routes. Merchants produce +1 Gold.</Spanish>
   </TEXT>
 </Civ4GameText>

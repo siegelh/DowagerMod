@@ -20,7 +20,7 @@ baseline. The recent 27 remain comparison context only.
 
 | Package | Approved disposition |
 |---|---|
-| Washington | Restore and retain the complete baseline package; no last-pass removals. |
+| Washington | Retain the restored baseline package except for the over-scaling Road Commerce channel, which is removed. |
 | Geronimo | Retain the baseline package plus the approved AI/personality adjustment. |
 | Hammurabi | Restore and retain the complete baseline Palace and package; no yield or commerce reductions. |
 | Elizabeth | Restore and retain all baseline Sea Dog class mappings and package features. |
