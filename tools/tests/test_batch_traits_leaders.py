@@ -69,6 +69,24 @@ def flavor_map(node: ET.Element) -> dict[str, int]:
 
 
 class BatchTraitsLeadersTests(unittest.TestCase):
+    def test_louis_uses_fifty_percent_culture_and_matching_help(self) -> None:
+        trait = info(TRAITS, "TraitInfo", "TRAIT_LOUIS")
+        self.assertEqual(
+            values(trait, "CommerceModifiers", "iCommerce"),
+            [0, 0, 50, 0],
+        )
+
+        help_text = info(EUROPE_TEXT, "TEXT", "TXT_KEY_TRAIT_LOUIS_HELP", "Tag")
+        translations = {
+            local_name(item.tag): (item.text or "").strip()
+            for item in help_text
+            if local_name(item.tag) != "Tag"
+        }
+        self.assertEqual(set(translations), LOCALES)
+        for value in translations.values():
+            self.assertIn("+50% culture", value)
+            self.assertNotIn("+20% culture", value)
+
     def test_washington_retains_eight_channels_and_command_without_road_commerce(self) -> None:
         trait = info(TRAITS, "TraitInfo", "TRAIT_GEORGE_WASHINGTON")
         self.assertEqual(child_text(trait, "iGreatGeneralRateModifier"), "50")

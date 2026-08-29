@@ -89,6 +89,27 @@ class BuildingBatchTests(unittest.TestCase):
         self.assertEqual(values(lubyanka, "CommerceChanges"), [0, 0, 0, 50])
         self.assertEqual(values(lubyanka, "CommerceModifiers"), [0, 0, 0, 100])
 
+    def test_manufacture_royale_uses_forge_timing_and_free_artist(self) -> None:
+        node = self.by_type["BUILDING_MANUFACTURE_ROYALE"]
+        self.assertEqual(text(node, "PrereqTech"), "TECH_METAL_CASTING")
+        self.assertEqual(
+            [
+                (text(slot, "SpecialistType"), text(slot, "iSpecialistCount"))
+                for slot in child(node, "SpecialistCounts")
+            ],
+            [("SPECIALIST_ENGINEER", "1")],
+        )
+        self.assertEqual(
+            [
+                (
+                    text(specialist, "SpecialistType"),
+                    text(specialist, "iFreeSpecialistCount"),
+                )
+                for specialist in child(node, "FreeSpecialistCounts")
+            ],
+            [("SPECIALIST_ARTIST", "1")],
+        )
+
     def test_doge_palace_original_budget_is_preserved(self) -> None:
         node = self.by_type["BUILDING_VENETIAN_DOGE_PALACE"]
         actual = {

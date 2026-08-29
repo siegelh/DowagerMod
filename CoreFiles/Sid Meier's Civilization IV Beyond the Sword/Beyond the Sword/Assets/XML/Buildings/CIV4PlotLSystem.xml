@@ -3158,6 +3158,12 @@
 		<Height>4</Height>
 		<Attribute Class="Scalar">bNotBFS:1</Attribute>
 		<Attribute Class="RegionTest">0NW</Attribute>
+		<ArtRef Name="goal:IMPROVEMENT_JAPAN_CASTLE_TOWN">
+			<Attribute Class="Improvement">IMPROVEMENT_JAPAN_CASTLE_TOWN</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+			<Scale>0.75</Scale>
+		</ArtRef>
 		<ArtRef Name="goal:IMPROVEMENT_GRAND_COLOSSEUM_BTG">
 			<Attribute Class="Improvement">IMPROVEMENT_GRAND_COLOSSEUM_BTG</Attribute>
 			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
@@ -3182,11 +3188,13 @@
 			<Attribute Class="Improvement">IMPROVEMENT_COMMERCIAL_DISTRICT_BTG</Attribute>
 			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
 			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+			<Scale>0.50</Scale>
 		</ArtRef>
 		<ArtRef Name="goal:IMPROVEMENT_GRAND_BAZAAR_BTG">
 			<Attribute Class="Improvement">IMPROVEMENT_GRAND_BAZAAR_BTG</Attribute>
 			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
 			<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+			<Scale>0.50</Scale>
 		</ArtRef>
 		<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_NONE_BTG">
 			<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_NONE_BTG</Attribute>
@@ -3338,8 +3346,13 @@
 		<To Name="Node_12x12"/>
 	</LProduction>
 	<LProduction From="PLOT_ROOT">
-		<Attribute Class="Improvement">IMPROVEMENT_TERRAFORMED_TERRAIN,IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG,IMPROVEMENT_EGYPT_SPHINX,IMPROVEMENT_JAPAN_CASTLE_TOWN,IMPROVEMENT_PERSIA_ROYAL_STATION</Attribute>
+		<Attribute Class="Improvement">IMPROVEMENT_TERRAFORMED_TERRAIN,IMPROVEMENT_POLYNESIA_REEF_WORKS_BTG,IMPROVEMENT_EGYPT_SPHINX,IMPROVEMENT_PERSIA_ROYAL_STATION</Attribute>
 		<To Name="Node_12x12"/>
+	</LProduction>
+	<LProduction From="PLOT_ROOT" Name="DowagerJokamachiRotationRoute">
+		<Attribute Class="Improvement">IMPROVEMENT_JAPAN_CASTLE_TOWN</Attribute>
+		<Attribute Class="Scalar">bNotBFS:1</Attribute>
+		<To Name="Node_Dowager_GreatPersonRotation_4x4"/>
 	</LProduction>
 	<LProduction From="PLOT_ROOT" Name="DowagerGreatPersonRotationRoute1">
 		<Attribute Class="Improvement">IMPROVEMENT_GRAND_COLOSSEUM_BTG,IMPROVEMENT_INDUSTRIAL_ZONE_BTG,IMPROVEMENT_NAVAL_FOUNDRY_BTG,IMPROVEMENT_RESEARCH_CAMPUS_BTG,IMPROVEMENT_COMMERCIAL_DISTRICT_BTG</Attribute>

@@ -42,6 +42,12 @@ LANDMARK_ORDER = [
     "SACRED_GROVE_TAOISM_BTG",
 ]
 ROTATION_LANDMARK_ORDER = ["GRAND_COLOSSEUM_BTG", *LANDMARK_ORDER]
+JOKAMACHI_KEY = "JAPAN_CASTLE_TOWN"
+JOKAMACHI_TYPE = f"IMPROVEMENT_{JOKAMACHI_KEY}"
+SHARED_ROTATION_IMPROVEMENT_KEYS = [
+    *ROTATION_LANDMARK_ORDER,
+    JOKAMACHI_KEY,
+]
 NEUTRAL_WORLD_WONDER_TYPES = {
     "IMPROVEMENT_NEUTRAL_GREAT_SPHINX",
     "IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH",
@@ -95,6 +101,10 @@ SMALL_MERCHANT_LANDMARKS = {
     "COMMERCIAL_DISTRICT_BTG",
     "GRAND_BAZAAR_BTG",
 }
+JOKAMACHI_NIF = (
+    "Art/Caveman2Cosmos/art/structures/improvements/fort/"
+    "asian_fort_himeji/himeji.nif"
+)
 
 # key -> (ltype, group, mindist, cityadj, noadj, coastal, relgated, religion)
 # Min plot distance was tightened from 4 to 3 for every non-Commercial-District
@@ -376,7 +386,7 @@ class ArtTests(unittest.TestCase):
         for k in LANDMARK_ORDER:
             art = find_entry(ART, "ImprovementArtInfo", f"ART_DEF_IMPROVEMENT_{k}")
             self.assertIsNotNone(art, k)
-            expected_scale = "0.10" if k in SMALL_MERCHANT_LANDMARKS else "0.65"
+            expected_scale = "0.50" if k in SMALL_MERCHANT_LANDMARKS else "0.65"
             self.assertEqual(child_text(art, "fScale"), expected_scale, k)
 
     def test_new_landmarks_keep_full_interface_scale(self):
@@ -394,6 +404,17 @@ class ArtTests(unittest.TestCase):
             child_text(art, "NIF"),
             "Art/Structures/Buildings/Colosseum/Colosseum.nif",
         )
+
+    def test_jokamachi_uses_reduced_fixed_map_scale(self):
+        art = find_entry(
+            ART,
+            "ImprovementArtInfo",
+            "ART_DEF_IMPROVEMENT_JAPAN_CASTLE_TOWN",
+        )
+        self.assertIsNotNone(art)
+        self.assertEqual(child_text(art, "fScale"), "0.75")
+        self.assertEqual(child_text(art, "fInterfaceScale"), "1.0")
+        self.assertEqual(child_text(art, "NIF"), JOKAMACHI_NIF)
 
 
 class LandmarkRotationTests(unittest.TestCase):
@@ -436,21 +457,36 @@ class LandmarkRotationTests(unittest.TestCase):
         self.assertEqual(
             enabled,
             BASELINE_LSYSTEM_IMPROVEMENTS
-            | {f"IMPROVEMENT_{key}" for key in ROTATION_LANDMARK_ORDER}
+            | {
+                f"IMPROVEMENT_{key}"
+                for key in SHARED_ROTATION_IMPROVEMENT_KEYS
+            }
             | NEUTRAL_WORLD_WONDER_TYPES,
         )
+
+    def test_jokamachi_enables_lsystem_rendering(self):
+        info = find_entry(
+            IMPROVEMENTS,
+            "ImprovementInfo",
+            JOKAMACHI_TYPE,
+        )
+        self.assertIsNotNone(info)
+        self.assertEqual(child_text(info, "bUseLSystem"), "1")
 
     def test_rotation_leaf_has_one_original_artdefine_goal_per_landmark(self):
         leaf = self.nodes["Leaf_Dowager_GreatPersonRotation_4x4"]
         art_refs = [
             child for child in leaf if local_name(child.tag) == "ArtRef"
         ]
-        self.assertEqual(len(art_refs), len(ROTATION_LANDMARK_ORDER))
+        self.assertEqual(
+            len(art_refs),
+            len(SHARED_ROTATION_IMPROVEMENT_KEYS),
+        )
         self.assertEqual(
             {art_ref.attrib["Name"] for art_ref in art_refs},
             {
                 f"goal:IMPROVEMENT_{key}"
-                for key in ROTATION_LANDMARK_ORDER
+                for key in SHARED_ROTATION_IMPROVEMENT_KEYS
             },
         )
         for art_ref in art_refs:
@@ -476,14 +512,47 @@ class LandmarkRotationTests(unittest.TestCase):
                 {"bIsPartOfImprovement:1", "bApplyRotation:1"},
                 improvement,
             )
-            self.assertFalse(
-                {
-                    local_name(child.tag)
-                    for child in art_ref
-                    if local_name(child.tag) in {"Scale", "Rotate", "Translate"}
-                },
-                improvement,
+            transforms = [
+                child
+                for child in art_ref
+                if local_name(child.tag) in {"Scale", "Rotate", "Translate"}
+            ]
+            key = improvement.removeprefix("IMPROVEMENT_")
+            if key in SMALL_MERCHANT_LANDMARKS:
+                self.assertEqual(
+                    [(local_name(child.tag), (child.text or "").strip()) for child in transforms],
+                    [("Scale", "0.50")],
+                    improvement,
+                )
+            elif key == JOKAMACHI_KEY:
+                self.assertEqual(
+                    [
+                        (local_name(child.tag), (child.text or "").strip())
+                        for child in transforms
+                    ],
+                    [("Scale", "0.75")],
+                    improvement,
+                )
+            else:
+                self.assertFalse(transforms, improvement)
+
+    def test_only_calibrated_improvements_have_lsystem_scale_overrides(self):
+        leaf = self.nodes["Leaf_Dowager_GreatPersonRotation_4x4"]
+        scaled = {
+            art_ref.attrib["Name"].removeprefix("goal:IMPROVEMENT_"): child_text(
+                art_ref, "Scale"
             )
+            for art_ref in leaf
+            if local_name(art_ref.tag) == "ArtRef"
+            and find_child(art_ref, "Scale") is not None
+        }
+        self.assertEqual(
+            scaled,
+            {
+                **{key: "0.50" for key in SMALL_MERCHANT_LANDMARKS},
+                JOKAMACHI_KEY: "0.75",
+            },
+        )
 
     def test_rotation_hub_has_exact_eight_angles(self):
         productions = [
@@ -493,7 +562,7 @@ class LandmarkRotationTests(unittest.TestCase):
             == "Node_Dowager_GreatPersonRotation_4x4"
         ]
         self.assertEqual(len(productions), 8)
-        angles = set()
+        angles = []
         for production in productions:
             destinations = [
                 child
@@ -505,8 +574,9 @@ class LandmarkRotationTests(unittest.TestCase):
                 destinations[0].attrib.get("Name"),
                 "Leaf_Dowager_GreatPersonRotation_4x4",
             )
-            angles.add(child_text(destinations[0], "Rotate"))
-        self.assertEqual(angles, ROTATION_ANGLES)
+            angles.append(child_text(destinations[0], "Rotate"))
+        self.assertEqual(set(angles), ROTATION_ANGLES)
+        self.assertEqual(len(angles), len(set(angles)))
 
     def test_each_landmark_has_one_exclusive_root_route(self):
         root_productions = [
@@ -533,10 +603,35 @@ class LandmarkRotationTests(unittest.TestCase):
                 improvement,
             )
 
+    def test_jokamachi_has_one_dedicated_exclusive_root_route(self):
+        root_productions = [
+            production
+            for production in self.productions
+            if production.attrib.get("From") == "PLOT_ROOT"
+        ]
+        matches = [
+            production
+            for production in root_productions
+            if self.production_matches(production, JOKAMACHI_TYPE)
+        ]
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(
+            self.improvement_selector(matches[0]),
+            [JOKAMACHI_TYPE],
+        )
+        self.assertEqual(
+            [
+                child.attrib.get("Name")
+                for child in matches[0]
+                if local_name(child.tag) == "To"
+            ],
+            ["Node_Dowager_GreatPersonRotation_4x4"],
+        )
+
     def test_non_landmarks_retain_baseline_generic_root_routing(self):
         landmark_types = {
             f"IMPROVEMENT_{key}" for key in ROTATION_LANDMARK_ORDER
-        } | NEUTRAL_WORLD_WONDER_TYPES
+        } | {JOKAMACHI_TYPE} | NEUTRAL_WORLD_WONDER_TYPES
         root_productions = [
             production
             for production in self.productions
