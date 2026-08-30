@@ -27,6 +27,7 @@ CoreFiles/build/
 .build_venv/
 build.log
 tmp/**
+tools/flags/review-output/**
 .env
 !.env.example
 !**/.env.example

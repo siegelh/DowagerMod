@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Washington Banner of Arms</title>
+  <desc>Banner of the attested Washington arms: argent, two bars and in chief three mullets gules.</desc>
+
+  <rect width="1024" height="1024" fill="#F4F0E6"/>
+  <rect y="356" width="1024" height="132" fill="#A6192E"/>
+  <rect y="650" width="1024" height="132" fill="#A6192E"/>
+    <polygon points="240.00,96.00 262.92,158.45 329.40,160.95 277.09,202.05 295.25,266.05 240.00,229.00 184.75,266.05 202.91,202.05 150.60,160.95 217.08,158.45" fill="#A6192E"/>
+  <polygon points="512.00,96.00 534.92,158.45 601.40,160.95 549.09,202.05 567.25,266.05 512.00,229.00 456.75,266.05 474.91,202.05 422.60,160.95 489.08,158.45" fill="#A6192E"/>
+  <polygon points="784.00,96.00 806.92,158.45 873.40,160.95 821.09,202.05 839.25,266.05 784.00,229.00 728.75,266.05 746.91,202.05 694.60,160.95 761.08,158.45" fill="#A6192E"/>
+
+</svg>

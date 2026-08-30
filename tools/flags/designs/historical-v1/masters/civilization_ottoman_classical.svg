@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="agedGold" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#f0cf79"/><stop offset=".35" stop-color="#c8932e"/>
+ <stop offset=".7" stop-color="#e4b953"/><stop offset="1" stop-color="#9d6922"/>
+</linearGradient>
+<linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#e5d7b6"/><stop offset=".55" stop-color="#cdbb94"/>
+ <stop offset="1" stop-color="#ad966f"/>
+</linearGradient>
+<linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#b97b3c"/><stop offset=".45" stop-color="#744020"/>
+ <stop offset="1" stop-color="#c29150"/>
+</linearGradient>
+<pattern id="patina" width="53" height="47" patternUnits="userSpaceOnUse">
+ <path d="M4 12 l16 -3 M31 37 l15 2 M45 8 l5 11 M11 31 l8 9" stroke="#20150f" stroke-width="2" opacity=".13"/>
+ <circle cx="28" cy="18" r="2" fill="#f8e9b7" opacity=".13"/>
+</pattern>
+<pattern id="chisel" width="29" height="31" patternUnits="userSpaceOnUse">
+ <path d="M2 6 L12 4 M18 15 L27 13 M5 25 L15 22" stroke="#6d573c" stroke-width="1.5" opacity=".18"/>
+</pattern>
+<pattern id="papyrus" width="43" height="47" patternUnits="userSpaceOnUse">
+ <path d="M0 8 H43 M0 28 H43" stroke="#8c7250" stroke-width="1" opacity=".12"/>
+ <path d="M9 0 V47 M32 0 V47" stroke="#fff2ca" stroke-width="1" opacity=".1"/>
+</pattern>
+</defs><rect width="1024" height="1024" fill="#e1cfaa"/>
+<rect x="24" y="24" width="976" height="976" fill="url(#stone)" stroke="#163e70" stroke-width="11"/>
+<rect x="64" y="64" width="896" height="896" fill="#173e72" stroke="#c99a32" stroke-width="8"/>
+<g fill="#d0a039" stroke="#6f3a2d" stroke-width="3" stroke-linejoin="round">
+ <path d="M197 696 C270 610 374 576 473 616 C582 661 668 699 793 603
+ C743 701 644 732 543 695 C421 650 324 648 197 746 Z"/>
+ <path d="M181 755 C315 696 421 718 531 780 C634 838 735 821 837 728
+ C780 838 664 873 548 830 C415 780 305 775 181 810 Z"/>
+ <path d="M304 588 C236 503 273 395 382 364 C460 342 532 379 548 446
+ C560 502 521 542 465 519 C411 496 399 434 436 379
+ C355 414 341 481 392 527 C433 565 492 571 553 540
+ C492 601 392 627 304 588 Z"/>
+ <path d="M430 601 C499 485 595 442 690 466 C778 488 815 555 768 620
+ C784 559 744 516 681 510 C597 503 530 548 486 619 Z"/>
+ <!-- four tughs -->
+ <path d="M384 575 C348 430 352 281 384 115 L420 115 C399 290 406 432 442 570 Z"/>
+ <path d="M465 559 C438 397 447 245 483 93 L519 96 C490 259 494 404 521 557 Z"/>
+ <path d="M548 560 C536 397 556 243 604 108 L638 118 C594 264 583 410 595 568 Z"/>
+ <path d="M634 578 C643 427 684 286 750 172 L780 190 C718 314 681 445 672 590 Z"/>
+ <path d="M248 830 C384 860 534 889 678 865 C755 852 811 822 848 783
+ C810 854 747 895 664 909 C516 929 366 891 248 852 Z"/>
+</g>
+<g fill="none" stroke="#f1dfad" stroke-width="5" opacity=".9">
+ <path d="M220 690 Q359 602 486 650 Q647 711 784 618"/>
+ <path d="M207 756 Q351 706 529 792 Q699 870 821 740"/>
+ <path d="M316 577 Q399 497 535 526 M445 599 Q583 465 760 596"/>
+</g>
+<g fill="#a94438" stroke="#d0a039" stroke-width="4">
+ <path d="M149 274 C209 208 282 215 328 283 C254 265 199 300 157 375 C170 323 164 294 149 274 Z"/>
+ <path d="M871 274 C811 208 738 215 692 283 C766 265 821 300 863 375 C850 323 856 294 871 274 Z"/>
+ <circle cx="160" cy="465" r="20"/><circle cx="860" cy="465" r="20"/>
+</g>
+<path d="M98 99 H926 V925 H98 Z" fill="none" stroke="#d0a039" stroke-width="7"/>
+<rect x="24" y="24" width="976" height="976" fill="url(#papyrus)"/>
+</svg>

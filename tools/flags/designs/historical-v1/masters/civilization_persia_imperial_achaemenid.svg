@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="agedGold" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#f0cf79"/><stop offset=".35" stop-color="#c8932e"/>
+ <stop offset=".7" stop-color="#e4b953"/><stop offset="1" stop-color="#9d6922"/>
+</linearGradient>
+<linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#e5d7b6"/><stop offset=".55" stop-color="#cdbb94"/>
+ <stop offset="1" stop-color="#ad966f"/>
+</linearGradient>
+<linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#b97b3c"/><stop offset=".45" stop-color="#744020"/>
+ <stop offset="1" stop-color="#c29150"/>
+</linearGradient>
+<pattern id="patina" width="53" height="47" patternUnits="userSpaceOnUse">
+ <path d="M4 12 l16 -3 M31 37 l15 2 M45 8 l5 11 M11 31 l8 9" stroke="#20150f" stroke-width="2" opacity=".13"/>
+ <circle cx="28" cy="18" r="2" fill="#f8e9b7" opacity=".13"/>
+</pattern>
+<pattern id="chisel" width="29" height="31" patternUnits="userSpaceOnUse">
+ <path d="M2 6 L12 4 M18 15 L27 13 M5 25 L15 22" stroke="#6d573c" stroke-width="1.5" opacity=".18"/>
+</pattern>
+<pattern id="papyrus" width="43" height="47" patternUnits="userSpaceOnUse">
+ <path d="M0 8 H43 M0 28 H43" stroke="#8c7250" stroke-width="1" opacity=".12"/>
+ <path d="M9 0 V47 M32 0 V47" stroke="#fff2ca" stroke-width="1" opacity=".1"/>
+</pattern>
+</defs><rect width="1024" height="1024" fill="#56304f"/>
+<ellipse cx="512" cy="520" rx="468" ry="402" fill="#c5ad7b" stroke="#2e2330" stroke-width="11"/>
+<ellipse cx="512" cy="520" rx="441" ry="374" fill="url(#stone)" stroke="#70513c" stroke-width="5"/>
+<g fill="#72523d" stroke="#30252d" stroke-width="5" stroke-linejoin="round">
+ <!-- two naturalistic horses -->
+ <path d="M156 553 C117 481 131 394 194 356 C247 324 309 347 338 402
+ L378 503 C348 536 291 553 232 548 Z"/>
+ <path d="M247 535 C212 460 234 379 301 348 C355 323 413 350 435 409
+ L458 509 C418 537 354 548 297 539 Z"/>
+ <path d="M188 365 L145 300 L164 385 L105 351 L166 420 Z"/>
+ <path d="M305 354 L280 286 L283 373 L229 329 L286 411 Z"/>
+ <path d="M176 538 L142 724 L174 727 L222 550 Z M274 539 L255 737 L289 738 L320 546 Z"/>
+ <path d="M346 532 L339 728 L371 727 L393 526 Z M425 514 L451 710 L482 704 L456 503 Z"/>
+ <!-- lion -->
+ <path d="M751 544 C806 501 874 511 914 561 C955 612 939 684 884 710
+ C927 748 915 817 859 844 L801 760 L744 846 L692 812 L735 689 L650 603 Z"/>
+ <path d="M861 548 Q929 476 951 394 Q975 492 921 567 Z"/>
+ <path d="M739 689 L672 797 L699 811 L771 720 Z M820 701 L848 824 L878 813 L856 694 Z"/>
+</g>
+<g fill="none" stroke="#30252d" stroke-width="5" stroke-linecap="round">
+ <path d="M151 442 Q230 404 326 439 M247 419 Q332 384 425 425"/>
+ <path d="M190 381 Q217 356 246 374 M309 369 Q338 345 368 366"/>
+ <path d="M197 558 Q168 650 160 720 M294 552 Q272 652 271 731
+          M364 542 Q348 642 355 720 M435 525 Q445 624 466 700"/>
+ <path d="M743 594 Q802 548 875 579 M760 627 Q824 591 899 625"/>
+</g>
+<!-- chariot with fine spokes -->
+<g fill="none" stroke="#30252d" stroke-width="7">
+ <path d="M397 513 H650 L623 665 H425 Z"/>
+ <circle cx="438" cy="703" r="82"/><circle cx="612" cy="703" r="82"/>
+ <path d="M438 621 V785 M356 703 H520 M380 645 L496 761 M380 761 L496 645
+          M612 621 V785 M530 703 H694 M554 645 L670 761 M554 761 L670 645"/>
+</g>
+<!-- king and bow -->
+<g fill="#6f503b" stroke="#30252d" stroke-width="5">
+ <path d="M439 514 L444 368 L501 328 L557 369 L566 516 Z"/>
+ <path d="M466 329 L468 260 L503 230 L538 257 L532 328 Z"/>
+ <path d="M466 265 L492 207 L536 247 L566 227 L541 281 Z"/>
+</g>
+<g fill="none" stroke="#30252d" stroke-width="7" stroke-linecap="round">
+ <path d="M500 380 L598 428 M499 384 L416 451"/>
+ <path d="M555 397 Q676 306 773 424"/>
+ <path d="M598 428 L770 424 M754 408 L778 425 L751 443"/>
+</g>
+<!-- winged disk -->
+<g fill="#75543d" stroke="#30252d" stroke-width="5">
+ <ellipse cx="520" cy="179" rx="68" ry="31"/>
+ <path d="M454 179 C367 122 273 129 190 169 C296 166 375 207 457 236 Z"/>
+ <path d="M586 179 C673 122 767 129 850 169 C744 166 665 207 583 236 Z"/>
+</g>
+<g fill="none" stroke="#d4c199" stroke-width="3">
+ <path d="M443 168 Q343 142 236 163 M448 190 Q348 172 246 191 M452 211 Q361 200 275 218
+          M597 168 Q697 142 804 163 M592 190 Q692 172 794 191 M588 211 Q679 200 765 218"/>
+</g>
+<path d="M103 862 H921" stroke="#70513c" stroke-width="9"/>
+<ellipse cx="512" cy="520" rx="441" ry="374" fill="url(#chisel)"/>
+</svg>

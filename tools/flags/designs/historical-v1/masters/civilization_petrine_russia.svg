@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" color-interpolation="sRGB">
+  <title>Peter I white-blue-red merchant tricolor</title>
+  <desc>Public-domain Petrine tricolor adapted from its rectangular flag format into square UV space.</desc>
+
+  <rect width="1024" height="342" fill="#FFFFFF"/>
+  <rect y="342" width="1024" height="341" fill="#1C57A5"/>
+  <rect y="683" width="1024" height="341" fill="#C92A2A"/>
+  <rect x="20" y="20" width="984" height="984" fill="none" stroke="#D8D3C7" stroke-width="10"/>
+
+</svg>

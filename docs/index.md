@@ -43,6 +43,7 @@
 - [`GLYPH_DIAGNOSTICS.md`](GLYPH_DIAGNOSTICS.md) - `Current`. In-game and offline `GameFont` glyph triage workflow.
 - [`CIV4_UNIT_ART_CRASH_PLAYBOOK.md`](CIV4_UNIT_ART_CRASH_PLAYBOOK.md) - `Current`. Art/XML crash triage workflow.
 - [`INDUSTRY_ICON_PIPELINE.md`](INDUSTRY_ICON_PIPELINE.md) - `Current`. Live icon pipeline reference for industry buttons and `GameFont` glyph usage.
+- [`FLAG_PIPELINE.md`](FLAG_PIPELINE.md) - `Current`. Versioned civilization flag masters, provenance, deterministic fixed-color DXT3 generation, review, validation, and original-design recovery.
 - [`CHATTER_OVERVIEW.md`](CHATTER_OVERVIEW.md) - `Current`. Design overview for the AI Leader Chatter feature (Azure Foundry sidecar + game-side hooks).
 - [`CHATTER_RUNBOOK.md`](CHATTER_RUNBOOK.md) - `Current`. Operator runbook for the chatter sidecar (setup, run, troubleshoot).
 
@@ -56,6 +57,7 @@
 - [`plans/active/2026-03-12-symphony-worktree-cleanup.md`](plans/active/2026-03-12-symphony-worktree-cleanup.md) - `Current active plan`. Conservative cleanup flow for merged/completed Symphony worktrees.
 - [`plans/active/2026-03-13-symphony-squad-integration.md`](plans/active/2026-03-13-symphony-squad-integration.md) - `Current active plan`. Squad roles, GitHub-facing job routing, observability, and human workflow for Symphony.
 - [`plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md`](plans/active/2026-03-19-symphony-auto-cleanup-merged-closed.md) - `Current active plan`. Auto-prune clean Symphony worktrees only after merged PR plus closed issue.
+- [`plans/active/2026-08-30-versioned-historical-flags.md`](plans/active/2026-08-30-versioned-historical-flags.md) - `Current active plan`. Repository-owned historical flag pipeline, source/history preservation, production adoption, and two-commit delivery.
 - [`plans/active/2026-08-26-harbor-water-food.md`](plans/active/2026-08-26-harbor-water-food.md) - `Implemented; gameplay validation pending`. Class-based Harbor Food from full-BFC water tiles, including Cothon and Admiralty inheritance.
 - [`plans/active/2026-07-14-current-release-status.md`](plans/active/2026-07-14-current-release-status.md) - `Current status`. Consolidated landed-commit inventory, remaining manual gates, and explicitly outstanding era-peak audit.
 - [`plans/active/2026-07-14-loading-screen-modernization.md`](plans/active/2026-07-14-loading-screen-modernization.md) - `Implemented; visual validation pending`. Sol Patch loading art and preserved custom Dowager/Barclay home scene.

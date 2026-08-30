@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Sitting Bull Seated-Bison Name Glyph</title>
+  <desc>Economical nineteenth-century ledger-style bison linework with seated anatomy, restrained pencil color, and no ceremonial additions.</desc>
+
+  <rect width="1024" height="1024" fill="#DED2B5"/>
+  <path d="M34 77 C244 61 788 65 991 84 M40 949 C318 965 736 958 985 941"
+        stroke="#9A8768" stroke-width="8" fill="none" opacity=".45"/>
+  <path d="M70 110 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 156 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 202 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 248 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 294 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 340 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 386 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 432 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 478 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 524 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 570 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 616 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 662 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 708 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 754 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 800 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 846 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 892 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <path d="M70 938 H954" stroke="#8EA5AE" stroke-width="2" opacity=".18"/>
+  <g fill="none" stroke="#332F2A" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M250 449
+             C274 416 297 390 327 374
+             C351 303 413 266 488 270
+             C573 274 640 310 691 373
+             C728 418 746 471 738 526
+             C730 581 703 625 662 649
+             C633 666 610 682 599 711
+             C567 697 542 680 522 655
+             C480 676 433 681 389 671
+             C352 662 329 644 312 617
+             C292 584 287 544 298 500
+             C278 493 259 475 250 449 Z"
+          stroke-width="10"/>
+    <path d="M328 374 C305 355 279 347 252 352 C224 358 205 375 190 400
+             C215 393 235 398 251 412 C224 413 204 425 188 447
+             C213 442 235 447 255 461"
+          stroke-width="9"/>
+    <path d="M202 391 C171 374 150 351 143 321 C170 337 195 341 222 334"
+          stroke-width="8"/>
+    <path d="M239 356 C247 326 264 302 289 287 C284 319 289 342 305 365"
+          stroke-width="8"/>
+    <path d="M191 414 C169 413 149 420 133 434" stroke-width="7"/>
+    <path d="M218 441 C237 448 251 447 265 439" stroke-width="6"/>
+    <circle cx="224" cy="398" r="4" fill="#332F2A" stroke="none"/>
+    <path d="M306 614 C289 665 279 715 283 761 C285 790 276 812 256 831"
+          stroke-width="10"/>
+    <path d="M389 671 C378 710 379 747 392 776 C401 796 398 814 386 831"
+          stroke-width="10"/>
+    <path d="M522 655 C539 696 543 733 535 766 C530 788 536 806 552 820"
+          stroke-width="10"/>
+    <path d="M599 711 C637 714 670 701 694 675 C704 716 723 747 753 768"
+          stroke-width="9"/>
+    <path d="M738 518 C782 512 819 526 844 554 C809 544 779 552 752 574"
+          stroke-width="8"/>
+    <path d="M256 831 l-24 3 M386 831 l-25 3 M552 820 l24 3 M753 768 l23 5"
+          stroke-width="7"/>
+    <path d="M313 382 C345 362 380 350 417 349 M319 402 C359 379 398 370 438 371
+             M330 423 C371 401 413 393 455 396 M352 444 C393 426 434 422 477 427"
+          stroke-width="7" opacity=".8"/>
+  </g>
+  <path d="M342.6 439.3 l-24.3 58.7" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M356.7 439.0 l-32.7 59.6" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M372.1 438.8 l-21.5 86.1" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M381.4 422.4 l-33.4 55.0" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M394.4 427.4 l-33.5 56.0" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M406.7 417.9 l-33.1 57.0" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M413.7 414.6 l-21.1 88.1" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M432.0 414.1 l-28.9 87.5" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M438.8 416.5 l-32.1 54.5" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M455.6 406.1 l-18.3 53.9" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M462.2 400.1 l-31.6 76.4" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M479.7 413.9 l-20.5 46.8" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M488.4 411.5 l-24.8 87.7" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M497.6 410.9 l-32.9 63.5" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M514.3 409.5 l-25.3 49.2" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M521.8 404.4 l-24.2 72.3" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M535.5 413.5 l-22.4 62.9" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M545.1 414.5 l-32.6 63.7" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M564.0 407.0 l-25.9 75.5" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M576.9 413.4 l-31.3 69.3" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M585.4 418.0 l-19.5 73.3" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M595.3 410.1 l-32.7 68.5" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M607.8 428.4 l-19.9 61.8" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M622.9 417.8 l-33.9 77.4" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M632.1 437.1 l-32.4 54.5" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M646.5 439.0 l-29.4 52.3" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M654.6 444.7 l-32.4 48.3" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M666.8 447.3 l-30.2 62.3" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>  <path d="M679.1 451.5 l-20.8 63.2" stroke="#8C3D32" stroke-width="4.5" opacity=".52"/>
+  <path d="M327 374 C371 300 486 286 593 323" fill="none" stroke="#282622" stroke-width="15" opacity=".72"/>
+  <path d="M255 461 C282 474 298 489 306 510" fill="none" stroke="#1E55A0" stroke-width="5" opacity=".65"/>
+  <path d="M738 526 C727 579 702 616 662 649" fill="none" stroke="#B59B27" stroke-width="5" opacity=".55"/>
+  <path d="M84 888 C291 880 730 887 936 873" stroke="#8C3D32" stroke-width="8" fill="none" opacity=".55"/>
+
+</svg>

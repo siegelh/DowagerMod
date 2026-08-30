@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="agedGold" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#f0cf79"/><stop offset=".35" stop-color="#c8932e"/>
+ <stop offset=".7" stop-color="#e4b953"/><stop offset="1" stop-color="#9d6922"/>
+</linearGradient>
+<linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#e5d7b6"/><stop offset=".55" stop-color="#cdbb94"/>
+ <stop offset="1" stop-color="#ad966f"/>
+</linearGradient>
+<linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#b97b3c"/><stop offset=".45" stop-color="#744020"/>
+ <stop offset="1" stop-color="#c29150"/>
+</linearGradient>
+<pattern id="patina" width="53" height="47" patternUnits="userSpaceOnUse">
+ <path d="M4 12 l16 -3 M31 37 l15 2 M45 8 l5 11 M11 31 l8 9" stroke="#20150f" stroke-width="2" opacity=".13"/>
+ <circle cx="28" cy="18" r="2" fill="#f8e9b7" opacity=".13"/>
+</pattern>
+<pattern id="chisel" width="29" height="31" patternUnits="userSpaceOnUse">
+ <path d="M2 6 L12 4 M18 15 L27 13 M5 25 L15 22" stroke="#6d573c" stroke-width="1.5" opacity=".18"/>
+</pattern>
+<pattern id="papyrus" width="43" height="47" patternUnits="userSpaceOnUse">
+ <path d="M0 8 H43 M0 28 H43" stroke="#8c7250" stroke-width="1" opacity=".12"/>
+ <path d="M9 0 V47 M32 0 V47" stroke="#fff2ca" stroke-width="1" opacity=".1"/>
+</pattern>
+</defs><rect width="1024" height="1024" fill="#cfbd92"/>
+<rect x="27" y="27" width="970" height="970" fill="url(#stone)" stroke="#2b756f" stroke-width="10"/>
+<path d="M57 107 H967 M57 920 H967" stroke="#a13f2e" stroke-width="19" stroke-dasharray="34 14"/>
+<g stroke="#623b25" stroke-width="6" stroke-linejoin="round">
+ <!-- white crown and head -->
+ <path d="M324 305 C329 198 374 108 423 90 C468 128 479 211 460 304 Z" fill="#eee2c4"/>
+ <path d="M315 299 C365 270 431 271 470 304 L464 382 L499 420 L459 451
+          L450 527 Q408 568 350 536 L317 464 Z" fill="#a95636"/>
+ <path d="M464 382 L529 412 L467 429 Z" fill="#a95636"/>
+ <path d="M349 537 C376 558 421 567 450 527 L483 650 L456 844 H266
+          L291 655 Z" fill="#a95636"/>
+ <!-- false beard -->
+ <path d="M454 482 L490 506 L475 619 L448 590 Z" fill="#206d78"/>
+ <!-- rear arm and forward arm -->
+ <path d="M304 595 C244 650 205 727 192 819 L226 827 C254 746 291 687 335 652 Z" fill="#a95636"/>
+ <path d="M437 590 C518 620 581 673 628 755 L598 777 C545 706 490 668 420 648 Z" fill="#a95636"/>
+ <!-- kilt -->
+ <path d="M288 647 L456 647 L503 842 H250 Z" fill="#eee2c4"/>
+ <path d="M299 664 H447 M287 704 H458 M275 747 H470 M264 792 H483" fill="none" stroke="#d1a42f" stroke-width="8"/>
+</g>
+<!-- canonical eye and facial detail -->
+<path d="M372 345 Q410 320 447 347 Q409 369 372 345 Z" fill="#eee2c4" stroke="#623b25" stroke-width="5"/>
+<circle cx="411" cy="346" r="8" fill="#173f52"/>
+<path d="M350 393 Q404 407 459 381 M352 466 Q403 484 450 464" fill="none" stroke="#623b25" stroke-width="5"/>
+<!-- broad collar -->
+<g fill="none" stroke-width="10"><path d="M317 541 Q386 602 467 550" stroke="#d3a52e"/>
+<path d="M311 559 Q389 626 474 570" stroke="#2b817b"/><path d="M307 579 Q390 646 480 590" stroke="#a13f2e"/></g>
+<!-- cartouche and glyphs -->
+<rect x="652" y="197" width="239" height="616" rx="116" fill="#e8dbb8" stroke="#d2a42d" stroke-width="16"/>
+<line x1="681" y1="777" x2="862" y2="777" stroke="#d2a42d" stroke-width="11"/>
+<circle cx="772" cy="302" r="45" fill="#d2a42d" stroke="#9e3d2d" stroke-width="6"/>
+<path d="M752 364 C727 425 732 507 757 562 L772 526 L787 562 C812 507 817 425 792 364 Z"
+ fill="#2b817b" stroke="#9e3d2d" stroke-width="6"/>
+<path d="M772 385 V548" stroke="#d2a42d" stroke-width="7"/>
+<g fill="none" stroke="#9e3d2d" stroke-width="15" stroke-linecap="round">
+ <path d="M738 710 V650 Q707 606 682 588"/><path d="M806 710 V650 Q837 606 862 588"/>
+</g>
+<path d="M682 588 l-20 26 M682 588 l-30 1 M862 588 l20 26 M862 588 l30 1"
+ stroke="#9e3d2d" stroke-width="8" stroke-linecap="round"/>
+<rect x="27" y="27" width="970" height="970" fill="url(#papyrus)"/>
+</svg>

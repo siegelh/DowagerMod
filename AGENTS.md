@@ -47,6 +47,7 @@
 - `docs/MANUAL_SMOKE_TESTS.md` for gameplay validation
 - `docs/DLL_TRACING_WORKFLOW.md` when touching DLL tracing or debugging
 - `docs/CIV4_UNIT_ART_CRASH_PLAYBOOK.md` when touching unit art
+- `docs/FLAG_PIPELINE.md` when touching civilization flags
 - `docs/LEADER_OVERHAUL_PLAN_OF_RECORD.md` only for leader/civ overhaul tasks
 
 ## Docs And Skills Layout
@@ -91,6 +92,10 @@
 - Leave `petromod_v1` alone unless the task explicitly touches the HUD or main interface cleanup.
 - `third_party/beyond-the-sword-sdk/CvGameCoreDLL` is the authoritative DLL source for builds.
 - The changed-file test gate uses git diff plus untracked files. Noisy worktrees can widen validation scope unexpectedly.
+- Civilization flag masters, mappings, provenance, licensing, and deterministic
+  DXT3 tooling live under `tools/flags/`. Read `docs/FLAG_PIPELINE.md` before
+  editing a flag. Civ4 fixed-color flags intentionally encode zero DXT3 alpha
+  at every mip even though ordinary viewers may display them as transparent.
 
 ## Repo-Local Skills
 

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" color-interpolation="sRGB"><title>Shaka-era cattle-hide isihlangu reconstruction</title><desc>Material-rich shield with irregular hide markings, dimensional staff, leather lacing, and woven ground.</desc>
+<defs>
+ <linearGradient id="hide" x2="1" y2="1"><stop stop-color="#2A1D15"/><stop offset=".5" stop-color="#15110E"/><stop offset="1" stop-color="#4A3023"/></linearGradient>
+ <linearGradient id="staff"><stop stop-color="#382015"/><stop offset=".35" stop-color="#8A5D38"/><stop offset=".58" stop-color="#4A2C1C"/><stop offset="1" stop-color="#1D120D"/></linearGradient>
+ <pattern id="ground" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#A87545"/><path d="M0 6 Q12 0 24 6 M0 18 Q12 12 24 18" fill="none" stroke="#C49A67" stroke-width="3" opacity=".45"/></pattern>
+</defs>
+<rect width="1024" height="1024" fill="url(#ground)"/>
+<ellipse cx="530" cy="522" rx="256" ry="424" fill="#70482E" opacity=".42"/>
+<path d="M512 88 C330 126 258 304 286 503 C309 670 399 838 512 936 C625 838 715 670 738 503 C766 304 694 126 512 88Z" fill="url(#hide)" stroke="#2B190F" stroke-width="27"/>
+<path d="M512 111 C454 151 411 230 404 328 C398 426 436 517 512 604 C588 517 626 426 620 328 C613 230 570 151 512 111Z" fill="#E8DDC7" opacity=".94"/>
+<ellipse cx="390" cy="315" rx="62" ry="95" transform="rotate(-18 390 315)" fill="#5A3927" opacity=".78"/><ellipse cx="628" cy="350" rx="73" ry="121" transform="rotate(21 628 350)" fill="#0C0A08" opacity=".9"/><ellipse cx="382" cy="545" rx="82" ry="134" transform="rotate(13 382 545)" fill="#16100C" opacity=".84"/><ellipse cx="636" cy="590" rx="65" ry="110" transform="rotate(-17 636 590)" fill="#6E4931" opacity=".76"/><ellipse cx="456" cy="738" rx="58" ry="92" transform="rotate(-9 456 738)" fill="#100D0A" opacity=".86"/><ellipse cx="583" cy="781" rx="61" ry="85" transform="rotate(12 583 781)" fill="#3F291D" opacity=".8"/><ellipse cx="525" cy="220" rx="47" ry="68" transform="rotate(4 525 220)" fill="#EFE1C7" opacity=".82"/><ellipse cx="522" cy="480" rx="36" ry="77" transform="rotate(-5 522 480)" fill="#EEE0C4" opacity=".72"/>
+<path d="M512 88 C330 126 258 304 286 503 C309 670 399 838 512 936" fill="none" stroke="#8A6241" stroke-width="10" opacity=".7"/>
+<path d="M512 88 C694 126 766 304 738 503 C715 670 625 838 512 936" fill="none" stroke="#0C0907" stroke-width="10" opacity=".7"/>
+<path d="M512 56 V968" stroke="#24150E" stroke-width="55"/>
+<path d="M512 56 V968" stroke="url(#staff)" stroke-width="38"/>
+<path d="M512 45 L482 112 L542 112Z" fill="#5F3B25" stroke="#24150E" stroke-width="8"/>
+<path d="M443 245 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 293 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 341 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 389 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 437 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 485 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 533 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 581 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 629 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 677 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 725 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/><path d="M443 773 q34 18 68 0 q34 -18 70 0" fill="none" stroke="#D7C3A2" stroke-width="11"/>
+<g fill="#CDB693" opacity=".75">
+ <circle cx="471" cy="245" r="5"/><circle cx="553" cy="245" r="5"/><circle cx="471" cy="533" r="5"/><circle cx="553" cy="533" r="5"/><circle cx="471" cy="773" r="5"/><circle cx="553" cy="773" r="5"/>
+</g>
+</svg>

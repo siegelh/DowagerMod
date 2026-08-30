@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<filter id="linen" x="-10%" y="-10%" width="120%" height="120%">
+  <feTurbulence type="fractalNoise" baseFrequency=".012 .19" numOctaves="2" seed="17" result="noise"/>
+  <feColorMatrix in="noise" type="saturate" values="0" result="grey"/>
+  <feComponentTransfer in="grey" result="faded">
+    <feFuncA type="table" tableValues="0 .13"/>
+  </feComponentTransfer>
+  <feBlend in="SourceGraphic" in2="faded" mode="multiply"/>
+</filter>
+
+<g id="fleur" fill="url(#gold)" stroke="#7f5600" stroke-width="6" stroke-linejoin="round">
+  <path d="M0 -141 C-12 -112 -24 -83 -23 -52 C-22 -25 -12 -7 0 10 C12 -7 22 -25 23 -52 C24 -83 12 -112 0 -141 Z"/>
+  <path d="M-7 -2 C-36 -39 -72 -67 -105 -55 C-91 -40 -82 -19 -84 3 C-87 30 -106 51 -133 66 C-99 76 -68 70 -43 48 C-25 31 -14 13 -7 -2 Z"/>
+  <path d="M7 -2 C36 -39 72 -67 105 -55 C91 -40 82 -19 84 3 C87 30 106 51 133 66 C99 76 68 70 43 48 C25 31 14 13 7 -2 Z"/>
+  <path d="M-70 57 C-59 76 -45 88 -25 95 C-31 116 -48 137 -72 157 C-45 164 -20 156 0 136 C20 156 45 164 72 157 C48 137 31 116 25 95 C45 88 59 76 70 57 Z"/>
+  <path d="M-82 52 H82 L72 83 H-72 Z"/>
+  <path fill="none" stroke="#ffdf70" stroke-width="5" d="M0 -119 V118 M-91 -39 C-59 -30 -36 -6 -23 34 M91 -39 C59 -30 36 -6 23 34"/>
+</g>
+<g id="crown" stroke="#744c00" stroke-linejoin="round">
+  <path fill="#d7ad28" d="M-123 49 L-97 -36 L-48 11 L0 -82 L48 11 L97 -36 L123 49 L102 88 H-102 Z"/>
+  <path fill="#c52235" d="M-96 49 H96 L82 77 H-82 Z"/>
+  <path fill="none" stroke="#f6dc78" stroke-width="10" d="M-92 37 Q0 -15 92 37 M-80 7 Q0 -54 80 7"/>
+  <circle cx="-96" cy="-28" r="14" fill="#315da3"/><circle cx="-48" cy="4" r="13" fill="#c52235"/>
+  <circle cx="0" cy="-74" r="15" fill="#315da3"/><circle cx="48" cy="4" r="13" fill="#c52235"/>
+  <circle cx="96" cy="-28" r="14" fill="#315da3"/>
+  <path fill="#d7ad28" d="M-113 88 H113 L96 116 H-96 Z"/>
+</g>
+<linearGradient id="azure" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#174fa2"/><stop offset=".5" stop-color="#0f3d8d"/><stop offset="1" stop-color="#092f72"/>
+</linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#fff0a0"/><stop offset=".38" stop-color="#efc43a"/><stop offset="1" stop-color="#b47b08"/>
+</linearGradient>
+</defs>
+
+<g filter="url(#linen)">
+ <rect width="1024" height="1024" fill="url(#azure)"/>
+ <path fill="none" stroke="#d6aa25" stroke-width="30" d="M29 29 H995 V995 H29 Z"/>
+ <path fill="none" stroke="#ffe593" stroke-width="5" d="M49 49 H975 V975 H49 Z"/>
+ <use href="#crown" transform="translate(512 148) scale(.78)"/>
+ <use href="#fleur" transform="translate(298 390) scale(1.18)"/>
+ <use href="#fleur" transform="translate(726 390) scale(1.18)"/>
+ <use href="#fleur" transform="translate(512 740) scale(1.38)"/>
+ <g fill="none" stroke="#e9c84d" stroke-width="8" opacity=".75">
+  <path d="M120 888 C207 839 287 853 351 916"/>
+  <path d="M904 888 C817 839 737 853 673 916"/>
+ </g>
+</g>
+
+</svg>

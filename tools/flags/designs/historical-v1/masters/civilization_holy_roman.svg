@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<filter id="linen" x="-10%" y="-10%" width="120%" height="120%">
+  <feTurbulence type="fractalNoise" baseFrequency=".012 .19" numOctaves="2" seed="17" result="noise"/>
+  <feColorMatrix in="noise" type="saturate" values="0" result="grey"/>
+  <feComponentTransfer in="grey" result="faded">
+    <feFuncA type="table" tableValues="0 .13"/>
+  </feComponentTransfer>
+  <feBlend in="SourceGraphic" in2="faded" mode="multiply"/>
+</filter>
+
+<g id="feather" fill="#15120d" stroke="#050403" stroke-width="5">
+ <path d="M0 0 C-27 38 -31 91 -17 143 C-11 166 -3 187 0 211 C3 187 11 166 17 143 C31 91 27 38 0 0 Z"/>
+ <path fill="none" stroke="#77611b" stroke-width="5" d="M0 20 V183"/>
+ <path fill="none" stroke="#77611b" stroke-width="3" d="M0 54 L-18 76 M0 76 L18 98 M0 103 L-17 127 M0 126 L16 151"/>
+</g>
+<linearGradient id="oldgold" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#f4cf52"/><stop offset=".5" stop-color="#d7a924"/><stop offset="1" stop-color="#b57c10"/>
+</linearGradient>
+</defs>
+
+<g filter="url(#linen)">
+ <rect width="1024" height="1024" fill="url(#oldgold)"/>
+ <path fill="none" stroke="#a51d25" stroke-width="28" d="M28 28 H996 V996 H28 Z"/>
+ <g>
+  <g transform="translate(484 330) rotate(62)">
+   <use href="#feather" transform="translate(-22 -4) rotate(-38) scale(1.05 1.36)"/>
+   <use href="#feather" transform="translate(-70 15) rotate(-50) scale(.95 1.30)"/>
+   <use href="#feather" transform="translate(-118 44) rotate(-61) scale(.88 1.22)"/>
+   <use href="#feather" transform="translate(-161 83) rotate(-69) scale(.78 1.14)"/>
+   <use href="#feather" transform="translate(-193 127) rotate(-76) scale(.69 1.02)"/>
+  </g>
+  <g transform="translate(540 330) scale(-1 1) rotate(62)">
+   <use href="#feather" transform="translate(-22 -4) rotate(-38) scale(1.05 1.36)"/>
+   <use href="#feather" transform="translate(-70 15) rotate(-50) scale(.95 1.30)"/>
+   <use href="#feather" transform="translate(-118 44) rotate(-61) scale(.88 1.22)"/>
+   <use href="#feather" transform="translate(-161 83) rotate(-69) scale(.78 1.14)"/>
+   <use href="#feather" transform="translate(-193 127) rotate(-76) scale(.69 1.02)"/>
+  </g>
+  <path fill="#14110c" stroke="#050403" stroke-width="9" d="M512 278 C452 326 441 423 458 524 C470 598 487 671 512 747 C537 671 554 598 566 524 C583 423 572 326 512 278 Z"/>
+  <path fill="#14110c" stroke="#050403" stroke-width="9" d="M533 312 C565 238 626 194 697 210 C739 219 757 254 734 280 C712 304 670 291 640 279 C615 313 595 351 576 402 Z"/>
+  <path fill="#c31e2d" stroke="#7b101b" stroke-width="6" d="M720 254 L807 285 L724 323 C742 300 742 275 720 254 Z"/>
+  <path fill="#c31e2d" d="M722 318 C758 333 755 357 720 374 C734 351 734 335 722 318 Z"/>
+  <circle cx="691" cy="239" r="12" fill="#f1c73e" stroke="#8f6500" stroke-width="5"/>
+  <circle cx="691" cy="239" r="5" fill="#111"/>
+  <g fill="#14110c" stroke="#050403" stroke-width="7">
+   <path d="M474 708 L406 870 L474 826 L511 947 L512 741 Z"/>
+   <path d="M550 708 L618 870 L550 826 L513 947 L512 741 Z"/>
+   <path d="M506 730 L462 912 L512 874 L562 912 L518 730 Z"/>
+  </g>
+  <g fill="none" stroke="#b51e2a" stroke-width="20" stroke-linecap="round">
+   <path d="M471 641 C428 700 415 752 427 808"/>
+   <path d="M553 641 C596 700 609 752 597 808"/>
+  </g>
+  <g fill="none" stroke="#b51e2a" stroke-width="13" stroke-linecap="round">
+   <path d="M427 808 l-44 27 M427 808 l-3 48 M427 808 l43 23"/>
+   <path d="M597 808 l44 27 M597 808 l3 48 M597 808 l-43 23"/>
+  </g>
+  <g fill="none" stroke="#8e721d" stroke-width="7" opacity=".9">
+   <path d="M480 361 C500 408 507 465 504 537"/>
+   <path d="M544 361 C524 408 517 465 520 537"/>
+   <path d="M477 567 C495 587 505 610 512 641 C519 610 529 587 547 567"/>
+  </g>
+ </g>
+</g>
+
+</svg>

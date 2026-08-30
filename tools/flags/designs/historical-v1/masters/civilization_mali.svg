@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" color-interpolation="sRGB"><title>Mansa Musa illuminated indigo royal banner reconstruction</title><desc>Woven indigo banner with manuscript-derived gilt orb, throne steps, and illuminated border.</desc>
+<defs>
+ <pattern id="weave" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#20366A"/><path d="M0 4 H20 M0 12 H20" stroke="#314E88" stroke-width="3" opacity=".65"/><path d="M4 0 V20 M12 0 V20" stroke="#182A59" stroke-width="2" opacity=".7"/></pattern>
+ <radialGradient id="orb" cx=".35" cy=".28"><stop stop-color="#F8DE78"/><stop offset=".38" stop-color="#E0AC35"/><stop offset="1" stop-color="#9D6418"/></radialGradient>
+ <pattern id="gilt" width="32" height="32" patternUnits="userSpaceOnUse"><rect width="32" height="32" fill="#B87A20"/><circle cx="8" cy="8" r="3" fill="#F1C85A"/><circle cx="24" cy="24" r="3" fill="#8D5515"/></pattern>
+</defs>
+<rect width="1024" height="1024" fill="url(#weave)"/>
+<rect x="28" y="28" width="968" height="968" fill="none" stroke="#7E2F28" stroke-width="28"/>
+<rect x="58" y="58" width="908" height="908" fill="none" stroke="url(#gilt)" stroke-width="20"/>
+<path d="M82 120 H942 M82 904 H942" stroke="#E0B24C" stroke-width="8" stroke-dasharray="4 18"/>
+<g fill="#DDAA3A" stroke="#6E3D13" stroke-width="8">
+ <path d="M110 92 l28 28 -28 28 -28-28Z M914 92 l28 28 -28 28 -28-28Z M110 876 l28 28 -28 28 -28-28Z M914 876 l28 28 -28 28 -28-28Z"/>
+</g>
+<circle cx="512" cy="390" r="210" fill="url(#orb)" stroke="#F0D079" stroke-width="25"/>
+<circle cx="447" cy="323" r="58" fill="#FFF0A5" opacity=".46"/>
+<path d="M512 598 V681" stroke="#D9A12F" stroke-width="36"/>
+<path d="M330 704 Q512 620 694 704 L662 758 H362Z" fill="url(#gilt)" stroke="#F0D079" stroke-width="15"/>
+<path d="M272 785 H752 L708 854 H316Z" fill="url(#gilt)" stroke="#F0D079" stroke-width="15"/>
+<path d="M220 878 H804 L766 932 H258Z" fill="url(#gilt)" stroke="#F0D079" stroke-width="15"/>
+<path d="M362 758 H662 M316 854 H708" stroke="#6E3D13" stroke-width="9"/>
+<g fill="#E7C45F" opacity=".9"><circle cx="162" cy="512" r="13"/><circle cx="862" cy="512" r="13"/><circle cx="512" cy="132" r="13"/></g>
+</svg>

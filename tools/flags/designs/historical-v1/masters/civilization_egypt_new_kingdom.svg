@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="agedGold" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#f0cf79"/><stop offset=".35" stop-color="#c8932e"/>
+ <stop offset=".7" stop-color="#e4b953"/><stop offset="1" stop-color="#9d6922"/>
+</linearGradient>
+<linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#e5d7b6"/><stop offset=".55" stop-color="#cdbb94"/>
+ <stop offset="1" stop-color="#ad966f"/>
+</linearGradient>
+<linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#b97b3c"/><stop offset=".45" stop-color="#744020"/>
+ <stop offset="1" stop-color="#c29150"/>
+</linearGradient>
+<pattern id="patina" width="53" height="47" patternUnits="userSpaceOnUse">
+ <path d="M4 12 l16 -3 M31 37 l15 2 M45 8 l5 11 M11 31 l8 9" stroke="#20150f" stroke-width="2" opacity=".13"/>
+ <circle cx="28" cy="18" r="2" fill="#f8e9b7" opacity=".13"/>
+</pattern>
+<pattern id="chisel" width="29" height="31" patternUnits="userSpaceOnUse">
+ <path d="M2 6 L12 4 M18 15 L27 13 M5 25 L15 22" stroke="#6d573c" stroke-width="1.5" opacity=".18"/>
+</pattern>
+<pattern id="papyrus" width="43" height="47" patternUnits="userSpaceOnUse">
+ <path d="M0 8 H43 M0 28 H43" stroke="#8c7250" stroke-width="1" opacity=".12"/>
+ <path d="M9 0 V47 M32 0 V47" stroke="#fff2ca" stroke-width="1" opacity=".1"/>
+</pattern>
+</defs><rect width="1024" height="1024" fill="#c9b483"/>
+<rect x="27" y="27" width="970" height="970" fill="url(#stone)" stroke="#a13e2d" stroke-width="11"/>
+<g stroke="#5a3421" stroke-width="6" stroke-linejoin="round">
+ <path d="M284 304 C297 186 386 111 494 130 C567 143 610 190 616 258
+          C528 237 438 254 370 304 Z" fill="#176286"/>
+ <path d="M292 294 C344 273 420 277 470 308 L468 378 L511 418 L467 449
+          L457 518 Q411 561 350 530 L306 456 Z" fill="#a95637"/>
+ <path d="M468 378 L538 409 L475 429 Z" fill="#a95637"/>
+ <path d="M345 531 C376 555 426 558 457 518 L494 636 L471 852 H278
+          L299 643 Z" fill="#a95637"/>
+ <path d="M305 584 C233 642 194 719 182 822 L219 829 C245 741 281 681 331 644 Z" fill="#a95637"/>
+ <path d="M449 582 C535 602 608 652 672 730 L643 757 C580 690 519 653 435 641 Z" fill="#a95637"/>
+ <path d="M294 642 L480 642 L519 851 H259 Z" fill="#e8d9b3"/>
+</g>
+<g fill="#d5a52c"><circle cx="330" cy="231" r="7"/><circle cx="374" cy="190" r="7"/>
+<circle cx="426" cy="164" r="7"/><circle cx="481" cy="159" r="7"/><circle cx="535" cy="175" r="7"/></g>
+<path d="M368 341 Q411 316 451 343 Q411 366 368 341 Z" fill="#eadcba" stroke="#5a3421" stroke-width="5"/>
+<circle cx="412" cy="342" r="8" fill="#153f52"/>
+<path d="M346 390 Q405 408 467 379 M350 462 Q405 482 458 459" fill="none" stroke="#5a3421" stroke-width="5"/>
+<g fill="none" stroke-width="9"><path d="M320 532 Q389 591 471 542" stroke="#d2a42c"/>
+<path d="M313 550 Q390 615 478 562" stroke="#28847b"/><path d="M307 570 Q391 636 485 582" stroke="#a13e2d"/></g>
+<path d="M649 755 Q746 601 842 755 M649 755 Q746 906 842 755" fill="none" stroke="#176286" stroke-width="13"/>
+<path d="M449 609 L754 752 M739 737 L765 757 L735 765" stroke="#5a3421" stroke-width="9" fill="none"/>
+<rect x="702" y="155" width="214" height="436" rx="103" fill="#e8d9b3" stroke="#d2a42c" stroke-width="15"/>
+<line x1="729" y1="559" x2="889" y2="559" stroke="#d2a42c" stroke-width="10"/>
+<circle cx="809" cy="244" r="40" fill="#d2a42c" stroke="#a13e2d" stroke-width="6"/>
+<path d="M771 300 H847 M785 300 V376 Q809 407 833 376 V300" fill="none" stroke="#176286" stroke-width="16" stroke-linecap="round"/>
+<path d="M795 431 C775 470 777 522 797 548 L809 526 L821 548 C841 522 843 470 823 431 Z"
+ fill="#28847b" stroke="#a13e2d" stroke-width="6"/>
+<g fill="#d2a42c" stroke="#5a3421" stroke-width="5">
+ <path d="M690 129 C649 104 651 59 692 44 C728 57 735 95 708 119 L708 178 H678 V122 Z"/>
+ <path d="M928 129 C969 104 967 59 926 44 C890 57 883 95 910 119 L910 178 H940 V122 Z"/>
+</g>
+<rect x="27" y="27" width="970" height="970" fill="url(#papyrus)"/>
+</svg>

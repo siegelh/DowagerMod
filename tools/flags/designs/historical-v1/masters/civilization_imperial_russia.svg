@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" color-interpolation="sRGB"><title>Catherine-era 1742 Russian Imperial Standard</title><desc>Detailed square reconstruction with triple-crowned black double-headed eagle, regalia, and readable Moscow Saint George shield.</desc>
+<defs>
+ <radialGradient id="gold"><stop stop-color="#F3C64A"/><stop offset="1" stop-color="#C99413"/></radialGradient>
+ <linearGradient id="black" x2="0" y2="1"><stop stop-color="#28231C"/><stop offset=".55" stop-color="#050505"/><stop offset="1" stop-color="#21180B"/></linearGradient>
+</defs>
+<rect width="1024" height="1024" fill="url(#gold)"/>
+<path d="M38 38 H986 V986 H38Z" fill="none" stroke="#F7D66B" stroke-width="22"/>
+<path d="M476 312 C405 255 319 236 208 280 C285 302 354 345 455 380 L486 348Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M476 360 C405 303 319 284 208 328 C285 350 354 393 455 428 L486 396Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M476 408 C405 351 319 332 208 376 C285 398 354 441 455 476 L486 444Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M476 456 C405 399 319 380 208 424 C285 446 354 489 455 524 L486 492Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M476 504 C405 447 319 428 208 472 C285 494 354 537 455 572 L486 540Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M476 552 C405 495 319 476 208 520 C285 542 354 585 455 620 L486 588Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M476 600 C405 543 319 524 208 568 C285 590 354 633 455 668 L486 636Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M548 312 C619 255 705 236 816 280 C739 302 670 345 569 380 L538 348Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M548 360 C619 303 705 284 816 328 C739 350 670 393 569 428 L538 396Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M548 408 C619 351 705 332 816 376 C739 398 670 441 569 476 L538 444Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M548 456 C619 399 705 380 816 424 C739 446 670 489 569 524 L538 492Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M548 504 C619 447 705 428 816 472 C739 494 670 537 569 572 L538 540Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M548 552 C619 495 705 476 816 520 C739 542 670 585 569 620 L538 588Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M548 600 C619 543 705 524 816 568 C739 590 670 633 569 668 L538 636Z" fill="#111" stroke="#C89518" stroke-width="7"/><path d="M250 310 Q350 365 463 410" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M774 310 Q674 365 561 410" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M277 350 Q358 400 463 441" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M747 350 Q666 400 561 441" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M304 390 Q366 435 463 472" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M720 390 Q658 435 561 472" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M331 430 Q374 470 463 503" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M693 430 Q650 470 561 503" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M358 470 Q382 505 463 534" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M666 470 Q642 505 561 534" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M385 510 Q390 540 463 565" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M639 510 Q634 540 561 565" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M412 550 Q398 575 463 596" fill="none" stroke="#F0BB2A" stroke-width="5"/><path d="M612 550 Q626 575 561 596" fill="none" stroke="#F0BB2A" stroke-width="5"/>
+<path d="M469 290 C449 251 408 236 367 252 C386 270 415 281 446 279 C421 300 404 331 408 363 C439 345 462 319 481 288Z" fill="url(#black)" stroke="#C89518" stroke-width="8"/>
+<path d="M555 290 C575 251 616 236 657 252 C638 270 609 281 578 279 C603 300 620 331 616 363 C585 345 562 319 543 288Z" fill="url(#black)" stroke="#C89518" stroke-width="8"/>
+<path d="M382 248 Q342 222 309 254 Q348 277 390 270Z M642 270 Q684 277 723 254 Q690 222 650 248Z" fill="#E6B229" stroke="#111" stroke-width="7"/>
+<path d="M466 311 Q512 270 558 311 L585 690 Q512 774 439 690Z" fill="url(#black)" stroke="#C89518" stroke-width="9"/>
+<path d="M452 675 Q512 741 572 675 L635 805 Q512 897 389 805Z" fill="url(#black)" stroke="#C89518" stroke-width="9"/>
+<g fill="#F2C230" stroke="#111" stroke-width="8">
+ <path d="M438 213 L459 161 L486 202 L512 132 L538 202 L565 161 L586 213 L570 238 H454Z"/>
+ <path d="M307 238 L329 190 L353 226 L375 169 L398 226 L421 190 L439 242Z"/>
+ <path d="M585 242 L603 190 L626 226 L649 169 L671 226 L695 190 L717 238Z"/>
+</g>
+<g fill="#F4CC45" stroke="#111" stroke-width="7"><circle cx="512" cy="145" r="13"/><circle cx="375" cy="181" r="11"/><circle cx="649" cy="181" r="11"/></g>
+<path d="M512 308 V416" stroke="#E8B729" stroke-width="10"/>
+<path d="M354 601 Q292 700 331 806" fill="none" stroke="#F2C230" stroke-width="22"/><circle cx="333" cy="837" r="34" fill="#F2C230" stroke="#111" stroke-width="8"/><path d="M318 837 H348 M333 822 V852" stroke="#111" stroke-width="5"/>
+<path d="M677 580 V836 M641 647 H713 M651 836 H703 M666 580 L677 548 L688 580" fill="none" stroke="#F2C230" stroke-width="22"/>
+<path d="M512 392 C590 392 645 454 632 544 C620 626 569 690 512 719 C455 690 404 626 392 544 C379 454 434 392 512 392Z" fill="#A01824" stroke="#F1C344" stroke-width="16"/>
+<path d="M427 578 Q466 535 534 547 Q580 555 608 591 Q555 580 523 615 Q474 650 427 578Z" fill="#F4F1DF" stroke="#28231C" stroke-width="8"/>
+<path d="M461 552 Q472 475 539 454 Q578 443 607 477 Q563 469 541 504 L526 570Z" fill="#F4F1DF" stroke="#28231C" stroke-width="8"/>
+<path d="M512 500 L556 438 L586 488 L551 519Z" fill="#3263A5" stroke="#28231C" stroke-width="7"/>
+<circle cx="558" cy="476" r="11" fill="#E8C4A0"/><path d="M550 518 L600 576" stroke="#3263A5" stroke-width="18"/>
+<path d="M579 612 Q624 583 646 624 Q615 614 596 646 Q565 669 530 642Z" fill="#33251A" stroke="#111" stroke-width="6"/>
+<path d="M426 736 Q512 800 598 736" fill="none" stroke="#E8B729" stroke-width="8"/>
+</svg>

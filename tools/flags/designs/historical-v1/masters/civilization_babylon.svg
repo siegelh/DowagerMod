@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<filter id="soft"><feGaussianBlur stdDeviation="0.7"/></filter>
+<pattern id="grain" width="37" height="41" patternUnits="userSpaceOnUse">
+ <circle cx="4" cy="7" r="1.2" fill="#fff" opacity=".08"/>
+ <circle cx="24" cy="19" r="1" fill="#000" opacity=".08"/>
+ <path d="M2 33 L13 31 M27 5 L35 8" stroke="#fff" opacity=".05"/>
+</pattern>
+</defs>
+<rect width="1024" height="1024" fill="#213F66"/>
+
+<path d="M126 884 C125 429 152 192 512 112 C872 192 899 429 898 884 Z"
+      fill="#27201C" stroke="#D0A044" stroke-width="18"/>
+<g fill="#B96E36" stroke="#E1B657" stroke-width="10" stroke-linejoin="round">
+ <!-- Shamash seated at right -->
+ <path d="M604 355 L694 326 L749 364 L735 487 L787 585 L724 612 L669 507
+          L600 520 L570 450 Z"/>
+ <path d="M671 333 L671 265 L713 224 L755 263 L742 327 Z"/>
+ <path d="M714 224 L742 181 L752 232 L793 212 L762 259 Z"/>
+ <path d="M604 520 L751 520 L788 732 L620 732 Z"/>
+ <path d="M635 731 H826 V776 H599 Z"/>
+ <path d="M633 776 H854 V819 H568 Z"/>
+ <!-- Hammurabi standing at left -->
+ <path d="M292 405 L375 366 L442 389 L465 499 L430 724 L319 724 L278 519 Z"/>
+ <path d="M337 370 L332 294 L370 252 L415 279 L413 360 Z"/>
+ <path d="M329 297 Q372 228 430 287 L410 311 Q371 286 329 322 Z"/>
+ <path d="M416 421 L549 367 L563 401 L442 475 Z"/>
+ <path d="M292 444 L233 573 L272 590 L330 486 Z"/>
+ <path d="M317 724 H455 V775 H294 Z"/>
+</g>
+<g fill="none" stroke="#D0A044" stroke-width="15" stroke-linecap="round">
+ <!-- Shamash rays -->
+ <path d="M674 355 L570 288 M688 340 L625 233 M713 337 L713 205
+          M735 347 L800 238 M747 371 L847 310"/>
+ <path d="M667 388 L545 353 M750 407 L859 382"/>
+</g>
+<g fill="none" stroke="#27201C" stroke-width="8">
+ <path d="M331 467 Q371 492 427 465 M322 526 Q375 553 439 523
+          M316 587 Q374 610 432 581 M309 648 Q366 669 424 644"/>
+ <path d="M630 568 H754 M640 617 H765 M650 666 H776"/>
+ <path d="M347 317 L377 319 M694 281 L721 286"/>
+</g>
+<path d="M174 849 H850" stroke="#B96E36" stroke-width="34"/>
+<path d="M205 812 H819" stroke="#D0A044" stroke-width="12" stroke-dasharray="38 18"/>
+<rect width="1024" height="1024" fill="url(#grain)"/>
+
+</svg>

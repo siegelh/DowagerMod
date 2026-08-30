@@ -1,0 +1,716 @@
+{
+  "schema_version": 1,
+  "generation": "original-team-color",
+  "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+  "record_count": 59,
+  "availability_counts": {
+    "recoverable_from_git": 38,
+    "stock_packed_not_available_loose": 16,
+    "available_in_warlords_mirror": 5
+  },
+  "records": [
+    {
+      "civilization_type": "CIVILIZATION_AMERICA_FEDERAL",
+      "art_define": "ART_DEF_CIVILIZATION_AMERICA_FEDERAL",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_AmericaFederal.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_AmericaFederal.dds"
+      },
+      "sha256": "2b7b654da3c91d94c018b8d9a166acc705bc2ebd9393877fcc741e01e3cd1335",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_AMERICA_FOUNDING_REPUBLIC",
+      "art_define": "ART_DEF_CIVILIZATION_AMERICA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Star.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Star.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_AMERICA_NEW_DEAL",
+      "art_define": "ART_DEF_CIVILIZATION_AMERICA_NEW_DEAL",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_AmericaNewDeal.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_AmericaNewDeal.dds"
+      },
+      "sha256": "57fda8c08cf38188eb5b9bf735deb6c0e266eb364b543b5f97e503f5612865c2",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_AMERICA_UNION",
+      "art_define": "ART_DEF_CIVILIZATION_AMERICA_UNION",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_AmericaUnion.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_AmericaUnion.dds"
+      },
+      "sha256": "0ef425632293bf22697852217e4efcefaae2d2636d9d47e0780ddaf3ca85a479",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_APACHE_CONFEDERACY",
+      "art_define": "ART_DEF_CIVILIZATION_APACHE_CONFEDERACY",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Apache.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Apache.dds"
+      },
+      "sha256": "dcb99c42f13b5704ed23a9ec585a8e24b85c3b165c41ff8f876456af68c78494",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_ARABIA",
+      "art_define": "ART_DEF_CIVILIZATION_ARABIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Arabic.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Arabic.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_ATHENIAN_GREECE",
+      "art_define": "ART_DEF_CIVILIZATION_GREECE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Helmet.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Helmet.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_AZTEC",
+      "art_define": "ART_DEF_CIVILIZATION_AZTEC",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_AztecCalendar.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_AztecCalendar.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_BABYLON",
+      "art_define": "ART_DEF_CIVILIZATION_BABYLON",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Babylon.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Babylon.dds"
+      },
+      "sha256": "892a894447407669494a3e5947ec5bb2b9a608baeae4b02b16cdaf5b8090fd1e",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_BRITISH_REGENCY",
+      "art_define": "ART_DEF_CIVILIZATION_ENGLAND_REGENCY",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EnglandRegency.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_EnglandRegency.dds"
+      },
+      "sha256": "d46b1948f70029f13a6245e896c9e0dee5c8096e1c85c4e353aa90a8f5e78d11",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_BYZANTIUM",
+      "art_define": "ART_DEF_CIVILIZATION_BYZANTIUM",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Byzantine.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Byzantine.dds"
+      },
+      "sha256": "e81035db4ae2df066e3c5fa50305e7fb39b4e6daba2c51b7abc8af7f361fc8a6",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_CARTHAGE",
+      "art_define": "ART_DEF_CIVILIZATION_CARTHAGE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Carthage.dds",
+      "availability": "available_in_warlords_mirror",
+      "source": {
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Warlords/Assets/Art/Interface/TeamColor/FlagDECAL_Carthage.dds"
+      },
+      "sha256": "ff8254ba4e52f9f8aea61f163dc58f97a0f15161174cefb1c215eff45f886b38",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY",
+      "art_define": "ART_DEF_CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EgyptEighteenthDynasty.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_EgyptEighteenthDynasty.dds"
+      },
+      "sha256": "31d1b65c9e4c4a6b070b02ad613746f1872dd0c56526c9d1dcddf6811365f4e1",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_EGYPT_NEW_KINGDOM",
+      "art_define": "ART_DEF_CIVILIZATION_EGYPT",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EyeOfRa.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_EyeOfRa.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_ELIZABETHAN_ENGLAND",
+      "art_define": "ART_DEF_CIVILIZATION_ENGLAND",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_StGeorgeCross.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_StGeorgeCross.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_ETHIOPIA_IMPERIAL",
+      "art_define": "ART_DEF_CIVILIZATION_ETHIOPIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Ethiopia.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Ethiopia.dds"
+      },
+      "sha256": "c7f3f1f7d6914eab62c6e3507bd83720fbbfb3db660fa25f9791dbaa01e3fb09",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_ETHIOPIA_SOLOMONIC",
+      "art_define": "ART_DEF_CIVILIZATION_ETHIOPIA_SOLOMONIC",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EthiopiaSolomonic.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_EthiopiaSolomonic.dds"
+      },
+      "sha256": "630cfc3339c35f1e66321b5e8c859a1328fe4f54626d3d02be0d7a3f21bccc4e",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_FRANCE_BOURBON",
+      "art_define": "ART_DEF_CIVILIZATION_FRANCE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_FleurDeLis.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_FleurDeLis.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_FRANCE_FIFTH_REPUBLIC",
+      "art_define": "ART_DEF_CIVILIZATION_FRANCE_FIFTH_REPUBLIC",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_FranceFifthRepublic.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_FranceFifthRepublic.dds"
+      },
+      "sha256": "99ff5f1dc919adc60ba3f5d7b33ddde6fabf2faedf50c069240cb33b32c6fbc1",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_FRANCE_FIRST_EMPIRE",
+      "art_define": "ART_DEF_CIVILIZATION_FRANCE_FIRST_EMPIRE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_FranceFirstEmpire.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_FranceFirstEmpire.dds"
+      },
+      "sha256": "897bf097aebca46a197a48b2ea892012036678fa758b2bbd86fef8c0c4287c36",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_GAULIC_CONFEDERATION",
+      "art_define": "ART_DEF_CIVILIZATION_GAULIC_CONFEDERATION",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Gaul.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Gaul.dds"
+      },
+      "sha256": "d501991263d1eee0b3e91b2501866fbf8d678b53f939f1eccda183f9a1402648",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_GERMAN_EMPIRE",
+      "art_define": "ART_DEF_CIVILIZATION_GERMAN_EMPIRE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_GermanEmpire.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_GermanEmpire.dds"
+      },
+      "sha256": "db283940405e595ef96a771ed9b66a82cbfbd72061e72f7f8aface9b70b5d2da",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_HOLY_ROMAN",
+      "art_define": "ART_DEF_CIVILIZATION_HOLY_ROMAN",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_HolyRomanEmpire.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_HolyRomanEmpire.dds"
+      },
+      "sha256": "eaf78e8803f21ab5c659616f6cdb0822e90ec0efdd7d2c81ef26a2dad5cadc0e",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_ICENI_BRITAIN",
+      "art_define": "ART_DEF_CIVILIZATION_ICENI_BRITAIN",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Iceni.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Iceni.dds"
+      },
+      "sha256": "0a4ea77efcddbb00d365a82ceeff7cd5201eb1480b4e8a64cd6efc605c63f0ff",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_IMPERIAL_RUSSIA",
+      "art_define": "ART_DEF_CIVILIZATION_RUSSIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_DoubleEagle.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_DoubleEagle.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_INCA",
+      "art_define": "ART_DEF_CIVILIZATION_INCA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Sun.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Sun.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_INDIA",
+      "art_define": "ART_DEF_CIVILIZATION_INDIA_GANDHI",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_IndiaGandhi.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_IndiaGandhi.dds"
+      },
+      "sha256": "66d8ed2c9d553c71f0479f5069a4948a9317d9dc9e65934e5742e1cc6ad4b484",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_JAPAN",
+      "art_define": "ART_DEF_CIVILIZATION_JAPAN",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Dot.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Dot.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_KHMER",
+      "art_define": "ART_DEF_CIVILIZATION_KHMER",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Khmer.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Khmer.dds"
+      },
+      "sha256": "d90df224542af11ab962414dd0e6c990d37364fe65a5eef34804a1cdce25faef",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_KOREA",
+      "art_define": "ART_DEF_CIVILIZATION_KOREA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_KoreanSymbol.dds",
+      "availability": "available_in_warlords_mirror",
+      "source": {
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Warlords/Assets/Art/Interface/TeamColor/FlagDECAL_KoreanSymbol.dds"
+      },
+      "sha256": "36936d260ff89be6850cff2136f971656c58c9f3232ad27700ba0cc23aeec7df",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_MACEDONIAN_EMPIRE",
+      "art_define": "ART_DEF_CIVILIZATION_MACEDONIAN_EMPIRE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Macedon.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Macedon.dds"
+      },
+      "sha256": "3ba7e4180c696fe24c410d1c17a6ce04737bf2d97d5595bf72889580a3148cee",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_MALI",
+      "art_define": "ART_DEF_CIVILIZATION_MALI",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Mask.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Mask.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_MAURYA",
+      "art_define": "ART_DEF_CIVILIZATION_INDIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_WheelOfLaw.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_WheelOfLaw.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_MAYA",
+      "art_define": "ART_DEF_CIVILIZATION_MAYA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Maya.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Maya.dds"
+      },
+      "sha256": "9298524522f5519b60a47373f933cdb816ed288c4481d917b1f28151d246e407",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_MONGOL_EMPIRE",
+      "art_define": "ART_DEF_CIVILIZATION_MONGOL",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Horse.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Horse.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_NATIVE_AMERICA",
+      "art_define": "ART_DEF_CIVILIZATION_NATIVE_AMERICA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_NativeAmerica.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_NativeAmerica.dds"
+      },
+      "sha256": "bf4f4458bd4b0d5e2ce3a38cb924b798103d456f22b9dad17b5fc75a866ea253",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_NETHERLANDS",
+      "art_define": "ART_DEF_CIVILIZATION_NETHERLANDS",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Netherlands.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Netherlands.dds"
+      },
+      "sha256": "c20fd8fe82fdab976c910c7048229ffb34f8bbf3c7bca6218d2a7bed3e2d8cc0",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_OTTOMAN_CLASSICAL",
+      "art_define": "ART_DEF_CIVILIZATION_OTTOMAN_CLASSICAL",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_OttomanClassical.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_OttomanClassical.dds"
+      },
+      "sha256": "8dda81322e88ca9790069824b16a64cb66c9199edd80830c5af934fe0b3b489f",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_OTTOMAN_CONQUEST",
+      "art_define": "ART_DEF_CIVILIZATION_OTTOMANS",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Ottoman.dds",
+      "availability": "available_in_warlords_mirror",
+      "source": {
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Warlords/Assets/Art/Interface/TeamColor/FlagDECAL_Ottoman.dds"
+      },
+      "sha256": "a57786c259fa017fb905273b83ad9af6ba86266a6fe39888536e45377b54297d",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_PEOPLES_REPUBLIC_CHINA",
+      "art_define": "ART_DEF_CIVILIZATION_PRC",
+      "runtime_dds_path": "Art/BTG/Civilization/PRC/flagdecal_prc.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/BTG/Civilization/PRC/flagdecal_prc.dds"
+      },
+      "sha256": "838f7c94216adf41c2b48a5e2ddd663fcb5ab44635beec89a628ca6bca2d9903",
+      "bytes": 65664
+    },
+    {
+      "civilization_type": "CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID",
+      "art_define": "ART_DEF_CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_PersiaFounding.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_PersiaFounding.dds"
+      },
+      "sha256": "9a59defb77efd11232ad2fe62f1478e781eb6153ca331e068a19ab9bccc69bf4",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID",
+      "art_define": "ART_DEF_CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_PersiaImperial.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_PersiaImperial.dds"
+      },
+      "sha256": "d30b48a9a2a142ef89681459717a4431243c19b416563e884e90dc2eb2dc9835",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_PETRINE_RUSSIA",
+      "art_define": "ART_DEF_CIVILIZATION_RUSSIA_PETRINE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_RussiaPetrine.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_RussiaPetrine.dds"
+      },
+      "sha256": "7e11717e5de2383ec445c99a43af92cda3e4b6fdcc4a50192151734f782d0cd6",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_POLAND",
+      "art_define": "ART_DEF_CIVILIZATION_POLAND",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Poland.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Poland.dds"
+      },
+      "sha256": "a4afed6e0322e1ae51147042f37e184b63057093e8b252834cb14e07b508e7c0",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_POLYNESIA_BTG",
+      "art_define": "ART_DEF_CIVILIZATION_POLYNESIA_BTG",
+      "runtime_dds_path": "Art/BTG/Polynesia/flagdecal_polynesia.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/BTG/Polynesia/flagdecal_polynesia.dds"
+      },
+      "sha256": "bcd0e6cdcb4c9ae03ea64a5674e5987afe0011e9afc561b5da7c44849214ee3a",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_PORTUGAL",
+      "art_define": "ART_DEF_CIVILIZATION_PORTUGAL",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Portugal.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Portugal.dds"
+      },
+      "sha256": "5552e796c53372b4bb34eac74694a105477d033309050d3a84e56005d93268a5",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_PRUSSIA",
+      "art_define": "ART_DEF_CIVILIZATION_PRUSSIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Prussia.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Prussia.dds"
+      },
+      "sha256": "c29b31bcaf3ae18617b0e34e7c4ed4875501842b295e9da1ab0c290f156fc8ab",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_QIN_DYNASTY",
+      "art_define": "ART_DEF_CIVILIZATION_CHINA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Dragon.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Dragon.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_ROMAN_PRINCIPATE",
+      "art_define": "ART_DEF_CIVILIZATION_ROME",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Laurels.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Laurels.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_ROMAN_REPUBLIC_LATE",
+      "art_define": "ART_DEF_CIVILIZATION_ROMAN_REPUBLIC_LATE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_RomanRepublic.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_RomanRepublic.dds"
+      },
+      "sha256": "5d803765d138dc7eecfa60d32df61db2d42ea16849f8032b1f8fec027711f349",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_SPAIN",
+      "art_define": "ART_DEF_CIVILIZATION_SPAIN",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Castle.dds",
+      "availability": "stock_packed_not_available_loose",
+      "source": {
+        "logical_runtime_path": "Art/Interface/TeamColor/FlagDECAL_Castle.dds",
+        "recovery": "Restore the pristine game installation or revert the historical full-color production commit."
+      },
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "civilization_type": "CIVILIZATION_SUMERIA",
+      "art_define": "ART_DEF_CIVILIZATION_SUMERIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Sumeria.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Sumeria.dds"
+      },
+      "sha256": "ac15c9e2d7e6a2cc987ae8316930c84dd5fe64963986c24bfe8a879a426729d8",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_USSR",
+      "art_define": "ART_DEF_CIVILIZATION_RUSSIA_USSR",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_RussiaUSSR.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_RussiaUSSR.dds"
+      },
+      "sha256": "555fe827d97ee8dd21a3bb422403d8cdca0d4cde8b98da4da663f3abb209a0e7",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_VENICE",
+      "art_define": "ART_DEF_CIVILIZATION_VENICE",
+      "runtime_dds_path": "Art/BTG/Civilization/Venice/flagdecal_venice.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/BTG/Civilization/Venice/flagdecal_venice.dds"
+      },
+      "sha256": "fc005ac7497c805f4aabc48b5ef53e06920394be04c39908bef8d0cc1e28f843",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_VICTORIAN_BRITAIN",
+      "art_define": "ART_DEF_CIVILIZATION_ENGLAND_VICTORIAN",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EnglandVictorian.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_EnglandVictorian.dds"
+      },
+      "sha256": "a5182757e1851b3ab9bf0e0c788c5e3525d8b8807f8068352d797d1f5a056a4c",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_VIKING",
+      "art_define": "ART_DEF_CIVILIZATION_VIKINGS",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Viking.dds",
+      "availability": "available_in_warlords_mirror",
+      "source": {
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Warlords/Assets/Art/Interface/TeamColor/FlagDECAL_Viking.dds"
+      },
+      "sha256": "77ac26de133c74cc949f06a8b7ecd4a7a5364ff69ec3b182aa368e12142682f0",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_WARTIME_BRITAIN",
+      "art_define": "ART_DEF_CIVILIZATION_ENGLAND_WARTIME",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EnglandWartime.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_EnglandWartime.dds"
+      },
+      "sha256": "fa84f02f01d7a6b2bcbb3c5152291871480640089eb615718f00362ac67707e5",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_YUAN_DYNASTY",
+      "art_define": "ART_DEF_CIVILIZATION_YUAN_DYNASTY",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_Yuan.dds",
+      "availability": "recoverable_from_git",
+      "source": {
+        "baseline_commit": "178f61f52a0ff96d86830d92e03d7967e655d9d0",
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets/Art/Interface/TeamColor/FlagDECAL_Yuan.dds"
+      },
+      "sha256": "00f28a931c9b2ac007148ef4486a01603a9f3a8622131e25db9b10925708be00",
+      "bytes": 22000
+    },
+    {
+      "civilization_type": "CIVILIZATION_ZULU",
+      "art_define": "ART_DEF_CIVILIZATION_ZULU",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_ZuluShield.dds",
+      "availability": "available_in_warlords_mirror",
+      "source": {
+        "repository_path": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Warlords/Assets/Art/Interface/TeamColor/FlagDECAL_ZuluShield.dds"
+      },
+      "sha256": "08f4b3a85235527a2a7ee366a6795260c78670e4eec6592ec0d54127a1f9cf23",
+      "bytes": 22000
+    }
+  ]
+}
