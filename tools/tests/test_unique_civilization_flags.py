@@ -6,16 +6,14 @@ Validates that every targeted era-specific playable civilization package has a
 unique ArtDefineTag + unique flag Path, that every ArtDefineTag referenced by a
 targeted CivilizationInfo resolves to a real CivilizationArtInfo entry, that the
 newly authored repo-controlled DDS assets exist on disk with correct DDS/DXT3
-square power-of-two metadata and non-trivial (non-blank) alpha content, and that
+square power-of-two metadata and zero alpha at every mip for fixed-color
+rendering, and that
 the Native America / Apache Confederacy / Polynesia three-way ArtDefine
 cross-wiring bug has been corrected.
 
-This file owns no other scope. It intentionally does NOT require on-disk
-presence of pre-existing "kept-original" flag assets (e.g. FlagDECAL_Star.dds)
-that ship only with the base game installation and are not committed to this
-repo (see AGENTS.md: "A few oversized stock archives are intentionally
-excluded from git."). For those, only structural XML resolution is asserted;
-IF the file happens to exist on disk it is opportunistically validated too.
+This file owns the earlier 37-package uniqueness scope. The complete 59-flag
+fixed-color production contract, including formerly packed stock paths now
+supplied by DowagerMod, lives in test_flag_contract_fullcolor.py.
 """
 import os
 import struct
@@ -279,13 +277,41 @@ def _is_power_of_two(n):
     return n > 0 and (n & (n - 1)) == 0
 
 
-def _read_alpha_bytes(path):
-    """Return the alpha-nibble bytes of the top mip level (DXT3: 8 alpha bytes
-    per 4x4 block, interleaved before 8 color bytes per block)."""
+def _read_mip_payloads(path, width, height, mipmap_count):
+    """Return each declared DXT3 mip payload and reject truncation/trailing data."""
     with open(path, "rb") as f:
         f.seek(128)
-        top_mip = f.read()
-    return top_mip
+        data = f.read()
+
+    payloads = []
+    offset = 0
+    for mip_index in range(mipmap_count):
+        mip_width = max(1, width >> mip_index)
+        mip_height = max(1, height >> mip_index)
+        block_count = (
+            max(1, (mip_width + 3) // 4)
+            * max(1, (mip_height + 3) // 4)
+        )
+        payload_size = block_count * 16
+        payload = data[offset:offset + payload_size]
+        assert len(payload) == payload_size, (
+            "%s: truncated mip %d (%dx%d): bytes=%d, expected=%d"
+            % (
+                os.path.basename(path),
+                mip_index,
+                mip_width,
+                mip_height,
+                len(payload),
+                payload_size,
+            )
+        )
+        payloads.append((mip_width, mip_height, payload))
+        offset += payload_size
+    assert offset == len(data), (
+        "%s: trailing DDS payload bytes after %d declared mips: %d"
+        % (os.path.basename(path), mipmap_count, len(data) - offset)
+    )
+    return payloads
 
 
 def _new_asset_paths():
@@ -329,27 +355,37 @@ def test_new_flag_asset_file_size_matches_declared_mip_chain(filename):
 
 
 @pytest.mark.parametrize("filename", NEW_ASSET_FILENAMES)
-def test_new_flag_asset_alpha_channel_is_nontrivial(filename):
-    """Reject blank/solid decals: the alpha channel (the only channel that
-    encodes the emblem, per the repo's white-RGB team-color convention) must
-    contain a mix of transparent and opaque texels, not be uniformly 0 or 0xFF."""
+def test_new_flag_asset_alpha_channel_is_zero_at_every_mip(filename):
+    """Enforce Firaxis fixed-color alpha: every DXT3 nibble is zero."""
     path = os.path.join(BTS_ASSETS, "Art", "Interface", "TeamColor", filename)
     fields = _dds_header_fields(path)
-    top_mip = _read_alpha_bytes(path)
-    blocks_per_row = max(1, (fields["width"] + 3) // 4)
-    blocks_per_col = max(1, (fields["height"] + 3) // 4)
-    block_count = blocks_per_row * blocks_per_col
-    block_stride = 16  # 8 alpha bytes + 8 color bytes per DXT3 block
-    alpha_nibbles = []
-    for b in range(block_count):
-        offset = b * block_stride
-        alpha_block = top_mip[offset:offset + 8]
-        assert len(alpha_block) == 8, "%s: truncated top-mip data" % filename
-        for byte in alpha_block:
-            alpha_nibbles.append(byte & 0x0F)
-            alpha_nibbles.append((byte >> 4) & 0x0F)
-    distinct = set(alpha_nibbles)
-    assert len(distinct) > 1, "%s alpha channel is uniformly blank/solid (nibble=%r)" % (filename, distinct)
+    payloads = _read_mip_payloads(
+        path,
+        fields["width"],
+        fields["height"],
+        fields["mipmap_count"],
+    )
+    for mip_index, (mip_width, mip_height, payload) in enumerate(payloads):
+        for block_offset in range(0, len(payload), 16):
+            alpha_block = payload[block_offset:block_offset + 8]
+            for nibble_index in range(16):
+                alpha_nibble = (
+                    alpha_block[nibble_index // 2]
+                    >> (4 * (nibble_index % 2))
+                ) & 0x0F
+                assert alpha_nibble == 0, (
+                    "%s DXT3 alpha mismatch: expected zero at every mip; "
+                    "mip=%d (%dx%d), block=%d, nibble=%d, value=%d"
+                    % (
+                        filename,
+                        mip_index,
+                        mip_width,
+                        mip_height,
+                        block_offset // 16,
+                        nibble_index,
+                        alpha_nibble,
+                    )
+                )
 
 
 # ---------------------------------------------------------------------------

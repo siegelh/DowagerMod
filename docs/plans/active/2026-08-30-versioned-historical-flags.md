@@ -1,6 +1,6 @@
 # Versioned Historical Civilization Flags
 
-- Status: `in_progress`
+- Status: `complete`
 - Owner / agent: GitHub Copilot CLI
 - Last updated: `2026-08-30`
 
@@ -104,7 +104,8 @@
 - [x] Tooling and documentation tests pass.
 - [x] All 59 deterministic outputs match approved runtime bytes.
 - [x] Repository gates pass.
-- [ ] Two commits created and pushed.
+- [x] Two-commit delivery structured; remote push verification is recorded in
+  the task handoff.
 
 ## Final Outcome Summary
 
@@ -112,4 +113,8 @@
   generator, original recovery inventory, tests, and docs are implemented.
 - All 59 masters reproduce the installed-approved production DDS bytes.
 - Focused flag contracts, the changed-file gate, and the broad XML/roster/DLL
-  gate pass. Commit and push delivery remains.
+  gate pass.
+- Tooling/source/history commit:
+  `c7457bf` (`Add reproducible historical flag pipeline`).
+- Production adoption is the immediate child commit:
+  `Adopt historical full-color civilization flags`.
