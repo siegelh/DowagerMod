@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="300" height="300" viewBox="0 0 79.374998 79.375" version="1.1" id="svg498" inkscape:version="1.2 (dc2aedaf03, 2022-05-15)" sodipodi:docname="Union Jack New Zealand.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview id="namedview500" pagecolor="#505050" bordercolor="#eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#505050" inkscape:document-units="mm" showgrid="false" inkscape:zoom="2.025849" inkscape:cx="210.0354" inkscape:cy="160.17975" inkscape:window-width="1920" inkscape:window-height="991" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:window-maximized="1" inkscape:current-layer="layer1"/>
+  <defs id="defs495">
+    <clipPath id="Canton">
+      <path d="M 0,0 H 600 V 300 H 0 Z" id="path2"/>
+    </clipPath>
+    <clipPath id="Canton-5">
+      <path d="M 0,0 H 600 V 300 H 0 Z" id="path2-2"/>
+    </clipPath>
+    <clipPath id="Canton-9">
+      <path d="M 0,0 H 600 V 300 H 0 Z" id="path2-8"/>
+    </clipPath>
+    <clipPath id="Diagonals">
+      <path d="M 0,0 300,150 H 0 Z M 300,0 H 600 L 300,150 Z m 0,150 h 300 v 150 z m 0,0 V 300 H 0 Z" id="path5"/>
+    </clipPath>
+  </defs>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
+    <rect fill="#012169" x="0" y="2e-06" width="79.375" height="79.375" id="rect24" style="stroke-width:0.0935439"/>
+    <g id="g1909" transform="scale(0.13229166,0.26458333)">
+      <path id="Saint_Andrews_Cross" stroke="#ffffff" d="M 0,0 600,300 M 0,300 600,0" stroke-width="60" clip-path="url(#Canton-9)"/>
+      <path id="Saint_Patricks_Cross" stroke="#c8102e" d="M 0,0 600,300 M 0,300 600,0" stroke-width="40" clip-path="url(#Diagonals)"/>
+    </g>
+    <g id="g1905">
+      <rect style="fill:#ffffff;fill-opacity:1;stroke-width:9.0602;stroke-linecap:round;stop-color:#000000" id="rect1824" width="79.375" height="26.458334" x="-4.2188475e-15" y="26.458332"/>
+      <rect style="fill:#ffffff;fill-opacity:1;stroke-width:9.0602;stroke-linecap:round;stop-color:#000000" id="rect1901" width="79.375" height="26.458334" x="-9.5367432e-07" y="-52.916668" transform="rotate(90)"/>
+    </g>
+    <rect style="fill:#c8102e;stroke-width:4.33013;stroke-linecap:round;stop-color:#000000;fill-opacity:1" id="rect888" width="79.375" height="15.875" x="-7.1054274e-15" y="31.75"/>
+    <rect style="fill:#c8102e;fill-opacity:1;stroke-width:4.33013;stroke-linecap:round;stop-color:#000000" id="rect1166" width="79.375" height="15.875" x="-7.1054274e-15" y="-47.625" transform="rotate(90)"/>
+  </g>
+</svg>

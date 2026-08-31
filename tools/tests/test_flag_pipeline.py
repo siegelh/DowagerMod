@@ -29,8 +29,12 @@ import build_flags
 def test_manifest_is_complete_unique_and_repository_relative() -> None:
     manifest = load_manifest()
     assert manifest["record_count"] == EXPECTED_COUNT
-    assert manifest["design_version"] == "historical-v1"
+    assert manifest["design_version"] == "issue-flags-v2"
     assert manifest["original_work_license"]["spdx"] == "CC0-1.0"
+    assert manifest["design_version_summary"] == {
+        "issue-flags-v2": 56,
+        "historical-v1": 3,
+    }
     fields = (
         "civilization_type",
         "art_define",
@@ -53,14 +57,46 @@ def test_manifest_is_complete_unique_and_repository_relative() -> None:
         values = [record[field] for record in manifest["records"]]
         assert len(set(values)) == EXPECTED_COUNT
     assert Counter(Path(record["master_path"]).suffix for record in manifest["records"]) == {
-        ".svg": 36,
-        ".png": 23,
+        ".jpg": 27,
+        ".png": 21,
+        ".svg": 11,
     }
     assert all(
         not Path(record["master_path"]).is_absolute()
         and "session-state" not in record["master_path"].lower()
         for record in manifest["records"]
     )
+
+
+def test_issue_v2_mapping_is_exact_and_retained_scope_is_explicit() -> None:
+    records = load_manifest()["records"]
+    issue_records = [
+        record
+        for record in records
+        if record["active_design_version"] == "issue-flags-v2"
+    ]
+    retained = {
+        record["civilization_type"]
+        for record in records
+        if record["active_design_version"] == "historical-v1"
+    }
+    assert len(issue_records) == 56
+    assert {record["issue_number"] for record in issue_records} == set(
+        range(87, 143)
+    )
+    assert all(
+        record["issue_url"]
+        == f"https://github.com/siegelh/DowagerMod/issues/{record['issue_number']}"
+        and record["issue_attachment_url"].startswith(
+            "https://github.com/user-attachments/assets/"
+        )
+        for record in issue_records
+    )
+    assert retained == {
+        "CIVILIZATION_INCA",
+        "CIVILIZATION_MONGOL_EMPIRE",
+        "CIVILIZATION_SUMERIA",
+    }
 
 
 def test_all_master_digests_match() -> None:

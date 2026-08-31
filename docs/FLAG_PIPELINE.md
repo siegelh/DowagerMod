@@ -37,8 +37,11 @@ scoreboard text, and unit indicators continue to use each civilization's
 
 - `tools/flags/manifest.json` — exact 59-record runtime mapping, active design,
   production digest, research, citations, provenance, and licensing.
-- `tools/flags/designs/historical-v1/masters/` — approved 1024x1024 SVG/PNG
-  masters. Do not overwrite this version when creating a future generation.
+- `tools/flags/designs/historical-v1/masters/` — original approved historical
+  generation.
+- `tools/flags/designs/issue-flags-v2/masters/` — 56 repository-owner-provided
+  issue attachments; Genghis Khan, Gilgamesh, and Huayna Capac continue using
+  historical-v1.
 - `tools/flags/dxt3_fullcolor.py` — deterministic DXT3 encoder.
 - `tools/flags/build_flags.py` — safe single, changed, all, and check builds.
 - `tools/flags/build_review.py` — local scale/cloth gallery generator.
@@ -55,9 +58,8 @@ python -m pip install -r .\tools\flags\requirements.txt
 
 ## Updating one flag
 
-1. Replace only that civilization's master in
-   `tools/flags/designs/historical-v1/masters/`, or create a new versioned
-   design directory and update its manifest record.
+1. Replace only that civilization's master in its active versioned directory,
+   or create a new versioned design directory and update its manifest record.
 2. Update the record's provenance, licensing, design notes, master SHA-256, and
    expected production DDS SHA-256.
 3. Generate and inspect the local gallery:
@@ -80,6 +82,9 @@ python -m pip install -r .\tools\flags\requirements.txt
 The builder derives and validates the civilization-to-art-to-path chain from
 the live XML. It refuses duplicates, remaps, unsafe paths, missing masters,
 master-digest drift, output-digest drift, and unexpected playable entries.
+Raster masters and SVGs may retain their native aspect ratio and dimensions;
+the pipeline deterministically resamples the complete supplied composition into
+the square 1024x1024 working texture required by Civ4.
 
 ## Rebuild and deterministic check
 

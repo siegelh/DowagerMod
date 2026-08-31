@@ -1,8 +1,10 @@
 # Historical flag tools
 
 This directory is the editable source of truth for the 59 playable
-civilization flags. Read [`../../docs/FLAG_PIPELINE.md`](../../docs/FLAG_PIPELINE.md)
-before changing a master, manifest record, or generated DDS.
+civilization flags. The active generation uses 56 issue-provided designs and
+three retained historical-v1 designs. Read
+[`../../docs/FLAG_PIPELINE.md`](../../docs/FLAG_PIPELINE.md) before changing a
+master, manifest record, or generated DDS.
 
 Common commands:
 

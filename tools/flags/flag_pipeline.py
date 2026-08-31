@@ -197,16 +197,19 @@ def validate_manifest_against_live(*, require_fixed_color: bool) -> None:
 
 def rasterize_master(path: Path, size: int = 128) -> Image.Image:
     if path.suffix.lower() == ".svg":
-        payload = cairosvg.svg2png(
-            url=str(path),
-            output_width=1024,
-            output_height=1024,
-        )
+        if "issue-flags-v2" in path.parts:
+            payload = cairosvg.svg2png(url=str(path))
+        else:
+            payload = cairosvg.svg2png(
+                url=str(path),
+                output_width=1024,
+                output_height=1024,
+            )
         image = Image.open(io.BytesIO(payload)).convert("RGBA")
     else:
         image = Image.open(path).convert("RGBA")
     if image.size != (1024, 1024):
-        raise ValueError(f"Master must be 1024x1024: {path} is {image.size}")
+        image = image.resize((1024, 1024), Image.Resampling.LANCZOS)
     if size == 1024:
         return image
     return image.resize((size, size), Image.Resampling.LANCZOS)
