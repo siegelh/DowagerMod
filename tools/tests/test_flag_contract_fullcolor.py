@@ -435,7 +435,7 @@ EXPECTED_DDS_SHA256 = {
     ),
     'CIVILIZATION_MAYA': (
         'Art/Interface/TeamColor/FlagDECAL_Maya.dds',
-        '638f095934cc915495a7308a003387065571a8ded03060bab44db8a3c7bee299',
+        '58c09dad3691cf46edbac0d3ca814d2de990bb35e39baf1a0368c1c8de6c1b6d',
     ),
     'CIVILIZATION_MONGOL_EMPIRE': (
         'Art/Interface/TeamColor/FlagDECAL_Horse.dds',
@@ -1044,3 +1044,10 @@ def test_all_fullcolor_dds_files_reconcile_and_validate() -> None:
         f"mip_rgb_failures={mip_rgb_failures}; "
         f"other_validation_errors={validation_errors}"
     )
+
+
+def test_maya_flag_has_visible_rgb_contrast() -> None:
+    _, relative_path = FULLCOLOR_FLAGS["CIVILIZATION_MAYA"]
+    pixels = _parse_and_validate_dds(_asset_path(relative_path).read_bytes())
+    assert len(set(pixels)) > 1
+    assert any(pixel != (0, 0, 0) for pixel in pixels)
