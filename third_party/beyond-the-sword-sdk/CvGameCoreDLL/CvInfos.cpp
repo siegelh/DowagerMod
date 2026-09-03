@@ -23963,6 +23963,8 @@ bool CvEventInfo::readPass2(CvXMLLoadUtility* pXML)
 //------------------------------------------------------------------------------------------------------
 CvEspionageMissionInfo::CvEspionageMissionInfo()
 {
+	m_bStagesDiplomaticIncident = false;
+	m_iDiplomaticAttitudeChange = 0;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -24034,6 +24036,16 @@ bool CvEspionageMissionInfo::isSeeResearch() const
 bool CvEspionageMissionInfo::isDestroyImprovement() const
 {
 	return m_bDestroyImprovement;
+}
+
+bool CvEspionageMissionInfo::isStagesDiplomaticIncident() const
+{
+	return m_bStagesDiplomaticIncident;
+}
+
+int CvEspionageMissionInfo::getDiplomaticAttitudeChange() const
+{
+	return m_iDiplomaticAttitudeChange;
 }
 
 int CvEspionageMissionInfo::getDestroyBuildingCostFactor() const
@@ -24155,6 +24167,8 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_bSeeResearch, "bSeeResearch");
 
 	pXML->GetChildXmlValByName(&m_bDestroyImprovement, "bDestroyImprovement");
+	pXML->GetChildXmlValByName(&m_bStagesDiplomaticIncident, "bStagesDiplomaticIncident");
+	pXML->GetChildXmlValByName(&m_iDiplomaticAttitudeChange, "iDiplomaticAttitudeChange");
 	pXML->GetChildXmlValByName(&m_iDestroyBuildingCostFactor, "iDestroyBuildingCostFactor");
 	pXML->GetChildXmlValByName(&m_iDestroyUnitCostFactor, "iDestroyUnitCostFactor");
 	pXML->GetChildXmlValByName(&m_iDestroyProjectCostFactor, "iDestroyProjectCostFactor");

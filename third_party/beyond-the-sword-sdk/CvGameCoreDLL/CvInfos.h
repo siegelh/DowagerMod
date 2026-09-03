@@ -6349,6 +6349,8 @@ public:
 	bool isSeeResearch() const;
 
 	bool isDestroyImprovement() const;
+	bool isStagesDiplomaticIncident() const;
+	int getDiplomaticAttitudeChange() const;
 	int getDestroyBuildingCostFactor() const;
 	int getDestroyUnitCostFactor() const;
 	int getDestroyProjectCostFactor() const;
@@ -6388,6 +6390,8 @@ protected:
 	bool m_bSeeResearch;
 
 	bool m_bDestroyImprovement;
+	bool m_bStagesDiplomaticIncident;
+	int m_iDiplomaticAttitudeChange;
 	int m_iDestroyBuildingCostFactor;
 	int m_iDestroyUnitCostFactor;
 	int m_iDestroyProjectCostFactor;

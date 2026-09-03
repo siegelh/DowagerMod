@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_STAGE_DIPLOMATIC_INCIDENT</Tag>
+		<English>Stage Diplomatic Incident</English>
+		<French>Stage Diplomatic Incident</French>
+		<German>Stage Diplomatic Incident</German>
+		<Italian>Stage Diplomatic Incident</Italian>
+		<Spanish>Stage Diplomatic Incident</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CHOOSE_FRAMED_CIVILIZATION</Tag>
+		<English>Choose the civilization to implicate</English>
+		<French>Choose the civilization to implicate</French>
+		<German>Choose the civilization to implicate</German>
+		<Italian>Choose the civilization to implicate</Italian>
+		<Spanish>Choose the civilization to implicate</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_FRAME_CIVILIZATION</Tag>
+		<English>%s1_leader (%s2_civ)</English>
+		<French>%s1_leader (%s2_civ)</French>
+		<German>%s1_leader (%s2_civ)</German>
+		<Italian>%s1_leader (%s2_civ)</Italian>
+		<Spanish>%s1_leader (%s2_civ)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_DIPLOMATIC_INCIDENT_SUCCESS</Tag>
+		<English>Our agents staged an incident in %s1_civ territory that implicates %s2_civ.</English>
+		<French>Our agents staged an incident in %s1_civ territory that implicates %s2_civ.</French>
+		<German>Our agents staged an incident in %s1_civ territory that implicates %s2_civ.</German>
+		<Italian>Our agents staged an incident in %s1_civ territory that implicates %s2_civ.</Italian>
+		<Spanish>Our agents staged an incident in %s1_civ territory that implicates %s2_civ.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_DIPLOMATIC_INCIDENT_TARGET</Tag>
+		<English>Evidence from a hostile incident points to %s1_civ involvement.</English>
+		<French>Evidence from a hostile incident points to %s1_civ involvement.</French>
+		<German>Evidence from a hostile incident points to %s1_civ involvement.</German>
+		<Italian>Evidence from a hostile incident points to %s1_civ involvement.</Italian>
+		<Spanish>Evidence from a hostile incident points to %s1_civ involvement.</Spanish>
+	</TEXT>
+</Civ4GameText>

@@ -1833,8 +1833,17 @@ bool CvDLLButtonPopup::launchDoEspionagePopup(CvPopup* pPopup, CvPopupInfo &info
 			{
 				if (GC.getEspionageMissionInfo((EspionageMissionTypes) iLoop).isTwoPhases())
 				{
-					szBuffer = GC.getEspionageMissionInfo((EspionageMissionTypes) iLoop).getDescription();
-					gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), iLoop, WIDGET_GENERAL);
+					if (GC.getEspionageMissionInfo((EspionageMissionTypes)iLoop).isStagesDiplomaticIncident())
+					{
+						int iCost = GET_PLAYER(pUnit->getOwnerINLINE()).getEspionageMissionCost((EspionageMissionTypes)iLoop, pPlot->getOwnerINLINE(), pPlot, -1, pUnit);
+						szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", GC.getEspionageMissionInfo((EspionageMissionTypes)iLoop).getTextKeyWide(), iCost);
+						gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), iLoop, WIDGET_HELP_ESPIONAGE_COST, iLoop, -1);
+					}
+					else
+					{
+						szBuffer = GC.getEspionageMissionInfo((EspionageMissionTypes)iLoop).getDescription();
+						gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), iLoop, WIDGET_GENERAL);
+					}
 				}
 				else
 				{
@@ -1880,11 +1889,24 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 		return false;
 	}
 
-	gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_ESPIONAGE_CHOOSE_TARGET"));
-
 	CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
-	if (kMission.getDestroyBuildingCostFactor() > 0)
+	if (kMission.isStagesDiplomaticIncident())
 	{
+		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_ESPIONAGE_CHOOSE_FRAMED_CIVILIZATION"));
+		for (int iPlayer = 0; iPlayer < MAX_CIV_PLAYERS; ++iPlayer)
+		{
+			PlayerTypes eFramedPlayer = (PlayerTypes)iPlayer;
+			if (kPlayer.canStageDiplomaticIncident(eTargetPlayer, eFramedPlayer))
+			{
+				CvPlayer& kFramedPlayer = GET_PLAYER(eFramedPlayer);
+				CvWString szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_FRAME_CIVILIZATION", kFramedPlayer.getNameKey(), kFramedPlayer.getCivilizationDescriptionKey());
+				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), iPlayer, WIDGET_HELP_ESPIONAGE_COST, eMission, iPlayer);
+			}
+		}
+	}
+	else if (kMission.getDestroyBuildingCostFactor() > 0)
+	{
+		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_ESPIONAGE_CHOOSE_TARGET"));
 		if (NULL != pCity)
 		{
 			for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)
@@ -1904,6 +1926,7 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 	}
 	else if (kMission.getDestroyUnitCostFactor() > 0)
 	{
+		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_ESPIONAGE_CHOOSE_TARGET"));
 		CLLNode<IDInfo>* pUnitNode = pPlot->headUnitNode();
 		while (pUnitNode != NULL)
 		{
@@ -1927,6 +1950,7 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 	}
 	else if (kMission.getDestroyProjectCostFactor() > 0)
 	{
+		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_ESPIONAGE_CHOOSE_TARGET"));
 		for (int iProject = 0; iProject < GC.getNumProjectInfos(); ++iProject)
 		{
 			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iProject, pUnit))
@@ -1942,6 +1966,7 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 	}
 	else if (kMission.getBuyTechCostFactor() > 0)
 	{
+		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_ESPIONAGE_CHOOSE_TARGET"));
 		for (int iTech = 0; iTech < GC.getNumTechInfos(); ++iTech)
 		{
 			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iTech, pUnit))
@@ -1955,6 +1980,7 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 	}
 	else if (kMission.getSwitchCivicCostFactor() > 0)
 	{
+		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_ESPIONAGE_CHOOSE_TARGET"));
 		for (int iCivic = 0; iCivic < GC.getNumCivicInfos(); ++iCivic)
 		{
 			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iCivic, pUnit))
@@ -1968,6 +1994,7 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 	}
 	else if (kMission.getSwitchReligionCostFactor() > 0)
 	{
+		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_ESPIONAGE_CHOOSE_TARGET"));
 		for (int iReligion = 0; iReligion < GC.getNumReligionInfos(); ++iReligion)
 		{
 			if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iReligion, pUnit))

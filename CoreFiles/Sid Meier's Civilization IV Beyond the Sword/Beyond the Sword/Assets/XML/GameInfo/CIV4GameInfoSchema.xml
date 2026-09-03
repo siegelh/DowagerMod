@@ -1174,6 +1174,8 @@
 	<ElementType name="bNoActiveMissions" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iVisibilityLevel" content="textOnly" dt:type="int"/>
 	<ElementType name="bDestroyImprovement" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bStagesDiplomaticIncident" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iDiplomaticAttitudeChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iDifficultyMod" content="textOnly" dt:type="int"/>
 	<ElementType name="bInvestigateCity" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bSeeResearch" content="textOnly" dt:type="boolean"/>
@@ -1210,6 +1212,8 @@
 		<element type="bNoActiveMissions"/>
 		<element type="bSeeResearch"/>
 		<element type="bDestroyImprovement"/>
+		<element type="bStagesDiplomaticIncident" minOccurs="0"/>
+		<element type="iDiplomaticAttitudeChange" minOccurs="0"/>
 		<element type="iDifficultyMod"/>
 		<element type="iDestroyBuildingCostFactor"/>
 		<element type="iDestroyUnitCostFactor"/>

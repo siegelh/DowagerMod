@@ -9739,6 +9739,26 @@ EspionageMissionTypes CvPlayerAI::AI_bestPlotEspionage(CvPlot* pSpyPlot, PlayerT
 	{
 		if (pSpyPlot->getTeam() != getTeam())
 		{
+			for (int iMission = 0; iMission < GC.getNumEspionageMissionInfos(); ++iMission)
+			{
+				CvEspionageMissionInfo& kMissionInfo = GC.getEspionageMissionInfo((EspionageMissionTypes)iMission);
+				if (kMissionInfo.isStagesDiplomaticIncident())
+				{
+					for (int iFramedPlayer = 0; iFramedPlayer < MAX_CIV_PLAYERS; ++iFramedPlayer)
+					{
+						int iValue = AI_espionageVal(pSpyPlot->getOwnerINLINE(), (EspionageMissionTypes)iMission, pSpyPlot, iFramedPlayer);
+						if (iValue > iBestValue)
+						{
+							iBestValue = iValue;
+							eBestMission = (EspionageMissionTypes)iMission;
+							eTargetPlayer = pSpyPlot->getOwnerINLINE();
+							pPlot = pSpyPlot;
+							iData = iFramedPlayer;
+						}
+					}
+				}
+			}
+
 			if (!AI_isDoStrategy(AI_STRATEGY_BIG_ESPIONAGE) && (GET_TEAM(getTeam()).AI_getWarPlan(pSpyPlot->getTeam()) != NO_WARPLAN || AI_getAttitudeWeight(pSpyPlot->getOwner()) < (GC.getGameINLINE().isOption(GAMEOPTION_AGGRESSIVE_AI) ? 50 : 1)))
 			{
 				//Destroy Improvement.
@@ -9924,6 +9944,20 @@ int CvPlayerAI::AI_espionageVal(PlayerTypes eTargetPlayer, EspionageMissionTypes
 //	}
 
 	int iValue = 0;
+	if (GC.getEspionageMissionInfo(eMission).isStagesDiplomaticIncident())
+	{
+		PlayerTypes eFramedPlayer = (PlayerTypes)iData;
+		int iAttitudeChange = abs(GC.getEspionageMissionInfo(eMission).getDiplomaticAttitudeChange());
+		int iCurrentAttitude = GET_PLAYER(eTargetPlayer).AI_getAttitudeVal(eFramedPlayer);
+		int iChangedAttitude = iCurrentAttitude - iAttitudeChange;
+		if (AI_getAttitudeFromValue(iCurrentAttitude) == AI_getAttitudeFromValue(iChangedAttitude))
+		{
+			return 0;
+		}
+		int iRelationshipValue = 300 * ((int)AI_getAttitudeFromValue(iCurrentAttitude) - (int)AI_getAttitudeFromValue(iChangedAttitude));
+		return std::max(0, iRelationshipValue - iCost);
+	}
+
 	if (GC.getEspionageMissionInfo(eMission).isDestroyImprovement())
 	{
 		if (NULL != pPlot)

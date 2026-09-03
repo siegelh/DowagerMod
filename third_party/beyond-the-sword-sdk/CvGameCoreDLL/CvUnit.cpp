@@ -6165,6 +6165,12 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData)
 	}
 	else
 	{
+		if (GC.getEspionageMissionInfo(eMission).isStagesDiplomaticIncident() &&
+			!GET_PLAYER(getOwnerINLINE()).canDoEspionageMission(eMission, eTargetPlayer, plot(), iData, this))
+		{
+			return false;
+		}
+
 		if (testSpyIntercepted(eTargetPlayer, GC.getEspionageMissionInfo(eMission).getDifficultyMod()))
 		{
 			return false;

@@ -13363,6 +13363,46 @@ int CvPlayer::getEspionageSpending(TeamTypes eAgainstTeam) const
 	return iSpendingValue;
 }
 
+bool CvPlayer::canStageDiplomaticIncident(PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const
+{
+	if (eTargetPlayer == NO_PLAYER || eFramedPlayer == NO_PLAYER)
+	{
+		return false;
+	}
+
+	if (eTargetPlayer == getID() || eFramedPlayer == getID() || eFramedPlayer == eTargetPlayer)
+	{
+		return false;
+	}
+
+	const CvPlayer& kTargetPlayer = GET_PLAYER(eTargetPlayer);
+	const CvPlayer& kFramedPlayer = GET_PLAYER(eFramedPlayer);
+	if (!kTargetPlayer.isAlive() || kTargetPlayer.isHuman() || kTargetPlayer.isBarbarian() || kTargetPlayer.isMinorCiv() ||
+		!kFramedPlayer.isAlive() || kFramedPlayer.isBarbarian() || kFramedPlayer.isMinorCiv())
+	{
+		return false;
+	}
+
+	TeamTypes eTargetTeam = kTargetPlayer.getTeam();
+	TeamTypes eFramedTeam = kFramedPlayer.getTeam();
+	if (eTargetTeam == getTeam() || eFramedTeam == getTeam() || eFramedTeam == eTargetTeam)
+	{
+		return false;
+	}
+
+	if (!GET_TEAM(getTeam()).isHasMet(eFramedTeam) || !GET_TEAM(eTargetTeam).isHasMet(eFramedTeam))
+	{
+		return false;
+	}
+
+	if (GET_TEAM(eTargetTeam).isVassal(eFramedTeam) || GET_TEAM(eFramedTeam).isVassal(eTargetTeam))
+	{
+		return false;
+	}
+
+	return true;
+}
+
 bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, const CvPlot* pPlot, int iExtraData, const CvUnit* pUnit) const
 {
 	if (getID() == eTargetPlayer || NO_PLAYER == eTargetPlayer)
@@ -13376,6 +13416,15 @@ bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes
 	}
 
 	CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
+
+	if (kMission.isStagesDiplomaticIncident() && pUnit != NULL)
+	{
+		if (pPlot == NULL || pUnit->getOwnerINLINE() != getID() || pUnit->plot() != pPlot ||
+			pPlot->getOwnerINLINE() != eTargetPlayer || !pUnit->canEspionage(pPlot))
+		{
+			return false;
+		}
+	}
 
 	// Need Tech Prereq, if applicable
 	if (kMission.getTechPrereq() != NO_TECH)
@@ -13465,7 +13514,25 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 
 	int iMissionCost = -1;
 
-	if (kMission.getStealTreasuryTypes() > 0)
+	if (kMission.isStagesDiplomaticIncident())
+	{
+		if (iExtraData == -1)
+		{
+			for (int iPlayer = 0; iPlayer < MAX_CIV_PLAYERS; ++iPlayer)
+			{
+				if (canStageDiplomaticIncident(eTargetPlayer, (PlayerTypes)iPlayer))
+				{
+					iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
+					break;
+				}
+			}
+		}
+		else if (iExtraData >= 0 && iExtraData < MAX_CIV_PLAYERS && canStageDiplomaticIncident(eTargetPlayer, (PlayerTypes)iExtraData))
+		{
+			iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
+		}
+	}
+	else if (kMission.getStealTreasuryTypes() > 0)
 	{
 		// Steal Treasury
 		int iNumTotalGold = (GET_PLAYER(eTargetPlayer).getGold() * kMission.getStealTreasuryTypes()) / 100;
@@ -13941,6 +14008,15 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 
 bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, CvPlot* pPlot, int iExtraData, CvUnit* pSpyUnit)
 {
+	if (GC.getEspionageMissionInfo(eMission).isStagesDiplomaticIncident())
+	{
+		if (pSpyUnit == NULL || pPlot == NULL || pSpyUnit->getOwnerINLINE() != getID() ||
+			pSpyUnit->plot() != pPlot || pPlot->getOwnerINLINE() != eTargetPlayer || !pSpyUnit->canEspionage(pPlot))
+		{
+			return false;
+		}
+	}
+
 	if (!canDoEspionageMission(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit))
 	{
 		return false;
@@ -13957,9 +14033,25 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 	bool bSomethingHappened = false;
 	bool bShowExplosion = false;
 	CvWString szBuffer;
+	CvWString szActorBuffer;
 	int iMissionCost = getEspionageMissionCost(eMission, eTargetPlayer, pPlot, iExtraData, pSpyUnit);
 
 	
+	//////////////////////////////
+	// Stage Diplomatic Incident
+
+	if (kMission.isStagesDiplomaticIncident())
+	{
+		PlayerTypes eFramedPlayer = (PlayerTypes)iExtraData;
+		if (canStageDiplomaticIncident(eTargetPlayer, eFramedPlayer))
+		{
+			GET_PLAYER(eTargetPlayer).AI_changeAttitudeExtra(eFramedPlayer, kMission.getDiplomaticAttitudeChange());
+			szActorBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DIPLOMATIC_INCIDENT_SUCCESS", GET_PLAYER(eTargetPlayer).getCivilizationDescriptionKey(), GET_PLAYER(eFramedPlayer).getCivilizationDescriptionKey());
+			szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DIPLOMATIC_INCIDENT_TARGET", GET_PLAYER(eFramedPlayer).getCivilizationDescriptionKey());
+			bSomethingHappened = true;
+		}
+	}
+
 	//////////////////////////////
 	// Destroy Improvement
 
@@ -14362,7 +14454,8 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 			iY = pPlot->getY_INLINE();
 		}
 
-		gDLL->getInterfaceIFace()->addMessage(getID(), true, GC.getEVENT_MESSAGE_TIME(), gDLL->getText("TXT_KEY_ESPIONAGE_MISSION_PERFORMED"), "AS2D_POSITIVE_DINK", MESSAGE_TYPE_INFO, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), iX, iY, true, true);
+		CvWString szActorMessage = szActorBuffer.empty() ? gDLL->getText("TXT_KEY_ESPIONAGE_MISSION_PERFORMED") : szActorBuffer;
+		gDLL->getInterfaceIFace()->addMessage(getID(), true, GC.getEVENT_MESSAGE_TIME(), szActorMessage, "AS2D_POSITIVE_DINK", MESSAGE_TYPE_INFO, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), iX, iY, true, true);
 	}
 	else if (getID() == GC.getGameINLINE().getActivePlayer())
 	{
