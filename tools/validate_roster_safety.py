@@ -403,6 +403,42 @@ class Validator:
             return [value]
         return [part.strip() for part in value.split(",")[1:]]
 
+    @classmethod
+    def is_malformed_standalone_button(cls, value: str) -> bool:
+        return value.startswith(",") and len(cls.button_parts(value)) == 1
+
+    def validate_live_building_buttons(self) -> None:
+        building_root = self.parse(
+            self.bts / "XML" / "Buildings" / "CIV4BuildingInfos.xml"
+        )
+        art_root = self.parse(
+            self.bts / "XML" / "Art" / "CIV4ArtDefines_Building.xml"
+        )
+        if building_root is None or art_root is None:
+            return
+
+        live_art_defines = {
+            direct_text(node, "ArtDefineTag")
+            for node in building_root.iter()
+            if local_name(node.tag) == "BuildingInfo"
+        }
+        repo_path = relative(
+            self.bts / "XML" / "Art" / "CIV4ArtDefines_Building.xml",
+            self.root,
+        )
+        for node in art_root.iter():
+            if local_name(node.tag) != "BuildingArtInfo":
+                continue
+            art_type = direct_text(node, "Type")
+            if art_type not in live_art_defines:
+                continue
+            button = direct_text(node, "Button")
+            if self.is_malformed_standalone_button(button):
+                self.fail(
+                    f"{repo_path}: live {art_type} has malformed standalone "
+                    f"Button syntax {button!r}"
+                )
+
     def normalize_art(self, value: str) -> str:
         return str(PurePosixPath(value.strip().replace("\\", "/").lstrip("/")))
 
@@ -460,6 +496,7 @@ class Validator:
             self.fail(f"{relative(path, self.root)}: unsupported uncompressed DDS depth {rgb_bits}")
 
     def validate_art(self) -> None:
+        self.validate_live_building_buttons()
         changed_xml = [
             path for path in self.xml_files
             if relative(path, self.root) in self.changed

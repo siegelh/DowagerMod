@@ -21,6 +21,19 @@ class RosterValidatorTests(unittest.TestCase):
             ["Art/a.dds", "Art/atlas.dds", "2", "3"],
         )
 
+    def test_malformed_standalone_button_is_rejected(self) -> None:
+        self.assertTrue(
+            MODULE.Validator.is_malformed_standalone_button(",Art/a.dds")
+        )
+        self.assertFalse(
+            MODULE.Validator.is_malformed_standalone_button("Art/a.dds")
+        )
+        self.assertFalse(
+            MODULE.Validator.is_malformed_standalone_button(
+                ",Art/a.dds,Art/atlas.dds,2,3"
+            )
+        )
+
     def test_format_token_pattern_handles_civ4_tokens(self) -> None:
         text = "%s1 founded %D2_Change%% cities for {player}"
         self.assertEqual(

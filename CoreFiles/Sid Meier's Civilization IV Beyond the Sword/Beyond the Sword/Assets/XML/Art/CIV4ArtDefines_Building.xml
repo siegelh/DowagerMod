@@ -2020,7 +2020,7 @@
 			<fInterfaceScale>1</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/artofwar/artofwar.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/suntzu_art_of_war.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/suntzu_art_of_war.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_AUTOMATED_DEFENSES</Type>
@@ -2440,7 +2440,7 @@
 			<fInterfaceScale>1</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/central_bank/bank.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/national_wonders/central_bank.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/national_wonders/central_bank.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_CHECKPOINT</Type>
@@ -2930,7 +2930,7 @@
 			<fInterfaceScale>1.0</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/cyrus_tomb/cyrustomb.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cyrustomb.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/cyrustomb.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_CARNIVAL_DANCING_BEAR</Type>
@@ -3390,7 +3390,7 @@
 			<fInterfaceScale>0.8</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/sphinx/sphinx.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/sphinx.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/sphinx.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_GREAT_WALL_OF_CHINA</Type>
@@ -3940,7 +3940,7 @@
 			<fInterfaceScale>0.4</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/castle/castle.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/krak.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/krak.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_THE_KREMLIN</Type>
@@ -4000,7 +4000,7 @@
 			<fInterfaceScale>1.4</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/leonardo/leonardo.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/leonardo_workshop.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/leonardo_workshop.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_LION_CAGE</Type>
@@ -4030,7 +4030,7 @@
 			<fInterfaceScale>0.2</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/londoneye/eye.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/londoneye.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/londoneye.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_LOTUS_TEMPLE</Type>
@@ -4070,7 +4070,7 @@
 			<fInterfaceScale>1</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/magellan/caravel_freeze1000.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/magellans_voyage.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/magellans_voyage.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_MAGINOT_LINE</Type>
@@ -4130,7 +4130,7 @@
 			<fInterfaceScale>1</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/chinese pavillion/chinese_pavillion.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/marco_polo_embassy.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/marco_polo_embassy.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_MARTIAN_ARCOLOGY</Type>
@@ -4310,7 +4310,7 @@
 			<fInterfaceScale>0.75</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/neuschwanstein/neuschwanstein.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/neuschwanstein.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/neuschwanstein.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_NEWTON</Type>
@@ -4400,7 +4400,7 @@
 			<fInterfaceScale>0.9</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/nineveh/library_of_nineveh.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/library_of_nineveh.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/library_of_nineveh.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_PATTAKY_OF_OBATALA</Type>
@@ -4470,7 +4470,7 @@
 			<fInterfaceScale>1</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/veterans/veterans04.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/olympic_games.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/olympic_games.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_THE_ORACLE</Type>
@@ -4560,7 +4560,7 @@
 			<fInterfaceScale>0.52</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/pergamonaltar/pergamonaltar.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/pergamonaltar.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/pergamonaltar.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_PETRA</Type>
@@ -4740,7 +4740,7 @@
 			<fInterfaceScale>0.5</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/reichstag.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/reichstag.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/reichstag.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_ENCLOSURE_REPTILE</Type>
@@ -4880,7 +4880,7 @@
 			<fInterfaceScale>0.28</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/sanmarco/sanmarco.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/sanmarco.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/sanmarco.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_SCARBOROUGH_FAIR</Type>
@@ -5500,7 +5500,7 @@
 			<fInterfaceScale>0.5</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/terracotta/xian.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/terracottaarmy.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/terracottaarmy.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_THEATRE_OF_DIONYSUS</Type>
@@ -5510,7 +5510,7 @@
 			<fInterfaceScale>0.5</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/theatre_dionysus/theatre_dionysus.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/theatre_of_dionysus.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/theatre_of_dionysus.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_THE_MOTHERLAND_CALLS</Type>
@@ -5520,7 +5520,7 @@
 			<fInterfaceScale>0.35</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/motherland.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/motherland.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/motherland.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_TITAN_ARCOLOGY</Type>
@@ -5540,7 +5540,7 @@
 			<fInterfaceScale>0.45</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/topkapi_palace/fortme8.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/topkapi_palace.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/topkapi_palace.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_TEMPLE_OF_TOTH</Type>
@@ -5600,7 +5600,7 @@
 			<fInterfaceScale>0.8</fInterfaceScale>
 			<NIF>Art/Caveman2Cosmos/art/structures/buildings/tsukiji/tsukiji.nif</NIF>
 			<KFM/>
-			<Button>,Art/Caveman2Cosmos/art/interface/buttons/great_wonders/tsukiji.dds</Button>
+			<Button>Art/Caveman2Cosmos/art/interface/buttons/great_wonders/tsukiji.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_UNIVERSAL_HEALTH_CARE</Type>
