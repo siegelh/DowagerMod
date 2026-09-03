@@ -1833,7 +1833,8 @@ bool CvDLLButtonPopup::launchDoEspionagePopup(CvPopup* pPopup, CvPopupInfo &info
 			{
 				if (GC.getEspionageMissionInfo((EspionageMissionTypes) iLoop).isTwoPhases())
 				{
-					if (GC.getEspionageMissionInfo((EspionageMissionTypes)iLoop).isStagesDiplomaticIncident())
+					if (GC.getEspionageMissionInfo((EspionageMissionTypes)iLoop).isStagesDiplomaticIncident() ||
+						GC.getEspionageMissionInfo((EspionageMissionTypes)iLoop).isFabricatesCasusBelli())
 					{
 						int iCost = GET_PLAYER(pUnit->getOwnerINLINE()).getEspionageMissionCost((EspionageMissionTypes)iLoop, pPlot->getOwnerINLINE(), pPlot, -1, pUnit);
 						szBuffer = gDLL->getText("TXT_KET_ESPIONAGE_MISSION_COST", GC.getEspionageMissionInfo((EspionageMissionTypes)iLoop).getTextKeyWide(), iCost);
@@ -1890,16 +1891,31 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 	}
 
 	CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
-	if (kMission.isStagesDiplomaticIncident())
+	if (kMission.isStagesDiplomaticIncident() || kMission.isFabricatesCasusBelli())
 	{
-		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText("TXT_KEY_ESPIONAGE_CHOOSE_FRAMED_CIVILIZATION"));
+		bool bFabricatesCasusBelli = kMission.isFabricatesCasusBelli();
+		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText(
+			bFabricatesCasusBelli ? "TXT_KEY_ESPIONAGE_CHOOSE_CASUS_BELLI_TARGET" : "TXT_KEY_ESPIONAGE_CHOOSE_FRAMED_CIVILIZATION"));
 		for (int iPlayer = 0; iPlayer < MAX_CIV_PLAYERS; ++iPlayer)
 		{
 			PlayerTypes eFramedPlayer = (PlayerTypes)iPlayer;
-			if (kPlayer.canStageDiplomaticIncident(eTargetPlayer, eFramedPlayer))
+			bool bEligible = bFabricatesCasusBelli ?
+				kPlayer.canFabricateCasusBelli(eMission, eTargetPlayer, eFramedPlayer) :
+				kPlayer.canStageDiplomaticIncident(eTargetPlayer, eFramedPlayer);
+			if (bEligible)
 			{
 				CvPlayer& kFramedPlayer = GET_PLAYER(eFramedPlayer);
-				CvWString szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_FRAME_CIVILIZATION", kFramedPlayer.getNameKey(), kFramedPlayer.getCivilizationDescriptionKey());
+				CvWString szBuffer;
+				if (bFabricatesCasusBelli)
+				{
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_CIVILIZATION",
+						kFramedPlayer.getNameKey(), kFramedPlayer.getCivilizationDescriptionKey(),
+						kPlayer.getFabricateCasusBelliChance(eMission, eTargetPlayer, eFramedPlayer));
+				}
+				else
+				{
+					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_FRAME_CIVILIZATION", kFramedPlayer.getNameKey(), kFramedPlayer.getCivilizationDescriptionKey());
+				}
 				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), iPlayer, WIDGET_HELP_ESPIONAGE_COST, eMission, iPlayer);
 			}
 		}

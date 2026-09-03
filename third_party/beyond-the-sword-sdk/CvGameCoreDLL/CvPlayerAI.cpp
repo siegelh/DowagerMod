@@ -9742,7 +9742,7 @@ EspionageMissionTypes CvPlayerAI::AI_bestPlotEspionage(CvPlot* pSpyPlot, PlayerT
 			for (int iMission = 0; iMission < GC.getNumEspionageMissionInfos(); ++iMission)
 			{
 				CvEspionageMissionInfo& kMissionInfo = GC.getEspionageMissionInfo((EspionageMissionTypes)iMission);
-				if (kMissionInfo.isStagesDiplomaticIncident())
+				if (kMissionInfo.isStagesDiplomaticIncident() || kMissionInfo.isFabricatesCasusBelli())
 				{
 					for (int iFramedPlayer = 0; iFramedPlayer < MAX_CIV_PLAYERS; ++iFramedPlayer)
 					{
@@ -9755,6 +9755,18 @@ EspionageMissionTypes CvPlayerAI::AI_bestPlotEspionage(CvPlot* pSpyPlot, PlayerT
 							pPlot = pSpyPlot;
 							iData = iFramedPlayer;
 						}
+					}
+				}
+				else if (kMissionInfo.isEstablishesBackchannels())
+				{
+					int iValue = AI_espionageVal(pSpyPlot->getOwnerINLINE(), (EspionageMissionTypes)iMission, pSpyPlot, -1);
+					if (iValue > iBestValue)
+					{
+						iBestValue = iValue;
+						eBestMission = (EspionageMissionTypes)iMission;
+						eTargetPlayer = pSpyPlot->getOwnerINLINE();
+						pPlot = pSpyPlot;
+						iData = -1;
 					}
 				}
 			}
@@ -9956,6 +9968,28 @@ int CvPlayerAI::AI_espionageVal(PlayerTypes eTargetPlayer, EspionageMissionTypes
 		}
 		int iRelationshipValue = 300 * ((int)AI_getAttitudeFromValue(iCurrentAttitude) - (int)AI_getAttitudeFromValue(iChangedAttitude));
 		return std::max(0, iRelationshipValue - iCost);
+	}
+	if (GC.getEspionageMissionInfo(eMission).isEstablishesBackchannels())
+	{
+		int iCurrentAttitude = GET_PLAYER(eTargetPlayer).AI_getAttitudeVal(getID());
+		int iChangedAttitude = iCurrentAttitude + 1;
+		if (AI_getAttitudeFromValue(iCurrentAttitude) == AI_getAttitudeFromValue(iChangedAttitude))
+		{
+			return 0;
+		}
+		int iRelationshipValue = 1000 * ((int)AI_getAttitudeFromValue(iChangedAttitude) - (int)AI_getAttitudeFromValue(iCurrentAttitude));
+		return std::max(0, iRelationshipValue - iCost);
+	}
+	if (GC.getEspionageMissionInfo(eMission).isFabricatesCasusBelli())
+	{
+		PlayerTypes eFramedPlayer = (PlayerTypes)iData;
+		if (AI_getAttitude(eFramedPlayer) > ATTITUDE_CAUTIOUS)
+		{
+			return 0;
+		}
+		int iChance = getFabricateCasusBelliChance(eMission, eTargetPlayer, eFramedPlayer);
+		int iStrategicValue = 20 + (3 * std::max(0, -AI_getAttitudeVal(eFramedPlayer)));
+		return std::max(0, iChance * iStrategicValue - iCost);
 	}
 
 	if (GC.getEspionageMissionInfo(eMission).isDestroyImprovement())

@@ -1197,6 +1197,14 @@
 	<ElementType name="iPlayerAnarchyCounter" content="textOnly" dt:type="int"/>
 	<ElementType name="iCounterespionageNumTurns" content="textOnly" dt:type="int"/>
 	<ElementType name="iCounterespionageMod" content="textOnly" dt:type="int"/>
+	<ElementType name="bEstablishesBackchannels" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bFabricatesCasusBelli" content="textOnly" dt:type="boolean"/>
+	<ElementType name="iCasusBelliMinAttitude" content="textOnly" dt:type="int"/>
+	<ElementType name="iCasusBelliMinPowerRatio" content="textOnly" dt:type="int"/>
+	<ElementType name="iCasusBelliBaseChance" content="textOnly" dt:type="int"/>
+	<ElementType name="iCasusBelliAttitudeChancePerPoint" content="textOnly" dt:type="int"/>
+	<ElementType name="iCasusBelliFuriousBonus" content="textOnly" dt:type="int"/>
+	<ElementType name="iCasusBelliMaxChance" content="textOnly" dt:type="int"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -1214,6 +1222,14 @@
 		<element type="bDestroyImprovement"/>
 		<element type="bStagesDiplomaticIncident" minOccurs="0"/>
 		<element type="iDiplomaticAttitudeChange" minOccurs="0"/>
+		<element type="bEstablishesBackchannels" minOccurs="0"/>
+		<element type="bFabricatesCasusBelli" minOccurs="0"/>
+		<element type="iCasusBelliMinAttitude" minOccurs="0"/>
+		<element type="iCasusBelliMinPowerRatio" minOccurs="0"/>
+		<element type="iCasusBelliBaseChance" minOccurs="0"/>
+		<element type="iCasusBelliAttitudeChancePerPoint" minOccurs="0"/>
+		<element type="iCasusBelliFuriousBonus" minOccurs="0"/>
+		<element type="iCasusBelliMaxChance" minOccurs="0"/>
 		<element type="iDifficultyMod"/>
 		<element type="iDestroyBuildingCostFactor"/>
 		<element type="iDestroyUnitCostFactor"/>

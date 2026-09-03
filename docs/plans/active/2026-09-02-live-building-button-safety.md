@@ -57,7 +57,7 @@ Ramesses crash fixed by commit `12e22297f`.
 - [x] Twenty live standalone button values corrected.
 - [x] Reused live art definitions added to validation.
 - [x] Automated repository gate passed.
-- [ ] Installed Byrsa queue smoke test passed.
+- [x] Installed Byrsa queue smoke test passed.
 
 ## Final Outcome Summary
 
@@ -65,5 +65,5 @@ Ramesses crash fixed by commit `12e22297f`.
   paths.
 - Five focused validator tests passed, the changed-file repository gate passed,
   and the post-change live-reference scan found zero malformed button values.
-- Runtime acceptance remains pending until the updated payload is installed
-  and the Byrsa Treasury is selected again.
+- The user installed the updated payload and confirmed the Byrsa Treasury
+  production-queue interaction works.

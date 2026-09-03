@@ -40,4 +40,60 @@
 		<Italian>Evidence from a hostile incident points to %s1_civ involvement.</Italian>
 		<Spanish>Evidence from a hostile incident points to %s1_civ involvement.</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_ESTABLISH_BACKCHANNELS</Tag>
+		<English>Establish Backchannels</English>
+		<French>Establish Backchannels</French>
+		<German>Establish Backchannels</German>
+		<Italian>Establish Backchannels</Italian>
+		<Spanish>Establish Backchannels</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_BACKCHANNELS_SUCCESS</Tag>
+		<English>Our agents established discreet backchannels with %s1_civ.</English>
+		<French>Our agents established discreet backchannels with %s1_civ.</French>
+		<German>Our agents established discreet backchannels with %s1_civ.</German>
+		<Italian>Our agents established discreet backchannels with %s1_civ.</Italian>
+		<Spanish>Our agents established discreet backchannels with %s1_civ.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_FABRICATE_CASUS_BELLI</Tag>
+		<English>Fabricate Casus Belli</English>
+		<French>Fabricate Casus Belli</French>
+		<German>Fabricate Casus Belli</German>
+		<Italian>Fabricate Casus Belli</Italian>
+		<Spanish>Fabricate Casus Belli</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CHOOSE_CASUS_BELLI_TARGET</Tag>
+		<English>Choose the civilization to cast as the aggressor</English>
+		<French>Choose the civilization to cast as the aggressor</French>
+		<German>Choose the civilization to cast as the aggressor</German>
+		<Italian>Choose the civilization to cast as the aggressor</Italian>
+		<Spanish>Choose the civilization to cast as the aggressor</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_CIVILIZATION</Tag>
+		<English>%s1_leader (%s2_civ) - %d3%% chance</English>
+		<French>%s1_leader (%s2_civ) - %d3%% chance</French>
+		<German>%s1_leader (%s2_civ) - %d3%% chance</German>
+		<Italian>%s1_leader (%s2_civ) - %d3%% chance</Italian>
+		<Spanish>%s1_leader (%s2_civ) - %d3%% chance</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_SUCCESS</Tag>
+		<English>Our fabricated evidence has pushed %s1_civ to mobilize against %s2_civ.</English>
+		<French>Our fabricated evidence has pushed %s1_civ to mobilize against %s2_civ.</French>
+		<German>Our fabricated evidence has pushed %s1_civ to mobilize against %s2_civ.</German>
+		<Italian>Our fabricated evidence has pushed %s1_civ to mobilize against %s2_civ.</Italian>
+		<Spanish>Our fabricated evidence has pushed %s1_civ to mobilize against %s2_civ.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_FAILURE</Tag>
+		<English>%s1_civ rejected our attempt to provoke mobilization against %s2_civ.</English>
+		<French>%s1_civ rejected our attempt to provoke mobilization against %s2_civ.</French>
+		<German>%s1_civ rejected our attempt to provoke mobilization against %s2_civ.</German>
+		<Italian>%s1_civ rejected our attempt to provoke mobilization against %s2_civ.</Italian>
+		<Spanish>%s1_civ rejected our attempt to provoke mobilization against %s2_civ.</Spanish>
+	</TEXT>
 </Civ4GameText>

@@ -69,7 +69,7 @@ class StagedDiplomaticIncidentTests(unittest.TestCase):
             for node in ET.parse(MISSIONS).getroot().iter()
             if local_name(node.tag) == "EspionageMissionInfo"
         ]
-        self.assertEqual(mission_order[-1], MISSION_TYPE)
+        self.assertEqual(mission_order[-3], MISSION_TYPE)
 
     def test_schema_and_info_class_expose_dedicated_fields(self):
         schema = SCHEMA.read_text(encoding="utf-8")
@@ -144,21 +144,20 @@ class StagedDiplomaticIncidentTests(unittest.TestCase):
             "canStageDiplomaticIncident(eTargetPlayer, eFramedPlayer)",
             execution,
         )
+        shared_validation = source.split(
+            "bool CvPlayer::hasValidDiplomaticEspionageSpy", 1
+        )[1].split("bool CvPlayer::canStageDiplomaticIncident", 1)[0]
         for token in (
-            "pUnit->getOwnerINLINE() != getID()",
-            "pUnit->plot() != pPlot",
-            "pPlot->getOwnerINLINE() != eTargetPlayer",
-            "!pUnit->canEspionage(pPlot)",
+            "pUnit != NULL",
+            "pPlot != NULL",
+            "pUnit->getOwnerINLINE() == getID()",
+            "pUnit->plot() == pPlot",
+            "pPlot->getOwnerINLINE() == eTargetPlayer",
+            "pUnit->canEspionage(pPlot)",
         ):
-            self.assertIn(token, availability)
-        for token in (
-            "pSpyUnit == NULL",
-            "pSpyUnit->getOwnerINLINE() != getID()",
-            "pSpyUnit->plot() != pPlot",
-            "pPlot->getOwnerINLINE() != eTargetPlayer",
-            "!pSpyUnit->canEspionage(pPlot)",
-        ):
-            self.assertIn(token, execution)
+            self.assertIn(token, shared_validation)
+        self.assertIn("hasValidDiplomaticEspionageSpy", availability)
+        self.assertIn("hasValidDiplomaticEspionageSpy", execution)
         unit = (DLL / "CvUnit.cpp").read_text(encoding="utf-8", errors="ignore")
         staged_validation = unit.index(
             "GC.getEspionageMissionInfo(eMission).isStagesDiplomaticIncident()"
@@ -228,15 +227,14 @@ class StagedDiplomaticIncidentTests(unittest.TestCase):
         root = ET.parse(TEXT).getroot()
         text_nodes = [node for node in root if local_name(node.tag) == "TEXT"]
         tags = {child_text(node, "Tag") for node in text_nodes}
-        self.assertEqual(
-            tags,
+        self.assertTrue(
             {
                 "TXT_KEY_ESPIONAGE_STAGE_DIPLOMATIC_INCIDENT",
                 "TXT_KEY_ESPIONAGE_CHOOSE_FRAMED_CIVILIZATION",
                 "TXT_KEY_ESPIONAGE_FRAME_CIVILIZATION",
                 "TXT_KEY_ESPIONAGE_DIPLOMATIC_INCIDENT_SUCCESS",
                 "TXT_KEY_ESPIONAGE_DIPLOMATIC_INCIDENT_TARGET",
-            },
+            }.issubset(tags)
         )
         for node in text_nodes:
             for language in ("English", "French", "German", "Italian", "Spanish"):

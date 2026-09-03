@@ -314,10 +314,10 @@ generic breakdown text is not satisfactory in game.
   mission implementation began.
 - [x] DLL/XML/text implementation completed.
 - [x] Focused tests and repository gates passed.
-- [ ] Installed single-player smoke test passed.
+- [x] Installed single-player smoke test passed.
 - [ ] Installed two-client multiplayer/OOS smoke test passed.
-- [ ] Implementation committed locally as a separate contained commit.
-- [ ] Mission commit pushed only after explicit approval.
+- [x] Implementation committed locally as a separate contained commit.
+- [x] Mission commit pushed only after explicit approval.
 
 ## Final Outcome Summary
 
@@ -338,4 +338,5 @@ generic breakdown text is not satisfactory in game.
     pre-existing additive-trait manifest test failed against unchanged
     branch content outside this mission's diff.
 - Installed single-player, save/reload, and fresh two-client multiplayer/OOS
-  smoke tests remain required before merge/deploy readiness.
+  smoke tests were requested. The user subsequently confirmed the installed
+  mission works; fresh two-client multiplayer/OOS evidence remains pending.

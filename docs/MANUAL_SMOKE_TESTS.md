@@ -33,6 +33,16 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
   - verify the art path resolves without pink boxes, missing buttons, or crash-on-open behavior
 - Persistence:
   - save and reload once, then confirm the changed state still exists
+- Diplomatic espionage escalation:
+  - Start a fresh game with a human spy in the territory of a known AI civilization that is at peace with the human; confirm Establish Backchannels costs 500 base EP before normal modifiers, is unavailable against humans or wartime targets, and each successful use adds exactly one visible `You gave us help` attitude point without a cap
+  - Repeat Establish Backchannels several times, save/reload, and end enough turns to observe native memory decay; confirm accumulated goodwill persists across reload and later decays normally
+  - Prepare a third civilization that the territory-owning AI has met, can legally attack by land, dislikes at raw attitude `-3` or lower, and has at least a 70% target/defender power ratio; confirm Fabricate Casus Belli costs 900 base EP and its second popup lists only eligible civilizations
+  - Check displayed Casus Belli odds at representative attitude/power boundaries, including 70-89%, 90-109%, 110-129%, and 130%+ power bands; confirm the result stays within 10-70%
+  - Cancel the second popup and confirm no EP, movement, or spy action is consumed; then invalidate a selected target before execution where practical and confirm stale data is rejected before interception or EP loss
+  - On political failure, confirm EP and the spy action are consumed exactly once, the actor receives the failure message, and no war plan or immediate war appears
+  - On political success, confirm the actor receives the mobilization message, no immediate declaration occurs, and the AI later follows its native limited-war preparation unless diplomacy invalidates the plan
+  - Repeat both missions with interception and confirm no goodwill or war plan is created
+  - In a fresh two-client multiplayer game, compare mission availability, listed targets, displayed odds, political result, attitude memory, EP totals, spy state, war preparation, and eventual war on both clients; confirm no OOS
 - Pacifism / Emancipation civic rebalance:
   - SP: compare a worked Town before and after adopting Emancipation; confirm the tile receives exactly +2 Commerce yield and that the city slider distributes it normally
   - SP: adopt Pacifism and confirm a worked Town receives no civic food bonus

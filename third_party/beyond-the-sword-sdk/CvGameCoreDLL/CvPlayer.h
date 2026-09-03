@@ -289,7 +289,12 @@ public:
 	DllExport void changeAdvancedStartPoints(int iChange);																													// Exposed to Python
 
 	int getEspionageSpending(TeamTypes eAgainstTeam) const;																								// Exposed to Python
+	bool isDiplomaticEspionageMission(EspionageMissionTypes eMission) const;
+	bool hasValidDiplomaticEspionageSpy(PlayerTypes eTargetPlayer, const CvPlot* pPlot, const CvUnit* pUnit) const;
 	bool canStageDiplomaticIncident(PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const;
+	bool canEstablishBackchannels(PlayerTypes eTargetPlayer) const;
+	bool canFabricateCasusBelli(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const;
+	int getFabricateCasusBelliChance(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const;
 	DllExport bool canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, const CvPlot* pPlot, int iExtraData, const CvUnit* pUnit) const;		// Exposed to Python
 	int getEspionageMissionBaseCost(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, const CvPlot* pPlot, int iExtraData, const CvUnit* pSpyUnit) const;
 	int getEspionageMissionCost(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, const CvPlot* pPlot = NULL, int iExtraData = -1, const CvUnit* pSpyUnit = NULL) const;		// Exposed to Python

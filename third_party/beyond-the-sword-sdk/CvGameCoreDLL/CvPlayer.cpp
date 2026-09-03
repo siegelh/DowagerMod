@@ -13363,6 +13363,23 @@ int CvPlayer::getEspionageSpending(TeamTypes eAgainstTeam) const
 	return iSpendingValue;
 }
 
+bool CvPlayer::isDiplomaticEspionageMission(EspionageMissionTypes eMission) const
+{
+	if (eMission == NO_ESPIONAGEMISSION)
+	{
+		return false;
+	}
+
+	const CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
+	return kMission.isStagesDiplomaticIncident() || kMission.isEstablishesBackchannels() || kMission.isFabricatesCasusBelli();
+}
+
+bool CvPlayer::hasValidDiplomaticEspionageSpy(PlayerTypes eTargetPlayer, const CvPlot* pPlot, const CvUnit* pUnit) const
+{
+	return pUnit != NULL && pPlot != NULL && pUnit->getOwnerINLINE() == getID() &&
+		pUnit->plot() == pPlot && pPlot->getOwnerINLINE() == eTargetPlayer && pUnit->canEspionage(pPlot);
+}
+
 bool CvPlayer::canStageDiplomaticIncident(PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const
 {
 	if (eTargetPlayer == NO_PLAYER || eFramedPlayer == NO_PLAYER)
@@ -13403,6 +13420,123 @@ bool CvPlayer::canStageDiplomaticIncident(PlayerTypes eTargetPlayer, PlayerTypes
 	return true;
 }
 
+bool CvPlayer::canEstablishBackchannels(PlayerTypes eTargetPlayer) const
+{
+	if (eTargetPlayer == NO_PLAYER || eTargetPlayer == getID())
+	{
+		return false;
+	}
+
+	const CvPlayer& kTargetPlayer = GET_PLAYER(eTargetPlayer);
+	if (!kTargetPlayer.isAlive() || kTargetPlayer.isHuman() || kTargetPlayer.isBarbarian() || kTargetPlayer.isMinorCiv())
+	{
+		return false;
+	}
+
+	TeamTypes eTargetTeam = kTargetPlayer.getTeam();
+	if (eTargetTeam == getTeam() || !GET_TEAM(getTeam()).isHasMet(eTargetTeam) || GET_TEAM(getTeam()).isAtWar(eTargetTeam))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool CvPlayer::canFabricateCasusBelli(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const
+{
+	if (eMission == NO_ESPIONAGEMISSION || eTargetPlayer == NO_PLAYER || eFramedPlayer == NO_PLAYER)
+	{
+		return false;
+	}
+
+	const CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
+	if (!kMission.isFabricatesCasusBelli() || eTargetPlayer == getID() || eFramedPlayer == getID() || eFramedPlayer == eTargetPlayer)
+	{
+		return false;
+	}
+
+	const CvPlayerAI& kTargetPlayer = GET_PLAYER(eTargetPlayer);
+	const CvPlayer& kFramedPlayer = GET_PLAYER(eFramedPlayer);
+	if (!kTargetPlayer.isAlive() || kTargetPlayer.isHuman() || kTargetPlayer.isBarbarian() || kTargetPlayer.isMinorCiv())
+	{
+		return false;
+	}
+	if (!kFramedPlayer.isAlive() || kFramedPlayer.isBarbarian() || kFramedPlayer.isMinorCiv())
+	{
+		return false;
+	}
+
+	TeamTypes eTargetTeam = kTargetPlayer.getTeam();
+	TeamTypes eFramedTeam = kFramedPlayer.getTeam();
+	if (eTargetTeam == getTeam() || eFramedTeam == getTeam() || eFramedTeam == eTargetTeam)
+	{
+		return false;
+	}
+	if (!GET_TEAM(getTeam()).isHasMet(eTargetTeam) || !GET_TEAM(getTeam()).isHasMet(eFramedTeam) || !GET_TEAM(eTargetTeam).isHasMet(eFramedTeam))
+	{
+		return false;
+	}
+
+	CvTeamAI& kTargetTeam = GET_TEAM(eTargetTeam);
+	CvTeamAI& kFramedTeam = GET_TEAM(eFramedTeam);
+	if (kTargetTeam.isHuman() || kTargetTeam.isAVassal() || kTargetTeam.getAtWarCount(true) > 0 || kTargetTeam.getAnyWarPlanCount(true) > 0)
+	{
+		return false;
+	}
+	if (kTargetTeam.isVassal(eFramedTeam) || kFramedTeam.isVassal(eTargetTeam) || kTargetTeam.isDefensivePact(eFramedTeam))
+	{
+		return false;
+	}
+	if (!kTargetTeam.canDeclareWar(eFramedTeam) || !kTargetTeam.AI_isAllyLandTarget(eFramedTeam))
+	{
+		return false;
+	}
+	if (kTargetPlayer.AI_getAttitudeVal(eFramedPlayer) > kMission.getCasusBelliMinAttitude())
+	{
+		return false;
+	}
+
+	int iPowerRatio = (100 * kTargetTeam.getPower(true)) / std::max(1, kFramedTeam.getDefensivePower());
+	return iPowerRatio >= kMission.getCasusBelliMinPowerRatio();
+}
+
+int CvPlayer::getFabricateCasusBelliChance(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const
+{
+	if (!canFabricateCasusBelli(eMission, eTargetPlayer, eFramedPlayer))
+	{
+		return 0;
+	}
+
+	const CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
+	const CvPlayerAI& kTargetPlayer = GET_PLAYER(eTargetPlayer);
+	const CvTeamAI& kTargetTeam = GET_TEAM(kTargetPlayer.getTeam());
+	const CvTeamAI& kFramedTeam = GET_TEAM(GET_PLAYER(eFramedPlayer).getTeam());
+
+	int iAttitude = kTargetPlayer.AI_getAttitudeVal(eFramedPlayer);
+	int iChance = kMission.getCasusBelliBaseChance();
+	iChance += kMission.getCasusBelliAttitudeChancePerPoint() * std::max(0, kMission.getCasusBelliMinAttitude() - iAttitude);
+	if (iAttitude <= -10)
+	{
+		iChance += kMission.getCasusBelliFuriousBonus();
+	}
+
+	int iPowerRatio = (100 * kTargetTeam.getPower(true)) / std::max(1, kFramedTeam.getDefensivePower());
+	if (iPowerRatio < 90)
+	{
+		iChance -= 20;
+	}
+	else if (iPowerRatio >= 130)
+	{
+		iChance += 20;
+	}
+	else if (iPowerRatio >= 110)
+	{
+		iChance += 10;
+	}
+
+	return std::min(kMission.getCasusBelliMaxChance(), std::max(10, iChance));
+}
+
 bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, const CvPlot* pPlot, int iExtraData, const CvUnit* pUnit) const
 {
 	if (getID() == eTargetPlayer || NO_PLAYER == eTargetPlayer)
@@ -13417,10 +13551,9 @@ bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes
 
 	CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
 
-	if (kMission.isStagesDiplomaticIncident() && pUnit != NULL)
+	if (isDiplomaticEspionageMission(eMission) && pUnit != NULL)
 	{
-		if (pPlot == NULL || pUnit->getOwnerINLINE() != getID() || pUnit->plot() != pPlot ||
-			pPlot->getOwnerINLINE() != eTargetPlayer || !pUnit->canEspionage(pPlot))
+		if (!hasValidDiplomaticEspionageSpy(eTargetPlayer, pPlot, pUnit))
 		{
 			return false;
 		}
@@ -13528,6 +13661,32 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 			}
 		}
 		else if (iExtraData >= 0 && iExtraData < MAX_CIV_PLAYERS && canStageDiplomaticIncident(eTargetPlayer, (PlayerTypes)iExtraData))
+		{
+			iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
+		}
+	}
+	else if (kMission.isEstablishesBackchannels())
+	{
+		if (canEstablishBackchannels(eTargetPlayer))
+		{
+			iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
+		}
+	}
+	else if (kMission.isFabricatesCasusBelli())
+	{
+		if (iExtraData == -1)
+		{
+			for (int iFramedPlayer = 0; iFramedPlayer < MAX_CIV_PLAYERS; ++iFramedPlayer)
+			{
+				if (canFabricateCasusBelli(eMission, eTargetPlayer, (PlayerTypes)iFramedPlayer))
+				{
+					iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
+					break;
+				}
+			}
+		}
+		else if (iExtraData >= 0 && iExtraData < MAX_CIV_PLAYERS &&
+			canFabricateCasusBelli(eMission, eTargetPlayer, (PlayerTypes)iExtraData))
 		{
 			iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
 		}
@@ -14008,10 +14167,9 @@ int CvPlayer::getEspionageMissionCostModifier(EspionageMissionTypes eMission, Pl
 
 bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, CvPlot* pPlot, int iExtraData, CvUnit* pSpyUnit)
 {
-	if (GC.getEspionageMissionInfo(eMission).isStagesDiplomaticIncident())
+	if (isDiplomaticEspionageMission(eMission))
 	{
-		if (pSpyUnit == NULL || pPlot == NULL || pSpyUnit->getOwnerINLINE() != getID() ||
-			pSpyUnit->plot() != pPlot || pPlot->getOwnerINLINE() != eTargetPlayer || !pSpyUnit->canEspionage(pPlot))
+		if (!hasValidDiplomaticEspionageSpy(eTargetPlayer, pPlot, pSpyUnit))
 		{
 			return false;
 		}
@@ -14050,6 +14208,41 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 			szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_DIPLOMATIC_INCIDENT_TARGET", GET_PLAYER(eFramedPlayer).getCivilizationDescriptionKey());
 			bSomethingHappened = true;
 		}
+	}
+	else if (kMission.isEstablishesBackchannels())
+	{
+		if (!canEstablishBackchannels(eTargetPlayer))
+		{
+			return false;
+		}
+
+		GET_PLAYER(eTargetPlayer).AI_changeMemoryCount(getID(), MEMORY_GIVE_HELP, 1);
+		szActorBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_BACKCHANNELS_SUCCESS", GET_PLAYER(eTargetPlayer).getCivilizationDescriptionKey());
+		bSomethingHappened = true;
+	}
+	else if (kMission.isFabricatesCasusBelli())
+	{
+		PlayerTypes eFramedPlayer = (PlayerTypes)iExtraData;
+		int iChance = getFabricateCasusBelliChance(eMission, eTargetPlayer, eFramedPlayer);
+		if (iChance <= 0)
+		{
+			return false;
+		}
+
+		if (GC.getGameINLINE().getSorenRandNum(100, "Fabricate Casus Belli") < iChance)
+		{
+			GET_TEAM(GET_PLAYER(eTargetPlayer).getTeam()).AI_setWarPlan(GET_PLAYER(eFramedPlayer).getTeam(), WARPLAN_PREPARING_LIMITED);
+			szActorBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_SUCCESS",
+				GET_PLAYER(eTargetPlayer).getCivilizationDescriptionKey(),
+				GET_PLAYER(eFramedPlayer).getCivilizationDescriptionKey());
+		}
+		else
+		{
+			szActorBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_FAILURE",
+				GET_PLAYER(eTargetPlayer).getCivilizationDescriptionKey(),
+				GET_PLAYER(eFramedPlayer).getCivilizationDescriptionKey());
+		}
+		bSomethingHappened = true;
 	}
 
 	//////////////////////////////

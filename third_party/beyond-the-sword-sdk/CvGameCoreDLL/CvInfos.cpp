@@ -23965,6 +23965,14 @@ CvEspionageMissionInfo::CvEspionageMissionInfo()
 {
 	m_bStagesDiplomaticIncident = false;
 	m_iDiplomaticAttitudeChange = 0;
+	m_bEstablishesBackchannels = false;
+	m_bFabricatesCasusBelli = false;
+	m_iCasusBelliMinAttitude = 0;
+	m_iCasusBelliMinPowerRatio = 0;
+	m_iCasusBelliBaseChance = 0;
+	m_iCasusBelliAttitudeChancePerPoint = 0;
+	m_iCasusBelliFuriousBonus = 0;
+	m_iCasusBelliMaxChance = 0;
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -24046,6 +24054,46 @@ bool CvEspionageMissionInfo::isStagesDiplomaticIncident() const
 int CvEspionageMissionInfo::getDiplomaticAttitudeChange() const
 {
 	return m_iDiplomaticAttitudeChange;
+}
+
+bool CvEspionageMissionInfo::isEstablishesBackchannels() const
+{
+	return m_bEstablishesBackchannels;
+}
+
+bool CvEspionageMissionInfo::isFabricatesCasusBelli() const
+{
+	return m_bFabricatesCasusBelli;
+}
+
+int CvEspionageMissionInfo::getCasusBelliMinAttitude() const
+{
+	return m_iCasusBelliMinAttitude;
+}
+
+int CvEspionageMissionInfo::getCasusBelliMinPowerRatio() const
+{
+	return m_iCasusBelliMinPowerRatio;
+}
+
+int CvEspionageMissionInfo::getCasusBelliBaseChance() const
+{
+	return m_iCasusBelliBaseChance;
+}
+
+int CvEspionageMissionInfo::getCasusBelliAttitudeChancePerPoint() const
+{
+	return m_iCasusBelliAttitudeChancePerPoint;
+}
+
+int CvEspionageMissionInfo::getCasusBelliFuriousBonus() const
+{
+	return m_iCasusBelliFuriousBonus;
+}
+
+int CvEspionageMissionInfo::getCasusBelliMaxChance() const
+{
+	return m_iCasusBelliMaxChance;
 }
 
 int CvEspionageMissionInfo::getDestroyBuildingCostFactor() const
@@ -24169,6 +24217,14 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_bDestroyImprovement, "bDestroyImprovement");
 	pXML->GetChildXmlValByName(&m_bStagesDiplomaticIncident, "bStagesDiplomaticIncident");
 	pXML->GetChildXmlValByName(&m_iDiplomaticAttitudeChange, "iDiplomaticAttitudeChange");
+	pXML->GetChildXmlValByName(&m_bEstablishesBackchannels, "bEstablishesBackchannels");
+	pXML->GetChildXmlValByName(&m_bFabricatesCasusBelli, "bFabricatesCasusBelli");
+	pXML->GetChildXmlValByName(&m_iCasusBelliMinAttitude, "iCasusBelliMinAttitude");
+	pXML->GetChildXmlValByName(&m_iCasusBelliMinPowerRatio, "iCasusBelliMinPowerRatio");
+	pXML->GetChildXmlValByName(&m_iCasusBelliBaseChance, "iCasusBelliBaseChance");
+	pXML->GetChildXmlValByName(&m_iCasusBelliAttitudeChancePerPoint, "iCasusBelliAttitudeChancePerPoint");
+	pXML->GetChildXmlValByName(&m_iCasusBelliFuriousBonus, "iCasusBelliFuriousBonus");
+	pXML->GetChildXmlValByName(&m_iCasusBelliMaxChance, "iCasusBelliMaxChance");
 	pXML->GetChildXmlValByName(&m_iDestroyBuildingCostFactor, "iDestroyBuildingCostFactor");
 	pXML->GetChildXmlValByName(&m_iDestroyUnitCostFactor, "iDestroyUnitCostFactor");
 	pXML->GetChildXmlValByName(&m_iDestroyProjectCostFactor, "iDestroyProjectCostFactor");
