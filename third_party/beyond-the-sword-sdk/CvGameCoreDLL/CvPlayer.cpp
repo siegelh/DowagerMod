@@ -13442,85 +13442,107 @@ bool CvPlayer::canEstablishBackchannels(PlayerTypes eTargetPlayer) const
 	return true;
 }
 
-bool CvPlayer::canFabricateCasusBelli(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const
+CvPlayer::FabricateCasusBelliResult CvPlayer::evaluateFabricateCasusBelli(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer, int& iAttitude, int& iPowerRatio, int& iChance) const
 {
+	iAttitude = 0;
+	iPowerRatio = 0;
+	iChance = 0;
+
 	if (eMission == NO_ESPIONAGEMISSION || eTargetPlayer == NO_PLAYER || eFramedPlayer == NO_PLAYER)
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_INVALID_SELECTION;
 	}
 
 	const CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
 	if (!kMission.isFabricatesCasusBelli() || eTargetPlayer == getID() || eFramedPlayer == getID() || eFramedPlayer == eTargetPlayer)
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_INVALID_SELECTION;
 	}
 
 	const CvPlayerAI& kTargetPlayer = GET_PLAYER(eTargetPlayer);
 	const CvPlayer& kFramedPlayer = GET_PLAYER(eFramedPlayer);
 	if (!kTargetPlayer.isAlive() || kTargetPlayer.isHuman() || kTargetPlayer.isBarbarian() || kTargetPlayer.isMinorCiv())
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_TARGET_NOT_AI;
 	}
 	if (!kFramedPlayer.isAlive() || kFramedPlayer.isBarbarian() || kFramedPlayer.isMinorCiv())
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_FRAMED_NOT_MAJOR;
 	}
 
 	TeamTypes eTargetTeam = kTargetPlayer.getTeam();
 	TeamTypes eFramedTeam = kFramedPlayer.getTeam();
 	if (eTargetTeam == getTeam() || eFramedTeam == getTeam() || eFramedTeam == eTargetTeam)
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_TEAM_CONFLICT;
 	}
-	if (!GET_TEAM(getTeam()).isHasMet(eTargetTeam) || !GET_TEAM(getTeam()).isHasMet(eFramedTeam) || !GET_TEAM(eTargetTeam).isHasMet(eFramedTeam))
+	if (!GET_TEAM(getTeam()).isHasMet(eTargetTeam))
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_ACTOR_HAS_NOT_MET_TARGET;
+	}
+	if (!GET_TEAM(getTeam()).isHasMet(eFramedTeam))
+	{
+		return FABRICATE_CASUS_BELLI_ACTOR_HAS_NOT_MET_FRAMED;
+	}
+	if (!GET_TEAM(eTargetTeam).isHasMet(eFramedTeam))
+	{
+		return FABRICATE_CASUS_BELLI_TARGET_HAS_NOT_MET_FRAMED;
 	}
 
 	CvTeamAI& kTargetTeam = GET_TEAM(eTargetTeam);
 	CvTeamAI& kFramedTeam = GET_TEAM(eFramedTeam);
-	if (kTargetTeam.isHuman() || kTargetTeam.isAVassal() || kTargetTeam.getAtWarCount(true) > 0 || kTargetTeam.getAnyWarPlanCount(true) > 0)
+	if (kTargetTeam.isHuman())
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_TARGET_TEAM_HUMAN;
 	}
-	if (kTargetTeam.isVassal(eFramedTeam) || kFramedTeam.isVassal(eTargetTeam) || kTargetTeam.isDefensivePact(eFramedTeam))
+	if (kTargetTeam.isAVassal())
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_TARGET_VASSAL;
 	}
-	if (!kTargetTeam.canDeclareWar(eFramedTeam) || !kTargetTeam.AI_isAllyLandTarget(eFramedTeam))
+	if (kTargetTeam.getAtWarCount(true) > 0)
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_TARGET_AT_WAR;
 	}
-	if (kTargetPlayer.AI_getAttitudeVal(eFramedPlayer) > kMission.getCasusBelliMinAttitude())
+	if (kTargetTeam.getAnyWarPlanCount(true) > 0)
 	{
-		return false;
+		return FABRICATE_CASUS_BELLI_TARGET_HAS_WAR_PLAN;
+	}
+	if (kTargetTeam.isVassal(eFramedTeam) || kFramedTeam.isVassal(eTargetTeam))
+	{
+		return FABRICATE_CASUS_BELLI_VASSAL_RELATIONSHIP;
+	}
+	if (kTargetTeam.isDefensivePact(eFramedTeam))
+	{
+		return FABRICATE_CASUS_BELLI_DEFENSIVE_PACT;
+	}
+	if (!kTargetTeam.canDeclareWar(eFramedTeam))
+	{
+		return FABRICATE_CASUS_BELLI_CANNOT_DECLARE_WAR;
+	}
+	if (!kTargetTeam.AI_isAllyLandTarget(eFramedTeam))
+	{
+		return FABRICATE_CASUS_BELLI_NOT_LAND_TARGET;
 	}
 
-	int iPowerRatio = (100 * kTargetTeam.getPower(true)) / std::max(1, kFramedTeam.getDefensivePower());
-	return iPowerRatio >= kMission.getCasusBelliMinPowerRatio();
-}
-
-int CvPlayer::getFabricateCasusBelliChance(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const
-{
-	if (!canFabricateCasusBelli(eMission, eTargetPlayer, eFramedPlayer))
+	iAttitude = kTargetPlayer.AI_getAttitudeVal(eFramedPlayer);
+	if (iAttitude > kMission.getCasusBelliMinAttitude())
 	{
-		return 0;
+		return FABRICATE_CASUS_BELLI_ATTITUDE_TOO_HIGH;
 	}
 
-	const CvEspionageMissionInfo& kMission = GC.getEspionageMissionInfo(eMission);
-	const CvPlayerAI& kTargetPlayer = GET_PLAYER(eTargetPlayer);
-	const CvTeamAI& kTargetTeam = GET_TEAM(kTargetPlayer.getTeam());
-	const CvTeamAI& kFramedTeam = GET_TEAM(GET_PLAYER(eFramedPlayer).getTeam());
+	iPowerRatio = (100 * kTargetTeam.getPower(true)) / std::max(1, kFramedTeam.getDefensivePower());
+	if (iPowerRatio < kMission.getCasusBelliMinPowerRatio())
+	{
+		return FABRICATE_CASUS_BELLI_POWER_TOO_LOW;
+	}
 
-	int iAttitude = kTargetPlayer.AI_getAttitudeVal(eFramedPlayer);
-	int iChance = kMission.getCasusBelliBaseChance();
+	iChance = kMission.getCasusBelliBaseChance();
 	iChance += kMission.getCasusBelliAttitudeChancePerPoint() * std::max(0, kMission.getCasusBelliMinAttitude() - iAttitude);
 	if (iAttitude <= -10)
 	{
 		iChance += kMission.getCasusBelliFuriousBonus();
 	}
 
-	int iPowerRatio = (100 * kTargetTeam.getPower(true)) / std::max(1, kFramedTeam.getDefensivePower());
 	if (iPowerRatio < 90)
 	{
 		iChance -= 20;
@@ -13534,7 +13556,28 @@ int CvPlayer::getFabricateCasusBelliChance(EspionageMissionTypes eMission, Playe
 		iChance += 10;
 	}
 
-	return std::min(kMission.getCasusBelliMaxChance(), std::max(10, iChance));
+	iChance = std::min(kMission.getCasusBelliMaxChance(), std::max(10, iChance));
+	return FABRICATE_CASUS_BELLI_ELIGIBLE;
+}
+
+bool CvPlayer::canFabricateCasusBelli(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const
+{
+	int iAttitude;
+	int iPowerRatio;
+	int iChance;
+	return evaluateFabricateCasusBelli(eMission, eTargetPlayer, eFramedPlayer, iAttitude, iPowerRatio, iChance) == FABRICATE_CASUS_BELLI_ELIGIBLE;
+}
+
+int CvPlayer::getFabricateCasusBelliChance(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const
+{
+	int iAttitude;
+	int iPowerRatio;
+	int iChance;
+	if (evaluateFabricateCasusBelli(eMission, eTargetPlayer, eFramedPlayer, iAttitude, iPowerRatio, iChance) != FABRICATE_CASUS_BELLI_ELIGIBLE)
+	{
+		return 0;
+	}
+	return iChance;
 }
 
 bool CvPlayer::canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, const CvPlot* pPlot, int iExtraData, const CvUnit* pUnit) const
@@ -13676,12 +13719,12 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 	{
 		if (iExtraData == -1)
 		{
-			for (int iFramedPlayer = 0; iFramedPlayer < MAX_CIV_PLAYERS; ++iFramedPlayer)
+			if (eTargetPlayer != NO_PLAYER)
 			{
-				if (canFabricateCasusBelli(eMission, eTargetPlayer, (PlayerTypes)iFramedPlayer))
+				const CvPlayer& kTargetPlayer = GET_PLAYER(eTargetPlayer);
+				if (kTargetPlayer.isAlive() && !kTargetPlayer.isHuman() && !kTargetPlayer.isBarbarian() && !kTargetPlayer.isMinorCiv())
 				{
 					iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getResearchPercent()) / 100;
-					break;
 				}
 			}
 		}

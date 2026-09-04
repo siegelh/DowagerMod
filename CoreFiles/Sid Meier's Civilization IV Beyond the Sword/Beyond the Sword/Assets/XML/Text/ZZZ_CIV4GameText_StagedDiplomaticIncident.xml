@@ -96,4 +96,132 @@
 		<Italian>%s1_civ rejected our attempt to provoke mobilization against %s2_civ.</Italian>
 		<Spanish>%s1_civ rejected our attempt to provoke mobilization against %s2_civ.</Spanish>
 	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_UNAVAILABLE_HEADER</Tag>
+		<English>Currently unavailable targets:</English>
+		<French>Currently unavailable targets:</French>
+		<German>Currently unavailable targets:</German>
+		<Italian>Currently unavailable targets:</Italian>
+		<Spanish>Currently unavailable targets:</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_UNAVAILABLE_CIVILIZATION</Tag>
+		<English>%s1_leader (%s2_civ): %s3_reason</English>
+		<French>%s1_leader (%s2_civ): %s3_reason</French>
+		<German>%s1_leader (%s2_civ): %s3_reason</German>
+		<Italian>%s1_leader (%s2_civ): %s3_reason</Italian>
+		<Spanish>%s1_leader (%s2_civ): %s3_reason</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_NO_ELIGIBLE_TARGET</Tag>
+		<English>No civilization is currently eligible. Canceling consumes no espionage points or spy action.</English>
+		<French>No civilization is currently eligible. Canceling consumes no espionage points or spy action.</French>
+		<German>No civilization is currently eligible. Canceling consumes no espionage points or spy action.</German>
+		<Italian>No civilization is currently eligible. Canceling consumes no espionage points or spy action.</Italian>
+		<Spanish>No civilization is currently eligible. Canceling consumes no espionage points or spy action.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TARGET_NOT_MET</Tag>
+		<English>The territory owner has not met this civilization.</English>
+		<French>The territory owner has not met this civilization.</French>
+		<German>The territory owner has not met this civilization.</German>
+		<Italian>The territory owner has not met this civilization.</Italian>
+		<Spanish>The territory owner has not met this civilization.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TEAM_CONFLICT</Tag>
+		<English>This civilization shares a team with the acting player or territory owner.</English>
+		<French>This civilization shares a team with the acting player or territory owner.</French>
+		<German>This civilization shares a team with the acting player or territory owner.</German>
+		<Italian>This civilization shares a team with the acting player or territory owner.</Italian>
+		<Spanish>This civilization shares a team with the acting player or territory owner.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_HUMAN_TEAM</Tag>
+		<English>The territory owner's team is human-controlled.</English>
+		<French>The territory owner's team is human-controlled.</French>
+		<German>The territory owner's team is human-controlled.</German>
+		<Italian>The territory owner's team is human-controlled.</Italian>
+		<Spanish>The territory owner's team is human-controlled.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TARGET_VASSAL</Tag>
+		<English>The territory owner is a vassal.</English>
+		<French>The territory owner is a vassal.</French>
+		<German>The territory owner is a vassal.</German>
+		<Italian>The territory owner is a vassal.</Italian>
+		<Spanish>The territory owner is a vassal.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TARGET_AT_WAR</Tag>
+		<English>The territory owner is already at war with another major civilization.</English>
+		<French>The territory owner is already at war with another major civilization.</French>
+		<German>The territory owner is already at war with another major civilization.</German>
+		<Italian>The territory owner is already at war with another major civilization.</Italian>
+		<Spanish>The territory owner is already at war with another major civilization.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_WAR_PLAN</Tag>
+		<English>The territory owner is already preparing another war.</English>
+		<French>The territory owner is already preparing another war.</French>
+		<German>The territory owner is already preparing another war.</German>
+		<Italian>The territory owner is already preparing another war.</Italian>
+		<Spanish>The territory owner is already preparing another war.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_VASSAL_RELATIONSHIP</Tag>
+		<English>A master-vassal relationship prevents this war.</English>
+		<French>A master-vassal relationship prevents this war.</French>
+		<German>A master-vassal relationship prevents this war.</German>
+		<Italian>A master-vassal relationship prevents this war.</Italian>
+		<Spanish>A master-vassal relationship prevents this war.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_DEFENSIVE_PACT</Tag>
+		<English>A defensive pact prevents this war.</English>
+		<French>A defensive pact prevents this war.</French>
+		<German>A defensive pact prevents this war.</German>
+		<Italian>A defensive pact prevents this war.</Italian>
+		<Spanish>A defensive pact prevents this war.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_CANNOT_DECLARE</Tag>
+		<English>The territory owner cannot legally declare war on this civilization.</English>
+		<French>The territory owner cannot legally declare war on this civilization.</French>
+		<German>The territory owner cannot legally declare war on this civilization.</German>
+		<Italian>The territory owner cannot legally declare war on this civilization.</Italian>
+		<Spanish>The territory owner cannot legally declare war on this civilization.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_NOT_LAND_TARGET</Tag>
+		<English>The territory owner does not consider this civilization reachable by land.</English>
+		<French>The territory owner does not consider this civilization reachable by land.</French>
+		<German>The territory owner does not consider this civilization reachable by land.</German>
+		<Italian>The territory owner does not consider this civilization reachable by land.</Italian>
+		<Spanish>The territory owner does not consider this civilization reachable by land.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_ATTITUDE</Tag>
+		<English>Attitude is %d1; it must be %d2 or lower.</English>
+		<French>Attitude is %d1; it must be %d2 or lower.</French>
+		<German>Attitude is %d1; it must be %d2 or lower.</German>
+		<Italian>Attitude is %d1; it must be %d2 or lower.</Italian>
+		<Spanish>Attitude is %d1; it must be %d2 or lower.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_POWER</Tag>
+		<English>Military power is %d1%% of the defender; it must be at least %d2%%.</English>
+		<French>Military power is %d1%% of the defender; it must be at least %d2%%.</French>
+		<German>Military power is %d1%% of the defender; it must be at least %d2%%.</German>
+		<Italian>Military power is %d1%% of the defender; it must be at least %d2%%.</Italian>
+		<Spanish>Military power is %d1%% of the defender; it must be at least %d2%%.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_UNAVAILABLE</Tag>
+		<English>This civilization does not satisfy the mission requirements.</English>
+		<French>This civilization does not satisfy the mission requirements.</French>
+		<German>This civilization does not satisfy the mission requirements.</German>
+		<Italian>This civilization does not satisfy the mission requirements.</Italian>
+		<Spanish>This civilization does not satisfy the mission requirements.</Spanish>
+	</TEXT>
 </Civ4GameText>

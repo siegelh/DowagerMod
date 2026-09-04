@@ -146,8 +146,12 @@ class EspionageEscalationTests(unittest.TestCase):
         source = (DLL / "CvPlayer.cpp").read_text(
             encoding="utf-8", errors="ignore"
         )
-        helper = source.split("bool CvPlayer::canFabricateCasusBelli", 1)[1].split(
-            "int CvPlayer::getFabricateCasusBelliChance", 1
+        helper = source.split(
+            "CvPlayer::FabricateCasusBelliResult "
+            "CvPlayer::evaluateFabricateCasusBelli",
+            1,
+        )[1].split(
+            "bool CvPlayer::canFabricateCasusBelli", 1
         )[0]
         for token in (
             "kTargetPlayer.isHuman()",
@@ -164,14 +168,36 @@ class EspionageEscalationTests(unittest.TestCase):
             "getCasusBelliMinPowerRatio()",
         ):
             self.assertIn(token, helper)
+        for result in (
+            "FABRICATE_CASUS_BELLI_TARGET_HAS_NOT_MET_FRAMED",
+            "FABRICATE_CASUS_BELLI_TEAM_CONFLICT",
+            "FABRICATE_CASUS_BELLI_TARGET_TEAM_HUMAN",
+            "FABRICATE_CASUS_BELLI_TARGET_VASSAL",
+            "FABRICATE_CASUS_BELLI_TARGET_AT_WAR",
+            "FABRICATE_CASUS_BELLI_TARGET_HAS_WAR_PLAN",
+            "FABRICATE_CASUS_BELLI_VASSAL_RELATIONSHIP",
+            "FABRICATE_CASUS_BELLI_DEFENSIVE_PACT",
+            "FABRICATE_CASUS_BELLI_CANNOT_DECLARE_WAR",
+            "FABRICATE_CASUS_BELLI_NOT_LAND_TARGET",
+            "FABRICATE_CASUS_BELLI_ATTITUDE_TOO_HIGH",
+            "FABRICATE_CASUS_BELLI_POWER_TOO_LOW",
+        ):
+            self.assertIn(result, helper)
+
+        wrapper = source.split("bool CvPlayer::canFabricateCasusBelli", 1)[1].split(
+            "int CvPlayer::getFabricateCasusBelliChance", 1
+        )[0]
+        self.assertIn("evaluateFabricateCasusBelli", wrapper)
 
     def test_chance_formula_has_exact_boundaries_and_one_shared_helper(self):
         source = (DLL / "CvPlayer.cpp").read_text(
             encoding="utf-8", errors="ignore"
         )
         chance = source.split(
-            "int CvPlayer::getFabricateCasusBelliChance", 1
-        )[1].split("bool CvPlayer::canDoEspionageMission", 1)[0]
+            "CvPlayer::FabricateCasusBelliResult "
+            "CvPlayer::evaluateFabricateCasusBelli",
+            1,
+        )[1].split("bool CvPlayer::canFabricateCasusBelli", 1)[0]
         for token in (
             "getCasusBelliBaseChance()",
             "getCasusBelliAttitudeChancePerPoint()",
@@ -194,9 +220,13 @@ class EspionageEscalationTests(unittest.TestCase):
         ai = (DLL / "CvPlayerAI.cpp").read_text(
             encoding="utf-8", errors="ignore"
         )
-        self.assertIn("getFabricateCasusBelliChance", popup)
+        self.assertIn("evaluateFabricateCasusBelli", popup)
         self.assertIn("getFabricateCasusBelliChance", ai)
         self.assertGreaterEqual(source.count("getFabricateCasusBelliChance"), 2)
+        chance_wrapper = source.split(
+            "int CvPlayer::getFabricateCasusBelliChance", 1
+        )[1].split("bool CvPlayer::canDoEspionageMission", 1)[0]
+        self.assertIn("evaluateFabricateCasusBelli", chance_wrapper)
 
         def chance(attitude, power_ratio):
             value = 10 + 4 * max(0, -3 - attitude)
@@ -217,6 +247,47 @@ class EspionageEscalationTests(unittest.TestCase):
         self.assertEqual(chance(-6, 90), 22)
         self.assertEqual(chance(-10, 90), 53)
         self.assertEqual(chance(-15, 130), 70)
+
+    def test_casus_top_level_cost_does_not_require_an_eligible_candidate(self):
+        source = (DLL / "CvPlayer.cpp").read_text(
+            encoding="utf-8", errors="ignore"
+        )
+        branch = source.split("else if (kMission.isFabricatesCasusBelli())", 1)[
+            1
+        ].split("else if (kMission.getStealTreasuryTypes()", 1)[0]
+        top_level, selected = branch.split("else if (iExtraData", 1)
+        self.assertNotIn("canFabricateCasusBelli", top_level)
+        self.assertNotIn("for (int iFramedPlayer", top_level)
+        self.assertIn("iMissionCost =", top_level)
+        self.assertIn("canFabricateCasusBelli", selected)
+
+    def test_casus_popup_reports_rejections_and_only_buttons_eligible_targets(self):
+        popup = (DLL / "CvDLLButtonPopup.cpp").read_text(
+            encoding="utf-8", errors="ignore"
+        )
+        target_popup = popup.split(
+            "bool CvDLLButtonPopup::launchDoEspionageTargetPopup", 1
+        )[1].split("else if (kMission.getDestroyBuildingCostFactor()", 1)[0]
+        self.assertIn("evaluateFabricateCasusBelli", target_popup)
+        self.assertIn("FABRICATE_CASUS_BELLI_ELIGIBLE", target_popup)
+        self.assertIn(
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_UNAVAILABLE_CIVILIZATION",
+            target_popup,
+        )
+        self.assertIn(
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_NO_ELIGIBLE_TARGET", target_popup
+        )
+        self.assertNotIn(
+            "kFramedPlayer.getTeam() == kPlayer.getTeam()", target_popup
+        )
+        eligible_branch = target_popup.split(
+            "if (eResult == CvPlayer::FABRICATE_CASUS_BELLI_ELIGIBLE)", 1
+        )[1].split("else", 1)[0]
+        rejected_branch = target_popup.split(
+            "if (eResult == CvPlayer::FABRICATE_CASUS_BELLI_ELIGIBLE)", 1
+        )[1].split("else", 1)[1].split("continue;", 1)[0]
+        self.assertIn("popupAddGenericButton", eligible_branch)
+        self.assertNotIn("popupAddGenericButton", rejected_branch)
 
     def test_execution_revalidates_before_interception_and_uses_sync_rng(self):
         unit = (DLL / "CvUnit.cpp").read_text(encoding="utf-8", errors="ignore")
@@ -281,6 +352,22 @@ class EspionageEscalationTests(unittest.TestCase):
             "TXT_KEY_ESPIONAGE_CASUS_BELLI_CIVILIZATION",
             "TXT_KEY_ESPIONAGE_CASUS_BELLI_SUCCESS",
             "TXT_KEY_ESPIONAGE_CASUS_BELLI_FAILURE",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_UNAVAILABLE_HEADER",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_UNAVAILABLE_CIVILIZATION",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_NO_ELIGIBLE_TARGET",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TARGET_NOT_MET",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TEAM_CONFLICT",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_HUMAN_TEAM",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TARGET_VASSAL",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TARGET_AT_WAR",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_WAR_PLAN",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_VASSAL_RELATIONSHIP",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_DEFENSIVE_PACT",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_CANNOT_DECLARE",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_NOT_LAND_TARGET",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_ATTITUDE",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_POWER",
+            "TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_UNAVAILABLE",
         }
         self.assertTrue(required.issubset(nodes))
         for tag in required:

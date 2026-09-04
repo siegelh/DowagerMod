@@ -1,6 +1,6 @@
 # Espionage Escalation: Backchannels and Casus Belli
 
-- Status: `implemented; automated validation complete; installed and multiplayer acceptance pending`
+- Status: `implemented; explanatory Casus Belli eligibility follow-up automated validation complete; installed and multiplayer acceptance pending`
 - Owner / agent: GitHub Copilot CLI
 - Last updated: `2026-09-02`
 
@@ -118,7 +118,8 @@ GET_PLAYER(T).AI_changeMemoryCount(S, MEMORY_GIVE_HELP, 1);
 
 ### Hard eligibility checks
 
-The mission is hidden or F is excluded when any condition is false:
+The affordable mission remains visible when the physical spy/territory
+requirements pass, but F is excluded when any condition is false:
 
 - T and F are alive major civilizations.
 - T and its team are AI-controlled, and T's team is not a vassal.
@@ -133,9 +134,17 @@ The mission is hidden or F is excluded when any condition is false:
   land-target helper.
 - T's power is at least **70%** of F's defensive power.
 
-Every condition is recalculated during cost lookup, popup construction,
-pre-interception validation, and synchronized execution. A stale selection is
-rejected before EP loss or spy risk.
+One deterministic evaluator recalculates every condition during selected-target
+cost lookup, popup construction, pre-interception validation, AI evaluation,
+and synchronized execution. It returns a stable rejection reason plus raw
+attitude, power ratio, and success chance where applicable. A stale selection
+is rejected before EP loss or spy risk.
+
+The top-level `iExtraData == -1` cost path does not require an eligible F. This
+lets an affordable Fabricate Casus Belli mission open its target popup even
+when every known civilization is currently rejected. The popup lists rejected
+civilizations and exact reasons in body text, creates buttons only for eligible
+targets, and presents a Cancel-only state when none qualify.
 
 ### Success chance
 
@@ -268,6 +277,7 @@ fields.
 Add explicit helpers rather than duplicating popup/execution/AI rules:
 
 - `canEstablishBackchannels(T)`
+- `evaluateFabricateCasusBelli(mission, T, F, attitude, power, chance)`
 - `canFabricateCasusBelli(mission, T, F)`
 - `getFabricateCasusBelliChance(mission, T, F)`
 - a shared physical spy/plot/territory validation helper for all custom
@@ -304,8 +314,11 @@ Automated contracts must cover:
 - schema/info/Python bindings;
 - Backchannels target eligibility, repeated `MEMORY_GIVE_HELP +1` stacking,
   natural decay, existing save persistence, and AI tier-crossing valuation;
-- Casus Belli hard exclusions for human/vassal/war-plan/forced-peace/team/
-  defensive-pact/unmet/unreachable/under-70%-power cases;
+- affordable Casus Belli visibility without an eligible third-party target;
+- Casus Belli hard exclusions and stable popup reasons for human/vassal/
+  war-plan/forced-peace/team/defensive-pact/unmet/unreachable/
+  under-70%-power cases;
+- eligible-only target buttons and a Cancel-only no-target popup;
 - exact chance values at attitude and power boundaries;
 - popup-displayed chance equals execution chance;
 - stale `iExtraData` rejection before interception;
@@ -329,13 +342,16 @@ Manual installed smoke testing:
 1. Establish Backchannels increases T's displayed attitude toward S by one.
 2. Repeated successful uses stack by exactly one each without a cap.
 3. Save/reload preserves the memory and natural decay remains functional.
-4. Casus Belli popup includes only eligible F and shows the correct chance.
-5. Cancel consumes nothing.
-6. Hard-invalid states do not expose the mission.
-7. Political failure consumes EP/action and reports failure without a war plan.
-8. Success reports mobilization and produces war after native preparation.
-9. Interception creates no war plan.
-10. Fresh two-client multiplayer reproduces identical odds, RNG result,
+4. An affordable Casus Belli mission appears even with no eligible F; the
+   popup explains every relevant rejection and offers only Cancel.
+5. Eligible F appear as buttons with the correct chance while rejected F
+   remain explanatory text.
+6. Cancel consumes nothing.
+7. Insufficient EP still hides the mission.
+8. Political failure consumes EP/action and reports failure without a war plan.
+9. Success reports mobilization and produces war after native preparation.
+10. Interception creates no war plan.
+11. Fresh two-client multiplayer reproduces identical odds, RNG result,
     attitude/memory state, war plan, and eventual war with no OOS.
 
 ## Risks and Tradeoffs
@@ -365,8 +381,11 @@ Manual installed smoke testing:
   only `WARPLAN_PREPARING_LIMITED` on synchronized success.
 - Team-level human control is excluded so a reported mobilization always
   belongs to a team whose native AI war-plan processing can advance.
-- Seventeen focused espionage contracts, the changed-file gate with DLL
-  compilation, and the full repository gate passed.
+- Affordable mission-wide availability is separated from candidate-level
+  eligibility. The target popup now explains rejected known civilizations
+  using the same deterministic evaluator that guards AI and execution.
+- Focused espionage contracts, the changed-file gate with DLL compilation, and
+  the full repository gate passed.
 
 ## Proposed Implementation Sequence
 

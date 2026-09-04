@@ -293,6 +293,28 @@ public:
 	bool hasValidDiplomaticEspionageSpy(PlayerTypes eTargetPlayer, const CvPlot* pPlot, const CvUnit* pUnit) const;
 	bool canStageDiplomaticIncident(PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const;
 	bool canEstablishBackchannels(PlayerTypes eTargetPlayer) const;
+	enum FabricateCasusBelliResult
+	{
+		FABRICATE_CASUS_BELLI_ELIGIBLE,
+		FABRICATE_CASUS_BELLI_INVALID_SELECTION,
+		FABRICATE_CASUS_BELLI_TARGET_NOT_AI,
+		FABRICATE_CASUS_BELLI_FRAMED_NOT_MAJOR,
+		FABRICATE_CASUS_BELLI_TEAM_CONFLICT,
+		FABRICATE_CASUS_BELLI_ACTOR_HAS_NOT_MET_TARGET,
+		FABRICATE_CASUS_BELLI_ACTOR_HAS_NOT_MET_FRAMED,
+		FABRICATE_CASUS_BELLI_TARGET_HAS_NOT_MET_FRAMED,
+		FABRICATE_CASUS_BELLI_TARGET_TEAM_HUMAN,
+		FABRICATE_CASUS_BELLI_TARGET_VASSAL,
+		FABRICATE_CASUS_BELLI_TARGET_AT_WAR,
+		FABRICATE_CASUS_BELLI_TARGET_HAS_WAR_PLAN,
+		FABRICATE_CASUS_BELLI_VASSAL_RELATIONSHIP,
+		FABRICATE_CASUS_BELLI_DEFENSIVE_PACT,
+		FABRICATE_CASUS_BELLI_CANNOT_DECLARE_WAR,
+		FABRICATE_CASUS_BELLI_NOT_LAND_TARGET,
+		FABRICATE_CASUS_BELLI_ATTITUDE_TOO_HIGH,
+		FABRICATE_CASUS_BELLI_POWER_TOO_LOW
+	};
+	FabricateCasusBelliResult evaluateFabricateCasusBelli(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer, int& iAttitude, int& iPowerRatio, int& iChance) const;
 	bool canFabricateCasusBelli(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const;
 	int getFabricateCasusBelliChance(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, PlayerTypes eFramedPlayer) const;
 	DllExport bool canDoEspionageMission(EspionageMissionTypes eMission, PlayerTypes eTargetPlayer, const CvPlot* pPlot, int iExtraData, const CvUnit* pUnit) const;		// Exposed to Python

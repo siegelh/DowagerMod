@@ -29,6 +29,39 @@
 
 CvDLLButtonPopup* CvDLLButtonPopup::m_pInst = NULL;
 
+static CvWString getFabricateCasusBelliRejectionText(CvPlayer::FabricateCasusBelliResult eResult, int iAttitude, int iPowerRatio, const CvEspionageMissionInfo& kMission)
+{
+	switch (eResult)
+	{
+	case CvPlayer::FABRICATE_CASUS_BELLI_TARGET_HAS_NOT_MET_FRAMED:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TARGET_NOT_MET");
+	case CvPlayer::FABRICATE_CASUS_BELLI_TEAM_CONFLICT:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TEAM_CONFLICT");
+	case CvPlayer::FABRICATE_CASUS_BELLI_TARGET_TEAM_HUMAN:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_HUMAN_TEAM");
+	case CvPlayer::FABRICATE_CASUS_BELLI_TARGET_VASSAL:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TARGET_VASSAL");
+	case CvPlayer::FABRICATE_CASUS_BELLI_TARGET_AT_WAR:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_TARGET_AT_WAR");
+	case CvPlayer::FABRICATE_CASUS_BELLI_TARGET_HAS_WAR_PLAN:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_WAR_PLAN");
+	case CvPlayer::FABRICATE_CASUS_BELLI_VASSAL_RELATIONSHIP:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_VASSAL_RELATIONSHIP");
+	case CvPlayer::FABRICATE_CASUS_BELLI_DEFENSIVE_PACT:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_DEFENSIVE_PACT");
+	case CvPlayer::FABRICATE_CASUS_BELLI_CANNOT_DECLARE_WAR:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_CANNOT_DECLARE");
+	case CvPlayer::FABRICATE_CASUS_BELLI_NOT_LAND_TARGET:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_NOT_LAND_TARGET");
+	case CvPlayer::FABRICATE_CASUS_BELLI_ATTITUDE_TOO_HIGH:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_ATTITUDE", iAttitude, kMission.getCasusBelliMinAttitude());
+	case CvPlayer::FABRICATE_CASUS_BELLI_POWER_TOO_LOW:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_POWER", iPowerRatio, kMission.getCasusBelliMinPowerRatio());
+	default:
+		return gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_REASON_UNAVAILABLE");
+	}
+}
+
 CvDLLButtonPopup& CvDLLButtonPopup::getInstance()
 {
 	if (m_pInst == NULL)
@@ -1894,31 +1927,64 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 	if (kMission.isStagesDiplomaticIncident() || kMission.isFabricatesCasusBelli())
 	{
 		bool bFabricatesCasusBelli = kMission.isFabricatesCasusBelli();
-		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, gDLL->getText(
-			bFabricatesCasusBelli ? "TXT_KEY_ESPIONAGE_CHOOSE_CASUS_BELLI_TARGET" : "TXT_KEY_ESPIONAGE_CHOOSE_FRAMED_CIVILIZATION"));
+		CvWString szBody = gDLL->getText(
+			bFabricatesCasusBelli ? "TXT_KEY_ESPIONAGE_CHOOSE_CASUS_BELLI_TARGET" : "TXT_KEY_ESPIONAGE_CHOOSE_FRAMED_CIVILIZATION");
+		bool bHasEligibleTarget = false;
+		bool bHasRejectedTarget = false;
 		for (int iPlayer = 0; iPlayer < MAX_CIV_PLAYERS; ++iPlayer)
 		{
 			PlayerTypes eFramedPlayer = (PlayerTypes)iPlayer;
-			bool bEligible = bFabricatesCasusBelli ?
-				kPlayer.canFabricateCasusBelli(eMission, eTargetPlayer, eFramedPlayer) :
-				kPlayer.canStageDiplomaticIncident(eTargetPlayer, eFramedPlayer);
-			if (bEligible)
+			CvPlayer& kFramedPlayer = GET_PLAYER(eFramedPlayer);
+			if (bFabricatesCasusBelli)
 			{
-				CvPlayer& kFramedPlayer = GET_PLAYER(eFramedPlayer);
-				CvWString szBuffer;
-				if (bFabricatesCasusBelli)
+				if (eFramedPlayer == kPlayer.getID() || eFramedPlayer == eTargetPlayer ||
+					!kFramedPlayer.isAlive() || kFramedPlayer.isBarbarian() || kFramedPlayer.isMinorCiv() ||
+					!GET_TEAM(kPlayer.getTeam()).isHasMet(kFramedPlayer.getTeam()))
 				{
-					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_CIVILIZATION",
-						kFramedPlayer.getNameKey(), kFramedPlayer.getCivilizationDescriptionKey(),
-						kPlayer.getFabricateCasusBelliChance(eMission, eTargetPlayer, eFramedPlayer));
+					continue;
+				}
+
+				int iAttitude;
+				int iPowerRatio;
+				int iChance;
+				CvPlayer::FabricateCasusBelliResult eResult = kPlayer.evaluateFabricateCasusBelli(
+					eMission, eTargetPlayer, eFramedPlayer, iAttitude, iPowerRatio, iChance);
+				if (eResult == CvPlayer::FABRICATE_CASUS_BELLI_ELIGIBLE)
+				{
+					CvWString szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_CIVILIZATION",
+						kFramedPlayer.getNameKey(), kFramedPlayer.getCivilizationDescriptionKey(), iChance);
+					gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), iPlayer, WIDGET_HELP_ESPIONAGE_COST, eMission, iPlayer);
+					bHasEligibleTarget = true;
 				}
 				else
 				{
-					szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_FRAME_CIVILIZATION", kFramedPlayer.getNameKey(), kFramedPlayer.getCivilizationDescriptionKey());
+					if (!bHasRejectedTarget)
+					{
+						szBody.append(L"\n\n");
+						szBody.append(gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_UNAVAILABLE_HEADER"));
+					}
+					szBody.append(L"\n- ");
+					szBody.append(gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_UNAVAILABLE_CIVILIZATION",
+						kFramedPlayer.getNameKey(), kFramedPlayer.getCivilizationDescriptionKey(),
+						getFabricateCasusBelliRejectionText(eResult, iAttitude, iPowerRatio, kMission).GetCString()));
+					bHasRejectedTarget = true;
 				}
+				continue;
+			}
+
+			bool bEligible = kPlayer.canStageDiplomaticIncident(eTargetPlayer, eFramedPlayer);
+			if (bEligible)
+			{
+				CvWString szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_FRAME_CIVILIZATION", kFramedPlayer.getNameKey(), kFramedPlayer.getCivilizationDescriptionKey());
 				gDLL->getInterfaceIFace()->popupAddGenericButton(pPopup, szBuffer, ARTFILEMGR.getInterfaceArtInfo("ESPIONAGE_BUTTON")->getPath(), iPlayer, WIDGET_HELP_ESPIONAGE_COST, eMission, iPlayer);
 			}
 		}
+		if (bFabricatesCasusBelli && !bHasEligibleTarget)
+		{
+			szBody.append(L"\n\n");
+			szBody.append(gDLL->getText("TXT_KEY_ESPIONAGE_CASUS_BELLI_NO_ELIGIBLE_TARGET"));
+		}
+		gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, szBody);
 	}
 	else if (kMission.getDestroyBuildingCostFactor() > 0)
 	{
