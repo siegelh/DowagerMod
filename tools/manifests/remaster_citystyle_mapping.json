@@ -1,0 +1,316 @@
+{
+  "mappingCount": 61,
+  "mappings": [
+    {
+      "civilization": "CIVILIZATION_AMERICA_FEDERAL",
+      "newStyle": "ARTSTYLE_ANGLO_AMERICA",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_AMERICA_FOUNDING_REPUBLIC",
+      "newStyle": "ARTSTYLE_ANGLO_AMERICA",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_AMERICA_NEW_DEAL",
+      "newStyle": "ARTSTYLE_ANGLO_AMERICA",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_AMERICA_UNION",
+      "newStyle": "ARTSTYLE_ANGLO_AMERICA",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_APACHE_CONFEDERACY",
+      "newStyle": "ARTSTYLE_NATIVE_AMERICA",
+      "oldStyle": "ARTSTYLE_SOUTH_AMERICA"
+    },
+    {
+      "civilization": "CIVILIZATION_ARABIA",
+      "newStyle": "ARTSTYLE_ARABIA",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_ATHENIAN_GREECE",
+      "newStyle": "ARTSTYLE_GRECO_ROMAN",
+      "oldStyle": "ARTSTYLE_GRECO_ROMAN"
+    },
+    {
+      "civilization": "CIVILIZATION_AZTEC",
+      "newStyle": "ARTSTYLE_MESO_AMERICA",
+      "oldStyle": "ARTSTYLE_SOUTH_AMERICA"
+    },
+    {
+      "civilization": "CIVILIZATION_BABYLON",
+      "newStyle": "ARTSTYLE_CRESCENT",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_BARBARIAN",
+      "newStyle": "ARTSTYLE_BARBARIAN",
+      "oldStyle": "ARTSTYLE_BARBARIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_BRITISH_REGENCY",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_BYZANTIUM",
+      "newStyle": "ARTSTYLE_GRECO_ROMAN",
+      "oldStyle": "ARTSTYLE_GRECO_ROMAN"
+    },
+    {
+      "civilization": "CIVILIZATION_CARTHAGE",
+      "newStyle": "ARTSTYLE_GRECO_ROMAN",
+      "oldStyle": "ARTSTYLE_GRECO_ROMAN"
+    },
+    {
+      "civilization": "CIVILIZATION_EGYPT_EIGHTEENTH_DYNASTY",
+      "newStyle": "ARTSTYLE_EGYPT",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_EGYPT_NEW_KINGDOM",
+      "newStyle": "ARTSTYLE_EGYPT",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_ELIZABETHAN_ENGLAND",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_ETHIOPIA_IMPERIAL",
+      "newStyle": "ARTSTYLE_AFRICA",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_ETHIOPIA_SOLOMONIC",
+      "newStyle": "ARTSTYLE_AFRICA",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_FRANCE_BOURBON",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_FRANCE_FIFTH_REPUBLIC",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_FRANCE_FIRST_EMPIRE",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_GAULIC_CONFEDERATION",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_GERMAN_EMPIRE",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_HOLY_ROMAN",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_ICENI_BRITAIN",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_IMPERIAL_RUSSIA",
+      "newStyle": "ARTSTYLE_RUSSIA",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_INCA",
+      "newStyle": "ARTSTYLE_SOUTH_AMERICA",
+      "oldStyle": "ARTSTYLE_SOUTH_AMERICA"
+    },
+    {
+      "civilization": "CIVILIZATION_INDIA",
+      "newStyle": "ARTSTYLE_INDIA",
+      "oldStyle": "ARTSTYLE_ASIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_JAPAN",
+      "newStyle": "ARTSTYLE_JAPAN",
+      "oldStyle": "ARTSTYLE_ASIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_KHMER",
+      "newStyle": "ARTSTYLE_SOUTH_EAST_ASIA",
+      "oldStyle": "ARTSTYLE_ASIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_KOREA",
+      "newStyle": "ARTSTYLE_ASIA",
+      "oldStyle": "ARTSTYLE_ASIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_MACEDONIAN_EMPIRE",
+      "newStyle": "ARTSTYLE_GRECO_ROMAN",
+      "oldStyle": "ARTSTYLE_GRECO_ROMAN"
+    },
+    {
+      "civilization": "CIVILIZATION_MALI",
+      "newStyle": "ARTSTYLE_AFRICA",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_MAURYA",
+      "newStyle": "ARTSTYLE_INDIA",
+      "oldStyle": "ARTSTYLE_ASIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_MAYA",
+      "newStyle": "ARTSTYLE_MESO_AMERICA",
+      "oldStyle": "ARTSTYLE_SOUTH_AMERICA"
+    },
+    {
+      "civilization": "CIVILIZATION_MINOR",
+      "newStyle": "ARTSTYLE_BARBARIAN",
+      "oldStyle": "ARTSTYLE_BARBARIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_MONGOL_EMPIRE",
+      "newStyle": "ARTSTYLE_MONGOLIA",
+      "oldStyle": "ARTSTYLE_ASIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_NATIVE_AMERICA",
+      "newStyle": "ARTSTYLE_NATIVE_AMERICA",
+      "oldStyle": "ARTSTYLE_SOUTH_AMERICA"
+    },
+    {
+      "civilization": "CIVILIZATION_NETHERLANDS",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_OTTOMAN_CLASSICAL",
+      "newStyle": "ARTSTYLE_CRESCENT",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_OTTOMAN_CONQUEST",
+      "newStyle": "ARTSTYLE_CRESCENT",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_PEOPLES_REPUBLIC_CHINA",
+      "newStyle": "ARTSTYLE_ASIA",
+      "oldStyle": "ARTSTYLE_ASIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_PERSIA_FOUNDING_ACHAEMENID",
+      "newStyle": "ARTSTYLE_CRESCENT",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID",
+      "newStyle": "ARTSTYLE_CRESCENT",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_PETRINE_RUSSIA",
+      "newStyle": "ARTSTYLE_RUSSIA",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_POLAND",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_POLYNESIA_BTG",
+      "newStyle": "ARTSTYLE_SOUTH_AMERICA",
+      "oldStyle": "ARTSTYLE_SOUTH_AMERICA"
+    },
+    {
+      "civilization": "CIVILIZATION_PORTUGAL",
+      "newStyle": "ARTSTYLE_IBERIA",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_PRUSSIA",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_QIN_DYNASTY",
+      "newStyle": "ARTSTYLE_ASIA",
+      "oldStyle": "ARTSTYLE_ASIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_ROMAN_PRINCIPATE",
+      "newStyle": "ARTSTYLE_GRECO_ROMAN",
+      "oldStyle": "ARTSTYLE_GRECO_ROMAN"
+    },
+    {
+      "civilization": "CIVILIZATION_ROMAN_REPUBLIC_LATE",
+      "newStyle": "ARTSTYLE_GRECO_ROMAN",
+      "oldStyle": "ARTSTYLE_GRECO_ROMAN"
+    },
+    {
+      "civilization": "CIVILIZATION_SPAIN",
+      "newStyle": "ARTSTYLE_IBERIA",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_SUMERIA",
+      "newStyle": "ARTSTYLE_CRESCENT",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    },
+    {
+      "civilization": "CIVILIZATION_USSR",
+      "newStyle": "ARTSTYLE_RUSSIA",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_VENICE",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_VICTORIAN_BRITAIN",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_VIKING",
+      "newStyle": "ARTSTYLE_NORSE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_WARTIME_BRITAIN",
+      "newStyle": "ARTSTYLE_EUROPE",
+      "oldStyle": "ARTSTYLE_EUROPEAN"
+    },
+    {
+      "civilization": "CIVILIZATION_YUAN_DYNASTY",
+      "newStyle": "ARTSTYLE_MONGOLIA",
+      "oldStyle": "ARTSTYLE_ASIAN"
+    },
+    {
+      "civilization": "CIVILIZATION_ZULU",
+      "newStyle": "ARTSTYLE_AFRICA",
+      "oldStyle": "ARTSTYLE_MIDDLE_EAST"
+    }
+  ],
+  "name": "Dowager Cultural Citystyles mapping",
+  "notes": {
+    "American variants": "Use ARTSTYLE_ANGLO_AMERICA; European predecessor states remain ARTSTYLE_EUROPE.",
+    "CIVILIZATION_POLYNESIA_BTG": "Uses the closest available warm-climate indigenous style, ARTSTYLE_SOUTH_AMERICA."
+  },
+  "sourceCommit": "a5e232f30eaae9fa980bc8ddcb2dba50b6321a89"
+}

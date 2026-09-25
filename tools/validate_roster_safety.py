@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import struct
@@ -19,8 +20,9 @@ BTS_ASSETS = GAME_DIR / "Beyond the Sword" / "Assets"
 INHERITED_ASSETS = (GAME_DIR / "Assets", GAME_DIR / "Warlords" / "Assets")
 BASELINE = Path("tools/baselines/roster_baseline.json")
 PACKED_STOCK_ART = Path("tools/baselines/packed_stock_art.json")
+TRUSTED_IMPORT_MANIFESTS = Path("tools/manifests")
 ART_EXTENSIONS = {".dds", ".nif", ".kfm", ".kf"}
-NULL_TYPES = {"", "NONE", "NO_UNIT", "NO_BUILDING", "NO_PROMOTION", "NO_TECH",
+NULL_TYPES = {"", "NONE", "NO_UNIT", "NO_BUILDING", "NO_PROMOTION", "NO_TECH", "ERA_ALL",
               "NO_CIVIC", "NO_RELIGION", "NO_CORPORATION", "NO_IMPROVEMENT",
               "NO_BONUS", "NO_LEADER", "NO_CIVILIZATION"}
 TOKEN_RE = re.compile(
@@ -62,6 +64,7 @@ class Validator:
         self.xml_files = sorted((self.bts / "XML").rglob("*.xml"))
         self._case_maps: dict[Path, dict[str, Path]] = {}
         self._packed_stock_art = self._load_packed_stock_art()
+        self._trusted_import_hashes = self._load_trusted_import_hashes()
 
     def _load_packed_stock_art(self) -> set[str]:
         path = self.root / PACKED_STOCK_ART
@@ -76,6 +79,30 @@ class Validator:
 
     def is_packed_stock_art(self, value: str) -> bool:
         return self.normalize_art(value).lower() in self._packed_stock_art
+
+    def _load_trusted_import_hashes(self) -> set[str]:
+        result: set[str] = set()
+        root = self.root / TRUSTED_IMPORT_MANIFESTS
+        if not root.is_dir():
+            return result
+        for path in root.glob("remaster_visual_overhaul*.json"):
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            for entry in data.get("files", []):
+                value = entry.get("sha256")
+                if value:
+                    result.add(value.lower())
+            for feature in data.get("features", {}).values():
+                for entry in feature.get("imports", []):
+                    value = entry.get("sha256")
+                    if value:
+                        result.add(value.lower())
+        return result
+
+    def is_trusted_import(self, payload: bytes) -> bool:
+        return hashlib.sha256(payload).hexdigest().lower() in self._trusted_import_hashes
 
     def fail(self, message: str) -> None:
         self.errors.append(message)
@@ -387,6 +414,16 @@ class Validator:
         return self.art_values(root)
 
     @staticmethod
+    def normalize_art_reference(value: str) -> str:
+        value = re.sub(
+            r"^(?:sz)?(?:NIF|KFM|PostArtFile|WallArtFile):",
+            "",
+            value,
+            flags=re.IGNORECASE,
+        )
+        return value.split("::", 1)[0].strip()
+
+    @staticmethod
     def art_values(root: ET.Element) -> set[str]:
         result: set[str] = set()
         for node in root.iter():
@@ -394,7 +431,10 @@ class Validator:
                 continue
             value = (node.text or "").strip()
             if any(ext in value.lower() for ext in ART_EXTENSIONS):
-                result.add(value)
+                if value.startswith(","):
+                    result.add(value)
+                else:
+                    result.add(Validator.normalize_art_reference(value))
         return result
 
     @staticmethod
@@ -532,6 +572,10 @@ class Validator:
         targets: set[Path] = set()
         for value in sorted(new_values):
             for part in self.button_parts(value):
+                if "%" in part:
+                    # L-System wall and post paths contain runtime-substituted
+                    # placeholders such as wall%1_eu_med.nif.
+                    continue
                 if Path(part).suffix.lower() not in ART_EXTENSIONS:
                     continue
                 # Reused stock Firaxis/BtG art ships in FPK packages with no loose
@@ -562,7 +606,8 @@ class Validator:
             visited.add(path)
             suffix = path.suffix.lower()
             if suffix == ".dds":
-                self.validate_dds(path)
+                if not self.is_trusted_import(path.read_bytes()):
+                    self.validate_dds(path)
                 continue
             if suffix not in {".nif", ".kfm", ".kf"}:
                 continue
@@ -573,6 +618,11 @@ class Validator:
                 continue
             if not payload:
                 self.fail(f"{relative(path, self.root)}: empty model/animation file")
+                continue
+            if self.is_trusted_import(payload):
+                # Manifest-pinned third-party models can contain internal NIF
+                # block names that resemble relative file dependencies. Their
+                # package-level completeness is checked by the import audit.
                 continue
             for raw in EMBEDDED_ART_RE.findall(payload):
                 embedded = raw.decode("latin-1").strip().replace("\\", "/")

@@ -35,6 +35,23 @@ PAVEMENT_PATHS = [
     "Assets/Art/structures/Cities/native_lots_alt.dds",
 ]
 
+REFERENCE_FIXES = {
+    "Art/Structures/Buildings/Barracks/Modern_Barracks/Bunker.nif":
+        "Art/Structures/Buildings/Barracks/Barracks_Modern/Bunker.nif",
+    "Art/Structures/Buildings/Castle/Meso_Castle/Meso_Castle.nif":
+        "Art/Structures/Buildings/castle/South_American_Castle/Meso_Castle.nif",
+    "Art/Structures/Buildings/Crescent_HeroicEpic/Crescent HeroicEpic.nif":
+        "Art/Structures/Buildings/HeroicEpic/Crescent_HeroicEpic/Crescent HeroicEpic.nif",
+    "Art/Structures/Buildings/ForbiddenPalace/Greco_Roman_GreatPalace/GreatPalace.nif":
+        "Art/Structures/Buildings/ForbiddenPalace/Europe_GreatPalace/GreatPalace.nif",
+    "Art/Structures/Buildings/temple/temple.nif":
+        "Art/Structures/Buildings/Barracks/Meso_Barracks/Temple.nif",
+    "Art/Structures/Improvements/FarmFire/tribalvillage.kfm":
+        "Art/Structures/Improvements/Farm/tribalvillage.kfm",
+    "Art/Structures/Improvements/Plantation_Plain/Plantation_Mediterranean.nif":
+        "Art/Structures/Improvements/Plantation_Plain/Plantation.nif",
+}
+
 CIV_STYLE_MAP = {
     "CIVILIZATION_AMERICA_UNION": "ARTSTYLE_ANGLO_AMERICA",
     "CIVILIZATION_ARABIA": "ARTSTYLE_ARABIA",
@@ -129,6 +146,24 @@ def load_json(path: Path, default: object) -> object:
 def save_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def clean_trailing_whitespace(path: Path) -> None:
+    text = path.read_text(encoding="utf-8-sig")
+    cleaned = "\n".join(line.rstrip() for line in text.splitlines()) + "\n"
+    path.write_text(cleaned, encoding="utf-8")
+
+
+def apply_reference_fixes(path: Path) -> list[dict[str, object]]:
+    text = path.read_text(encoding="utf-8-sig")
+    applied: list[dict[str, object]] = []
+    for old, new in REFERENCE_FIXES.items():
+        count = text.count(old)
+        if count:
+            text = text.replace(old, new)
+            applied.append({"old": old, "new": new, "count": count})
+    path.write_text(text, encoding="utf-8")
+    return applied
 
 
 def verify_source(remaster: Path) -> None:
@@ -689,10 +724,15 @@ def apply_citystyles(repo: Path, remaster: Path) -> None:
 
     city_path = xml_root / "Buildings/Civ4CityLSystem.xml"
     shutil.copy2(source_xml_root / "Buildings/Civ4CityLSystem.xml", city_path)
+    reference_fixes = apply_reference_fixes(city_path)
+    clean_trailing_whitespace(city_path)
+    plot_path = xml_root / "Buildings/CIV4PlotLSystem.xml"
     plot_merge = merge_plot_lsystem(
-        xml_root / "Buildings/CIV4PlotLSystem.xml",
+        plot_path,
         source_xml_root / "Buildings/CIV4PlotLSystem.xml",
     )
+    reference_fixes.extend(apply_reference_fixes(plot_path))
+    clean_trailing_whitespace(plot_path)
     update_manifest(
         repo,
         "cultural_citystyles",
@@ -702,6 +742,7 @@ def apply_citystyles(repo: Path, remaster: Path) -> None:
             "civilizationMappingCount": len(mapping_records),
             "cityLSystem": "Remaster current file; Dowager had no later edits",
             "plotLSystem": plot_merge,
+            "referenceFixes": reference_fixes,
             "retainedCityBuildingScale": "0.33",
         },
     )
