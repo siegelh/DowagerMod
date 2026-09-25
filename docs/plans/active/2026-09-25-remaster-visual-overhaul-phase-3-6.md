@@ -73,6 +73,19 @@
 - Import selected knight, musketman, modern-worker, gunship, Panzer, and
   Praetorian art.
 
+### Follow-up: universal unit consistency
+
+- After installed testing, the user requested Remaster's scaling treatment
+  across every remaining Dowager `UnitArtInfo`.
+- Preserve the 224 entries already scaled by Commit 2 so they are not scaled
+  twice.
+- Apply world `fScale × 0.8` and `fInterfaceScale × 1.25` to all remaining
+  unit categories, including civilian, animal, naval, air, missile, custom,
+  cultural, and unique art definitions.
+- Preserve zero or missing fields. `ART_DEF_UNIT_TERUO_NAKAMURA` has no
+  `fScale`, so only its interface scale is changed.
+- Record and validate this as a separate local commit.
+
 ### Commit 3: selected effects
 
 - The Remaster selection NIF directly references `godrays.tga`; therefore the

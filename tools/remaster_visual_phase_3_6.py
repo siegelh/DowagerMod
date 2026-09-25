@@ -14,6 +14,7 @@ import subprocess
 import sys
 import time
 import xml.etree.ElementTree as ET
+from decimal import Decimal
 from pathlib import Path
 
 
@@ -629,6 +630,116 @@ def apply_units(repo: Path, remaster: Path) -> None:
     )
 
 
+def scaled_decimal(value: str, multiplier: Decimal) -> str:
+    result = Decimal(value) * multiplier
+    rendered = format(result, "f").rstrip("0").rstrip(".")
+    if "." not in rendered:
+        rendered += ".0"
+    return rendered
+
+
+def apply_universal_unit_scaling(repo: Path) -> None:
+    relative = "Assets/XML/Art/CIV4ArtDefines_Unit.xml"
+    target_path = repo / DESTINATION_ROOT / relative
+    manifest = load_json(manifest_path(repo), None)
+    if not manifest:
+        raise RuntimeError("Phase 3-6 manifest not found")
+    already_scaled = set(
+        manifest["features"]["unit_presentation"]["xmlMerge"]["changedTypes"]
+    )
+    text = target_path.read_text(encoding="utf-8-sig")
+    changed_types: list[str] = []
+    missing_world_scale: list[str] = []
+    world_changed = 0
+    interface_changed = 0
+    pattern = re.compile(
+        r"<UnitArtInfo\b[^>]*>.*?</UnitArtInfo>",
+        re.DOTALL,
+    )
+
+    def replace_block(match: re.Match[str]) -> str:
+        nonlocal world_changed, interface_changed
+        block = match.group(0)
+        type_match = re.search(r"<Type>([^<]+)</Type>", block)
+        if not type_match:
+            return block
+        art_type = type_match.group(1)
+        if art_type in already_scaled:
+            return block
+        changed_types.append(art_type)
+        world_match = re.search(r"<fScale>([^<]+)</fScale>", block)
+        if world_match:
+            if Decimal(world_match.group(1)) != 0:
+                new_value = scaled_decimal(world_match.group(1), Decimal("0.8"))
+                block = re.sub(
+                    r"(<fScale>)[^<]+(</fScale>)",
+                    lambda field_match: (
+                        field_match.group(1) + new_value + field_match.group(2)
+                    ),
+                    block,
+                    count=1,
+                )
+                world_changed += 1
+        else:
+            missing_world_scale.append(art_type)
+
+        interface_match = re.search(
+            r"<fInterfaceScale>([^<]+)</fInterfaceScale>",
+            block,
+        )
+        if interface_match and Decimal(interface_match.group(1)) != 0:
+            new_value = scaled_decimal(
+                interface_match.group(1),
+                Decimal("1.25"),
+            )
+            block = re.sub(
+                r"(<fInterfaceScale>)[^<]+(</fInterfaceScale>)",
+                lambda field_match: (
+                    field_match.group(1) + new_value + field_match.group(2)
+                ),
+                block,
+                count=1,
+            )
+            interface_changed += 1
+        return block
+
+    merged = pattern.sub(replace_block, text)
+    if len(changed_types) != 4240:
+        raise RuntimeError(
+            "Universal unit scaling selected %d entries; expected 4240"
+            % len(changed_types)
+        )
+    if world_changed != 4239 or interface_changed != 4240:
+        raise RuntimeError(
+            "Universal unit scaling field mismatch: world=%d interface=%d"
+            % (world_changed, interface_changed)
+        )
+    target_path.write_text(merged, encoding="utf-8")
+    update_manifest(
+        repo,
+        "universal_unit_scaling",
+        xml_merge={
+            "path": relative,
+            "excludedAlreadyScaledCount": len(already_scaled),
+            "changedEntryCount": len(changed_types),
+            "worldScaleMultiplier": "0.8",
+            "worldScaleChangedCount": world_changed,
+            "interfaceScaleMultiplier": "1.25",
+            "interfaceScaleChangedCount": interface_changed,
+            "preservedMissingWorldScale": sorted(missing_world_scale),
+            "changedTypes": sorted(changed_types),
+        },
+    )
+    emit(
+        "xml_merge",
+        feature="universal_unit_scaling",
+        changedEntries=len(changed_types),
+        worldScaleChanges=world_changed,
+        interfaceScaleChanges=interface_changed,
+        preservedMissingWorldScale=len(missing_world_scale),
+    )
+
+
 def apply_effects(repo: Path, remaster: Path) -> None:
     nuke_root = remaster / "Assets/Art/Effects/explosion_nuke"
     paths = [
@@ -840,7 +951,14 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "command",
-        choices=("buildings", "units", "effects", "citystyles", "audit"),
+        choices=(
+            "buildings",
+            "units",
+            "universal-units",
+            "effects",
+            "citystyles",
+            "audit",
+        ),
     )
     parser.add_argument("--repo-root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument(
@@ -856,6 +974,8 @@ def main() -> int:
         apply_buildings(repo, remaster)
     elif args.command == "units":
         apply_units(repo, remaster)
+    elif args.command == "universal-units":
+        apply_universal_unit_scaling(repo)
     elif args.command == "effects":
         apply_effects(repo, remaster)
     elif args.command == "citystyles":
