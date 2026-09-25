@@ -312,6 +312,93 @@
         "path": "Assets/XML/Art/CIV4ArtDefines_Building.xml"
       }
     },
+    "selected_effects": {
+      "imports": [
+        {
+          "path": "Assets/Art/Effects/explosion_nuke/Kopie von fx_nuke_dome_01_g.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "3d0f83e5ff96cb75268e12a5e15b9d42ac2b1726cd75e87eec52084523b3c427",
+          "size": 87536
+        },
+        {
+          "path": "Assets/Art/Effects/explosion_nuke/fx_explosion_nuke.nif",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "68df264363b053eecd0bd1d0d33c2111c8ce2f0998ab56f7aa0581a073a9b80b",
+          "size": 241164
+        },
+        {
+          "path": "Assets/Art/Effects/explosion_nuke/fx_nuke_dome_01.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "dfee7b0275a4700cce0fa7b0d15eb1ba9c4af7ee8fa93ce5ddd2af31f2967d7b",
+          "size": 349680
+        },
+        {
+          "path": "Assets/Art/Effects/explosion_nuke/fx_nuke_dome_01_g.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "3d0f83e5ff96cb75268e12a5e15b9d42ac2b1726cd75e87eec52084523b3c427",
+          "size": 87536
+        },
+        {
+          "path": "Assets/Art/Effects/explosion_nuke/fx_nuke_shroom_cap01_g.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "edca5a51d4dec274b0e06b0d7099e1f56b6ac0994a5696af34b61c925f249a4d",
+          "size": 87536
+        },
+        {
+          "path": "Assets/Art/Effects/explosion_nuke/fx_nuke_shroom_cap02.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "cbf925e78a05bd64711a1ba16666d9f3e37e76adcb81eed4deabf0fb8b704f3a",
+          "size": 349680
+        },
+        {
+          "path": "Assets/Art/Effects/explosion_nuke/fx_nuke_shroom_cap03.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "5a04b3028e93e811bd9a921138600c01fc077e8ba6d7222ab1e3fe01e3007657",
+          "size": 87536
+        },
+        {
+          "path": "Assets/Art/structures/Cities/all_an_lots.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "996d2744d327ae1c63caea6625fd871d1c90d9069672e92d0cf4bac897e7775c",
+          "size": 32896
+        },
+        {
+          "path": "Assets/Art/structures/Cities/all_mod_lots.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "877325b20477f078c05bb05b80819863e612eae81c339686c08bdcabb432807b",
+          "size": 65664
+        },
+        {
+          "path": "Assets/Art/structures/Cities/all_ren_lots.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "877325b20477f078c05bb05b80819863e612eae81c339686c08bdcabb432807b",
+          "size": 65664
+        },
+        {
+          "path": "Assets/Art/structures/Cities/native_lots.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "48a9ce9b94289e7df7599fb0b655a435bbc644fde76d1ee71cfc97f86f25a7a8",
+          "size": 16512
+        },
+        {
+          "path": "Assets/Art/structures/Cities/native_lots_alt.dds",
+          "reason": "Nuclear explosion and pavement-free city presentation",
+          "sha256": "877325b20477f078c05bb05b80819863e612eae81c339686c08bdcabb432807b",
+          "size": 65664
+        }
+      ],
+      "skipped": {
+        "selectionCircle": {
+          "paths": [
+            "Assets/Art/Units/selection effect/circledot.dds",
+            "Assets/Art/Units/selection effect/groundselectioncircle.dds",
+            "Assets/Art/Units/selection effect/selection_ground.nif",
+            "Assets/Art/Units/selection effect/godrays.tga"
+          ],
+          "reason": "selection_ground.nif directly references godrays.tga; god rays are excluded"
+        }
+      }
+    },
     "unit_presentation": {
       "imports": [
         {
