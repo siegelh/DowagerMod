@@ -311,6 +311,1652 @@
         },
         "path": "Assets/XML/Art/CIV4ArtDefines_Building.xml"
       }
+    },
+    "unit_presentation": {
+      "imports": [
+        {
+          "path": "Assets/Art/Units/Gunship/gunship_128.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "ec421681e00311b87707436b53070c2356b9a15c774d5086a84cdeaf527d1025",
+          "size": 87536
+        },
+        {
+          "path": "Assets/Art/Units/Unique/German/Panzer/panzer_256.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "3ed5846d6667a6100b3f4158c372987d80dce41e1b91c5ff44e0b1d188e461dd",
+          "size": 87536
+        },
+        {
+          "path": "Assets/Art/Units/Unique/roman/praetorian/praetorian_weapons_64.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "caecf3e9e48b6b6a191f604af89a6f8798b6215f458050aa3a35f855529617c4",
+          "size": 5616
+        },
+        {
+          "path": "Assets/Art/Units/Unique/roman/praetorian/praetorian_weapons_gloss_64.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "10c86ae6ac037b29c131c43b778a615445a3df389c4d73ca95036599baa8c34d",
+          "size": 11064
+        },
+        {
+          "path": "Assets/Art/Units/knight/knight-horse-gloss-128.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "51a0f93d0c4423091f188bcbb8bd5a05cb801266fa5361ab364ec41a3b5d99a5",
+          "size": 22000
+        },
+        {
+          "path": "Assets/Art/Units/knight/knight-horse128.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "65096ee9948b0027c20a3b8bd357526af6142fe214dea2de1bd6792710d10a6d",
+          "size": 22000
+        },
+        {
+          "path": "Assets/Art/Units/knight/knight_shield_64.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "78e867ffd8da663a2b08e21a81bc94b0b8d8d631d69cb499714a1abedfbe9f32",
+          "size": 5616
+        },
+        {
+          "path": "Assets/Art/Units/knight/knight_shield_gloss_64.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "74156f69aec65f8543fa170e95d42cacaabf95dda2f6f178689aafaf4aea3f86",
+          "size": 2872
+        },
+        {
+          "path": "Assets/Art/Units/modernworker/BoundShape.nif",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "da5ccd2639ff4163d3159d8f4bd9e4d12904a8a9866ad542b20051230e29dfd5",
+          "size": 2150
+        },
+        {
+          "path": "Assets/Art/Units/modernworker/modern_worker_128.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "9bed738d22099ea1b384f4531cb534295355ef6ba6bcc9cb433ba664ed9d26e9",
+          "size": 22000
+        },
+        {
+          "path": "Assets/Art/Units/musketman/musketman.dds",
+          "reason": "Selected Remaster unit presentation art",
+          "sha256": "2e3f061ace62f985928285349092d25081aadd03a69c7cd1898489259f81c1fc",
+          "size": 22000
+        }
+      ],
+      "xmlMerge": {
+        "changedEntryCount": 224,
+        "changedTypes": [
+          "ART_DEF_UNIT_AIRSHIP",
+          "ART_DEF_UNIT_AMERICAN_NAVY_SEAL",
+          "ART_DEF_UNIT_ANCIENT_GREAT_SPY",
+          "ART_DEF_UNIT_ANCIENT_SPY",
+          "ART_DEF_UNIT_ARABIA_CAMELARCHER",
+          "ART_DEF_UNIT_ARCHER",
+          "ART_DEF_UNIT_ARCHER_ASIAN",
+          "ART_DEF_UNIT_ARCHER_CHINESE",
+          "ART_DEF_UNIT_ARCHER_EGYPTIAN",
+          "ART_DEF_UNIT_ARCHER_EURASIAN",
+          "ART_DEF_UNIT_ARCHER_EUROPEAN",
+          "ART_DEF_UNIT_ARCHER_MIDDLE_EAST",
+          "ART_DEF_UNIT_ARCHER_SOUTH_AMERICA",
+          "ART_DEF_UNIT_ARTILLERY",
+          "ART_DEF_UNIT_ARTIST",
+          "ART_DEF_UNIT_ARTIST_MODERN",
+          "ART_DEF_UNIT_ASIAN_WAR_GALLEY",
+          "ART_DEF_UNIT_ATTACK_SUBMARINE",
+          "ART_DEF_UNIT_AT_INFANTRY",
+          "ART_DEF_UNIT_AXEMAN",
+          "ART_DEF_UNIT_AXEMAN_ASIAN",
+          "ART_DEF_UNIT_AXEMAN_EGYPTIAN",
+          "ART_DEF_UNIT_AXEMAN_EUROPEAN",
+          "ART_DEF_UNIT_AXEMAN_MIDDLE_EAST",
+          "ART_DEF_UNIT_AXEMAN_SOUTH_AMERICA",
+          "ART_DEF_UNIT_AZTEC_JAGUAR",
+          "ART_DEF_UNIT_BABYLON_BOWMAN",
+          "ART_DEF_UNIT_BATTLESHIP",
+          "ART_DEF_UNIT_BEAR",
+          "ART_DEF_UNIT_BOMBER",
+          "ART_DEF_UNIT_BUDDHIST_MISSIONARY",
+          "ART_DEF_UNIT_BYZANTINE_CATAPHRACT",
+          "ART_DEF_UNIT_CANNON",
+          "ART_DEF_UNIT_CARAVEL",
+          "ART_DEF_UNIT_CARRIER",
+          "ART_DEF_UNIT_CARTHAGE_NUMIDIAN_CAVALRY",
+          "ART_DEF_UNIT_CARTHAGE_WAR_ELEPHANT",
+          "ART_DEF_UNIT_CATAPULT",
+          "ART_DEF_UNIT_CAVALRY",
+          "ART_DEF_UNIT_CELTIC_BARBARIAN",
+          "ART_DEF_UNIT_CEO_1",
+          "ART_DEF_UNIT_CEO_2",
+          "ART_DEF_UNIT_CEO_3",
+          "ART_DEF_UNIT_CEO_4",
+          "ART_DEF_UNIT_CEO_5",
+          "ART_DEF_UNIT_CEO_6",
+          "ART_DEF_UNIT_CEO_7",
+          "ART_DEF_UNIT_CHARIOT",
+          "ART_DEF_UNIT_CHARIOT_CELTIC",
+          "ART_DEF_UNIT_CHARIOT_CHINESE",
+          "ART_DEF_UNIT_CHARIOT_EUROPEAN",
+          "ART_DEF_UNIT_CHARIOT_MIDDLE_EAST",
+          "ART_DEF_UNIT_CHARIOT_SOUTH_AMERICA",
+          "ART_DEF_UNIT_CHINA_CHOKONU",
+          "ART_DEF_UNIT_CHRISTIAN_MISSIONARY",
+          "ART_DEF_UNIT_CONFUCIAN_MISSIONARY",
+          "ART_DEF_UNIT_CROSSBOWMAN",
+          "ART_DEF_UNIT_CROSSBOWMAN_ASIAN",
+          "ART_DEF_UNIT_CROSSBOWMAN_GRECO_ROMAN",
+          "ART_DEF_UNIT_CROSSBOWMAN_MIDDLE_EAST",
+          "ART_DEF_UNIT_CROSSBOWMAN_SOUTH_AMERICA",
+          "ART_DEF_UNIT_CUIRASSIER",
+          "ART_DEF_UNIT_DESTROYER",
+          "ART_DEF_UNIT_EGYPT_WARCHARIOT",
+          "ART_DEF_UNIT_ENGINEER",
+          "ART_DEF_UNIT_ENGINEER_MODERN",
+          "ART_DEF_UNIT_ENGLISH_REDCOAT",
+          "ART_DEF_UNIT_ETHIOPIAN_OROMO_WARRIOR_BLUE",
+          "ART_DEF_UNIT_ETHIOPIAN_OROMO_WARRIOR_GREEN",
+          "ART_DEF_UNIT_ETHIOPIAN_OROMO_WARRIOR_ORANGE",
+          "ART_DEF_UNIT_EXPLORER",
+          "ART_DEF_UNIT_FIGHTER",
+          "ART_DEF_UNIT_FRENCH_MUSKETEER",
+          "ART_DEF_UNIT_FRIGATE",
+          "ART_DEF_UNIT_GALLEON",
+          "ART_DEF_UNIT_GALLEY",
+          "ART_DEF_UNIT_GERMAN_PANZER",
+          "ART_DEF_UNIT_GREAT_SPY",
+          "ART_DEF_UNIT_GREEK_PHALANX",
+          "ART_DEF_UNIT_GRENADIER",
+          "ART_DEF_UNIT_GUIDED_MISSILE",
+          "ART_DEF_UNIT_GUNSHIP",
+          "ART_DEF_UNIT_HINDU_MISSIONARY",
+          "ART_DEF_UNIT_HOLY_ROMAN_LANDSKNECHT",
+          "ART_DEF_UNIT_HORSEMAN_EURASIAN",
+          "ART_DEF_UNIT_HORSE_ARCHER",
+          "ART_DEF_UNIT_HORSE_ARCHER_EGYPTIAN",
+          "ART_DEF_UNIT_HORSE_ARCHER_EUROPEAN",
+          "ART_DEF_UNIT_HORSE_ARCHER_MIDDLE_EAST",
+          "ART_DEF_UNIT_HORSE_ARCHER_ROMAN",
+          "ART_DEF_UNIT_HORSE_ARCHER_SOUTH_AMERICA",
+          "ART_DEF_UNIT_ICBM",
+          "ART_DEF_UNIT_INCAN_QUECHUA",
+          "ART_DEF_UNIT_INDIAN_FAST_WORKER",
+          "ART_DEF_UNIT_INFANTRY",
+          "ART_DEF_UNIT_IRONCLAD",
+          "ART_DEF_UNIT_ISLAMIC_MISSIONARY",
+          "ART_DEF_UNIT_JAPAN_SAMURAI",
+          "ART_DEF_UNIT_JET_FIGHTER",
+          "ART_DEF_UNIT_JEWISH_MISSIONARY",
+          "ART_DEF_UNIT_KHMER_BALLISTA_ELEPHANT",
+          "ART_DEF_UNIT_KNIGHT",
+          "ART_DEF_UNIT_KNIGHT_ASIAN",
+          "ART_DEF_UNIT_KNIGHT_EUROPEAN",
+          "ART_DEF_UNIT_KNIGHT_MIDDLE_EAST",
+          "ART_DEF_UNIT_KNIGHT_SOUTH_AMERICA",
+          "ART_DEF_UNIT_KOREAN_HWACHA",
+          "ART_DEF_UNIT_LION",
+          "ART_DEF_UNIT_LONGBOWMAN",
+          "ART_DEF_UNIT_LONGBOWMAN_GRECO_ROMAN",
+          "ART_DEF_UNIT_LONGBOWMAN_MIDDLE_EAST",
+          "ART_DEF_UNIT_LONGBOWMAN_SOUTH_AMERICA",
+          "ART_DEF_UNIT_MACEMAN",
+          "ART_DEF_UNIT_MACEMAN_ASIAN",
+          "ART_DEF_UNIT_MACEMAN_EUROPEAN",
+          "ART_DEF_UNIT_MACEMAN_MIDDLE_EAST",
+          "ART_DEF_UNIT_MACEMAN_SOUTH_AMERICA",
+          "ART_DEF_UNIT_MACHINE_GUN",
+          "ART_DEF_UNIT_MALI_SKIRMISHER",
+          "ART_DEF_UNIT_MARINE",
+          "ART_DEF_UNIT_MAYA_HOLKAN",
+          "ART_DEF_UNIT_MECHANIZED_INFANTRY",
+          "ART_DEF_UNIT_MERCHANT",
+          "ART_DEF_UNIT_MERCHANT_MODERN",
+          "ART_DEF_UNIT_MISSILE_CRUISER",
+          "ART_DEF_UNIT_MOBILE_ARTILLERY",
+          "ART_DEF_UNIT_MOBILE_SAM",
+          "ART_DEF_UNIT_MODERN_ARMOR",
+          "ART_DEF_UNIT_MONGOL_KESHIK",
+          "ART_DEF_UNIT_MONGOL_MOUNTED_SWORDSMAN",
+          "ART_DEF_UNIT_MUSKETMAN",
+          "ART_DEF_UNIT_NATIVE_AMERICA_DOG_SOLDIER",
+          "ART_DEF_UNIT_NETHERLANDS_OOSTINDIEVAARDER",
+          "ART_DEF_UNIT_OTTOMAN_JANISSARY",
+          "ART_DEF_UNIT_PANTHER",
+          "ART_DEF_UNIT_PARATROOPER",
+          "ART_DEF_UNIT_PELTAST",
+          "ART_DEF_UNIT_PERSIA_IMMORTAL",
+          "ART_DEF_UNIT_PIKEMAN",
+          "ART_DEF_UNIT_PIKEMAN_ASIAN",
+          "ART_DEF_UNIT_PIKEMAN_EUROPEAN",
+          "ART_DEF_UNIT_PIKEMAN_MIDDLE_EAST",
+          "ART_DEF_UNIT_PIKEMAN_SOUTH_AMERICA",
+          "ART_DEF_UNIT_PORTUGAL_CARRACK",
+          "ART_DEF_UNIT_PRIVATEER",
+          "ART_DEF_UNIT_PRODOMOI",
+          "ART_DEF_UNIT_PROPHET",
+          "ART_DEF_UNIT_RIFLEMAN",
+          "ART_DEF_UNIT_ROME_PRAETORIAN",
+          "ART_DEF_UNIT_RUSSIA_COSSACK",
+          "ART_DEF_UNIT_SAM_INFANTRY",
+          "ART_DEF_UNIT_SCIENTIST",
+          "ART_DEF_UNIT_SCIENTIST_MODERN",
+          "ART_DEF_UNIT_SCOUT",
+          "ART_DEF_UNIT_SCOUT_ASIAN",
+          "ART_DEF_UNIT_SCOUT_EUROPEAN",
+          "ART_DEF_UNIT_SCOUT_GRECO_ROMAN",
+          "ART_DEF_UNIT_SCOUT_MIDDLE_EAST",
+          "ART_DEF_UNIT_SETTLER_CHILD",
+          "ART_DEF_UNIT_SETTLER_CHILD_ASIAN",
+          "ART_DEF_UNIT_SETTLER_CHILD_EUROPEAN",
+          "ART_DEF_UNIT_SETTLER_CHILD_MIDDLE_EAST",
+          "ART_DEF_UNIT_SETTLER_CHILD_SOUTH_AMERICA",
+          "ART_DEF_UNIT_SETTLER_ELDER_ASIAN",
+          "ART_DEF_UNIT_SETTLER_EUROPEAN",
+          "ART_DEF_UNIT_SETTLER_FEMALE",
+          "ART_DEF_UNIT_SETTLER_FEMALE_ASIAN",
+          "ART_DEF_UNIT_SETTLER_FEMALE_EUROPEAN",
+          "ART_DEF_UNIT_SETTLER_FEMALE_MIDDLE_EAST",
+          "ART_DEF_UNIT_SETTLER_FEMALE_SOUTH_AMERICA",
+          "ART_DEF_UNIT_SETTLER_MALE",
+          "ART_DEF_UNIT_SETTLER_MIDDLE_EAST",
+          "ART_DEF_UNIT_SETTLER_SOUTH_AMERICA",
+          "ART_DEF_UNIT_SHIP_OF_THE_LINE",
+          "ART_DEF_UNIT_SIEGE_TOWER",
+          "ART_DEF_UNIT_SPANISH_CONQUISTADOR",
+          "ART_DEF_UNIT_SPEARMAN",
+          "ART_DEF_UNIT_SPEARMAN_CHINESE",
+          "ART_DEF_UNIT_SPEARMAN_EURASIAN",
+          "ART_DEF_UNIT_SPEARMAN_EUROPEAN",
+          "ART_DEF_UNIT_SPEARMAN_GRECO_ROMAN",
+          "ART_DEF_UNIT_SPEARMAN_MIDDLE_EAST",
+          "ART_DEF_UNIT_SPEARMAN_SOUTH_AMERICA",
+          "ART_DEF_UNIT_SPY",
+          "ART_DEF_UNIT_STEALTH_BOMBER",
+          "ART_DEF_UNIT_STEALTH_DESTROYER",
+          "ART_DEF_UNIT_SUBMARINE",
+          "ART_DEF_UNIT_SUMERIAN_VULTURE",
+          "ART_DEF_UNIT_SWORDSMAN",
+          "ART_DEF_UNIT_SWORDSMAN_CHINESE",
+          "ART_DEF_UNIT_SWORDSMAN_EUROPEAN",
+          "ART_DEF_UNIT_SWORDSMAN_MIDDLE_EAST",
+          "ART_DEF_UNIT_SWORDSMAN_SOUTH_AMERICA",
+          "ART_DEF_UNIT_TACTICAL_NUKE",
+          "ART_DEF_UNIT_TANK",
+          "ART_DEF_UNIT_TAOIST_MISSIONARY",
+          "ART_DEF_UNIT_TRANSPORT",
+          "ART_DEF_UNIT_TREBUCHET",
+          "ART_DEF_UNIT_TRIREME",
+          "ART_DEF_UNIT_VIKING_BESERKER",
+          "ART_DEF_UNIT_WARLORD_ANCIENT",
+          "ART_DEF_UNIT_WARLORD_MEDIEVAL",
+          "ART_DEF_UNIT_WARLORD_MODERN",
+          "ART_DEF_UNIT_WARRIOR",
+          "ART_DEF_UNIT_WARRIOR_ASIAN",
+          "ART_DEF_UNIT_WARRIOR_GRECO_ROMAN",
+          "ART_DEF_UNIT_WARRIOR_MIDDLE_EAST",
+          "ART_DEF_UNIT_WARRIOR_SOUTH_AMERICA",
+          "ART_DEF_UNIT_WAR_ELEPHANT",
+          "ART_DEF_UNIT_WAR_ELEPHANT_ASIAN",
+          "ART_DEF_UNIT_WAR_ELEPHANT_EUROPEAN",
+          "ART_DEF_UNIT_WAR_ELEPHANT_GRECO_ROMAN",
+          "ART_DEF_UNIT_WAR_ELEPHANT_MIDDLE_EAST",
+          "ART_DEF_UNIT_WAR_ELEPHANT_SOUTH_AMERICA",
+          "ART_DEF_UNIT_WOLF",
+          "ART_DEF_UNIT_WORKBOAT",
+          "ART_DEF_UNIT_WORKBOAT_MODERN",
+          "ART_DEF_UNIT_WORKER",
+          "ART_DEF_UNIT_WORKERMODERN",
+          "ART_DEF_UNIT_WORKER_ASIAN",
+          "ART_DEF_UNIT_WORKER_EUROPEAN",
+          "ART_DEF_UNIT_WORKER_MIDDLE_EAST",
+          "ART_DEF_UNIT_WORKER_SOUTH_AMERICA",
+          "ART_DEF_UNIT_ZULU_SPEARMAN"
+        ],
+        "changes": {
+          "ART_DEF_UNIT_AIRSHIP": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.24",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.3"
+          },
+          "ART_DEF_UNIT_AMERICAN_NAVY_SEAL": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ANCIENT_GREAT_SPY": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_ANCIENT_SPY": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_ARABIA_CAMELARCHER": {
+            "newInterfaceScale": "1.000",
+            "newScale": "0.312",
+            "oldInterfaceScale": "0.8",
+            "oldScale": "0.39"
+          },
+          "ART_DEF_UNIT_ARCHER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ARCHER_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ARCHER_CHINESE": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ARCHER_EGYPTIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ARCHER_EURASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ARCHER_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ARCHER_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ARCHER_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ARTILLERY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.520",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.65"
+          },
+          "ART_DEF_UNIT_ARTIST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_ARTIST_MODERN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_ASIAN_WAR_GALLEY": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.112",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.14"
+          },
+          "ART_DEF_UNIT_ATTACK_SUBMARINE": {
+            "newInterfaceScale": "1.625",
+            "newScale": "0.280",
+            "oldInterfaceScale": "1.3",
+            "oldScale": "0.35"
+          },
+          "ART_DEF_UNIT_AT_INFANTRY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_AXEMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_AXEMAN_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_AXEMAN_EGYPTIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_AXEMAN_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_AXEMAN_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_AXEMAN_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_AZTEC_JAGUAR": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_BABYLON_BOWMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_BATTLESHIP": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.56",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.7"
+          },
+          "ART_DEF_UNIT_BEAR": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.48",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.6"
+          },
+          "ART_DEF_UNIT_BOMBER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.40",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.5"
+          },
+          "ART_DEF_UNIT_BUDDHIST_MISSIONARY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_BYZANTINE_CATAPHRACT": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_CANNON": {
+            "newInterfaceScale": "1.000",
+            "newScale": "0.424",
+            "oldInterfaceScale": "0.8",
+            "oldScale": "0.53"
+          },
+          "ART_DEF_UNIT_CARAVEL": {
+            "newInterfaceScale": "0.625",
+            "newScale": "0.192",
+            "oldInterfaceScale": "0.5",
+            "oldScale": "0.24"
+          },
+          "ART_DEF_UNIT_CARRIER": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.64",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.8"
+          },
+          "ART_DEF_UNIT_CARTHAGE_NUMIDIAN_CAVALRY": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_CARTHAGE_WAR_ELEPHANT": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.256",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.32"
+          },
+          "ART_DEF_UNIT_CATAPULT": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.520",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.65"
+          },
+          "ART_DEF_UNIT_CAVALRY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_CELTIC_BARBARIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_CEO_1": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_CEO_2": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_CEO_3": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_CEO_4": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_CEO_5": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_CEO_6": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_CEO_7": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_CHARIOT": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.280",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.35"
+          },
+          "ART_DEF_UNIT_CHARIOT_CELTIC": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.280",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.35"
+          },
+          "ART_DEF_UNIT_CHARIOT_CHINESE": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.280",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.35"
+          },
+          "ART_DEF_UNIT_CHARIOT_EUROPEAN": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.280",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.35"
+          },
+          "ART_DEF_UNIT_CHARIOT_MIDDLE_EAST": {
+            "newInterfaceScale": "1.000",
+            "newScale": "0.296",
+            "oldInterfaceScale": "0.8",
+            "oldScale": "0.37"
+          },
+          "ART_DEF_UNIT_CHARIOT_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.280",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.35"
+          },
+          "ART_DEF_UNIT_CHINA_CHOKONU": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_CHRISTIAN_MISSIONARY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_CONFUCIAN_MISSIONARY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_CROSSBOWMAN": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_CROSSBOWMAN_ASIAN": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_CROSSBOWMAN_GRECO_ROMAN": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_CROSSBOWMAN_MIDDLE_EAST": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_CROSSBOWMAN_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_CUIRASSIER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_DESTROYER": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.56",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.7"
+          },
+          "ART_DEF_UNIT_EGYPT_WARCHARIOT": {
+            "newInterfaceScale": "1.000",
+            "newScale": "0.296",
+            "oldInterfaceScale": "0.8",
+            "oldScale": "0.37"
+          },
+          "ART_DEF_UNIT_ENGINEER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_ENGINEER_MODERN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_ENGLISH_REDCOAT": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ETHIOPIAN_OROMO_WARRIOR_BLUE": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ETHIOPIAN_OROMO_WARRIOR_GREEN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ETHIOPIAN_OROMO_WARRIOR_ORANGE": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_EXPLORER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_FIGHTER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.40",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.5"
+          },
+          "ART_DEF_UNIT_FRENCH_MUSKETEER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_FRIGATE": {
+            "newInterfaceScale": "0.625",
+            "newScale": "0.192",
+            "oldInterfaceScale": "0.5",
+            "oldScale": "0.24"
+          },
+          "ART_DEF_UNIT_GALLEON": {
+            "newInterfaceScale": "0.625",
+            "newScale": "0.16",
+            "oldInterfaceScale": "0.5",
+            "oldScale": "0.2"
+          },
+          "ART_DEF_UNIT_GALLEY": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.144",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.18"
+          },
+          "ART_DEF_UNIT_GERMAN_PANZER": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.376",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_GREAT_SPY": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_GREEK_PHALANX": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_GRENADIER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_GUIDED_MISSILE": {
+            "newInterfaceScale": "0.9375",
+            "newScale": "0.16",
+            "oldInterfaceScale": "0.75",
+            "oldScale": "0.2"
+          },
+          "ART_DEF_UNIT_GUNSHIP": {
+            "newInterfaceScale": "0.875",
+            "newScale": "0.288",
+            "oldInterfaceScale": "0.7",
+            "oldScale": "0.36"
+          },
+          "ART_DEF_UNIT_HINDU_MISSIONARY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_HOLY_ROMAN_LANDSKNECHT": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_HORSEMAN_EURASIAN": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_HORSE_ARCHER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_HORSE_ARCHER_EGYPTIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_HORSE_ARCHER_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_HORSE_ARCHER_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_HORSE_ARCHER_ROMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_HORSE_ARCHER_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_ICBM": {
+            "newInterfaceScale": "0.8500",
+            "newScale": "0.680",
+            "oldInterfaceScale": "0.68",
+            "oldScale": "0.85"
+          },
+          "ART_DEF_UNIT_INCAN_QUECHUA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_INDIAN_FAST_WORKER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_INFANTRY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_IRONCLAD": {
+            "newInterfaceScale": "1.500",
+            "newScale": "0.416",
+            "oldInterfaceScale": "1.2",
+            "oldScale": "0.52"
+          },
+          "ART_DEF_UNIT_ISLAMIC_MISSIONARY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_JAPAN_SAMURAI": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_JET_FIGHTER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.384",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.48"
+          },
+          "ART_DEF_UNIT_JEWISH_MISSIONARY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_KHMER_BALLISTA_ELEPHANT": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.256",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.32"
+          },
+          "ART_DEF_UNIT_KNIGHT": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_KNIGHT_ASIAN": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_KNIGHT_EUROPEAN": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_KNIGHT_MIDDLE_EAST": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_KNIGHT_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_KOREAN_HWACHA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.400",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.50"
+          },
+          "ART_DEF_UNIT_LION": {
+            "newInterfaceScale": "1.625",
+            "newScale": "0.488",
+            "oldInterfaceScale": "1.3",
+            "oldScale": "0.61"
+          },
+          "ART_DEF_UNIT_LONGBOWMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_LONGBOWMAN_GRECO_ROMAN": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_LONGBOWMAN_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_LONGBOWMAN_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MACEMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MACEMAN_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MACEMAN_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MACEMAN_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MACEMAN_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MACHINE_GUN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MALI_SKIRMISHER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MARINE": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MAYA_HOLKAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_MECHANIZED_INFANTRY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.344",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.43"
+          },
+          "ART_DEF_UNIT_MERCHANT": {
+            "newInterfaceScale": "1.000",
+            "newScale": "0.368",
+            "oldInterfaceScale": "0.8",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_MERCHANT_MODERN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_MISSILE_CRUISER": {
+            "newInterfaceScale": "0.875",
+            "newScale": "0.48",
+            "oldInterfaceScale": "0.7",
+            "oldScale": "0.6"
+          },
+          "ART_DEF_UNIT_MOBILE_ARTILLERY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.456",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.57"
+          },
+          "ART_DEF_UNIT_MOBILE_SAM": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.456",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.57"
+          },
+          "ART_DEF_UNIT_MODERN_ARMOR": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.456",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.57"
+          },
+          "ART_DEF_UNIT_MONGOL_KESHIK": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_MONGOL_MOUNTED_SWORDSMAN": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_MUSKETMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_NATIVE_AMERICA_DOG_SOLDIER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_NETHERLANDS_OOSTINDIEVAARDER": {
+            "newInterfaceScale": "0.625",
+            "newScale": "0.16",
+            "oldInterfaceScale": "0.5",
+            "oldScale": "0.2"
+          },
+          "ART_DEF_UNIT_OTTOMAN_JANISSARY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_PANTHER": {
+            "newInterfaceScale": "1.625",
+            "newScale": "0.40",
+            "oldInterfaceScale": "1.3",
+            "oldScale": "0.5"
+          },
+          "ART_DEF_UNIT_PARATROOPER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_PELTAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_PERSIA_IMMORTAL": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_PIKEMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_PIKEMAN_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_PIKEMAN_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_PIKEMAN_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_PIKEMAN_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_PORTUGAL_CARRACK": {
+            "newInterfaceScale": "0.625",
+            "newScale": "0.192",
+            "oldInterfaceScale": "0.5",
+            "oldScale": "0.24"
+          },
+          "ART_DEF_UNIT_PRIVATEER": {
+            "newInterfaceScale": "0.625",
+            "newScale": "0.16",
+            "oldInterfaceScale": "0.5",
+            "oldScale": "0.2"
+          },
+          "ART_DEF_UNIT_PRODOMOI": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.336",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_PROPHET": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_RIFLEMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ROME_PRAETORIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_RUSSIA_COSSACK": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_SAM_INFANTRY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SCIENTIST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_SCIENTIST_MODERN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_SCOUT": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SCOUT_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SCOUT_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SCOUT_GRECO_ROMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SCOUT_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SETTLER_CHILD": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_CHILD_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_CHILD_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_CHILD_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_CHILD_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_ELDER_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SETTLER_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_SETTLER_FEMALE": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_FEMALE_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_FEMALE_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_FEMALE_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_FEMALE_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.376",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.47"
+          },
+          "ART_DEF_UNIT_SETTLER_MALE": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_SETTLER_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SETTLER_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SHIP_OF_THE_LINE": {
+            "newInterfaceScale": "0.625",
+            "newScale": "0.176",
+            "oldInterfaceScale": "0.5",
+            "oldScale": "0.22"
+          },
+          "ART_DEF_UNIT_SIEGE_TOWER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.160",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.20"
+          },
+          "ART_DEF_UNIT_SPANISH_CONQUISTADOR": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.336",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.42"
+          },
+          "ART_DEF_UNIT_SPEARMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SPEARMAN_CHINESE": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SPEARMAN_EURASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SPEARMAN_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SPEARMAN_GRECO_ROMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SPEARMAN_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SPEARMAN_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SPY": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_STEALTH_BOMBER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.40",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.5"
+          },
+          "ART_DEF_UNIT_STEALTH_DESTROYER": {
+            "newInterfaceScale": "1.375",
+            "newScale": "0.48",
+            "oldInterfaceScale": "1.1",
+            "oldScale": "0.6"
+          },
+          "ART_DEF_UNIT_SUBMARINE": {
+            "newInterfaceScale": "1.625",
+            "newScale": "0.440",
+            "oldInterfaceScale": "1.3",
+            "oldScale": "0.55"
+          },
+          "ART_DEF_UNIT_SUMERIAN_VULTURE": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SWORDSMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SWORDSMAN_CHINESE": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SWORDSMAN_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SWORDSMAN_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_SWORDSMAN_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_TACTICAL_NUKE": {
+            "newInterfaceScale": "0.875",
+            "newScale": "0.40",
+            "oldInterfaceScale": "0.7",
+            "oldScale": "0.5"
+          },
+          "ART_DEF_UNIT_TANK": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.384",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.48"
+          },
+          "ART_DEF_UNIT_TAOIST_MISSIONARY": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.368",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.46"
+          },
+          "ART_DEF_UNIT_TRANSPORT": {
+            "newInterfaceScale": "1.625",
+            "newScale": "0.736",
+            "oldInterfaceScale": "1.3",
+            "oldScale": "0.92"
+          },
+          "ART_DEF_UNIT_TREBUCHET": {
+            "newInterfaceScale": "0.875",
+            "newScale": "0.320",
+            "oldInterfaceScale": ".7",
+            "oldScale": "0.40"
+          },
+          "ART_DEF_UNIT_TRIREME": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.112",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.14"
+          },
+          "ART_DEF_UNIT_VIKING_BESERKER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WARLORD_ANCIENT": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.40",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.5"
+          },
+          "ART_DEF_UNIT_WARLORD_MEDIEVAL": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.40",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.5"
+          },
+          "ART_DEF_UNIT_WARLORD_MODERN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.40",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.5"
+          },
+          "ART_DEF_UNIT_WARRIOR": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WARRIOR_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WARRIOR_GRECO_ROMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WARRIOR_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WARRIOR_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WAR_ELEPHANT": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.256",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.32"
+          },
+          "ART_DEF_UNIT_WAR_ELEPHANT_ASIAN": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.256",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.32"
+          },
+          "ART_DEF_UNIT_WAR_ELEPHANT_EUROPEAN": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.256",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.32"
+          },
+          "ART_DEF_UNIT_WAR_ELEPHANT_GRECO_ROMAN": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.256",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.32"
+          },
+          "ART_DEF_UNIT_WAR_ELEPHANT_MIDDLE_EAST": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.256",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.32"
+          },
+          "ART_DEF_UNIT_WAR_ELEPHANT_SOUTH_AMERICA": {
+            "newInterfaceScale": "0.750",
+            "newScale": "0.256",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "0.32"
+          },
+          "ART_DEF_UNIT_WOLF": {
+            "newInterfaceScale": "1.750",
+            "newScale": "0.40",
+            "oldInterfaceScale": "1.4",
+            "oldScale": "0.5"
+          },
+          "ART_DEF_UNIT_WORKBOAT": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.152",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.19"
+          },
+          "ART_DEF_UNIT_WORKBOAT_MODERN": {
+            "newInterfaceScale": "1.125",
+            "newScale": "0.224",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "0.28"
+          },
+          "ART_DEF_UNIT_WORKER": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WORKERMODERN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WORKER_ASIAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WORKER_EUROPEAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WORKER_MIDDLE_EAST": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_WORKER_SOUTH_AMERICA": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          },
+          "ART_DEF_UNIT_ZULU_SPEARMAN": {
+            "newInterfaceScale": "1.250",
+            "newScale": "0.352",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "0.44"
+          }
+        },
+        "path": "Assets/XML/Art/CIV4ArtDefines_Unit.xml"
+      }
     }
   },
   "name": "Remaster visual overhaul phase 3-6",
