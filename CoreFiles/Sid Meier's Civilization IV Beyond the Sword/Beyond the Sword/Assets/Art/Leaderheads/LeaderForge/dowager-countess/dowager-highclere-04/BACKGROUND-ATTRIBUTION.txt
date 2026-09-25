@@ -1,0 +1,7 @@
+Background photograph: Martin John Bishop
+Source: https://commons.wikimedia.org/wiki/File:Highclere_Castle_01.jpg
+License: CC BY-SA 2.0 - https://creativecommons.org/licenses/by-sa/2.0/
+Source SHA-256: b4c9f63c1b8495a42d53642b2f617a876d2bc3f0dc18e074e1cc236752c0469a
+Changes: Cropped/resized, color-adjusted and blurred; optional sky-edge blend, opaque scenery and solid sky.
+The adapted photographic backdrop remains under CC BY-SA 2.0.
+This notice does not license the separate game-derived character assets.
