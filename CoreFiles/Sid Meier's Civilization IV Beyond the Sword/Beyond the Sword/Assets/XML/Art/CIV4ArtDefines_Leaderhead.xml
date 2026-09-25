@@ -25,10 +25,10 @@
 		<LeaderheadArtInfo>
 			<Type>ART_DEF_LEADER_REGINALD_ENDICOTT_BARCLAY</Type>
 			<Button>art/LeaderHeads/barclay_button.dds</Button>
-			<NIF>art/LeaderHeads/barclay.dds</NIF>
-			<KFM></KFM>
-			<NoShaderNIF></NoShaderNIF>
-			<BackgroundKFM></BackgroundKFM>
+			<NIF>Art/Leaderheads/LeaderForge/barclay/barclay-engineering-06/fdr.nif</NIF>
+			<KFM>Art/Leaderheads/LeaderForge/barclay/barclay-engineering-06/fdr.kfm</KFM>
+			<NoShaderNIF>Art/Leaderheads/LeaderForge/barclay/barclay-engineering-06/fdr_noshader.nif</NoShaderNIF>
+			<BackgroundKFM>Art/Leaderheads/LeaderForge/barclay/barclay-engineering-06/fdr_bg.kfm</BackgroundKFM>
 		</LeaderheadArtInfo>
 		<LeaderheadArtInfo>
 			<Type>ART_DEF_LEADER_ALEXANDER</Type>

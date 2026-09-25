@@ -1,0 +1,7 @@
+Background photograph: The Art of Star Trek set photograph, via Ex Astris Scientia; photographer unspecified
+Source: https://www.ex-astris-scientia.org/gallery/interiors2.htm
+License: Copyright retained; private local preview; redistribution not cleared - https://www.ex-astris-scientia.org/techsupport/fan_copyright.htm
+Source SHA-256: c6cd2467c1d7189762a1470fd614078f1d325209a270677899ad6bd46ecbe70b
+Changes: Cropped/resized, color-adjusted and blurred; optional sky-edge blend, opaque scenery and solid sky.
+The adapted photographic backdrop remains under Copyright retained; private local preview; redistribution not cleared.
+This notice does not license the separate game-derived character assets.
