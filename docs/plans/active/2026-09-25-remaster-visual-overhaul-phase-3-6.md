@@ -144,4 +144,3 @@ Test multiple cultures and eras, small/large cities, ordinary buildings and
 wonders, custom landmarks, representative units, the nuclear effect, one turn,
 and save/reload. Report missing art, city overlap, era-transition problems,
 unit clipping, or regressions in the already accepted terrain layer.
-
