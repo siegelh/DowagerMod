@@ -1,0 +1,319 @@
+{
+  "destinationRoot": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword",
+  "features": {
+    "larger_buildings": {
+      "xmlMerge": {
+        "changedEntryCount": 43,
+        "changedTypes": [
+          "ART_DEF_BUILDING_AIRPORT",
+          "ART_DEF_BUILDING_ANGKOR_WAT",
+          "ART_DEF_BUILDING_APOSTOLIC_PALACE",
+          "ART_DEF_BUILDING_ARTEMIS",
+          "ART_DEF_BUILDING_BROADWAY",
+          "ART_DEF_BUILDING_BUDDHIST_SHRINE",
+          "ART_DEF_BUILDING_CHICHEN_ITZA",
+          "ART_DEF_BUILDING_CHRISTIAN_SHRINE",
+          "ART_DEF_BUILDING_COLOSSUS",
+          "ART_DEF_BUILDING_CONFUCIAN_SHRINE",
+          "ART_DEF_BUILDING_CRISTO_REDENTOR",
+          "ART_DEF_BUILDING_EIFFEL_TOWER",
+          "ART_DEF_BUILDING_GREAT_DAM",
+          "ART_DEF_BUILDING_GREAT_LIBRARY",
+          "ART_DEF_BUILDING_GREAT_LIGHTHOUSE",
+          "ART_DEF_BUILDING_GREAT_WALL",
+          "ART_DEF_BUILDING_HAGIA_SOPHIA",
+          "ART_DEF_BUILDING_HANGING_GARDEN",
+          "ART_DEF_BUILDING_HINDU_SHRINE",
+          "ART_DEF_BUILDING_HOLLYWOOD",
+          "ART_DEF_BUILDING_ISLAMIC_SHRINE",
+          "ART_DEF_BUILDING_JEWISH_SHRINE",
+          "ART_DEF_BUILDING_KREMLIN",
+          "ART_DEF_BUILDING_MAUSOLEUM_OF_MAUSSOLLOS",
+          "ART_DEF_BUILDING_NOTRE_DAME",
+          "ART_DEF_BUILDING_ORACLE",
+          "ART_DEF_BUILDING_PALACE",
+          "ART_DEF_BUILDING_PARTHENON",
+          "ART_DEF_BUILDING_PENTAGON",
+          "ART_DEF_BUILDING_PYRAMID",
+          "ART_DEF_BUILDING_ROCKNROLL",
+          "ART_DEF_BUILDING_SANKORE",
+          "ART_DEF_BUILDING_SHWEDAGON_PAYA",
+          "ART_DEF_BUILDING_SISTINE_CHAPEL",
+          "ART_DEF_BUILDING_SPACE_ELEVATOR",
+          "ART_DEF_BUILDING_SPIRAL_MINARET",
+          "ART_DEF_BUILDING_STATUE_OF_LIBERTY",
+          "ART_DEF_BUILDING_STATUE_OF_ZEUS",
+          "ART_DEF_BUILDING_STONEHENGE",
+          "ART_DEF_BUILDING_TAJ_MAHAL",
+          "ART_DEF_BUILDING_TAOIST_SHRINE",
+          "ART_DEF_BUILDING_UNITED_NATIONS",
+          "ART_DEF_BUILDING_VERSAILLES"
+        ],
+        "changes": {
+          "ART_DEF_BUILDING_AIRPORT": {
+            "newInterfaceScale": "0.42",
+            "newScale": "3.64",
+            "oldInterfaceScale": "0.42",
+            "oldScale": "2.64"
+          },
+          "ART_DEF_BUILDING_ANGKOR_WAT": {
+            "newInterfaceScale": "0.25",
+            "newScale": "2.25",
+            "oldInterfaceScale": "0.48",
+            "oldScale": "1.25"
+          },
+          "ART_DEF_BUILDING_APOSTOLIC_PALACE": {
+            "newInterfaceScale": "0.25",
+            "newScale": "0.4",
+            "oldInterfaceScale": "0.4",
+            "oldScale": "0.28"
+          },
+          "ART_DEF_BUILDING_ARTEMIS": {
+            "newInterfaceScale": "0.4",
+            "newScale": "2.7",
+            "oldInterfaceScale": "0.59",
+            "oldScale": "1.7"
+          },
+          "ART_DEF_BUILDING_BROADWAY": {
+            "newInterfaceScale": "0.2",
+            "newScale": "2.0",
+            "oldInterfaceScale": "0.33",
+            "oldScale": "1.5"
+          },
+          "ART_DEF_BUILDING_BUDDHIST_SHRINE": {
+            "newInterfaceScale": "0.45",
+            "newScale": "1.8",
+            "oldInterfaceScale": "0.9",
+            "oldScale": "1.0"
+          },
+          "ART_DEF_BUILDING_CHICHEN_ITZA": {
+            "newInterfaceScale": "0.32",
+            "newScale": "2.33",
+            "oldInterfaceScale": "0.53",
+            "oldScale": "1.33"
+          },
+          "ART_DEF_BUILDING_CHRISTIAN_SHRINE": {
+            "newInterfaceScale": "0.25",
+            "newScale": "2.31",
+            "oldInterfaceScale": "0.48",
+            "oldScale": "1.31"
+          },
+          "ART_DEF_BUILDING_COLOSSUS": {
+            "newInterfaceScale": "0.25",
+            "newScale": "2.13",
+            "oldInterfaceScale": "0.4",
+            "oldScale": "1.13"
+          },
+          "ART_DEF_BUILDING_CONFUCIAN_SHRINE": {
+            "newInterfaceScale": "0.4",
+            "newScale": "1.8",
+            "oldInterfaceScale": "0.8",
+            "oldScale": "1.0"
+          },
+          "ART_DEF_BUILDING_CRISTO_REDENTOR": {
+            "newInterfaceScale": "0.2",
+            "newScale": "2.3",
+            "oldInterfaceScale": "0.33",
+            "oldScale": "1.3"
+          },
+          "ART_DEF_BUILDING_EIFFEL_TOWER": {
+            "newInterfaceScale": "0.15",
+            "newScale": "2.5",
+            "oldInterfaceScale": "0.27",
+            "oldScale": "1.5"
+          },
+          "ART_DEF_BUILDING_GREAT_DAM": {
+            "newInterfaceScale": "0.3",
+            "newScale": "1.5",
+            "oldInterfaceScale": "0.57",
+            "oldScale": "0.98"
+          },
+          "ART_DEF_BUILDING_GREAT_LIBRARY": {
+            "newInterfaceScale": "0.40",
+            "newScale": "2.43",
+            "oldInterfaceScale": "0.67",
+            "oldScale": "1.43"
+          },
+          "ART_DEF_BUILDING_GREAT_LIGHTHOUSE": {
+            "newInterfaceScale": "0.2",
+            "newScale": "4.2",
+            "oldInterfaceScale": "0.36",
+            "oldScale": "2.2"
+          },
+          "ART_DEF_BUILDING_GREAT_WALL": {
+            "newInterfaceScale": "0.3",
+            "newScale": "2.0",
+            "oldInterfaceScale": "0.4",
+            "oldScale": "1.0"
+          },
+          "ART_DEF_BUILDING_HAGIA_SOPHIA": {
+            "newInterfaceScale": "0.25",
+            "newScale": "2.5",
+            "oldInterfaceScale": "0.47",
+            "oldScale": "1.5"
+          },
+          "ART_DEF_BUILDING_HANGING_GARDEN": {
+            "newInterfaceScale": "0.25",
+            "newScale": "2.66",
+            "oldInterfaceScale": "0.48",
+            "oldScale": "1.66"
+          },
+          "ART_DEF_BUILDING_HINDU_SHRINE": {
+            "newInterfaceScale": "0.25",
+            "newScale": "2.25",
+            "oldInterfaceScale": "0.56",
+            "oldScale": "1.25"
+          },
+          "ART_DEF_BUILDING_HOLLYWOOD": {
+            "newInterfaceScale": "0.35",
+            "newScale": "2.66",
+            "oldInterfaceScale": "0.48",
+            "oldScale": "1.66"
+          },
+          "ART_DEF_BUILDING_ISLAMIC_SHRINE": {
+            "newInterfaceScale": "0.3",
+            "newScale": "2.5",
+            "oldInterfaceScale": "0.67",
+            "oldScale": "1.5"
+          },
+          "ART_DEF_BUILDING_JEWISH_SHRINE": {
+            "newInterfaceScale": "0.5",
+            "newScale": "1.8",
+            "oldInterfaceScale": "1.0",
+            "oldScale": "1.0"
+          },
+          "ART_DEF_BUILDING_KREMLIN": {
+            "newInterfaceScale": "0.2",
+            "newScale": "2.21",
+            "oldInterfaceScale": "0.36",
+            "oldScale": "1.21"
+          },
+          "ART_DEF_BUILDING_MAUSOLEUM_OF_MAUSSOLLOS": {
+            "newInterfaceScale": "0.25",
+            "newScale": "2.65",
+            "oldInterfaceScale": "0.44",
+            "oldScale": "1.65"
+          },
+          "ART_DEF_BUILDING_NOTRE_DAME": {
+            "newInterfaceScale": "0.24",
+            "newScale": "2.86",
+            "oldInterfaceScale": "0.38",
+            "oldScale": "1.86"
+          },
+          "ART_DEF_BUILDING_ORACLE": {
+            "newInterfaceScale": "0.3",
+            "newScale": "4.5",
+            "oldInterfaceScale": "0.56",
+            "oldScale": "2.43"
+          },
+          "ART_DEF_BUILDING_PALACE": {
+            "newInterfaceScale": "0.2",
+            "newScale": "1.8",
+            "oldInterfaceScale": "0.43",
+            "oldScale": "1.15"
+          },
+          "ART_DEF_BUILDING_PARTHENON": {
+            "newInterfaceScale": "0.40",
+            "newScale": "4.0",
+            "oldInterfaceScale": "0.67",
+            "oldScale": "2.25"
+          },
+          "ART_DEF_BUILDING_PENTAGON": {
+            "newInterfaceScale": "0.35",
+            "newScale": "2.0",
+            "oldInterfaceScale": "0.5",
+            "oldScale": "1.2"
+          },
+          "ART_DEF_BUILDING_PYRAMID": {
+            "newInterfaceScale": "0.24",
+            "newScale": "5.03",
+            "oldInterfaceScale": "0.36",
+            "oldScale": "3.03"
+          },
+          "ART_DEF_BUILDING_ROCKNROLL": {
+            "newInterfaceScale": "0.3",
+            "newScale": "3.3",
+            "oldInterfaceScale": "0.76",
+            "oldScale": "1.53"
+          },
+          "ART_DEF_BUILDING_SANKORE": {
+            "newInterfaceScale": "0.3",
+            "newScale": "4.0",
+            "oldInterfaceScale": "0.61",
+            "oldScale": "2.53"
+          },
+          "ART_DEF_BUILDING_SHWEDAGON_PAYA": {
+            "newInterfaceScale": "0.22",
+            "newScale": "0.45",
+            "oldInterfaceScale": "0.27",
+            "oldScale": "0.31"
+          },
+          "ART_DEF_BUILDING_SISTINE_CHAPEL": {
+            "newInterfaceScale": "0.3",
+            "newScale": "2.5",
+            "oldInterfaceScale": "0.73",
+            "oldScale": "1.1"
+          },
+          "ART_DEF_BUILDING_SPACE_ELEVATOR": {
+            "newInterfaceScale": "0.35",
+            "newScale": "1.85",
+            "oldInterfaceScale": "0.47",
+            "oldScale": "0.85"
+          },
+          "ART_DEF_BUILDING_SPIRAL_MINARET": {
+            "newInterfaceScale": "0.25",
+            "newScale": "2.8",
+            "oldInterfaceScale": "0.5",
+            "oldScale": "1.4"
+          },
+          "ART_DEF_BUILDING_STATUE_OF_LIBERTY": {
+            "newInterfaceScale": "0.3",
+            "newScale": "3.2",
+            "oldInterfaceScale": "0.25",
+            "oldScale": "2.2"
+          },
+          "ART_DEF_BUILDING_STATUE_OF_ZEUS": {
+            "newInterfaceScale": "0.3",
+            "newScale": "1.5",
+            "oldInterfaceScale": "0.8",
+            "oldScale": "0.6"
+          },
+          "ART_DEF_BUILDING_STONEHENGE": {
+            "newInterfaceScale": "0.35",
+            "newScale": "2.54",
+            "oldInterfaceScale": "0.57",
+            "oldScale": "1.54"
+          },
+          "ART_DEF_BUILDING_TAJ_MAHAL": {
+            "newInterfaceScale": "0.24",
+            "newScale": "2.2",
+            "oldInterfaceScale": "0.4",
+            "oldScale": "1.5"
+          },
+          "ART_DEF_BUILDING_TAOIST_SHRINE": {
+            "newInterfaceScale": "0.4",
+            "newScale": "2.26",
+            "oldInterfaceScale": "0.83",
+            "oldScale": "1.26"
+          },
+          "ART_DEF_BUILDING_UNITED_NATIONS": {
+            "newInterfaceScale": "0.2",
+            "newScale": "2.25",
+            "oldInterfaceScale": "0.4",
+            "oldScale": "1.25"
+          },
+          "ART_DEF_BUILDING_VERSAILLES": {
+            "newInterfaceScale": "0.3",
+            "newScale": "2.16",
+            "oldInterfaceScale": "0.6",
+            "oldScale": "1.16"
+          }
+        },
+        "path": "Assets/XML/Art/CIV4ArtDefines_Building.xml"
+      }
+    }
+  },
+  "name": "Remaster visual overhaul phase 3-6",
+  "sourceCommit": "a5e232f30eaae9fa980bc8ddcb2dba50b6321a89",
+  "sourceRepository": "C:\\civ4remaster-reference"
+}
