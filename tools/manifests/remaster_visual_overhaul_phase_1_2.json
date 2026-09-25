@@ -1,0 +1,277 @@
+{
+  "name": "Remaster visual overhaul phase 1-2",
+  "sourceRepository": "C:\\civ4remaster-reference",
+  "sourceCommit": "a5e232f30eaae9fa980bc8ddcb2dba50b6321a89",
+  "destinationRoot": "CoreFiles\\Sid Meier's Civilization IV Beyond the Sword\\Beyond the Sword",
+  "excluded": [
+    "Assets/Art/Terrain/Textures/clouds.dds",
+    "**/Thumbs.db",
+    "Shaders except Shaders/FX/Water.fx and Shaders/FXO/Water.fx",
+    "Python",
+    "CvGameCoreDLL",
+    "Resource",
+    "Cultural Citystyles XML"
+  ],
+  "files": [
+    {
+      "category": "improvement",
+      "path": "Assets/Art/structures/improvements/Farm/crops_irr.dds",
+      "sha256": "4e68fb4fd69723c6b2e2519f3d637d055c9124cf8db2c99b254477ed6fc952aa"
+    },
+    {
+      "category": "improvement",
+      "path": "Assets/Art/structures/improvements/Farm/crops.dds",
+      "sha256": "4bf06e61863c7a27ce362fe76a7af6684a25a8e0a5e2296240036ae5e8f2e12c"
+    },
+    {
+      "category": "improvement",
+      "path": "Assets/Art/structures/improvements/mine/mine_modern.nif",
+      "sha256": "a36f67c7a6c05eadd5442451cbcfe434ebc08a38c9a4924b5131fb4c4691c6c3"
+    },
+    {
+      "category": "improvement",
+      "path": "Assets/Art/structures/improvements/mine/mineZZ.dds",
+      "sha256": "d5f9fd166f6ee099f02e3bb3b5b84d255d6310a087522e0a1a633447c2f64cf4"
+    },
+    {
+      "category": "improvement",
+      "path": "Assets/Art/structures/improvements/WaterMill/mill_base.dds",
+      "sha256": "67f5c899691a07f68761500180a01c3993ab4230981ebb2bad43dbb88cd6c3d9"
+    },
+    {
+      "category": "improvement",
+      "path": "Assets/Art/structures/improvements/WaterMill/mill_splash.dds",
+      "sha256": "fd8375bfbb44d188c9d5f057cd65cd3a7c836e62df08230a05f28e8fa3459ec3"
+    },
+    {
+      "category": "improvement",
+      "path": "Assets/Art/structures/improvements/WaterMill/prevodni.dds",
+      "sha256": "8fdc120b2a4da14345fffc5f69ba5cc4714921c09369ace3caa2e8e2bc51308b"
+    },
+    {
+      "category": "improvement",
+      "path": "Assets/Art/structures/improvements/WaterMill/watermill.nif",
+      "sha256": "9b7554a5720784ee1e75ccbe52df0de0d566cd7466e9cfbe843abc4c73c40887"
+    },
+    {
+      "category": "improvement",
+      "path": "Assets/Art/structures/improvements/WaterMill/watermill2.dds",
+      "sha256": "fd614b7b5730cbc8b42cbc91f9be896e540317d5e5212dca19953bba635ef962"
+    },
+    {
+      "category": "improvement",
+      "path": "Assets/Art/Terrain/resources/wheat/wheat_farm_base.dds",
+      "sha256": "a4b282cd5e9699c5373ba7d65ba0e9347886bebe51a8eda059d834f1437ea130"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/Modern Roads/mod_roads (2).dds",
+      "sha256": "97e14c9a08a32f587283b5679f33edb31534f8f86318bc6d7b2e8d934c3367d2"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/Modern Roads/mod_roads_.dds",
+      "sha256": "327c535d86f5b08af4e65db5180cc803f47cbca028a3ac7862fddfddaf8d0b07"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/Modern Roads/mod_roads.dds",
+      "sha256": "b6adcb1a301d5c81e2fd4bf527027f9e77edd92aeb691c2a3b07ecbdec429721"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/Modern Roads/RailroadD02-004.nif",
+      "sha256": "6857e0c24d6b8e332ee1f038415943def114f44c644acea71ef74c02bbf3e35c"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/Modern Roads/RailroadD02-005.nif",
+      "sha256": "3cb2f6971f83f86670894ba221585b7f0c6cd1ab9e4d1b1d8b59bafd3ed0ab81"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/railroads/RailroadD02-004.nif",
+      "sha256": "f9f5875dcbfdad4ff5aa60ece4deb1bd9fffc74287bb1ee0e38da8f7225526f4"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/railroads/RailroadD02-005.nif",
+      "sha256": "ac4c097fab71ab0e005f1681b802a69bf1f4099d93ccf21d05ec21229ce17eba"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/roads/RoadD02-004.nif",
+      "sha256": "8ade7f5236b90e8deea16a10b9feb60805fd426b386b5ed6e766761fb490b3a8"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/roads/RoadD02-005.nif",
+      "sha256": "66ab9360cd559b21c9390f620011e4bc8990e5e90fa21cf9c6f19ebf5a42dd8a"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/roads/roadprimitive.dds",
+      "sha256": "3117d2ca0870c91bb32550ef5becaf1f9d2fa63006c41b091887ec76b8d8ef50"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/Roman Roads/RailroadD02-004.nif",
+      "sha256": "3530d151d0d9084010a955e23f6f99e567a6569704936779fd040c5525108aef"
+    },
+    {
+      "category": "route",
+      "path": "Assets/Art/Terrain/routes/Roman Roads/RailroadD02-005.nif",
+      "sha256": "d173c2a38261443f81ac6de5224398cd48b3d6ec671dadf8e314c114ef378db5"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/CoastBLEND.dds",
+      "sha256": "4761e624d14101097a40123f21b6200c6962707bcc6356b305505dd79d0b1446"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/coastdetail.dds",
+      "sha256": "e2298fc0432b8f075e4cc248e25b3e16b2d9c1ebae5fc22b25143ac564a1ab63"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/CoastGRIDS.dds",
+      "sha256": "38b54ed41fd2730950e7158599dadd8fb3768a64592495d0280f34a63e630845"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/desertblend.dds",
+      "sha256": "7944201f59ecb79725617b6466704547c5479821b6158ccdb4b16a8b1ebe71d4"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/desertdetail.dds",
+      "sha256": "97507cd4412e18f75140527a623202b552fce90d0e2bc66f560025b44dadcd70"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/desertgrids.dds",
+      "sha256": "36a75ac11ff1fa8bdd7f5b28b8a3d8f9feb37a1d277ccaf3a645efa07902f3f0"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/grassblend.dds",
+      "sha256": "64528b53167531f9aea548fbf169b55ac21098b44d617480e28a3249a67ee28a"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/grassdetail.dds",
+      "sha256": "e2298fc0432b8f075e4cc248e25b3e16b2d9c1ebae5fc22b25143ac564a1ab63"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/grassgrids.dds",
+      "sha256": "5b0974e96408316122543b1d07c2219d3411e07180a95d3bc31108d7f74e21b4"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/hillblend.dds",
+      "sha256": "c081bb6a8620293b346a5de698467f84c40efa8c983285069ac5601e4dc13ef9"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/hilldetail.dds",
+      "sha256": "e70a01449770c545f5336baf8d048e664d2286cf0af3748bed87573b900b23a8"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/hillgrids.dds",
+      "sha256": "cdddaf3bc14479a8874750bace13d2d347d25812f8a5882ca8069f5be4f20032"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/iceblend.dds",
+      "sha256": "a67dc40048426412e8a4f8957447d4fb2ed412db0894efa398a91f453b1c5319"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/icedetail.dds",
+      "sha256": "e2298fc0432b8f075e4cc248e25b3e16b2d9c1ebae5fc22b25143ac564a1ab63"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/icegrids.dds",
+      "sha256": "87c4004da9fda3fe3ebc16da6c57bc5a4ac6accd2472c5902453d5409a6c3764"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/oceanBLEND.dds",
+      "sha256": "57e73e078b320ff5751daa9716e626d8eadae8fc44430e57e979580ed963dfab"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/oceandetail.dds",
+      "sha256": "e2298fc0432b8f075e4cc248e25b3e16b2d9c1ebae5fc22b25143ac564a1ab63"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/oceanGRIDS.dds",
+      "sha256": "8931a506d1dca4690948843215bb4a87b2391388fd790500327057eeaefb6ef1"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/peakblend.dds",
+      "sha256": "2a129ede85d3046c89877c63a47d8b7f91961ffbcf4d05c5b8cf02fec94bd48b"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/peakdetail.dds",
+      "sha256": "fe584f0b228461fdd33fb15f65e1fda4bc7343f07a3e9ff0ca61b93062a66eea"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/peakgrids.dds",
+      "sha256": "d076e79b862d9ba82971d95ec70010e73feb218629f10c7fcde49b14d9794ac7"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/plainsblend.dds",
+      "sha256": "4ee8de410d160b5c336d63b9f92a633afe3ec67041b6406e684390a1086ab7b6"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/PlainsDETAIL.dds",
+      "sha256": "e2298fc0432b8f075e4cc248e25b3e16b2d9c1ebae5fc22b25143ac564a1ab63"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/plainsgrids.dds",
+      "sha256": "4b385d2fa9d44470c974aabf50e2dbdd6853902875a2164a8ffda202c22916f7"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/tundrablend.dds",
+      "sha256": "d162488a30b3834efabe8632140b037741014f6c357d4808876746658bbf4b18"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/tundradetail.dds",
+      "sha256": "e2298fc0432b8f075e4cc248e25b3e16b2d9c1ebae5fc22b25143ac564a1ab63"
+    },
+    {
+      "category": "terrain",
+      "path": "Assets/Art/Terrain/Textures/tundragrids.dds",
+      "sha256": "5db06fa62d5f0a6da7c718acc1c25d84e3b642d5035230bfcbe9ab9c28a07968"
+    },
+    {
+      "category": "water",
+      "path": "Assets/Art/Terrain/Water/water.dds",
+      "sha256": "c4f24109148c5714f3bcaa802f3a8694314a17c7570a06d94b1bd51dc303c00b"
+    },
+    {
+      "category": "water-shader",
+      "path": "Shaders/FX/Water.fx",
+      "sha256": "dcd3a43d6e0fbef1a0a388379784797cc8ac96cc6a9825cb65d331a394e1f095"
+    },
+    {
+      "category": "water-shader",
+      "path": "Shaders/FXO/Water.fx",
+      "sha256": "fc5f1a728ca3e9132f00464eaf00ad6fec721f659667eab256c861c71dfe4159"
+    }
+  ]
+}

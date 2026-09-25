@@ -102,11 +102,16 @@ float4 WaterPS_11( VS_OUTPUT vIn ) : COLOR
 
 	// Get FOW
 	float4 f4FOWTex   = tex2D( Fog, vIn.f2FowTex );
+
 	f4FinalColor *= f4FOWTex;
 	
 	// Now adjust alpha by Diffuse Alpha
 	f4FinalColor.a = f3WaterAlpha * coastAlpha;
-	
+
+    if (f4FOWTex.r < 0.3f) {
+		f4FinalColor.a = 0.0f;
+	}
+
 	return f4FinalColor;
 }
 //------------------------------------------------------------------------------------------------
@@ -142,7 +147,7 @@ technique Water_Shader< string shadername = "Water_Shader"; int implementation=0
 
         // Set up textures and texture stage states
         VertexShader = compile vs_1_1 WaterVS_11();
-        PixelShader  = compile ps_1_1 WaterPS_11();
+        PixelShader  = compile ps_2_0 WaterPS_11();
     }
 }
 
