@@ -1,0 +1,129 @@
+{
+  "name": "Blue Marble Terrain 2.0 land-only import",
+  "author": "Kai Fiebach",
+  "sourcePage": "https://www.gamefront.com/games/civilization-4/file/blue-marble-terrain-v2-0",
+  "sourceArchive": "CivBlueMarble20.zip",
+  "sourceArchiveSha256": "cbb51b62ed27e89f26f5524d44fd2d0650a1abd032132066c0b882a381d07b9f",
+  "installerExecutable": "CivBlueMarble.exe",
+  "installerExecutableSha256": "0ac51715a8c5f973f5bfe4e394f6bc4d1615272e598112c4a2f54ea820b63e21",
+  "embeddedBfsSha256": "f47f2c932ff7bbd4b7f3ae59cf35e6004c6d02a1edb6a85de0eeac536ca80293",
+  "embeddedModZipSha256": "3d675518f0b9d501299ecec4f67979bba739ba289c792473874d49a7aa97b6bd",
+  "license": {
+    "scope": "Non-commercial distribution, installation, and use",
+    "conditions": [
+      "Keep the software 100% free of charge.",
+      "Keep the imported files unmodified.",
+      "Commercial use requires permission."
+    ],
+    "source": "The About text embedded in CivBlueMarble.exe"
+  },
+  "destinationRoot": "CoreFiles\\Sid Meier's Civilization IV Beyond the Sword\\Beyond the Sword\\Assets\\Art\\Terrain\\Textures",
+  "selection": "High-resolution grassland, plains, and desert textures only",
+  "excluded": [
+    "Blue Marble low-resolution terrain",
+    "Coast, ocean, water, hill, peak, ice, and tundra textures",
+    "Features, resources, routes, improvements, trees, sky, UI, and main-menu assets",
+    "Installer behavior and user-profile CustomAssets integration"
+  ],
+  "files": [
+    {
+      "sourcePath": "mods\\BlueMarble\\Assets\\Art\\Terrain\\Textures\\GrassBLEND.dds",
+      "destinationPath": "grassblend.dds",
+      "bytes": 699216,
+      "width": 512,
+      "height": 1024,
+      "compression": "DXT3",
+      "alpha": "Explicit 4-bit alpha",
+      "mipmaps": 11,
+      "sha256": "fedfbb6f192f845fc170d165989832b6faed450f779b7b19e56cb0407cd7b33b"
+    },
+    {
+      "sourcePath": "mods\\BlueMarble\\Assets\\Art\\Terrain\\Textures\\GrassDETAIL.dds",
+      "destinationPath": "grassdetail.dds",
+      "bytes": 174904,
+      "width": 512,
+      "height": 512,
+      "compression": "DXT1",
+      "alpha": "No alpha pixel-format flag",
+      "mipmaps": 10,
+      "sha256": "8092c7c0235a4cdd31d7e14ffc1935b2f41ea623108b6bcb401777c3ff108ab9"
+    },
+    {
+      "sourcePath": "mods\\BlueMarble\\Assets\\Art\\Terrain\\Textures\\GrassGRIDS.dds",
+      "destinationPath": "grassgrids.dds",
+      "bytes": 699216,
+      "width": 512,
+      "height": 1024,
+      "compression": "DXT3",
+      "alpha": "Explicit 4-bit alpha",
+      "mipmaps": 11,
+      "sha256": "c0edd9361a52a3cd974e8b80b33c56ddbc8f44db08bcfae81603e50c0b5c8ba8"
+    },
+    {
+      "sourcePath": "mods\\BlueMarble\\Assets\\Art\\Terrain\\Textures\\PlainsBLEND.dds",
+      "destinationPath": "plainsblend.dds",
+      "bytes": 699216,
+      "width": 512,
+      "height": 1024,
+      "compression": "DXT3",
+      "alpha": "Explicit 4-bit alpha",
+      "mipmaps": 11,
+      "sha256": "8c0c59ed4a00b4be39e416950b32cc5f430a479fbce815170f9792bfb532957f"
+    },
+    {
+      "sourcePath": "mods\\BlueMarble\\Assets\\Art\\Terrain\\Textures\\PlainsDETAIL.dds",
+      "destinationPath": "PlainsDETAIL.dds",
+      "bytes": 174904,
+      "width": 512,
+      "height": 512,
+      "compression": "DXT1",
+      "alpha": "No alpha pixel-format flag",
+      "mipmaps": 10,
+      "sha256": "a288d665998a64e6a7f7488eafd792ddbc9af19921ec632ffc81a0ac17de7934"
+    },
+    {
+      "sourcePath": "mods\\BlueMarble\\Assets\\Art\\Terrain\\Textures\\PlainsGRIDS.dds",
+      "destinationPath": "plainsgrids.dds",
+      "bytes": 699216,
+      "width": 512,
+      "height": 1024,
+      "compression": "DXT3",
+      "alpha": "Explicit 4-bit alpha",
+      "mipmaps": 11,
+      "sha256": "9bdc76ac1b3dbfe55dabd6b227f9f134a71bd89d90ee0d8f28c37f60f07bf16f"
+    },
+    {
+      "sourcePath": "mods\\BlueMarble\\Assets\\Art\\Terrain\\Textures\\DesertBLEND.dds",
+      "destinationPath": "desertblend.dds",
+      "bytes": 699216,
+      "width": 512,
+      "height": 1024,
+      "compression": "DXT3",
+      "alpha": "Explicit 4-bit alpha",
+      "mipmaps": 11,
+      "sha256": "219004c85ad37e883efad5c8d1ac6bc47e311d327c29239fa32f64a7dc2bbe47"
+    },
+    {
+      "sourcePath": "mods\\BlueMarble\\Assets\\Art\\Terrain\\Textures\\DesertDETAIL.dds",
+      "destinationPath": "desertdetail.dds",
+      "bytes": 174904,
+      "width": 512,
+      "height": 512,
+      "compression": "DXT1",
+      "alpha": "No alpha pixel-format flag",
+      "mipmaps": 10,
+      "sha256": "0bda29134b834a725971321785786372406376bc191e3228838d82d0785a2e2d"
+    },
+    {
+      "sourcePath": "mods\\BlueMarble\\Assets\\Art\\Terrain\\Textures\\DesertGRIDS.dds",
+      "destinationPath": "desertgrids.dds",
+      "bytes": 699216,
+      "width": 512,
+      "height": 1024,
+      "compression": "DXT3",
+      "alpha": "Explicit 4-bit alpha",
+      "mipmaps": 11,
+      "sha256": "ef378ecfe893b1783dd36d49b12c3e6c1583820f8d923735444fe6a82e17b584"
+    }
+  ]
+}
