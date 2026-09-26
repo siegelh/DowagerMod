@@ -65,14 +65,11 @@ struct LandmarkBreakdown
 	int iGroveWaterCount;           int iGroveWaterFood;
 	int iGrovePreserveCount;        int iGrovePreserveFood;   int iGrovePreserveCommerce;
 
-	// Research Campus (direct Research to the working city, before modifiers).
+	// Research Campus (direct Research to the assigned BFC city, before modifiers).
 	int iResearchTotal;
-	int iCampusOwnCount;            int iCampusOwnYield;   // own Tundra/Snow
+	int iCampusBaseYield;
 	int iCampusPeakCount;           int iCampusPeakYield;
-	int iCampusJungleCount;         int iCampusJungleYield;
 	int iCampusHillCount;           int iCampusHillYield;
-	int iCampusTundraCount;         int iCampusTundraYield;
-	int iCampusSnowCount;           int iCampusSnowYield;
 
 	// Naval Foundry (Production). Aura values are exact effective (non-stacking):
 	// water tiles already covered by another owned Foundry are excluded.

@@ -27292,7 +27292,7 @@
       <bFirstStrikeImmune>0</bFirstStrikeImmune>
       <bNoDefensiveBonus>0</bNoDefensiveBonus>
       <bIgnoreBuildingDefense>0</bIgnoreBuildingDefense>
-      <bCanMoveImpassable>0</bCanMoveImpassable>
+      <bCanMoveImpassable>1</bCanMoveImpassable>
       <bCanMoveAllTerrain>0</bCanMoveAllTerrain>
       <bFlatMovementCost>0</bFlatMovementCost>
       <bIgnoreTerrainCost>0</bIgnoreTerrainCost>

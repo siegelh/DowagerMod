@@ -12017,6 +12017,7 @@ m_iLandmarkMinDistance(0),
 m_bLandmarkRequiresCityAdjacency(false),
 m_bLandmarkNoAdjacentSameGroup(false),
 m_bLandmarkRequiresCoastalLand(false),
+m_bLandmarkRequiresPeak(false),
 m_bLandmarkStateReligionGated(false),
 m_iLandmarkStateReligion(NO_RELIGION),
 m_bNeutralWorldWonder(false),
@@ -12171,6 +12172,11 @@ bool CvImprovementInfo::isLandmarkNoAdjacentSameGroup() const
 bool CvImprovementInfo::isLandmarkRequiresCoastalLand() const
 {
 	return m_bLandmarkRequiresCoastalLand;
+}
+
+bool CvImprovementInfo::isLandmarkRequiresPeak() const
+{
+	return m_bLandmarkRequiresPeak;
 }
 
 bool CvImprovementInfo::isLandmarkStateReligionGated() const
@@ -12545,6 +12551,11 @@ void CvImprovementInfo::read(FDataStreamBase* stream)
 		stream->Read(&m_iNeutralWorldWonderLandUnitExperience);
 	}
 
+	if (uiFlag >= 3)
+	{
+		stream->Read(&m_bLandmarkRequiresPeak);
+	}
+
 	stream->ReadString(m_szArtDefineTag);
 
 	stream->Read(&m_iWorldSoundscapeScriptId);
@@ -12624,7 +12635,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream)
 {
 	CvInfoBase::write(stream);
 
-	uint uiFlag=2;
+	uint uiFlag=3;
 	stream->Write(uiFlag);		// flag for expansion
 
 	stream->Write(m_iAdvancedStartCost);
@@ -12673,6 +12684,8 @@ void CvImprovementInfo::write(FDataStreamBase* stream)
 	stream->Write(m_iNeutralWorldWonderMilitaryProductionPercent);
 	stream->Write(m_iNeutralWorldWonderCivicUpkeepPercent);
 	stream->Write(m_iNeutralWorldWonderLandUnitExperience);
+
+	stream->Write(m_bLandmarkRequiresPeak);
 
 	stream->WriteString(m_szArtDefineTag);
 
@@ -12806,6 +12819,7 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_bLandmarkRequiresCityAdjacency, "bLandmarkRequiresCityAdjacency", false);
 	pXML->GetChildXmlValByName(&m_bLandmarkNoAdjacentSameGroup, "bLandmarkNoAdjacentSameGroup", false);
 	pXML->GetChildXmlValByName(&m_bLandmarkRequiresCoastalLand, "bLandmarkRequiresCoastalLand", false);
+	pXML->GetChildXmlValByName(&m_bLandmarkRequiresPeak, "bLandmarkRequiresPeak", false);
 	pXML->GetChildXmlValByName(&m_bLandmarkStateReligionGated, "bLandmarkStateReligionGated", false);
 	szTextVal.clear();
 	pXML->GetChildXmlValByName(szTextVal, "LandmarkStateReligion");

@@ -2125,6 +2125,7 @@ bool CvPlot::canHaveBonus(BonusTypes eBonus, bool bIgnoreLatitude) const
 bool CvPlot::canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam, bool bPotential) const
 {
 	CvPlot* pLoopPlot;
+	CvImprovementInfo& kImprovement = GC.getImprovementInfo(eImprovement);
 	bool bValid;
 	int iI;
 
@@ -2138,12 +2139,19 @@ bool CvPlot::canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam, 
 		return false;
 	}
 
-	if (isImpassable())
+	if (kImprovement.isLandmarkRequiresPeak())
+	{
+		if (!isPeak())
+		{
+			return false;
+		}
+	}
+	else if (isImpassable())
 	{
 		return false;
 	}
 
-	if (GC.getImprovementInfo(eImprovement).isWater() != isWater())
+	if (kImprovement.isWater() != isWater())
 	{
 		return false;
 	}
@@ -2177,6 +2185,11 @@ bool CvPlot::canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam, 
 	}
 
 	if (GC.getImprovementInfo(eImprovement).isHillsMakesValid() && isHills())
+	{
+		bValid = true;
+	}
+
+	if (kImprovement.isLandmarkRequiresPeak() && isPeak())
 	{
 		bValid = true;
 	}
@@ -5092,6 +5105,8 @@ void CvPlot::setPlotType(PlotTypes eNewValue, bool bRecalculate, bool bRebuildGr
 		m_ePlotType = eNewValue;
 
 		updateYield();
+		// Research Campus Research depends on adjacent peaks and hills.
+		updateLandmarkYieldsInRange(1);
 		updatePlotGroup();
 
 		updateSeeFromSight(true, true);
@@ -5977,6 +5992,11 @@ void CvPlot::updateWorkingCity()
 
 	if (pOldWorkingCity != pBestCity)
 	{
+		const ImprovementTypes eImprovement = getImprovementType();
+		const bool bRefreshResearchCampus =
+			(eImprovement != NO_IMPROVEMENT &&
+			GC.getImprovementInfo(eImprovement).getLandmarkType() == LANDMARK_RESEARCH_CAMPUS);
+
 		if (pOldWorkingCity != NULL)
 		{
 			pOldWorkingCity->setWorkingPlot(this, false);
@@ -6000,6 +6020,18 @@ void CvPlot::updateWorkingCity()
 		if (getWorkingCity() != NULL)
 		{
 			getWorkingCity()->AI_setAssignWorkDirty(true);
+		}
+
+		if (bRefreshResearchCampus)
+		{
+			if (pOldWorkingCity != NULL)
+			{
+				pOldWorkingCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
+			}
+			if (getWorkingCity() != NULL)
+			{
+				getWorkingCity()->updateImprovementCityCommerceFromTraitsAndCivics(true);
+			}
 		}
 
 		updateYield();
@@ -6660,7 +6692,7 @@ void CvPlot::accumulateNavalFoundryFootprint(PlayerTypes ePlayer, LandmarkBreakd
 // getLandmarkResearchCampusValue
 // ------------------------------
 // Direct Research contributed by a Research Campus on THIS tile. Fed to the
-// worked city before normal Research modifiers. Thin wrapper over the shared
+// assigned BFC city before normal Research modifiers. Thin wrapper over the shared
 // accumulateLandmarkResearchCampus scan so runtime and tooltip agree exactly.
 int CvPlot::getLandmarkResearchCampusValue(PlayerTypes ePlayer) const
 {
@@ -6670,24 +6702,13 @@ int CvPlot::getLandmarkResearchCampusValue(PlayerTypes ePlayer) const
 
 // accumulateLandmarkResearchCampus
 // --------------------------------
-// Single authoritative Research Campus scan. Own-tile Tundra/Snow gives a base
-// bonus; adjacency components (Peak/Jungle/Hill/Tundra/Snow) stack and count
-// regardless of ownership (natural terrain). Records the component breakdown
-// when pBreakdown != NULL. Read-only: stable scan order, no mutation, no RNG.
+// Single authoritative Research Campus scan: base 5 Research, +5 per adjacent
+// peak, and +2 per adjacent hill. Peak and hill predicates are deliberately
+// exclusive. Records the component breakdown when pBreakdown != NULL.
 int CvPlot::accumulateLandmarkResearchCampus(PlayerTypes ePlayer, LandmarkBreakdown* pBreakdown) const
 {
-	static TerrainTypes eTundra = (TerrainTypes)GC.getInfoTypeForString("TERRAIN_TUNDRA", true);
-	static TerrainTypes eSnow = (TerrainTypes)GC.getInfoTypeForString("TERRAIN_SNOW", true);
-	static FeatureTypes eJungle = (FeatureTypes)GC.getInfoTypeForString("FEATURE_JUNGLE", true);
-
-	int iResearch = 0;
-
-	// Own-tile Tundra/Snow base.
-	if (getTerrainType() == eTundra || getTerrainType() == eSnow)
-	{
-		iResearch += 3;
-		if (pBreakdown) { pBreakdown->iCampusOwnCount++; pBreakdown->iCampusOwnYield += 3; }
-	}
+	int iResearch = 5;
+	if (pBreakdown) { pBreakdown->iCampusBaseYield = 5; }
 
 	for (int iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
 	{
@@ -6698,29 +6719,13 @@ int CvPlot::accumulateLandmarkResearchCampus(PlayerTypes ePlayer, LandmarkBreakd
 		}
 		if (pAdjacent->isPeak())
 		{
-			iResearch += 3;
-			if (pBreakdown) { pBreakdown->iCampusPeakCount++; pBreakdown->iCampusPeakYield += 3; }
+			iResearch += 5;
+			if (pBreakdown) { pBreakdown->iCampusPeakCount++; pBreakdown->iCampusPeakYield += 5; }
 		}
-		if (pAdjacent->getFeatureType() == eJungle)
+		else if (pAdjacent->isHills())
 		{
 			iResearch += 2;
-			if (pBreakdown) { pBreakdown->iCampusJungleCount++; pBreakdown->iCampusJungleYield += 2; }
-		}
-		if (pAdjacent->isHills())
-		{
-			iResearch += 1;
-			if (pBreakdown) { pBreakdown->iCampusHillCount++; pBreakdown->iCampusHillYield += 1; }
-		}
-		const TerrainTypes eAdjTerrain = pAdjacent->getTerrainType();
-		if (eAdjTerrain == eTundra)
-		{
-			iResearch += 1;
-			if (pBreakdown) { pBreakdown->iCampusTundraCount++; pBreakdown->iCampusTundraYield += 1; }
-		}
-		else if (eAdjTerrain == eSnow)
-		{
-			iResearch += 2;
-			if (pBreakdown) { pBreakdown->iCampusSnowCount++; pBreakdown->iCampusSnowYield += 2; }
+			if (pBreakdown) { pBreakdown->iCampusHillCount++; pBreakdown->iCampusHillYield += 2; }
 		}
 	}
 
@@ -6796,7 +6801,7 @@ void CvPlot::buildLandmarkPreview(ImprovementTypes eImprovement, PlayerTypes ePl
 // Refresh cached plot yields for every plot within iRange, so that landmark
 // adjacency and radius-two water auras stay current when a neighboring
 // improvement, terrain, feature, bonus, or ownership state changes. Research
-// Campus output is city Research rather than plot yield, so any working city of
+// Campus output is city Research rather than plot yield, so the assigned city of
 // a landmark plot in range also has its cached landmark commerce refreshed.
 void CvPlot::updateLandmarkYieldsInRange(int iRange) const
 {

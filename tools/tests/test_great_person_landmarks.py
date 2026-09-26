@@ -206,7 +206,8 @@ class SchemaTests(unittest.TestCase):
         for tag in (
             "bLandmark", "iLandmarkType", "iLandmarkGroup", "iLandmarkMinDistance",
             "bLandmarkRequiresCityAdjacency", "bLandmarkNoAdjacentSameGroup",
-            "bLandmarkRequiresCoastalLand", "bLandmarkStateReligionGated",
+            "bLandmarkRequiresCoastalLand", "bLandmarkRequiresPeak",
+            "bLandmarkStateReligionGated",
             "LandmarkStateReligion",
         ):
             self.assertIn(f'ElementType name="{tag}"', text, tag)
@@ -330,6 +331,18 @@ class DataOrderTests(unittest.TestCase):
         yields = [n.text.strip() for n in find_child(imp, "YieldChanges")]
         self.assertEqual(yields, ["0", "2", "0"])
 
+    def test_research_campus_is_the_only_peak_required_landmark(self):
+        for k in LANDMARK_ORDER:
+            imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
+            expected = "1" if k == "RESEARCH_CAMPUS_BTG" else None
+            self.assertEqual(child_text(imp, "bLandmarkRequiresPeak"), expected, k)
+
+        campus = find_entry(
+            IMPROVEMENTS, "ImprovementInfo", "IMPROVEMENT_RESEARCH_CAMPUS_BTG"
+        )
+        self.assertEqual(child_text(campus, "bHillsMakesValid"), "0")
+        self.assertEqual(list(find_child(campus, "TerrainMakesValids")), [])
+
 
 class TerrainRelaxationTests(unittest.TestCase):
     """Every Great Person tile improvement (Grand Colosseum + the 13 newer
@@ -337,11 +350,12 @@ class TerrainRelaxationTests(unittest.TestCase):
     additive relaxation: water/coastal and religion restrictions must stay
     exactly as they were."""
 
-    def test_all_great_person_improvements_allow_hills_or_flatland(self):
+    def test_great_person_improvements_allow_hills_except_peak_only_campus(self):
         for k in GREAT_PERSON_TILE_IMPROVEMENTS:
             imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
             self.assertIsNotNone(imp, k)
-            self.assertEqual(child_text(imp, "bHillsMakesValid"), "1", k)
+            expected_hills = "0" if k == "RESEARCH_CAMPUS_BTG" else "1"
+            self.assertEqual(child_text(imp, "bHillsMakesValid"), expected_hills, k)
             self.assertEqual(child_text(imp, "bRequiresFlatlands"), "0", k)
 
     def test_water_restriction_unchanged_none_are_water_tiles(self):
@@ -705,6 +719,13 @@ class UnitPermissionTests(unittest.TestCase):
         builds = self.unit_builds("UNIT_VENETIAN_MERCHANT")
         self.assertTrue({"BUILD_ROAD", "BUILD_GRAND_COLOSSEUM_BTG"} <= builds)
 
+    def test_only_great_scientist_gains_impassable_movement(self):
+        scientist = find_entry(UNITS, "UnitInfo", "UNIT_SCIENTIST")
+        self.assertEqual(child_text(scientist, "bCanMoveImpassable"), "1")
+        for unit_type in ("UNIT_ENGINEER", "UNIT_MERCHANT", "UNIT_PROPHET", "UNIT_ARTIST"):
+            unit = find_entry(UNITS, "UnitInfo", unit_type)
+            self.assertEqual(child_text(unit, "bCanMoveImpassable"), "0", unit_type)
+
 
 class TextTests(unittest.TestCase):
     def test_text_keys_present(self):
@@ -722,6 +743,7 @@ class TextTests(unittest.TestCase):
             "TXT_KEY_LANDMARK_SACRED_GROVE_HELP",
             "TXT_KEY_LANDMARK_REQUIRES_CITY_ADJACENCY",
             "TXT_KEY_LANDMARK_REQUIRES_COASTAL_LAND",
+            "TXT_KEY_LANDMARK_REQUIRES_PEAK",
             "TXT_KEY_LANDMARK_STATE_RELIGION",
             "TXT_KEY_LANDMARK_NO_STATE_RELIGION",
         ):
@@ -744,6 +766,10 @@ class DllContractTests(unittest.TestCase):
         self.assertContains(cpp, "stream->Write(m_bLandmark)")
         self.assertContains(cpp, "stream->Read(&m_iLandmarkStateReligion)")
         self.assertContains(cpp, "stream->Write(m_iLandmarkStateReligion)")
+        self.assertContains(cpp, "uint uiFlag=3")
+        self.assertContains(cpp, "if (uiFlag >= 3)")
+        self.assertContains(cpp, "stream->Read(&m_bLandmarkRequiresPeak)")
+        self.assertContains(cpp, "stream->Write(m_bLandmarkRequiresPeak)")
         # Version-guarded read for freshly generated caches.
         self.assertContains(cpp, "if (uiFlag >= 1)")
 
@@ -754,6 +780,8 @@ class DllContractTests(unittest.TestCase):
         # Resource preservation, coastal, city adjacency, spacing.
         self.assertContains(plot, "getBonusType(eTeam) != NO_BONUS")
         self.assertContains(plot, "isLandmarkRequiresCoastalLand()")
+        self.assertContains(plot, "isLandmarkRequiresPeak()")
+        self.assertContains(plot, "if (!isPeak())")
         self.assertContains(plot, "isLandmarkRequiresCityAdjacency()")
         self.assertContains(plot, "getStateReligion()")
 
@@ -768,6 +796,41 @@ class DllContractTests(unittest.TestCase):
         city = read_dll("CvCity.cpp")
         self.assertContains(city, "getLandmarkResearchCampusValue(getOwnerINLINE())")
         self.assertContains(city, "LANDMARK_RESEARCH_CAMPUS")
+        self.assertContains(city, "!bWorkedOnly && eCommerce == COMMERCE_RESEARCH")
+        self.assertContains(city, "pLoopPlot->getWorkingCity() == this")
+
+    def test_research_campus_formula_and_refresh_contract(self):
+        plot = read_dll("CvPlot.cpp")
+        block = plot.split("int CvPlot::accumulateLandmarkResearchCampus(", 1)[1].split(
+            "void CvPlot::buildLandmarkPreview(", 1
+        )[0]
+        self.assertContains(block, "int iResearch = 5;")
+        self.assertContains(block, "iResearch += 5;")
+        self.assertContains(block, "else if (pAdjacent->isHills())")
+        self.assertContains(block, "iResearch += 2;")
+        for forbidden in (
+            "TERRAIN_TUNDRA",
+            "TERRAIN_SNOW",
+            "FEATURE_JUNGLE",
+            "iCampusJungle",
+            "iCampusTundra",
+            "iCampusSnow",
+        ):
+            self.assertNotIn(forbidden, block)
+        self.assertContains(plot, "updateLandmarkYieldsInRange(1);")
+        self.assertContains(plot, "pOldWorkingCity->updateImprovementCityCommerceFromTraitsAndCivics(true)")
+        self.assertContains(plot, "getWorkingCity()->updateImprovementCityCommerceFromTraitsAndCivics(true)")
+
+    def test_scientist_peak_movement_keeps_independent_movement_gates(self):
+        unit = read_dll("CvUnit.cpp")
+        block = unit.split("bool CvUnit::canMoveInto(", 1)[1].split(
+            "bool CvUnit::canMoveOrAttackInto(", 1
+        )[0]
+        self.assertContains(block, "if (pPlot->isImpassable())")
+        self.assertContains(block, "if (!canMoveImpassable())")
+        self.assertContains(block, "case DOMAIN_LAND:")
+        self.assertContains(block, "if (pPlot->isWater() && !canMoveAllTerrain())")
+        self.assertContains(block, "bool bCanEnterArea = canEnterArea(ePlotTeam, pPlotArea);")
 
     def test_research_campus_governor_valuation_is_local_and_weighted(self):
         city_ai = read_dll("CvCityAI.cpp")
@@ -1099,13 +1162,9 @@ class LandmarkPreviewTooltipTests(unittest.TestCase):
             "TXT_KEY_LANDMARK_PREVIEW_NF_AURA",
             "TXT_KEY_LANDMARK_PREVIEW_NF_AURA_RESOURCE",
             "TXT_KEY_LANDMARK_PREVIEW_NF_AURA_NONE",
-            "TXT_KEY_LANDMARK_PREVIEW_RC_OWN",
+            "TXT_KEY_LANDMARK_PREVIEW_RC_BASE",
             "TXT_KEY_LANDMARK_PREVIEW_RC_PEAK",
-            "TXT_KEY_LANDMARK_PREVIEW_RC_JUNGLE",
             "TXT_KEY_LANDMARK_PREVIEW_RC_HILL",
-            "TXT_KEY_LANDMARK_PREVIEW_RC_TUNDRA",
-            "TXT_KEY_LANDMARK_PREVIEW_RC_SNOW",
-            "TXT_KEY_LANDMARK_PREVIEW_RC_NONE",
             "TXT_KEY_LANDMARK_PREVIEW_CD_CITY",
             "TXT_KEY_LANDMARK_PREVIEW_CD_COTTAGE",
             "TXT_KEY_LANDMARK_PREVIEW_CD_HAMLET",

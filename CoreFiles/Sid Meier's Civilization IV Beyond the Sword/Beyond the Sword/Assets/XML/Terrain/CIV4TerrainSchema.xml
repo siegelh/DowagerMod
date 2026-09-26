@@ -407,6 +407,7 @@
 	<ElementType name="bLandmarkRequiresCityAdjacency" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bLandmarkNoAdjacentSameGroup" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bLandmarkRequiresCoastalLand" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bLandmarkRequiresPeak" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bLandmarkStateReligionGated" content="textOnly" dt:type="boolean"/>
 	<ElementType name="LandmarkStateReligion" content="textOnly"/>
 	<ElementType name="bNeutralWorldWonder" content="textOnly" dt:type="boolean"/>
@@ -482,6 +483,7 @@
 		<element type="bLandmarkRequiresCityAdjacency" minOccurs="0"/>
 		<element type="bLandmarkNoAdjacentSameGroup" minOccurs="0"/>
 		<element type="bLandmarkRequiresCoastalLand" minOccurs="0"/>
+		<element type="bLandmarkRequiresPeak" minOccurs="0"/>
 		<element type="bLandmarkStateReligionGated" minOccurs="0"/>
 		<element type="LandmarkStateReligion" minOccurs="0"/>
 		<element type="bNeutralWorldWonder" minOccurs="0"/>

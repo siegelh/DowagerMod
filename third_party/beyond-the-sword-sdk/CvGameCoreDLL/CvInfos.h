@@ -2912,6 +2912,7 @@ public:
 	bool isLandmarkRequiresCityAdjacency() const;
 	bool isLandmarkNoAdjacentSameGroup() const;
 	bool isLandmarkRequiresCoastalLand() const;
+	bool isLandmarkRequiresPeak() const;
 	bool isLandmarkStateReligionGated() const;
 	int getLandmarkStateReligion() const;
 
@@ -3010,6 +3011,7 @@ protected:
 	bool m_bLandmarkRequiresCityAdjacency;
 	bool m_bLandmarkNoAdjacentSameGroup;
 	bool m_bLandmarkRequiresCoastalLand;
+	bool m_bLandmarkRequiresPeak;
 	bool m_bLandmarkStateReligionGated;
 	int m_iLandmarkStateReligion;
 

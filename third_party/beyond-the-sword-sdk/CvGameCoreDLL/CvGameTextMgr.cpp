@@ -655,6 +655,11 @@ namespace
 			szBuffer.append(NEWLINE);
 			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_REQUIRES_COASTAL_LAND"));
 		}
+		if (info.isLandmarkRequiresPeak())
+		{
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_REQUIRES_PEAK"));
+		}
 		if (info.getLandmarkMinDistance() > 0)
 		{
 			szBuffer.append(NEWLINE);
@@ -2977,47 +2982,17 @@ void CvGameTextMgr::setLandmarkPreviewHelp(CvWStringBuffer& szBuffer, CvPlot* pP
 
 	case LANDMARK_RESEARCH_CAMPUS:
 		{
-			bool bAny = false;
-			if (kB.iCampusOwnYield > 0)
-			{
-				szBuffer.append(NEWLINE);
-				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_OWN", kB.iCampusOwnYield));
-				bAny = true;
-			}
+			szBuffer.append(NEWLINE);
+			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_BASE", kB.iCampusBaseYield));
 			if (kB.iCampusPeakCount > 0)
 			{
 				szBuffer.append(NEWLINE);
 				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_PEAK", kB.iCampusPeakCount, kB.iCampusPeakYield));
-				bAny = true;
-			}
-			if (kB.iCampusJungleCount > 0)
-			{
-				szBuffer.append(NEWLINE);
-				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_JUNGLE", kB.iCampusJungleCount, kB.iCampusJungleYield));
-				bAny = true;
 			}
 			if (kB.iCampusHillCount > 0)
 			{
 				szBuffer.append(NEWLINE);
 				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_HILL", kB.iCampusHillCount, kB.iCampusHillYield));
-				bAny = true;
-			}
-			if (kB.iCampusTundraCount > 0)
-			{
-				szBuffer.append(NEWLINE);
-				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_TUNDRA", kB.iCampusTundraCount, kB.iCampusTundraYield));
-				bAny = true;
-			}
-			if (kB.iCampusSnowCount > 0)
-			{
-				szBuffer.append(NEWLINE);
-				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_SNOW", kB.iCampusSnowCount, kB.iCampusSnowYield));
-				bAny = true;
-			}
-			if (!bAny)
-			{
-				szBuffer.append(NEWLINE);
-				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_NONE"));
 			}
 			szBuffer.append(NEWLINE);
 			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RESEARCH_TOTAL", kB.iResearchTotal));
