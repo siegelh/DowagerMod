@@ -132,6 +132,18 @@ if (-not $SkipXml) {
         $failed = $true
         Write-Host "[GATE] Roster safety checks failed: $($_.Exception.Message)"
     }
+
+    try {
+        & python (Join-Path $RepoRoot "tools\validate_citystyle_coverage.py") --repo-root $RepoRoot
+        if ($LASTEXITCODE -ne 0) {
+            throw "validate_citystyle_coverage.py reported issues (exit $LASTEXITCODE)."
+        }
+        Write-Host "[GATE] Citystyle coverage checks passed."
+    }
+    catch {
+        $failed = $true
+        Write-Host "[GATE] Citystyle coverage checks failed: $($_.Exception.Message)"
+    }
 }
 
 $shouldRunDllBuild = $false
