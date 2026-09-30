@@ -10775,10 +10775,187 @@
 
 	<!-- ERA WATERWORKED START -->
 
-	<LProduction From="PLOT_ROOT">
-		<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_WATER_WORKED,!IMPROVEMENT_MINE,!IMPROVEMENT_PASTURE,!IMPROVEMENT_QUARRY,!IMPROVEMENT_WHALING_BOATS,!IMPROVEMENT_WINDMILL,!IMPROVEMENT_WATERMILL,!IMPROVEMENT_FORT</Attribute>
-		<To Name="Node_12x12"/>
-	</LProduction>
+	<LNode Name="Node_Dowager_GreatPersonRotation_4x4">
+	<Width>4</Width>
+	<Height>4</Height>
+</LNode>
+
+<LNode Name="Leaf_Dowager_GreatPersonRotation_4x4">
+	<Width>4</Width>
+	<Height>4</Height>
+	<Attribute Class="Scalar">bNotBFS:1</Attribute>
+	<Attribute Class="RegionTest">0NW</Attribute>
+	<ArtRef Name="goal:IMPROVEMENT_JAPAN_CASTLE_TOWN">
+		<Attribute Class="Improvement">IMPROVEMENT_JAPAN_CASTLE_TOWN</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		<Scale>0.75</Scale>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_GRAND_COLOSSEUM_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_GRAND_COLOSSEUM_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_INDUSTRIAL_ZONE_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_INDUSTRIAL_ZONE_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NAVAL_FOUNDRY_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_NAVAL_FOUNDRY_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_RESEARCH_CAMPUS_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_RESEARCH_CAMPUS_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_COMMERCIAL_DISTRICT_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_COMMERCIAL_DISTRICT_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		<Scale>0.50</Scale>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_GRAND_BAZAAR_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_GRAND_BAZAAR_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+		<Scale>0.50</Scale>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_NONE_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_NONE_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_JUDAISM_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_JUDAISM_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_CHRISTIANITY_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_CHRISTIANITY_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_ISLAM_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_ISLAM_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_HINDUISM_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_HINDUISM_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_BUDDHISM_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_BUDDHISM_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_CONFUCIANISM_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_CONFUCIANISM_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_TAOISM_BTG">
+		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_TAOISM_BTG</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+</LNode>
+
+<LNode Name="Node_Dowager_NeutralWonderRotation_4x4">
+	<Width>4</Width>
+	<Height>4</Height>
+</LNode>
+
+<LNode Name="Leaf_Dowager_NeutralWonderRotation_4x4">
+	<Width>4</Width>
+	<Height>4</Height>
+	<Attribute Class="Scalar">bNotBFS:1</Attribute>
+	<Attribute Class="RegionTest">0NW</Attribute>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_GREAT_SPHINX">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_GREAT_SPHINX</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_ISHTAR_GATE">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ISHTAR_GATE</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_ERECHTHEUM">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ERECHTHEUM</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE">
+		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE</Attribute>
+		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
+	</ArtRef>
+</LNode>
+
+<LProduction From="PLOT_ROOT" Name="DowagerGenericPlotRoute1">
+	<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_LAND_WORKED,IMPROVEMENT_FARM,IMPROVEMENT_FISHING_BOATS,IMPROVEMENT_WORKSHOP,IMPROVEMENT_LUMBERMILL,IMPROVEMENT_PLANTATION,IMPROVEMENT_WINERY</Attribute>
+	<To Name="Node_12x12" />
+</LProduction>
+
+<LProduction From="PLOT_ROOT" Name="DowagerGenericPlotRoute2">
+	<Attribute Class="Improvement">IMPROVEMENT_COTTAGE,IMPROVEMENT_HAMLET,IMPROVEMENT_VILLAGE,IMPROVEMENT_TOWN</Attribute>
+	<To Name="Node_12x12" />
+</LProduction>
 	<LProduction From="PLOT_ROOT">
 		<Attribute Class="Improvement">IMPROVEMENT_MINE,IMPROVEMENT_WINDMILL,IMPROVEMENT_WATERMILL,IMPROVEMENT_FORT</Attribute>
 		<Attribute Class="Bonus">BONUS_ALL</Attribute>
@@ -11579,180 +11756,16 @@
 	</LProduction>
 
 	<!-- Dowager-preserved custom nodes and routes -->
-<LNode Name="Node_Dowager_GreatPersonRotation_4x4">
-	<Width>4</Width>
-	<Height>4</Height>
-</LNode>
 
 
-<LNode Name="Leaf_Dowager_GreatPersonRotation_4x4">
-	<Width>4</Width>
-	<Height>4</Height>
-	<Attribute Class="Scalar">bNotBFS:1</Attribute>
-	<Attribute Class="RegionTest">0NW</Attribute>
-	<ArtRef Name="goal:IMPROVEMENT_JAPAN_CASTLE_TOWN">
-		<Attribute Class="Improvement">IMPROVEMENT_JAPAN_CASTLE_TOWN</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-		<Scale>0.75</Scale>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_GRAND_COLOSSEUM_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_GRAND_COLOSSEUM_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_INDUSTRIAL_ZONE_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_INDUSTRIAL_ZONE_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NAVAL_FOUNDRY_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_NAVAL_FOUNDRY_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_RESEARCH_CAMPUS_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_RESEARCH_CAMPUS_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_COMMERCIAL_DISTRICT_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_COMMERCIAL_DISTRICT_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-		<Scale>0.50</Scale>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_GRAND_BAZAAR_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_GRAND_BAZAAR_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-		<Scale>0.50</Scale>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_NONE_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_NONE_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_JUDAISM_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_JUDAISM_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_CHRISTIANITY_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_CHRISTIANITY_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_ISLAM_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_ISLAM_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_HINDUISM_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_HINDUISM_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_BUDDHISM_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_BUDDHISM_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_CONFUCIANISM_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_CONFUCIANISM_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_SACRED_GROVE_TAOISM_BTG">
-		<Attribute Class="Improvement">IMPROVEMENT_SACRED_GROVE_TAOISM_BTG</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-</LNode>
 
 
-<LNode Name="Node_Dowager_NeutralWonderRotation_4x4">
-	<Width>4</Width>
-	<Height>4</Height>
-</LNode>
 
 
-<LNode Name="Leaf_Dowager_NeutralWonderRotation_4x4">
-	<Width>4</Width>
-	<Height>4</Height>
-	<Attribute Class="Scalar">bNotBFS:1</Attribute>
-	<Attribute Class="RegionTest">0NW</Attribute>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_GREAT_SPHINX">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_GREAT_SPHINX</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_LIBRARY_OF_NINEVEH</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TERRACOTTA_ARMY</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TOMB_OF_CYRUS</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_PERGAMON_ALTAR</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_SUN_TZU_ART_OF_WAR</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_ISHTAR_GATE">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ISHTAR_GATE</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_GREAT_ZIGGURAT_OF_UR</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_EKUR_OF_NIPPUR</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_THOTH</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_TEMPLE_OF_MELQART</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_ERECHTHEUM">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_ERECHTHEUM</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_LABYRINTH_OF_KNOSSOS</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-	<ArtRef Name="goal:IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE">
-		<Attribute Class="Improvement">IMPROVEMENT_NEUTRAL_SOLOMONS_TEMPLE</Attribute>
-		<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-		<Attribute Class="Scalar">bApplyRotation:1</Attribute>
-	</ArtRef>
-</LNode>
+
+
+
+
 
 
 

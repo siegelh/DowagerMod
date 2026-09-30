@@ -1,6 +1,6 @@
 # Thirteen-Leader Expansion
 
-- Status: `blocked` at baseline-test reconciliation; no new packages integrated.
+- Status: `in_progress`; baseline reconciled, preparing native pilot packages.
 - Owner / agent: repository owner / GitHub Copilot.
 - Last updated: `2026-09-30`.
 
@@ -144,9 +144,20 @@ Logs are in the active session `files\expansion-baseline-gate.log` and
 python -m unittest tools.tests.test_validate_roster_safety tools.tests.test_additive_roster_exact_contract tools.tests.test_flag_pipeline tools.tests.test_flag_contract_fullcolor tools.tests.test_unique_civilization_flags tools.tests.test_great_person_landmarks
 ```
 
-Baseline reconciliation is a stop boundary in the approved execution scope.
-Seek permission before repairing prior-art routing or changing historical
-test contracts. Do not remove assertions or raise limits merely to pass.
+The owner's subsequent instruction to continue autonomously was applied to
+a bounded cleanup: exact old/new citystyle assertions for the seven affected
+civs, and a plot-route normalization shared with the visual importer.
+The generic root selector now uses bounded positive groups excluding the
+preserved custom routes; existing art nodes and specialized productions are
+unchanged. Preserved nodes precede all productions. No size limit was raised
+and no landmark assertion was removed.
+
+After cleanup, the six original modules plus neutral-wonder and importer
+regressions passed: 106 tests. The changed-file repository gate passed.
+Its XML validator explicitly skips PlotLSystem's unavailable
+`CIV4LSystemSchema.xml`; XML parsing, routing, preservation and ordering are
+covered by targeted tests, not claimed as full engine/schema certification.
+In-game visual acceptance remains pending and no live install was changed.
 
 ## Affected Files / Directories
 
@@ -160,7 +171,7 @@ test contracts. Do not remove assertions or raise limits merely to pass.
 
 - Operating scope, provisional art, David reuse, Ho fallback and local commits:
   confirmed. No new up-front permission needed for those bounded actions.
-- Baseline failures: cleanup scope not yet approved.
+- Baseline failures: bounded cleanup completed after the instruction to proceed.
 - Pedro II identity and final art/graphics/gameplay acceptance remain pending.
 
 ## Proposed Implementation Steps
@@ -208,12 +219,10 @@ those belong solely to the unselected backlog.
 
 ## Open Questions
 
-- Authorize a bounded baseline cleanup before expansion, or another explicit
-  handling of the eleven demonstrated baseline failures?
 - Final art and in-game acceptance remain unresolved, as intended.
 
 ## Completion / Outcome
 
-Combined branch exists and the baseline gate is verified. Broader baseline
-tests are blocked as documented. The expansion is NOT implemented and is NOT
+Combined branch exists; the baseline gate and reconciled targeted tests pass.
+The expansion is NOT implemented and is NOT
 ready to merge/deploy. No push, merge, installer or live-game action occurred.

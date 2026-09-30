@@ -49,7 +49,7 @@
 
 ### Process / Planning
 
-- [`plans/active/2026-09-30-new-leaders-expansion.md`](plans/active/2026-09-30-new-leaders-expansion.md) - `Blocked at baseline reconciliation`. Thirteen selected civilization packages, retained provisional leaderheads, isolated branch and explicit art/runtime acceptance gates.
+- [`plans/active/2026-09-30-new-leaders-expansion.md`](plans/active/2026-09-30-new-leaders-expansion.md) - `In progress`. Thirteen selected civilization packages, retained provisional leaderheads, isolated branch and explicit art/runtime acceptance gates.
 - [`LEADER_OVERHAUL_PLAN_OF_RECORD.md`](LEADER_OVERHAUL_PLAN_OF_RECORD.md) - `Current process doc`. Overhaul methodology and guardrails. Use it with live XML/DLL verification, not as architecture truth.
 - [`plans/README.md`](plans/README.md) - `Current`. Standard location, naming, and expectations for checked-in plan docs.
 - [`plans/active/TEMPLATE.md`](plans/active/TEMPLATE.md) - `Current`. Reusable task plan template for non-trivial agent work.
