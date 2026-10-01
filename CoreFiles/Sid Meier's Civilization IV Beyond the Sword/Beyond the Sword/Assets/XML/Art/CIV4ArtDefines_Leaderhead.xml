@@ -565,5 +565,13 @@
   <NoShaderNIF>Art/Leaderheads/new/askia/Askia_Runtime.nif</NoShaderNIF>
   <BackgroundKFM>Art/Leaderheads/new/askia/Zara Yaqob_BG.kfm</BackgroundKFM>
 </LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_DAVID</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_DAVID.dds</Button>
+  <NIF>Art/Leaderheads/new/kingdavid/montezuma.nif</NIF>
+  <KFM>Art/Leaderheads/new/kingdavid/montezuma.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/kingdavid/montezuma.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/kingdavid/montezuma_bg.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
 </LeaderheadArtInfos>
 </Civ4ArtDefines>

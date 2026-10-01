@@ -1082,5 +1082,12 @@
   <fBlue>0.666667</fBlue>
   <fAlpha>1.000000</fAlpha>
 </ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_DAVID</Type>
+  <fRed>0.533333</fRed>
+  <fGreen>0.600000</fGreen>
+  <fBlue>0.000000</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
 </ColorVals>
 </Civ4ColorVals>

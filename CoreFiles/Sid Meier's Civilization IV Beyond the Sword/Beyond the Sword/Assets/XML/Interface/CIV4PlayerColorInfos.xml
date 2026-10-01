@@ -480,5 +480,11 @@
   <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_DAVID</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_DAVID</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_WHITE</TextColorType>
+</PlayerColorInfo>
 </PlayerColorInfos>
 </Civ4PlayerColorInfos>

@@ -132,6 +132,31 @@ int main()
 		std::printf("FAIL: overflow-safe marginal boundary\n");
 		return 9;
 	}
-	std::printf("PASS: %d exact occupation/research/cap/route/worked-plot/marginal cases plus empty and INT_MAX boundaries\n", iCases);
+	for (int iBits = 0; iBits < 64; ++iBits)
+	{
+		for (int iMinimum = 0; iMinimum <= 100; ++iMinimum)
+		{
+			for (int iLevel = 0; iLevel <= 110; ++iLevel)
+			{
+				const bool bExpected = iBits == 7 && iMinimum > 0 && iLevel >= iMinimum;
+				const bool bActual = ExpansionRules::eligibleVeteranGarrison(
+					(iBits & 1) != 0, (iBits & 2) != 0, (iBits & 4) != 0,
+					(iBits & 8) != 0, (iBits & 16) != 0, (iBits & 32) != 0, iLevel, iMinimum);
+				if (bActual != bExpected)
+				{
+					std::printf("FAIL veteran bits=%d minimum=%d level=%d\n", iBits, iMinimum, iLevel);
+					return 10;
+				}
+				++iCases;
+			}
+		}
+	}
+	if (!ExpansionRules::eligibleVeteranGarrison(true, true, true, false, false, false, INT_MAX, INT_MAX) ||
+		ExpansionRules::eligibleVeteranGarrison(true, true, true, false, false, false, INT_MAX - 1, INT_MAX))
+	{
+		std::printf("FAIL: veteran level boundary\n");
+		return 11;
+	}
+	std::printf("PASS: %d exact occupation/research/cap/route/worked-plot/marginal/veteran cases plus empty and INT_MAX boundaries\n", iCases);
 	return 0;
 }

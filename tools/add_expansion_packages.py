@@ -106,6 +106,19 @@ def resize_portrait_button(data: bytes, old_size: list[int], new_size: list[int]
     return output.getvalue()
 
 
+def dds_to_tga(data: bytes) -> bytes:
+    with Image.open(io.BytesIO(data)) as source:
+        if source.format != "DDS":
+            raise ValueError("Background transcode requires a DDS source")
+        image = source.convert("RGBA")
+    output = io.BytesIO()
+    image.save(output, format="TGA")
+    with Image.open(io.BytesIO(output.getvalue())) as check:
+        if check.size != image.size or check.convert("RGBA").tobytes() != image.tobytes():
+            raise ValueError("Background transcode changed decoded pixels")
+    return output.getvalue()
+
+
 def replace_fragment(node: ET.Element, fragment: str) -> None:
     for child in ET.fromstring("<Fragments>" + fragment + "</Fragments>"):
         existing = node.find(child.tag)
@@ -188,6 +201,8 @@ def generate(document: dict) -> dict[Path, bytes]:
                 data = retarget_kfm_model(data, **repair["kfm_model"])
             if "portrait_resize" in repair:
                 data = resize_portrait_button(data, **repair["portrait_resize"])
+            if repair.get("dds_to_tga"):
+                data = dds_to_tga(data)
             if "prepared_sha256" in repair:
                 data = target.read_bytes()
                 if hashlib.sha256(data).hexdigest() != repair["prepared_sha256"]:

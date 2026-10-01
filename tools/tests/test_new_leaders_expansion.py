@@ -8,11 +8,26 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
-from add_expansion_packages import ASSETS, XML, FILES, MANIFEST, append_record, baseline, canonical, parse, trait_scalar, retarget_kfm_model, resize_portrait_button
+from add_expansion_packages import ASSETS, XML, FILES, MANIFEST, append_record, baseline, canonical, parse, trait_scalar, retarget_kfm_model, resize_portrait_button, dds_to_tga
 from flags.flag_pipeline import validate_manifest_against_live
 
 
 class ExpansionWriterTests(unittest.TestCase):
+    def test_background_transcode_preserves_every_decoded_rgba_pixel(self):
+        import io
+        from PIL import Image
+        image = Image.new("RGBA", (8, 4))
+        image.putdata([(x * 7, x * 3, x * 5, x * 8) for x in range(32)])
+        source = io.BytesIO()
+        image.save(source, format="DDS")
+        payload = dds_to_tga(source.getvalue())
+        with Image.open(io.BytesIO(payload)) as result:
+            self.assertEqual(result.format, "TGA")
+            self.assertEqual(result.size, image.size)
+            self.assertEqual(result.convert("RGBA").tobytes(), image.tobytes())
+        with self.assertRaisesRegex(ValueError, "DDS source"):
+            dds_to_tga(payload)
+
     def test_reviewed_model_repairs_change_only_one_length_prefixed_filename(self):
         import struct
         from prepare_expansion_texture_paths import ART, SPECS
@@ -273,7 +288,22 @@ class ExpansionContractTests(unittest.TestCase):
                             expected = retarget_kfm_model(source, **repair["kfm_model"])
                         if "portrait_resize" in repair:
                             expected = resize_portrait_button(source, **repair["portrait_resize"])
+                        if repair.get("dds_to_tga"):
+                            expected = dds_to_tga(source)
                         self.assertEqual(current, expected)
+
+    def test_david_package_is_a_single_veteran_bonus_with_copper_or_iron(self):
+        trait = self.entry("trait", "TRAIT_EXP_DAVID")
+        self.assertEqual((trait.findtext("iVeteranGarrisonCulture"), trait.findtext("iVeteranGarrisonMinLevel"),
+                          trait.findtext("iDomesticGreatGeneralRateModifier")), ("3", "3", "25"))
+        unit = self.entry("unit", "UNIT_EXP_GIBBOR_ROYAL_RETAINER")
+        self.assertEqual((unit.findtext("iCost"), unit.findtext("iCityAttack"), unit.findtext("iHillsDefense")),
+                         ("45", "25", "25"))
+        self.assertEqual(unit.findtext("BonusType"), "NONE")
+        self.assertEqual([n.text for n in unit.findall("PrereqBonuses/BonusType")],
+                         ["BONUS_COPPER", "BONUS_IRON", "NONE", "NONE"])
+        citadel = self.entry("building", "BUILDING_EXP_ROYAL_CITADEL")
+        self.assertEqual((citadel.findtext("iCost"), citadel.findtext("ObsoleteTech")), ("60", "TECH_RIFLING"))
 
     def test_coastal_trade_package_is_capped_and_preserves_transport_role(self):
         trait = self.entry("trait", "TRAIT_EXP_HIRAM")

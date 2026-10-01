@@ -451,5 +451,11 @@
   <Path>Art/Interface/TeamColor/FlagDECAL_EXP_ASKIA.dds</Path>
   <bWhiteFlag>1</bWhiteFlag>
 </CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_ISRAEL_DAVIDIC</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_DAVID.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_DAVID.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
 </CivilizationArtInfos>
 </Civ4ArtDefines>

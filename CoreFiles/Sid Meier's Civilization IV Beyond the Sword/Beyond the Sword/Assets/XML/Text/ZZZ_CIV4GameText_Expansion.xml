@@ -2392,4 +2392,236 @@
     <Italian>I am Askia Muhammad. Let us speak of peace and the prosperity of our peoples.</Italian>
     <Spanish>I am Askia Muhammad. Let us speak of peace and the prosperity of our peoples.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_GIBBOR_ROYAL_RETAINER</Tag>
+    <English>Gibbor Royal Retainer</English>
+    <French>Gibbor Royal Retainer</French>
+    <German>Gibbor Royal Retainer</German>
+    <Italian>Gibbor Royal Retainer</Italian>
+    <Spanish>Gibbor Royal Retainer</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_GIBBOR_ROYAL_RETAINER_PEDIA</Tag>
+    <English>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</English>
+    <French>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</French>
+    <German>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</German>
+    <Italian>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</Italian>
+    <Spanish>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_GIBBOR_ROYAL_RETAINER_STRATEGY</Tag>
+    <English>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</English>
+    <French>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</French>
+    <German>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</German>
+    <Italian>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</Italian>
+    <Spanish>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ROYAL_CITADEL</Tag>
+    <English>Royal Citadel</English>
+    <French>Royal Citadel</French>
+    <German>Royal Citadel</German>
+    <Italian>Royal Citadel</Italian>
+    <Spanish>Royal Citadel</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ROYAL_CITADEL_PEDIA</Tag>
+    <English>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</English>
+    <French>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</French>
+    <German>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</German>
+    <Italian>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</Italian>
+    <Spanish>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ROYAL_CITADEL_STRATEGY</Tag>
+    <English>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</English>
+    <French>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</French>
+    <German>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</German>
+    <Italian>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</Italian>
+    <Spanish>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_DAVID</Tag>
+    <English>Songs of Unification</English>
+    <French>Songs of Unification</French>
+    <German>Songs of Unification</German>
+    <Italian>Songs of Unification</Italian>
+    <Spanish>Songs of Unification</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_DAVID_SHORT</Tag>
+    <English>Songs of Unification</English>
+    <French>Songs of Unification</French>
+    <German>Songs of Unification</German>
+    <Italian>Songs of Unification</Italian>
+    <Spanish>Songs of Unification</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_DAVID</Tag>
+    <English>David</English>
+    <French>David</French>
+    <German>David</German>
+    <Italian>David</Italian>
+    <Spanish>David</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_DAVID_PEDIA</Tag>
+    <English>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</English>
+    <French>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</French>
+    <German>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</German>
+    <Italian>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</Italian>
+    <Spanish>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_ISRAEL_DAVIDIC_DESCRIPTION</Tag>
+    <English>Israel: Davidic Kingdom</English>
+    <French>Israel: Davidic Kingdom</French>
+    <German>Israel: Davidic Kingdom</German>
+    <Italian>Israel: Davidic Kingdom</Italian>
+    <Spanish>Israel: Davidic Kingdom</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_ISRAEL_DAVIDIC_SHORTDESCRIPTION</Tag>
+    <English>Israel: Davidic Kingdom</English>
+    <French>Israel: Davidic Kingdom</French>
+    <German>Israel: Davidic Kingdom</German>
+    <Italian>Israel: Davidic Kingdom</Italian>
+    <Spanish>Israel: Davidic Kingdom</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_ISRAEL_DAVIDIC_ADJECTIVE</Tag>
+    <English>Davidic</English>
+    <French>Davidic</French>
+    <German>Davidic</German>
+    <Italian>Davidic</Italian>
+    <Spanish>Davidic</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_ISRAEL_DAVIDIC_CIVILOPEDIA</Tag>
+    <English>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</English>
+    <French>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</French>
+    <German>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</German>
+    <Italian>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</Italian>
+    <Spanish>David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_1</Tag>
+    <English>Jerusalem</English>
+    <French>Jerusalem</French>
+    <German>Jerusalem</German>
+    <Italian>Jerusalem</Italian>
+    <Spanish>Jerusalem</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_2</Tag>
+    <English>Hebron</English>
+    <French>Hebron</French>
+    <German>Hebron</German>
+    <Italian>Hebron</Italian>
+    <Spanish>Hebron</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_3</Tag>
+    <English>Bethlehem</English>
+    <French>Bethlehem</French>
+    <German>Bethlehem</German>
+    <Italian>Bethlehem</Italian>
+    <Spanish>Bethlehem</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_4</Tag>
+    <English>Gibeah</English>
+    <French>Gibeah</French>
+    <German>Gibeah</German>
+    <Italian>Gibeah</Italian>
+    <Spanish>Gibeah</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_5</Tag>
+    <English>Gibeon</English>
+    <French>Gibeon</French>
+    <German>Gibeon</German>
+    <Italian>Gibeon</Italian>
+    <Spanish>Gibeon</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_6</Tag>
+    <English>Mahanaim</English>
+    <French>Mahanaim</French>
+    <German>Mahanaim</German>
+    <Italian>Mahanaim</Italian>
+    <Spanish>Mahanaim</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_7</Tag>
+    <English>Ziklag</English>
+    <French>Ziklag</French>
+    <German>Ziklag</German>
+    <Italian>Ziklag</Italian>
+    <Spanish>Ziklag</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_8</Tag>
+    <English>Keilah</English>
+    <French>Keilah</French>
+    <German>Keilah</German>
+    <Italian>Keilah</Italian>
+    <Spanish>Keilah</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_9</Tag>
+    <English>Adullam</English>
+    <French>Adullam</French>
+    <German>Adullam</German>
+    <Italian>Adullam</Italian>
+    <Spanish>Adullam</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_10</Tag>
+    <English>En Gedi</English>
+    <French>En Gedi</French>
+    <German>En Gedi</German>
+    <Italian>En Gedi</Italian>
+    <Spanish>En Gedi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_11</Tag>
+    <English>Ramah</English>
+    <French>Ramah</French>
+    <German>Ramah</German>
+    <Italian>Ramah</Italian>
+    <Spanish>Ramah</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_12</Tag>
+    <English>Bethel</English>
+    <French>Bethel</French>
+    <German>Bethel</German>
+    <Italian>Bethel</Italian>
+    <Spanish>Bethel</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_13</Tag>
+    <English>Shechem</English>
+    <French>Shechem</French>
+    <German>Shechem</German>
+    <Italian>Shechem</Italian>
+    <Spanish>Shechem</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DAVID_14</Tag>
+    <English>Jabesh</English>
+    <French>Jabesh</French>
+    <German>Jabesh</German>
+    <Italian>Jabesh</Italian>
+    <Spanish>Jabesh</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_DAVID</Tag>
+    <English>I am David. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am David. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am David. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am David. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am David. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
 </Civ4GameText>

@@ -9414,6 +9414,54 @@ int CvCity::getImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerc
 	return m_aiImprovementCityCommerceFromTraitsAndCivicsBFC[eCommerce];
 }
 
+bool CvCity::qualifiesVeteranGarrison(const CvUnit* pUnit, int iMinimumLevel) const
+{
+	return pUnit != NULL && ExpansionRules::eligibleVeteranGarrison(
+		pUnit->getOwnerINLINE() == getOwnerINLINE(), pUnit->getDomainType() == DOMAIN_LAND,
+		pUnit->canFight(), pUnit->isAnimal(), pUnit->isCargo(), pUnit->isDead() || pUnit->isDelayedDeath(),
+		pUnit->getLevel(), iMinimumLevel);
+}
+
+int CvCity::getVeteranGarrisonCulture(const CvUnit* pExtraUnit, const CvUnit* pExcludedUnit) const
+{
+	if (getOwnerINLINE() == NO_PLAYER || plot() == NULL)
+		return 0;
+	int iCulture = 0;
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)i);
+		if (kTrait.getVeteranGarrisonCulture() == 0 || !hasTrait((TraitTypes)i))
+			continue;
+		bool bQualifies = pExtraUnit != pExcludedUnit &&
+			qualifiesVeteranGarrison(pExtraUnit, kTrait.getVeteranGarrisonMinLevel());
+		for (CLLNode<IDInfo>* pNode = plot()->headUnitNode(); pNode != NULL && !bQualifies;
+			pNode = plot()->nextUnitNode(pNode))
+		{
+			const CvUnit* pUnit = ::getUnit(pNode->m_data);
+			bQualifies = pUnit != pExcludedUnit && qualifiesVeteranGarrison(pUnit, kTrait.getVeteranGarrisonMinLevel());
+		}
+		if (bQualifies)
+			iCulture += kTrait.getVeteranGarrisonCulture();
+	}
+	return iCulture;
+}
+
+void CvCity::updateVeteranGarrisonCulture()
+{
+	if (getOwnerINLINE() == NO_PLAYER)
+		return;
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		if (GC.getTraitInfo((TraitTypes)i).getVeteranGarrisonCulture() > 0 && hasTrait((TraitTypes)i))
+		{
+			updateCommerce(COMMERCE_CULTURE);
+			AI_setAssignWorkDirty(true);
+			setInfoDirty(true);
+			break;
+		}
+	}
+}
+
 int CvCity::getTraitSpecialistCommerce(CommerceTypes eCommerce) const
 {
 	int iTotal = 0;
@@ -9433,6 +9481,8 @@ int CvCity::getBaseCommerceRateTimes100(CommerceTypes eIndex) const
 
 	iBaseCommerceRate += 100 * ((getSpecialistPopulation() + getNumGreatPeople()) * GET_PLAYER(getOwnerINLINE()).getSpecialistExtraCommerce(eIndex));
 	iBaseCommerceRate += 100 * getTraitSpecialistCommerce(eIndex);
+	if (eIndex == COMMERCE_CULTURE)
+		iBaseCommerceRate += 100 * getVeteranGarrisonCulture();
 
 	// Improvement-driven city commerce (worked tiles and in-BFC tiles) from traits/civics.
 	iBaseCommerceRate += 100 * getImprovementCityCommerceFromTraitsAndCivics(eIndex, true);

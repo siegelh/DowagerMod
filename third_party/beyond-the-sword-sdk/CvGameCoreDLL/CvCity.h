@@ -960,6 +960,8 @@ public:
 	ExpansionRules::WorkedPlotBonuses getWorkedPlotMarginal(const CvPlot* pPlot, bool bRemove, BuildTypes eBuild = NO_BUILD) const;
 	int getWorkedPlotProduction() const { return m_iWorkedPlotProduction; }
 	int getTraitSpecialistCommerce(CommerceTypes eCommerce) const;
+	int getVeteranGarrisonCulture(const CvUnit* pExtraUnit = NULL, const CvUnit* pExcludedUnit = NULL) const;
+	void updateVeteranGarrisonCulture();
 
 protected:
 
@@ -1187,6 +1189,7 @@ protected:
 	bool canHurryBuilding(HurryTypes eHurry, BuildingTypes eBuilding, bool bIgnoreNew) const;
 	int calculateImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const;
 	bool qualifiesWorkedPlot(const CvPlot* pPlot, TraitTypes eTrait, bool bWorked, BuildTypes eBuild = NO_BUILD) const;
+	bool qualifiesVeteranGarrison(const CvUnit* pUnit, int iMinimumLevel) const;
 	bool areBuildingLocalImprovementPrereqsMet(BuildingTypes eBuilding) const;
 	bool areBuildingLocalBonusPrereqsMet(BuildingTypes eBuilding) const;
 	bool areBuildingConnectedBonusPrereqsMet(BuildingTypes eBuilding) const;

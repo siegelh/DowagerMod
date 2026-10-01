@@ -3548,5 +3548,29 @@
   <FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo>
+<TraitInfo>
+  <Type>TRAIT_EXP_DAVID</Type>
+  <Description>TXT_KEY_TRAIT_EXP_DAVID</Description>
+  <ShortDescription>TXT_KEY_TRAIT_EXP_DAVID_SHORT</ShortDescription>
+  <iHealth>0</iHealth>
+  <iHappiness>0</iHappiness>
+  <iMaxAnarchy>-1</iMaxAnarchy>
+  <iUpkeepModifier>0</iUpkeepModifier>
+  <iLevelExperienceModifier>0</iLevelExperienceModifier>
+  <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
+  <iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
+  <iDomesticGreatGeneralRateModifier>25</iDomesticGreatGeneralRateModifier>
+  <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
+  <iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier>
+  <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
+  <iVeteranGarrisonCulture>3</iVeteranGarrisonCulture>
+  <iVeteranGarrisonMinLevel>3</iVeteranGarrisonMinLevel>
+  <ExtraYieldThresholds />
+  <TradeYieldModifiers />
+  <CommerceChanges />
+  <CommerceModifiers />
+  <FreePromotions />
+  <FreePromotionUnitCombats />
+</TraitInfo>
 </TraitInfos>
 </Civ4TraitInfos>

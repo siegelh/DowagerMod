@@ -302,6 +302,37 @@
       "colors": ["COLOR_PLAYER_EXP_ASKIA", "COLOR_YELLOW", "COLOR_WHITE"],
       "primary_rgb": [0.0, 1.0, 0.666667],
       "flag_note": "Original geometric gold earthen tower and open manuscript above blue river lines on dark green. A scholarly/commercial gameplay reconstruction, not an attested Askia standard or copied mosque illustration."
+    },
+    {
+      "id": "DAVID",
+      "civilization": "ISRAEL_DAVIDIC",
+      "name": "David",
+      "civ_name": "Israel: Davidic Kingdom",
+      "adjective": "Davidic",
+      "civ_parent": "CIVILIZATION_BABYLON",
+      "leader_parent": "LEADER_HAMMURABI",
+      "cities": ["Jerusalem", "Hebron", "Bethlehem", "Gibeah", "Gibeon", "Mahanaim", "Ziklag", "Keilah", "Adullam", "En Gedi", "Ramah", "Bethel", "Shechem", "Jabesh"],
+      "techs": ["TECH_HUNTING", "TECH_MYSTICISM"],
+      "civic": "CIVIC_HEREDITARY_RULE",
+      "religion": "RELIGION_JUDAISM",
+      "flavors": {"FLAVOR_CULTURE": 6, "FLAVOR_MILITARY": 5, "FLAVOR_RELIGION": 4, "FLAVOR_GROWTH": 3},
+      "leader_scalars": {"iBasePeaceWeight": 5, "iMaxWarRand": 180, "iBuildUnitProb": 30},
+      "trait_name": "Songs of Unification",
+      "trait_help": "+3 city Culture once while at least one owned, non-cargo, non-animal, combat-capable land unit of level 3 or higher occupies the city tile. +25% domestic Great General rate. Additional veterans do not stack the Culture.",
+      "trait_scalars": {"iVeteranGarrisonCulture": 3, "iVeteranGarrisonMinLevel": 3, "iDomesticGreatGeneralRateModifier": 25},
+      "trait_xml": "",
+      "unit": {"id": "GIBBOR_ROYAL_RETAINER", "parent": "UNIT_SWORDSMAN", "name": "Gibbor Royal Retainer", "scalars": {"iCost": 45, "iCityAttack": 25, "iHillsDefense": 25, "BonusType": "NONE"}, "xml": "<PrereqBonuses><BonusType>BONUS_COPPER</BonusType><BonusType>BONUS_IRON</BonusType><BonusType>NONE</BonusType><BonusType>NONE</BonusType></PrereqBonuses>", "strategy": "A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform."},
+      "building": {"id": "ROYAL_CITADEL", "parent": "BUILDING_WALLS", "name": "Royal Citadel", "scalars": {"iCost": 60}, "xml": "<CommerceChanges><iCommerce>0</iCommerce><iCommerce>0</iCommerce><iCommerce>1</iCommerce><iCommerce>0</iCommerce></CommerceChanges><SpecialistCounts><SpecialistCount><SpecialistType>SPECIALIST_PRIEST</SpecialistType><iSpecialistCount>1</iSpecialistCount></SpecialistCount></SpecialistCounts>", "strategy": "A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple."},
+      "history": "David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.",
+      "source_url": "https://en.wikipedia.org/wiki/David",
+      "art": {"folder": "kingdavid", "NIF": "montezuma.nif", "KFM": "montezuma.kfm", "NoShaderNIF": "montezuma.nif", "BackgroundKFM": "montezuma_bg.kfm", "Button": null},
+      "art_status": "Existing primary, costume, animation files and static background retained provisionally by explicit owner request despite the audit's remake recommendation. No distinct nonshader model or portrait button exists; the primary is used in both fields, and an original harp emblem is explicitly not a portrait. Missing Julius background TGA is restored from repeated identical repository DDS pixels with matching background geometry and UV evidence. Stock Swordsman/Walls and inherited Middle Eastern citystyles are provisional; later Maccabee art is not misrepresented as Davidic.",
+      "repairs": [
+        {"source": "Art/Leaderheads/new/owain/julius_bkgr_diff.dds", "target": "Art/Leaderheads/new/kingdavid/julius_bkgr_DIFF.tga", "sha256": "aea8df84b1473fc992df2b093d43705d502ad3f52bea48889cf042643c413850", "dds_to_tga": true, "evidence": "Owain and Mangal Pandey bundle identical 512x256 RGBA Julius background DDS files. Their Alexander background plane matches David's background_stub art geometry and UVs exactly (vertex SHA256 96e82d9ab36aa307ead5eea28d35641bd2bde99b5b6012ac1b88f9508bcddf68; UV SHA256 6c747f491fd8f84bfcf73978c1daeae7d39a623baff994c7d8eaa39a2beab112). Lossless decoded-pixel conversion to the referenced TGA leaves the NIF and existing Cyrus textures untouched."}
+      ],
+      "colors": ["COLOR_PLAYER_EXP_DAVID", "COLOR_YELLOW", "COLOR_WHITE"],
+      "primary_rgb": [0.533333, 0.6, 0.0],
+      "flag_note": "Original geometric gold harp on deep blue, referring to the literary tradition of Davidic songs. Explicitly a provisional gameplay emblem, not an attested ancient national flag or a modern-state symbol."
     }
   ]
 }

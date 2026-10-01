@@ -455,6 +455,8 @@
 		<element type="iConquestOccupationReductionPercent" minOccurs="0"/>
 		<element type="iCoastalForeignTeamGold" minOccurs="0"/>
 		<element type="iCoastalForeignTeamGoldCap" minOccurs="0"/>
+		<element type="iVeteranGarrisonCulture" minOccurs="0"/>
+		<element type="iVeteranGarrisonMinLevel" minOccurs="0"/>
 		<element type="WorkedPlotCondition" minOccurs="0"/>
 		<element type="iWorkedPlotProduction" minOccurs="0"/>
 		<element type="iWorkedPlotGold" minOccurs="0"/>
@@ -490,6 +492,8 @@
 	<ElementType name="iConquestOccupationReductionPercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iCoastalForeignTeamGold" content="textOnly" dt:type="int"/>
 	<ElementType name="iCoastalForeignTeamGoldCap" content="textOnly" dt:type="int"/>
+	<ElementType name="iVeteranGarrisonCulture" content="textOnly" dt:type="int"/>
+	<ElementType name="iVeteranGarrisonMinLevel" content="textOnly" dt:type="int"/>
 	<ElementType name="WorkedPlotCondition" content="textOnly"/>
 	<ElementType name="iWorkedPlotProduction" content="textOnly" dt:type="int"/>
 	<ElementType name="iWorkedPlotGold" content="textOnly" dt:type="int"/>

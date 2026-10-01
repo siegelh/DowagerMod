@@ -104,4 +104,20 @@
     <Italian>+%d1%c2 from improvement city bonuses</Italian>
     <Spanish>+%d1%c2 from improvement city bonuses</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_VETERAN_GARRISON</Tag>
+    <English>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</English>
+    <French>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</French>
+    <German>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</German>
+    <Italian>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</Italian>
+    <Spanish>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_VETERAN_GARRISON</Tag>
+    <English>+%d1%c2 from veteran garrison (once per city)</English>
+    <French>+%d1%c2 from veteran garrison (once per city)</French>
+    <German>+%d1%c2 from veteran garrison (once per city)</German>
+    <Italian>+%d1%c2 from veteran garrison (once per city)</Italian>
+    <Spanish>+%d1%c2 from veteran garrison (once per city)</Spanish>
+  </TEXT>
 </Civ4GameText>

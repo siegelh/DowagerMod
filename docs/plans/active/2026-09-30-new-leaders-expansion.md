@@ -1,8 +1,8 @@
 # Thirteen-Leader Expansion
 
-- Status: `in_progress`; ten packages integrated; E1/E2/E3/E5 engine and content gated.
+- Status: `in_progress`; eleven packages integrated; E1/E2/E3/E5/E7 engine and content gated.
 - Owner / agent: repository owner / GitHub Copilot.
-- Last updated: `2026-09-30`.
+- Last updated: `2026-10-01`.
 
 ## Problem Statement
 
@@ -454,3 +454,36 @@ After the precise ColorVals correction, the cumulative suite reports
 No in-game animation, low-settings rendering, gameplay, AI, old-save or
 multiplayer acceptance has been performed. E9 Assyria/Palmyra, E7 David and
 final manual acceptance remain outstanding; not ready to merge/deploy.
+
+### David and E7 veteran-garrison checkpoint
+
+Eleven packages now produce **70 selectable civilizations**. David receives
+once-per-city +3 Culture for an owned, living, non-cargo, non-animal combat
+land unit of level 3+, plus +25% domestic Great General rate. The Gibbor
+Retainer preserves Iron Working but allows Copper OR Iron; the Royal Citadel
+adds Culture and a Priest slot without a hills-only placement restriction.
+
+E7 uses current city-tile units rather than serialized bonus state. Unit
+arrival/departure, level, transport, combat capability, death and final load
+initialization refresh Culture. City/trait help shares the authority used by
+accounting; bounded AI destination and defender-retention preferences value
+only marginal Culture. Existing defense requirements remain intact.
+
+The native executable passes **1,399,852 exact cases** plus boundaries.
+The native gate passed (`files\expansion-e7-final-gate.log`); after content
+generation, **59 focused tests** and the required XML/content gate pass
+(`files\expansion-david-gate.log`). SDK/mirror SHA256:
+`9cc1fb392163250bebb55e4069badb72e05372d194d8bf086bf832476739b45e`.
+Generation reconciles **48 files**. The earlier historical additive-signature
+failure remains unresolved and is not represented as a passing full suite.
+
+David's retained model and eight animation clips are unchanged. The missing
+background TGA is reconstructed from a pinned bundled DDS donor whose
+background-plane vertices/UVs match; conversion verifies every decoded RGBA
+pixel. His background KFM has zero clips and remains static. There is no
+distinct nonshader model or portrait; the original harp emblem is a provisional
+button, not a portrait. These are explicit manual acceptance risks.
+
+Sennacherib/Zenobia and E9 remain outstanding. Manual gameplay, AI, graphics,
+old-save and multiplayer acceptance have NOT run. **Ready for merge/deploy: No.**
+No push, merge, installer or live-game action occurred.

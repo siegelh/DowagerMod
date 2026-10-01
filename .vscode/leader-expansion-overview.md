@@ -6,18 +6,19 @@
 Each civilization has one intended leader, one unique unit, one unique building,
 and one signature trait. This does not increase simultaneous player slots.
 
-Ten packages are integrated: **Piye, Stefan Dusan, Matthias Corvinus,
+Eleven packages are integrated: **Piye, Stefan Dusan, Matthias Corvinus,
 Pedro II, Mongkut, Simon Bolivar, Hiram I, Ramkhamhaeng, Ho Chi Minh,
-and Askia Muhammad**. The current selectable roster is **69**.
-**Sennacherib, Zenobia and David** remain in progress. Mongkut's diplomatic-research
+Askia Muhammad and David**. The current selectable roster is **70**.
+**Sennacherib and Zenobia** remain in progress. Mongkut's diplomatic-research
 and Bolivar's conquest-occupation rules are wired into their civilizations;
 their native support has compiled and the content has passed its gate.
 Hiram's coastal trade-team Gold rule, city breakdown and AI treaty-value
 estimate are integrated too; the bonus pays only for actual active routes.
 The shared capped worked-plot engine is compiled: city accounting, governor
 and worker estimates, technology/building refreshes and tooltips are wired.
-Ramkhamhaeng, Ho and Askia now use those rules. The three remaining packages
-are not yet selectable.
+Ramkhamhaeng, Ho and Askia now use those rules. David's veteran-garrison
+Culture refreshes with unit movement, level, transport and death changes;
+animals do not qualify. The two remaining packages are not yet selectable.
 
 All balance numbers are initial targets, not playtested conclusions.
 Leaderheads and supporting visuals are provisional until in-game acceptance.

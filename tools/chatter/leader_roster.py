@@ -80,6 +80,7 @@ LEADERS: tuple = (
     ("Ramkhamhaeng", "Sukhothai"),
     ("Ho Chi Minh", "Vietnam: Democratic Republic"),
     ("Askia Muhammad", "Songhai: Askia Dynasty"),
+    ("David", "Israel: Davidic Kingdom"),
 )
 
 

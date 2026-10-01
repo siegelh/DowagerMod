@@ -16937,6 +16937,8 @@ m_iOpenBordersKnownTechResearchModifier(0),
 m_iConquestOccupationReductionPercent(0),
 m_iCoastalForeignTeamGold(0),
 m_iCoastalForeignTeamGoldCap(0),
+m_iVeteranGarrisonCulture(0),
+m_iVeteranGarrisonMinLevel(0),
 m_eWorkedPlotCondition(ExpansionRules::NO_WORKED_PLOT_CONDITION),
 m_iWorkedPlotProduction(0),
 m_iWorkedPlotGold(0),
@@ -17429,6 +17431,15 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iConquestOccupationReductionPercent, "iConquestOccupationReductionPercent", 0);
 	pXML->GetChildXmlValByName(&m_iCoastalForeignTeamGold, "iCoastalForeignTeamGold", 0);
 	pXML->GetChildXmlValByName(&m_iCoastalForeignTeamGoldCap, "iCoastalForeignTeamGoldCap", 0);
+	pXML->GetChildXmlValByName(&m_iVeteranGarrisonCulture, "iVeteranGarrisonCulture", 0);
+	pXML->GetChildXmlValByName(&m_iVeteranGarrisonMinLevel, "iVeteranGarrisonMinLevel", 0);
+	if (m_iVeteranGarrisonCulture < 0 || m_iVeteranGarrisonCulture > 100 ||
+		m_iVeteranGarrisonMinLevel < 0 || m_iVeteranGarrisonMinLevel > 100 ||
+		((m_iVeteranGarrisonCulture == 0) != (m_iVeteranGarrisonMinLevel == 0)))
+	{
+		gDLL->logMsg("xml.log", CvString::format("Trait %s: invalid veteran garrison Culture or level", getType()));
+		return false;
+	}
 	if (m_iCoastalForeignTeamGold < 0 || m_iCoastalForeignTeamGold > 100 ||
 		m_iCoastalForeignTeamGoldCap < 0 || m_iCoastalForeignTeamGoldCap > 100 ||
 		((m_iCoastalForeignTeamGold == 0) != (m_iCoastalForeignTeamGoldCap == 0)))

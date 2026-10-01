@@ -7585,7 +7585,10 @@ bool CvUnit::isDead() const
 
 void CvUnit::setBaseCombatStr(int iCombat)
 {
+	const bool bCouldFight = canFight();
 	m_iBaseCombat = iCombat;
+	if (bCouldFight != canFight())
+		updateVeteranGarrisonCommerce();
 }
 
 int CvUnit::baseCombatStr() const
@@ -9769,6 +9772,10 @@ void CvUnit::setDamage(int iNewValue, PlayerTypes ePlayer, bool bNotifyEntity)
 	{
 		kill(true, ePlayer);
 	}
+	else if (iOldValue >= maxHitPoints())
+	{
+		updateVeteranGarrisonCommerce();
+	}
 }
 
 
@@ -9892,6 +9899,7 @@ void CvUnit::setLevel(int iNewValue)
 	{
 		m_iLevel = iNewValue;
 		FAssert(getLevel() >= 0);
+		updateVeteranGarrisonCommerce();
 
 		if (getLevel() > GET_PLAYER(getOwnerINLINE()).getHighestUnitLevel())
 		{
@@ -10633,9 +10641,17 @@ bool CvUnit::isDelayedDeath() const
 }
 
 
-void CvUnit::startDelayedDeath()			
+void CvUnit::updateVeteranGarrisonCommerce()
+{
+	CvPlot* pPlot = plot();
+	if (pPlot != NULL && pPlot->getPlotCity() != NULL)
+		pPlot->getPlotCity()->updateVeteranGarrisonCulture();
+}
+
+void CvUnit::startDelayedDeath()
 {
 	m_bDeathDelay = true;
+	updateVeteranGarrisonCommerce();
 }
 
 
@@ -10948,6 +10964,7 @@ void CvUnit::setTransportUnit(CvUnit* pTransportUnit)
 
 			getGroup()->setActivityType(ACTIVITY_AWAKE);
 		}
+		updateVeteranGarrisonCommerce();
 
 #ifdef _DEBUG
 		std::vector<CvUnit*> aCargoUnits;

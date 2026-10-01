@@ -226,5 +226,25 @@
       }
     ],
     "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_DAVID",
+    "status": "Existing primary, costume, animation files and static background retained provisionally by explicit owner request despite the audit's remake recommendation. No distinct nonshader model or portrait button exists; the primary is used in both fields, and an original harp emblem is explicitly not a portrait. Missing Julius background TGA is restored from repeated identical repository DDS pixels with matching background geometry and UV evidence. Stock Swordsman/Walls and inherited Middle Eastern citystyles are provisional; later Maccabee art is not misrepresented as Davidic.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/kingdavid/montezuma.nif": "5fc6cdc3bad34411837d23e6782ca6a2a2eccb4c2406cbedb8de5f96692cc4e3",
+      "Art/Leaderheads/new/kingdavid/montezuma.kfm": "fa70d3c963707ee841c7989e22cbcf138cca4c5a798191a6ce9f27d3e5638b69",
+      "Art/Leaderheads/new/kingdavid/montezuma_bg.kfm": "9e927064ad9be6e74e64d0b5a442ffad17b0b3a9ad37e46719b1357ff04dfadc",
+      "Art/Interface/Buttons/Civilizations/EXP_DAVID.dds": "4140e992c07307c332c660eb90ecad36ceebff7f9e8e7a27752ac632e760ec75"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/owain/julius_bkgr_diff.dds",
+        "target": "Art/Leaderheads/new/kingdavid/julius_bkgr_DIFF.tga",
+        "sha256": "aea8df84b1473fc992df2b093d43705d502ad3f52bea48889cf042643c413850",
+        "dds_to_tga": true,
+        "evidence": "Owain and Mangal Pandey bundle identical 512x256 RGBA Julius background DDS files. Their Alexander background plane matches David's background_stub art geometry and UVs exactly (vertex SHA256 96e82d9ab36aa307ead5eea28d35641bd2bde99b5b6012ac1b88f9508bcddf68; UV SHA256 6c747f491fd8f84bfcf73978c1daeae7d39a623baff994c7d8eaa39a2beab112). Lossless decoded-pixel conversion to the referenced TGA leaves the NIF and existing Cyrus textures untouched."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
   }
 ]

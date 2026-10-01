@@ -5274,6 +5274,7 @@ void CvGame::setFinalInitialized(bool bNewValue)
 				{
 					if (pCity->hasWorkedPlotRules())
 						pCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
+					pCity->updateVeteranGarrisonCulture();
 				}
 			}
 

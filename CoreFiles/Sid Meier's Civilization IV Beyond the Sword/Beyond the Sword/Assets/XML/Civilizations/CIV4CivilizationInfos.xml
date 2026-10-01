@@ -8336,5 +8336,85 @@
   <CivilizationSelectionSound>AS3D_MALI_SELECT</CivilizationSelectionSound>
   <CivilizationActionSound>AS3D_MALI_ORDER</CivilizationActionSound>
 </CivilizationInfo>
+<CivilizationInfo>
+  <Type>CIVILIZATION_EXP_ISRAEL_DAVIDIC</Type>
+  <Description>TXT_KEY_CIVILIZATION_EXP_ISRAEL_DAVIDIC_DESCRIPTION</Description>
+  <ShortDescription>TXT_KEY_CIVILIZATION_EXP_ISRAEL_DAVIDIC_SHORTDESCRIPTION</ShortDescription>
+  <Adjective>TXT_KEY_CIVILIZATION_EXP_ISRAEL_DAVIDIC_ADJECTIVE</Adjective>
+  <Civilopedia>TXT_KEY_CIVILIZATION_EXP_ISRAEL_DAVIDIC_CIVILOPEDIA</Civilopedia>
+  <DefaultPlayerColor>PLAYERCOLOR_EXP_DAVID</DefaultPlayerColor>
+  <ArtDefineTag>ART_DEF_CIVILIZATION_EXP_ISRAEL_DAVIDIC</ArtDefineTag>
+  <ArtStyleType>ARTSTYLE_CRESCENT</ArtStyleType>
+  <UnitArtStyleType>UNIT_ARTSTYLE_MIDDLE_EAST</UnitArtStyleType>
+  <bPlayable>1</bPlayable>
+  <bAIPlayable>1</bAIPlayable>
+  <Cities>
+    <City>TXT_KEY_CITY_EXP_DAVID_1</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_2</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_3</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_4</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_5</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_6</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_7</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_8</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_9</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_10</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_11</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_12</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_13</City>
+    <City>TXT_KEY_CITY_EXP_DAVID_14</City>
+  </Cities>
+  <Buildings>
+    <Building>
+      <BuildingClassType>BUILDINGCLASS_WALLS</BuildingClassType>
+      <BuildingType>BUILDING_EXP_ROYAL_CITADEL</BuildingType>
+    </Building>
+  </Buildings>
+  <Units>
+    <Unit>
+      <UnitClassType>UNITCLASS_SWORDSMAN</UnitClassType>
+      <UnitType>UNIT_EXP_GIBBOR_ROYAL_RETAINER</UnitType>
+    </Unit>
+  </Units>
+  <FreeUnitClasses>
+    <FreeUnitClass>
+      <UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+      <iFreeUnits>1</iFreeUnits>
+    </FreeUnitClass>
+  </FreeUnitClasses>
+  <FreeBuildingClasses>
+    <FreeBuildingClass>
+      <BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+      <bFreeBuildingClass>1</bFreeBuildingClass>
+    </FreeBuildingClass>
+  </FreeBuildingClasses>
+  <FreeTechs>
+    <FreeTech>
+      <TechType>TECH_HUNTING</TechType>
+      <bFreeTech>1</bFreeTech>
+    </FreeTech>
+    <FreeTech>
+      <TechType>TECH_MYSTICISM</TechType>
+      <bFreeTech>1</bFreeTech>
+    </FreeTech>
+  </FreeTechs>
+  <DisableTechs />
+  <InitialCivics>
+    <CivicType>CIVIC_DESPOTISM</CivicType>
+    <CivicType>CIVIC_BARBARISM</CivicType>
+    <CivicType>CIVIC_TRIBALISM</CivicType>
+    <CivicType>CIVIC_DECENTRALIZATION</CivicType>
+    <CivicType>CIVIC_PAGANISM</CivicType>
+  </InitialCivics>
+  <Leaders>
+    <Leader>
+      <LeaderName>LEADER_EXP_DAVID</LeaderName>
+      <bLeaderAvailability>1</bLeaderAvailability>
+    </Leader>
+  </Leaders>
+  <DerivativeCiv>CIVILIZATION_PERSIA</DerivativeCiv>
+  <CivilizationSelectionSound>AS3D_BABYLON_SELECT</CivilizationSelectionSound>
+  <CivilizationActionSound>AS3D_BABYLON_ORDER</CivilizationActionSound>
+</CivilizationInfo>
 </CivilizationInfos>
 </Civ4CivilizationInfos>

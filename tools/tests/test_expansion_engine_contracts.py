@@ -35,7 +35,8 @@ def test_research_access_is_additive_once_and_uses_live_team_state():
 def test_trait_extensions_are_neutral_and_do_not_introduce_cache_or_save_state():
     source = (DLL / "CvInfos.cpp").read_text()
     for field in ("OpenBordersKnownTechResearchModifier", "ConquestOccupationReductionPercent",
-                  "CoastalForeignTeamGold", "CoastalForeignTeamGoldCap"):
+                  "CoastalForeignTeamGold", "CoastalForeignTeamGoldCap",
+                  "VeteranGarrisonCulture", "VeteranGarrisonMinLevel"):
         assert f'm_i{field}(0)' in source
         assert f'&m_i{field}, "i{field}", 0' in source
     loader = (DLL / "CvXMLLoadUtilitySet.cpp").read_text()
@@ -178,8 +179,58 @@ def test_commerce_breakdown_includes_all_trait_sources_without_double_counting()
     records = ET.parse(text).getroot()
     ns = {"f": "http://www.firaxis.com"}
     keys = {record.findtext("f:Tag", namespaces=ns) for record in records}
-    used = set(re.findall(r'"(TXT_KEY_(?:TRAIT|CITY)_EXP_WORKED[^"]*|TXT_KEY_EXP_WORKED[^"]*)"', source))
+    used = set(re.findall(r'"(TXT_KEY_(?:TRAIT|CITY)_EXP_(?:WORKED|VETERAN)[^"]*|TXT_KEY_EXP_WORKED[^"]*)"', source))
     assert used <= keys
     for record in records:
         for language in ("English", "French", "German", "Italian", "Spanish"):
             assert record.findtext(f"f:{language}", namespaces=ns)
+
+
+def test_veteran_garrison_counts_owned_living_land_combat_units_once():
+    city = (DLL / "CvCity.cpp").read_text()
+    qualifies = function(city, "bool CvCity::qualifiesVeteranGarrison")
+    for term in ("pUnit->getOwnerINLINE() == getOwnerINLINE()", "pUnit->getDomainType() == DOMAIN_LAND",
+                 "pUnit->canFight()", "pUnit->isAnimal()", "pUnit->isCargo()", "pUnit->isDead() || pUnit->isDelayedDeath()",
+                 "pUnit->getLevel(), iMinimumLevel"):
+        assert term in qualifies
+    bonus = function(city, "int CvCity::getVeteranGarrisonCulture")
+    assert "plot()->headUnitNode()" in bonus
+    assert "pNode != NULL && !bQualifies" in bonus
+    assert "pUnit != pExcludedUnit" in bonus
+    assert "pExtraUnit != pExcludedUnit" in bonus
+    assert bonus.count("iCulture += kTrait.getVeteranGarrisonCulture()") == 1
+    assert bonus.index("if (bQualifies)") > bonus.index("plot()->nextUnitNode(pNode)")
+    base = function(city, "int CvCity::getBaseCommerceRateTimes100")
+    assert "if (eIndex == COMMERCE_CULTURE)" in base
+    assert "100 * getVeteranGarrisonCulture()" in base
+    assert "VeteranGarrison" not in function(city, "void CvCity::write")
+    assert "updateVeteranGarrisonCulture()" in function((DLL / "CvGame.cpp").read_text(), "void CvGame::setFinalInitialized")
+
+
+def test_veteran_garrison_invalidation_covers_unit_lifecycle_even_without_graphics_updates():
+    plot = (DLL / "CvPlot.cpp").read_text()
+    for signature, mutation in (("void CvPlot::addUnit", "m_units.insertAtEnd"),
+                                ("void CvPlot::removeUnit", "m_units.deleteNode")):
+        block = function(plot, signature)
+        refresh = block.index("getPlotCity()->updateVeteranGarrisonCulture()")
+        assert block.index(mutation) < refresh < block.index("if (bUpdate)")
+    unit = (DLL / "CvUnit.cpp").read_text()
+    for signature in ("void CvUnit::setLevel", "void CvUnit::setTransportUnit",
+                      "void CvUnit::setBaseCombatStr", "void CvUnit::setDamage", "void CvUnit::startDelayedDeath"):
+        assert "updateVeteranGarrisonCommerce()" in function(unit, signature)
+    death = function(unit, "void CvUnit::startDelayedDeath")
+    assert death.index("m_bDeathDelay = true") < death.index("updateVeteranGarrisonCommerce()")
+    refresh = function(unit, "void CvUnit::updateVeteranGarrisonCommerce")
+    assert "pPlot != NULL && pPlot->getPlotCity() != NULL" in refresh
+    assert "pPlot->getPlotCity()->updateVeteranGarrisonCulture()" in refresh
+
+
+def test_veteran_garrison_ai_values_marginal_culture_without_overriding_defense_requirements():
+    ai = function((DLL / "CvUnitAI.cpp").read_text(), "bool CvUnitAI::AI_guardCityMinDefender")
+    assert "if (iDefendersHave < iDefendersNeed)" in ai
+    assert "pLoopCity->getVeteranGarrisonCulture(this)" in ai
+    assert "pPlotCity->getVeteranGarrisonCulture(NULL, this)" in ai
+    assert "2 * (iGarrisonGain - iGarrisonLoss)" in ai
+    selection = function((DLL / "CvSelectionGroupAI.cpp").read_text(), "CvUnit* CvSelectionGroupAI::AI_ejectBestDefender")
+    assert "getVeteranGarrisonCulture(NULL, pLoopUnit)" in selection
+    assert "std::min(30, iRetainedCulture * 10)" in selection

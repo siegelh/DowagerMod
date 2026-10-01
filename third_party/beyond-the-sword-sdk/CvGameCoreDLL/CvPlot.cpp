@@ -8954,6 +8954,9 @@ void CvPlot::addUnit(CvUnit* pUnit, bool bUpdate)
 		m_units.insertAtEnd(pUnit->getIDInfo());
 	}
 
+	if (getPlotCity() != NULL)
+		getPlotCity()->updateVeteranGarrisonCulture();
+
 	if (bUpdate)
 	{
 		updateCenterUnit();
@@ -8982,6 +8985,9 @@ void CvPlot::removeUnit(CvUnit* pUnit, bool bUpdate)
 			pUnitNode = nextUnitNode(pUnitNode);
 		}
 	}
+
+	if (getPlotCity() != NULL)
+		getPlotCity()->updateVeteranGarrisonCulture();
 
 	if (bUpdate)
 	{

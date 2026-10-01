@@ -4261,6 +4261,8 @@ public:
 	int getConquestOccupationReductionPercent() const { return m_iConquestOccupationReductionPercent; }
 	int getCoastalForeignTeamGold() const { return m_iCoastalForeignTeamGold; }
 	int getCoastalForeignTeamGoldCap() const { return m_iCoastalForeignTeamGoldCap; }
+	int getVeteranGarrisonCulture() const { return m_iVeteranGarrisonCulture; }
+	int getVeteranGarrisonMinLevel() const { return m_iVeteranGarrisonMinLevel; }
 	ExpansionRules::WorkedPlotCondition getWorkedPlotCondition() const { return m_eWorkedPlotCondition; }
 	int getWorkedPlotProduction() const { return m_iWorkedPlotProduction; }
 	int getWorkedPlotGold() const { return m_iWorkedPlotGold; }
@@ -4332,6 +4334,8 @@ protected:
 	int m_iConquestOccupationReductionPercent;
 	int m_iCoastalForeignTeamGold;
 	int m_iCoastalForeignTeamGoldCap;
+	int m_iVeteranGarrisonCulture;
+	int m_iVeteranGarrisonMinLevel;
 	ExpansionRules::WorkedPlotCondition m_eWorkedPlotCondition;
 	int m_iWorkedPlotProduction;
 	int m_iWorkedPlotGold;

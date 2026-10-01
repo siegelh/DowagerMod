@@ -4328,6 +4328,9 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer &szHelpString, TraitTypes eTrait
 				GC.getTraitInfo(eTrait).getCoastalForeignTeamGoldCap()));
 		}
 		const CvTraitInfo& kWorkedTrait = GC.getTraitInfo(eTrait);
+		if (kWorkedTrait.getVeteranGarrisonCulture() > 0)
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_VETERAN_GARRISON",
+				kWorkedTrait.getVeteranGarrisonCulture(), kWorkedTrait.getVeteranGarrisonMinLevel()));
 		if (kWorkedTrait.getWorkedPlotCondition() != ExpansionRules::NO_WORKED_PLOT_CONDITION)
 		{
 			CvWString szCondition;
@@ -13148,6 +13151,12 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer &szBuffer, CvCity& city, Com
 
 
 	const int iTraitSpecialistCommerce = city.getTraitSpecialistCommerce(eCommerceType);
+	if (eCommerceType == COMMERCE_CULTURE && city.getVeteranGarrisonCulture() != 0)
+	{
+		szBuffer.append(gDLL->getText("TXT_KEY_CITY_EXP_VETERAN_GARRISON", city.getVeteranGarrisonCulture(), info.getChar()));
+		szBuffer.append(NEWLINE);
+		iBaseCommerceRate += 100 * city.getVeteranGarrisonCulture();
+	}
 	if (iTraitSpecialistCommerce != 0)
 	{
 		szBuffer.append(gDLL->getText("TXT_KEY_CITY_EXP_SPECIALIST_COMMERCE", iTraitSpecialistCommerce, info.getChar()));

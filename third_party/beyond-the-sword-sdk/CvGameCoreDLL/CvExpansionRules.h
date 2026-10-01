@@ -5,6 +5,13 @@
 
 namespace ExpansionRules
 {
+	inline bool eligibleVeteranGarrison(bool bOwned, bool bLand, bool bCombat,
+		bool bAnimal, bool bCargo, bool bDead, int iLevel, int iMinimumLevel)
+	{
+		return bOwned && bLand && bCombat && !bAnimal && !bCargo && !bDead &&
+			iMinimumLevel > 0 && iLevel >= iMinimumLevel;
+	}
+
 	enum WorkedPlotCondition
 	{
 		NO_WORKED_PLOT_CONDITION = 0,

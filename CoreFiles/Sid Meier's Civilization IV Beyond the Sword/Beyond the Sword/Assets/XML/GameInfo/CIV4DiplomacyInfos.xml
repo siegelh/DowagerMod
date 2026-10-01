@@ -945,6 +945,20 @@
     <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_ASKIA</Text>
   </DiplomacyText>
 </Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_DAVID</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_DAVID</Text>
+  </DiplomacyText>
+</Response>
 </Responses>
 		</DiplomacyInfo>
 		<DiplomacyInfo>
