@@ -805,7 +805,35 @@
 						<Text>AI_DIPLO_FIRST_CONTACT_LEADER_GILGAMESH_1</Text>
 					</DiplomacyText>
 				</Response>
-			</Responses>
+			<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_PIYE</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_PIYE</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_DUSAN</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_DUSAN</Text>
+  </DiplomacyText>
+</Response>
+</Responses>
 		</DiplomacyInfo>
 		<DiplomacyInfo>
 			<Type>AI_DIPLOCOMMENT_REFUSE_TO_TALK</Type>

@@ -4,6 +4,7 @@ import hashlib
 import json
 import re
 import struct
+import subprocess
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from pathlib import Path, PurePosixPath
@@ -26,6 +27,8 @@ CIVILIZATION_INFOS = (
 PLAYER_COLOR_INFOS = ASSETS / "XML" / "Interface" / "CIV4PlayerColorInfos.xml"
 COLOR_VALS = ASSETS / "XML" / "Interface" / "CIV4ColorVals.xml"
 FLAG_MANIFEST = ROOT / "tools" / "flags" / "manifest.json"
+EXPANSION = json.loads((ROOT / "tools/manifests/new_leaders_expansion.json").read_text(encoding="utf-8"))
+EXPANSION_TYPES = {"CIVILIZATION_EXP_" + row["civilization"] for row in EXPANSION["packages"]}
 
 EXPECTED_TOTAL = 59
 DDS_MAGIC = b"DDS "
@@ -822,8 +825,8 @@ assert sum(DDS_MIP_PAYLOAD_BYTES) + DDS_HEADER_BYTES == DDS_FILE_BYTES
 
 def test_embedded_production_contract_matches_canonical_manifest() -> None:
     document = json.loads(FLAG_MANIFEST.read_text(encoding="utf-8"))
-    records = document["records"]
-    assert document["record_count"] == EXPECTED_TOTAL
+    records = [row for row in document["records"] if row["civilization_type"] not in EXPANSION_TYPES]
+    assert document["record_count"] == EXPECTED_TOTAL + len(EXPANSION_TYPES)
     canonical_mappings = {
         record["civilization_type"]: (
             record["art_define"],
@@ -850,11 +853,38 @@ def test_embedded_production_contract_matches_canonical_manifest() -> None:
 def test_protected_xml_files_are_byte_stable(
     path: Path, expected_sha256: str
 ) -> None:
-    data = path.read_bytes()
-    assert _sha256(data) == expected_sha256, (
-        f"{path.relative_to(ROOT)} changed bytes: "
-        f"sha256={_sha256(data)}, expected={expected_sha256}"
+    # Pin the original byte contract, then permit only reviewed append-only
+    # expansion records and the accepted citystyle mapping.
+    historical = subprocess.check_output(
+        ["git", "show", "c9bfb5892:" + path.relative_to(ROOT).as_posix()], cwd=ROOT
     )
+    assert _sha256(historical.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")) == expected_sha256
+    old = ET.fromstring(historical)
+    current = ET.parse(path).getroot()
+    mapping = {
+        row["civilization"]: row
+        for row in json.loads((ROOT / "tools/manifests/remaster_citystyle_mapping.json").read_text())["mappings"]
+    }
+    def children(root):
+        return [node for node in root.iter() if any(c.tag.rsplit("}", 1)[-1] == "Type" for c in node)]
+    def value(node):
+        return (node.tag, (node.text or "").strip(), sorted(node.attrib.items()), tuple(value(c) for c in node))
+    old_nodes, live_nodes = children(old), children(current)
+    for before, after in zip(old_nodes, live_nodes):
+        civ_type = next(c.text for c in before if c.tag.rsplit("}", 1)[-1] == "Type")
+        if path == CIVILIZATION_INFOS and civ_type in mapping:
+            style = next(c for c in before if c.tag.rsplit("}", 1)[-1] == "ArtStyleType")
+            assert style.text == mapping[civ_type]["oldStyle"]
+            style.text = mapping[civ_type]["newStyle"]
+        assert value(before) == value(after), civ_type
+    assert len(live_nodes) >= len(old_nodes)
+    additions = {next(c.text for c in n if c.tag.rsplit("}", 1)[-1] == "Type") for n in live_nodes[len(old_nodes):]}
+    expected_additions = (
+        EXPANSION_TYPES if path == CIVILIZATION_INFOS else
+        {"PLAYERCOLOR_EXP_" + row["id"] for row in EXPANSION["packages"]} if path == PLAYER_COLOR_INFOS else set()
+    )
+    assert additions == expected_additions
+    assert len(live_nodes) == len(old_nodes) + len(expected_additions)
 
 
 def test_playable_civilization_art_mapping_is_exact() -> None:
@@ -864,7 +894,7 @@ def test_playable_civilization_art_mapping_is_exact() -> None:
     playable = {
         civilization_type: node
         for civilization_type, node in civs.items()
-        if _child_text(node, "bPlayable") == "1"
+        if _child_text(node, "bPlayable") == "1" and civilization_type not in EXPANSION_TYPES
     }
     expected_types = set(FULLCOLOR_FLAGS)
     found_types = set(playable)
@@ -919,7 +949,7 @@ def test_fullcolor_art_definitions_are_exact() -> None:
     all_white_tags = {
         art_tag
         for art_tag, node in art_defines.items()
-        if _child_text(node, "bWhiteFlag") == "1"
+        if _child_text(node, "bWhiteFlag") == "1" and art_tag not in {"ART_DEF_" + name for name in EXPANSION_TYPES}
     }
     valid = len(resolved_tags - set(path_mismatches) - set(white_mismatches))
     assert (

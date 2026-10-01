@@ -1,0 +1,25 @@
+[
+  {
+    "leader": "LEADER_EXP_PIYE",
+    "status": "Existing primary and separate nonshader model retained. Package XML confirms the 64px Piye.dds portrait. Stock Archer and Monument art are provisional, not claimed as final Nubian costume or architecture. Full diplomacy/graphics acceptance pending.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/piye/Piye.dds": "eb393cebc64138aece0d64ba2aa0e4f099e9af8c6109c69790e4460fc596ca12",
+      "Art/Leaderheads/new/piye/ramassesii.nif": "675ba5327c70c488d37608064e78e4540f1a625792699583f32cf35b3aeeb7c1",
+      "Art/Leaderheads/new/piye/ramassesii.kfm": "9066fe78546a446829333e141cf2c8c0c5322d6b47438b10cd114ece375f06ca",
+      "Art/Leaderheads/new/piye/ramassesii_noshader.nif": "efc924b898150383cf1dbcf2d4591491104b69cb6283a2382bd3a0053cecac2e",
+      "Art/Leaderheads/new/piye/ramassesii_BG.kfm": "94f84df9b01f82418802834ab407d0c27a520c88f056fab979c737466a47ac2c"
+    },
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_DUSAN",
+    "status": "Existing package explicitly uses the primary Putin.nif in both shader fields; retained without claiming nonshader runtime certification. Package XML confirms dusan.dds portrait. Stock medieval Knight and Courthouse visuals are provisional. No later Serbian uniform imports.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/dusan/dusan.dds": "bdbabc61d385ab4b1168a286e72a1873403a5d0ba74e48a5f63c3a04376c2ea9",
+      "Art/Leaderheads/new/dusan/Putin.nif": "5597bd4cf91afd3224989907ac343fa60cd355a6003d2f07f82aaeaca53d0bc3",
+      "Art/Leaderheads/new/dusan/Putin.kfm": "ec07fcf88f819b94cc0124b41081d2c821c733bbe56dc12f6f9dae6aadd1bcbf",
+      "Art/Leaderheads/new/dusan/Putin_BG.kfm": "d02b4046e6e8b22189a5fd292e1cc4e81d9398813451259fe61bcf20a429c614"
+    },
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  }
+]

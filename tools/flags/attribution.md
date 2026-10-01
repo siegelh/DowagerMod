@@ -36,3 +36,12 @@ retain their stated licenses.
 Government insignia may remain subject to non-copyright restrictions against
 false endorsement or misuse. Reference-only museum photographs and modern
 commercial illustrations are not redistributed here.
+# Expansion emblems
+
+The original SVG drawings in `designs/expansion-v1/masters/` are dedicated
+under CC0-1.0, consistent with the pipeline's original-work license.
+Piye's winged solar disk and Dusan's double-headed eagle are simplified
+modern gameplay reconstructions, not claims to reproduce attested national
+flags. No external illustration or audit-preview PNG was incorporated.
+Per-package historical references and provisional status are recorded in
+`manifest.json` and `../manifests/new_leaders_expansion.json`.

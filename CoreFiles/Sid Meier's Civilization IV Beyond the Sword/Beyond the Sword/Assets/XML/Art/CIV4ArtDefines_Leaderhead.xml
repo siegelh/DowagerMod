@@ -485,5 +485,21 @@
 			<NoShaderNIF>Art/Leaderheads/new/salamasina/SalmasinaFinal.nif</NoShaderNIF>
 			<BackgroundKFM>Art/Leaderheads/new/salamasina/winston_churchill_bg.kfm</BackgroundKFM>
 		</LeaderheadArtInfo>
-	</LeaderheadArtInfos>
+	<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_PIYE</Type>
+  <Button>Art/Leaderheads/new/piye/Piye.dds</Button>
+  <NIF>Art/Leaderheads/new/piye/ramassesii.nif</NIF>
+  <KFM>Art/Leaderheads/new/piye/ramassesii.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/piye/ramassesii_noshader.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/piye/ramassesii_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_DUSAN</Type>
+  <Button>Art/Leaderheads/new/dusan/dusan.dds</Button>
+  <NIF>Art/Leaderheads/new/dusan/Putin.nif</NIF>
+  <KFM>Art/Leaderheads/new/dusan/Putin.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/dusan/Putin.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/dusan/Putin_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+</LeaderheadArtInfos>
 </Civ4ArtDefines>

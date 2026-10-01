@@ -70,6 +70,8 @@ LEADERS: tuple = (
     ("Washington", "America"),
     ("Willem van Oranje", "Netherlands"),
     ("Zara Yaqob", "Ethiopia"),
+    ("Piye", "Kush: Napata"),
+    ("Stefan Dusan", "Serbia: Dusan's Empire"),
 )
 
 

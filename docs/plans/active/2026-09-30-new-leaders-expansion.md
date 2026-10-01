@@ -1,6 +1,6 @@
 # Thirteen-Leader Expansion
 
-- Status: `in_progress`; baseline reconciled, preparing native pilot packages.
+- Status: `in_progress`; baseline reconciled, Piye/Dusan native pilot integrated.
 - Owner / agent: repository owner / GitHub Copilot.
 - Last updated: `2026-09-30`.
 
@@ -224,5 +224,30 @@ those belong solely to the unselected backlog.
 ## Completion / Outcome
 
 Combined branch exists; the baseline gate and reconciled targeted tests pass.
-The expansion is NOT implemented and is NOT
-ready to merge/deploy. No push, merge, installer or live-game action occurred.
+Piye and Dusan are integrated using native XML trait channels, parent-preserving
+UU/UB clones, distinct colors/flags/buttons, existing animated leaderheads,
+first-contact text, AI profiles and inherited era-complete citystyles.
+The selectable roster is currently 61; eleven selected packages remain.
+Stock UU/UB models, retained portraits and generated heraldry are provisional.
+
+The package compiler `tools\add_expansion_packages.py --apply` appends only
+reviewed manifest packages. Its default mode checks deterministic output;
+it rejects conflicting existing package records and stages all output before
+publication with rollback on write failure. It does not rebuild old XML tables.
+`tools\manifests\new_leaders_expansion.json` holds exact native deltas;
+`new_leaders_art.json` records direct leader-art digests and limitations.
+The existing 59 flag records and all pre-expansion XML records remain intact.
+
+Validation: 252 tests passed across the expansion, roster, flag, landmark,
+neutral-wonder and plot-merge modules, plus the repository gate and an
+idempotent generator check. The earlier unittest command did not collect
+function-based flag tests; running those with pytest exposed one additional
+pre-expansion whole-file citystyle hash expectation. Its original byte hash
+remains pinned against `c9bfb5892`, followed by exact structural preservation
+with only accepted citystyles and declared appended records allowed.
+There are no remaining failures in this combined targeted run.
+
+Native compilation passed at the combined baseline; the pilot adds no DLL
+code. Manual gameplay, diplomacy/graphics, AI games, old saves and multiplayer
+were NOT run. The complete expansion is NOT ready to merge/deploy.
+No push, merge, installer or live-game action occurred.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "design_version": "issue-flags-v2",
-  "record_count": 59,
+  "record_count": 61,
   "runtime_contract": {
     "assets_root": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets",
     "civilization_xml": "XML/Civilizations/CIV4CivilizationInfos.xml",
@@ -5580,6 +5580,60 @@
           "usage": "procedural_reference"
         }
       ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_KUSH_NAPATA",
+      "civilization": "Kush: Napata",
+      "leaders": [
+        "LEADER_EXP_PIYE"
+      ],
+      "leader_display": "Piye",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_KUSH_NAPATA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_PIYE.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/piye.svg",
+      "master_sha256": "88f8e2fc936702b5c936ade4ceebd098d054cc2327bb82711fd18bd9b590a6df",
+      "production_dds_sha256": "415f8c5b0aa9e726ade579915e52bbed7f88822a5ed0b7460b8690c7bdf2d4e9",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Piye",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.",
+      "design_notes": "Original geometric gold winged solar disk on purple, inspired by ancient Nile religious imagery. Modern gameplay reconstruction, not an attested national flag or an archaeological facsimile.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Piye",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_SERBIA_DUSAN",
+      "civilization": "Serbia: Dusan's Empire",
+      "leaders": [
+        "LEADER_EXP_DUSAN"
+      ],
+      "leader_display": "Stefan Dusan",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_SERBIA_DUSAN",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_DUSAN.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/dusan.svg",
+      "master_sha256": "e337f01b6c0b0b5fd7d51a86077b0dd7265f8cd187c32ba6809ae18b3339e133",
+      "production_dds_sha256": "e0e86cdffb421094e6489a7928f435b5603541098338639e40b813ced3567ada",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Stefan_Du%C5%A1an",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.",
+      "design_notes": "Original geometric white double-headed eagle on red, inspired by medieval Serbian imperial heraldry. A simplified gameplay reconstruction, not a claim to reproduce a surviving personal standard.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Stefan_Du%C5%A1an",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
     }
   ],
   "original_work_license": {
@@ -5590,7 +5644,8 @@
   },
   "design_version_summary": {
     "issue-flags-v2": 56,
-    "historical-v1": 3
+    "historical-v1": 3,
+    "expansion-v1": 2
   },
   "issue_source_range": {
     "repository": "siegelh/DowagerMod",

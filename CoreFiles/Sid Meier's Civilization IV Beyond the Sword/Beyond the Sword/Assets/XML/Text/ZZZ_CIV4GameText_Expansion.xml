@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_KUSHITE_ARCHER</Tag>
+    <English>Kushite Archer</English>
+    <French>Kushite Archer</French>
+    <German>Kushite Archer</German>
+    <Italian>Kushite Archer</Italian>
+    <Spanish>Kushite Archer</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_KUSHITE_ARCHER_PEDIA</Tag>
+    <English>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</English>
+    <French>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</French>
+    <German>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</German>
+    <Italian>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</Italian>
+    <Spanish>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_KUSHITE_ARCHER_STRATEGY</Tag>
+    <English>An early hill fighter with two guaranteed first strikes. Retains the Archer's city and hill defenses and both medieval upgrade paths.</English>
+    <French>An early hill fighter with two guaranteed first strikes. Retains the Archer's city and hill defenses and both medieval upgrade paths.</French>
+    <German>An early hill fighter with two guaranteed first strikes. Retains the Archer's city and hill defenses and both medieval upgrade paths.</German>
+    <Italian>An early hill fighter with two guaranteed first strikes. Retains the Archer's city and hill defenses and both medieval upgrade paths.</Italian>
+    <Spanish>An early hill fighter with two guaranteed first strikes. Retains the Archer's city and hill defenses and both medieval upgrade paths.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_NAPATAN_CULT_CHAPEL</Tag>
+    <English>Napatan Cult Chapel</English>
+    <French>Napatan Cult Chapel</French>
+    <German>Napatan Cult Chapel</German>
+    <Italian>Napatan Cult Chapel</Italian>
+    <Spanish>Napatan Cult Chapel</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_NAPATAN_CULT_CHAPEL_PEDIA</Tag>
+    <English>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</English>
+    <French>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</French>
+    <German>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</German>
+    <Italian>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</Italian>
+    <Spanish>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_NAPATAN_CULT_CHAPEL_STRATEGY</Tag>
+    <English>A Monument replacement with one additional Culture and one Priest slot. Assign a Priest to receive Piye's Food bonus; an empty slot produces nothing. Retains Astronomy obsolescence.</English>
+    <French>A Monument replacement with one additional Culture and one Priest slot. Assign a Priest to receive Piye's Food bonus; an empty slot produces nothing. Retains Astronomy obsolescence.</French>
+    <German>A Monument replacement with one additional Culture and one Priest slot. Assign a Priest to receive Piye's Food bonus; an empty slot produces nothing. Retains Astronomy obsolescence.</German>
+    <Italian>A Monument replacement with one additional Culture and one Priest slot. Assign a Priest to receive Piye's Food bonus; an empty slot produces nothing. Retains Astronomy obsolescence.</Italian>
+    <Spanish>A Monument replacement with one additional Culture and one Priest slot. Assign a Priest to receive Piye's Food bonus; an empty slot produces nothing. Retains Astronomy obsolescence.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_PIYE</Tag>
+    <English>Two Lands, One Crown</English>
+    <French>Two Lands, One Crown</French>
+    <German>Two Lands, One Crown</German>
+    <Italian>Two Lands, One Crown</Italian>
+    <Spanish>Two Lands, One Crown</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_PIYE_SHORT</Tag>
+    <English>Two Lands, One Crown</English>
+    <French>Two Lands, One Crown</French>
+    <German>Two Lands, One Crown</German>
+    <Italian>Two Lands, One Crown</Italian>
+    <Spanish>Two Lands, One Crown</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_PIYE</Tag>
+    <English>Piye</English>
+    <French>Piye</French>
+    <German>Piye</German>
+    <Italian>Piye</Italian>
+    <Spanish>Piye</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_PIYE_PEDIA</Tag>
+    <English>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</English>
+    <French>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</French>
+    <German>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</German>
+    <Italian>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</Italian>
+    <Spanish>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_KUSH_NAPATA_DESCRIPTION</Tag>
+    <English>Kush: Napata</English>
+    <French>Kush: Napata</French>
+    <German>Kush: Napata</German>
+    <Italian>Kush: Napata</Italian>
+    <Spanish>Kush: Napata</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_KUSH_NAPATA_SHORTDESCRIPTION</Tag>
+    <English>Kush: Napata</English>
+    <French>Kush: Napata</French>
+    <German>Kush: Napata</German>
+    <Italian>Kush: Napata</Italian>
+    <Spanish>Kush: Napata</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_KUSH_NAPATA_ADJECTIVE</Tag>
+    <English>Kushite</English>
+    <French>Kushite</French>
+    <German>Kushite</German>
+    <Italian>Kushite</Italian>
+    <Spanish>Kushite</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_KUSH_NAPATA_CIVILOPEDIA</Tag>
+    <English>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</English>
+    <French>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</French>
+    <German>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</German>
+    <Italian>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</Italian>
+    <Spanish>Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_1</Tag>
+    <English>Napata</English>
+    <French>Napata</French>
+    <German>Napata</German>
+    <Italian>Napata</Italian>
+    <Spanish>Napata</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_2</Tag>
+    <English>El-Kurru</English>
+    <French>El-Kurru</French>
+    <German>El-Kurru</German>
+    <Italian>El-Kurru</Italian>
+    <Spanish>El-Kurru</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_3</Tag>
+    <English>Gebel Barkal</English>
+    <French>Gebel Barkal</French>
+    <German>Gebel Barkal</German>
+    <Italian>Gebel Barkal</Italian>
+    <Spanish>Gebel Barkal</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_4</Tag>
+    <English>Kawa</English>
+    <French>Kawa</French>
+    <German>Kawa</German>
+    <Italian>Kawa</Italian>
+    <Spanish>Kawa</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_5</Tag>
+    <English>Sanam</English>
+    <French>Sanam</French>
+    <German>Sanam</German>
+    <Italian>Sanam</Italian>
+    <Spanish>Sanam</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_6</Tag>
+    <English>Nuri</English>
+    <French>Nuri</French>
+    <German>Nuri</German>
+    <Italian>Nuri</Italian>
+    <Spanish>Nuri</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_7</Tag>
+    <English>Dangeil</English>
+    <French>Dangeil</French>
+    <German>Dangeil</German>
+    <Italian>Dangeil</Italian>
+    <Spanish>Dangeil</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_8</Tag>
+    <English>Kerma</English>
+    <French>Kerma</French>
+    <German>Kerma</German>
+    <Italian>Kerma</Italian>
+    <Spanish>Kerma</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_9</Tag>
+    <English>Sai</English>
+    <French>Sai</French>
+    <German>Sai</German>
+    <Italian>Sai</Italian>
+    <Spanish>Sai</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_10</Tag>
+    <English>Sedeinga</English>
+    <French>Sedeinga</French>
+    <German>Sedeinga</German>
+    <Italian>Sedeinga</Italian>
+    <Spanish>Sedeinga</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_11</Tag>
+    <English>Tabo</English>
+    <French>Tabo</French>
+    <German>Tabo</German>
+    <Italian>Tabo</Italian>
+    <Spanish>Tabo</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_12</Tag>
+    <English>Faras</English>
+    <French>Faras</French>
+    <German>Faras</German>
+    <Italian>Faras</Italian>
+    <Spanish>Faras</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_13</Tag>
+    <English>Buhen</English>
+    <French>Buhen</French>
+    <German>Buhen</German>
+    <Italian>Buhen</Italian>
+    <Spanish>Buhen</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PIYE_14</Tag>
+    <English>Semna</English>
+    <French>Semna</French>
+    <German>Semna</German>
+    <Italian>Semna</Italian>
+    <Spanish>Semna</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_PIYE</Tag>
+    <English>I am Piye. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Piye. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Piye. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Piye. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Piye. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_VLASTELA_CAVALRY</Tag>
+    <English>Vlastela Cavalry</English>
+    <French>Vlastela Cavalry</French>
+    <German>Vlastela Cavalry</German>
+    <Italian>Vlastela Cavalry</Italian>
+    <Spanish>Vlastela Cavalry</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_VLASTELA_CAVALRY_PEDIA</Tag>
+    <English>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</English>
+    <French>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</French>
+    <German>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</German>
+    <Italian>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</Italian>
+    <Spanish>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_VLASTELA_CAVALRY_STRATEGY</Tag>
+    <English>A Knight replacement with +25% hills attack and +25% against Melee units. Requires both Horse and Iron, Guilds and Horseback Riding. Pikemen remain a serious counter.</English>
+    <French>A Knight replacement with +25% hills attack and +25% against Melee units. Requires both Horse and Iron, Guilds and Horseback Riding. Pikemen remain a serious counter.</French>
+    <German>A Knight replacement with +25% hills attack and +25% against Melee units. Requires both Horse and Iron, Guilds and Horseback Riding. Pikemen remain a serious counter.</German>
+    <Italian>A Knight replacement with +25% hills attack and +25% against Melee units. Requires both Horse and Iron, Guilds and Horseback Riding. Pikemen remain a serious counter.</Italian>
+    <Spanish>A Knight replacement with +25% hills attack and +25% against Melee units. Requires both Horse and Iron, Guilds and Horseback Riding. Pikemen remain a serious counter.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ZAKONIK_COURT</Tag>
+    <English>Zakonik Court</English>
+    <French>Zakonik Court</French>
+    <German>Zakonik Court</German>
+    <Italian>Zakonik Court</Italian>
+    <Spanish>Zakonik Court</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ZAKONIK_COURT_PEDIA</Tag>
+    <English>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</English>
+    <French>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</French>
+    <German>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</German>
+    <Italian>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</Italian>
+    <Spanish>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ZAKONIK_COURT_STRATEGY</Tag>
+    <English>A Courthouse replacement with -60% maintenance in total and +2 Culture. Retains the ordinary Courthouse's +2 Espionage and Spy slot.</English>
+    <French>A Courthouse replacement with -60% maintenance in total and +2 Culture. Retains the ordinary Courthouse's +2 Espionage and Spy slot.</French>
+    <German>A Courthouse replacement with -60% maintenance in total and +2 Culture. Retains the ordinary Courthouse's +2 Espionage and Spy slot.</German>
+    <Italian>A Courthouse replacement with -60% maintenance in total and +2 Culture. Retains the ordinary Courthouse's +2 Espionage and Spy slot.</Italian>
+    <Spanish>A Courthouse replacement with -60% maintenance in total and +2 Culture. Retains the ordinary Courthouse's +2 Espionage and Spy slot.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_DUSAN</Tag>
+    <English>Law and Silver</English>
+    <French>Law and Silver</French>
+    <German>Law and Silver</German>
+    <Italian>Law and Silver</Italian>
+    <Spanish>Law and Silver</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_DUSAN_SHORT</Tag>
+    <English>Law and Silver</English>
+    <French>Law and Silver</French>
+    <German>Law and Silver</German>
+    <Italian>Law and Silver</Italian>
+    <Spanish>Law and Silver</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_DUSAN</Tag>
+    <English>Stefan Dusan</English>
+    <French>Stefan Dusan</French>
+    <German>Stefan Dusan</German>
+    <Italian>Stefan Dusan</Italian>
+    <Spanish>Stefan Dusan</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_DUSAN_PEDIA</Tag>
+    <English>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</English>
+    <French>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</French>
+    <German>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</German>
+    <Italian>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</Italian>
+    <Spanish>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SERBIA_DUSAN_DESCRIPTION</Tag>
+    <English>Serbia: Dusan's Empire</English>
+    <French>Serbia: Dusan's Empire</French>
+    <German>Serbia: Dusan's Empire</German>
+    <Italian>Serbia: Dusan's Empire</Italian>
+    <Spanish>Serbia: Dusan's Empire</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SERBIA_DUSAN_SHORTDESCRIPTION</Tag>
+    <English>Serbia: Dusan's Empire</English>
+    <French>Serbia: Dusan's Empire</French>
+    <German>Serbia: Dusan's Empire</German>
+    <Italian>Serbia: Dusan's Empire</Italian>
+    <Spanish>Serbia: Dusan's Empire</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SERBIA_DUSAN_ADJECTIVE</Tag>
+    <English>Serbian</English>
+    <French>Serbian</French>
+    <German>Serbian</German>
+    <Italian>Serbian</Italian>
+    <Spanish>Serbian</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SERBIA_DUSAN_CIVILOPEDIA</Tag>
+    <English>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</English>
+    <French>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</French>
+    <German>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</German>
+    <Italian>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</Italian>
+    <Spanish>Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_1</Tag>
+    <English>Skopje</English>
+    <French>Skopje</French>
+    <German>Skopje</German>
+    <Italian>Skopje</Italian>
+    <Spanish>Skopje</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_2</Tag>
+    <English>Prizren</English>
+    <French>Prizren</French>
+    <German>Prizren</German>
+    <Italian>Prizren</Italian>
+    <Spanish>Prizren</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_3</Tag>
+    <English>Prilep</English>
+    <French>Prilep</French>
+    <German>Prilep</German>
+    <Italian>Prilep</Italian>
+    <Spanish>Prilep</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_4</Tag>
+    <English>Serres</English>
+    <French>Serres</French>
+    <German>Serres</German>
+    <Italian>Serres</Italian>
+    <Spanish>Serres</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_5</Tag>
+    <English>Novo Brdo</English>
+    <French>Novo Brdo</French>
+    <German>Novo Brdo</German>
+    <Italian>Novo Brdo</Italian>
+    <Spanish>Novo Brdo</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_6</Tag>
+    <English>Ras</English>
+    <French>Ras</French>
+    <German>Ras</German>
+    <Italian>Ras</Italian>
+    <Spanish>Ras</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_7</Tag>
+    <English>Pec</English>
+    <French>Pec</French>
+    <German>Pec</German>
+    <Italian>Pec</Italian>
+    <Spanish>Pec</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_8</Tag>
+    <English>Zvecan</English>
+    <French>Zvecan</French>
+    <German>Zvecan</German>
+    <Italian>Zvecan</Italian>
+    <Spanish>Zvecan</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_9</Tag>
+    <English>Stip</English>
+    <French>Stip</French>
+    <German>Stip</German>
+    <Italian>Stip</Italian>
+    <Spanish>Stip</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_10</Tag>
+    <English>Ohrid</English>
+    <French>Ohrid</French>
+    <German>Ohrid</German>
+    <Italian>Ohrid</Italian>
+    <Spanish>Ohrid</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_11</Tag>
+    <English>Strumica</English>
+    <French>Strumica</French>
+    <German>Strumica</German>
+    <Italian>Strumica</Italian>
+    <Spanish>Strumica</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_12</Tag>
+    <English>Kastoria</English>
+    <French>Kastoria</French>
+    <German>Kastoria</German>
+    <Italian>Kastoria</Italian>
+    <Spanish>Kastoria</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_13</Tag>
+    <English>Berat</English>
+    <French>Berat</French>
+    <German>Berat</German>
+    <Italian>Berat</Italian>
+    <Spanish>Berat</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_14</Tag>
+    <English>Kruje</English>
+    <French>Kruje</French>
+    <German>Kruje</German>
+    <Italian>Kruje</Italian>
+    <Spanish>Kruje</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_15</Tag>
+    <English>Trikala</English>
+    <French>Trikala</French>
+    <German>Trikala</German>
+    <Italian>Trikala</Italian>
+    <Spanish>Trikala</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_DUSAN_16</Tag>
+    <English>Ioannina</English>
+    <French>Ioannina</French>
+    <German>Ioannina</German>
+    <Italian>Ioannina</Italian>
+    <Spanish>Ioannina</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_DUSAN</Tag>
+    <English>I am Stefan Dusan. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Stefan Dusan. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Stefan Dusan. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Stefan Dusan. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Stefan Dusan. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
+</Civ4GameText>
