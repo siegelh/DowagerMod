@@ -2174,7 +2174,20 @@ DenialTypes CvTeamAI::AI_declareWarTrade(TeamTypes eWarTeam, TeamTypes eTeam, bo
 
 int CvTeamAI::AI_openBordersTradeVal(TeamTypes eTeam) const
 {
-	return (getNumCities() + GET_TEAM(eTeam).getNumCities());
+	int iValue = getNumCities() + GET_TEAM(eTeam).getNumCities();
+	for (int iPlayer = 0; iPlayer < MAX_CIV_PLAYERS; ++iPlayer)
+	{
+		const CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+		if (!kPlayer.isAlive() || kPlayer.getTeam() != getID())
+			continue;
+		int iLoop;
+		for (CvCity* pCity = kPlayer.firstCity(&iLoop); pCity != NULL; pCity = kPlayer.nextCity(&iLoop))
+		{
+			const int iMarginalGold = pCity->getCoastalForeignTradeGold(eTeam) - pCity->getCoastalForeignTradeGold();
+			iValue += 2 * iMarginalGold;
+		}
+	}
+	return iValue;
 }
 
 

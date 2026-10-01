@@ -420,5 +420,83 @@
 			<ColorTypeSecondary>COLOR_PLAYER_BLACK</ColorTypeSecondary>
 			<TextColorType>COLOR_PLAYER_GERMAN_EMPIRE</TextColorType>
 		</PlayerColorInfo>
-	</PlayerColorInfos>
+	<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_PIYE</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_PIYE</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_PLAYER_DARK_PURPLE</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_PIYE</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_DUSAN</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_DUSAN</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_WHITE</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_DUSAN</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_MATTHIAS</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_MATTHIAS</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_MATTHIAS</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_PEDRO_II</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_PEDRO_II</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_PEDRO_II</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_MONGKUT</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_MONGKUT</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_WHITE</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_MONGKUT</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_BOLIVAR</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_BOLIVAR</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_PLAYER_DARK_BLUE</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_BOLIVAR</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_HIRAM</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_HIRAM</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_HIRAM</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_RAMKHAMHAENG</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_RAMKHAMHAENG</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_RAMKHAMHAENG</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_HO_CHI_MINH</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_HO_CHI_MINH</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_HO_CHI_MINH</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_ASKIA</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_ASKIA</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_ASKIA</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_DAVID</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_DAVID</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_DAVID</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_SENNACHERIB</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_SENNACHERIB</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_SENNACHERIB</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_ZENOBIA</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_ZENOBIA</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_PLAYER_EXP_ZENOBIA</TextColorType>
+</PlayerColorInfo>
+</PlayerColorInfos>
 </Civ4PlayerColorInfos>

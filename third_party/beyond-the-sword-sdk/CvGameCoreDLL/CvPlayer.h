@@ -218,6 +218,8 @@ public:
 	int calculateBaseNetGold() const;
 	int calculateBaseNetResearch(TechTypes eTech = NO_TECH) const;   // Exposed to Python
 	int calculateResearchModifier(TechTypes eTech) const;   // Exposed to Python
+	int getOpenBordersKnownTechResearchModifier(TechTypes eTech) const;
+	int getConquestOccupationReductionPercent() const;
 	int calculateGoldRate() const;																																				// Exposed to Python
 	int calculateResearchRate(TechTypes eTech = NO_TECH) const;																						// Exposed to Python
 	int calculateTotalCommerce() const;

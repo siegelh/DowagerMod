@@ -419,6 +419,61 @@ def serialize_element(element: ET.Element) -> str:
     return ET.tostring(clone, encoding="unicode")
 
 
+def normalize_plot_routes(text: str, improvement_types: list[str]) -> str:
+    """Preserve custom routes without overlapping the imported generic route."""
+    root = ET.fromstring(strip_namespace(text))
+    reserved: set[str] = set()
+    for production in root.findall("LProduction"):
+        if production.get("From") != "PLOT_ROOT":
+            continue
+        destinations = [node.get("Name", "") for node in production.findall("To")]
+        tokens = attribute_tokens(production, "Improvement")
+        if "IMPROVEMENT_ALL" not in tokens and (
+            destinations == ["Node_12x12"]
+            or any(name.startswith("Node_Dowager_") for name in destinations)
+        ):
+            reserved.update(tokens)
+
+    def replace_generic(match: re.Match[str]) -> str:
+        production = ET.fromstring(match.group())
+        if production.get("From") != "PLOT_ROOT":
+            return match.group()
+        attributes = production.findall("Attribute")
+        selectors = [a for a in attributes if a.get("Class") == "Improvement"]
+        if len(selectors) != 1 or "IMPROVEMENT_ALL" not in (selectors[0].text or "").split(","):
+            return match.group()
+        if len(attributes) != 1 or [n.get("Name") for n in production.findall("To")] != ["Node_12x12"]:
+            raise ValueError("Unexpected broad plot route; refusing to change its conditions")
+        tokens = (selectors[0].text or "").split(",")
+        excluded = {token[1:] for token in tokens if token.startswith("!")}
+        allowed = (["NO_IMPROVEMENT"] if "NO_IMPROVEMENT" in tokens else []) + [
+            name for name in improvement_types if name not in excluded | reserved
+        ]
+        groups: list[list[str]] = []
+        for token in allowed:
+            if len(token) > 182:
+                raise ValueError("Improvement identifier exceeds known-safe selector length")
+            if not groups or len(",".join(groups[-1] + [token])) > 182:
+                groups.append([])
+            groups[-1].append(token)
+        if not groups:
+            raise ValueError("Generic plot route has no remaining improvements")
+        replacements = []
+        for index, group in enumerate(groups, 1):
+            clone = copy.deepcopy(production)
+            clone.set("Name", "DowagerGenericPlotRoute%d" % index)
+            clone.find("Attribute").text = ",".join(group)
+            replacements.append(serialize_element(clone).rstrip())
+        return "\n\n".join(replacements)
+
+    text = re.sub(r"<LProduction\b[^>]*>.*?</LProduction>", replace_generic, text, flags=re.DOTALL)
+    first_production = text.index("<LProduction")
+    prefix, suffix = text[:first_production], text[first_production:]
+    late_nodes = re.findall(r"<LNode\b[^>]*>.*?</LNode>", suffix, flags=re.DOTALL)
+    suffix = re.sub(r"<LNode\b[^>]*>.*?</LNode>", "", suffix, flags=re.DOTALL)
+    return prefix + "".join(node + "\n\n" for node in late_nodes) + suffix
+
+
 def merge_plot_lsystem(target_path: Path, source_path: Path) -> dict[str, object]:
     target_text = target_path.read_text(encoding="utf-8-sig")
     source_text = source_path.read_text(encoding="utf-8-sig")
@@ -497,6 +552,11 @@ def merge_plot_lsystem(target_path: Path, source_path: Path) -> dict[str, object
         + "\n</LSystemInfos>",
         1,
     )
+    improvement_root = ET.fromstring(strip_namespace(
+        (target_path.parent.parent / "Terrain/CIV4ImprovementInfos.xml").read_text(encoding="utf-8-sig")
+    ))
+    improvement_types = [node.text for node in improvement_root.findall(".//ImprovementInfo/Type")]
+    merged = normalize_plot_routes(merged, improvement_types)
     target_path.write_text(merged, encoding="utf-8")
     return {
         "source": normalize(str(source_path)),

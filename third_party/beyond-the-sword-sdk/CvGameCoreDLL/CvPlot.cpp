@@ -2303,6 +2303,15 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible)
 
 	if (eImprovement != NO_IMPROVEMENT)
 	{
+		const CvImprovementInfo& kBuildImprovement = GC.getImprovementInfo(eImprovement);
+		if (kBuildImprovement.getCityBuildGroup() > 0)
+		{
+			if (ePlayer == NO_PLAYER || kBuildImprovement.isCityBuildPillaged() ||
+				GET_PLAYER(ePlayer).getCivilizationType() != kBuildImprovement.getBuildCivilization())
+				return false;
+			if (!bTestVisible && getCityBuildFailure(eImprovement, ePlayer) != ExpansionRules::CITY_BUILD_ALLOWED)
+				return false;
+		}
 		if (!canHaveImprovement(eImprovement, GET_PLAYER(ePlayer).getTeam(), bTestVisible))
 		{
 			return false;
@@ -2440,6 +2449,65 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible)
 	return bValid;
 }
 
+
+int CvPlot::getCityBuildCount(ImprovementTypes eImprovement) const
+{
+	CvCity* pCity = getWorkingCity();
+	if (pCity == NULL || eImprovement == NO_IMPROVEMENT)
+		return 0;
+	const int iGroup = GC.getImprovementInfo(eImprovement).getCityBuildGroup();
+	if (iGroup <= 0)
+		return 0;
+	int iCount = 0;
+	for (int i = 0; i < NUM_CITY_PLOTS; ++i)
+	{
+		CvPlot* pOther = pCity->getCityIndexPlot(i);
+		if (pOther != NULL && pOther->getWorkingCity() == pCity &&
+			pOther->getOwnerINLINE() == pCity->getOwnerINLINE() &&
+			pOther->getImprovementType() != NO_IMPROVEMENT &&
+			GC.getImprovementInfo(pOther->getImprovementType()).getCityBuildGroup() == iGroup)
+			++iCount;
+	}
+	return iCount;
+}
+
+ExpansionRules::CityBuildFailure CvPlot::getCityBuildFailure(ImprovementTypes eImprovement, PlayerTypes ePlayer, RouteTypes eProposedRoute) const
+{
+	if (eImprovement == NO_IMPROVEMENT)
+		return ExpansionRules::CITY_BUILD_ALLOWED;
+	const CvImprovementInfo& info = GC.getImprovementInfo(eImprovement);
+	if (info.getCityBuildGroup() <= 0)
+		return ExpansionRules::CITY_BUILD_ALLOWED;
+	CvCity* pCity = getWorkingCity();
+	const ImprovementTypes eCurrent = getImprovementType();
+	const bool bRestore = eCurrent != NO_IMPROVEMENT &&
+		GC.getImprovementInfo(eCurrent).isCityBuildPillaged() &&
+		GC.getImprovementInfo(eCurrent).getCityBuildGroup() == info.getCityBuildGroup();
+	bool bLandmark = eCurrent != NO_IMPROVEMENT &&
+		GC.getImprovementInfo(eCurrent).isLandmark();
+	if (eCurrent != NO_IMPROVEMENT && !bLandmark)
+	{
+		// Older Great Person improvements predate the landmark metadata.
+		for (int i = 0; i < GC.getNumBuildInfos(); ++i)
+			if (GC.getBuildInfo((BuildTypes)i).getImprovement() == eCurrent &&
+				GC.getBuildInfo((BuildTypes)i).isKill())
+				bLandmark = true;
+	}
+	const RouteTypes eRoute = eProposedRoute == NO_ROUTE ? getRouteType() : eProposedRoute;
+	return ExpansionRules::cityBuildFailure(
+		ePlayer != NO_PLAYER && !info.isCityBuildPillaged() &&
+			GET_PLAYER(ePlayer).getCivilizationType() == info.getBuildCivilization(),
+		!isCity() && !isWater() && !isPeak() && isFlatlands() &&
+			getTerrainType() != NO_TERRAIN && info.getTerrainMakesValid(getTerrainType()),
+		getFeatureType() == NO_FEATURE, getBonusType() == NO_BONUS, bLandmark,
+		ePlayer != NO_PLAYER && getOwnerINLINE() == ePlayer && pCity != NULL &&
+			pCity->getOwnerINLINE() == ePlayer && pCity->getCityPlotIndex(this) >= 0,
+		ExpansionRules::cityBuildLocation((ExpansionRules::CityBuildCondition)info.getCityBuildCondition(),
+			isRiverSide(), isIrrigated(), getTerrainType() == GC.getInfoTypeForString("TERRAIN_DESERT"),
+			eRoute != NO_ROUTE && (eRoute == GC.getInfoTypeForString("ROUTE_ROAD") ||
+				eRoute == GC.getInfoTypeForString("ROUTE_RAILROAD"))),
+		getCityBuildCount(eImprovement), info.getCityBuildCap(), bRestore);
+}
 
 // canBuildLandmark
 // ----------------
@@ -7046,6 +7114,13 @@ void CvPlot::updateYield()
 		}
 	}
 
+	pWorkingCity = getWorkingCity();
+	if (pWorkingCity != NULL && pWorkingCity->hasWorkedPlotRules())
+	{
+		pWorkingCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
+		pWorkingCity->AI_setAssignWorkDirty(true);
+	}
+
 	if (bChange)
 	{
 		updateSymbols();
@@ -8332,6 +8407,22 @@ bool CvPlot::changeBuildProgress(BuildTypes eBuild, int iChange, TeamTypes eTeam
 
 		if (getBuildProgress(eBuild) >= getBuildTime(eBuild))
 		{
+			const ImprovementTypes eTarget = (ImprovementTypes)GC.getBuildInfo(eBuild).getImprovement();
+			if (eTarget != NO_IMPROVEMENT && GC.getImprovementInfo(eTarget).getCityBuildGroup() > 0 &&
+				(getTeam() != eTeam || getCityBuildFailure(eTarget, getOwnerINLINE()) != ExpansionRules::CITY_BUILD_ALLOWED ||
+					!canBuild(eBuild, getOwnerINLINE())))
+			{
+				m_paiBuildProgress[eBuild] -= iChange;
+				CvString error;
+				error.Format("Build completion rejected: build=%d plot=(%d,%d) owner=%d reason=%d",
+					eBuild, getX_INLINE(), getY_INLINE(), getOwnerINLINE(), getCityBuildFailure(eTarget, getOwnerINLINE()));
+				gDLL->logMsg("expansion-build.log", error.c_str());
+				if (isOwned())
+					gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), false, GC.getEVENT_MESSAGE_TIME(),
+						gDLL->getText("TXT_KEY_EXP_BUILD_COMPLETION_REJECTED"), NULL, MESSAGE_TYPE_INFO,
+						GC.getImprovementInfo(eTarget).getButton(), NO_COLOR, getX_INLINE(), getY_INLINE(), true, true);
+				return false;
+			}
 			m_paiBuildProgress[eBuild] = 0;
 
 			if (GC.getBuildInfo(eBuild).getImprovement() != NO_IMPROVEMENT)
@@ -8947,6 +9038,9 @@ void CvPlot::addUnit(CvUnit* pUnit, bool bUpdate)
 		m_units.insertAtEnd(pUnit->getIDInfo());
 	}
 
+	if (getPlotCity() != NULL)
+		getPlotCity()->updateVeteranGarrisonCulture();
+
 	if (bUpdate)
 	{
 		updateCenterUnit();
@@ -8975,6 +9069,9 @@ void CvPlot::removeUnit(CvUnit* pUnit, bool bUpdate)
 			pUnitNode = nextUnitNode(pUnitNode);
 		}
 	}
+
+	if (getPlotCity() != NULL)
+		getPlotCity()->updateVeteranGarrisonCulture();
 
 	if (bUpdate)
 	{

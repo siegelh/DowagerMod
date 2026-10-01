@@ -772,6 +772,8 @@ public:
 
 protected:
 
+	void updateVeteranGarrisonCommerce();
+
 	int m_iID;
 	int m_iGroupID;
 	int m_iHotKeyNumber;
