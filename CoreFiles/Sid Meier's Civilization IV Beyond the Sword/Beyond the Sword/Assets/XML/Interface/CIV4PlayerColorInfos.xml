@@ -422,43 +422,43 @@
 		</PlayerColorInfo>
 	<PlayerColorInfo>
   <Type>PLAYERCOLOR_EXP_PIYE</Type>
-  <ColorTypePrimary>COLOR_YELLOW</ColorTypePrimary>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_PIYE</ColorTypePrimary>
   <ColorTypeSecondary>COLOR_PLAYER_DARK_PURPLE</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
 <PlayerColorInfo>
   <Type>PLAYERCOLOR_EXP_DUSAN</Type>
-  <ColorTypePrimary>COLOR_PLAYER_DARK_RED</ColorTypePrimary>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_DUSAN</ColorTypePrimary>
   <ColorTypeSecondary>COLOR_WHITE</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
 <PlayerColorInfo>
   <Type>PLAYERCOLOR_EXP_MATTHIAS</Type>
-  <ColorTypePrimary>COLOR_PLAYER_DARK_PURPLE</ColorTypePrimary>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_MATTHIAS</ColorTypePrimary>
   <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
 <PlayerColorInfo>
   <Type>PLAYERCOLOR_EXP_PEDRO_II</Type>
-  <ColorTypePrimary>COLOR_PLAYER_DARK_GREEN</ColorTypePrimary>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_PEDRO_II</ColorTypePrimary>
   <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
 <PlayerColorInfo>
   <Type>PLAYERCOLOR_EXP_MONGKUT</Type>
-  <ColorTypePrimary>COLOR_PLAYER_DARK_RED</ColorTypePrimary>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_MONGKUT</ColorTypePrimary>
   <ColorTypeSecondary>COLOR_WHITE</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
 <PlayerColorInfo>
   <Type>PLAYERCOLOR_EXP_BOLIVAR</Type>
-  <ColorTypePrimary>COLOR_YELLOW</ColorTypePrimary>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_BOLIVAR</ColorTypePrimary>
   <ColorTypeSecondary>COLOR_PLAYER_DARK_BLUE</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
 <PlayerColorInfo>
   <Type>PLAYERCOLOR_EXP_HIRAM</Type>
-  <ColorTypePrimary>COLOR_PLAYER_DARK_PURPLE</ColorTypePrimary>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_HIRAM</ColorTypePrimary>
   <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>

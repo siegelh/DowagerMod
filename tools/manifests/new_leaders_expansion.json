@@ -27,7 +27,8 @@
       "source_url": "https://en.wikipedia.org/wiki/Piye",
       "art": {"folder": "piye", "NIF": "ramassesii.nif", "KFM": "ramassesii.kfm", "NoShaderNIF": "ramassesii_noshader.nif", "BackgroundKFM": "ramassesii_BG.kfm", "Button": "Piye.dds"},
       "art_status": "Existing primary and separate nonshader model retained. Package XML confirms the 64px Piye.dds portrait. Stock Archer and Monument art are provisional, not claimed as final Nubian costume or architecture. Full diplomacy/graphics acceptance pending.",
-      "colors": ["COLOR_YELLOW", "COLOR_PLAYER_DARK_PURPLE", "COLOR_WHITE"],
+      "colors": ["COLOR_PLAYER_EXP_PIYE", "COLOR_PLAYER_DARK_PURPLE", "COLOR_WHITE"],
+      "primary_rgb": [0.933333, 0.866667, 0.6],
       "flag_note": "Original geometric gold winged solar disk on purple, inspired by ancient Nile religious imagery. Modern gameplay reconstruction, not an attested national flag or an archaeological facsimile."
     },
     {
@@ -54,7 +55,8 @@
       "source_url": "https://en.wikipedia.org/wiki/Stefan_Du%C5%A1an",
       "art": {"folder": "dusan", "NIF": "Putin.nif", "KFM": "Putin.kfm", "NoShaderNIF": "Putin.nif", "BackgroundKFM": "Putin_BG.kfm", "Button": "dusan.dds"},
       "art_status": "Existing package explicitly uses the primary Putin.nif in both shader fields; retained without claiming nonshader runtime certification. Package XML confirms dusan.dds portrait. Stock medieval Knight and Courthouse visuals are provisional. No later Serbian uniform imports.",
-      "colors": ["COLOR_PLAYER_DARK_RED", "COLOR_WHITE", "COLOR_WHITE"],
+      "colors": ["COLOR_PLAYER_EXP_DUSAN", "COLOR_WHITE", "COLOR_WHITE"],
+      "primary_rgb": [0.4, 0.666667, 0.533333],
       "flag_note": "Original geometric white double-headed eagle on red, inspired by medieval Serbian imperial heraldry. A simplified gameplay reconstruction, not a claim to reproduce a surviving personal standard."
     },
     {
@@ -83,7 +85,8 @@
       "art": {"folder": "matthias_corvinus", "NIF": "Justinian.nif", "KFM": "Justinian.kfm", "NoShaderNIF": "Justinian_NONSHADER.nif", "BackgroundKFM": "Justinian_Background.kfm", "Button": null},
       "art_status": "Retained primary/nonshader geometry and costume. Missing stock Darius specular map restored with matching donor normal/environment/mask evidence. No supplied portrait button: explicitly provisional original raven-emblem button, not a portrait or an audit render. Stock Gunpowder infantry and University art are prototypes, not authenticated Black Army uniforms or a royal-library model.",
       "repairs": [{"source": "Art/Leaderheads/Darius/Darius_SPEC.dds", "target": "Art/Leaderheads/new/matthias_corvinus/Darius_SPEC.dds", "sha256": "5456ac0f226a7e6d05dd50b8e71201dd01c2aab70545f53f7b37786b3b35a77c", "evidence": "Darius NRML.dds, Darius_ENV.dds and Darius_ENVMask.dds in Matthias match stock Darius byte-for-byte; both retained NIFs reference the missing stock Darius_SPEC.dds."}],
-      "colors": ["COLOR_PLAYER_DARK_PURPLE", "COLOR_YELLOW", "COLOR_WHITE"],
+      "colors": ["COLOR_PLAYER_EXP_MATTHIAS", "COLOR_YELLOW", "COLOR_WHITE"],
+      "primary_rgb": [1.0, 0.0, 0.533333],
       "flag_note": "Original geometric raven holding a gold ring on pale gold, inspired by Corvinian heraldry. A simplified provisional emblem, not a facsimile of a historical royal banner."
     },
     {
@@ -110,7 +113,8 @@
       "source_url": "https://en.wikipedia.org/wiki/Pedro_II_of_Brazil",
       "art": {"folder": "dompedro_v3", "NIF": "napoleon.nif", "KFM": "napoleon.kfm", "NoShaderNIF": "napoleon_noshader.nif", "BackgroundKFM": "napoleon_bg.kfm", "Button": "pedro.dds"},
       "art_status": "Existing aging bearded imperial portrait and bundled 64px pedro.dds retained provisionally. No conflicting Pedro I metadata found; final identity approval remains open. Unused BoundShape/Suleiman helper meshes and stored background tilt are untouched. Stock nineteenth-century Rifleman/University art is explicitly provisional.",
-      "colors": ["COLOR_PLAYER_DARK_GREEN", "COLOR_YELLOW", "COLOR_WHITE"],
+      "colors": ["COLOR_PLAYER_EXP_PEDRO_II", "COLOR_YELLOW", "COLOR_WHITE"],
+      "primary_rgb": [0.733333, 0.266667, 0.333333],
       "flag_note": "Original simplified green field, gold lozenge and blue imperial medallion with a gold crown. Provisional Second Empire-inspired reconstruction, not a modern republican flag or a facsimile of the full imperial arms."
     },
     {
@@ -138,7 +142,8 @@
       "art": {"folder": "mongkut", "NIF": "Tachnechobrus.nif", "KFM": "Tachnechobrus.kfm", "NoShaderNIF": "Tachnechobrus.nif", "BackgroundKFM": "Tachnechobrus_Background.kfm", "Button": "MongkutButton.dds"},
       "art_status": "Retained primary mesh, costume, background and bundled portrait. Missing eye material restored from the identical shared stock eyeshadow already bundled under frederick_eyeshadow.dds. No distinct nonshader model; low-graphics acceptance remains pending. Stock Rifleman and Observatory art are provisional, not authenticated Siamese uniforms or architecture.",
       "repairs": [{"source": "Art/Leaderheads/new/mongkut/frederick_eyeshadow.dds", "target": "Art/Leaderheads/new/mongkut/eyeshadow.dds", "sha256": "894159ebe627bb3101ca4ad8f88fd1e265bec7ed76a8b0dff2fa2dfd2bf83e78", "evidence": "PyFFI resolves the 24-vertex eyeshadow geometry's base texture to missing eyeshadow.dds. The already bundled frederick_eyeshadow.dds is byte-identical to stock Justinian's shared eyeshadow.dds (192 bytes), not a replacement portrait texture."}],
-      "colors": ["COLOR_PLAYER_DARK_RED", "COLOR_WHITE", "COLOR_WHITE"],
+      "colors": ["COLOR_PLAYER_EXP_MONGKUT", "COLOR_WHITE", "COLOR_WHITE"],
+      "primary_rgb": [1.0, 0.0, 0.733333],
       "flag_note": "Original simplified white elephant on red, inspired by nineteenth-century Siamese flags. Provisional geometric reconstruction, not an exact drawing of a surviving royal standard."
     },
     {
@@ -170,7 +175,8 @@
         {"source": "Art/Leaderheads/new/bolivar_v3/Bolivar.kfm", "target": "Art/Leaderheads/new/bolivar_v3/Bolivar_Runtime.kfm", "sha256": "5e09cff158bdcf1336a8259b646e302e0330e4bd4bdb2f4729a30d1afeb1d49a", "kfm_model": {"old": "alexander.nif", "new": "Bolivar.nif"}, "evidence": "The original KFM points at an absent donor model. Only its length-prefixed model field changes; the _alex_parent skeleton and all existing eight animation filenames/transitions remain byte-identical."},
         {"source": "Art/BTG/LeaderHeads/harun_al-rashid/julius_caesar_bg_background.kf", "target": "Art/Leaderheads/new/bolivar_v3/julius_caesar_BG_background.kf", "sha256": "402b52b658a2a6b68548ded52ec03b5c1dc3aa0fb313e3c2b08a573406351cd0", "prepared_sha256": "14f53f1a289519a60b33d1f69a05f7d1ee9f5344dc166f01fdac80fd30d0fe5d", "evidence": "tools/prepare_bolivar_background.py (PyFFI 2.2.3) verifies pinned donor/model hashes, retains only _julius_caesar_parent and NonAccum constant transform links, excludes the two absent targets and checks composed orientation within 1e-5. Thirteen repository donor clips share the source hash. No background mesh, material, camera or head-animation change."}
       ],
-      "colors": ["COLOR_YELLOW", "COLOR_PLAYER_DARK_BLUE", "COLOR_WHITE"],
+      "colors": ["COLOR_PLAYER_EXP_BOLIVAR", "COLOR_PLAYER_DARK_BLUE", "COLOR_WHITE"],
+      "primary_rgb": [0.933333, 0.533333, 1.0],
       "flag_note": "Original geometric yellow-blue-red independence-era tricolor abstraction. No copied arms, stars or modern state insignia; provisional identification for the 1819-1831 republic, not an exact claim for every historical flag variant."
     },
     {
@@ -201,7 +207,8 @@
         {"source": "Art/Leaderheads/new/Amra_Hiram_v2/Darius.nif", "target": "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.nif", "sha256": "42dd29992d223ae7c7def1e250438b0d49689f4bb57a3002174ed0bee5cd6ee9", "prepared_sha256": "0b68d70a08540449cedec4f79860403df99ba92ec61af6ac92259ff6117f8be8", "evidence": "tools/prepare_hiram_leaderhead.py (PyFFI 2.2.3) verifies the sole NiAVObject export root is Scene Root and none of the other five roots is reachable from it. Both missing saruman.dds references belong to a separate NiTexturingProperty root. Every active scene block serializes identically before and after repair, including reference indices, geometry, transforms and materials."},
         {"source": "Art/Leaderheads/new/Amra_Hiram_v2/Darius.kfm", "target": "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.kfm", "sha256": "520b43bc7b02afa76330aafbbcbb2aa59d7e7a691acd2ab4dfe561858c4b4f92", "kfm_model": {"old": "Darius.nif", "new": "Darius_Runtime.nif"}, "evidence": "Reviewed little-endian KFM 2.0.0.0b: only the length-prefixed model name changes. _darius_parent and all animation/transition bytes remain identical."}
       ],
-      "colors": ["COLOR_PLAYER_DARK_PURPLE", "COLOR_YELLOW", "COLOR_WHITE"],
+      "colors": ["COLOR_PLAYER_EXP_HIRAM", "COLOR_YELLOW", "COLOR_WHITE"],
+      "primary_rgb": [0.733333, 0.933333, 0.733333],
       "flag_note": "Original geometric merchant vessel with pale sail and gold hull on Tyrian purple. Modern gameplay emblem inspired by Phoenician maritime exchange, not an attested national flag or copied ancient illustration."
     }
   ]

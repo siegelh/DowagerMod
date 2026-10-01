@@ -37,6 +37,7 @@ FILES = {
     "leader_art": ("Art/CIV4ArtDefines_Leaderhead.xml", "LeaderheadArtInfo", "LeaderheadArtInfos"),
     "civ_art": ("Art/CIV4ArtDefines_Civilization.xml", "CivilizationArtInfo", "CivilizationArtInfos"),
     "color": ("Interface/CIV4PlayerColorInfos.xml", "PlayerColorInfo", "PlayerColorInfos"),
+    "color_value": ("Interface/CIV4ColorVals.xml", "ColorVal", "ColorVals"),
     "promotion": ("Units/CIV4PromotionInfos.xml", "PromotionInfo", "PromotionInfos"),
 }
 
@@ -282,6 +283,16 @@ def generate(document: dict) -> dict[Path, bytes]:
             ET.SubElement(entry, "bFreeTech").text = "1"
         add("civ", civ)
 
+        rgb = package["primary_rgb"]
+        if (len(rgb) != 3 or any(type(v) not in (float, int) or not 0 <= v <= 1 for v in rgb) or
+                package["colors"][0] != "COLOR_PLAYER_" + suffix):
+            raise ValueError(f"Invalid explicit expansion primary color: {identifier}")
+        color_value = ET.Element("ColorVal")
+        ET.SubElement(color_value, "Type").text = package["colors"][0]
+        for tag, value in zip(("fRed", "fGreen", "fBlue"), rgb):
+            ET.SubElement(color_value, tag).text = f"{value:.6f}"
+        ET.SubElement(color_value, "fAlpha").text = "1.000000"
+        add("color_value", color_value)
         color = ET.Element("PlayerColorInfo")
         for tag, value in zip(("Type", "ColorTypePrimary", "ColorTypeSecondary", "TextColorType"),
                               ["PLAYERCOLOR_" + suffix] + package["colors"]):

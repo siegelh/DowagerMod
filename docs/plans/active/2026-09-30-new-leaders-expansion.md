@@ -393,3 +393,25 @@ accepted gameplay. No claim of a green full suite is made.
 E1 is not yet populated by the six missing civilization packages. E7/E9,
 final content/visual acceptance and manual gameplay/save/multiplayer tests
 remain outstanding. Not ready to merge/deploy.
+
+### Expansion palette and roster-boundary corrections
+
+The seven new player colors now use dedicated RGB definitions rather than
+reusing original civilizations' primary colors. Each is at least CIELAB
+distance 20 from every prior player color and the other new colors; original
+definitions and the 59 civilization mappings remain untouched. Flag artwork
+is unchanged. The compiler now checks and publishes the explicit RGB values
+alongside the player-color records; deterministic output spans 35 files.
+
+Legacy 59-roster and final-building assertions now check the exact original
+boundary plus the manifest-declared expansion suffix. Original ordering,
+exact-prefix preservation and numerical gameplay assertions remain enforced.
+The palette/roster checks pass, and the required gate passes
+(`files\expansion-palette-gate.log`).
+
+The remaining historical additive-signature failure predates this expansion:
+`46935de18` removed Charlemagne bonuses, `c0e5faf5a` removed overpowered Road
+Commerce, and `178f61f52` increased Bourbon Culture. Its test still compares
+against `7da9963f6`. These accepted gameplay changes are preserved exactly
+against `cb87ce542` by the expansion tests; neither they nor that unrelated
+historical test have been rewritten merely to obtain a green full-suite run.

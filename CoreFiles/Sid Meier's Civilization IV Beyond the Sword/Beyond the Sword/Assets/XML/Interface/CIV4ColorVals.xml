@@ -1012,5 +1012,54 @@
 			<Type>COLOR_PLAYER_GERMAN_EMPIRE</Type>
 			<fRed>0.680</fRed><fGreen>0.578</fGreen><fBlue>0.374</fBlue><fAlpha>1.00</fAlpha>
 		</ColorVal>
-	</ColorVals>
+	<ColorVal>
+  <Type>COLOR_PLAYER_EXP_PIYE</Type>
+  <fRed>0.933333</fRed>
+  <fGreen>0.866667</fGreen>
+  <fBlue>0.600000</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_DUSAN</Type>
+  <fRed>0.400000</fRed>
+  <fGreen>0.666667</fGreen>
+  <fBlue>0.533333</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_MATTHIAS</Type>
+  <fRed>1.000000</fRed>
+  <fGreen>0.000000</fGreen>
+  <fBlue>0.533333</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_PEDRO_II</Type>
+  <fRed>0.733333</fRed>
+  <fGreen>0.266667</fGreen>
+  <fBlue>0.333333</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_MONGKUT</Type>
+  <fRed>1.000000</fRed>
+  <fGreen>0.000000</fGreen>
+  <fBlue>0.733333</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_BOLIVAR</Type>
+  <fRed>0.933333</fRed>
+  <fGreen>0.533333</fGreen>
+  <fBlue>1.000000</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_HIRAM</Type>
+  <fRed>0.733333</fRed>
+  <fGreen>0.933333</fGreen>
+  <fBlue>0.733333</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+</ColorVals>
 </Civ4ColorVals>
