@@ -9,6 +9,7 @@
       "Art/Leaderheads/new/piye/ramassesii_noshader.nif": "efc924b898150383cf1dbcf2d4591491104b69cb6283a2382bd3a0053cecac2e",
       "Art/Leaderheads/new/piye/ramassesii_BG.kfm": "94f84df9b01f82418802834ab407d0c27a520c88f056fab979c737466a47ac2c"
     },
+    "repairs": [],
     "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
   },
   {
@@ -20,6 +21,40 @@
       "Art/Leaderheads/new/dusan/Putin.kfm": "ec07fcf88f819b94cc0124b41081d2c821c733bbe56dc12f6f9dae6aadd1bcbf",
       "Art/Leaderheads/new/dusan/Putin_BG.kfm": "d02b4046e6e8b22189a5fd292e1cc4e81d9398813451259fe61bcf20a429c614"
     },
+    "repairs": [],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_MATTHIAS",
+    "status": "Retained primary/nonshader geometry and costume. Missing stock Darius specular map restored with matching donor normal/environment/mask evidence. No supplied portrait button: explicitly provisional original raven-emblem button, not a portrait or an audit render. Stock Gunpowder infantry and University art are prototypes, not authenticated Black Army uniforms or a royal-library model.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/matthias_corvinus/Justinian.nif": "b7cfe66b1f02226e06d354af260ef45c5b46817c99597b9a9ef3183adad5cbb1",
+      "Art/Leaderheads/new/matthias_corvinus/Justinian.kfm": "4dce681a4f674ae567ca28c94bb142ae347d1e4fa0b1afc4f696e8f3dbaa6b8e",
+      "Art/Leaderheads/new/matthias_corvinus/Justinian_NONSHADER.nif": "d06185ca9bdedabe44d5300320f098c7a957cf2864a970a8979cf96a66c69fc6",
+      "Art/Leaderheads/new/matthias_corvinus/Justinian_Background.kfm": "a1b2e590edbf977dfde344a81d29c83e17b404eace1aaeb816d0fe683f7f0e4e",
+      "Art/Interface/Buttons/Civilizations/EXP_MATTHIAS.dds": "d5dfa497ff2e6b758cfe74e8f9e9058fae95b4a171ab9c7885146dd34ad88223"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/Darius/Darius_SPEC.dds",
+        "target": "Art/Leaderheads/new/matthias_corvinus/Darius_SPEC.dds",
+        "sha256": "5456ac0f226a7e6d05dd50b8e71201dd01c2aab70545f53f7b37786b3b35a77c",
+        "evidence": "Darius NRML.dds, Darius_ENV.dds and Darius_ENVMask.dds in Matthias match stock Darius byte-for-byte; both retained NIFs reference the missing stock Darius_SPEC.dds."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_PEDRO_II",
+    "status": "Existing aging bearded imperial portrait and bundled 64px pedro.dds retained provisionally. No conflicting Pedro I metadata found; final identity approval remains open. Unused BoundShape/Suleiman helper meshes and stored background tilt are untouched. Stock nineteenth-century Rifleman/University art is explicitly provisional.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/dompedro_v3/pedro.dds": "a8f0efa4d916abe52c10f9a10cfa20fd42f9a40941fb8e89f7c88b80d8f48cd2",
+      "Art/Leaderheads/new/dompedro_v3/napoleon.nif": "725ee97ac7da89dff241ce555a8c37a0ad9b823001ba8bcfa0284cb7c8cd3b7d",
+      "Art/Leaderheads/new/dompedro_v3/napoleon.kfm": "ea13132966f1475a25e1442c307f735749975a21edebe876d09f2b218006b929",
+      "Art/Leaderheads/new/dompedro_v3/napoleon_noshader.nif": "fdc57b608ce007ad88a717b7c213fe39343835af9fdef6c0a4c1e169230c1af4",
+      "Art/Leaderheads/new/dompedro_v3/napoleon_bg.kfm": "3a99a632be5190fe854d21306f3c634932d4539b4a82cb80450afcaadbba1186"
+    },
+    "repairs": [],
     "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
   }
 ]

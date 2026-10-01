@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "design_version": "issue-flags-v2",
-  "record_count": 61,
+  "record_count": 63,
   "runtime_contract": {
     "assets_root": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets",
     "civilization_xml": "XML/Civilizations/CIV4CivilizationInfos.xml",
@@ -5592,7 +5592,7 @@
       "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_PIYE.dds",
       "active_design_version": "expansion-v1",
       "master_path": "tools/flags/designs/expansion-v1/masters/piye.svg",
-      "master_sha256": "88f8e2fc936702b5c936ade4ceebd098d054cc2327bb82711fd18bd9b590a6df",
+      "master_sha256": "76e32f3028ce9285d60b51705551c716c21e5a53193085637d5a005c2bf4536b",
       "production_dds_sha256": "415f8c5b0aa9e726ade579915e52bbed7f88822a5ed0b7460b8690c7bdf2d4e9",
       "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
       "source_page_url": "https://en.wikipedia.org/wiki/Piye",
@@ -5619,7 +5619,7 @@
       "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_DUSAN.dds",
       "active_design_version": "expansion-v1",
       "master_path": "tools/flags/designs/expansion-v1/masters/dusan.svg",
-      "master_sha256": "e337f01b6c0b0b5fd7d51a86077b0dd7265f8cd187c32ba6809ae18b3339e133",
+      "master_sha256": "f60c59503aa818e215c6e824cff8a83af6a0f6fc4eb0170ce490c3d61361f7bf",
       "production_dds_sha256": "e0e86cdffb421094e6489a7928f435b5603541098338639e40b813ced3567ada",
       "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
       "source_page_url": "https://en.wikipedia.org/wiki/Stefan_Du%C5%A1an",
@@ -5634,6 +5634,60 @@
           "claim": "Historical setting, not a specification of an attested flag."
         }
       ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_HUNGARY_CORVINIAN",
+      "civilization": "Hungary: Corvinian Kingdom",
+      "leaders": [
+        "LEADER_EXP_MATTHIAS"
+      ],
+      "leader_display": "Matthias Corvinus",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_HUNGARY_CORVINIAN",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_MATTHIAS.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/matthias.svg",
+      "master_sha256": "9846daa3d6fb478d0c6872263962fa7547f971544a29a66a9af9a5c2a3a00e95",
+      "production_dds_sha256": "2e8ca804585518a3379e81f645e012134f973d8316f5c18c30f0f665a6f68d6b",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Matthias_Corvinus",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.",
+      "design_notes": "Original geometric raven holding a gold ring on pale gold, inspired by Corvinian heraldry. A simplified provisional emblem, not a facsimile of a historical royal banner.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Matthias_Corvinus",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_BRAZIL_SECOND_EMPIRE",
+      "civilization": "Brazil: Second Empire",
+      "leaders": [
+        "LEADER_EXP_PEDRO_II"
+      ],
+      "leader_display": "Pedro II",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_BRAZIL_SECOND_EMPIRE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_PEDRO_II.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/pedro_ii.svg",
+      "master_sha256": "d6fe0c9d8da72f2fef64e6f80cb061d5cc1d7f6beca46f2f5288601645794b85",
+      "production_dds_sha256": "745b9ca91565fc535d5f984b49b2ad1a55e3613a7d47511a2a78f07a7a49e644",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Pedro_II_of_Brazil",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.",
+      "design_notes": "Original simplified green field, gold lozenge and blue imperial medallion with a gold crown. Provisional Second Empire-inspired reconstruction, not a modern republican flag or a facsimile of the full imperial arms.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pedro_II_of_Brazil",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
     }
   ],
   "original_work_license": {
@@ -5645,7 +5699,7 @@
   "design_version_summary": {
     "issue-flags-v2": 56,
     "historical-v1": 3,
-    "expansion-v1": 2
+    "expansion-v1": 4
   },
   "issue_source_range": {
     "repository": "siegelh/DowagerMod",

@@ -480,4 +480,508 @@
     <Italian>I am Stefan Dusan. Let us speak of peace and the prosperity of our peoples.</Italian>
     <Spanish>I am Stefan Dusan. Let us speak of peace and the prosperity of our peoples.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_PROMOTION_EXP_PAID_PROFESSIONALS</Tag>
+    <English>Paid Professionals</English>
+    <French>Paid Professionals</French>
+    <German>Paid Professionals</German>
+    <Italian>Paid Professionals</Italian>
+    <Spanish>Paid Professionals</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_BLACK_ARMY_ARQUEBUSIER</Tag>
+    <English>Black Army Arquebusier</English>
+    <French>Black Army Arquebusier</French>
+    <German>Black Army Arquebusier</German>
+    <Italian>Black Army Arquebusier</Italian>
+    <Spanish>Black Army Arquebusier</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_BLACK_ARMY_ARQUEBUSIER_PEDIA</Tag>
+    <English>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</English>
+    <French>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</French>
+    <German>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</German>
+    <Italian>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Italian>
+    <Spanish>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_BLACK_ARMY_ARQUEBUSIER_STRATEGY</Tag>
+    <English>A stronger Musketman replacement with Drill I, costing 100 Production and one additional Gold per turn in unit costs. Retains Gunpowder and the Rifleman upgrade.</English>
+    <French>A stronger Musketman replacement with Drill I, costing 100 Production and one additional Gold per turn in unit costs. Retains Gunpowder and the Rifleman upgrade.</French>
+    <German>A stronger Musketman replacement with Drill I, costing 100 Production and one additional Gold per turn in unit costs. Retains Gunpowder and the Rifleman upgrade.</German>
+    <Italian>A stronger Musketman replacement with Drill I, costing 100 Production and one additional Gold per turn in unit costs. Retains Gunpowder and the Rifleman upgrade.</Italian>
+    <Spanish>A stronger Musketman replacement with Drill I, costing 100 Production and one additional Gold per turn in unit costs. Retains Gunpowder and the Rifleman upgrade.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_CORVINIAN_COLLEGE</Tag>
+    <English>Corvinian College</English>
+    <French>Corvinian College</French>
+    <German>Corvinian College</German>
+    <Italian>Corvinian College</Italian>
+    <Spanish>Corvinian College</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_CORVINIAN_COLLEGE_PEDIA</Tag>
+    <English>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</English>
+    <French>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</French>
+    <German>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</German>
+    <Italian>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Italian>
+    <Spanish>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_CORVINIAN_COLLEGE_STRATEGY</Tag>
+    <English>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</English>
+    <French>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</French>
+    <German>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</German>
+    <Italian>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</Italian>
+    <Spanish>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_MATTHIAS</Tag>
+    <English>Paid Professionals</English>
+    <French>Paid Professionals</French>
+    <German>Paid Professionals</German>
+    <Italian>Paid Professionals</Italian>
+    <Spanish>Paid Professionals</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_MATTHIAS_SHORT</Tag>
+    <English>Paid Professionals</English>
+    <French>Paid Professionals</French>
+    <German>Paid Professionals</German>
+    <Italian>Paid Professionals</Italian>
+    <Spanish>Paid Professionals</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_MATTHIAS</Tag>
+    <English>Matthias Corvinus</English>
+    <French>Matthias Corvinus</French>
+    <German>Matthias Corvinus</German>
+    <Italian>Matthias Corvinus</Italian>
+    <Spanish>Matthias Corvinus</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_MATTHIAS_PEDIA</Tag>
+    <English>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</English>
+    <French>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</French>
+    <German>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</German>
+    <Italian>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Italian>
+    <Spanish>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_HUNGARY_CORVINIAN_DESCRIPTION</Tag>
+    <English>Hungary: Corvinian Kingdom</English>
+    <French>Hungary: Corvinian Kingdom</French>
+    <German>Hungary: Corvinian Kingdom</German>
+    <Italian>Hungary: Corvinian Kingdom</Italian>
+    <Spanish>Hungary: Corvinian Kingdom</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_HUNGARY_CORVINIAN_SHORTDESCRIPTION</Tag>
+    <English>Hungary: Corvinian Kingdom</English>
+    <French>Hungary: Corvinian Kingdom</French>
+    <German>Hungary: Corvinian Kingdom</German>
+    <Italian>Hungary: Corvinian Kingdom</Italian>
+    <Spanish>Hungary: Corvinian Kingdom</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_HUNGARY_CORVINIAN_ADJECTIVE</Tag>
+    <English>Hungarian</English>
+    <French>Hungarian</French>
+    <German>Hungarian</German>
+    <Italian>Hungarian</Italian>
+    <Spanish>Hungarian</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_HUNGARY_CORVINIAN_CIVILOPEDIA</Tag>
+    <English>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</English>
+    <French>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</French>
+    <German>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</German>
+    <Italian>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Italian>
+    <Spanish>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_1</Tag>
+    <English>Buda</English>
+    <French>Buda</French>
+    <German>Buda</German>
+    <Italian>Buda</Italian>
+    <Spanish>Buda</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_2</Tag>
+    <English>Visegrad</English>
+    <French>Visegrad</French>
+    <German>Visegrad</German>
+    <Italian>Visegrad</Italian>
+    <Spanish>Visegrad</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_3</Tag>
+    <English>Pest</English>
+    <French>Pest</French>
+    <German>Pest</German>
+    <Italian>Pest</Italian>
+    <Spanish>Pest</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_4</Tag>
+    <English>Esztergom</English>
+    <French>Esztergom</French>
+    <German>Esztergom</German>
+    <Italian>Esztergom</Italian>
+    <Spanish>Esztergom</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_5</Tag>
+    <English>Szekesfehervar</English>
+    <French>Szekesfehervar</French>
+    <German>Szekesfehervar</German>
+    <Italian>Szekesfehervar</Italian>
+    <Spanish>Szekesfehervar</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_6</Tag>
+    <English>Pozsony</English>
+    <French>Pozsony</French>
+    <German>Pozsony</German>
+    <Italian>Pozsony</Italian>
+    <Spanish>Pozsony</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_7</Tag>
+    <English>Kassa</English>
+    <French>Kassa</French>
+    <German>Kassa</German>
+    <Italian>Kassa</Italian>
+    <Spanish>Kassa</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_8</Tag>
+    <English>Kolozsvar</English>
+    <French>Kolozsvar</French>
+    <German>Kolozsvar</German>
+    <Italian>Kolozsvar</Italian>
+    <Spanish>Kolozsvar</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_9</Tag>
+    <English>Szeged</English>
+    <French>Szeged</French>
+    <German>Szeged</German>
+    <Italian>Szeged</Italian>
+    <Spanish>Szeged</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_10</Tag>
+    <English>Pecs</English>
+    <French>Pecs</French>
+    <German>Pecs</German>
+    <Italian>Pecs</Italian>
+    <Spanish>Pecs</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_11</Tag>
+    <English>Eger</English>
+    <French>Eger</French>
+    <German>Eger</German>
+    <Italian>Eger</Italian>
+    <Spanish>Eger</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_12</Tag>
+    <English>Gyor</English>
+    <French>Gyor</French>
+    <German>Gyor</German>
+    <Italian>Gyor</Italian>
+    <Spanish>Gyor</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_13</Tag>
+    <English>Sopron</English>
+    <French>Sopron</French>
+    <German>Sopron</German>
+    <Italian>Sopron</Italian>
+    <Spanish>Sopron</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_14</Tag>
+    <English>Varad</English>
+    <French>Varad</French>
+    <German>Varad</German>
+    <Italian>Varad</Italian>
+    <Spanish>Varad</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_15</Tag>
+    <English>Temesvar</English>
+    <French>Temesvar</French>
+    <German>Temesvar</German>
+    <Italian>Temesvar</Italian>
+    <Spanish>Temesvar</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MATTHIAS_16</Tag>
+    <English>Nandorfehervar</English>
+    <French>Nandorfehervar</French>
+    <German>Nandorfehervar</German>
+    <Italian>Nandorfehervar</Italian>
+    <Spanish>Nandorfehervar</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_MATTHIAS</Tag>
+    <English>I am Matthias Corvinus. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Matthias Corvinus. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Matthias Corvinus. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Matthias Corvinus. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Matthias Corvinus. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_VOLUNTARIOS_DA_PATRIA</Tag>
+    <English>Voluntarios da Patria</English>
+    <French>Voluntarios da Patria</French>
+    <German>Voluntarios da Patria</German>
+    <Italian>Voluntarios da Patria</Italian>
+    <Spanish>Voluntarios da Patria</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_VOLUNTARIOS_DA_PATRIA_PEDIA</Tag>
+    <English>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</English>
+    <French>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</French>
+    <German>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</German>
+    <Italian>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</Italian>
+    <Spanish>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_VOLUNTARIOS_DA_PATRIA_STRATEGY</Tag>
+    <English>A Rifleman replacement costing 100 Production, with March. Retains strength 14, Rifling, no resource requirement and the Infantry upgrade. No extra drafting or free unit spawning.</English>
+    <French>A Rifleman replacement costing 100 Production, with March. Retains strength 14, Rifling, no resource requirement and the Infantry upgrade. No extra drafting or free unit spawning.</French>
+    <German>A Rifleman replacement costing 100 Production, with March. Retains strength 14, Rifling, no resource requirement and the Infantry upgrade. No extra drafting or free unit spawning.</German>
+    <Italian>A Rifleman replacement costing 100 Production, with March. Retains strength 14, Rifling, no resource requirement and the Infantry upgrade. No extra drafting or free unit spawning.</Italian>
+    <Spanish>A Rifleman replacement costing 100 Production, with March. Retains strength 14, Rifling, no resource requirement and the Infantry upgrade. No extra drafting or free unit spawning.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_IMPERIAL_LYCEUM</Tag>
+    <English>Imperial Lyceum</English>
+    <French>Imperial Lyceum</French>
+    <German>Imperial Lyceum</German>
+    <Italian>Imperial Lyceum</Italian>
+    <Spanish>Imperial Lyceum</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_IMPERIAL_LYCEUM_PEDIA</Tag>
+    <English>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</English>
+    <French>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</French>
+    <German>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</German>
+    <Italian>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</Italian>
+    <Spanish>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_IMPERIAL_LYCEUM_STRATEGY</Tag>
+    <English>A University replacement with +35% Research in total, +1 Culture and one Artist slot. Retains Education and the parent's other prerequisites.</English>
+    <French>A University replacement with +35% Research in total, +1 Culture and one Artist slot. Retains Education and the parent's other prerequisites.</French>
+    <German>A University replacement with +35% Research in total, +1 Culture and one Artist slot. Retains Education and the parent's other prerequisites.</German>
+    <Italian>A University replacement with +35% Research in total, +1 Culture and one Artist slot. Retains Education and the parent's other prerequisites.</Italian>
+    <Spanish>A University replacement with +35% Research in total, +1 Culture and one Artist slot. Retains Education and the parent's other prerequisites.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_PEDRO_II</Tag>
+    <English>Patron of Inquiry</English>
+    <French>Patron of Inquiry</French>
+    <German>Patron of Inquiry</German>
+    <Italian>Patron of Inquiry</Italian>
+    <Spanish>Patron of Inquiry</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_PEDRO_II_SHORT</Tag>
+    <English>Patron of Inquiry</English>
+    <French>Patron of Inquiry</French>
+    <German>Patron of Inquiry</German>
+    <Italian>Patron of Inquiry</Italian>
+    <Spanish>Patron of Inquiry</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_PEDRO_II</Tag>
+    <English>Pedro II</English>
+    <French>Pedro II</French>
+    <German>Pedro II</German>
+    <Italian>Pedro II</Italian>
+    <Spanish>Pedro II</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_PEDRO_II_PEDIA</Tag>
+    <English>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</English>
+    <French>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</French>
+    <German>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</German>
+    <Italian>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</Italian>
+    <Spanish>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_BRAZIL_SECOND_EMPIRE_DESCRIPTION</Tag>
+    <English>Brazil: Second Empire</English>
+    <French>Brazil: Second Empire</French>
+    <German>Brazil: Second Empire</German>
+    <Italian>Brazil: Second Empire</Italian>
+    <Spanish>Brazil: Second Empire</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_BRAZIL_SECOND_EMPIRE_SHORTDESCRIPTION</Tag>
+    <English>Brazil: Second Empire</English>
+    <French>Brazil: Second Empire</French>
+    <German>Brazil: Second Empire</German>
+    <Italian>Brazil: Second Empire</Italian>
+    <Spanish>Brazil: Second Empire</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_BRAZIL_SECOND_EMPIRE_ADJECTIVE</Tag>
+    <English>Brazilian</English>
+    <French>Brazilian</French>
+    <German>Brazilian</German>
+    <Italian>Brazilian</Italian>
+    <Spanish>Brazilian</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_BRAZIL_SECOND_EMPIRE_CIVILOPEDIA</Tag>
+    <English>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</English>
+    <French>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</French>
+    <German>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</German>
+    <Italian>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</Italian>
+    <Spanish>Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_1</Tag>
+    <English>Rio de Janeiro</English>
+    <French>Rio de Janeiro</French>
+    <German>Rio de Janeiro</German>
+    <Italian>Rio de Janeiro</Italian>
+    <Spanish>Rio de Janeiro</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_2</Tag>
+    <English>Salvador</English>
+    <French>Salvador</French>
+    <German>Salvador</German>
+    <Italian>Salvador</Italian>
+    <Spanish>Salvador</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_3</Tag>
+    <English>Recife</English>
+    <French>Recife</French>
+    <German>Recife</German>
+    <Italian>Recife</Italian>
+    <Spanish>Recife</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_4</Tag>
+    <English>Sao Paulo</English>
+    <French>Sao Paulo</French>
+    <German>Sao Paulo</German>
+    <Italian>Sao Paulo</Italian>
+    <Spanish>Sao Paulo</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_5</Tag>
+    <English>Ouro Preto</English>
+    <French>Ouro Preto</French>
+    <German>Ouro Preto</German>
+    <Italian>Ouro Preto</Italian>
+    <Spanish>Ouro Preto</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_6</Tag>
+    <English>Belem</English>
+    <French>Belem</French>
+    <German>Belem</German>
+    <Italian>Belem</Italian>
+    <Spanish>Belem</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_7</Tag>
+    <English>Sao Luis</English>
+    <French>Sao Luis</French>
+    <German>Sao Luis</German>
+    <Italian>Sao Luis</Italian>
+    <Spanish>Sao Luis</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_8</Tag>
+    <English>Porto Alegre</English>
+    <French>Porto Alegre</French>
+    <German>Porto Alegre</German>
+    <Italian>Porto Alegre</Italian>
+    <Spanish>Porto Alegre</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_9</Tag>
+    <English>Fortaleza</English>
+    <French>Fortaleza</French>
+    <German>Fortaleza</German>
+    <Italian>Fortaleza</Italian>
+    <Spanish>Fortaleza</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_10</Tag>
+    <English>Desterro</English>
+    <French>Desterro</French>
+    <German>Desterro</German>
+    <Italian>Desterro</Italian>
+    <Spanish>Desterro</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_11</Tag>
+    <English>Niteroi</English>
+    <French>Niteroi</French>
+    <German>Niteroi</German>
+    <Italian>Niteroi</Italian>
+    <Spanish>Niteroi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_12</Tag>
+    <English>Vitoria</English>
+    <French>Vitoria</French>
+    <German>Vitoria</German>
+    <Italian>Vitoria</Italian>
+    <Spanish>Vitoria</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_13</Tag>
+    <English>Cuiaba</English>
+    <French>Cuiaba</French>
+    <German>Cuiaba</German>
+    <Italian>Cuiaba</Italian>
+    <Spanish>Cuiaba</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_14</Tag>
+    <English>Goias</English>
+    <French>Goias</French>
+    <German>Goias</German>
+    <Italian>Goias</Italian>
+    <Spanish>Goias</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_15</Tag>
+    <English>Teresina</English>
+    <French>Teresina</French>
+    <German>Teresina</German>
+    <Italian>Teresina</Italian>
+    <Spanish>Teresina</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_PEDRO_II_16</Tag>
+    <English>Petropolis</English>
+    <French>Petropolis</French>
+    <German>Petropolis</German>
+    <Italian>Petropolis</Italian>
+    <Spanish>Petropolis</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_PEDRO_II</Tag>
+    <English>I am Pedro II. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Pedro II. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Pedro II. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Pedro II. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Pedro II. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
 </Civ4GameText>

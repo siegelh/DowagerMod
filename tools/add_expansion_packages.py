@@ -32,6 +32,7 @@ FILES = {
     "leader_art": ("Art/CIV4ArtDefines_Leaderhead.xml", "LeaderheadArtInfo", "LeaderheadArtInfos"),
     "civ_art": ("Art/CIV4ArtDefines_Civilization.xml", "CivilizationArtInfo", "CivilizationArtInfos"),
     "color": ("Interface/CIV4PlayerColorInfos.xml", "PlayerColorInfo", "PlayerColorInfos"),
+    "promotion": ("Units/CIV4PromotionInfos.xml", "PromotionInfo", "PromotionInfos"),
 }
 
 
@@ -130,6 +131,28 @@ def generate(document: dict) -> dict[Path, bytes]:
         leader_type = "LEADER_" + suffix
         trait_type = "TRAIT_" + suffix
         civ_art_type = "ART_DEF_" + civ_type
+        for repair in package.get("repairs", []):
+            data = (ASSETS / repair["source"]).read_bytes()
+            if hashlib.sha256(data).hexdigest() != repair["sha256"]:
+                raise ValueError("Repair source changed: " + repair["source"])
+            target = ASSETS / repair["target"]
+            if target.exists() and target.read_bytes() != data:
+                raise ValueError("Refusing to overwrite a different repair target: " + str(target))
+            staged[target] = data
+
+        if "promotion" in package:
+            promotion = clone("promotion", "PROMOTION_COMBAT1")
+            for child in promotion:
+                if child.tag.startswith(("i", "b")):
+                    child.text = "0"
+                elif list(child):
+                    child.clear()
+            field(promotion, "Type", package["promotion"])
+            localized(promotion, "Description", "TXT_KEY_" + package["promotion"], "Paid Professionals")
+            field(promotion, "iUpgradeDiscount", 25)
+            field(promotion, "bLeader", 1)
+            replace_fragment(promotion, "<UnitCombats><UnitCombat><UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType><bUnitCombat>1</bUnitCombat></UnitCombat><UnitCombat><UnitCombatType>UNITCOMBAT_GUN</UnitCombatType><bUnitCombat>1</bUnitCombat></UnitCombat></UnitCombats>")
+            add("promotion", promotion)
 
         unit = clone("unit", package["unit"]["parent"])
         building = clone("building", package["building"]["parent"])
@@ -213,12 +236,16 @@ def generate(document: dict) -> dict[Path, bytes]:
         ET.SubElement(art, "Type").text = "ART_DEF_" + leader_type
         dependencies = {}
         for tag in ("Button", "NIF", "KFM", "NoShaderNIF", "BackgroundKFM"):
-            relative = "Art/Leaderheads/new/" + package["art"]["folder"] + "/" + package["art"][tag]
-            path = ASSETS / relative
-            dependencies[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
+            if tag == "Button" and package["art"][tag] is None:
+                relative = f"Art/Interface/Buttons/Civilizations/{suffix}.dds"
+            else:
+                relative = "Art/Leaderheads/new/" + package["art"]["folder"] + "/" + package["art"][tag]
+                path = ASSETS / relative
+                dependencies[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
             ET.SubElement(art, tag).text = relative
         add("leader_art", art)
         provenance.append({"leader": leader_type, "status": package["art_status"], "direct_reference_sha256": dependencies,
+                           "repairs": package.get("repairs", []),
                            "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."})
 
         master = ROOT / f"tools/flags/designs/expansion-v1/masters/{identifier.lower()}.svg"
@@ -229,6 +256,8 @@ def generate(document: dict) -> dict[Path, bytes]:
         button_relative = f"Art/Interface/Buttons/Civilizations/{suffix}.dds"
         staged[ASSETS / flag_relative] = dds
         staged[ASSETS / button_relative] = button
+        if package["art"]["Button"] is None:
+            dependencies[button_relative] = hashlib.sha256(button).hexdigest()
         art = ET.Element("CivilizationArtInfo")
         for tag, value in (("Type", civ_art_type), ("Button", button_relative), ("Path", flag_relative), ("bWhiteFlag", "1")):
             ET.SubElement(art, tag).text = value

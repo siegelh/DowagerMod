@@ -13,6 +13,12 @@ from flags.flag_pipeline import validate_manifest_against_live
 
 
 class ExpansionWriterTests(unittest.TestCase):
+    def test_all_reviewed_fragments_are_well_formed(self):
+        for package in json.loads(MANIFEST.read_bytes())["packages"]:
+            for label, fragment in (("trait", package["trait_xml"]), ("unit", package["unit"]["xml"]), ("building", package["building"]["xml"])):
+                with self.subTest(package=package["id"], fragment=label):
+                    parse("<Root>" + fragment + "</Root>")
+
     def test_append_preserves_existing_bytes_and_is_idempotent(self):
         data = b'<?xml version="1.0"?><Root><Infos><Info><Type>OLD</Type></Info></Infos></Root>'
         addition = parse("<Info><Type>NEW</Type><Value>1</Value></Info>")
@@ -52,7 +58,8 @@ class ExpansionContractTests(unittest.TestCase):
                 old = list(self.original[kind].iter(entry_tag))
                 new = list(self.live[kind].iter(entry_tag))
                 self.assertEqual([canonical(n) for n in new[:len(old)]], [canonical(n) for n in old])
-                self.assertEqual(len(new), len(old) + len(packages))
+                added_count = sum("promotion" in p for p in packages) if kind == "promotion" else len(packages)
+                self.assertEqual(len(new), len(old) + added_count)
 
     def test_unit_and_building_deltas_retain_all_unmodified_parent_fields(self):
         for package in self.document["packages"]:
@@ -110,10 +117,26 @@ class ExpansionContractTests(unittest.TestCase):
         self.assertEqual(len(current["records"]), 59 + len(self.document["packages"]))
         validate_manifest_against_live(require_fixed_color=True)
         for record in current["records"][59:]:
+            self.assertNotIn(b"\r", (ROOT / record["master_path"]).read_bytes(), "SVG digest must survive Git's LF normalization")
             data = (ASSETS / record["runtime_dds_path"]).read_bytes()
             self.assertEqual(hashlib.sha256(data).hexdigest(), record["production_dds_sha256"])
             validate_dds(data)
             self.assertEqual(sum(m["nonzero_alpha_texel_count"] for m in alpha_block_summary(data)), 0)
+
+    def test_professionals_are_granted_only_to_eligible_combat_classes(self):
+        trait = self.entry("trait", "TRAIT_EXP_MATTHIAS")
+        self.assertEqual(
+            {n.text for n in trait.findall("FreePromotionUnitCombats/FreePromotionUnitCombat/UnitCombatType")},
+            {"UNITCOMBAT_MELEE", "UNITCOMBAT_GUN"},
+        )
+        promo = self.entry("promotion", "PROMOTION_EXP_PAID_PROFESSIONALS")
+        self.assertEqual(promo.findtext("iUpgradeDiscount"), "25")
+        self.assertEqual(promo.findtext("bLeader"), "1", "Must not be generally selectable by unrelated units")
+        self.assertEqual(promo.findtext("iCombatPercent"), "0")
+        source = (ROOT / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvUnit.cpp").read_text()
+        override = source.index('"getUpgradePriceOverride"')
+        discount = source.index("iPrice -= (iPrice * getUpgradeDiscount()) / 100;", override)
+        self.assertIn("return lResult;", source[override:discount])
 
 
 if __name__ == "__main__":

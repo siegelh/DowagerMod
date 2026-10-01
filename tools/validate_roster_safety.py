@@ -21,7 +21,7 @@ INHERITED_ASSETS = (GAME_DIR / "Assets", GAME_DIR / "Warlords" / "Assets")
 BASELINE = Path("tools/baselines/roster_baseline.json")
 PACKED_STOCK_ART = Path("tools/baselines/packed_stock_art.json")
 TRUSTED_IMPORT_MANIFESTS = Path("tools/manifests")
-ART_EXTENSIONS = {".dds", ".nif", ".kfm", ".kf"}
+ART_EXTENSIONS = {".dds", ".tga", ".nif", ".kfm", ".kf"}
 NULL_TYPES = {"", "NONE", "NO_UNIT", "NO_BUILDING", "NO_PROMOTION", "NO_TECH", "ERA_ALL",
               "NO_CIVIC", "NO_RELIGION", "NO_CORPORATION", "NO_IMPROVEMENT",
               "NO_BONUS", "NO_LEADER", "NO_CIVILIZATION"}
@@ -29,7 +29,7 @@ TOKEN_RE = re.compile(
     r"%%|%(?:\d+\$)?[A-Za-z](?:\d+(?:_[A-Za-z0-9]+)?)?|\{[A-Za-z_][A-Za-z0-9_]*\}"
 )
 EMBEDDED_ART_RE = re.compile(
-    rb"(?i)([A-Za-z0-9_ .()'@+\-/\\]{1,240}\.(?:dds|nif|kfm|kf))(?=[\x00\s])"
+    rb"(?i)([A-Za-z0-9_ .()'@+\-/\\]{1,240}\.(?:dds|tga|nif|kfm|kf))(?=[\x00\s])"
 )
 
 
@@ -65,6 +65,11 @@ class Validator:
         self._case_maps: dict[Path, dict[str, Path]] = {}
         self._packed_stock_art = self._load_packed_stock_art()
         self._trusted_import_hashes = self._load_trusted_import_hashes()
+        name_manifest = self.root / "tools/manifests/model_internal_names.json"
+        self._reviewed_internal_names = {
+            record["sha256"]: frozenset(record["internal_names"])
+            for record in json.loads(name_manifest.read_text(encoding="utf-8"))["records"]
+        }
 
     def _load_packed_stock_art(self) -> set[str]:
         path = self.root / PACKED_STOCK_ART
@@ -103,6 +108,13 @@ class Validator:
 
     def is_trusted_import(self, payload: bytes) -> bool:
         return hashlib.sha256(payload).hexdigest().lower() in self._trusted_import_hashes
+
+    def embedded_dependencies(self, payload: bytes) -> list[str]:
+        internal_names = self._reviewed_internal_names.get(hashlib.sha256(payload).hexdigest(), ())
+        return [
+            value for raw in EMBEDDED_ART_RE.findall(payload)
+            if (value := raw.decode("latin-1").strip().replace("\\", "/")) not in internal_names
+        ]
 
     def fail(self, message: str) -> None:
         self.errors.append(message)
@@ -624,8 +636,7 @@ class Validator:
                 # block names that resemble relative file dependencies. Their
                 # package-level completeness is checked by the import audit.
                 continue
-            for raw in EMBEDDED_ART_RE.findall(payload):
-                embedded = raw.decode("latin-1").strip().replace("\\", "/")
+            for embedded in self.embedded_dependencies(payload):
                 found = self.resolve_art(embedded, path)
                 if found is None:
                     self.fail(

@@ -1,6 +1,6 @@
 # Thirteen-Leader Expansion
 
-- Status: `in_progress`; baseline reconciled, Piye/Dusan native pilot integrated.
+- Status: `in_progress`; four native packages integrated; native extensions next.
 - Owner / agent: repository owner / GitHub Copilot.
 - Last updated: `2026-09-30`.
 
@@ -227,8 +227,25 @@ Combined branch exists; the baseline gate and reconciled targeted tests pass.
 Piye and Dusan are integrated using native XML trait channels, parent-preserving
 UU/UB clones, distinct colors/flags/buttons, existing animated leaderheads,
 first-contact text, AI profiles and inherited era-complete citystyles.
-The selectable roster is currently 61; eleven selected packages remain.
+Matthias and Pedro II are also integrated, bringing the selectable roster to
+63; nine selected packages remain. Matthias uses the existing native
+upgrade-discount promotion channel, limited to Melee/Gunpowder, not generally
+selectable; Python override precedence is unchanged. Pedro uses native
+specialist commerce and Great Person modifiers.
 Stock UU/UB models, retained portraits and generated heraldry are provisional.
+
+Matthias's missing Darius specular map was restored from the stock repository
+donor: neighboring normal/environment/mask textures match byte-for-byte.
+His absent portrait button is replaced explicitly by a provisional Corvinian
+raven emblem; the animated leaderhead is unchanged. Pedro's existing 64px
+portrait is retained. The roster validator now distinguishes five audited,
+hash-pinned internal NIF names from file dependencies without bypassing the
+rest of the model; TGA texture references are checked as well. No model names,
+meshes, costumes or background transforms were rewritten.
+
+New SVG masters are LF-normalized to match Git attributes; their source
+digests therefore survive a fresh checkout. The original 59 flag records and
+production digests remain unchanged.
 
 The package compiler `tools\add_expansion_packages.py --apply` appends only
 reviewed manifest packages. Its default mode checks deterministic output;
@@ -246,6 +263,10 @@ pre-expansion whole-file citystyle hash expectation. Its original byte hash
 remains pinned against `c9bfb5892`, followed by exact structural preservation
 with only accepted citystyles and declared appended records allowed.
 There are no remaining failures in this combined targeted run.
+
+The second native group passed the repository gate and 48 focused
+expansion/validator/flag/exact-roster tests. Full cumulative reruns remain part
+of the subsequent engine/content integration.
 
 Native compilation passed at the combined baseline; the pilot adds no DLL
 code. Manual gameplay, diplomacy/graphics, AI games, old saves and multiplayer

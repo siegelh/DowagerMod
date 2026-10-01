@@ -501,5 +501,21 @@
   <NoShaderNIF>Art/Leaderheads/new/dusan/Putin.nif</NoShaderNIF>
   <BackgroundKFM>Art/Leaderheads/new/dusan/Putin_BG.kfm</BackgroundKFM>
 </LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_MATTHIAS</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_MATTHIAS.dds</Button>
+  <NIF>Art/Leaderheads/new/matthias_corvinus/Justinian.nif</NIF>
+  <KFM>Art/Leaderheads/new/matthias_corvinus/Justinian.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/matthias_corvinus/Justinian_NONSHADER.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/matthias_corvinus/Justinian_Background.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_PEDRO_II</Type>
+  <Button>Art/Leaderheads/new/dompedro_v3/pedro.dds</Button>
+  <NIF>Art/Leaderheads/new/dompedro_v3/napoleon.nif</NIF>
+  <KFM>Art/Leaderheads/new/dompedro_v3/napoleon.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/dompedro_v3/napoleon_noshader.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/dompedro_v3/napoleon_bg.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
 </LeaderheadArtInfos>
 </Civ4ArtDefines>

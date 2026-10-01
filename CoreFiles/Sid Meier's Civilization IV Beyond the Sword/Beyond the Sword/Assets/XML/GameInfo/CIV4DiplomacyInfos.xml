@@ -833,6 +833,34 @@
     <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_DUSAN</Text>
   </DiplomacyText>
 </Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_MATTHIAS</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_MATTHIAS</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_PEDRO_II</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_PEDRO_II</Text>
+  </DiplomacyText>
+</Response>
 </Responses>
 		</DiplomacyInfo>
 		<DiplomacyInfo>

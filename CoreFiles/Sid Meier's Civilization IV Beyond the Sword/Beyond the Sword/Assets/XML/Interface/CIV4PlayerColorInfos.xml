@@ -432,5 +432,17 @@
   <ColorTypeSecondary>COLOR_WHITE</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_MATTHIAS</Type>
+  <ColorTypePrimary>COLOR_PLAYER_DARK_PURPLE</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_WHITE</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_PEDRO_II</Type>
+  <ColorTypePrimary>COLOR_PLAYER_DARK_GREEN</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_WHITE</TextColorType>
+</PlayerColorInfo>
 </PlayerColorInfos>
 </Civ4PlayerColorInfos>

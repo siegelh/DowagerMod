@@ -72,6 +72,8 @@ LEADERS: tuple = (
     ("Zara Yaqob", "Ethiopia"),
     ("Piye", "Kush: Napata"),
     ("Stefan Dusan", "Serbia: Dusan's Empire"),
+    ("Matthias Corvinus", "Hungary: Corvinian Kingdom"),
+    ("Pedro II", "Brazil: Second Empire"),
 )
 
 
