@@ -4221,7 +4221,8 @@ bool CvUnit::canAirBombAt(const CvPlot* pPlot, int iX, int iY) const
 			return false;
 		}
 
-		if (GC.getImprovementInfo(pTargetPlot->getImprovementType()).isPermanent())
+		if (GC.getImprovementInfo(pTargetPlot->getImprovementType()).isPermanent() ||
+			GC.getImprovementInfo(pTargetPlot->getImprovementType()).isCityBuildPillaged())
 		{
 			return false;
 		}
@@ -4477,6 +4478,10 @@ bool CvUnit::canPillage(const CvPlot* pPlot) const
 		{
 			return false;
 		}
+		if (GC.getImprovementInfo(pPlot->getImprovementType()).isCityBuildPillaged() && !pPlot->isRoute())
+		{
+			return false;
+		}
 	}
 
 	if (pPlot->isOwned())
@@ -4542,7 +4547,8 @@ bool CvUnit::pillage()
 		}
 	}
 
-	if (pPlot->getImprovementType() != NO_IMPROVEMENT)
+	if (pPlot->getImprovementType() != NO_IMPROVEMENT &&
+		!GC.getImprovementInfo(pPlot->getImprovementType()).isCityBuildPillaged())
 	{
 		eTempImprovement = pPlot->getImprovementType();
 
@@ -4787,6 +4793,10 @@ bool CvUnit::canSabotage(const CvPlot* pPlot, bool bTestVisible) const
 	}
 
 	if (pPlot->getImprovementType() == NO_IMPROVEMENT)
+	{
+		return false;
+	}
+	if (GC.getImprovementInfo(pPlot->getImprovementType()).isCityBuildPillaged())
 	{
 		return false;
 	}

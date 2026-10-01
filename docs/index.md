@@ -49,7 +49,7 @@
 
 ### Process / Planning
 
-- [`plans/active/2026-09-30-new-leaders-expansion.md`](plans/active/2026-09-30-new-leaders-expansion.md) - `In progress`. Thirteen selected civilization packages, retained provisional leaderheads, isolated branch and explicit art/runtime acceptance gates.
+- [`plans/active/2026-09-30-new-leaders-expansion.md`](plans/active/2026-09-30-new-leaders-expansion.md) - `Implemented; manual acceptance pending`. Thirteen added civilization packages (72 selectable total), retained provisional art, capped native mechanics and two civ-gated Worker improvements. Isolated local branch; not approved for deployment.
 - [`LEADER_OVERHAUL_PLAN_OF_RECORD.md`](LEADER_OVERHAUL_PLAN_OF_RECORD.md) - `Current process doc`. Overhaul methodology and guardrails. Use it with live XML/DLL verification, not as architecture truth.
 - [`plans/README.md`](plans/README.md) - `Current`. Standard location, naming, and expectations for checked-in plan docs.
 - [`plans/active/TEMPLATE.md`](plans/active/TEMPLATE.md) - `Current`. Reusable task plan template for non-trivial agent work.
@@ -77,7 +77,7 @@
 - [`plans/active/2026-07-12-remaining-roster-expansion.md`](plans/active/2026-07-12-remaining-roster-expansion.md) - `Implemented; runtime validation pending`. Additive restoration and expansion of the 32 playable packages outside the 27-package overhaul.
 - [`plans/active/2026-07-12-remaining-roster-implementation-matrix.md`](plans/active/2026-07-12-remaining-roster-implementation-matrix.md) - `Implemented contract`. Exact 32-package disposition and protected values.
 - [`plans/active/2026-07-12-remaining-roster-dll-contracts.md`](plans/active/2026-07-12-remaining-roster-dll-contracts.md) - `Satisfied contract`. Confirms the roster pass required no new DLL/schema behavior.
-- [`plans/active/2026-07-12-worker-action-gates.md`](plans/active/2026-07-12-worker-action-gates.md) - `Satisfied contract`. Confirms no roster worker-action expansion was authorized or introduced.
+- [`plans/active/2026-07-12-worker-action-gates.md`](plans/active/2026-07-12-worker-action-gates.md) - `Historical satisfied contract for the July roster pass`. That pass added no Worker actions; the separately approved thirteen-leader expansion adds the civ-gated Canal and Station actions.
 - [`../tools/baselines/roster_baseline.json`](../tools/baselines/roster_baseline.json) - `Generated reference`. Commit-pinned playable roster, synchronized InfoType order, and deterministic XML/Python/DLL digest baseline.
 
 ### Repo-Local Skills

@@ -265,6 +265,10 @@ class Validator:
                 if list(node) or local_name(node.tag) in {"Type", "Tag"}:
                     continue
                 value = (node.text or "").strip()
+                if local_name(node.tag) == "CityBuildCondition":
+                    if value not in {"", "NONE", "RIVER_OR_IRRIGATED", "DESERT_WITH_ROAD"}:
+                        self.fail(f"{repo_path}: invalid CityBuildCondition {value}")
+                    continue
                 if value in NULL_TYPES or not value or "," in value or value.startswith("TXT_KEY_"):
                     continue
                 if not re.fullmatch(r"[A-Z][A-Z0-9_]+", value):

@@ -1,6 +1,7 @@
 {
   "baseline_commit": "cb87ce542",
   "baseline_playable_count": 59,
+  "worker_units": ["UNIT_WORKER", "UNIT_INDIAN_FAST_WORKER", "UNIT_HUAYNA_WORKER"],
   "approved_leaders": ["SENNACHERIB", "HIRAM", "PIYE", "MATTHIAS", "RAMKHAMHAENG", "MONGKUT", "HO_CHI_MINH", "ASKIA", "DUSAN", "PEDRO_II", "BOLIVAR", "ZENOBIA", "DAVID"],
   "packages": [
     {
@@ -333,6 +334,86 @@
       "colors": ["COLOR_PLAYER_EXP_DAVID", "COLOR_YELLOW", "COLOR_WHITE"],
       "primary_rgb": [0.533333, 0.6, 0.0],
       "flag_note": "Original geometric gold harp on deep blue, referring to the literary tradition of Davidic songs. Explicitly a provisional gameplay emblem, not an attested ancient national flag or a modern-state symbol."
+    },
+    {
+      "id": "SENNACHERIB",
+      "civilization": "ASSYRIA_NINEVEH",
+      "name": "Sennacherib",
+      "civ_name": "Neo-Assyria: Nineveh",
+      "adjective": "Assyrian",
+      "civ_parent": "CIVILIZATION_BABYLON",
+      "leader_parent": "LEADER_HAMMURABI",
+      "cities": ["Nineveh", "Assur", "Kalhu", "Dur-Sharrukin", "Arbela", "Tarbisu", "Dur-Katlimmu", "Arrapha", "Harran", "Guzana", "Nisibis", "Balawat", "Kar-Tukulti-Ninurta", "Til Barsip"],
+      "techs": ["TECH_AGRICULTURE", "TECH_THE_WHEEL"],
+      "civic": "CIVIC_BUREAUCRACY",
+      "religion": "NONE",
+      "flavors": {"FLAVOR_PRODUCTION": 7, "FLAVOR_GROWTH": 5, "FLAVOR_MILITARY": 5, "FLAVOR_SCIENCE": 2},
+      "leader_scalars": {"iBasePeaceWeight": 3, "iMaxWarRand": 160, "iBuildUnitProb": 30},
+      "trait_name": "King's Engineering",
+      "trait_help": "With active Royal Waterworks, owned assigned worked riverside Farms and Royal Canals provide +1 city Production each, capped at +3 per city. Unworked plots do not count.",
+      "trait_scalars": {"iWorkedPlotProduction": 1, "iWorkedPlotCap": 3},
+      "trait_xml": "<WorkedPlotCondition>RIVERSIDE_IMPROVEMENT</WorkedPlotCondition><WorkedPlotPrereqBuilding>BUILDING_EXP_ROYAL_WATERWORKS</WorkedPlotPrereqBuilding><WorkedPlotImprovements><ImprovementType>IMPROVEMENT_FARM</ImprovementType><ImprovementType>IMPROVEMENT_EXP_ROYAL_CANAL</ImprovementType></WorkedPlotImprovements>",
+      "unit": {"id": "ASSYRIAN_SIEGE_TOWER", "parent": "UNIT_CATAPULT", "name": "Assyrian Siege Tower", "scalars": {"iCost": 60, "iBombardRate": 12, "iCityAttack": 25, "iCollateralDamage": 50}, "xml": "", "strategy": "A Catapult replacement with bombard 12 and +25% city attack, but collateral damage 50 instead of 100 and cost 60. Retains strength 5, Construction and the Cannon upgrade. No adjacent-unit wall-negation aura. Catapult visuals are provisional."},
+      "building": {"id": "ROYAL_WATERWORKS", "parent": "BUILDING_AQUEDUCT", "name": "Royal Waterworks", "scalars": {"iCost": 100}, "xml": "<SpecialistCounts><SpecialistCount><SpecialistType>SPECIALIST_ENGINEER</SpecialistType><iSpecialistCount>1</iSpecialistCount></SpecialistCount></SpecialistCounts>", "strategy": "An Aqueduct replacement retaining Mathematics and +2 Health, with one Engineer slot. Enables King's Engineering in this city. No additional flat Food; generic Aqueduct architecture is provisional."},
+      "improvement": {
+        "id": "ROYAL_CANAL", "name": "Royal Canal", "group": 1, "cap": 2,
+        "condition": "RIVER_OR_IRRIGATED", "terrains": ["TERRAIN_GRASS", "TERRAIN_PLAINS", "TERRAIN_DESERT"],
+        "tech": "TECH_MATHEMATICS", "time_percent": 125, "yields": [1, 0, 1], "irrigation": true,
+        "help": "Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.",
+        "art_parent": "ART_DEF_IMPROVEMENT_FARM",
+        "art_scalars": {"bExtraAnimations": 0, "fScale": "1.0", "NIF": "Art/Structures/Improvements/Expansion/RoyalCanal.nif", "KFM": ""},
+        "pillaged_art": "ART_DEF_IMPROVEMENT_CITY_RUINS",
+        "asset_sha256": {"Art/Structures/Improvements/Expansion/RoyalCanal.nif": "35e408c12012cd3ca712ebfb5005d0ce1feef38e01b24f74c522063e0f486d06"}
+      },
+      "history": "Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.",
+      "source_url": "https://en.wikipedia.org/wiki/Sennacherib",
+      "art": {"folder": "sennacherib", "NIF": "josef_stalin.nif", "KFM": "josef_stalin.kfm", "NoShaderNIF": "josef_stalin.nif", "BackgroundKFM": "josef_stalin_BG.kfm", "Button": "SennacheribButton.dds"},
+      "art_status": "Complete retained primary model and animations. The bundled josef_stalin_noshader.nif has only stock Stalin textures rather than the primary's Assyrian costume meshes, so both runtime slots explicitly use the retained primary instead of silently switching identity. No low-settings certification. Stock Catapult and Aqueduct visuals and the original small canal mesh are provisional.",
+      "colors": ["COLOR_PLAYER_EXP_SENNACHERIB", "COLOR_YELLOW", "COLOR_WHITE"],
+      "primary_rgb": [1.0, 0.8, 1.0],
+      "flag_note": "Original geometric winged disk over stepped water channels, inspired by Assyrian imagery and royal water engineering. A modern gameplay emblem, not an attested national flag."
+    },
+    {
+      "id": "ZENOBIA",
+      "civilization": "PALMYRA_ZENOBIA",
+      "name": "Zenobia",
+      "civ_name": "Palmyrene Empire",
+      "adjective": "Palmyrene",
+      "civ_parent": "CIVILIZATION_PERSIA_IMPERIAL_ACHAEMENID",
+      "leader_parent": "LEADER_DARIUS",
+      "cities": ["Palmyra", "Emesa", "Bostra", "Damascus", "Antioch", "Apamea", "Dura-Europos", "Sura", "Resafa", "Circesium", "Hierapolis", "Edessa", "Berytus", "Laodicea"],
+      "techs": ["TECH_THE_WHEEL", "TECH_MINING"],
+      "civic": "CIVIC_FREE_MARKET",
+      "religion": "NONE",
+      "flavors": {"FLAVOR_GOLD": 7, "FLAVOR_MILITARY": 4, "FLAVOR_PRODUCTION": 3, "FLAVOR_CULTURE": 2},
+      "leader_scalars": {"iBasePeaceWeight": 5, "iMaxWarRand": 180, "iBuildUnitProb": 25},
+      "trait_name": "Queen of the Caravan Roads",
+      "trait_help": "Owned assigned worked Desert plots with an intact non-ruins improvement and Road/Railroad provide +2 city Gold each, capped at +6. Desert hills may count. Unworked plots and pillaged unique improvements do not.",
+      "trait_scalars": {"iWorkedPlotGold": 2, "iWorkedPlotCap": 6},
+      "trait_xml": "<WorkedPlotCondition>DESERT_ROAD_IMPROVEMENT</WorkedPlotCondition><WorkedPlotExcludedImprovements><ImprovementType>IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED</ImprovementType><ImprovementType>IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED</ImprovementType></WorkedPlotExcludedImprovements>",
+      "unit": {"id": "PALMYRENE_CLIBANARIUS", "parent": "UNIT_HORSE_ARCHER", "name": "Palmyrene Clibanarius", "scalars": {"iCost": 70, "iCombat": 8, "iWithdrawalProb": 10, "BonusType": "BONUS_HORSE"}, "xml": "<PrereqBonuses><BonusType>BONUS_IRON</BonusType><BonusType>NONE</BonusType><BonusType>NONE</BonusType><BonusType>NONE</BonusType></PrereqBonuses>", "strategy": "A Horse Archer replacement requiring Horse AND Iron, Horseback Riding and Archery. Strength 8, cost 70, movement 2 and only 10% withdrawal in total. Retains the Knight upgrade. Provisional parent cavalry visuals, not a claim of authenticated Palmyrene equipment."},
+      "building": {"id": "CARAVAN_COURT", "parent": "BUILDING_MARKET", "name": "Caravan Court", "scalars": {"iCost": 180, "iTradeRoutes": 1}, "xml": "", "strategy": "Retains Currency, +25% Gold and two Merchant slots. Adds one trade route for a cost of 180 Production. This city building does not grant a free Caravan Station or add flat Food or Gold."},
+      "improvement": {
+        "id": "CARAVAN_STATION", "name": "Caravan Station", "group": 2, "cap": 1,
+        "condition": "DESERT_WITH_ROAD", "terrains": ["TERRAIN_DESERT"],
+        "tech": "TECH_CURRENCY", "time_percent": 150, "yields": [1, 0, 3], "irrigation": false,
+        "help": "Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.",
+        "art_parent": "ART_DEF_IMPROVEMENT_VILLAGE",
+        "art_scalars": {"bExtraAnimations": 0, "fScale": "0.5", "NIF": "Art/Structures/Buildings/Stable/Middle_East_Stable/Stable.nif", "KFM": "", "Button": "Art/Caveman2Cosmos/art/interface/buttons/buildings/caravanpost.dds"},
+        "pillaged_art": "ART_DEF_IMPROVEMENT_CITY_RUINS",
+        "asset_sha256": {"Art/Structures/Buildings/Stable/Middle_East_Stable/Stable.nif": "968dfbfcfc046192ddadf9f5e6e9511b3fa620fbfc40e189c01c88dd2f5f63a0", "Art/Caveman2Cosmos/art/interface/buttons/buildings/caravanpost.dds": "77c069fe5bac18faddc23782330befc9f61d056ffbb16215b43c586221dc9467"}
+      },
+      "history": "Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.",
+      "source_url": "https://en.wikipedia.org/wiki/Zenobia",
+      "art": {"folder": "zenobia", "NIF": "zenobia.nif", "KFM": "Zenobia_Runtime.kfm", "NoShaderNIF": "zenobia.nif", "BackgroundKFM": "zenobia_BG.kfm", "Button": "button/btn_lh_zenobia.dds"},
+      "art_status": "Retained primary appearance. Restore the exact named stock Victoria environment texture and correct only the main KFM model binding. Existing background and eight main animation clips retained. No distinct nonshader model; primary in both slots remains provisional. Supporting cavalry, Market and caravan-house visuals require manual acceptance.",
+      "repairs": [
+        {"source": "Art/Leaderheads/Victoria/victoria_env2.dds", "target": "Art/Leaderheads/new/zenobia/Victoria_ENV2.dds", "sha256": "73b41b69c1e5dd969f61396b0d5bce98a50e62dd5ed603bb679c5030072ca5df", "evidence": "The retained Zenobia NIF directly references Victoria_ENV2.dds as an environment texture. The bundled stock Victoria donor provides that exact named 256x256 texture; no diffuse map, UV, mesh, camera or existing texture is modified."},
+        {"source": "Art/Leaderheads/new/zenobia/zenobia.kfm", "target": "Art/Leaderheads/new/zenobia/Zenobia_Runtime.kfm", "sha256": "71abe3dbc2c907b615a1bdd5044fb7993545db1f0c326fc5951e065e152dbdef", "kfm_model": {"old": "victoria.nif", "new": "zenobia.nif"}, "evidence": "The main KFM refers to an absent donor filename while the retained model is zenobia.nif. Only the length-prefixed model name changes; all animation, master and transition bytes remain unchanged."}
+      ],
+      "colors": ["COLOR_PLAYER_EXP_ZENOBIA", "COLOR_YELLOW", "COLOR_WHITE"],
+      "primary_rgb": [0.866667, 0.533333, 0.8],
+      "flag_note": "Original geometric gold palm and caravan-road arches on plum. A modern gameplay emblem evoking Palmyra, not an attested royal or national flag."
     }
   ]
 }

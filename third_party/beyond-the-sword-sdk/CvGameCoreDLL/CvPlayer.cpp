@@ -14080,7 +14080,9 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 	{
 		if (NULL != pPlot && !pPlot->isCity())
 		{
-			if (pPlot->getImprovementType() != NO_IMPROVEMENT || pPlot->getRouteType() != NO_ROUTE)
+			if ((pPlot->getImprovementType() != NO_IMPROVEMENT &&
+				!GC.getImprovementInfo(pPlot->getImprovementType()).isCityBuildPillaged()) ||
+				pPlot->getRouteType() != NO_ROUTE)
 			{
 				iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getBuildPercent()) / 100;
 			}
@@ -14350,7 +14352,8 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 		if (NULL != pPlot)
 		{
 			// Blow it up
-			if (pPlot->getImprovementType() != NO_IMPROVEMENT)
+			if (pPlot->getImprovementType() != NO_IMPROVEMENT &&
+				!GC.getImprovementInfo(pPlot->getImprovementType()).isCityBuildPillaged())
 			{
 				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_SOMETHING_DESTROYED", GC.getImprovementInfo(pPlot->getImprovementType()).getDescription()).GetCString();
 				pPlot->setImprovementType((ImprovementTypes)(GC.getImprovementInfo(pPlot->getImprovementType()).getImprovementPillage()));

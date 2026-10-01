@@ -15,6 +15,92 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
 
 ## Extra checks by change type
 
+### Thirteen-leader expansion acceptance (not yet performed)
+
+Use a fresh game and identical source/DLL payloads on both multiplayer clients.
+Do not install this isolated branch without separate owner authorization.
+Record actual results and screenshots; offline XML checks and prototype renders
+do not satisfy these checks. The original 59 civilizations remain the reference
+roster; the expansion adds 13 selectable civilizations, not player slots.
+
+| Package | Minimum gameplay acceptance |
+|---|---|
+| Sennacherib | Work 0/1/3/4 riverside Farms/Canals with and without active Royal Waterworks: exactly 0/1/3/3 additional base Production when active. Remove/obsolete the building and reassign overlapping plots. Compare Siege Tower bombard12, city attack25 and collateral50 against the parent. |
+| Hiram | Coastal route partners from 0/1/3/4 distinct foreign teams: Gold0/1/3/3. Duplicate, domestic and same-team routes do not add teams. Close borders and recompute equal-yield routes; the Gold source must refresh. |
+| Piye | Assign/unassign ordinary Priests: +1 Food each; empty Chapel slots do not pay. Exercise the Archer's two first strikes and hill attack. |
+| Matthias | Train Melee/Gunpowder and excluded combat classes; verify Paid Professionals eligibility, 25% upgrade discount, normal gift/upgrade persistence and no second discount. Ordinary Artists add one Research. |
+| Ramkhamhaeng | Worked riverside Farms produce no trait Culture before Writing, then +1 each capped3. Acquiring Writing must refresh immediately even when native plot yield is unchanged. |
+| Mongkut | An eligible Open Borders partner knowing the selected tech adds exactly20 research-modifier points once. Same-team, war, either vassal direction and duplicate partners do not qualify/stack. Check research overflow on switching tech. |
+| Ho | Worked Forest/Jungle plots give Production1 each capped3; unworked woodland gives none. Clear/pillage/reassign relevant plots. Infantry is strength18/cost120 with Woodsman I/II. |
+| Askia | Worked riverside Cottage/Hamlet/Village/Town share Gold1 each capped4; upgrading a settlement must not create a second contribution. |
+| Dusan | Worked Mines add one Commerce yield through the slider; ordinary Priests add one direct Espionage. Cavalry has hill and anti-Melee modifiers. |
+| Pedro II | Ordinary Scientists add Culture1, Artists Research1; empty slots and settled specialists do not acquire ordinary-specialist bonuses. Check +25% GP rate and Lyceum Research35% total. |
+| Bolivar | Newly generated military-conquest occupation uses ceil(native/2). Peaceful transfers and existing occupation are not retroactively halved. |
+| Zenobia | Worked improved Desert with Road/Railroad adds Gold2 each capped6; hills can qualify. City/water/unworked/ruins and both pillaged unique-improvement types do not. Remove road versus improvement separately. |
+| David | Owned living combat land units level3+ provide Culture3 once per city, before modifiers. Test promotion, movement, transport, delayed death, resurrection, city capture and reload; exclude animals, foreign/same-team non-owned units, air/sea and noncombat units. Two veterans still give only3. |
+
+For every package, verify UU/UB substitutions, costs, technology/resources,
+normal parent abilities, empty specialist slots, help text and civilopedia.
+Check all city source breakdowns against actual totals under modifiers,
+occupation/disorder and overlapping BFC assignment; no duplicate source lines.
+Observe representative AI campaigns rather than inferring behavior from XML.
+
+**Civilization-specific improvements**
+
+1. Use ordinary, captured/gifted Fast and Huayna Workers. Existing actions
+   remain; Canal permission follows Assyria, Station permission follows
+   Palmyra, regardless of worker identity or leader. Other civilizations
+   cannot build/restore either, including captured copies.
+2. Canal: Mathematics, normal-speed work625, +1 Food/+1 Commerce, cap2.
+   Test riverside but not irrigated; irrigated but not riverside; neither.
+   Allow flat Grassland/Plains/Desert only. Native irrigation-spread technology
+   is still required; no ship navigation or city freshwater benefit.
+3. Station: Currency, work750, +1 Food/+3 Commerce, cap1. Require flat
+   featureless Desert plus Road/Railroad. Reject Oasis and Flood Plains.
+   Confirm no fort/city behavior, defense bonus or free trade route.
+4. Both reject resources (including currently hidden resources), features,
+   hills/peaks/water, city centers, foreign plots, unassigned plots and
+   Great Person improvements, including older Grand Colosseum/Jokamachi.
+   Clearing must be a separate legal action; these builds do not auto-clear.
+5. Pillage once: distinct zero-bonus marker, no irrigation propagation,
+   cap slot retained. Repeated pillage/sabotage may remove a remaining road,
+   not erase the marker or pay repeated improvement Gold. Air bombing and
+   legacy sabotage must not target the empty marker.
+6. Restore at the cap and above the cap after reassignment: no extra slot.
+   Capture/reassign enough copies to exceed a city's build cap: keep all
+   existing copies, prohibit new ones, permit legal normal replacements.
+7. Start parallel builds in the same assigned city and change assignment
+   near completion. The second completion must recheck current counts.
+   Rejected completion preserves earlier work and gives a notification plus
+   `expansion-build.log` evidence; no silent deletion or cap bypass.
+8. Test AI site choice, restoration, completion conflicts and road preparation
+   for a Station on bare Desert. Governor and worker choices must account
+   for direct yields and E1 marginal caps without placing illegal copies.
+9. Inspect intact/pillaged models at normal/strategic zoom, all eras and
+   graphics settings: exactly one model, no duplicate routes, missing textures,
+   floating/clipping banks or oversized buildings. Canal's simple channel
+   mesh and Station's reused caravan-house are **prototypes requiring approval**.
+
+**Art, saves and multiplayer**
+
+Open every new leader at all five attitudes, greeting, affirmative/negative
+actions and reopen transitions. Inspect camera, background, hands, hair,
+alpha layers, buttons and shader/low-settings paths. Preserve Ho's blue shirt.
+Explicitly review David's retained appearance, static backdrop and emblem
+button; Pedro's provisional identity; and Sennacherib's primary model in both
+slots instead of his bundled stock-Stalin fallback. Do not call reused primary
+models certified nonshader fallbacks.
+
+Check new flags, normal cities in every era, colors under accessibility
+simulations and representative UU/UB visuals. Save/reload each live mechanic,
+including cap surplus and pillaged markers. Investigate an old save separately;
+append-only IDs and unchanged city serialization do **not** prove compatibility.
+In a fresh two-client game, repeat placement, capture, garrison, research,
+route, occupation and city-output changes and check for OOS. No final balance,
+old-save, animation or multiplayer acceptance has yet been recorded.
+
+### Existing feature checks
+
 - XML rules/content:
   - confirm the relevant object appears with expected text, costs, prereqs, and effects
 - DLL:

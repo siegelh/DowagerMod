@@ -5,6 +5,48 @@
 
 namespace ExpansionRules
 {
+	enum CityBuildCondition
+	{
+		NO_CITY_BUILD_CONDITION = 0,
+		RIVER_OR_IRRIGATED,
+		DESERT_WITH_ROAD
+	};
+
+	enum CityBuildFailure
+	{
+		CITY_BUILD_ALLOWED = 0,
+		CITY_BUILD_CIVILIZATION,
+		CITY_BUILD_LAND,
+		CITY_BUILD_FEATURE,
+		CITY_BUILD_RESOURCE,
+		CITY_BUILD_LANDMARK,
+		CITY_BUILD_ASSIGNMENT,
+		CITY_BUILD_LOCATION,
+		CITY_BUILD_CAP
+	};
+
+	inline bool cityBuildLocation(CityBuildCondition eCondition, bool bRiver,
+		bool bIrrigated, bool bDesert, bool bRoad)
+	{
+		return (eCondition == RIVER_OR_IRRIGATED && (bRiver || bIrrigated)) ||
+			(eCondition == DESERT_WITH_ROAD && bDesert && bRoad);
+	}
+
+	inline CityBuildFailure cityBuildFailure(bool bCivilization, bool bLand,
+		bool bFeatureless, bool bResourceFree, bool bLandmark, bool bAssigned,
+		bool bLocation, int iCount, int iCap, bool bRestore)
+	{
+		if (!bCivilization) return CITY_BUILD_CIVILIZATION;
+		if (!bLand) return CITY_BUILD_LAND;
+		if (!bFeatureless) return CITY_BUILD_FEATURE;
+		if (!bResourceFree) return CITY_BUILD_RESOURCE;
+		if (bLandmark) return CITY_BUILD_LANDMARK;
+		if (!bAssigned) return CITY_BUILD_ASSIGNMENT;
+		if (!bLocation) return CITY_BUILD_LOCATION;
+		if (iCap <= 0 || (!bRestore && iCount >= iCap)) return CITY_BUILD_CAP;
+		return CITY_BUILD_ALLOWED;
+	}
+
 	inline bool eligibleVeteranGarrison(bool bOwned, bool bLand, bool bCombat,
 		bool bAnimal, bool bCargo, bool bDead, int iLevel, int iMinimumLevel)
 	{

@@ -959,6 +959,34 @@
     <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_DAVID</Text>
   </DiplomacyText>
 </Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_SENNACHERIB</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_SENNACHERIB</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_ZENOBIA</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_ZENOBIA</Text>
+  </DiplomacyText>
+</Response>
 </Responses>
 		</DiplomacyInfo>
 		<DiplomacyInfo>

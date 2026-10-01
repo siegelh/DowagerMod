@@ -39,6 +39,9 @@ FILES = {
     "color": ("Interface/CIV4PlayerColorInfos.xml", "PlayerColorInfo", "PlayerColorInfos"),
     "color_value": ("Interface/CIV4ColorVals.xml", "ColorVal", "ColorVals"),
     "promotion": ("Units/CIV4PromotionInfos.xml", "PromotionInfo", "PromotionInfos"),
+    "improvement": ("Terrain/CIV4ImprovementInfos.xml", "ImprovementInfo", "ImprovementInfos"),
+    "build": ("Units/CIV4BuildInfos.xml", "BuildInfo", "BuildInfos"),
+    "improvement_art": ("Art/CIV4ArtDefines_Improvement.xml", "ImprovementArtInfo", "ImprovementArtInfos"),
 }
 
 
@@ -152,17 +155,50 @@ def append_record(data: bytes, node: ET.Element, container: str) -> bytes:
     return data.replace(end, block + newline + end, 1)
 
 
+def replace_reviewed_record(data: bytes, original: ET.Element, updated: ET.Element) -> bytes:
+    identifier = original.findtext("Type")
+    pattern = rb"<" + original.tag.encode() + rb">.*?</" + original.tag.encode() + rb">"
+    matches = [m for m in re.finditer(pattern, data, re.DOTALL)
+               if parse(m[0]).findtext("Type") == identifier]
+    if len(matches) != 1:
+        raise ValueError(f"Expected one reviewed existing record: {identifier}")
+    match = matches[0]
+    current = canonical(parse(match[0]))
+    if current == canonical(updated):
+        return data
+    if current != canonical(original):
+        raise ValueError(f"Refusing unreviewed existing-record delta: {identifier}")
+    newline = b"\r\n" if b"\r\n" in data else b"\n"
+    return data[:match.start()] + serialize(updated).replace(b"\n", newline) + data[match.end():]
+
+
+def append_plot_node(data: bytes, node: ET.Element) -> bytes:
+    root = parse(data)
+    matches = [n for n in root if n.tag == node.tag and n.get("Name") == node.get("Name")]
+    if matches:
+        if len(matches) != 1 or canonical(matches[0]) != canonical(node):
+            raise ValueError("Expansion plot route drift: " + node.get("Name"))
+        return data
+    newline = b"\r\n" if b"\r\n" in data else b"\n"
+    position = data.index(b"<LProduction ") if node.tag == "LNode" else data.rindex(f"</{root.tag}>".encode())
+    return data[:position] + serialize(node).replace(b"\n", newline) + newline + data[position:]
+
+
 def generate(document: dict) -> dict[Path, bytes]:
     staged = {XML / spec[0]: (XML / spec[0]).read_bytes() for spec in FILES.values()}
     parents = {kind: baseline(XML / spec[0], document["baseline_commit"]) for kind, spec in FILES.items()}
     trait_schema = parse((XML / "Civilizations/CIV4CivilizationsSchema.xml").read_bytes())
     trait_order = [n.get("type") for n in trait_schema.find("./ElementType[@name='TraitInfo']").findall("element")]
+    improvement_schema = parse((XML / "Terrain/CIV4TerrainSchema.xml").read_bytes())
+    improvement_order = [n.get("type") for n in improvement_schema.find("./ElementType[@name='ImprovementInfo']").findall("element")]
     texts: dict[str, str] = {}
     flags_path = ROOT / "tools/flags/manifest.json"
     flags = json.loads(flags_path.read_bytes())
     diplomacy_path = XML / "GameInfo/CIV4DiplomacyInfos.xml"
     diplomacy_data = diplomacy_path.read_bytes()
     provenance = []
+    plot_path = XML / "Buildings/CIV4PlotLSystem.xml"
+    plot_data = plot_path.read_bytes()
 
     def clone(kind: str, name: str) -> ET.Element:
         matches = [n for n in parents[kind].iter(FILES[kind][1]) if n.findtext("Type") == name]
@@ -192,6 +228,71 @@ def generate(document: dict) -> dict[Path, bytes]:
         leader_type = "LEADER_" + suffix
         trait_type = "TRAIT_" + suffix
         civ_art_type = "ART_DEF_" + civ_type
+        if "improvement" in package:
+            spec = package["improvement"]
+            for relative, digest in spec["asset_sha256"].items():
+                if hashlib.sha256((ASSETS / relative).read_bytes()).hexdigest() != digest:
+                    raise ValueError("Improvement prototype changed: " + relative)
+            base_id = "IMPROVEMENT_EXP_" + spec["id"]
+            art_id = "ART_DEF_" + base_id
+            art = clone("improvement_art", spec["art_parent"])
+            field(art, "Type", art_id)
+            for tag, value in spec["art_scalars"].items():
+                field(art, tag, value)
+            add("improvement_art", art)
+            for pillaged in (False, True):
+                imp = clone("improvement", "IMPROVEMENT_FARM")
+                identifier_imp = base_id + ("_PILLAGED" if pillaged else "")
+                field(imp, "Type", identifier_imp)
+                localized(imp, "Description", "TXT_KEY_" + identifier_imp,
+                          ("Pillaged " if pillaged else "") + spec["name"])
+                localized(imp, "Civilopedia", "TXT_KEY_" + identifier_imp + "_PEDIA", spec["help"])
+                field(imp, "ArtDefineTag", spec["pillaged_art"] if pillaged else art_id)
+                for tag, value in {"bFreshWaterMakesValid": 0, "bRequiresIrrigation": 0,
+                                   "bCarriesIrrigation": int(spec["irrigation"] and not pillaged),
+                                   "bUseLSystem": 0, "iAdvancedStartCost": -1,
+                                   "iPillageGold": 0 if pillaged else 10,
+                                   "iAirBombDefense": -1 if pillaged else 5}.items():
+                    field(imp, tag, value)
+                imp.remove(imp.find("BonusTypeStructs"))
+                for tag in ("PrereqNatureYields", "IrrigatedYieldChange",
+                            "TechYieldChanges", "RouteYieldChanges", "TerrainMakesValids"):
+                    imp.find(tag).clear()
+                for terrain in spec["terrains"]:
+                    row = ET.SubElement(imp.find("TerrainMakesValids"), "TerrainMakesValid")
+                    ET.SubElement(row, "TerrainType").text = terrain
+                    ET.SubElement(row, "bMakesValid").text = "1"
+                yields = [0, 0, 0] if pillaged else spec["yields"]
+                replace_fragment(imp, "<YieldChanges>" + "".join(f"<iYieldChange>{v}</iYieldChange>" for v in yields) + "</YieldChanges>")
+                field(imp, "ImprovementPillage", base_id + "_PILLAGED")
+                field(imp, "ImprovementUpgrade", "NONE")
+                for tag, value in {"BuildCivilization": civ_type, "iCityBuildGroup": spec["group"],
+                                   "iCityBuildCap": spec["cap"], "CityBuildCondition": spec["condition"],
+                                   "bCityBuildPillaged": int(pillaged)}.items():
+                    ET.SubElement(imp, tag).text = str(value)
+                imp[:] = sorted(imp, key=lambda child: improvement_order.index(child.tag))
+                add("improvement", imp)
+                leaf_name = "Leaf_Expansion_" + spec["id"] + ("_PILLAGED" if pillaged else "")
+                leaf = parse(f'<LNode Name="{leaf_name}"><Width>4</Width><Height>4</Height>'
+                             f'<Attribute Class="Scalar">bNotBFS:1</Attribute><Attribute Class="RegionTest">0NW</Attribute>'
+                             f'<ArtRef Name="goal:{identifier_imp}"><Attribute Class="Improvement">{identifier_imp}</Attribute>'
+                             '<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>'
+                             '<Attribute Class="Scalar">bApplyRotation:1</Attribute></ArtRef></LNode>')
+                route = parse(f'<LProduction From="PLOT_ROOT" Name="ExpansionRoute_{identifier_imp}">'
+                              f'<Attribute Class="Improvement">{identifier_imp}</Attribute>'
+                              f'<Attribute Class="Scalar">bNotBFS:1</Attribute><To Name="{leaf_name}"/></LProduction>')
+                plot_data = append_plot_node(append_plot_node(plot_data, leaf), route)
+            build = clone("build", "BUILD_FARM")
+            build_id = "BUILD_EXP_" + spec["id"]
+            field(build, "Type", build_id)
+            localized(build, "Description", "TXT_KEY_" + build_id, "Build/Restore " + spec["name"])
+            field(build, "PrereqTech", spec["tech"])
+            field(build, "ImprovementType", base_id)
+            field(build, "iTime", (int(build.findtext("iTime")) * spec["time_percent"] + 99) // 100)
+            field(build, "HotKey", "")
+            field(build, "Button", art.findtext("Button"))
+            build.find("FeatureStructs").clear()
+            add("build", build)
         for repair in package.get("repairs", []):
             data = (ASSETS / repair["source"]).read_bytes()
             if hashlib.sha256(data).hexdigest() != repair["sha256"]:
@@ -383,6 +484,22 @@ def generate(document: dict) -> dict[Path, bytes]:
              outputBytes=sum(record_sizes)+sum(repair_sizes)+len(dds)+len(button),
              outputScope="core_xml_records_flags_buttons_repairs", retryCount=0)
 
+    worker_builds = ["BUILD_EXP_" + p["improvement"]["id"] for p in document["packages"] if "improvement" in p]
+    if worker_builds:
+        unit_path = XML / FILES["unit"][0]
+        for identifier in document["worker_units"]:
+            original = clone("unit", identifier)
+            if original.find("Builds/Build[BuildType='BUILD_FARM']") is None:
+                raise ValueError(f"Reviewed worker no longer builds Farms: {identifier}")
+            updated = copy.deepcopy(original)
+            for build_id in worker_builds:
+                row = ET.SubElement(updated.find("Builds"), "Build")
+                ET.SubElement(row, "BuildType").text = build_id
+                ET.SubElement(row, "bBuild").text = "1"
+            staged[unit_path] = replace_reviewed_record(staged[unit_path], original, updated)
+        emit("worker_builds", status="success", inputCount=len(document["worker_units"]),
+             outputCount=len(document["worker_units"]), builds=worker_builds)
+
     text_root = ET.Element("Civ4GameText", xmlns="http://www.firaxis.com")
     for key, value in texts.items():
         entry = ET.SubElement(text_root, "TEXT")
@@ -391,6 +508,7 @@ def generate(document: dict) -> dict[Path, bytes]:
             ET.SubElement(entry, language).text = value
     staged[XML / "Text/ZZZ_CIV4GameText_Expansion.xml"] = b'<?xml version="1.0" encoding="ASCII"?>\n' + serialize(text_root) + b"\n"
     staged[diplomacy_path] = diplomacy_data
+    staged[plot_path] = plot_data
     flags["record_count"] = len(flags["records"])
     flags["design_version_summary"]["expansion-v1"] = len(document["packages"])
     staged[flags_path] = (json.dumps(flags, indent=2, ensure_ascii=False) + "\n").encode()

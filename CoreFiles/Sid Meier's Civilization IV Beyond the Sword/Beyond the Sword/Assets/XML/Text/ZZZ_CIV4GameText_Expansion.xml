@@ -2624,4 +2624,548 @@
     <Italian>I am David. Let us speak of peace and the prosperity of our peoples.</Italian>
     <Spanish>I am David. Let us speak of peace and the prosperity of our peoples.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_IMPROVEMENT_EXP_ROYAL_CANAL</Tag>
+    <English>Royal Canal</English>
+    <French>Royal Canal</French>
+    <German>Royal Canal</German>
+    <Italian>Royal Canal</Italian>
+    <Spanish>Royal Canal</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_IMPROVEMENT_EXP_ROYAL_CANAL_PEDIA</Tag>
+    <English>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</English>
+    <French>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</French>
+    <German>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</German>
+    <Italian>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</Italian>
+    <Spanish>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED</Tag>
+    <English>Pillaged Royal Canal</English>
+    <French>Pillaged Royal Canal</French>
+    <German>Pillaged Royal Canal</German>
+    <Italian>Pillaged Royal Canal</Italian>
+    <Spanish>Pillaged Royal Canal</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED_PEDIA</Tag>
+    <English>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</English>
+    <French>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</French>
+    <German>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</German>
+    <Italian>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</Italian>
+    <Spanish>Assyrian Workers build or restore this small agricultural waterwork after Mathematics in 125% of Farm work time. Flat, featureless, resource-free Grassland/Plains/Desert, riverside OR already irrigated, owned and assigned to a city radius. Two copies per assigned city including pillaged copies. +1 Food and +1 Commerce when worked; spreads irrigation only under native technology rules. Not navigable, not city fresh water, not a resource connection. Pillaged copies have no bonus and retain their slot. Capture preserves copies; only Assyria can restore them. Original simple channel geometry is a provisional visual prototype awaiting in-game approval.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILD_EXP_ROYAL_CANAL</Tag>
+    <English>Build/Restore Royal Canal</English>
+    <French>Build/Restore Royal Canal</French>
+    <German>Build/Restore Royal Canal</German>
+    <Italian>Build/Restore Royal Canal</Italian>
+    <Spanish>Build/Restore Royal Canal</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_ASSYRIAN_SIEGE_TOWER</Tag>
+    <English>Assyrian Siege Tower</English>
+    <French>Assyrian Siege Tower</French>
+    <German>Assyrian Siege Tower</German>
+    <Italian>Assyrian Siege Tower</Italian>
+    <Spanish>Assyrian Siege Tower</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_ASSYRIAN_SIEGE_TOWER_PEDIA</Tag>
+    <English>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</English>
+    <French>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</French>
+    <German>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</German>
+    <Italian>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</Italian>
+    <Spanish>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_ASSYRIAN_SIEGE_TOWER_STRATEGY</Tag>
+    <English>A Catapult replacement with bombard 12 and +25% city attack, but collateral damage 50 instead of 100 and cost 60. Retains strength 5, Construction and the Cannon upgrade. No adjacent-unit wall-negation aura. Catapult visuals are provisional.</English>
+    <French>A Catapult replacement with bombard 12 and +25% city attack, but collateral damage 50 instead of 100 and cost 60. Retains strength 5, Construction and the Cannon upgrade. No adjacent-unit wall-negation aura. Catapult visuals are provisional.</French>
+    <German>A Catapult replacement with bombard 12 and +25% city attack, but collateral damage 50 instead of 100 and cost 60. Retains strength 5, Construction and the Cannon upgrade. No adjacent-unit wall-negation aura. Catapult visuals are provisional.</German>
+    <Italian>A Catapult replacement with bombard 12 and +25% city attack, but collateral damage 50 instead of 100 and cost 60. Retains strength 5, Construction and the Cannon upgrade. No adjacent-unit wall-negation aura. Catapult visuals are provisional.</Italian>
+    <Spanish>A Catapult replacement with bombard 12 and +25% city attack, but collateral damage 50 instead of 100 and cost 60. Retains strength 5, Construction and the Cannon upgrade. No adjacent-unit wall-negation aura. Catapult visuals are provisional.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ROYAL_WATERWORKS</Tag>
+    <English>Royal Waterworks</English>
+    <French>Royal Waterworks</French>
+    <German>Royal Waterworks</German>
+    <Italian>Royal Waterworks</Italian>
+    <Spanish>Royal Waterworks</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ROYAL_WATERWORKS_PEDIA</Tag>
+    <English>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</English>
+    <French>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</French>
+    <German>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</German>
+    <Italian>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</Italian>
+    <Spanish>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ROYAL_WATERWORKS_STRATEGY</Tag>
+    <English>An Aqueduct replacement retaining Mathematics and +2 Health, with one Engineer slot. Enables King's Engineering in this city. No additional flat Food; generic Aqueduct architecture is provisional.</English>
+    <French>An Aqueduct replacement retaining Mathematics and +2 Health, with one Engineer slot. Enables King's Engineering in this city. No additional flat Food; generic Aqueduct architecture is provisional.</French>
+    <German>An Aqueduct replacement retaining Mathematics and +2 Health, with one Engineer slot. Enables King's Engineering in this city. No additional flat Food; generic Aqueduct architecture is provisional.</German>
+    <Italian>An Aqueduct replacement retaining Mathematics and +2 Health, with one Engineer slot. Enables King's Engineering in this city. No additional flat Food; generic Aqueduct architecture is provisional.</Italian>
+    <Spanish>An Aqueduct replacement retaining Mathematics and +2 Health, with one Engineer slot. Enables King's Engineering in this city. No additional flat Food; generic Aqueduct architecture is provisional.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_SENNACHERIB</Tag>
+    <English>King's Engineering</English>
+    <French>King's Engineering</French>
+    <German>King's Engineering</German>
+    <Italian>King's Engineering</Italian>
+    <Spanish>King's Engineering</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_SENNACHERIB_SHORT</Tag>
+    <English>King's Engineering</English>
+    <French>King's Engineering</French>
+    <German>King's Engineering</German>
+    <Italian>King's Engineering</Italian>
+    <Spanish>King's Engineering</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_SENNACHERIB</Tag>
+    <English>Sennacherib</English>
+    <French>Sennacherib</French>
+    <German>Sennacherib</German>
+    <Italian>Sennacherib</Italian>
+    <Spanish>Sennacherib</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_SENNACHERIB_PEDIA</Tag>
+    <English>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</English>
+    <French>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</French>
+    <German>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</German>
+    <Italian>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</Italian>
+    <Spanish>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_ASSYRIA_NINEVEH_DESCRIPTION</Tag>
+    <English>Neo-Assyria: Nineveh</English>
+    <French>Neo-Assyria: Nineveh</French>
+    <German>Neo-Assyria: Nineveh</German>
+    <Italian>Neo-Assyria: Nineveh</Italian>
+    <Spanish>Neo-Assyria: Nineveh</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_ASSYRIA_NINEVEH_SHORTDESCRIPTION</Tag>
+    <English>Neo-Assyria: Nineveh</English>
+    <French>Neo-Assyria: Nineveh</French>
+    <German>Neo-Assyria: Nineveh</German>
+    <Italian>Neo-Assyria: Nineveh</Italian>
+    <Spanish>Neo-Assyria: Nineveh</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_ASSYRIA_NINEVEH_ADJECTIVE</Tag>
+    <English>Assyrian</English>
+    <French>Assyrian</French>
+    <German>Assyrian</German>
+    <Italian>Assyrian</Italian>
+    <Spanish>Assyrian</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_ASSYRIA_NINEVEH_CIVILOPEDIA</Tag>
+    <English>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</English>
+    <French>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</French>
+    <German>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</German>
+    <Italian>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</Italian>
+    <Spanish>Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_1</Tag>
+    <English>Nineveh</English>
+    <French>Nineveh</French>
+    <German>Nineveh</German>
+    <Italian>Nineveh</Italian>
+    <Spanish>Nineveh</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_2</Tag>
+    <English>Assur</English>
+    <French>Assur</French>
+    <German>Assur</German>
+    <Italian>Assur</Italian>
+    <Spanish>Assur</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_3</Tag>
+    <English>Kalhu</English>
+    <French>Kalhu</French>
+    <German>Kalhu</German>
+    <Italian>Kalhu</Italian>
+    <Spanish>Kalhu</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_4</Tag>
+    <English>Dur-Sharrukin</English>
+    <French>Dur-Sharrukin</French>
+    <German>Dur-Sharrukin</German>
+    <Italian>Dur-Sharrukin</Italian>
+    <Spanish>Dur-Sharrukin</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_5</Tag>
+    <English>Arbela</English>
+    <French>Arbela</French>
+    <German>Arbela</German>
+    <Italian>Arbela</Italian>
+    <Spanish>Arbela</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_6</Tag>
+    <English>Tarbisu</English>
+    <French>Tarbisu</French>
+    <German>Tarbisu</German>
+    <Italian>Tarbisu</Italian>
+    <Spanish>Tarbisu</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_7</Tag>
+    <English>Dur-Katlimmu</English>
+    <French>Dur-Katlimmu</French>
+    <German>Dur-Katlimmu</German>
+    <Italian>Dur-Katlimmu</Italian>
+    <Spanish>Dur-Katlimmu</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_8</Tag>
+    <English>Arrapha</English>
+    <French>Arrapha</French>
+    <German>Arrapha</German>
+    <Italian>Arrapha</Italian>
+    <Spanish>Arrapha</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_9</Tag>
+    <English>Harran</English>
+    <French>Harran</French>
+    <German>Harran</German>
+    <Italian>Harran</Italian>
+    <Spanish>Harran</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_10</Tag>
+    <English>Guzana</English>
+    <French>Guzana</French>
+    <German>Guzana</German>
+    <Italian>Guzana</Italian>
+    <Spanish>Guzana</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_11</Tag>
+    <English>Nisibis</English>
+    <French>Nisibis</French>
+    <German>Nisibis</German>
+    <Italian>Nisibis</Italian>
+    <Spanish>Nisibis</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_12</Tag>
+    <English>Balawat</English>
+    <French>Balawat</French>
+    <German>Balawat</German>
+    <Italian>Balawat</Italian>
+    <Spanish>Balawat</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_13</Tag>
+    <English>Kar-Tukulti-Ninurta</English>
+    <French>Kar-Tukulti-Ninurta</French>
+    <German>Kar-Tukulti-Ninurta</German>
+    <Italian>Kar-Tukulti-Ninurta</Italian>
+    <Spanish>Kar-Tukulti-Ninurta</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SENNACHERIB_14</Tag>
+    <English>Til Barsip</English>
+    <French>Til Barsip</French>
+    <German>Til Barsip</German>
+    <Italian>Til Barsip</Italian>
+    <Spanish>Til Barsip</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_SENNACHERIB</Tag>
+    <English>I am Sennacherib. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Sennacherib. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Sennacherib. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Sennacherib. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Sennacherib. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_IMPROVEMENT_EXP_CARAVAN_STATION</Tag>
+    <English>Caravan Station</English>
+    <French>Caravan Station</French>
+    <German>Caravan Station</German>
+    <Italian>Caravan Station</Italian>
+    <Spanish>Caravan Station</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_IMPROVEMENT_EXP_CARAVAN_STATION_PEDIA</Tag>
+    <English>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</English>
+    <French>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</French>
+    <German>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</German>
+    <Italian>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</Italian>
+    <Spanish>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED</Tag>
+    <English>Pillaged Caravan Station</English>
+    <French>Pillaged Caravan Station</French>
+    <German>Pillaged Caravan Station</German>
+    <Italian>Pillaged Caravan Station</Italian>
+    <Spanish>Pillaged Caravan Station</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED_PEDIA</Tag>
+    <English>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</English>
+    <French>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</French>
+    <German>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</German>
+    <Italian>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</Italian>
+    <Spanish>Palmyrene Workers build or restore this station after Currency in 150% of Farm work time. Flat, featureless, resource-free Desert with Road/Railroad, owned and assigned to a city radius. No Oasis or Flood Plains. One copy per assigned city including pillaged copies. +1 Food and +3 Commerce when worked. Not a fort, city, defensive structure or free trade route. Losing the road disables Zenobia's trait, not ordinary improvement yields. Capture preserves the station; only Palmyra can restore it. Existing caravan-house geometry is a provisional prototype, not a certified ancient architectural reconstruction.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILD_EXP_CARAVAN_STATION</Tag>
+    <English>Build/Restore Caravan Station</English>
+    <French>Build/Restore Caravan Station</French>
+    <German>Build/Restore Caravan Station</German>
+    <Italian>Build/Restore Caravan Station</Italian>
+    <Spanish>Build/Restore Caravan Station</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_PALMYRENE_CLIBANARIUS</Tag>
+    <English>Palmyrene Clibanarius</English>
+    <French>Palmyrene Clibanarius</French>
+    <German>Palmyrene Clibanarius</German>
+    <Italian>Palmyrene Clibanarius</Italian>
+    <Spanish>Palmyrene Clibanarius</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_PALMYRENE_CLIBANARIUS_PEDIA</Tag>
+    <English>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</English>
+    <French>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</French>
+    <German>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</German>
+    <Italian>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</Italian>
+    <Spanish>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_PALMYRENE_CLIBANARIUS_STRATEGY</Tag>
+    <English>A Horse Archer replacement requiring Horse AND Iron, Horseback Riding and Archery. Strength 8, cost 70, movement 2 and only 10% withdrawal in total. Retains the Knight upgrade. Provisional parent cavalry visuals, not a claim of authenticated Palmyrene equipment.</English>
+    <French>A Horse Archer replacement requiring Horse AND Iron, Horseback Riding and Archery. Strength 8, cost 70, movement 2 and only 10% withdrawal in total. Retains the Knight upgrade. Provisional parent cavalry visuals, not a claim of authenticated Palmyrene equipment.</French>
+    <German>A Horse Archer replacement requiring Horse AND Iron, Horseback Riding and Archery. Strength 8, cost 70, movement 2 and only 10% withdrawal in total. Retains the Knight upgrade. Provisional parent cavalry visuals, not a claim of authenticated Palmyrene equipment.</German>
+    <Italian>A Horse Archer replacement requiring Horse AND Iron, Horseback Riding and Archery. Strength 8, cost 70, movement 2 and only 10% withdrawal in total. Retains the Knight upgrade. Provisional parent cavalry visuals, not a claim of authenticated Palmyrene equipment.</Italian>
+    <Spanish>A Horse Archer replacement requiring Horse AND Iron, Horseback Riding and Archery. Strength 8, cost 70, movement 2 and only 10% withdrawal in total. Retains the Knight upgrade. Provisional parent cavalry visuals, not a claim of authenticated Palmyrene equipment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_CARAVAN_COURT</Tag>
+    <English>Caravan Court</English>
+    <French>Caravan Court</French>
+    <German>Caravan Court</German>
+    <Italian>Caravan Court</Italian>
+    <Spanish>Caravan Court</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_CARAVAN_COURT_PEDIA</Tag>
+    <English>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</English>
+    <French>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</French>
+    <German>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</German>
+    <Italian>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</Italian>
+    <Spanish>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_CARAVAN_COURT_STRATEGY</Tag>
+    <English>Retains Currency, +25% Gold and two Merchant slots. Adds one trade route for a cost of 180 Production. This city building does not grant a free Caravan Station or add flat Food or Gold.</English>
+    <French>Retains Currency, +25% Gold and two Merchant slots. Adds one trade route for a cost of 180 Production. This city building does not grant a free Caravan Station or add flat Food or Gold.</French>
+    <German>Retains Currency, +25% Gold and two Merchant slots. Adds one trade route for a cost of 180 Production. This city building does not grant a free Caravan Station or add flat Food or Gold.</German>
+    <Italian>Retains Currency, +25% Gold and two Merchant slots. Adds one trade route for a cost of 180 Production. This city building does not grant a free Caravan Station or add flat Food or Gold.</Italian>
+    <Spanish>Retains Currency, +25% Gold and two Merchant slots. Adds one trade route for a cost of 180 Production. This city building does not grant a free Caravan Station or add flat Food or Gold.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_ZENOBIA</Tag>
+    <English>Queen of the Caravan Roads</English>
+    <French>Queen of the Caravan Roads</French>
+    <German>Queen of the Caravan Roads</German>
+    <Italian>Queen of the Caravan Roads</Italian>
+    <Spanish>Queen of the Caravan Roads</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_ZENOBIA_SHORT</Tag>
+    <English>Queen of the Caravan Roads</English>
+    <French>Queen of the Caravan Roads</French>
+    <German>Queen of the Caravan Roads</German>
+    <Italian>Queen of the Caravan Roads</Italian>
+    <Spanish>Queen of the Caravan Roads</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_ZENOBIA</Tag>
+    <English>Zenobia</English>
+    <French>Zenobia</French>
+    <German>Zenobia</German>
+    <Italian>Zenobia</Italian>
+    <Spanish>Zenobia</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_ZENOBIA_PEDIA</Tag>
+    <English>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</English>
+    <French>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</French>
+    <German>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</German>
+    <Italian>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</Italian>
+    <Spanish>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_PALMYRA_ZENOBIA_DESCRIPTION</Tag>
+    <English>Palmyrene Empire</English>
+    <French>Palmyrene Empire</French>
+    <German>Palmyrene Empire</German>
+    <Italian>Palmyrene Empire</Italian>
+    <Spanish>Palmyrene Empire</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_PALMYRA_ZENOBIA_SHORTDESCRIPTION</Tag>
+    <English>Palmyrene Empire</English>
+    <French>Palmyrene Empire</French>
+    <German>Palmyrene Empire</German>
+    <Italian>Palmyrene Empire</Italian>
+    <Spanish>Palmyrene Empire</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_PALMYRA_ZENOBIA_ADJECTIVE</Tag>
+    <English>Palmyrene</English>
+    <French>Palmyrene</French>
+    <German>Palmyrene</German>
+    <Italian>Palmyrene</Italian>
+    <Spanish>Palmyrene</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_PALMYRA_ZENOBIA_CIVILOPEDIA</Tag>
+    <English>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</English>
+    <French>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</French>
+    <German>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</German>
+    <Italian>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</Italian>
+    <Spanish>Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_1</Tag>
+    <English>Palmyra</English>
+    <French>Palmyra</French>
+    <German>Palmyra</German>
+    <Italian>Palmyra</Italian>
+    <Spanish>Palmyra</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_2</Tag>
+    <English>Emesa</English>
+    <French>Emesa</French>
+    <German>Emesa</German>
+    <Italian>Emesa</Italian>
+    <Spanish>Emesa</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_3</Tag>
+    <English>Bostra</English>
+    <French>Bostra</French>
+    <German>Bostra</German>
+    <Italian>Bostra</Italian>
+    <Spanish>Bostra</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_4</Tag>
+    <English>Damascus</English>
+    <French>Damascus</French>
+    <German>Damascus</German>
+    <Italian>Damascus</Italian>
+    <Spanish>Damascus</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_5</Tag>
+    <English>Antioch</English>
+    <French>Antioch</French>
+    <German>Antioch</German>
+    <Italian>Antioch</Italian>
+    <Spanish>Antioch</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_6</Tag>
+    <English>Apamea</English>
+    <French>Apamea</French>
+    <German>Apamea</German>
+    <Italian>Apamea</Italian>
+    <Spanish>Apamea</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_7</Tag>
+    <English>Dura-Europos</English>
+    <French>Dura-Europos</French>
+    <German>Dura-Europos</German>
+    <Italian>Dura-Europos</Italian>
+    <Spanish>Dura-Europos</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_8</Tag>
+    <English>Sura</English>
+    <French>Sura</French>
+    <German>Sura</German>
+    <Italian>Sura</Italian>
+    <Spanish>Sura</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_9</Tag>
+    <English>Resafa</English>
+    <French>Resafa</French>
+    <German>Resafa</German>
+    <Italian>Resafa</Italian>
+    <Spanish>Resafa</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_10</Tag>
+    <English>Circesium</English>
+    <French>Circesium</French>
+    <German>Circesium</German>
+    <Italian>Circesium</Italian>
+    <Spanish>Circesium</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_11</Tag>
+    <English>Hierapolis</English>
+    <French>Hierapolis</French>
+    <German>Hierapolis</German>
+    <Italian>Hierapolis</Italian>
+    <Spanish>Hierapolis</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_12</Tag>
+    <English>Edessa</English>
+    <French>Edessa</French>
+    <German>Edessa</German>
+    <Italian>Edessa</Italian>
+    <Spanish>Edessa</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_13</Tag>
+    <English>Berytus</English>
+    <French>Berytus</French>
+    <German>Berytus</German>
+    <Italian>Berytus</Italian>
+    <Spanish>Berytus</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ZENOBIA_14</Tag>
+    <English>Laodicea</English>
+    <French>Laodicea</French>
+    <German>Laodicea</German>
+    <Italian>Laodicea</Italian>
+    <Spanish>Laodicea</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_ZENOBIA</Tag>
+    <English>I am Zenobia. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Zenobia. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Zenobia. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Zenobia. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Zenobia. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
 </Civ4GameText>

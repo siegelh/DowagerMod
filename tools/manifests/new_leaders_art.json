@@ -246,5 +246,46 @@
       }
     ],
     "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_SENNACHERIB",
+    "status": "Complete retained primary model and animations. The bundled josef_stalin_noshader.nif has only stock Stalin textures rather than the primary's Assyrian costume meshes, so both runtime slots explicitly use the retained primary instead of silently switching identity. No low-settings certification. Stock Catapult and Aqueduct visuals and the original small canal mesh are provisional.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/sennacherib/SennacheribButton.dds": "00509f1496ec931fa56969ac6aea13843fab37030e253e4a9f7737b8fafd9687",
+      "Art/Leaderheads/new/sennacherib/josef_stalin.nif": "bf3a6cbec32ee9ad66556448348e03ac7cf17a4d5c32dff04c07281f7eecc2f8",
+      "Art/Leaderheads/new/sennacherib/josef_stalin.kfm": "9b0c213511ba292ba13a33bdc7a3d25245f2a376856d5ffed628629f80db543d",
+      "Art/Leaderheads/new/sennacherib/josef_stalin_BG.kfm": "48e3e532307942d45e6daf2b172502b2b56e83180ed120f34efcf98ad522b001"
+    },
+    "repairs": [],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_ZENOBIA",
+    "status": "Retained primary appearance. Restore the exact named stock Victoria environment texture and correct only the main KFM model binding. Existing background and eight main animation clips retained. No distinct nonshader model; primary in both slots remains provisional. Supporting cavalry, Market and caravan-house visuals require manual acceptance.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/zenobia/button/btn_lh_zenobia.dds": "de66eb809cc0ae901d178205297d4cc1227dd3e3427c971f873419ca317aa850",
+      "Art/Leaderheads/new/zenobia/zenobia.nif": "18d0dba3c561b96bd969ca4de2570c4f0309e5ca1863f3bfdf3ba6190fe0912f",
+      "Art/Leaderheads/new/zenobia/Zenobia_Runtime.kfm": "b85f39802df43b99d14b52902e5743358c938fdc14859874904a94cbc7712748",
+      "Art/Leaderheads/new/zenobia/zenobia_BG.kfm": "9ef65d64eee3af67309d8e775ed11caeaed436ef584ed38d2e2566a1f739dd74"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/Victoria/victoria_env2.dds",
+        "target": "Art/Leaderheads/new/zenobia/Victoria_ENV2.dds",
+        "sha256": "73b41b69c1e5dd969f61396b0d5bce98a50e62dd5ed603bb679c5030072ca5df",
+        "evidence": "The retained Zenobia NIF directly references Victoria_ENV2.dds as an environment texture. The bundled stock Victoria donor provides that exact named 256x256 texture; no diffuse map, UV, mesh, camera or existing texture is modified."
+      },
+      {
+        "source": "Art/Leaderheads/new/zenobia/zenobia.kfm",
+        "target": "Art/Leaderheads/new/zenobia/Zenobia_Runtime.kfm",
+        "sha256": "71abe3dbc2c907b615a1bdd5044fb7993545db1f0c326fc5951e065e152dbdef",
+        "kfm_model": {
+          "old": "victoria.nif",
+          "new": "zenobia.nif"
+        },
+        "evidence": "The main KFM refers to an absent donor filename while the retained model is zenobia.nif. Only the length-prefixed model name changes; all animation, master and transition bytes remain unchanged."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
   }
 ]

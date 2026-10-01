@@ -6,10 +6,10 @@
 Each civilization has one intended leader, one unique unit, one unique building,
 and one signature trait. This does not increase simultaneous player slots.
 
-Eleven packages are integrated: **Piye, Stefan Dusan, Matthias Corvinus,
+All thirteen packages are integrated: **Piye, Stefan Dusan, Matthias Corvinus,
 Pedro II, Mongkut, Simon Bolivar, Hiram I, Ramkhamhaeng, Ho Chi Minh,
-Askia Muhammad and David**. The current selectable roster is **70**.
-**Sennacherib and Zenobia** remain in progress. Mongkut's diplomatic-research
+Askia Muhammad, David, Sennacherib and Zenobia**. The current selectable roster is **72**.
+Mongkut's diplomatic-research
 and Bolivar's conquest-occupation rules are wired into their civilizations;
 their native support has compiled and the content has passed its gate.
 Hiram's coastal trade-team Gold rule, city breakdown and AI treaty-value
@@ -18,11 +18,22 @@ The shared capped worked-plot engine is compiled: city accounting, governor
 and worker estimates, technology/building refreshes and tooltips are wired.
 Ramkhamhaeng, Ho and Askia now use those rules. David's veteran-garrison
 Culture refreshes with unit movement, level, transport and death changes;
-animals do not qualify. The two remaining packages are not yet selectable.
+animals do not qualify. Sennacherib and Zenobia have their UU, UB, trait
+and civilization-specific Worker improvements, including intact/pillaged
+identities, assigned-city build caps, restoration and capture behavior.
+Human and AI actions share legality checks; AI can prepare Station roads.
+
+The required full content/native gate passes. Reconstruction verifies all
+58 outputs with no changes; native rules pass 1,422,460 exact cases.
+The complete tools suite reports **399 passed and one historical
+additive-signature failure**; it is not represented as fully green.
+See the expansion plan's final handoff for evidence and the exact DLL hash.
 
 All balance numbers are initial targets, not playtested conclusions.
 Leaderheads and supporting visuals are provisional until in-game acceptance.
 Nothing has been pushed, merged, installed, or applied to the live game.
+**Ready for merge/deploy: No.** The manual gameplay, graphics, AI, old-save
+and multiplayer checks in `docs\MANUAL_SMOKE_TESTS.md` remain unperformed.
 
 ## At a glance
 
@@ -136,6 +147,13 @@ reference changes to that same blue map, with identical clothing UVs.
 Askia's obsolete absolute texture path now uses the bundled relative texture.
 Both repaired models preserve every other original byte. Ramkhamhaeng's
 existing primary, fallback, background and portrait are retained.
+David's missing background texture is reconstructed without changing decoded
+pixels; his existing model and static background remain provisional.
+Zenobia's exact named stock environment texture is restored, with a separate
+filename-only runtime KFM. Sennacherib uses his retained primary in both slots
+instead of the bundled stock-Stalin fallback. Low-settings certification
+remains open. The original small canal and reused caravan-house map models
+are prototypes, not approved final visuals.
 
 Ancient/traditional biographies, especially David's, will distinguish
 historical evidence from literary tradition. No modern-state analogy or new

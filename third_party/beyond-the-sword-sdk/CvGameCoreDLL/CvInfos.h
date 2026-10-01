@@ -2918,6 +2918,13 @@ public:
 	bool isLandmarkStateReligionGated() const;
 	int getLandmarkStateReligion() const;
 
+	CivilizationTypes getBuildCivilization() const { return m_eBuildCivilization; }
+	int getCityBuildGroup() const { return m_iCityBuildGroup; }
+	int getCityBuildCap() const { return m_iCityBuildCap; }
+	int getCityBuildCondition() const { return m_iCityBuildCondition; }
+	bool isCityBuildPillaged() const { return m_bCityBuildPillaged; }
+	bool resolveCityBuildRules();
+
 	// Neutral world wonder owner modifiers (neutral defaults preserve stock behavior).
 	bool isNeutralWorldWonder() const;
 	int getNeutralWorldWonderCulturePercent() const;
@@ -3016,6 +3023,13 @@ protected:
 	bool m_bLandmarkRequiresPeak;
 	bool m_bLandmarkStateReligionGated;
 	int m_iLandmarkStateReligion;
+
+	CvString m_szBuildCivilization;
+	CivilizationTypes m_eBuildCivilization;
+	int m_iCityBuildGroup;
+	int m_iCityBuildCap;
+	int m_iCityBuildCondition;
+	bool m_bCityBuildPillaged;
 
 	bool m_bNeutralWorldWonder;
 	int m_iNeutralWorldWonderCulturePercent;

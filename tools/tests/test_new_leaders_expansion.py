@@ -4,15 +4,36 @@ import copy
 import json
 import sys
 import unittest
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
-from add_expansion_packages import ASSETS, XML, FILES, MANIFEST, append_record, baseline, canonical, parse, trait_scalar, retarget_kfm_model, resize_portrait_button, dds_to_tga
+from add_expansion_packages import ASSETS, XML, FILES, MANIFEST, append_record, baseline, canonical, parse, trait_scalar, retarget_kfm_model, resize_portrait_button, dds_to_tga, replace_reviewed_record, append_plot_node
 from flags.flag_pipeline import validate_manifest_against_live
 
 
 class ExpansionWriterTests(unittest.TestCase):
+    def test_reviewed_worker_edit_rejects_unrelated_drift(self):
+        old = parse("<UnitInfo><Type>WORKER</Type><Builds/><Cost>10</Cost></UnitInfo>")
+        new = copy.deepcopy(old)
+        new.find("Builds").append(parse("<Build><BuildType>CANAL</BuildType></Build>"))
+        raw = b"<Root>" + ET.tostring(old) + b"</Root>"
+        changed = replace_reviewed_record(raw, old, new)
+        self.assertEqual(replace_reviewed_record(changed, old, new), changed)
+        with self.assertRaisesRegex(ValueError, "unreviewed"):
+            replace_reviewed_record(raw.replace(b">10<", b">11<"), old, new)
+
+    def test_plot_node_append_preserves_old_content_and_node_order(self):
+        raw = b'<LSystemInfos xmlns="x-schema:CIV4LSystemSchema.xml"><LNode Name="OLD"/><LProduction From="PLOT_ROOT" Name="OldRoute"/></LSystemInfos>'
+        leaf = parse('<LNode Name="NEW"><Width>4</Width></LNode>')
+        route = parse('<LProduction From="PLOT_ROOT" Name="NewRoute"><To Name="NEW"/></LProduction>')
+        output = append_plot_node(append_plot_node(raw, leaf), route)
+        self.assertEqual(append_plot_node(output, leaf), output)
+        self.assertEqual(append_plot_node(output, route), output)
+        self.assertLess(output.index(b'Name="NEW"'), output.index(b"<LProduction "))
+        self.assertIn(b'<LNode Name="OLD"/>', output)
+
     def test_background_transcode_preserves_every_decoded_rgba_pixel(self):
         import io
         from PIL import Image
@@ -130,15 +151,50 @@ class ExpansionContractTests(unittest.TestCase):
             "HO_CHI_MINH", "ASKIA", "DUSAN", "PEDRO_II", "BOLIVAR", "ZENOBIA", "DAVID",
         })
         packages = self.document["packages"]
+        self.assertEqual(set(self.document["worker_units"]), {"UNIT_WORKER", "UNIT_INDIAN_FAST_WORKER", "UNIT_HUAYNA_WORKER"})
         self.assertEqual(len({p["id"] for p in packages}), len(packages))
         self.assertTrue({p["id"] for p in packages} <= set(self.document["approved_leaders"]))
         for kind, (_, entry_tag, _) in FILES.items():
             with self.subTest(kind=kind):
                 old = list(self.original[kind].iter(entry_tag))
-                new = list(self.live[kind].iter(entry_tag))
+                new = copy.deepcopy(list(self.live[kind].iter(entry_tag)))
+                improvements = [p["improvement"] for p in packages if "improvement" in p]
+                if kind == "unit":
+                    builds = ["BUILD_EXP_" + spec["id"] for spec in improvements]
+                    for before, after in zip(old, new):
+                        if before.findtext("Type") in self.document["worker_units"] and builds:
+                            expected = copy.deepcopy(before.find("Builds"))
+                            for identifier in builds:
+                                expected.append(parse(f"<Build><BuildType>{identifier}</BuildType><bBuild>1</bBuild></Build>"))
+                            self.assertEqual(canonical(after.find("Builds")), canonical(expected))
+                            after.remove(after.find("Builds"))
+                            index = list(before).index(before.find("Builds"))
+                            after.insert(index, copy.deepcopy(before.find("Builds")))
                 self.assertEqual([canonical(n) for n in new[:len(old)]], [canonical(n) for n in old])
                 added_count = sum("promotion" in p for p in packages) if kind == "promotion" else len(packages)
+                if kind in ("improvement", "build", "improvement_art"):
+                    added_count = len(improvements) * (2 if kind == "improvement" else 1)
                 self.assertEqual(len(new), len(old) + added_count)
+
+    def test_last_packages_have_exact_siege_cavalry_and_worked_rule_contracts(self):
+        siege = self.entry("unit", "UNIT_EXP_ASSYRIAN_SIEGE_TOWER")
+        self.assertEqual([siege.findtext(tag) for tag in ("iCost", "iCombat", "iBombardRate", "iCityAttack", "iCollateralDamage")],
+                         ["60", "5", "12", "25", "50"])
+        cavalry = self.entry("unit", "UNIT_EXP_PALMYRENE_CLIBANARIUS")
+        self.assertEqual([cavalry.findtext(tag) for tag in ("iCost", "iCombat", "iMoves", "iWithdrawalProb", "BonusType")],
+                         ["70", "8", "2", "10", "BONUS_HORSE"])
+        self.assertEqual([n.text for n in cavalry.findall("PrereqBonuses/BonusType")],
+                         ["BONUS_IRON", "NONE", "NONE", "NONE"])
+        sennacherib = self.entry("trait", "TRAIT_EXP_SENNACHERIB")
+        self.assertEqual(sennacherib.findtext("WorkedPlotPrereqBuilding"), "BUILDING_EXP_ROYAL_WATERWORKS")
+        self.assertEqual([sennacherib.findtext(t) for t in ("iWorkedPlotProduction", "iWorkedPlotCap")], ["1", "3"])
+        self.assertEqual([n.text for n in sennacherib.findall("WorkedPlotImprovements/ImprovementType")],
+                         ["IMPROVEMENT_FARM", "IMPROVEMENT_EXP_ROYAL_CANAL"])
+        zenobia = self.entry("trait", "TRAIT_EXP_ZENOBIA")
+        self.assertEqual(zenobia.findtext("WorkedPlotCondition"), "DESERT_ROAD_IMPROVEMENT")
+        self.assertEqual([zenobia.findtext(t) for t in ("iWorkedPlotGold", "iWorkedPlotCap")], ["2", "6"])
+        self.assertEqual([n.text for n in zenobia.findall("WorkedPlotExcludedImprovements/ImprovementType")],
+                         ["IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED", "IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED"])
 
     def test_unit_and_building_deltas_retain_all_unmodified_parent_fields(self):
         for package in self.document["packages"]:

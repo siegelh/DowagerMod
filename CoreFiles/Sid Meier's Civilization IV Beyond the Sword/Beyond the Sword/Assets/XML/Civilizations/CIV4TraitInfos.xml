@@ -3572,5 +3572,64 @@
   <FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo>
+<TraitInfo>
+  <Type>TRAIT_EXP_SENNACHERIB</Type>
+  <Description>TXT_KEY_TRAIT_EXP_SENNACHERIB</Description>
+  <ShortDescription>TXT_KEY_TRAIT_EXP_SENNACHERIB_SHORT</ShortDescription>
+  <iHealth>0</iHealth>
+  <iHappiness>0</iHappiness>
+  <iMaxAnarchy>-1</iMaxAnarchy>
+  <iUpkeepModifier>0</iUpkeepModifier>
+  <iLevelExperienceModifier>0</iLevelExperienceModifier>
+  <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
+  <iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
+  <iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
+  <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
+  <iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier>
+  <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
+  <WorkedPlotCondition>RIVERSIDE_IMPROVEMENT</WorkedPlotCondition>
+  <iWorkedPlotProduction>1</iWorkedPlotProduction>
+  <iWorkedPlotCap>3</iWorkedPlotCap>
+  <WorkedPlotPrereqBuilding>BUILDING_EXP_ROYAL_WATERWORKS</WorkedPlotPrereqBuilding>
+  <WorkedPlotImprovements>
+    <ImprovementType>IMPROVEMENT_FARM</ImprovementType>
+    <ImprovementType>IMPROVEMENT_EXP_ROYAL_CANAL</ImprovementType>
+  </WorkedPlotImprovements>
+  <ExtraYieldThresholds />
+  <TradeYieldModifiers />
+  <CommerceChanges />
+  <CommerceModifiers />
+  <FreePromotions />
+  <FreePromotionUnitCombats />
+</TraitInfo>
+<TraitInfo>
+  <Type>TRAIT_EXP_ZENOBIA</Type>
+  <Description>TXT_KEY_TRAIT_EXP_ZENOBIA</Description>
+  <ShortDescription>TXT_KEY_TRAIT_EXP_ZENOBIA_SHORT</ShortDescription>
+  <iHealth>0</iHealth>
+  <iHappiness>0</iHappiness>
+  <iMaxAnarchy>-1</iMaxAnarchy>
+  <iUpkeepModifier>0</iUpkeepModifier>
+  <iLevelExperienceModifier>0</iLevelExperienceModifier>
+  <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
+  <iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
+  <iDomesticGreatGeneralRateModifier>0</iDomesticGreatGeneralRateModifier>
+  <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
+  <iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier>
+  <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
+  <WorkedPlotCondition>DESERT_ROAD_IMPROVEMENT</WorkedPlotCondition>
+  <iWorkedPlotGold>2</iWorkedPlotGold>
+  <iWorkedPlotCap>6</iWorkedPlotCap>
+  <WorkedPlotExcludedImprovements>
+    <ImprovementType>IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED</ImprovementType>
+    <ImprovementType>IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED</ImprovementType>
+  </WorkedPlotExcludedImprovements>
+  <ExtraYieldThresholds />
+  <TradeYieldModifiers />
+  <CommerceChanges />
+  <CommerceModifiers />
+  <FreePromotions />
+  <FreePromotionUnitCombats />
+</TraitInfo>
 </TraitInfos>
 </Civ4TraitInfos>

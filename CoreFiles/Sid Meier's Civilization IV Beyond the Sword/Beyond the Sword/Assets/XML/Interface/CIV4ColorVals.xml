@@ -1089,5 +1089,19 @@
   <fBlue>0.000000</fBlue>
   <fAlpha>1.000000</fAlpha>
 </ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_SENNACHERIB</Type>
+  <fRed>1.000000</fRed>
+  <fGreen>0.800000</fGreen>
+  <fBlue>1.000000</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_ZENOBIA</Type>
+  <fRed>0.866667</fRed>
+  <fGreen>0.533333</fGreen>
+  <fBlue>0.800000</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
 </ColorVals>
 </Civ4ColorVals>

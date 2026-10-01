@@ -10947,6 +10947,50 @@
 	</ArtRef>
 </LNode>
 
+<LNode Name="Leaf_Expansion_ROYAL_CANAL">
+  <Width>4</Width>
+  <Height>4</Height>
+  <Attribute Class="Scalar">bNotBFS:1</Attribute>
+  <Attribute Class="RegionTest">0NW</Attribute>
+  <ArtRef Name="goal:IMPROVEMENT_EXP_ROYAL_CANAL">
+    <Attribute Class="Improvement">IMPROVEMENT_EXP_ROYAL_CANAL</Attribute>
+    <Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+    <Attribute Class="Scalar">bApplyRotation:1</Attribute>
+  </ArtRef>
+</LNode>
+<LNode Name="Leaf_Expansion_ROYAL_CANAL_PILLAGED">
+  <Width>4</Width>
+  <Height>4</Height>
+  <Attribute Class="Scalar">bNotBFS:1</Attribute>
+  <Attribute Class="RegionTest">0NW</Attribute>
+  <ArtRef Name="goal:IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED">
+    <Attribute Class="Improvement">IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED</Attribute>
+    <Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+    <Attribute Class="Scalar">bApplyRotation:1</Attribute>
+  </ArtRef>
+</LNode>
+<LNode Name="Leaf_Expansion_CARAVAN_STATION">
+  <Width>4</Width>
+  <Height>4</Height>
+  <Attribute Class="Scalar">bNotBFS:1</Attribute>
+  <Attribute Class="RegionTest">0NW</Attribute>
+  <ArtRef Name="goal:IMPROVEMENT_EXP_CARAVAN_STATION">
+    <Attribute Class="Improvement">IMPROVEMENT_EXP_CARAVAN_STATION</Attribute>
+    <Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+    <Attribute Class="Scalar">bApplyRotation:1</Attribute>
+  </ArtRef>
+</LNode>
+<LNode Name="Leaf_Expansion_CARAVAN_STATION_PILLAGED">
+  <Width>4</Width>
+  <Height>4</Height>
+  <Attribute Class="Scalar">bNotBFS:1</Attribute>
+  <Attribute Class="RegionTest">0NW</Attribute>
+  <ArtRef Name="goal:IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED">
+    <Attribute Class="Improvement">IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED</Attribute>
+    <Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+    <Attribute Class="Scalar">bApplyRotation:1</Attribute>
+  </ArtRef>
+</LNode>
 <LProduction From="PLOT_ROOT" Name="DowagerGenericPlotRoute1">
 	<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_LAND_WORKED,IMPROVEMENT_FARM,IMPROVEMENT_FISHING_BOATS,IMPROVEMENT_WORKSHOP,IMPROVEMENT_LUMBERMILL,IMPROVEMENT_PLANTATION,IMPROVEMENT_WINERY</Attribute>
 	<To Name="Node_12x12" />
@@ -11970,4 +12014,24 @@
 	<To Name="Node_12x12" />
 </LProduction>
 
+<LProduction From="PLOT_ROOT" Name="ExpansionRoute_IMPROVEMENT_EXP_ROYAL_CANAL">
+  <Attribute Class="Improvement">IMPROVEMENT_EXP_ROYAL_CANAL</Attribute>
+  <Attribute Class="Scalar">bNotBFS:1</Attribute>
+  <To Name="Leaf_Expansion_ROYAL_CANAL" />
+</LProduction>
+<LProduction From="PLOT_ROOT" Name="ExpansionRoute_IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED">
+  <Attribute Class="Improvement">IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED</Attribute>
+  <Attribute Class="Scalar">bNotBFS:1</Attribute>
+  <To Name="Leaf_Expansion_ROYAL_CANAL_PILLAGED" />
+</LProduction>
+<LProduction From="PLOT_ROOT" Name="ExpansionRoute_IMPROVEMENT_EXP_CARAVAN_STATION">
+  <Attribute Class="Improvement">IMPROVEMENT_EXP_CARAVAN_STATION</Attribute>
+  <Attribute Class="Scalar">bNotBFS:1</Attribute>
+  <To Name="Leaf_Expansion_CARAVAN_STATION" />
+</LProduction>
+<LProduction From="PLOT_ROOT" Name="ExpansionRoute_IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED">
+  <Attribute Class="Improvement">IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED</Attribute>
+  <Attribute Class="Scalar">bNotBFS:1</Attribute>
+  <To Name="Leaf_Expansion_CARAVAN_STATION_PILLAGED" />
+</LProduction>
 </LSystemInfos>

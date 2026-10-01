@@ -1,6 +1,6 @@
 # Thirteen-Leader Expansion
 
-- Status: `in_progress`; eleven packages integrated; E1/E2/E3/E5/E7 engine and content gated.
+- Status: `implementation integrated, required gate passed`; thirteen packages /72 selectable civilizations; manual acceptance blocked and one historical tools-test failure remains.
 - Owner / agent: repository owner / GitHub Copilot.
 - Last updated: `2026-10-01`.
 
@@ -352,6 +352,64 @@ Manual gameplay, diplomacy/graphics, AI games, old saves and multiplayer
 were NOT run. The complete expansion is NOT ready to merge/deploy.
 No push, merge, installer or live-game action occurred.
 
+### Sennacherib, Zenobia and E9 implementation
+
+All thirteen selected packages are integrated. The Royal Canal and Caravan
+Station have civilization-specific Worker permission, live assigned-city
+counts, shared intact/pillaged groups and completion-time revalidation.
+Restoration retains its slot even after capture/reassignment creates a surplus.
+There is no automatic deletion, owner change or working-city reassignment.
+Intact improvements retain ordinary yields through capture; new owners cannot
+restore them without the matching civilization, but may replace them normally.
+
+The new actions are appended to `UNIT_WORKER`, `UNIT_INDIAN_FAST_WORKER` and
+`UNIT_HUAYNA_WORKER`; all prior actions and other fields are preserved exactly.
+Permission follows civilization rather than unit identity or leader, including
+Unrestricted Leaders. Builds take625/750 normal-speed work, have no feature
+clearing, and cannot overwrite resources or Great Person improvements. The
+older consumed-Great-Person build definitions protect Grand Colosseum and
+Jokamachi too. Direct Advanced Start purchases are disabled for these new
+improvements, so they cannot bypass the Worker placement/cap rules.
+
+Pillaged identities have zero yields and no irrigation propagation. Repeated
+land pillage or espionage can remove the remaining route without erasing the
+marker or generating repeated improvement Gold. Air bombing and legacy
+sabotage reject empty markers. The shared native predicate supplies build
+help rejection reasons; own-city counts are shown without revealing another
+player's live assigned-city state through plot help.
+
+Worker AI uses native yield and E1 marginal valuation, plus a discounted
+estimate for roads that unlock a buildable Station. Royal Canals obey the
+literal riverside OR already-irrigated condition, not fresh water in general;
+existing irrigation technology still governs propagation. All city counts
+are derived from at most21 assigned BFC plots, not saved ledgers or Python
+whole-map scans. Improvement cache serialization has a symmetric version4
+layout; active loading bypasses obsolete improvement caches and resolves
+civilization references after the civilization table is loaded.
+
+Sennacherib's retained primary is used in both art slots instead of his
+bundled stock-Stalin fallback. Zenobia's missing named stock Victoria
+environment texture is restored, and a separate runtime KFM changes only the
+missing `victoria.nif` binding to `zenobia.nif`. Main/background model and
+animation data are otherwise untouched.
+
+The original Royal Canal prototype contains eleven texture-free meshes and
+132 triangles, generated reproducibly by `tools\prepare_expansion_canal_art.py`.
+Its first round-trip exposed PyFFI's default header-endian mismatch; setting
+the explicit Civ4 little-endian header resolved it before any file publication.
+The Station uses the existing bundled caravan-house mesh at half scale.
+Both intact/pillaged types have exclusive plot routes, preserving all earlier
+nodes/routes against the approved `40a478e20` cleanup, not the older broken
+combined baseline. The writer's initial wrong closing-root assumption was
+corrected to use the parsed `LSystemInfos` root; its failed staging attempt
+published no XML. Neither improvement is a final approved in-game visual.
+
+The thirteen-package compiler publishes/reconciles58 files. The original59
+civilizations, original flag/color mappings and unselected backlog remain
+protected, with only the explicitly authorized Worker action additions.
+Final automated results and native payload hashes follow separately.
+The manual acceptance matrix is in `docs\MANUAL_SMOKE_TESTS.md`.
+
 ### Shared E1 worked-plot engine checkpoint
 
 Typed optional trait rules now cover riverside allowlisted improvements,
@@ -484,6 +542,62 @@ pixel. His background KFM has zero clips and remains static. There is no
 distinct nonshader model or portrait; the original harp emblem is a provisional
 button, not a portrait. These are explicit manual acceptance risks.
 
-Sennacherib/Zenobia and E9 remain outstanding. Manual gameplay, AI, graphics,
+At this checkpoint Sennacherib/Zenobia and E9 remained outstanding; the
+implementation section above and final handoff below supersede that status.
+Manual gameplay, AI, graphics,
 old-save and multiplayer acceptance have NOT run. **Ready for merge/deploy: No.**
 No push, merge, installer or live-game action occurred.
+
+### Final automated validation and local handoff
+
+All thirteen approved packages are integrated, producing **72 selectable
+civilizations** without changing player slots. Sennacherib/Zenobia and the E9
+engine complete the authorized implementation scope. The six backlog leaders
+are not added. Art remains explicitly provisional, not visually approved.
+
+The first final gate compiled the DLL but exposed three content problems:
+empty optional `BonusTypeStructs`, a typed `CityBuildCondition` mistaken for
+an InfoType reference, and an unavailable stock Village button alias. The
+compiler now omits the optional block; the validator checks the exact enum
+values without exempting unrelated references; the Station uses a verified,
+hash-pinned bundled 64x64 caravan-post icon. Regression coverage preserves
+unknown-enum and unknown-InfoType rejection.
+
+| Validation | Final result |
+|---|---|
+| `.\tools\test_gate.ps1 -All` | **Passed**: Python2.4, XML, roster/baseline/localization/art, city styles and native DLL. 165 XML files selected; seven stock-schema skips remain explicit. |
+| `python .\tools\add_expansion_packages.py` | **Passed**: all13 packages, expected/processed/persisted58 outputs, zero changed/dropped/skipped/duplicate/error outputs. |
+| `.\tools\test_expansion_rules.ps1` | **Passed**:1,422,460 exact production-header rule cases plus empty/INT_MAX boundaries. |
+| Focused final correction tests | **35 passed**, covering roster validation, E9 improvements and package contracts. The earlier broader targeted run passed146. |
+| `python -m pytest -q tools\tests` | **399 passed, one historical failure**, one unrelated installer escape-sequence warning. No skipped/xfail workaround. |
+| SDK and isolated BtS mirror DLL | Identical SHA256 `4a2b46b1c6cbe6034d17d7f87d668d1105301203fa525bddcc50e81b7f817377`. |
+
+Evidence is retained in the session `files` directory:
+`expansion-thirteen-final-gate.log`,
+`expansion-thirteen-determinism-final.log`,
+`expansion-thirteen-native-rules.log`, and
+`expansion-thirteen-tests-complete.log`.
+The build's legacy SDK copy to a nonexistent sibling Assets directory still
+prints a warning; the repository wrapper successfully copies to the isolated
+BtS mirror and hash parity is verified. This is not live-game deployment.
+
+The remaining tools failure is
+`test_additive_signature_manifest.py::AdditiveSignatureManifestTests::test_every_trait_has_only_its_approved_additive_delta`.
+It compares to stale `7da9963f6` rather than accounting for accepted original
+changes `46935de18`, `c0e5faf5a` and `178f61f52`. Those changes are preserved
+against the combined baseline, not reverted to make the old assertion pass.
+The full tools suite is therefore **not green**.
+
+The authorized checkpoint is local to
+`agent-baseline-leader-chatter-sol-leader-update-visual-overhaul-new-leaders`
+in `C:\DowagerMod-new-leaders`; David/E7 is checkpoint `271d6416b`.
+The final checkpoint includes Sennacherib/Zenobia, E9 source and mirrored DLL,
+generated XML/art, strict validation/regression tests, architecture, overview
+and manual acceptance documentation. No push, merge or installation is authorized.
+
+**Ready for merge/deploy: No.** Remaining blockers are the documented
+historical-test disposition and unperformed manual gameplay/balance, AI,
+leaderhead/improvement rendering, old-save and multiplayer acceptance.
+Run the matrix in `docs\MANUAL_SMOKE_TESTS.md` only after separate authorization
+for a test installation. Offline dependency checks, native unit tests and XML
+validation do not certify those runtime behaviors.

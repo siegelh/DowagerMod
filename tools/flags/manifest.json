@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "design_version": "issue-flags-v2",
-  "record_count": 70,
+  "record_count": 72,
   "runtime_contract": {
     "assets_root": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets",
     "civilization_xml": "XML/Civilizations/CIV4CivilizationInfos.xml",
@@ -5877,6 +5877,60 @@
           "claim": "Historical setting, not a specification of an attested flag."
         }
       ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_ASSYRIA_NINEVEH",
+      "civilization": "Neo-Assyria: Nineveh",
+      "leaders": [
+        "LEADER_EXP_SENNACHERIB"
+      ],
+      "leader_display": "Sennacherib",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_ASSYRIA_NINEVEH",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_SENNACHERIB.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/sennacherib.svg",
+      "master_sha256": "8fcfaaa101d2973ffc877c242760ab10cd12aff6d41a0fbbd7d6b338f95ae5ee",
+      "production_dds_sha256": "1c14a639936bcd45114f7c8ee1cfa9c825c6c579a8471932f34ec7f9b023af38",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Sennacherib",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.",
+      "design_notes": "Original geometric winged disk over stepped water channels, inspired by Assyrian imagery and royal water engineering. A modern gameplay emblem, not an attested national flag.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sennacherib",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_PALMYRA_ZENOBIA",
+      "civilization": "Palmyrene Empire",
+      "leaders": [
+        "LEADER_EXP_ZENOBIA"
+      ],
+      "leader_display": "Zenobia",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_PALMYRA_ZENOBIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_ZENOBIA.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/zenobia.svg",
+      "master_sha256": "4368a80fff40b1d6877280b997a9cf66e9a0de22286418efccbef3998fe2a05a",
+      "production_dds_sha256": "1aff65e11b18f8d83b7d839c068d35f75c2b2e0dd7ca97cecc8157c37b046949",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Zenobia",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.",
+      "design_notes": "Original geometric gold palm and caravan-road arches on plum. A modern gameplay emblem evoking Palmyra, not an attested royal or national flag.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Zenobia",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
     }
   ],
   "original_work_license": {
@@ -5888,7 +5942,7 @@
   "design_version_summary": {
     "issue-flags-v2": 56,
     "historical-v1": 3,
-    "expansion-v1": 11
+    "expansion-v1": 13
   },
   "issue_source_range": {
     "repository": "siegelh/DowagerMod",

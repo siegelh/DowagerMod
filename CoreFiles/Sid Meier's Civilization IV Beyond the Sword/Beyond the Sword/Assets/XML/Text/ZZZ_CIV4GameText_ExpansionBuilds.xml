@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_RULES</Tag>
+    <English>[NEWLINE]Build/restore: %s1 only. Owned, assigned city-radius flatland; no resource, feature or landmark replacement. Limit %d2 per assigned city, including pillaged copies. Restoration uses the existing slot, even above the cap. Capture preserves existing copies. Tile output requires a working citizen.</English>
+    <French>[NEWLINE]Build/restore: %s1 only. Owned, assigned city-radius flatland; no resource, feature or landmark replacement. Limit %d2 per assigned city, including pillaged copies. Restoration uses the existing slot, even above the cap. Capture preserves existing copies. Tile output requires a working citizen.</French>
+    <German>[NEWLINE]Build/restore: %s1 only. Owned, assigned city-radius flatland; no resource, feature or landmark replacement. Limit %d2 per assigned city, including pillaged copies. Restoration uses the existing slot, even above the cap. Capture preserves existing copies. Tile output requires a working citizen.</German>
+    <Italian>[NEWLINE]Build/restore: %s1 only. Owned, assigned city-radius flatland; no resource, feature or landmark replacement. Limit %d2 per assigned city, including pillaged copies. Restoration uses the existing slot, even above the cap. Capture preserves existing copies. Tile output requires a working citizen.</Italian>
+    <Spanish>[NEWLINE]Build/restore: %s1 only. Owned, assigned city-radius flatland; no resource, feature or landmark replacement. Limit %d2 per assigned city, including pillaged copies. Restoration uses the existing slot, even above the cap. Capture preserves existing copies. Tile output requires a working citizen.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_RIVER_IRRIGATION</Tag>
+    <English>[NEWLINE]Grassland, Plains or Desert: riverside OR already irrigated. Irrigation spread still requires the normal technology. Not navigable and does not provide city fresh water.</English>
+    <French>[NEWLINE]Grassland, Plains or Desert: riverside OR already irrigated. Irrigation spread still requires the normal technology. Not navigable and does not provide city fresh water.</French>
+    <German>[NEWLINE]Grassland, Plains or Desert: riverside OR already irrigated. Irrigation spread still requires the normal technology. Not navigable and does not provide city fresh water.</German>
+    <Italian>[NEWLINE]Grassland, Plains or Desert: riverside OR already irrigated. Irrigation spread still requires the normal technology. Not navigable and does not provide city fresh water.</Italian>
+    <Spanish>[NEWLINE]Grassland, Plains or Desert: riverside OR already irrigated. Irrigation spread still requires the normal technology. Not navigable and does not provide city fresh water.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_DESERT_ROAD</Tag>
+    <English>[NEWLINE]Desert with Road/Railroad; no Oasis or Flood Plains. Later route loss does not remove ordinary improvement yields. Not a fort or a free trade route.</English>
+    <French>[NEWLINE]Desert with Road/Railroad; no Oasis or Flood Plains. Later route loss does not remove ordinary improvement yields. Not a fort or a free trade route.</French>
+    <German>[NEWLINE]Desert with Road/Railroad; no Oasis or Flood Plains. Later route loss does not remove ordinary improvement yields. Not a fort or a free trade route.</German>
+    <Italian>[NEWLINE]Desert with Road/Railroad; no Oasis or Flood Plains. Later route loss does not remove ordinary improvement yields. Not a fort or a free trade route.</Italian>
+    <Spanish>[NEWLINE]Desert with Road/Railroad; no Oasis or Flood Plains. Later route loss does not remove ordinary improvement yields. Not a fort or a free trade route.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_PILLAGED</Tag>
+    <English>[NEWLINE]Pillaged: no economic bonus or irrigation spread. Retains its cap slot; can be restored by the matching civilization or replaced by a normal legal improvement.</English>
+    <French>[NEWLINE]Pillaged: no economic bonus or irrigation spread. Retains its cap slot; can be restored by the matching civilization or replaced by a normal legal improvement.</French>
+    <German>[NEWLINE]Pillaged: no economic bonus or irrigation spread. Retains its cap slot; can be restored by the matching civilization or replaced by a normal legal improvement.</German>
+    <Italian>[NEWLINE]Pillaged: no economic bonus or irrigation spread. Retains its cap slot; can be restored by the matching civilization or replaced by a normal legal improvement.</Italian>
+    <Spanish>[NEWLINE]Pillaged: no economic bonus or irrigation spread. Retains its cap slot; can be restored by the matching civilization or replaced by a normal legal improvement.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_COUNT</Tag>
+    <English>[NEWLINE]Assigned city: %d1 existing copies / %d2 build limit.</English>
+    <French>[NEWLINE]Assigned city: %d1 existing copies / %d2 build limit.</French>
+    <German>[NEWLINE]Assigned city: %d1 existing copies / %d2 build limit.</German>
+    <Italian>[NEWLINE]Assigned city: %d1 existing copies / %d2 build limit.</Italian>
+    <Spanish>[NEWLINE]Assigned city: %d1 existing copies / %d2 build limit.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_FAIL_CIV</Tag>
+    <English>[NEWLINE]Unavailable: only the matching civilization can build or restore this improvement.</English>
+    <French>[NEWLINE]Unavailable: only the matching civilization can build or restore this improvement.</French>
+    <German>[NEWLINE]Unavailable: only the matching civilization can build or restore this improvement.</German>
+    <Italian>[NEWLINE]Unavailable: only the matching civilization can build or restore this improvement.</Italian>
+    <Spanish>[NEWLINE]Unavailable: only the matching civilization can build or restore this improvement.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_FAIL_LAND</Tag>
+    <English>[NEWLINE]Unavailable: requires an allowed flat land terrain, not a city, hill, peak or water.</English>
+    <French>[NEWLINE]Unavailable: requires an allowed flat land terrain, not a city, hill, peak or water.</French>
+    <German>[NEWLINE]Unavailable: requires an allowed flat land terrain, not a city, hill, peak or water.</German>
+    <Italian>[NEWLINE]Unavailable: requires an allowed flat land terrain, not a city, hill, peak or water.</Italian>
+    <Spanish>[NEWLINE]Unavailable: requires an allowed flat land terrain, not a city, hill, peak or water.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_FAIL_FEATURE</Tag>
+    <English>[NEWLINE]Unavailable: clear removable features in a separate legal action first.</English>
+    <French>[NEWLINE]Unavailable: clear removable features in a separate legal action first.</French>
+    <German>[NEWLINE]Unavailable: clear removable features in a separate legal action first.</German>
+    <Italian>[NEWLINE]Unavailable: clear removable features in a separate legal action first.</Italian>
+    <Spanish>[NEWLINE]Unavailable: clear removable features in a separate legal action first.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_FAIL_RESOURCE</Tag>
+    <English>[NEWLINE]Unavailable: the plot is not resource-free.</English>
+    <French>[NEWLINE]Unavailable: the plot is not resource-free.</French>
+    <German>[NEWLINE]Unavailable: the plot is not resource-free.</German>
+    <Italian>[NEWLINE]Unavailable: the plot is not resource-free.</Italian>
+    <Spanish>[NEWLINE]Unavailable: the plot is not resource-free.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_FAIL_LANDMARK</Tag>
+    <English>[NEWLINE]Unavailable: cannot replace an existing Great Person landmark.</English>
+    <French>[NEWLINE]Unavailable: cannot replace an existing Great Person landmark.</French>
+    <German>[NEWLINE]Unavailable: cannot replace an existing Great Person landmark.</German>
+    <Italian>[NEWLINE]Unavailable: cannot replace an existing Great Person landmark.</Italian>
+    <Spanish>[NEWLINE]Unavailable: cannot replace an existing Great Person landmark.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_FAIL_ASSIGNMENT</Tag>
+    <English>[NEWLINE]Unavailable: the plot must be owned by the builder and assigned to one of that owner's city radii.</English>
+    <French>[NEWLINE]Unavailable: the plot must be owned by the builder and assigned to one of that owner's city radii.</French>
+    <German>[NEWLINE]Unavailable: the plot must be owned by the builder and assigned to one of that owner's city radii.</German>
+    <Italian>[NEWLINE]Unavailable: the plot must be owned by the builder and assigned to one of that owner's city radii.</Italian>
+    <Spanish>[NEWLINE]Unavailable: the plot must be owned by the builder and assigned to one of that owner's city radii.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_FAIL_LOCATION</Tag>
+    <English>[NEWLINE]Unavailable: the required river/irrigation or Desert-road condition is not met.</English>
+    <French>[NEWLINE]Unavailable: the required river/irrigation or Desert-road condition is not met.</French>
+    <German>[NEWLINE]Unavailable: the required river/irrigation or Desert-road condition is not met.</German>
+    <Italian>[NEWLINE]Unavailable: the required river/irrigation or Desert-road condition is not met.</Italian>
+    <Spanish>[NEWLINE]Unavailable: the required river/irrigation or Desert-road condition is not met.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_FAIL_CAP</Tag>
+    <English>[NEWLINE]Unavailable: assigned city is at or above its build cap. A pillaged copy can still be restored in its existing slot.</English>
+    <French>[NEWLINE]Unavailable: assigned city is at or above its build cap. A pillaged copy can still be restored in its existing slot.</French>
+    <German>[NEWLINE]Unavailable: assigned city is at or above its build cap. A pillaged copy can still be restored in its existing slot.</German>
+    <Italian>[NEWLINE]Unavailable: assigned city is at or above its build cap. A pillaged copy can still be restored in its existing slot.</Italian>
+    <Spanish>[NEWLINE]Unavailable: assigned city is at or above its build cap. A pillaged copy can still be restored in its existing slot.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_BUILD_COMPLETION_REJECTED</Tag>
+    <English>Improvement completion stopped: placement requirements or the assigned city's build cap changed. Previous work is preserved; inspect the build tooltip.</English>
+    <French>Improvement completion stopped: placement requirements or the assigned city's build cap changed. Previous work is preserved; inspect the build tooltip.</French>
+    <German>Improvement completion stopped: placement requirements or the assigned city's build cap changed. Previous work is preserved; inspect the build tooltip.</German>
+    <Italian>Improvement completion stopped: placement requirements or the assigned city's build cap changed. Previous work is preserved; inspect the build tooltip.</Italian>
+    <Spanish>Improvement completion stopped: placement requirements or the assigned city's build cap changed. Previous work is preserved; inspect the build tooltip.</Spanish>
+  </TEXT>
+</Civ4GameText>

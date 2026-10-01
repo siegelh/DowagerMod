@@ -4021,6 +4021,11 @@ void CvGameTextMgr::setPlotHelp(CvWStringBuffer& szString, CvPlot* pPlot)
 			}
 
 			appendPlotIndustryHelp(szString, pPlot, eImprovement);
+			setCityBuildHelp(szString, eImprovement);
+			if (GC.getImprovementInfo(eImprovement).getCityBuildGroup() > 0 &&
+				eRevealOwner == GC.getGameINLINE().getActivePlayer() && pPlot->getOwnerINLINE() == eRevealOwner)
+				szString.append(gDLL->getText("TXT_KEY_EXP_BUILD_COUNT", pPlot->getCityBuildCount(eImprovement),
+					GC.getImprovementInfo(eImprovement).getCityBuildCap()));
 
 			// Current landmark output for an existing revealed Great Person
 			// landmark. Uses the revealed owner so we never leak unrevealed
@@ -11814,6 +11819,40 @@ void CvGameTextMgr::setUnitCombatHelp(CvWStringBuffer &szBuffer, UnitCombatTypes
 	szBuffer.append(GC.getUnitCombatInfo(eUnitCombat).getDescription());
 }
 
+void CvGameTextMgr::setCityBuildHelp(CvWStringBuffer& szBuffer, ImprovementTypes eImprovement, const CvPlot* pPlot, PlayerTypes ePlayer)
+{
+	if (eImprovement == NO_IMPROVEMENT)
+		return;
+	const CvImprovementInfo& info = GC.getImprovementInfo(eImprovement);
+	if (info.getCityBuildGroup() <= 0 || info.getBuildCivilization() == NO_CIVILIZATION)
+		return;
+	szBuffer.append(gDLL->getText("TXT_KEY_EXP_BUILD_RULES",
+		GC.getCivilizationInfo(info.getBuildCivilization()).getTextKeyWide(), info.getCityBuildCap()));
+	szBuffer.append(gDLL->getText(info.getCityBuildCondition() == ExpansionRules::RIVER_OR_IRRIGATED ?
+		"TXT_KEY_EXP_BUILD_RIVER_IRRIGATION" : "TXT_KEY_EXP_BUILD_DESERT_ROAD"));
+	if (info.isCityBuildPillaged())
+		szBuffer.append(gDLL->getText("TXT_KEY_EXP_BUILD_PILLAGED"));
+	if (pPlot != NULL)
+	{
+		szBuffer.append(gDLL->getText("TXT_KEY_EXP_BUILD_COUNT", pPlot->getCityBuildCount(eImprovement), info.getCityBuildCap()));
+		const char* szFailure = NULL;
+		switch (pPlot->getCityBuildFailure(eImprovement, ePlayer))
+		{
+		case ExpansionRules::CITY_BUILD_CIVILIZATION: szFailure = "TXT_KEY_EXP_BUILD_FAIL_CIV"; break;
+		case ExpansionRules::CITY_BUILD_LAND: szFailure = "TXT_KEY_EXP_BUILD_FAIL_LAND"; break;
+		case ExpansionRules::CITY_BUILD_FEATURE: szFailure = "TXT_KEY_EXP_BUILD_FAIL_FEATURE"; break;
+		case ExpansionRules::CITY_BUILD_RESOURCE: szFailure = "TXT_KEY_EXP_BUILD_FAIL_RESOURCE"; break;
+		case ExpansionRules::CITY_BUILD_LANDMARK: szFailure = "TXT_KEY_EXP_BUILD_FAIL_LANDMARK"; break;
+		case ExpansionRules::CITY_BUILD_ASSIGNMENT: szFailure = "TXT_KEY_EXP_BUILD_FAIL_ASSIGNMENT"; break;
+		case ExpansionRules::CITY_BUILD_LOCATION: szFailure = "TXT_KEY_EXP_BUILD_FAIL_LOCATION"; break;
+		case ExpansionRules::CITY_BUILD_CAP: szFailure = "TXT_KEY_EXP_BUILD_FAIL_CAP"; break;
+		default: break;
+		}
+		if (szFailure != NULL)
+			szBuffer.append(gDLL->getText(szFailure));
+	}
+}
+
 void CvGameTextMgr::setImprovementHelp(CvWStringBuffer &szBuffer, ImprovementTypes eImprovement, bool bCivilopediaText)
 {
 	CvWString szTempBuffer;
@@ -11956,6 +11995,7 @@ void CvGameTextMgr::setImprovementHelp(CvWStringBuffer &szBuffer, ImprovementTyp
 
 	appendImprovementIndustryHelp(szBuffer, eImprovement);
 	appendLandmarkHelp(szBuffer, eImprovement);
+	setCityBuildHelp(szBuffer, eImprovement);
 
 	if (info.isNeutralWorldWonder())
 	{
@@ -14946,8 +14986,16 @@ void CvGameTextMgr::setEspionageCostHelp(CvWStringBuffer &szBuffer, EspionageMis
 	{
 		if (NULL != pPlot && NO_IMPROVEMENT != pPlot->getImprovementType())
 		{
-			szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_DESTROY_IMPROVEMENT", GC.getImprovementInfo(pPlot->getImprovementType()).getTextKeyWide()));
-			szBuffer.append(NEWLINE);
+			if (!GC.getImprovementInfo(pPlot->getImprovementType()).isCityBuildPillaged())
+			{
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_DESTROY_IMPROVEMENT", GC.getImprovementInfo(pPlot->getImprovementType()).getTextKeyWide()));
+				szBuffer.append(NEWLINE);
+			}
+			else if (pPlot->getRouteType() != NO_ROUTE)
+			{
+				szBuffer.append(gDLL->getText("TXT_KEY_ESPIONAGE_HELP_DESTROY_IMPROVEMENT", GC.getRouteInfo(pPlot->getRouteType()).getTextKeyWide()));
+				szBuffer.append(NEWLINE);
+			}
 		}
 	}
 

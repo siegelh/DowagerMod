@@ -8276,6 +8276,36 @@ void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peB
 				}
             }
                                 
+			if (eOldRoute == NO_ROUTE)
+			{
+				int iUnlockValue = 0;
+				for (int iBuild = 0; iBuild < GC.getNumBuildInfos(); ++iBuild)
+				{
+					const CvBuildInfo& build = GC.getBuildInfo((BuildTypes)iBuild);
+					const ImprovementTypes eTarget = (ImprovementTypes)build.getImprovement();
+					if (eTarget == NO_IMPROVEMENT)
+						continue;
+					const CvImprovementInfo& improvement = GC.getImprovementInfo(eTarget);
+					if (improvement.getCityBuildCondition() != ExpansionRules::DESERT_WITH_ROAD ||
+						improvement.getBuildCivilization() != GET_PLAYER(getOwnerINLINE()).getCivilizationType() ||
+						(build.getTechPrereq() != NO_TECH && !GET_TEAM(getTeam()).isHasTech((TechTypes)build.getTechPrereq())) ||
+						!GET_PLAYER(getOwnerINLINE()).canBuild(pPlot, (BuildTypes)iBuild, false, true) ||
+						GET_PLAYER(getOwnerINLINE()).getBuildCost(pPlot, (BuildTypes)iBuild) > std::max(0, GET_PLAYER(getOwnerINLINE()).getGold()) ||
+						pPlot->getCityBuildFailure(eTarget, getOwnerINLINE(), eRoute) != ExpansionRules::CITY_BUILD_ALLOWED)
+						continue;
+					int iFutureValue = 0;
+					for (int y = 0; y < NUM_YIELD_TYPES; ++y)
+					{
+						int iDelta = pPlot->calculateImprovementYieldChange(eTarget, (YieldTypes)y, getOwnerINLINE(), false);
+						if (pPlot->getImprovementType() != NO_IMPROVEMENT)
+							iDelta -= pPlot->calculateImprovementYieldChange(pPlot->getImprovementType(), (YieldTypes)y, getOwnerINLINE(), false);
+						iFutureValue += iDelta * (y == YIELD_FOOD ? 100 : y == YIELD_PRODUCTION ? 60 : 40);
+					}
+					// A road only prepares the site; discount the still-unbuilt improvement.
+					iUnlockValue = std::max(iUnlockValue, iFutureValue / 2);
+				}
+				iTempValue += iUnlockValue;
+			}
 			if (iTempValue > 0 || bWorkedPlotRules)
 			{
 				for (iJ = 0; iJ < GC.getNumBuildInfos(); iJ++)

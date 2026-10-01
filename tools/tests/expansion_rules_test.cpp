@@ -5,6 +5,49 @@
 int main()
 {
 	int iCases = 0;
+	for (int rule = -1; rule <= 3; ++rule)
+	{
+		for (int bits = 0; bits < 16; ++bits)
+		{
+			const bool expected = (rule == 1 && (bits & 3) != 0) ||
+				(rule == 2 && (bits & 12) == 12);
+			if (ExpansionRules::cityBuildLocation((ExpansionRules::CityBuildCondition)rule,
+				(bits & 1) != 0, (bits & 2) != 0, (bits & 4) != 0, (bits & 8) != 0) != expected)
+			{
+				std::printf("FAIL city build location rule=%d bits=%d\n", rule, bits);
+				return 20;
+			}
+			++iCases;
+		}
+	}
+	for (int bits = 0; bits < 256; ++bits)
+	{
+		for (int count = 0; count <= 21; ++count)
+		{
+			for (int cap = 0; cap <= 3; ++cap)
+			{
+				int expected = 0;
+				for (int flag = 0; flag < 7; ++flag)
+				{
+					const bool valid = flag == 4 ? !(bits & (1 << flag)) : (bits & (1 << flag)) != 0;
+					if (!valid) { expected = flag + 1; break; }
+				}
+				if (expected == 0 && (cap <= 0 || (!(bits & 128) && count >= cap)))
+					expected = 8;
+				const int actual = ExpansionRules::cityBuildFailure(
+					(bits & 1) != 0, (bits & 2) != 0, (bits & 4) != 0,
+					(bits & 8) != 0, (bits & 16) != 0, (bits & 32) != 0,
+					(bits & 64) != 0, count, cap, (bits & 128) != 0);
+				if (actual != expected)
+				{
+					std::printf("FAIL city build bits=%d count=%d cap=%d expected=%d actual=%d\n",
+						bits, count, cap, expected, actual);
+					return 21;
+				}
+				++iCases;
+			}
+		}
+	}
 	for (int iTurns = 0; iTurns <= 1000; ++iTurns)
 	{
 		for (int iReduction = 0; iReduction <= 100; ++iReduction)

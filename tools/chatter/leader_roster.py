@@ -81,6 +81,8 @@ LEADERS: tuple = (
     ("Ho Chi Minh", "Vietnam: Democratic Republic"),
     ("Askia Muhammad", "Songhai: Askia Dynasty"),
     ("David", "Israel: Davidic Kingdom"),
+    ("Sennacherib", "Neo-Assyria: Nineveh"),
+    ("Zenobia", "Palmyrene Empire"),
 )
 
 
