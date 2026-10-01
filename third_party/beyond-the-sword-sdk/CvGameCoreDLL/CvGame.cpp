@@ -5264,6 +5264,19 @@ void CvGame::setFinalInitialized(bool bNewValue)
 
 			GC.getMapINLINE().updateIrrigated();
 
+			for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
+			{
+				CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+				if (!kPlayer.isAlive())
+					continue;
+				int iLoop;
+				for (CvCity* pCity = kPlayer.firstCity(&iLoop); pCity != NULL; pCity = kPlayer.nextCity(&iLoop))
+				{
+					if (pCity->hasWorkedPlotRules())
+						pCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
+				}
+			}
+
 			for (iI = 0; iI < MAX_TEAMS; iI++)
 			{
 				if (GET_TEAM((TeamTypes)iI).isAlive())

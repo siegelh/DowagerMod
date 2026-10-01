@@ -455,6 +455,15 @@
 		<element type="iConquestOccupationReductionPercent" minOccurs="0"/>
 		<element type="iCoastalForeignTeamGold" minOccurs="0"/>
 		<element type="iCoastalForeignTeamGoldCap" minOccurs="0"/>
+		<element type="WorkedPlotCondition" minOccurs="0"/>
+		<element type="iWorkedPlotProduction" minOccurs="0"/>
+		<element type="iWorkedPlotGold" minOccurs="0"/>
+		<element type="iWorkedPlotCulture" minOccurs="0"/>
+		<element type="iWorkedPlotCap" minOccurs="0"/>
+		<element type="WorkedPlotPrereqTech" minOccurs="0"/>
+		<element type="WorkedPlotPrereqBuilding" minOccurs="0"/>
+		<element type="WorkedPlotImprovements" minOccurs="0"/>
+		<element type="WorkedPlotExcludedImprovements" minOccurs="0"/>
 		<element type="ExtraYieldThresholds"/>
 		<element type="TradeYieldModifiers"/>
 		<element type="GoldenAgeYieldChanges" minOccurs="0"/>
@@ -481,6 +490,19 @@
 	<ElementType name="iConquestOccupationReductionPercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iCoastalForeignTeamGold" content="textOnly" dt:type="int"/>
 	<ElementType name="iCoastalForeignTeamGoldCap" content="textOnly" dt:type="int"/>
+	<ElementType name="WorkedPlotCondition" content="textOnly"/>
+	<ElementType name="iWorkedPlotProduction" content="textOnly" dt:type="int"/>
+	<ElementType name="iWorkedPlotGold" content="textOnly" dt:type="int"/>
+	<ElementType name="iWorkedPlotCulture" content="textOnly" dt:type="int"/>
+	<ElementType name="iWorkedPlotCap" content="textOnly" dt:type="int"/>
+	<ElementType name="WorkedPlotPrereqTech" content="textOnly"/>
+	<ElementType name="WorkedPlotPrereqBuilding" content="textOnly"/>
+	<ElementType name="WorkedPlotImprovements" content="eltOnly">
+		<element type="ImprovementType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="WorkedPlotExcludedImprovements" content="eltOnly">
+		<element type="ImprovementType" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="Adjective" content="textOnly"/>
 	<ElementType name="DefaultPlayerColor" content="textOnly"/>
 	<ElementType name="FlagTexture" content="textOnly"/>

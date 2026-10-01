@@ -13,6 +13,9 @@ and Bolivar's conquest-occupation rules are wired into their civilizations;
 their native support has compiled and the content has passed its gate.
 Hiram's coastal trade-team Gold rule, city breakdown and AI treaty-value
 estimate are integrated too; the bonus pays only for actual active routes.
+The shared capped worked-plot engine is compiled: city accounting, governor
+and worker estimates, technology/building refreshes and tooltips are wired.
+The six remaining packages are not yet selectable.
 
 All balance numbers are initial targets, not playtested conclusions.
 Leaderheads and supporting visuals are provisional until in-game acceptance.

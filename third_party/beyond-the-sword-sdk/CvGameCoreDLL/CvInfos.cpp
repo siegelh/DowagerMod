@@ -16937,6 +16937,13 @@ m_iOpenBordersKnownTechResearchModifier(0),
 m_iConquestOccupationReductionPercent(0),
 m_iCoastalForeignTeamGold(0),
 m_iCoastalForeignTeamGoldCap(0),
+m_eWorkedPlotCondition(ExpansionRules::NO_WORKED_PLOT_CONDITION),
+m_iWorkedPlotProduction(0),
+m_iWorkedPlotGold(0),
+m_iWorkedPlotCulture(0),
+m_iWorkedPlotCap(0),
+m_eWorkedPlotPrereqTech(NO_TECH),
+m_eWorkedPlotPrereqBuilding(NO_BUILDING),
 m_paiExtraYieldThreshold(NULL),
 m_paiTradeYieldModifier(NULL),
 m_paiGoldenAgeYieldChange(NULL),
@@ -17125,6 +17132,73 @@ int CvTraitInfo::getCommerceModifier(int i) const
 	return m_paiCommerceModifier ? m_paiCommerceModifier[i] : -1; 
 }
 
+bool CvTraitInfo::isWorkedPlotImprovement(ImprovementTypes eImprovement) const
+{
+	return std::find(m_aiWorkedPlotImprovements.begin(), m_aiWorkedPlotImprovements.end(),
+		(int)eImprovement) != m_aiWorkedPlotImprovements.end();
+}
+
+bool CvTraitInfo::isWorkedPlotExcludedImprovement(ImprovementTypes eImprovement) const
+{
+	return std::find(m_aiWorkedPlotExcludedImprovements.begin(), m_aiWorkedPlotExcludedImprovements.end(),
+		(int)eImprovement) != m_aiWorkedPlotExcludedImprovements.end();
+}
+
+bool CvTraitInfo::readPass3()
+{
+	m_eWorkedPlotPrereqTech = NO_TECH;
+	m_eWorkedPlotPrereqBuilding = NO_BUILDING;
+	if (!m_szWorkedPlotPrereqTech.empty() && m_szWorkedPlotPrereqTech != "NONE")
+	{
+		m_eWorkedPlotPrereqTech = (TechTypes)GC.getInfoTypeForString(m_szWorkedPlotPrereqTech, true);
+		if (m_eWorkedPlotPrereqTech < 0 || m_eWorkedPlotPrereqTech >= GC.getNumTechInfos() ||
+			m_szWorkedPlotPrereqTech != GC.getTechInfo(m_eWorkedPlotPrereqTech).getType())
+		{
+			gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown worked-plot technology %s",
+				getType(), m_szWorkedPlotPrereqTech.c_str()));
+			return false;
+		}
+	}
+	if (!m_szWorkedPlotPrereqBuilding.empty() && m_szWorkedPlotPrereqBuilding != "NONE")
+	{
+		m_eWorkedPlotPrereqBuilding = (BuildingTypes)GC.getInfoTypeForString(m_szWorkedPlotPrereqBuilding, true);
+		if (m_eWorkedPlotPrereqBuilding < 0 || m_eWorkedPlotPrereqBuilding >= GC.getNumBuildingInfos() ||
+			m_szWorkedPlotPrereqBuilding != GC.getBuildingInfo(m_eWorkedPlotPrereqBuilding).getType())
+		{
+			gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown worked-plot building %s",
+				getType(), m_szWorkedPlotPrereqBuilding.c_str()));
+			return false;
+		}
+	}
+	for (int iGroup = 0; iGroup < 2; ++iGroup)
+	{
+		const std::vector<CvString>& names = iGroup == 0 ? m_aszWorkedPlotImprovements : m_aszWorkedPlotExcludedImprovements;
+		std::vector<int>& types = iGroup == 0 ? m_aiWorkedPlotImprovements : m_aiWorkedPlotExcludedImprovements;
+		types.clear();
+		for (size_t i = 0; i < names.size(); ++i)
+		{
+			const int iType = GC.getInfoTypeForString(names[i], true);
+			if (iType < 0 || iType >= GC.getNumImprovementInfos() ||
+				names[i] != GC.getImprovementInfo((ImprovementTypes)iType).getType())
+			{
+				gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown worked-plot improvement %s",
+					getType(), names[i].c_str()));
+				return false;
+			}
+			types.push_back(iType);
+		}
+	}
+	for (size_t i = 0; i < m_aiWorkedPlotImprovements.size(); ++i)
+	{
+		if (isWorkedPlotExcludedImprovement((ImprovementTypes)m_aiWorkedPlotImprovements[i]))
+		{
+			gDLL->logMsg("xml.log", CvString::format("Trait %s: conflicting worked-plot improvement lists", getType()));
+			return false;
+		}
+	}
+	return true;
+}
+
 int CvTraitInfo::getImprovementYieldChanges(int i, int j) const
 {
 	for (size_t iEntry = 0; iEntry < m_aszImprovementYieldChangeTypes.size(); ++iEntry)
@@ -17292,6 +17366,64 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 
 	pXML->GetChildXmlValByName(szTextVal, "ShortDescription");
 	setShortDescription(szTextVal);
+
+	pXML->GetChildXmlValByName(szTextVal, "WorkedPlotCondition", "NONE");
+	m_eWorkedPlotCondition = ExpansionRules::NO_WORKED_PLOT_CONDITION;
+	if (szTextVal == "RIVERSIDE_IMPROVEMENT")
+		m_eWorkedPlotCondition = ExpansionRules::RIVERSIDE_IMPROVEMENT;
+	else if (szTextVal == "WOODLAND")
+		m_eWorkedPlotCondition = ExpansionRules::WOODLAND;
+	else if (szTextVal == "DESERT_ROAD_IMPROVEMENT")
+		m_eWorkedPlotCondition = ExpansionRules::DESERT_ROAD_IMPROVEMENT;
+	else if (szTextVal != "NONE" && !szTextVal.empty())
+	{
+		gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown worked-plot condition %s", getType(), szTextVal.c_str()));
+		return false;
+	}
+	pXML->GetChildXmlValByName(&m_iWorkedPlotProduction, "iWorkedPlotProduction", 0);
+	pXML->GetChildXmlValByName(&m_iWorkedPlotGold, "iWorkedPlotGold", 0);
+	pXML->GetChildXmlValByName(&m_iWorkedPlotCulture, "iWorkedPlotCulture", 0);
+	pXML->GetChildXmlValByName(&m_iWorkedPlotCap, "iWorkedPlotCap", 0);
+	pXML->GetChildXmlValByName(m_szWorkedPlotPrereqTech, "WorkedPlotPrereqTech", "NONE");
+	pXML->GetChildXmlValByName(m_szWorkedPlotPrereqBuilding, "WorkedPlotPrereqBuilding", "NONE");
+	for (int iGroup = 0; iGroup < 2; ++iGroup)
+	{
+		std::vector<CvString>& names = iGroup == 0 ? m_aszWorkedPlotImprovements : m_aszWorkedPlotExcludedImprovements;
+		names.clear();
+		const char* szGroup = iGroup == 0 ? "WorkedPlotImprovements" : "WorkedPlotExcludedImprovements";
+		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), szGroup))
+		{
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				do
+				{
+					pXML->GetXmlVal(szTextVal);
+					names.push_back(szTextVal);
+				} while (gDLL->getXMLIFace()->NextSibling(pXML->GetXML()));
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+		}
+	}
+	const int iWorkedChannels = (m_iWorkedPlotProduction > 0 ? 1 : 0) +
+		(m_iWorkedPlotGold > 0 ? 1 : 0) + (m_iWorkedPlotCulture > 0 ? 1 : 0);
+	const bool bWorkedRule = m_eWorkedPlotCondition != ExpansionRules::NO_WORKED_PLOT_CONDITION;
+	if (m_iWorkedPlotProduction < 0 || m_iWorkedPlotProduction > 100 ||
+		m_iWorkedPlotGold < 0 || m_iWorkedPlotGold > 100 ||
+		m_iWorkedPlotCulture < 0 || m_iWorkedPlotCulture > 100 ||
+		m_iWorkedPlotCap < 0 || m_iWorkedPlotCap > 100 ||
+		(bWorkedRule && (iWorkedChannels != 1 || m_iWorkedPlotCap == 0)) ||
+		(!bWorkedRule && (iWorkedChannels != 0 || m_iWorkedPlotCap != 0 ||
+			(!m_szWorkedPlotPrereqTech.empty() && m_szWorkedPlotPrereqTech != "NONE") ||
+			(!m_szWorkedPlotPrereqBuilding.empty() && m_szWorkedPlotPrereqBuilding != "NONE") ||
+			!m_aszWorkedPlotImprovements.empty() || !m_aszWorkedPlotExcludedImprovements.empty())) ||
+		(m_eWorkedPlotCondition != ExpansionRules::RIVERSIDE_IMPROVEMENT && !m_aszWorkedPlotImprovements.empty()) ||
+		(m_eWorkedPlotCondition == ExpansionRules::WOODLAND && !m_aszWorkedPlotExcludedImprovements.empty()) ||
+		(m_eWorkedPlotCondition == ExpansionRules::RIVERSIDE_IMPROVEMENT && m_aszWorkedPlotImprovements.empty()))
+	{
+		gDLL->logMsg("xml.log", CvString::format("Trait %s: invalid worked-plot channel, cap or improvement list", getType()));
+		return false;
+	}
 
 	pXML->GetChildXmlValByName(&m_iOpenBordersKnownTechResearchModifier, "iOpenBordersKnownTechResearchModifier", 0);
 	pXML->GetChildXmlValByName(&m_iConquestOccupationReductionPercent, "iConquestOccupationReductionPercent", 0);

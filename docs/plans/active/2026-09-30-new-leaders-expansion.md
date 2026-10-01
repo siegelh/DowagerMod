@@ -1,6 +1,6 @@
 # Thirteen-Leader Expansion
 
-- Status: `in_progress`; seven packages integrated; E2/E3/E5 engine and content gated.
+- Status: `in_progress`; seven packages integrated; E1 engine and E2/E3/E5 content gated.
 - Owner / agent: repository owner / GitHub Copilot.
 - Last updated: `2026-09-30`.
 
@@ -351,3 +351,45 @@ current implementation from design targets and provisional visuals.
 Manual gameplay, diplomacy/graphics, AI games, old saves and multiplayer
 were NOT run. The complete expansion is NOT ready to merge/deploy.
 No push, merge, installer or live-game action occurred.
+
+### Shared E1 worked-plot engine checkpoint
+
+Typed optional trait rules now cover riverside allowlisted improvements,
+Forest/Jungle, and intact improved Desert with Road/Railroad. Exactly one
+Production/Gold/Culture channel and a positive city cap are required; malformed
+metadata logs an XML error. Technology/building/improvement references resolve
+after their tables load and validate the actual resolved type names.
+
+City accounting requires owned, assigned, worked, non-city, non-water plots.
+Production is a nonserialized derived cache, excluded symmetrically from
+native stored base yields. Gold/Culture reuse the existing improvement cache.
+Assignment, plot changes, buildings, technology changes and final load
+initialization refresh the derived totals. A targeted regression exposed
+that acquiring Writing need not change native plot yields; `processTech`
+now explicitly refreshes worked-rule cities and dirties their governors.
+
+Governor values use exact cap-aware marginal output. Worker estimates cover
+improvements, standalone clearing/chopping and roads with no native yield
+gain. Building estimates include currently worked plots enabled by a candidate
+prerequisite building. Trait/city help displays requirements, counts and caps.
+The commerce breakdown also includes existing specialist and improvement
+trait sources, subtracting the separately displayed E1 portion to avoid
+double counting.
+
+The production-header executable passes **682,348 exact cases** plus empty
+and INT_MAX boundaries. **33 focused tests** and the required XML/native gate
+pass (`files\expansion-e1-gate-repaired.log`). SDK and mirrored payload match
+SHA256 `2f60c04b3e50b6cf87fd74a61f2a13e0f14fdec3508f7617c52cd9a3ddd7419a`.
+Seven-package regeneration remains deterministic across 34 output files.
+
+A broader `pytest tools\tests` run reports **374 passed / seven failed**.
+These are outside the focused E1 checks: old 59-roster/end-of-file assertions,
+the prior additive-signature baseline, and reused expansion player RGB colors
+(`files\expansion-e1-tests.log`). Reconcile roster-scoped assertions without
+weakening original-prefix protections; give new civilizations distinct
+colors. Investigate the historical signature mismatch before changing any
+accepted gameplay. No claim of a green full suite is made.
+
+E1 is not yet populated by the six missing civilization packages. E7/E9,
+final content/visual acceptance and manual gameplay/save/multiplayer tests
+remain outstanding. Not ready to merge/deploy.

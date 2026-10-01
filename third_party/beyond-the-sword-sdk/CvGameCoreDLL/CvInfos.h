@@ -13,6 +13,8 @@
 #ifndef CV_INFO_H
 #define CV_INFO_H
 
+#include "CvExpansionRules.h"
+
 #pragma warning( disable: 4251 )		// needs to have dll-interface to be used by clients of class
 #pragma warning( disable: 4127 )
 
@@ -4259,6 +4261,16 @@ public:
 	int getConquestOccupationReductionPercent() const { return m_iConquestOccupationReductionPercent; }
 	int getCoastalForeignTeamGold() const { return m_iCoastalForeignTeamGold; }
 	int getCoastalForeignTeamGoldCap() const { return m_iCoastalForeignTeamGoldCap; }
+	ExpansionRules::WorkedPlotCondition getWorkedPlotCondition() const { return m_eWorkedPlotCondition; }
+	int getWorkedPlotProduction() const { return m_iWorkedPlotProduction; }
+	int getWorkedPlotGold() const { return m_iWorkedPlotGold; }
+	int getWorkedPlotCulture() const { return m_iWorkedPlotCulture; }
+	int getWorkedPlotCap() const { return m_iWorkedPlotCap; }
+	TechTypes getWorkedPlotPrereqTech() const { return m_eWorkedPlotPrereqTech; }
+	BuildingTypes getWorkedPlotPrereqBuilding() const { return m_eWorkedPlotPrereqBuilding; }
+	bool isWorkedPlotImprovement(ImprovementTypes eImprovement) const;
+	bool isWorkedPlotExcludedImprovement(ImprovementTypes eImprovement) const;
+	bool readPass3();
 
 	int getHealth() const;				// Exposed to Python
 	int getHappiness() const;				// Exposed to Python
@@ -4320,6 +4332,19 @@ protected:
 	int m_iConquestOccupationReductionPercent;
 	int m_iCoastalForeignTeamGold;
 	int m_iCoastalForeignTeamGoldCap;
+	ExpansionRules::WorkedPlotCondition m_eWorkedPlotCondition;
+	int m_iWorkedPlotProduction;
+	int m_iWorkedPlotGold;
+	int m_iWorkedPlotCulture;
+	int m_iWorkedPlotCap;
+	TechTypes m_eWorkedPlotPrereqTech;
+	BuildingTypes m_eWorkedPlotPrereqBuilding;
+	CvString m_szWorkedPlotPrereqTech;
+	CvString m_szWorkedPlotPrereqBuilding;
+	std::vector<CvString> m_aszWorkedPlotImprovements;
+	std::vector<CvString> m_aszWorkedPlotExcludedImprovements;
+	std::vector<int> m_aiWorkedPlotImprovements;
+	std::vector<int> m_aiWorkedPlotExcludedImprovements;
 
 	// Arrays
 

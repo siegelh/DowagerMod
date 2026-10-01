@@ -179,6 +179,7 @@ protected:
 	bool AI_foodAvailable(int iExtra = 0);
 	int AI_yieldValue(short* piYields, short* piCommerceYields, bool bAvoidGrowth, bool bRemove, bool bIgnoreFood = false, bool bIgnoreGrowth = false, bool bIgnoreStarvation = false, bool bWorkerOptimization = false);
 	int AI_plotValue(CvPlot* pPlot, bool bAvoidGrowth, bool bRemove, bool bIgnoreFood = false, bool bIgnoreGrowth = false, bool bIgnoreStarvation = false);
+	int AI_workedPlotBuildValue(CvPlot* pPlot, BuildTypes eBuild, int iProductionPriority, int iCommercePriority);
 
 	int AI_experienceWeight();
 	int AI_buildUnitProb();

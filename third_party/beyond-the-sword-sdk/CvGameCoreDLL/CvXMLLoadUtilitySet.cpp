@@ -618,6 +618,14 @@ bool CvXMLLoadUtility::LoadPreMenuGlobals()
 	LoadGlobalClassInfo(GC.getImprovementInfo(), "CIV4ImprovementInfos", "Terrain", "Civ4ImprovementInfos/ImprovementInfos/ImprovementInfo", true, &CvDLLUtilityIFaceBase::createImprovementInfoCacheObject);
 	LoadGlobalClassInfo(GC.getBuildingClassInfo(), "CIV4BuildingClassInfos", "Buildings", "Civ4BuildingClassInfos/BuildingClassInfos/BuildingClassInfo", false);
 	LoadGlobalClassInfo(GC.getBuildingInfo(), "CIV4BuildingInfos", "Buildings", "Civ4BuildingInfos/BuildingInfos/BuildingInfo", false, &CvDLLUtilityIFaceBase::createBuildingInfoCacheObject);
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		if (!GC.getTraitInfo((TraitTypes)i).readPass3())
+		{
+			DestroyFXml();
+			return false;
+		}
+	}
 	for (int i=0; i < GC.getNumBuildingClassInfos(); ++i)
 	{
 		GC.getBuildingClassInfo((BuildingClassTypes)i).readPass3();
@@ -2561,5 +2569,4 @@ DllExport bool CvXMLLoadUtility::LoadGraphicOptions()
 	DestroyFXml();
 	return true;
 }
-
 

@@ -84,6 +84,54 @@ int main()
 		std::printf("FAIL: empty routes or overflow-safe cap boundary\n");
 		return 6;
 	}
-	std::printf("PASS: %d exact occupation/eligibility/cap/route cases plus empty and INT_MAX boundaries\n", iCases);
+	for (int iCondition = -1; iCondition <= 4; ++iCondition)
+	{
+		for (int iBits = 0; iBits < 2048; ++iBits)
+		{
+			const bool bBase = (iBits & 31) == 7;
+			const bool bExpected = bBase &&
+				((iCondition == ExpansionRules::RIVERSIDE_IMPROVEMENT && (iBits & 96) == 96) ||
+				(iCondition == ExpansionRules::WOODLAND && (iBits & 128) != 0) ||
+				(iCondition == ExpansionRules::DESERT_ROAD_IMPROVEMENT && (iBits & 1792) == 1792));
+			const bool bActual = ExpansionRules::eligibleWorkedPlot(
+				(ExpansionRules::WorkedPlotCondition)iCondition, (iBits & 1) != 0,
+				(iBits & 2) != 0, (iBits & 4) != 0, (iBits & 8) != 0,
+				(iBits & 16) != 0, (iBits & 32) != 0, (iBits & 64) != 0,
+				(iBits & 128) != 0, (iBits & 256) != 0, (iBits & 512) != 0, (iBits & 1024) != 0);
+			if (bActual != bExpected)
+			{
+				std::printf("FAIL worked plot condition=%d bits=%d\n", iCondition, iBits);
+				return 7;
+			}
+			++iCases;
+		}
+	}
+	for (int iOthers = 0; iOthers <= 21; ++iOthers)
+	{
+		for (int iPerItem = 0; iPerItem <= 100; ++iPerItem)
+		{
+			for (int iCap = 0; iCap <= 100; ++iCap)
+			{
+				const int iBefore = iOthers * iPerItem < iCap ? iOthers * iPerItem : iCap;
+				const int iAfter = (iOthers + 1) * iPerItem < iCap ? (iOthers + 1) * iPerItem : iCap;
+				if (ExpansionRules::cappedMarginal(iOthers, true, iPerItem, iCap) != iAfter - iBefore ||
+					ExpansionRules::cappedMarginal(iOthers, false, iPerItem, iCap) != 0)
+				{
+					std::printf("FAIL marginal others=%d per=%d cap=%d\n", iOthers, iPerItem, iCap);
+					return 8;
+				}
+				iCases += 2;
+			}
+		}
+	}
+	if (ExpansionRules::cappedMarginal(INT_MAX, true, 1, INT_MAX) != 0 ||
+		ExpansionRules::cappedMarginal(0, true, INT_MAX, INT_MAX) != INT_MAX ||
+		ExpansionRules::cappedMarginal(INT_MAX, true, 0, INT_MAX) != 0 ||
+		ExpansionRules::cappedMarginal(INT_MAX - 1, true, 1, INT_MAX) != 1)
+	{
+		std::printf("FAIL: overflow-safe marginal boundary\n");
+		return 9;
+	}
+	std::printf("PASS: %d exact occupation/research/cap/route/worked-plot/marginal cases plus empty and INT_MAX boundaries\n", iCases);
 	return 0;
 }

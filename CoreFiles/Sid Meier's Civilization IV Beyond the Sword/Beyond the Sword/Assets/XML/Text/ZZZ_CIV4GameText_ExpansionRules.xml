@@ -32,4 +32,76 @@
     <Italian>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</Italian>
     <Spanish>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_WORKED_RIVER</Tag>
+    <English>riverside %s1</English>
+    <French>riverside %s1</French>
+    <German>riverside %s1</German>
+    <Italian>riverside %s1</Italian>
+    <Spanish>riverside %s1</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_WORKED_WOODLAND</Tag>
+    <English>Forest/Jungle</English>
+    <French>Forest/Jungle</French>
+    <German>Forest/Jungle</German>
+    <Italian>Forest/Jungle</Italian>
+    <Spanish>Forest/Jungle</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_WORKED_DESERT</Tag>
+    <English>Desert with an intact non-ruins improvement and Road/Railroad</English>
+    <French>Desert with an intact non-ruins improvement and Road/Railroad</French>
+    <German>Desert with an intact non-ruins improvement and Road/Railroad</German>
+    <Italian>Desert with an intact non-ruins improvement and Road/Railroad</Italian>
+    <Spanish>Desert with an intact non-ruins improvement and Road/Railroad</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_WORKED_PLOTS</Tag>
+    <English>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</English>
+    <French>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</French>
+    <German>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</German>
+    <Italian>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</Italian>
+    <Spanish>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_WORKED_TECH</Tag>
+    <English>[NEWLINE]Worked-plot bonus requires %s1.</English>
+    <French>[NEWLINE]Worked-plot bonus requires %s1.</French>
+    <German>[NEWLINE]Worked-plot bonus requires %s1.</German>
+    <Italian>[NEWLINE]Worked-plot bonus requires %s1.</Italian>
+    <Spanish>[NEWLINE]Worked-plot bonus requires %s1.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_WORKED_BUILDING</Tag>
+    <English>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</English>
+    <French>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</French>
+    <German>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</German>
+    <Italian>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</Italian>
+    <Spanish>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_WORKED_PLOTS</Tag>
+    <English>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</English>
+    <French>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</French>
+    <German>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</German>
+    <Italian>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</Italian>
+    <Spanish>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SPECIALIST_COMMERCE</Tag>
+    <English>+%d1%c2 from trait specialist bonuses</English>
+    <French>+%d1%c2 from trait specialist bonuses</French>
+    <German>+%d1%c2 from trait specialist bonuses</German>
+    <Italian>+%d1%c2 from trait specialist bonuses</Italian>
+    <Spanish>+%d1%c2 from trait specialist bonuses</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_IMPROVEMENT_COMMERCE</Tag>
+    <English>+%d1%c2 from improvement city bonuses</English>
+    <French>+%d1%c2 from improvement city bonuses</French>
+    <German>+%d1%c2 from improvement city bonuses</German>
+    <Italian>+%d1%c2 from improvement city bonuses</Italian>
+    <Spanish>+%d1%c2 from improvement city bonuses</Spanish>
+  </TEXT>
 </Civ4GameText>

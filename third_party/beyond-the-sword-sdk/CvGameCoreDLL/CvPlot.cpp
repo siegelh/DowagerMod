@@ -7046,6 +7046,13 @@ void CvPlot::updateYield()
 		}
 	}
 
+	pWorkingCity = getWorkingCity();
+	if (pWorkingCity != NULL && pWorkingCity->hasWorkedPlotRules())
+	{
+		pWorkingCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
+		pWorkingCity->AI_setAssignWorkDirty(true);
+	}
+
 	if (bChange)
 	{
 		updateSymbols();

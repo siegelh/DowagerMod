@@ -2803,6 +2803,19 @@ int CvCityAI::AI_buildingValueThreshold(BuildingTypes eBuilding, int iFocusFlags
 	BuildingClassTypes eBuildingClass = (BuildingClassTypes) kBuilding.getBuildingClassType();
 	const BuildingClassTypes eHarborClass = (BuildingClassTypes)GC.getInfoTypeForString("BUILDINGCLASS_HARBOR", true);
 	const int iHarborWaterFood = (eBuildingClass == eHarborClass) ? getPotentialHarborWaterFood() : 0;
+	ExpansionRules::WorkedPlotBonuses workedBuildingBonus;
+	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
+	{
+		if (hasTrait((TraitTypes)iTrait) && GC.getTraitInfo((TraitTypes)iTrait).getWorkedPlotPrereqBuilding() == eBuilding)
+		{
+			const ExpansionRules::WorkedPlotBonuses before = getWorkedPlotBonuses();
+			const ExpansionRules::WorkedPlotBonuses after = getWorkedPlotBonuses(eBuilding);
+			workedBuildingBonus.production = after.production - before.production;
+			workedBuildingBonus.gold = after.gold - before.gold;
+			workedBuildingBonus.culture = after.culture - before.culture;
+			break;
+		}
+	}
 	int iLimitedWonderLimit = limitedWonderClassLimit(eBuildingClass);
 	bool bIsLimitedWonder = (iLimitedWonderLimit >= 0);
 
@@ -3542,6 +3555,8 @@ int CvCityAI::AI_buildingValueThreshold(BuildingTypes eBuilding, int iFocusFlags
 					{
 						iTempValue += iHarborWaterFood * 6;
 					}
+					if (iI == YIELD_PRODUCTION)
+						iTempValue += workedBuildingBonus.production * 6;
 					iTempValue += ((kBuilding.getYieldModifier(iI) * getBaseYieldRate((YieldTypes)iI)) / 10);
 					iTempValue += ((kBuilding.getPowerYieldModifier(iI) * getBaseYieldRate((YieldTypes)iI)) / ((bProvidesPower || isPower()) ? 12 : 15));
 					iTempValue += ((kBuilding.getAreaYieldModifier(iI) * iNumCitiesInArea) / 3);
@@ -3625,6 +3640,7 @@ int CvCityAI::AI_buildingValueThreshold(BuildingTypes eBuilding, int iFocusFlags
 				if (iFocusFlags & BUILDINGFOCUS_PRODUCTION)
 				{
 					iTempValue = ((kBuilding.getYieldModifier(YIELD_PRODUCTION) * getBaseYieldRate(YIELD_PRODUCTION)) / 20);
+					iTempValue += workedBuildingBonus.production * 6;
 					iTempValue += ((kBuilding.getPowerYieldModifier(YIELD_PRODUCTION) * getBaseYieldRate(YIELD_PRODUCTION)) / ((bProvidesPower || isPower()) ? 24 : 30));
 					if (kBuilding.getSeaPlotYieldChange(YIELD_PRODUCTION) > 0)
 					{
@@ -3688,6 +3704,8 @@ int CvCityAI::AI_buildingValueThreshold(BuildingTypes eBuilding, int iFocusFlags
 					iTempValue = 0;
 
 					iTempValue += (kBuilding.getCommerceChange(iI) * 4);
+					iTempValue += (iI == COMMERCE_GOLD ? workedBuildingBonus.gold :
+						(iI == COMMERCE_CULTURE ? workedBuildingBonus.culture : 0)) * 4;
 					iTempValue += (kBuilding.getObsoleteSafeCommerceChange(iI) * 4);
 					iTempValue *= 100 + kBuilding.getCommerceModifier(iI);
 					iTempValue /= 100;
@@ -7440,6 +7458,20 @@ int CvCityAI::AI_plotValue(CvPlot* pPlot, bool bAvoidGrowth, bool bRemove, bool 
 	
 	
 	int iYieldValue = (AI_yieldValue(aiYields, NULL, bAvoidGrowth, bRemove, bIgnoreFood, bIgnoreGrowth, bIgnoreStarvation) * 100);
+	int iWorkedPlotValue = 0;
+	if (hasWorkedPlotRules())
+	{
+		const ExpansionRules::WorkedPlotBonuses workedBonus = getWorkedPlotMarginal(pPlot, bRemove);
+		short aiWorkedYields[NUM_YIELD_TYPES];
+		short aiWorkedCommerce[NUM_COMMERCE_TYPES] = { 0 };
+		for (iI = 0; iI < NUM_YIELD_TYPES; ++iI)
+			aiWorkedYields[iI] = aiYields[iI];
+		aiWorkedYields[YIELD_PRODUCTION] += (short)workedBonus.production;
+		aiWorkedCommerce[COMMERCE_GOLD] = (short)workedBonus.gold;
+		aiWorkedCommerce[COMMERCE_CULTURE] = (short)workedBonus.culture;
+		iWorkedPlotValue = (AI_yieldValue(aiWorkedYields, aiWorkedCommerce,
+			bAvoidGrowth, bRemove, bIgnoreFood, bIgnoreGrowth, bIgnoreStarvation) * 100) - iYieldValue;
+	}
 
 	static ImprovementTypes eResearchCampus = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_RESEARCH_CAMPUS_BTG", true);
 	if (eCurrentImprovement == eResearchCampus)
@@ -7477,6 +7509,7 @@ int CvCityAI::AI_plotValue(CvPlot* pPlot, bool bAvoidGrowth, bool bRemove, bool 
 	// Direct Campus Research is real worked-plot output, so it must not receive
 	// the low-native-yield penalty intended for genuinely weak plots.
 	iValue += std::max(0, iCampusResearchValue);
+	iValue += std::max(0, iWorkedPlotValue);
 
 	if (eCurrentImprovement != NO_IMPROVEMENT)
 	{
@@ -7528,6 +7561,25 @@ int CvCityAI::AI_buildUnitProb()
 
 
 // Improved worker AI provided by Blake - thank you!
+int CvCityAI::AI_workedPlotBuildValue(CvPlot* pPlot, BuildTypes eBuild, int iProductionPriority, int iCommercePriority)
+{
+	const ExpansionRules::WorkedPlotBonuses bonus = getWorkedPlotMarginal(pPlot, false, eBuild);
+	int iValue = bonus.production * 60 * iProductionPriority / 100;
+	for (int i = 0; i < NUM_COMMERCE_TYPES; ++i)
+	{
+		const int iBonus = i == COMMERCE_GOLD ? bonus.gold : (i == COMMERCE_CULTURE ? bonus.culture : 0);
+		if (iBonus == 0)
+			continue;
+		const CommerceTypes eCommerce = (CommerceTypes)i;
+		int iCommerceValue = iBonus * 40 * iCommercePriority / 100;
+		iCommerceValue = iCommerceValue * GET_PLAYER(getOwnerINLINE()).AI_commerceWeight(eCommerce, this) / 100;
+		iCommerceValue = iCommerceValue * getTotalCommerceRateModifier(eCommerce) / 100;
+		iCommerceValue = iCommerceValue * GET_PLAYER(getOwnerINLINE()).AI_averageCommerceExchange(eCommerce) / 100;
+		iValue += iCommerceValue;
+	}
+	return iValue;
+}
+
 void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peBestBuild, int iFoodPriority, int iProductionPriority, int iCommercePriority, bool bChop, int iHappyAdjust, int iHealthAdjust, int iFoodChange)
 {
 	PROFILE_FUNC();
@@ -7607,6 +7659,8 @@ void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peB
 	}
 
 	int iCurrentCampusResearchValue = 0;
+	const bool bWorkedPlotRules = hasWorkedPlotRules();
+	const int iCurrentWorkedPlotValue = bWorkedPlotRules ? AI_workedPlotBuildValue(pPlot, NO_BUILD, iProductionPriority, iCommercePriority) : 0;
 	static ImprovementTypes eResearchCampus = (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_RESEARCH_CAMPUS_BTG", true);
 	if (pPlot->getImprovementType() == eResearchCampus)
 	{
@@ -7917,6 +7971,8 @@ void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peB
 					{
 						iValue -= iCurrentCampusResearchValue;
 					}
+					if (bWorkedPlotRules)
+						iValue += AI_workedPlotBuildValue(pPlot, eBestTempBuild, iProductionPriority, iCommercePriority) - iCurrentWorkedPlotValue;
 					
 					if (iValue > 0)
 					{
@@ -8126,6 +8182,8 @@ void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peB
 							{
 								iValue = iClearFeatureValue;
 								iValue += (pPlot->getFeatureProduction(eBuild, getTeam(), &pCity) * 10);
+								if (bWorkedPlotRules)
+									iValue += AI_workedPlotBuildValue(pPlot, eBuild, iProductionPriority, iCommercePriority) - iCurrentWorkedPlotValue;
 								
 								iValue *= 400;
                                 iValue /= std::max(1, (GC.getBuildInfo(eBuild).getFeatureTime(pPlot->getFeatureType()) + 100));
@@ -8163,6 +8221,8 @@ void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peB
                         if (iValue > 0)
                         {
 							iValue += iClearFeatureValue;
+							if (bWorkedPlotRules)
+								iValue += AI_workedPlotBuildValue(pPlot, eBuild, iProductionPriority, iCommercePriority) - iCurrentWorkedPlotValue;
 
                             if (iValue > 0)
                             {
@@ -8216,7 +8276,7 @@ void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peB
 				}
             }
                                 
-			if (iTempValue > 0)
+			if (iTempValue > 0 || bWorkedPlotRules)
 			{
 				for (iJ = 0; iJ < GC.getNumBuildInfos(); iJ++)
 				{
@@ -8225,8 +8285,12 @@ void CvCityAI::AI_bestPlotBuild(CvPlot* pPlot, int* piBestValue, BuildTypes* peB
 					{
 						if (GET_PLAYER(getOwnerINLINE()).canBuild(pPlot, eBuild, false))
 						{
+							const int iWorkedChange = bWorkedPlotRules ?
+								AI_workedPlotBuildValue(pPlot, eBuild, iProductionPriority, iCommercePriority) - iCurrentWorkedPlotValue : 0;
+							if (iTempValue + iWorkedChange <= 0)
+								continue;
 							//the value multiplier is based on the default time...
-							iValue = iTempValue * 5 * 300;
+							iValue = (iTempValue + iWorkedChange) * 5 * 300;
 							iValue /= GC.getBuildInfo(eBuild).getTime();
 
 							if ((iValue > iBestValue) || ((iValue > 0) && (eBestBuild == NO_BUILD)))
