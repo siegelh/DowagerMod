@@ -74,6 +74,8 @@ LEADERS: tuple = (
     ("Stefan Dusan", "Serbia: Dusan's Empire"),
     ("Matthias Corvinus", "Hungary: Corvinian Kingdom"),
     ("Pedro II", "Brazil: Second Empire"),
+    ("Mongkut", "Siam: Rama IV"),
+    ("Simon Bolivar", "Gran Colombia"),
 )
 
 

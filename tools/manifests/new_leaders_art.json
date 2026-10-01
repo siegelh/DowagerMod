@@ -56,5 +56,70 @@
     },
     "repairs": [],
     "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_MONGKUT",
+    "status": "Retained primary mesh, costume, background and bundled portrait. Missing eye material restored from the identical shared stock eyeshadow already bundled under frederick_eyeshadow.dds. No distinct nonshader model; low-graphics acceptance remains pending. Stock Rifleman and Observatory art are provisional, not authenticated Siamese uniforms or architecture.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/mongkut/MongkutButton.dds": "b8da360d87a7291d1ed54b2d5e604ef3290d6de2e4e039d15e02fd5aa1599efe",
+      "Art/Leaderheads/new/mongkut/Tachnechobrus.nif": "49294d7be69042cde65aa3c5a533c87fef04d957691560b8c37f7d3d3a9606d0",
+      "Art/Leaderheads/new/mongkut/Tachnechobrus.kfm": "89c17bf035a82980d47b33240ee4f2eeef4b06b283e70ad93fd5f37e7bfb77c6",
+      "Art/Leaderheads/new/mongkut/Tachnechobrus_Background.kfm": "6a1e719bc7c7d4f3edf0146675a4dbc18a09b030384b1df215dcaf9da25c20aa"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/mongkut/frederick_eyeshadow.dds",
+        "target": "Art/Leaderheads/new/mongkut/eyeshadow.dds",
+        "sha256": "894159ebe627bb3101ca4ad8f88fd1e265bec7ed76a8b0dff2fa2dfd2bf83e78",
+        "evidence": "PyFFI resolves the 24-vertex eyeshadow geometry's base texture to missing eyeshadow.dds. The already bundled frederick_eyeshadow.dds is byte-identical to stock Justinian's shared eyeshadow.dds (192 bytes), not a replacement portrait texture."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_BOLIVAR",
+    "status": "Retained primary model, portrait content, costume and background geometry/camera. The supplied 61x61 portrait is resampled to a separate 64x64 RGBA runtime button; original retained. Runtime KFM changes only its missing donor model binding to bundled Bolivar.nif; all animation bytes retained. A reviewed background repair keeps the donor's two matching constant root controllers and verifies their composed orientation equals the retained NIF; absent sky/material targets are omitted. No distinct nonshader model. Stock nineteenth-century Cavalry and Courthouse visuals are provisional; no modern Search Bloc substitution.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/bolivar_v3/Btn_LH_Bolivar_Runtime.dds": "658bac8530bdaeee3b891ce61108081cfb882f0c20c4eecdf8fcfead09450ae5",
+      "Art/Leaderheads/new/bolivar_v3/Bolivar.nif": "71f28dcf8110028a9de567a87eb0ab141ee5c1aa2903611f81eb498a2fb41b62",
+      "Art/Leaderheads/new/bolivar_v3/Bolivar_Runtime.kfm": "dc367e9ad663c94d1182b0382d3f022c1f5614fc06b9f56baa419778c30625db",
+      "Art/Leaderheads/new/bolivar_v3/Bolivar_bg.kfm": "fc948b84fc26de630cb4acd2b4c255a6ec1213074e915d72177062bad7595686"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/bolivar_v3/Btn_LH_Bolivar.dds",
+        "target": "Art/Leaderheads/new/bolivar_v3/Btn_LH_Bolivar_Runtime.dds",
+        "sha256": "ccd399f2f327747c5674b94ed44763186f24274af3db071aba2416a30d947ef4",
+        "portrait_resize": {
+          "old_size": [
+            61,
+            61
+          ],
+          "new_size": [
+            64,
+            64
+          ]
+        },
+        "evidence": "Roster gate rejects the supplied non-power-of-two DDS. Preserve the original; LANCZOS-resample the same complete RGBA portrait to 64x64 and encode uncompressed DDS without cropping or substituting art."
+      },
+      {
+        "source": "Art/Leaderheads/new/bolivar_v3/Bolivar.kfm",
+        "target": "Art/Leaderheads/new/bolivar_v3/Bolivar_Runtime.kfm",
+        "sha256": "5e09cff158bdcf1336a8259b646e302e0330e4bd4bdb2f4729a30d1afeb1d49a",
+        "kfm_model": {
+          "old": "alexander.nif",
+          "new": "Bolivar.nif"
+        },
+        "evidence": "The original KFM points at an absent donor model. Only its length-prefixed model field changes; the _alex_parent skeleton and all existing eight animation filenames/transitions remain byte-identical."
+      },
+      {
+        "source": "Art/BTG/LeaderHeads/harun_al-rashid/julius_caesar_bg_background.kf",
+        "target": "Art/Leaderheads/new/bolivar_v3/julius_caesar_BG_background.kf",
+        "sha256": "402b52b658a2a6b68548ded52ec03b5c1dc3aa0fb313e3c2b08a573406351cd0",
+        "prepared_sha256": "14f53f1a289519a60b33d1f69a05f7d1ee9f5344dc166f01fdac80fd30d0fe5d",
+        "evidence": "tools/prepare_bolivar_background.py (PyFFI 2.2.3) verifies pinned donor/model hashes, retains only _julius_caesar_parent and NonAccum constant transform links, excludes the two absent targets and checks composed orientation within 1e-5. Thirteen repository donor clips share the source hash. No background mesh, material, camera or head-animation change."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
   }
 ]

@@ -6,11 +6,11 @@
 Each civilization has one intended leader, one unique unit, one unique building,
 and one signature trait. This does not increase simultaneous player slots.
 
-Four packages are integrated and locally committed: **Piye, Stefan Dusan,
-Matthias Corvinus, and Pedro II**. The current selectable roster is **63**.
-The other nine packages remain in progress. Mongkut's diplomatic-research and
-Bolivar's conquest-occupation engine support has compiled and passed its gate,
-but their civilizations are not yet integrated.
+Six packages are integrated: **Piye, Stefan Dusan, Matthias Corvinus,
+Pedro II, Mongkut, and Simon Bolivar**. The current selectable roster is **65**.
+The other seven packages remain in progress. Mongkut's diplomatic-research
+and Bolivar's conquest-occupation rules are wired into their civilizations;
+their native support has compiled and the content has passed its gate.
 
 All balance numbers are initial targets, not playtested conclusions.
 Leaderheads and supporting visuals are provisional until in-game acceptance.
@@ -31,7 +31,7 @@ Nothing has been pushed, merged, installed, or applied to the live game.
 | **Stefan Dusan** | Serbia: Dusan's Empire | Mining revenue and legal institutions support noble cavalry. | Mines give **+1 Commerce yield**; ordinary Priests give **+1 Espionage**. |
 | **Pedro II** | Brazil: Second Empire | Cross-disciplinary specialists develop science and culture. | Ordinary Scientists give **+1 Culture**, Artists **+1 Research**; **+25% Great Person rate**. |
 | **Simon Bolivar** | Gran Colombia | Mobile campaigns with faster recovery of captured cities. | Newly generated military-conquest occupation is **halved, rounded up**; **+50% Great General rate**. |
-| **Zenobia** | Palmyrene Empire | Develop desert trade sites to fund expensive armored cavalry. | Each worked improved Desert plot with Road/Railroad gives **+2 city Gold**, capped at **+6**. |
+| **Zenobia** | Palmyrene Empire | Develop desert trade sites to fund expensive armored cavalry. | Each worked Desert plot with an unpillaged, non-ruins improvement and Road/Railroad gives **+2 city Gold**, capped at **+6**. |
 | **David** | Israel: Davidic Kingdom | Experienced defenders become cultural symbols. | A city with an owned, non-cargo, combat-capable land unit of **level 3+** gets **+3 Culture once**, plus **+25% domestic Great General rate**. |
 
 ## Unique units and buildings
@@ -115,6 +115,11 @@ Piye/Dusan currently use provisional stock unit/building art. Matthias uses a
 provisional raven-emblem button because his package lacks a portrait button;
 his animated portrait is unchanged. New flags are labeled reconstructions
 where an attested period flag is not established.
+
+Mongkut's missing eye texture is restored from an identical bundled stock
+texture. Bolivar retains his portrait, now in a valid 64x64 runtime button,
+and his head-animation data. His background repair preserves the model's
+camera/mesh orientation while omitting animation targets absent from that model.
 
 Ancient/traditional biographies, especially David's, will distinguish
 historical evidence from literary tradition. No modern-state analogy or new

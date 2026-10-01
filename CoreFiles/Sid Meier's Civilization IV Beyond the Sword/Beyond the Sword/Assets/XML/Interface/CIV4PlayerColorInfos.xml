@@ -444,5 +444,17 @@
   <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_MONGKUT</Type>
+  <ColorTypePrimary>COLOR_PLAYER_DARK_RED</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_WHITE</ColorTypeSecondary>
+  <TextColorType>COLOR_WHITE</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_BOLIVAR</Type>
+  <ColorTypePrimary>COLOR_YELLOW</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_PLAYER_DARK_BLUE</ColorTypeSecondary>
+  <TextColorType>COLOR_WHITE</TextColorType>
+</PlayerColorInfo>
 </PlayerColorInfos>
 </Civ4PlayerColorInfos>

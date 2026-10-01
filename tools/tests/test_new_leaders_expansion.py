@@ -8,11 +8,54 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
-from add_expansion_packages import ASSETS, XML, FILES, MANIFEST, append_record, baseline, canonical, parse
+from add_expansion_packages import ASSETS, XML, FILES, MANIFEST, append_record, baseline, canonical, parse, trait_scalar, retarget_kfm_model, resize_portrait_button
 from flags.flag_pipeline import validate_manifest_against_live
 
 
 class ExpansionWriterTests(unittest.TestCase):
+    def test_portrait_resize_retains_rgba_content_without_crop(self):
+        import io
+        from PIL import Image
+        image = Image.new("RGBA", (61, 61), (120, 60, 200, 128))
+        image.putpixel((0, 0), (255, 255, 255, 255))
+        source = io.BytesIO()
+        image.save(source, format="DDS")
+        output = resize_portrait_button(source.getvalue(), [61, 61], [64, 64])
+        decoded = Image.open(io.BytesIO(output))
+        self.assertEqual(decoded.size, (64, 64))
+        self.assertEqual(decoded.tobytes(), image.resize((64, 64), Image.Resampling.LANCZOS).tobytes())
+        with self.assertRaisesRegex(ValueError, "input dimensions"):
+            resize_portrait_button(source.getvalue(), [60, 60], [64, 64])
+        with self.assertRaisesRegex(ValueError, "powers of two"):
+            resize_portrait_button(source.getvalue(), [61, 61], [63, 63])
+
+    def test_optional_trait_scalar_is_schema_checked(self):
+        schema = parse((XML / "Civilizations/CIV4CivilizationsSchema.xml").read_bytes())
+        node = parse("<TraitInfo><Type>TEST</Type><iHealth>0</iHealth></TraitInfo>")
+        trait_scalar(node, "iOpenBordersKnownTechResearchModifier", 20, schema)
+        trait_scalar(node, "iHealth", 1, schema)
+        self.assertEqual(node.findtext("iOpenBordersKnownTechResearchModifier"), "20")
+        self.assertEqual(node.findtext("iHealth"), "1")
+        for tag, value in (("iOpenBorderKnownTechResearchModifier", 20), ("FreePromotions", 1),
+                           ("Description", 1), ("iHealth", "bad"), ("iHealth", True)):
+            with self.subTest(tag=tag, value=value), self.assertRaisesRegex(ValueError, "declared integer"):
+                trait_scalar(node, tag, value, schema)
+        with self.assertRaisesRegex(ValueError, "Missing required"):
+            trait_scalar(node, "iHappiness", 1, schema)
+
+    def test_kfm_retarget_preserves_every_animation_byte(self):
+        import struct
+        header = b";Gamebryo KFM File Version 1.2.4b\n"
+        old, new = "alexander.nif", "Bolivar.nif"
+        suffix = b"\x0c\x00\x00\x00_alex_parent\x00animation-payload"
+        source = header + struct.pack("<I", len(old)) + old.encode() + suffix
+        expected = header + struct.pack("<I", len(new)) + new.encode() + suffix
+        self.assertEqual(retarget_kfm_model(source, old, new), expected)
+        with self.assertRaisesRegex(ValueError, "binding differs"):
+            retarget_kfm_model(source, "incorrect.nif", new)
+        with self.assertRaisesRegex(ValueError, "version"):
+            retarget_kfm_model(b"unreviewed", old, new)
+
     def test_all_reviewed_fragments_are_well_formed(self):
         for package in json.loads(MANIFEST.read_bytes())["packages"]:
             for label, fragment in (("trait", package["trait_xml"]), ("unit", package["unit"]["xml"]), ("building", package["building"]["xml"])):
@@ -137,6 +180,48 @@ class ExpansionContractTests(unittest.TestCase):
         override = source.index('"getUpgradePriceOverride"')
         discount = source.index("iPrice -= (iPrice * getUpgradeDiscount()) / 100;", override)
         self.assertIn("return lResult;", source[override:discount])
+
+    def test_diplomatic_and_conquest_packages_match_approved_numbers(self):
+        mongkut = self.entry("trait", "TRAIT_EXP_MONGKUT")
+        bolivar = self.entry("trait", "TRAIT_EXP_BOLIVAR")
+        self.assertEqual(mongkut.findtext("iOpenBordersKnownTechResearchModifier"), "20")
+        self.assertEqual(bolivar.findtext("iConquestOccupationReductionPercent"), "50")
+        self.assertEqual(bolivar.findtext("iGreatGeneralRateModifier"), "50")
+        for trait in self.live["trait"].iter("TraitInfo"):
+            name = trait.findtext("Type")
+            self.assertEqual(int(trait.findtext("iOpenBordersKnownTechResearchModifier", "0")),
+                             20 if name == "TRAIT_EXP_MONGKUT" else 0)
+            self.assertEqual(int(trait.findtext("iConquestOccupationReductionPercent", "0")),
+                             50 if name == "TRAIT_EXP_BOLIVAR" else 0)
+        rifle = self.entry("unit", "UNIT_EXP_SIAMESE_ROYAL_RIFLE")
+        self.assertEqual((rifle.findtext("iCost"), rifle.findtext("iCombat"), rifle.findtext("iCityDefense")),
+                         ("120", "14", "25"))
+        llanero = self.entry("unit", "UNIT_EXP_LLANERO")
+        self.assertEqual(tuple(llanero.findtext(tag) for tag in ("iCost", "iCombat", "iMoves", "iWithdrawalProb")),
+                         ("140", "15", "3", "40"))
+        observatory = self.entry("building", "BUILDING_EXP_ROYAL_OBSERVATORY")
+        self.assertEqual(observatory.findtext("SpecialistCounts/SpecialistCount/iSpecialistCount"), "2")
+        cabildo = self.entry("building", "BUILDING_EXP_REPUBLICAN_CABILDO")
+        experience = cabildo.find("DomainFreeExperiences/DomainFreeExperience")
+        self.assertEqual((experience.findtext("DomainType"), experience.findtext("iExperience")), ("DOMAIN_LAND", "2"))
+
+    def test_reviewed_art_repairs_match_exact_inputs_and_outputs(self):
+        import hashlib
+        for package in self.document["packages"]:
+            for repair in package.get("repairs", []):
+                with self.subTest(package=package["id"], target=repair["target"]):
+                    source = (ASSETS / repair["source"]).read_bytes()
+                    current = (ASSETS / repair["target"]).read_bytes()
+                    self.assertEqual(hashlib.sha256(source).hexdigest(), repair["sha256"])
+                    if "prepared_sha256" in repair:
+                        self.assertEqual(hashlib.sha256(current).hexdigest(), repair["prepared_sha256"])
+                    else:
+                        expected = source
+                        if "kfm_model" in repair:
+                            expected = retarget_kfm_model(source, **repair["kfm_model"])
+                        if "portrait_resize" in repair:
+                            expected = resize_portrait_button(source, **repair["portrait_resize"])
+                        self.assertEqual(current, expected)
 
 
 if __name__ == "__main__":

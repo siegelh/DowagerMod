@@ -46,5 +46,7 @@ flags. No external illustration or audit-preview PNG was incorporated.
 Matthias's raven-and-ring and Pedro II's simplified imperial medallion are
 likewise original provisional reconstructions. The raven is also used as
 Matthias's explicitly non-portrait button because no bundled portrait exists.
+Mongkut's white elephant and Bolivar's tricolor are original geometric
+reconstructions for Rama IV's Siam and Gran Colombia, not copied illustrations.
 Per-package historical references and provisional status are recorded in
 `manifest.json` and `../manifests/new_leaders_expansion.json`.

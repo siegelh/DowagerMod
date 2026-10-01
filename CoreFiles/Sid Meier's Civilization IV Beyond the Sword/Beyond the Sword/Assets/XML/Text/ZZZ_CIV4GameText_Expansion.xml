@@ -984,4 +984,500 @@
     <Italian>I am Pedro II. Let us speak of peace and the prosperity of our peoples.</Italian>
     <Spanish>I am Pedro II. Let us speak of peace and the prosperity of our peoples.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_SIAMESE_ROYAL_RIFLE</Tag>
+    <English>Siamese Royal Rifle</English>
+    <French>Siamese Royal Rifle</French>
+    <German>Siamese Royal Rifle</German>
+    <Italian>Siamese Royal Rifle</Italian>
+    <Spanish>Siamese Royal Rifle</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_SIAMESE_ROYAL_RIFLE_PEDIA</Tag>
+    <English>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</English>
+    <French>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</French>
+    <German>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</German>
+    <Italian>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</Italian>
+    <Spanish>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_SIAMESE_ROYAL_RIFLE_STRATEGY</Tag>
+    <English>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</English>
+    <French>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</French>
+    <German>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</German>
+    <Italian>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</Italian>
+    <Spanish>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ROYAL_OBSERVATORY</Tag>
+    <English>Royal Observatory</English>
+    <French>Royal Observatory</French>
+    <German>Royal Observatory</German>
+    <Italian>Royal Observatory</Italian>
+    <Spanish>Royal Observatory</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ROYAL_OBSERVATORY_PEDIA</Tag>
+    <English>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</English>
+    <French>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</French>
+    <German>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</German>
+    <Italian>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</Italian>
+    <Spanish>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_ROYAL_OBSERVATORY_STRATEGY</Tag>
+    <English>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</English>
+    <French>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</French>
+    <German>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</German>
+    <Italian>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</Italian>
+    <Spanish>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_MONGKUT</Tag>
+    <English>Open to Knowledge</English>
+    <French>Open to Knowledge</French>
+    <German>Open to Knowledge</German>
+    <Italian>Open to Knowledge</Italian>
+    <Spanish>Open to Knowledge</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_MONGKUT_SHORT</Tag>
+    <English>Open to Knowledge</English>
+    <French>Open to Knowledge</French>
+    <German>Open to Knowledge</German>
+    <Italian>Open to Knowledge</Italian>
+    <Spanish>Open to Knowledge</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_MONGKUT</Tag>
+    <English>Mongkut</English>
+    <French>Mongkut</French>
+    <German>Mongkut</German>
+    <Italian>Mongkut</Italian>
+    <Spanish>Mongkut</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_MONGKUT_PEDIA</Tag>
+    <English>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</English>
+    <French>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</French>
+    <German>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</German>
+    <Italian>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</Italian>
+    <Spanish>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SIAM_RAMA_IV_DESCRIPTION</Tag>
+    <English>Siam: Rama IV</English>
+    <French>Siam: Rama IV</French>
+    <German>Siam: Rama IV</German>
+    <Italian>Siam: Rama IV</Italian>
+    <Spanish>Siam: Rama IV</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SIAM_RAMA_IV_SHORTDESCRIPTION</Tag>
+    <English>Siam: Rama IV</English>
+    <French>Siam: Rama IV</French>
+    <German>Siam: Rama IV</German>
+    <Italian>Siam: Rama IV</Italian>
+    <Spanish>Siam: Rama IV</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SIAM_RAMA_IV_ADJECTIVE</Tag>
+    <English>Siamese</English>
+    <French>Siamese</French>
+    <German>Siamese</German>
+    <Italian>Siamese</Italian>
+    <Spanish>Siamese</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SIAM_RAMA_IV_CIVILOPEDIA</Tag>
+    <English>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</English>
+    <French>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</French>
+    <German>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</German>
+    <Italian>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</Italian>
+    <Spanish>Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_1</Tag>
+    <English>Bangkok</English>
+    <French>Bangkok</French>
+    <German>Bangkok</German>
+    <Italian>Bangkok</Italian>
+    <Spanish>Bangkok</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_2</Tag>
+    <English>Ayutthaya</English>
+    <French>Ayutthaya</French>
+    <German>Ayutthaya</German>
+    <Italian>Ayutthaya</Italian>
+    <Spanish>Ayutthaya</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_3</Tag>
+    <English>Nakhon Pathom</English>
+    <French>Nakhon Pathom</French>
+    <German>Nakhon Pathom</German>
+    <Italian>Nakhon Pathom</Italian>
+    <Spanish>Nakhon Pathom</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_4</Tag>
+    <English>Phetchaburi</English>
+    <French>Phetchaburi</French>
+    <German>Phetchaburi</German>
+    <Italian>Phetchaburi</Italian>
+    <Spanish>Phetchaburi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_5</Tag>
+    <English>Lopburi</English>
+    <French>Lopburi</French>
+    <German>Lopburi</German>
+    <Italian>Lopburi</Italian>
+    <Spanish>Lopburi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_6</Tag>
+    <English>Phitsanulok</English>
+    <French>Phitsanulok</French>
+    <German>Phitsanulok</German>
+    <Italian>Phitsanulok</Italian>
+    <Spanish>Phitsanulok</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_7</Tag>
+    <English>Nakhon Sawan</English>
+    <French>Nakhon Sawan</French>
+    <German>Nakhon Sawan</German>
+    <Italian>Nakhon Sawan</Italian>
+    <Spanish>Nakhon Sawan</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_8</Tag>
+    <English>Nakhon Ratchasima</English>
+    <French>Nakhon Ratchasima</French>
+    <German>Nakhon Ratchasima</German>
+    <Italian>Nakhon Ratchasima</Italian>
+    <Spanish>Nakhon Ratchasima</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_9</Tag>
+    <English>Chanthaburi</English>
+    <French>Chanthaburi</French>
+    <German>Chanthaburi</German>
+    <Italian>Chanthaburi</Italian>
+    <Spanish>Chanthaburi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_10</Tag>
+    <English>Trat</English>
+    <French>Trat</French>
+    <German>Trat</German>
+    <Italian>Trat</Italian>
+    <Spanish>Trat</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_11</Tag>
+    <English>Songkhla</English>
+    <French>Songkhla</French>
+    <German>Songkhla</German>
+    <Italian>Songkhla</Italian>
+    <Spanish>Songkhla</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_12</Tag>
+    <English>Nakhon Si Thammarat</English>
+    <French>Nakhon Si Thammarat</French>
+    <German>Nakhon Si Thammarat</German>
+    <Italian>Nakhon Si Thammarat</Italian>
+    <Spanish>Nakhon Si Thammarat</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_13</Tag>
+    <English>Phuket</English>
+    <French>Phuket</French>
+    <German>Phuket</German>
+    <Italian>Phuket</Italian>
+    <Spanish>Phuket</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_14</Tag>
+    <English>Ratchaburi</English>
+    <French>Ratchaburi</French>
+    <German>Ratchaburi</German>
+    <Italian>Ratchaburi</Italian>
+    <Spanish>Ratchaburi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_15</Tag>
+    <English>Chachoengsao</English>
+    <French>Chachoengsao</French>
+    <German>Chachoengsao</German>
+    <Italian>Chachoengsao</Italian>
+    <Spanish>Chachoengsao</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_MONGKUT_16</Tag>
+    <English>Samut Prakan</English>
+    <French>Samut Prakan</French>
+    <German>Samut Prakan</German>
+    <Italian>Samut Prakan</Italian>
+    <Spanish>Samut Prakan</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_MONGKUT</Tag>
+    <English>I am Mongkut. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Mongkut. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Mongkut. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Mongkut. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Mongkut. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_LLANERO</Tag>
+    <English>Llanero</English>
+    <French>Llanero</French>
+    <German>Llanero</German>
+    <Italian>Llanero</Italian>
+    <Spanish>Llanero</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_LLANERO_PEDIA</Tag>
+    <English>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</English>
+    <French>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</French>
+    <German>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</German>
+    <Italian>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</Italian>
+    <Spanish>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_LLANERO_STRATEGY</Tag>
+    <English>A Cavalry replacement with three movement and 40% total withdrawal, costing 140 Production. Retains strength 15, Military Tradition, Rifling, Horseback Riding, Horse and the Gunship upgrade. Other units do not gain movement.</English>
+    <French>A Cavalry replacement with three movement and 40% total withdrawal, costing 140 Production. Retains strength 15, Military Tradition, Rifling, Horseback Riding, Horse and the Gunship upgrade. Other units do not gain movement.</French>
+    <German>A Cavalry replacement with three movement and 40% total withdrawal, costing 140 Production. Retains strength 15, Military Tradition, Rifling, Horseback Riding, Horse and the Gunship upgrade. Other units do not gain movement.</German>
+    <Italian>A Cavalry replacement with three movement and 40% total withdrawal, costing 140 Production. Retains strength 15, Military Tradition, Rifling, Horseback Riding, Horse and the Gunship upgrade. Other units do not gain movement.</Italian>
+    <Spanish>A Cavalry replacement with three movement and 40% total withdrawal, costing 140 Production. Retains strength 15, Military Tradition, Rifling, Horseback Riding, Horse and the Gunship upgrade. Other units do not gain movement.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_REPUBLICAN_CABILDO</Tag>
+    <English>Republican Cabildo</English>
+    <French>Republican Cabildo</French>
+    <German>Republican Cabildo</German>
+    <Italian>Republican Cabildo</Italian>
+    <Spanish>Republican Cabildo</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_REPUBLICAN_CABILDO_PEDIA</Tag>
+    <English>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</English>
+    <French>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</French>
+    <German>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</German>
+    <Italian>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</Italian>
+    <Spanish>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_REPUBLICAN_CABILDO_STRATEGY</Tag>
+    <English>A Courthouse replacement granting +2 experience to land units trained here. Retains 120 Production, Code of Laws, the parent's maintenance modifier, Espionage and Spy slot. Sea and air units receive no experience bonus.</English>
+    <French>A Courthouse replacement granting +2 experience to land units trained here. Retains 120 Production, Code of Laws, the parent's maintenance modifier, Espionage and Spy slot. Sea and air units receive no experience bonus.</French>
+    <German>A Courthouse replacement granting +2 experience to land units trained here. Retains 120 Production, Code of Laws, the parent's maintenance modifier, Espionage and Spy slot. Sea and air units receive no experience bonus.</German>
+    <Italian>A Courthouse replacement granting +2 experience to land units trained here. Retains 120 Production, Code of Laws, the parent's maintenance modifier, Espionage and Spy slot. Sea and air units receive no experience bonus.</Italian>
+    <Spanish>A Courthouse replacement granting +2 experience to land units trained here. Retains 120 Production, Code of Laws, the parent's maintenance modifier, Espionage and Spy slot. Sea and air units receive no experience bonus.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_BOLIVAR</Tag>
+    <English>Liberator's Coalition</English>
+    <French>Liberator's Coalition</French>
+    <German>Liberator's Coalition</German>
+    <Italian>Liberator's Coalition</Italian>
+    <Spanish>Liberator's Coalition</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_BOLIVAR_SHORT</Tag>
+    <English>Liberator's Coalition</English>
+    <French>Liberator's Coalition</French>
+    <German>Liberator's Coalition</German>
+    <Italian>Liberator's Coalition</Italian>
+    <Spanish>Liberator's Coalition</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_BOLIVAR</Tag>
+    <English>Simon Bolivar</English>
+    <French>Simon Bolivar</French>
+    <German>Simon Bolivar</German>
+    <Italian>Simon Bolivar</Italian>
+    <Spanish>Simon Bolivar</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_BOLIVAR_PEDIA</Tag>
+    <English>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</English>
+    <French>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</French>
+    <German>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</German>
+    <Italian>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</Italian>
+    <Spanish>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_GRAN_COLOMBIA_DESCRIPTION</Tag>
+    <English>Gran Colombia</English>
+    <French>Gran Colombia</French>
+    <German>Gran Colombia</German>
+    <Italian>Gran Colombia</Italian>
+    <Spanish>Gran Colombia</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_GRAN_COLOMBIA_SHORTDESCRIPTION</Tag>
+    <English>Gran Colombia</English>
+    <French>Gran Colombia</French>
+    <German>Gran Colombia</German>
+    <Italian>Gran Colombia</Italian>
+    <Spanish>Gran Colombia</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_GRAN_COLOMBIA_ADJECTIVE</Tag>
+    <English>Gran Colombian</English>
+    <French>Gran Colombian</French>
+    <German>Gran Colombian</German>
+    <Italian>Gran Colombian</Italian>
+    <Spanish>Gran Colombian</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_GRAN_COLOMBIA_CIVILOPEDIA</Tag>
+    <English>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</English>
+    <French>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</French>
+    <German>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</German>
+    <Italian>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</Italian>
+    <Spanish>Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_1</Tag>
+    <English>Bogota</English>
+    <French>Bogota</French>
+    <German>Bogota</German>
+    <Italian>Bogota</Italian>
+    <Spanish>Bogota</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_2</Tag>
+    <English>Caracas</English>
+    <French>Caracas</French>
+    <German>Caracas</German>
+    <Italian>Caracas</Italian>
+    <Spanish>Caracas</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_3</Tag>
+    <English>Quito</English>
+    <French>Quito</French>
+    <German>Quito</German>
+    <Italian>Quito</Italian>
+    <Spanish>Quito</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_4</Tag>
+    <English>Cartagena</English>
+    <French>Cartagena</French>
+    <German>Cartagena</German>
+    <Italian>Cartagena</Italian>
+    <Spanish>Cartagena</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_5</Tag>
+    <English>Panama</English>
+    <French>Panama</French>
+    <German>Panama</German>
+    <Italian>Panama</Italian>
+    <Spanish>Panama</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_6</Tag>
+    <English>Guayaquil</English>
+    <French>Guayaquil</French>
+    <German>Guayaquil</German>
+    <Italian>Guayaquil</Italian>
+    <Spanish>Guayaquil</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_7</Tag>
+    <English>Maracaibo</English>
+    <French>Maracaibo</French>
+    <German>Maracaibo</German>
+    <Italian>Maracaibo</Italian>
+    <Spanish>Maracaibo</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_8</Tag>
+    <English>Cucuta</English>
+    <French>Cucuta</French>
+    <German>Cucuta</German>
+    <Italian>Cucuta</Italian>
+    <Spanish>Cucuta</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_9</Tag>
+    <English>Cumana</English>
+    <French>Cumana</French>
+    <German>Cumana</German>
+    <Italian>Cumana</Italian>
+    <Spanish>Cumana</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_10</Tag>
+    <English>Valencia</English>
+    <French>Valencia</French>
+    <German>Valencia</German>
+    <Italian>Valencia</Italian>
+    <Spanish>Valencia</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_11</Tag>
+    <English>Medellin</English>
+    <French>Medellin</French>
+    <German>Medellin</German>
+    <Italian>Medellin</Italian>
+    <Spanish>Medellin</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_12</Tag>
+    <English>Santa Marta</English>
+    <French>Santa Marta</French>
+    <German>Santa Marta</German>
+    <Italian>Santa Marta</Italian>
+    <Spanish>Santa Marta</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_13</Tag>
+    <English>Popayan</English>
+    <French>Popayan</French>
+    <German>Popayan</German>
+    <Italian>Popayan</Italian>
+    <Spanish>Popayan</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_14</Tag>
+    <English>Cuenca</English>
+    <French>Cuenca</French>
+    <German>Cuenca</German>
+    <Italian>Cuenca</Italian>
+    <Spanish>Cuenca</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_15</Tag>
+    <English>Loja</English>
+    <French>Loja</French>
+    <German>Loja</German>
+    <Italian>Loja</Italian>
+    <Spanish>Loja</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_BOLIVAR_16</Tag>
+    <English>Tunja</English>
+    <French>Tunja</French>
+    <German>Tunja</German>
+    <Italian>Tunja</Italian>
+    <Spanish>Tunja</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_BOLIVAR</Tag>
+    <English>I am Simon Bolivar. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Simon Bolivar. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Simon Bolivar. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Simon Bolivar. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Simon Bolivar. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
 </Civ4GameText>

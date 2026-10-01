@@ -8,12 +8,17 @@ from __future__ import annotations
 import argparse
 import copy
 import hashlib
+import io
 import json
 import re
+import struct
 import subprocess
+import sys
 import time
 import xml.etree.ElementTree as ET
 from pathlib import Path
+
+from PIL import Image
 
 from flags.dxt3_fullcolor import AlphaEncoding, encode_image
 from flags.flag_pipeline import rasterize_master
@@ -59,6 +64,43 @@ def field(node: ET.Element, tag: str, value: object) -> None:
     if child is None:
         raise ValueError(f"Missing field {tag} in {node.findtext('Type')}")
     child.text = str(value)
+
+
+def trait_scalar(node: ET.Element, tag: str, value: int, schema: ET.Element) -> None:
+    declaration = schema.find(f"./ElementType[@name='TraitInfo']/element[@type='{tag}']")
+    definition = schema.find(f"./ElementType[@name='{tag}']")
+    if (declaration is None or definition is None or
+            definition.get("{urn:schemas-microsoft-com:datatypes}type") != "int" or
+            type(value) is not int):
+        raise ValueError(f"Not a declared integer trait scalar: {tag}")
+    if node.find(tag) is None:
+        if declaration.get("minOccurs") != "0":
+            raise ValueError(f"Missing required trait scalar: {tag}")
+        ET.SubElement(node, tag)
+    field(node, tag, value)
+
+
+def retarget_kfm_model(data: bytes, old: str, new: str) -> bytes:
+    header = b";Gamebryo KFM File Version 1.2.4b\n"
+    if not data.startswith(header):
+        raise ValueError("Unreviewed KFM version")
+    old_bytes, new_bytes = old.encode("ascii"), new.encode("ascii")
+    prefix = header + struct.pack("<I", len(old_bytes)) + old_bytes
+    if not data.startswith(prefix):
+        raise ValueError("KFM model binding differs from reviewed source")
+    return header + struct.pack("<I", len(new_bytes)) + new_bytes + data[len(prefix):]
+
+
+def resize_portrait_button(data: bytes, old_size: list[int], new_size: list[int]) -> bytes:
+    if len(new_size) != 2 or any(n <= 0 or n & (n - 1) for n in new_size):
+        raise ValueError("Portrait output dimensions must be positive powers of two")
+    with Image.open(io.BytesIO(data)) as source:
+        if source.size != tuple(old_size):
+            raise ValueError("Portrait input dimensions differ from reviewed source")
+        image = source.convert("RGBA").resize(tuple(new_size), Image.Resampling.LANCZOS)
+    output = io.BytesIO()
+    image.save(output, format="DDS")
+    return output.getvalue()
 
 
 def replace_fragment(node: ET.Element, fragment: str) -> None:
@@ -115,6 +157,7 @@ def generate(document: dict) -> dict[Path, bytes]:
     def add(kind: str, node: ET.Element) -> None:
         path = XML / FILES[kind][0]
         staged[path] = append_record(staged[path], node, FILES[kind][2])
+        record_sizes.append(len(serialize(node)))
 
     def localized(node: ET.Element, tag: str, key: str, value: str) -> None:
         texts[key] = value
@@ -122,6 +165,8 @@ def generate(document: dict) -> dict[Path, bytes]:
 
     for index, package in enumerate(document["packages"], 1):
         started = time.monotonic()
+        record_sizes: list[int] = []
+        repair_sizes: list[int] = []
         identifier = package["id"]
         if identifier not in document["approved_leaders"]:
             raise ValueError(f"Unapproved package {identifier}")
@@ -136,9 +181,18 @@ def generate(document: dict) -> dict[Path, bytes]:
             if hashlib.sha256(data).hexdigest() != repair["sha256"]:
                 raise ValueError("Repair source changed: " + repair["source"])
             target = ASSETS / repair["target"]
+            if "kfm_model" in repair:
+                data = retarget_kfm_model(data, **repair["kfm_model"])
+            if "portrait_resize" in repair:
+                data = resize_portrait_button(data, **repair["portrait_resize"])
+            if "prepared_sha256" in repair:
+                data = target.read_bytes()
+                if hashlib.sha256(data).hexdigest() != repair["prepared_sha256"]:
+                    raise ValueError("Prepared art repair changed: " + repair["target"])
             if target.exists() and target.read_bytes() != data:
                 raise ValueError("Refusing to overwrite a different repair target: " + str(target))
             staged[target] = data
+            repair_sizes.append(len(data))
 
         if "promotion" in package:
             promotion = clone("promotion", "PROMOTION_COMBAT1")
@@ -180,7 +234,7 @@ def generate(document: dict) -> dict[Path, bytes]:
         localized(trait, "Description", "TXT_KEY_" + trait_type, package["trait_name"])
         localized(trait, "ShortDescription", "TXT_KEY_" + trait_type + "_SHORT", package["trait_name"])
         for tag, value in package["trait_scalars"].items():
-            field(trait, tag, value)
+            trait_scalar(trait, tag, value, trait_schema)
         replace_fragment(trait, package["trait_xml"])
         trait[:] = sorted(trait, key=lambda child: trait_order.index(child.tag))
         add("trait", trait)
@@ -241,7 +295,8 @@ def generate(document: dict) -> dict[Path, bytes]:
             else:
                 relative = "Art/Leaderheads/new/" + package["art"]["folder"] + "/" + package["art"][tag]
                 path = ASSETS / relative
-                dependencies[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
+                data = staged[path] if path in staged else path.read_bytes()
+                dependencies[relative] = hashlib.sha256(data).hexdigest()
             ET.SubElement(art, tag).text = relative
         add("leader_art", art)
         provenance.append({"leader": leader_type, "status": package["art_status"], "direct_reference_sha256": dependencies,
@@ -295,8 +350,10 @@ def generate(document: dict) -> dict[Path, bytes]:
             if count != 1:
                 raise ValueError("Cannot locate first-contact diplomacy responses")
         emit("package_end", batch=identifier, status="success", durationSeconds=round(time.monotonic()-started, 3),
-             inputCount=1, outputCount=8, inputBytes=len(json.dumps(package).encode()),
-             outputBytes=len(dds)+len(button), retryCount=0)
+             inputCount=1, outputCount=len(record_sizes)+len(repair_sizes)+2,
+             inputBytes=len(json.dumps(package).encode()),
+             outputBytes=sum(record_sizes)+sum(repair_sizes)+len(dds)+len(button),
+             outputScope="core_xml_records_flags_buttons_repairs", retryCount=0)
 
     text_root = ET.Element("Civ4GameText", xmlns="http://www.firaxis.com")
     for key, value in texts.items():
@@ -314,6 +371,7 @@ def generate(document: dict) -> dict[Path, bytes]:
 
 
 def main() -> None:
+    sys.stdout.reconfigure(line_buffering=True)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()

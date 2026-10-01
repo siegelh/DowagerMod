@@ -1,6 +1,6 @@
 # Thirteen-Leader Expansion
 
-- Status: `in_progress`; four packages integrated; E3/E5 engine support gated.
+- Status: `in_progress`; six packages integrated; E3/E5 engine and content gated.
 - Owner / agent: repository owner / GitHub Copilot.
 - Last updated: `2026-09-30`.
 
@@ -228,7 +228,7 @@ Piye and Dusan are integrated using native XML trait channels, parent-preserving
 UU/UB clones, distinct colors/flags/buttons, existing animated leaderheads,
 first-contact text, AI profiles and inherited era-complete citystyles.
 Matthias and Pedro II are also integrated, bringing the selectable roster to
-63; nine selected packages remain. Matthias uses the existing native
+63 at that checkpoint. Matthias uses the existing native
 upgrade-discount promotion channel, limited to Melee/Gunpowder, not generally
 selectable; Python override precedence is unchanged. Pedro uses native
 specialist commerce and Great Person modifiers.
@@ -282,10 +282,40 @@ small-range/eligibility cases plus an INT_MAX boundary, using
 `.\tools\test_expansion_rules.ps1`; three pytest integration contracts passed.
 The compiled SDK DLL and isolated mirrored DLL share SHA256
 `e8ab6f512a8740a69c60d8c1c21d38731e300fb55587ecb6187ec1b0e02c13b6`.
-No civilization uses the new fields yet; Mongkut/Bolivar content follows.
+The support is checkpointed at `1c77d4b21`; Mongkut and Bolivar now use the
+fields, bringing the playable roster to **65**, with seven selected packages
+still pending. Their full parent-preserving UU/UB definitions, city lists,
+leader profiles, inherited citystyles, localization, diplomacy, flags/buttons
+and chatter-roster entries are integrated.
 The build's legacy SDK post-copy reports a missing `..\Assets` directory;
 the repository build wrapper subsequently copies and verifies the actual
 BtS mirror, and the gate exits successfully.
+
+Mongkut's eye texture is restored from his bundled `frederick_eyeshadow.dds`,
+byte-identical to stock Justinian's shared texture. Bolivar's separate runtime
+KFM changes only the length-prefixed missing `alexander.nif` binding to the
+bundled `Bolivar.nif`; animation/master/transition bytes remain unchanged.
+His background donor has two matching constant root controllers and two
+targets absent from the retained model. `tools\prepare_bolivar_background.py`
+retains only the matching tracks, verifies the composed orientation and
+requires every camera/mesh to remain under that preserved transform.
+The checked-in repaired clip is deterministic; default package generation
+checks its pinned digest and the donor hash. Rebuilding this one repair
+requires optional PyFFI 2.2.3; the package compiler does not require PyFFI.
+
+The first content gate exposed a genuine supplied 61x61 Bolivar portrait.
+A separate 64x64 RGBA runtime copy now preserves the entire original portrait
+via LANCZOS resampling; the source is untouched. The gate then passed without
+weakening dimension checks. The cumulative expansion/roster/flag/landmark/
+neutral-wonder/importer suite passes **263 pytest tests**. Writer tests cover
+schema-declared optional trait integers, typo/type rejection, animation-byte
+preservation and uncropped portrait conversion. Generation progress now
+flushes to the active console and counts its stated core-record/asset scope.
+
+The complete six-package compiler reconciles 30 files. The original 59
+civilizations/flags remain protected. Manual shader/nonshader graphics,
+animation playback, AI behavior, research-overflow and save acceptance remain
+unperformed; the two leaderheads have no distinct nonshader fallback.
 
 The owner-requested `.vscode\leader-expansion-overview.md` is an accessible
 summary of all thirteen planned packages, opened in VS Code. It distinguishes
