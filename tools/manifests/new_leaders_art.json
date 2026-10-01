@@ -152,5 +152,79 @@
       }
     ],
     "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_RAMKHAMHAENG",
+    "status": "Existing red-and-gold primary, distinct nonshader model, background and 64px portrait retained. Referenced dependencies resolve. Stock Elephant and Library visuals with inherited Khmer citystyles are provisional; a movie image is not treated as a building model. Full animation and shader acceptance pending.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/ramkham/Ramkham.dds": "2684d364f01bd57ab89e2a1b4d29e67d9beb6395221efb3b03891794e191e822",
+      "Art/Leaderheads/new/ramkham/Suryavarman.nif": "7320a444dabd95a3156b3fc65feca42c0ff3437a9acecfa4e20ad499e0005326",
+      "Art/Leaderheads/new/ramkham/Suryavarman.kfm": "599916f9011e1816a75e20a9e6cdd4a6f4c549ab8bf347385204b29aa7f1d44a",
+      "Art/Leaderheads/new/ramkham/Suryaverman_NONSHADER.nif": "584abc45a03ff25d128eb9845431a08cdd46830bb0795cbc835c3bec97d9fb86",
+      "Art/Leaderheads/new/ramkham/Suryavarman_BG.kfm": "ab3f0935c0ee7dc33971a1ecd43a6a67b083737e185b128afd223ed18803f6b0"
+    },
+    "repairs": [],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_HO_CHI_MINH",
+    "status": "Blue-shirt primary and all original textures remain unchanged. Separate fallback changes only the Mao-new clothing geometry's unique base-texture filename to the primary blue diffuse map; all 1794 clothing UVs match exactly, and restoring that filename reproduces the complete original canonical NIF. Face, beard, geometry and other fallback materials are untouched. Runtime KFM changes only its missing donor model binding. Stock Infantry/Intelligence Agency and inherited Asian citystyles are provisional; runtime animation/shader acceptance pending.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/hochiminh_v2/HoChi_Button.dds": "c3d07818c5c022266cf8a545720f4817fa60d8a70e801a844e6d9c4dbc5ca1fb",
+      "Art/Leaderheads/new/hochiminh_v2/HoChiMinh.nif": "efcabc6509e044db16230ad0150ca4342f5e62335965aac5e8c21c33c8f3e659",
+      "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Runtime.kfm": "030953752be959f3792853df56e3b9a9ba0db39a69b58ce68721ad5ae7787016",
+      "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Nonshader_Runtime.nif": "3270242e94a45a560f716658841a3cee11a14c5c8429d4a7f94c1b745572ffc9",
+      "Art/Leaderheads/new/hochiminh_v2/genghis_khan_bg.kfm": "60f36f8819b5c8b934ba0e0735a992d3250c93d2d59bcf6d664506d0c50f2250"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Nonshader.nif",
+        "target": "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Nonshader_Runtime.nif",
+        "sha256": "92752dbf56a10091fb11069c782c7372dcbb4c1383ded7172435a0a0cd733127",
+        "prepared_sha256": "3270242e94a45a560f716658841a3cee11a14c5c8429d4a7f94c1b745572ffc9",
+        "evidence": "tools/prepare_expansion_texture_paths.py verifies one unshared clothing texture and identical primary/fallback clothing UVs. Only the chosen length-prefixed filename bytes change; reversing the change also reproduces the full canonical NIF."
+      },
+      {
+        "source": "Art/Leaderheads/new/hochiminh_v2/genghis_khan.kfm",
+        "target": "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Runtime.kfm",
+        "sha256": "101150ea73f378e12a672aff589d48d9bf8e5876a721fc73adce9123458d6632",
+        "kfm_model": {
+          "old": "genghis_khan.nif",
+          "new": "HoChiMinh.nif"
+        },
+        "evidence": "Filename-only KFM 2.0.0.0b repair. All animation and transition bytes are preserved."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_ASKIA",
+    "status": "Red turban, face, costume, background and 64px portrait retained. Runtime NIF changes only the zara_trans mesh's obsolete absolute base-texture filename to bundled Zara_DIFF.dds. Reversing that change reproduces every original canonical byte. Runtime KFM changes only model filename. No distinct nonshader model exists; the primary is provisional in both fields, not certified for low settings. Stock Knight/University and inherited African citystyles are provisional.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/askia/AskiaMohammedBTN.dds": "61a1c6154d86140cb2fde5c8338597d89e52fda1cc6a4191b648e2abaf0dae2f",
+      "Art/Leaderheads/new/askia/Askia_Runtime.nif": "c3c1f515df0ee53d855a2798bf4b748ac8725505e610e32a3354dd18a8dbbcfa",
+      "Art/Leaderheads/new/askia/Askia_Runtime.kfm": "64d6f427042cd09bd85b9c32bc3b6f1f72119f54e8fc0e5ce8759b0a393f25e1",
+      "Art/Leaderheads/new/askia/Zara Yaqob_BG.kfm": "e4d938751086e51db510a565e670c959fd73d86d18b48ee67bf21f8abc6a89b8"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/askia/Zara Yaqob.nif",
+        "target": "Art/Leaderheads/new/askia/Askia_Runtime.nif",
+        "sha256": "b505164f05aaaab81e4d48db5d2782e54a37a6678186761af5e76f65d3f8e86a",
+        "prepared_sha256": "c3c1f515df0ee53d855a2798bf4b748ac8725505e610e32a3354dd18a8dbbcfa",
+        "evidence": "tools/prepare_expansion_texture_paths.py verifies the exact source, one unshared zara_trans texture reference and whole-document canonical equality after reversing only the absolute-to-relative filename edit."
+      },
+      {
+        "source": "Art/Leaderheads/new/askia/Zara Yaqob.kfm",
+        "target": "Art/Leaderheads/new/askia/Askia_Runtime.kfm",
+        "sha256": "91aeb44f33de7a1a6510c93bd252be9dee0045080f0c4a197867d0c4d9e599ac",
+        "kfm_model": {
+          "old": "Zara Yaqob.nif",
+          "new": "Askia_Runtime.nif"
+        },
+        "evidence": "Filename-only KFM 2.0.0.0b repair; parent, animation and transition bytes are preserved."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
   }
 ]

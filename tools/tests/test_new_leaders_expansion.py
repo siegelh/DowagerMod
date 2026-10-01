@@ -13,6 +13,21 @@ from flags.flag_pipeline import validate_manifest_against_live
 
 
 class ExpansionWriterTests(unittest.TestCase):
+    def test_reviewed_model_repairs_change_only_one_length_prefixed_filename(self):
+        import struct
+        from prepare_expansion_texture_paths import ART, SPECS
+        for spec in SPECS:
+            original = (ART / spec["folder"] / spec["source"]).read_bytes()
+            output = (ART / spec["folder"] / spec["target"]).read_bytes()
+            old = struct.pack("<I", len(spec["old"])) + spec["old"]
+            new = struct.pack("<I", len(spec["new"])) + spec["new"]
+            matches = 0
+            offset = original.find(old)
+            while offset >= 0:
+                matches += output == original[:offset] + new + original[offset + len(old):]
+                offset = original.find(old, offset + len(old))
+            self.assertEqual(matches, 1, spec["folder"])
+
     def test_portrait_resize_retains_rgba_content_without_crop(self):
         import io
         from PIL import Image
@@ -154,6 +169,37 @@ class ExpansionContractTests(unittest.TestCase):
             self.assertEqual([n.text for n in civ.findall("FreeTechs/FreeTech/TechType")], package["techs"])
             leader = self.entry("leader", "LEADER_EXP_" + package["id"])
             self.assertEqual([n.text for n in leader.findall("Traits/Trait/TraitType")], ["TRAIT_EXP_" + package["id"]])
+
+    def test_worked_plot_packages_have_exact_conditions_caps_and_tradeoffs(self):
+        ram = self.entry("trait", "TRAIT_EXP_RAMKHAMHAENG")
+        self.assertEqual(ram.findtext("WorkedPlotCondition"), "RIVERSIDE_IMPROVEMENT")
+        self.assertEqual(ram.findtext("WorkedPlotPrereqTech"), "TECH_WRITING")
+        self.assertEqual((ram.findtext("iWorkedPlotCulture"), ram.findtext("iWorkedPlotCap")), ("1", "3"))
+        self.assertEqual([n.text for n in ram.findall("WorkedPlotImprovements/ImprovementType")], ["IMPROVEMENT_FARM"])
+        self.assertIsNone(ram.find("WorkedPlotPrereqBuilding"))
+        ho = self.entry("trait", "TRAIT_EXP_HO_CHI_MINH")
+        self.assertEqual(ho.findtext("WorkedPlotCondition"), "WOODLAND")
+        self.assertEqual((ho.findtext("iWorkedPlotProduction"), ho.findtext("iWorkedPlotCap"),
+                          ho.findtext("iDomesticGreatGeneralRateModifier")), ("1", "3", "50"))
+        self.assertIsNone(ho.find("WorkedPlotImprovements"))
+        askia = self.entry("trait", "TRAIT_EXP_ASKIA")
+        self.assertEqual(askia.findtext("WorkedPlotCondition"), "RIVERSIDE_IMPROVEMENT")
+        self.assertEqual((askia.findtext("iWorkedPlotGold"), askia.findtext("iWorkedPlotCap")), ("1", "4"))
+        self.assertEqual([n.text for n in askia.findall("WorkedPlotImprovements/ImprovementType")],
+                         ["IMPROVEMENT_COTTAGE", "IMPROVEMENT_HAMLET", "IMPROVEMENT_VILLAGE", "IMPROVEMENT_TOWN"])
+        infantry = self.entry("unit", "UNIT_EXP_VIET_MINH_INFANTRY")
+        self.assertEqual((infantry.findtext("iCost"), infantry.findtext("iCombat")), ("120", "18"))
+        self.assertEqual([n.text for n in infantry.findall("FreePromotions/FreePromotion/PromotionType")],
+                         ["PROMOTION_WOODSMAN1", "PROMOTION_WOODSMAN2"])
+        headquarters = self.entry("building", "BUILDING_EXP_RESISTANCE_HEADQUARTERS")
+        self.assertEqual((headquarters.findtext("PrereqTech"), headquarters.findtext("iMilitaryProductionModifier")),
+                         ("TECH_UTOPIA", "15"))
+        library = self.entry("building", "BUILDING_EXP_HO_TRAI")
+        self.assertEqual([n.text for n in library.findall("CommerceChanges/iCommerce")], ["0", "0", "2", "0"])
+        self.assertEqual([n.text for n in library.findall("ObsoleteSafeCommerceChanges/iCommerce")], ["0", "0", "2"])
+        self.assertEqual([(n.findtext("SpecialistType"), n.findtext("iSpecialistCount"))
+                          for n in library.findall("SpecialistCounts/SpecialistCount")],
+                         [("SPECIALIST_SCIENTIST", "2"), ("SPECIALIST_PRIEST", "1")])
 
     def test_flags_preserve_every_original_record_and_validate_new_outputs(self):
         import hashlib

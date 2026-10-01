@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "design_version": "issue-flags-v2",
-  "record_count": 66,
+  "record_count": 69,
   "runtime_contract": {
     "assets_root": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets",
     "civilization_xml": "XML/Civilizations/CIV4CivilizationInfos.xml",
@@ -5769,6 +5769,87 @@
           "claim": "Historical setting, not a specification of an attested flag."
         }
       ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_SUKHOTHAI",
+      "civilization": "Sukhothai",
+      "leaders": [
+        "LEADER_EXP_RAMKHAMHAENG"
+      ],
+      "leader_display": "Ramkhamhaeng",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_SUKHOTHAI",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_RAMKHAMHAENG.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/ramkhamhaeng.svg",
+      "master_sha256": "cd98b08e9255ea255e5305b46ce000d7f3b94cd3171cb4ee6efd4343412db14a",
+      "production_dds_sha256": "1225f274ad1507a553186b3e85d2a8666cef8dd3c3bcc484679e7fee57a8b9be",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Ram_Khamhaeng",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.",
+      "design_notes": "Original geometric gold lotus and paired river lines on deep red. Provisional religious/agrarian gameplay emblem, not an attested Sukhothai national flag or copied religious illustration.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ram_Khamhaeng",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_VIETNAM_DEMOCRATIC_REPUBLIC",
+      "civilization": "Vietnam: Democratic Republic",
+      "leaders": [
+        "LEADER_EXP_HO_CHI_MINH"
+      ],
+      "leader_display": "Ho Chi Minh",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_VIETNAM_DEMOCRATIC_REPUBLIC",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_HO_CHI_MINH.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/ho_chi_minh.svg",
+      "master_sha256": "f9695f010d8c90193d44b9d4b689a607b34539f15e96448e5df1f6e7883fbc88",
+      "production_dds_sha256": "28c9aa941adde06356913a0934de0191ecca6ecdcecbb2bdfd3b7194eb5bd5cb",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Ho_Chi_Minh",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.",
+      "design_notes": "Original geometric five-pointed gold star on red, drawn from simple polygons. Period identification rather than a copied modern graphic; provisional square gameplay proportions.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ho_Chi_Minh",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_SONGHAI_ASKIA",
+      "civilization": "Songhai: Askia Dynasty",
+      "leaders": [
+        "LEADER_EXP_ASKIA"
+      ],
+      "leader_display": "Askia Muhammad",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_SONGHAI_ASKIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_ASKIA.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/askia.svg",
+      "master_sha256": "675630e1f48054005a7450d20cf1d305ee938b051a19310123aea8c3598b2820",
+      "production_dds_sha256": "c4e1da916332895e92d0c8ab1dd58dea9faf98dec082bc1958aeb58215b9d715",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Askia_Muhammad_I",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.",
+      "design_notes": "Original geometric gold earthen tower and open manuscript above blue river lines on dark green. A scholarly/commercial gameplay reconstruction, not an attested Askia standard or copied mosque illustration.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Askia_Muhammad_I",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
     }
   ],
   "original_work_license": {
@@ -5780,7 +5861,7 @@
   "design_version_summary": {
     "issue-flags-v2": 56,
     "historical-v1": 3,
-    "expansion-v1": 7
+    "expansion-v1": 10
   },
   "issue_source_range": {
     "repository": "siegelh/DowagerMod",

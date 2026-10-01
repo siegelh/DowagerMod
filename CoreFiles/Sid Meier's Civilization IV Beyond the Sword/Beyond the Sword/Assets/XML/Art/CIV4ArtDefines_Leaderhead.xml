@@ -541,5 +541,29 @@
   <NoShaderNIF>Art/Leaderheads/new/Amra_Hiram_v2/Darius_NONSHADER.nif</NoShaderNIF>
   <BackgroundKFM>Art/Leaderheads/new/Amra_Hiram_v2/Darius_BG.kfm</BackgroundKFM>
 </LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_RAMKHAMHAENG</Type>
+  <Button>Art/Leaderheads/new/ramkham/Ramkham.dds</Button>
+  <NIF>Art/Leaderheads/new/ramkham/Suryavarman.nif</NIF>
+  <KFM>Art/Leaderheads/new/ramkham/Suryavarman.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/ramkham/Suryaverman_NONSHADER.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/ramkham/Suryavarman_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_HO_CHI_MINH</Type>
+  <Button>Art/Leaderheads/new/hochiminh_v2/HoChi_Button.dds</Button>
+  <NIF>Art/Leaderheads/new/hochiminh_v2/HoChiMinh.nif</NIF>
+  <KFM>Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Runtime.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Nonshader_Runtime.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/hochiminh_v2/genghis_khan_bg.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_ASKIA</Type>
+  <Button>Art/Leaderheads/new/askia/AskiaMohammedBTN.dds</Button>
+  <NIF>Art/Leaderheads/new/askia/Askia_Runtime.nif</NIF>
+  <KFM>Art/Leaderheads/new/askia/Askia_Runtime.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/askia/Askia_Runtime.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/askia/Zara Yaqob_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
 </LeaderheadArtInfos>
 </Civ4ArtDefines>

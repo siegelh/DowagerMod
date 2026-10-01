@@ -903,6 +903,48 @@
     <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_HIRAM</Text>
   </DiplomacyText>
 </Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_RAMKHAMHAENG</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_RAMKHAMHAENG</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_HO_CHI_MINH</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_HO_CHI_MINH</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_ASKIA</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_ASKIA</Text>
+  </DiplomacyText>
+</Response>
 </Responses>
 		</DiplomacyInfo>
 		<DiplomacyInfo>

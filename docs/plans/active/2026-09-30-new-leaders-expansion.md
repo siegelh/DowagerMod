@@ -1,6 +1,6 @@
 # Thirteen-Leader Expansion
 
-- Status: `in_progress`; seven packages integrated; E1 engine and E2/E3/E5 content gated.
+- Status: `in_progress`; ten packages integrated; E1/E2/E3/E5 engine and content gated.
 - Owner / agent: repository owner / GitHub Copilot.
 - Last updated: `2026-09-30`.
 
@@ -415,3 +415,42 @@ Commerce, and `178f61f52` increased Bourbon Culture. Its test still compares
 against `7da9963f6`. These accepted gameplay changes are preserved exactly
 against `cb87ce542` by the expansion tests; neither they nor that unrelated
 historical test have been rewritten merely to obtain a green full-suite run.
+
+### Ramkhamhaeng, Ho and Askia content checkpoint
+
+Ten packages now produce **69 selectable civilizations**. Sukhothai receives
+Writing-gated riverside-Farm Culture, a withdrawal Elephant and Ho Trai;
+Vietnam receives capped woodland Production, cheaper/weaker Woodsman Infantry
+and military Production from its Intelligence Agency replacement; Songhai
+receives capped riverside settlement Gold, Sentry/withdrawal cavalry and a
+cheaper University with a Priest slot. Parent prerequisites, normal specialist
+slots and unmodified fields are preserved by exact clone-delta tests.
+
+Ho's primary model and blue texture remain untouched. His fallback clothing's
+1,794 UV coordinates match the primary exactly, and its source texture is
+not shared with another mesh. A runtime NIF replaces only that clothing's
+length-prefixed filename. Askia's runtime NIF likewise replaces only the
+obsolete absolute `Zara_DIFF.dds` reference on `zara_trans`. Both preserve
+every other original byte, checked without PyFFI in the normal tests.
+`tools\prepare_expansion_texture_paths.py` additionally parses both models,
+verifies the intended target and reverses the change to confirm canonical
+whole-model equality. Ho runtime SHA256:
+`3270242e94a45a560f716658841a3cee11a14c5c8429d4a7f94c1b745572ffc9`;
+Askia: `c3c1f515df0ee53d855a2798bf4b748ac8725505e610e32a3354dd18a8dbbcfa`.
+Separate filename-only KFMs preserve all animation/transition bytes.
+Ramkhamhaeng retains his complete source models/background and 64px portrait.
+
+New provisional flags, distinct colors, city lists, localization, diplomacy
+and chatter names are wired. The required content gate and **116 targeted
+tests** pass; generation reconciles **45 files** with zero differences.
+The full-suite run exposed one additional old ColorVals suffix assertion;
+its existing historical hash and original-node protection now also permit
+exactly the declared expansion ColorVals, not arbitrary mutations.
+The unrelated pre-expansion additive-signature assertion remains reported.
+After the precise ColorVals correction, the cumulative suite reports
+**383 passed / one known historical failure**
+(`files\expansion-ten-packages-tests-reconciled.log`).
+
+No in-game animation, low-settings rendering, gameplay, AI, old-save or
+multiplayer acceptance has been performed. E9 Assyria/Palmyra, E7 David and
+final manual acceptance remain outstanding; not ready to merge/deploy.

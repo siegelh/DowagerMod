@@ -462,5 +462,23 @@
   <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_RAMKHAMHAENG</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_RAMKHAMHAENG</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_WHITE</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_HO_CHI_MINH</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_HO_CHI_MINH</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_WHITE</TextColorType>
+</PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_ASKIA</Type>
+  <ColorTypePrimary>COLOR_PLAYER_EXP_ASKIA</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_WHITE</TextColorType>
+</PlayerColorInfo>
 </PlayerColorInfos>
 </Civ4PlayerColorInfos>

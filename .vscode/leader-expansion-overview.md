@@ -6,16 +6,18 @@
 Each civilization has one intended leader, one unique unit, one unique building,
 and one signature trait. This does not increase simultaneous player slots.
 
-Seven packages are integrated: **Piye, Stefan Dusan, Matthias Corvinus,
-Pedro II, Mongkut, Simon Bolivar, and Hiram I**. The current selectable roster is **66**.
-The other six packages remain in progress. Mongkut's diplomatic-research
+Ten packages are integrated: **Piye, Stefan Dusan, Matthias Corvinus,
+Pedro II, Mongkut, Simon Bolivar, Hiram I, Ramkhamhaeng, Ho Chi Minh,
+and Askia Muhammad**. The current selectable roster is **69**.
+**Sennacherib, Zenobia and David** remain in progress. Mongkut's diplomatic-research
 and Bolivar's conquest-occupation rules are wired into their civilizations;
 their native support has compiled and the content has passed its gate.
 Hiram's coastal trade-team Gold rule, city breakdown and AI treaty-value
 estimate are integrated too; the bonus pays only for actual active routes.
 The shared capped worked-plot engine is compiled: city accounting, governor
 and worker estimates, technology/building refreshes and tooltips are wired.
-The six remaining packages are not yet selectable.
+Ramkhamhaeng, Ho and Askia now use those rules. The three remaining packages
+are not yet selectable.
 
 All balance numbers are initial targets, not playtested conclusions.
 Leaderheads and supporting visuals are provisional until in-game acceptance.
@@ -128,6 +130,11 @@ camera/mesh orientation while omitting animation targets absent from that model.
 Hiram's visible scene is preserved exactly in a runtime model that removes
 five unrelated export roots. Those roots, not his visible meshes, contained
 the unresolved texture references. His separate nonshader model is retained.
+Ho's primary blue shirt is unchanged; only his fallback clothing texture
+reference changes to that same blue map, with identical clothing UVs.
+Askia's obsolete absolute texture path now uses the bundled relative texture.
+Both repaired models preserve every other original byte. Ramkhamhaeng's
+existing primary, fallback, background and portrait are retained.
 
 Ancient/traditional biographies, especially David's, will distinguish
 historical evidence from literary tradition. No modern-state analogy or new

@@ -1696,4 +1696,700 @@
     <Italian>I am Hiram I. Let us speak of peace and the prosperity of our peoples.</Italian>
     <Spanish>I am Hiram I. Let us speak of peace and the prosperity of our peoples.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_SUKHOTHAI_WAR_ELEPHANT</Tag>
+    <English>Sukhothai War Elephant</English>
+    <French>Sukhothai War Elephant</French>
+    <German>Sukhothai War Elephant</German>
+    <Italian>Sukhothai War Elephant</Italian>
+    <Spanish>Sukhothai War Elephant</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_SUKHOTHAI_WAR_ELEPHANT_PEDIA</Tag>
+    <English>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</English>
+    <French>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</French>
+    <German>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</German>
+    <Italian>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</Italian>
+    <Spanish>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_SUKHOTHAI_WAR_ELEPHANT_STRATEGY</Tag>
+    <English>A War Elephant replacement costing 65 Production with 20% withdrawal. Retains strength 8, movement 1, Ivory, Construction and Horseback Riding, anti-mounted role and the Cuirassier upgrade. No resource exemption.</English>
+    <French>A War Elephant replacement costing 65 Production with 20% withdrawal. Retains strength 8, movement 1, Ivory, Construction and Horseback Riding, anti-mounted role and the Cuirassier upgrade. No resource exemption.</French>
+    <German>A War Elephant replacement costing 65 Production with 20% withdrawal. Retains strength 8, movement 1, Ivory, Construction and Horseback Riding, anti-mounted role and the Cuirassier upgrade. No resource exemption.</German>
+    <Italian>A War Elephant replacement costing 65 Production with 20% withdrawal. Retains strength 8, movement 1, Ivory, Construction and Horseback Riding, anti-mounted role and the Cuirassier upgrade. No resource exemption.</Italian>
+    <Spanish>A War Elephant replacement costing 65 Production with 20% withdrawal. Retains strength 8, movement 1, Ivory, Construction and Horseback Riding, anti-mounted role and the Cuirassier upgrade. No resource exemption.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_HO_TRAI</Tag>
+    <English>Ho Trai</English>
+    <French>Ho Trai</French>
+    <German>Ho Trai</German>
+    <Italian>Ho Trai</Italian>
+    <Spanish>Ho Trai</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_HO_TRAI_PEDIA</Tag>
+    <English>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</English>
+    <French>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</French>
+    <German>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</German>
+    <Italian>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</Italian>
+    <Spanish>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_HO_TRAI_STRATEGY</Tag>
+    <English>A Library replacement costing 100 Production. Adds two Culture above the parent and one Priest slot while retaining Writing, +25% Research, two Scientist slots and the parent's existing Culture. No religion requirement.</English>
+    <French>A Library replacement costing 100 Production. Adds two Culture above the parent and one Priest slot while retaining Writing, +25% Research, two Scientist slots and the parent's existing Culture. No religion requirement.</French>
+    <German>A Library replacement costing 100 Production. Adds two Culture above the parent and one Priest slot while retaining Writing, +25% Research, two Scientist slots and the parent's existing Culture. No religion requirement.</German>
+    <Italian>A Library replacement costing 100 Production. Adds two Culture above the parent and one Priest slot while retaining Writing, +25% Research, two Scientist slots and the parent's existing Culture. No religion requirement.</Italian>
+    <Spanish>A Library replacement costing 100 Production. Adds two Culture above the parent and one Priest slot while retaining Writing, +25% Research, two Scientist slots and the parent's existing Culture. No religion requirement.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_RAMKHAMHAENG</Tag>
+    <English>Letters of the Realm</English>
+    <French>Letters of the Realm</French>
+    <German>Letters of the Realm</German>
+    <Italian>Letters of the Realm</Italian>
+    <Spanish>Letters of the Realm</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_RAMKHAMHAENG_SHORT</Tag>
+    <English>Letters of the Realm</English>
+    <French>Letters of the Realm</French>
+    <German>Letters of the Realm</German>
+    <Italian>Letters of the Realm</Italian>
+    <Spanish>Letters of the Realm</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_RAMKHAMHAENG</Tag>
+    <English>Ramkhamhaeng</English>
+    <French>Ramkhamhaeng</French>
+    <German>Ramkhamhaeng</German>
+    <Italian>Ramkhamhaeng</Italian>
+    <Spanish>Ramkhamhaeng</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_RAMKHAMHAENG_PEDIA</Tag>
+    <English>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</English>
+    <French>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</French>
+    <German>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</German>
+    <Italian>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</Italian>
+    <Spanish>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SUKHOTHAI_DESCRIPTION</Tag>
+    <English>Sukhothai</English>
+    <French>Sukhothai</French>
+    <German>Sukhothai</German>
+    <Italian>Sukhothai</Italian>
+    <Spanish>Sukhothai</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SUKHOTHAI_SHORTDESCRIPTION</Tag>
+    <English>Sukhothai</English>
+    <French>Sukhothai</French>
+    <German>Sukhothai</German>
+    <Italian>Sukhothai</Italian>
+    <Spanish>Sukhothai</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SUKHOTHAI_ADJECTIVE</Tag>
+    <English>Sukhothai</English>
+    <French>Sukhothai</French>
+    <German>Sukhothai</German>
+    <Italian>Sukhothai</Italian>
+    <Spanish>Sukhothai</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SUKHOTHAI_CIVILOPEDIA</Tag>
+    <English>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</English>
+    <French>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</French>
+    <German>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</German>
+    <Italian>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</Italian>
+    <Spanish>Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_1</Tag>
+    <English>Sukhothai</English>
+    <French>Sukhothai</French>
+    <German>Sukhothai</German>
+    <Italian>Sukhothai</Italian>
+    <Spanish>Sukhothai</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_2</Tag>
+    <English>Si Satchanalai</English>
+    <French>Si Satchanalai</French>
+    <German>Si Satchanalai</German>
+    <Italian>Si Satchanalai</Italian>
+    <Spanish>Si Satchanalai</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_3</Tag>
+    <English>Kamphaeng Phet</English>
+    <French>Kamphaeng Phet</French>
+    <German>Kamphaeng Phet</German>
+    <Italian>Kamphaeng Phet</Italian>
+    <Spanish>Kamphaeng Phet</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_4</Tag>
+    <English>Phitsanulok</English>
+    <French>Phitsanulok</French>
+    <German>Phitsanulok</German>
+    <Italian>Phitsanulok</Italian>
+    <Spanish>Phitsanulok</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_5</Tag>
+    <English>Nakhon Chum</English>
+    <French>Nakhon Chum</French>
+    <German>Nakhon Chum</German>
+    <Italian>Nakhon Chum</Italian>
+    <Spanish>Nakhon Chum</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_6</Tag>
+    <English>Tak</English>
+    <French>Tak</French>
+    <German>Tak</German>
+    <Italian>Tak</Italian>
+    <Spanish>Tak</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_7</Tag>
+    <English>Sawangkalok</English>
+    <French>Sawangkalok</French>
+    <German>Sawangkalok</German>
+    <Italian>Sawangkalok</Italian>
+    <Spanish>Sawangkalok</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_8</Tag>
+    <English>Phichit</English>
+    <French>Phichit</French>
+    <German>Phichit</German>
+    <Italian>Phichit</Italian>
+    <Spanish>Phichit</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_9</Tag>
+    <English>Phrae</English>
+    <French>Phrae</French>
+    <German>Phrae</German>
+    <Italian>Phrae</Italian>
+    <Spanish>Phrae</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_10</Tag>
+    <English>Nan</English>
+    <French>Nan</French>
+    <German>Nan</German>
+    <Italian>Nan</Italian>
+    <Spanish>Nan</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_11</Tag>
+    <English>Phayao</English>
+    <French>Phayao</French>
+    <German>Phayao</German>
+    <Italian>Phayao</Italian>
+    <Spanish>Phayao</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_RAMKHAMHAENG_12</Tag>
+    <English>Uttaradit</English>
+    <French>Uttaradit</French>
+    <German>Uttaradit</German>
+    <Italian>Uttaradit</Italian>
+    <Spanish>Uttaradit</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_RAMKHAMHAENG</Tag>
+    <English>I am Ramkhamhaeng. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Ramkhamhaeng. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Ramkhamhaeng. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Ramkhamhaeng. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Ramkhamhaeng. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_VIET_MINH_INFANTRY</Tag>
+    <English>Viet Minh Infantry</English>
+    <French>Viet Minh Infantry</French>
+    <German>Viet Minh Infantry</German>
+    <Italian>Viet Minh Infantry</Italian>
+    <Spanish>Viet Minh Infantry</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_VIET_MINH_INFANTRY_PEDIA</Tag>
+    <English>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</English>
+    <French>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</French>
+    <German>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</German>
+    <Italian>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</Italian>
+    <Spanish>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_VIET_MINH_INFANTRY_STRATEGY</Tag>
+    <English>An Infantry replacement with strength 18 and cost 120, receiving Woodsman I and II. Retains Assembly Line, Rifling, the parent's anti-gunpowder modifier and upgrades. No invisibility, free partisan spawning, mountain movement or nationality masking.</English>
+    <French>An Infantry replacement with strength 18 and cost 120, receiving Woodsman I and II. Retains Assembly Line, Rifling, the parent's anti-gunpowder modifier and upgrades. No invisibility, free partisan spawning, mountain movement or nationality masking.</French>
+    <German>An Infantry replacement with strength 18 and cost 120, receiving Woodsman I and II. Retains Assembly Line, Rifling, the parent's anti-gunpowder modifier and upgrades. No invisibility, free partisan spawning, mountain movement or nationality masking.</German>
+    <Italian>An Infantry replacement with strength 18 and cost 120, receiving Woodsman I and II. Retains Assembly Line, Rifling, the parent's anti-gunpowder modifier and upgrades. No invisibility, free partisan spawning, mountain movement or nationality masking.</Italian>
+    <Spanish>An Infantry replacement with strength 18 and cost 120, receiving Woodsman I and II. Retains Assembly Line, Rifling, the parent's anti-gunpowder modifier and upgrades. No invisibility, free partisan spawning, mountain movement or nationality masking.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_RESISTANCE_HEADQUARTERS</Tag>
+    <English>Resistance Headquarters</English>
+    <French>Resistance Headquarters</French>
+    <German>Resistance Headquarters</German>
+    <Italian>Resistance Headquarters</Italian>
+    <Spanish>Resistance Headquarters</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_RESISTANCE_HEADQUARTERS_PEDIA</Tag>
+    <English>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</English>
+    <French>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</French>
+    <German>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</German>
+    <Italian>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</Italian>
+    <Spanish>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_RESISTANCE_HEADQUARTERS_STRATEGY</Tag>
+    <English>An Intelligence Agency replacement with +15% military Production. Retains the live Utopia prerequisite, cost 180, +8 Espionage, +50% Espionage and two Spy slots.</English>
+    <French>An Intelligence Agency replacement with +15% military Production. Retains the live Utopia prerequisite, cost 180, +8 Espionage, +50% Espionage and two Spy slots.</French>
+    <German>An Intelligence Agency replacement with +15% military Production. Retains the live Utopia prerequisite, cost 180, +8 Espionage, +50% Espionage and two Spy slots.</German>
+    <Italian>An Intelligence Agency replacement with +15% military Production. Retains the live Utopia prerequisite, cost 180, +8 Espionage, +50% Espionage and two Spy slots.</Italian>
+    <Spanish>An Intelligence Agency replacement with +15% military Production. Retains the live Utopia prerequisite, cost 180, +8 Espionage, +50% Espionage and two Spy slots.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_HO_CHI_MINH</Tag>
+    <English>People's Resistance</English>
+    <French>People's Resistance</French>
+    <German>People's Resistance</German>
+    <Italian>People's Resistance</Italian>
+    <Spanish>People's Resistance</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_HO_CHI_MINH_SHORT</Tag>
+    <English>People's Resistance</English>
+    <French>People's Resistance</French>
+    <German>People's Resistance</German>
+    <Italian>People's Resistance</Italian>
+    <Spanish>People's Resistance</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_HO_CHI_MINH</Tag>
+    <English>Ho Chi Minh</English>
+    <French>Ho Chi Minh</French>
+    <German>Ho Chi Minh</German>
+    <Italian>Ho Chi Minh</Italian>
+    <Spanish>Ho Chi Minh</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_HO_CHI_MINH_PEDIA</Tag>
+    <English>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</English>
+    <French>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</French>
+    <German>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</German>
+    <Italian>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</Italian>
+    <Spanish>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_VIETNAM_DEMOCRATIC_REPUBLIC_DESCRIPTION</Tag>
+    <English>Vietnam: Democratic Republic</English>
+    <French>Vietnam: Democratic Republic</French>
+    <German>Vietnam: Democratic Republic</German>
+    <Italian>Vietnam: Democratic Republic</Italian>
+    <Spanish>Vietnam: Democratic Republic</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_VIETNAM_DEMOCRATIC_REPUBLIC_SHORTDESCRIPTION</Tag>
+    <English>Vietnam: Democratic Republic</English>
+    <French>Vietnam: Democratic Republic</French>
+    <German>Vietnam: Democratic Republic</German>
+    <Italian>Vietnam: Democratic Republic</Italian>
+    <Spanish>Vietnam: Democratic Republic</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_VIETNAM_DEMOCRATIC_REPUBLIC_ADJECTIVE</Tag>
+    <English>Vietnamese</English>
+    <French>Vietnamese</French>
+    <German>Vietnamese</German>
+    <Italian>Vietnamese</Italian>
+    <Spanish>Vietnamese</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_VIETNAM_DEMOCRATIC_REPUBLIC_CIVILOPEDIA</Tag>
+    <English>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</English>
+    <French>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</French>
+    <German>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</German>
+    <Italian>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</Italian>
+    <Spanish>Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_1</Tag>
+    <English>Hanoi</English>
+    <French>Hanoi</French>
+    <German>Hanoi</German>
+    <Italian>Hanoi</Italian>
+    <Spanish>Hanoi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_2</Tag>
+    <English>Hai Phong</English>
+    <French>Hai Phong</French>
+    <German>Hai Phong</German>
+    <Italian>Hai Phong</Italian>
+    <Spanish>Hai Phong</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_3</Tag>
+    <English>Viet Tri</English>
+    <French>Viet Tri</French>
+    <German>Viet Tri</German>
+    <Italian>Viet Tri</Italian>
+    <Spanish>Viet Tri</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_4</Tag>
+    <English>Thai Nguyen</English>
+    <French>Thai Nguyen</French>
+    <German>Thai Nguyen</German>
+    <Italian>Thai Nguyen</Italian>
+    <Spanish>Thai Nguyen</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_5</Tag>
+    <English>Vinh</English>
+    <French>Vinh</French>
+    <German>Vinh</German>
+    <Italian>Vinh</Italian>
+    <Spanish>Vinh</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_6</Tag>
+    <English>Nam Dinh</English>
+    <French>Nam Dinh</French>
+    <German>Nam Dinh</German>
+    <Italian>Nam Dinh</Italian>
+    <Spanish>Nam Dinh</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_7</Tag>
+    <English>Thanh Hoa</English>
+    <French>Thanh Hoa</French>
+    <German>Thanh Hoa</German>
+    <Italian>Thanh Hoa</Italian>
+    <Spanish>Thanh Hoa</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_8</Tag>
+    <English>Thai Binh</English>
+    <French>Thai Binh</French>
+    <German>Thai Binh</German>
+    <Italian>Thai Binh</Italian>
+    <Spanish>Thai Binh</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_9</Tag>
+    <English>Ha Tinh</English>
+    <French>Ha Tinh</French>
+    <German>Ha Tinh</German>
+    <Italian>Ha Tinh</Italian>
+    <Spanish>Ha Tinh</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_10</Tag>
+    <English>Tuyen Quang</English>
+    <French>Tuyen Quang</French>
+    <German>Tuyen Quang</German>
+    <Italian>Tuyen Quang</Italian>
+    <Spanish>Tuyen Quang</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_11</Tag>
+    <English>Lang Son</English>
+    <French>Lang Son</French>
+    <German>Lang Son</German>
+    <Italian>Lang Son</Italian>
+    <Spanish>Lang Son</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_12</Tag>
+    <English>Cao Bang</English>
+    <French>Cao Bang</French>
+    <German>Cao Bang</German>
+    <Italian>Cao Bang</Italian>
+    <Spanish>Cao Bang</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_13</Tag>
+    <English>Dien Bien Phu</English>
+    <French>Dien Bien Phu</French>
+    <German>Dien Bien Phu</German>
+    <Italian>Dien Bien Phu</Italian>
+    <Spanish>Dien Bien Phu</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_14</Tag>
+    <English>Son La</English>
+    <French>Son La</French>
+    <German>Son La</German>
+    <Italian>Son La</Italian>
+    <Spanish>Son La</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_15</Tag>
+    <English>Lao Cai</English>
+    <French>Lao Cai</French>
+    <German>Lao Cai</German>
+    <Italian>Lao Cai</Italian>
+    <Spanish>Lao Cai</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HO_CHI_MINH_16</Tag>
+    <English>Ha Dong</English>
+    <French>Ha Dong</French>
+    <German>Ha Dong</German>
+    <Italian>Ha Dong</Italian>
+    <Spanish>Ha Dong</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_HO_CHI_MINH</Tag>
+    <English>I am Ho Chi Minh. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Ho Chi Minh. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Ho Chi Minh. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Ho Chi Minh. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Ho Chi Minh. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_SAHELIAN_ESCORT_CAVALRY</Tag>
+    <English>Sahelian Escort Cavalry</English>
+    <French>Sahelian Escort Cavalry</French>
+    <German>Sahelian Escort Cavalry</German>
+    <Italian>Sahelian Escort Cavalry</Italian>
+    <Spanish>Sahelian Escort Cavalry</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_SAHELIAN_ESCORT_CAVALRY_PEDIA</Tag>
+    <English>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</English>
+    <French>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</French>
+    <German>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</German>
+    <Italian>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</Italian>
+    <Spanish>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_SAHELIAN_ESCORT_CAVALRY_STRATEGY</Tag>
+    <English>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</English>
+    <French>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</French>
+    <German>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</German>
+    <Italian>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</Italian>
+    <Spanish>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_TIMBUKTU_SCHOLARLY_COLLEGE</Tag>
+    <English>Timbuktu Scholarly College</English>
+    <French>Timbuktu Scholarly College</French>
+    <German>Timbuktu Scholarly College</German>
+    <Italian>Timbuktu Scholarly College</Italian>
+    <Spanish>Timbuktu Scholarly College</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_TIMBUKTU_SCHOLARLY_COLLEGE_PEDIA</Tag>
+    <English>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</English>
+    <French>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</French>
+    <German>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</German>
+    <Italian>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</Italian>
+    <Spanish>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_TIMBUKTU_SCHOLARLY_COLLEGE_STRATEGY</Tag>
+    <English>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</English>
+    <French>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</French>
+    <German>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</German>
+    <Italian>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</Italian>
+    <Spanish>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_ASKIA</Tag>
+    <English>Standards of Gao</English>
+    <French>Standards of Gao</French>
+    <German>Standards of Gao</German>
+    <Italian>Standards of Gao</Italian>
+    <Spanish>Standards of Gao</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_ASKIA_SHORT</Tag>
+    <English>Standards of Gao</English>
+    <French>Standards of Gao</French>
+    <German>Standards of Gao</German>
+    <Italian>Standards of Gao</Italian>
+    <Spanish>Standards of Gao</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_ASKIA</Tag>
+    <English>Askia Muhammad</English>
+    <French>Askia Muhammad</French>
+    <German>Askia Muhammad</German>
+    <Italian>Askia Muhammad</Italian>
+    <Spanish>Askia Muhammad</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_ASKIA_PEDIA</Tag>
+    <English>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</English>
+    <French>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</French>
+    <German>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</German>
+    <Italian>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</Italian>
+    <Spanish>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SONGHAI_ASKIA_DESCRIPTION</Tag>
+    <English>Songhai: Askia Dynasty</English>
+    <French>Songhai: Askia Dynasty</French>
+    <German>Songhai: Askia Dynasty</German>
+    <Italian>Songhai: Askia Dynasty</Italian>
+    <Spanish>Songhai: Askia Dynasty</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SONGHAI_ASKIA_SHORTDESCRIPTION</Tag>
+    <English>Songhai: Askia Dynasty</English>
+    <French>Songhai: Askia Dynasty</French>
+    <German>Songhai: Askia Dynasty</German>
+    <Italian>Songhai: Askia Dynasty</Italian>
+    <Spanish>Songhai: Askia Dynasty</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SONGHAI_ASKIA_ADJECTIVE</Tag>
+    <English>Songhai</English>
+    <French>Songhai</French>
+    <German>Songhai</German>
+    <Italian>Songhai</Italian>
+    <Spanish>Songhai</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_SONGHAI_ASKIA_CIVILOPEDIA</Tag>
+    <English>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</English>
+    <French>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</French>
+    <German>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</German>
+    <Italian>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</Italian>
+    <Spanish>Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_1</Tag>
+    <English>Gao</English>
+    <French>Gao</French>
+    <German>Gao</German>
+    <Italian>Gao</Italian>
+    <Spanish>Gao</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_2</Tag>
+    <English>Timbuktu</English>
+    <French>Timbuktu</French>
+    <German>Timbuktu</German>
+    <Italian>Timbuktu</Italian>
+    <Spanish>Timbuktu</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_3</Tag>
+    <English>Djenne</English>
+    <French>Djenne</French>
+    <German>Djenne</German>
+    <Italian>Djenne</Italian>
+    <Spanish>Djenne</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_4</Tag>
+    <English>Kukiya</English>
+    <French>Kukiya</French>
+    <German>Kukiya</German>
+    <Italian>Kukiya</Italian>
+    <Spanish>Kukiya</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_5</Tag>
+    <English>Bamba</English>
+    <French>Bamba</French>
+    <German>Bamba</German>
+    <Italian>Bamba</Italian>
+    <Spanish>Bamba</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_6</Tag>
+    <English>Hombori</English>
+    <French>Hombori</French>
+    <German>Hombori</German>
+    <Italian>Hombori</Italian>
+    <Spanish>Hombori</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_7</Tag>
+    <English>Dendi</English>
+    <French>Dendi</French>
+    <German>Dendi</German>
+    <Italian>Dendi</Italian>
+    <Spanish>Dendi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_8</Tag>
+    <English>Say</English>
+    <French>Say</French>
+    <German>Say</German>
+    <Italian>Say</Italian>
+    <Spanish>Say</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_9</Tag>
+    <English>Kabara</English>
+    <French>Kabara</French>
+    <German>Kabara</German>
+    <Italian>Kabara</Italian>
+    <Spanish>Kabara</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_10</Tag>
+    <English>Walata</English>
+    <French>Walata</French>
+    <German>Walata</German>
+    <Italian>Walata</Italian>
+    <Spanish>Walata</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_11</Tag>
+    <English>Tondibi</English>
+    <French>Tondibi</French>
+    <German>Tondibi</German>
+    <Italian>Tondibi</Italian>
+    <Spanish>Tondibi</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_12</Tag>
+    <English>Taghaza</English>
+    <French>Taghaza</French>
+    <German>Taghaza</German>
+    <Italian>Taghaza</Italian>
+    <Spanish>Taghaza</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_13</Tag>
+    <English>Agadez</English>
+    <French>Agadez</French>
+    <German>Agadez</German>
+    <Italian>Agadez</Italian>
+    <Spanish>Agadez</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_ASKIA_14</Tag>
+    <English>Kano</English>
+    <French>Kano</French>
+    <German>Kano</German>
+    <Italian>Kano</Italian>
+    <Spanish>Kano</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_ASKIA</Tag>
+    <English>I am Askia Muhammad. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Askia Muhammad. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Askia Muhammad. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Askia Muhammad. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Askia Muhammad. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
 </Civ4GameText>

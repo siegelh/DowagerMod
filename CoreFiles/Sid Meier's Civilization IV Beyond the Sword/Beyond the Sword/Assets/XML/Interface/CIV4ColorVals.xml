@@ -1061,5 +1061,26 @@
   <fBlue>0.733333</fBlue>
   <fAlpha>1.000000</fAlpha>
 </ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_RAMKHAMHAENG</Type>
+  <fRed>0.600000</fRed>
+  <fGreen>0.533333</fGreen>
+  <fBlue>0.733333</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_HO_CHI_MINH</Type>
+  <fRed>1.000000</fRed>
+  <fGreen>0.733333</fGreen>
+  <fBlue>0.733333</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
+<ColorVal>
+  <Type>COLOR_PLAYER_EXP_ASKIA</Type>
+  <fRed>0.000000</fRed>
+  <fGreen>1.000000</fGreen>
+  <fBlue>0.666667</fBlue>
+  <fAlpha>1.000000</fAlpha>
+</ColorVal>
 </ColorVals>
 </Civ4ColorVals>

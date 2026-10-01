@@ -881,7 +881,8 @@ def test_protected_xml_files_are_byte_stable(
     additions = {next(c.text for c in n if c.tag.rsplit("}", 1)[-1] == "Type") for n in live_nodes[len(old_nodes):]}
     expected_additions = (
         EXPANSION_TYPES if path == CIVILIZATION_INFOS else
-        {"PLAYERCOLOR_EXP_" + row["id"] for row in EXPANSION["packages"]} if path == PLAYER_COLOR_INFOS else set()
+        {"PLAYERCOLOR_EXP_" + row["id"] for row in EXPANSION["packages"]} if path == PLAYER_COLOR_INFOS else
+        {"COLOR_PLAYER_EXP_" + row["id"] for row in EXPANSION["packages"]} if path == COLOR_VALS else set()
     )
     assert additions == expected_additions
     assert len(live_nodes) == len(old_nodes) + len(expected_additions)

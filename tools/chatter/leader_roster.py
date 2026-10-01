@@ -77,6 +77,9 @@ LEADERS: tuple = (
     ("Mongkut", "Siam: Rama IV"),
     ("Simon Bolivar", "Gran Colombia"),
     ("Hiram I", "Phoenicia: Tyre"),
+    ("Ramkhamhaeng", "Sukhothai"),
+    ("Ho Chi Minh", "Vietnam: Democratic Republic"),
+    ("Askia Muhammad", "Songhai: Askia Dynasty"),
 )
 
 
