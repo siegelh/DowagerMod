@@ -4255,6 +4255,9 @@ public:
 	CvTraitInfo();
 	virtual ~CvTraitInfo();
 
+	int getOpenBordersKnownTechResearchModifier() const { return m_iOpenBordersKnownTechResearchModifier; }
+	int getConquestOccupationReductionPercent() const { return m_iConquestOccupationReductionPercent; }
+
 	int getHealth() const;				// Exposed to Python
 	int getHappiness() const;				// Exposed to Python
 	int getMaxAnarchy() const;				// Exposed to Python
@@ -4310,6 +4313,9 @@ protected:
 	int m_iMaxPlayerBuildingProductionModifier;	
 
 	CvString m_szShortDescription;
+
+	int m_iOpenBordersKnownTechResearchModifier;
+	int m_iConquestOccupationReductionPercent;
 
 	// Arrays
 

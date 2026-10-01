@@ -1,6 +1,6 @@
 # Thirteen-Leader Expansion
 
-- Status: `in_progress`; four native packages integrated; native extensions next.
+- Status: `in_progress`; four packages integrated; E3/E5 engine support gated.
 - Owner / agent: repository owner / GitHub Copilot.
 - Last updated: `2026-09-30`.
 
@@ -268,7 +268,29 @@ The second native group passed the repository gate and 48 focused
 expansion/validator/flag/exact-roster tests. Full cumulative reruns remain part
 of the subsequent engine/content integration.
 
-Native compilation passed at the combined baseline; the pilot adds no DLL
-code. Manual gameplay, diplomacy/graphics, AI games, old saves and multiplayer
+Neutral E3/E5 engine support now compiles and passes the repository gate.
+Optional, zero-default trait fields feed `CvPlayer::calculateResearchModifier`
+and only the military-conquest occupation calculation in `acquireCity`.
+Research checks alive foreign Open Borders teams, excludes war and either
+vassal direction, and adds the bonus only once. Occupation uses overflow-safe
+round-up math; peaceful transfers and running timers are unchanged.
+Trait help describes both effects. No new saved state or info-cache stream
+is introduced: traits are loaded without an info cache.
+
+The production `CvExpansionRules.h` functions passed 101,229 exhaustive
+small-range/eligibility cases plus an INT_MAX boundary, using
+`.\tools\test_expansion_rules.ps1`; three pytest integration contracts passed.
+The compiled SDK DLL and isolated mirrored DLL share SHA256
+`e8ab6f512a8740a69c60d8c1c21d38731e300fb55587ecb6187ec1b0e02c13b6`.
+No civilization uses the new fields yet; Mongkut/Bolivar content follows.
+The build's legacy SDK post-copy reports a missing `..\Assets` directory;
+the repository build wrapper subsequently copies and verifies the actual
+BtS mirror, and the gate exits successfully.
+
+The owner-requested `.vscode\leader-expansion-overview.md` is an accessible
+summary of all thirteen planned packages, opened in VS Code. It distinguishes
+current implementation from design targets and provisional visuals.
+
+Manual gameplay, diplomacy/graphics, AI games, old saves and multiplayer
 were NOT run. The complete expansion is NOT ready to merge/deploy.
 No push, merge, installer or live-game action occurred.

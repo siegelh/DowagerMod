@@ -16922,7 +16922,7 @@ bool CvCorporationInfo::readPass3()
 //
 //------------------------------------------------------------------------------------------------------
 CvTraitInfo::CvTraitInfo() :
-m_iHealth(0),													
+m_iHealth(0),
 m_iHappiness(0),													
 m_iMaxAnarchy(0),											
 m_iUpkeepModifier(0),									
@@ -16933,6 +16933,8 @@ m_iDomesticGreatGeneralRateModifier(0),
 m_iMaxGlobalBuildingProductionModifier(0),	
 m_iMaxTeamBuildingProductionModifier(0),		
 m_iMaxPlayerBuildingProductionModifier(0),
+m_iOpenBordersKnownTechResearchModifier(0),
+m_iConquestOccupationReductionPercent(0),
 m_paiExtraYieldThreshold(NULL),
 m_paiTradeYieldModifier(NULL),
 m_paiGoldenAgeYieldChange(NULL),
@@ -17288,6 +17290,17 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 
 	pXML->GetChildXmlValByName(szTextVal, "ShortDescription");
 	setShortDescription(szTextVal);
+
+	pXML->GetChildXmlValByName(&m_iOpenBordersKnownTechResearchModifier, "iOpenBordersKnownTechResearchModifier", 0);
+	pXML->GetChildXmlValByName(&m_iConquestOccupationReductionPercent, "iConquestOccupationReductionPercent", 0);
+	if (m_iOpenBordersKnownTechResearchModifier < 0 || m_iOpenBordersKnownTechResearchModifier > 100 ||
+		m_iConquestOccupationReductionPercent < 0 || m_iConquestOccupationReductionPercent > 100)
+	{
+		CvString szError;
+		szError.Format("Trait %s: expansion research/occupation percentages must be between 0 and 100", getType());
+		gDLL->logMsg("xml.log", szError);
+		return false;
+	}
 
 	pXML->GetChildXmlValByName(&m_iHealth, "iHealth");
 	pXML->GetChildXmlValByName(&m_iHappiness, "iHappiness");

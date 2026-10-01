@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_OPEN_BORDERS_RESEARCH</Tag>
+    <English>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</English>
+    <French>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</French>
+    <German>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</German>
+    <Italian>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</Italian>
+    <Spanish>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_CONQUEST_OCCUPATION</Tag>
+    <English>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</English>
+    <French>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</French>
+    <German>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</German>
+    <Italian>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</Italian>
+    <Spanish>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</Spanish>
+  </TEXT>
+</Civ4GameText>

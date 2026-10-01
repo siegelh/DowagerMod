@@ -451,6 +451,8 @@
 		<element type="iMaxGlobalBuildingProductionModifier"/>
 		<element type="iMaxTeamBuildingProductionModifier"/>
 		<element type="iMaxPlayerBuildingProductionModifier"/>
+		<element type="iOpenBordersKnownTechResearchModifier" minOccurs="0"/>
+		<element type="iConquestOccupationReductionPercent" minOccurs="0"/>
 		<element type="ExtraYieldThresholds"/>
 		<element type="TradeYieldModifiers"/>
 		<element type="GoldenAgeYieldChanges" minOccurs="0"/>
@@ -473,6 +475,8 @@
 	<ElementType name="TraitInfos" content="eltOnly">
 		<element type="TraitInfo" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="iOpenBordersKnownTechResearchModifier" content="textOnly" dt:type="int"/>
+	<ElementType name="iConquestOccupationReductionPercent" content="textOnly" dt:type="int"/>
 	<ElementType name="Adjective" content="textOnly"/>
 	<ElementType name="DefaultPlayerColor" content="textOnly"/>
 	<ElementType name="FlagTexture" content="textOnly"/>

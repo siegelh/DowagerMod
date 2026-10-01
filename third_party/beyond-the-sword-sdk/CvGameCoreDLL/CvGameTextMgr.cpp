@@ -4311,6 +4311,17 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer &szHelpString, TraitTypes eTrait
 		}
 
 		// Wonder Production Effects
+		if (GC.getTraitInfo(eTrait).getOpenBordersKnownTechResearchModifier() != 0)
+		{
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_OPEN_BORDERS_RESEARCH",
+				GC.getTraitInfo(eTrait).getOpenBordersKnownTechResearchModifier()));
+		}
+		if (GC.getTraitInfo(eTrait).getConquestOccupationReductionPercent() != 0)
+		{
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_CONQUEST_OCCUPATION",
+				GC.getTraitInfo(eTrait).getConquestOccupationReductionPercent()));
+		}
+
 		if ((GC.getTraitInfo(eTrait).getMaxGlobalBuildingProductionModifier() != 0)
 			|| (GC.getTraitInfo(eTrait).getMaxTeamBuildingProductionModifier() != 0)
 			|| (GC.getTraitInfo(eTrait).getMaxPlayerBuildingProductionModifier() != 0))
