@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "design_version": "issue-flags-v2",
-  "record_count": 65,
+  "record_count": 66,
   "runtime_contract": {
     "assets_root": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets",
     "civilization_xml": "XML/Civilizations/CIV4CivilizationInfos.xml",
@@ -5742,6 +5742,33 @@
           "claim": "Historical setting, not a specification of an attested flag."
         }
       ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_PHOENICIA_TYRE",
+      "civilization": "Phoenicia: Tyre",
+      "leaders": [
+        "LEADER_EXP_HIRAM"
+      ],
+      "leader_display": "Hiram I",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_PHOENICIA_TYRE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_HIRAM.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/hiram.svg",
+      "master_sha256": "65a43e45455f58c07d3c2f20e515da78e266ccf5238d47aa2e1f75c946d5abd3",
+      "production_dds_sha256": "99dcdae425d0cdb58f0d3df2eca3bdc904e10c6ecc4e8d66ce14900265b4b8f3",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Hiram_I",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.",
+      "design_notes": "Original geometric merchant vessel with pale sail and gold hull on Tyrian purple. Modern gameplay emblem inspired by Phoenician maritime exchange, not an attested national flag or copied ancient illustration.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hiram_I",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
     }
   ],
   "original_work_license": {
@@ -5753,7 +5780,7 @@
   "design_version_summary": {
     "issue-flags-v2": 56,
     "historical-v1": 3,
-    "expansion-v1": 6
+    "expansion-v1": 7
   },
   "issue_source_range": {
     "repository": "siegelh/DowagerMod",

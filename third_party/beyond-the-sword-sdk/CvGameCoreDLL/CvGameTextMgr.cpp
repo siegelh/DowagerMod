@@ -4321,6 +4321,12 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer &szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_CONQUEST_OCCUPATION",
 				GC.getTraitInfo(eTrait).getConquestOccupationReductionPercent()));
 		}
+		if (GC.getTraitInfo(eTrait).getCoastalForeignTeamGold() != 0)
+		{
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_COASTAL_TRADE",
+				GC.getTraitInfo(eTrait).getCoastalForeignTeamGold(),
+				GC.getTraitInfo(eTrait).getCoastalForeignTeamGoldCap()));
+		}
 
 		if ((GC.getTraitInfo(eTrait).getMaxGlobalBuildingProductionModifier() != 0)
 			|| (GC.getTraitInfo(eTrait).getMaxTeamBuildingProductionModifier() != 0)
@@ -13076,6 +13082,15 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer &szBuffer, CvCity& city, Com
 		iBaseCommerceRate += 100 * iFreeCityCommerce;
 	}
 
+
+	if (eCommerceType == COMMERCE_GOLD && city.getCoastalForeignTradeGold() != 0)
+	{
+		const int iTradeGold = city.getCoastalForeignTradeGold();
+		szBuffer.append(gDLL->getText("TXT_KEY_CITY_EXP_COASTAL_TRADE", iTradeGold,
+			city.getForeignTradeTeamCount(), city.getCoastalForeignTradeGoldCap()));
+		szBuffer.append(NEWLINE);
+		iBaseCommerceRate += 100 * iTradeGold;
+	}
 
 	FAssertMsg(city.getBaseCommerceRateTimes100(eCommerceType) == iBaseCommerceRate, "Base Commerce rate does not agree with actual value");
 	

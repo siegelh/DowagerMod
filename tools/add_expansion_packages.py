@@ -81,8 +81,10 @@ def trait_scalar(node: ET.Element, tag: str, value: int, schema: ET.Element) -> 
 
 
 def retarget_kfm_model(data: bytes, old: str, new: str) -> bytes:
-    header = b";Gamebryo KFM File Version 1.2.4b\n"
-    if not data.startswith(header):
+    headers = (b";Gamebryo KFM File Version 1.2.4b\n",
+               b";Gamebryo KFM File Version 2.0.0.0b\n\x01")
+    header = next((value for value in headers if data.startswith(value)), None)
+    if header is None:
         raise ValueError("Unreviewed KFM version")
     old_bytes, new_bytes = old.encode("ascii"), new.encode("ascii")
     prefix = header + struct.pack("<I", len(old_bytes)) + old_bytes

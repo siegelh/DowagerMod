@@ -1,6 +1,6 @@
 # Thirteen-Leader Expansion
 
-- Status: `in_progress`; six packages integrated; E3/E5 engine and content gated.
+- Status: `in_progress`; seven packages integrated; E2/E3/E5 engine and content gated.
 - Owner / agent: repository owner / GitHub Copilot.
 - Last updated: `2026-09-30`.
 
@@ -316,6 +316,33 @@ The complete six-package compiler reconciles 30 files. The original 59
 civilizations/flags remain protected. Manual shader/nonshader graphics,
 animation playback, AI behavior, research-overflow and save acceptance remain
 unperformed; the two leaderheads have no distinct nonshader fallback.
+
+Hiram is now integrated as the seventh package, bringing the roster to
+**66**, with six selected packages remaining. E2 computes coastal Gold from
+distinct foreign teams in actual active routes, before normal Gold modifiers.
+Domestic/same-team and duplicate-team routes are excluded. Route clearing
+and recomputation refresh Gold even if ordinary trade yield is unchanged.
+The city Gold breakdown reports team count and cap. The AI Open Borders
+valuation adds a bounded estimate of a possible new partner's marginal Gold;
+it does not fabricate a route, bypass treaty refusals or pay for the estimate.
+No city save field or persisted trait ledger is added.
+
+E2's SDK and mirrored DLL match SHA256
+`38478788ccb48afa66534dbd9bf153251ed1b3443107cf819a16ad86950b0807`.
+The native executable now passes **221,216** exact occupation/eligibility/
+cap/route cases, plus empty and INT_MAX boundaries. E2's native gate passed;
+Hiram's content gate and **266 cumulative pytest tests** also passed.
+The seven-package publication reconciles **34 files**.
+
+Parsed Hiram evidence refines the original audit: both missing `saruman.dds`
+references belong to a separate `NiTexturingProperty` export root, not the
+visible `Scene Root`. `tools\prepare_hiram_leaderhead.py` removes five
+independent non-scene roots into a new runtime NIF and verifies every retained
+block's serialized data and reference mapping. It neither substitutes a
+donor texture nor changes visible geometry, transforms or materials.
+His original NIF and complete nonshader model remain untouched; a separate
+KFM changes only the model binding, preserving all animation bytes.
+This maintenance tool also requires optional PyFFI 2.2.3.
 
 The owner-requested `.vscode\leader-expansion-overview.md` is an accessible
 summary of all thirteen planned packages, opened in VS Code. It distinguishes

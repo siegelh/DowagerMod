@@ -16935,6 +16935,8 @@ m_iMaxTeamBuildingProductionModifier(0),
 m_iMaxPlayerBuildingProductionModifier(0),
 m_iOpenBordersKnownTechResearchModifier(0),
 m_iConquestOccupationReductionPercent(0),
+m_iCoastalForeignTeamGold(0),
+m_iCoastalForeignTeamGoldCap(0),
 m_paiExtraYieldThreshold(NULL),
 m_paiTradeYieldModifier(NULL),
 m_paiGoldenAgeYieldChange(NULL),
@@ -17293,6 +17295,17 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 
 	pXML->GetChildXmlValByName(&m_iOpenBordersKnownTechResearchModifier, "iOpenBordersKnownTechResearchModifier", 0);
 	pXML->GetChildXmlValByName(&m_iConquestOccupationReductionPercent, "iConquestOccupationReductionPercent", 0);
+	pXML->GetChildXmlValByName(&m_iCoastalForeignTeamGold, "iCoastalForeignTeamGold", 0);
+	pXML->GetChildXmlValByName(&m_iCoastalForeignTeamGoldCap, "iCoastalForeignTeamGoldCap", 0);
+	if (m_iCoastalForeignTeamGold < 0 || m_iCoastalForeignTeamGold > 100 ||
+		m_iCoastalForeignTeamGoldCap < 0 || m_iCoastalForeignTeamGoldCap > 100 ||
+		((m_iCoastalForeignTeamGold == 0) != (m_iCoastalForeignTeamGoldCap == 0)))
+	{
+		CvString szError;
+		szError.Format("Trait %s: coastal trade Gold and cap must both be zero or between 1 and 100", getType());
+		gDLL->logMsg("xml.log", szError);
+		return false;
+	}
 	if (m_iOpenBordersKnownTechResearchModifier < 0 || m_iOpenBordersKnownTechResearchModifier > 100 ||
 		m_iConquestOccupationReductionPercent < 0 || m_iConquestOccupationReductionPercent > 100)
 	{

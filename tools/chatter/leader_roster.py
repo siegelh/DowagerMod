@@ -76,6 +76,7 @@ LEADERS: tuple = (
     ("Pedro II", "Brazil: Second Empire"),
     ("Mongkut", "Siam: Rama IV"),
     ("Simon Bolivar", "Gran Colombia"),
+    ("Hiram I", "Phoenicia: Tyre"),
 )
 
 

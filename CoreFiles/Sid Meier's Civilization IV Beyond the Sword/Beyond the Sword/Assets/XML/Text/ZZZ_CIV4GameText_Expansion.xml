@@ -1480,4 +1480,220 @@
     <Italian>I am Simon Bolivar. Let us speak of peace and the prosperity of our peoples.</Italian>
     <Spanish>I am Simon Bolivar. Let us speak of peace and the prosperity of our peoples.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_TYRIAN_MERCHANT_GALLEY</Tag>
+    <English>Tyrian Merchant Galley</English>
+    <French>Tyrian Merchant Galley</French>
+    <German>Tyrian Merchant Galley</German>
+    <Italian>Tyrian Merchant Galley</Italian>
+    <Spanish>Tyrian Merchant Galley</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_TYRIAN_MERCHANT_GALLEY_PEDIA</Tag>
+    <English>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</English>
+    <French>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</French>
+    <German>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</German>
+    <Italian>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</Italian>
+    <Spanish>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_UNIT_EXP_TYRIAN_MERCHANT_GALLEY_STRATEGY</Tag>
+    <English>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</English>
+    <French>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</French>
+    <German>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</German>
+    <Italian>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</Italian>
+    <Spanish>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_TYRIAN_COUNTING_HOUSE</Tag>
+    <English>Tyrian Counting House</English>
+    <French>Tyrian Counting House</French>
+    <German>Tyrian Counting House</German>
+    <Italian>Tyrian Counting House</Italian>
+    <Spanish>Tyrian Counting House</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_TYRIAN_COUNTING_HOUSE_PEDIA</Tag>
+    <English>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</English>
+    <French>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</French>
+    <German>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</German>
+    <Italian>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</Italian>
+    <Spanish>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_TYRIAN_COUNTING_HOUSE_STRATEGY</Tag>
+    <English>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</English>
+    <French>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</French>
+    <German>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</German>
+    <Italian>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</Italian>
+    <Spanish>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_HIRAM</Tag>
+    <English>Cedar and Sea</English>
+    <French>Cedar and Sea</French>
+    <German>Cedar and Sea</German>
+    <Italian>Cedar and Sea</Italian>
+    <Spanish>Cedar and Sea</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_HIRAM_SHORT</Tag>
+    <English>Cedar and Sea</English>
+    <French>Cedar and Sea</French>
+    <German>Cedar and Sea</German>
+    <Italian>Cedar and Sea</Italian>
+    <Spanish>Cedar and Sea</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_HIRAM</Tag>
+    <English>Hiram I</English>
+    <French>Hiram I</French>
+    <German>Hiram I</German>
+    <Italian>Hiram I</Italian>
+    <Spanish>Hiram I</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_LEADER_EXP_HIRAM_PEDIA</Tag>
+    <English>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</English>
+    <French>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</French>
+    <German>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</German>
+    <Italian>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</Italian>
+    <Spanish>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_PHOENICIA_TYRE_DESCRIPTION</Tag>
+    <English>Phoenicia: Tyre</English>
+    <French>Phoenicia: Tyre</French>
+    <German>Phoenicia: Tyre</German>
+    <Italian>Phoenicia: Tyre</Italian>
+    <Spanish>Phoenicia: Tyre</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_PHOENICIA_TYRE_SHORTDESCRIPTION</Tag>
+    <English>Phoenicia: Tyre</English>
+    <French>Phoenicia: Tyre</French>
+    <German>Phoenicia: Tyre</German>
+    <Italian>Phoenicia: Tyre</Italian>
+    <Spanish>Phoenicia: Tyre</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_PHOENICIA_TYRE_ADJECTIVE</Tag>
+    <English>Tyrian</English>
+    <French>Tyrian</French>
+    <German>Tyrian</German>
+    <Italian>Tyrian</Italian>
+    <Spanish>Tyrian</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CIVILIZATION_EXP_PHOENICIA_TYRE_CIVILOPEDIA</Tag>
+    <English>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</English>
+    <French>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</French>
+    <German>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</German>
+    <Italian>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</Italian>
+    <Spanish>Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_1</Tag>
+    <English>Tyre</English>
+    <French>Tyre</French>
+    <German>Tyre</German>
+    <Italian>Tyre</Italian>
+    <Spanish>Tyre</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_2</Tag>
+    <English>Ushu</English>
+    <French>Ushu</French>
+    <German>Ushu</German>
+    <Italian>Ushu</Italian>
+    <Spanish>Ushu</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_3</Tag>
+    <English>Sarepta</English>
+    <French>Sarepta</French>
+    <German>Sarepta</German>
+    <Italian>Sarepta</Italian>
+    <Spanish>Sarepta</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_4</Tag>
+    <English>Akko</English>
+    <French>Akko</French>
+    <German>Akko</German>
+    <Italian>Akko</Italian>
+    <Spanish>Akko</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_5</Tag>
+    <English>Achziv</English>
+    <French>Achziv</French>
+    <German>Achziv</German>
+    <Italian>Achziv</Italian>
+    <Spanish>Achziv</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_6</Tag>
+    <English>Dor</English>
+    <French>Dor</French>
+    <German>Dor</German>
+    <Italian>Dor</Italian>
+    <Spanish>Dor</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_7</Tag>
+    <English>Sidon</English>
+    <French>Sidon</French>
+    <German>Sidon</German>
+    <Italian>Sidon</Italian>
+    <Spanish>Sidon</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_8</Tag>
+    <English>Byblos</English>
+    <French>Byblos</French>
+    <German>Byblos</German>
+    <Italian>Byblos</Italian>
+    <Spanish>Byblos</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_9</Tag>
+    <English>Arwad</English>
+    <French>Arwad</French>
+    <German>Arwad</German>
+    <Italian>Arwad</Italian>
+    <Spanish>Arwad</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_10</Tag>
+    <English>Berytus</English>
+    <French>Berytus</French>
+    <German>Berytus</German>
+    <Italian>Berytus</Italian>
+    <Spanish>Berytus</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_11</Tag>
+    <English>Botrys</English>
+    <French>Botrys</French>
+    <German>Botrys</German>
+    <Italian>Botrys</Italian>
+    <Spanish>Botrys</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_HIRAM_12</Tag>
+    <English>Amrit</English>
+    <French>Amrit</French>
+    <German>Amrit</German>
+    <Italian>Amrit</Italian>
+    <Spanish>Amrit</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_HIRAM</Tag>
+    <English>I am Hiram I. Let us speak of peace and the prosperity of our peoples.</English>
+    <French>I am Hiram I. Let us speak of peace and the prosperity of our peoples.</French>
+    <German>I am Hiram I. Let us speak of peace and the prosperity of our peoples.</German>
+    <Italian>I am Hiram I. Let us speak of peace and the prosperity of our peoples.</Italian>
+    <Spanish>I am Hiram I. Let us speak of peace and the prosperity of our peoples.</Spanish>
+  </TEXT>
 </Civ4GameText>

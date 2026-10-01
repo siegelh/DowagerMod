@@ -8018,5 +8018,83 @@
   <CivilizationSelectionSound>AS3D_SPAIN_SELECT</CivilizationSelectionSound>
   <CivilizationActionSound>AS3D_SPAIN_ORDER</CivilizationActionSound>
 </CivilizationInfo>
+<CivilizationInfo>
+  <Type>CIVILIZATION_EXP_PHOENICIA_TYRE</Type>
+  <Description>TXT_KEY_CIVILIZATION_EXP_PHOENICIA_TYRE_DESCRIPTION</Description>
+  <ShortDescription>TXT_KEY_CIVILIZATION_EXP_PHOENICIA_TYRE_SHORTDESCRIPTION</ShortDescription>
+  <Adjective>TXT_KEY_CIVILIZATION_EXP_PHOENICIA_TYRE_ADJECTIVE</Adjective>
+  <Civilopedia>TXT_KEY_CIVILIZATION_EXP_PHOENICIA_TYRE_CIVILOPEDIA</Civilopedia>
+  <DefaultPlayerColor>PLAYERCOLOR_EXP_HIRAM</DefaultPlayerColor>
+  <ArtDefineTag>ART_DEF_CIVILIZATION_EXP_PHOENICIA_TYRE</ArtDefineTag>
+  <ArtStyleType>ARTSTYLE_GRECO_ROMAN</ArtStyleType>
+  <UnitArtStyleType>UNIT_ARTSTYLE_GRECO_ROMAN</UnitArtStyleType>
+  <bPlayable>1</bPlayable>
+  <bAIPlayable>1</bAIPlayable>
+  <Cities>
+    <City>TXT_KEY_CITY_EXP_HIRAM_1</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_2</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_3</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_4</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_5</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_6</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_7</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_8</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_9</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_10</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_11</City>
+    <City>TXT_KEY_CITY_EXP_HIRAM_12</City>
+  </Cities>
+  <Buildings>
+    <Building>
+      <BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType>
+      <BuildingType>BUILDING_EXP_TYRIAN_COUNTING_HOUSE</BuildingType>
+    </Building>
+  </Buildings>
+  <Units>
+    <Unit>
+      <UnitClassType>UNITCLASS_GALLEY</UnitClassType>
+      <UnitType>UNIT_EXP_TYRIAN_MERCHANT_GALLEY</UnitType>
+    </Unit>
+  </Units>
+  <FreeUnitClasses>
+    <FreeUnitClass>
+      <UnitClassType>UNITCLASS_SETTLER</UnitClassType>
+      <iFreeUnits>1</iFreeUnits>
+    </FreeUnitClass>
+  </FreeUnitClasses>
+  <FreeBuildingClasses>
+    <FreeBuildingClass>
+      <BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+      <bFreeBuildingClass>1</bFreeBuildingClass>
+    </FreeBuildingClass>
+  </FreeBuildingClasses>
+  <FreeTechs>
+    <FreeTech>
+      <TechType>TECH_FISHING</TechType>
+      <bFreeTech>1</bFreeTech>
+    </FreeTech>
+    <FreeTech>
+      <TechType>TECH_MINING</TechType>
+      <bFreeTech>1</bFreeTech>
+    </FreeTech>
+  </FreeTechs>
+  <DisableTechs />
+  <InitialCivics>
+    <CivicType>CIVIC_DESPOTISM</CivicType>
+    <CivicType>CIVIC_BARBARISM</CivicType>
+    <CivicType>CIVIC_TRIBALISM</CivicType>
+    <CivicType>CIVIC_DECENTRALIZATION</CivicType>
+    <CivicType>CIVIC_PAGANISM</CivicType>
+  </InitialCivics>
+  <Leaders>
+    <Leader>
+      <LeaderName>LEADER_EXP_HIRAM</LeaderName>
+      <bLeaderAvailability>1</bLeaderAvailability>
+    </Leader>
+  </Leaders>
+  <DerivativeCiv>CIVILIZATION_SPAIN</DerivativeCiv>
+  <CivilizationSelectionSound>AS3D_CARTHAGE_SELECT</CivilizationSelectionSound>
+  <CivilizationActionSound>AS3D_CARTHAGE_ORDER</CivilizationActionSound>
+</CivilizationInfo>
 </CivilizationInfos>
 </Civ4CivilizationInfos>

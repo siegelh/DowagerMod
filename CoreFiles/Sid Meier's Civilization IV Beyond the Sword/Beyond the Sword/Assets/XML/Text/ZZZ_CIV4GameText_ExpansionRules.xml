@@ -16,4 +16,20 @@
     <Italian>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</Italian>
     <Spanish>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</Spanish>
   </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_COASTAL_TRADE</Tag>
+    <English>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</English>
+    <French>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</French>
+    <German>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</German>
+    <Italian>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</Italian>
+    <Spanish>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_COASTAL_TRADE</Tag>
+    <English>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</English>
+    <French>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</French>
+    <German>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</German>
+    <Italian>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</Italian>
+    <Spanish>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</Spanish>
+  </TEXT>
 </Civ4GameText>

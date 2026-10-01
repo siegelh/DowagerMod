@@ -5,6 +5,33 @@
 
 namespace ExpansionRules
 {
+	inline int cappedContribution(int iCount, int iPerItem, int iCap)
+	{
+		assert(iCount >= 0 && iPerItem >= 0 && iCap >= 0);
+		if (iPerItem == 0)
+			return 0;
+		return iCount > iCap / iPerItem ? iCap : iCount * iPerItem;
+	}
+
+	inline int distinctForeignTeams(const int* aiTeams, int iCount, int iOwnTeam)
+	{
+		int iResult = 0;
+		for (int i = 0; i < iCount; ++i)
+		{
+			if (aiTeams[i] < 0 || aiTeams[i] == iOwnTeam)
+				continue;
+			int j = 0;
+			for (; j < i; ++j)
+			{
+				if (aiTeams[j] == aiTeams[i])
+					break;
+			}
+			if (j == i)
+				++iResult;
+		}
+		return iResult;
+	}
+
 	inline bool eligibleResearchPartner(bool bAlive, bool bSameTeam, bool bAtWar,
 		bool bOpenBorders, bool bOurVassal, bool bTheirVassal, bool bKnowsTech)
 	{

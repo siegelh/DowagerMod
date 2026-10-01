@@ -55,6 +55,12 @@ class ExpansionWriterTests(unittest.TestCase):
             retarget_kfm_model(source, "incorrect.nif", new)
         with self.assertRaisesRegex(ValueError, "version"):
             retarget_kfm_model(b"unreviewed", old, new)
+        newer = b";Gamebryo KFM File Version 2.0.0.0b\n\x01"
+        source2 = newer + struct.pack("<I", len(old)) + old.encode() + suffix
+        self.assertEqual(retarget_kfm_model(source2, old, new),
+                         newer + struct.pack("<I", len(new)) + new.encode() + suffix)
+        with self.assertRaisesRegex(ValueError, "version"):
+            retarget_kfm_model(source2.replace(b"\n\x01", b"\n\x00", 1), old, new)
 
     def test_all_reviewed_fragments_are_well_formed(self):
         for package in json.loads(MANIFEST.read_bytes())["packages"]:
@@ -222,6 +228,23 @@ class ExpansionContractTests(unittest.TestCase):
                         if "portrait_resize" in repair:
                             expected = resize_portrait_button(source, **repair["portrait_resize"])
                         self.assertEqual(current, expected)
+
+    def test_coastal_trade_package_is_capped_and_preserves_transport_role(self):
+        trait = self.entry("trait", "TRAIT_EXP_HIRAM")
+        self.assertEqual(trait.findtext("iCoastalForeignTeamGold"), "1")
+        self.assertEqual(trait.findtext("iCoastalForeignTeamGoldCap"), "3")
+        for current in self.live["trait"].iter("TraitInfo"):
+            if current.findtext("Type") != "TRAIT_EXP_HIRAM":
+                self.assertEqual(current.findtext("iCoastalForeignTeamGold", "0"), "0")
+                self.assertEqual(current.findtext("iCoastalForeignTeamGoldCap", "0"), "0")
+        ship = self.entry("unit", "UNIT_EXP_TYRIAN_MERCHANT_GALLEY")
+        self.assertEqual(tuple(ship.findtext(tag) for tag in ("iCost", "iMoves", "iCombat")),
+                         ("60", "3", "2"))
+        parent = self.entry("unit", "UNIT_GALLEY", original=True)
+        for tag in ("iCargo", "SpecialCargo", "DomainCargo", "TerrainImpassables"):
+            self.assertEqual(canonical(ship.find(tag)), canonical(parent.find(tag)))
+        house = self.entry("building", "BUILDING_EXP_TYRIAN_COUNTING_HOUSE")
+        self.assertEqual(house.findtext("iForeignTradeRouteModifier"), "25")
 
 
 if __name__ == "__main__":

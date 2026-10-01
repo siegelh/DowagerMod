@@ -821,6 +821,9 @@ public:
 	int getTradeRoutes() const;																										// Exposed to Python
 	void clearTradeRoutes();
 	void updateTradeRoutes();
+	int getForeignTradeTeamCount(TeamTypes eExtraTeam = NO_TEAM) const;
+	int getCoastalForeignTradeGold(TeamTypes eExtraTeam = NO_TEAM) const;
+	int getCoastalForeignTradeGoldCap() const;
 
 	void clearOrderQueue();																														// Exposed to Python
 	void pushOrder(OrderTypes eOrder, int iData1, int iData2, bool bSave, bool bPop, bool bAppend, bool bForce = false);		// Exposed to Python

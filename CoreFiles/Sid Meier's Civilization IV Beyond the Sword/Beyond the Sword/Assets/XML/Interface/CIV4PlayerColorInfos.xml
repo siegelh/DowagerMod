@@ -456,5 +456,11 @@
   <ColorTypeSecondary>COLOR_PLAYER_DARK_BLUE</ColorTypeSecondary>
   <TextColorType>COLOR_WHITE</TextColorType>
 </PlayerColorInfo>
+<PlayerColorInfo>
+  <Type>PLAYERCOLOR_EXP_HIRAM</Type>
+  <ColorTypePrimary>COLOR_PLAYER_DARK_PURPLE</ColorTypePrimary>
+  <ColorTypeSecondary>COLOR_YELLOW</ColorTypeSecondary>
+  <TextColorType>COLOR_WHITE</TextColorType>
+</PlayerColorInfo>
 </PlayerColorInfos>
 </Civ4PlayerColorInfos>

@@ -889,6 +889,20 @@
     <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_BOLIVAR</Text>
   </DiplomacyText>
 </Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_HIRAM</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_HIRAM</Text>
+  </DiplomacyText>
+</Response>
 </Responses>
 		</DiplomacyInfo>
 		<DiplomacyInfo>

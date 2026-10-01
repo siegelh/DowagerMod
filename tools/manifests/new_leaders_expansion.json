@@ -172,6 +172,37 @@
       ],
       "colors": ["COLOR_YELLOW", "COLOR_PLAYER_DARK_BLUE", "COLOR_WHITE"],
       "flag_note": "Original geometric yellow-blue-red independence-era tricolor abstraction. No copied arms, stars or modern state insignia; provisional identification for the 1819-1831 republic, not an exact claim for every historical flag variant."
+    },
+    {
+      "id": "HIRAM",
+      "civilization": "PHOENICIA_TYRE",
+      "name": "Hiram I",
+      "civ_name": "Phoenicia: Tyre",
+      "adjective": "Tyrian",
+      "civ_parent": "CIVILIZATION_CARTHAGE",
+      "leader_parent": "LEADER_HANNIBAL",
+      "cities": ["Tyre", "Ushu", "Sarepta", "Akko", "Achziv", "Dor", "Sidon", "Byblos", "Arwad", "Berytus", "Botrys", "Amrit"],
+      "techs": ["TECH_FISHING", "TECH_MINING"],
+      "civic": "CIVIC_FREE_MARKET",
+      "religion": "NONE",
+      "flavors": {"FLAVOR_GOLD": 7, "FLAVOR_GROWTH": 4, "FLAVOR_PRODUCTION": 2, "FLAVOR_MILITARY": 2},
+      "leader_scalars": {"iBasePeaceWeight": 6, "iMaxWarRand": 300, "iBuildUnitProb": 25},
+      "trait_name": "Cedar and Sea",
+      "trait_help": "Each coastal city gains +1 Gold per distinct foreign team represented in active trade routes, capped at +3. Same-team routes do not count; repeated routes to one team count once. Losing routes removes their eligibility.",
+      "trait_scalars": {"iCoastalForeignTeamGold": 1, "iCoastalForeignTeamGoldCap": 3},
+      "trait_xml": "",
+      "unit": {"id": "TYRIAN_MERCHANT_GALLEY", "parent": "UNIT_GALLEY", "name": "Tyrian Merchant Galley", "scalars": {"iCost": 60, "iMoves": 3}, "xml": "", "strategy": "A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection."},
+      "building": {"id": "TYRIAN_COUNTING_HOUSE", "parent": "BUILDING_MARKET", "name": "Tyrian Counting House", "scalars": {"iForeignTradeRouteModifier": 25}, "xml": "", "strategy": "A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus."},
+      "history": "Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.",
+      "source_url": "https://en.wikipedia.org/wiki/Hiram_I",
+      "art": {"folder": "Amra_Hiram_v2", "NIF": "Darius_Runtime.nif", "KFM": "Darius_Runtime.kfm", "NoShaderNIF": "Darius_NONSHADER.nif", "BackgroundKFM": "Darius_BG.kfm", "Button": "Button_Hiram.dds"},
+      "art_status": "Primary visible scene, distinct nonshader model, background, animations and 64px portrait retained. The primary file's missing saruman.dds references belonged to five separate non-scene export roots. A separate runtime NIF omits those roots and verifies exact serialized data/reference preservation for every visible scene block; no guessed donor texture is substituted. Runtime KFM changes only the model filename. Stock Galley/Market art and inherited Mediterranean citystyles are provisional.",
+      "repairs": [
+        {"source": "Art/Leaderheads/new/Amra_Hiram_v2/Darius.nif", "target": "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.nif", "sha256": "42dd29992d223ae7c7def1e250438b0d49689f4bb57a3002174ed0bee5cd6ee9", "prepared_sha256": "0b68d70a08540449cedec4f79860403df99ba92ec61af6ac92259ff6117f8be8", "evidence": "tools/prepare_hiram_leaderhead.py (PyFFI 2.2.3) verifies the sole NiAVObject export root is Scene Root and none of the other five roots is reachable from it. Both missing saruman.dds references belong to a separate NiTexturingProperty root. Every active scene block serializes identically before and after repair, including reference indices, geometry, transforms and materials."},
+        {"source": "Art/Leaderheads/new/Amra_Hiram_v2/Darius.kfm", "target": "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.kfm", "sha256": "520b43bc7b02afa76330aafbbcbb2aa59d7e7a691acd2ab4dfe561858c4b4f92", "kfm_model": {"old": "Darius.nif", "new": "Darius_Runtime.nif"}, "evidence": "Reviewed little-endian KFM 2.0.0.0b: only the length-prefixed model name changes. _darius_parent and all animation/transition bytes remain identical."}
+      ],
+      "colors": ["COLOR_PLAYER_DARK_PURPLE", "COLOR_YELLOW", "COLOR_WHITE"],
+      "flag_note": "Original geometric merchant vessel with pale sail and gold hull on Tyrian purple. Modern gameplay emblem inspired by Phoenician maritime exchange, not an attested national flag or copied ancient illustration."
     }
   ]
 }

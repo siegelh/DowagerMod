@@ -121,5 +121,36 @@
       }
     ],
     "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_HIRAM",
+    "status": "Primary visible scene, distinct nonshader model, background, animations and 64px portrait retained. The primary file's missing saruman.dds references belonged to five separate non-scene export roots. A separate runtime NIF omits those roots and verifies exact serialized data/reference preservation for every visible scene block; no guessed donor texture is substituted. Runtime KFM changes only the model filename. Stock Galley/Market art and inherited Mediterranean citystyles are provisional.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/Amra_Hiram_v2/Button_Hiram.dds": "76dbfa02acd96a6e2ae22ed75a9cb0fc87bcc0032745e79cbf177e76ae301817",
+      "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.nif": "0b68d70a08540449cedec4f79860403df99ba92ec61af6ac92259ff6117f8be8",
+      "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.kfm": "6d3e32afe6e4cf75f9809c421a466f6cc846920edaa9da33573267510e81304c",
+      "Art/Leaderheads/new/Amra_Hiram_v2/Darius_NONSHADER.nif": "843acacb94bcf69e43a389f91f6cf7b3bbd26415122741190d71b197fa191c6c",
+      "Art/Leaderheads/new/Amra_Hiram_v2/Darius_BG.kfm": "9ef65d64eee3af67309d8e775ed11caeaed436ef584ed38d2e2566a1f739dd74"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/Amra_Hiram_v2/Darius.nif",
+        "target": "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.nif",
+        "sha256": "42dd29992d223ae7c7def1e250438b0d49689f4bb57a3002174ed0bee5cd6ee9",
+        "prepared_sha256": "0b68d70a08540449cedec4f79860403df99ba92ec61af6ac92259ff6117f8be8",
+        "evidence": "tools/prepare_hiram_leaderhead.py (PyFFI 2.2.3) verifies the sole NiAVObject export root is Scene Root and none of the other five roots is reachable from it. Both missing saruman.dds references belong to a separate NiTexturingProperty root. Every active scene block serializes identically before and after repair, including reference indices, geometry, transforms and materials."
+      },
+      {
+        "source": "Art/Leaderheads/new/Amra_Hiram_v2/Darius.kfm",
+        "target": "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.kfm",
+        "sha256": "520b43bc7b02afa76330aafbbcbb2aa59d7e7a691acd2ab4dfe561858c4b4f92",
+        "kfm_model": {
+          "old": "Darius.nif",
+          "new": "Darius_Runtime.nif"
+        },
+        "evidence": "Reviewed little-endian KFM 2.0.0.0b: only the length-prefixed model name changes. _darius_parent and all animation/transition bytes remain identical."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
   }
 ]

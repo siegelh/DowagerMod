@@ -427,5 +427,11 @@
   <Path>Art/Interface/TeamColor/FlagDECAL_EXP_BOLIVAR.dds</Path>
   <bWhiteFlag>1</bWhiteFlag>
 </CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_PHOENICIA_TYRE</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_HIRAM.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_HIRAM.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
 </CivilizationArtInfos>
 </Civ4ArtDefines>

@@ -4257,6 +4257,8 @@ public:
 
 	int getOpenBordersKnownTechResearchModifier() const { return m_iOpenBordersKnownTechResearchModifier; }
 	int getConquestOccupationReductionPercent() const { return m_iConquestOccupationReductionPercent; }
+	int getCoastalForeignTeamGold() const { return m_iCoastalForeignTeamGold; }
+	int getCoastalForeignTeamGoldCap() const { return m_iCoastalForeignTeamGoldCap; }
 
 	int getHealth() const;				// Exposed to Python
 	int getHappiness() const;				// Exposed to Python
@@ -4316,6 +4318,8 @@ protected:
 
 	int m_iOpenBordersKnownTechResearchModifier;
 	int m_iConquestOccupationReductionPercent;
+	int m_iCoastalForeignTeamGold;
+	int m_iCoastalForeignTeamGoldCap;
 
 	// Arrays
 

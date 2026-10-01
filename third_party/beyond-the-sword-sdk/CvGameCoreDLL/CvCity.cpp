@@ -3,6 +3,7 @@
 #include "CvGameCoreDLL.h"
 #include "CvGlobals.h"
 #include "CvCity.h"
+#include "CvExpansionRules.h"
 #include "CvArea.h"
 #include "CvGameAI.h"
 #include "CvMap.h"
@@ -9302,6 +9303,10 @@ int CvCity::getBaseCommerceRateTimes100(CommerceTypes eIndex) const
 	// Improvement-driven city commerce (worked tiles and in-BFC tiles) from traits/civics.
 	iBaseCommerceRate += 100 * getImprovementCityCommerceFromTraitsAndCivics(eIndex, true);
 	iBaseCommerceRate += 100 * getImprovementCityCommerceFromTraitsAndCivics(eIndex, false);
+	if (eIndex == COMMERCE_GOLD)
+	{
+		iBaseCommerceRate += 100 * getCoastalForeignTradeGold();
+	}
 
 	iBaseCommerceRate += 100 * (getBuildingCommerce(eIndex) + getSpecialistCommerce(eIndex) + getReligionCommerce(eIndex) + getCorporationCommerce(eIndex) + GET_PLAYER(getOwnerINLINE()).getFreeCityCommerce(eIndex));
 
@@ -11866,10 +11871,61 @@ int CvCity::getTradeRoutes() const
 }
 
 
+int CvCity::getForeignTradeTeamCount(TeamTypes eExtraTeam) const
+{
+	std::vector<int> aiTeams;
+	for (int iRoute = 0; iRoute < GC.getDefineINT("MAX_TRADE_ROUTES"); ++iRoute)
+	{
+		CvCity* pPartner = getTradeCity(iRoute);
+		if (pPartner != NULL && GET_PLAYER(pPartner->getOwnerINLINE()).isAlive())
+		{
+			aiTeams.push_back(pPartner->getTeam());
+		}
+	}
+	if (eExtraTeam != NO_TEAM)
+	{
+		aiTeams.push_back(eExtraTeam);
+	}
+	return ExpansionRules::distinctForeignTeams(aiTeams.empty() ? NULL : &aiTeams[0],
+		(int)aiTeams.size(), getTeam());
+}
+
+int CvCity::getCoastalForeignTradeGoldCap() const
+{
+	if (getOwnerINLINE() == NO_PLAYER)
+		return 0;
+	int iCap = 0;
+	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
+	{
+		if (hasTrait((TraitTypes)iTrait))
+			iCap += GC.getTraitInfo((TraitTypes)iTrait).getCoastalForeignTeamGoldCap();
+	}
+	return iCap;
+}
+
+int CvCity::getCoastalForeignTradeGold(TeamTypes eExtraTeam) const
+{
+	if (getCoastalForeignTradeGoldCap() == 0 || !isCoastal(GC.getMIN_WATER_SIZE_FOR_OCEAN()))
+		return 0;
+	const int iTeams = getForeignTradeTeamCount(eExtraTeam);
+	int iGold = 0;
+	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
+	{
+		if (hasTrait((TraitTypes)iTrait))
+		{
+			const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)iTrait);
+			iGold += ExpansionRules::cappedContribution(iTeams,
+				kTrait.getCoastalForeignTeamGold(), kTrait.getCoastalForeignTeamGoldCap());
+		}
+	}
+	return iGold;
+}
+
 void CvCity::clearTradeRoutes()
 {
 	CvCity* pLoopCity;
 	int iI;
+	const int iOldForeignGold = getCoastalForeignTradeGold();
 
 	for (iI = 0; iI < GC.getDefineINT("MAX_TRADE_ROUTES"); iI++)
 	{
@@ -11881,6 +11937,10 @@ void CvCity::clearTradeRoutes()
 		}
 
 		m_paTradeCities[iI].reset();
+	}
+	if (iOldForeignGold != 0)
+	{
+		updateCommerce(COMMERCE_GOLD);
 	}
 }
 
@@ -11969,6 +12029,11 @@ void CvCity::updateTradeRoutes()
 	}
 
 	SAFE_DELETE_ARRAY(paiBestValue);
+	// A new partner team can change direct Gold without changing trade yield.
+	if (getCoastalForeignTradeGold() != 0)
+	{
+		updateCommerce(COMMERCE_GOLD);
+	}
 }
 
 

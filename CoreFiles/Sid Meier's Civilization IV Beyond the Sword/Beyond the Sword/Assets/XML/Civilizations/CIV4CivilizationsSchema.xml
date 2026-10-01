@@ -453,6 +453,8 @@
 		<element type="iMaxPlayerBuildingProductionModifier"/>
 		<element type="iOpenBordersKnownTechResearchModifier" minOccurs="0"/>
 		<element type="iConquestOccupationReductionPercent" minOccurs="0"/>
+		<element type="iCoastalForeignTeamGold" minOccurs="0"/>
+		<element type="iCoastalForeignTeamGoldCap" minOccurs="0"/>
 		<element type="ExtraYieldThresholds"/>
 		<element type="TradeYieldModifiers"/>
 		<element type="GoldenAgeYieldChanges" minOccurs="0"/>
@@ -477,6 +479,8 @@
 	</ElementType>
 	<ElementType name="iOpenBordersKnownTechResearchModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iConquestOccupationReductionPercent" content="textOnly" dt:type="int"/>
+	<ElementType name="iCoastalForeignTeamGold" content="textOnly" dt:type="int"/>
+	<ElementType name="iCoastalForeignTeamGoldCap" content="textOnly" dt:type="int"/>
 	<ElementType name="Adjective" content="textOnly"/>
 	<ElementType name="DefaultPlayerColor" content="textOnly"/>
 	<ElementType name="FlagTexture" content="textOnly"/>

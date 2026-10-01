@@ -6,11 +6,13 @@
 Each civilization has one intended leader, one unique unit, one unique building,
 and one signature trait. This does not increase simultaneous player slots.
 
-Six packages are integrated: **Piye, Stefan Dusan, Matthias Corvinus,
-Pedro II, Mongkut, and Simon Bolivar**. The current selectable roster is **65**.
-The other seven packages remain in progress. Mongkut's diplomatic-research
+Seven packages are integrated: **Piye, Stefan Dusan, Matthias Corvinus,
+Pedro II, Mongkut, Simon Bolivar, and Hiram I**. The current selectable roster is **66**.
+The other six packages remain in progress. Mongkut's diplomatic-research
 and Bolivar's conquest-occupation rules are wired into their civilizations;
 their native support has compiled and the content has passed its gate.
+Hiram's coastal trade-team Gold rule, city breakdown and AI treaty-value
+estimate are integrated too; the bonus pays only for actual active routes.
 
 All balance numbers are initial targets, not playtested conclusions.
 Leaderheads and supporting visuals are provisional until in-game acceptance.
@@ -120,6 +122,9 @@ Mongkut's missing eye texture is restored from an identical bundled stock
 texture. Bolivar retains his portrait, now in a valid 64x64 runtime button,
 and his head-animation data. His background repair preserves the model's
 camera/mesh orientation while omitting animation targets absent from that model.
+Hiram's visible scene is preserved exactly in a runtime model that removes
+five unrelated export roots. Those roots, not his visible meshes, contained
+the unresolved texture references. His separate nonshader model is retained.
 
 Ancient/traditional biographies, especially David's, will distinguish
 historical evidence from literary tradition. No modern-state analogy or new
