@@ -176,6 +176,28 @@ class ExpansionContractTests(unittest.TestCase):
                     added_count = len(improvements) * (2 if kind == "improvement" else 1)
                 self.assertEqual(len(new), len(old) + added_count)
 
+    def test_expansion_text_uses_its_distinct_primary_color(self):
+        for package in self.document["packages"]:
+            with self.subTest(package=package["id"]):
+                primary = "COLOR_PLAYER_EXP_" + package["id"]
+                self.assertEqual(package["colors"][0], primary)
+                self.assertEqual(package["colors"][2], primary)
+                color = self.entry("color", "PLAYERCOLOR_EXP_" + package["id"])
+                self.assertEqual(color.findtext("ColorTypePrimary"), primary)
+                self.assertEqual(color.findtext("TextColorType"), primary)
+                value = self.entry("color_value", primary)
+                rgba = tuple(float(value.findtext(tag)) for tag in ("fRed", "fGreen", "fBlue", "fAlpha"))
+                self.assertEqual(rgba[:3], tuple(package["primary_rgb"]))
+                self.assertEqual(rgba[3], 1.0)
+                self.assertNotEqual(rgba[:3], (1.0, 1.0, 1.0))
+        playable_colors = []
+        for civ in self.live["civ"].iter("CivilizationInfo"):
+            if civ.findtext("bPlayable") == "1":
+                color = self.entry("color", civ.findtext("DefaultPlayerColor"))
+                value = self.entry("color_value", color.findtext("ColorTypePrimary"))
+                playable_colors.append(tuple(float(value.findtext(tag)) for tag in ("fRed", "fGreen", "fBlue")))
+        self.assertEqual(len(playable_colors), len(set(playable_colors)))
+
     def test_last_packages_have_exact_siege_cavalry_and_worked_rule_contracts(self):
         siege = self.entry("unit", "UNIT_EXP_ASSYRIAN_SIEGE_TOWER")
         self.assertEqual([siege.findtext(tag) for tag in ("iCost", "iCombat", "iBombardRate", "iCityAttack", "iCollateralDamage")],

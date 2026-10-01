@@ -92,7 +92,12 @@ slots instead of his bundled stock-Stalin fallback. Do not call reused primary
 models certified nonshader fallbacks.
 
 Check new flags, normal cities in every era, colors under accessibility
-simulations and representative UU/UB visuals. Save/reload each live mechanic,
+simulations and representative UU/UB visuals. Verify all thirteen expansion
+scoreboard names and city nationality bars use their assigned civilization
+colors rather than all-white text; compare against territory/minimap colors
+and check legibility on the actual HUD background. Primary RGB values are
+distinct, but numerical uniqueness does not prove perceptual separation.
+Save/reload each live mechanic,
 including cap surplus and pillaged markers. Investigate an old save separately;
 append-only IDs and unchanged city serialization do **not** prove compatibility.
 In a fresh two-client game, repeat placement, capture, garrison, research,
