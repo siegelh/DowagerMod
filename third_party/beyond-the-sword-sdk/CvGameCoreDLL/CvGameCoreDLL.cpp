@@ -8,11 +8,15 @@
 #include "FProfiler.h"
 #include "CvDLLInterfaceIFaceBase.h"
 #include <stdarg.h>
+#include <DbgHelp.h>
 
 namespace
 {
+	const int MAX_CRASH_DUMP_FILES = 3;
+	const ULONGLONG MAX_CRASH_DUMP_BYTES = 250ULL * 1024ULL * 1024ULL;
 	char g_szDllTracePath[MAX_PATH] = "";
 	char g_szDllTraceDir[MAX_PATH] = "";
+	char g_szCrashDumpDir[MAX_PATH] = "";
 	volatile LONG g_iDllTraceSequence = 0;
 	LPTOP_LEVEL_EXCEPTION_FILTER g_pPreviousUnhandledExceptionFilter = NULL;
 	bool g_bDllTraceEnabled = false;
@@ -133,6 +137,218 @@ namespace
 		}
 	}
 
+	bool createDirectoryIfMissing(const char* pszPath)
+	{
+		if (pszPath == NULL || pszPath[0] == '\0')
+		{
+			return false;
+		}
+
+		if (CreateDirectoryA(pszPath, NULL))
+		{
+			return true;
+		}
+
+		return GetLastError() == ERROR_ALREADY_EXISTS;
+	}
+
+	void initCrashDumpDirectory()
+	{
+		char szLocalAppData[MAX_PATH];
+		DWORD iLength = GetEnvironmentVariableA("LOCALAPPDATA", szLocalAppData, sizeof(szLocalAppData));
+		if (iLength == 0 || iLength >= sizeof(szLocalAppData))
+		{
+			g_szCrashDumpDir[0] = '\0';
+			return;
+		}
+
+		szLocalAppData[sizeof(szLocalAppData) - 1] = '\0';
+
+		char szDowagerDir[MAX_PATH];
+		char szReportsDir[MAX_PATH];
+		_snprintf(szDowagerDir, sizeof(szDowagerDir) - 1, "%s\\DowagerMod", szLocalAppData);
+		szDowagerDir[sizeof(szDowagerDir) - 1] = '\0';
+		_snprintf(szReportsDir, sizeof(szReportsDir) - 1, "%s\\CrashReports", szDowagerDir);
+		szReportsDir[sizeof(szReportsDir) - 1] = '\0';
+		_snprintf(g_szCrashDumpDir, sizeof(g_szCrashDumpDir) - 1, "%s\\Pending", szReportsDir);
+		g_szCrashDumpDir[sizeof(g_szCrashDumpDir) - 1] = '\0';
+
+		if (!createDirectoryIfMissing(szDowagerDir)
+			|| !createDirectoryIfMissing(szReportsDir)
+			|| !createDirectoryIfMissing(g_szCrashDumpDir))
+		{
+			g_szCrashDumpDir[0] = '\0';
+		}
+	}
+
+	bool scanCrashDumps(
+		int& iCount,
+		ULONGLONG& iTotalBytes,
+		char* pszOldestPath,
+		size_t iOldestPathSize)
+	{
+		iCount = 0;
+		iTotalBytes = 0;
+		if (pszOldestPath != NULL && iOldestPathSize > 0)
+		{
+			pszOldestPath[0] = '\0';
+		}
+
+		if (g_szCrashDumpDir[0] == '\0')
+		{
+			return false;
+		}
+
+		char szPattern[MAX_PATH];
+		_snprintf(szPattern, sizeof(szPattern) - 1, "%s\\*.dmp", g_szCrashDumpDir);
+		szPattern[sizeof(szPattern) - 1] = '\0';
+
+		WIN32_FIND_DATAA kFindData;
+		HANDLE hFind = FindFirstFileA(szPattern, &kFindData);
+		if (hFind == INVALID_HANDLE_VALUE)
+		{
+			return true;
+		}
+
+		FILETIME kOldestWriteTime;
+		kOldestWriteTime.dwLowDateTime = 0;
+		kOldestWriteTime.dwHighDateTime = 0;
+		bool bHaveOldest = false;
+
+		do
+		{
+			if ((kFindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0)
+			{
+				continue;
+			}
+
+			++iCount;
+			ULARGE_INTEGER kFileSize;
+			kFileSize.LowPart = kFindData.nFileSizeLow;
+			kFileSize.HighPart = kFindData.nFileSizeHigh;
+			iTotalBytes += kFileSize.QuadPart;
+
+			if (!bHaveOldest || CompareFileTime(&kFindData.ftLastWriteTime, &kOldestWriteTime) < 0)
+			{
+				kOldestWriteTime = kFindData.ftLastWriteTime;
+				bHaveOldest = true;
+				if (pszOldestPath != NULL && iOldestPathSize > 0)
+				{
+					_snprintf(pszOldestPath, iOldestPathSize - 1, "%s\\%s", g_szCrashDumpDir, kFindData.cFileName);
+					pszOldestPath[iOldestPathSize - 1] = '\0';
+				}
+			}
+		}
+		while (FindNextFileA(hFind, &kFindData));
+
+		FindClose(hFind);
+		return true;
+	}
+
+	void pruneCrashDumps()
+	{
+		if (g_szCrashDumpDir[0] == '\0')
+		{
+			return;
+		}
+
+		for (;;)
+		{
+			int iCount = 0;
+			ULONGLONG iTotalBytes = 0;
+			char szOldestPath[MAX_PATH];
+			if (!scanCrashDumps(iCount, iTotalBytes, szOldestPath, sizeof(szOldestPath)))
+			{
+				return;
+			}
+			if (iCount <= MAX_CRASH_DUMP_FILES && iTotalBytes <= MAX_CRASH_DUMP_BYTES)
+			{
+				return;
+			}
+			if (szOldestPath[0] == '\0' || !DeleteFileA(szOldestPath))
+			{
+				return;
+			}
+		}
+	}
+
+	bool writeCrashDump(EXCEPTION_POINTERS* pExceptionInfo, char* pszDumpPath, size_t iDumpPathSize, DWORD& iError)
+	{
+		iError = ERROR_SUCCESS;
+		if (pszDumpPath != NULL && iDumpPathSize > 0)
+		{
+			pszDumpPath[0] = '\0';
+		}
+		if (pExceptionInfo == NULL || g_szCrashDumpDir[0] == '\0')
+		{
+			iError = ERROR_INVALID_PARAMETER;
+			return false;
+		}
+
+		SYSTEMTIME kTime;
+		GetLocalTime(&kTime);
+		char szDumpPath[MAX_PATH];
+		_snprintf(
+			szDumpPath,
+			sizeof(szDumpPath) - 1,
+			"%s\\DowagerMod-Crash-%04d%02d%02d-%02d%02d%02d-%03d-pid%lu.dmp",
+			g_szCrashDumpDir,
+			kTime.wYear,
+			kTime.wMonth,
+			kTime.wDay,
+			kTime.wHour,
+			kTime.wMinute,
+			kTime.wSecond,
+			kTime.wMilliseconds,
+			GetCurrentProcessId());
+		szDumpPath[sizeof(szDumpPath) - 1] = '\0';
+
+		HANDLE hDump = CreateFileA(
+			szDumpPath,
+			GENERIC_WRITE,
+			FILE_SHARE_READ,
+			NULL,
+			CREATE_NEW,
+			FILE_ATTRIBUTE_NORMAL,
+			NULL);
+		if (hDump == INVALID_HANDLE_VALUE)
+		{
+			iError = GetLastError();
+			return false;
+		}
+
+		MINIDUMP_EXCEPTION_INFORMATION kExceptionInfo;
+		kExceptionInfo.ThreadId = GetCurrentThreadId();
+		kExceptionInfo.ExceptionPointers = pExceptionInfo;
+		kExceptionInfo.ClientPointers = FALSE;
+
+		BOOL bWroteDump = MiniDumpWriteDump(
+			GetCurrentProcess(),
+			GetCurrentProcessId(),
+			hDump,
+			MiniDumpNormal,
+			&kExceptionInfo,
+			NULL,
+			NULL);
+		if (!bWroteDump)
+		{
+			iError = GetLastError();
+		}
+		CloseHandle(hDump);
+
+		if (!bWroteDump)
+		{
+			DeleteFileA(szDumpPath);
+			return false;
+		}
+
+		if (pszDumpPath != NULL && iDumpPathSize > 0)
+		{
+			lstrcpynA(pszDumpPath, szDumpPath, (int)iDumpPathSize);
+		}
+		return true;
+	}
+
 	LONG WINAPI CvGameCoreUnhandledExceptionFilter(EXCEPTION_POINTERS* pExceptionInfo)
 	{
 		if (pExceptionInfo != NULL && pExceptionInfo->ExceptionRecord != NULL)
@@ -150,6 +366,17 @@ namespace
 		else
 		{
 			dllTrace("CRASH", "Unhandled exception with no exception record");
+		}
+
+		char szDumpPath[MAX_PATH];
+		DWORD iDumpError = ERROR_SUCCESS;
+		if (writeCrashDump(pExceptionInfo, szDumpPath, sizeof(szDumpPath), iDumpError))
+		{
+			dllTrace("CRASH", "Minidump written path=%s", szDumpPath);
+		}
+		else
+		{
+			dllTrace("CRASH", "Minidump failed error=%lu", iDumpError);
 		}
 
 		return EXCEPTION_CONTINUE_SEARCH;
@@ -291,6 +518,8 @@ BOOL APIENTRY DllMain(HANDLE hModule,
 		// The DLL is being loaded into the virtual address space of the current process as a result of the process starting up 
 		OutputDebugString("DLL_PROCESS_ATTACH\n");
 		initDllTracePath((HMODULE)hModule);
+		initCrashDumpDirectory();
+		pruneCrashDumps();
 		refreshDllTraceSettings();
 		resetDllTraceLog();
 		g_pPreviousUnhandledExceptionFilter = SetUnhandledExceptionFilter(CvGameCoreUnhandledExceptionFilter);

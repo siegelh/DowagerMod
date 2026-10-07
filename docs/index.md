@@ -39,6 +39,7 @@
 
 - [`TESTING_WORKFLOW.md`](TESTING_WORKFLOW.md) - `Current`. Local XML and DLL validation flow. Matches [`../tools/test_gate.ps1`](../tools/test_gate.ps1), [`../tools/test_xml.ps1`](../tools/test_xml.ps1), and [`../tools/test_full.ps1`](../tools/test_full.ps1).
 - [`MANUAL_SMOKE_TESTS.md`](MANUAL_SMOKE_TESTS.md) - `Current`. Minimum gameplay smoke-test runbook for gameplay-affecting changes.
+- [`CRASH_REPORTING.md`](CRASH_REPORTING.md) - `Current`. One-command post-crash save, minidump, log, payload-fingerprint, ZIP, and GitHub issue workflow.
 - [`DLL_TRACING_WORKFLOW.md`](DLL_TRACING_WORKFLOW.md) - `Current`. DLL tracing and logging workflow for [`../third_party/beyond-the-sword-sdk/CvGameCoreDLL/`](../third_party/beyond-the-sword-sdk/CvGameCoreDLL/).
 - [`GLYPH_DIAGNOSTICS.md`](GLYPH_DIAGNOSTICS.md) - `Current`. In-game and offline `GameFont` glyph triage workflow.
 - [`CIV4_UNIT_ART_CRASH_PLAYBOOK.md`](CIV4_UNIT_ART_CRASH_PLAYBOOK.md) - `Current`. Art/XML crash triage workflow.
@@ -50,6 +51,7 @@
 ### Process / Planning
 
 - [`plans/active/2026-09-30-new-leaders-expansion.md`](plans/active/2026-09-30-new-leaders-expansion.md) - `Implemented; manual acceptance pending`. Thirteen added civilization packages (72 selectable total), retained provisional art, capped native mechanics and two civ-gated Worker improvements. Isolated local branch; not approved for deployment.
+- [`plans/active/2026-10-07-crash-reporting.md`](plans/active/2026-10-07-crash-reporting.md) - `Implemented; manual runtime acceptance pending`. Bounded crash-only minidumps and one-command post-crash GitHub issue workflow for expansion playtests.
 - [`LEADER_OVERHAUL_PLAN_OF_RECORD.md`](LEADER_OVERHAUL_PLAN_OF_RECORD.md) - `Current process doc`. Overhaul methodology and guardrails. Use it with live XML/DLL verification, not as architecture truth.
 - [`plans/README.md`](plans/README.md) - `Current`. Standard location, naming, and expectations for checked-in plan docs.
 - [`plans/active/TEMPLATE.md`](plans/active/TEMPLATE.md) - `Current`. Reusable task plan template for non-trivial agent work.

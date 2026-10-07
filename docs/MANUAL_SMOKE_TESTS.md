@@ -15,6 +15,34 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
 
 ## Extra checks by change type
 
+### Crash reporting workflow
+
+1. Continue launching Civ4 normally through Steam; no alternate game launcher
+   is part of the workflow.
+2. After a representative crash, do not relaunch Civ4 before collection.
+3. Run `Report DowagerMod Crash.bat`.
+4. Confirm the suggested save comes from
+   `<Documents>\My Games\Beyond the Sword\Saves\multi\auto` when a multiplayer
+   autosave exists, including when Documents is redirected to OneDrive.
+5. Confirm the script shows filename, category, modified time, age and size,
+   and permits another save or no save.
+6. Confirm output is written only under
+   `%LOCALAPPDATA%\DowagerMod\CrashReports`, not the repository.
+7. Inspect `manifest.json`, `report.md`, `issue-body.md`, sanitized logs, save,
+   and minidump in the ZIP. Verify profile paths, emails, IPs and token-shaped
+   values are absent from text evidence.
+8. With authenticated `gh`, confirm a `bug` issue is created with the expected
+   branch/commit, runtime hashes, manifest comparison, evidence inventory and
+   `PENDING` attachment marker.
+9. Confirm Explorer selects the ZIP and the final instruction explicitly says
+   to drag it onto the issue, wait for upload, and click Comment.
+10. Without authenticated `gh`, confirm the ZIP is still produced and the
+    browser/clipboard fallback gives complete submission instructions.
+11. Confirm repeated synthetic incidents retain at most three ZIPs and three
+    pending dumps within their 250 MB category caps.
+12. Confirm ordinary gameplay has no generic/city trace enabled and creates no
+    minidump unless an unhandled exception occurs.
+
 ### Thirteen-leader expansion acceptance (not yet performed)
 
 Use a fresh game and identical source/DLL payloads on both multiplayer clients.
