@@ -5497,6 +5497,16 @@ void CvTeam::processTech(TechTypes eTech, int iChange)
 		if (GET_PLAYER((PlayerTypes)iI).getTeam() == getID())
 		{
 			GET_PLAYER((PlayerTypes)iI).updateCorporation();
+			int iCityLoop;
+			for (CvCity* pWorkedCity = GET_PLAYER((PlayerTypes)iI).firstCity(&iCityLoop);
+				pWorkedCity != NULL; pWorkedCity = GET_PLAYER((PlayerTypes)iI).nextCity(&iCityLoop))
+			{
+				if (pWorkedCity->hasWorkedPlotRules())
+				{
+					pWorkedCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
+					pWorkedCity->AI_setAssignWorkDirty(true);
+				}
+			}
 		}
 	}
 }
@@ -6098,4 +6108,3 @@ bool CvTeam::hasLaunched() const
 	}
 	return false;
 }
-

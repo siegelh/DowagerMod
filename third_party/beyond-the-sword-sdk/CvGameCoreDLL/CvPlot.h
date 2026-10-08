@@ -7,6 +7,7 @@
 
 //#include "CvStructs.h"
 #include "LinkedList.h"
+#include "CvExpansionRules.h"
 #include <bitset>
 
 #pragma warning( disable: 4251 )		// needs to have dll-interface to be used by clients of class
@@ -173,6 +174,8 @@ public:
 
 	// Great Person landmark support.
 	bool canBuildLandmark(ImprovementTypes eImprovement, PlayerTypes ePlayer, bool bTestVisible) const;
+	int getCityBuildCount(ImprovementTypes eImprovement) const;
+	ExpansionRules::CityBuildFailure getCityBuildFailure(ImprovementTypes eImprovement, PlayerTypes ePlayer, RouteTypes eProposedRoute = NO_ROUTE) const;
 
 	// Grand Colosseum is a legacy (pre-landmark-framework) Great Person
 	// improvement; it gets only a same-player minimum plot distance rule,

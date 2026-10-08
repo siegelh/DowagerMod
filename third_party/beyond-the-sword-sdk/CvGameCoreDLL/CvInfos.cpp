@@ -12020,6 +12020,11 @@ m_bLandmarkRequiresCoastalLand(false),
 m_bLandmarkRequiresPeak(false),
 m_bLandmarkStateReligionGated(false),
 m_iLandmarkStateReligion(NO_RELIGION),
+m_eBuildCivilization(NO_CIVILIZATION),
+m_iCityBuildGroup(0),
+m_iCityBuildCap(0),
+m_iCityBuildCondition(ExpansionRules::NO_CITY_BUILD_CONDITION),
+m_bCityBuildPillaged(false),
 m_bNeutralWorldWonder(false),
 m_iNeutralWorldWonderCulturePercent(0),
 m_iNeutralWorldWonderResearchPercent(0),
@@ -12490,6 +12495,13 @@ void CvImprovementInfo::read(FDataStreamBase* stream)
 	uint uiFlag=0;
 	stream->Read(&uiFlag);		// flag for expansion
 
+	m_szBuildCivilization.clear();
+	m_eBuildCivilization = NO_CIVILIZATION;
+	m_iCityBuildGroup = 0;
+	m_iCityBuildCap = 0;
+	m_iCityBuildCondition = ExpansionRules::NO_CITY_BUILD_CONDITION;
+	m_bCityBuildPillaged = false;
+
 	m_bNeutralWorldWonder = false;
 	m_iNeutralWorldWonderCulturePercent = 0;
 	m_iNeutralWorldWonderResearchPercent = 0;
@@ -12554,6 +12566,15 @@ void CvImprovementInfo::read(FDataStreamBase* stream)
 	if (uiFlag >= 3)
 	{
 		stream->Read(&m_bLandmarkRequiresPeak);
+	}
+
+	if (uiFlag >= 4)
+	{
+		stream->ReadString(m_szBuildCivilization);
+		stream->Read(&m_iCityBuildGroup);
+		stream->Read(&m_iCityBuildCap);
+		stream->Read(&m_iCityBuildCondition);
+		stream->Read(&m_bCityBuildPillaged);
 	}
 
 	stream->ReadString(m_szArtDefineTag);
@@ -12635,7 +12656,7 @@ void CvImprovementInfo::write(FDataStreamBase* stream)
 {
 	CvInfoBase::write(stream);
 
-	uint uiFlag=3;
+	uint uiFlag=4;
 	stream->Write(uiFlag);		// flag for expansion
 
 	stream->Write(m_iAdvancedStartCost);
@@ -12686,6 +12707,12 @@ void CvImprovementInfo::write(FDataStreamBase* stream)
 	stream->Write(m_iNeutralWorldWonderLandUnitExperience);
 
 	stream->Write(m_bLandmarkRequiresPeak);
+
+	stream->WriteString(m_szBuildCivilization);
+	stream->Write(m_iCityBuildGroup);
+	stream->Write(m_iCityBuildCap);
+	stream->Write(m_iCityBuildCondition);
+	stream->Write(m_bCityBuildPillaged);
 
 	stream->WriteString(m_szArtDefineTag);
 
@@ -12840,6 +12867,32 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iNeutralWorldWonderCivicUpkeepPercent, "iNeutralWorldWonderCivicUpkeepPercent", 0);
 	pXML->GetChildXmlValByName(&m_iNeutralWorldWonderLandUnitExperience, "iNeutralWorldWonderLandUnitExperience", 0);
 
+	pXML->GetChildXmlValByName(m_szBuildCivilization, "BuildCivilization", "");
+	if (m_szBuildCivilization == "NONE")
+		m_szBuildCivilization.clear();
+	pXML->GetChildXmlValByName(&m_iCityBuildGroup, "iCityBuildGroup", 0);
+	pXML->GetChildXmlValByName(&m_iCityBuildCap, "iCityBuildCap", 0);
+	pXML->GetChildXmlValByName(&m_bCityBuildPillaged, "bCityBuildPillaged", false);
+	pXML->GetChildXmlValByName(szTextVal, "CityBuildCondition", "NONE");
+	m_iCityBuildCondition = szTextVal == "NONE" ? ExpansionRules::NO_CITY_BUILD_CONDITION :
+		szTextVal == "RIVER_OR_IRRIGATED" ? ExpansionRules::RIVER_OR_IRRIGATED :
+		szTextVal == "DESERT_WITH_ROAD" ? ExpansionRules::DESERT_WITH_ROAD : -1;
+	const bool bNeutralCityBuild = m_szBuildCivilization.empty() &&
+		m_iCityBuildGroup == 0 && m_iCityBuildCap == 0 &&
+		m_iCityBuildCondition == ExpansionRules::NO_CITY_BUILD_CONDITION && !m_bCityBuildPillaged;
+	if (!bNeutralCityBuild && (m_szBuildCivilization.empty() ||
+		m_iCityBuildGroup <= 0 || m_iCityBuildCap <= 0 || m_iCityBuildCap > 100 ||
+		m_iCityBuildCondition <= ExpansionRules::NO_CITY_BUILD_CONDITION ||
+		m_iCityBuildCondition > ExpansionRules::DESERT_WITH_ROAD ||
+		m_bLandmark || m_bPermanent || m_bWater || m_bActsAsCity))
+	{
+		CvString error;
+		error.Format("%s: invalid civilization improvement build rules", getType());
+		gDLL->logMsg("xml.log", error.c_str());
+		gDLL->MessageBox(error.c_str(), "XML Load Error");
+		return false;
+	}
+
 	pXML->SetVariableListTagPair(&m_pbTerrainMakesValid, "TerrainMakesValids", sizeof(GC.getTerrainInfo((TerrainTypes)0)), GC.getNumTerrainInfos());
 	pXML->SetVariableListTagPair(&m_pbFeatureMakesValid, "FeatureMakesValids", sizeof(GC.getFeatureInfo((FeatureTypes)0)), GC.getNumFeatureInfos());
 
@@ -12971,6 +13024,52 @@ bool CvImprovementInfo::readPass2(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(szTextVal, "ImprovementUpgrade");
 	m_iImprovementUpgrade = GC.getInfoTypeForString(szTextVal);
 
+	return true;
+}
+
+bool CvImprovementInfo::resolveCityBuildRules()
+{
+	if (m_iCityBuildGroup == 0)
+		return true;
+	const int iCiv = GC.getInfoTypeForString(m_szBuildCivilization, true);
+	bool bValid = iCiv >= 0 && iCiv < GC.getNumCivilizationInfos() &&
+		m_szBuildCivilization == GC.getCivilizationInfo((CivilizationTypes)iCiv).getType();
+	int iIntact = 0, iPillaged = 0;
+	for (int i = 0; i < GC.getNumImprovementInfos(); ++i)
+	{
+		const CvImprovementInfo& other = GC.getImprovementInfo((ImprovementTypes)i);
+		if (other.getCityBuildGroup() != m_iCityBuildGroup)
+			continue;
+		bValid = bValid && other.m_szBuildCivilization == m_szBuildCivilization &&
+			other.getCityBuildCap() == m_iCityBuildCap &&
+			other.getCityBuildCondition() == m_iCityBuildCondition &&
+			other.getImprovementUpgrade() == NO_IMPROVEMENT;
+		if (other.isCityBuildPillaged())
+		{
+			++iPillaged;
+			bValid = bValid && other.getImprovementPillage() == i;
+			for (int y = 0; y < NUM_YIELD_TYPES; ++y)
+				bValid = bValid && other.getYieldChange(y) == 0;
+			bValid = bValid && !other.isCarriesIrrigation();
+		}
+		else
+		{
+			++iIntact;
+			const int iPillage = other.getImprovementPillage();
+			bValid = bValid && iPillage >= 0 && iPillage < GC.getNumImprovementInfos() &&
+				GC.getImprovementInfo((ImprovementTypes)iPillage).getCityBuildGroup() == m_iCityBuildGroup &&
+				GC.getImprovementInfo((ImprovementTypes)iPillage).isCityBuildPillaged();
+		}
+	}
+	if (!bValid || iIntact != 1 || iPillaged != 1)
+	{
+		CvString error;
+		error.Format("%s: unresolved civilization or inconsistent intact/pillaged improvement group", getType());
+		gDLL->logMsg("xml.log", error.c_str());
+		gDLL->MessageBox(error.c_str(), "XML Load Error");
+		return false;
+	}
+	m_eBuildCivilization = (CivilizationTypes)iCiv;
 	return true;
 }
 
@@ -16922,7 +17021,7 @@ bool CvCorporationInfo::readPass3()
 //
 //------------------------------------------------------------------------------------------------------
 CvTraitInfo::CvTraitInfo() :
-m_iHealth(0),													
+m_iHealth(0),
 m_iHappiness(0),													
 m_iMaxAnarchy(0),											
 m_iUpkeepModifier(0),									
@@ -16933,6 +17032,19 @@ m_iDomesticGreatGeneralRateModifier(0),
 m_iMaxGlobalBuildingProductionModifier(0),	
 m_iMaxTeamBuildingProductionModifier(0),		
 m_iMaxPlayerBuildingProductionModifier(0),
+m_iOpenBordersKnownTechResearchModifier(0),
+m_iConquestOccupationReductionPercent(0),
+m_iCoastalForeignTeamGold(0),
+m_iCoastalForeignTeamGoldCap(0),
+m_iVeteranGarrisonCulture(0),
+m_iVeteranGarrisonMinLevel(0),
+m_eWorkedPlotCondition(ExpansionRules::NO_WORKED_PLOT_CONDITION),
+m_iWorkedPlotProduction(0),
+m_iWorkedPlotGold(0),
+m_iWorkedPlotCulture(0),
+m_iWorkedPlotCap(0),
+m_eWorkedPlotPrereqTech(NO_TECH),
+m_eWorkedPlotPrereqBuilding(NO_BUILDING),
 m_paiExtraYieldThreshold(NULL),
 m_paiTradeYieldModifier(NULL),
 m_paiGoldenAgeYieldChange(NULL),
@@ -17121,6 +17233,73 @@ int CvTraitInfo::getCommerceModifier(int i) const
 	return m_paiCommerceModifier ? m_paiCommerceModifier[i] : -1; 
 }
 
+bool CvTraitInfo::isWorkedPlotImprovement(ImprovementTypes eImprovement) const
+{
+	return std::find(m_aiWorkedPlotImprovements.begin(), m_aiWorkedPlotImprovements.end(),
+		(int)eImprovement) != m_aiWorkedPlotImprovements.end();
+}
+
+bool CvTraitInfo::isWorkedPlotExcludedImprovement(ImprovementTypes eImprovement) const
+{
+	return std::find(m_aiWorkedPlotExcludedImprovements.begin(), m_aiWorkedPlotExcludedImprovements.end(),
+		(int)eImprovement) != m_aiWorkedPlotExcludedImprovements.end();
+}
+
+bool CvTraitInfo::readPass3()
+{
+	m_eWorkedPlotPrereqTech = NO_TECH;
+	m_eWorkedPlotPrereqBuilding = NO_BUILDING;
+	if (!m_szWorkedPlotPrereqTech.empty() && m_szWorkedPlotPrereqTech != "NONE")
+	{
+		m_eWorkedPlotPrereqTech = (TechTypes)GC.getInfoTypeForString(m_szWorkedPlotPrereqTech, true);
+		if (m_eWorkedPlotPrereqTech < 0 || m_eWorkedPlotPrereqTech >= GC.getNumTechInfos() ||
+			m_szWorkedPlotPrereqTech != GC.getTechInfo(m_eWorkedPlotPrereqTech).getType())
+		{
+			gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown worked-plot technology %s",
+				getType(), m_szWorkedPlotPrereqTech.c_str()));
+			return false;
+		}
+	}
+	if (!m_szWorkedPlotPrereqBuilding.empty() && m_szWorkedPlotPrereqBuilding != "NONE")
+	{
+		m_eWorkedPlotPrereqBuilding = (BuildingTypes)GC.getInfoTypeForString(m_szWorkedPlotPrereqBuilding, true);
+		if (m_eWorkedPlotPrereqBuilding < 0 || m_eWorkedPlotPrereqBuilding >= GC.getNumBuildingInfos() ||
+			m_szWorkedPlotPrereqBuilding != GC.getBuildingInfo(m_eWorkedPlotPrereqBuilding).getType())
+		{
+			gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown worked-plot building %s",
+				getType(), m_szWorkedPlotPrereqBuilding.c_str()));
+			return false;
+		}
+	}
+	for (int iGroup = 0; iGroup < 2; ++iGroup)
+	{
+		const std::vector<CvString>& names = iGroup == 0 ? m_aszWorkedPlotImprovements : m_aszWorkedPlotExcludedImprovements;
+		std::vector<int>& types = iGroup == 0 ? m_aiWorkedPlotImprovements : m_aiWorkedPlotExcludedImprovements;
+		types.clear();
+		for (size_t i = 0; i < names.size(); ++i)
+		{
+			const int iType = GC.getInfoTypeForString(names[i], true);
+			if (iType < 0 || iType >= GC.getNumImprovementInfos() ||
+				names[i] != GC.getImprovementInfo((ImprovementTypes)iType).getType())
+			{
+				gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown worked-plot improvement %s",
+					getType(), names[i].c_str()));
+				return false;
+			}
+			types.push_back(iType);
+		}
+	}
+	for (size_t i = 0; i < m_aiWorkedPlotImprovements.size(); ++i)
+	{
+		if (isWorkedPlotExcludedImprovement((ImprovementTypes)m_aiWorkedPlotImprovements[i]))
+		{
+			gDLL->logMsg("xml.log", CvString::format("Trait %s: conflicting worked-plot improvement lists", getType()));
+			return false;
+		}
+	}
+	return true;
+}
+
 int CvTraitInfo::getImprovementYieldChanges(int i, int j) const
 {
 	for (size_t iEntry = 0; iEntry < m_aszImprovementYieldChangeTypes.size(); ++iEntry)
@@ -17288,6 +17467,95 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 
 	pXML->GetChildXmlValByName(szTextVal, "ShortDescription");
 	setShortDescription(szTextVal);
+
+	pXML->GetChildXmlValByName(szTextVal, "WorkedPlotCondition", "NONE");
+	m_eWorkedPlotCondition = ExpansionRules::NO_WORKED_PLOT_CONDITION;
+	if (szTextVal == "RIVERSIDE_IMPROVEMENT")
+		m_eWorkedPlotCondition = ExpansionRules::RIVERSIDE_IMPROVEMENT;
+	else if (szTextVal == "WOODLAND")
+		m_eWorkedPlotCondition = ExpansionRules::WOODLAND;
+	else if (szTextVal == "DESERT_ROAD_IMPROVEMENT")
+		m_eWorkedPlotCondition = ExpansionRules::DESERT_ROAD_IMPROVEMENT;
+	else if (szTextVal != "NONE" && !szTextVal.empty())
+	{
+		gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown worked-plot condition %s", getType(), szTextVal.c_str()));
+		return false;
+	}
+	pXML->GetChildXmlValByName(&m_iWorkedPlotProduction, "iWorkedPlotProduction", 0);
+	pXML->GetChildXmlValByName(&m_iWorkedPlotGold, "iWorkedPlotGold", 0);
+	pXML->GetChildXmlValByName(&m_iWorkedPlotCulture, "iWorkedPlotCulture", 0);
+	pXML->GetChildXmlValByName(&m_iWorkedPlotCap, "iWorkedPlotCap", 0);
+	pXML->GetChildXmlValByName(m_szWorkedPlotPrereqTech, "WorkedPlotPrereqTech", "NONE");
+	pXML->GetChildXmlValByName(m_szWorkedPlotPrereqBuilding, "WorkedPlotPrereqBuilding", "NONE");
+	for (int iGroup = 0; iGroup < 2; ++iGroup)
+	{
+		std::vector<CvString>& names = iGroup == 0 ? m_aszWorkedPlotImprovements : m_aszWorkedPlotExcludedImprovements;
+		names.clear();
+		const char* szGroup = iGroup == 0 ? "WorkedPlotImprovements" : "WorkedPlotExcludedImprovements";
+		if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), szGroup))
+		{
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				do
+				{
+					pXML->GetXmlVal(szTextVal);
+					names.push_back(szTextVal);
+				} while (gDLL->getXMLIFace()->NextSibling(pXML->GetXML()));
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+			gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+		}
+	}
+	const int iWorkedChannels = (m_iWorkedPlotProduction > 0 ? 1 : 0) +
+		(m_iWorkedPlotGold > 0 ? 1 : 0) + (m_iWorkedPlotCulture > 0 ? 1 : 0);
+	const bool bWorkedRule = m_eWorkedPlotCondition != ExpansionRules::NO_WORKED_PLOT_CONDITION;
+	if (m_iWorkedPlotProduction < 0 || m_iWorkedPlotProduction > 100 ||
+		m_iWorkedPlotGold < 0 || m_iWorkedPlotGold > 100 ||
+		m_iWorkedPlotCulture < 0 || m_iWorkedPlotCulture > 100 ||
+		m_iWorkedPlotCap < 0 || m_iWorkedPlotCap > 100 ||
+		(bWorkedRule && (iWorkedChannels != 1 || m_iWorkedPlotCap == 0)) ||
+		(!bWorkedRule && (iWorkedChannels != 0 || m_iWorkedPlotCap != 0 ||
+			(!m_szWorkedPlotPrereqTech.empty() && m_szWorkedPlotPrereqTech != "NONE") ||
+			(!m_szWorkedPlotPrereqBuilding.empty() && m_szWorkedPlotPrereqBuilding != "NONE") ||
+			!m_aszWorkedPlotImprovements.empty() || !m_aszWorkedPlotExcludedImprovements.empty())) ||
+		(m_eWorkedPlotCondition != ExpansionRules::RIVERSIDE_IMPROVEMENT && !m_aszWorkedPlotImprovements.empty()) ||
+		(m_eWorkedPlotCondition == ExpansionRules::WOODLAND && !m_aszWorkedPlotExcludedImprovements.empty()) ||
+		(m_eWorkedPlotCondition == ExpansionRules::RIVERSIDE_IMPROVEMENT && m_aszWorkedPlotImprovements.empty()))
+	{
+		gDLL->logMsg("xml.log", CvString::format("Trait %s: invalid worked-plot channel, cap or improvement list", getType()));
+		return false;
+	}
+
+	pXML->GetChildXmlValByName(&m_iOpenBordersKnownTechResearchModifier, "iOpenBordersKnownTechResearchModifier", 0);
+	pXML->GetChildXmlValByName(&m_iConquestOccupationReductionPercent, "iConquestOccupationReductionPercent", 0);
+	pXML->GetChildXmlValByName(&m_iCoastalForeignTeamGold, "iCoastalForeignTeamGold", 0);
+	pXML->GetChildXmlValByName(&m_iCoastalForeignTeamGoldCap, "iCoastalForeignTeamGoldCap", 0);
+	pXML->GetChildXmlValByName(&m_iVeteranGarrisonCulture, "iVeteranGarrisonCulture", 0);
+	pXML->GetChildXmlValByName(&m_iVeteranGarrisonMinLevel, "iVeteranGarrisonMinLevel", 0);
+	if (m_iVeteranGarrisonCulture < 0 || m_iVeteranGarrisonCulture > 100 ||
+		m_iVeteranGarrisonMinLevel < 0 || m_iVeteranGarrisonMinLevel > 100 ||
+		((m_iVeteranGarrisonCulture == 0) != (m_iVeteranGarrisonMinLevel == 0)))
+	{
+		gDLL->logMsg("xml.log", CvString::format("Trait %s: invalid veteran garrison Culture or level", getType()));
+		return false;
+	}
+	if (m_iCoastalForeignTeamGold < 0 || m_iCoastalForeignTeamGold > 100 ||
+		m_iCoastalForeignTeamGoldCap < 0 || m_iCoastalForeignTeamGoldCap > 100 ||
+		((m_iCoastalForeignTeamGold == 0) != (m_iCoastalForeignTeamGoldCap == 0)))
+	{
+		CvString szError;
+		szError.Format("Trait %s: coastal trade Gold and cap must both be zero or between 1 and 100", getType());
+		gDLL->logMsg("xml.log", szError);
+		return false;
+	}
+	if (m_iOpenBordersKnownTechResearchModifier < 0 || m_iOpenBordersKnownTechResearchModifier > 100 ||
+		m_iConquestOccupationReductionPercent < 0 || m_iConquestOccupationReductionPercent > 100)
+	{
+		CvString szError;
+		szError.Format("Trait %s: expansion research/occupation percentages must be between 0 and 100", getType());
+		gDLL->logMsg("xml.log", szError);
+		return false;
+	}
 
 	pXML->GetChildXmlValByName(&m_iHealth, "iHealth");
 	pXML->GetChildXmlValByName(&m_iHappiness, "iHappiness");

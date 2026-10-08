@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "design_version": "issue-flags-v2",
-  "record_count": 59,
+  "record_count": 72,
   "runtime_contract": {
     "assets_root": "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets",
     "civilization_xml": "XML/Civilizations/CIV4CivilizationInfos.xml",
@@ -5580,6 +5580,357 @@
           "usage": "procedural_reference"
         }
       ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_KUSH_NAPATA",
+      "civilization": "Kush: Napata",
+      "leaders": [
+        "LEADER_EXP_PIYE"
+      ],
+      "leader_display": "Piye",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_KUSH_NAPATA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_PIYE.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/piye.svg",
+      "master_sha256": "76e32f3028ce9285d60b51705551c716c21e5a53193085637d5a005c2bf4536b",
+      "production_dds_sha256": "415f8c5b0aa9e726ade579915e52bbed7f88822a5ed0b7460b8690c7bdf2d4e9",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Piye",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Piye ruled Napatan Kush in the eighth century BCE and campaigned into Egypt. His royal inscriptions emphasize Amun and the legitimacy of kingship. This package draws on Napatan religious institutions rather than the much later ironworking identity often associated with Meroe. The cult chapel is a repeatable gameplay institution, not a claim that an identical royal monument stood in every settlement.",
+      "design_notes": "Original geometric gold winged solar disk on purple, inspired by ancient Nile religious imagery. Modern gameplay reconstruction, not an attested national flag or an archaeological facsimile.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Piye",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_SERBIA_DUSAN",
+      "civilization": "Serbia: Dusan's Empire",
+      "leaders": [
+        "LEADER_EXP_DUSAN"
+      ],
+      "leader_display": "Stefan Dusan",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_SERBIA_DUSAN",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_DUSAN.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/dusan.svg",
+      "master_sha256": "f60c59503aa818e215c6e824cff8a83af6a0f6fc4eb0170ce490c3d61361f7bf",
+      "production_dds_sha256": "e0e86cdffb421094e6489a7928f435b5603541098338639e40b813ced3567ada",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Stefan_Du%C5%A1an",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Stefan Dusan ruled a fourteenth-century Serbian empire and promulgated his law code in 1349. The Vlastela represents medieval noble cavalry, while the court and mining-based economy abstract legal administration and developed mining settlements. These are not later Hajduk, Chetnik or modern cavalry formations. The Priest's Espionage represents literate institutions in the game's specialist system, not a historical claim about a spy religion.",
+      "design_notes": "Original geometric white double-headed eagle on red, inspired by medieval Serbian imperial heraldry. A simplified gameplay reconstruction, not a claim to reproduce a surviving personal standard.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Stefan_Du%C5%A1an",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_HUNGARY_CORVINIAN",
+      "civilization": "Hungary: Corvinian Kingdom",
+      "leaders": [
+        "LEADER_EXP_MATTHIAS"
+      ],
+      "leader_display": "Matthias Corvinus",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_HUNGARY_CORVINIAN",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_MATTHIAS.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/matthias.svg",
+      "master_sha256": "9846daa3d6fb478d0c6872263962fa7547f971544a29a66a9af9a5c2a3a00e95",
+      "production_dds_sha256": "2e8ca804585518a3379e81f645e012134f973d8316f5c18c30f0f665a6f68d6b",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Matthias_Corvinus",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.",
+      "design_notes": "Original geometric raven holding a gold ring on pale gold, inspired by Corvinian heraldry. A simplified provisional emblem, not a facsimile of a historical royal banner.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Matthias_Corvinus",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_BRAZIL_SECOND_EMPIRE",
+      "civilization": "Brazil: Second Empire",
+      "leaders": [
+        "LEADER_EXP_PEDRO_II"
+      ],
+      "leader_display": "Pedro II",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_BRAZIL_SECOND_EMPIRE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_PEDRO_II.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/pedro_ii.svg",
+      "master_sha256": "d6fe0c9d8da72f2fef64e6f80cb061d5cc1d7f6beca46f2f5288601645794b85",
+      "production_dds_sha256": "745b9ca91565fc535d5f984b49b2ad1a55e3613a7d47511a2a78f07a7a49e644",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Pedro_II_of_Brazil",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Pedro II reigned in Brazil from 1831 to 1889 and cultivated scientific and scholarly interests. The Voluntarios da Patria represents forces raised during the 1860s war, but recruitment was not uniformly voluntary: coercion and slavery must not be erased from that history. The Lyceum represents educational institutions rather than a claim that the emperor built an identical royal college in every city.",
+      "design_notes": "Original simplified green field, gold lozenge and blue imperial medallion with a gold crown. Provisional Second Empire-inspired reconstruction, not a modern republican flag or a facsimile of the full imperial arms.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Pedro_II_of_Brazil",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_SIAM_RAMA_IV",
+      "civilization": "Siam: Rama IV",
+      "leaders": [
+        "LEADER_EXP_MONGKUT"
+      ],
+      "leader_display": "Mongkut",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_SIAM_RAMA_IV",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_MONGKUT.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/mongkut.svg",
+      "master_sha256": "b668cdf601c61f02576ea41cd11d0053a5456a42b2485a826d43a79b0b4c7082",
+      "production_dds_sha256": "58573637c4f62b60b3fb7ce668cdee7fa1a04ee87bb32fa8c4352e2289d794a7",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Mongkut",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Mongkut, Rama IV, ruled Siam from 1851 to 1868 after a long period in the Buddhist monkhood. His scientific interests and international diplomacy inform this package's conditional research access. Later reforms under Chulalongkorn must not be retroactively assigned to him. The Royal Rifle and Observatory are gameplay abstractions, not claims that a uniform regiment or identical royal observatory existed in every Siamese city.",
+      "design_notes": "Original simplified white elephant on red, inspired by nineteenth-century Siamese flags. Provisional geometric reconstruction, not an exact drawing of a surviving royal standard.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Mongkut",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_GRAN_COLOMBIA",
+      "civilization": "Gran Colombia",
+      "leaders": [
+        "LEADER_EXP_BOLIVAR"
+      ],
+      "leader_display": "Simon Bolivar",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_GRAN_COLOMBIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_BOLIVAR.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/bolivar.svg",
+      "master_sha256": "3a69cdc6e4a5fcbcaafea5ca74646f8494acea730b3ed4d2aef8e1582b7d816e",
+      "production_dds_sha256": "8212a8097027d2721e73a527ca63d3d430bcfad47d8486c8600b831af7e24cce",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Sim%C3%B3n_Bol%C3%ADvar",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Simon Bolivar was a central figure in northern South American independence and the republic commonly called Gran Colombia, which existed from 1819 to 1831. Llanero cavalry served opposing sides as well as independence forces; the unit is a regional cavalry abstraction rather than a claim of uniform political loyalty. The Cabildo represents civic institutions. This package is not the modern Republic of Colombia and uses no modern Search Bloc imagery.",
+      "design_notes": "Original geometric yellow-blue-red independence-era tricolor abstraction. No copied arms, stars or modern state insignia; provisional identification for the 1819-1831 republic, not an exact claim for every historical flag variant.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sim%C3%B3n_Bol%C3%ADvar",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_PHOENICIA_TYRE",
+      "civilization": "Phoenicia: Tyre",
+      "leaders": [
+        "LEADER_EXP_HIRAM"
+      ],
+      "leader_display": "Hiram I",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_PHOENICIA_TYRE",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_HIRAM.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/hiram.svg",
+      "master_sha256": "65a43e45455f58c07d3c2f20e515da78e266ccf5238d47aa2e1f75c946d5abd3",
+      "production_dds_sha256": "99dcdae425d0cdb58f0d3df2eca3bdc904e10c6ecc4e8d66ce14900265b4b8f3",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Hiram_I",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Hiram I is associated with early first-millennium BCE Tyre and traditions of timber, craft exchange and royal diplomacy. Exact chronology and associations with David and Solomon rely heavily on later textual traditions. He is not credited here with founding later Carthage. The city list spans Phoenician coastal settlements for gameplay and does not claim that every settlement belonged to his kingdom. The merchant ship and counting house abstract maritime exchange rather than reproducing a documented named regiment or identical civic building.",
+      "design_notes": "Original geometric merchant vessel with pale sail and gold hull on Tyrian purple. Modern gameplay emblem inspired by Phoenician maritime exchange, not an attested national flag or copied ancient illustration.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Hiram_I",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_SUKHOTHAI",
+      "civilization": "Sukhothai",
+      "leaders": [
+        "LEADER_EXP_RAMKHAMHAENG"
+      ],
+      "leader_display": "Ramkhamhaeng",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_SUKHOTHAI",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_RAMKHAMHAENG.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/ramkhamhaeng.svg",
+      "master_sha256": "cd98b08e9255ea255e5305b46ce000d7f3b94cd3171cb4ee6efd4343412db14a",
+      "production_dds_sha256": "1225f274ad1507a553186b3e85d2a8666cef8dd3c3bcc484679e7fee57a8b9be",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Ram_Khamhaeng",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Ramkhamhaeng is associated with late-thirteenth-century Sukhothai kingship, script traditions and Buddhist learning. The inscription's authenticity, idealized royal portrait and the extent of direct rule remain subjects of scholarship. The city list uses regional settlement names for gameplay, not a map of uncontested personal dominion. Ho Trai represents manuscript learning, while the elephant unit is a regional military abstraction rather than a named historical formation.",
+      "design_notes": "Original geometric gold lotus and paired river lines on deep red. Provisional religious/agrarian gameplay emblem, not an attested Sukhothai national flag or copied religious illustration.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ram_Khamhaeng",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_VIETNAM_DEMOCRATIC_REPUBLIC",
+      "civilization": "Vietnam: Democratic Republic",
+      "leaders": [
+        "LEADER_EXP_HO_CHI_MINH"
+      ],
+      "leader_display": "Ho Chi Minh",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_VIETNAM_DEMOCRATIC_REPUBLIC",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_HO_CHI_MINH.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/ho_chi_minh.svg",
+      "master_sha256": "f9695f010d8c90193d44b9d4b689a607b34539f15e96448e5df1f6e7883fbc88",
+      "production_dds_sha256": "28c9aa941adde06356913a0934de0191ecca6ecdcecbb2bdfd3b7194eb5bd5cb",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Ho_Chi_Minh",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Ho Chi Minh was a leading figure in the Viet Minh independence movement and the Democratic Republic proclaimed in 1945. The Viet Minh is distinguished here from the later Viet Cong. Woodland logistics and the headquarters are game abstractions, not claims that all Vietnamese forces were jungle guerrillas or that every city held an identical resistance institution. The package does not transplant Mao's worked-Farm Espionage mechanic.",
+      "design_notes": "Original geometric five-pointed gold star on red, drawn from simple polygons. Period identification rather than a copied modern graphic; provisional square gameplay proportions.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Ho_Chi_Minh",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_SONGHAI_ASKIA",
+      "civilization": "Songhai: Askia Dynasty",
+      "leaders": [
+        "LEADER_EXP_ASKIA"
+      ],
+      "leader_display": "Askia Muhammad",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_SONGHAI_ASKIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_ASKIA.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/askia.svg",
+      "master_sha256": "675630e1f48054005a7450d20cf1d305ee938b051a19310123aea8c3598b2820",
+      "production_dds_sha256": "c4e1da916332895e92d0c8ab1dd58dea9faf98dec082bc1958aeb58215b9d715",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Askia_Muhammad_I",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Askia Muhammad ruled Songhai from 1493 to 1528 and is associated with administrative organization, trade regulation and scholarly patronage. Religious scholarship is not modeled as universal population conversion. The regional city list describes a broad gameplay setting rather than identical degrees of control over every settlement. The college and escort cavalry abstract institutions and military roles, not a documented standardized building or named regiment.",
+      "design_notes": "Original geometric gold earthen tower and open manuscript above blue river lines on dark green. A scholarly/commercial gameplay reconstruction, not an attested Askia standard or copied mosque illustration.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Askia_Muhammad_I",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_ISRAEL_DAVIDIC",
+      "civilization": "Israel: Davidic Kingdom",
+      "leaders": [
+        "LEADER_EXP_DAVID"
+      ],
+      "leader_display": "David",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_ISRAEL_DAVIDIC",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_DAVID.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/david.svg",
+      "master_sha256": "4046b125b6198c088103f3c9bfea889a3d195cf3b032ec0ab15639844ff31a0d",
+      "production_dds_sha256": "4bccec8bf455708297d0328c9c05b04a8d36993fe6fccfcc9365be4e2bd8ffb4",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/David",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "David is traditionally placed in the early first millennium BCE. The extent of the united monarchy and much biographical detail remain debated; royal retainers and songs draw on textual traditions rather than a securely reconstructed administrative program. The city list is an ancient literary/historical gameplay setting, not a claim of uniform control or a modern-state analogy. The game's Judaism preference is a broad abstraction. No new religion or Temple wonder is added, and Solomon's Temple is not attributed to David.",
+      "design_notes": "Original geometric gold harp on deep blue, referring to the literary tradition of Davidic songs. Explicitly a provisional gameplay emblem, not an attested ancient national flag or a modern-state symbol.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/David",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_ASSYRIA_NINEVEH",
+      "civilization": "Neo-Assyria: Nineveh",
+      "leaders": [
+        "LEADER_EXP_SENNACHERIB"
+      ],
+      "leader_display": "Sennacherib",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_ASSYRIA_NINEVEH",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_SENNACHERIB.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/sennacherib.svg",
+      "master_sha256": "8fcfaaa101d2973ffc877c242760ab10cd12aff6d41a0fbbd7d6b338f95ae5ee",
+      "production_dds_sha256": "1c14a639936bcd45114f7c8ee1cfa9c825c6c579a8471932f34ec7f9b023af38",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Sennacherib",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Sennacherib ruled the Neo-Assyrian empire from 705 to 681 BCE. His rebuilding of Nineveh and major water-engineering works provide this package's theme. The contested identification of the Hanging Gardens with his projects is not treated as established fact, and Ashurbanipal's library is not substituted for his achievements. The siege unit and repeatable waterworks are gameplay abstractions, not exact reconstructions of one surviving machine or building.",
+      "design_notes": "Original geometric winged disk over stepped water channels, inspired by Assyrian imagery and royal water engineering. A modern gameplay emblem, not an attested national flag.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Sennacherib",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
+    },
+    {
+      "civilization_type": "CIVILIZATION_EXP_PALMYRA_ZENOBIA",
+      "civilization": "Palmyrene Empire",
+      "leaders": [
+        "LEADER_EXP_ZENOBIA"
+      ],
+      "leader_display": "Zenobia",
+      "art_define": "ART_DEF_CIVILIZATION_EXP_PALMYRA_ZENOBIA",
+      "runtime_dds_path": "Art/Interface/TeamColor/FlagDECAL_EXP_ZENOBIA.dds",
+      "active_design_version": "expansion-v1",
+      "master_path": "tools/flags/designs/expansion-v1/masters/zenobia.svg",
+      "master_sha256": "4368a80fff40b1d6877280b997a9cf66e9a0de22286418efccbef3998fe2a05a",
+      "production_dds_sha256": "1aff65e11b18f8d83b7d839c068d35f75c2b2e0dd7ca97cecc8157c37b046949",
+      "source_method": "Original geometric SVG reconstruction; no external artwork imported.",
+      "source_page_url": "https://en.wikipedia.org/wiki/Zenobia",
+      "source_license": "CC0-1.0",
+      "attribution": "Original DowagerMod expansion artwork, dedicated under CC0-1.0.",
+      "historical_scope": "Zenobia governed third-century CE Palmyra and expanded its power amid the Roman imperial crisis. Caravan commerce and an expensive armored-cavalry concept inform this package. Her ancestry and fate are treated cautiously because later accounts conflict. The Clibanarius is a gameplay representation of regional armored cavalry, not a claim that a documented personal regiment bore this title. City names include the empire's broader regional sphere rather than only original Palmyrene foundations.",
+      "design_notes": "Original geometric gold palm and caravan-road arches on plum. A modern gameplay emblem evoking Palmyra, not an attested royal or national flag.",
+      "licensing_note": "Original geometric drawing; historical reference is not copied artwork.",
+      "citations": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Zenobia",
+          "claim": "Historical setting, not a specification of an attested flag."
+        }
+      ]
     }
   ],
   "original_work_license": {
@@ -5590,7 +5941,8 @@
   },
   "design_version_summary": {
     "issue-flags-v2": 56,
-    "historical-v1": 3
+    "historical-v1": 3,
+    "expansion-v1": 13
   },
   "issue_source_range": {
     "repository": "siegelh/DowagerMod",

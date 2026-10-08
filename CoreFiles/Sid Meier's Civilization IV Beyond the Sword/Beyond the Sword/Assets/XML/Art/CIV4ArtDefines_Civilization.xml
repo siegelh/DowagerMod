@@ -391,5 +391,83 @@
 			<Path>Art/Interface/TeamColor/FlagDECAL_Apache.dds</Path>
 			<bWhiteFlag>1</bWhiteFlag>
 		</CivilizationArtInfo>
-	</CivilizationArtInfos>
+	<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_KUSH_NAPATA</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_PIYE.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_PIYE.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_SERBIA_DUSAN</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_DUSAN.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_DUSAN.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_HUNGARY_CORVINIAN</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_MATTHIAS.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_MATTHIAS.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_BRAZIL_SECOND_EMPIRE</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_PEDRO_II.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_PEDRO_II.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_SIAM_RAMA_IV</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_MONGKUT.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_MONGKUT.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_GRAN_COLOMBIA</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_BOLIVAR.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_BOLIVAR.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_PHOENICIA_TYRE</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_HIRAM.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_HIRAM.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_SUKHOTHAI</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_RAMKHAMHAENG.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_RAMKHAMHAENG.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_VIETNAM_DEMOCRATIC_REPUBLIC</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_HO_CHI_MINH.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_HO_CHI_MINH.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_SONGHAI_ASKIA</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_ASKIA.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_ASKIA.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_ISRAEL_DAVIDIC</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_DAVID.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_DAVID.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_ASSYRIA_NINEVEH</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_SENNACHERIB.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_SENNACHERIB.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+<CivilizationArtInfo>
+  <Type>ART_DEF_CIVILIZATION_EXP_PALMYRA_ZENOBIA</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_ZENOBIA.dds</Button>
+  <Path>Art/Interface/TeamColor/FlagDECAL_EXP_ZENOBIA.dds</Path>
+  <bWhiteFlag>1</bWhiteFlag>
+</CivilizationArtInfo>
+</CivilizationArtInfos>
 </Civ4ArtDefines>

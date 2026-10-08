@@ -13,8 +13,9 @@ import cairosvg
 from PIL import Image
 
 
-EXPECTED_COUNT = 59
 REPO_ROOT = Path(__file__).resolve().parents[2]
+EXPANSION = json.loads((REPO_ROOT / "tools/manifests/new_leaders_expansion.json").read_text(encoding="utf-8"))
+EXPECTED_COUNT = 59 + len(EXPANSION["packages"])
 TOOLS_ROOT = Path(__file__).resolve().parent
 MANIFEST_PATH = TOOLS_ROOT / "manifest.json"
 ASSETS_ROOT = (

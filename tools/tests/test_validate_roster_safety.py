@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
 import shutil
 import struct
 import unittest
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 
@@ -15,6 +17,35 @@ SPEC.loader.exec_module(MODULE)
 
 
 class RosterValidatorTests(unittest.TestCase):
+    def test_city_build_condition_is_a_typed_enum_not_a_global_reference_exception(self) -> None:
+        validator = object.__new__(MODULE.Validator)
+        validator.root = SCRIPT.parent.parent
+        path = validator.root / "fixture.xml"
+        validator.xml_files = [path]
+        validator.changed = {"fixture.xml"}
+        validator.definitions = lambda: ({"RIVER_NORTH"}, {})
+        validator.old_leaf_values = lambda _: set()
+        validator.old_info_types = lambda _: set()
+        for value in ("NONE", "RIVER_OR_IRRIGATED", "DESERT_WITH_ROAD", "RIVER_BAD"):
+            with self.subTest(value=value):
+                validator.errors = []
+                validator.parse = lambda _: ET.fromstring(
+                    f"<Root><CityBuildCondition>{value}</CityBuildCondition></Root>")
+                validator.validate_references()
+                self.assertEqual(len(validator.errors), int(value == "RIVER_BAD"))
+        validator.errors = []
+        validator.parse = lambda _: ET.fromstring("<Root><RiverType>RIVER_OR_IRRIGATED</RiverType></Root>")
+        validator.validate_references()
+        self.assertEqual(len(validator.errors), 1)
+        self.assertIn("undefined InfoType", validator.errors[0])
+
+    def test_reviewed_names_do_not_skip_real_dependencies_or_changed_models(self) -> None:
+        validator = object.__new__(MODULE.Validator)
+        payload = b"DP_N5.nif\x00real.dds\x00real.tga\x00missing.nif\x00"
+        validator._reviewed_internal_names = {hashlib.sha256(payload).hexdigest(): {"DP_N5.nif"}}
+        self.assertEqual(validator.embedded_dependencies(payload), ["real.dds", "real.tga", "missing.nif"])
+        self.assertIn("DP_N5.nif", validator.embedded_dependencies(payload + b"changed"))
+
     def test_button_atlas_is_split_without_empty_sentinel(self) -> None:
         self.assertEqual(
             MODULE.Validator.button_parts(",Art/a.dds,Art/atlas.dds,2,3"),

@@ -1,0 +1,68 @@
+name: DowagerMod crash report
+description: Report a Civilization IV crash with the save and diagnostic bundle.
+title: "[Crash] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Run **Report DowagerMod Crash.bat** first when possible. It collects the
+        build identity, suggests the latest multiplayer autosave, and prepares a
+        ZIP under `%LOCALAPPDATA%\DowagerMod\CrashReports`.
+
+  - type: textarea
+    id: action
+    attributes:
+      label: Action immediately before the crash
+      description: Include the turn action, screen, unit, city, or diplomacy action.
+      placeholder: Ended turn after capturing a city.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected
+    attributes:
+      label: Who crashed?
+      options:
+        - Only me
+        - Host only
+        - One client
+        - Multiple players
+        - Everyone
+        - Unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reproduction
+    attributes:
+      label: Does the same save and action reproduce the crash?
+      options:
+        - Not attempted
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      description: Paste the commit from the generated report when available.
+      placeholder: cea7bed4d173b706ca6e854d2e1b0c09eb8d7794
+
+  - type: textarea
+    id: bundle
+    attributes:
+      label: Diagnostic bundle
+      description: Drag the generated ZIP here and wait for the upload to finish.
+      placeholder: Drag DowagerMod-Crash-YYYYMMDD-HHMMSS.zip here.
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional observations
+      description: Mention whether restarting, lowering graphics, or delaying the action changes the result.
