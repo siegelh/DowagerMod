@@ -32,6 +32,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+Import-Module Microsoft.PowerShell.Utility -ErrorAction Stop
 $script:StartedAt = Get-Date
 $script:ExpectedSteps = 9
 $script:ProcessedSteps = 0
@@ -41,6 +42,19 @@ $script:ErrorItems = 0
 $script:CollectedBytes = [Int64]0
 $script:CollectionNotes = New-Object System.Collections.Generic.List[string]
 $script:TextRedactions = 0
+
+function Get-FileSha256 {
+    param([string]$Path)
+    $stream = [System.IO.File]::OpenRead($Path)
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        return ([System.BitConverter]::ToString($sha.ComputeHash($stream))).Replace("-", "").ToLowerInvariant()
+    }
+    finally {
+        $sha.Dispose()
+        $stream.Dispose()
+    }
+}
 
 function Write-Utf8NoBom {
     param([string]$Path, [string]$Content)
@@ -129,7 +143,7 @@ function Get-FileRecord {
         Name = $item.Name
         Bytes = [Int64]$item.Length
         LastWriteUtc = $item.LastWriteTimeUtc.ToString("o")
-        Sha256 = (Get-FileHash -LiteralPath $item.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+        Sha256 = Get-FileSha256 -Path $item.FullName
     }
 }
 
@@ -535,16 +549,17 @@ try {
     $repoDll = Join-Path $repoAssets "CvGameCoreDLL.dll"
     $liveDll = if ($liveAssets) { Join-Path $liveAssets "CvGameCoreDLL.dll" } else { "" }
     $hashRecords = @()
-    foreach ($item in @(
-        @($repoDll, "Repository DLL"),
-        @($liveDll, "Installed DLL"),
-        @(Join-Path $repoAssets "res\Fonts\GameFont.tga", "Repository GameFont"),
-        @(Join-Path $repoAssets "res\Fonts\GameFont_75.tga", "Repository GameFont75"),
-        @($(if ($liveAssets) { Join-Path $liveAssets "res\Fonts\GameFont.tga" } else { "" }), "Installed GameFont"),
-        @($(if ($liveAssets) { Join-Path $liveAssets "res\Fonts\GameFont_75.tga" } else { "" }), "Installed GameFont75")
-    )) {
-        if ($item[0]) {
-            $record = Get-FileRecord -Path $item[0] -Kind $item[1]
+    $hashTargets = @(
+        [PSCustomObject]@{ Path = $repoDll; Kind = "Repository DLL" },
+        [PSCustomObject]@{ Path = $liveDll; Kind = "Installed DLL" },
+        [PSCustomObject]@{ Path = (Join-Path $repoAssets "res\Fonts\GameFont.tga"); Kind = "Repository GameFont" },
+        [PSCustomObject]@{ Path = (Join-Path $repoAssets "res\Fonts\GameFont_75.tga"); Kind = "Repository GameFont75" },
+        [PSCustomObject]@{ Path = $(if ($liveAssets) { Join-Path $liveAssets "res\Fonts\GameFont.tga" } else { "" }); Kind = "Installed GameFont" },
+        [PSCustomObject]@{ Path = $(if ($liveAssets) { Join-Path $liveAssets "res\Fonts\GameFont_75.tga" } else { "" }); Kind = "Installed GameFont75" }
+    )
+    foreach ($target in $hashTargets) {
+        if ($target.Path) {
+            $record = Get-FileRecord -Path $target.Path -Kind $target.Kind
             if ($record) { $hashRecords += $record }
         }
     }

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\report_crash.ps1" -RepoRoot "%~dp0"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\report_crash.ps1" %*
 set "exit_code=%ERRORLEVEL%"
 
 echo.

@@ -40,6 +40,20 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+function Get-FileSha256 {
+    param([string]$Path)
+
+    $stream = [System.IO.File]::OpenRead($Path)
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        return ([System.BitConverter]::ToString($sha.ComputeHash($stream))).Replace("-", "").ToLowerInvariant()
+    }
+    finally {
+        $sha.Dispose()
+        $stream.Dispose()
+    }
+}
+
 function Get-StringSha256 {
     param([string]$Value)
 
@@ -120,7 +134,7 @@ function New-MultiplayerManifest {
             Path   = $relative
             Scope  = $item.Scope
             Bytes  = [Int64]$item.File.Length
-            Sha256 = (Get-FileHash -LiteralPath $item.File.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+            Sha256 = Get-FileSha256 -Path $item.File.FullName
         }
     }
 
