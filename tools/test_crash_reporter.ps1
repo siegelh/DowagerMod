@@ -168,7 +168,7 @@ exit /b 0
     Assert-True ($fallbackExitCode -eq 0) "Browser fallback run exited with $fallbackExitCode."
     $fallbackText = $fallbackResult | Out-String
     Assert-True ($fallbackText -match "status=browser-fallback") "Missing gh did not select browser fallback."
-    Assert-True ($fallbackText -match "copied to the clipboard") "Fallback instructions were incomplete."
+    Assert-True ($fallbackText -match "inside the ZIP as issue-body.md") "No-open fallback instructions were incomplete."
     Assert-True (@(Get-ChildItem -LiteralPath $fallbackOutput -File -Filter "DowagerMod-Crash-*.zip").Count -eq 1) "Fallback did not create one local ZIP."
 
     Write-Host "PASS: crash reporter selected multi/auto, redacted text, bounded artifacts, packaged evidence, and invoked fake gh."

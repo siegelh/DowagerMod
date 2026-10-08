@@ -792,6 +792,7 @@ try {
     $issueUrl = ""
     $issueMode = "skipped"
     $issueCreated = $false
+    $issueBodyCopied = $false
     $titleAction = (Protect-Text -Text $LastAction) -replace "[\r\n]+", " "
     if ($titleAction.Length -gt 80) { $titleAction = $titleAction.Substring(0, 80) }
     $issueTitle = "[Crash] $titleAction"
@@ -833,7 +834,13 @@ try {
 
         if (-not $issueCreated -and -not $issueUrl) {
             $issueMode = "browser-fallback"
-            try { Set-Clipboard -Value $issueBody } catch {}
+            if (-not $NoOpen) {
+                try {
+                    Set-Clipboard -Value $issueBody
+                    $issueBodyCopied = $true
+                }
+                catch {}
+            }
             $encodedTitle = [Uri]::EscapeDataString($issueTitle)
             $issueUrl = "https://github.com/siegelh/DowagerMod/issues/new?labels=bug&title=$encodedTitle"
         }
@@ -874,10 +881,15 @@ try {
     }
     elseif ($issueMode -eq "browser-fallback") {
         Write-Host ""
-        Write-Host "GitHub CLI was unavailable or unauthenticated. The issue body was"
-        Write-Host "copied to the clipboard when possible and a browser draft was opened."
-        Write-Host "Paste the body, submit the issue, then drag the selected ZIP into a"
-        Write-Host "comment, wait for the upload to finish, and click Comment."
+        Write-Host "GitHub CLI was unavailable or unauthenticated."
+        if ($issueBodyCopied) {
+            Write-Host "The issue body was copied to the clipboard and a browser draft was opened."
+            Write-Host "Paste the body, submit the issue, then drag the selected ZIP into a"
+            Write-Host "comment, wait for the upload to finish, and click Comment."
+        }
+        else {
+            Write-Host "The prepared issue body is inside the ZIP as issue-body.md."
+        }
     }
     elseif ($DryRun) {
         Write-Host "Dry run complete; no GitHub issue was created."
