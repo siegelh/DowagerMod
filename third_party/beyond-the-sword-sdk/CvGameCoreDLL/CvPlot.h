@@ -557,6 +557,7 @@ public:
 	void write(FDataStreamBase* pStream);
 
 protected:
+	void refreshWorkedPlotCity();
 
 	short m_iX;
 	short m_iY;

@@ -122,14 +122,23 @@ def test_worked_production_is_derived_and_reconstructed_without_new_saved_state(
     assert game.index("updatePlotGroups()") < game.index("updateImprovementCityCommerceFromTraitsAndCivics")
 
 
-def test_worked_rules_refresh_when_native_yields_do_not_change():
+def test_worked_rules_refresh_without_recomputing_on_every_yield_update():
     city = (DLL / "CvCity.cpp").read_text()
     for signature in ("void CvCity::processBuilding", "void CvCity::setWorkingPlot(int"):
         assert "updateImprovementCityCommerceFromTraitsAndCivics" in function(city, signature)
-    plot = function((DLL / "CvPlot.cpp").read_text(), "void CvPlot::updateYield()")
-    refresh = plot.index("pWorkingCity->updateImprovementCityCommerceFromTraitsAndCivics(true)")
-    assert refresh < plot.rindex("if (bChange)")
-    assert "AI_setAssignWorkDirty(true)" in plot[refresh:]
+    plot_source = (DLL / "CvPlot.cpp").read_text()
+    plot = function(plot_source, "void CvPlot::updateYield()")
+    assert "updateImprovementCityCommerceFromTraitsAndCivics" not in plot
+    refresh = function(plot_source, "void CvPlot::refreshWorkedPlotCity()")
+    assert "pWorkingCity->updateImprovementCityCommerceFromTraitsAndCivics(true)" in refresh
+    assert "pWorkingCity->AI_setAssignWorkDirty(true)" in refresh
+    for signature in (
+        "void CvPlot::setNOfRiver", "void CvPlot::setWOfRiver",
+        "void CvPlot::setPlotType", "void CvPlot::setTerrainType",
+        "void CvPlot::setFeatureType", "void CvPlot::setRouteType",
+        "void CvPlot::setPlotCity", "void CvPlot::updateWorkingCity",
+    ):
+        assert "refreshWorkedPlotCity()" in function(plot_source, signature)
     team = (DLL / "CvTeam.cpp").read_text()
     assert "processTech(eIndex," in function(team, "void CvTeam::setHasTech")
     tech = function(team, "void CvTeam::processTech")

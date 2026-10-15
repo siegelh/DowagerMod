@@ -4463,6 +4463,7 @@ void CvPlot::setNOfRiver(bool bNewValue, CardinalDirectionTypes eRiverDir)
 
 			updateRiverCrossing();
 			updateYield();
+			refreshWorkedPlotCity();
 
 			for (iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
 			{
@@ -4472,6 +4473,7 @@ void CvPlot::setNOfRiver(bool bNewValue, CardinalDirectionTypes eRiverDir)
 				{
 					pAdjacentPlot->updateRiverCrossing();
 					pAdjacentPlot->updateYield();
+					pAdjacentPlot->refreshWorkedPlotCity();
 				}
 			}
 
@@ -4510,6 +4512,7 @@ void CvPlot::setWOfRiver(bool bNewValue, CardinalDirectionTypes eRiverDir)
 
 			updateRiverCrossing();
 			updateYield();
+			refreshWorkedPlotCity();
 
 			for (iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
 			{
@@ -4519,6 +4522,7 @@ void CvPlot::setWOfRiver(bool bNewValue, CardinalDirectionTypes eRiverDir)
 				{
 					pAdjacentPlot->updateRiverCrossing();
 					pAdjacentPlot->updateYield();
+					pAdjacentPlot->refreshWorkedPlotCity();
 				}
 			}
 
@@ -5173,6 +5177,7 @@ void CvPlot::setPlotType(PlotTypes eNewValue, bool bRecalculate, bool bRebuildGr
 		m_ePlotType = eNewValue;
 
 		updateYield();
+		refreshWorkedPlotCity();
 		// Research Campus Research depends on adjacent peaks and hills.
 		updateLandmarkYieldsInRange(1);
 		updatePlotGroup();
@@ -5426,6 +5431,7 @@ void CvPlot::setTerrainType(TerrainTypes eNewValue, bool bRecalculate, bool bReb
 		m_eTerrainType = eNewValue;
 
 		updateYield();
+		refreshWorkedPlotCity();
 		// Research Campus research reads adjacent Tundra/Snow terrain.
 		updateLandmarkYieldsInRange(1);
 		updatePlotGroup();
@@ -5503,6 +5509,7 @@ void CvPlot::setFeatureType(FeatureTypes eNewValue, int iVariety)
 		m_iFeatureVariety = iVariety;
 
 		updateYield();
+		refreshWorkedPlotCity();
 		// Sacred Grove food and Research Campus research read adjacent features.
 		updateLandmarkYieldsInRange(1);
 
@@ -5870,6 +5877,7 @@ void CvPlot::setRouteType(RouteTypes eNewValue, bool bUpdatePlotGroups)
 		}
 
 		updateYield();
+		refreshWorkedPlotCity();
 
 		if (bUpdatePlotGroups)
 		{
@@ -5992,6 +6000,7 @@ void CvPlot::setPlotCity(CvCity* pNewValue)
 
 		updateIrrigated();
 		updateYield();
+		refreshWorkedPlotCity();
 
 		updateMinimapColor();
 
@@ -6103,6 +6112,7 @@ void CvPlot::updateWorkingCity()
 		}
 
 		updateYield();
+		refreshWorkedPlotCity();
 
 		updateFog();
 		updateShowCitySymbols();
@@ -7114,16 +7124,19 @@ void CvPlot::updateYield()
 		}
 	}
 
-	pWorkingCity = getWorkingCity();
+	if (bChange)
+	{
+		updateSymbols();
+	}
+}
+
+void CvPlot::refreshWorkedPlotCity()
+{
+	CvCity* pWorkingCity = getWorkingCity();
 	if (pWorkingCity != NULL && pWorkingCity->hasWorkedPlotRules())
 	{
 		pWorkingCity->updateImprovementCityCommerceFromTraitsAndCivics(true);
 		pWorkingCity->AI_setAssignWorkDirty(true);
-	}
-
-	if (bChange)
-	{
-		updateSymbols();
 	}
 }
 

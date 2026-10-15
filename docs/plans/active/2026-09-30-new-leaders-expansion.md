@@ -601,3 +601,27 @@ leaderhead/improvement rendering, old-save and multiplayer acceptance.
 Run the matrix in `docs\MANUAL_SMOKE_TESTS.md` only after separate authorization
 for a test installation. Offline dependency checks, native unit tests and XML
 validation do not certify those runtime behaviors.
+
+### 2026-10-07 multiplayer freeze mitigation attempt
+
+A real turn-880 multiplayer report included Ho Chi Minh and Stefan Dusan but
+no exception dump or active DLL trace. The synchronized XML/Python payload
+matched the expansion checkpoint, and the installed DLL was the known final
+expansion DLL. This does not establish a root cause, but it makes E1's
+worked-plot refresh path the only substantial new engine in the reported
+roster.
+
+Static inspection found that `CvPlot::updateYield()` recomputed a complete
+worked-plot city cache on every invocation, including unchanged yields.
+Map-wide yield updates and landmark-neighbor refreshes could therefore trigger
+many repeated 21-plot city scans during host turn processing. The mitigation
+moves that work out of the generic yield hot path and keeps explicit refreshes
+at the state changes that affect E1 eligibility: plot type, terrain, feature,
+route, river edges, plot-city assignment, working-city assignment, citizen
+assignment, buildings and technologies.
+
+The focused engine contracts, 1,422,460 native expansion-rule cases and
+`.\tools\test_gate.ps1 -CheckDll` pass. This is an evidence-backed performance
+fix, not a confirmed freeze root cause. Reproduction from the reported
+`AutoSave_AD-0880.CivBeyondSwordSave` remains required before the incident can
+be considered resolved.
