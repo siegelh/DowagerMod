@@ -4000,5 +4000,241 @@
 			<iNeutralWorldWonderCivicUpkeepPercent>0</iNeutralWorldWonderCivicUpkeepPercent>
 			<iNeutralWorldWonderLandUnitExperience>0</iNeutralWorldWonderLandUnitExperience>
 		</ImprovementInfo>
-	</ImprovementInfos>
+	<ImprovementInfo>
+  <Type>IMPROVEMENT_EXP_ROYAL_CANAL</Type>
+  <Description>TXT_KEY_IMPROVEMENT_EXP_ROYAL_CANAL</Description>
+  <Civilopedia>TXT_KEY_IMPROVEMENT_EXP_ROYAL_CANAL_PEDIA</Civilopedia>
+  <ArtDefineTag>ART_DEF_IMPROVEMENT_EXP_ROYAL_CANAL</ArtDefineTag>
+  <PrereqNatureYields />
+  <YieldChanges>
+    <iYieldChange>1</iYieldChange>
+    <iYieldChange>0</iYieldChange>
+    <iYieldChange>1</iYieldChange>
+  </YieldChanges>
+  <IrrigatedYieldChange />
+  <bActsAsCity>0</bActsAsCity>
+  <bHillsMakesValid>0</bHillsMakesValid>
+  <bFreshWaterMakesValid>0</bFreshWaterMakesValid>
+  <bRiverSideMakesValid>0</bRiverSideMakesValid>
+  <bNoFreshWater>0</bNoFreshWater>
+  <bRequiresFlatlands>1</bRequiresFlatlands>
+  <bRequiresRiverSide>0</bRequiresRiverSide>
+  <bRequiresIrrigation>0</bRequiresIrrigation>
+  <bCarriesIrrigation>1</bCarriesIrrigation>
+  <bRequiresFeature>0</bRequiresFeature>
+  <bWater>0</bWater>
+  <bGoody>0</bGoody>
+  <bPermanent>0</bPermanent>
+  <bUseLSystem>0</bUseLSystem>
+  <iAdvancedStartCost>-1</iAdvancedStartCost>
+  <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
+  <iTilesPerGoody>0</iTilesPerGoody>
+  <iGoodyRange>0</iGoodyRange>
+  <iFeatureGrowth>0</iFeatureGrowth>
+  <iUpgradeTime>0</iUpgradeTime>
+  <iAirBombDefense>5</iAirBombDefense>
+  <iDefenseModifier>0</iDefenseModifier>
+  <iHappiness>0</iHappiness>
+  <iPillageGold>10</iPillageGold>
+  <bOutsideBorders>0</bOutsideBorders>
+  <TerrainMakesValids>
+    <TerrainMakesValid>
+      <TerrainType>TERRAIN_GRASS</TerrainType>
+      <bMakesValid>1</bMakesValid>
+    </TerrainMakesValid>
+    <TerrainMakesValid>
+      <TerrainType>TERRAIN_PLAINS</TerrainType>
+      <bMakesValid>1</bMakesValid>
+    </TerrainMakesValid>
+    <TerrainMakesValid>
+      <TerrainType>TERRAIN_DESERT</TerrainType>
+      <bMakesValid>1</bMakesValid>
+    </TerrainMakesValid>
+  </TerrainMakesValids>
+  <FeatureMakesValids />
+  <ImprovementPillage>IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED</ImprovementPillage>
+  <ImprovementUpgrade>NONE</ImprovementUpgrade>
+  <TechYieldChanges />
+  <RouteYieldChanges />
+  <bGraphicalOnly>0</bGraphicalOnly>
+  <BuildCivilization>CIVILIZATION_EXP_ASSYRIA_NINEVEH</BuildCivilization>
+  <iCityBuildGroup>1</iCityBuildGroup>
+  <iCityBuildCap>2</iCityBuildCap>
+  <CityBuildCondition>RIVER_OR_IRRIGATED</CityBuildCondition>
+  <bCityBuildPillaged>0</bCityBuildPillaged>
+</ImprovementInfo>
+<ImprovementInfo>
+  <Type>IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED</Type>
+  <Description>TXT_KEY_IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED</Description>
+  <Civilopedia>TXT_KEY_IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED_PEDIA</Civilopedia>
+  <ArtDefineTag>ART_DEF_IMPROVEMENT_CITY_RUINS</ArtDefineTag>
+  <PrereqNatureYields />
+  <YieldChanges>
+    <iYieldChange>0</iYieldChange>
+    <iYieldChange>0</iYieldChange>
+    <iYieldChange>0</iYieldChange>
+  </YieldChanges>
+  <IrrigatedYieldChange />
+  <bActsAsCity>0</bActsAsCity>
+  <bHillsMakesValid>0</bHillsMakesValid>
+  <bFreshWaterMakesValid>0</bFreshWaterMakesValid>
+  <bRiverSideMakesValid>0</bRiverSideMakesValid>
+  <bNoFreshWater>0</bNoFreshWater>
+  <bRequiresFlatlands>1</bRequiresFlatlands>
+  <bRequiresRiverSide>0</bRequiresRiverSide>
+  <bRequiresIrrigation>0</bRequiresIrrigation>
+  <bCarriesIrrigation>0</bCarriesIrrigation>
+  <bRequiresFeature>0</bRequiresFeature>
+  <bWater>0</bWater>
+  <bGoody>0</bGoody>
+  <bPermanent>0</bPermanent>
+  <bUseLSystem>0</bUseLSystem>
+  <iAdvancedStartCost>-1</iAdvancedStartCost>
+  <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
+  <iTilesPerGoody>0</iTilesPerGoody>
+  <iGoodyRange>0</iGoodyRange>
+  <iFeatureGrowth>0</iFeatureGrowth>
+  <iUpgradeTime>0</iUpgradeTime>
+  <iAirBombDefense>-1</iAirBombDefense>
+  <iDefenseModifier>0</iDefenseModifier>
+  <iHappiness>0</iHappiness>
+  <iPillageGold>0</iPillageGold>
+  <bOutsideBorders>0</bOutsideBorders>
+  <TerrainMakesValids>
+    <TerrainMakesValid>
+      <TerrainType>TERRAIN_GRASS</TerrainType>
+      <bMakesValid>1</bMakesValid>
+    </TerrainMakesValid>
+    <TerrainMakesValid>
+      <TerrainType>TERRAIN_PLAINS</TerrainType>
+      <bMakesValid>1</bMakesValid>
+    </TerrainMakesValid>
+    <TerrainMakesValid>
+      <TerrainType>TERRAIN_DESERT</TerrainType>
+      <bMakesValid>1</bMakesValid>
+    </TerrainMakesValid>
+  </TerrainMakesValids>
+  <FeatureMakesValids />
+  <ImprovementPillage>IMPROVEMENT_EXP_ROYAL_CANAL_PILLAGED</ImprovementPillage>
+  <ImprovementUpgrade>NONE</ImprovementUpgrade>
+  <TechYieldChanges />
+  <RouteYieldChanges />
+  <bGraphicalOnly>0</bGraphicalOnly>
+  <BuildCivilization>CIVILIZATION_EXP_ASSYRIA_NINEVEH</BuildCivilization>
+  <iCityBuildGroup>1</iCityBuildGroup>
+  <iCityBuildCap>2</iCityBuildCap>
+  <CityBuildCondition>RIVER_OR_IRRIGATED</CityBuildCondition>
+  <bCityBuildPillaged>1</bCityBuildPillaged>
+</ImprovementInfo>
+<ImprovementInfo>
+  <Type>IMPROVEMENT_EXP_CARAVAN_STATION</Type>
+  <Description>TXT_KEY_IMPROVEMENT_EXP_CARAVAN_STATION</Description>
+  <Civilopedia>TXT_KEY_IMPROVEMENT_EXP_CARAVAN_STATION_PEDIA</Civilopedia>
+  <ArtDefineTag>ART_DEF_IMPROVEMENT_EXP_CARAVAN_STATION</ArtDefineTag>
+  <PrereqNatureYields />
+  <YieldChanges>
+    <iYieldChange>1</iYieldChange>
+    <iYieldChange>0</iYieldChange>
+    <iYieldChange>3</iYieldChange>
+  </YieldChanges>
+  <IrrigatedYieldChange />
+  <bActsAsCity>0</bActsAsCity>
+  <bHillsMakesValid>0</bHillsMakesValid>
+  <bFreshWaterMakesValid>0</bFreshWaterMakesValid>
+  <bRiverSideMakesValid>0</bRiverSideMakesValid>
+  <bNoFreshWater>0</bNoFreshWater>
+  <bRequiresFlatlands>1</bRequiresFlatlands>
+  <bRequiresRiverSide>0</bRequiresRiverSide>
+  <bRequiresIrrigation>0</bRequiresIrrigation>
+  <bCarriesIrrigation>0</bCarriesIrrigation>
+  <bRequiresFeature>0</bRequiresFeature>
+  <bWater>0</bWater>
+  <bGoody>0</bGoody>
+  <bPermanent>0</bPermanent>
+  <bUseLSystem>0</bUseLSystem>
+  <iAdvancedStartCost>-1</iAdvancedStartCost>
+  <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
+  <iTilesPerGoody>0</iTilesPerGoody>
+  <iGoodyRange>0</iGoodyRange>
+  <iFeatureGrowth>0</iFeatureGrowth>
+  <iUpgradeTime>0</iUpgradeTime>
+  <iAirBombDefense>5</iAirBombDefense>
+  <iDefenseModifier>0</iDefenseModifier>
+  <iHappiness>0</iHappiness>
+  <iPillageGold>10</iPillageGold>
+  <bOutsideBorders>0</bOutsideBorders>
+  <TerrainMakesValids>
+    <TerrainMakesValid>
+      <TerrainType>TERRAIN_DESERT</TerrainType>
+      <bMakesValid>1</bMakesValid>
+    </TerrainMakesValid>
+  </TerrainMakesValids>
+  <FeatureMakesValids />
+  <ImprovementPillage>IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED</ImprovementPillage>
+  <ImprovementUpgrade>NONE</ImprovementUpgrade>
+  <TechYieldChanges />
+  <RouteYieldChanges />
+  <bGraphicalOnly>0</bGraphicalOnly>
+  <BuildCivilization>CIVILIZATION_EXP_PALMYRA_ZENOBIA</BuildCivilization>
+  <iCityBuildGroup>2</iCityBuildGroup>
+  <iCityBuildCap>1</iCityBuildCap>
+  <CityBuildCondition>DESERT_WITH_ROAD</CityBuildCondition>
+  <bCityBuildPillaged>0</bCityBuildPillaged>
+</ImprovementInfo>
+<ImprovementInfo>
+  <Type>IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED</Type>
+  <Description>TXT_KEY_IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED</Description>
+  <Civilopedia>TXT_KEY_IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED_PEDIA</Civilopedia>
+  <ArtDefineTag>ART_DEF_IMPROVEMENT_CITY_RUINS</ArtDefineTag>
+  <PrereqNatureYields />
+  <YieldChanges>
+    <iYieldChange>0</iYieldChange>
+    <iYieldChange>0</iYieldChange>
+    <iYieldChange>0</iYieldChange>
+  </YieldChanges>
+  <IrrigatedYieldChange />
+  <bActsAsCity>0</bActsAsCity>
+  <bHillsMakesValid>0</bHillsMakesValid>
+  <bFreshWaterMakesValid>0</bFreshWaterMakesValid>
+  <bRiverSideMakesValid>0</bRiverSideMakesValid>
+  <bNoFreshWater>0</bNoFreshWater>
+  <bRequiresFlatlands>1</bRequiresFlatlands>
+  <bRequiresRiverSide>0</bRequiresRiverSide>
+  <bRequiresIrrigation>0</bRequiresIrrigation>
+  <bCarriesIrrigation>0</bCarriesIrrigation>
+  <bRequiresFeature>0</bRequiresFeature>
+  <bWater>0</bWater>
+  <bGoody>0</bGoody>
+  <bPermanent>0</bPermanent>
+  <bUseLSystem>0</bUseLSystem>
+  <iAdvancedStartCost>-1</iAdvancedStartCost>
+  <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
+  <iTilesPerGoody>0</iTilesPerGoody>
+  <iGoodyRange>0</iGoodyRange>
+  <iFeatureGrowth>0</iFeatureGrowth>
+  <iUpgradeTime>0</iUpgradeTime>
+  <iAirBombDefense>-1</iAirBombDefense>
+  <iDefenseModifier>0</iDefenseModifier>
+  <iHappiness>0</iHappiness>
+  <iPillageGold>0</iPillageGold>
+  <bOutsideBorders>0</bOutsideBorders>
+  <TerrainMakesValids>
+    <TerrainMakesValid>
+      <TerrainType>TERRAIN_DESERT</TerrainType>
+      <bMakesValid>1</bMakesValid>
+    </TerrainMakesValid>
+  </TerrainMakesValids>
+  <FeatureMakesValids />
+  <ImprovementPillage>IMPROVEMENT_EXP_CARAVAN_STATION_PILLAGED</ImprovementPillage>
+  <ImprovementUpgrade>NONE</ImprovementUpgrade>
+  <TechYieldChanges />
+  <RouteYieldChanges />
+  <bGraphicalOnly>0</bGraphicalOnly>
+  <BuildCivilization>CIVILIZATION_EXP_PALMYRA_ZENOBIA</BuildCivilization>
+  <iCityBuildGroup>2</iCityBuildGroup>
+  <iCityBuildCap>1</iCityBuildCap>
+  <CityBuildCondition>DESERT_WITH_ROAD</CityBuildCondition>
+  <bCityBuildPillaged>1</bCityBuildPillaged>
+</ImprovementInfo>
+</ImprovementInfos>
 </Civ4ImprovementInfos>

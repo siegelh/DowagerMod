@@ -11,6 +11,7 @@
 #include "CvGameCoreUtils.h"
 #include "CvPlayerAI.h"
 #include "CvPlayer.h"
+#include "CvExpansionRules.h"
 #include "CvGameCoreUtils.h"
 #include "CvArtFileMgr.h"
 #include "CvDiploParameters.h"
@@ -1874,7 +1875,8 @@ void CvPlayer::acquireCity(CvCity* pOldCity, bool bConquest, bool bTrade, bool b
 
 		if (iTeamCulturePercent < GC.getDefineINT("OCCUPATION_CULTURE_PERCENT_THRESHOLD"))
 		{
-			pNewCity->changeOccupationTimer(((GC.getDefineINT("BASE_OCCUPATION_TURNS") + ((pNewCity->getPopulation() * GC.getDefineINT("OCCUPATION_TURNS_POPULATION_PERCENT")) / 100)) * (100 - iTeamCulturePercent)) / 100);
+			const int iNativeTurns = ((GC.getDefineINT("BASE_OCCUPATION_TURNS") + ((pNewCity->getPopulation() * GC.getDefineINT("OCCUPATION_TURNS_POPULATION_PERCENT")) / 100)) * (100 - iTeamCulturePercent)) / 100;
+			pNewCity->changeOccupationTimer(ExpansionRules::conquestOccupationTurns(iNativeTurns, getConquestOccupationReductionPercent()));
 		}
 
 		GC.getMapINLINE().verifyUnitValidPlot();
@@ -6564,6 +6566,56 @@ int CvPlayer::calculateBaseNetGold() const
 	return iNetGold;
 }
 
+int CvPlayer::getConquestOccupationReductionPercent() const
+{
+	int iReduction = 0;
+	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
+	{
+		if (hasTrait((TraitTypes)iTrait))
+		{
+			iReduction += GC.getTraitInfo((TraitTypes)iTrait).getConquestOccupationReductionPercent();
+		}
+	}
+	return std::min(100, iReduction);
+}
+
+int CvPlayer::getOpenBordersKnownTechResearchModifier(TechTypes eTech) const
+{
+	if (eTech == NO_TECH)
+	{
+		return 0;
+	}
+	int iBonus = 0;
+	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
+	{
+		if (hasTrait((TraitTypes)iTrait))
+		{
+			iBonus += GC.getTraitInfo((TraitTypes)iTrait).getOpenBordersKnownTechResearchModifier();
+		}
+	}
+	if (iBonus == 0)
+	{
+		return 0;
+	}
+	const CvTeam& kTeam = GET_TEAM(getTeam());
+	for (int iTeam = 0; iTeam < MAX_CIV_TEAMS; ++iTeam)
+	{
+		const TeamTypes ePartner = (TeamTypes)iTeam;
+		if (ePartner == getTeam())
+		{
+			continue;
+		}
+		const CvTeam& kPartner = GET_TEAM(ePartner);
+		if (ExpansionRules::eligibleResearchPartner(kPartner.isAlive(), ePartner == getTeam(),
+			kTeam.isAtWar(ePartner), kTeam.isOpenBorders(ePartner),
+			kPartner.isVassal(getTeam()), kTeam.isVassal(ePartner), kPartner.isHasTech(eTech)))
+		{
+			return iBonus;
+		}
+	}
+	return 0;
+}
+
 int CvPlayer::calculateResearchModifier(TechTypes eTech) const
 {
 	int iModifier = 100;
@@ -6616,6 +6668,8 @@ int CvPlayer::calculateResearchModifier(TechTypes eTech) const
 	FAssertMsg(iPossiblePaths >= iUnknownPaths, "The number of possible paths is expected to match or exceed the number of unknown ones");
 
 	iModifier += (iPossiblePaths - iUnknownPaths) * GC.getDefineINT("TECH_COST_KNOWN_PREREQ_MODIFIER");
+
+	iModifier += getOpenBordersKnownTechResearchModifier(eTech);
 
 	return iModifier;
 }
@@ -14026,7 +14080,9 @@ int CvPlayer::getEspionageMissionBaseCost(EspionageMissionTypes eMission, Player
 	{
 		if (NULL != pPlot && !pPlot->isCity())
 		{
-			if (pPlot->getImprovementType() != NO_IMPROVEMENT || pPlot->getRouteType() != NO_ROUTE)
+			if ((pPlot->getImprovementType() != NO_IMPROVEMENT &&
+				!GC.getImprovementInfo(pPlot->getImprovementType()).isCityBuildPillaged()) ||
+				pPlot->getRouteType() != NO_ROUTE)
 			{
 				iMissionCost = (iBaseMissionCost * GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getBuildPercent()) / 100;
 			}
@@ -14296,7 +14352,8 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 		if (NULL != pPlot)
 		{
 			// Blow it up
-			if (pPlot->getImprovementType() != NO_IMPROVEMENT)
+			if (pPlot->getImprovementType() != NO_IMPROVEMENT &&
+				!GC.getImprovementInfo(pPlot->getImprovementType()).isCityBuildPillaged())
 			{
 				szBuffer = gDLL->getText("TXT_KEY_ESPIONAGE_TARGET_SOMETHING_DESTROYED", GC.getImprovementInfo(pPlot->getImprovementType()).getDescription()).GetCString();
 				pPlot->setImprovementType((ImprovementTypes)(GC.getImprovementInfo(pPlot->getImprovementType()).getImprovementPillage()));

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -177,10 +178,12 @@ class BuildingBatchTests(unittest.TestCase):
             "1 Culture, and 2 Spy slots.",
         )
 
-    def test_yuan_secretariat_is_last_and_only_differs_as_frozen(self) -> None:
+    def test_yuan_secretariat_ends_original_roster_and_only_differs_as_frozen(self) -> None:
+        packages = json.loads((ROOT / "tools/manifests/new_leaders_expansion.json").read_bytes())["packages"]
+        order = [text(node, "Type") for node in self.buildings]
         self.assertEqual(
-            [text(node, "Type") for node in self.buildings][-1],
-            "BUILDING_YUAN_IMPERIAL_SECRETARIAT",
+            order[order.index("BUILDING_YUAN_IMPERIAL_SECRETARIAT") + 1:],
+            ["BUILDING_EXP_" + p["building"]["id"] for p in packages],
         )
         palace = copy.deepcopy(self.by_type["BUILDING_PALACE"])
         yuan = copy.deepcopy(self.by_type["BUILDING_YUAN_IMPERIAL_SECRETARIAT"])

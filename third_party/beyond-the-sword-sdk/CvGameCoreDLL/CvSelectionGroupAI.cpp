@@ -783,6 +783,13 @@ CvUnit* CvSelectionGroupAI::AI_ejectBestDefender(CvPlot* pDefendPlot)
 			iValue /= (100 + pLoopUnit->cityAttackModifier() + pLoopUnit->getExtraCityAttackPercent());
 			
 			iValue /= 2 + pLoopUnit->getLevel();
+			CvCity* pCity = pDefendPlot->getPlotCity();
+			if (pCity != NULL && pCity->getOwnerINLINE() == getOwnerINLINE())
+			{
+				const int iRetainedCulture = pCity->getVeteranGarrisonCulture() -
+					pCity->getVeteranGarrisonCulture(NULL, pLoopUnit);
+				iValue += (iValue * std::min(30, iRetainedCulture * 10)) / 100;
+			}
 			
 			if (iValue > iBestUnitValue)
 			{

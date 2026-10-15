@@ -3,6 +3,7 @@
 #include "CvGameCoreDLL.h"
 #include "CvGlobals.h"
 #include "CvCity.h"
+#include "CvExpansionRules.h"
 #include "CvArea.h"
 #include "CvGameAI.h"
 #include "CvMap.h"
@@ -916,6 +917,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iSpecialistFreeExperience = 0;
 	m_iEspionageDefenseModifier = 0;
 	m_iHarborWaterFood = 0;
+	m_iWorkedPlotProduction = 0;
 
 	m_bNeverLost = true;
 	m_bBombarded = false;
@@ -4981,6 +4983,11 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bObsolet
 	{
 		updateHarborWaterFood();
 	}
+	if (hasWorkedPlotRules())
+	{
+		updateImprovementCityCommerceFromTraitsAndCivics(true);
+		AI_setAssignWorkDirty(true);
+	}
 
 	setLayoutDirty(true);
 }
@@ -8765,7 +8772,8 @@ int CvCity::getBaseYieldRate(YieldTypes eIndex)	const
 {
 	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
 	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex expected to be < NUM_YIELD_TYPES");
-	return m_aiBaseYieldRate[eIndex] + ((eIndex == YIELD_FOOD) ? getHarborWaterFood() : 0);
+	return m_aiBaseYieldRate[eIndex] + ((eIndex == YIELD_FOOD) ? getHarborWaterFood() : 0) +
+		((eIndex == YIELD_PRODUCTION) ? getWorkedPlotProduction() : 0);
 }
 
 
@@ -8814,7 +8822,8 @@ void CvCity::setBaseYieldRate(YieldTypes eIndex, int iNewValue)
 	FAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
 	FAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex expected to be < NUM_YIELD_TYPES");
 
-	const int iDerivedValue = (eIndex == YIELD_FOOD) ? getHarborWaterFood() : 0;
+	const int iDerivedValue = (eIndex == YIELD_FOOD) ? getHarborWaterFood() :
+		((eIndex == YIELD_PRODUCTION) ? getWorkedPlotProduction() : 0);
 	const int iStoredValue = iNewValue - iDerivedValue;
 
 	if (m_aiBaseYieldRate[eIndex] != iStoredValue)
@@ -9175,6 +9184,119 @@ int CvCity::getBaseCommerceRate(CommerceTypes eIndex) const
 	return (getBaseCommerceRateTimes100(eIndex) / 100);
 }
 
+bool CvCity::hasWorkedPlotRules() const
+{
+	if (getOwnerINLINE() == NO_PLAYER)
+		return false;
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		if (hasTrait((TraitTypes)i) && GC.getTraitInfo((TraitTypes)i).getWorkedPlotCondition() != ExpansionRules::NO_WORKED_PLOT_CONDITION)
+			return true;
+	}
+	return false;
+}
+
+bool CvCity::isWorkedPlotRuleActive(TraitTypes eTrait, BuildingTypes eAdditionalBuilding) const
+{
+	if (getOwnerINLINE() == NO_PLAYER)
+		return false;
+	const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+	if (!hasTrait(eTrait) || kTrait.getWorkedPlotCondition() == ExpansionRules::NO_WORKED_PLOT_CONDITION)
+		return false;
+	if (kTrait.getWorkedPlotPrereqTech() != NO_TECH && !GET_TEAM(getTeam()).isHasTech(kTrait.getWorkedPlotPrereqTech()))
+		return false;
+	const BuildingTypes eRequired = kTrait.getWorkedPlotPrereqBuilding();
+	if (eRequired != NO_BUILDING && getNumActiveBuilding(eRequired) <= 0 &&
+		(eAdditionalBuilding != eRequired || GET_TEAM(getTeam()).isObsoleteBuilding(eRequired)))
+		return false;
+	return true;
+}
+
+bool CvCity::qualifiesWorkedPlot(const CvPlot* pPlot, TraitTypes eTrait, bool bWorked, BuildTypes eBuild) const
+{
+	if (pPlot == NULL)
+		return false;
+	const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+	ImprovementTypes eImprovement = pPlot->getImprovementType();
+	FeatureTypes eFeature = pPlot->getFeatureType();
+	RouteTypes eRoute = pPlot->getRouteType();
+	if (eBuild != NO_BUILD)
+	{
+		const CvBuildInfo& kBuild = GC.getBuildInfo(eBuild);
+		if (kBuild.getImprovement() != NO_IMPROVEMENT)
+			eImprovement = (ImprovementTypes)kBuild.getImprovement();
+		if (eFeature != NO_FEATURE && kBuild.isFeatureRemove(eFeature))
+			eFeature = NO_FEATURE;
+		if (kBuild.getRoute() != NO_ROUTE)
+			eRoute = (RouteTypes)kBuild.getRoute();
+	}
+	const bool bListed = eImprovement != NO_IMPROVEMENT &&
+		kTrait.isWorkedPlotImprovement(eImprovement) && !kTrait.isWorkedPlotExcludedImprovement(eImprovement);
+	const bool bIntact = eImprovement != NO_IMPROVEMENT && eImprovement != GC.getDefineINT("RUINS_IMPROVEMENT") &&
+		!GC.getImprovementInfo(eImprovement).isGoody() && !kTrait.isWorkedPlotExcludedImprovement(eImprovement);
+	const bool bWoodland = eFeature != NO_FEATURE &&
+		(strcmp(GC.getFeatureInfo(eFeature).getType(), "FEATURE_FOREST") == 0 ||
+		 strcmp(GC.getFeatureInfo(eFeature).getType(), "FEATURE_JUNGLE") == 0);
+	const bool bRoad = eRoute != NO_ROUTE &&
+		(strcmp(GC.getRouteInfo(eRoute).getType(), "ROUTE_ROAD") == 0 ||
+		 strcmp(GC.getRouteInfo(eRoute).getType(), "ROUTE_RAILROAD") == 0);
+	const bool bDesert = pPlot->getTerrainType() != NO_TERRAIN &&
+		strcmp(GC.getTerrainInfo(pPlot->getTerrainType()).getType(), "TERRAIN_DESERT") == 0;
+	return ExpansionRules::eligibleWorkedPlot(kTrait.getWorkedPlotCondition(),
+		pPlot->getOwnerINLINE() == getOwnerINLINE(), pPlot->getWorkingCity() == this,
+		bWorked, pPlot->isCity(), pPlot->isWater(), pPlot->isRiver(),
+		bListed, bWoodland, bDesert, bIntact, bRoad);
+}
+
+int CvCity::getWorkedPlotCount(TraitTypes eTrait, const CvPlot* pExclude) const
+{
+	int iCount = 0;
+	for (int i = 0; i < NUM_CITY_PLOTS; ++i)
+	{
+		const CvPlot* pPlot = getCityIndexPlot(i);
+		if (pPlot != pExclude && qualifiesWorkedPlot(pPlot, eTrait, isWorkingPlot(i)))
+			++iCount;
+	}
+	return iCount;
+}
+
+ExpansionRules::WorkedPlotBonuses CvCity::getWorkedPlotBonuses(BuildingTypes eAdditionalBuilding) const
+{
+	ExpansionRules::WorkedPlotBonuses result;
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		const TraitTypes eTrait = (TraitTypes)i;
+		if (!isWorkedPlotRuleActive(eTrait, eAdditionalBuilding))
+			continue;
+		const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+		const int iCount = getWorkedPlotCount(eTrait);
+		result.production += ExpansionRules::cappedContribution(iCount, kTrait.getWorkedPlotProduction(), kTrait.getWorkedPlotCap());
+		result.gold += ExpansionRules::cappedContribution(iCount, kTrait.getWorkedPlotGold(), kTrait.getWorkedPlotCap());
+		result.culture += ExpansionRules::cappedContribution(iCount, kTrait.getWorkedPlotCulture(), kTrait.getWorkedPlotCap());
+	}
+	return result;
+}
+
+ExpansionRules::WorkedPlotBonuses CvCity::getWorkedPlotMarginal(const CvPlot* pPlot, bool bRemove, BuildTypes eBuild) const
+{
+	ExpansionRules::WorkedPlotBonuses result;
+	if (pPlot == NULL || pPlot->getWorkingCity() != this || (bRemove && !isWorkingPlot(pPlot)))
+		return result;
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		const TraitTypes eTrait = (TraitTypes)i;
+		if (!isWorkedPlotRuleActive(eTrait))
+			continue;
+		const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+		const int iOtherCount = getWorkedPlotCount(eTrait, pPlot);
+		const bool bQualifies = qualifiesWorkedPlot(pPlot, eTrait, true, eBuild);
+		result.production += ExpansionRules::cappedMarginal(iOtherCount, bQualifies, kTrait.getWorkedPlotProduction(), kTrait.getWorkedPlotCap());
+		result.gold += ExpansionRules::cappedMarginal(iOtherCount, bQualifies, kTrait.getWorkedPlotGold(), kTrait.getWorkedPlotCap());
+		result.culture += ExpansionRules::cappedMarginal(iOtherCount, bQualifies, kTrait.getWorkedPlotCulture(), kTrait.getWorkedPlotCap());
+	}
+	return result;
+}
+
 int CvCity::calculateImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const
 {
 	int iTotalChange = 0;
@@ -9245,10 +9367,18 @@ int CvCity::calculateImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eC
 void CvCity::updateImprovementCityCommerceFromTraitsAndCivics(bool bUpdateCommerce)
 {
 	bool bChanged = false;
+	const ExpansionRules::WorkedPlotBonuses bonus = getWorkedPlotBonuses();
+	if (m_iWorkedPlotProduction != bonus.production)
+	{
+		m_iWorkedPlotProduction = bonus.production;
+		GET_PLAYER(getOwnerINLINE()).invalidateYieldRankCache(YIELD_PRODUCTION);
+		bChanged = true;
+	}
 
 	for (int iCommerce = 0; iCommerce < NUM_COMMERCE_TYPES; ++iCommerce)
 	{
-		const int iWorkedOnly = calculateImprovementCityCommerceFromTraitsAndCivics((CommerceTypes)iCommerce, true);
+		const int iWorkedOnly = calculateImprovementCityCommerceFromTraitsAndCivics((CommerceTypes)iCommerce, true) +
+			(iCommerce == COMMERCE_GOLD ? bonus.gold : (iCommerce == COMMERCE_CULTURE ? bonus.culture : 0));
 		const int iBFC = calculateImprovementCityCommerceFromTraitsAndCivics((CommerceTypes)iCommerce, false);
 
 		if (m_aiImprovementCityCommerceFromTraitsAndCivicsWorked[iCommerce] != iWorkedOnly)
@@ -9267,6 +9397,7 @@ void CvCity::updateImprovementCityCommerceFromTraitsAndCivics(bool bUpdateCommer
 	if (bChanged && bUpdateCommerce)
 	{
 		updateCommerce();
+		setInfoDirty(true);
 	}
 }
 
@@ -9283,25 +9414,83 @@ int CvCity::getImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerc
 	return m_aiImprovementCityCommerceFromTraitsAndCivicsBFC[eCommerce];
 }
 
+bool CvCity::qualifiesVeteranGarrison(const CvUnit* pUnit, int iMinimumLevel) const
+{
+	return pUnit != NULL && ExpansionRules::eligibleVeteranGarrison(
+		pUnit->getOwnerINLINE() == getOwnerINLINE(), pUnit->getDomainType() == DOMAIN_LAND,
+		pUnit->canFight(), pUnit->isAnimal(), pUnit->isCargo(), pUnit->isDead() || pUnit->isDelayedDeath(),
+		pUnit->getLevel(), iMinimumLevel);
+}
+
+int CvCity::getVeteranGarrisonCulture(const CvUnit* pExtraUnit, const CvUnit* pExcludedUnit) const
+{
+	if (getOwnerINLINE() == NO_PLAYER || plot() == NULL)
+		return 0;
+	int iCulture = 0;
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)i);
+		if (kTrait.getVeteranGarrisonCulture() == 0 || !hasTrait((TraitTypes)i))
+			continue;
+		bool bQualifies = pExtraUnit != pExcludedUnit &&
+			qualifiesVeteranGarrison(pExtraUnit, kTrait.getVeteranGarrisonMinLevel());
+		for (CLLNode<IDInfo>* pNode = plot()->headUnitNode(); pNode != NULL && !bQualifies;
+			pNode = plot()->nextUnitNode(pNode))
+		{
+			const CvUnit* pUnit = ::getUnit(pNode->m_data);
+			bQualifies = pUnit != pExcludedUnit && qualifiesVeteranGarrison(pUnit, kTrait.getVeteranGarrisonMinLevel());
+		}
+		if (bQualifies)
+			iCulture += kTrait.getVeteranGarrisonCulture();
+	}
+	return iCulture;
+}
+
+void CvCity::updateVeteranGarrisonCulture()
+{
+	if (getOwnerINLINE() == NO_PLAYER)
+		return;
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		if (GC.getTraitInfo((TraitTypes)i).getVeteranGarrisonCulture() > 0 && hasTrait((TraitTypes)i))
+		{
+			updateCommerce(COMMERCE_CULTURE);
+			AI_setAssignWorkDirty(true);
+			setInfoDirty(true);
+			break;
+		}
+	}
+}
+
+int CvCity::getTraitSpecialistCommerce(CommerceTypes eCommerce) const
+{
+	int iTotal = 0;
+	for (int i = 0; i < GC.getNumSpecialistInfos(); ++i)
+	{
+		iTotal += (getSpecialistCount((SpecialistTypes)i) + getFreeSpecialistCount((SpecialistTypes)i)) *
+			GET_PLAYER(getOwnerINLINE()).getTraitSpecialistCommerceChange((SpecialistTypes)i, eCommerce);
+	}
+	return iTotal;
+}
+
 int CvCity::getBaseCommerceRateTimes100(CommerceTypes eIndex) const
 {
 	int iBaseCommerceRate;
-	int iTraitSpecialistCommerce;
-	int iI;
 
 	iBaseCommerceRate = getCommerceFromPercent(eIndex, getYieldRate(YIELD_COMMERCE) * 100);
 
 	iBaseCommerceRate += 100 * ((getSpecialistPopulation() + getNumGreatPeople()) * GET_PLAYER(getOwnerINLINE()).getSpecialistExtraCommerce(eIndex));
-	iTraitSpecialistCommerce = 0;
-	for (iI = 0; iI < GC.getNumSpecialistInfos(); iI++)
-	{
-		iTraitSpecialistCommerce += (getSpecialistCount((SpecialistTypes)iI) + getFreeSpecialistCount((SpecialistTypes)iI)) * GET_PLAYER(getOwnerINLINE()).getTraitSpecialistCommerceChange((SpecialistTypes)iI, eIndex);
-	}
-	iBaseCommerceRate += 100 * iTraitSpecialistCommerce;
+	iBaseCommerceRate += 100 * getTraitSpecialistCommerce(eIndex);
+	if (eIndex == COMMERCE_CULTURE)
+		iBaseCommerceRate += 100 * getVeteranGarrisonCulture();
 
 	// Improvement-driven city commerce (worked tiles and in-BFC tiles) from traits/civics.
 	iBaseCommerceRate += 100 * getImprovementCityCommerceFromTraitsAndCivics(eIndex, true);
 	iBaseCommerceRate += 100 * getImprovementCityCommerceFromTraitsAndCivics(eIndex, false);
+	if (eIndex == COMMERCE_GOLD)
+	{
+		iBaseCommerceRate += 100 * getCoastalForeignTradeGold();
+	}
 
 	iBaseCommerceRate += 100 * (getBuildingCommerce(eIndex) + getSpecialistCommerce(eIndex) + getReligionCommerce(eIndex) + getCorporationCommerce(eIndex) + GET_PLAYER(getOwnerINLINE()).getFreeCityCommerce(eIndex));
 
@@ -11866,10 +12055,61 @@ int CvCity::getTradeRoutes() const
 }
 
 
+int CvCity::getForeignTradeTeamCount(TeamTypes eExtraTeam) const
+{
+	std::vector<int> aiTeams;
+	for (int iRoute = 0; iRoute < GC.getDefineINT("MAX_TRADE_ROUTES"); ++iRoute)
+	{
+		CvCity* pPartner = getTradeCity(iRoute);
+		if (pPartner != NULL && GET_PLAYER(pPartner->getOwnerINLINE()).isAlive())
+		{
+			aiTeams.push_back(pPartner->getTeam());
+		}
+	}
+	if (eExtraTeam != NO_TEAM)
+	{
+		aiTeams.push_back(eExtraTeam);
+	}
+	return ExpansionRules::distinctForeignTeams(aiTeams.empty() ? NULL : &aiTeams[0],
+		(int)aiTeams.size(), getTeam());
+}
+
+int CvCity::getCoastalForeignTradeGoldCap() const
+{
+	if (getOwnerINLINE() == NO_PLAYER)
+		return 0;
+	int iCap = 0;
+	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
+	{
+		if (hasTrait((TraitTypes)iTrait))
+			iCap += GC.getTraitInfo((TraitTypes)iTrait).getCoastalForeignTeamGoldCap();
+	}
+	return iCap;
+}
+
+int CvCity::getCoastalForeignTradeGold(TeamTypes eExtraTeam) const
+{
+	if (getCoastalForeignTradeGoldCap() == 0 || !isCoastal(GC.getMIN_WATER_SIZE_FOR_OCEAN()))
+		return 0;
+	const int iTeams = getForeignTradeTeamCount(eExtraTeam);
+	int iGold = 0;
+	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
+	{
+		if (hasTrait((TraitTypes)iTrait))
+		{
+			const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)iTrait);
+			iGold += ExpansionRules::cappedContribution(iTeams,
+				kTrait.getCoastalForeignTeamGold(), kTrait.getCoastalForeignTeamGoldCap());
+		}
+	}
+	return iGold;
+}
+
 void CvCity::clearTradeRoutes()
 {
 	CvCity* pLoopCity;
 	int iI;
+	const int iOldForeignGold = getCoastalForeignTradeGold();
 
 	for (iI = 0; iI < GC.getDefineINT("MAX_TRADE_ROUTES"); iI++)
 	{
@@ -11881,6 +12121,10 @@ void CvCity::clearTradeRoutes()
 		}
 
 		m_paTradeCities[iI].reset();
+	}
+	if (iOldForeignGold != 0)
+	{
+		updateCommerce(COMMERCE_GOLD);
 	}
 }
 
@@ -11969,6 +12213,11 @@ void CvCity::updateTradeRoutes()
 	}
 
 	SAFE_DELETE_ARRAY(paiBestValue);
+	// A new partner team can change direct Gold without changing trade yield.
+	if (getCoastalForeignTradeGold() != 0)
+	{
+		updateCommerce(COMMERCE_GOLD);
+	}
 }
 
 

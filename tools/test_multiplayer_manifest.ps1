@@ -15,6 +15,20 @@ $manifestA = Join-Path $scratch "a.json"
 $manifestB = Join-Path $scratch "b.json"
 $engine = (Get-Process -Id $PID).Path
 
+function Get-FileSha256 {
+    param([string]$Path)
+
+    $stream = [System.IO.File]::OpenRead($Path)
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        return ([System.BitConverter]::ToString($sha.ComputeHash($stream))).Replace("-", "").ToLowerInvariant()
+    }
+    finally {
+        $sha.Dispose()
+        $stream.Dispose()
+    }
+}
+
 try {
     if (Test-Path -LiteralPath $scratch) {
         Remove-Item -LiteralPath $scratch -Recurse -Force
@@ -29,8 +43,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "Reference manifest generation failed." }
     & $engine -NoProfile -File $tool -Root $copy -OutputPath $manifestB
     if ($LASTEXITCODE -ne 0) { throw "Copy manifest generation failed." }
-    if ((Get-FileHash -LiteralPath $manifestA -Algorithm SHA256).Hash -ne
-        (Get-FileHash -LiteralPath $manifestB -Algorithm SHA256).Hash) {
+    if ((Get-FileSha256 -Path $manifestA) -ne
+        (Get-FileSha256 -Path $manifestB)) {
         throw "Equivalent roots did not produce byte-identical deterministic JSON."
     }
     & $engine -NoProfile -File $tool -ReferenceManifest $manifestA -CandidateManifest $manifestB

@@ -65,6 +65,15 @@ UNIQUE_FLAG_CIVS = {
     "CIVILIZATION_YUAN_DYNASTY",
     "CIVILIZATION_USSR",
 }
+ACCEPTED_CITY_STYLES = {
+    "CIVILIZATION_AMERICA_FOUNDING_REPUBLIC": ("ARTSTYLE_EUROPEAN", "ARTSTYLE_ANGLO_AMERICA"),
+    "CIVILIZATION_BABYLON": ("ARTSTYLE_MIDDLE_EAST", "ARTSTYLE_CRESCENT"),
+    "CIVILIZATION_ELIZABETHAN_ENGLAND": ("ARTSTYLE_EUROPEAN", "ARTSTYLE_EUROPE"),
+    "CIVILIZATION_KOREA": ("ARTSTYLE_ASIAN", "ARTSTYLE_ASIA"),
+    "CIVILIZATION_VENICE": ("ARTSTYLE_EUROPEAN", "ARTSTYLE_EUROPE"),
+    "CIVILIZATION_YUAN_DYNASTY": ("ARTSTYLE_ASIAN", "ARTSTYLE_MONGOLIA"),
+    "CIVILIZATION_USSR": ("ARTSTYLE_EUROPEAN", "ARTSTYLE_RUSSIA"),
+}
 
 
 def local_name(tag: str) -> str:
@@ -182,6 +191,11 @@ class AdditiveRosterExactContractTests(unittest.TestCase):
             child(current, "ArtDefineTag").text = child(
                 baseline, "ArtDefineTag"
             ).text
+        if repo_path == CIVILIZATIONS and type_name in ACCEPTED_CITY_STYLES:
+            old_style, new_style = ACCEPTED_CITY_STYLES[type_name]
+            self.assertEqual(text(baseline, "ArtStyleType"), old_style)
+            self.assertEqual(text(current, "ArtStyleType"), new_style)
+            child(current, "ArtStyleType").text = old_style
         return current, baseline
 
     def normalize_signature_addition(

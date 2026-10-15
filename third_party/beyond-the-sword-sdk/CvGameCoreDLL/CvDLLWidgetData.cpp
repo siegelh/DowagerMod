@@ -2523,6 +2523,7 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct &widgetDataStruct, CvWS
 					}
 				}
 
+				GAMETEXT.setCityBuildHelp(szBuffer, eImprovement, pMissionPlot, pHeadSelectedUnit->getOwnerINLINE());
 				bValid = false;
 
 				pSelectedUnitNode = gDLL->getInterfaceIFace()->headSelectionListNode();
@@ -4522,4 +4523,3 @@ void CvDLLWidgetData::parseScoreHelp(CvWidgetDataStruct& widgetDataStruct, CvWSt
 {
 	GAMETEXT.setScoreHelp(szBuffer, (PlayerTypes)widgetDataStruct.m_iData1);
 }
-

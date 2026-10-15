@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import json
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -148,6 +149,12 @@ class NeutralWorldWonderDataTests(unittest.TestCase):
             child_text(node, "Type")
             for node in entries(IMPROVEMENTS, "ImprovementInfo")
         ]
+        packages = json.loads((ROOT / "tools/manifests/new_leaders_expansion.json").read_bytes())["packages"]
+        suffix = ["IMPROVEMENT_EXP_" + p["improvement"]["id"] + stage
+                  for p in packages if "improvement" in p for stage in ("", "_PILLAGED")]
+        if suffix:
+            self.assertEqual(order[-len(suffix):], suffix)
+            order = order[:-len(suffix)]
         self.assertEqual(order[-NEUTRAL_WORLD_WONDER_COUNT:], IMPROVEMENT_TYPES)
 
     def test_exact_yields_modifiers_and_permanence(self):

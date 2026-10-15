@@ -1,0 +1,291 @@
+[
+  {
+    "leader": "LEADER_EXP_PIYE",
+    "status": "Existing primary and separate nonshader model retained. Package XML confirms the 64px Piye.dds portrait. Stock Archer and Monument art are provisional, not claimed as final Nubian costume or architecture. Full diplomacy/graphics acceptance pending.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/piye/Piye.dds": "eb393cebc64138aece0d64ba2aa0e4f099e9af8c6109c69790e4460fc596ca12",
+      "Art/Leaderheads/new/piye/ramassesii.nif": "675ba5327c70c488d37608064e78e4540f1a625792699583f32cf35b3aeeb7c1",
+      "Art/Leaderheads/new/piye/ramassesii.kfm": "9066fe78546a446829333e141cf2c8c0c5322d6b47438b10cd114ece375f06ca",
+      "Art/Leaderheads/new/piye/ramassesii_noshader.nif": "efc924b898150383cf1dbcf2d4591491104b69cb6283a2382bd3a0053cecac2e",
+      "Art/Leaderheads/new/piye/ramassesii_BG.kfm": "94f84df9b01f82418802834ab407d0c27a520c88f056fab979c737466a47ac2c"
+    },
+    "repairs": [],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_DUSAN",
+    "status": "Existing package explicitly uses the primary Putin.nif in both shader fields; retained without claiming nonshader runtime certification. Package XML confirms dusan.dds portrait. Stock medieval Knight and Courthouse visuals are provisional. No later Serbian uniform imports.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/dusan/dusan.dds": "bdbabc61d385ab4b1168a286e72a1873403a5d0ba74e48a5f63c3a04376c2ea9",
+      "Art/Leaderheads/new/dusan/Putin.nif": "5597bd4cf91afd3224989907ac343fa60cd355a6003d2f07f82aaeaca53d0bc3",
+      "Art/Leaderheads/new/dusan/Putin.kfm": "ec07fcf88f819b94cc0124b41081d2c821c733bbe56dc12f6f9dae6aadd1bcbf",
+      "Art/Leaderheads/new/dusan/Putin_BG.kfm": "d02b4046e6e8b22189a5fd292e1cc4e81d9398813451259fe61bcf20a429c614"
+    },
+    "repairs": [],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_MATTHIAS",
+    "status": "Retained primary/nonshader geometry and costume. Missing stock Darius specular map restored with matching donor normal/environment/mask evidence. No supplied portrait button: explicitly provisional original raven-emblem button, not a portrait or an audit render. Stock Gunpowder infantry and University art are prototypes, not authenticated Black Army uniforms or a royal-library model.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/matthias_corvinus/Justinian.nif": "b7cfe66b1f02226e06d354af260ef45c5b46817c99597b9a9ef3183adad5cbb1",
+      "Art/Leaderheads/new/matthias_corvinus/Justinian.kfm": "4dce681a4f674ae567ca28c94bb142ae347d1e4fa0b1afc4f696e8f3dbaa6b8e",
+      "Art/Leaderheads/new/matthias_corvinus/Justinian_NONSHADER.nif": "d06185ca9bdedabe44d5300320f098c7a957cf2864a970a8979cf96a66c69fc6",
+      "Art/Leaderheads/new/matthias_corvinus/Justinian_Background.kfm": "a1b2e590edbf977dfde344a81d29c83e17b404eace1aaeb816d0fe683f7f0e4e",
+      "Art/Interface/Buttons/Civilizations/EXP_MATTHIAS.dds": "d5dfa497ff2e6b758cfe74e8f9e9058fae95b4a171ab9c7885146dd34ad88223"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/Darius/Darius_SPEC.dds",
+        "target": "Art/Leaderheads/new/matthias_corvinus/Darius_SPEC.dds",
+        "sha256": "5456ac0f226a7e6d05dd50b8e71201dd01c2aab70545f53f7b37786b3b35a77c",
+        "evidence": "Darius NRML.dds, Darius_ENV.dds and Darius_ENVMask.dds in Matthias match stock Darius byte-for-byte; both retained NIFs reference the missing stock Darius_SPEC.dds."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_PEDRO_II",
+    "status": "Existing aging bearded imperial portrait and bundled 64px pedro.dds retained provisionally. No conflicting Pedro I metadata found; final identity approval remains open. Unused BoundShape/Suleiman helper meshes and stored background tilt are untouched. Stock nineteenth-century Rifleman/University art is explicitly provisional.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/dompedro_v3/pedro.dds": "a8f0efa4d916abe52c10f9a10cfa20fd42f9a40941fb8e89f7c88b80d8f48cd2",
+      "Art/Leaderheads/new/dompedro_v3/napoleon.nif": "725ee97ac7da89dff241ce555a8c37a0ad9b823001ba8bcfa0284cb7c8cd3b7d",
+      "Art/Leaderheads/new/dompedro_v3/napoleon.kfm": "ea13132966f1475a25e1442c307f735749975a21edebe876d09f2b218006b929",
+      "Art/Leaderheads/new/dompedro_v3/napoleon_noshader.nif": "fdc57b608ce007ad88a717b7c213fe39343835af9fdef6c0a4c1e169230c1af4",
+      "Art/Leaderheads/new/dompedro_v3/napoleon_bg.kfm": "3a99a632be5190fe854d21306f3c634932d4539b4a82cb80450afcaadbba1186"
+    },
+    "repairs": [],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_MONGKUT",
+    "status": "Retained primary mesh, costume, background and bundled portrait. Missing eye material restored from the identical shared stock eyeshadow already bundled under frederick_eyeshadow.dds. No distinct nonshader model; low-graphics acceptance remains pending. Stock Rifleman and Observatory art are provisional, not authenticated Siamese uniforms or architecture.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/mongkut/MongkutButton.dds": "b8da360d87a7291d1ed54b2d5e604ef3290d6de2e4e039d15e02fd5aa1599efe",
+      "Art/Leaderheads/new/mongkut/Tachnechobrus.nif": "49294d7be69042cde65aa3c5a533c87fef04d957691560b8c37f7d3d3a9606d0",
+      "Art/Leaderheads/new/mongkut/Tachnechobrus.kfm": "89c17bf035a82980d47b33240ee4f2eeef4b06b283e70ad93fd5f37e7bfb77c6",
+      "Art/Leaderheads/new/mongkut/Tachnechobrus_Background.kfm": "6a1e719bc7c7d4f3edf0146675a4dbc18a09b030384b1df215dcaf9da25c20aa"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/mongkut/frederick_eyeshadow.dds",
+        "target": "Art/Leaderheads/new/mongkut/eyeshadow.dds",
+        "sha256": "894159ebe627bb3101ca4ad8f88fd1e265bec7ed76a8b0dff2fa2dfd2bf83e78",
+        "evidence": "PyFFI resolves the 24-vertex eyeshadow geometry's base texture to missing eyeshadow.dds. The already bundled frederick_eyeshadow.dds is byte-identical to stock Justinian's shared eyeshadow.dds (192 bytes), not a replacement portrait texture."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_BOLIVAR",
+    "status": "Retained primary model, portrait content, costume and background geometry/camera. The supplied 61x61 portrait is resampled to a separate 64x64 RGBA runtime button; original retained. Runtime KFM changes only its missing donor model binding to bundled Bolivar.nif; all animation bytes retained. A reviewed background repair keeps the donor's two matching constant root controllers and verifies their composed orientation equals the retained NIF; absent sky/material targets are omitted. No distinct nonshader model. Stock nineteenth-century Cavalry and Courthouse visuals are provisional; no modern Search Bloc substitution.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/bolivar_v3/Btn_LH_Bolivar_Runtime.dds": "658bac8530bdaeee3b891ce61108081cfb882f0c20c4eecdf8fcfead09450ae5",
+      "Art/Leaderheads/new/bolivar_v3/Bolivar.nif": "71f28dcf8110028a9de567a87eb0ab141ee5c1aa2903611f81eb498a2fb41b62",
+      "Art/Leaderheads/new/bolivar_v3/Bolivar_Runtime.kfm": "dc367e9ad663c94d1182b0382d3f022c1f5614fc06b9f56baa419778c30625db",
+      "Art/Leaderheads/new/bolivar_v3/Bolivar_bg.kfm": "fc948b84fc26de630cb4acd2b4c255a6ec1213074e915d72177062bad7595686"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/bolivar_v3/Btn_LH_Bolivar.dds",
+        "target": "Art/Leaderheads/new/bolivar_v3/Btn_LH_Bolivar_Runtime.dds",
+        "sha256": "ccd399f2f327747c5674b94ed44763186f24274af3db071aba2416a30d947ef4",
+        "portrait_resize": {
+          "old_size": [
+            61,
+            61
+          ],
+          "new_size": [
+            64,
+            64
+          ]
+        },
+        "evidence": "Roster gate rejects the supplied non-power-of-two DDS. Preserve the original; LANCZOS-resample the same complete RGBA portrait to 64x64 and encode uncompressed DDS without cropping or substituting art."
+      },
+      {
+        "source": "Art/Leaderheads/new/bolivar_v3/Bolivar.kfm",
+        "target": "Art/Leaderheads/new/bolivar_v3/Bolivar_Runtime.kfm",
+        "sha256": "5e09cff158bdcf1336a8259b646e302e0330e4bd4bdb2f4729a30d1afeb1d49a",
+        "kfm_model": {
+          "old": "alexander.nif",
+          "new": "Bolivar.nif"
+        },
+        "evidence": "The original KFM points at an absent donor model. Only its length-prefixed model field changes; the _alex_parent skeleton and all existing eight animation filenames/transitions remain byte-identical."
+      },
+      {
+        "source": "Art/BTG/LeaderHeads/harun_al-rashid/julius_caesar_bg_background.kf",
+        "target": "Art/Leaderheads/new/bolivar_v3/julius_caesar_BG_background.kf",
+        "sha256": "402b52b658a2a6b68548ded52ec03b5c1dc3aa0fb313e3c2b08a573406351cd0",
+        "prepared_sha256": "14f53f1a289519a60b33d1f69a05f7d1ee9f5344dc166f01fdac80fd30d0fe5d",
+        "evidence": "tools/prepare_bolivar_background.py (PyFFI 2.2.3) verifies pinned donor/model hashes, retains only _julius_caesar_parent and NonAccum constant transform links, excludes the two absent targets and checks composed orientation within 1e-5. Thirteen repository donor clips share the source hash. No background mesh, material, camera or head-animation change."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_HIRAM",
+    "status": "Primary visible scene, distinct nonshader model, background, animations and 64px portrait retained. The primary file's missing saruman.dds references belonged to five separate non-scene export roots. A separate runtime NIF omits those roots and verifies exact serialized data/reference preservation for every visible scene block; no guessed donor texture is substituted. Runtime KFM changes only the model filename. Stock Galley/Market art and inherited Mediterranean citystyles are provisional.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/Amra_Hiram_v2/Button_Hiram.dds": "76dbfa02acd96a6e2ae22ed75a9cb0fc87bcc0032745e79cbf177e76ae301817",
+      "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.nif": "0b68d70a08540449cedec4f79860403df99ba92ec61af6ac92259ff6117f8be8",
+      "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.kfm": "6d3e32afe6e4cf75f9809c421a466f6cc846920edaa9da33573267510e81304c",
+      "Art/Leaderheads/new/Amra_Hiram_v2/Darius_NONSHADER.nif": "843acacb94bcf69e43a389f91f6cf7b3bbd26415122741190d71b197fa191c6c",
+      "Art/Leaderheads/new/Amra_Hiram_v2/Darius_BG.kfm": "9ef65d64eee3af67309d8e775ed11caeaed436ef584ed38d2e2566a1f739dd74"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/Amra_Hiram_v2/Darius.nif",
+        "target": "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.nif",
+        "sha256": "42dd29992d223ae7c7def1e250438b0d49689f4bb57a3002174ed0bee5cd6ee9",
+        "prepared_sha256": "0b68d70a08540449cedec4f79860403df99ba92ec61af6ac92259ff6117f8be8",
+        "evidence": "tools/prepare_hiram_leaderhead.py (PyFFI 2.2.3) verifies the sole NiAVObject export root is Scene Root and none of the other five roots is reachable from it. Both missing saruman.dds references belong to a separate NiTexturingProperty root. Every active scene block serializes identically before and after repair, including reference indices, geometry, transforms and materials."
+      },
+      {
+        "source": "Art/Leaderheads/new/Amra_Hiram_v2/Darius.kfm",
+        "target": "Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.kfm",
+        "sha256": "520b43bc7b02afa76330aafbbcbb2aa59d7e7a691acd2ab4dfe561858c4b4f92",
+        "kfm_model": {
+          "old": "Darius.nif",
+          "new": "Darius_Runtime.nif"
+        },
+        "evidence": "Reviewed little-endian KFM 2.0.0.0b: only the length-prefixed model name changes. _darius_parent and all animation/transition bytes remain identical."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_RAMKHAMHAENG",
+    "status": "Existing red-and-gold primary, distinct nonshader model, background and 64px portrait retained. Referenced dependencies resolve. Stock Elephant and Library visuals with inherited Khmer citystyles are provisional; a movie image is not treated as a building model. Full animation and shader acceptance pending.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/ramkham/Ramkham.dds": "2684d364f01bd57ab89e2a1b4d29e67d9beb6395221efb3b03891794e191e822",
+      "Art/Leaderheads/new/ramkham/Suryavarman.nif": "7320a444dabd95a3156b3fc65feca42c0ff3437a9acecfa4e20ad499e0005326",
+      "Art/Leaderheads/new/ramkham/Suryavarman.kfm": "599916f9011e1816a75e20a9e6cdd4a6f4c549ab8bf347385204b29aa7f1d44a",
+      "Art/Leaderheads/new/ramkham/Suryaverman_NONSHADER.nif": "584abc45a03ff25d128eb9845431a08cdd46830bb0795cbc835c3bec97d9fb86",
+      "Art/Leaderheads/new/ramkham/Suryavarman_BG.kfm": "ab3f0935c0ee7dc33971a1ecd43a6a67b083737e185b128afd223ed18803f6b0"
+    },
+    "repairs": [],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_HO_CHI_MINH",
+    "status": "Blue-shirt primary and all original textures remain unchanged. Separate fallback changes only the Mao-new clothing geometry's unique base-texture filename to the primary blue diffuse map; all 1794 clothing UVs match exactly, and restoring that filename reproduces the complete original canonical NIF. Face, beard, geometry and other fallback materials are untouched. Runtime KFM changes only its missing donor model binding. Stock Infantry/Intelligence Agency and inherited Asian citystyles are provisional; runtime animation/shader acceptance pending.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/hochiminh_v2/HoChi_Button.dds": "c3d07818c5c022266cf8a545720f4817fa60d8a70e801a844e6d9c4dbc5ca1fb",
+      "Art/Leaderheads/new/hochiminh_v2/HoChiMinh.nif": "efcabc6509e044db16230ad0150ca4342f5e62335965aac5e8c21c33c8f3e659",
+      "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Runtime.kfm": "030953752be959f3792853df56e3b9a9ba0db39a69b58ce68721ad5ae7787016",
+      "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Nonshader_Runtime.nif": "3270242e94a45a560f716658841a3cee11a14c5c8429d4a7f94c1b745572ffc9",
+      "Art/Leaderheads/new/hochiminh_v2/genghis_khan_bg.kfm": "60f36f8819b5c8b934ba0e0735a992d3250c93d2d59bcf6d664506d0c50f2250"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Nonshader.nif",
+        "target": "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Nonshader_Runtime.nif",
+        "sha256": "92752dbf56a10091fb11069c782c7372dcbb4c1383ded7172435a0a0cd733127",
+        "prepared_sha256": "3270242e94a45a560f716658841a3cee11a14c5c8429d4a7f94c1b745572ffc9",
+        "evidence": "tools/prepare_expansion_texture_paths.py verifies one unshared clothing texture and identical primary/fallback clothing UVs. Only the chosen length-prefixed filename bytes change; reversing the change also reproduces the full canonical NIF."
+      },
+      {
+        "source": "Art/Leaderheads/new/hochiminh_v2/genghis_khan.kfm",
+        "target": "Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Runtime.kfm",
+        "sha256": "101150ea73f378e12a672aff589d48d9bf8e5876a721fc73adce9123458d6632",
+        "kfm_model": {
+          "old": "genghis_khan.nif",
+          "new": "HoChiMinh.nif"
+        },
+        "evidence": "Filename-only KFM 2.0.0.0b repair. All animation and transition bytes are preserved."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_ASKIA",
+    "status": "Red turban, face, costume, background and 64px portrait retained. Runtime NIF changes only the zara_trans mesh's obsolete absolute base-texture filename to bundled Zara_DIFF.dds. Reversing that change reproduces every original canonical byte. Runtime KFM changes only model filename. No distinct nonshader model exists; the primary is provisional in both fields, not certified for low settings. Stock Knight/University and inherited African citystyles are provisional.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/askia/AskiaMohammedBTN.dds": "61a1c6154d86140cb2fde5c8338597d89e52fda1cc6a4191b648e2abaf0dae2f",
+      "Art/Leaderheads/new/askia/Askia_Runtime.nif": "c3c1f515df0ee53d855a2798bf4b748ac8725505e610e32a3354dd18a8dbbcfa",
+      "Art/Leaderheads/new/askia/Askia_Runtime.kfm": "64d6f427042cd09bd85b9c32bc3b6f1f72119f54e8fc0e5ce8759b0a393f25e1",
+      "Art/Leaderheads/new/askia/Zara Yaqob_BG.kfm": "e4d938751086e51db510a565e670c959fd73d86d18b48ee67bf21f8abc6a89b8"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/askia/Zara Yaqob.nif",
+        "target": "Art/Leaderheads/new/askia/Askia_Runtime.nif",
+        "sha256": "b505164f05aaaab81e4d48db5d2782e54a37a6678186761af5e76f65d3f8e86a",
+        "prepared_sha256": "c3c1f515df0ee53d855a2798bf4b748ac8725505e610e32a3354dd18a8dbbcfa",
+        "evidence": "tools/prepare_expansion_texture_paths.py verifies the exact source, one unshared zara_trans texture reference and whole-document canonical equality after reversing only the absolute-to-relative filename edit."
+      },
+      {
+        "source": "Art/Leaderheads/new/askia/Zara Yaqob.kfm",
+        "target": "Art/Leaderheads/new/askia/Askia_Runtime.kfm",
+        "sha256": "91aeb44f33de7a1a6510c93bd252be9dee0045080f0c4a197867d0c4d9e599ac",
+        "kfm_model": {
+          "old": "Zara Yaqob.nif",
+          "new": "Askia_Runtime.nif"
+        },
+        "evidence": "Filename-only KFM 2.0.0.0b repair; parent, animation and transition bytes are preserved."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_DAVID",
+    "status": "Existing primary, costume, animation files and static background retained provisionally by explicit owner request despite the audit's remake recommendation. No distinct nonshader model or portrait button exists; the primary is used in both fields, and an original harp emblem is explicitly not a portrait. Missing Julius background TGA is restored from repeated identical repository DDS pixels with matching background geometry and UV evidence. Stock Swordsman/Walls and inherited Middle Eastern citystyles are provisional; later Maccabee art is not misrepresented as Davidic.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/kingdavid/montezuma.nif": "5fc6cdc3bad34411837d23e6782ca6a2a2eccb4c2406cbedb8de5f96692cc4e3",
+      "Art/Leaderheads/new/kingdavid/montezuma.kfm": "fa70d3c963707ee841c7989e22cbcf138cca4c5a798191a6ce9f27d3e5638b69",
+      "Art/Leaderheads/new/kingdavid/montezuma_bg.kfm": "9e927064ad9be6e74e64d0b5a442ffad17b0b3a9ad37e46719b1357ff04dfadc",
+      "Art/Interface/Buttons/Civilizations/EXP_DAVID.dds": "4140e992c07307c332c660eb90ecad36ceebff7f9e8e7a27752ac632e760ec75"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/new/owain/julius_bkgr_diff.dds",
+        "target": "Art/Leaderheads/new/kingdavid/julius_bkgr_DIFF.tga",
+        "sha256": "aea8df84b1473fc992df2b093d43705d502ad3f52bea48889cf042643c413850",
+        "dds_to_tga": true,
+        "evidence": "Owain and Mangal Pandey bundle identical 512x256 RGBA Julius background DDS files. Their Alexander background plane matches David's background_stub art geometry and UVs exactly (vertex SHA256 96e82d9ab36aa307ead5eea28d35641bd2bde99b5b6012ac1b88f9508bcddf68; UV SHA256 6c747f491fd8f84bfcf73978c1daeae7d39a623baff994c7d8eaa39a2beab112). Lossless decoded-pixel conversion to the referenced TGA leaves the NIF and existing Cyrus textures untouched."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_SENNACHERIB",
+    "status": "Complete retained primary model and animations. The bundled josef_stalin_noshader.nif has only stock Stalin textures rather than the primary's Assyrian costume meshes, so both runtime slots explicitly use the retained primary instead of silently switching identity. No low-settings certification. Stock Catapult and Aqueduct visuals and the original small canal mesh are provisional.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/sennacherib/SennacheribButton.dds": "00509f1496ec931fa56969ac6aea13843fab37030e253e4a9f7737b8fafd9687",
+      "Art/Leaderheads/new/sennacherib/josef_stalin.nif": "bf3a6cbec32ee9ad66556448348e03ac7cf17a4d5c32dff04c07281f7eecc2f8",
+      "Art/Leaderheads/new/sennacherib/josef_stalin.kfm": "9b0c213511ba292ba13a33bdc7a3d25245f2a376856d5ffed628629f80db543d",
+      "Art/Leaderheads/new/sennacherib/josef_stalin_BG.kfm": "48e3e532307942d45e6daf2b172502b2b56e83180ed120f34efcf98ad522b001"
+    },
+    "repairs": [],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  },
+  {
+    "leader": "LEADER_EXP_ZENOBIA",
+    "status": "Retained primary appearance. Restore the exact named stock Victoria environment texture and correct only the main KFM model binding. Existing background and eight main animation clips retained. No distinct nonshader model; primary in both slots remains provisional. Supporting cavalry, Market and caravan-house visuals require manual acceptance.",
+    "direct_reference_sha256": {
+      "Art/Leaderheads/new/zenobia/button/btn_lh_zenobia.dds": "de66eb809cc0ae901d178205297d4cc1227dd3e3427c971f873419ca317aa850",
+      "Art/Leaderheads/new/zenobia/zenobia.nif": "18d0dba3c561b96bd969ca4de2570c4f0309e5ca1863f3bfdf3ba6190fe0912f",
+      "Art/Leaderheads/new/zenobia/Zenobia_Runtime.kfm": "b85f39802df43b99d14b52902e5743358c938fdc14859874904a94cbc7712748",
+      "Art/Leaderheads/new/zenobia/zenobia_BG.kfm": "9ef65d64eee3af67309d8e775ed11caeaed436ef584ed38d2e2566a1f739dd74"
+    },
+    "repairs": [
+      {
+        "source": "Art/Leaderheads/Victoria/victoria_env2.dds",
+        "target": "Art/Leaderheads/new/zenobia/Victoria_ENV2.dds",
+        "sha256": "73b41b69c1e5dd969f61396b0d5bce98a50e62dd5ed603bb679c5030072ca5df",
+        "evidence": "The retained Zenobia NIF directly references Victoria_ENV2.dds as an environment texture. The bundled stock Victoria donor provides that exact named 256x256 texture; no diffuse map, UV, mesh, camera or existing texture is modified."
+      },
+      {
+        "source": "Art/Leaderheads/new/zenobia/zenobia.kfm",
+        "target": "Art/Leaderheads/new/zenobia/Zenobia_Runtime.kfm",
+        "sha256": "71abe3dbc2c907b615a1bdd5044fb7993545db1f0c326fc5951e065e152dbdef",
+        "kfm_model": {
+          "old": "victoria.nif",
+          "new": "zenobia.nif"
+        },
+        "evidence": "The main KFM refers to an absent donor filename while the retained model is zenobia.nif. Only the length-prefixed model name changes; all animation, master and transition bytes remain unchanged."
+      }
+    ],
+    "dependency_closure": "Per-package audit read; main/background KF playback and graphics modes still require game acceptance."
+  }
+]

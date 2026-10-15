@@ -7,6 +7,7 @@
 
 #include "CvDLLEntity.h"
 #include "LinkedList.h"
+#include "CvExpansionRules.h"
 
 class CvPlot;
 class CvPlotGroup;
@@ -821,6 +822,9 @@ public:
 	int getTradeRoutes() const;																										// Exposed to Python
 	void clearTradeRoutes();
 	void updateTradeRoutes();
+	int getForeignTradeTeamCount(TeamTypes eExtraTeam = NO_TEAM) const;
+	int getCoastalForeignTradeGold(TeamTypes eExtraTeam = NO_TEAM) const;
+	int getCoastalForeignTradeGoldCap() const;
 
 	void clearOrderQueue();																														// Exposed to Python
 	void pushOrder(OrderTypes eOrder, int iData1, int iData2, bool bSave, bool bPop, bool bAppend, bool bForce = false);		// Exposed to Python
@@ -949,6 +953,15 @@ public:
 	int getBestYieldAvailable(YieldTypes eYield) const;
 	void updateImprovementCityCommerceFromTraitsAndCivics(bool bUpdateCommerce = true);
 	int getImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const;
+	bool hasWorkedPlotRules() const;
+	bool isWorkedPlotRuleActive(TraitTypes eTrait, BuildingTypes eAdditionalBuilding = NO_BUILDING) const;
+	int getWorkedPlotCount(TraitTypes eTrait, const CvPlot* pExclude = NULL) const;
+	ExpansionRules::WorkedPlotBonuses getWorkedPlotBonuses(BuildingTypes eAdditionalBuilding = NO_BUILDING) const;
+	ExpansionRules::WorkedPlotBonuses getWorkedPlotMarginal(const CvPlot* pPlot, bool bRemove, BuildTypes eBuild = NO_BUILD) const;
+	int getWorkedPlotProduction() const { return m_iWorkedPlotProduction; }
+	int getTraitSpecialistCommerce(CommerceTypes eCommerce) const;
+	int getVeteranGarrisonCulture(const CvUnit* pExtraUnit = NULL, const CvUnit* pExcludedUnit = NULL) const;
+	void updateVeteranGarrisonCulture();
 
 protected:
 
@@ -1040,6 +1053,7 @@ protected:
 	int m_iSpecialistFreeExperience;
 	int m_iEspionageDefenseModifier;
 	int m_iHarborWaterFood;
+	int m_iWorkedPlotProduction;
 
 	bool m_bNeverLost;
 	bool m_bBombarded;
@@ -1174,6 +1188,8 @@ protected:
 	bool canHurryUnit(HurryTypes eHurry, UnitTypes eUnit, bool bIgnoreNew) const;
 	bool canHurryBuilding(HurryTypes eHurry, BuildingTypes eBuilding, bool bIgnoreNew) const;
 	int calculateImprovementCityCommerceFromTraitsAndCivics(CommerceTypes eCommerce, bool bWorkedOnly) const;
+	bool qualifiesWorkedPlot(const CvPlot* pPlot, TraitTypes eTrait, bool bWorked, BuildTypes eBuild = NO_BUILD) const;
+	bool qualifiesVeteranGarrison(const CvUnit* pUnit, int iMinimumLevel) const;
 	bool areBuildingLocalImprovementPrereqsMet(BuildingTypes eBuilding) const;
 	bool areBuildingLocalBonusPrereqsMet(BuildingTypes eBuilding) const;
 	bool areBuildingConnectedBonusPrereqsMet(BuildingTypes eBuilding) const;

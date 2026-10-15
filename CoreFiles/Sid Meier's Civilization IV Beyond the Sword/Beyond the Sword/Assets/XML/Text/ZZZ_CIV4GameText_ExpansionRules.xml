@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Civ4GameText xmlns="http://www.firaxis.com">
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_OPEN_BORDERS_RESEARCH</Tag>
+    <English>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</English>
+    <French>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</French>
+    <German>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</German>
+    <Italian>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</Italian>
+    <Spanish>[NEWLINE]+%d1 percentage points to research for a technology known to at least one foreign Open Borders team. Excludes your team, enemies and either-direction vassal relations; does not stack per partner.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_CONQUEST_OCCUPATION</Tag>
+    <English>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</English>
+    <French>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</French>
+    <German>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</German>
+    <Italian>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</Italian>
+    <Spanish>[NEWLINE]-%d1%% newly generated military-conquest occupation turns (remaining duration rounded up). Does not reduce existing timers or affect peaceful transfers.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_COASTAL_TRADE</Tag>
+    <English>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</English>
+    <French>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</French>
+    <German>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</German>
+    <Italian>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</Italian>
+    <Spanish>[NEWLINE]Coastal cities: +%d1 Gold per distinct foreign team in active trade routes, capped at +%d2 Gold per city. Domestic and same-team routes do not count.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_COASTAL_TRADE</Tag>
+    <English>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</English>
+    <French>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</French>
+    <German>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</German>
+    <Italian>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</Italian>
+    <Spanish>+%d1 Gold from %d2 distinct foreign trade teams (city cap: %d3)</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_WORKED_RIVER</Tag>
+    <English>riverside %s1</English>
+    <French>riverside %s1</French>
+    <German>riverside %s1</German>
+    <Italian>riverside %s1</Italian>
+    <Spanish>riverside %s1</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_WORKED_WOODLAND</Tag>
+    <English>Forest/Jungle</English>
+    <French>Forest/Jungle</French>
+    <German>Forest/Jungle</German>
+    <Italian>Forest/Jungle</Italian>
+    <Spanish>Forest/Jungle</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_EXP_WORKED_DESERT</Tag>
+    <English>Desert with an intact non-ruins improvement and Road/Railroad</English>
+    <French>Desert with an intact non-ruins improvement and Road/Railroad</French>
+    <German>Desert with an intact non-ruins improvement and Road/Railroad</German>
+    <Italian>Desert with an intact non-ruins improvement and Road/Railroad</Italian>
+    <Spanish>Desert with an intact non-ruins improvement and Road/Railroad</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_WORKED_PLOTS</Tag>
+    <English>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</English>
+    <French>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</French>
+    <German>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</German>
+    <Italian>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</Italian>
+    <Spanish>[NEWLINE]Worked %s1: +%d2%c3 per plot, capped at +%d4 per city before modifiers. Plots must be owned and assigned to that city; city centers and water do not qualify.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_WORKED_TECH</Tag>
+    <English>[NEWLINE]Worked-plot bonus requires %s1.</English>
+    <French>[NEWLINE]Worked-plot bonus requires %s1.</French>
+    <German>[NEWLINE]Worked-plot bonus requires %s1.</German>
+    <Italian>[NEWLINE]Worked-plot bonus requires %s1.</Italian>
+    <Spanish>[NEWLINE]Worked-plot bonus requires %s1.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_WORKED_BUILDING</Tag>
+    <English>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</English>
+    <French>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</French>
+    <German>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</German>
+    <Italian>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</Italian>
+    <Spanish>[NEWLINE]Worked-plot bonus requires an active %s1 in the city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_WORKED_PLOTS</Tag>
+    <English>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</English>
+    <French>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</French>
+    <German>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</German>
+    <Italian>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</Italian>
+    <Spanish>+%d2%c3 from %s1 (%d4 qualifying worked plots; city cap: %d5)</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_SPECIALIST_COMMERCE</Tag>
+    <English>+%d1%c2 from trait specialist bonuses</English>
+    <French>+%d1%c2 from trait specialist bonuses</French>
+    <German>+%d1%c2 from trait specialist bonuses</German>
+    <Italian>+%d1%c2 from trait specialist bonuses</Italian>
+    <Spanish>+%d1%c2 from trait specialist bonuses</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_IMPROVEMENT_COMMERCE</Tag>
+    <English>+%d1%c2 from improvement city bonuses</English>
+    <French>+%d1%c2 from improvement city bonuses</French>
+    <German>+%d1%c2 from improvement city bonuses</German>
+    <Italian>+%d1%c2 from improvement city bonuses</Italian>
+    <Spanish>+%d1%c2 from improvement city bonuses</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_TRAIT_EXP_VETERAN_GARRISON</Tag>
+    <English>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</English>
+    <French>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</French>
+    <German>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</German>
+    <Italian>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</Italian>
+    <Spanish>[NEWLINE]+%d1 city Culture before modifiers while an owned, non-cargo, combat-capable land unit of level %d2 or higher occupies the city tile. Animals do not qualify. Awarded once per city, not per veteran.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_CITY_EXP_VETERAN_GARRISON</Tag>
+    <English>+%d1%c2 from veteran garrison (once per city)</English>
+    <French>+%d1%c2 from veteran garrison (once per city)</French>
+    <German>+%d1%c2 from veteran garrison (once per city)</German>
+    <Italian>+%d1%c2 from veteran garrison (once per city)</Italian>
+    <Spanish>+%d1%c2 from veteran garrison (once per city)</Spanish>
+  </TEXT>
+</Civ4GameText>

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+import json
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -217,6 +218,12 @@ class SchemaTests(unittest.TestCase):
 class DataOrderTests(unittest.TestCase):
     def test_landmarks_appended_at_end_in_plan_order(self):
         order = type_order(IMPROVEMENTS, "ImprovementInfo")
+        packages = json.loads((ROOT / "tools/manifests/new_leaders_expansion.json").read_bytes())["packages"]
+        suffix = ["IMPROVEMENT_EXP_" + p["improvement"]["id"] + stage
+                  for p in packages if "improvement" in p for stage in ("", "_PILLAGED")]
+        if suffix:
+            self.assertEqual(order[-len(suffix):], suffix)
+            order = order[:-len(suffix)]
         expected = [f"IMPROVEMENT_{k}" for k in LANDMARK_ORDER]
         num_wonders = len(NEUTRAL_WORLD_WONDER_TYPES)
         landmark_start = -(len(LANDMARK_ORDER) + num_wonders)
@@ -235,6 +242,11 @@ class DataOrderTests(unittest.TestCase):
 
     def test_build_order_matches_improvement_order(self):
         order = type_order(BUILDS, "BuildInfo")
+        packages = json.loads((ROOT / "tools/manifests/new_leaders_expansion.json").read_bytes())["packages"]
+        suffix = ["BUILD_EXP_" + p["improvement"]["id"] for p in packages if "improvement" in p]
+        if suffix:
+            self.assertEqual(order[-len(suffix):], suffix)
+            order = order[:-len(suffix)]
         expected = [f"BUILD_{k}" for k in LANDMARK_ORDER]
         self.assertEqual(order[-13:], expected)
 
@@ -643,6 +655,13 @@ class LandmarkRotationTests(unittest.TestCase):
         )
 
     def test_non_landmarks_retain_baseline_generic_root_routing(self):
+        manifest = json.loads((ROOT / "tools/manifests/new_leaders_expansion.json").read_bytes())
+        expansion = {
+            "IMPROVEMENT_EXP_" + package["improvement"]["id"] + suffix:
+            "Leaf_Expansion_" + package["improvement"]["id"] + suffix
+            for package in manifest["packages"] if "improvement" in package
+            for suffix in ("", "_PILLAGED")
+        }
         landmark_types = {
             f"IMPROVEMENT_{key}" for key in ROTATION_LANDMARK_ORDER
         } | {JOKAMACHI_TYPE} | NEUTRAL_WORLD_WONDER_TYPES
@@ -665,7 +684,10 @@ class LandmarkRotationTests(unittest.TestCase):
                 for child in production
                 if local_name(child.tag) == "To"
             }
-            self.assertIn("Node_12x12", destinations, improvement)
+            if improvement in expansion:
+                self.assertEqual(destinations, {expansion[improvement]}, improvement)
+            else:
+                self.assertIn("Node_12x12", destinations, improvement)
 
     def test_nodes_precede_productions(self):
         element_types = [local_name(child.tag) for child in self.root]
@@ -766,7 +788,7 @@ class DllContractTests(unittest.TestCase):
         self.assertContains(cpp, "stream->Write(m_bLandmark)")
         self.assertContains(cpp, "stream->Read(&m_iLandmarkStateReligion)")
         self.assertContains(cpp, "stream->Write(m_iLandmarkStateReligion)")
-        self.assertContains(cpp, "uint uiFlag=3")
+        self.assertContains(cpp, "uint uiFlag=4")
         self.assertContains(cpp, "if (uiFlag >= 3)")
         self.assertContains(cpp, "stream->Read(&m_bLandmarkRequiresPeak)")
         self.assertContains(cpp, "stream->Write(m_bLandmarkRequiresPeak)")

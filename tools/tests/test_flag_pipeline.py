@@ -18,6 +18,7 @@ sys.path.insert(0, str(TOOLS))
 from dxt3_fullcolor import AlphaEncoding, alpha_block_summary, encode_image
 from flag_pipeline import (
     EXPECTED_COUNT,
+    EXPANSION,
     load_manifest,
     rasterize_master,
     repository_path,
@@ -34,6 +35,7 @@ def test_manifest_is_complete_unique_and_repository_relative() -> None:
     assert manifest["design_version_summary"] == {
         "issue-flags-v2": 56,
         "historical-v1": 3,
+        "expansion-v1": len(EXPANSION["packages"]),
     }
     fields = (
         "civilization_type",
@@ -59,7 +61,7 @@ def test_manifest_is_complete_unique_and_repository_relative() -> None:
     assert Counter(Path(record["master_path"]).suffix for record in manifest["records"]) == {
         ".jpg": 27,
         ".png": 21,
-        ".svg": 11,
+        ".svg": 11 + len(EXPANSION["packages"]),
     }
     assert all(
         not Path(record["master_path"]).is_absolute()
@@ -111,7 +113,7 @@ def test_original_history_reconciles_all_59() -> None:
         (TOOLS / "history" / "original-team-color.json").read_text(encoding="utf-8")
     )
     assert history["baseline_commit"] == "178f61f52a0ff96d86830d92e03d7967e655d9d0"
-    assert history["record_count"] == EXPECTED_COUNT
+    assert history["record_count"] == 59
     assert history["availability_counts"] == {
         "recoverable_from_git": 38,
         "stock_packed_not_available_loose": 16,
@@ -119,6 +121,7 @@ def test_original_history_reconciles_all_59() -> None:
     }
     manifest_types = {
         record["civilization_type"] for record in load_manifest()["records"]
+        if record["active_design_version"] != "expansion-v1"
     }
     history_types = {record["civilization_type"] for record in history["records"]}
     assert history_types == manifest_types
