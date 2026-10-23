@@ -614,6 +614,100 @@
             "voice": "en-GB-ElliotNeural",
             "tts_provider": "elevenlabs"
         },
+        "askiamuhammad": {
+            "voice": "en-NG-AbeoNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "accent": "West African"
+        },
+        "david": {
+            "voice": "he-IL-AvriNeural",
+            "rate": "-5%",
+            "lang": "Hebrew",
+            "locale": "he-IL",
+            "accent": "Hebrew"
+        },
+        "hirami": {
+            "voice": "ar-LB-RamiNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "accent": "Levantine"
+        },
+        "hochiminh": {
+            "voice": "vi-VN-NamMinhNeural",
+            "rate": "-8%",
+            "pitch": "-3%",
+            "lang": "Vietnamese",
+            "locale": "vi-VN",
+            "accent": "Vietnamese"
+        },
+        "matthiascorvinus": {
+            "voice": "hu-HU-TamasNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "lang": "Hungarian",
+            "locale": "hu-HU",
+            "accent": "Hungarian"
+        },
+        "mongkut": {
+            "voice": "th-TH-NiwatNeural",
+            "rate": "-10%",
+            "pitch": "-5%",
+            "lang": "Thai",
+            "locale": "th-TH",
+            "accent": "Thai"
+        },
+        "pedroii": {
+            "voice": "pt-BR-AntonioNeural",
+            "rate": "-8%",
+            "pitch": "-3%",
+            "lang": "Brazilian Portuguese",
+            "locale": "pt-BR",
+            "accent": "Brazilian Portuguese"
+        },
+        "piye": {
+            "voice": "ar-EG-ShakirNeural",
+            "rate": "-8%",
+            "pitch": "-5%",
+            "accent": "Northeast African"
+        },
+        "ramkhamhaeng": {
+            "voice": "th-TH-NiwatNeural",
+            "rate": "+5%",
+            "pitch": "+2%",
+            "lang": "Thai",
+            "locale": "th-TH",
+            "accent": "Thai"
+        },
+        "sennacherib": {
+            "voice": "ar-IQ-BasselNeural",
+            "rate": "-10%",
+            "pitch": "-8%",
+            "accent": "Iraqi Arabic"
+        },
+        "simonbolivar": {
+            "voice": "es-VE-SebastianNeural",
+            "rate": "-3%",
+            "lang": "Spanish",
+            "locale": "es-VE",
+            "accent": "Venezuelan Spanish"
+        },
+        "stefandusan": {
+            "voice": "sr-RS-NicholasNeural",
+            "rate": "-5%",
+            "pitch": "-3%",
+            "lang": "Serbian",
+            "locale": "sr-RS",
+            "accent": "Serbian"
+        },
+        "zenobia": {
+            "voice": "ar-SY-AmanyNeural",
+            "rate": "-5%",
+            "pitch": "-2%",
+            "lang": "Arabic",
+            "locale": "ar-SY",
+            "accent": "Syrian Arabic"
+        },
         "ltreginoldendicottbarclay": {
             "voice": "en-GB-ElliotNeural",
             "tts_provider": "elevenlabs"

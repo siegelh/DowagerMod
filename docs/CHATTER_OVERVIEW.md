@@ -189,7 +189,8 @@ speak at the voice's natural pace.
 
 Tweak per-leader: edit `leader_voices.json`, restart sidecar. Use
 `python -m tools.chatter.audit_leader_voices` to bulk-audition every
-leader and write WAVs to `tools/chatter/leader_audition/`.
+leader and write WAVs to `voice_audit/`. Add `--no-audio` to verify
+localized leader-name coverage without Speech credentials or network calls.
 
 ### Layer 2 — Global rate fallback
 
