@@ -17034,17 +17034,25 @@ m_iMaxTeamBuildingProductionModifier(0),
 m_iMaxPlayerBuildingProductionModifier(0),
 m_iOpenBordersKnownTechResearchModifier(0),
 m_iConquestOccupationReductionPercent(0),
-m_iCoastalForeignTeamGold(0),
-m_iCoastalForeignTeamGoldCap(0),
+m_iCoastalForeignRouteGold(0),
+m_iCoastalForeignRouteGoldCap(0),
 m_iVeteranGarrisonCulture(0),
+m_iVeteranGarrisonHappiness(0),
+m_iVeteranGarrisonProductionModifier(0),
 m_iVeteranGarrisonMinLevel(0),
 m_eWorkedPlotCondition(ExpansionRules::NO_WORKED_PLOT_CONDITION),
 m_iWorkedPlotProduction(0),
 m_iWorkedPlotGold(0),
+m_iWorkedPlotResearch(0),
 m_iWorkedPlotCulture(0),
 m_iWorkedPlotCap(0),
 m_eWorkedPlotPrereqTech(NO_TECH),
 m_eWorkedPlotPrereqBuilding(NO_BUILDING),
+m_eConditionalImprovement(NO_IMPROVEMENT),
+m_eConditionalBonus(NO_BONUS),
+m_iConditionalImprovementBonusFood(0),
+m_iConditionalImprovementBonusProduction(0),
+m_iConditionalImprovementBonusCommerce(0),
 m_paiExtraYieldThreshold(NULL),
 m_paiTradeYieldModifier(NULL),
 m_paiGoldenAgeYieldChange(NULL),
@@ -17233,6 +17241,17 @@ int CvTraitInfo::getCommerceModifier(int i) const
 	return m_paiCommerceModifier ? m_paiCommerceModifier[i] : -1; 
 }
 
+int CvTraitInfo::getConditionalImprovementBonusYieldChange(YieldTypes eYield) const
+{
+	switch (eYield)
+	{
+	case YIELD_FOOD: return m_iConditionalImprovementBonusFood;
+	case YIELD_PRODUCTION: return m_iConditionalImprovementBonusProduction;
+	case YIELD_COMMERCE: return m_iConditionalImprovementBonusCommerce;
+	default: return 0;
+	}
+}
+
 bool CvTraitInfo::isWorkedPlotImprovement(ImprovementTypes eImprovement) const
 {
 	return std::find(m_aiWorkedPlotImprovements.begin(), m_aiWorkedPlotImprovements.end(),
@@ -17249,6 +17268,8 @@ bool CvTraitInfo::readPass3()
 {
 	m_eWorkedPlotPrereqTech = NO_TECH;
 	m_eWorkedPlotPrereqBuilding = NO_BUILDING;
+	m_eConditionalImprovement = NO_IMPROVEMENT;
+	m_eConditionalBonus = NO_BONUS;
 	if (!m_szWorkedPlotPrereqTech.empty() && m_szWorkedPlotPrereqTech != "NONE")
 	{
 		m_eWorkedPlotPrereqTech = (TechTypes)GC.getInfoTypeForString(m_szWorkedPlotPrereqTech, true);
@@ -17269,6 +17290,28 @@ bool CvTraitInfo::readPass3()
 			gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown worked-plot building %s",
 				getType(), m_szWorkedPlotPrereqBuilding.c_str()));
 			return false;
+		}
+		if (!m_szConditionalImprovement.empty() && m_szConditionalImprovement != "NONE")
+		{
+			m_eConditionalImprovement = (ImprovementTypes)GC.getInfoTypeForString(m_szConditionalImprovement, true);
+			if (m_eConditionalImprovement < 0 || m_eConditionalImprovement >= GC.getNumImprovementInfos() ||
+				m_szConditionalImprovement != GC.getImprovementInfo(m_eConditionalImprovement).getType())
+			{
+				gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown conditional improvement %s",
+					getType(), m_szConditionalImprovement.c_str()));
+				return false;
+			}
+		}
+		if (!m_szConditionalBonus.empty() && m_szConditionalBonus != "NONE")
+		{
+			m_eConditionalBonus = (BonusTypes)GC.getInfoTypeForString(m_szConditionalBonus, true);
+			if (m_eConditionalBonus < 0 || m_eConditionalBonus >= GC.getNumBonusInfos() ||
+				m_szConditionalBonus != GC.getBonusInfo(m_eConditionalBonus).getType())
+			{
+				gDLL->logMsg("xml.log", CvString::format("Trait %s: unknown conditional bonus %s",
+					getType(), m_szConditionalBonus.c_str()));
+				return false;
+			}
 		}
 	}
 	for (int iGroup = 0; iGroup < 2; ++iGroup)
@@ -17483,6 +17526,7 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 	}
 	pXML->GetChildXmlValByName(&m_iWorkedPlotProduction, "iWorkedPlotProduction", 0);
 	pXML->GetChildXmlValByName(&m_iWorkedPlotGold, "iWorkedPlotGold", 0);
+	pXML->GetChildXmlValByName(&m_iWorkedPlotResearch, "iWorkedPlotResearch", 0);
 	pXML->GetChildXmlValByName(&m_iWorkedPlotCulture, "iWorkedPlotCulture", 0);
 	pXML->GetChildXmlValByName(&m_iWorkedPlotCap, "iWorkedPlotCap", 0);
 	pXML->GetChildXmlValByName(m_szWorkedPlotPrereqTech, "WorkedPlotPrereqTech", "NONE");
@@ -17507,13 +17551,15 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 		}
 	}
 	const int iWorkedChannels = (m_iWorkedPlotProduction > 0 ? 1 : 0) +
-		(m_iWorkedPlotGold > 0 ? 1 : 0) + (m_iWorkedPlotCulture > 0 ? 1 : 0);
+		(m_iWorkedPlotGold > 0 ? 1 : 0) + (m_iWorkedPlotResearch > 0 ? 1 : 0) +
+		(m_iWorkedPlotCulture > 0 ? 1 : 0);
 	const bool bWorkedRule = m_eWorkedPlotCondition != ExpansionRules::NO_WORKED_PLOT_CONDITION;
 	if (m_iWorkedPlotProduction < 0 || m_iWorkedPlotProduction > 100 ||
 		m_iWorkedPlotGold < 0 || m_iWorkedPlotGold > 100 ||
+		m_iWorkedPlotResearch < 0 || m_iWorkedPlotResearch > 100 ||
 		m_iWorkedPlotCulture < 0 || m_iWorkedPlotCulture > 100 ||
 		m_iWorkedPlotCap < 0 || m_iWorkedPlotCap > 100 ||
-		(bWorkedRule && (iWorkedChannels != 1 || m_iWorkedPlotCap == 0)) ||
+		(bWorkedRule && (iWorkedChannels == 0 || m_iWorkedPlotCap == 0)) ||
 		(!bWorkedRule && (iWorkedChannels != 0 || m_iWorkedPlotCap != 0 ||
 			(!m_szWorkedPlotPrereqTech.empty() && m_szWorkedPlotPrereqTech != "NONE") ||
 			(!m_szWorkedPlotPrereqBuilding.empty() && m_szWorkedPlotPrereqBuilding != "NONE") ||
@@ -17528,24 +17574,47 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 
 	pXML->GetChildXmlValByName(&m_iOpenBordersKnownTechResearchModifier, "iOpenBordersKnownTechResearchModifier", 0);
 	pXML->GetChildXmlValByName(&m_iConquestOccupationReductionPercent, "iConquestOccupationReductionPercent", 0);
-	pXML->GetChildXmlValByName(&m_iCoastalForeignTeamGold, "iCoastalForeignTeamGold", 0);
-	pXML->GetChildXmlValByName(&m_iCoastalForeignTeamGoldCap, "iCoastalForeignTeamGoldCap", 0);
+	pXML->GetChildXmlValByName(&m_iCoastalForeignRouteGold, "iCoastalForeignRouteGold", 0);
+	pXML->GetChildXmlValByName(&m_iCoastalForeignRouteGoldCap, "iCoastalForeignRouteGoldCap", 0);
 	pXML->GetChildXmlValByName(&m_iVeteranGarrisonCulture, "iVeteranGarrisonCulture", 0);
+	pXML->GetChildXmlValByName(&m_iVeteranGarrisonHappiness, "iVeteranGarrisonHappiness", 0);
+	pXML->GetChildXmlValByName(&m_iVeteranGarrisonProductionModifier, "iVeteranGarrisonProductionModifier", 0);
 	pXML->GetChildXmlValByName(&m_iVeteranGarrisonMinLevel, "iVeteranGarrisonMinLevel", 0);
+	const bool bVeteranEffect = m_iVeteranGarrisonCulture > 0 || m_iVeteranGarrisonHappiness > 0 ||
+		m_iVeteranGarrisonProductionModifier > 0;
 	if (m_iVeteranGarrisonCulture < 0 || m_iVeteranGarrisonCulture > 100 ||
+		m_iVeteranGarrisonHappiness < 0 || m_iVeteranGarrisonHappiness > 100 ||
+		m_iVeteranGarrisonProductionModifier < 0 || m_iVeteranGarrisonProductionModifier > 100 ||
 		m_iVeteranGarrisonMinLevel < 0 || m_iVeteranGarrisonMinLevel > 100 ||
-		((m_iVeteranGarrisonCulture == 0) != (m_iVeteranGarrisonMinLevel == 0)))
+		(bVeteranEffect != (m_iVeteranGarrisonMinLevel > 0)))
 	{
-		gDLL->logMsg("xml.log", CvString::format("Trait %s: invalid veteran garrison Culture or level", getType()));
+		gDLL->logMsg("xml.log", CvString::format("Trait %s: invalid veteran garrison effect or level", getType()));
 		return false;
 	}
-	if (m_iCoastalForeignTeamGold < 0 || m_iCoastalForeignTeamGold > 100 ||
-		m_iCoastalForeignTeamGoldCap < 0 || m_iCoastalForeignTeamGoldCap > 100 ||
-		((m_iCoastalForeignTeamGold == 0) != (m_iCoastalForeignTeamGoldCap == 0)))
+	if (m_iCoastalForeignRouteGold < 0 || m_iCoastalForeignRouteGold > 100 ||
+		m_iCoastalForeignRouteGoldCap < 0 || m_iCoastalForeignRouteGoldCap > 100 ||
+		((m_iCoastalForeignRouteGold == 0) != (m_iCoastalForeignRouteGoldCap == 0)))
 	{
 		CvString szError;
 		szError.Format("Trait %s: coastal trade Gold and cap must both be zero or between 1 and 100", getType());
 		gDLL->logMsg("xml.log", szError);
+		return false;
+	}
+	pXML->GetChildXmlValByName(m_szConditionalImprovement, "ConditionalImprovementType", "NONE");
+	pXML->GetChildXmlValByName(m_szConditionalBonus, "ConditionalBonusType", "NONE");
+	pXML->GetChildXmlValByName(&m_iConditionalImprovementBonusFood, "iConditionalImprovementBonusFood", 0);
+	pXML->GetChildXmlValByName(&m_iConditionalImprovementBonusProduction, "iConditionalImprovementBonusProduction", 0);
+	pXML->GetChildXmlValByName(&m_iConditionalImprovementBonusCommerce, "iConditionalImprovementBonusCommerce", 0);
+	const bool bConditionalTypes = m_szConditionalImprovement != "NONE" || m_szConditionalBonus != "NONE";
+	const bool bConditionalYields = m_iConditionalImprovementBonusFood != 0 ||
+		m_iConditionalImprovementBonusProduction != 0 || m_iConditionalImprovementBonusCommerce != 0;
+	if ((bConditionalTypes != bConditionalYields) ||
+		((m_szConditionalImprovement == "NONE") != (m_szConditionalBonus == "NONE")) ||
+		m_iConditionalImprovementBonusFood < -100 || m_iConditionalImprovementBonusFood > 100 ||
+		m_iConditionalImprovementBonusProduction < -100 || m_iConditionalImprovementBonusProduction > 100 ||
+		m_iConditionalImprovementBonusCommerce < -100 || m_iConditionalImprovementBonusCommerce > 100)
+	{
+		gDLL->logMsg("xml.log", CvString::format("Trait %s: invalid conditional improvement/bonus yields", getType()));
 		return false;
 	}
 	if (m_iOpenBordersKnownTechResearchModifier < 0 || m_iOpenBordersKnownTechResearchModifier > 100 ||

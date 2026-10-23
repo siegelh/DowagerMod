@@ -7309,10 +7309,17 @@ bool CvUnitAI::AI_guardCityMinDefender(bool bSearch)
 								if (iPathTurns <= 10)
 								{
 									int iValue = (iDefendersNeed - iDefendersHave) * 20;
-									const int iGarrisonGain = pLoopCity->getVeteranGarrisonCulture(this) -
-										pLoopCity->getVeteranGarrisonCulture();
+									const int iGarrisonGain =
+										(pLoopCity->getVeteranGarrisonCulture(this) - pLoopCity->getVeteranGarrisonCulture()) +
+										2 * (pLoopCity->getVeteranGarrisonHappiness(this) - pLoopCity->getVeteranGarrisonHappiness()) +
+										(pLoopCity->getVeteranGarrisonProductionModifier(this) -
+											pLoopCity->getVeteranGarrisonProductionModifier()) / 5;
 									const int iGarrisonLoss = pPlotCity != NULL && pPlotCity->getOwnerINLINE() == getOwnerINLINE() ?
-										pPlotCity->getVeteranGarrisonCulture() - pPlotCity->getVeteranGarrisonCulture(NULL, this) : 0;
+										(pPlotCity->getVeteranGarrisonCulture() - pPlotCity->getVeteranGarrisonCulture(NULL, this)) +
+										2 * (pPlotCity->getVeteranGarrisonHappiness() -
+											pPlotCity->getVeteranGarrisonHappiness(NULL, this)) +
+										(pPlotCity->getVeteranGarrisonProductionModifier() -
+											pPlotCity->getVeteranGarrisonProductionModifier(NULL, this)) / 5 : 0;
 									iValue += 2 * (iGarrisonGain - iGarrisonLoss);
 									iValue += 2 * std::min(15, iCurrentTurn - pLoopCity->getGameTurnAcquired());
 									if (pLoopCity->isOccupation())

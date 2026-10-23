@@ -10655,7 +10655,7 @@ void CvUnit::updateVeteranGarrisonCommerce()
 {
 	CvPlot* pPlot = plot();
 	if (pPlot != NULL && pPlot->getPlotCity() != NULL)
-		pPlot->getPlotCity()->updateVeteranGarrisonCulture();
+		pPlot->getPlotCity()->updateVeteranGarrisonEffects();
 }
 
 void CvUnit::startDelayedDeath()

@@ -2812,6 +2812,7 @@ int CvCityAI::AI_buildingValueThreshold(BuildingTypes eBuilding, int iFocusFlags
 			const ExpansionRules::WorkedPlotBonuses after = getWorkedPlotBonuses(eBuilding);
 			workedBuildingBonus.production = after.production - before.production;
 			workedBuildingBonus.gold = after.gold - before.gold;
+			workedBuildingBonus.research = after.research - before.research;
 			workedBuildingBonus.culture = after.culture - before.culture;
 			break;
 		}
@@ -3705,7 +3706,8 @@ int CvCityAI::AI_buildingValueThreshold(BuildingTypes eBuilding, int iFocusFlags
 
 					iTempValue += (kBuilding.getCommerceChange(iI) * 4);
 					iTempValue += (iI == COMMERCE_GOLD ? workedBuildingBonus.gold :
-						(iI == COMMERCE_CULTURE ? workedBuildingBonus.culture : 0)) * 4;
+						(iI == COMMERCE_RESEARCH ? workedBuildingBonus.research :
+						(iI == COMMERCE_CULTURE ? workedBuildingBonus.culture : 0))) * 4;
 					iTempValue += (kBuilding.getObsoleteSafeCommerceChange(iI) * 4);
 					iTempValue *= 100 + kBuilding.getCommerceModifier(iI);
 					iTempValue /= 100;
@@ -7468,6 +7470,7 @@ int CvCityAI::AI_plotValue(CvPlot* pPlot, bool bAvoidGrowth, bool bRemove, bool 
 			aiWorkedYields[iI] = aiYields[iI];
 		aiWorkedYields[YIELD_PRODUCTION] += (short)workedBonus.production;
 		aiWorkedCommerce[COMMERCE_GOLD] = (short)workedBonus.gold;
+		aiWorkedCommerce[COMMERCE_RESEARCH] = (short)workedBonus.research;
 		aiWorkedCommerce[COMMERCE_CULTURE] = (short)workedBonus.culture;
 		iWorkedPlotValue = (AI_yieldValue(aiWorkedYields, aiWorkedCommerce,
 			bAvoidGrowth, bRemove, bIgnoreFood, bIgnoreGrowth, bIgnoreStarvation) * 100) - iYieldValue;
@@ -7567,7 +7570,8 @@ int CvCityAI::AI_workedPlotBuildValue(CvPlot* pPlot, BuildTypes eBuild, int iPro
 	int iValue = bonus.production * 60 * iProductionPriority / 100;
 	for (int i = 0; i < NUM_COMMERCE_TYPES; ++i)
 	{
-		const int iBonus = i == COMMERCE_GOLD ? bonus.gold : (i == COMMERCE_CULTURE ? bonus.culture : 0);
+		const int iBonus = i == COMMERCE_GOLD ? bonus.gold :
+			(i == COMMERCE_RESEARCH ? bonus.research : (i == COMMERCE_CULTURE ? bonus.culture : 0));
 		if (iBonus == 0)
 			continue;
 		const CommerceTypes eCommerce = (CommerceTypes)i;

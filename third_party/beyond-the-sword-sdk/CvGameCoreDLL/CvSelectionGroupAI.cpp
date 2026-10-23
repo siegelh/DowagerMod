@@ -786,9 +786,12 @@ CvUnit* CvSelectionGroupAI::AI_ejectBestDefender(CvPlot* pDefendPlot)
 			CvCity* pCity = pDefendPlot->getPlotCity();
 			if (pCity != NULL && pCity->getOwnerINLINE() == getOwnerINLINE())
 			{
-				const int iRetainedCulture = pCity->getVeteranGarrisonCulture() -
-					pCity->getVeteranGarrisonCulture(NULL, pLoopUnit);
-				iValue += (iValue * std::min(30, iRetainedCulture * 10)) / 100;
+				const int iRetainedValue =
+					(pCity->getVeteranGarrisonCulture() - pCity->getVeteranGarrisonCulture(NULL, pLoopUnit)) +
+					2 * (pCity->getVeteranGarrisonHappiness() - pCity->getVeteranGarrisonHappiness(NULL, pLoopUnit)) +
+					(pCity->getVeteranGarrisonProductionModifier() -
+						pCity->getVeteranGarrisonProductionModifier(NULL, pLoopUnit)) / 5;
+				iValue += (iValue * std::min(60, iRetainedValue * 10)) / 100;
 			}
 			
 			if (iValue > iBestUnitValue)

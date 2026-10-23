@@ -155,6 +155,22 @@ def append_record(data: bytes, node: ET.Element, container: str) -> bytes:
     return data.replace(end, block + newline + end, 1)
 
 
+def publish_manifest_record(data: bytes, node: ET.Element, container: str) -> bytes:
+    type_name = node.findtext("Type")
+    pattern = rb"<" + node.tag.encode() + rb">.*?</" + node.tag.encode() + rb">"
+    matches = [m for m in re.finditer(pattern, data, re.DOTALL)
+               if parse(m[0]).findtext("Type") == type_name]
+    if not matches:
+        return append_record(data, node, container)
+    if len(matches) != 1:
+        raise ValueError(f"Expected one manifest record: {type_name}")
+    match = matches[0]
+    if canonical(parse(match[0])) == canonical(node):
+        return data
+    newline = b"\r\n" if b"\r\n" in data else b"\n"
+    return data[:match.start()] + serialize(node).replace(b"\n", newline) + data[match.end():]
+
+
 def replace_reviewed_record(data: bytes, original: ET.Element, updated: ET.Element) -> bytes:
     identifier = original.findtext("Type")
     pattern = rb"<" + original.tag.encode() + rb">.*?</" + original.tag.encode() + rb">"
@@ -208,7 +224,7 @@ def generate(document: dict) -> dict[Path, bytes]:
 
     def add(kind: str, node: ET.Element) -> None:
         path = XML / FILES[kind][0]
-        staged[path] = append_record(staged[path], node, FILES[kind][2])
+        staged[path] = publish_manifest_record(staged[path], node, FILES[kind][2])
         record_sizes.append(len(serialize(node)))
 
     def localized(node: ET.Element, tag: str, key: str, value: str) -> None:

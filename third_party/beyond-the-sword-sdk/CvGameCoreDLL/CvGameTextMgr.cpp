@@ -2994,6 +2994,12 @@ void CvGameTextMgr::setLandmarkPreviewHelp(CvWStringBuffer& szBuffer, CvPlot* pP
 				szBuffer.append(NEWLINE);
 				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_HILL", kB.iCampusHillCount, kB.iCampusHillYield));
 			}
+			if (kB.iCampusAdjacentCount > 0)
+			{
+				szBuffer.append(NEWLINE);
+				szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RC_CAMPUS",
+					kB.iCampusAdjacentCount, kB.iCampusAdjacentYield));
+			}
 			szBuffer.append(NEWLINE);
 			szBuffer.append(gDLL->getText("TXT_KEY_LANDMARK_PREVIEW_RESEARCH_TOTAL", kB.iResearchTotal));
 		}
@@ -4326,16 +4332,19 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer &szHelpString, TraitTypes eTrait
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_CONQUEST_OCCUPATION",
 				GC.getTraitInfo(eTrait).getConquestOccupationReductionPercent()));
 		}
-		if (GC.getTraitInfo(eTrait).getCoastalForeignTeamGold() != 0)
+		if (GC.getTraitInfo(eTrait).getCoastalForeignRouteGold() != 0)
 		{
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_COASTAL_TRADE",
-				GC.getTraitInfo(eTrait).getCoastalForeignTeamGold(),
-				GC.getTraitInfo(eTrait).getCoastalForeignTeamGoldCap()));
+				GC.getTraitInfo(eTrait).getCoastalForeignRouteGold(),
+				GC.getTraitInfo(eTrait).getCoastalForeignRouteGoldCap()));
 		}
 		const CvTraitInfo& kWorkedTrait = GC.getTraitInfo(eTrait);
-		if (kWorkedTrait.getVeteranGarrisonCulture() > 0)
+		if (kWorkedTrait.getVeteranGarrisonCulture() > 0 ||
+			kWorkedTrait.getVeteranGarrisonHappiness() > 0 ||
+			kWorkedTrait.getVeteranGarrisonProductionModifier() > 0)
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_VETERAN_GARRISON",
-				kWorkedTrait.getVeteranGarrisonCulture(), kWorkedTrait.getVeteranGarrisonMinLevel()));
+				kWorkedTrait.getVeteranGarrisonCulture(), kWorkedTrait.getVeteranGarrisonHappiness(),
+				kWorkedTrait.getVeteranGarrisonProductionModifier(), kWorkedTrait.getVeteranGarrisonMinLevel()));
 		if (kWorkedTrait.getWorkedPlotCondition() != ExpansionRules::NO_WORKED_PLOT_CONDITION)
 		{
 			CvWString szCondition;
@@ -4359,17 +4368,35 @@ void CvGameTextMgr::parseTraits(CvWStringBuffer &szHelpString, TraitTypes eTrait
 				szCondition = gDLL->getText(kWorkedTrait.getWorkedPlotCondition() == ExpansionRules::WOODLAND ?
 					"TXT_KEY_EXP_WORKED_WOODLAND" : "TXT_KEY_EXP_WORKED_DESERT");
 			}
-			const int iRate = kWorkedTrait.getWorkedPlotProduction() + kWorkedTrait.getWorkedPlotGold() + kWorkedTrait.getWorkedPlotCulture();
-			const int iSymbol = kWorkedTrait.getWorkedPlotProduction() > 0 ? GC.getYieldInfo(YIELD_PRODUCTION).getChar() :
-				GC.getCommerceInfo(kWorkedTrait.getWorkedPlotGold() > 0 ? COMMERCE_GOLD : COMMERCE_CULTURE).getChar();
+			CvWString szOutputs;
+			if (kWorkedTrait.getWorkedPlotProduction() > 0)
+				szOutputs += CvWString::format(L"+%d%c", kWorkedTrait.getWorkedPlotProduction(), GC.getYieldInfo(YIELD_PRODUCTION).getChar());
+			if (kWorkedTrait.getWorkedPlotGold() > 0)
+				szOutputs += CvWString::format(szOutputs.empty() ? L"+%d%c" : L", +%d%c",
+					kWorkedTrait.getWorkedPlotGold(), GC.getCommerceInfo(COMMERCE_GOLD).getChar());
+			if (kWorkedTrait.getWorkedPlotResearch() > 0)
+				szOutputs += CvWString::format(szOutputs.empty() ? L"+%d%c" : L", +%d%c",
+					kWorkedTrait.getWorkedPlotResearch(), GC.getCommerceInfo(COMMERCE_RESEARCH).getChar());
+			if (kWorkedTrait.getWorkedPlotCulture() > 0)
+				szOutputs += CvWString::format(szOutputs.empty() ? L"+%d%c" : L", +%d%c",
+					kWorkedTrait.getWorkedPlotCulture(), GC.getCommerceInfo(COMMERCE_CULTURE).getChar());
 			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_WORKED_PLOTS",
-				szCondition.c_str(), iRate, iSymbol, kWorkedTrait.getWorkedPlotCap()));
+				szCondition.c_str(), szOutputs.c_str(), kWorkedTrait.getWorkedPlotCap()));
 			if (kWorkedTrait.getWorkedPlotPrereqTech() != NO_TECH)
 				szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_WORKED_TECH",
 					GC.getTechInfo(kWorkedTrait.getWorkedPlotPrereqTech()).getTextKeyWide()));
 			if (kWorkedTrait.getWorkedPlotPrereqBuilding() != NO_BUILDING)
 				szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_WORKED_BUILDING",
 					GC.getBuildingInfo(kWorkedTrait.getWorkedPlotPrereqBuilding()).getTextKeyWide()));
+		}
+		if (kWorkedTrait.getConditionalImprovementType() != NO_IMPROVEMENT)
+		{
+			szHelpString.append(gDLL->getText("TXT_KEY_TRAIT_EXP_CONDITIONAL_IMPROVEMENT",
+				GC.getImprovementInfo(kWorkedTrait.getConditionalImprovementType()).getTextKeyWide(),
+				GC.getBonusInfo(kWorkedTrait.getConditionalBonusType()).getTextKeyWide(),
+				kWorkedTrait.getConditionalImprovementBonusYieldChange(YIELD_FOOD),
+				kWorkedTrait.getConditionalImprovementBonusYieldChange(YIELD_PRODUCTION),
+				kWorkedTrait.getConditionalImprovementBonusYieldChange(YIELD_COMMERCE)));
 		}
 
 		if ((GC.getTraitInfo(eTrait).getMaxGlobalBuildingProductionModifier() != 0)
@@ -13110,7 +13137,8 @@ namespace
 			const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
 			const int iRate = eYield == YIELD_PRODUCTION ? kTrait.getWorkedPlotProduction() :
 				(eCommerce == COMMERCE_GOLD ? kTrait.getWorkedPlotGold() :
-				(eCommerce == COMMERCE_CULTURE ? kTrait.getWorkedPlotCulture() : 0));
+				(eCommerce == COMMERCE_RESEARCH ? kTrait.getWorkedPlotResearch() :
+				(eCommerce == COMMERCE_CULTURE ? kTrait.getWorkedPlotCulture() : 0)));
 			if (iRate == 0 || !city.isWorkedPlotRuleActive(eTrait))
 				continue;
 			const int iCount = city.getWorkedPlotCount(eTrait);
@@ -13193,7 +13221,9 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer &szBuffer, CvCity& city, Com
 	const int iTraitSpecialistCommerce = city.getTraitSpecialistCommerce(eCommerceType);
 	if (eCommerceType == COMMERCE_CULTURE && city.getVeteranGarrisonCulture() != 0)
 	{
-		szBuffer.append(gDLL->getText("TXT_KEY_CITY_EXP_VETERAN_GARRISON", city.getVeteranGarrisonCulture(), info.getChar()));
+		szBuffer.append(gDLL->getText("TXT_KEY_CITY_EXP_VETERAN_GARRISON",
+			city.getVeteranGarrisonCulture(), info.getChar(), city.getVeteranGarrisonHappiness(),
+			city.getVeteranGarrisonProductionModifier()));
 		szBuffer.append(NEWLINE);
 		iBaseCommerceRate += 100 * city.getVeteranGarrisonCulture();
 	}
@@ -13218,7 +13248,7 @@ void CvGameTextMgr::setCommerceHelp(CvWStringBuffer &szBuffer, CvCity& city, Com
 	{
 		const int iTradeGold = city.getCoastalForeignTradeGold();
 		szBuffer.append(gDLL->getText("TXT_KEY_CITY_EXP_COASTAL_TRADE", iTradeGold,
-			city.getForeignTradeTeamCount(), city.getCoastalForeignTradeGoldCap()));
+			city.getForeignTradeRouteCount(), city.getCoastalForeignTradeGoldCap()));
 		szBuffer.append(NEWLINE);
 		iBaseCommerceRate += 100 * iTradeGold;
 	}
@@ -13494,6 +13524,13 @@ void CvGameTextMgr::setYieldHelp(CvWStringBuffer &szBuffer, CvCity& city, YieldT
 		szBuffer.append(gDLL->getText("TXT_KEY_MISC_HELP_YIELD_CIVICS", iCivicMod, info.getChar()));
 		szBuffer.append(NEWLINE);
 		iBaseModifier += iCivicMod;
+	}
+	if (eYieldType == YIELD_PRODUCTION && city.getVeteranGarrisonProductionModifier() > 0)
+	{
+		const int iVeteranModifier = city.getVeteranGarrisonProductionModifier();
+		szBuffer.append(gDLL->getText("TXT_KEY_CITY_EXP_VETERAN_PRODUCTION", iVeteranModifier));
+		szBuffer.append(NEWLINE);
+		iBaseModifier += iVeteranModifier;
 	}
 
 	FAssertMsg((iBaseModifier * iBaseProduction) / 100 == city.getYieldRate(eYieldType), "Yield Modifier in setProductionHelp does not agree with actual value");

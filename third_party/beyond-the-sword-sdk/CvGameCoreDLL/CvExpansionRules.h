@@ -66,8 +66,9 @@ namespace ExpansionRules
 	{
 		int production;
 		int gold;
+		int research;
 		int culture;
-		WorkedPlotBonuses() : production(0), gold(0), culture(0) {}
+		WorkedPlotBonuses() : production(0), gold(0), research(0), culture(0) {}
 	};
 
 	inline bool eligibleWorkedPlot(WorkedPlotCondition eCondition, bool bOwned,

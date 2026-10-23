@@ -2408,7 +2408,7 @@
 			<bLandmark>1</bLandmark>
 			<iLandmarkType>3</iLandmarkType>
 			<iLandmarkGroup>2</iLandmarkGroup>
-			<iLandmarkMinDistance>3</iLandmarkMinDistance>
+			<iLandmarkMinDistance>0</iLandmarkMinDistance>
 			<bLandmarkRequiresCityAdjacency>0</bLandmarkRequiresCityAdjacency>
 			<bLandmarkNoAdjacentSameGroup>0</bLandmarkNoAdjacentSameGroup>
 			<bLandmarkRequiresCoastalLand>0</bLandmarkRequiresCoastalLand>

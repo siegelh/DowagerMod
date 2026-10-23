@@ -108,14 +108,13 @@ JOKAMACHI_NIF = (
 )
 
 # key -> (ltype, group, mindist, cityadj, noadj, coastal, relgated, religion)
-# Min plot distance was tightened from 4 to 3 for every non-Commercial-District
-# logical type (see docs/plans/active/2026-07-13-great-person-landmark-improvements.md,
-# "Placement rule refinement" follow-up). Commercial District keeps min
-# distance 0 plus city-center adjacency and no-direct-adjacency instead.
+# Most logical types keep minimum plot distance 3. Commercial District uses
+# city-center adjacency/no-direct-adjacency, while Research Campus allows
+# adjacent placement for its cluster mechanic.
 LANDMARK_FIELDS = {
     "INDUSTRIAL_ZONE_BTG": ("1", "0", "3", "0", "0", "0", "0", None),
     "NAVAL_FOUNDRY_BTG": ("2", "1", "3", "0", "0", "1", "0", None),
-    "RESEARCH_CAMPUS_BTG": ("3", "2", "3", "0", "0", "0", "0", None),
+    "RESEARCH_CAMPUS_BTG": ("3", "2", "0", "0", "0", "0", "0", None),
     "COMMERCIAL_DISTRICT_BTG": ("4", "3", "0", "1", "1", "0", "0", None),
     "GRAND_BAZAAR_BTG": ("5", "4", "3", "0", "0", "0", "0", None),
     "SACRED_GROVE_NONE_BTG": ("6", "5", "3", "0", "0", "0", "1", None),
@@ -320,21 +319,21 @@ class DataOrderTests(unittest.TestCase):
                 groups.add(child_text(imp, "iLandmarkGroup"))
         self.assertEqual(groups, {"5"})
 
-    def test_min_plot_distance_is_exactly_three_not_broader_or_narrower(self):
-        """Guards against accidental relaxation (e.g. back to 4, or down to 2/1)
-        of the per-logical-type spacing rule. Exactly 3 is allowed for
-        Industrial Zone, Naval Foundry, Research Campus, Grand Bazaar, and
-        every Sacred Grove variant; Commercial District is the sole exception
-        and keeps min distance 0 (city-adjacency + no-direct-adjacency instead)."""
+    def test_min_plot_distance_preserves_campus_cluster_exception(self):
+        """Research Campus and Commercial District allow distance 0 for their
+        distinct placement mechanics; all other landmarks remain distance 3."""
         for k in LANDMARK_ORDER:
             imp = find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}")
             mindist = child_text(imp, "iLandmarkMinDistance")
-            if k == "COMMERCIAL_DISTRICT_BTG":
+            if k in {"COMMERCIAL_DISTRICT_BTG", "RESEARCH_CAMPUS_BTG"}:
                 self.assertEqual(mindist, "0", k)
-                self.assertEqual(child_text(imp, "bLandmarkRequiresCityAdjacency"), "1", k)
-                self.assertEqual(child_text(imp, "bLandmarkNoAdjacentSameGroup"), "1", k)
             else:
                 self.assertEqual(mindist, "3", k)
+        district = find_entry(IMPROVEMENTS, "ImprovementInfo", "IMPROVEMENT_COMMERCIAL_DISTRICT_BTG")
+        self.assertEqual(child_text(district, "bLandmarkRequiresCityAdjacency"), "1")
+        self.assertEqual(child_text(district, "bLandmarkNoAdjacentSameGroup"), "1")
+        campus = find_entry(IMPROVEMENTS, "ImprovementInfo", "IMPROVEMENT_RESEARCH_CAMPUS_BTG")
+        self.assertEqual(child_text(campus, "bLandmarkNoAdjacentSameGroup"), "0")
         distances = {child_text(find_entry(IMPROVEMENTS, "ImprovementInfo", f"IMPROVEMENT_{k}"), "iLandmarkMinDistance") for k in LANDMARK_ORDER}
         self.assertEqual(distances, {"0", "3"})
 
@@ -760,6 +759,7 @@ class TextTests(unittest.TestCase):
             "TXT_KEY_LANDMARK_INDUSTRIAL_ZONE_HELP",
             "TXT_KEY_LANDMARK_NAVAL_FOUNDRY_HELP",
             "TXT_KEY_LANDMARK_RESEARCH_CAMPUS_HELP",
+            "TXT_KEY_LANDMARK_PREVIEW_RC_CAMPUS",
             "TXT_KEY_LANDMARK_COMMERCIAL_DISTRICT_HELP",
             "TXT_KEY_LANDMARK_GRAND_BAZAAR_HELP",
             "TXT_KEY_LANDMARK_SACRED_GROVE_HELP",
@@ -826,10 +826,18 @@ class DllContractTests(unittest.TestCase):
         block = plot.split("int CvPlot::accumulateLandmarkResearchCampus(", 1)[1].split(
             "void CvPlot::buildLandmarkPreview(", 1
         )[0]
-        self.assertContains(block, "int iResearch = 5;")
-        self.assertContains(block, "iResearch += 5;")
+        self.assertContains(block, "int iResearch = 2;")
+        self.assertContains(block, "const int iCampusCap = 4;")
+        self.assertContains(block, "iResearch += 6;")
+        self.assertContains(block, "iResearch += 1;")
+        self.assertContains(block, "pAdjacent->getImprovementType() == eResearchCampus")
+        self.assertContains(block, "iContributingCampuses < iCampusCap")
+        self.assertContains(block, "pAdjacent->isPeak() && pAdjacent->getImprovementType() == NO_IMPROVEMENT")
         self.assertContains(block, "else if (pAdjacent->isHills())")
-        self.assertContains(block, "iResearch += 2;")
+        self.assertContains(block, "pBreakdown->iCampusAdjacentCount++")
+        self.assertContains(block, "pBreakdown->iCampusAdjacentYield += 6")
+        self.assertNotIn("iResearch += 5;", block)
+        self.assertNotIn("iResearch += 2;", block)
         for forbidden in (
             "TERRAIN_TUNDRA",
             "TERRAIN_SNOW",
@@ -1072,6 +1080,8 @@ class LandmarkPreviewTooltipTests(unittest.TestCase):
     def test_shared_preview_api_declared_and_const(self):
         header = (DLL / "CvPlot.h").read_text(encoding="utf-8", errors="ignore")
         self.assertContains(header, "struct LandmarkBreakdown")
+        self.assertContains(header, "int iCampusAdjacentCount;")
+        self.assertContains(header, "int iCampusAdjacentYield;")
         for decl in (
             "void buildLandmarkPreview(ImprovementTypes eImprovement, PlayerTypes ePlayer, LandmarkBreakdown& kOut) const;",
             "void accumulateLandmarkAdjacency(ImprovementTypes eImprovement, PlayerTypes ePlayer, int aiYield[NUM_YIELD_TYPES], LandmarkBreakdown* pBreakdown) const;",

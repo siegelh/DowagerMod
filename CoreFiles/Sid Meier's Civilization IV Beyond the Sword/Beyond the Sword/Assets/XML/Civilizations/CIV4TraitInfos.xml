@@ -3394,7 +3394,7 @@
   <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
   <iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier>
   <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
-  <iOpenBordersKnownTechResearchModifier>20</iOpenBordersKnownTechResearchModifier>
+  <iOpenBordersKnownTechResearchModifier>30</iOpenBordersKnownTechResearchModifier>
   <ExtraYieldThresholds />
   <TradeYieldModifiers />
   <CommerceChanges />
@@ -3440,8 +3440,8 @@
   <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
   <iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier>
   <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
-  <iCoastalForeignTeamGold>1</iCoastalForeignTeamGold>
-  <iCoastalForeignTeamGoldCap>3</iCoastalForeignTeamGoldCap>
+  <iCoastalForeignRouteGold>2</iCoastalForeignRouteGold>
+  <iCoastalForeignRouteGoldCap>8</iCoastalForeignRouteGoldCap>
   <ExtraYieldThresholds />
   <TradeYieldModifiers />
   <CommerceChanges />
@@ -3464,17 +3464,25 @@
   <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
   <iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier>
   <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
-  <WorkedPlotCondition>RIVERSIDE_IMPROVEMENT</WorkedPlotCondition>
-  <iWorkedPlotCulture>1</iWorkedPlotCulture>
-  <iWorkedPlotCap>3</iWorkedPlotCap>
-  <WorkedPlotPrereqTech>TECH_WRITING</WorkedPlotPrereqTech>
-  <WorkedPlotImprovements>
-    <ImprovementType>IMPROVEMENT_FARM</ImprovementType>
-  </WorkedPlotImprovements>
+  <ConditionalImprovementType>IMPROVEMENT_FARM</ConditionalImprovementType>
+  <ConditionalBonusType>BONUS_RICE</ConditionalBonusType>
+  <iConditionalImprovementBonusFood>-2</iConditionalImprovementBonusFood>
+  <iConditionalImprovementBonusProduction>1</iConditionalImprovementBonusProduction>
+  <iConditionalImprovementBonusCommerce>4</iConditionalImprovementBonusCommerce>
   <ExtraYieldThresholds />
   <TradeYieldModifiers />
   <CommerceChanges />
   <CommerceModifiers />
+  <ImprovementYieldChanges>
+    <ImprovementYieldChange>
+      <ImprovementType>IMPROVEMENT_FARM</ImprovementType>
+      <ImprovementYields>
+        <iYield>0</iYield>
+        <iYield>1</iYield>
+        <iYield>1</iYield>
+      </ImprovementYields>
+    </ImprovementYieldChange>
+  </ImprovementYieldChanges>
   <FreePromotions />
   <FreePromotionUnitCombats />
 </TraitInfo>
@@ -3520,7 +3528,8 @@
   <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
   <WorkedPlotCondition>RIVERSIDE_IMPROVEMENT</WorkedPlotCondition>
   <iWorkedPlotGold>1</iWorkedPlotGold>
-  <iWorkedPlotCap>4</iWorkedPlotCap>
+  <iWorkedPlotResearch>1</iWorkedPlotResearch>
+  <iWorkedPlotCap>6</iWorkedPlotCap>
   <WorkedPlotImprovements>
     <ImprovementType>IMPROVEMENT_COTTAGE</ImprovementType>
     <ImprovementType>IMPROVEMENT_HAMLET</ImprovementType>
@@ -3545,11 +3554,13 @@
   <iLevelExperienceModifier>0</iLevelExperienceModifier>
   <iGreatPeopleRateModifier>0</iGreatPeopleRateModifier>
   <iGreatGeneralRateModifier>0</iGreatGeneralRateModifier>
-  <iDomesticGreatGeneralRateModifier>25</iDomesticGreatGeneralRateModifier>
+  <iDomesticGreatGeneralRateModifier>50</iDomesticGreatGeneralRateModifier>
   <iMaxGlobalBuildingProductionModifier>0</iMaxGlobalBuildingProductionModifier>
   <iMaxTeamBuildingProductionModifier>0</iMaxTeamBuildingProductionModifier>
   <iMaxPlayerBuildingProductionModifier>0</iMaxPlayerBuildingProductionModifier>
   <iVeteranGarrisonCulture>3</iVeteranGarrisonCulture>
+  <iVeteranGarrisonHappiness>2</iVeteranGarrisonHappiness>
+  <iVeteranGarrisonProductionModifier>25</iVeteranGarrisonProductionModifier>
   <iVeteranGarrisonMinLevel>3</iVeteranGarrisonMinLevel>
   <ExtraYieldThresholds />
   <TradeYieldModifiers />

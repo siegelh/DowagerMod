@@ -59669,7 +59669,7 @@
   <bPrereqReligion>0</bPrereqReligion>
   <bCenterInCity>0</bCenterInCity>
   <iAIWeight>0</iAIWeight>
-  <iCost>150</iCost>
+  <iCost>120</iCost>
   <iHurryCostModifier>0</iHurryCostModifier>
   <iAdvancedStartCost>100</iAdvancedStartCost>
   <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -59735,14 +59735,16 @@
   <CommerceChanges>
     <iCommerce>0</iCommerce>
     <iCommerce>0</iCommerce>
-    <iCommerce>1</iCommerce>
+    <iCommerce>2</iCommerce>
     <iCommerce>0</iCommerce>
   </CommerceChanges>
   <ObsoleteSafeCommerceChanges />
   <CommerceChangeDoubleTimes />
   <CommerceModifiers>
     <iCommerce>0</iCommerce>
-    <iCommerce>25</iCommerce>
+    <iCommerce>35</iCommerce>
+    <iCommerce>0</iCommerce>
+    <iCommerce>0</iCommerce>
   </CommerceModifiers>
   <GlobalCommerceModifiers />
   <SpecialistExtraCommerces />
@@ -60059,7 +60061,7 @@
   <bPrereqReligion>0</bPrereqReligion>
   <bCenterInCity>0</bCenterInCity>
   <iAIWeight>0</iAIWeight>
-  <iCost>150</iCost>
+  <iCost>120</iCost>
   <iHurryCostModifier>0</iHurryCostModifier>
   <iAdvancedStartCost>100</iAdvancedStartCost>
   <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -60104,7 +60106,7 @@
   <iMilitaryProductionModifier>0</iMilitaryProductionModifier>
   <iSpaceProductionModifier>0</iSpaceProductionModifier>
   <iGlobalSpaceProductionModifier>0</iGlobalSpaceProductionModifier>
-  <iTradeRoutes>0</iTradeRoutes>
+  <iTradeRoutes>1</iTradeRoutes>
   <iCoastalTradeRoutes>0</iCoastalTradeRoutes>
   <iGlobalTradeRoutes>0</iGlobalTradeRoutes>
   <iTradeRouteModifier>0</iTradeRouteModifier>
@@ -60675,7 +60677,7 @@
   <bPrereqReligion>0</bPrereqReligion>
   <bCenterInCity>0</bCenterInCity>
   <iAIWeight>0</iAIWeight>
-  <iCost>180</iCost>
+  <iCost>160</iCost>
   <iHurryCostModifier>0</iHurryCostModifier>
   <iAdvancedStartCost>100</iAdvancedStartCost>
   <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -60751,7 +60753,9 @@
   </CommerceChangeDoubleTimes>
   <CommerceModifiers>
     <iCommerce>0</iCommerce>
-    <iCommerce>25</iCommerce>
+    <iCommerce>35</iCommerce>
+    <iCommerce>0</iCommerce>
+    <iCommerce>0</iCommerce>
   </CommerceModifiers>
   <GlobalCommerceModifiers />
   <SpecialistExtraCommerces />
@@ -60871,7 +60875,7 @@
   <bPrereqReligion>0</bPrereqReligion>
   <bCenterInCity>1</bCenterInCity>
   <iAIWeight>0</iAIWeight>
-  <iCost>60</iCost>
+  <iCost>50</iCost>
   <iHurryCostModifier>0</iHurryCostModifier>
   <iAdvancedStartCost>100</iAdvancedStartCost>
   <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -60948,12 +60952,7 @@
   <StateReligionCommerces />
   <CommerceHappinesses />
   <ReligionChanges />
-  <SpecialistCounts>
-    <SpecialistCount>
-      <SpecialistType>SPECIALIST_PRIEST</SpecialistType>
-      <iSpecialistCount>1</iSpecialistCount>
-    </SpecialistCount>
-  </SpecialistCounts>
+  <SpecialistCounts />
   <FreeSpecialistCounts />
   <CommerceFlexibles />
   <CommerceChangeOriginalOwners />
@@ -60967,7 +60966,12 @@
     </BonusProductionModifier>
   </BonusProductionModifiers>
   <UnitCombatFreeExperiences />
-  <DomainFreeExperiences />
+  <DomainFreeExperiences>
+    <DomainFreeExperience>
+      <DomainType>DOMAIN_LAND</DomainType>
+      <iExperience>2</iExperience>
+    </DomainFreeExperience>
+  </DomainFreeExperiences>
   <DomainProductionModifiers />
   <BuildingHappinessChanges />
   <PrereqBuildingClasses />

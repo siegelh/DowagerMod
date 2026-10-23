@@ -5460,6 +5460,7 @@ int CvCity::happyLevel() const
 	iHappiness += std::max(0, (getExtraHappiness() + GET_PLAYER(getOwnerINLINE()).getExtraHappiness()));
 	iHappiness += std::max(0, GC.getHandicapInfo(getHandicapType()).getHappyBonus());
 	iHappiness += std::max(0, getVassalHappiness());
+	iHappiness += getVeteranGarrisonHappiness();
 
 	if (getHappinessTimer() > 0)
 	{
@@ -8801,6 +8802,10 @@ int CvCity::getBaseYieldRateModifier(YieldTypes eIndex, int iExtra) const
 	{
 		iModifier += GET_PLAYER(getOwnerINLINE()).getCapitalYieldRateModifier(eIndex);
 	}
+	if (eIndex == YIELD_PRODUCTION)
+	{
+		iModifier += getVeteranGarrisonProductionModifier();
+	}
 
 	iModifier += iExtra;
 
@@ -9272,6 +9277,7 @@ ExpansionRules::WorkedPlotBonuses CvCity::getWorkedPlotBonuses(BuildingTypes eAd
 		const int iCount = getWorkedPlotCount(eTrait);
 		result.production += ExpansionRules::cappedContribution(iCount, kTrait.getWorkedPlotProduction(), kTrait.getWorkedPlotCap());
 		result.gold += ExpansionRules::cappedContribution(iCount, kTrait.getWorkedPlotGold(), kTrait.getWorkedPlotCap());
+		result.research += ExpansionRules::cappedContribution(iCount, kTrait.getWorkedPlotResearch(), kTrait.getWorkedPlotCap());
 		result.culture += ExpansionRules::cappedContribution(iCount, kTrait.getWorkedPlotCulture(), kTrait.getWorkedPlotCap());
 	}
 	return result;
@@ -9292,6 +9298,7 @@ ExpansionRules::WorkedPlotBonuses CvCity::getWorkedPlotMarginal(const CvPlot* pP
 		const bool bQualifies = qualifiesWorkedPlot(pPlot, eTrait, true, eBuild);
 		result.production += ExpansionRules::cappedMarginal(iOtherCount, bQualifies, kTrait.getWorkedPlotProduction(), kTrait.getWorkedPlotCap());
 		result.gold += ExpansionRules::cappedMarginal(iOtherCount, bQualifies, kTrait.getWorkedPlotGold(), kTrait.getWorkedPlotCap());
+		result.research += ExpansionRules::cappedMarginal(iOtherCount, bQualifies, kTrait.getWorkedPlotResearch(), kTrait.getWorkedPlotCap());
 		result.culture += ExpansionRules::cappedMarginal(iOtherCount, bQualifies, kTrait.getWorkedPlotCulture(), kTrait.getWorkedPlotCap());
 	}
 	return result;
@@ -9378,7 +9385,9 @@ void CvCity::updateImprovementCityCommerceFromTraitsAndCivics(bool bUpdateCommer
 	for (int iCommerce = 0; iCommerce < NUM_COMMERCE_TYPES; ++iCommerce)
 	{
 		const int iWorkedOnly = calculateImprovementCityCommerceFromTraitsAndCivics((CommerceTypes)iCommerce, true) +
-			(iCommerce == COMMERCE_GOLD ? bonus.gold : (iCommerce == COMMERCE_CULTURE ? bonus.culture : 0));
+			(iCommerce == COMMERCE_GOLD ? bonus.gold :
+			(iCommerce == COMMERCE_RESEARCH ? bonus.research :
+			(iCommerce == COMMERCE_CULTURE ? bonus.culture : 0)));
 		const int iBFC = calculateImprovementCityCommerceFromTraitsAndCivics((CommerceTypes)iCommerce, false);
 
 		if (m_aiImprovementCityCommerceFromTraitsAndCivicsWorked[iCommerce] != iWorkedOnly)
@@ -9422,39 +9431,73 @@ bool CvCity::qualifiesVeteranGarrison(const CvUnit* pUnit, int iMinimumLevel) co
 		pUnit->getLevel(), iMinimumLevel);
 }
 
-int CvCity::getVeteranGarrisonCulture(const CvUnit* pExtraUnit, const CvUnit* pExcludedUnit) const
+bool CvCity::hasQualifyingVeteranGarrison(TraitTypes eTrait, const CvUnit* pExtraUnit, const CvUnit* pExcludedUnit) const
 {
 	if (getOwnerINLINE() == NO_PLAYER || plot() == NULL)
-		return 0;
+		return false;
+	const CvTraitInfo& kTrait = GC.getTraitInfo(eTrait);
+	bool bQualifies = pExtraUnit != pExcludedUnit &&
+		qualifiesVeteranGarrison(pExtraUnit, kTrait.getVeteranGarrisonMinLevel());
+	for (CLLNode<IDInfo>* pNode = plot()->headUnitNode(); pNode != NULL && !bQualifies;
+		pNode = plot()->nextUnitNode(pNode))
+	{
+		const CvUnit* pUnit = ::getUnit(pNode->m_data);
+		bQualifies = pUnit != pExcludedUnit && qualifiesVeteranGarrison(pUnit, kTrait.getVeteranGarrisonMinLevel());
+	}
+	return bQualifies;
+}
+
+int CvCity::getVeteranGarrisonCulture(const CvUnit* pExtraUnit, const CvUnit* pExcludedUnit) const
+{
 	int iCulture = 0;
 	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
 	{
 		const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)i);
-		if (kTrait.getVeteranGarrisonCulture() == 0 || !hasTrait((TraitTypes)i))
-			continue;
-		bool bQualifies = pExtraUnit != pExcludedUnit &&
-			qualifiesVeteranGarrison(pExtraUnit, kTrait.getVeteranGarrisonMinLevel());
-		for (CLLNode<IDInfo>* pNode = plot()->headUnitNode(); pNode != NULL && !bQualifies;
-			pNode = plot()->nextUnitNode(pNode))
-		{
-			const CvUnit* pUnit = ::getUnit(pNode->m_data);
-			bQualifies = pUnit != pExcludedUnit && qualifiesVeteranGarrison(pUnit, kTrait.getVeteranGarrisonMinLevel());
-		}
-		if (bQualifies)
+		if (kTrait.getVeteranGarrisonCulture() > 0 && hasTrait((TraitTypes)i) &&
+			hasQualifyingVeteranGarrison((TraitTypes)i, pExtraUnit, pExcludedUnit))
 			iCulture += kTrait.getVeteranGarrisonCulture();
 	}
 	return iCulture;
 }
 
-void CvCity::updateVeteranGarrisonCulture()
+int CvCity::getVeteranGarrisonHappiness(const CvUnit* pExtraUnit, const CvUnit* pExcludedUnit) const
+{
+	int iHappiness = 0;
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)i);
+		if (kTrait.getVeteranGarrisonHappiness() > 0 && hasTrait((TraitTypes)i) &&
+			hasQualifyingVeteranGarrison((TraitTypes)i, pExtraUnit, pExcludedUnit))
+			iHappiness += kTrait.getVeteranGarrisonHappiness();
+	}
+	return iHappiness;
+}
+
+int CvCity::getVeteranGarrisonProductionModifier(const CvUnit* pExtraUnit, const CvUnit* pExcludedUnit) const
+{
+	int iModifier = 0;
+	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
+	{
+		const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)i);
+		if (kTrait.getVeteranGarrisonProductionModifier() > 0 && hasTrait((TraitTypes)i) &&
+			hasQualifyingVeteranGarrison((TraitTypes)i, pExtraUnit, pExcludedUnit))
+			iModifier += kTrait.getVeteranGarrisonProductionModifier();
+	}
+	return iModifier;
+}
+
+void CvCity::updateVeteranGarrisonEffects()
 {
 	if (getOwnerINLINE() == NO_PLAYER)
 		return;
 	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
 	{
-		if (GC.getTraitInfo((TraitTypes)i).getVeteranGarrisonCulture() > 0 && hasTrait((TraitTypes)i))
+		const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)i);
+		if ((kTrait.getVeteranGarrisonCulture() > 0 || kTrait.getVeteranGarrisonHappiness() > 0 ||
+			kTrait.getVeteranGarrisonProductionModifier() > 0) && hasTrait((TraitTypes)i))
 		{
 			updateCommerce(COMMERCE_CULTURE);
+			GET_PLAYER(getOwnerINLINE()).invalidateYieldRankCache(YIELD_PRODUCTION);
 			AI_setAssignWorkDirty(true);
 			setInfoDirty(true);
 			break;
@@ -12055,23 +12098,23 @@ int CvCity::getTradeRoutes() const
 }
 
 
-int CvCity::getForeignTradeTeamCount(TeamTypes eExtraTeam) const
+int CvCity::getForeignTradeRouteCount(TeamTypes eExtraTeam) const
 {
-	std::vector<int> aiTeams;
+	int iRoutes = 0;
+	bool bHasExtraTeamRoute = false;
 	for (int iRoute = 0; iRoute < GC.getDefineINT("MAX_TRADE_ROUTES"); ++iRoute)
 	{
 		CvCity* pPartner = getTradeCity(iRoute);
-		if (pPartner != NULL && GET_PLAYER(pPartner->getOwnerINLINE()).isAlive())
+		if (pPartner != NULL && GET_PLAYER(pPartner->getOwnerINLINE()).isAlive() &&
+			pPartner->getTeam() != getTeam())
 		{
-			aiTeams.push_back(pPartner->getTeam());
+			++iRoutes;
+			bHasExtraTeamRoute = bHasExtraTeamRoute || pPartner->getTeam() == eExtraTeam;
 		}
 	}
-	if (eExtraTeam != NO_TEAM)
-	{
-		aiTeams.push_back(eExtraTeam);
-	}
-	return ExpansionRules::distinctForeignTeams(aiTeams.empty() ? NULL : &aiTeams[0],
-		(int)aiTeams.size(), getTeam());
+	if (eExtraTeam != NO_TEAM && eExtraTeam != getTeam() && !bHasExtraTeamRoute)
+		++iRoutes;
+	return iRoutes;
 }
 
 int CvCity::getCoastalForeignTradeGoldCap() const
@@ -12082,7 +12125,7 @@ int CvCity::getCoastalForeignTradeGoldCap() const
 	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
 	{
 		if (hasTrait((TraitTypes)iTrait))
-			iCap += GC.getTraitInfo((TraitTypes)iTrait).getCoastalForeignTeamGoldCap();
+			iCap += GC.getTraitInfo((TraitTypes)iTrait).getCoastalForeignRouteGoldCap();
 	}
 	return iCap;
 }
@@ -12091,15 +12134,15 @@ int CvCity::getCoastalForeignTradeGold(TeamTypes eExtraTeam) const
 {
 	if (getCoastalForeignTradeGoldCap() == 0 || !isCoastal(GC.getMIN_WATER_SIZE_FOR_OCEAN()))
 		return 0;
-	const int iTeams = getForeignTradeTeamCount(eExtraTeam);
+	const int iRoutes = getForeignTradeRouteCount(eExtraTeam);
 	int iGold = 0;
 	for (int iTrait = 0; iTrait < GC.getNumTraitInfos(); ++iTrait)
 	{
 		if (hasTrait((TraitTypes)iTrait))
 		{
 			const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)iTrait);
-			iGold += ExpansionRules::cappedContribution(iTeams,
-				kTrait.getCoastalForeignTeamGold(), kTrait.getCoastalForeignTeamGoldCap());
+			iGold += ExpansionRules::cappedContribution(iRoutes,
+				kTrait.getCoastalForeignRouteGold(), kTrait.getCoastalForeignRouteGoldCap());
 		}
 	}
 	return iGold;

@@ -1026,11 +1026,11 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_UNIT_EXP_SIAMESE_ROYAL_RIFLE_STRATEGY</Tag>
-    <English>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</English>
-    <French>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</French>
-    <German>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</German>
-    <Italian>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</Italian>
-    <Spanish>A defensive Rifleman replacement with Drill I and +25% city defense, costing 120 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</Spanish>
+    <English>A defensive Rifleman replacement with Drill I and +25% city defense, costing 100 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</English>
+    <French>A defensive Rifleman replacement with Drill I and +25% city defense, costing 100 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</French>
+    <German>A defensive Rifleman replacement with Drill I and +25% city defense, costing 100 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</German>
+    <Italian>A defensive Rifleman replacement with Drill I and +25% city defense, costing 100 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</Italian>
+    <Spanish>A defensive Rifleman replacement with Drill I and +25% city defense, costing 100 Production. Retains strength 14, Rifling, the anti-mounted modifier and the Infantry upgrade.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_ROYAL_OBSERVATORY</Tag>
@@ -1050,11 +1050,11 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_ROYAL_OBSERVATORY_STRATEGY</Tag>
-    <English>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</English>
-    <French>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</French>
-    <German>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</German>
-    <Italian>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</Italian>
-    <Spanish>An Observatory replacement with two Scientist slots in total and +1 Culture. Retains Astronomy, 150 Production and +25% Research. This city building is separate from the Great Scientist's mountain Research Campus.</Spanish>
+    <English>An Observatory replacement costing 120 Production with +35% Research, two Scientist slots and +2 Culture. Retains Astronomy. This city building is separate from the Great Scientist's mountain Research Campus.</English>
+    <French>An Observatory replacement costing 120 Production with +35% Research, two Scientist slots and +2 Culture. Retains Astronomy. This city building is separate from the Great Scientist's mountain Research Campus.</French>
+    <German>An Observatory replacement costing 120 Production with +35% Research, two Scientist slots and +2 Culture. Retains Astronomy. This city building is separate from the Great Scientist's mountain Research Campus.</German>
+    <Italian>An Observatory replacement costing 120 Production with +35% Research, two Scientist slots and +2 Culture. Retains Astronomy. This city building is separate from the Great Scientist's mountain Research Campus.</Italian>
+    <Spanish>An Observatory replacement costing 120 Production with +35% Research, two Scientist slots and +2 Culture. Retains Astronomy. This city building is separate from the Great Scientist's mountain Research Campus.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_EXP_MONGKUT</Tag>
@@ -1522,11 +1522,11 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_UNIT_EXP_TYRIAN_MERCHANT_GALLEY_STRATEGY</Tag>
-    <English>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</English>
-    <French>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</French>
-    <German>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</German>
-    <Italian>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</Italian>
-    <Spanish>A Galley replacement with three movement, costing 60 Production. Retains strength 2, normal cargo capacity, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</Spanish>
+    <English>A Galley replacement costing 45 Production with three movement and three cargo. Retains strength 2, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</English>
+    <French>A Galley replacement costing 45 Production with three movement and three cargo. Retains strength 2, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</French>
+    <German>A Galley replacement costing 45 Production with three movement and three cargo. Retains strength 2, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</German>
+    <Italian>A Galley replacement costing 45 Production with three movement and three cargo. Retains strength 2, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</Italian>
+    <Spanish>A Galley replacement costing 45 Production with three movement and three cargo. Retains strength 2, Sailing, ocean restrictions and the Galleon upgrade. A ship's presence does not establish a free trade connection.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_TYRIAN_COUNTING_HOUSE</Tag>
@@ -1546,11 +1546,11 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_TYRIAN_COUNTING_HOUSE_STRATEGY</Tag>
-    <English>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</English>
-    <French>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</French>
-    <German>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</German>
-    <Italian>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</Italian>
-    <Spanish>A Market replacement with +25% foreign trade-route modifier. Retains Currency, 150 Production, +25% Gold and two Merchant slots. This is not another +25% empire-wide Gold bonus.</Spanish>
+    <English>A Market replacement costing 120 Production with one extra trade route and +25% foreign trade-route yield. Retains Currency, +25% Gold and two Merchant slots. Only active foreign routes trigger Cedar and Sea.</English>
+    <French>A Market replacement costing 120 Production with one extra trade route and +25% foreign trade-route yield. Retains Currency, +25% Gold and two Merchant slots. Only active foreign routes trigger Cedar and Sea.</French>
+    <German>A Market replacement costing 120 Production with one extra trade route and +25% foreign trade-route yield. Retains Currency, +25% Gold and two Merchant slots. Only active foreign routes trigger Cedar and Sea.</German>
+    <Italian>A Market replacement costing 120 Production with one extra trade route and +25% foreign trade-route yield. Retains Currency, +25% Gold and two Merchant slots. Only active foreign routes trigger Cedar and Sea.</Italian>
+    <Spanish>A Market replacement costing 120 Production with one extra trade route and +25% foreign trade-route yield. Retains Currency, +25% Gold and two Merchant slots. Only active foreign routes trigger Cedar and Sea.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_EXP_HIRAM</Tag>
@@ -1770,19 +1770,19 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_EXP_RAMKHAMHAENG</Tag>
-    <English>Letters of the Realm</English>
-    <French>Letters of the Realm</French>
-    <German>Letters of the Realm</German>
-    <Italian>Letters of the Realm</Italian>
-    <Spanish>Letters of the Realm</Spanish>
+    <English>Rice in the Fields</English>
+    <French>Rice in the Fields</French>
+    <German>Rice in the Fields</German>
+    <Italian>Rice in the Fields</Italian>
+    <Spanish>Rice in the Fields</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_EXP_RAMKHAMHAENG_SHORT</Tag>
-    <English>Letters of the Realm</English>
-    <French>Letters of the Realm</French>
-    <German>Letters of the Realm</German>
-    <Italian>Letters of the Realm</Italian>
-    <Spanish>Letters of the Realm</Spanish>
+    <English>Rice in the Fields</English>
+    <French>Rice in the Fields</French>
+    <German>Rice in the Fields</German>
+    <Italian>Rice in the Fields</Italian>
+    <Spanish>Rice in the Fields</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_LEADER_EXP_RAMKHAMHAENG</Tag>
@@ -2202,11 +2202,11 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_UNIT_EXP_SAHELIAN_ESCORT_CAVALRY_STRATEGY</Tag>
-    <English>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</English>
-    <French>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</French>
-    <German>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</German>
-    <Italian>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</Italian>
-    <Spanish>A Knight replacement with Sentry and 20% withdrawal. Retains cost 90, strength 10, movement 2, Guilds and Horseback Riding, Horse AND Iron, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</Spanish>
+    <English>A Knight replacement costing 80 Production with Sentry and 20% withdrawal. Requires Horse but not Iron; retains strength 10, movement 2, Guilds and Horseback Riding, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</English>
+    <French>A Knight replacement costing 80 Production with Sentry and 20% withdrawal. Requires Horse but not Iron; retains strength 10, movement 2, Guilds and Horseback Riding, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</French>
+    <German>A Knight replacement costing 80 Production with Sentry and 20% withdrawal. Requires Horse but not Iron; retains strength 10, movement 2, Guilds and Horseback Riding, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</German>
+    <Italian>A Knight replacement costing 80 Production with Sentry and 20% withdrawal. Requires Horse but not Iron; retains strength 10, movement 2, Guilds and Horseback Riding, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</Italian>
+    <Spanish>A Knight replacement costing 80 Production with Sentry and 20% withdrawal. Requires Horse but not Iron; retains strength 10, movement 2, Guilds and Horseback Riding, normal restrictions and the Cuirassier upgrade. A regional cavalry abstraction, not a named regiment.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_TIMBUKTU_SCHOLARLY_COLLEGE</Tag>
@@ -2226,11 +2226,11 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_TIMBUKTU_SCHOLARLY_COLLEGE_STRATEGY</Tag>
-    <English>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</English>
-    <French>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</French>
-    <German>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</German>
-    <Italian>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</Italian>
-    <Spanish>A University replacement costing 180 Production with one Priest slot. Retains Education, +25% Research and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</Spanish>
+    <English>A University replacement costing 160 Production with +35% Research and one Priest slot. Retains Education and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</English>
+    <French>A University replacement costing 160 Production with +35% Research and one Priest slot. Retains Education and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</French>
+    <German>A University replacement costing 160 Production with +35% Research and one Priest slot. Retains Education and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</German>
+    <Italian>A University replacement costing 160 Production with +35% Research and one Priest slot. Retains Education and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</Italian>
+    <Spanish>A University replacement costing 160 Production with +35% Research and one Priest slot. Retains Education and the parent's existing Culture. Not a duplicate University of Sankore wonder or a new religion.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_EXP_ASKIA</Tag>
@@ -2434,11 +2434,11 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_UNIT_EXP_GIBBOR_ROYAL_RETAINER_STRATEGY</Tag>
-    <English>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</English>
-    <French>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</French>
-    <German>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</German>
-    <Italian>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</Italian>
-    <Spanish>A Swordsman replacement costing 45 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</Spanish>
+    <English>A Swordsman replacement costing 40 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</English>
+    <French>A Swordsman replacement costing 40 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</French>
+    <German>A Swordsman replacement costing 40 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</German>
+    <Italian>A Swordsman replacement costing 40 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</Italian>
+    <Spanish>A Swordsman replacement costing 40 Production, with +25% city attack in total and +25% hills defense. Requires Copper OR Iron and Iron Working. Retains strength 6, movement 1 and Maceman upgrade. An infantry-tier abstraction, not a reconstructed dated uniform.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_ROYAL_CITADEL</Tag>
@@ -2458,11 +2458,11 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_ROYAL_CITADEL_STRATEGY</Tag>
-    <English>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</English>
-    <French>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</French>
-    <German>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</German>
-    <Italian>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</Italian>
-    <Spanish>A Walls replacement costing 60 Production with +1 Culture and one Priest slot. Retains Masonry, normal defenses and Rifling obsolescence. Buildable on flatland; this is not Solomon's Temple.</Spanish>
+    <English>A Walls replacement costing 50 Production with +1 Culture and +2 experience for all land units. Retains Masonry, normal defenses and Rifling obsolescence; it has no Priest slot. Buildable on flatland; this is not Solomon's Temple.</English>
+    <French>A Walls replacement costing 50 Production with +1 Culture and +2 experience for all land units. Retains Masonry, normal defenses and Rifling obsolescence; it has no Priest slot. Buildable on flatland; this is not Solomon's Temple.</French>
+    <German>A Walls replacement costing 50 Production with +1 Culture and +2 experience for all land units. Retains Masonry, normal defenses and Rifling obsolescence; it has no Priest slot. Buildable on flatland; this is not Solomon's Temple.</German>
+    <Italian>A Walls replacement costing 50 Production with +1 Culture and +2 experience for all land units. Retains Masonry, normal defenses and Rifling obsolescence; it has no Priest slot. Buildable on flatland; this is not Solomon's Temple.</Italian>
+    <Spanish>A Walls replacement costing 50 Production with +1 Culture and +2 experience for all land units. Retains Masonry, normal defenses and Rifling obsolescence; it has no Priest slot. Buildable on flatland; this is not Solomon's Temple.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_EXP_DAVID</Tag>

@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
-from add_expansion_packages import ASSETS, XML, FILES, MANIFEST, append_record, baseline, canonical, parse, trait_scalar, retarget_kfm_model, resize_portrait_button, dds_to_tga, replace_reviewed_record, append_plot_node
+from add_expansion_packages import ASSETS, XML, FILES, MANIFEST, append_record, baseline, canonical, parse, trait_scalar, retarget_kfm_model, resize_portrait_button, dds_to_tga, replace_reviewed_record, append_plot_node, publish_manifest_record
 from flags.flag_pipeline import validate_manifest_against_live
 
 
@@ -133,6 +133,22 @@ class ExpansionWriterTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "differs"):
             append_record(output, addition, "Infos")
 
+    def test_manifest_publication_replaces_only_the_exact_owned_record(self):
+        data = (
+            b'<?xml version="1.0"?><Root><Infos>'
+            b'<Info><Type>OLD</Type><Value>1</Value></Info>'
+            b'<Info><Type>KEEP</Type><Value>9</Value></Info>'
+            b'</Infos></Root>'
+        )
+        updated = parse("<Info><Type>OLD</Type><Value>2</Value></Info>")
+        output = publish_manifest_record(data, updated, "Infos")
+        self.assertIn(b"<Info><Type>KEEP</Type><Value>9</Value></Info>", output)
+        self.assertEqual([n.findtext("Value") for n in parse(output).iter("Info")], ["2", "9"])
+        self.assertEqual(publish_manifest_record(output, updated, "Infos"), output)
+        duplicate = data.replace(b"</Infos>", b"<Info><Type>OLD</Type><Value>1</Value></Info></Infos>")
+        with self.assertRaisesRegex(ValueError, "Expected one manifest record"):
+            publish_manifest_record(duplicate, updated, "Infos")
+
 
 class ExpansionContractTests(unittest.TestCase):
     @classmethod
@@ -172,6 +188,10 @@ class ExpansionContractTests(unittest.TestCase):
                             after.remove(after.find("Builds"))
                             index = list(before).index(before.find("Builds"))
                             after.insert(index, copy.deepcopy(before.find("Builds")))
+                if kind == "improvement":
+                    for before, after in zip(old, new):
+                        if before.findtext("Type") == "IMPROVEMENT_RESEARCH_CAMPUS_BTG":
+                            after.find("iLandmarkMinDistance").text = before.findtext("iLandmarkMinDistance")
                 self.assertEqual([canonical(n) for n in new[:len(old)]], [canonical(n) for n in old])
                 added_count = sum("promotion" in p for p in packages) if kind == "promotion" else len(packages)
                 if kind == "building":
@@ -274,11 +294,22 @@ class ExpansionContractTests(unittest.TestCase):
 
     def test_worked_plot_packages_have_exact_conditions_caps_and_tradeoffs(self):
         ram = self.entry("trait", "TRAIT_EXP_RAMKHAMHAENG")
-        self.assertEqual(ram.findtext("WorkedPlotCondition"), "RIVERSIDE_IMPROVEMENT")
-        self.assertEqual(ram.findtext("WorkedPlotPrereqTech"), "TECH_WRITING")
-        self.assertEqual((ram.findtext("iWorkedPlotCulture"), ram.findtext("iWorkedPlotCap")), ("1", "3"))
-        self.assertEqual([n.text for n in ram.findall("WorkedPlotImprovements/ImprovementType")], ["IMPROVEMENT_FARM"])
-        self.assertIsNone(ram.find("WorkedPlotPrereqBuilding"))
+        self.assertIsNone(ram.find("WorkedPlotCondition"))
+        self.assertEqual(
+            (ram.findtext("ConditionalImprovementType"), ram.findtext("ConditionalBonusType")),
+            ("IMPROVEMENT_FARM", "BONUS_RICE"),
+        )
+        self.assertEqual(
+            tuple(ram.findtext(tag) for tag in (
+                "iConditionalImprovementBonusFood",
+                "iConditionalImprovementBonusProduction",
+                "iConditionalImprovementBonusCommerce",
+            )),
+            ("-2", "1", "4"),
+        )
+        farm = ram.find("ImprovementYieldChanges/ImprovementYieldChange")
+        self.assertEqual(farm.findtext("ImprovementType"), "IMPROVEMENT_FARM")
+        self.assertEqual([n.text for n in farm.findall("ImprovementYields/iYield")], ["0", "1", "1"])
         ho = self.entry("trait", "TRAIT_EXP_HO_CHI_MINH")
         self.assertEqual(ho.findtext("WorkedPlotCondition"), "WOODLAND")
         self.assertEqual((ho.findtext("iWorkedPlotProduction"), ho.findtext("iWorkedPlotCap"),
@@ -286,9 +317,25 @@ class ExpansionContractTests(unittest.TestCase):
         self.assertIsNone(ho.find("WorkedPlotImprovements"))
         askia = self.entry("trait", "TRAIT_EXP_ASKIA")
         self.assertEqual(askia.findtext("WorkedPlotCondition"), "RIVERSIDE_IMPROVEMENT")
-        self.assertEqual((askia.findtext("iWorkedPlotGold"), askia.findtext("iWorkedPlotCap")), ("1", "4"))
+        self.assertEqual(
+            (askia.findtext("iWorkedPlotGold"), askia.findtext("iWorkedPlotResearch"),
+             askia.findtext("iWorkedPlotCap")),
+            ("1", "1", "6"),
+        )
         self.assertEqual([n.text for n in askia.findall("WorkedPlotImprovements/ImprovementType")],
                          ["IMPROVEMENT_COTTAGE", "IMPROVEMENT_HAMLET", "IMPROVEMENT_VILLAGE", "IMPROVEMENT_TOWN"])
+        escort = self.entry("unit", "UNIT_EXP_SAHELIAN_ESCORT_CAVALRY")
+        self.assertEqual((escort.findtext("iCost"), escort.findtext("BonusType"),
+                          escort.findtext("iWithdrawalProb")), ("80", "BONUS_HORSE", "20"))
+        self.assertFalse(escort.findall("PrereqBonuses/BonusType"))
+        college = self.entry("building", "BUILDING_EXP_TIMBUKTU_SCHOLARLY_COLLEGE")
+        self.assertEqual((college.findtext("iCost"), college.findtext("CommerceModifiers/iCommerce[2]")),
+                         ("160", "35"))
+        self.assertEqual(
+            (college.findtext("SpecialistCounts/SpecialistCount/SpecialistType"),
+             college.findtext("SpecialistCounts/SpecialistCount/iSpecialistCount")),
+            ("SPECIALIST_PRIEST", "1"),
+        )
         infantry = self.entry("unit", "UNIT_EXP_VIET_MINH_INFANTRY")
         self.assertEqual((infantry.findtext("iCost"), infantry.findtext("iCombat")), ("120", "18"))
         self.assertEqual([n.text for n in infantry.findall("FreePromotions/FreePromotion/PromotionType")],
@@ -372,22 +419,26 @@ class ExpansionContractTests(unittest.TestCase):
     def test_diplomatic_and_conquest_packages_match_approved_numbers(self):
         mongkut = self.entry("trait", "TRAIT_EXP_MONGKUT")
         bolivar = self.entry("trait", "TRAIT_EXP_BOLIVAR")
-        self.assertEqual(mongkut.findtext("iOpenBordersKnownTechResearchModifier"), "20")
+        self.assertEqual(mongkut.findtext("iOpenBordersKnownTechResearchModifier"), "30")
         self.assertEqual(bolivar.findtext("iConquestOccupationReductionPercent"), "50")
         self.assertEqual(bolivar.findtext("iGreatGeneralRateModifier"), "50")
         for trait in self.live["trait"].iter("TraitInfo"):
             name = trait.findtext("Type")
             self.assertEqual(int(trait.findtext("iOpenBordersKnownTechResearchModifier", "0")),
-                             20 if name == "TRAIT_EXP_MONGKUT" else 0)
+                             30 if name == "TRAIT_EXP_MONGKUT" else 0)
             self.assertEqual(int(trait.findtext("iConquestOccupationReductionPercent", "0")),
                              50 if name == "TRAIT_EXP_BOLIVAR" else 0)
         rifle = self.entry("unit", "UNIT_EXP_SIAMESE_ROYAL_RIFLE")
         self.assertEqual((rifle.findtext("iCost"), rifle.findtext("iCombat"), rifle.findtext("iCityDefense")),
-                         ("120", "14", "25"))
+                         ("100", "14", "25"))
         llanero = self.entry("unit", "UNIT_EXP_LLANERO")
         self.assertEqual(tuple(llanero.findtext(tag) for tag in ("iCost", "iCombat", "iMoves", "iWithdrawalProb")),
                          ("140", "15", "3", "40"))
         observatory = self.entry("building", "BUILDING_EXP_ROYAL_OBSERVATORY")
+        self.assertEqual((observatory.findtext("iCost"),
+                          observatory.findtext("CommerceModifiers/iCommerce[2]"),
+                          observatory.findtext("CommerceChanges/iCommerce[3]")),
+                         ("120", "35", "2"))
         self.assertEqual(observatory.findtext("SpecialistCounts/SpecialistCount/iSpecialistCount"), "2")
         cabildo = self.entry("building", "BUILDING_EXP_REPUBLICAN_CABILDO")
         experience = cabildo.find("DomainFreeExperiences/DomainFreeExperience")
@@ -415,33 +466,40 @@ class ExpansionContractTests(unittest.TestCase):
 
     def test_david_package_is_a_single_veteran_bonus_with_copper_or_iron(self):
         trait = self.entry("trait", "TRAIT_EXP_DAVID")
-        self.assertEqual((trait.findtext("iVeteranGarrisonCulture"), trait.findtext("iVeteranGarrisonMinLevel"),
-                          trait.findtext("iDomesticGreatGeneralRateModifier")), ("3", "3", "25"))
+        self.assertEqual((trait.findtext("iVeteranGarrisonCulture"), trait.findtext("iVeteranGarrisonHappiness"),
+                          trait.findtext("iVeteranGarrisonProductionModifier"),
+                          trait.findtext("iVeteranGarrisonMinLevel"),
+                          trait.findtext("iDomesticGreatGeneralRateModifier")), ("3", "2", "25", "3", "50"))
         unit = self.entry("unit", "UNIT_EXP_GIBBOR_ROYAL_RETAINER")
         self.assertEqual((unit.findtext("iCost"), unit.findtext("iCityAttack"), unit.findtext("iHillsDefense")),
-                         ("45", "25", "25"))
+                         ("40", "25", "25"))
         self.assertEqual(unit.findtext("BonusType"), "NONE")
         self.assertEqual([n.text for n in unit.findall("PrereqBonuses/BonusType")],
                          ["BONUS_COPPER", "BONUS_IRON", "NONE", "NONE"])
         citadel = self.entry("building", "BUILDING_EXP_ROYAL_CITADEL")
-        self.assertEqual((citadel.findtext("iCost"), citadel.findtext("ObsoleteTech")), ("60", "TECH_RIFLING"))
+        self.assertEqual((citadel.findtext("iCost"), citadel.findtext("ObsoleteTech")), ("50", "TECH_RIFLING"))
+        self.assertFalse(citadel.findall("SpecialistCounts/SpecialistCount"))
+        experience = citadel.find("DomainFreeExperiences/DomainFreeExperience")
+        self.assertEqual((experience.findtext("DomainType"), experience.findtext("iExperience")),
+                         ("DOMAIN_LAND", "2"))
 
     def test_coastal_trade_package_is_capped_and_preserves_transport_role(self):
         trait = self.entry("trait", "TRAIT_EXP_HIRAM")
-        self.assertEqual(trait.findtext("iCoastalForeignTeamGold"), "1")
-        self.assertEqual(trait.findtext("iCoastalForeignTeamGoldCap"), "3")
+        self.assertEqual(trait.findtext("iCoastalForeignRouteGold"), "2")
+        self.assertEqual(trait.findtext("iCoastalForeignRouteGoldCap"), "8")
         for current in self.live["trait"].iter("TraitInfo"):
             if current.findtext("Type") != "TRAIT_EXP_HIRAM":
-                self.assertEqual(current.findtext("iCoastalForeignTeamGold", "0"), "0")
-                self.assertEqual(current.findtext("iCoastalForeignTeamGoldCap", "0"), "0")
+                self.assertEqual(current.findtext("iCoastalForeignRouteGold", "0"), "0")
+                self.assertEqual(current.findtext("iCoastalForeignRouteGoldCap", "0"), "0")
         ship = self.entry("unit", "UNIT_EXP_TYRIAN_MERCHANT_GALLEY")
-        self.assertEqual(tuple(ship.findtext(tag) for tag in ("iCost", "iMoves", "iCombat")),
-                         ("60", "3", "2"))
+        self.assertEqual(tuple(ship.findtext(tag) for tag in ("iCost", "iMoves", "iCombat", "iCargo")),
+                         ("45", "3", "2", "3"))
         parent = self.entry("unit", "UNIT_GALLEY", original=True)
-        for tag in ("iCargo", "SpecialCargo", "DomainCargo", "TerrainImpassables"):
+        for tag in ("SpecialCargo", "DomainCargo", "TerrainImpassables"):
             self.assertEqual(canonical(ship.find(tag)), canonical(parent.find(tag)))
         house = self.entry("building", "BUILDING_EXP_TYRIAN_COUNTING_HOUSE")
-        self.assertEqual(house.findtext("iForeignTradeRouteModifier"), "25")
+        self.assertEqual((house.findtext("iCost"), house.findtext("iTradeRoutes"),
+                          house.findtext("iForeignTradeRouteModifier")), ("120", "1", "25"))
 
 
 if __name__ == "__main__":

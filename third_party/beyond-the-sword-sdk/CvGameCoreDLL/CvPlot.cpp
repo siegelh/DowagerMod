@@ -6386,6 +6386,16 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 		if (eBonus != NO_BONUS)
 		{
 			iYield += GC.getImprovementInfo(eImprovement).getImprovementBonusYield(eBonus, eYield);
+			for (iI = 0; iI < GC.getNumTraitInfos(); ++iI)
+			{
+				const CvTraitInfo& kTrait = GC.getTraitInfo((TraitTypes)iI);
+				if (GET_PLAYER(ePlayer).hasTrait((TraitTypes)iI) &&
+					kTrait.getConditionalImprovementType() == eImprovement &&
+					kTrait.getConditionalBonusType() == eBonus)
+				{
+					iYield += kTrait.getConditionalImprovementBonusYieldChange(eYield);
+				}
+			}
 		}
 	}
 
@@ -6780,13 +6790,17 @@ int CvPlot::getLandmarkResearchCampusValue(PlayerTypes ePlayer) const
 
 // accumulateLandmarkResearchCampus
 // --------------------------------
-// Single authoritative Research Campus scan: base 5 Research, +5 per adjacent
-// peak, and +2 per adjacent hill. Peak and hill predicates are deliberately
-// exclusive. Records the component breakdown when pBreakdown != NULL.
+// Single authoritative Research Campus scan: base 2 Research, +1 per adjacent
+// hill, +1 per adjacent empty peak, and +6 for up to four adjacent Campuses.
+// Campus and empty-peak predicates are deliberately exclusive.
 int CvPlot::accumulateLandmarkResearchCampus(PlayerTypes ePlayer, LandmarkBreakdown* pBreakdown) const
 {
-	int iResearch = 5;
-	if (pBreakdown) { pBreakdown->iCampusBaseYield = 5; }
+	int iResearch = 2;
+	int iContributingCampuses = 0;
+	const int iCampusCap = 4;
+	if (pBreakdown) { pBreakdown->iCampusBaseYield = 2; }
+	const ImprovementTypes eResearchCampus =
+		(ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_RESEARCH_CAMPUS_BTG", true);
 
 	for (int iI = 0; iI < NUM_DIRECTION_TYPES; ++iI)
 	{
@@ -6795,15 +6809,24 @@ int CvPlot::accumulateLandmarkResearchCampus(PlayerTypes ePlayer, LandmarkBreakd
 		{
 			continue;
 		}
-		if (pAdjacent->isPeak())
+		if (pAdjacent->getImprovementType() == eResearchCampus)
 		{
-			iResearch += 5;
-			if (pBreakdown) { pBreakdown->iCampusPeakCount++; pBreakdown->iCampusPeakYield += 5; }
+			if (iContributingCampuses < iCampusCap)
+			{
+				++iContributingCampuses;
+				iResearch += 6;
+				if (pBreakdown) { pBreakdown->iCampusAdjacentCount++; pBreakdown->iCampusAdjacentYield += 6; }
+			}
+		}
+		else if (pAdjacent->isPeak() && pAdjacent->getImprovementType() == NO_IMPROVEMENT)
+		{
+			iResearch += 1;
+			if (pBreakdown) { pBreakdown->iCampusPeakCount++; pBreakdown->iCampusPeakYield += 1; }
 		}
 		else if (pAdjacent->isHills())
 		{
-			iResearch += 2;
-			if (pBreakdown) { pBreakdown->iCampusHillCount++; pBreakdown->iCampusHillYield += 2; }
+			iResearch += 1;
+			if (pBreakdown) { pBreakdown->iCampusHillCount++; pBreakdown->iCampusHillYield += 1; }
 		}
 	}
 
@@ -9052,7 +9075,7 @@ void CvPlot::addUnit(CvUnit* pUnit, bool bUpdate)
 	}
 
 	if (getPlotCity() != NULL)
-		getPlotCity()->updateVeteranGarrisonCulture();
+		getPlotCity()->updateVeteranGarrisonEffects();
 
 	if (bUpdate)
 	{
@@ -9084,7 +9107,7 @@ void CvPlot::removeUnit(CvUnit* pUnit, bool bUpdate)
 	}
 
 	if (getPlotCity() != NULL)
-		getPlotCity()->updateVeteranGarrisonCulture();
+		getPlotCity()->updateVeteranGarrisonEffects();
 
 	if (bUpdate)
 	{

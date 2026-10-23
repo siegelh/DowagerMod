@@ -33718,7 +33718,7 @@
   <ProductionTraits />
   <Flavors />
   <iAIWeight>0</iAIWeight>
-  <iCost>120</iCost>
+  <iCost>100</iCost>
   <iHurryCostModifier>0</iHurryCostModifier>
   <iAdvancedStartCost>100</iAdvancedStartCost>
   <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -34103,7 +34103,7 @@
   <ProductionTraits />
   <Flavors />
   <iAIWeight>0</iAIWeight>
-  <iCost>60</iCost>
+  <iCost>45</iCost>
   <iHurryCostModifier>0</iHurryCostModifier>
   <iAdvancedStartCost>100</iAdvancedStartCost>
   <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -34167,7 +34167,7 @@
   <iBombardRate>0</iBombardRate>
   <SpecialCargo>NONE</SpecialCargo>
   <DomainCargo>DOMAIN_LAND</DomainCargo>
-  <iCargo>4</iCargo>
+  <iCargo>3</iCargo>
   <iConscription>0</iConscription>
   <iCultureGarrison>0</iCultureGarrison>
   <iExtraCost>0</iExtraCost>
@@ -34680,16 +34680,11 @@
     <PrereqTech>NONE</PrereqTech>
   </TechTypes>
   <BonusType>BONUS_HORSE</BonusType>
-  <PrereqBonuses>
-    <BonusType>BONUS_IRON</BonusType>
-    <BonusType>NONE</BonusType>
-    <BonusType>NONE</BonusType>
-    <BonusType>NONE</BonusType>
-  </PrereqBonuses>
+  <PrereqBonuses />
   <ProductionTraits />
   <Flavors />
   <iAIWeight>0</iAIWeight>
-  <iCost>90</iCost>
+  <iCost>80</iCost>
   <iHurryCostModifier>0</iHurryCostModifier>
   <iAdvancedStartCost>100</iAdvancedStartCost>
   <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>
@@ -34883,7 +34878,7 @@
   <ProductionTraits />
   <Flavors />
   <iAIWeight>0</iAIWeight>
-  <iCost>45</iCost>
+  <iCost>40</iCost>
   <iHurryCostModifier>0</iHurryCostModifier>
   <iAdvancedStartCost>100</iAdvancedStartCost>
   <iAdvancedStartCostIncrease>0</iAdvancedStartCostIncrease>

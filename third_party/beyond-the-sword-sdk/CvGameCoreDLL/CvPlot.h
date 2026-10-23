@@ -71,6 +71,7 @@ struct LandmarkBreakdown
 	int iCampusBaseYield;
 	int iCampusPeakCount;           int iCampusPeakYield;
 	int iCampusHillCount;           int iCampusHillYield;
+	int iCampusAdjacentCount;       int iCampusAdjacentYield;
 
 	// Naval Foundry (Production). Aura values are exact effective (non-stacking):
 	// water tiles already covered by another owned Foundry are excluded.

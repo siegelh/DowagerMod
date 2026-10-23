@@ -822,7 +822,7 @@ public:
 	int getTradeRoutes() const;																										// Exposed to Python
 	void clearTradeRoutes();
 	void updateTradeRoutes();
-	int getForeignTradeTeamCount(TeamTypes eExtraTeam = NO_TEAM) const;
+	int getForeignTradeRouteCount(TeamTypes eExtraTeam = NO_TEAM) const;
 	int getCoastalForeignTradeGold(TeamTypes eExtraTeam = NO_TEAM) const;
 	int getCoastalForeignTradeGoldCap() const;
 
@@ -960,8 +960,11 @@ public:
 	ExpansionRules::WorkedPlotBonuses getWorkedPlotMarginal(const CvPlot* pPlot, bool bRemove, BuildTypes eBuild = NO_BUILD) const;
 	int getWorkedPlotProduction() const { return m_iWorkedPlotProduction; }
 	int getTraitSpecialistCommerce(CommerceTypes eCommerce) const;
+	bool hasQualifyingVeteranGarrison(TraitTypes eTrait, const CvUnit* pExtraUnit = NULL, const CvUnit* pExcludedUnit = NULL) const;
 	int getVeteranGarrisonCulture(const CvUnit* pExtraUnit = NULL, const CvUnit* pExcludedUnit = NULL) const;
-	void updateVeteranGarrisonCulture();
+	int getVeteranGarrisonHappiness(const CvUnit* pExtraUnit = NULL, const CvUnit* pExcludedUnit = NULL) const;
+	int getVeteranGarrisonProductionModifier(const CvUnit* pExtraUnit = NULL, const CvUnit* pExcludedUnit = NULL) const;
+	void updateVeteranGarrisonEffects();
 
 protected:
 

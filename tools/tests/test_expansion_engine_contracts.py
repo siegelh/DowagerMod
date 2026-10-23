@@ -35,8 +35,11 @@ def test_research_access_is_additive_once_and_uses_live_team_state():
 def test_trait_extensions_are_neutral_and_do_not_introduce_cache_or_save_state():
     source = (DLL / "CvInfos.cpp").read_text()
     for field in ("OpenBordersKnownTechResearchModifier", "ConquestOccupationReductionPercent",
-                  "CoastalForeignTeamGold", "CoastalForeignTeamGoldCap",
-                  "VeteranGarrisonCulture", "VeteranGarrisonMinLevel"):
+                  "CoastalForeignRouteGold", "CoastalForeignRouteGoldCap",
+                  "VeteranGarrisonCulture", "VeteranGarrisonHappiness",
+                  "VeteranGarrisonProductionModifier", "VeteranGarrisonMinLevel",
+                  "WorkedPlotResearch", "ConditionalImprovementBonusFood",
+                  "ConditionalImprovementBonusProduction", "ConditionalImprovementBonusCommerce"):
         assert f'm_i{field}(0)' in source
         assert f'&m_i{field}, "i{field}", 0' in source
     loader = (DLL / "CvXMLLoadUtilitySet.cpp").read_text()
@@ -47,12 +50,14 @@ def test_trait_extensions_are_neutral_and_do_not_introduce_cache_or_save_state()
 
 def test_coastal_gold_counts_real_routes_before_modifiers_and_refreshes_equal_yields():
     source = (DLL / "CvCity.cpp").read_text()
-    start = source.index("int CvCity::getForeignTradeTeamCount")
+    start = source.index("int CvCity::getForeignTradeRouteCount")
     end = source.index("void CvCity::clearOrderQueue", start)
     block = source[start:end]
     assert "CvCity* pPartner = getTradeCity(iRoute);" in block
     assert "GET_PLAYER(pPartner->getOwnerINLINE()).isAlive()" in block
-    assert "ExpansionRules::distinctForeignTeams" in block
+    assert "pPartner->getTeam() != getTeam()" in block
+    assert "++iRoutes;" in block
+    assert "distinctForeignTeams" not in block
     assert "isCoastal(GC.getMIN_WATER_SIZE_FOR_OCEAN())" in block
     assert "ExpansionRules::cappedContribution" in block
     clear, refresh = block.split("void CvCity::updateTradeRoutes()", 1)
@@ -69,7 +74,7 @@ def test_trade_gold_help_and_diplomacy_ai_use_the_authoritative_calculation():
     help_source = (DLL / "CvGameTextMgr.cpp").read_text()
     assert 'TXT_KEY_TRAIT_EXP_COASTAL_TRADE' in help_source
     assert 'TXT_KEY_CITY_EXP_COASTAL_TRADE' in help_source
-    assert "city.getForeignTradeTeamCount(), city.getCoastalForeignTradeGoldCap()" in help_source
+    assert "city.getForeignTradeRouteCount(), city.getCoastalForeignTradeGoldCap()" in help_source
     ai = (DLL / "CvTeamAI.cpp").read_text()
     assert "pCity->getCoastalForeignTradeGold(eTeam) - pCity->getCoastalForeignTradeGold()" in ai
 
@@ -103,7 +108,7 @@ def test_worked_rules_require_owned_assigned_worked_plots_and_active_prerequisit
     marginal = function(source, "ExpansionRules::WorkedPlotBonuses CvCity::getWorkedPlotMarginal")
     assert "getWorkedPlotCount(eTrait, pPlot)" in marginal
     assert "bRemove && !isWorkingPlot(pPlot)" in marginal
-    assert marginal.count("ExpansionRules::cappedMarginal") == 3
+    assert marginal.count("ExpansionRules::cappedMarginal") == 4
 
 
 def test_worked_production_is_derived_and_reconstructed_without_new_saved_state():
@@ -114,7 +119,7 @@ def test_worked_production_is_derived_and_reconstructed_without_new_saved_state(
     update = function(source, "void CvCity::updateImprovementCityCommerceFromTraitsAndCivics")
     assert "m_iWorkedPlotProduction = bonus.production" in update
     assert "invalidateYieldRankCache(YIELD_PRODUCTION)" in update
-    assert "bonus.gold" in update and "bonus.culture" in update
+    assert "bonus.gold" in update and "bonus.research" in update and "bonus.culture" in update
     assert "AI_setAssignWorkDirty" not in update, "Assignment refresh must not dirty assignment recursively"
     assert "updateImprovementCityCommerceFromTraitsAndCivics(false)" in function(source, "void CvCity::read")
     assert "m_iWorkedPlotProduction" not in function(source, "void CvCity::write")
@@ -159,9 +164,23 @@ def test_worked_trait_references_resolve_after_buildings_and_validate_type_ident
                  "conflicting worked-plot improvement lists"):
         assert term in third
     read = function(source, "bool CvTraitInfo::read(CvXMLLoadUtility")
-    assert "iWorkedChannels != 1" in read
-    for channel in ("Production", "Gold", "Culture", "Cap"):
+    assert "iWorkedChannels == 0" in read
+    for channel in ("Production", "Gold", "Research", "Culture", "Cap"):
         assert f'&m_iWorkedPlot{channel}, "iWorkedPlot{channel}", 0' in read
+
+
+def test_conditional_improvement_resource_yields_are_direct_map_yields():
+    infos = (DLL / "CvInfos.cpp").read_text()
+    read = function(infos, "bool CvTraitInfo::read(CvXMLLoadUtility")
+    for field in ("ConditionalImprovementBonusFood", "ConditionalImprovementBonusProduction",
+                  "ConditionalImprovementBonusCommerce"):
+        assert f'&m_i{field}, "i{field}", 0' in read
+    assert "ConditionalImprovementType" in read
+    assert "ConditionalBonusType" in read
+    plot = function((DLL / "CvPlot.cpp").read_text(), "int CvPlot::calculateImprovementYieldChange")
+    assert "kTrait.getConditionalImprovementType() == eImprovement" in plot
+    assert "kTrait.getConditionalBonusType() == eBonus" in plot
+    assert "iYield += kTrait.getConditionalImprovementBonusYieldChange(eYield);" in plot
 
 
 def test_worked_rules_reach_governor_workers_chopping_roads_and_buildings():
@@ -202,18 +221,23 @@ def test_veteran_garrison_counts_owned_living_land_combat_units_once():
                  "pUnit->canFight()", "pUnit->isAnimal()", "pUnit->isCargo()", "pUnit->isDead() || pUnit->isDelayedDeath()",
                  "pUnit->getLevel(), iMinimumLevel"):
         assert term in qualifies
-    bonus = function(city, "int CvCity::getVeteranGarrisonCulture")
-    assert "plot()->headUnitNode()" in bonus
-    assert "pNode != NULL && !bQualifies" in bonus
-    assert "pUnit != pExcludedUnit" in bonus
-    assert "pExtraUnit != pExcludedUnit" in bonus
-    assert bonus.count("iCulture += kTrait.getVeteranGarrisonCulture()") == 1
-    assert bonus.index("if (bQualifies)") > bonus.index("plot()->nextUnitNode(pNode)")
+    detector = function(city, "bool CvCity::hasQualifyingVeteranGarrison")
+    assert "plot()->headUnitNode()" in detector
+    assert "pNode != NULL && !bQualifies" in detector
+    assert "pUnit != pExcludedUnit" in detector
+    assert "pExtraUnit != pExcludedUnit" in detector
+    for getter, value in (("Culture", "iCulture"), ("Happiness", "iHappiness"),
+                          ("ProductionModifier", "iModifier")):
+        bonus = function(city, f"int CvCity::getVeteranGarrison{getter}")
+        assert "hasQualifyingVeteranGarrison" in bonus
+        assert f"{value} += kTrait.getVeteranGarrison{getter}();" in bonus
     base = function(city, "int CvCity::getBaseCommerceRateTimes100")
     assert "if (eIndex == COMMERCE_CULTURE)" in base
     assert "100 * getVeteranGarrisonCulture()" in base
+    assert "getVeteranGarrisonHappiness()" in function(city, "int CvCity::happyLevel")
+    assert "getVeteranGarrisonProductionModifier()" in function(city, "int CvCity::getBaseYieldRateModifier")
     assert "VeteranGarrison" not in function(city, "void CvCity::write")
-    assert "updateVeteranGarrisonCulture()" in function((DLL / "CvGame.cpp").read_text(), "void CvGame::setFinalInitialized")
+    assert "updateVeteranGarrisonEffects()" in function((DLL / "CvGame.cpp").read_text(), "void CvGame::setFinalInitialized")
 
 
 def test_veteran_garrison_invalidation_covers_unit_lifecycle_even_without_graphics_updates():
@@ -221,7 +245,7 @@ def test_veteran_garrison_invalidation_covers_unit_lifecycle_even_without_graphi
     for signature, mutation in (("void CvPlot::addUnit", "m_units.insertAtEnd"),
                                 ("void CvPlot::removeUnit", "m_units.deleteNode")):
         block = function(plot, signature)
-        refresh = block.index("getPlotCity()->updateVeteranGarrisonCulture()")
+        refresh = block.index("getPlotCity()->updateVeteranGarrisonEffects()")
         assert block.index(mutation) < refresh < block.index("if (bUpdate)")
     unit = (DLL / "CvUnit.cpp").read_text()
     for signature in ("void CvUnit::setLevel", "void CvUnit::setTransportUnit",
@@ -231,15 +255,19 @@ def test_veteran_garrison_invalidation_covers_unit_lifecycle_even_without_graphi
     assert death.index("m_bDeathDelay = true") < death.index("updateVeteranGarrisonCommerce()")
     refresh = function(unit, "void CvUnit::updateVeteranGarrisonCommerce")
     assert "pPlot != NULL && pPlot->getPlotCity() != NULL" in refresh
-    assert "pPlot->getPlotCity()->updateVeteranGarrisonCulture()" in refresh
+    assert "pPlot->getPlotCity()->updateVeteranGarrisonEffects()" in refresh
 
 
-def test_veteran_garrison_ai_values_marginal_culture_without_overriding_defense_requirements():
+def test_veteran_garrison_ai_values_all_marginal_effects_without_overriding_defense_requirements():
     ai = function((DLL / "CvUnitAI.cpp").read_text(), "bool CvUnitAI::AI_guardCityMinDefender")
     assert "if (iDefendersHave < iDefendersNeed)" in ai
     assert "pLoopCity->getVeteranGarrisonCulture(this)" in ai
+    assert "pLoopCity->getVeteranGarrisonHappiness(this)" in ai
+    assert "pLoopCity->getVeteranGarrisonProductionModifier(this)" in ai
     assert "pPlotCity->getVeteranGarrisonCulture(NULL, this)" in ai
     assert "2 * (iGarrisonGain - iGarrisonLoss)" in ai
     selection = function((DLL / "CvSelectionGroupAI.cpp").read_text(), "CvUnit* CvSelectionGroupAI::AI_ejectBestDefender")
     assert "getVeteranGarrisonCulture(NULL, pLoopUnit)" in selection
-    assert "std::min(30, iRetainedCulture * 10)" in selection
+    assert "getVeteranGarrisonHappiness(NULL, pLoopUnit)" in selection
+    assert "getVeteranGarrisonProductionModifier(NULL, pLoopUnit)" in selection
+    assert "std::min(60, iRetainedValue * 10)" in selection

@@ -12,13 +12,14 @@ Askia Muhammad, David, Sennacherib and Zenobia**. The current selectable roster 
 Mongkut's diplomatic-research
 and Bolivar's conquest-occupation rules are wired into their civilizations;
 their native support has compiled and the content has passed its gate.
-Hiram's coastal trade-team Gold rule, city breakdown and AI treaty-value
-estimate are integrated too; the bonus pays only for actual active routes.
+Hiram's coastal foreign-route Gold rule, city breakdown and AI treaty-value
+estimate are integrated too; repeated routes to one foreign team count separately.
 The shared capped worked-plot engine is compiled: city accounting, governor
 and worker estimates, technology/building refreshes and tooltips are wired.
-Ramkhamhaeng, Ho and Askia now use those rules. David's veteran-garrison
-Culture refreshes with unit movement, level, transport and death changes;
-animals do not qualify. Sennacherib and Zenobia have their UU, UB, trait
+Ho and Askia use those rules, while Ramkhamhaeng's Farm and Rice effects are
+visible plot yields. David's veteran-garrison Culture, Happiness and Production
+refresh with unit movement, level, transport and death changes; animals do not
+qualify. Sennacherib and Zenobia have their UU, UB, trait
 and civilization-specific Worker improvements, including intact/pillaged
 identities, assigned-city build caps, restoration and capture behavior.
 Human and AI actions share legality checks; AI can prepare Station roads.
@@ -40,18 +41,18 @@ and multiplayer checks in `docs\MANUAL_SMOKE_TESTS.md` remain unperformed.
 | Leader | New civilization | Main idea | Signature trait |
 |---|---|---|---|
 | **Sennacherib** | Neo-Assyria: Nineveh | Productive river infrastructure supports deliberate siege warfare. | With Royal Waterworks, each worked riverside Farm or Royal Canal gives **+1 city Production**, capped at **+3 per city**. |
-| **Hiram I** | Phoenicia: Tyre | Build a diverse coastal trading network. | A coastal city gets **+1 Gold per distinct foreign trade-route team**, capped at **+3**. Multiple routes to the same team count once. |
+| **Hiram I** | Phoenicia: Tyre | Build a dense coastal trading network. | A coastal city gets **+2 Gold per active foreign trade route**, capped at **+8**. Multiple routes to the same team count separately; domestic routes do not count. |
 | **Piye** | Kush: Napata | Priest-supported population and early archery. | Ordinary Priests give **+1 Food**; **+25% domestic Great General rate**. |
 | **Matthias Corvinus** | Hungary: Corvinian Kingdom | Maintain and modernize a paid professional army. | Melee/Gunpowder units receive a **25% upgrade-discount promotion**; ordinary Artists give **+1 Research**. |
-| **Ramkhamhaeng** | Sukhothai | River agriculture supports cultural growth. | From Writing, each worked riverside Farm gives **+1 city Culture**, capped at **+3**. |
-| **Mongkut** | Siam: Rama IV | Scientific catch-up through open diplomacy. | **+20 percentage points** to a technology's research modifier if an eligible foreign Open Borders team knows it. Once per technology, not per partner. |
+| **Ramkhamhaeng** | Sukhothai | Productive farms and concentrated Rice commerce. | Farms gain **+1 Production and +1 Commerce** as visible plot yields. A Farm on Rice instead nets **-2 Food, +2 Production and +5 Commerce** relative to vanilla. |
+| **Mongkut** | Siam: Rama IV | Scientific catch-up through open diplomacy. | **+30 percentage points** to a technology's research modifier if an eligible foreign Open Borders team knows it. Once per technology, not per partner. |
 | **Ho Chi Minh** | Vietnam: Democratic Republic | Preserve useful woodland to sustain mobilization. | Each worked Forest/Jungle plot gives **+1 city Production**, capped at **+3**; **+50% domestic Great General rate**. |
-| **Askia Muhammad** | Songhai: Askia Dynasty | Commercial river settlements support scholarship. | Worked riverside Cottage/Hamlet/Village/Town plots give **+1 city Gold each**, capped at **+4** across all stages. |
+| **Askia Muhammad** | Songhai: Askia Dynasty | Commercial river settlements support scholarship. | Worked riverside Cottage/Hamlet/Village/Town plots give **+1 city Gold and +1 city Research each**, capped at **six qualifying plots**. |
 | **Stefan Dusan** | Serbia: Dusan's Empire | Mining revenue and legal institutions support noble cavalry. | Mines give **+1 Commerce yield**; ordinary Priests give **+1 Espionage**. |
 | **Pedro II** | Brazil: Second Empire | Cross-disciplinary specialists develop science and culture. | Ordinary Scientists give **+1 Culture**, Artists **+1 Research**; **+25% Great Person rate**. |
 | **Simon Bolivar** | Gran Colombia | Mobile campaigns with faster recovery of captured cities. | Newly generated military-conquest occupation is **halved, rounded up**; **+50% Great General rate**. |
 | **Zenobia** | Palmyrene Empire | Develop desert trade sites to fund expensive armored cavalry. | Each worked Desert plot with an unpillaged, non-ruins improvement and Road/Railroad gives **+2 city Gold**, capped at **+6**. |
-| **David** | Israel: Davidic Kingdom | Experienced defenders become cultural symbols. | A city with an owned, non-cargo, combat-capable land unit of **level 3+** gets **+3 Culture once**, plus **+25% domestic Great General rate**. |
+| **David** | Israel: Davidic Kingdom | Experienced defenders unify and mobilize cities. | A city with an owned, non-cargo, combat-capable land unit of **level 3+** gets **+3 Culture, +2 Happiness and +25% Production once**, plus **+50% domestic Great General rate**. |
 
 ## Unique units and buildings
 
@@ -62,18 +63,18 @@ version. Costs below are normal-speed Production.
 | Package | Unique unit | Unique building |
 |---|---|---|
 | **Sennacherib** | **Assyrian Siege Tower**, replacing Catapult: cost **60**; strength 5, movement 1; bombard **12** instead of 8; **+25% city attack**; collateral damage **50** instead of 100. Trades field/collateral efficiency for city assault. | **Royal Waterworks**, replacing Aqueduct: cost **100**, Mathematics; retains **+2 health** and adds **one Engineer slot**. Enables the trait's city Production bonus. |
-| **Hiram** | **Tyrian Merchant Galley**, replacing Galley: cost **60**; movement **3** instead of 2; strength 2 and ordinary cargo/ocean restrictions retained. | **Tyrian Counting House**, replacing Market: cost **150**, Currency; retains **+25% Gold** and two Merchant slots; adds **+25% foreign trade-route modifier**. |
+| **Hiram** | **Tyrian Merchant Galley**, replacing Galley: cost **45**; movement **3** and cargo **3**; strength 2 and ordinary ocean restrictions retained. | **Tyrian Counting House**, replacing Market: cost **120**, Currency; retains **+25% Gold** and two Merchant slots; adds **+25% foreign trade-route modifier** and **+1 trade route**. |
 | **Piye** | **Kushite Archer**, replacing Archer: cost **25**, strength 3; **two guaranteed first strikes** instead of one and **+25% hills attack**. Retains city/hill defenses and both medieval upgrade paths. | **Napatan Cult Chapel**, replacing Monument: cost **40** instead of 30; **+1 Culture above the parent** and **one Priest slot**; Mysticism and Astronomy obsolescence retained. |
 | **Matthias** | **Black Army Arquebusier**, replacing Musketman: cost **100** instead of 80; strength **10** instead of 9; **Drill I** and **+1 Gold extra unit cost**. | **Corvinian College**, replacing University: cost **200**, Education; retains **+25% Research**; adds **+3 Culture** and **one Artist slot**. |
 | **Ramkhamhaeng** | **Sukhothai War Elephant**, replacing War Elephant: cost **65** instead of 60; strength 8; **20% withdrawal**. Still requires Ivory, Construction and Horseback Riding. | **Ho Trai**, replacing Library: cost **100** instead of 90; Writing, **+25% Research**, two Scientist slots; adds **+2 Culture** and **one Priest slot**. |
-| **Mongkut** | **Siamese Royal Rifle**, replacing Rifleman: cost **120** instead of 110; strength 14; **Drill I** and **+25% city defense**. | **Royal Observatory**, replacing Observatory: cost **150**, Astronomy; retains **+25% Research**; **two Scientist slots total** and **+1 Culture**. This is a city building, not the mountain Research Campus. |
+| **Mongkut** | **Siamese Royal Rifle**, replacing Rifleman: cost **100** instead of 110; strength 14; **Drill I** and **+25% city defense**. | **Royal Observatory**, replacing Observatory: cost **120**, Astronomy; **+35% Research**, **two Scientist slots total** and **+2 Culture**. This is a city building, not the mountain Research Campus. |
 | **Ho** | **Viet Minh Infantry**, replacing Infantry: cost **120** instead of 140; strength **18** instead of 20; **Woodsman I and II**. Still needs Assembly Line and Rifling. | **Resistance Headquarters**, replacing Intelligence Agency: cost **180**, existing **Utopia** prerequisite; retains **+8 Espionage, +50% Espionage and two Spy slots**; adds **+15% military Production**. |
-| **Askia** | **Sahelian Escort Cavalry**, replacing Knight: cost **90**, strength 10, movement 2; **Sentry** and **20% withdrawal**. Retains Horse AND Iron requirements. | **Timbuktu Scholarly College**, replacing University: cost **180** instead of 200; Education, **+25% Research**, and **one Priest slot**. Not another University of Sankore wonder. |
+| **Askia** | **Sahelian Escort Cavalry**, replacing Knight: cost **80**, strength 10, movement 2; **Sentry** and **20% withdrawal**. Requires **Horse only**. | **Timbuktu Scholarly College**, replacing University: cost **160** instead of 200; Education, **+35% Research**, and **one Priest slot**. Not another University of Sankore wonder. |
 | **Dusan** | **Vlastela Cavalry**, replacing Knight: cost **95** instead of 90; strength 10, movement 2; **+25% hills attack** and **+25% versus Melee**. Pikemen remain important counters. | **Zakonik Court**, replacing Courthouse: cost **130** instead of 120; **-60% maintenance total** rather than -50%; adds **+2 Culture** and retains +2 Espionage/Spy slot. |
 | **Pedro** | **Voluntarios da Patria**, replacing Rifleman: cost **100** instead of 110; strength 14; **March**. No extra drafting or free unit spawning. | **Imperial Lyceum**, replacing University: cost **220** instead of 200; **+35% Research total** rather than +25%; **one Artist slot** and **+1 Culture**. |
 | **Bolivar** | **Llanero**, replacing Cavalry: cost **140** instead of 120; strength 15; movement **3** instead of 2; withdrawal **40% total** instead of 30%. Retains the full Cavalry tech/resource requirements. | **Republican Cabildo**, replacing Courthouse: cost **120**, Code of Laws; retains maintenance/Espionage/Spy effects; **+2 experience for trained land units**. |
 | **Zenobia** | **Palmyrene Clibanarius**, replacing Horse Archer: cost **70** instead of 50; strength **8** instead of 6; movement 2; withdrawal **10% total** instead of the live parent's 40%; requires **Horse AND Iron**. | **Caravan Court**, replacing Market: cost **180** instead of 150; Currency, **+25% Gold**, two Merchant slots; adds **one trade route**. |
-| **David** | **Gibbor Royal Retainer**, replacing Swordsman: cost **45** instead of 40; strength 6; **+25% city attack total** instead of +10%; **+25% hills defense**; **Copper OR Iron**, not Iron only. Iron Working remains. | **Royal Citadel**, replacing Walls: cost **60** instead of 50; Masonry, normal defenses and Rifling obsolescence; adds **+1 Culture** and **one Priest slot**. Available in flatland cities too. |
+| **David** | **Gibbor Royal Retainer**, replacing Swordsman: cost **40**; strength 6; **+25% city attack total** instead of +10%; **+25% hills defense**; **Copper OR Iron**, not Iron only. Iron Working remains. | **Royal Citadel**, replacing Walls: cost **50**; Masonry, normal defenses and Rifling obsolescence; adds **+1 Culture** and **+2 XP to land units**, with no Priest slot. Available in flatland cities too. |
 
 ## Two civilization-specific worker improvements
 
@@ -118,7 +119,7 @@ or restore its unique improvement. No great-person landmark replacement.
   with a qualifying non-vassal team that already knows the researched technology.
 - Bolivar changes only **new conquest occupation**, not peaceful transfers or
   an already running occupation timer.
-- David's Culture is **once per city**, not once per veteran. Foreign units,
+- David's Culture, Happiness and Production are **once per city**, not once per veteran. Foreign units,
   Workers, cargo and Great Generals alone do not qualify.
 - Under **Unrestricted Leaders**, traits follow leaders; units, buildings and
   unique-improvement permissions follow civilizations. Some package synergies
