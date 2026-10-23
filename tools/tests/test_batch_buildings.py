@@ -181,9 +181,15 @@ class BuildingBatchTests(unittest.TestCase):
     def test_yuan_secretariat_ends_original_roster_and_only_differs_as_frozen(self) -> None:
         packages = json.loads((ROOT / "tools/manifests/new_leaders_expansion.json").read_bytes())["packages"]
         order = [text(node, "Type") for node in self.buildings]
+        expansion_buildings = ["BUILDING_EXP_" + p["building"]["id"] for p in packages]
+        expansion_buildings.extend(
+            "BUILDING_EXP_" + spec["id"]
+            for package in packages
+            for spec in package.get("extra_buildings", [])
+        )
         self.assertEqual(
             order[order.index("BUILDING_YUAN_IMPERIAL_SECRETARIAT") + 1:],
-            ["BUILDING_EXP_" + p["building"]["id"] for p in packages],
+            expansion_buildings,
         )
         palace = copy.deepcopy(self.by_type["BUILDING_PALACE"])
         yuan = copy.deepcopy(self.by_type["BUILDING_YUAN_IMPERIAL_SECRETARIAT"])

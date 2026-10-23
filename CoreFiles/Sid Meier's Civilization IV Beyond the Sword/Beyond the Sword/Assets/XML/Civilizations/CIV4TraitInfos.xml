@@ -3325,31 +3325,17 @@
   <CommerceModifiers />
   <SpecialistCommerceChanges>
     <SpecialistCommerceChange>
-      <SpecialistType>SPECIALIST_ARTIST</SpecialistType>
+      <SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
       <SpecialistCommerces>
         <iCommerce>0</iCommerce>
-        <iCommerce>1</iCommerce>
         <iCommerce>0</iCommerce>
+        <iCommerce>1</iCommerce>
         <iCommerce>0</iCommerce>
       </SpecialistCommerces>
     </SpecialistCommerceChange>
   </SpecialistCommerceChanges>
-  <FreePromotions>
-    <FreePromotion>
-      <PromotionType>PROMOTION_EXP_PAID_PROFESSIONALS</PromotionType>
-      <bFreePromotion>1</bFreePromotion>
-    </FreePromotion>
-  </FreePromotions>
-  <FreePromotionUnitCombats>
-    <FreePromotionUnitCombat>
-      <UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
-      <bFreePromotionUnitCombat>1</bFreePromotionUnitCombat>
-    </FreePromotionUnitCombat>
-    <FreePromotionUnitCombat>
-      <UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
-      <bFreePromotionUnitCombat>1</bFreePromotionUnitCombat>
-    </FreePromotionUnitCombat>
-  </FreePromotionUnitCombats>
+  <FreePromotions />
+  <FreePromotionUnitCombats />
 </TraitInfo>
 <TraitInfo>
   <Type>TRAIT_EXP_PEDRO_II</Type>

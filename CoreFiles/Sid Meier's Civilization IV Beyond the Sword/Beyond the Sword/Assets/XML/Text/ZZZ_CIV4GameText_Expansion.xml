@@ -522,35 +522,59 @@
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_CORVINIAN_COLLEGE_PEDIA</Tag>
-    <English>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</English>
-    <French>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</French>
-    <German>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</German>
-    <Italian>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Italian>
-    <Spanish>Matthias Corvinus ruled Hungary from 1458 to 1490. His paid forces included early handgun troops, while his court supported Renaissance learning. The college abstracts scholarly patronage rather than placing copies of the royal library in every city. The Black Army's professionalism came with real financial costs. The unit uses the game's Gunpowder tier, not later mounted Cuirassier equipment.</Spanish>
+    <English>The Corvinian College represents the wider scholarly institutions encouraged by Matthias Corvinus's Renaissance court. It is an abstraction of education and military learning across the kingdom, not a claim that one historical college trained every royal soldier.</English>
+    <French>The Corvinian College represents the wider scholarly institutions encouraged by Matthias Corvinus's Renaissance court. It is an abstraction of education and military learning across the kingdom, not a claim that one historical college trained every royal soldier.</French>
+    <German>The Corvinian College represents the wider scholarly institutions encouraged by Matthias Corvinus's Renaissance court. It is an abstraction of education and military learning across the kingdom, not a claim that one historical college trained every royal soldier.</German>
+    <Italian>The Corvinian College represents the wider scholarly institutions encouraged by Matthias Corvinus's Renaissance court. It is an abstraction of education and military learning across the kingdom, not a claim that one historical college trained every royal soldier.</Italian>
+    <Spanish>The Corvinian College represents the wider scholarly institutions encouraged by Matthias Corvinus's Renaissance court. It is an abstraction of education and military learning across the kingdom, not a claim that one historical college trained every royal soldier.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_BUILDING_EXP_CORVINIAN_COLLEGE_STRATEGY</Tag>
-    <English>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</English>
-    <French>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</French>
-    <German>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</German>
-    <Italian>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</Italian>
-    <Spanish>Retains Education, 200 Production and +25% Research. Adds +3 Culture and one Artist slot. Assigned Artists receive the leader trait's Research bonus.</Spanish>
+    <English>Retains the University's science, culture, and Scientist slots. Archery and Gunpowder units trained in the city receive +3 experience, stacking with Bibliotheca Corviniana.</English>
+    <French>Retains the University's science, culture, and Scientist slots. Archery and Gunpowder units trained in the city receive +3 experience, stacking with Bibliotheca Corviniana.</French>
+    <German>Retains the University's science, culture, and Scientist slots. Archery and Gunpowder units trained in the city receive +3 experience, stacking with Bibliotheca Corviniana.</German>
+    <Italian>Retains the University's science, culture, and Scientist slots. Archery and Gunpowder units trained in the city receive +3 experience, stacking with Bibliotheca Corviniana.</Italian>
+    <Spanish>Retains the University's science, culture, and Scientist slots. Archery and Gunpowder units trained in the city receive +3 experience, stacking with Bibliotheca Corviniana.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_BIBLIOTHECA_CORVINIANA</Tag>
+    <English>Bibliotheca Corviniana</English>
+    <French>Bibliotheca Corviniana</French>
+    <German>Bibliotheca Corviniana</German>
+    <Italian>Bibliotheca Corviniana</Italian>
+    <Spanish>Bibliotheca Corviniana</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_BIBLIOTHECA_CORVINIANA_PEDIA</Tag>
+    <English>The Bibliotheca Corviniana was the royal library assembled at Buda under Matthias Corvinus and one of Renaissance Europe's major collections. This unique Library represents the scholarship and military knowledge fostered by that patronage rather than literal copies of the royal collection in every city.</English>
+    <French>The Bibliotheca Corviniana was the royal library assembled at Buda under Matthias Corvinus and one of Renaissance Europe's major collections. This unique Library represents the scholarship and military knowledge fostered by that patronage rather than literal copies of the royal collection in every city.</French>
+    <German>The Bibliotheca Corviniana was the royal library assembled at Buda under Matthias Corvinus and one of Renaissance Europe's major collections. This unique Library represents the scholarship and military knowledge fostered by that patronage rather than literal copies of the royal collection in every city.</German>
+    <Italian>The Bibliotheca Corviniana was the royal library assembled at Buda under Matthias Corvinus and one of Renaissance Europe's major collections. This unique Library represents the scholarship and military knowledge fostered by that patronage rather than literal copies of the royal collection in every city.</Italian>
+    <Spanish>The Bibliotheca Corviniana was the royal library assembled at Buda under Matthias Corvinus and one of Renaissance Europe's major collections. This unique Library represents the scholarship and military knowledge fostered by that patronage rather than literal copies of the royal collection in every city.</Spanish>
+  </TEXT>
+  <TEXT>
+    <Tag>TXT_KEY_BUILDING_EXP_BIBLIOTHECA_CORVINIANA_STRATEGY</Tag>
+    <English>Retains the Library's cost, Research bonus, and Scientist slots. Archery and Gunpowder units trained in the city receive +2 experience. Scientists produce +1 Culture under Matthias.</English>
+    <French>Retains the Library's cost, Research bonus, and Scientist slots. Archery and Gunpowder units trained in the city receive +2 experience. Scientists produce +1 Culture under Matthias.</French>
+    <German>Retains the Library's cost, Research bonus, and Scientist slots. Archery and Gunpowder units trained in the city receive +2 experience. Scientists produce +1 Culture under Matthias.</German>
+    <Italian>Retains the Library's cost, Research bonus, and Scientist slots. Archery and Gunpowder units trained in the city receive +2 experience. Scientists produce +1 Culture under Matthias.</Italian>
+    <Spanish>Retains the Library's cost, Research bonus, and Scientist slots. Archery and Gunpowder units trained in the city receive +2 experience. Scientists produce +1 Culture under Matthias.</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_EXP_MATTHIAS</Tag>
-    <English>Paid Professionals</English>
-    <French>Paid Professionals</French>
-    <German>Paid Professionals</German>
-    <Italian>Paid Professionals</Italian>
-    <Spanish>Paid Professionals</Spanish>
+    <English>Sword and Codex</English>
+    <French>Sword and Codex</French>
+    <German>Sword and Codex</German>
+    <Italian>Sword and Codex</Italian>
+    <Spanish>Sword and Codex</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_TRAIT_EXP_MATTHIAS_SHORT</Tag>
-    <English>Paid Professionals</English>
-    <French>Paid Professionals</French>
-    <German>Paid Professionals</German>
-    <Italian>Paid Professionals</Italian>
-    <Spanish>Paid Professionals</Spanish>
+    <English>Sword and Codex</English>
+    <French>Sword and Codex</French>
+    <German>Sword and Codex</German>
+    <Italian>Sword and Codex</Italian>
+    <Spanish>Sword and Codex</Spanish>
   </TEXT>
   <TEXT>
     <Tag>TXT_KEY_LEADER_EXP_MATTHIAS</Tag>

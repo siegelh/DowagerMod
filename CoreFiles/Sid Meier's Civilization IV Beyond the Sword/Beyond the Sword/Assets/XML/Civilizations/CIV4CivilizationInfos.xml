@@ -7725,6 +7725,10 @@
       <BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType>
       <BuildingType>BUILDING_EXP_CORVINIAN_COLLEGE</BuildingType>
     </Building>
+    <Building>
+      <BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType>
+      <BuildingType>BUILDING_EXP_BIBLIOTHECA_CORVINIANA</BuildingType>
+    </Building>
   </Buildings>
   <Units>
     <Unit>

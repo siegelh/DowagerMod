@@ -115,7 +115,9 @@ class ExpansionWriterTests(unittest.TestCase):
 
     def test_all_reviewed_fragments_are_well_formed(self):
         for package in json.loads(MANIFEST.read_bytes())["packages"]:
-            for label, fragment in (("trait", package["trait_xml"]), ("unit", package["unit"]["xml"]), ("building", package["building"]["xml"])):
+            fragments = [("trait", package["trait_xml"]), ("unit", package["unit"]["xml"])]
+            fragments.extend(("building", spec["xml"]) for spec in [package["building"], *package.get("extra_buildings", [])])
+            for label, fragment in fragments:
                 with self.subTest(package=package["id"], fragment=label):
                     parse("<Root>" + fragment + "</Root>")
 
@@ -172,6 +174,8 @@ class ExpansionContractTests(unittest.TestCase):
                             after.insert(index, copy.deepcopy(before.find("Builds")))
                 self.assertEqual([canonical(n) for n in new[:len(old)]], [canonical(n) for n in old])
                 added_count = sum("promotion" in p for p in packages) if kind == "promotion" else len(packages)
+                if kind == "building":
+                    added_count += sum(len(p.get("extra_buildings", [])) for p in packages)
                 if kind in ("improvement", "build", "improvement_art"):
                     added_count = len(improvements) * (2 if kind == "improvement" else 1)
                 self.assertEqual(len(new), len(old) + added_count)
@@ -220,8 +224,9 @@ class ExpansionContractTests(unittest.TestCase):
 
     def test_unit_and_building_deltas_retain_all_unmodified_parent_fields(self):
         for package in self.document["packages"]:
-            for kind in ("unit", "building"):
-                spec = package[kind]
+            specs = [("unit", package["unit"])]
+            specs.extend(("building", spec) for spec in [package["building"], *package.get("extra_buildings", [])])
+            for kind, spec in specs:
                 current = copy.deepcopy(self.entry(kind, kind.upper() + "_EXP_" + spec["id"]))
                 parent = self.entry(kind, spec["parent"], original=True)
                 fragment = parse("<Root>" + spec["xml"] + "</Root>")
@@ -258,7 +263,11 @@ class ExpansionContractTests(unittest.TestCase):
             civ = self.entry("civ", "CIVILIZATION_EXP_" + package["civilization"])
             self.assertEqual([n.text for n in civ.findall("Leaders/Leader/LeaderName")], ["LEADER_EXP_" + package["id"]])
             self.assertEqual([n.text for n in civ.findall("Units/Unit/UnitType")], ["UNIT_EXP_" + package["unit"]["id"]])
-            self.assertEqual([n.text for n in civ.findall("Buildings/Building/BuildingType")], ["BUILDING_EXP_" + package["building"]["id"]])
+            building_specs = [package["building"], *package.get("extra_buildings", [])]
+            self.assertEqual(
+                [n.text for n in civ.findall("Buildings/Building/BuildingType")],
+                ["BUILDING_EXP_" + spec["id"] for spec in building_specs],
+            )
             self.assertEqual([n.text for n in civ.findall("FreeTechs/FreeTech/TechType")], package["techs"])
             leader = self.entry("leader", "LEADER_EXP_" + package["id"])
             self.assertEqual([n.text for n in leader.findall("Traits/Trait/TraitType")], ["TRAIT_EXP_" + package["id"]])
@@ -311,20 +320,54 @@ class ExpansionContractTests(unittest.TestCase):
             validate_dds(data)
             self.assertEqual(sum(m["nonzero_alpha_texel_count"] for m in alpha_block_summary(data)), 0)
 
-    def test_professionals_are_granted_only_to_eligible_combat_classes(self):
+    def test_matthias_sword_and_codex_contract(self):
         trait = self.entry("trait", "TRAIT_EXP_MATTHIAS")
+        specialist = trait.find("SpecialistCommerceChanges/SpecialistCommerceChange")
+        self.assertEqual(specialist.findtext("SpecialistType"), "SPECIALIST_SCIENTIST")
         self.assertEqual(
-            {n.text for n in trait.findall("FreePromotionUnitCombats/FreePromotionUnitCombat/UnitCombatType")},
-            {"UNITCOMBAT_MELEE", "UNITCOMBAT_GUN"},
+            [n.text for n in specialist.findall("SpecialistCommerces/iCommerce")],
+            ["0", "0", "1", "0"],
         )
+        self.assertFalse(trait.findall("FreePromotions/FreePromotion"))
+        self.assertFalse(trait.findall("FreePromotionUnitCombats/FreePromotionUnitCombat"))
         promo = self.entry("promotion", "PROMOTION_EXP_PAID_PROFESSIONALS")
-        self.assertEqual(promo.findtext("iUpgradeDiscount"), "25")
-        self.assertEqual(promo.findtext("bLeader"), "1", "Must not be generally selectable by unrelated units")
+        self.assertEqual(promo.findtext("iUpgradeDiscount"), "0")
+        self.assertEqual(promo.findtext("bLeader"), "1", "Legacy record remains non-selectable for save compatibility")
         self.assertEqual(promo.findtext("iCombatPercent"), "0")
-        source = (ROOT / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvUnit.cpp").read_text()
-        override = source.index('"getUpgradePriceOverride"')
-        discount = source.index("iPrice -= (iPrice * getUpgradeDiscount()) / 100;", override)
-        self.assertIn("return lResult;", source[override:discount])
+        for building_type, experience in (
+            ("BUILDING_EXP_BIBLIOTHECA_CORVINIANA", "2"),
+            ("BUILDING_EXP_CORVINIAN_COLLEGE", "3"),
+        ):
+            building = self.entry("building", building_type)
+            self.assertEqual(
+                {
+                    node.findtext("UnitCombatType"): node.findtext("iExperience")
+                    for node in building.findall("UnitCombatFreeExperiences/UnitCombatFreeExperience")
+                },
+                {"UNITCOMBAT_ARCHER": experience, "UNITCOMBAT_GUN": experience},
+            )
+        text_root = parse((XML / "Text/ZZZ_CIV4GameText_Expansion.xml").read_bytes())
+        text = {
+            node.findtext("Tag"): node.findtext("English")
+            for node in text_root.iter("TEXT")
+        }
+        self.assertIn(
+            "royal library assembled at Buda",
+            text["TXT_KEY_BUILDING_EXP_BIBLIOTHECA_CORVINIANA_PEDIA"],
+        )
+        self.assertIn(
+            "wider scholarly institutions",
+            text["TXT_KEY_BUILDING_EXP_CORVINIAN_COLLEGE_PEDIA"],
+        )
+        black_army = self.entry("unit", "UNIT_EXP_BLACK_ARMY_ARQUEBUSIER")
+        self.assertEqual(
+            (black_army.findtext("iCost"), black_army.findtext("iCombat"), black_army.findtext("iExtraCost")),
+            ("100", "10", "1"),
+        )
+        self.assertEqual(
+            [n.text for n in black_army.findall("FreePromotions/FreePromotion/PromotionType")],
+            ["PROMOTION_DRILL1"],
+        )
 
     def test_diplomatic_and_conquest_packages_match_approved_numbers(self):
         mongkut = self.entry("trait", "TRAIT_EXP_MONGKUT")

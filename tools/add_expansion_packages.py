@@ -322,26 +322,45 @@ def generate(document: dict) -> dict[Path, bytes]:
                     child.clear()
             field(promotion, "Type", package["promotion"])
             localized(promotion, "Description", "TXT_KEY_" + package["promotion"], "Paid Professionals")
-            field(promotion, "iUpgradeDiscount", 25)
+            field(promotion, "iUpgradeDiscount", package.get("promotion_upgrade_discount", 25))
             field(promotion, "bLeader", 1)
             replace_fragment(promotion, "<UnitCombats><UnitCombat><UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType><bUnitCombat>1</bUnitCombat></UnitCombat><UnitCombat><UnitCombatType>UNITCOMBAT_GUN</UnitCombatType><bUnitCombat>1</bUnitCombat></UnitCombat></UnitCombats>")
             add("promotion", promotion)
 
         unit = clone("unit", package["unit"]["parent"])
-        building = clone("building", package["building"]["parent"])
-        for kind, node in (("unit", unit), ("building", building)):
-            spec = package[kind]
-            type_name = kind.upper() + "_EXP_" + spec["id"]
-            field(node, "Type", type_name)
-            localized(node, "Description", "TXT_KEY_" + type_name, spec["name"])
-            localized(node, "Civilopedia", "TXT_KEY_" + type_name + "_PEDIA", package["history"])
-            localized(node, "Strategy", "TXT_KEY_" + type_name + "_STRATEGY", spec["strategy"])
-            if node.find("Help") is not None:
-                node.find("Help").text = None
-            for tag, value in spec["scalars"].items():
-                field(node, tag, value)
-            replace_fragment(node, spec["xml"])
-            add(kind, node)
+        unit_spec = package["unit"]
+        unit_type = "UNIT_EXP_" + unit_spec["id"]
+        field(unit, "Type", unit_type)
+        localized(unit, "Description", "TXT_KEY_" + unit_type, unit_spec["name"])
+        localized(unit, "Civilopedia", "TXT_KEY_" + unit_type + "_PEDIA", package["history"])
+        localized(unit, "Strategy", "TXT_KEY_" + unit_type + "_STRATEGY", unit_spec["strategy"])
+        if unit.find("Help") is not None:
+            unit.find("Help").text = None
+        for tag, value in unit_spec["scalars"].items():
+            field(unit, tag, value)
+        replace_fragment(unit, unit_spec["xml"])
+        add("unit", unit)
+
+        buildings = []
+        for building_spec in [package["building"], *package.get("extra_buildings", [])]:
+            building = clone("building", building_spec["parent"])
+            building_type = "BUILDING_EXP_" + building_spec["id"]
+            field(building, "Type", building_type)
+            localized(building, "Description", "TXT_KEY_" + building_type, building_spec["name"])
+            localized(
+                building,
+                "Civilopedia",
+                "TXT_KEY_" + building_type + "_PEDIA",
+                building_spec.get("pedia", package["history"]),
+            )
+            localized(building, "Strategy", "TXT_KEY_" + building_type + "_STRATEGY", building_spec["strategy"])
+            if building.find("Help") is not None:
+                building.find("Help").text = None
+            for tag, value in building_spec["scalars"].items():
+                field(building, tag, value)
+            replace_fragment(building, building_spec["xml"])
+            add("building", building)
+            buildings.append(building)
 
         trait = clone("trait", "TRAIT_AGGRESSIVE")
         for child in trait:
@@ -389,8 +408,13 @@ def generate(document: dict) -> dict[Path, bytes]:
             key = f"TXT_KEY_CITY_{suffix}_{number}"
             texts[key] = city
             ET.SubElement(civ.find("Cities"), "City").text = key
+        building_entries = "".join(
+            f"<Building><BuildingClassType>{building.findtext('BuildingClass')}</BuildingClassType>"
+            f"<BuildingType>{building.findtext('Type')}</BuildingType></Building>"
+            for building in buildings
+        )
         replace_fragment(civ,
-            f"<Buildings><Building><BuildingClassType>{building.findtext('BuildingClass')}</BuildingClassType><BuildingType>{building.findtext('Type')}</BuildingType></Building></Buildings>"
+            f"<Buildings>{building_entries}</Buildings>"
             f"<Units><Unit><UnitClassType>{unit.findtext('Class')}</UnitClassType><UnitType>{unit.findtext('Type')}</UnitType></Unit></Units>"
             f"<Leaders><Leader><LeaderName>{leader_type}</LeaderName><bLeaderAvailability>1</bLeaderAvailability></Leader></Leaders>")
         for technology in package["techs"]:
