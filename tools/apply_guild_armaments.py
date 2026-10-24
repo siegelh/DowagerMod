@@ -491,7 +491,7 @@ def text_entry(tag, english):
 
 
 def patch_text():
-    entries = ['<?xml version="1.0" encoding="utf-8"?>\n<Civ4GameText xmlns="x-schema:CIV4GameTextSchema.xml">\n']
+    entries = ['<?xml version="1.0" encoding="ISO-8859-1"?>\n<Civ4GameText xmlns="http://www.firaxis.com">\n']
     bonus_text = {
         "BONUS_FORGED_IRON": ("Forged Iron", "Military-grade iron produced by an Iron Foundry."),
         "BONUS_COPPERWARE": ("Copperware", "Worked copper fittings and wares produced by a Coppersmiths' Hall."),
@@ -556,7 +556,7 @@ def patch_text():
     )
     entries.append(text_entry("TXT_KEY_UNIT_ROYAL_ARMAMENTS_FACTOR", "Royal Armaments Factor"))
     entries.append("</Civ4GameText>\n")
-    TEXT.write_text("".join(entries), encoding="utf-8")
+    TEXT.write_bytes("".join(entries).encode("iso-8859-1"))
 
 
 def main():

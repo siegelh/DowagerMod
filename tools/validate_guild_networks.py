@@ -33,6 +33,23 @@ def main():
     guilds = elements(guild_root, "GuildInfo")
     require(len(guilds) == 5, "expected exactly five guild definitions", errors)
 
+    expected_text_header = b'<?xml version="1.0" encoding="ISO-8859-1"?>'
+    expected_text_root = b'<Civ4GameText xmlns="http://www.firaxis.com">'
+    for filename in (
+        "ZZZZZ_CIV4GameText_GuildArmaments.xml",
+        "ZZZZZ_CIV4GameText_GuildNetworks.xml",
+    ):
+        text_path = assets / "XML/Text" / filename
+        raw_text = text_path.read_bytes()
+        require(raw_text.startswith(expected_text_header),
+                f"{filename}: must use Civ IV's ISO-8859-1 text encoding", errors)
+        require(expected_text_root in raw_text,
+                f"{filename}: must use Civ IV's Firaxis game-text namespace", errors)
+        try:
+            ET.parse(text_path)
+        except ET.ParseError as exc:
+            errors.append(f"{filename}: malformed XML: {exc}")
+
     guild_types = set()
     for guild in guilds:
         guild_type = text(guild, "Type")

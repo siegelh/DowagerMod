@@ -364,7 +364,7 @@ def patch_units_and_founders():
 
 
 def patch_text():
-    entries = ['<?xml version="1.0" encoding="utf-8"?>\n<Civ4GameText xmlns="x-schema:CIV4GameTextSchema.xml">\n']
+    entries = ['<?xml version="1.0" encoding="ISO-8859-1"?>\n<Civ4GameText xmlns="http://www.firaxis.com">\n']
     entries.extend(
         (
             text_entry("TXT_KEY_MISSION_ESTABLISH_GUILD_BRANCH", "Establish Guild Branch"),
@@ -396,7 +396,7 @@ def patch_text():
             )
         )
     entries.append("</Civ4GameText>\n")
-    TEXT.write_text("".join(entries), encoding="utf-8")
+    TEXT.write_bytes("".join(entries).encode("iso-8859-1"))
 
 
 def main():
