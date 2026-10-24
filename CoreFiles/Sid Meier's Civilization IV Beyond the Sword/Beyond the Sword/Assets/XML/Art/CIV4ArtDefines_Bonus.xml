@@ -2393,5 +2393,33 @@
 			<FontButtonIndex>5</FontButtonIndex>
 		</BonusArtInfo>
 <!-- ART_MASTERPIECE_BONUS_ART_END -->
-	</BonusArtInfos>
+	<BonusArtInfo>
+		<Type>ART_DEF_BONUS_FORGED_IRON</Type>
+		<fScale>1.0</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Terrain/Resources/Iron/Iron.nif</NIF>
+		<KFM>Art/Terrain/Resources/Iron/Iron.kfm</KFM>
+		<Button>Art/Interface/Buttons/Bonuses/Synthetic/forged_iron.dds</Button>
+		<FontButtonIndex>4</FontButtonIndex>
+	</BonusArtInfo>
+	<BonusArtInfo>
+		<Type>ART_DEF_BONUS_COPPERWARE</Type>
+		<fScale>1.0</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Terrain/Resources/Copper/Copper.nif</NIF>
+		<KFM>Art/Terrain/Resources/Copper/Copper.kfm</KFM>
+		<Button>Art/Interface/Buttons/Bonuses/Synthetic/copperware.dds</Button>
+		<FontButtonIndex>2</FontButtonIndex>
+	</BonusArtInfo>
+	<BonusArtInfo>
+		<Type>ART_DEF_BONUS_TRAINED_MOUNTS</Type>
+		<fScale>1.2</fScale>
+		<fInterfaceScale>0.9</fInterfaceScale>
+		<NIF>Art/Terrain/Resources/Horse/Horse.nif</NIF>
+		<KFM>Art/Terrain/Resources/Horse/Horse.kfm</KFM>
+		<SHADERNIF>Art/Terrain/Resources/Horse/Horse_FX.nif</SHADERNIF>
+		<Button>Art/Interface/Buttons/Bonuses/Synthetic/trained_mounts.dds</Button>
+		<FontButtonIndex>3</FontButtonIndex>
+	</BonusArtInfo>
+</BonusArtInfos>
 </Civ4ArtDefines>

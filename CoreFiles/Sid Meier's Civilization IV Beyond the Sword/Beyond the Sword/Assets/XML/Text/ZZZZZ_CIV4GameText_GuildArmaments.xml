@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Civ4GameText xmlns="x-schema:CIV4GameTextSchema.xml">
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_FORGED_IRON</Tag>
+		<English>Forged Iron</English>
+		<French>Forged Iron</French>
+		<German>Forged Iron</German>
+		<Italian>Forged Iron</Italian>
+		<Spanish>Forged Iron</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_FORGED_IRON_PEDIA</Tag>
+		<English>Military-grade iron produced by an Iron Foundry.</English>
+		<French>Military-grade iron produced by an Iron Foundry.</French>
+		<German>Military-grade iron produced by an Iron Foundry.</German>
+		<Italian>Military-grade iron produced by an Iron Foundry.</Italian>
+		<Spanish>Military-grade iron produced by an Iron Foundry.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_COPPERWARE</Tag>
+		<English>Copperware</English>
+		<French>Copperware</French>
+		<German>Copperware</German>
+		<Italian>Copperware</Italian>
+		<Spanish>Copperware</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_COPPERWARE_PEDIA</Tag>
+		<English>Worked copper fittings and wares produced by a Coppersmiths' Hall.</English>
+		<French>Worked copper fittings and wares produced by a Coppersmiths' Hall.</French>
+		<German>Worked copper fittings and wares produced by a Coppersmiths' Hall.</German>
+		<Italian>Worked copper fittings and wares produced by a Coppersmiths' Hall.</Italian>
+		<Spanish>Worked copper fittings and wares produced by a Coppersmiths' Hall.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TRAINED_MOUNTS</Tag>
+		<English>Trained Mounts</English>
+		<French>Trained Mounts</French>
+		<German>Trained Mounts</German>
+		<Italian>Trained Mounts</Italian>
+		<Spanish>Trained Mounts</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BONUS_TRAINED_MOUNTS_PEDIA</Tag>
+		<English>Selected and trained horses produced by a Stud Farm.</English>
+		<French>Selected and trained horses produced by a Stud Farm.</French>
+		<German>Selected and trained horses produced by a Stud Farm.</German>
+		<Italian>Selected and trained horses produced by a Stud Farm.</Italian>
+		<Spanish>Selected and trained horses produced by a Stud Farm.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_IRON_FOUNDRY</Tag>
+		<English>Iron Foundry</English>
+		<French>Iron Foundry</French>
+		<German>Iron Foundry</German>
+		<Italian>Iron Foundry</Italian>
+		<Spanish>Iron Foundry</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_IRON_FOUNDRY_PEDIA</Tag>
+		<English>A forge-centered district that turns local iron into standardized military-grade stock.</English>
+		<French>A forge-centered district that turns local iron into standardized military-grade stock.</French>
+		<German>A forge-centered district that turns local iron into standardized military-grade stock.</German>
+		<Italian>A forge-centered district that turns local iron into standardized military-grade stock.</Italian>
+		<Spanish>A forge-centered district that turns local iron into standardized military-grade stock.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_IRON_FOUNDRY_STRATEGY</Tag>
+		<English>Requires a Forge and active local Iron. Produces Forged Iron.</English>
+		<French>Requires a Forge and active local Iron. Produces Forged Iron.</French>
+		<German>Requires a Forge and active local Iron. Produces Forged Iron.</German>
+		<Italian>Requires a Forge and active local Iron. Produces Forged Iron.</Italian>
+		<Spanish>Requires a Forge and active local Iron. Produces Forged Iron.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_COPPERSMITHS_HALL</Tag>
+		<English>Coppersmiths' Hall</English>
+		<French>Coppersmiths' Hall</French>
+		<German>Coppersmiths' Hall</German>
+		<Italian>Coppersmiths' Hall</Italian>
+		<Spanish>Coppersmiths' Hall</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_COPPERSMITHS_HALL_PEDIA</Tag>
+		<English>An organized hall of metalworkers producing fittings, vessels, and military hardware.</English>
+		<French>An organized hall of metalworkers producing fittings, vessels, and military hardware.</French>
+		<German>An organized hall of metalworkers producing fittings, vessels, and military hardware.</German>
+		<Italian>An organized hall of metalworkers producing fittings, vessels, and military hardware.</Italian>
+		<Spanish>An organized hall of metalworkers producing fittings, vessels, and military hardware.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_COPPERSMITHS_HALL_STRATEGY</Tag>
+		<English>Requires a Forge and active local Copper. Produces Copperware.</English>
+		<French>Requires a Forge and active local Copper. Produces Copperware.</French>
+		<German>Requires a Forge and active local Copper. Produces Copperware.</German>
+		<Italian>Requires a Forge and active local Copper. Produces Copperware.</Italian>
+		<Spanish>Requires a Forge and active local Copper. Produces Copperware.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_STUD_FARM</Tag>
+		<English>Stud Farm</English>
+		<French>Stud Farm</French>
+		<German>Stud Farm</German>
+		<Italian>Stud Farm</Italian>
+		<Spanish>Stud Farm</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_STUD_FARM_PEDIA</Tag>
+		<English>A controlled breeding and training estate for reliable cavalry mounts.</English>
+		<French>A controlled breeding and training estate for reliable cavalry mounts.</French>
+		<German>A controlled breeding and training estate for reliable cavalry mounts.</German>
+		<Italian>A controlled breeding and training estate for reliable cavalry mounts.</Italian>
+		<Spanish>A controlled breeding and training estate for reliable cavalry mounts.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_STUD_FARM_STRATEGY</Tag>
+		<English>Requires a Stable and active local Horses. Produces Trained Mounts.</English>
+		<French>Requires a Stable and active local Horses. Produces Trained Mounts.</French>
+		<German>Requires a Stable and active local Horses. Produces Trained Mounts.</German>
+		<Italian>Requires a Stable and active local Horses. Produces Trained Mounts.</Italian>
+		<Spanish>Requires a Stable and active local Horses. Produces Trained Mounts.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ARSENAL</Tag>
+		<English>Arsenal</English>
+		<French>Arsenal</French>
+		<German>Arsenal</German>
+		<Italian>Arsenal</Italian>
+		<Spanish>Arsenal</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ARSENAL_PEDIA</Tag>
+		<English>A centralized complex for manufacturing and storing standardized arms.</English>
+		<French>A centralized complex for manufacturing and storing standardized arms.</French>
+		<German>A centralized complex for manufacturing and storing standardized arms.</German>
+		<Italian>A centralized complex for manufacturing and storing standardized arms.</Italian>
+		<Spanish>A centralized complex for manufacturing and storing standardized arms.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_ARSENAL_STRATEGY</Tag>
+		<English>Requires Forged Iron and Copperware. One of three Royal Armaments founding composites.</English>
+		<French>Requires Forged Iron and Copperware. One of three Royal Armaments founding composites.</French>
+		<German>Requires Forged Iron and Copperware. One of three Royal Armaments founding composites.</German>
+		<Italian>Requires Forged Iron and Copperware. One of three Royal Armaments founding composites.</Italian>
+		<Spanish>Requires Forged Iron and Copperware. One of three Royal Armaments founding composites.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_REMOUNT_DEPOT</Tag>
+		<English>Remount Depot</English>
+		<French>Remount Depot</French>
+		<German>Remount Depot</German>
+		<Italian>Remount Depot</Italian>
+		<Spanish>Remount Depot</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_REMOUNT_DEPOT_PEDIA</Tag>
+		<English>A military depot combining trained horses with durable forged equipment.</English>
+		<French>A military depot combining trained horses with durable forged equipment.</French>
+		<German>A military depot combining trained horses with durable forged equipment.</German>
+		<Italian>A military depot combining trained horses with durable forged equipment.</Italian>
+		<Spanish>A military depot combining trained horses with durable forged equipment.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_REMOUNT_DEPOT_STRATEGY</Tag>
+		<English>Requires Forged Iron and Trained Mounts. One of three Royal Armaments founding composites.</English>
+		<French>Requires Forged Iron and Trained Mounts. One of three Royal Armaments founding composites.</French>
+		<German>Requires Forged Iron and Trained Mounts. One of three Royal Armaments founding composites.</German>
+		<Italian>Requires Forged Iron and Trained Mounts. One of three Royal Armaments founding composites.</Italian>
+		<Spanish>Requires Forged Iron and Trained Mounts. One of three Royal Armaments founding composites.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MILITARY_OUTFITTERS</Tag>
+		<English>Military Outfitters</English>
+		<French>Military Outfitters</French>
+		<German>Military Outfitters</German>
+		<Italian>Military Outfitters</Italian>
+		<Spanish>Military Outfitters</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MILITARY_OUTFITTERS_PEDIA</Tag>
+		<English>A coordinated supply market for cavalry fittings, uniforms, and campaign equipment.</English>
+		<French>A coordinated supply market for cavalry fittings, uniforms, and campaign equipment.</French>
+		<German>A coordinated supply market for cavalry fittings, uniforms, and campaign equipment.</German>
+		<Italian>A coordinated supply market for cavalry fittings, uniforms, and campaign equipment.</Italian>
+		<Spanish>A coordinated supply market for cavalry fittings, uniforms, and campaign equipment.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_INDUSTRY_MILITARY_OUTFITTERS_STRATEGY</Tag>
+		<English>Requires Copperware and Trained Mounts. One of three Royal Armaments founding composites.</English>
+		<French>Requires Copperware and Trained Mounts. One of three Royal Armaments founding composites.</French>
+		<German>Requires Copperware and Trained Mounts. One of three Royal Armaments founding composites.</German>
+		<Italian>Requires Copperware and Trained Mounts. One of three Royal Armaments founding composites.</Italian>
+		<Spanish>Requires Copperware and Trained Mounts. One of three Royal Armaments founding composites.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_ROYAL_ARMAMENTS</Tag>
+		<English>Royal Armaments Company</English>
+		<French>Royal Armaments Company</French>
+		<German>Royal Armaments Company</German>
+		<Italian>Royal Armaments Company</Italian>
+		<Spanish>Royal Armaments Company</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_CORPORATION_ROYAL_ARMAMENTS_PEDIA</Tag>
+		<English>The Royal Armaments Company coordinates arsenals, remount depots, and military outfitters. Its branches convert Forged Iron, Copperware, and Trained Mounts into production and grant two experience to combat units trained in the city.</English>
+		<French>The Royal Armaments Company coordinates arsenals, remount depots, and military outfitters. Its branches convert Forged Iron, Copperware, and Trained Mounts into production and grant two experience to combat units trained in the city.</French>
+		<German>The Royal Armaments Company coordinates arsenals, remount depots, and military outfitters. Its branches convert Forged Iron, Copperware, and Trained Mounts into production and grant two experience to combat units trained in the city.</German>
+		<Italian>The Royal Armaments Company coordinates arsenals, remount depots, and military outfitters. Its branches convert Forged Iron, Copperware, and Trained Mounts into production and grant two experience to combat units trained in the city.</Italian>
+		<Spanish>The Royal Armaments Company coordinates arsenals, remount depots, and military outfitters. Its branches convert Forged Iron, Copperware, and Trained Mounts into production and grant two experience to combat units trained in the city.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_ROYAL_ARMAMENTS_STRATEGY</Tag>
+		<English>Requires an active Arsenal, Remount Depot, and Military Outfitters. Branches gain one Production from each distinct Armaments input and grant +2 experience to combat units.</English>
+		<French>Requires an active Arsenal, Remount Depot, and Military Outfitters. Branches gain one Production from each distinct Armaments input and grant +2 experience to combat units.</French>
+		<German>Requires an active Arsenal, Remount Depot, and Military Outfitters. Branches gain one Production from each distinct Armaments input and grant +2 experience to combat units.</German>
+		<Italian>Requires an active Arsenal, Remount Depot, and Military Outfitters. Branches gain one Production from each distinct Armaments input and grant +2 experience to combat units.</Italian>
+		<Spanish>Requires an active Arsenal, Remount Depot, and Military Outfitters. Branches gain one Production from each distinct Armaments input and grant +2 experience to combat units.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_ROYAL_ARMAMENTS_FACTOR</Tag>
+		<English>Royal Armaments Factor</English>
+		<French>Royal Armaments Factor</French>
+		<German>Royal Armaments Factor</German>
+		<Italian>Royal Armaments Factor</Italian>
+		<Spanish>Royal Armaments Factor</Spanish>
+	</TEXT>
+</Civ4GameText>

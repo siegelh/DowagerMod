@@ -31,6 +31,9 @@ PROCESSING_CHAINS = (
     {'building': 'BUILDING_INDUSTRY_CANNERY', 'raws': ('BONUS_FISH', 'BONUS_CLAM', 'BONUS_CRAB'), 'synthetic': 'BONUS_PRESERVED_SEAFOOD'},
     {'building': 'BUILDING_INDUSTRY_FRUIT_PRESERVERS', 'raws': ('BONUS_BANANA',), 'synthetic': 'BONUS_FRUIT_PRESERVES'},
     {'building': 'BUILDING_INDUSTRY_SCULPTORS_YARD', 'raws': ('BONUS_MARBLE',), 'synthetic': 'BONUS_MARBLE_STATUARY'},
+    {'building': 'BUILDING_INDUSTRY_IRON_FOUNDRY', 'raws': ('BONUS_IRON',), 'synthetic': 'BONUS_FORGED_IRON'},
+    {'building': 'BUILDING_INDUSTRY_COPPERSMITHS_HALL', 'raws': ('BONUS_COPPER',), 'synthetic': 'BONUS_COPPERWARE'},
+    {'building': 'BUILDING_INDUSTRY_STUD_FARM', 'raws': ('BONUS_HORSE',), 'synthetic': 'BONUS_TRAINED_MOUNTS'},
 )
 
 COMPOSITE_RECIPES = (
@@ -72,6 +75,9 @@ COMPOSITE_RECIPES = (
     {'building': 'BUILDING_INDUSTRY_LANTERN_PROCESSION_WORKS', 'goods': ('BONUS_TEMPLE_INCENSE', 'BONUS_LAMP_OIL')},
     {'building': 'BUILDING_INDUSTRY_CURIO_AUCTION_HOUSE', 'goods': ('BONUS_IVORY_CARVINGS', 'BONUS_CUT_GEMS')},
     {'building': 'BUILDING_INDUSTRY_ILLUMINATED_THEATRE', 'goods': ('BONUS_LAMP_OIL', 'BONUS_STAGE_PLAYS')},
+    {'building': 'BUILDING_INDUSTRY_ARSENAL', 'goods': ('BONUS_FORGED_IRON', 'BONUS_COPPERWARE')},
+    {'building': 'BUILDING_INDUSTRY_REMOUNT_DEPOT', 'goods': ('BONUS_FORGED_IRON', 'BONUS_TRAINED_MOUNTS')},
+    {'building': 'BUILDING_INDUSTRY_MILITARY_OUTFITTERS', 'goods': ('BONUS_COPPERWARE', 'BONUS_TRAINED_MOUNTS')},
 )
 
 CORPORATION_FAMILIES = (
@@ -179,6 +185,20 @@ CORPORATION_FAMILIES = (
             'BUILDING_INDUSTRY_ILLUMINATED_THEATRE',
         ),
     },
+    {
+        'id': 'corp7',
+        'short_label': 'Armaments',
+        'corporation': 'CORPORATION_7',
+        'hq_building': 'BUILDING_CORPORATION_7',
+        'min_active_composites': 3,
+        'prereq_goods': ('BONUS_FORGED_IRON', 'BONUS_COPPERWARE', 'BONUS_TRAINED_MOUNTS'),
+        'operating_goods': ('BONUS_FORGED_IRON', 'BONUS_COPPERWARE', 'BONUS_TRAINED_MOUNTS'),
+        'composites': (
+            'BUILDING_INDUSTRY_ARSENAL',
+            'BUILDING_INDUSTRY_REMOUNT_DEPOT',
+            'BUILDING_INDUSTRY_MILITARY_OUTFITTERS',
+        ),
+    },
 )
 
 FLOW_FILTERS = (
@@ -189,6 +209,7 @@ FLOW_FILTERS = (
     {'id': 'corp4', 'short_label': 'Court', 'corporation': 'CORPORATION_4'},
     {'id': 'corp5', 'short_label': 'Aromatics', 'corporation': 'CORPORATION_5'},
     {'id': 'corp6', 'short_label': 'Media', 'corporation': 'CORPORATION_6'},
+    {'id': 'corp7', 'short_label': 'Armaments', 'corporation': 'CORPORATION_7'},
 )
 
 _PROCESSING_BY_SYNTHETIC = {}

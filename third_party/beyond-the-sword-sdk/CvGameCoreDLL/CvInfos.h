@@ -4198,6 +4198,7 @@ public:
 	int getFoundingMinActiveBuildingClasses() const;
 	bool isCountDistinctPrereqBonusesOnly() const;
 	int getMaxPrereqBonusCountPerType() const;
+	int getMilitaryExperience() const;			// Exposed to Python
 
 	int getBonusProduced() const;					// Exposed to Python
 
@@ -4237,6 +4238,7 @@ protected:
 	int m_iBonusProduced;
 	int m_iFoundingMinActiveBuildingClasses;
 	int m_iMaxPrereqBonusCountPerType;
+	int m_iMilitaryExperience;
 	bool m_bCountDistinctPrereqBonusesOnly;
 
 	CvString m_szMovieFile;

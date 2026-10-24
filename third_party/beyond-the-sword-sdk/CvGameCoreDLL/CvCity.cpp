@@ -3430,6 +3430,18 @@ int CvCity::getProductionExperience(UnitTypes eUnit)
 		{
 			iExperience += GET_PLAYER(getOwnerINLINE()).getNeutralWorldWonderLandUnitExperience();
 		}
+
+		if (GC.getUnitInfo(eUnit).getCombat() > 0 || GC.getUnitInfo(eUnit).getAirCombat() > 0)
+		{
+			for (int iCorporation = 0; iCorporation < GC.getNumCorporationInfos(); ++iCorporation)
+			{
+				const CorporationTypes eCorporation = (CorporationTypes)iCorporation;
+				if (isActiveCorporation(eCorporation))
+				{
+					iExperience += GC.getCorporationInfo(eCorporation).getMilitaryExperience();
+				}
+			}
+		}
 	}
 
 	if (GET_PLAYER(getOwnerINLINE()).getStateReligion() != NO_RELIGION)

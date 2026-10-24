@@ -6810,5 +6810,65 @@
 			<KFM/>
 			<Button>Art/Structures/Buildings/BatchE/FederalBureau/FederalBureau_128.dds</Button>
 		</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_INDUSTRY_IRON_FOUNDRY</Type>
+		<LSystem>LSYSTEM_4x2</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.93</fScale>
+		<fInterfaceScale>0.47</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/ironworks/ironworks.nif</NIF>
+		<KFM/>
+		<Button>Art/Interface/Buttons/Buildings/Industries/iron_foundry.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_INDUSTRY_COPPERSMITHS_HALL</Type>
+		<LSystem>LSYSTEM_2x2</LSystem>
+		<bAnimated>1</bAnimated>
+		<fScale>1.32</fScale>
+		<fInterfaceScale>0.67</fInterfaceScale>
+		<NIF>Art/Structures/Buildings/Mali Mint/Mali_mint.nif</NIF>
+		<KFM/>
+		<Button>Art/Interface/Buttons/Buildings/Industries/coppersmiths_hall.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_INDUSTRY_STUD_FARM</Type>
+		<LSystem>LSYSTEM_2x1</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>0.8</fScale>
+		<fInterfaceScale>0.75</fInterfaceScale>
+		<NIF>Art/Structures/Buildings/Stable/Stable.nif</NIF>
+		<KFM/>
+		<Button>Art/Interface/Buttons/Buildings/Industries/stud_farm.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_INDUSTRY_ARSENAL</Type>
+		<LSystem>LSYSTEM_2x1</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>2.3</fScale>
+		<fInterfaceScale>0.43</fInterfaceScale>
+		<NIF>Art/Structures/Buildings/Military_Academy/Military_Academy.nif</NIF>
+		<KFM/>
+		<Button>Art/Interface/Buttons/Buildings/Industries/arsenal.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_INDUSTRY_REMOUNT_DEPOT</Type>
+		<LSystem>LSYSTEM_2x1</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>0.8</fScale>
+		<fInterfaceScale>0.75</fInterfaceScale>
+		<NIF>Art/Structures/Buildings/Stable/Stable.nif</NIF>
+		<KFM/>
+		<Button>Art/Interface/Buttons/Buildings/Industries/remount_depot.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_INDUSTRY_MILITARY_OUTFITTERS</Type>
+		<LSystem>LSYSTEM_2x1</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.5</fScale>
+		<fInterfaceScale>0.67</fInterfaceScale>
+		<NIF>Art/Structures/Buildings/French Salon/french_salon.nif</NIF>
+		<KFM/>
+		<Button>Art/Interface/Buttons/Buildings/Industries/military_outfitters.dds</Button>
+	</BuildingArtInfo>
 </BuildingArtInfos>
 </Civ4ArtDefines>

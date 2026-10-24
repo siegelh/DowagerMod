@@ -78,22 +78,34 @@ class CorporationContractTests(unittest.TestCase):
             expected,
         )
 
-    def test_corporation_seven_remains_fully_inert(self) -> None:
+    def test_royal_armaments_company_contract_is_exact(self) -> None:
         node = self.by_type["CORPORATION_7"]
-        self.assertEqual(text(node, "TechPrereq"), "NONE")
+        self.assertEqual(text(node, "Description"), "TXT_KEY_CORPORATION_ROYAL_ARMAMENTS")
+        self.assertEqual(text(node, "TechPrereq"), "TECH_RIFLING")
         self.assertEqual(text(node, "FreeUnitClass"), "NONE")
-        self.assertEqual(text(node, "iSpreadFactor"), "0")
-        self.assertEqual(text(node, "iSpreadCost"), "0")
-        self.assertEqual(text(node, "iMaintenance"), "0")
-        self.assertEqual(len(child(node, "FoundingBuildingClasses")), 0)
-        self.assertEqual(len(child(node, "PrereqBonuses")), 0)
-        self.assertEqual(values(node, "HeadquarterCommerces"), [0, 0, 0, 0])
+        self.assertEqual(text(node, "iSpreadFactor"), "170")
+        self.assertEqual(text(node, "iSpreadCost"), "60")
+        self.assertEqual(text(node, "iMaintenance"), "110")
+        self.assertEqual(
+            [(item.text or "").strip() for item in child(node, "FoundingBuildingClasses")],
+            [
+                "BUILDINGCLASS_INDUSTRY_ARSENAL",
+                "BUILDINGCLASS_INDUSTRY_REMOUNT_DEPOT",
+                "BUILDINGCLASS_INDUSTRY_MILITARY_OUTFITTERS",
+            ],
+        )
+        self.assertEqual(
+            [(item.text or "").strip() for item in child(node, "PrereqBonuses")],
+            ["BONUS_FORGED_IRON", "BONUS_COPPERWARE", "BONUS_TRAINED_MOUNTS"],
+        )
+        self.assertEqual(values(node, "HeadquarterCommerces"), [4, 0, 0, 0])
         self.assertEqual(text(node, "BonusProduced"), "NONE")
         self.assertEqual(values(node, "CommercesProduced"), [0, 0, 0, 0])
-        self.assertEqual(values(node, "YieldsProduced"), [0, 0, 0])
-        self.assertEqual(text(node, "iFoundingMinActiveBuildingClasses"), "99")
-        self.assertEqual(text(node, "bCountDistinctPrereqBonusesOnly"), "0")
-        self.assertEqual(text(node, "iMaxPrereqBonusCountPerType"), "0")
+        self.assertEqual(values(node, "YieldsProduced"), [0, 100, 0])
+        self.assertEqual(text(node, "iFoundingMinActiveBuildingClasses"), "3")
+        self.assertEqual(text(node, "bCountDistinctPrereqBonusesOnly"), "1")
+        self.assertEqual(text(node, "iMaxPrereqBonusCountPerType"), "1")
+        self.assertEqual(text(node, "iMilitaryExperience"), "2")
 
 
 if __name__ == "__main__":

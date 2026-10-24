@@ -640,9 +640,7 @@ class AdditiveRosterExactContractTests(unittest.TestCase):
                 self.assert_node_equal(
                     current, baseline, CORPORATIONS, type_name
                 )
-        self.assert_exact(
-            CORPORATIONS, "CorporationInfo", "CORPORATION_7"
-        )
+        # Corporation 7 is the separately tested Royal Armaments Company.
 
     def test_free_market_only_removes_town_food(self) -> None:
         type_name = "CIVIC_FREE_MARKET"

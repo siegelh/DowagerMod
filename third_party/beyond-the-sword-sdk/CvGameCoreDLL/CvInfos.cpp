@@ -16632,6 +16632,7 @@ m_iMissionType(NO_MISSION),
 m_iBonusProduced(NO_BONUS),
 m_iFoundingMinActiveBuildingClasses(0),
 m_iMaxPrereqBonusCountPerType(0),
+m_iMilitaryExperience(0),
 m_bCountDistinctPrereqBonusesOnly(false),
 m_paiPrereqBonuses(NULL),
 m_paiHeadquarterCommerce(NULL),
@@ -16724,6 +16725,11 @@ bool CvCorporationInfo::isCountDistinctPrereqBonusesOnly() const
 int CvCorporationInfo::getMaxPrereqBonusCountPerType() const
 {
 	return m_iMaxPrereqBonusCountPerType;
+}
+
+int CvCorporationInfo::getMilitaryExperience() const
+{
+	return m_iMilitaryExperience;
 }
 
 int CvCorporationInfo::getBonusProduced() const
@@ -16843,6 +16849,7 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetChildXmlValByName(&m_iFoundingMinActiveBuildingClasses, "iFoundingMinActiveBuildingClasses");
 	pXML->GetChildXmlValByName(&m_bCountDistinctPrereqBonusesOnly, "bCountDistinctPrereqBonusesOnly");
 	pXML->GetChildXmlValByName(&m_iMaxPrereqBonusCountPerType, "iMaxPrereqBonusCountPerType");
+	pXML->GetChildXmlValByName(&m_iMilitaryExperience, "iMilitaryExperience");
 
 	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(),"HeadquarterCommerces"))
 	{

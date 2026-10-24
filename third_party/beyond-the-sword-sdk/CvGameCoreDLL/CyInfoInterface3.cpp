@@ -263,6 +263,7 @@ void CyInfoPythonInterface3()
 		.def("getSpreadCost", &CvCorporationInfo::getSpreadCost, "int ()")
 		.def("getMaintenance", &CvCorporationInfo::getMaintenance, "int ()")
 		.def("getMissionType", &CvCorporationInfo::getMissionType, "int ()")
+		.def("getMilitaryExperience", &CvCorporationInfo::getMilitaryExperience, "int ()")
 
 		.def("getMovieFile", &CvCorporationInfo::getMovieFile, "string ()")
 		.def("getMovieSound", &CvCorporationInfo::getMovieSound, "string ()")
