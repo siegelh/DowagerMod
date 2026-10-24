@@ -15,6 +15,40 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
 
 ## Extra checks by change type
 
+### Guild networks and Royal Armaments Company (not yet performed)
+
+1. Start a fresh game at Guilds and found each of the five headquarters with
+   its matching Great Person. Confirm exactly three emissaries are issued and
+   only the headquarters city can train replacements when a license is free.
+2. Establish domestic branches in cities with eligible active processors.
+   Confirm one processor supports only one branch, the Guild House appears,
+   the emissary is consumed, and the sponsor's used/open license totals update.
+3. Establish a foreign branch with a Pleased/Friendly Open Borders partner.
+   Verify war, closed borders, Mercantilism in the host, and State Property in
+   the sponsor make the branch dormant without deleting its building or license.
+4. Verify every Guild House's stated yield, commerce, health, happiness,
+   specialist, and trade-route effects. Confirm headquarters returns count only
+   active sponsored branches and Free Market increases the summed return by 50%.
+5. Destroy and temporarily disable the selected processor. Destruction must
+   remove the branch; temporary inactivity must preserve it as dormant.
+6. Capture a city containing a headquarters or branch: all guild buildings in
+   that city must be destroyed. Peacefully transfer a branch and confirm its
+   sponsor/processor persist; transfer a headquarters and confirm free relocation
+   to the sponsor's capital or first remaining city without new emissaries.
+7. Eliminate a sponsor and confirm all of its foreign branches are removed.
+   Use both Revoke and Withdraw on the Industry Advisor Guilds tab in SP and a
+   two-client game; both clients must remove the same branch without OOS.
+8. Open the Industry Advisor Guilds tab and verify sponsor, headquarters, host,
+   processor, active/dormant status, branch count, emissaries, and open licenses.
+   Open all five dedicated Civilopedia Guild pages and follow their links.
+9. Save/reload active and dormant domestic/foreign networks. Recheck sponsor,
+   processor, activity, license totals, headquarters returns, and advisor rows.
+10. Observe AI Great People founding headquarters, headquarters cities replacing
+    emissaries, domestic spread first, and foreign spread only at Pleased/Friendly.
+11. Found Royal Armaments Company only where Arsenal, Remount Depot, and Military
+    Outfitters are present. Verify Forged Iron, Copperware, and Trained Mounts
+    each contribute the configured Production and branches receive military XP.
+
 ### Crash reporting workflow
 
 1. Continue launching Civ4 normally through Steam; no alternate game launcher
