@@ -281,7 +281,7 @@
 - [ ] New-branch save/reload verified.
 - [ ] Manual gameplay/art/AI/UI results recorded.
 - [ ] Two-client OOS result recorded or explicitly blocks readiness.
-- [ ] Exact guild branch pushed to `origin`.
+- [x] Exact guild branch pushed to `origin` (`cddbab726` feature milestone).
 
 ## Final Outcome Summary
 
