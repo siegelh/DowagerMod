@@ -5,6 +5,58 @@ import sys
 import xml.etree.ElementTree as ET
 
 
+LEGACY_MISSION_TYPES = (
+    "MISSION_MOVE_TO",
+    "MISSION_ROUTE_TO",
+    "MISSION_MOVE_TO_UNIT",
+    "MISSION_SKIP",
+    "MISSION_SLEEP",
+    "MISSION_FORTIFY",
+    "MISSION_PLUNDER",
+    "MISSION_AIRPATROL",
+    "MISSION_SEAPATROL",
+    "MISSION_HEAL",
+    "MISSION_SENTRY",
+    "MISSION_AIRLIFT",
+    "MISSION_NUKE",
+    "MISSION_RECON",
+    "MISSION_PARADROP",
+    "MISSION_AIRBOMB",
+    "MISSION_RANGE_ATTACK",
+    "MISSION_BOMBARD",
+    "MISSION_PILLAGE",
+    "MISSION_SABOTAGE",
+    "MISSION_DESTROY",
+    "MISSION_STEAL_PLANS",
+    "MISSION_FOUND",
+    "MISSION_SPREAD",
+    "MISSION_SPREAD_CORPORATION",
+    "MISSION_JOIN",
+    "MISSION_CONSTRUCT",
+    "MISSION_DISCOVER",
+    "MISSION_HURRY",
+    "MISSION_TRADE",
+    "MISSION_GREAT_WORK",
+    "MISSION_INFILTRATE",
+    "MISSION_GOLDEN_AGE",
+    "MISSION_BUILD",
+    "MISSION_LEAD",
+    "MISSION_ESPIONAGE",
+    "MISSION_DIE_ANIMATION",
+    "MISSION_BEGIN_COMBAT",
+    "MISSION_END_COMBAT",
+    "MISSION_AIRSTRIKE",
+    "MISSION_SURRENDER",
+    "MISSION_CAPTURED",
+    "MISSION_IDLE",
+    "MISSION_DIE",
+    "MISSION_DAMAGE",
+    "MISSION_MULTI_SELECT",
+    "MISSION_MULTI_DESELECT",
+)
+GUILD_MISSION_TYPE = "MISSION_ESTABLISH_GUILD_BRANCH"
+
+
 def text(node, name):
     for child in node:
         if child.tag.rsplit("}", 1)[-1] == name:
@@ -61,6 +113,17 @@ def validate_nif_textures(assets, nif_path, errors):
         )
         require(any(candidate.is_file() for candidate in candidates),
                 f"{nif_path}: missing nested texture {texture_ref}", errors)
+
+
+def mission_enum_types(enums_source):
+    match = re.search(
+        r"enum\s+MissionTypes\b.*?\{(?P<body>.*?)\n\};",
+        enums_source,
+        re.S,
+    )
+    if match is None:
+        return ()
+    return tuple(re.findall(r"^\s*(MISSION_[A-Z0-9_]+)\s*,", match.group("body"), re.M))
 
 
 def main():
@@ -223,8 +286,13 @@ def main():
         validate_nif_textures(assets, caravan_path, errors)
 
     mission_root = ET.parse(assets / "XML/Units/CIV4MissionInfos.xml").getroot()
-    mission_types = {text(node, "Type") for node in elements(mission_root, "MissionInfo")}
-    require("MISSION_ESTABLISH_GUILD_BRANCH" in mission_types, "guild mission is not registered in XML", errors)
+    mission_types = tuple(text(node, "Type") for node in elements(mission_root, "MissionInfo"))
+    expected_mission_types = LEGACY_MISSION_TYPES + (GUILD_MISSION_TYPE,)
+    require(
+        mission_types == expected_mission_types,
+        "mission XML must preserve all legacy numeric IDs and append the Guild mission",
+        errors,
+    )
 
     city_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvCity.cpp").read_text(encoding="latin-1")
     player_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvPlayer.cpp").read_text(encoding="latin-1")
@@ -235,6 +303,11 @@ def main():
     enums_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvEnums.h").read_text(encoding="latin-1")
     enum_bindings_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CyEnumsInterface.cpp").read_text(encoding="latin-1")
     widget_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvDLLWidgetData.cpp").read_text(encoding="latin-1")
+    require(
+        mission_enum_types(enums_source) == expected_mission_types,
+        "CvEnums.h must preserve all legacy mission IDs and append the Guild mission",
+        errors,
+    )
     require("m_paiGuildSponsor" in city_source and "m_paiGuildProcessor" in city_source,
             "city persistence does not include sponsor and processor state", errors)
     require("getNumAvailableGuildLicenses" in player_source and "getNumGuildEmissaries" in player_source,

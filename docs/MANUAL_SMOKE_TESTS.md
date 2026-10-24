@@ -56,6 +56,20 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
     Outfitters are present. Verify Forged Iron, Copperware, and Trained Mounts
     each contribute the configured Production and branches receive military XP.
 
+### Mission ID compatibility regression
+
+1. In a fresh single-player game, use a Great Artist to start a Golden Age.
+   Confirm the Golden Age starts, the Great Person is consumed, and the game
+   remains stable. Repeat with another eligible Great Person type.
+2. In a fresh two-client game, start a Great Artist Golden Age. Confirm both
+   clients remain connected, enter the Golden Age, and do not go out of sync.
+3. Build representative improvements, roads, and feature-clearing actions with
+   ordinary and civilization-specific Workers. Confirm the expected work
+   animation plays instead of the running animation.
+4. Establish a Guild branch with an emissary, including a city that requires
+   processor selection. Confirm the appended custom mission still executes and
+   consumes the emissary only after successful establishment.
+
 ### Crash reporting workflow
 
 1. Continue launching Civ4 normally through Steam; no alternate game launcher

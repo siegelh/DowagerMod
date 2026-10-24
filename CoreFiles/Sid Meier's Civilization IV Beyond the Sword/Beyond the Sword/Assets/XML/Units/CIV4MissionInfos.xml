@@ -464,17 +464,6 @@
 			<bSound>1</bSound>
 		</MissionInfo>
 		<MissionInfo>
-			<Type>MISSION_ESTABLISH_GUILD_BRANCH</Type>
-			<Description>TXT_KEY_MISSION_ESTABLISH_GUILD_BRANCH</Description>
-			<Help>TXT_KEY_MISSION_ESTABLISH_GUILD_BRANCH_HELP</Help>
-			<Waypoint>NONE</Waypoint>
-			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
-			<iTime>16</iTime>
-			<bTarget>0</bTarget>
-			<bBuild>0</bBuild>
-			<bSound>1</bSound>
-		</MissionInfo>
-		<MissionInfo>
 			<Type>MISSION_JOIN</Type>
 			<Description>TXT_KEY_MISSION_JOIN_CITY</Description>
 			<Help>TXT_KEY_MISSION_JOIN_CITY_HELP</Help>
@@ -823,6 +812,17 @@
 			<bTarget>0</bTarget>
 			<bBuild>0</bBuild>
 			<bSound>0</bSound>
+		</MissionInfo>
+		<MissionInfo>
+			<Type>MISSION_ESTABLISH_GUILD_BRANCH</Type>
+			<Description>TXT_KEY_MISSION_ESTABLISH_GUILD_BRANCH</Description>
+			<Help>TXT_KEY_MISSION_ESTABLISH_GUILD_BRANCH_HELP</Help>
+			<Waypoint>NONE</Waypoint>
+			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
+			<iTime>16</iTime>
+			<bTarget>0</bTarget>
+			<bBuild>0</bBuild>
+			<bSound>1</bSound>
 		</MissionInfo>
 	</MissionInfos>
 </Civ4MissionInfos>
