@@ -20,6 +20,7 @@
 #include "CySelectionGroup.h"
 #include "CyArgsList.h"
 #include "CvDLLPythonIFaceBase.h"
+#include "CvPopupInfo.h"
 #include <set>
 #include "CvEventReporter.h"
 
@@ -839,7 +840,8 @@ bool CvSelectionGroup::canStartMission(int iMission, int iData1, int iData2, CvP
 			break;
 
 		case MISSION_ESTABLISH_GUILD_BRANCH:
-			if (pLoopUnit->canEstablishGuildBranch(pPlot, NO_BUILDINGCLASS, bTestVisible))
+			if ((iData1 == NO_GUILD || pLoopUnit->getGuildType() == (GuildTypes)iData1)
+				&& pLoopUnit->canEstablishGuildBranch(pPlot, (BuildingClassTypes)iData2, bTestVisible))
 			{
 				return true;
 			}
@@ -967,6 +969,42 @@ void CvSelectionGroup::startMission()
 	FAssert(!isBusy());
 	FAssert(getOwnerINLINE() != NO_PLAYER);
 	FAssert(headMissionQueueNode() != NULL);
+
+	if (headMissionQueueNode()->m_data.eMissionType == MISSION_ESTABLISH_GUILD_BRANCH
+		&& headMissionQueueNode()->m_data.iData2 == NO_BUILDINGCLASS
+		&& GET_PLAYER(getOwnerINLINE()).isHuman())
+	{
+		pUnitNode = headUnitNode();
+		while (pUnitNode != NULL)
+		{
+			pLoopUnit = ::getUnit(pUnitNode->m_data);
+			pUnitNode = nextUnitNode(pUnitNode);
+			if (pLoopUnit == NULL)
+			{
+				continue;
+			}
+			const GuildTypes eGuild = pLoopUnit->getGuildType();
+			if (eGuild == NO_GUILD
+				|| (headMissionQueueNode()->m_data.iData1 != NO_GUILD
+					&& headMissionQueueNode()->m_data.iData1 != eGuild))
+			{
+				continue;
+			}
+			CvCity* pCity = plot()->getPlotCity();
+			if (pCity != NULL && pCity->getNumEligibleGuildProcessors(eGuild, getOwnerINLINE()) > 1)
+			{
+				if (getOwnerINLINE() == GC.getGameINLINE().getActivePlayer())
+				{
+					CvPopupInfo* pInfo = new CvPopupInfo(BUTTONPOPUP_CHOOSE_GUILD_PROCESSOR, pLoopUnit->getID(), eGuild);
+					gDLL->getInterfaceIFace()->addPopup(pInfo, getOwnerINLINE(), true);
+				}
+				deleteMissionQueueNode(headMissionQueueNode());
+				setActivityType(ACTIVITY_AWAKE);
+				return;
+			}
+			break;
+		}
+	}
 
 	if (!GC.getGameINLINE().isMPOption(MPOPTION_SIMULTANEOUS_TURNS))
 	{
@@ -1232,7 +1270,10 @@ void CvSelectionGroup::startMission()
 					break;
 
 				case MISSION_ESTABLISH_GUILD_BRANCH:
-					if (pLoopUnit->establishGuildBranch())
+					if ((headMissionQueueNode()->m_data.iData1 == NO_GUILD
+						|| pLoopUnit->getGuildType() == (GuildTypes)headMissionQueueNode()->m_data.iData1)
+						&& pLoopUnit->establishGuildBranch(
+							(BuildingClassTypes)headMissionQueueNode()->m_data.iData2))
 					{
 						bAction = true;
 					}

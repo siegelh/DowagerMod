@@ -3459,7 +3459,15 @@ bool CvUnitAI::AI_establishGuildBranch()
 	}
 	if (atPlot(pBestTargetPlot))
 	{
-		getGroup()->pushMission(MISSION_ESTABLISH_GUILD_BRANCH);
+		CvCity* pCity = pBestTargetPlot->getPlotCity();
+		const BuildingClassTypes eProcessor = pCity != NULL
+			? pCity->getEligibleGuildProcessor(eGuild, getOwnerINLINE(), 0)
+			: NO_BUILDINGCLASS;
+		if (eProcessor == NO_BUILDINGCLASS)
+		{
+			return false;
+		}
+		getGroup()->pushMission(MISSION_ESTABLISH_GUILD_BRANCH, eGuild, eProcessor);
 	}
 	else
 	{

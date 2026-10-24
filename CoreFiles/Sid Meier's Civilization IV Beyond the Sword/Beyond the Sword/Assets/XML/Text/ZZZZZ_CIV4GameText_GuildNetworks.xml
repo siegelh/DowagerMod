@@ -33,6 +33,22 @@
 		<Spanish>Guilds</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_POPUP_CHOOSE_GUILD_PROCESSOR</Tag>
+		<English>Choose the processor that will support %s1 in %s2.</English>
+		<French>Choose the processor that will support %s1 in %s2.</French>
+		<German>Choose the processor that will support %s1 in %s2.</German>
+		<Italian>Choose the processor that will support %s1 in %s2.</Italian>
+		<Spanish>Choose the processor that will support %s1 in %s2.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_POPUP_GUILD_PROCESSOR_OPTION</Tag>
+		<English>%s1 - establishes %s2 (unclaimed)</English>
+		<French>%s1 - establishes %s2 (unclaimed)</French>
+		<German>%s1 - establishes %s2 (unclaimed)</German>
+		<Italian>%s1 - establishes %s2 (unclaimed)</Italian>
+		<Spanish>%s1 - establishes %s2 (unclaimed)</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_GUILD_ARTIFICERS</Tag>
 		<English>Artificers and Farriers</English>
 		<French>Artificers and Farriers</French>

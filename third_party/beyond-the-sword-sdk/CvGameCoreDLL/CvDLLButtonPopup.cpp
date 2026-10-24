@@ -318,6 +318,22 @@ void CvDLLButtonPopup::OnOkClicked(CvPopup* pPopup, PopupReturn *pPopupReturn, C
 		}
 		break;
 
+	case BUTTONPOPUP_CHOOSE_GUILD_PROCESSOR:
+		if (pPopupReturn->getButtonClicked() != NO_BUILDINGCLASS)
+		{
+			const PlayerTypes eActivePlayer = GC.getGameINLINE().getActivePlayer();
+			CvUnit* pUnit = eActivePlayer != NO_PLAYER ? GET_PLAYER(eActivePlayer).getUnit(info.getData1()) : NULL;
+			const GuildTypes eGuild = (GuildTypes)info.getData2();
+			const BuildingClassTypes eProcessor = (BuildingClassTypes)pPopupReturn->getButtonClicked();
+			if (pUnit != NULL && pUnit->getGuildType() == eGuild
+				&& pUnit->canEstablishGuildBranch(pUnit->plot(), eProcessor, false))
+			{
+				CvMessageControl::getInstance().sendPushMission(
+					pUnit->getID(), MISSION_ESTABLISH_GUILD_BRANCH, eGuild, eProcessor, 0, false);
+			}
+		}
+		break;
+
 	case BUTTONPOPUP_RAZECITY:
 		if (pPopupReturn->getButtonClicked() == 1)
 		{
@@ -967,6 +983,9 @@ bool CvDLLButtonPopup::launchButtonPopup(CvPopup* pPopup, CvPopupInfo &info)
 	case BUTTONPOPUP_FOUND_RELIGION:
 		bLaunched = launchFoundReligionPopup(pPopup, info);
 		break;
+	case BUTTONPOPUP_CHOOSE_GUILD_PROCESSOR:
+		bLaunched = launchChooseGuildProcessorPopup(pPopup, info);
+		break;
 	default:
 		FAssert(false);
 		break;
@@ -980,6 +999,61 @@ bool CvDLLButtonPopup::launchTextPopup(CvPopup* pPopup, CvPopupInfo &info)
 	gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, info.getText());
 	gDLL->getInterfaceIFace()->popupLaunch(pPopup, true, POPUPSTATE_IMMEDIATE);
 	return (true);
+}
+
+bool CvDLLButtonPopup::launchChooseGuildProcessorPopup(CvPopup* pPopup, CvPopupInfo &info)
+{
+	const PlayerTypes eActivePlayer = GC.getGameINLINE().getActivePlayer();
+	CvUnit* pUnit = eActivePlayer != NO_PLAYER ? GET_PLAYER(eActivePlayer).getUnit(info.getData1()) : NULL;
+	const GuildTypes eGuild = (GuildTypes)info.getData2();
+	if (pUnit == NULL || eGuild < 0 || eGuild >= GC.getNumGuildInfos() || pUnit->getGuildType() != eGuild)
+	{
+		return false;
+	}
+
+	CvCity* pCity = pUnit->plot()->getPlotCity();
+	if (pCity == NULL)
+	{
+		return false;
+	}
+
+	const int iNumProcessors = pCity->getNumEligibleGuildProcessors(eGuild, eActivePlayer);
+	if (iNumProcessors <= 0)
+	{
+		return false;
+	}
+	if (iNumProcessors == 1)
+	{
+		const BuildingClassTypes eProcessor = pCity->getEligibleGuildProcessor(eGuild, eActivePlayer, 0);
+		CvMessageControl::getInstance().sendPushMission(
+			pUnit->getID(), MISSION_ESTABLISH_GUILD_BRANCH, eGuild, eProcessor, 0, false);
+		return false;
+	}
+
+	gDLL->getInterfaceIFace()->popupSetBodyString(pPopup,
+		gDLL->getText("TXT_KEY_POPUP_CHOOSE_GUILD_PROCESSOR",
+			GC.getGuildInfo(eGuild).getTextKeyWide(), pCity->getNameKey()));
+
+	const BuildingClassTypes eHouseClass = (BuildingClassTypes)GC.getGuildInfo(eGuild).getHouseBuildingClass();
+	const BuildingTypes eHouse = (BuildingTypes)GC.getCivilizationInfo(pCity->getCivilizationType()).getCivilizationBuildings(eHouseClass);
+	for (int i = 0; i < iNumProcessors; ++i)
+	{
+		const BuildingClassTypes eProcessor = pCity->getEligibleGuildProcessor(eGuild, eActivePlayer, i);
+		const BuildingTypes eProcessorBuilding = (BuildingTypes)GC.getCivilizationInfo(pCity->getCivilizationType()).getCivilizationBuildings(eProcessor);
+		if (eProcessorBuilding == NO_BUILDING)
+		{
+			continue;
+		}
+		const CvWString szLabel = gDLL->getText("TXT_KEY_POPUP_GUILD_PROCESSOR_OPTION",
+			GC.getBuildingInfo(eProcessorBuilding).getTextKeyWide(),
+			eHouse != NO_BUILDING ? GC.getBuildingInfo(eHouse).getTextKeyWide() : L"");
+		gDLL->getInterfaceIFace()->popupAddGenericButton(
+			pPopup, szLabel, GC.getBuildingInfo(eProcessorBuilding).getButton(), eProcessor, WIDGET_GENERAL);
+	}
+	gDLL->getInterfaceIFace()->popupAddGenericButton(
+		pPopup, gDLL->getText("TXT_KEY_NEVER_MIND"), NULL, NO_BUILDINGCLASS, WIDGET_GENERAL);
+	gDLL->getInterfaceIFace()->popupLaunch(pPopup, false, POPUPSTATE_IMMEDIATE);
+	return true;
 }
 
 

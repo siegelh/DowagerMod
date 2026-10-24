@@ -1,6 +1,6 @@
 # Guild Networks and Royal Armaments Company
 
-- Status: `in_progress`
+- Status: `implemented_automated_validation_passed_manual_acceptance_pending`
 - Owner / agent: GitHub Copilot CLI
 - Last updated: `2026-10-23`
 - Source commit: `08605ed46fcb234fe65b319aa140c9e970959760`
@@ -273,10 +273,11 @@
 
 - [x] Clean target worktree created directly from `08605ed46`.
 - [x] Trusted runtime paths and design assumptions verified.
-- [ ] Three processor chains and Royal Armaments implemented.
-- [ ] Five guild networks and native state implemented.
-- [ ] AI, Advisor, Civilopedia, help, text, and art implemented.
-- [ ] Required automated gates pass.
+- [x] Three processor chains and Royal Armaments implemented.
+- [x] Five guild networks and native state implemented.
+- [x] Synchronized human processor-choice popup implemented.
+- [x] AI, Advisor, Civilopedia, help, text, and art implemented.
+- [x] Required automated gates pass.
 - [ ] New-branch save/reload verified.
 - [ ] Manual gameplay/art/AI/UI results recorded.
 - [ ] Two-client OOS result recorded or explicitly blocks readiness.
@@ -284,8 +285,15 @@
 
 ## Final Outcome Summary
 
-- What changed: implementation in progress.
-- Validation performed: clean branch/worktree baseline verified.
-- Docs updated: this active plan and docs index.
-- Remaining risks: native implementation and all runtime acceptance remain.
-- Follow-up tasks: execute the implementation and validation sequence above.
+- What changed: five native national guild networks, three refined military
+  resource chains, Royal Armaments Company, synchronized branch establishment
+  and management, AI, Industry Advisor, Civilopedia, persistence, and tooling.
+- Validation performed: guild contract validator, changed/full XML validation,
+  roster/localization/art checks, Python 2.4 compatibility, DLL compilation,
+  generator idempotence, and the full repository gate.
+- Docs updated: architecture, testing workflow, manual smoke matrix, docs index,
+  and this active plan.
+- Remaining risks: no in-game fresh-game/save-reload, visual/UI, balance,
+  AI-autoplay, conquest/transfer, or two-client OOS acceptance has been run.
+- Follow-up tasks: install this branch and execute `docs/MANUAL_SMOKE_TESTS.md`;
+  manual acceptance blocks merge/deploy readiness.

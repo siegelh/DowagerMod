@@ -371,6 +371,8 @@ def patch_text():
             text_entry("TXT_KEY_MISSION_ESTABLISH_GUILD_BRANCH_HELP", "Establish this emissary's guild branch in an eligible city."),
             text_entry("TXT_KEY_MISC_GUILD_BRANCH_ESTABLISHED", "%s1 established a branch in %s2."),
             text_entry("TXT_KEY_PEDIA_CATEGORY_GUILD", "Guilds"),
+            text_entry("TXT_KEY_POPUP_CHOOSE_GUILD_PROCESSOR", "Choose the processor that will support %s1 in %s2."),
+            text_entry("TXT_KEY_POPUP_GUILD_PROCESSOR_OPTION", "%s1 - establishes %s2 (unclaimed)"),
         )
     )
     for guild in GUILDS:

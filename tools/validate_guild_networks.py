@@ -53,6 +53,8 @@ def main():
     player_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvPlayer.cpp").read_text(encoding="latin-1")
     unit_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvUnit.cpp").read_text(encoding="latin-1")
     ai_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvUnitAI.cpp").read_text(encoding="latin-1")
+    selection_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvSelectionGroup.cpp").read_text(encoding="latin-1")
+    popup_source = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvDLLButtonPopup.cpp").read_text(encoding="latin-1")
     require("m_paiGuildSponsor" in city_source and "m_paiGuildProcessor" in city_source,
             "city persistence does not include sponsor and processor state", errors)
     require("getNumAvailableGuildLicenses" in player_source and "getNumGuildEmissaries" in player_source,
@@ -61,6 +63,10 @@ def main():
             "unit branch mission implementation is missing", errors)
     require("AI_establishGuildBranch" in ai_source and "ATTITUDE_PLEASED" in ai_source,
             "guild emissary AI or foreign-attitude gate is missing", errors)
+    require("BUTTONPOPUP_CHOOSE_GUILD_PROCESSOR" in selection_source
+            and "BUTTONPOPUP_CHOOSE_GUILD_PROCESSOR" in popup_source
+            and "sendPushMission" in popup_source,
+            "synchronized human processor selection popup is missing", errors)
 
     advisor = (assets / "Python/Screens/CvIndustryAdvisor.py").read_text(encoding="utf-8")
     pedia = (assets / "Python/Screens/CvPediaGuild.py").read_text(encoding="utf-8")

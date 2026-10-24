@@ -36,6 +36,7 @@ Run from repo root.
 
 `test_gate.ps1`
 - Runs XML validation against changed BTS XML files.
+- Runs the focused guild-network contract validator when XML checks are enabled.
 - If an XML schema file changed, it also validates all XML that reference that schema via `x-schema:...`.
 - In default mode, skips DLL build for fast XML-focused feedback.
 - With `-CheckDll`, compiles `CvGameCoreDLL.dll` only when DLL source files changed.

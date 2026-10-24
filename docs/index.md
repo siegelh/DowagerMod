@@ -50,7 +50,7 @@
 
 ### Process / Planning
 
-- [`plans/active/2026-10-23-guild-networks.md`](plans/active/2026-10-23-guild-networks.md) - `In progress`. Five processor-bound national guild networks, three military refined-resource chains, and activation of the Royal Armaments Company.
+- [`plans/active/2026-10-23-guild-networks.md`](plans/active/2026-10-23-guild-networks.md) - `Implemented; manual runtime acceptance pending`. Five processor-bound national guild networks, synchronized processor selection, three military refined-resource chains, and the Royal Armaments Company.
 - [`plans/active/2026-09-30-new-leaders-expansion.md`](plans/active/2026-09-30-new-leaders-expansion.md) - `Implemented; manual acceptance pending`. Thirteen added civilization packages (72 selectable total), retained provisional art, capped native mechanics and two civ-gated Worker improvements. Isolated local branch; not approved for deployment.
 - [`plans/active/2026-10-07-crash-reporting.md`](plans/active/2026-10-07-crash-reporting.md) - `Implemented; manual runtime acceptance pending`. Bounded crash-only minidumps and one-command post-crash GitHub issue workflow for expansion playtests.
 - [`plans/active/2026-10-23-expansion-leader-voice-pass.md`](plans/active/2026-10-23-expansion-leader-voice-pass.md) - `Complete; human audition approved`. Explicit supported voice mappings and audit coverage for all thirteen expansion leaders.
