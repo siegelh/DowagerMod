@@ -13,6 +13,8 @@
 #ifndef CV_INFO_H
 #define CV_INFO_H
 
+#include "CvExpansionRules.h"
+
 #pragma warning( disable: 4251 )		// needs to have dll-interface to be used by clients of class
 #pragma warning( disable: 4127 )
 
@@ -2916,6 +2918,13 @@ public:
 	bool isLandmarkStateReligionGated() const;
 	int getLandmarkStateReligion() const;
 
+	CivilizationTypes getBuildCivilization() const { return m_eBuildCivilization; }
+	int getCityBuildGroup() const { return m_iCityBuildGroup; }
+	int getCityBuildCap() const { return m_iCityBuildCap; }
+	int getCityBuildCondition() const { return m_iCityBuildCondition; }
+	bool isCityBuildPillaged() const { return m_bCityBuildPillaged; }
+	bool resolveCityBuildRules();
+
 	// Neutral world wonder owner modifiers (neutral defaults preserve stock behavior).
 	bool isNeutralWorldWonder() const;
 	int getNeutralWorldWonderCulturePercent() const;
@@ -3014,6 +3023,13 @@ protected:
 	bool m_bLandmarkRequiresPeak;
 	bool m_bLandmarkStateReligionGated;
 	int m_iLandmarkStateReligion;
+
+	CvString m_szBuildCivilization;
+	CivilizationTypes m_eBuildCivilization;
+	int m_iCityBuildGroup;
+	int m_iCityBuildCap;
+	int m_iCityBuildCondition;
+	bool m_bCityBuildPillaged;
 
 	bool m_bNeutralWorldWonder;
 	int m_iNeutralWorldWonderCulturePercent;
@@ -4255,6 +4271,29 @@ public:
 	CvTraitInfo();
 	virtual ~CvTraitInfo();
 
+	int getOpenBordersKnownTechResearchModifier() const { return m_iOpenBordersKnownTechResearchModifier; }
+	int getConquestOccupationReductionPercent() const { return m_iConquestOccupationReductionPercent; }
+	int getCoastalForeignRouteGold() const { return m_iCoastalForeignRouteGold; }
+	int getCoastalForeignRouteGoldCap() const { return m_iCoastalForeignRouteGoldCap; }
+	int getVeteranGarrisonCulture() const { return m_iVeteranGarrisonCulture; }
+	int getVeteranGarrisonHappiness() const { return m_iVeteranGarrisonHappiness; }
+	int getVeteranGarrisonProductionModifier() const { return m_iVeteranGarrisonProductionModifier; }
+	int getVeteranGarrisonMinLevel() const { return m_iVeteranGarrisonMinLevel; }
+	ExpansionRules::WorkedPlotCondition getWorkedPlotCondition() const { return m_eWorkedPlotCondition; }
+	int getWorkedPlotProduction() const { return m_iWorkedPlotProduction; }
+	int getWorkedPlotGold() const { return m_iWorkedPlotGold; }
+	int getWorkedPlotResearch() const { return m_iWorkedPlotResearch; }
+	int getWorkedPlotCulture() const { return m_iWorkedPlotCulture; }
+	int getWorkedPlotCap() const { return m_iWorkedPlotCap; }
+	TechTypes getWorkedPlotPrereqTech() const { return m_eWorkedPlotPrereqTech; }
+	BuildingTypes getWorkedPlotPrereqBuilding() const { return m_eWorkedPlotPrereqBuilding; }
+	ImprovementTypes getConditionalImprovementType() const { return m_eConditionalImprovement; }
+	BonusTypes getConditionalBonusType() const { return m_eConditionalBonus; }
+	int getConditionalImprovementBonusYieldChange(YieldTypes eYield) const;
+	bool isWorkedPlotImprovement(ImprovementTypes eImprovement) const;
+	bool isWorkedPlotExcludedImprovement(ImprovementTypes eImprovement) const;
+	bool readPass3();
+
 	int getHealth() const;				// Exposed to Python
 	int getHappiness() const;				// Exposed to Python
 	int getMaxAnarchy() const;				// Exposed to Python
@@ -4310,6 +4349,36 @@ protected:
 	int m_iMaxPlayerBuildingProductionModifier;	
 
 	CvString m_szShortDescription;
+
+	int m_iOpenBordersKnownTechResearchModifier;
+	int m_iConquestOccupationReductionPercent;
+	int m_iCoastalForeignRouteGold;
+	int m_iCoastalForeignRouteGoldCap;
+	int m_iVeteranGarrisonCulture;
+	int m_iVeteranGarrisonHappiness;
+	int m_iVeteranGarrisonProductionModifier;
+	int m_iVeteranGarrisonMinLevel;
+	ExpansionRules::WorkedPlotCondition m_eWorkedPlotCondition;
+	int m_iWorkedPlotProduction;
+	int m_iWorkedPlotGold;
+	int m_iWorkedPlotResearch;
+	int m_iWorkedPlotCulture;
+	int m_iWorkedPlotCap;
+	TechTypes m_eWorkedPlotPrereqTech;
+	BuildingTypes m_eWorkedPlotPrereqBuilding;
+	CvString m_szWorkedPlotPrereqTech;
+	CvString m_szWorkedPlotPrereqBuilding;
+	ImprovementTypes m_eConditionalImprovement;
+	BonusTypes m_eConditionalBonus;
+	CvString m_szConditionalImprovement;
+	CvString m_szConditionalBonus;
+	int m_iConditionalImprovementBonusFood;
+	int m_iConditionalImprovementBonusProduction;
+	int m_iConditionalImprovementBonusCommerce;
+	std::vector<CvString> m_aszWorkedPlotImprovements;
+	std::vector<CvString> m_aszWorkedPlotExcludedImprovements;
+	std::vector<int> m_aiWorkedPlotImprovements;
+	std::vector<int> m_aiWorkedPlotExcludedImprovements;
 
 	// Arrays
 

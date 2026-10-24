@@ -25,10 +25,10 @@
 		<LeaderheadArtInfo>
 			<Type>ART_DEF_LEADER_REGINALD_ENDICOTT_BARCLAY</Type>
 			<Button>art/LeaderHeads/barclay_button.dds</Button>
-			<NIF>Art/Leaderheads/LeaderForge/barclay/barclay-engineering-06/fdr.nif</NIF>
-			<KFM>Art/Leaderheads/LeaderForge/barclay/barclay-engineering-06/fdr.kfm</KFM>
-			<NoShaderNIF>Art/Leaderheads/LeaderForge/barclay/barclay-engineering-06/fdr_noshader.nif</NoShaderNIF>
-			<BackgroundKFM>Art/Leaderheads/LeaderForge/barclay/barclay-engineering-06/fdr_bg.kfm</BackgroundKFM>
+			<NIF>Art/Leaderheads/LeaderForge/barclay/barclay-uniform-c-01/fdr.nif</NIF>
+			<KFM>Art/Leaderheads/LeaderForge/barclay/barclay-uniform-c-01/fdr.kfm</KFM>
+			<NoShaderNIF>Art/Leaderheads/LeaderForge/barclay/barclay-uniform-c-01/fdr_noshader.nif</NoShaderNIF>
+			<BackgroundKFM>Art/Leaderheads/LeaderForge/barclay/barclay-uniform-c-01/fdr_bg.kfm</BackgroundKFM>
 		</LeaderheadArtInfo>
 		<LeaderheadArtInfo>
 			<Type>ART_DEF_LEADER_ALEXANDER</Type>
@@ -485,5 +485,109 @@
 			<NoShaderNIF>Art/Leaderheads/new/salamasina/SalmasinaFinal.nif</NoShaderNIF>
 			<BackgroundKFM>Art/Leaderheads/new/salamasina/winston_churchill_bg.kfm</BackgroundKFM>
 		</LeaderheadArtInfo>
-	</LeaderheadArtInfos>
+	<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_PIYE</Type>
+  <Button>Art/Leaderheads/new/piye/Piye.dds</Button>
+  <NIF>Art/Leaderheads/new/piye/ramassesii.nif</NIF>
+  <KFM>Art/Leaderheads/new/piye/ramassesii.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/piye/ramassesii_noshader.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/piye/ramassesii_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_DUSAN</Type>
+  <Button>Art/Leaderheads/new/dusan/dusan.dds</Button>
+  <NIF>Art/Leaderheads/new/dusan/Putin.nif</NIF>
+  <KFM>Art/Leaderheads/new/dusan/Putin.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/dusan/Putin.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/dusan/Putin_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_MATTHIAS</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_MATTHIAS.dds</Button>
+  <NIF>Art/Leaderheads/new/matthias_corvinus/Justinian.nif</NIF>
+  <KFM>Art/Leaderheads/new/matthias_corvinus/Justinian.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/matthias_corvinus/Justinian_NONSHADER.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/matthias_corvinus/Justinian_Background.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_PEDRO_II</Type>
+  <Button>Art/Leaderheads/new/dompedro_v3/pedro.dds</Button>
+  <NIF>Art/Leaderheads/new/dompedro_v3/napoleon.nif</NIF>
+  <KFM>Art/Leaderheads/new/dompedro_v3/napoleon.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/dompedro_v3/napoleon_noshader.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/dompedro_v3/napoleon_bg.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_MONGKUT</Type>
+  <Button>Art/Leaderheads/new/mongkut/MongkutButton.dds</Button>
+  <NIF>Art/Leaderheads/new/mongkut/Tachnechobrus.nif</NIF>
+  <KFM>Art/Leaderheads/new/mongkut/Tachnechobrus.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/mongkut/Tachnechobrus.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/mongkut/Tachnechobrus_Background.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_BOLIVAR</Type>
+  <Button>Art/Leaderheads/new/bolivar_v3/Btn_LH_Bolivar_Runtime.dds</Button>
+  <NIF>Art/Leaderheads/new/bolivar_v3/Bolivar.nif</NIF>
+  <KFM>Art/Leaderheads/new/bolivar_v3/Bolivar_Runtime.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/bolivar_v3/Bolivar.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/bolivar_v3/Bolivar_bg.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_HIRAM</Type>
+  <Button>Art/Leaderheads/new/Amra_Hiram_v2/Button_Hiram.dds</Button>
+  <NIF>Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.nif</NIF>
+  <KFM>Art/Leaderheads/new/Amra_Hiram_v2/Darius_Runtime.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/Amra_Hiram_v2/Darius_NONSHADER.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/Amra_Hiram_v2/Darius_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_RAMKHAMHAENG</Type>
+  <Button>Art/Leaderheads/new/ramkham/Ramkham.dds</Button>
+  <NIF>Art/Leaderheads/new/ramkham/Suryavarman.nif</NIF>
+  <KFM>Art/Leaderheads/new/ramkham/Suryavarman.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/ramkham/Suryaverman_NONSHADER.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/ramkham/Suryavarman_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_HO_CHI_MINH</Type>
+  <Button>Art/Leaderheads/new/hochiminh_v2/HoChi_Button.dds</Button>
+  <NIF>Art/Leaderheads/new/hochiminh_v2/HoChiMinh.nif</NIF>
+  <KFM>Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Runtime.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/hochiminh_v2/HoChiMinh_Nonshader_Runtime.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/hochiminh_v2/genghis_khan_bg.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_ASKIA</Type>
+  <Button>Art/Leaderheads/new/askia/AskiaMohammedBTN.dds</Button>
+  <NIF>Art/Leaderheads/new/askia/Askia_Runtime.nif</NIF>
+  <KFM>Art/Leaderheads/new/askia/Askia_Runtime.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/askia/Askia_Runtime.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/askia/Zara Yaqob_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_DAVID</Type>
+  <Button>Art/Interface/Buttons/Civilizations/EXP_DAVID.dds</Button>
+  <NIF>Art/Leaderheads/new/kingdavid/montezuma.nif</NIF>
+  <KFM>Art/Leaderheads/new/kingdavid/montezuma.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/kingdavid/montezuma.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/kingdavid/montezuma_bg.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_SENNACHERIB</Type>
+  <Button>Art/Leaderheads/new/sennacherib/SennacheribButton.dds</Button>
+  <NIF>Art/Leaderheads/new/sennacherib/josef_stalin.nif</NIF>
+  <KFM>Art/Leaderheads/new/sennacherib/josef_stalin.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/sennacherib/josef_stalin.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/sennacherib/josef_stalin_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+<LeaderheadArtInfo>
+  <Type>ART_DEF_LEADER_EXP_ZENOBIA</Type>
+  <Button>Art/Leaderheads/new/zenobia/button/btn_lh_zenobia.dds</Button>
+  <NIF>Art/Leaderheads/new/zenobia/zenobia.nif</NIF>
+  <KFM>Art/Leaderheads/new/zenobia/Zenobia_Runtime.kfm</KFM>
+  <NoShaderNIF>Art/Leaderheads/new/zenobia/zenobia.nif</NoShaderNIF>
+  <BackgroundKFM>Art/Leaderheads/new/zenobia/zenobia_BG.kfm</BackgroundKFM>
+</LeaderheadArtInfo>
+</LeaderheadArtInfos>
 </Civ4ArtDefines>

@@ -1,4 +1,5 @@
 import math
+import json
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -81,6 +82,7 @@ def distance(left, right):
 class CivilizationColorTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.expansion = json.loads((ROOT / "tools/manifests/new_leaders_expansion.json").read_bytes())["packages"]
         cls.civs = entries(CIVS, "CivilizationInfo")
         cls.player_entries = entries(PLAYER_COLORS, "PlayerColorInfo")
         cls.color_entries = entries(COLOR_VALS, "ColorVal")
@@ -101,7 +103,7 @@ class CivilizationColorTests(unittest.TestCase):
             node for node in self.civs if text(node, "bPlayable") == "1"
         ]
         defaults = [text(node, "DefaultPlayerColor") for node in playable]
-        self.assertEqual(len(playable), 59)
+        self.assertEqual(len(playable), 59 + len(self.expansion))
         self.assertEqual(len(defaults), len(set(defaults)))
 
     def test_all_playable_color_references_resolve(self):
@@ -123,9 +125,12 @@ class CivilizationColorTests(unittest.TestCase):
         expected_values = ["COLOR_PLAYER_" + name for name in APPENDED]
         player_order = [text(node, "Type") for node in self.player_entries]
         value_order = [text(node, "Type") for node in self.color_entries]
-        self.assertEqual(player_order[-24:], expected_players)
-        self.assertEqual(value_order[-24:], expected_values)
-        self.assertEqual(len(player_order), 69)
+        self.assertEqual(player_order[45:69], expected_players)
+        value_start = value_order.index(expected_values[0])
+        self.assertEqual(value_order[value_start:value_start + 24], expected_values)
+        self.assertEqual(player_order[69:], ["PLAYERCOLOR_EXP_" + p["id"] for p in self.expansion])
+        self.assertEqual(value_order[value_start + 24:], ["COLOR_PLAYER_EXP_" + p["id"] for p in self.expansion])
+        self.assertEqual(len(player_order), 69 + len(self.expansion))
 
     def test_playable_primary_rgb_values_are_exactly_unique(self):
         primary_values = []
@@ -140,7 +145,7 @@ class CivilizationColorTests(unittest.TestCase):
 
     def test_appended_palette_has_strong_distance_from_prior_colors(self):
         prior = []
-        for info in self.player_entries[:-24]:
+        for info in self.player_entries[:45]:
             primary = text(info, "ColorTypePrimary")
             color = rgb_to_lab(self.color_values[primary])
             if color not in prior:
@@ -156,6 +161,16 @@ class CivilizationColorTests(unittest.TestCase):
                 20.0,
                 APPENDED[index],
             )
+
+    def test_expansion_palette_is_distinct_from_all_prior_player_colors(self):
+        prior = [rgb_to_lab(self.color_values[text(info, "ColorTypePrimary")])
+                 for info in self.player_entries[:69]]
+        for package in self.expansion:
+            rgb = self.color_values["COLOR_PLAYER_EXP_" + package["id"]]
+            self.assertEqual(rgb, tuple(package["primary_rgb"]))
+            color = rgb_to_lab(rgb)
+            self.assertGreaterEqual(min(distance(color, other) for other in prior), 20.0, package["id"])
+            prior.append(color)
 
 
 if __name__ == "__main__":

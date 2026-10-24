@@ -70,6 +70,19 @@ LEADERS: tuple = (
     ("Washington", "America"),
     ("Willem van Oranje", "Netherlands"),
     ("Zara Yaqob", "Ethiopia"),
+    ("Piye", "Kush: Napata"),
+    ("Stefan Dusan", "Serbia: Dusan's Empire"),
+    ("Matthias Corvinus", "Hungary: Corvinian Kingdom"),
+    ("Pedro II", "Brazil: Second Empire"),
+    ("Mongkut", "Siam: Rama IV"),
+    ("Simon Bolivar", "Gran Colombia"),
+    ("Hiram I", "Phoenicia: Tyre"),
+    ("Ramkhamhaeng", "Sukhothai"),
+    ("Ho Chi Minh", "Vietnam: Democratic Republic"),
+    ("Askia Muhammad", "Songhai: Askia Dynasty"),
+    ("David", "Israel: Davidic Kingdom"),
+    ("Sennacherib", "Neo-Assyria: Nineveh"),
+    ("Zenobia", "Palmyrene Empire"),
 )
 
 

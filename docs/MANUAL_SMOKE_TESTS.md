@@ -15,6 +15,125 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
 
 ## Extra checks by change type
 
+### Crash reporting workflow
+
+1. Continue launching Civ4 normally through Steam; no alternate game launcher
+   is part of the workflow.
+2. After a representative crash, do not relaunch Civ4 before collection.
+3. Run `Report DowagerMod Crash.bat`.
+4. Confirm the suggested save comes from
+   `<Documents>\My Games\Beyond the Sword\Saves\multi\auto` when a multiplayer
+   autosave exists, including when Documents is redirected to OneDrive.
+5. Confirm the script shows filename, category, modified time, age and size,
+   and permits another save or no save.
+6. Confirm output is written only under
+   `%LOCALAPPDATA%\DowagerMod\CrashReports`, not the repository.
+7. Inspect `manifest.json`, `report.md`, `issue-body.md`, sanitized logs, save,
+   and minidump in the ZIP. Verify profile paths, emails, IPs and token-shaped
+   values are absent from text evidence.
+8. With authenticated `gh`, confirm a `bug` issue is created with the expected
+   branch/commit, runtime hashes, manifest comparison, evidence inventory and
+   `PENDING` attachment marker.
+9. Confirm Explorer selects the ZIP and the final instruction explicitly says
+   to drag it onto the issue, wait for upload, and click Comment.
+10. Without authenticated `gh`, confirm the ZIP is still produced and the
+    browser/clipboard fallback gives complete submission instructions.
+11. Confirm repeated synthetic incidents retain at most three ZIPs and three
+    pending dumps within their 250 MB category caps.
+12. Confirm ordinary gameplay has no generic/city trace enabled and creates no
+    minidump unless an unhandled exception occurs.
+
+### Thirteen-leader expansion acceptance (not yet performed)
+
+Use a fresh game and identical source/DLL payloads on both multiplayer clients.
+Do not install this isolated branch without separate owner authorization.
+Record actual results and screenshots; offline XML checks and prototype renders
+do not satisfy these checks. The original 59 civilizations remain the reference
+roster; the expansion adds 13 selectable civilizations, not player slots.
+
+| Package | Minimum gameplay acceptance |
+|---|---|
+| Sennacherib | Work 0/1/3/4 riverside Farms/Canals with and without active Royal Waterworks: exactly 0/1/3/3 additional base Production when active. Remove/obsolete the building and reassign overlapping plots. Compare Siege Tower bombard12, city attack25 and collateral50 against the parent. |
+| Hiram | Coastal cities with 0/1/4/5 active foreign routes produce Gold0/2/8/8. Multiple routes to one foreign team count separately; domestic routes do not. Close borders and recompute equal-yield routes; the Gold source must refresh. Confirm Merchant Galley cost45/move3/cargo3 and Counting House cost120/+1 route/+25% foreign-route yield. |
+| Piye | Assign/unassign ordinary Priests: +1 Food each; empty Chapel slots do not pay. Exercise the Archer's two first strikes and hill attack. |
+| Matthias | Train Melee/Gunpowder and excluded combat classes; verify Paid Professionals eligibility, 25% upgrade discount, normal gift/upgrade persistence and no second discount. Ordinary Artists add one Research. |
+| Ramkhamhaeng | Inspect map-visible yields on ordinary Farms (+1 Production/+1 Commerce) and Farmed Rice (ordinary bonus replaced by a net -2 Food/+2 Production/+5 Commerce relative to vanilla). Unimproved, non-Farm and pillaged Rice must not qualify; restoring the Farm must restore the visible yields. |
+| Mongkut | An eligible Open Borders partner knowing the selected tech adds exactly30 research-modifier points once. Same-team, war, either vassal direction and duplicate partners do not qualify/stack. Check research overflow on switching tech. Confirm Royal Rifle cost100 and Royal Observatory cost120/Research35%/two Scientists/Culture2. |
+| Ho | Worked Forest/Jungle plots give Production1 each capped3; unworked woodland gives none. Clear/pillage/reassign relevant plots. Infantry is strength18/cost120 with Woodsman I/II. |
+| Askia | Worked riverside Cottage/Hamlet/Village/Town each add Gold1 and Research1 before modifiers, sharing a six-plot cap; upgrading a settlement must not create a second contribution. Confirm Escort Cavalry cost80 and Horse-only requirement, and College cost160/Research35%/Priest slot. |
+| Dusan | Worked Mines add one Commerce yield through the slider; ordinary Priests add one direct Espionage. Cavalry has hill and anti-Melee modifiers. |
+| Pedro II | Ordinary Scientists add Culture1, Artists Research1; empty slots and settled specialists do not acquire ordinary-specialist bonuses. Check +25% GP rate and Lyceum Research35% total. |
+| Bolivar | Newly generated military-conquest occupation uses ceil(native/2). Peaceful transfers and existing occupation are not retroactively halved. |
+| Zenobia | Worked improved Desert with Road/Railroad adds Gold2 each capped6; hills can qualify. City/water/unworked/ruins and both pillaged unique-improvement types do not. Remove road versus improvement separately. |
+| David | Owned living combat land units level3+ provide Culture3, Happiness2 and all-city Production25% once per city. Test promotion, movement, transport, delayed death, resurrection, city capture and reload; exclude animals, foreign/same-team non-owned units, air/sea and noncombat units. Two veterans still activate only one bonus. Confirm Retainer cost40 and Citadel cost50/+2 land XP/no Priest slot. |
+
+For every package, verify UU/UB substitutions, costs, technology/resources,
+normal parent abilities, empty specialist slots, help text and civilopedia.
+Check all city source breakdowns against actual totals under modifiers,
+occupation/disorder and overlapping BFC assignment; no duplicate source lines.
+Observe representative AI campaigns rather than inferring behavior from XML.
+
+**Civilization-specific improvements**
+
+1. Use ordinary, captured/gifted Fast and Huayna Workers. Existing actions
+   remain; Canal permission follows Assyria, Station permission follows
+   Palmyra, regardless of worker identity or leader. Other civilizations
+   cannot build/restore either, including captured copies.
+2. Canal: Mathematics, normal-speed work625, +1 Food/+1 Commerce, cap2.
+   Test riverside but not irrigated; irrigated but not riverside; neither.
+   Allow flat Grassland/Plains/Desert only. Native irrigation-spread technology
+   is still required; no ship navigation or city freshwater benefit.
+3. Station: Currency, work750, +1 Food/+3 Commerce, cap1. Require flat
+   featureless Desert plus Road/Railroad. Reject Oasis and Flood Plains.
+   Confirm no fort/city behavior, defense bonus or free trade route.
+4. Both reject resources (including currently hidden resources), features,
+   hills/peaks/water, city centers, foreign plots, unassigned plots and
+   Great Person improvements, including older Grand Colosseum/Jokamachi.
+   Clearing must be a separate legal action; these builds do not auto-clear.
+5. Pillage once: distinct zero-bonus marker, no irrigation propagation,
+   cap slot retained. Repeated pillage/sabotage may remove a remaining road,
+   not erase the marker or pay repeated improvement Gold. Air bombing and
+   legacy sabotage must not target the empty marker.
+6. Restore at the cap and above the cap after reassignment: no extra slot.
+   Capture/reassign enough copies to exceed a city's build cap: keep all
+   existing copies, prohibit new ones, permit legal normal replacements.
+7. Start parallel builds in the same assigned city and change assignment
+   near completion. The second completion must recheck current counts.
+   Rejected completion preserves earlier work and gives a notification plus
+   `expansion-build.log` evidence; no silent deletion or cap bypass.
+8. Test AI site choice, restoration, completion conflicts and road preparation
+   for a Station on bare Desert. Governor and worker choices must account
+   for direct yields and E1 marginal caps without placing illegal copies.
+9. Inspect intact/pillaged models at normal/strategic zoom, all eras and
+   graphics settings: exactly one model, no duplicate routes, missing textures,
+   floating/clipping banks or oversized buildings. Canal's simple channel
+   mesh and Station's reused caravan-house are **prototypes requiring approval**.
+
+**Art, saves and multiplayer**
+
+Open every new leader at all five attitudes, greeting, affirmative/negative
+actions and reopen transitions. Inspect camera, background, hands, hair,
+alpha layers, buttons and shader/low-settings paths. Preserve Ho's blue shirt.
+Explicitly review David's retained appearance, static backdrop and emblem
+button; Pedro's provisional identity; and Sennacherib's primary model in both
+slots instead of his bundled stock-Stalin fallback. Do not call reused primary
+models certified nonshader fallbacks.
+
+Check new flags, normal cities in every era, colors under accessibility
+simulations and representative UU/UB visuals. Verify all thirteen expansion
+scoreboard names and city nationality bars use their assigned civilization
+colors rather than all-white text; compare against territory/minimap colors
+and check legibility on the actual HUD background. Primary RGB values are
+distinct, but numerical uniqueness does not prove perceptual separation.
+Save/reload each live mechanic,
+including cap surplus and pillaged markers. Investigate an old save separately;
+append-only IDs and unchanged city serialization do **not** prove compatibility.
+In a fresh two-client game, repeat placement, capture, garrison, research,
+route, occupation and city-output changes and check for OOS. No final balance,
+old-save, animation or multiplayer acceptance has yet been recorded.
+
+### Existing feature checks
+
 - XML rules/content:
   - confirm the relevant object appears with expected text, costs, prereqs, and effects
 - DLL:
@@ -92,13 +211,13 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
     - Built-map hover (after construction): build the landmark, then mouse over its tile and confirm a **"Current landmark output:"** block appears with the same numbers the tile actually produces
     - Industrial Zone: breakdown lists adjacent owned Watermills/Workshops/Mines-or-Quarries counts (+3/+2/+2) and a Production total; with none adjacent it explicitly states zero and shows Total +0
     - Naval Foundry: shows "This tile: +2", the count of your water tiles within 2 that effectively gain the aura (+1, and "of which water resources" +2), and a combined footprint Production total; place a second overlapping Foundry and confirm the effective aura count/total shrink (non-stacking, exact effective)
-    - Research Campus: shows the exact direct Research to the working city (this is the reported previously-missing value), the on-Tundra/Snow +3 component, and adjacent Peak/Jungle/Hill/Tundra/Snow counts with stacking (e.g. a Snow Peak lists both Peak +3 and Snow +2)
+    - Research Campus: shows base +2, adjacent Hill +1, adjacent empty Peak +1, and adjacent Campus +6 counts; no Campus tile also receives the empty-Peak point, and no more than four adjacent Campuses contribute
     - Commercial District: shows bordering city center +6 and adjacent owned Cottage/Hamlet/Village/Town counts (+1/+2/+3/+4) and a Commerce total
     - Grand Bazaar: shows adjacent owned happiness-resource count (+4 each) and, of those, the count connected by their valid improvement (+2 each), and a Commerce total
     - Sacred Grove: shows adjacent Forest/Jungle and adjacent water counts (+1 Food each) and adjacent owned Forest Preserve count (+1 Food/+1 Commerce each), with Food and Commerce totals
     - Fog/ownership: confirm the built-map block only shows for a revealed landmark you can see, and never leaks values for tiles you have not revealed
   - Great Engineer: on both hills and flatland, confirm Industrial Zone shows +3/+2/+2 Production for adjacent owned Watermill/Workshop/Mine or Quarry; confirm Naval Foundry can be built on owned hill or flat coastal land both inside and outside a workable city radius, shows +2 Production on its tile, grants +1 Production (+2 more on resources) to your water tiles within 2, and does not stack overlapping auras
-  - Great Scientist: confirm Research Campus adds base Research to the working city before Research modifiers (+3 on Tundra/Snow; adjacent Peak +3, Jungle +2, Hill +1, Tundra +1, Snow +2 stack, including Jungle Hills and Snow Peaks); verify the number lands in the city's base Research, not slider-split commerce. Enable the city governor and confirm it works a strong Campus over a weaker ordinary tile, but relinquishes it for a genuinely better tile
+  - Great Scientist: confirm Research Campus adds 2 base Research to the assigned city before Research modifiers, +1 per adjacent Hill, +1 per adjacent empty Peak, and +6 for up to four adjacent Campuses. Verify adjacent Campus placement is legal, pairs produce 8 each, mutually adjacent triangles produce 14 each, extra Campus neighbors beyond four add nothing, and the number lands in base Research rather than slider-split commerce. Enable the city governor and confirm it values the exact current Campus output
   - Great Merchant / Venetian Merchant Prince: confirm Commercial District must border your city center (+6 Commerce) and adds +1/+2/+3/+4 for adjacent owned Cottage/Hamlet/Village/Town, and that two Districts cannot be built adjacent; confirm Grand Bazaar gives +4 per adjacent owned happiness resource and +2 more when connected; confirm both remain slider-dependent
   - Great Prophet: with each state religion (and none), confirm only the matching Sacred Grove variant is buildable, its art is the expected shrine/Naiku model, adjacent Forest/Jungle gives +1 Food, an owned adjacent Forest Preserve adds +1 Food/+1 Commerce, adjacent water adds +1 Food, and the art stays fixed after a later state-religion change
   - Terrain validity: confirm Grand Colosseum and all 13 newer landmarks can be built on both hills and flatland while retaining their water, coastal, religion, ownership, and city-adjacency restrictions

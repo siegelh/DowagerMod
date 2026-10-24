@@ -62,6 +62,7 @@ public:
 	// (bBuilt=false) and the map plot tooltip for an existing landmark
 	// (bBuilt=true). Read-only; renders CvPlot::buildLandmarkPreview.
 	void setLandmarkPreviewHelp(CvWStringBuffer &szString, CvPlot* pPlot, ImprovementTypes eImprovement, PlayerTypes ePlayer, bool bBuilt);
+	void setCityBuildHelp(CvWStringBuffer& szBuffer, ImprovementTypes eImprovement, const CvPlot* pPlot = NULL, PlayerTypes ePlayer = NO_PLAYER);
 	DllExport void setCityBarHelp(CvWStringBuffer &szString, CvCity* pCity);
 	DllExport void setScoreHelp(CvWStringBuffer &szString, PlayerTypes ePlayer);
 

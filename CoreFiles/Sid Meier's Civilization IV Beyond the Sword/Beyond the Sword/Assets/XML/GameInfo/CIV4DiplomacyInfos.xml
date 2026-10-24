@@ -805,7 +805,189 @@
 						<Text>AI_DIPLO_FIRST_CONTACT_LEADER_GILGAMESH_1</Text>
 					</DiplomacyText>
 				</Response>
-			</Responses>
+			<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_PIYE</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_PIYE</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_DUSAN</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_DUSAN</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_MATTHIAS</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_MATTHIAS</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_PEDRO_II</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_PEDRO_II</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_MONGKUT</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_MONGKUT</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_BOLIVAR</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_BOLIVAR</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_HIRAM</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_HIRAM</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_RAMKHAMHAENG</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_RAMKHAMHAENG</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_HO_CHI_MINH</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_HO_CHI_MINH</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_ASKIA</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_ASKIA</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_DAVID</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_DAVID</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_SENNACHERIB</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_SENNACHERIB</Text>
+  </DiplomacyText>
+</Response>
+<Response>
+  <Civilizations />
+  <Leaders>
+    <Leader>
+      <LeaderType>LEADER_EXP_ZENOBIA</LeaderType>
+      <bLeaderType>1</bLeaderType>
+    </Leader>
+  </Leaders>
+  <Attitudes />
+  <DiplomacyPowers />
+  <DiplomacyText>
+    <Text>TXT_KEY_DIPLO_FIRST_CONTACT_EXP_ZENOBIA</Text>
+  </DiplomacyText>
+</Response>
+</Responses>
 		</DiplomacyInfo>
 		<DiplomacyInfo>
 			<Type>AI_DIPLOCOMMENT_REFUSE_TO_TALK</Type>

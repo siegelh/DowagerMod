@@ -59,6 +59,22 @@ That means `CRASH` category lines can still be emitted by the unhandled exceptio
 
 - [CvGameCoreDLL.cpp](/c:/DowagerMod/third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvGameCoreDLL.cpp)
 
+The exception filter also writes a crash-only `MiniDumpNormal` file under:
+
+```text
+%LOCALAPPDATA%\DowagerMod\CrashReports\Pending
+```
+
+This is not continuous telemetry. No dump is written during ordinary play.
+Normal DLL startup prunes the directory to the newest three dumps and a maximum
+of 250 MB. Dump failure is logged and does not suppress normal Windows crash
+handling.
+
+After a crash, run `Report DowagerMod Crash.bat` before relaunching Civ4. A new
+DLL process attach resets `CvGameCoreDLL_trace.log`. The reporter copies the
+newest dump, trace, save, hashes and related evidence into a local ZIP; see
+[CRASH_REPORTING.md](CRASH_REPORTING.md).
+
 ## How To Add Logging
 
 ### Basic logging
@@ -159,11 +175,12 @@ To deploy the repo mirror to the live install, use:
 
 When chasing a new DLL bug:
 
-1. turn on generic trace first
-2. reproduce once
-3. if that is not enough, turn on city trace second
-4. narrow the logging to the smallest useful scope
-5. remove or gate the heavy logs again once the bug is understood
+1. run the post-crash reporter and preserve the save/minidump first
+2. reproduce from the save
+3. turn on generic trace only if the first evidence is insufficient
+4. reproduce once
+5. if that is not enough, turn on a narrowly relevant heavy trace
+6. remove or gate the heavy logs again once the bug is understood
 
 ## Current Status
 
@@ -171,4 +188,5 @@ As of 2026-03-02:
 
 - generic DLL tracing is available but off by default
 - heavy luxury/city tracing is available but off by default
+- crash-only bounded minidumps are available without enabling either trace
 - this keeps the debug tooling available without leaving the game in a permanently slow trace-heavy state

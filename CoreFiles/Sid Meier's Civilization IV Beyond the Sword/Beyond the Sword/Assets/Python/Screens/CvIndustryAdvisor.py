@@ -64,7 +64,8 @@ class CvIndustryAdvisor:
         self.CHAINS_LEGEND_ID = 'IndustryChainsLegend'
         self.iTab = 0
         self.iChainsView = 0
-        self.szFlowFilter = CvIndustryFlowData.FILTER_ALL
+        self.szFlowFilter = 'corp1'
+        self.flowFilterWidgetIds = {}
         self.iActivePlayer = -1
         self.player = None
         self.team = None
@@ -624,8 +625,20 @@ class CvIndustryAdvisor:
                 szEnd = u''
             screen.setText(self._addWidget(self.CHAINS_VIEW_IDS[i]), 'Background', szStart + u'<font=2>%s</font>' % labels[i] + szEnd, CvUtil.FONT_LEFT_JUSTIFY, x + (i * 88), y, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, i, -1)
 
-        self.szFlowFilter = CvIndustryFlowData.FILTER_ALL
-        screen.setText(self._addWidget('IndustryChainsAllChainsLabel'), 'Background', u'<color=255,255,0><font=2>All Chains</font></color>', CvUtil.FONT_LEFT_JUSTIFY, x + 190, y, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+        self.flowFilterWidgetIds = {}
+        iFilterX = x + 190
+        for kFilter in CvIndustryFlowData.getFlowFilters():
+            szFilterId = kFilter['id']
+            szWidgetId = 'IndustryChainsFilter_%s' % szFilterId
+            self.flowFilterWidgetIds[szWidgetId] = szFilterId
+            if szFilterId == self.szFlowFilter:
+                szStart = u'<color=255,255,0>'
+                szEnd = u'</color>'
+            else:
+                szStart = u''
+                szEnd = u''
+            screen.setText(self._addWidget(szWidgetId), 'Background', szStart + u'<font=2>%s</font>' % kFilter['short_label'] + szEnd, CvUtil.FONT_LEFT_JUSTIFY, iFilterX, y, -0.1, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
+            iFilterX += max(58, (len(kFilter['short_label']) * 8) + 18)
 
     def _drawChainsLegend(self, x, y, w):
         screen = self.getScreen()
@@ -834,6 +847,10 @@ class CvIndustryAdvisor:
                 return 1
             if fname == self.CHAINS_VIEW_IDS[1]:
                 self.iChainsView = 1
+                self.drawScreen()
+                return 1
+            if self.flowFilterWidgetIds.has_key(fname):
+                self.szFlowFilter = self.flowFilterWidgetIds[fname]
                 self.drawScreen()
                 return 1
         return 0

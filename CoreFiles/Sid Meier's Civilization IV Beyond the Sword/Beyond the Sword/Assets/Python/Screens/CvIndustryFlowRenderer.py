@@ -18,9 +18,9 @@ class CvIndustryFlowRenderer:
         self.BADGE_SIZE = 18
         self.LINE_THICKNESS = 8
         self._edgeLaneOffsets = {
-            'flow': 0,
-            'corp_input': 6,
-            'corp_founding': -6,
+            'flow': 24,
+            'corp_founding': 64,
+            'corp_input': -80,
         }
 
     def _nodeSize(self, kNode):
@@ -197,26 +197,14 @@ class CvIndustryFlowRenderer:
         arrowMXMY = ArtFileMgr.getInterfaceArtInfo('ARROW_MXMY').getPath()
         arrowMXY = ArtFileMgr.getInterfaceArtInfo('ARROW_MXY').getPath()
         arrowHead = ArtFileMgr.getInterfaceArtInfo('ARROW_HEAD').getPath()
-        outgoingSlots, incomingSlots, outgoingCounts, incomingCounts = self._buildEdgeSlots(edges)
+        routes = self._buildEdgeRoutes(positions, edges)
 
-        for iEdge, kEdge in enumerate(edges):
-            if not positions.has_key(kEdge['from']) or not positions.has_key(kEdge['to']):
-                continue
-            kFrom = positions[kEdge['from']]
-            kTo = positions[kEdge['to']]
-            iStartX = kFrom['x'] + kFrom['w']
-            iStartY = kFrom['y'] + self._portOffset(outgoingSlots.get(kEdge['from'], {}).get(iEdge, 0), outgoingCounts.get(kEdge['from'], 1), kFrom['h'])
-            iEndX = kTo['x']
-            iEndY = kTo['y'] + self._portOffset(incomingSlots.get(kEdge['to'], {}).get(iEdge, 0), incomingCounts.get(kEdge['to'], 1), kTo['h'])
-
-            if iEndX <= iStartX:
-                iEndX = iStartX + self.LINE_THICKNESS + 8
-
-            if iStartY == iEndY:
-                self._drawHorizontal(screen, scrollId, '%sEdge%d' % (widgetPrefix, iEdge), arrowX, arrowHead, iStartX, iStartY, iEndX)
+        for kRoute in routes:
+            iEdge = kRoute['edgeIndex']
+            if kRoute['startY'] == kRoute['endY']:
+                self._drawHorizontal(screen, scrollId, '%sEdge%d' % (widgetPrefix, iEdge), arrowX, arrowHead, kRoute['startX'], kRoute['startY'], kRoute['endX'])
             else:
-                iMidX = self._laneMidX(iEdge, kEdge, iStartX, iEndX, outgoingSlots, incomingSlots)
-                self._drawCornerPath(screen, scrollId, '%sEdge%d' % (widgetPrefix, iEdge), arrowX, arrowY, arrowXY, arrowXMY, arrowMXMY, arrowMXY, arrowHead, iStartX, iStartY, iMidX, iEndX, iEndY)
+                self._drawCornerPath(screen, scrollId, '%sEdge%d' % (widgetPrefix, iEdge), arrowX, arrowY, arrowXY, arrowXMY, arrowMXMY, arrowMXY, arrowHead, kRoute['startX'], kRoute['startY'], kRoute['laneX'], kRoute['endX'], kRoute['endY'])
 
     def _buildEdgeSlots(self, edges):
         outgoingSlots = {}
@@ -225,13 +213,13 @@ class CvIndustryFlowRenderer:
         incomingCounts = {}
 
         for iEdge, kEdge in enumerate(edges):
-            if not outgoingSlots.has_key(kEdge['from']):
+            if kEdge['from'] not in outgoingSlots:
                 outgoingSlots[kEdge['from']] = {}
                 outgoingCounts[kEdge['from']] = 0
             outgoingSlots[kEdge['from']][iEdge] = outgoingCounts[kEdge['from']]
             outgoingCounts[kEdge['from']] += 1
 
-            if not incomingSlots.has_key(kEdge['to']):
+            if kEdge['to'] not in incomingSlots:
                 incomingSlots[kEdge['to']] = {}
                 incomingCounts[kEdge['to']] = 0
             incomingSlots[kEdge['to']][iEdge] = incomingCounts[kEdge['to']]
@@ -257,27 +245,96 @@ class CvIndustryFlowRenderer:
         iSpan = iMax - iMin
         return iMin + ((iSpan * iSlot) / (iCount - 1))
 
-    def _laneMidX(self, iEdge, kEdge, iStartX, iEndX, outgoingSlots, incomingSlots):
-        iSpan = iEndX - iStartX
-        if iSpan <= 40:
-            return iStartX + 16
+    def _snapUp(self, iValue):
+        iRemainder = iValue % self.LINE_THICKNESS
+        if iRemainder == 0:
+            return iValue
+        return iValue + self.LINE_THICKNESS - iRemainder
 
-        iLaneBase = iStartX + 30
-        iLaneSource = outgoingSlots.get(kEdge['from'], {}).get(iEdge, 0)
-        iLaneDest = incomingSlots.get(kEdge['to'], {}).get(iEdge, 0)
-        iTypeBump = 0
-        if kEdge.get('type', 'flow') == 'corp_input':
-            iTypeBump = 20
-        elif kEdge.get('type', 'flow') == 'corp_founding':
-            iTypeBump = 40
+    def _rangesOverlap(self, iStartA, iEndA, iStartB, iEndB):
+        iMinA = min(iStartA, iEndA)
+        iMaxA = max(iStartA, iEndA)
+        iMinB = min(iStartB, iEndB)
+        iMaxB = max(iStartB, iEndB)
+        return iMinA < iMaxB and iMinB < iMaxA
 
-        iLaneX = iLaneBase + (iLaneSource * 12) + (iLaneDest * 16) + iTypeBump
-        iMaxX = iEndX - 28
-        if iLaneX > iMaxX:
-            iLaneX = iStartX + ((iEndX - iStartX) / 2)
-        if iLaneX <= iStartX:
-            iLaneX = iStartX + 20
+    def _laneAvailable(self, iLaneX, iStartY, iEndY, laneUsage):
+        if iLaneX not in laneUsage:
+            return True
+        for iUsedStartY, iUsedEndY in laneUsage[iLaneX]:
+            if self._rangesOverlap(iStartY, iEndY, iUsedStartY, iUsedEndY):
+                return False
+        return True
+
+    def _laneCandidates(self, szEdgeType, iStartX, iEndX):
+        iMinX = self._snapUp(iStartX + (self.LINE_THICKNESS * 2))
+        iMaxX = iEndX - (self.LINE_THICKNESS * 3)
+        if iMaxX < iMinX:
+            return [iStartX + self.LINE_THICKNESS]
+
+        if szEdgeType == 'corp_input':
+            iPreferredX = iEndX + self._edgeLaneOffsets['corp_input']
+        else:
+            iPreferredX = iStartX + self._edgeLaneOffsets.get(szEdgeType, self._edgeLaneOffsets['flow'])
+        iPreferredX = self._snapUp(max(iMinX, min(iPreferredX, iMaxX)))
+
+        candidates = []
+        iStep = self.LINE_THICKNESS * 2
+        iLaneX = iPreferredX
+        while iLaneX <= iMaxX:
+            candidates.append(iLaneX)
+            iLaneX += iStep
+        iLaneX = iMinX
+        while iLaneX < iPreferredX:
+            candidates.append(iLaneX)
+            iLaneX += iStep
+        return candidates
+
+    def _chooseLaneX(self, szEdgeType, iStartX, iStartY, iEndX, iEndY, laneUsage):
+        candidates = self._laneCandidates(szEdgeType, iStartX, iEndX)
+        for iLaneX in candidates:
+            if self._laneAvailable(iLaneX, iStartY, iEndY, laneUsage):
+                if iLaneX not in laneUsage:
+                    laneUsage[iLaneX] = []
+                laneUsage[iLaneX].append((iStartY, iEndY))
+                return iLaneX
+
+        iLaneX = candidates[0]
+        laneUsage.setdefault(iLaneX, []).append((iStartY, iEndY))
         return iLaneX
+
+    def _buildEdgeRoutes(self, positions, edges):
+        outgoingSlots, incomingSlots, outgoingCounts, incomingCounts = self._buildEdgeSlots(edges)
+        routes = []
+        laneUsage = {}
+
+        for iEdge, kEdge in enumerate(edges):
+            if kEdge['from'] not in positions or kEdge['to'] not in positions:
+                continue
+            kFrom = positions[kEdge['from']]
+            kTo = positions[kEdge['to']]
+            iStartX = kFrom['x'] + kFrom['w']
+            iStartY = kFrom['y'] + self._portOffset(outgoingSlots.get(kEdge['from'], {}).get(iEdge, 0), outgoingCounts.get(kEdge['from'], 1), kFrom['h'])
+            iEndX = kTo['x']
+            iEndY = kTo['y'] + self._portOffset(incomingSlots.get(kEdge['to'], {}).get(iEdge, 0), incomingCounts.get(kEdge['to'], 1), kTo['h'])
+
+            if iEndX <= iStartX:
+                iEndX = iStartX + (self.LINE_THICKNESS * 3)
+
+            kRoute = {
+                'edgeIndex': iEdge,
+                'edgeType': kEdge.get('type', 'flow'),
+                'startX': iStartX,
+                'startY': iStartY,
+                'endX': iEndX,
+                'endY': iEndY,
+                'laneX': None,
+            }
+            if iStartY != iEndY:
+                kRoute['laneX'] = self._chooseLaneX(kRoute['edgeType'], iStartX, iStartY, iEndX, iEndY, laneUsage)
+            routes.append(kRoute)
+
+        return routes
 
     def _drawHorizontal(self, screen, scrollId, prefix, arrowX, arrowHead, iStartX, iY, iEndX):
         iWidth = iEndX - iStartX
@@ -292,7 +349,7 @@ class CvIndustryFlowRenderer:
 
     def _drawVertical(self, screen, scrollId, prefix, arrowY, iX, iStartY, iEndY):
         iTop = min(iStartY, iEndY)
-        iHeight = abs(iEndY - iStartY) + self.LINE_THICKNESS
+        iHeight = abs(iEndY - iStartY)
         if iHeight <= 0:
             return
         lineId = self._addWidget('%sLine' % prefix)
@@ -303,18 +360,17 @@ class CvIndustryFlowRenderer:
         screen.addDDSGFCAt(cornerId, scrollId, path, iX, iY, self.LINE_THICKNESS, self.LINE_THICKNESS, WidgetTypes.WIDGET_GENERAL, -1, -1, False)
 
     def _drawCornerPath(self, screen, scrollId, prefix, arrowX, arrowY, arrowXY, arrowXMY, arrowMXMY, arrowMXY, arrowHead, iStartX, iStartY, iMidX, iEndX, iEndY):
-        iCornerStartX = iMidX - self.LINE_THICKNESS
-        iCornerEndX = iMidX
+        iCornerX = iMidX
 
         if iEndY < iStartY:
-            self._drawHorizontal(screen, scrollId, '%sA' % prefix, arrowX, None, iStartX, iStartY, iCornerStartX)
-            self._drawCorner(screen, scrollId, '%sB' % prefix, arrowXY, iCornerStartX, iStartY)
-            self._drawVertical(screen, scrollId, '%sC' % prefix, arrowY, iCornerStartX, iEndY + self.LINE_THICKNESS, iStartY)
-            self._drawCorner(screen, scrollId, '%sD' % prefix, arrowXMY, iCornerEndX, iEndY)
-            self._drawHorizontal(screen, scrollId, '%sE' % prefix, arrowX, arrowHead, iCornerEndX + self.LINE_THICKNESS, iEndY, iEndX)
+            self._drawHorizontal(screen, scrollId, '%sA' % prefix, arrowX, None, iStartX, iStartY, iCornerX)
+            self._drawCorner(screen, scrollId, '%sB' % prefix, arrowXY, iCornerX, iStartY)
+            self._drawVertical(screen, scrollId, '%sC' % prefix, arrowY, iCornerX, iEndY + self.LINE_THICKNESS, iStartY)
+            self._drawCorner(screen, scrollId, '%sD' % prefix, arrowXMY, iCornerX, iEndY)
+            self._drawHorizontal(screen, scrollId, '%sE' % prefix, arrowX, arrowHead, iCornerX + self.LINE_THICKNESS, iEndY, iEndX)
         else:
-            self._drawHorizontal(screen, scrollId, '%sA' % prefix, arrowX, None, iStartX, iStartY, iCornerStartX)
-            self._drawCorner(screen, scrollId, '%sB' % prefix, arrowMXMY, iCornerStartX, iStartY)
-            self._drawVertical(screen, scrollId, '%sC' % prefix, arrowY, iCornerStartX, iStartY + self.LINE_THICKNESS, iEndY)
-            self._drawCorner(screen, scrollId, '%sD' % prefix, arrowMXY, iCornerEndX, iEndY)
-            self._drawHorizontal(screen, scrollId, '%sE' % prefix, arrowX, arrowHead, iCornerEndX + self.LINE_THICKNESS, iEndY, iEndX)
+            self._drawHorizontal(screen, scrollId, '%sA' % prefix, arrowX, None, iStartX, iStartY, iCornerX)
+            self._drawCorner(screen, scrollId, '%sB' % prefix, arrowMXMY, iCornerX, iStartY)
+            self._drawVertical(screen, scrollId, '%sC' % prefix, arrowY, iCornerX, iStartY + self.LINE_THICKNESS, iEndY)
+            self._drawCorner(screen, scrollId, '%sD' % prefix, arrowMXY, iCornerX, iEndY)
+            self._drawHorizontal(screen, scrollId, '%sE' % prefix, arrowX, arrowHead, iCornerX + self.LINE_THICKNESS, iEndY, iEndX)

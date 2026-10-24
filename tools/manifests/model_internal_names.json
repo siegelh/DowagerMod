@@ -1,0 +1,11 @@
+{
+  "records": [
+    {
+      "path": "Art/Leaderheads/new/dompedro_v3/napoleon.nif",
+      "sha256": "725ee97ac7da89dff241ce555a8c37a0ad9b823001ba8bcfa0284cb7c8cd3b7d",
+      "internal_names": ["DP_N5.nif", "DP_N4.nif", "DP_N3.nif", "DP_S1.nif", "DP_N1.nif"],
+      "evidence": "The retained leaderhead audit parsed these as NiObjectNET name fields, not NiSourceTexture file references. NIF version 20.0.0.4. Exact payload hash required; every other embedded dependency remains checked.",
+      "external_texture_references": ["Napoleon_DIFF.dds", "Napoleon_ENV.dds", "Napoleon_NRML.dds", "Napoleon_SPEC.dds", "Napoleon_ENV_MASK.dds", "napoleon_epulat_diff.tga", "alexander_diff.tga", "peter_diff.tga", "napoleon_diff.tga", "suleiman_trans_diff.tga"]
+    }
+  ]
+}

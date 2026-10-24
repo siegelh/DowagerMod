@@ -99,6 +99,9 @@ class AdditiveSignatureManifestTests(unittest.TestCase):
             if active:
                 leader_traits[text(leader, "Type")] = active
 
+        expansion = json.loads((ROOT / "tools/manifests/new_leaders_expansion.json").read_bytes())["packages"]
+        expansion_civs = {"CIVILIZATION_EXP_" + p["civilization"] for p in expansion}
+        expansion_traits = []
         playable_traits = []
         for civ in entries(self.civs, "CivilizationInfo"):
             if text(civ, "bPlayable") != "1":
@@ -110,13 +113,16 @@ class AdditiveSignatureManifestTests(unittest.TestCase):
             ]
             self.assertEqual(len(leaders), 1, text(civ, "Type"))
             self.assertEqual(len(leader_traits[leaders[0]]), 1, leaders[0])
-            playable_traits.append(leader_traits[leaders[0]][0])
+            target = expansion_traits if text(civ, "Type") in expansion_civs else playable_traits
+            target.append(leader_traits[leaders[0]][0])
 
         manifest_traits = [row["trait"] for row in self.manifest]
         self.assertEqual(len(playable_traits), 59)
         self.assertEqual(len(manifest_traits), 59)
         self.assertEqual(set(manifest_traits), set(playable_traits))
         self.assertEqual(len(manifest_traits), len(set(manifest_traits)))
+        self.assertEqual(len(expansion_traits), len(expansion))
+        self.assertEqual(set(expansion_traits), {"TRAIT_EXP_" + p["id"] for p in expansion})
 
     def test_all_manifest_building_classes_resolve(self):
         for row in self.manifest:

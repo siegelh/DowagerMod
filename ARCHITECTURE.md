@@ -36,6 +36,43 @@ This document describes the repository as implemented now. It is intentionally c
 - Diplomatic espionage is a DLL-backed, XML-configured extension. `CvEspionageMissionInfo` identifies Stage Diplomatic Incident, Establish Backchannels, and Fabricate Casus Belli; `CvPlayer` centralizes physical spy/plot validation, target eligibility, costs, synchronized effects, and Casus Belli odds. Fabricate Casus Belli separates affordable mission-wide availability from third-party political eligibility: one deterministic evaluator supplies the popup, selected-target cost validation, AI, and execution with the same rejection state, raw attitude, power ratio, and success chance. The native two-phase popup carries eligible player IDs through synchronized `MISSION_ESPIONAGE` extra data, while ineligible known civilizations are presented as explanatory body text rather than selectable buttons. Stage Diplomatic Incident applies a persistent one-way `AI_changeAttitudeExtra` penalty, Establish Backchannels adds one save-backed and naturally decaying `MEMORY_GIVE_HELP` count, and successful Casus Belli fabrication creates `WARPLAN_PREPARING_LIMITED` only after synchronized RNG. `CvPlayerAI` evaluates all three deterministically without asynchronous randomness.
 - Generator/patch tooling lives in `tools/generate_art_masterpieces.py`, `tools/apply_supply_chain_overhaul.py`, `tools/apply_industry_wave2.py`, and `tools/rebuild_industry_buttons_v2.py`.
 
+### Thirteen-leader expansion
+
+`tools/manifests/new_leaders_expansion.json` and `tools/add_expansion_packages.py`
+define the additive packages against the pinned combined baseline `cb87ce542`.
+The compiler preserves original records and appends new ones; its only original
+unit-record changes are the two civ-gated actions appended to the three existing
+Farm-capable Worker types. Generation checks known art hashes, stages changes,
+reports counts/bytes and reconciles publication. The package overview is
+`.vscode/leader-expansion-overview.md`; visual/runtime acceptance remains
+separate from generation and XML validation.
+
+`CvExpansionRules.h` contains production-tested predicates and integer rules.
+Optional trait metadata drives capped worked-plot contributions (`CvCity`,
+`CvPlot`, `CvTeam`, governor/Worker AI), coastal foreign-route Gold, diplomatic
+research modifiers, newly generated conquest occupation reduction and derived
+veteran-garrison Culture. Unit lifecycle and final-load hooks refresh garrison
+Culture; no new city/unit save ledger is used for these bonuses.
+
+`CvImprovementInfo` adds civilization permission, logical intact/pillaged group,
+assigned-city build cap and typed location conditions. `CvPlot::canBuild`
+and `changeBuildProgress` use the same current-state checks; counts scan only
+the assigned city BFC. Capture/reassignment preserves surplus copies rather
+than enforcing a destructive cap. Pillage, air bombing and sabotage retain
+zero-bonus markers; normal replacement can remove them. Worker AI values
+direct output, worked-trait marginals and roads that unlock a Station.
+`CvGameTextMgr` supplies Pedia/plot/build requirements and rejection reasons.
+Civilization references resolve after CivilizationInfo loading. Improvement
+cache serialization has a version4 read/write layout, while the active XML
+loader bypasses old improvement caches so neutral old data cannot erase
+the new permissions. This is not a claim of old-save compatibility.
+
+New plot models have explicit exclusive `CIV4PlotLSystem.xml` routes.
+`tools/prepare_expansion_canal_art.py` reproducibly creates the original
+texture-free canal prototype with optional PyFFI; ordinary package generation
+only checks its pinned output. The Station reuses a bundled caravan-house
+model. Neither prototype is an approved final in-game visual.
+
 ### Inferred but likely
 
 - The mod's distinctive current systems are the industry/corporation supply-chain layer and the Art Masterpieces layer.

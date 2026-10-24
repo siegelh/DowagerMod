@@ -51,6 +51,26 @@ LEADER_XML = (
 )
 
 
+def _child_text(node: ET.Element, tag: str) -> str:
+    child = node.find(tag)
+    if child is None:
+        child = node.find("{*}" + tag)
+    return (child.text or "").strip() if child is not None else ""
+
+
+def load_english_text(text_dir: Path) -> dict[str, str]:
+    """Load TXT_KEY -> English mappings from the live BtS text XML."""
+    localized = {}
+    for path in sorted(text_dir.glob("*.xml")):
+        tree = ET.parse(str(path))
+        for entry in tree.getroot().findall(".//{*}TEXT"):
+            key = _child_text(entry, "Tag")
+            english = _child_text(entry, "English")
+            if key and english:
+                localized[key] = english
+    return localized
+
+
 def title_from_leader_type(leader_type: str) -> str:
     """LEADER_DOWAGER_COUNTESS -> 'Dowager Countess'.
     LEADER_REGINALD_ENDICOTT_BARCLAY -> 'Reginald Endicott Barclay'.
@@ -108,21 +128,28 @@ def title_from_leader_type(leader_type: str) -> str:
     return " ".join(p.capitalize() for p in parts if p)
 
 
-def list_leaders(xml_path: Path) -> list[tuple[str, str]]:
+def list_leaders(
+    xml_path: Path,
+    text_dir: Path | None = None,
+) -> list[tuple[str, str]]:
     """Returns list of (leader_type, display_name) tuples from CIV4LeaderHeadInfos.xml.
     Skips LEADER_BARBARIAN since they don't speak.
     """
     if not xml_path.is_file():
         print(f"{RED}FAIL: {xml_path} not found. Run from repo root.{RESET}")
         sys.exit(2)
+    resolved_text_dir = text_dir or (xml_path.parent.parent / "Text")
+    localized = load_english_text(resolved_text_dir)
     tree = ET.parse(str(xml_path))
     root = tree.getroot()
     out = []
-    for li in root.iter():
-        if li.tag.endswith("Type"):
-            text = (li.text or "").strip()
-            if text.startswith("LEADER_") and text != "LEADER_BARBARIAN":
-                out.append((text, title_from_leader_type(text)))
+    for leader in root.findall(".//{*}LeaderHeadInfo"):
+        leader_type = _child_text(leader, "Type")
+        if not leader_type.startswith("LEADER_") or leader_type == "LEADER_BARBARIAN":
+            continue
+        description_key = _child_text(leader, "Description")
+        name = localized.get(description_key) or title_from_leader_type(leader_type)
+        out.append((leader_type, name))
     # de-dup while preserving order
     seen = set()
     deduped = []
