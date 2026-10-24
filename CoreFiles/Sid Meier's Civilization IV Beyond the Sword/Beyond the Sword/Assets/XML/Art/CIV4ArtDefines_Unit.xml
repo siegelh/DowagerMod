@@ -89182,24 +89182,16 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_ARTIFICERS_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/iron_foundry.dds</Button>
-		<fScale>0.216</fScale>
-		<fInterfaceScale>1.3125</fInterfaceScale>
-		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</NIF>
+		<fScale>0.44</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>
-		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</SHADERNIF>
+		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</SHADERNIF>
 		<ShadowDef>
-			<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/chariotshadow.nif</ShadowNIF>
+			<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
 			<ShadowAttachNode>Chariot_Chariot</ShadowAttachNode>
 			<fShadowScale>1.0</fShadowScale>
 		</ShadowDef>
-		<TrailDefinition>
-			<Texture>/Art/Caveman2Cosmos/art/shared/wheeltread.dds</Texture>
-			<fWidth>0.9</fWidth>
-			<fLength>180.0</fLength>
-			<fTaper>0.0</fTaper>
-			<fFadeStartTime>0.2</fFadeStartTime>
-			<fFadeFalloff>0.35</fFadeFalloff>
-		</TrailDefinition>
 		<fBattleDistance>0.20</fBattleDistance>
 		<fRangedDeathTime>0.31</fRangedDeathTime>
 		<bSmoothMove>1</bSmoothMove>
@@ -89214,24 +89206,16 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_MERCHANT_ADVENTURERS_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/exchange_hall.dds</Button>
-		<fScale>0.216</fScale>
-		<fInterfaceScale>1.3125</fInterfaceScale>
-		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</NIF>
+		<fScale>0.44</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>
-		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</SHADERNIF>
+		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</SHADERNIF>
 		<ShadowDef>
-			<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/chariotshadow.nif</ShadowNIF>
+			<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
 			<ShadowAttachNode>Chariot_Chariot</ShadowAttachNode>
 			<fShadowScale>1.0</fShadowScale>
 		</ShadowDef>
-		<TrailDefinition>
-			<Texture>/Art/Caveman2Cosmos/art/shared/wheeltread.dds</Texture>
-			<fWidth>0.9</fWidth>
-			<fLength>180.0</fLength>
-			<fTaper>0.0</fTaper>
-			<fFadeStartTime>0.2</fFadeStartTime>
-			<fFadeFalloff>0.35</fFadeFalloff>
-		</TrailDefinition>
 		<fBattleDistance>0.20</fBattleDistance>
 		<fRangedDeathTime>0.31</fRangedDeathTime>
 		<bSmoothMove>1</bSmoothMove>
@@ -89246,24 +89230,16 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_APOTHECARIES_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/whale_oil_chandlery.dds</Button>
-		<fScale>0.216</fScale>
-		<fInterfaceScale>1.3125</fInterfaceScale>
-		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</NIF>
+		<fScale>0.44</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>
-		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</SHADERNIF>
+		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</SHADERNIF>
 		<ShadowDef>
-			<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/chariotshadow.nif</ShadowNIF>
+			<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
 			<ShadowAttachNode>Chariot_Chariot</ShadowAttachNode>
 			<fShadowScale>1.0</fShadowScale>
 		</ShadowDef>
-		<TrailDefinition>
-			<Texture>/Art/Caveman2Cosmos/art/shared/wheeltread.dds</Texture>
-			<fWidth>0.9</fWidth>
-			<fLength>180.0</fLength>
-			<fTaper>0.0</fTaper>
-			<fFadeStartTime>0.2</fFadeStartTime>
-			<fFadeFalloff>0.35</fFadeFalloff>
-		</TrailDefinition>
 		<fBattleDistance>0.20</fBattleDistance>
 		<fRangedDeathTime>0.31</fRangedDeathTime>
 		<bSmoothMove>1</bSmoothMove>
@@ -89278,24 +89254,16 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_VICTUALLERS_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/victuallers_exchange.dds</Button>
-		<fScale>0.216</fScale>
-		<fInterfaceScale>1.3125</fInterfaceScale>
-		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</NIF>
+		<fScale>0.44</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>
-		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</SHADERNIF>
+		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</SHADERNIF>
 		<ShadowDef>
-			<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/chariotshadow.nif</ShadowNIF>
+			<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
 			<ShadowAttachNode>Chariot_Chariot</ShadowAttachNode>
 			<fShadowScale>1.0</fShadowScale>
 		</ShadowDef>
-		<TrailDefinition>
-			<Texture>/Art/Caveman2Cosmos/art/shared/wheeltread.dds</Texture>
-			<fWidth>0.9</fWidth>
-			<fLength>180.0</fLength>
-			<fTaper>0.0</fTaper>
-			<fFadeStartTime>0.2</fFadeStartTime>
-			<fFadeFalloff>0.35</fFadeFalloff>
-		</TrailDefinition>
 		<fBattleDistance>0.20</fBattleDistance>
 		<fRangedDeathTime>0.31</fRangedDeathTime>
 		<bSmoothMove>1</bSmoothMove>
@@ -89310,24 +89278,16 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_PAGEANTRY_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/illuminated_theatre.dds</Button>
-		<fScale>0.216</fScale>
-		<fInterfaceScale>1.3125</fInterfaceScale>
-		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</NIF>
+		<fScale>0.44</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>
-		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_art_fx.nif</SHADERNIF>
+		<SHADERNIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</SHADERNIF>
 		<ShadowDef>
-			<ShadowNIF>Art/Caveman2Cosmos/art/units/01_unitshadows/chariotshadow.nif</ShadowNIF>
+			<ShadowNIF>Art/Units/01_UnitShadows/UnitShadow.nif</ShadowNIF>
 			<ShadowAttachNode>Chariot_Chariot</ShadowAttachNode>
 			<fShadowScale>1.0</fShadowScale>
 		</ShadowDef>
-		<TrailDefinition>
-			<Texture>/Art/Caveman2Cosmos/art/shared/wheeltread.dds</Texture>
-			<fWidth>0.9</fWidth>
-			<fLength>180.0</fLength>
-			<fTaper>0.0</fTaper>
-			<fFadeStartTime>0.2</fFadeStartTime>
-			<fFadeFalloff>0.35</fFadeFalloff>
-		</TrailDefinition>
 		<fBattleDistance>0.20</fBattleDistance>
 		<fRangedDeathTime>0.31</fRangedDeathTime>
 		<bSmoothMove>1</bSmoothMove>

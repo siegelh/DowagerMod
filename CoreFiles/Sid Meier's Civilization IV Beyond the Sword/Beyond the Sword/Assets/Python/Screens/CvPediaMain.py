@@ -102,7 +102,6 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		self.pediaReligion = CvPediaReligion.CvPediaReligion(self)
 		self.pediaCorporation = CvPediaCorporation.CvPediaCorporation(self)
 		self.pediaGuild = CvPediaGuild.CvPediaGuild(self)
-		self.szGuildTable = ""
 		self.pediaHistorical = CvPediaHistory.CvPediaHistory(self)
 				
 		# used for navigating "forward" and "back" in civilopedia
@@ -630,13 +629,12 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		screen = self.getScreen()
 		items = self.getSortedList(gc.getNumGuildInfos(), gc.getGuildInfo)
 		tableName = self.getNextWidgetName()
-		self.szGuildTable = tableName
 		screen.addTableControlGFC(tableName, 1, self.X_ITEMS_PANE, self.Y_ITEMS_PANE+5, self.W_ITEMS_PANE, self.H_ITEMS_PANE-5, False, False, 24, 24, TableStyles.TABLE_STYLE_STANDARD)
 		screen.enableSelect(tableName, False)
 		screen.setTableColumnHeader(tableName, 0, "", self.W_ITEMS_PANE)
 		for item in items:
 			iRow = screen.appendTableRow(tableName)
-			screen.setTableText(tableName, 0, iRow, u"<font=3>" + item[0] + u"</font>", gc.getGuildInfo(item[1]).getButton(), WidgetTypes.WIDGET_GENERAL, item[1], -1, CvUtil.FONT_LEFT_JUSTIFY)
+			screen.setTableText(tableName, 0, iRow, u"<font=3>" + item[0] + u"</font>", gc.getGuildInfo(item[1]).getButton(), WidgetTypes.WIDGET_PEDIA_JUMP_TO_GUILD, item[1], 1, CvUtil.FONT_LEFT_JUSTIFY)
 						
 	def placeCivics(self):
 		screen = self.getScreen()
@@ -1062,9 +1060,6 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 	# Will handle the input for this screen...
 	def handleInput (self, inputClass):
 		# redirect to proper screen if necessary
-		if self.iLastScreen == CvScreenEnums.PEDIA_MAIN and self.iCategory == CivilopediaPageTypes.CIVILOPEDIA_PAGE_GUILD:
-			if inputClass.getNotifyCode() == NotifyCode.NOTIFY_CLICKED and inputClass.getFunctionName() == self.szGuildTable and inputClass.getData1() >= 0:
-				return self.pediaJump(CvScreenEnums.PEDIA_GUILD, inputClass.getData1(), True)
 		if (self.iLastScreen == CvScreenEnums.PEDIA_UNIT):
 			return self.pediaUnitScreen.handleInput(inputClass)
 		if (self.iLastScreen == CvScreenEnums.PEDIA_TECH):

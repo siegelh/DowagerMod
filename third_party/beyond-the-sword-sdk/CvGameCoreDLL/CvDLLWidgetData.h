@@ -62,6 +62,7 @@ public:
 	void doPediaProjectJump(CvWidgetDataStruct &widgetDataStruct);
 	void doPediaReligionJump(CvWidgetDataStruct &widgetDataStruct);
 	void doPediaCorporationJump(CvWidgetDataStruct &widgetDataStruct);
+	void doPediaGuildJump(CvWidgetDataStruct &widgetDataStruct);
 	void doPediaTerrainJump(CvWidgetDataStruct &widgetDataStruct);
 	void doPediaFeatureJump(CvWidgetDataStruct &widgetDataStruct);
 	void doPediaMain(CvWidgetDataStruct &widgetDataStruct);
@@ -124,6 +125,7 @@ public:
 	void parseSelectedHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseTradeRouteCityHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseEspionageCostHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
+	void parsePediaJumpToGuildHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseBuildingHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseProjectHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseTerrainHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);

@@ -62918,7 +62918,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HEADQUARTERS_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HEADQUARTERS_STRATEGY</Strategy>
 		<Advisor>ADVISOR_ECONOMY</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_ARTIFICERS_HEADQUARTERS</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>
@@ -63129,7 +63129,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HOUSE_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HOUSE_STRATEGY</Strategy>
 		<Advisor>ADVISOR_ECONOMY</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_ARTIFICERS_HOUSE</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>
@@ -63343,7 +63343,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HEADQUARTERS_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HEADQUARTERS_STRATEGY</Strategy>
 		<Advisor>ADVISOR_ECONOMY</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_MERCHANT_ADVENTURERS_HEADQUARTERS</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>
@@ -63554,7 +63554,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HOUSE_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HOUSE_STRATEGY</Strategy>
 		<Advisor>ADVISOR_ECONOMY</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_MERCHANT_ADVENTURERS_HOUSE</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>
@@ -63768,7 +63768,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HEADQUARTERS_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HEADQUARTERS_STRATEGY</Strategy>
 		<Advisor>ADVISOR_SCIENCE</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_APOTHECARIES_HEADQUARTERS</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>
@@ -63979,7 +63979,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HOUSE_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HOUSE_STRATEGY</Strategy>
 		<Advisor>ADVISOR_SCIENCE</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_APOTHECARIES_HOUSE</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>
@@ -64193,7 +64193,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HEADQUARTERS_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HEADQUARTERS_STRATEGY</Strategy>
 		<Advisor>ADVISOR_ECONOMY</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_VICTUALLERS_HEADQUARTERS</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>
@@ -64404,7 +64404,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HOUSE_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HOUSE_STRATEGY</Strategy>
 		<Advisor>ADVISOR_ECONOMY</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_VICTUALLERS_HOUSE</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>
@@ -64618,7 +64618,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HEADQUARTERS_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HEADQUARTERS_STRATEGY</Strategy>
 		<Advisor>ADVISOR_CULTURE</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_PAGEANTRY_HEADQUARTERS</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>
@@ -64829,7 +64829,7 @@
 		<Civilopedia>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HOUSE_PEDIA</Civilopedia>
 		<Strategy>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HOUSE_STRATEGY</Strategy>
 		<Advisor>ADVISOR_CULTURE</Advisor>
-		<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+		<ArtDefineTag>ART_DEF_BUILDING_GUILD_PAGEANTRY_HOUSE</ArtDefineTag>
 		<MovieDefineTag>NONE</MovieDefineTag>
 		<HolyCity>NONE</HolyCity>
 		<ReligionType>NONE</ReligionType>

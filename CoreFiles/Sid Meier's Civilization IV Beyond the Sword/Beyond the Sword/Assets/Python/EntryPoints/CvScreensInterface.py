@@ -222,6 +222,9 @@ def pediaJumpToReligion(argsList):
 	
 def pediaJumpToCorporation(argsList):
 	pediaMainScreen.pediaJump(PEDIA_CORPORATION, argsList[0], True)
+
+def pediaJumpToGuild(argsList):
+	pediaMainScreen.pediaJump(PEDIA_GUILD, argsList[0], True)
 	
 def pediaJumpToPromotion(argsList):
 	pediaMainScreen.pediaJump(PEDIA_PROMOTION, argsList[0], True)

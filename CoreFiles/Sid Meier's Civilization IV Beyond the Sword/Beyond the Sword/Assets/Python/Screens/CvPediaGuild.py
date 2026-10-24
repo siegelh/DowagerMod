@@ -99,7 +99,7 @@ class CvPediaGuild:
 		iSelected = 0
 		for i in range(len(items)):
 			if bRedraw:
-				screen.appendListBoxStringNoUpdate(self.top.LIST_ID, items[i][0], WidgetTypes.WIDGET_GENERAL, items[i][1], 0, CvUtil.FONT_LEFT_JUSTIFY)
+				screen.appendListBoxStringNoUpdate(self.top.LIST_ID, items[i][0], WidgetTypes.WIDGET_PEDIA_JUMP_TO_GUILD, items[i][1], 0, CvUtil.FONT_LEFT_JUSTIFY)
 			if items[i][1] == self.iGuild:
 				iSelected = i
 		if bRedraw:
@@ -107,7 +107,4 @@ class CvPediaGuild:
 		screen.setSelectedListBoxStringGFC(self.top.LIST_ID, iSelected)
 
 	def handleInput(self, inputClass):
-		if inputClass.getNotifyCode() == NotifyCode.NOTIFY_LISTBOX_ITEM_SELECTED:
-			self.interfaceScreen(inputClass.getData1())
-			return 1
 		return 0

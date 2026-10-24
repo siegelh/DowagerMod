@@ -6870,5 +6870,105 @@
 		<KFM/>
 		<Button>Art/Interface/Buttons/Buildings/Industries/military_outfitters.dds</Button>
 	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_ARTIFICERS_HEADQUARTERS</Type>
+		<LSystem>LSystem 4x4</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.0</fScale>
+		<fInterfaceScale>1.4</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/leonardo/leonardo.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/national_wonders/blacksmith_guild.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_ARTIFICERS_HOUSE</Type>
+		<LSystem>LSystem 1x1</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>0.8</fScale>
+		<fInterfaceScale>0.8</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/wheelwright/wheelwrightb.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/wheelwright.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_MERCHANT_ADVENTURERS_HEADQUARTERS</Type>
+		<LSystem>LSystem 3x3</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.0</fScale>
+		<fInterfaceScale>0.6</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/agora/agora.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/national_wonders/mercers_guild.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_MERCHANT_ADVENTURERS_HOUSE</Type>
+		<LSystem>LSystem 2x2</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.0</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/caravanpost/tradingpost.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/caravanpost.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_APOTHECARIES_HEADQUARTERS</Type>
+		<LSystem>LSystem 2x2</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.0</fScale>
+		<fInterfaceScale>0.8</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/granary/greco_roman_granary/alchemist.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/national_wonders/apothecary_guild.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_APOTHECARIES_HOUSE</Type>
+		<LSystem>LSystem 1x1</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.5</fScale>
+		<fInterfaceScale>1.5</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/apothecary/apothecary.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/apothecary_shop_button.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_VICTUALLERS_HEADQUARTERS</Type>
+		<LSystem>LSystem 2x2</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.0</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/tavern/tavern.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/national_wonders/victuallers_guild.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_VICTUALLERS_HOUSE</Type>
+		<LSystem>LSystem 1x1</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.0</fScale>
+		<fInterfaceScale>1.0</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/gambling_house/grocery.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/tavern.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_PAGEANTRY_HEADQUARTERS</Type>
+		<LSystem>LSystem 2x3</LSystem>
+		<bAnimated>0</bAnimated>
+		<fScale>1.3</fScale>
+		<fInterfaceScale>0.7</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/festival/circus.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/national_wonders/artist_guild.dds</Button>
+	</BuildingArtInfo>
+	<BuildingArtInfo>
+		<Type>ART_DEF_BUILDING_GUILD_PAGEANTRY_HOUSE</Type>
+		<LSystem>LSystem 2x2</LSystem>
+		<bAnimated>1</bAnimated>
+		<fScale>0.15</fScale>
+		<fInterfaceScale>0.2</fInterfaceScale>
+		<NIF>Art/Caveman2Cosmos/art/structures/buildings/carnival/fest_mid_tentbig.nif</NIF>
+		<KFM></KFM>
+		<Button>Art/Caveman2Cosmos/art/interface/buttons/buildings/carnival.dds</Button>
+	</BuildingArtInfo>
 </BuildingArtInfos>
 </Civ4ArtDefines>

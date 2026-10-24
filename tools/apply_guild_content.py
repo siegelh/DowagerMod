@@ -13,6 +13,7 @@ from apply_guild_armaments import surgical_write, set_list, text_entry
 ASSETS = ROOT / "CoreFiles/Sid Meier's Civilization IV Beyond the Sword/Beyond the Sword/Assets"
 BUILDING_CLASSES = ASSETS / "XML/Buildings/CIV4BuildingClassInfos.xml"
 BUILDINGS = ASSETS / "XML/Buildings/CIV4BuildingInfos.xml"
+BUILDING_ART = ASSETS / "XML/Art/CIV4ArtDefines_Building.xml"
 UNIT_CLASSES = ASSETS / "XML/Units/CIV4UnitClassInfos.xml"
 UNITS = ASSETS / "XML/Units/CIV4UnitInfos.xml"
 UNIT_ART = ASSETS / "XML/Art/CIV4ArtDefines_Unit.xml"
@@ -28,6 +29,20 @@ GUILDS = (
         "advisor": "ADVISOR_ECONOMY",
         "house": {"yield": (0, 0, 0), "ymod": (0, 25, 0), "commerce": (0, 0, 0, 0), "cmod": (0, 0, 0, 0), "health": 0, "happy": 0, "routes": 0},
         "button": "Art/Interface/Buttons/Buildings/Industries/iron_foundry.dds",
+        "hq_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/leonardo/leonardo.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/national_wonders/blacksmith_guild.dds",
+            "lsystem": "LSystem 4x4",
+            "scale": 1.0,
+            "interface_scale": 1.4,
+        },
+        "house_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/wheelwright/wheelwrightb.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/buildings/wheelwright.dds",
+            "lsystem": "LSystem 1x1",
+            "scale": 0.8,
+            "interface_scale": 0.8,
+        },
     },
     {
         "key": "MERCHANT_ADVENTURERS",
@@ -37,6 +52,20 @@ GUILDS = (
         "advisor": "ADVISOR_ECONOMY",
         "house": {"yield": (0, 0, 0), "ymod": (0, 0, 0), "commerce": (0, 0, 0, 0), "cmod": (25, 0, 0, 0), "health": 0, "happy": 0, "routes": 2},
         "button": "Art/Interface/Buttons/Buildings/Industries/exchange_hall.dds",
+        "hq_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/agora/agora.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/national_wonders/mercers_guild.dds",
+            "lsystem": "LSystem 3x3",
+            "scale": 1.0,
+            "interface_scale": 0.6,
+        },
+        "house_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/caravanpost/tradingpost.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/buildings/caravanpost.dds",
+            "lsystem": "LSystem 2x2",
+            "scale": 1.0,
+            "interface_scale": 1.0,
+        },
     },
     {
         "key": "APOTHECARIES",
@@ -46,6 +75,20 @@ GUILDS = (
         "advisor": "ADVISOR_SCIENCE",
         "house": {"yield": (0, 0, 0), "ymod": (0, 0, 0), "commerce": (0, 0, 0, 0), "cmod": (0, 25, 0, 0), "health": 3, "happy": 0, "routes": 0},
         "button": "Art/Interface/Buttons/Buildings/Industries/whale_oil_chandlery.dds",
+        "hq_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/granary/greco_roman_granary/alchemist.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/national_wonders/apothecary_guild.dds",
+            "lsystem": "LSystem 2x2",
+            "scale": 1.0,
+            "interface_scale": 0.8,
+        },
+        "house_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/apothecary/apothecary.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/buildings/apothecary_shop_button.dds",
+            "lsystem": "LSystem 1x1",
+            "scale": 1.5,
+            "interface_scale": 1.5,
+        },
     },
     {
         "key": "VICTUALLERS",
@@ -55,6 +98,20 @@ GUILDS = (
         "advisor": "ADVISOR_ECONOMY",
         "house": {"yield": (3, 0, 0), "ymod": (0, 0, 0), "commerce": (0, 0, 0, 0), "cmod": (0, 0, 0, 0), "health": 3, "happy": 0, "routes": 0},
         "button": "Art/Interface/Buttons/Buildings/Industries/victuallers_exchange.dds",
+        "hq_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/tavern/tavern.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/national_wonders/victuallers_guild.dds",
+            "lsystem": "LSystem 2x2",
+            "scale": 1.0,
+            "interface_scale": 1.0,
+        },
+        "house_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/gambling_house/grocery.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/buildings/tavern.dds",
+            "lsystem": "LSystem 1x1",
+            "scale": 1.0,
+            "interface_scale": 1.0,
+        },
     },
     {
         "key": "PAGEANTRY",
@@ -64,6 +121,21 @@ GUILDS = (
         "advisor": "ADVISOR_CULTURE",
         "house": {"yield": (0, 0, 0), "ymod": (0, 0, 0), "commerce": (0, 0, 0, 0), "cmod": (0, 0, 25, 0), "health": 0, "happy": 3, "routes": 0},
         "button": "Art/Interface/Buttons/Buildings/Industries/illuminated_theatre.dds",
+        "hq_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/festival/circus.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/national_wonders/artist_guild.dds",
+            "lsystem": "LSystem 2x3",
+            "scale": 1.3,
+            "interface_scale": 0.7,
+        },
+        "house_art": {
+            "model": "Art/Caveman2Cosmos/art/structures/buildings/carnival/fest_mid_tentbig.nif",
+            "button": "Art/Caveman2Cosmos/art/interface/buttons/buildings/carnival.dds",
+            "lsystem": "LSystem 2x2",
+            "scale": 0.15,
+            "interface_scale": 0.2,
+            "animated": 1,
+        },
     },
 )
 
@@ -78,6 +150,8 @@ def ids(guild):
         "unit_class": f"UNITCLASS_GUILD_{key}_EMISSARY",
         "unit": f"UNIT_GUILD_{key}_EMISSARY",
         "art": f"ART_DEF_UNIT_GUILD_{key}_EMISSARY",
+        "hq_art": f"ART_DEF_BUILDING_GUILD_{key}_HEADQUARTERS",
+        "house_art": f"ART_DEF_BUILDING_GUILD_{key}_HOUSE",
     }
 
 
@@ -211,7 +285,7 @@ def patch_buildings():
         gid = ids(guild)
         hq = base.ensure(doc, "BuildingInfos", "BuildingInfo", gid["hq"], hq_template)
         reset_building_identity(hq, guild, gid["hq"], gid["hq_class"])
-        base.setc(hq, "ArtDefineTag", "ART_DEF_BUILDING_MARKET")
+        base.setc(hq, "ArtDefineTag", gid["hq_art"])
         base.setc(hq, "GreatPeopleUnitClass", f"UNITCLASS_{guild['founder'].replace('UNIT_', '')}")
         base.setc(hq, "iGreatPeopleRateChange", 2)
         base.setc(hq, "bNeverCapture", 1)
@@ -220,7 +294,7 @@ def patch_buildings():
 
         house = base.ensure(doc, "BuildingInfos", "BuildingInfo", gid["house"], house_template)
         reset_building_identity(house, guild, gid["house"], gid["house_class"])
-        base.setc(house, "ArtDefineTag", "ART_DEF_BUILDING_MARKET")
+        base.setc(house, "ArtDefineTag", gid["house_art"])
         base.setc(house, "GreatPeopleUnitClass", "NONE")
         base.setc(house, "iGreatPeopleRateChange", 0)
         base.setc(house, "bNeverCapture", 0)
@@ -243,6 +317,32 @@ def patch_buildings():
         base.flavors(house, {"FLAVOR_GOLD": 5, "FLAVOR_PRODUCTION": 5, "FLAVOR_CULTURE": 5})
         changed.extend((gid["hq"], gid["house"]))
     surgical_write(doc, BUILDINGS, "BuildingInfo", tuple(changed), "BuildingInfos")
+
+
+def patch_building_art():
+    doc = base.parse(BUILDING_ART)
+    template = base.by_type(doc, "BuildingArtInfo", "ART_DEF_BUILDING_MARKET")
+    changed = []
+    for guild in GUILDS:
+        gid = ids(guild)
+        for art_type, art in (
+            (gid["hq_art"], guild["hq_art"]),
+            (gid["house_art"], guild["house_art"]),
+        ):
+            node = base.ensure(doc, "BuildingArtInfos", "BuildingArtInfo", art_type, template)
+            for tag, value in (
+                ("Type", art_type),
+                ("bAnimated", art.get("animated", 0)),
+                ("fScale", art["scale"]),
+                ("fInterfaceScale", art["interface_scale"]),
+                ("NIF", art["model"]),
+                ("KFM", ""),
+                ("Button", art["button"]),
+                ("LSystem", art["lsystem"]),
+            ):
+                base.setc(node, tag, value)
+            changed.append(art_type)
+    surgical_write(doc, BUILDING_ART, "BuildingArtInfo", tuple(changed), "BuildingArtInfos")
 
 
 def patch_unit_classes():
@@ -273,8 +373,23 @@ def patch_unit_art():
     for guild in GUILDS:
         gid = ids(guild)
         node = base.ensure(doc, "UnitArtInfos", "UnitArtInfo", gid["art"], template)
-        base.setc(node, "Type", gid["art"])
-        base.setc(node, "Button", guild["button"])
+        for tag, value in (
+            ("Type", gid["art"]),
+            ("Button", guild["button"]),
+            ("fScale", 0.44),
+            ("fInterfaceScale", 1.0),
+            ("NIF", "Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif"),
+            ("KFM", "Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm"),
+            ("SHADERNIF", "Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif"),
+        ):
+            base.setc(node, tag, value)
+        shadow = base.child(node, "ShadowDef")
+        base.setc(shadow, "ShadowNIF", "Art/Units/01_UnitShadows/UnitShadow.nif")
+        base.setc(shadow, "ShadowAttachNode", "Chariot_Chariot")
+        base.setc(shadow, "fShadowScale", 1.0)
+        trail = base.child(node, "TrailDefinition")
+        if trail is not None:
+            node.removeChild(trail)
         changed.append(gid["art"])
     surgical_write(doc, UNIT_ART, "UnitArtInfo", tuple(changed), "UnitArtInfos")
 
@@ -402,6 +517,7 @@ def patch_text():
 def main():
     patch_building_classes()
     patch_buildings()
+    patch_building_art()
     patch_unit_classes()
     patch_unit_art()
     patch_units_and_founders()

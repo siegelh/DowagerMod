@@ -531,6 +531,10 @@ void CvDLLWidgetData::parseHelp(CvWStringBuffer &szBuffer, CvWidgetDataStruct &w
 		parseCorporationHelp(widgetDataStruct, szBuffer);
 		break;
 
+	case WIDGET_PEDIA_JUMP_TO_GUILD:
+		parsePediaJumpToGuildHelp(widgetDataStruct, szBuffer);
+		break;
+
 	case WIDGET_PEDIA_JUMP_TO_TERRAIN:
 		parseTerrainHelp(widgetDataStruct, szBuffer);
 		break;
@@ -805,6 +809,10 @@ bool CvDLLWidgetData::executeAction( CvWidgetDataStruct &widgetDataStruct )
 		doPediaCorporationJump(widgetDataStruct);
 		break;
 
+	case WIDGET_PEDIA_JUMP_TO_GUILD:
+		doPediaGuildJump(widgetDataStruct);
+		break;
+
 	case WIDGET_PEDIA_JUMP_TO_TERRAIN:
 		doPediaTerrainJump(widgetDataStruct);
 		break;
@@ -938,6 +946,9 @@ bool CvDLLWidgetData::executeAltAction( CvWidgetDataStruct &widgetDataStruct )
 	case WIDGET_PEDIA_JUMP_TO_CORPORATION:
 		doPediaCorporationJump(widgetData);
 		break;
+	case WIDGET_PEDIA_JUMP_TO_GUILD:
+		doPediaGuildJump(widgetData);
+		break;
 	case WIDGET_PEDIA_JUMP_TO_BUILDING:
 		doPediaBuildingJump(widgetDataStruct);
 		break;
@@ -1002,6 +1013,7 @@ bool CvDLLWidgetData::isLink(const CvWidgetDataStruct &widgetDataStruct) const
 	case WIDGET_PEDIA_JUMP_TO_PROJECT:
 	case WIDGET_PEDIA_JUMP_TO_RELIGION:
 	case WIDGET_PEDIA_JUMP_TO_CORPORATION:
+	case WIDGET_PEDIA_JUMP_TO_GUILD:
 	case WIDGET_PEDIA_JUMP_TO_TERRAIN:
 	case WIDGET_PEDIA_JUMP_TO_FEATURE:
 	case WIDGET_PEDIA_FORWARD:
@@ -1405,6 +1417,13 @@ void CvDLLWidgetData::doPediaCorporationJump(CvWidgetDataStruct &widgetDataStruc
 	CyArgsList argsList;
 	argsList.add(widgetDataStruct.m_iData1);
 	gDLL->getPythonIFace()->callFunction(PYScreensModule, "pediaJumpToCorporation", argsList.makeFunctionArgs());
+}
+
+void CvDLLWidgetData::doPediaGuildJump(CvWidgetDataStruct &widgetDataStruct)
+{
+	CyArgsList argsList;
+	argsList.add(widgetDataStruct.m_iData1);
+	gDLL->getPythonIFace()->callFunction(PYScreensModule, "pediaJumpToGuild", argsList.makeFunctionArgs());
 }
 
 void CvDLLWidgetData::doPediaTerrainJump(CvWidgetDataStruct &widgetDataStruct)
@@ -4221,6 +4240,14 @@ void CvDLLWidgetData::parseCorporationHelp(CvWidgetDataStruct &widgetDataStruct,
 	if (widgetDataStruct.m_iData2 != 0)
 	{
 		GAMETEXT.setCorporationHelp(szBuffer, (CorporationTypes)widgetDataStruct.m_iData1);
+	}
+}
+
+void CvDLLWidgetData::parsePediaJumpToGuildHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer)
+{
+	if (widgetDataStruct.m_iData2 != 0 && widgetDataStruct.m_iData1 >= 0 && widgetDataStruct.m_iData1 < GC.getNumGuildInfos())
+	{
+		szBuffer.assign(GC.getGuildInfo((GuildTypes)widgetDataStruct.m_iData1).getDescription());
 	}
 }
 

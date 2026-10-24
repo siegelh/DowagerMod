@@ -40,12 +40,19 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
    two-client game; both clients must remove the same branch without OOS.
 8. Open the Industry Advisor Guilds tab and verify sponsor, headquarters, host,
    processor, active/dormant status, branch count, emissaries, and open licenses.
-   Open all five dedicated Civilopedia Guild pages and follow their links.
-9. Save/reload active and dormant domestic/foreign networks. Recheck sponsor,
+   In the Civilopedia, click all five Guild category rows and every Guild-page
+   sidebar entry; verify each opens the correct page and back/forward history
+   plus building, unit, technology, civic, bonus, and processor links still work.
+9. Inspect all five emissaries in the Civilopedia and on the map while idle and
+   moving; verify the caravan, selection circle, and shadow render without red
+   or pink geometry. Inspect all ten headquarters/Guild House models and buttons
+   in the Civilopedia and in cities; verify each is distinct, readable, and
+   sensibly scaled without clipping.
+10. Save/reload active and dormant domestic/foreign networks. Recheck sponsor,
    processor, activity, license totals, headquarters returns, and advisor rows.
-10. Observe AI Great People founding headquarters, headquarters cities replacing
+11. Observe AI Great People founding headquarters, headquarters cities replacing
     emissaries, domestic spread first, and foreign spread only at Pleased/Friendly.
-11. Found Royal Armaments Company only where Arsenal, Remount Depot, and Military
+12. Found Royal Armaments Company only where Arsenal, Remount Depot, and Military
     Outfitters are present. Verify Forged Iron, Copperware, and Trained Mounts
     each contribute the configured Production and branches receive military XP.
 
