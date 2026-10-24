@@ -124,6 +124,7 @@ protected:
 	bool AI_goldenAge();
 	bool AI_spreadReligion();
 	bool AI_spreadCorporation();
+	bool AI_establishGuildBranch();
 	bool AI_spreadReligionAirlift();
 	bool AI_spreadCorporationAirlift();
 	bool AI_discover(bool bThisTurnOnly = false, bool bFirstResearchOnly = false);

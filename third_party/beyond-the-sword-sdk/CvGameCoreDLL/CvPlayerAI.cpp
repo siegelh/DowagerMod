@@ -7803,6 +7803,16 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 		case UNITAI_MISSIONARY:
 			if (pArea != NULL)
 			{
+				for (iI = 0; iI < GC.getNumGuildInfos(); ++iI)
+				{
+					const GuildTypes eGuild = (GuildTypes)iI;
+					if (GC.getUnitInfo(eUnit).getUnitClassType() == GC.getGuildInfo(eGuild).getEmissaryUnitClass()
+						&& getNumAvailableGuildLicenses(eGuild) > 0)
+					{
+						bValid = true;
+						break;
+					}
+				}
 				for (iI = 0; iI < GC.getNumReligionInfos(); iI++)
 				{
 					if (GC.getUnitInfo(eUnit).getReligionSpreads((ReligionTypes)iI) > 0)
@@ -8185,6 +8195,16 @@ int CvPlayerAI::AI_unitValue(UnitTypes eUnit, UnitAITypes eUnitAI, CvArea* pArea
 
 	case UNITAI_MISSIONARY:
 		iValue += (GC.getUnitInfo(eUnit).getMoves() * 100);
+		for (iI = 0; iI < GC.getNumGuildInfos(); ++iI)
+		{
+			const GuildTypes eGuild = (GuildTypes)iI;
+			if (GC.getUnitInfo(eUnit).getUnitClassType() == GC.getGuildInfo(eGuild).getEmissaryUnitClass()
+				&& getNumAvailableGuildLicenses(eGuild) > 0)
+			{
+				iValue += 500;
+				break;
+			}
+		}
 		if (getStateReligion() != NO_RELIGION)
 		{
 			if (GC.getUnitInfo(eUnit).getReligionSpreads(getStateReligion()) > 0)

@@ -3338,6 +3338,11 @@ void CvUnitAI::AI_missionaryMove()
 {
 	PROFILE_FUNC();
 
+	if (AI_establishGuildBranch())
+	{
+		return;
+	}
+
 	if (AI_spreadReligion())
 	{
 		return;
@@ -3388,6 +3393,80 @@ void CvUnitAI::AI_missionaryMove()
 
 	getGroup()->pushMission(MISSION_SKIP);
 	return;
+}
+
+bool CvUnitAI::AI_establishGuildBranch()
+{
+	const GuildTypes eGuild = getGuildType();
+	if (eGuild == NO_GUILD)
+	{
+		return false;
+	}
+
+	int iBestValue = 0;
+	CvPlot* pBestMovePlot = NULL;
+	CvPlot* pBestTargetPlot = NULL;
+	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
+	{
+		CvPlayerAI& kPlayer = GET_PLAYER((PlayerTypes)iPlayer);
+		if (!kPlayer.isAlive())
+		{
+			continue;
+		}
+		if (iPlayer != getOwnerINLINE() && GET_PLAYER(getOwnerINLINE()).AI_getAttitude((PlayerTypes)iPlayer) < ATTITUDE_PLEASED)
+		{
+			continue;
+		}
+
+		int iCityLoop = 0;
+		for (CvCity* pCity = kPlayer.firstCity(&iCityLoop); pCity != NULL; pCity = kPlayer.nextCity(&iCityLoop))
+		{
+			if (!AI_plotValid(pCity->plot()) || !canEstablishGuildBranch(pCity->plot(), NO_BUILDINGCLASS, false))
+			{
+				continue;
+			}
+			if (pCity->plot()->isVisibleEnemyUnit(this)
+				|| GET_PLAYER(getOwnerINLINE()).AI_plotTargetMissionAIs(pCity->plot(), MISSIONAI_SPREAD_CORPORATION, getGroup()) > 0)
+			{
+				continue;
+			}
+
+			int iPathTurns = 0;
+			if (!generatePath(pCity->plot(), 0, true, &iPathTurns))
+			{
+				continue;
+			}
+
+			int iValue = 100 + pCity->getPopulation() * 10;
+			iValue += 50 * pCity->getNumEligibleGuildProcessors(eGuild, getOwnerINLINE());
+			if (pCity->getOwnerINLINE() == getOwnerINLINE())
+			{
+				iValue *= 3;
+			}
+			iValue = (iValue * 1000) / (iPathTurns + 1);
+			if (iValue > iBestValue)
+			{
+				iBestValue = iValue;
+				pBestMovePlot = getPathEndTurnPlot();
+				pBestTargetPlot = pCity->plot();
+			}
+		}
+	}
+
+	if (pBestTargetPlot == NULL)
+	{
+		return false;
+	}
+	if (atPlot(pBestTargetPlot))
+	{
+		getGroup()->pushMission(MISSION_ESTABLISH_GUILD_BRANCH);
+	}
+	else
+	{
+		getGroup()->pushMission(MISSION_MOVE_TO, pBestMovePlot->getX_INLINE(), pBestMovePlot->getY_INLINE(),
+			0, false, false, MISSIONAI_SPREAD_CORPORATION, pBestTargetPlot);
+	}
+	return true;
 }
 
 
