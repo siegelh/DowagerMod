@@ -23,6 +23,7 @@ import CvPediaHistory
 import CvPediaProject
 import CvPediaReligion
 import CvPediaCorporation
+import CvPediaGuild
 
 # globals
 gc = CyGlobalContext()
@@ -100,6 +101,8 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		self.pediaProjectScreen = CvPediaProject.CvPediaProject(self)
 		self.pediaReligion = CvPediaReligion.CvPediaReligion(self)
 		self.pediaCorporation = CvPediaCorporation.CvPediaCorporation(self)
+		self.pediaGuild = CvPediaGuild.CvPediaGuild(self)
+		self.szGuildTable = ""
 		self.pediaHistorical = CvPediaHistory.CvPediaHistory(self)
 				
 		# used for navigating "forward" and "back" in civilopedia
@@ -129,6 +132,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 			CivilopediaPageTypes.CIVILOPEDIA_PAGE_LEADER	: self.placeLeaders,
 			CivilopediaPageTypes.CIVILOPEDIA_PAGE_RELIGION	: self.placeReligions,
 			CivilopediaPageTypes.CIVILOPEDIA_PAGE_CORPORATION	: self.placeCorporations,
+			CivilopediaPageTypes.CIVILOPEDIA_PAGE_GUILD	: self.placeGuilds,
 			CivilopediaPageTypes.CIVILOPEDIA_PAGE_CIVIC	: self.placeCivics,
 			CivilopediaPageTypes.CIVILOPEDIA_PAGE_PROJECT	: self.placeProjects,
 			CivilopediaPageTypes.CIVILOPEDIA_PAGE_CONCEPT	: self.placeConcepts,
@@ -160,6 +164,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		self.szCategoryLeader = localText.getText("TXT_KEY_PEDIA_CATEGORY_LEADER", ())		
 		self.szCategoryReligion = localText.getText("TXT_KEY_PEDIA_CATEGORY_RELIGION", ())		
 		self.szCategoryCorporation = localText.getText("TXT_KEY_CONCEPT_CORPORATIONS", ())		
+		self.szCategoryGuild = localText.getText("TXT_KEY_PEDIA_CATEGORY_GUILD", ())
 		self.szCategoryCivic = localText.getText("TXT_KEY_PEDIA_CATEGORY_CIVIC", ())		
 		self.szCategoryProject = localText.getText("TXT_KEY_PEDIA_CATEGORY_PROJECT", ())		
 		self.szCategoryConcept = localText.getText("TXT_KEY_PEDIA_CATEGORY_CONCEPT", ())
@@ -181,6 +186,7 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 								self.szCategoryLeader,
 								self.szCategoryReligion, 
 								self.szCategoryCorporation, 
+								self.szCategoryGuild,
 								self.szCategoryCivic, 
 								self.szCategoryProject,  
 								self.szCategoryConcept,
@@ -619,6 +625,18 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 				screen.appendTableRow(tableName)
 			screen.setTableText(tableName, iColumn, iRow, u"<font=3>" + item[0] + u"</font>", gc.getCorporationInfo(item[1]).getButton(), WidgetTypes.WIDGET_PEDIA_JUMP_TO_CORPORATION, item[1], 1, CvUtil.FONT_LEFT_JUSTIFY)
 			iCounter += 1
+
+	def placeGuilds(self):
+		screen = self.getScreen()
+		items = self.getSortedList(gc.getNumGuildInfos(), gc.getGuildInfo)
+		tableName = self.getNextWidgetName()
+		self.szGuildTable = tableName
+		screen.addTableControlGFC(tableName, 1, self.X_ITEMS_PANE, self.Y_ITEMS_PANE+5, self.W_ITEMS_PANE, self.H_ITEMS_PANE-5, False, False, 24, 24, TableStyles.TABLE_STYLE_STANDARD)
+		screen.enableSelect(tableName, False)
+		screen.setTableColumnHeader(tableName, 0, "", self.W_ITEMS_PANE)
+		for item in items:
+			iRow = screen.appendTableRow(tableName)
+			screen.setTableText(tableName, 0, iRow, u"<font=3>" + item[0] + u"</font>", gc.getGuildInfo(item[1]).getButton(), WidgetTypes.WIDGET_GENERAL, item[1], -1, CvUtil.FONT_LEFT_JUSTIFY)
 						
 	def placeCivics(self):
 		screen = self.getScreen()
@@ -903,6 +921,8 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 			self.pediaReligion.interfaceScreen(iEntry)	
 		elif (iScreen == CvScreenEnums.PEDIA_CORPORATION):
 			self.pediaCorporation.interfaceScreen(iEntry)	
+		elif (iScreen == CvScreenEnums.PEDIA_GUILD):
+			self.pediaGuild.interfaceScreen(iEntry)
 		elif (iScreen == CvScreenEnums.PEDIA_HISTORY):
 			self.pediaHistorical.interfaceScreen(iEntry)	
 
@@ -1042,6 +1062,9 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 	# Will handle the input for this screen...
 	def handleInput (self, inputClass):
 		# redirect to proper screen if necessary
+		if self.iLastScreen == CvScreenEnums.PEDIA_MAIN and self.iCategory == CivilopediaPageTypes.CIVILOPEDIA_PAGE_GUILD:
+			if inputClass.getNotifyCode() == NotifyCode.NOTIFY_CLICKED and inputClass.getFunctionName() == self.szGuildTable and inputClass.getData1() >= 0:
+				return self.pediaJump(CvScreenEnums.PEDIA_GUILD, inputClass.getData1(), True)
 		if (self.iLastScreen == CvScreenEnums.PEDIA_UNIT):
 			return self.pediaUnitScreen.handleInput(inputClass)
 		if (self.iLastScreen == CvScreenEnums.PEDIA_TECH):
@@ -1074,8 +1097,9 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 			return self.pediaReligion.handleInput(inputClass)
 		if (self.iLastScreen == CvScreenEnums.PEDIA_CORPORATION):
 			return self.pediaCorporation.handleInput(inputClass)
+		if (self.iLastScreen == CvScreenEnums.PEDIA_GUILD):
+			return self.pediaGuild.handleInput(inputClass)
 		if (self.iLastScreen == CvScreenEnums.PEDIA_HISTORY):
 			return self.pediaHistorical.handleInput(inputClass)
 						
 		return 0
-

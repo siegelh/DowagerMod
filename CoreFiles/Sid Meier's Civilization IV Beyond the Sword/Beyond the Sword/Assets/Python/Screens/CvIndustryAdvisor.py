@@ -4,6 +4,7 @@ import ScreenInput
 import sys
 import CvIndustryFlowData
 import CvIndustryFlowRenderer
+import CvGuildNetwork
 
 # Game globals
 
@@ -59,7 +60,7 @@ class CvIndustryAdvisor:
         self.BOTTOM_PANEL_ID = 'IndustryAdvisorBottomPanel'
         self.MAIN_PANEL_ID = 'IndustryAdvisorMainPanel'
         self.HEADER_ID = 'IndustryAdvisorHeader'
-        self.TAB_IDS = ('IndustryTabCities', 'IndustryTabGoods', 'IndustryTabChains')
+        self.TAB_IDS = ('IndustryTabCities', 'IndustryTabGoods', 'IndustryTabChains', 'IndustryTabGuilds')
         self.CHAINS_VIEW_IDS = ('IndustryChainsViewGraph', 'IndustryChainsViewTable')
         self.CHAINS_LEGEND_ID = 'IndustryChainsLegend'
         self.iTab = 0
@@ -160,8 +161,8 @@ class CvIndustryAdvisor:
         screen.setLabel(self._addWidget(self.HEADER_ID), 'Background', u'<font=4>INDUSTRY ADVISOR</font>', CvUtil.FONT_CENTER_JUSTIFY, xRes / 2, 15, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
         screen.setText(self._addWidget(self.EXIT_ID), 'Background', localText.getText('TXT_KEY_PEDIA_SCREEN_EXIT', ()).upper(), CvUtil.FONT_RIGHT_JUSTIFY, xRes - 20, yRes - 40, -0.1, FontTypes.TITLE_FONT, WidgetTypes.WIDGET_CLOSE_SCREEN, -1, -1)
 
-        tabTexts = ('Cities', 'Goods', 'Chains')
-        for i in range(3):
+        tabTexts = ('Cities', 'Goods', 'Chains', 'Guilds')
+        for i in range(4):
             if i == self.iTab:
                 colorStart = u'<color=255,255,0>'
                 colorEnd = u'</color>'
@@ -174,8 +175,10 @@ class CvIndustryAdvisor:
             self.drawCitiesTab(x + 16, y + 16, w - 32, h - 32)
         elif self.iTab == 1:
             self.drawGoodsTab(x + 16, y + 16, w - 32, h - 32)
-        else:
+        elif self.iTab == 2:
             self.drawChainsTab(x + 16, y + 16, w - 32, h - 32)
+        else:
+            self.drawGuildsTab(x + 16, y + 16, w - 32, h - 32)
 
     def _ownedBFCPlots(self, city):
         plots = []
@@ -751,6 +754,100 @@ class CvIndustryAdvisor:
         else:
             self.drawChainsTable(x, y + 24, w, h - 24)
 
+    def _buildingForClass(self, iPlayer, iBuildingClass):
+        if iBuildingClass < 0:
+            return -1
+        player = gc.getPlayer(iPlayer)
+        return gc.getCivilizationInfo(player.getCivilizationType()).getCivilizationBuildings(iBuildingClass)
+
+    def _guildHeadquartersCity(self, iPlayer, iGuild):
+        iBuilding = self._buildingForClass(iPlayer, gc.getGuildInfo(iGuild).getHeadquartersBuildingClass())
+        if iBuilding < 0:
+            return None
+        player = gc.getPlayer(iPlayer)
+        (city, iter) = player.firstCity(False)
+        while city:
+            if city.getNumRealBuilding(iBuilding) > 0:
+                return city
+            (city, iter) = player.nextCity(iter, False)
+        return None
+
+    def drawGuildsTab(self, x, y, w, h):
+        screen = self.getScreen()
+        table = self._addWidget(self.TABLE_ID)
+        screen.addTableControlGFC(table, 8, x, y, w, h, True, False, 24, 24, TableStyles.TABLE_STYLE_STANDARD)
+        screen.enableSelect(table, False)
+        screen.setStyle(table, 'Table_StandardCiv_Style')
+        headers = (
+            ('Guild', int(w * 0.18)),
+            ('Sponsor', int(w * 0.12)),
+            ('Headquarters', int(w * 0.14)),
+            ('Licenses', int(w * 0.10)),
+            ('Host City', int(w * 0.14)),
+            ('Processor', int(w * 0.14)),
+            ('Status', int(w * 0.10)),
+            ('Action', int(w * 0.08)),
+        )
+        for i, (label, width) in enumerate(headers):
+            screen.setTableColumnHeader(table, i, u'<font=2>%s</font>' % label, width)
+
+        row = 0
+        for iGuild in range(gc.getNumGuildInfos()):
+            guild = gc.getGuildInfo(iGuild)
+            bFoundBranch = False
+            for iPlayer in range(gc.getMAX_PLAYERS()):
+                host = gc.getPlayer(iPlayer)
+                if not host.isAlive():
+                    continue
+                (city, iter) = host.firstCity(False)
+                while city:
+                    if city.hasGuildBranch(iGuild):
+                        bFoundBranch = True
+                        iSponsor = city.getGuildSponsor(iGuild)
+                        sponsor = gc.getPlayer(iSponsor)
+                        headquarters = self._guildHeadquartersCity(iSponsor, iGuild)
+                        iProcessor = self._buildingForClass(iPlayer, city.getGuildProcessor(iGuild))
+                        screen.appendTableRow(table)
+                        screen.setTableText(table, 0, row, guild.getDescription(), guild.getButton(), WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                        screen.setTableText(table, 1, row, sponsor.getName(), '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                        screen.setTableText(table, 2, row, headquarters and headquarters.getName() or u'-', '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                        licenseText = u'%d used / %d; %d emissary; %d open' % (
+                            sponsor.getNumSponsoredGuildBranches(iGuild) + sponsor.getNumGuildEmissaries(iGuild),
+                            guild.getLicenseCap(),
+                            sponsor.getNumGuildEmissaries(iGuild),
+                            sponsor.getNumAvailableGuildLicenses(iGuild),
+                        )
+                        screen.setTableText(table, 3, row, licenseText, '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                        screen.setTableText(table, 4, row, city.getName(), '', WidgetTypes.WIDGET_ZOOM_CITY, iPlayer, city.getID(), CvUtil.FONT_LEFT_JUSTIFY)
+                        processorText = iProcessor >= 0 and gc.getBuildingInfo(iProcessor).getDescription() or u'-'
+                        screen.setTableText(table, 5, row, processorText, '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                        statusText = city.isGuildBranchActive(iGuild) and u'<color=0,255,0>Active</color>' or u'<color=255,160,0>Dormant</color>'
+                        screen.setTableText(table, 6, row, statusText, '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                        if self.iActivePlayer == iPlayer or self.iActivePlayer == iSponsor:
+                            actionText = self.iActivePlayer == iPlayer and u'Revoke' or u'Withdraw'
+                            screen.setTableText(table, 7, row, actionText, '', WidgetTypes.WIDGET_GENERAL, iGuild, (iPlayer * 10000) + city.getID(), CvUtil.FONT_LEFT_JUSTIFY)
+                        else:
+                            screen.setTableText(table, 7, row, u'-', '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                        row += 1
+                    (city, iter) = host.nextCity(iter, False)
+
+            if not bFoundBranch and self.player.hasGuildHeadquarters(iGuild):
+                headquarters = self._guildHeadquartersCity(self.iActivePlayer, iGuild)
+                screen.appendTableRow(table)
+                screen.setTableText(table, 0, row, guild.getDescription(), guild.getButton(), WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                screen.setTableText(table, 1, row, self.player.getName(), '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                screen.setTableText(table, 2, row, headquarters and headquarters.getName() or u'-', '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                screen.setTableText(table, 3, row, u'%d used / %d; %d emissary; %d open' % (
+                    self.player.getNumGuildEmissaries(iGuild), guild.getLicenseCap(),
+                    self.player.getNumGuildEmissaries(iGuild), self.player.getNumAvailableGuildLicenses(iGuild)), '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                for iColumn in range(4, 8):
+                    screen.setTableText(table, iColumn, row, u'-', '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+                row += 1
+
+        if row == 0:
+            screen.appendTableRow(table)
+            screen.setTableText(table, 0, 0, u'No guild headquarters or branches are currently known.', '', WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+
     def drawChainsGraph(self, x, y, w, h):
         screen = self.getScreen()
         try:
@@ -840,6 +937,15 @@ class CvIndustryAdvisor:
             if fname == self.TAB_IDS[2]:
                 self.iTab = 2
                 self.drawScreen()
+                return 1
+            if fname == self.TAB_IDS[3]:
+                self.iTab = 3
+                self.drawScreen()
+                return 1
+            if fname == self.TABLE_ID and self.iTab == 3 and inputClass.getData1() >= 0 and inputClass.getData2() >= 0:
+                iOwner = inputClass.getData2() // 10000
+                iCityId = inputClass.getData2() % 10000
+                CvGuildNetwork.requestBranchRemoval(self.iActivePlayer, iOwner, iCityId, inputClass.getData1())
                 return 1
             if fname == self.CHAINS_VIEW_IDS[0]:
                 self.iChainsView = 0

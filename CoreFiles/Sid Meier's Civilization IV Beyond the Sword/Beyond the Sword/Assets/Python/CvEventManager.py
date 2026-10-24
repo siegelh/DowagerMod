@@ -23,6 +23,7 @@ import CvTechChooser
 import CvArtMasterpieceSystem
 import CvGlyphDiagnostics
 import CvLeaderChatter
+import CvGuildNetwork
 
 gc = CyGlobalContext()
 localText = CyTranslator()
@@ -328,6 +329,9 @@ class CvEventManager:
 		'Called whenever CyMessageControl().sendModNetMessage() is called - this is all for you modders!'
 		
 		iData1, iData2, iData3, iData4, iData5 = argsList
+
+		if CvGuildNetwork.onModNetMessage(iData1, iData2, iData3, iData4, iData5):
+			return
 		
 		# DowagerMod chatter capability ping handler.
 		if CvLeaderChatter.chatter_on_mod_net_message(iData1, iData2, iData3, iData4, iData5):

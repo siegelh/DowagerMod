@@ -692,6 +692,11 @@ bool CyCity::isGuildBranchActive(int iGuild)
 	return m_pCity ? m_pCity->isGuildBranchActive((GuildTypes)iGuild) : false;
 }
 
+bool CyCity::removeGuildBranch(int iGuild)
+{
+	return m_pCity ? m_pCity->removeGuildBranch((GuildTypes)iGuild) : false;
+}
+
 int CyCity::getNumEligibleGuildProcessors(int iGuild, int iSponsor)
 {
 	return m_pCity ? m_pCity->getNumEligibleGuildProcessors((GuildTypes)iGuild, (PlayerTypes)iSponsor) : 0;

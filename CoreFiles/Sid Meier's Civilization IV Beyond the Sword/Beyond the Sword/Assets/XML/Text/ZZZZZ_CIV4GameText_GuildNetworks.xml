@@ -25,6 +25,14 @@
 		<Spanish>%s1 established a branch in %s2.</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_PEDIA_CATEGORY_GUILD</Tag>
+		<English>Guilds</English>
+		<French>Guilds</French>
+		<German>Guilds</German>
+		<Italian>Guilds</Italian>
+		<Spanish>Guilds</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_GUILD_ARTIFICERS</Tag>
 		<English>Artificers and Farriers</English>
 		<French>Artificers and Farriers</French>

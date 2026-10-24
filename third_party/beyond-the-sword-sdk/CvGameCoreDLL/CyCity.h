@@ -166,6 +166,7 @@ public:
 	int getGuildProcessor(int /*GuildTypes*/ iGuild);
 	bool hasGuildBranch(int /*GuildTypes*/ iGuild);
 	bool isGuildBranchActive(int /*GuildTypes*/ iGuild);
+	bool removeGuildBranch(int /*GuildTypes*/ iGuild);
 	int getNumEligibleGuildProcessors(int /*GuildTypes*/ iGuild, int /*PlayerTypes*/ iSponsor);
 	int getEligibleGuildProcessor(int /*GuildTypes*/ iGuild, int /*PlayerTypes*/ iSponsor, int iIndex);
 	int getID();
