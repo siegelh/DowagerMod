@@ -810,6 +810,10 @@ public:
 	int countTotalHasCorporation() const;																																// Exposed to Python
 	void changeHasCorporationCount(CorporationTypes eIndex, int iChange);
 	bool isActiveCorporation(CorporationTypes eIndex) const;
+	bool hasGuildHeadquarters(GuildTypes eGuild) const;
+	int getNumSponsoredGuildBranches(GuildTypes eGuild) const;
+	int getNumGuildEmissaries(GuildTypes eGuild) const;
+	int getNumAvailableGuildLicenses(GuildTypes eGuild) const;
 
 	int getUpkeepCount(UpkeepTypes eIndex) const;																											// Exposed to Python
 	void changeUpkeepCount(UpkeepTypes eIndex, int iChange);

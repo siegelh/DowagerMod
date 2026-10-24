@@ -807,5 +807,50 @@
 			<iInstanceCostModifier>0</iInstanceCostModifier>
 			<DefaultUnit>UNIT_GREAT_SPY</DefaultUnit>
 		</UnitClassInfo>
-	</UnitClassInfos>
+	<UnitClassInfo>
+		<Type>UNITCLASS_GUILD_ARTIFICERS_EMISSARY</Type>
+		<Description>TXT_KEY_UNIT_GUILD_ARTIFICERS_EMISSARY</Description>
+		<iMaxGlobalInstances>-1</iMaxGlobalInstances>
+		<iMaxTeamInstances>-1</iMaxTeamInstances>
+		<iMaxPlayerInstances>-1</iMaxPlayerInstances>
+		<iInstanceCostModifier>0</iInstanceCostModifier>
+		<DefaultUnit>UNIT_GUILD_ARTIFICERS_EMISSARY</DefaultUnit>
+	</UnitClassInfo>
+	<UnitClassInfo>
+		<Type>UNITCLASS_GUILD_MERCHANT_ADVENTURERS_EMISSARY</Type>
+		<Description>TXT_KEY_UNIT_GUILD_MERCHANT_ADVENTURERS_EMISSARY</Description>
+		<iMaxGlobalInstances>-1</iMaxGlobalInstances>
+		<iMaxTeamInstances>-1</iMaxTeamInstances>
+		<iMaxPlayerInstances>-1</iMaxPlayerInstances>
+		<iInstanceCostModifier>0</iInstanceCostModifier>
+		<DefaultUnit>UNIT_GUILD_MERCHANT_ADVENTURERS_EMISSARY</DefaultUnit>
+	</UnitClassInfo>
+	<UnitClassInfo>
+		<Type>UNITCLASS_GUILD_APOTHECARIES_EMISSARY</Type>
+		<Description>TXT_KEY_UNIT_GUILD_APOTHECARIES_EMISSARY</Description>
+		<iMaxGlobalInstances>-1</iMaxGlobalInstances>
+		<iMaxTeamInstances>-1</iMaxTeamInstances>
+		<iMaxPlayerInstances>-1</iMaxPlayerInstances>
+		<iInstanceCostModifier>0</iInstanceCostModifier>
+		<DefaultUnit>UNIT_GUILD_APOTHECARIES_EMISSARY</DefaultUnit>
+	</UnitClassInfo>
+	<UnitClassInfo>
+		<Type>UNITCLASS_GUILD_VICTUALLERS_EMISSARY</Type>
+		<Description>TXT_KEY_UNIT_GUILD_VICTUALLERS_EMISSARY</Description>
+		<iMaxGlobalInstances>-1</iMaxGlobalInstances>
+		<iMaxTeamInstances>-1</iMaxTeamInstances>
+		<iMaxPlayerInstances>-1</iMaxPlayerInstances>
+		<iInstanceCostModifier>0</iInstanceCostModifier>
+		<DefaultUnit>UNIT_GUILD_VICTUALLERS_EMISSARY</DefaultUnit>
+	</UnitClassInfo>
+	<UnitClassInfo>
+		<Type>UNITCLASS_GUILD_PAGEANTRY_EMISSARY</Type>
+		<Description>TXT_KEY_UNIT_GUILD_PAGEANTRY_EMISSARY</Description>
+		<iMaxGlobalInstances>-1</iMaxGlobalInstances>
+		<iMaxTeamInstances>-1</iMaxTeamInstances>
+		<iMaxPlayerInstances>-1</iMaxPlayerInstances>
+		<iInstanceCostModifier>0</iInstanceCostModifier>
+		<DefaultUnit>UNIT_GUILD_PAGEANTRY_EMISSARY</DefaultUnit>
+	</UnitClassInfo>
+</UnitClassInfos>
 </Civ4UnitClassInfos>

@@ -596,6 +596,7 @@ CvPlot* CvSelectionGroup::lastMissionPlot()
 		case MISSION_FOUND:
 		case MISSION_SPREAD:
 		case MISSION_SPREAD_CORPORATION:
+		case MISSION_ESTABLISH_GUILD_BRANCH:
 		case MISSION_JOIN:
 		case MISSION_CONSTRUCT:
 		case MISSION_DISCOVER:
@@ -837,6 +838,13 @@ bool CvSelectionGroup::canStartMission(int iMission, int iData1, int iData2, CvP
 			}
 			break;
 
+		case MISSION_ESTABLISH_GUILD_BRANCH:
+			if (pLoopUnit->canEstablishGuildBranch(pPlot, NO_BUILDINGCLASS, bTestVisible))
+			{
+				return true;
+			}
+			break;
+
 		case MISSION_JOIN:
 			if (pLoopUnit->canJoin(pPlot, ((SpecialistTypes)iData1)))
 			{
@@ -1065,6 +1073,7 @@ void CvSelectionGroup::startMission()
 		case MISSION_FOUND:
 		case MISSION_SPREAD:
 		case MISSION_SPREAD_CORPORATION:
+		case MISSION_ESTABLISH_GUILD_BRANCH:
 		case MISSION_JOIN:
 		case MISSION_CONSTRUCT:
 		case MISSION_DISCOVER:
@@ -1217,6 +1226,13 @@ void CvSelectionGroup::startMission()
 
 				case MISSION_SPREAD_CORPORATION:
 					if (pLoopUnit->spreadCorporation((CorporationTypes)(headMissionQueueNode()->m_data.iData1)))
+					{
+						bAction = true;
+					}
+					break;
+
+				case MISSION_ESTABLISH_GUILD_BRANCH:
+					if (pLoopUnit->establishGuildBranch())
 					{
 						bAction = true;
 					}
@@ -1536,6 +1552,7 @@ void CvSelectionGroup::continueMission(int iSteps)
 				case MISSION_FOUND:
 				case MISSION_SPREAD:
 				case MISSION_SPREAD_CORPORATION:
+				case MISSION_ESTABLISH_GUILD_BRANCH:
 				case MISSION_JOIN:
 				case MISSION_CONSTRUCT:
 				case MISSION_DISCOVER:
@@ -1620,6 +1637,7 @@ void CvSelectionGroup::continueMission(int iSteps)
 			case MISSION_FOUND:
 			case MISSION_SPREAD:
 			case MISSION_SPREAD_CORPORATION:
+			case MISSION_ESTABLISH_GUILD_BRANCH:
 			case MISSION_JOIN:
 			case MISSION_CONSTRUCT:
 			case MISSION_DISCOVER:

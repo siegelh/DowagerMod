@@ -1003,6 +1003,7 @@ void CyEnumsPythonInterface()
 		.value("MISSION_FOUND", MISSION_FOUND)
 		.value("MISSION_SPREAD", MISSION_SPREAD)
 		.value("MISSION_SPREAD_CORPORATION", MISSION_SPREAD_CORPORATION)
+		.value("MISSION_ESTABLISH_GUILD_BRANCH", MISSION_ESTABLISH_GUILD_BRANCH)
 		.value("MISSION_JOIN", MISSION_JOIN)
 		.value("MISSION_CONSTRUCT", MISSION_CONSTRUCT)
 		.value("MISSION_DISCOVER", MISSION_DISCOVER)
@@ -1161,6 +1162,10 @@ void CyEnumsPythonInterface()
 
 	python::enum_<CorporationTypes>("CorporationTypes")
 		.value("NO_CORPORATION", NO_CORPORATION)
+		;
+
+	python::enum_<GuildTypes>("GuildTypes")
+		.value("NO_GUILD", NO_GUILD)
 		;
 
 	python::enum_<HurryTypes>("HurryTypes")

@@ -1755,6 +1755,26 @@ int CyPlayer::countTotalHasCorporation()
 	return m_pPlayer ? m_pPlayer->countTotalHasCorporation() : -1;
 }
 
+bool CyPlayer::hasGuildHeadquarters(int iGuild)
+{
+	return m_pPlayer ? m_pPlayer->hasGuildHeadquarters((GuildTypes)iGuild) : false;
+}
+
+int CyPlayer::getNumSponsoredGuildBranches(int iGuild)
+{
+	return m_pPlayer ? m_pPlayer->getNumSponsoredGuildBranches((GuildTypes)iGuild) : -1;
+}
+
+int CyPlayer::getNumGuildEmissaries(int iGuild)
+{
+	return m_pPlayer ? m_pPlayer->getNumGuildEmissaries((GuildTypes)iGuild) : -1;
+}
+
+int CyPlayer::getNumAvailableGuildLicenses(int iGuild)
+{
+	return m_pPlayer ? m_pPlayer->getNumAvailableGuildLicenses((GuildTypes)iGuild) : -1;
+}
+
 int CyPlayer::findHighestHasReligionCount()
 {
 	return m_pPlayer ? m_pPlayer->findHighestHasReligionCount() : -1;

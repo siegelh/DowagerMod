@@ -2095,6 +2095,23 @@ CvCorporationInfo& CvGlobals::getCorporationInfo(CorporationTypes eCorporationNu
 	return *(m_paCorporationInfo[eCorporationNum]);
 }
 
+int CvGlobals::getNumGuildInfos()
+{
+	return (int)m_paGuildInfo.size();
+}
+
+std::vector<CvGuildInfo*>& CvGlobals::getGuildInfo()
+{
+	return m_paGuildInfo;
+}
+
+CvGuildInfo& CvGlobals::getGuildInfo(GuildTypes eGuildNum)
+{
+	FAssert(eGuildNum > -1);
+	FAssert(eGuildNum < GC.getNumGuildInfos());
+	return *(m_paGuildInfo[eGuildNum]);
+}
+
 int CvGlobals::getNumSpecialistInfos()
 {
 	return (int)m_paSpecialistInfo.size();
@@ -3366,6 +3383,7 @@ void CvGlobals::deleteInfoArrays()
 	deleteInfoArray(m_paProjectInfo);
 	deleteInfoArray(m_paReligionInfo);
 	deleteInfoArray(m_paCorporationInfo);
+	deleteInfoArray(m_paGuildInfo);
 	deleteInfoArray(m_paCommerceInfo);
 	deleteInfoArray(m_paEmphasizeInfo);
 	deleteInfoArray(m_paUpkeepInfo);

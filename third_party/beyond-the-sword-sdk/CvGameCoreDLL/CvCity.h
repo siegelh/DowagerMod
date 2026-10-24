@@ -807,6 +807,21 @@ public:
 	static void beginDeferredIndustryActivationUpdates();
 	static void endDeferredIndustryActivationUpdates();
 
+	PlayerTypes getGuildSponsor(GuildTypes eGuild) const;
+	BuildingClassTypes getGuildProcessor(GuildTypes eGuild) const;
+	bool hasGuildBranch(GuildTypes eGuild) const;
+	bool isGuildBranchActive(GuildTypes eGuild) const;
+	bool isGuildProcessorClaimed(BuildingClassTypes eProcessor, GuildTypes eIgnoreGuild = NO_GUILD) const;
+	int getNumEligibleGuildProcessors(GuildTypes eGuild, PlayerTypes eSponsor) const;
+	BuildingClassTypes getEligibleGuildProcessor(GuildTypes eGuild, PlayerTypes eSponsor, int iIndex) const;
+	bool canEstablishGuildBranch(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor, bool bTestVisible = false) const;
+	bool establishGuildBranch(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor);
+	void restoreGuildBranchState(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor);
+	bool removeGuildBranch(GuildTypes eGuild);
+	void updateGuildBranchActivity(GuildTypes eGuild);
+	void updateAllGuildBranchActivities();
+	static void refreshAllGuildBranches();
+
 	bool isValidBuildingLocation(BuildingTypes eIndex) const;
 
 	int getNumFreeBuilding(BuildingTypes eIndex) const;															// Exposed to Python
@@ -1136,6 +1151,9 @@ protected:
 	int* m_paiNumRealBuilding;
 	int* m_paiNumFreeBuilding;
 	bool* m_pabIndustryBuildingLocallyActive;
+	int* m_paiGuildSponsor;
+	int* m_paiGuildProcessor;
+	bool* m_pabGuildBranchActive;
 
 	bool* m_pabWorkingPlot;
 	bool* m_pabHasReligion;

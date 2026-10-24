@@ -541,6 +541,9 @@ CvCity::CvCity()
 	m_paiNumRealBuilding = NULL;
 	m_paiNumFreeBuilding = NULL;
 	m_pabIndustryBuildingLocallyActive = NULL;
+	m_paiGuildSponsor = NULL;
+	m_paiGuildProcessor = NULL;
+	m_pabGuildBranchActive = NULL;
 
 	m_pabWorkingPlot = NULL;
 	m_pabHasReligion = NULL;
@@ -809,6 +812,9 @@ void CvCity::uninit()
 	SAFE_DELETE_ARRAY(m_paiNumRealBuilding);
 	SAFE_DELETE_ARRAY(m_paiNumFreeBuilding);
 	SAFE_DELETE_ARRAY(m_pabIndustryBuildingLocallyActive);
+	SAFE_DELETE_ARRAY(m_paiGuildSponsor);
+	SAFE_DELETE_ARRAY(m_paiGuildProcessor);
+	SAFE_DELETE_ARRAY(m_pabGuildBranchActive);
 
 	SAFE_DELETE_ARRAY(m_pabWorkingPlot);
 	SAFE_DELETE_ARRAY(m_pabHasReligion);
@@ -1054,6 +1060,16 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 			m_paiNumRealBuilding[iI] = 0;
 			m_paiNumFreeBuilding[iI] = 0;
 			m_pabIndustryBuildingLocallyActive[iI] = false;
+		}
+
+		m_paiGuildSponsor = new int[GC.getNumGuildInfos()];
+		m_paiGuildProcessor = new int[GC.getNumGuildInfos()];
+		m_pabGuildBranchActive = new bool[GC.getNumGuildInfos()];
+		for (iI = 0; iI < GC.getNumGuildInfos(); ++iI)
+		{
+			m_paiGuildSponsor[iI] = NO_PLAYER;
+			m_paiGuildProcessor[iI] = NO_BUILDINGCLASS;
+			m_pabGuildBranchActive[iI] = false;
 		}
 
 		FAssertMsg((0 < GC.getNumUnitInfos()),  "GC.getNumUnitInfos() is not greater than zero but an array is being allocated in CvCity::reset");
@@ -1349,6 +1365,7 @@ void CvCity::doTurn()
 	setAirliftTargeted(false);
 	setCurrAirlift(0);
 	updateAllIndustryActivations();
+	updateAllGuildBranchActivities();
 
 	AI_doTurn();
 
@@ -2357,6 +2374,382 @@ void CvCity::endDeferredIndustryActivationUpdates()
 	}
 }
 
+namespace
+{
+	CivicTypes getGuildCivic(const char* szType)
+	{
+		return (CivicTypes)GC.getInfoTypeForString(szType);
+	}
+
+	BuildingTypes getGuildBuildingForPlayer(PlayerTypes ePlayer, BuildingClassTypes eBuildingClass)
+	{
+		if (ePlayer == NO_PLAYER || eBuildingClass == NO_BUILDINGCLASS)
+		{
+			return NO_BUILDING;
+		}
+		return (BuildingTypes)GC.getCivilizationInfo(GET_PLAYER(ePlayer).getCivilizationType()).getCivilizationBuildings(eBuildingClass);
+	}
+
+	bool playerHasGuildHeadquarters(PlayerTypes ePlayer, GuildTypes eGuild, CvCity** ppHeadquarters = NULL)
+	{
+		if (ppHeadquarters != NULL)
+		{
+			*ppHeadquarters = NULL;
+		}
+		if (ePlayer == NO_PLAYER || !GET_PLAYER(ePlayer).isAlive())
+		{
+			return false;
+		}
+
+		const BuildingClassTypes eHeadquartersClass = (BuildingClassTypes)GC.getGuildInfo(eGuild).getHeadquartersBuildingClass();
+		const BuildingTypes eHeadquarters = getGuildBuildingForPlayer(ePlayer, eHeadquartersClass);
+		if (eHeadquarters == NO_BUILDING)
+		{
+			return false;
+		}
+
+		int iLoop = 0;
+		for (CvCity* pCity = GET_PLAYER(ePlayer).firstCity(&iLoop); pCity != NULL; pCity = GET_PLAYER(ePlayer).nextCity(&iLoop))
+		{
+			if (pCity->getNumBuilding(eHeadquarters) > 0)
+			{
+				if (ppHeadquarters != NULL)
+				{
+					*ppHeadquarters = pCity;
+				}
+				return true;
+			}
+		}
+		return false;
+	}
+
+	void refreshGuildHeadquartersReturns(PlayerTypes eSponsor)
+	{
+		if (eSponsor == NO_PLAYER || !GET_PLAYER(eSponsor).isAlive())
+		{
+			return;
+		}
+
+		const CivicTypes eFreeMarket = getGuildCivic("CIVIC_FREE_MARKET");
+		const bool bFreeMarket = eFreeMarket != NO_CIVIC && GET_PLAYER(eSponsor).isCivic(eFreeMarket);
+
+		for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+		{
+			const GuildTypes eGuild = (GuildTypes)iGuild;
+			CvCity* pHeadquarters = NULL;
+			if (!playerHasGuildHeadquarters(eSponsor, eGuild, &pHeadquarters) || pHeadquarters == NULL)
+			{
+				continue;
+			}
+
+			int iActiveBranches = 0;
+			for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
+			{
+				if (!GET_PLAYER((PlayerTypes)iPlayer).isAlive())
+				{
+					continue;
+				}
+				int iCityLoop = 0;
+				for (CvCity* pCity = GET_PLAYER((PlayerTypes)iPlayer).firstCity(&iCityLoop); pCity != NULL; pCity = GET_PLAYER((PlayerTypes)iPlayer).nextCity(&iCityLoop))
+				{
+					if (pCity->getGuildSponsor(eGuild) == eSponsor && pCity->isGuildBranchActive(eGuild))
+					{
+						++iActiveBranches;
+					}
+				}
+			}
+
+			const CvGuildInfo& kGuild = GC.getGuildInfo(eGuild);
+			const BuildingClassTypes eHeadquartersClass = (BuildingClassTypes)kGuild.getHeadquartersBuildingClass();
+			for (int iYield = 0; iYield < NUM_YIELD_TYPES; ++iYield)
+			{
+				int iChange = iActiveBranches * kGuild.getHeadquartersYieldPerBranch(iYield);
+				if (bFreeMarket)
+				{
+					iChange = (iChange * 3) / 2;
+				}
+				pHeadquarters->setBuildingYieldChange(eHeadquartersClass, (YieldTypes)iYield, iChange);
+			}
+			for (int iCommerce = 0; iCommerce < NUM_COMMERCE_TYPES; ++iCommerce)
+			{
+				int iChange = iActiveBranches * kGuild.getHeadquartersCommercePerBranch(iCommerce);
+				if (bFreeMarket)
+				{
+					iChange = (iChange * 3) / 2;
+				}
+				pHeadquarters->setBuildingCommerceChange(eHeadquartersClass, (CommerceTypes)iCommerce, iChange);
+			}
+		}
+	}
+}
+
+PlayerTypes CvCity::getGuildSponsor(GuildTypes eGuild) const
+{
+	FAssert(eGuild >= 0 && eGuild < GC.getNumGuildInfos());
+	return m_paiGuildSponsor == NULL ? NO_PLAYER : (PlayerTypes)m_paiGuildSponsor[eGuild];
+}
+
+BuildingClassTypes CvCity::getGuildProcessor(GuildTypes eGuild) const
+{
+	FAssert(eGuild >= 0 && eGuild < GC.getNumGuildInfos());
+	return m_paiGuildProcessor == NULL ? NO_BUILDINGCLASS : (BuildingClassTypes)m_paiGuildProcessor[eGuild];
+}
+
+bool CvCity::hasGuildBranch(GuildTypes eGuild) const
+{
+	if (eGuild < 0 || eGuild >= GC.getNumGuildInfos() || getGuildSponsor(eGuild) == NO_PLAYER)
+	{
+		return false;
+	}
+	const BuildingTypes eHouse = getGuildBuildingForPlayer(getOwnerINLINE(), (BuildingClassTypes)GC.getGuildInfo(eGuild).getHouseBuildingClass());
+	return eHouse != NO_BUILDING && getNumBuilding(eHouse) > 0;
+}
+
+bool CvCity::isGuildBranchActive(GuildTypes eGuild) const
+{
+	FAssert(eGuild >= 0 && eGuild < GC.getNumGuildInfos());
+	return m_pabGuildBranchActive != NULL && m_pabGuildBranchActive[eGuild] && hasGuildBranch(eGuild);
+}
+
+bool CvCity::isGuildProcessorClaimed(BuildingClassTypes eProcessor, GuildTypes eIgnoreGuild) const
+{
+	for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+	{
+		const GuildTypes eGuild = (GuildTypes)iGuild;
+		if (eGuild != eIgnoreGuild && hasGuildBranch(eGuild) && getGuildProcessor(eGuild) == eProcessor)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+int CvCity::getNumEligibleGuildProcessors(GuildTypes eGuild, PlayerTypes eSponsor) const
+{
+	int iCount = 0;
+	const CvGuildInfo& kGuild = GC.getGuildInfo(eGuild);
+	for (int iProcessor = 0; iProcessor < kGuild.getNumProcessorBuildingClasses(); ++iProcessor)
+	{
+		const BuildingClassTypes eProcessor = (BuildingClassTypes)kGuild.getProcessorBuildingClass(iProcessor);
+		if (canEstablishGuildBranch(eGuild, eSponsor, eProcessor, true))
+		{
+			++iCount;
+		}
+	}
+	return iCount;
+}
+
+BuildingClassTypes CvCity::getEligibleGuildProcessor(GuildTypes eGuild, PlayerTypes eSponsor, int iIndex) const
+{
+	const CvGuildInfo& kGuild = GC.getGuildInfo(eGuild);
+	for (int iProcessor = 0; iProcessor < kGuild.getNumProcessorBuildingClasses(); ++iProcessor)
+	{
+		const BuildingClassTypes eProcessor = (BuildingClassTypes)kGuild.getProcessorBuildingClass(iProcessor);
+		if (canEstablishGuildBranch(eGuild, eSponsor, eProcessor, true))
+		{
+			if (iIndex-- == 0)
+			{
+				return eProcessor;
+			}
+		}
+	}
+	return NO_BUILDINGCLASS;
+}
+
+bool CvCity::canEstablishGuildBranch(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor, bool bTestVisible) const
+{
+	if (eGuild < 0 || eGuild >= GC.getNumGuildInfos() || eSponsor == NO_PLAYER || !GET_PLAYER(eSponsor).isAlive())
+	{
+		return false;
+	}
+	if (hasGuildBranch(eGuild) || isGuildProcessorClaimed(eProcessor))
+	{
+		return false;
+	}
+	if (!playerHasGuildHeadquarters(eSponsor, eGuild))
+	{
+		return false;
+	}
+
+	const CivicTypes eStateProperty = getGuildCivic("CIVIC_STATE_PROPERTY");
+	if (eStateProperty != NO_CIVIC && GET_PLAYER(eSponsor).isCivic(eStateProperty))
+	{
+		return false;
+	}
+
+	const CvGuildInfo& kGuild = GC.getGuildInfo(eGuild);
+	bool bEligibleProcessor = false;
+	for (int iProcessor = 0; iProcessor < kGuild.getNumProcessorBuildingClasses(); ++iProcessor)
+	{
+		if ((BuildingClassTypes)kGuild.getProcessorBuildingClass(iProcessor) == eProcessor)
+		{
+			bEligibleProcessor = true;
+			break;
+		}
+	}
+	if (!bEligibleProcessor)
+	{
+		return false;
+	}
+
+	const BuildingTypes eProcessorBuilding = getGuildBuildingForPlayer(getOwnerINLINE(), eProcessor);
+	if (eProcessorBuilding == NO_BUILDING || getNumActiveBuilding(eProcessorBuilding) <= 0)
+	{
+		return false;
+	}
+
+	if (getOwnerINLINE() != eSponsor)
+	{
+		const TeamTypes eSponsorTeam = GET_PLAYER(eSponsor).getTeam();
+		if (GET_TEAM(getTeam()).isAtWar(eSponsorTeam) || !GET_TEAM(getTeam()).isOpenBorders(eSponsorTeam))
+		{
+			return false;
+		}
+		const CivicTypes eMercantilism = getGuildCivic("CIVIC_MERCANTILISM");
+		if (eMercantilism != NO_CIVIC && GET_PLAYER(getOwnerINLINE()).isCivic(eMercantilism))
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool CvCity::establishGuildBranch(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor)
+{
+	if (!canEstablishGuildBranch(eGuild, eSponsor, eProcessor, false))
+	{
+		return false;
+	}
+
+	const BuildingTypes eHouse = getGuildBuildingForPlayer(getOwnerINLINE(), (BuildingClassTypes)GC.getGuildInfo(eGuild).getHouseBuildingClass());
+	if (eHouse == NO_BUILDING)
+	{
+		return false;
+	}
+
+	m_paiGuildSponsor[eGuild] = eSponsor;
+	m_paiGuildProcessor[eGuild] = eProcessor;
+	m_pabGuildBranchActive[eGuild] = true;
+	setNumRealBuilding(eHouse, 1);
+	refreshGuildHeadquartersReturns(eSponsor);
+	return true;
+}
+
+void CvCity::restoreGuildBranchState(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor)
+{
+	FAssert(eGuild >= 0 && eGuild < GC.getNumGuildInfos());
+	m_paiGuildSponsor[eGuild] = eSponsor;
+	m_paiGuildProcessor[eGuild] = eProcessor;
+	m_pabGuildBranchActive[eGuild] = false;
+	updateGuildBranchActivity(eGuild);
+}
+
+bool CvCity::removeGuildBranch(GuildTypes eGuild)
+{
+	if (!hasGuildBranch(eGuild))
+	{
+		return false;
+	}
+
+	const PlayerTypes eSponsor = getGuildSponsor(eGuild);
+	const BuildingTypes eHouse = getGuildBuildingForPlayer(getOwnerINLINE(), (BuildingClassTypes)GC.getGuildInfo(eGuild).getHouseBuildingClass());
+	if (eHouse != NO_BUILDING)
+	{
+		setNumRealBuilding(eHouse, 0);
+	}
+	m_paiGuildSponsor[eGuild] = NO_PLAYER;
+	m_paiGuildProcessor[eGuild] = NO_BUILDINGCLASS;
+	m_pabGuildBranchActive[eGuild] = false;
+	refreshGuildHeadquartersReturns(eSponsor);
+	return true;
+}
+
+void CvCity::updateGuildBranchActivity(GuildTypes eGuild)
+{
+	if (!hasGuildBranch(eGuild))
+	{
+		if (m_pabGuildBranchActive != NULL)
+		{
+			m_pabGuildBranchActive[eGuild] = false;
+		}
+		return;
+	}
+
+	const PlayerTypes eSponsor = getGuildSponsor(eGuild);
+	const bool bOldActive = m_pabGuildBranchActive[eGuild];
+	bool bNewActive = eSponsor != NO_PLAYER && GET_PLAYER(eSponsor).isAlive() && playerHasGuildHeadquarters(eSponsor, eGuild);
+
+	const CivicTypes eStateProperty = getGuildCivic("CIVIC_STATE_PROPERTY");
+	if (bNewActive && eStateProperty != NO_CIVIC && GET_PLAYER(eSponsor).isCivic(eStateProperty))
+	{
+		bNewActive = false;
+	}
+
+	const BuildingClassTypes eProcessor = getGuildProcessor(eGuild);
+	const BuildingTypes eProcessorBuilding = getGuildBuildingForPlayer(getOwnerINLINE(), eProcessor);
+	if (bNewActive && (eProcessorBuilding == NO_BUILDING || getNumActiveBuilding(eProcessorBuilding) <= 0))
+	{
+		bNewActive = false;
+	}
+
+	if (bNewActive && getOwnerINLINE() != eSponsor)
+	{
+		const TeamTypes eSponsorTeam = GET_PLAYER(eSponsor).getTeam();
+		const CivicTypes eMercantilism = getGuildCivic("CIVIC_MERCANTILISM");
+		if (GET_TEAM(getTeam()).isAtWar(eSponsorTeam)
+			|| !GET_TEAM(getTeam()).isOpenBorders(eSponsorTeam)
+			|| (eMercantilism != NO_CIVIC && GET_PLAYER(getOwnerINLINE()).isCivic(eMercantilism)))
+		{
+			bNewActive = false;
+		}
+	}
+
+	if (bNewActive != bOldActive)
+	{
+		const BuildingTypes eHouse = getGuildBuildingForPlayer(getOwnerINLINE(), (BuildingClassTypes)GC.getGuildInfo(eGuild).getHouseBuildingClass());
+		m_pabGuildBranchActive[eGuild] = bNewActive;
+		if (eHouse != NO_BUILDING && getNumBuilding(eHouse) > 0)
+		{
+			processBuilding(eHouse, bNewActive ? 1 : -1);
+		}
+	}
+	refreshGuildHeadquartersReturns(eSponsor);
+}
+
+void CvCity::updateAllGuildBranchActivities()
+{
+	for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+	{
+		updateGuildBranchActivity((GuildTypes)iGuild);
+	}
+}
+
+void CvCity::refreshAllGuildBranches()
+{
+	for (int iPlayer = 0; iPlayer < MAX_PLAYERS; ++iPlayer)
+	{
+		if (!GET_PLAYER((PlayerTypes)iPlayer).isAlive())
+		{
+			continue;
+		}
+		int iLoop = 0;
+		for (CvCity* pCity = GET_PLAYER((PlayerTypes)iPlayer).firstCity(&iLoop); pCity != NULL; pCity = GET_PLAYER((PlayerTypes)iPlayer).nextCity(&iLoop))
+		{
+			for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+			{
+				const GuildTypes eGuild = (GuildTypes)iGuild;
+				const PlayerTypes eSponsor = pCity->getGuildSponsor(eGuild);
+				if (eSponsor != NO_PLAYER && !GET_PLAYER(eSponsor).isAlive())
+				{
+					pCity->removeGuildBranch(eGuild);
+				}
+			}
+			pCity->updateAllGuildBranchActivities();
+		}
+	}
+}
+
 void CvCity::flushDeferredIndustryActivationUpdates()
 {
 	bool bFoundDirty = false;
@@ -2819,6 +3212,21 @@ bool CvCity::canTrain(UnitTypes eUnit, bool bContinue, bool bTestVisible, bool b
 		return false;
 	}
 
+	const UnitClassTypes eUnitClass = (UnitClassTypes)GC.getUnitInfo(eUnit).getUnitClassType();
+	for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+	{
+		const CvGuildInfo& kGuild = GC.getGuildInfo((GuildTypes)iGuild);
+		if (eUnitClass == (UnitClassTypes)kGuild.getEmissaryUnitClass())
+		{
+			const BuildingTypes eHeadquarters = getGuildBuildingForPlayer(getOwnerINLINE(), (BuildingClassTypes)kGuild.getHeadquartersBuildingClass());
+			if (eHeadquarters == NO_BUILDING || getNumBuilding(eHeadquarters) <= 0)
+			{
+				return false;
+			}
+			break;
+		}
+	}
+
 	if (!bIgnoreUpgrades)
 	{
 		if (allUpgradesAvailable(eUnit) != NO_UNIT)
@@ -2887,6 +3295,20 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 	if (eBuilding == NO_BUILDING)
 	{
 		return false;
+	}
+
+	const BuildingClassTypes eBuildingClass = (BuildingClassTypes)GC.getBuildingInfo(eBuilding).getBuildingClassType();
+	for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+	{
+		if (eBuildingClass == (BuildingClassTypes)GC.getGuildInfo((GuildTypes)iGuild).getHeadquartersBuildingClass())
+		{
+			const CivicTypes eStateProperty = getGuildCivic("CIVIC_STATE_PROPERTY");
+			if (eStateProperty != NO_CIVIC && GET_PLAYER(getOwnerINLINE()).isCivic(eStateProperty))
+			{
+				return false;
+			}
+			break;
+		}
 	}
 
 	if(GC.getUSE_CAN_CONSTRUCT_CALLBACK())
@@ -6024,6 +6446,16 @@ int CvCity::getNumActiveBuilding(BuildingTypes eIndex) const
 	if (GC.getBuildingInfo(eIndex).isRequiresActiveLocalPrereqs() && !isIndustryBuildingLocallyActive(eIndex))
 	{
 		return 0;
+	}
+
+	const BuildingClassTypes eBuildingClass = (BuildingClassTypes)GC.getBuildingInfo(eIndex).getBuildingClassType();
+	for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+	{
+		if (eBuildingClass == (BuildingClassTypes)GC.getGuildInfo((GuildTypes)iGuild).getHouseBuildingClass()
+			&& !isGuildBranchActive((GuildTypes)iGuild))
+		{
+			return 0;
+		}
 	}
 
 	return (getNumBuilding(eIndex));
@@ -11630,6 +12062,39 @@ void CvCity::setNumRealBuildingTimed(BuildingTypes eIndex, int iNewValue, bool b
 			}
 
 			processBuilding(eIndex, getNumActiveBuilding(eIndex) - iOldActiveBuilding);
+			updateAllGuildBranchActivities();
+
+			const BuildingClassTypes eChangedClass = (BuildingClassTypes)GC.getBuildingInfo(eIndex).getBuildingClassType();
+			if (getNumBuilding(eIndex) <= 0)
+			{
+				for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+				{
+					const GuildTypes eGuild = (GuildTypes)iGuild;
+					if (hasGuildBranch(eGuild) && getGuildProcessor(eGuild) == eChangedClass)
+					{
+						removeGuildBranch(eGuild);
+					}
+				}
+			}
+			for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+			{
+				const GuildTypes eGuild = (GuildTypes)iGuild;
+				const CvGuildInfo& kGuild = GC.getGuildInfo(eGuild);
+				if (eChangedClass == (BuildingClassTypes)kGuild.getHeadquartersBuildingClass())
+				{
+					if (iChangeNumRealBuilding > 0 && bFirst)
+					{
+						const UnitTypes eEmissary = (UnitTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationUnits(kGuild.getEmissaryUnitClass());
+						const int iLicenses = GET_PLAYER(getOwnerINLINE()).getNumAvailableGuildLicenses(eGuild);
+						for (int iLicense = 0; iLicense < iLicenses && eEmissary != NO_UNIT; ++iLicense)
+						{
+							GET_PLAYER(getOwnerINLINE()).initUnit(eEmissary, getX_INLINE(), getY_INLINE(), UNITAI_MISSIONARY);
+						}
+					}
+					CvCity::refreshAllGuildBranches();
+					break;
+				}
+			}
 		}
 
 		if (!(GC.getBuildingClassInfo((BuildingClassTypes)(GC.getBuildingInfo(eIndex).getBuildingClassType())).isNoLimit()))
@@ -13620,6 +14085,21 @@ void CvCity::read(FDataStreamBase* pStream)
 		}
 		logIndustryDebug(CvString::format("CvCity::read city=%d save missing industryActiveFlags", m_iID));
 	}
+	if (uiFlag & 0x2)
+	{
+		pStream->Read(GC.getNumGuildInfos(), m_paiGuildSponsor);
+		pStream->Read(GC.getNumGuildInfos(), m_paiGuildProcessor);
+		pStream->Read(GC.getNumGuildInfos(), m_pabGuildBranchActive);
+	}
+	else
+	{
+		for (iI = 0; iI < GC.getNumGuildInfos(); ++iI)
+		{
+			m_paiGuildSponsor[iI] = NO_PLAYER;
+			m_paiGuildProcessor[iI] = NO_BUILDINGCLASS;
+			m_pabGuildBranchActive[iI] = false;
+		}
+	}
 
 	pStream->Read(NUM_CITY_PLOTS, m_pabWorkingPlot);
 	pStream->Read(GC.getNumReligionInfos(), m_pabHasReligion);
@@ -13735,7 +14215,7 @@ void CvCity::write(FDataStreamBase* pStream)
 {
 	int iI;
 
-	uint uiFlag=0x1;
+	uint uiFlag=0x3;
 	pStream->Write(uiFlag);		// flag for expansion
 	logIndustryDebug(CvString::format("CvCity::write begin city=%d name=%s coords=%d,%d pop=%d industryActiveFlags=%d", m_iID, m_szName.c_str(), m_iX, m_iY, m_iPopulation, countTrueEntries(m_pabIndustryBuildingLocallyActive, GC.getNumBuildingInfos())));
 
@@ -13899,6 +14379,9 @@ void CvCity::write(FDataStreamBase* pStream)
 	pStream->Write(GC.getNumBuildingInfos(), m_paiNumRealBuilding);
 	pStream->Write(GC.getNumBuildingInfos(), m_paiNumFreeBuilding);
 	pStream->Write(GC.getNumBuildingInfos(), m_pabIndustryBuildingLocallyActive);
+	pStream->Write(GC.getNumGuildInfos(), m_paiGuildSponsor);
+	pStream->Write(GC.getNumGuildInfos(), m_paiGuildProcessor);
+	pStream->Write(GC.getNumGuildInfos(), m_pabGuildBranchActive);
 
 	pStream->Write(NUM_CITY_PLOTS, m_pabWorkingPlot);
 	pStream->Write(GC.getNumReligionInfos(), m_pabHasReligion);

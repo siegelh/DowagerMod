@@ -5539,6 +5539,72 @@ bool CvUnit::spreadCorporation(CorporationTypes eCorporation)
 	return true;
 }
 
+GuildTypes CvUnit::getGuildType() const
+{
+	const UnitClassTypes eUnitClass = (UnitClassTypes)getUnitClassType();
+	for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+	{
+		if ((UnitClassTypes)GC.getGuildInfo((GuildTypes)iGuild).getEmissaryUnitClass() == eUnitClass)
+		{
+			return (GuildTypes)iGuild;
+		}
+	}
+	return NO_GUILD;
+}
+
+bool CvUnit::canEstablishGuildBranch(const CvPlot* pPlot, BuildingClassTypes eProcessor, bool bTestVisible) const
+{
+	const GuildTypes eGuild = getGuildType();
+	if (eGuild == NO_GUILD || pPlot == NULL || isDelayedDeath())
+	{
+		return false;
+	}
+
+	CvCity* pCity = pPlot->getPlotCity();
+	if (pCity == NULL || !canEnterArea(pPlot->getTeam(), pPlot->area()))
+	{
+		return false;
+	}
+
+	if (eProcessor != NO_BUILDINGCLASS)
+	{
+		return pCity->canEstablishGuildBranch(eGuild, getOwnerINLINE(), eProcessor, bTestVisible);
+	}
+	return pCity->getNumEligibleGuildProcessors(eGuild, getOwnerINLINE()) > 0;
+}
+
+bool CvUnit::establishGuildBranch(BuildingClassTypes eProcessor)
+{
+	if (!canEstablishGuildBranch(plot(), eProcessor, false))
+	{
+		return false;
+	}
+
+	CvCity* pCity = plot()->getPlotCity();
+	const GuildTypes eGuild = getGuildType();
+	if (eProcessor == NO_BUILDINGCLASS)
+	{
+		eProcessor = pCity->getEligibleGuildProcessor(eGuild, getOwnerINLINE(), 0);
+	}
+	if (eProcessor == NO_BUILDINGCLASS || !pCity->establishGuildBranch(eGuild, getOwnerINLINE(), eProcessor))
+	{
+		return false;
+	}
+
+	CvWString szBuffer = gDLL->getText("TXT_KEY_MISC_GUILD_BRANCH_ESTABLISHED",
+		GC.getGuildInfo(eGuild).getTextKeyWide(), pCity->getNameKey());
+	gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer,
+		"AS2D_BUILD_BANK", MESSAGE_TYPE_INFO, getButton(),
+		(ColorTypes)GC.getInfoTypeForString("COLOR_HIGHLIGHT_TEXT"), pCity->getX_INLINE(), pCity->getY_INLINE());
+
+	if (plot()->isActiveVisible(false))
+	{
+		NotifyEntity(MISSION_ESTABLISH_GUILD_BRANCH);
+	}
+	kill(true);
+	return true;
+}
+
 
 bool CvUnit::canJoin(const CvPlot* pPlot, SpecialistTypes eSpecialist) const
 {
@@ -7401,6 +7467,7 @@ BuildTypes CvUnit::getBuildType() const
 		case MISSION_FOUND:
 		case MISSION_SPREAD:
 		case MISSION_SPREAD_CORPORATION:
+		case MISSION_ESTABLISH_GUILD_BRANCH:
 		case MISSION_JOIN:
 		case MISSION_CONSTRUCT:
 		case MISSION_DISCOVER:

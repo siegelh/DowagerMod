@@ -1408,6 +1408,7 @@ enum MissionTypes				// Exposed to Python
 	MISSION_FOUND,
 	MISSION_SPREAD,
 	MISSION_SPREAD_CORPORATION,
+	MISSION_ESTABLISH_GUILD_BRANCH,
 	MISSION_JOIN,
 	MISSION_CONSTRUCT,
 	MISSION_DISCOVER,
@@ -1587,6 +1588,11 @@ enum ReligionTypes				// Exposed to Python
 enum CorporationTypes				// Exposed to Python
 {
 	NO_CORPORATION = -1,
+};
+
+enum GuildTypes					// Exposed to Python
+{
+	NO_GUILD = -1,
 };
 
 enum HurryTypes						// Exposed to Python

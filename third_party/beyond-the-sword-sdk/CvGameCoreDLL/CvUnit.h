@@ -206,6 +206,10 @@ public:
 	bool spreadCorporation(CorporationTypes eCorporation);
 	int spreadCorporationCost(CorporationTypes eCorporation, CvCity* pCity) const;
 
+	GuildTypes getGuildType() const;
+	bool canEstablishGuildBranch(const CvPlot* pPlot, BuildingClassTypes eProcessor = NO_BUILDINGCLASS, bool bTestVisible = false) const;
+	bool establishGuildBranch(BuildingClassTypes eProcessor = NO_BUILDINGCLASS);
+
 	bool canJoin(const CvPlot* pPlot, SpecialistTypes eSpecialist) const;																		// Exposed to Python
 	bool join(SpecialistTypes eSpecialist);
 

@@ -17017,6 +17017,160 @@ bool CvCorporationInfo::readPass3()
 }
 
 //======================================================================================================
+//					CvGuildInfo
+//======================================================================================================
+
+CvGuildInfo::CvGuildInfo() :
+m_iTechPrereq(NO_TECH),
+m_iFounderUnitClass(NO_UNITCLASS),
+m_iHeadquartersBuildingClass(NO_BUILDINGCLASS),
+m_iHouseBuildingClass(NO_BUILDINGCLASS),
+m_iEmissaryUnitClass(NO_UNITCLASS),
+m_iLicenseCap(0),
+m_paiHeadquartersYieldPerBranch(NULL),
+m_paiHeadquartersCommercePerBranch(NULL)
+{
+}
+
+CvGuildInfo::~CvGuildInfo()
+{
+	SAFE_DELETE_ARRAY(m_paiHeadquartersYieldPerBranch);
+	SAFE_DELETE_ARRAY(m_paiHeadquartersCommercePerBranch);
+}
+
+int CvGuildInfo::getTechPrereq() const
+{
+	return m_iTechPrereq;
+}
+
+int CvGuildInfo::getFounderUnitClass() const
+{
+	return m_iFounderUnitClass;
+}
+
+int CvGuildInfo::getHeadquartersBuildingClass() const
+{
+	return m_iHeadquartersBuildingClass;
+}
+
+int CvGuildInfo::getHouseBuildingClass() const
+{
+	return m_iHouseBuildingClass;
+}
+
+int CvGuildInfo::getEmissaryUnitClass() const
+{
+	return m_iEmissaryUnitClass;
+}
+
+int CvGuildInfo::getLicenseCap() const
+{
+	return m_iLicenseCap;
+}
+
+int CvGuildInfo::getNumProcessorBuildingClasses() const
+{
+	return (int)m_aiProcessorBuildingClasses.size();
+}
+
+int CvGuildInfo::getProcessorBuildingClass(int i) const
+{
+	FAssert(i >= 0 && i < getNumProcessorBuildingClasses());
+	return m_aiProcessorBuildingClasses[i];
+}
+
+int CvGuildInfo::getHeadquartersYieldPerBranch(int i) const
+{
+	FAssert(i >= 0 && i < NUM_YIELD_TYPES);
+	return m_paiHeadquartersYieldPerBranch == NULL ? 0 : m_paiHeadquartersYieldPerBranch[i];
+}
+
+int CvGuildInfo::getHeadquartersCommercePerBranch(int i) const
+{
+	FAssert(i >= 0 && i < NUM_COMMERCE_TYPES);
+	return m_paiHeadquartersCommercePerBranch == NULL ? 0 : m_paiHeadquartersCommercePerBranch[i];
+}
+
+const TCHAR* CvGuildInfo::getButton() const
+{
+	return m_szButton;
+}
+
+bool CvGuildInfo::read(CvXMLLoadUtility* pXML)
+{
+	CvString szTextVal;
+	if (!CvInfoBase::read(pXML))
+	{
+		return false;
+	}
+
+	pXML->GetChildXmlValByName(szTextVal, "TechPrereq");
+	m_iTechPrereq = pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "FounderUnitClass");
+	m_iFounderUnitClass = pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "HeadquartersBuildingClass");
+	m_iHeadquartersBuildingClass = pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "HouseBuildingClass");
+	m_iHouseBuildingClass = pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(szTextVal, "EmissaryUnitClass");
+	m_iEmissaryUnitClass = pXML->FindInInfoClass(szTextVal);
+	pXML->GetChildXmlValByName(&m_iLicenseCap, "iLicenseCap");
+	pXML->GetChildXmlValByName(szTextVal, "Button");
+	m_szButton = szTextVal;
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "HeadquartersYieldsPerBranch"))
+	{
+		pXML->SetYields(&m_paiHeadquartersYieldPerBranch);
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+	else
+	{
+		pXML->InitList(&m_paiHeadquartersYieldPerBranch, NUM_YIELD_TYPES);
+	}
+
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "HeadquartersCommercesPerBranch"))
+	{
+		pXML->SetCommerce(&m_paiHeadquartersCommercePerBranch);
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+	else
+	{
+		pXML->InitList(&m_paiHeadquartersCommercePerBranch, NUM_COMMERCE_TYPES);
+	}
+
+	m_aiProcessorBuildingClasses.clear();
+	if (gDLL->getXMLIFace()->SetToChildByTagName(pXML->GetXML(), "ProcessorBuildingClasses"))
+	{
+		if (pXML->SkipToNextVal())
+		{
+			const int iNumSibs = gDLL->getXMLIFace()->GetNumChildren(pXML->GetXML());
+			if (gDLL->getXMLIFace()->SetToChild(pXML->GetXML()))
+			{
+				for (int i = 0; i < iNumSibs; ++i)
+				{
+					if (pXML->GetXmlVal(szTextVal))
+					{
+						const int iBuildingClass = pXML->FindInInfoClass(szTextVal);
+						if (iBuildingClass != NO_BUILDINGCLASS)
+						{
+							m_aiProcessorBuildingClasses.push_back(iBuildingClass);
+						}
+					}
+					if (!gDLL->getXMLIFace()->NextSibling(pXML->GetXML()))
+					{
+						break;
+					}
+				}
+				gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+			}
+		}
+		gDLL->getXMLIFace()->SetToParent(pXML->GetXML());
+	}
+
+	return true;
+}
+
+//======================================================================================================
 //					CvTraitInfo
 //======================================================================================================
 

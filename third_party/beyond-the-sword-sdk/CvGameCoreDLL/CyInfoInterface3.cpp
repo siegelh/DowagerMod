@@ -277,6 +277,20 @@ void CyInfoPythonInterface3()
 		.def("getYieldProduced", &CvCorporationInfo::getYieldProduced, "int (int i)")
 		;
 
+	python::class_<CvGuildInfo, python::bases<CvInfoBase> >("CvGuildInfo")
+		.def("getTechPrereq", &CvGuildInfo::getTechPrereq, "int ()")
+		.def("getFounderUnitClass", &CvGuildInfo::getFounderUnitClass, "int ()")
+		.def("getHeadquartersBuildingClass", &CvGuildInfo::getHeadquartersBuildingClass, "int ()")
+		.def("getHouseBuildingClass", &CvGuildInfo::getHouseBuildingClass, "int ()")
+		.def("getEmissaryUnitClass", &CvGuildInfo::getEmissaryUnitClass, "int ()")
+		.def("getLicenseCap", &CvGuildInfo::getLicenseCap, "int ()")
+		.def("getNumProcessorBuildingClasses", &CvGuildInfo::getNumProcessorBuildingClasses, "int ()")
+		.def("getProcessorBuildingClass", &CvGuildInfo::getProcessorBuildingClass, "int (int i)")
+		.def("getHeadquartersYieldPerBranch", &CvGuildInfo::getHeadquartersYieldPerBranch, "int (int i)")
+		.def("getHeadquartersCommercePerBranch", &CvGuildInfo::getHeadquartersCommercePerBranch, "int (int i)")
+		.def("getButton", &CvGuildInfo::getButton, "string ()")
+		;
+
 	python::class_<CvTraitInfo, python::bases<CvInfoBase> >("CvTraitInfo")
 		.def("getHealth", &CvTraitInfo::getHealth, "int ()")
 		.def("getHappiness", &CvTraitInfo::getHappiness, "int ()")

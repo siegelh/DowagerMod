@@ -260,6 +260,41 @@
 	<ElementType name="CorporationInfos" content="eltOnly">
 		<element type="CorporationInfo" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="FounderUnitClass" content="textOnly"/>
+	<ElementType name="HeadquartersBuildingClass" content="textOnly"/>
+	<ElementType name="HouseBuildingClass" content="textOnly"/>
+	<ElementType name="EmissaryUnitClass" content="textOnly"/>
+	<ElementType name="iLicenseCap" content="textOnly" dt:type="int"/>
+	<ElementType name="ProcessorBuildingClass" content="textOnly"/>
+	<ElementType name="ProcessorBuildingClasses" content="eltOnly">
+		<element type="ProcessorBuildingClass" minOccurs="1" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="HeadquartersYieldsPerBranch" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="HeadquartersCommercesPerBranch" content="eltOnly">
+		<element type="iCommerce" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="GuildInfo" content="eltOnly">
+		<element type="Type"/>
+		<element type="Description"/>
+		<element type="Civilopedia"/>
+		<element type="Help"/>
+		<element type="Strategy"/>
+		<element type="TechPrereq"/>
+		<element type="FounderUnitClass"/>
+		<element type="HeadquartersBuildingClass"/>
+		<element type="HouseBuildingClass"/>
+		<element type="EmissaryUnitClass"/>
+		<element type="iLicenseCap"/>
+		<element type="ProcessorBuildingClasses"/>
+		<element type="HeadquartersYieldsPerBranch"/>
+		<element type="HeadquartersCommercesPerBranch"/>
+		<element type="Button"/>
+	</ElementType>
+	<ElementType name="GuildInfos" content="eltOnly">
+		<element type="GuildInfo" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="HintInfo" content="eltOnly">
 		<element type="Description"/>
 	</ElementType>
@@ -1309,6 +1344,9 @@
 	</ElementType>
 	<ElementType name="Civ4CorporationInfo" content="eltOnly">
 		<element type="CorporationInfos"/>
+	</ElementType>
+	<ElementType name="Civ4GuildInfo" content="eltOnly">
+		<element type="GuildInfos"/>
 	</ElementType>
 	<ElementType name="Civ4Hints" content="eltOnly">
 		<element type="HintInfos" minOccurs="0" maxOccurs="*"/>

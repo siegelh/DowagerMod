@@ -619,6 +619,7 @@ bool CvXMLLoadUtility::LoadPreMenuGlobals()
 	LoadGlobalClassInfo(GC.getImprovementInfo(), "CIV4ImprovementInfos", "Terrain", "Civ4ImprovementInfos/ImprovementInfos/ImprovementInfo", true);
 	LoadGlobalClassInfo(GC.getBuildingClassInfo(), "CIV4BuildingClassInfos", "Buildings", "Civ4BuildingClassInfos/BuildingClassInfos/BuildingClassInfo", false);
 	LoadGlobalClassInfo(GC.getBuildingInfo(), "CIV4BuildingInfos", "Buildings", "Civ4BuildingInfos/BuildingInfos/BuildingInfo", false, &CvDLLUtilityIFaceBase::createBuildingInfoCacheObject);
+	LoadGlobalClassInfo(GC.getGuildInfo(), "CIV4GuildInfo", "GameInfo", "Civ4GuildInfo/GuildInfos/GuildInfo", false);
 	for (int i = 0; i < GC.getNumTraitInfos(); ++i)
 	{
 		if (!GC.getTraitInfo((TraitTypes)i).readPass3())

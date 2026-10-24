@@ -672,6 +672,36 @@ int CyCity::getNumActiveBuilding(int /*BuildingTypes*/ iIndex)
 	return m_pCity ? m_pCity->getNumActiveBuilding((BuildingTypes) iIndex) : -1;
 }
 
+int CyCity::getGuildSponsor(int iGuild)
+{
+	return m_pCity ? m_pCity->getGuildSponsor((GuildTypes)iGuild) : NO_PLAYER;
+}
+
+int CyCity::getGuildProcessor(int iGuild)
+{
+	return m_pCity ? m_pCity->getGuildProcessor((GuildTypes)iGuild) : NO_BUILDINGCLASS;
+}
+
+bool CyCity::hasGuildBranch(int iGuild)
+{
+	return m_pCity ? m_pCity->hasGuildBranch((GuildTypes)iGuild) : false;
+}
+
+bool CyCity::isGuildBranchActive(int iGuild)
+{
+	return m_pCity ? m_pCity->isGuildBranchActive((GuildTypes)iGuild) : false;
+}
+
+int CyCity::getNumEligibleGuildProcessors(int iGuild, int iSponsor)
+{
+	return m_pCity ? m_pCity->getNumEligibleGuildProcessors((GuildTypes)iGuild, (PlayerTypes)iSponsor) : 0;
+}
+
+int CyCity::getEligibleGuildProcessor(int iGuild, int iSponsor, int iIndex)
+{
+	return m_pCity ? m_pCity->getEligibleGuildProcessor((GuildTypes)iGuild, (PlayerTypes)iSponsor, iIndex) : NO_BUILDINGCLASS;
+}
+
 int CyCity::getID()
 {
 	return m_pCity ? m_pCity->getID() : -1;

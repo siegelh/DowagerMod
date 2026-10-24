@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Civ4GameText xmlns="x-schema:CIV4GameTextSchema.xml">
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_ESTABLISH_GUILD_BRANCH</Tag>
+		<English>Establish Guild Branch</English>
+		<French>Establish Guild Branch</French>
+		<German>Establish Guild Branch</German>
+		<Italian>Establish Guild Branch</Italian>
+		<Spanish>Establish Guild Branch</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISSION_ESTABLISH_GUILD_BRANCH_HELP</Tag>
+		<English>Establish this emissary's guild branch in an eligible city.</English>
+		<French>Establish this emissary's guild branch in an eligible city.</French>
+		<German>Establish this emissary's guild branch in an eligible city.</German>
+		<Italian>Establish this emissary's guild branch in an eligible city.</Italian>
+		<Spanish>Establish this emissary's guild branch in an eligible city.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_MISC_GUILD_BRANCH_ESTABLISHED</Tag>
+		<English>%s1 established a branch in %s2.</English>
+		<French>%s1 established a branch in %s2.</French>
+		<German>%s1 established a branch in %s2.</German>
+		<Italian>%s1 established a branch in %s2.</Italian>
+		<Spanish>%s1 established a branch in %s2.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_ARTIFICERS</Tag>
+		<English>Artificers and Farriers</English>
+		<French>Artificers and Farriers</French>
+		<German>Artificers and Farriers</German>
+		<Italian>Artificers and Farriers</Italian>
+		<Spanish>Artificers and Farriers</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_ARTIFICERS_PEDIA</Tag>
+		<English>Artificers and Farriers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</English>
+		<French>Artificers and Farriers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</French>
+		<German>Artificers and Farriers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</German>
+		<Italian>Artificers and Farriers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Italian>
+		<Spanish>Artificers and Farriers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_ARTIFICERS_HELP</Tag>
+		<English>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</English>
+		<French>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</French>
+		<German>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</German>
+		<Italian>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Italian>
+		<Spanish>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_ARTIFICERS_STRATEGY</Tag>
+		<English>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</English>
+		<French>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</French>
+		<German>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</German>
+		<Italian>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Italian>
+		<Spanish>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HEADQUARTERS</Tag>
+		<English>Artificers and Farriers Headquarters</English>
+		<French>Artificers and Farriers Headquarters</French>
+		<German>Artificers and Farriers Headquarters</German>
+		<Italian>Artificers and Farriers Headquarters</Italian>
+		<Spanish>Artificers and Farriers Headquarters</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HEADQUARTERS_PEDIA</Tag>
+		<English>The national headquarters of Artificers and Farriers. It issues limited emissary licenses and earns returns from active sponsored branches.</English>
+		<French>The national headquarters of Artificers and Farriers. It issues limited emissary licenses and earns returns from active sponsored branches.</French>
+		<German>The national headquarters of Artificers and Farriers. It issues limited emissary licenses and earns returns from active sponsored branches.</German>
+		<Italian>The national headquarters of Artificers and Farriers. It issues limited emissary licenses and earns returns from active sponsored branches.</Italian>
+		<Spanish>The national headquarters of Artificers and Farriers. It issues limited emissary licenses and earns returns from active sponsored branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HEADQUARTERS_STRATEGY</Tag>
+		<English>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</English>
+		<French>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</French>
+		<German>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</German>
+		<Italian>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Italian>
+		<Spanish>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HOUSE</Tag>
+		<English>Artificers and Farriers Guild House</English>
+		<French>Artificers and Farriers Guild House</French>
+		<German>Artificers and Farriers Guild House</German>
+		<Italian>Artificers and Farriers Guild House</Italian>
+		<Spanish>Artificers and Farriers Guild House</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HOUSE_PEDIA</Tag>
+		<English>A processor-bound branch of Artificers and Farriers. The house remains visible but loses its benefits while dormant.</English>
+		<French>A processor-bound branch of Artificers and Farriers. The house remains visible but loses its benefits while dormant.</French>
+		<German>A processor-bound branch of Artificers and Farriers. The house remains visible but loses its benefits while dormant.</German>
+		<Italian>A processor-bound branch of Artificers and Farriers. The house remains visible but loses its benefits while dormant.</Italian>
+		<Spanish>A processor-bound branch of Artificers and Farriers. The house remains visible but loses its benefits while dormant.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_ARTIFICERS_HOUSE_STRATEGY</Tag>
+		<English>Established by a guild emissary in a city with an eligible active processor.</English>
+		<French>Established by a guild emissary in a city with an eligible active processor.</French>
+		<German>Established by a guild emissary in a city with an eligible active processor.</German>
+		<Italian>Established by a guild emissary in a city with an eligible active processor.</Italian>
+		<Spanish>Established by a guild emissary in a city with an eligible active processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_ARTIFICERS_EMISSARY</Tag>
+		<English>Artificers and Farriers Emissary</English>
+		<French>Artificers and Farriers Emissary</French>
+		<German>Artificers and Farriers Emissary</German>
+		<Italian>Artificers and Farriers Emissary</Italian>
+		<Spanish>Artificers and Farriers Emissary</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_ARTIFICERS_EMISSARY_PEDIA</Tag>
+		<English>An authorized caravan that establishes one Artificers and Farriers Guild House.</English>
+		<French>An authorized caravan that establishes one Artificers and Farriers Guild House.</French>
+		<German>An authorized caravan that establishes one Artificers and Farriers Guild House.</German>
+		<Italian>An authorized caravan that establishes one Artificers and Farriers Guild House.</Italian>
+		<Spanish>An authorized caravan that establishes one Artificers and Farriers Guild House.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_ARTIFICERS_EMISSARY_STRATEGY</Tag>
+		<English>Move to an eligible city and establish a processor-bound guild branch.</English>
+		<French>Move to an eligible city and establish a processor-bound guild branch.</French>
+		<German>Move to an eligible city and establish a processor-bound guild branch.</German>
+		<Italian>Move to an eligible city and establish a processor-bound guild branch.</Italian>
+		<Spanish>Move to an eligible city and establish a processor-bound guild branch.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_MERCHANT_ADVENTURERS</Tag>
+		<English>Merchant Adventurers</English>
+		<French>Merchant Adventurers</French>
+		<German>Merchant Adventurers</German>
+		<Italian>Merchant Adventurers</Italian>
+		<Spanish>Merchant Adventurers</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_MERCHANT_ADVENTURERS_PEDIA</Tag>
+		<English>Merchant Adventurers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</English>
+		<French>Merchant Adventurers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</French>
+		<German>Merchant Adventurers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</German>
+		<Italian>Merchant Adventurers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Italian>
+		<Spanish>Merchant Adventurers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_MERCHANT_ADVENTURERS_HELP</Tag>
+		<English>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</English>
+		<French>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</French>
+		<German>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</German>
+		<Italian>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Italian>
+		<Spanish>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_MERCHANT_ADVENTURERS_STRATEGY</Tag>
+		<English>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</English>
+		<French>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</French>
+		<German>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</German>
+		<Italian>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Italian>
+		<Spanish>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HEADQUARTERS</Tag>
+		<English>Merchant Adventurers Headquarters</English>
+		<French>Merchant Adventurers Headquarters</French>
+		<German>Merchant Adventurers Headquarters</German>
+		<Italian>Merchant Adventurers Headquarters</Italian>
+		<Spanish>Merchant Adventurers Headquarters</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HEADQUARTERS_PEDIA</Tag>
+		<English>The national headquarters of Merchant Adventurers. It issues limited emissary licenses and earns returns from active sponsored branches.</English>
+		<French>The national headquarters of Merchant Adventurers. It issues limited emissary licenses and earns returns from active sponsored branches.</French>
+		<German>The national headquarters of Merchant Adventurers. It issues limited emissary licenses and earns returns from active sponsored branches.</German>
+		<Italian>The national headquarters of Merchant Adventurers. It issues limited emissary licenses and earns returns from active sponsored branches.</Italian>
+		<Spanish>The national headquarters of Merchant Adventurers. It issues limited emissary licenses and earns returns from active sponsored branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HEADQUARTERS_STRATEGY</Tag>
+		<English>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</English>
+		<French>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</French>
+		<German>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</German>
+		<Italian>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Italian>
+		<Spanish>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HOUSE</Tag>
+		<English>Merchant Adventurers Guild House</English>
+		<French>Merchant Adventurers Guild House</French>
+		<German>Merchant Adventurers Guild House</German>
+		<Italian>Merchant Adventurers Guild House</Italian>
+		<Spanish>Merchant Adventurers Guild House</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HOUSE_PEDIA</Tag>
+		<English>A processor-bound branch of Merchant Adventurers. The house remains visible but loses its benefits while dormant.</English>
+		<French>A processor-bound branch of Merchant Adventurers. The house remains visible but loses its benefits while dormant.</French>
+		<German>A processor-bound branch of Merchant Adventurers. The house remains visible but loses its benefits while dormant.</German>
+		<Italian>A processor-bound branch of Merchant Adventurers. The house remains visible but loses its benefits while dormant.</Italian>
+		<Spanish>A processor-bound branch of Merchant Adventurers. The house remains visible but loses its benefits while dormant.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_MERCHANT_ADVENTURERS_HOUSE_STRATEGY</Tag>
+		<English>Established by a guild emissary in a city with an eligible active processor.</English>
+		<French>Established by a guild emissary in a city with an eligible active processor.</French>
+		<German>Established by a guild emissary in a city with an eligible active processor.</German>
+		<Italian>Established by a guild emissary in a city with an eligible active processor.</Italian>
+		<Spanish>Established by a guild emissary in a city with an eligible active processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_MERCHANT_ADVENTURERS_EMISSARY</Tag>
+		<English>Merchant Adventurers Emissary</English>
+		<French>Merchant Adventurers Emissary</French>
+		<German>Merchant Adventurers Emissary</German>
+		<Italian>Merchant Adventurers Emissary</Italian>
+		<Spanish>Merchant Adventurers Emissary</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_MERCHANT_ADVENTURERS_EMISSARY_PEDIA</Tag>
+		<English>An authorized caravan that establishes one Merchant Adventurers Guild House.</English>
+		<French>An authorized caravan that establishes one Merchant Adventurers Guild House.</French>
+		<German>An authorized caravan that establishes one Merchant Adventurers Guild House.</German>
+		<Italian>An authorized caravan that establishes one Merchant Adventurers Guild House.</Italian>
+		<Spanish>An authorized caravan that establishes one Merchant Adventurers Guild House.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_MERCHANT_ADVENTURERS_EMISSARY_STRATEGY</Tag>
+		<English>Move to an eligible city and establish a processor-bound guild branch.</English>
+		<French>Move to an eligible city and establish a processor-bound guild branch.</French>
+		<German>Move to an eligible city and establish a processor-bound guild branch.</German>
+		<Italian>Move to an eligible city and establish a processor-bound guild branch.</Italian>
+		<Spanish>Move to an eligible city and establish a processor-bound guild branch.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_APOTHECARIES</Tag>
+		<English>Apothecaries and Chandlers</English>
+		<French>Apothecaries and Chandlers</French>
+		<German>Apothecaries and Chandlers</German>
+		<Italian>Apothecaries and Chandlers</Italian>
+		<Spanish>Apothecaries and Chandlers</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_APOTHECARIES_PEDIA</Tag>
+		<English>Apothecaries and Chandlers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</English>
+		<French>Apothecaries and Chandlers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</French>
+		<German>Apothecaries and Chandlers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</German>
+		<Italian>Apothecaries and Chandlers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Italian>
+		<Spanish>Apothecaries and Chandlers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_APOTHECARIES_HELP</Tag>
+		<English>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</English>
+		<French>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</French>
+		<German>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</German>
+		<Italian>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Italian>
+		<Spanish>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_APOTHECARIES_STRATEGY</Tag>
+		<English>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</English>
+		<French>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</French>
+		<German>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</German>
+		<Italian>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Italian>
+		<Spanish>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HEADQUARTERS</Tag>
+		<English>Apothecaries and Chandlers Headquarters</English>
+		<French>Apothecaries and Chandlers Headquarters</French>
+		<German>Apothecaries and Chandlers Headquarters</German>
+		<Italian>Apothecaries and Chandlers Headquarters</Italian>
+		<Spanish>Apothecaries and Chandlers Headquarters</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HEADQUARTERS_PEDIA</Tag>
+		<English>The national headquarters of Apothecaries and Chandlers. It issues limited emissary licenses and earns returns from active sponsored branches.</English>
+		<French>The national headquarters of Apothecaries and Chandlers. It issues limited emissary licenses and earns returns from active sponsored branches.</French>
+		<German>The national headquarters of Apothecaries and Chandlers. It issues limited emissary licenses and earns returns from active sponsored branches.</German>
+		<Italian>The national headquarters of Apothecaries and Chandlers. It issues limited emissary licenses and earns returns from active sponsored branches.</Italian>
+		<Spanish>The national headquarters of Apothecaries and Chandlers. It issues limited emissary licenses and earns returns from active sponsored branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HEADQUARTERS_STRATEGY</Tag>
+		<English>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</English>
+		<French>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</French>
+		<German>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</German>
+		<Italian>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Italian>
+		<Spanish>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HOUSE</Tag>
+		<English>Apothecaries and Chandlers Guild House</English>
+		<French>Apothecaries and Chandlers Guild House</French>
+		<German>Apothecaries and Chandlers Guild House</German>
+		<Italian>Apothecaries and Chandlers Guild House</Italian>
+		<Spanish>Apothecaries and Chandlers Guild House</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HOUSE_PEDIA</Tag>
+		<English>A processor-bound branch of Apothecaries and Chandlers. The house remains visible but loses its benefits while dormant.</English>
+		<French>A processor-bound branch of Apothecaries and Chandlers. The house remains visible but loses its benefits while dormant.</French>
+		<German>A processor-bound branch of Apothecaries and Chandlers. The house remains visible but loses its benefits while dormant.</German>
+		<Italian>A processor-bound branch of Apothecaries and Chandlers. The house remains visible but loses its benefits while dormant.</Italian>
+		<Spanish>A processor-bound branch of Apothecaries and Chandlers. The house remains visible but loses its benefits while dormant.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_APOTHECARIES_HOUSE_STRATEGY</Tag>
+		<English>Established by a guild emissary in a city with an eligible active processor.</English>
+		<French>Established by a guild emissary in a city with an eligible active processor.</French>
+		<German>Established by a guild emissary in a city with an eligible active processor.</German>
+		<Italian>Established by a guild emissary in a city with an eligible active processor.</Italian>
+		<Spanish>Established by a guild emissary in a city with an eligible active processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_APOTHECARIES_EMISSARY</Tag>
+		<English>Apothecaries and Chandlers Emissary</English>
+		<French>Apothecaries and Chandlers Emissary</French>
+		<German>Apothecaries and Chandlers Emissary</German>
+		<Italian>Apothecaries and Chandlers Emissary</Italian>
+		<Spanish>Apothecaries and Chandlers Emissary</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_APOTHECARIES_EMISSARY_PEDIA</Tag>
+		<English>An authorized caravan that establishes one Apothecaries and Chandlers Guild House.</English>
+		<French>An authorized caravan that establishes one Apothecaries and Chandlers Guild House.</French>
+		<German>An authorized caravan that establishes one Apothecaries and Chandlers Guild House.</German>
+		<Italian>An authorized caravan that establishes one Apothecaries and Chandlers Guild House.</Italian>
+		<Spanish>An authorized caravan that establishes one Apothecaries and Chandlers Guild House.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_APOTHECARIES_EMISSARY_STRATEGY</Tag>
+		<English>Move to an eligible city and establish a processor-bound guild branch.</English>
+		<French>Move to an eligible city and establish a processor-bound guild branch.</French>
+		<German>Move to an eligible city and establish a processor-bound guild branch.</German>
+		<Italian>Move to an eligible city and establish a processor-bound guild branch.</Italian>
+		<Spanish>Move to an eligible city and establish a processor-bound guild branch.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_VICTUALLERS</Tag>
+		<English>Victuallers</English>
+		<French>Victuallers</French>
+		<German>Victuallers</German>
+		<Italian>Victuallers</Italian>
+		<Spanish>Victuallers</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_VICTUALLERS_PEDIA</Tag>
+		<English>Victuallers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</English>
+		<French>Victuallers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</French>
+		<German>Victuallers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</German>
+		<Italian>Victuallers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Italian>
+		<Spanish>Victuallers is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_VICTUALLERS_HELP</Tag>
+		<English>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</English>
+		<French>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</French>
+		<German>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</German>
+		<Italian>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Italian>
+		<Spanish>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_VICTUALLERS_STRATEGY</Tag>
+		<English>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</English>
+		<French>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</French>
+		<German>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</German>
+		<Italian>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Italian>
+		<Spanish>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HEADQUARTERS</Tag>
+		<English>Victuallers Headquarters</English>
+		<French>Victuallers Headquarters</French>
+		<German>Victuallers Headquarters</German>
+		<Italian>Victuallers Headquarters</Italian>
+		<Spanish>Victuallers Headquarters</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HEADQUARTERS_PEDIA</Tag>
+		<English>The national headquarters of Victuallers. It issues limited emissary licenses and earns returns from active sponsored branches.</English>
+		<French>The national headquarters of Victuallers. It issues limited emissary licenses and earns returns from active sponsored branches.</French>
+		<German>The national headquarters of Victuallers. It issues limited emissary licenses and earns returns from active sponsored branches.</German>
+		<Italian>The national headquarters of Victuallers. It issues limited emissary licenses and earns returns from active sponsored branches.</Italian>
+		<Spanish>The national headquarters of Victuallers. It issues limited emissary licenses and earns returns from active sponsored branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HEADQUARTERS_STRATEGY</Tag>
+		<English>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</English>
+		<French>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</French>
+		<German>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</German>
+		<Italian>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Italian>
+		<Spanish>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HOUSE</Tag>
+		<English>Victuallers Guild House</English>
+		<French>Victuallers Guild House</French>
+		<German>Victuallers Guild House</German>
+		<Italian>Victuallers Guild House</Italian>
+		<Spanish>Victuallers Guild House</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HOUSE_PEDIA</Tag>
+		<English>A processor-bound branch of Victuallers. The house remains visible but loses its benefits while dormant.</English>
+		<French>A processor-bound branch of Victuallers. The house remains visible but loses its benefits while dormant.</French>
+		<German>A processor-bound branch of Victuallers. The house remains visible but loses its benefits while dormant.</German>
+		<Italian>A processor-bound branch of Victuallers. The house remains visible but loses its benefits while dormant.</Italian>
+		<Spanish>A processor-bound branch of Victuallers. The house remains visible but loses its benefits while dormant.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_VICTUALLERS_HOUSE_STRATEGY</Tag>
+		<English>Established by a guild emissary in a city with an eligible active processor.</English>
+		<French>Established by a guild emissary in a city with an eligible active processor.</French>
+		<German>Established by a guild emissary in a city with an eligible active processor.</German>
+		<Italian>Established by a guild emissary in a city with an eligible active processor.</Italian>
+		<Spanish>Established by a guild emissary in a city with an eligible active processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_VICTUALLERS_EMISSARY</Tag>
+		<English>Victuallers Emissary</English>
+		<French>Victuallers Emissary</French>
+		<German>Victuallers Emissary</German>
+		<Italian>Victuallers Emissary</Italian>
+		<Spanish>Victuallers Emissary</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_VICTUALLERS_EMISSARY_PEDIA</Tag>
+		<English>An authorized caravan that establishes one Victuallers Guild House.</English>
+		<French>An authorized caravan that establishes one Victuallers Guild House.</French>
+		<German>An authorized caravan that establishes one Victuallers Guild House.</German>
+		<Italian>An authorized caravan that establishes one Victuallers Guild House.</Italian>
+		<Spanish>An authorized caravan that establishes one Victuallers Guild House.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_VICTUALLERS_EMISSARY_STRATEGY</Tag>
+		<English>Move to an eligible city and establish a processor-bound guild branch.</English>
+		<French>Move to an eligible city and establish a processor-bound guild branch.</French>
+		<German>Move to an eligible city and establish a processor-bound guild branch.</German>
+		<Italian>Move to an eligible city and establish a processor-bound guild branch.</Italian>
+		<Spanish>Move to an eligible city and establish a processor-bound guild branch.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_PAGEANTRY</Tag>
+		<English>Fellowship of Pageantry</English>
+		<French>Fellowship of Pageantry</French>
+		<German>Fellowship of Pageantry</German>
+		<Italian>Fellowship of Pageantry</Italian>
+		<Spanish>Fellowship of Pageantry</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_PAGEANTRY_PEDIA</Tag>
+		<English>Fellowship of Pageantry is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</English>
+		<French>Fellowship of Pageantry is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</French>
+		<German>Fellowship of Pageantry is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</German>
+		<Italian>Fellowship of Pageantry is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Italian>
+		<Spanish>Fellowship of Pageantry is a nationally sponsored guild network founded at Guilds and extended through processor-bound branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_PAGEANTRY_HELP</Tag>
+		<English>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</English>
+		<French>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</French>
+		<German>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</German>
+		<Italian>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Italian>
+		<Spanish>A headquarters may support three total sponsored branches and living emissaries. Branches require an eligible, active, unclaimed local processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_PAGEANTRY_STRATEGY</Tag>
+		<English>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</English>
+		<French>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</French>
+		<German>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</German>
+		<Italian>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Italian>
+		<Spanish>Use scarce emissary licenses on productive processors at home or in trusted Open Borders partners.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HEADQUARTERS</Tag>
+		<English>Fellowship of Pageantry Headquarters</English>
+		<French>Fellowship of Pageantry Headquarters</French>
+		<German>Fellowship of Pageantry Headquarters</German>
+		<Italian>Fellowship of Pageantry Headquarters</Italian>
+		<Spanish>Fellowship of Pageantry Headquarters</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HEADQUARTERS_PEDIA</Tag>
+		<English>The national headquarters of Fellowship of Pageantry. It issues limited emissary licenses and earns returns from active sponsored branches.</English>
+		<French>The national headquarters of Fellowship of Pageantry. It issues limited emissary licenses and earns returns from active sponsored branches.</French>
+		<German>The national headquarters of Fellowship of Pageantry. It issues limited emissary licenses and earns returns from active sponsored branches.</German>
+		<Italian>The national headquarters of Fellowship of Pageantry. It issues limited emissary licenses and earns returns from active sponsored branches.</Italian>
+		<Spanish>The national headquarters of Fellowship of Pageantry. It issues limited emissary licenses and earns returns from active sponsored branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HEADQUARTERS_STRATEGY</Tag>
+		<English>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</English>
+		<French>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</French>
+		<German>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</German>
+		<Italian>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Italian>
+		<Spanish>Founded by the matching Great Person. Provides Culture, Great Person points, one specialist slot, and network returns.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HOUSE</Tag>
+		<English>Fellowship of Pageantry Guild House</English>
+		<French>Fellowship of Pageantry Guild House</French>
+		<German>Fellowship of Pageantry Guild House</German>
+		<Italian>Fellowship of Pageantry Guild House</Italian>
+		<Spanish>Fellowship of Pageantry Guild House</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HOUSE_PEDIA</Tag>
+		<English>A processor-bound branch of Fellowship of Pageantry. The house remains visible but loses its benefits while dormant.</English>
+		<French>A processor-bound branch of Fellowship of Pageantry. The house remains visible but loses its benefits while dormant.</French>
+		<German>A processor-bound branch of Fellowship of Pageantry. The house remains visible but loses its benefits while dormant.</German>
+		<Italian>A processor-bound branch of Fellowship of Pageantry. The house remains visible but loses its benefits while dormant.</Italian>
+		<Spanish>A processor-bound branch of Fellowship of Pageantry. The house remains visible but loses its benefits while dormant.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_BUILDING_GUILD_PAGEANTRY_HOUSE_STRATEGY</Tag>
+		<English>Established by a guild emissary in a city with an eligible active processor.</English>
+		<French>Established by a guild emissary in a city with an eligible active processor.</French>
+		<German>Established by a guild emissary in a city with an eligible active processor.</German>
+		<Italian>Established by a guild emissary in a city with an eligible active processor.</Italian>
+		<Spanish>Established by a guild emissary in a city with an eligible active processor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_PAGEANTRY_EMISSARY</Tag>
+		<English>Fellowship of Pageantry Emissary</English>
+		<French>Fellowship of Pageantry Emissary</French>
+		<German>Fellowship of Pageantry Emissary</German>
+		<Italian>Fellowship of Pageantry Emissary</Italian>
+		<Spanish>Fellowship of Pageantry Emissary</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_PAGEANTRY_EMISSARY_PEDIA</Tag>
+		<English>An authorized caravan that establishes one Fellowship of Pageantry Guild House.</English>
+		<French>An authorized caravan that establishes one Fellowship of Pageantry Guild House.</French>
+		<German>An authorized caravan that establishes one Fellowship of Pageantry Guild House.</German>
+		<Italian>An authorized caravan that establishes one Fellowship of Pageantry Guild House.</Italian>
+		<Spanish>An authorized caravan that establishes one Fellowship of Pageantry Guild House.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_UNIT_GUILD_PAGEANTRY_EMISSARY_STRATEGY</Tag>
+		<English>Move to an eligible city and establish a processor-bound guild branch.</English>
+		<French>Move to an eligible city and establish a processor-bound guild branch.</French>
+		<German>Move to an eligible city and establish a processor-bound guild branch.</German>
+		<Italian>Move to an eligible city and establish a processor-bound guild branch.</Italian>
+		<Spanish>Move to an eligible city and establish a processor-bound guild branch.</Spanish>
+	</TEXT>
+</Civ4GameText>

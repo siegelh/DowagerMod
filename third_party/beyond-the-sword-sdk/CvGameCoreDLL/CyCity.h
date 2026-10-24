@@ -162,6 +162,12 @@ public:
 	int getNumBuilding(int /*BuildingTypes*/ iIndex);
 	bool isHasBuilding(int /*BuildingTypes*/ iIndex);		// This is a function to help modders out, since it was replaced with getNumBuildings() in the C++
 	int getNumActiveBuilding(int /*BuildingTypes*/ iIndex);
+	int getGuildSponsor(int /*GuildTypes*/ iGuild);
+	int getGuildProcessor(int /*GuildTypes*/ iGuild);
+	bool hasGuildBranch(int /*GuildTypes*/ iGuild);
+	bool isGuildBranchActive(int /*GuildTypes*/ iGuild);
+	int getNumEligibleGuildProcessors(int /*GuildTypes*/ iGuild, int /*PlayerTypes*/ iSponsor);
+	int getEligibleGuildProcessor(int /*GuildTypes*/ iGuild, int /*PlayerTypes*/ iSponsor, int iIndex);
 	int getID();
 	int getX();
 	int getY();

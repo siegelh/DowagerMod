@@ -105,6 +105,7 @@ class CvPromotionInfo;
 class CvTechInfo;
 class CvReligionInfo;
 class CvCorporationInfo;
+class CvGuildInfo;
 class CvSpecialistInfo;
 class CvCivicOptionInfo;
 class CvCivicInfo;
@@ -543,6 +544,10 @@ public:
 	int getNumCorporationInfos();
 	std::vector<CvCorporationInfo*>& getCorporationInfo();
 	CvCorporationInfo& getCorporationInfo(CorporationTypes eCorporationNum);
+
+	int getNumGuildInfos();
+	std::vector<CvGuildInfo*>& getGuildInfo();
+	CvGuildInfo& getGuildInfo(GuildTypes eGuildNum);
 
 	int getNumSpecialistInfos();
 	std::vector<CvSpecialistInfo*>& getSpecialistInfo();
@@ -1023,6 +1028,7 @@ protected:
 	std::vector<CvCultureLevelInfo*> m_paCultureLevelInfo;
 	std::vector<CvReligionInfo*> m_paReligionInfo;
 	std::vector<CvCorporationInfo*> m_paCorporationInfo;
+	std::vector<CvGuildInfo*> m_paGuildInfo;
 	std::vector<CvActionInfo*> m_paActionInfo;
 	std::vector<CvMissionInfo*> m_paMissionInfo;
 	std::vector<CvControlInfo*> m_paControlInfo;

@@ -4259,6 +4259,44 @@ protected:
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
+//  class : CvGuildInfo
+//
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class CvGuildInfo : public CvInfoBase
+{
+public:
+	CvGuildInfo();
+	virtual ~CvGuildInfo();
+
+	int getTechPrereq() const;
+	int getFounderUnitClass() const;
+	int getHeadquartersBuildingClass() const;
+	int getHouseBuildingClass() const;
+	int getEmissaryUnitClass() const;
+	int getLicenseCap() const;
+	int getNumProcessorBuildingClasses() const;
+	int getProcessorBuildingClass(int i) const;
+	int getHeadquartersYieldPerBranch(int i) const;
+	int getHeadquartersCommercePerBranch(int i) const;
+	const TCHAR* getButton() const;
+
+	bool read(CvXMLLoadUtility* pXML);
+
+protected:
+	int m_iTechPrereq;
+	int m_iFounderUnitClass;
+	int m_iHeadquartersBuildingClass;
+	int m_iHouseBuildingClass;
+	int m_iEmissaryUnitClass;
+	int m_iLicenseCap;
+	int* m_paiHeadquartersYieldPerBranch;
+	int* m_paiHeadquartersCommercePerBranch;
+	std::vector<int> m_aiProcessorBuildingClasses;
+	CvString m_szButton;
+};
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
 //  class : CvTraitInfo
 //
 //  DESC:   

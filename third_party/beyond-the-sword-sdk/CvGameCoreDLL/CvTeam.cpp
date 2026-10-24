@@ -3416,7 +3416,11 @@ void CvTeam::setAtWar(TeamTypes eIndex, bool bNewValue)
 {
 	FAssertMsg(eIndex >= 0, "eIndex is expected to be non-negative (invalid Index)");
 	FAssertMsg(eIndex < MAX_TEAMS, "eIndex is expected to be within maximum bounds (invalid Index)");
-	m_abAtWar[eIndex] = bNewValue;
+	if (m_abAtWar[eIndex] != bNewValue)
+	{
+		m_abAtWar[eIndex] = bNewValue;
+		CvCity::refreshAllGuildBranches();
+	}
 }
 
 
@@ -3495,6 +3499,7 @@ void CvTeam::setOpenBorders(TeamTypes eIndex, bool bNewValue)
 					}
 				}
 			}
+			CvCity::refreshAllGuildBranches();
 		}
 	}
 }

@@ -412,6 +412,10 @@ public:
 	int findHighestHasReligionCount();
 	int getHasCorporationCount(int /*CorporationTypes*/ eIndex);
 	int countTotalHasCorporation();
+	bool hasGuildHeadquarters(int /*GuildTypes*/ eGuild);
+	int getNumSponsoredGuildBranches(int /*GuildTypes*/ eGuild);
+	int getNumGuildEmissaries(int /*GuildTypes*/ eGuild);
+	int getNumAvailableGuildLicenses(int /*GuildTypes*/ eGuild);
 
 	int getUpkeepCount(int /*UpkeepTypes*/ eIndex);
 	bool isSpecialistValid(int /*SpecialistTypes*/ iIndex);
