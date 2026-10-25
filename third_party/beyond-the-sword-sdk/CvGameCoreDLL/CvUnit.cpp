@@ -5565,6 +5565,10 @@ bool CvUnit::canEstablishGuildBranch(const CvPlot* pPlot, BuildingClassTypes ePr
 	{
 		return false;
 	}
+	if (bTestVisible)
+	{
+		return true;
+	}
 
 	if (eProcessor != NO_BUILDINGCLASS)
 	{

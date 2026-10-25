@@ -55,6 +55,29 @@ LEGACY_MISSION_TYPES = (
     "MISSION_MULTI_DESELECT",
 )
 GUILD_MISSION_TYPE = "MISSION_ESTABLISH_GUILD_BRANCH"
+EXPECTED_CIVILOPEDIA_PAGE_TYPES = (
+    "CIVILOPEDIA_PAGE_TECH",
+    "CIVILOPEDIA_PAGE_UNIT",
+    "CIVILOPEDIA_PAGE_BUILDING",
+    "CIVILOPEDIA_PAGE_WONDER",
+    "CIVILOPEDIA_PAGE_TERRAIN",
+    "CIVILOPEDIA_PAGE_FEATURE",
+    "CIVILOPEDIA_PAGE_BONUS",
+    "CIVILOPEDIA_PAGE_IMPROVEMENT",
+    "CIVILOPEDIA_PAGE_SPECIALIST",
+    "CIVILOPEDIA_PAGE_PROMOTION",
+    "CIVILOPEDIA_PAGE_UNIT_GROUP",
+    "CIVILOPEDIA_PAGE_CIV",
+    "CIVILOPEDIA_PAGE_LEADER",
+    "CIVILOPEDIA_PAGE_RELIGION",
+    "CIVILOPEDIA_PAGE_CORPORATION",
+    "CIVILOPEDIA_PAGE_CIVIC",
+    "CIVILOPEDIA_PAGE_PROJECT",
+    "CIVILOPEDIA_PAGE_CONCEPT",
+    "CIVILOPEDIA_PAGE_CONCEPT_NEW",
+    "CIVILOPEDIA_PAGE_HINTS",
+    "CIVILOPEDIA_PAGE_GUILD",
+)
 
 
 def text(node, name):
@@ -124,6 +147,29 @@ def mission_enum_types(enums_source):
     if match is None:
         return ()
     return tuple(re.findall(r"^\s*(MISSION_[A-Z0-9_]+)\s*,", match.group("body"), re.M))
+
+
+def enum_types(enums_source, enum_name, prefix):
+    match = re.search(
+        r"enum\s+%s\b.*?\{(?P<body>.*?)\n\};" % re.escape(enum_name),
+        enums_source,
+        re.S,
+    )
+    if match is None:
+        return ()
+    return tuple(re.findall(
+        r"^\s*(%s[A-Z0-9_]+)\s*(?:=[^,]+)?," % re.escape(prefix),
+        match.group("body"),
+        re.M,
+    ))
+
+
+def cpp_function(source, signature, next_signature):
+    start = source.find(signature)
+    end = source.find(next_signature, start)
+    if start < 0 or end <= start:
+        return ""
+    return source[start:end]
 
 
 def main():
@@ -277,6 +323,8 @@ def main():
                 f"{art_type}: must use the stock unit shadow", errors)
         require(not elements(art_info, "TrailDefinition"),
                 f"{art_type}: must not inherit a wheel trail", errors)
+        require(text(art_info, "fScale") == "0.216",
+                f"{art_type}: world scale must match the source caravan at 0.216", errors)
         require(resolve_asset(assets, text(art_info, "NIF")) is not None,
                 f"{art_type}: caravan NIF is missing", errors)
         require(resolve_asset(assets, text(art_info, "KFM")) is not None,
@@ -308,6 +356,28 @@ def main():
         "CvEnums.h must preserve all legacy mission IDs and append the Guild mission",
         errors,
     )
+    require(
+        enum_types(enums_source, "CivilopediaPageTypes", "CIVILOPEDIA_PAGE_")
+        == EXPECTED_CIVILOPEDIA_PAGE_TYPES,
+        "CvEnums.h must preserve all legacy Civilopedia page IDs and append the Guild page",
+        errors,
+    )
+    widget_types = enum_types(enums_source, "WidgetTypes", "WIDGET_")
+    require(
+        widget_types.count("WIDGET_PEDIA_JUMP_TO_GUILD") == 1
+        and widget_types[-1:] == ("WIDGET_PEDIA_JUMP_TO_GUILD",),
+        "WIDGET_PEDIA_JUMP_TO_GUILD must be the final appended widget",
+        errors,
+    )
+    popup_types = enum_types(enums_source, "ButtonPopupTypes", "BUTTONPOPUP_")
+    require(
+        popup_types.count("BUTTONPOPUP_CHOOSE_GUILD_PROCESSOR") == 1
+        and popup_types[-1:] == ("BUTTONPOPUP_CHOOSE_GUILD_PROCESSOR",),
+        "BUTTONPOPUP_CHOOSE_GUILD_PROCESSOR must be the final appended popup",
+        errors,
+    )
+    require('value("CIVILOPEDIA_PAGE_GUILD", CIVILOPEDIA_PAGE_GUILD)' in enum_bindings_source,
+            "Guild Civilopedia page is not exposed to Python", errors)
     require("m_paiGuildSponsor" in city_source and "m_paiGuildProcessor" in city_source,
             "city persistence does not include sponsor and processor state", errors)
     require("getNumAvailableGuildLicenses" in player_source and "getNumGuildEmissaries" in player_source,
@@ -328,6 +398,42 @@ def main():
             and '"pediaJumpToGuild"' in widget_source
             and "parsePediaJumpToGuildHelp" in widget_source,
             "native Guild Civilopedia click/help routing is incomplete", errors)
+    require("enum GuildBranchRejectionTypes" in enums_source
+            and "GUILD_BRANCH_REJECTION_INACTIVE_PROCESSOR" in enums_source
+            and "GUILD_BRANCH_REJECTION_CLAIMED_PROCESSOR" in enums_source,
+            "ordered native Guild establishment rejection reasons are missing", errors)
+    city_header = (root / "third_party/beyond-the-sword-sdk/CvGameCoreDLL/CvCity.h").read_text(encoding="latin-1")
+    require("GuildBranchRejectionTypes getGuildBranchRejection" in city_header
+            and "CvCity::getGuildBranchRejection" in city_source
+            and "getGuildBranchRejection(eGuild, eSponsor, eProcessor) == NO_GUILD_BRANCH_REJECTION" in city_source,
+            "Guild branch legality must delegate to one rejection evaluator", errors)
+    require("if (bTestVisible)" in unit_source
+            and "return true;" in unit_source
+            and "canEstablishGuildBranch(eGuild, getOwnerINLINE(), eProcessor, bTestVisible)" in unit_source,
+            "Guild mission visibility must remain broad while execution uses native legality", errors)
+    require("getGuildBranchRejection" in widget_source
+            and "TXT_KEY_GUILD_BRANCH_REJECTION_INACTIVE_PROCESSOR" in widget_source
+            and "TXT_KEY_GUILD_BRANCH_REJECTION_CLAIMED_PROCESSOR" in widget_source,
+            "Guild action help must report establishment rejection reasons", errors)
+
+    acquire_city = cpp_function(
+        player_source,
+        "void CvPlayer::acquireCity(",
+        "void CvPlayer::killCities()",
+    )
+    building_loop = acquire_city.find(
+        "for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)"
+    )
+    restore_block = acquire_city.find("restoreGuildBranchState")
+    refresh_block = acquire_city.find("CvCity::refreshAllGuildBranches();")
+    require(building_loop >= 0,
+            "city acquisition must use a dedicated building-loop index", errors)
+    require(acquire_city.count("CvCity::refreshAllGuildBranches();") == 1,
+            "city acquisition must refresh Guild networks exactly once", errors)
+    require(restore_block > building_loop and refresh_block > restore_block,
+            "Guild transfer finalization must follow building reconstruction", errors)
+    require("for (int iI = 0; iI < GC.getNumBuildingInfos(); iI++)" not in acquire_city,
+            "city acquisition must not reuse the legacy building-loop index", errors)
 
     advisor = (assets / "Python/Screens/CvIndustryAdvisor.py").read_text(encoding="utf-8")
     pedia = (assets / "Python/Screens/CvPediaGuild.py").read_text(encoding="utf-8")
@@ -343,6 +449,9 @@ def main():
     require("WidgetTypes.WIDGET_PEDIA_JUMP_TO_GUILD" in pedia_main
             and "WidgetTypes.WIDGET_PEDIA_JUMP_TO_GUILD" in pedia,
             "Guild Civilopedia rows and sidebar must use the native Guild widget", errors)
+    require('CvUtil.pyPrint("[GUILDS] Civilopedia received zero Guild infos from the DLL")' in pedia_main
+            and "TXT_KEY_PEDIA_GUILD_DATA_UNAVAILABLE" in pedia_main,
+            "Guild Civilopedia must report a zero-info DLL/XML contract failure", errors)
     require("def pediaJumpToGuild(argsList):" in screens_interface
             and "pediaMainScreen.pediaJump(PEDIA_GUILD" in screens_interface,
             "Guild Civilopedia screen entrypoint is missing", errors)

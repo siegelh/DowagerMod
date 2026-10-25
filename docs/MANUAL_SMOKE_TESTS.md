@@ -23,6 +23,10 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
 2. Establish domestic branches in cities with eligible active processors.
    Confirm one processor supports only one branch, the Guild House appears,
    the emissary is consumed, and the sponsor's used/open license totals update.
+   Repeat with Merchant Adventurers and an active Spice Exchange. For each
+   blocked case (missing or inactive processor, claimed processor, missing
+   headquarters, State Property, war, closed borders, and Mercantilism), hover
+   the disabled action and confirm the exact rejection reason is shown.
 3. Establish a foreign branch with a Pleased/Friendly Open Borders partner.
    Verify war, closed borders, Mercantilism in the host, and State Property in
    the sponsor make the branch dormant without deleting its building or license.
@@ -34,7 +38,10 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
 6. Capture a city containing a headquarters or branch: all guild buildings in
    that city must be destroyed. Peacefully transfer a branch and confirm its
    sponsor/processor persist; transfer a headquarters and confirm free relocation
-   to the sponsor's capital or first remaining city without new emissaries.
+   to the sponsor's capital or highest-population remaining city (lowest city ID
+   on a tie) without new emissaries. Transfer several recently conquered cities
+   in one diplomatic exchange and confirm the game completes the transfer without
+   freezing, duplicating effects, or losing branch metadata.
 7. Eliminate a sponsor and confirm all of its foreign branches are removed.
    Use both Revoke and Withdraw on the Industry Advisor Guilds tab in SP and a
    two-client game; both clients must remove the same branch without OOS.
@@ -45,9 +52,10 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
    plus building, unit, technology, civic, bonus, and processor links still work.
 9. Inspect all five emissaries in the Civilopedia and on the map while idle and
    moving; verify the caravan, selection circle, and shadow render without red
-   or pink geometry. Inspect all ten headquarters/Guild House models and buttons
-   in the Civilopedia and in cities; verify each is distinct, readable, and
-   sensibly scaled without clipping.
+   or pink geometry and uses the same world footprint as the source trade caravan,
+   not a city-sized model. Inspect all ten headquarters/Guild House models and
+   buttons in the Civilopedia and in cities; verify each is distinct, readable,
+   and sensibly scaled without clipping.
 10. Save/reload active and dormant domestic/foreign networks. Recheck sponsor,
    processor, activity, license totals, headquarters returns, and advisor rows.
 11. Observe AI Great People founding headquarters, headquarters cities replacing
@@ -55,6 +63,9 @@ Use this runbook after gameplay-affecting changes. If XML, Python, DLL, UI, art 
 12. Found Royal Armaments Company only where Arsenal, Remount Depot, and Military
     Outfitters are present. Verify Forged Iron, Copperware, and Trained Mounts
     each contribute the configured Production and branches receive military XP.
+13. Start a fresh game after installing the rebuilt DLL. Confirm ordinary units,
+    selection indicators, city names, and city billboards remain visible through
+    Civilopedia use, Guild actions, a city transfer, an end turn, and save/reload.
 
 ### Mission ID compatibility regression
 

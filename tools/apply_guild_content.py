@@ -376,7 +376,7 @@ def patch_unit_art():
         for tag, value in (
             ("Type", gid["art"]),
             ("Button", guild["button"]),
-            ("fScale", 0.44),
+            ("fScale", 0.216),
             ("fInterfaceScale", 1.0),
             ("NIF", "Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif"),
             ("KFM", "Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm"),
@@ -486,8 +486,19 @@ def patch_text():
             text_entry("TXT_KEY_MISSION_ESTABLISH_GUILD_BRANCH_HELP", "Establish this emissary's guild branch in an eligible city."),
             text_entry("TXT_KEY_MISC_GUILD_BRANCH_ESTABLISHED", "%s1 established a branch in %s2."),
             text_entry("TXT_KEY_PEDIA_CATEGORY_GUILD", "Guilds"),
+            text_entry("TXT_KEY_PEDIA_GUILD_DATA_UNAVAILABLE", "Guild data is unavailable. Verify that the installed XML and CvGameCoreDLL.dll come from the same build."),
             text_entry("TXT_KEY_POPUP_CHOOSE_GUILD_PROCESSOR", "Choose the processor that will support %s1 in %s2."),
             text_entry("TXT_KEY_POPUP_GUILD_PROCESSOR_OPTION", "%s1 - establishes %s2 (unclaimed)"),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_EXISTING_BRANCH", "This city already has a branch of this Guild."),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_MISSING_HEADQUARTERS", "The sponsoring civilization does not have this Guild's headquarters."),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_STATE_PROPERTY", "State Property prevents this civilization from establishing Guild branches."),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_INELIGIBLE_PROCESSOR", "The selected processor is not eligible for this Guild."),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_MISSING_PROCESSOR", "This city does not contain an eligible processor for this Guild."),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_INACTIVE_PROCESSOR", "This city's eligible processor is present but inactive."),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_CLAIMED_PROCESSOR", "Every active eligible processor in this city already supports another Guild branch."),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_WAR", "Guild branches cannot be established in a civilization at war with the sponsor."),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_CLOSED_BORDERS", "Foreign Guild branches require Open Borders with the sponsor."),
+            text_entry("TXT_KEY_GUILD_BRANCH_REJECTION_MERCANTILISM", "Mercantilism prevents this city from hosting a foreign Guild branch."),
         )
     )
     for guild in GUILDS:

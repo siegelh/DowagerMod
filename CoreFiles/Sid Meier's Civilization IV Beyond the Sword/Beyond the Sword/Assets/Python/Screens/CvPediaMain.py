@@ -632,6 +632,11 @@ class CvPediaMain( CvPediaScreen.CvPediaScreen ):
 		screen.addTableControlGFC(tableName, 1, self.X_ITEMS_PANE, self.Y_ITEMS_PANE+5, self.W_ITEMS_PANE, self.H_ITEMS_PANE-5, False, False, 24, 24, TableStyles.TABLE_STYLE_STANDARD)
 		screen.enableSelect(tableName, False)
 		screen.setTableColumnHeader(tableName, 0, "", self.W_ITEMS_PANE)
+		if not items:
+			CvUtil.pyPrint("[GUILDS] Civilopedia received zero Guild infos from the DLL")
+			iRow = screen.appendTableRow(tableName)
+			screen.setTableText(tableName, 0, iRow, u"<font=3>" + localText.getText("TXT_KEY_PEDIA_GUILD_DATA_UNAVAILABLE", ()) + u"</font>", "", WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
+			return
 		for item in items:
 			iRow = screen.appendTableRow(tableName)
 			screen.setTableText(tableName, 0, iRow, u"<font=3>" + item[0] + u"</font>", gc.getGuildInfo(item[1]).getButton(), WidgetTypes.WIDGET_PEDIA_JUMP_TO_GUILD, item[1], 1, CvUtil.FONT_LEFT_JUSTIFY)

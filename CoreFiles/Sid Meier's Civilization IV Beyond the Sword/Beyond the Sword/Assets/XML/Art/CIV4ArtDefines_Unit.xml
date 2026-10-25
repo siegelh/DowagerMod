@@ -89182,7 +89182,7 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_ARTIFICERS_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/iron_foundry.dds</Button>
-		<fScale>0.44</fScale>
+		<fScale>0.216</fScale>
 		<fInterfaceScale>1.0</fInterfaceScale>
 		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>
@@ -89206,7 +89206,7 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_MERCHANT_ADVENTURERS_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/exchange_hall.dds</Button>
-		<fScale>0.44</fScale>
+		<fScale>0.216</fScale>
 		<fInterfaceScale>1.0</fInterfaceScale>
 		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>
@@ -89230,7 +89230,7 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_APOTHECARIES_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/whale_oil_chandlery.dds</Button>
-		<fScale>0.44</fScale>
+		<fScale>0.216</fScale>
 		<fInterfaceScale>1.0</fInterfaceScale>
 		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>
@@ -89254,7 +89254,7 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_VICTUALLERS_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/victuallers_exchange.dds</Button>
-		<fScale>0.44</fScale>
+		<fScale>0.216</fScale>
 		<fInterfaceScale>1.0</fInterfaceScale>
 		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>
@@ -89278,7 +89278,7 @@
 	<UnitArtInfo>
 		<Type>ART_DEF_UNIT_GUILD_PAGEANTRY_EMISSARY</Type>
 		<Button>Art/Interface/Buttons/Buildings/Industries/illuminated_theatre.dds</Button>
-		<fScale>0.44</fScale>
+		<fScale>0.216</fScale>
 		<fInterfaceScale>1.0</fInterfaceScale>
 		<NIF>Art/Caveman2Cosmos/art/units/caravan/caravan_base.nif</NIF>
 		<KFM>Art/Caveman2Cosmos/art/units/caravan/caravan_base.kfm</KFM>

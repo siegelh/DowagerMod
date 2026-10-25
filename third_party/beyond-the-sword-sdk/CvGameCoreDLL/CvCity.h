@@ -814,6 +814,7 @@ public:
 	bool isGuildProcessorClaimed(BuildingClassTypes eProcessor, GuildTypes eIgnoreGuild = NO_GUILD) const;
 	int getNumEligibleGuildProcessors(GuildTypes eGuild, PlayerTypes eSponsor) const;
 	BuildingClassTypes getEligibleGuildProcessor(GuildTypes eGuild, PlayerTypes eSponsor, int iIndex) const;
+	GuildBranchRejectionTypes getGuildBranchRejection(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor = NO_BUILDINGCLASS) const;
 	bool canEstablishGuildBranch(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor, bool bTestVisible = false) const;
 	bool establishGuildBranch(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor);
 	void restoreGuildBranchState(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor);

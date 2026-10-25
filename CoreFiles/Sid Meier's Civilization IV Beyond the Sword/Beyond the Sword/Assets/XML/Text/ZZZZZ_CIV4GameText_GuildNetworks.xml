@@ -33,6 +33,14 @@
 		<Spanish>Guilds</Spanish>
 	</TEXT>
 	<TEXT>
+		<Tag>TXT_KEY_PEDIA_GUILD_DATA_UNAVAILABLE</Tag>
+		<English>Guild data is unavailable. Verify that the installed XML and CvGameCoreDLL.dll come from the same build.</English>
+		<French>Guild data is unavailable. Verify that the installed XML and CvGameCoreDLL.dll come from the same build.</French>
+		<German>Guild data is unavailable. Verify that the installed XML and CvGameCoreDLL.dll come from the same build.</German>
+		<Italian>Guild data is unavailable. Verify that the installed XML and CvGameCoreDLL.dll come from the same build.</Italian>
+		<Spanish>Guild data is unavailable. Verify that the installed XML and CvGameCoreDLL.dll come from the same build.</Spanish>
+	</TEXT>
+	<TEXT>
 		<Tag>TXT_KEY_POPUP_CHOOSE_GUILD_PROCESSOR</Tag>
 		<English>Choose the processor that will support %s1 in %s2.</English>
 		<French>Choose the processor that will support %s1 in %s2.</French>
@@ -47,6 +55,86 @@
 		<German>%s1 - establishes %s2 (unclaimed)</German>
 		<Italian>%s1 - establishes %s2 (unclaimed)</Italian>
 		<Spanish>%s1 - establishes %s2 (unclaimed)</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_EXISTING_BRANCH</Tag>
+		<English>This city already has a branch of this Guild.</English>
+		<French>This city already has a branch of this Guild.</French>
+		<German>This city already has a branch of this Guild.</German>
+		<Italian>This city already has a branch of this Guild.</Italian>
+		<Spanish>This city already has a branch of this Guild.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_MISSING_HEADQUARTERS</Tag>
+		<English>The sponsoring civilization does not have this Guild's headquarters.</English>
+		<French>The sponsoring civilization does not have this Guild's headquarters.</French>
+		<German>The sponsoring civilization does not have this Guild's headquarters.</German>
+		<Italian>The sponsoring civilization does not have this Guild's headquarters.</Italian>
+		<Spanish>The sponsoring civilization does not have this Guild's headquarters.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_STATE_PROPERTY</Tag>
+		<English>State Property prevents this civilization from establishing Guild branches.</English>
+		<French>State Property prevents this civilization from establishing Guild branches.</French>
+		<German>State Property prevents this civilization from establishing Guild branches.</German>
+		<Italian>State Property prevents this civilization from establishing Guild branches.</Italian>
+		<Spanish>State Property prevents this civilization from establishing Guild branches.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_INELIGIBLE_PROCESSOR</Tag>
+		<English>The selected processor is not eligible for this Guild.</English>
+		<French>The selected processor is not eligible for this Guild.</French>
+		<German>The selected processor is not eligible for this Guild.</German>
+		<Italian>The selected processor is not eligible for this Guild.</Italian>
+		<Spanish>The selected processor is not eligible for this Guild.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_MISSING_PROCESSOR</Tag>
+		<English>This city does not contain an eligible processor for this Guild.</English>
+		<French>This city does not contain an eligible processor for this Guild.</French>
+		<German>This city does not contain an eligible processor for this Guild.</German>
+		<Italian>This city does not contain an eligible processor for this Guild.</Italian>
+		<Spanish>This city does not contain an eligible processor for this Guild.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_INACTIVE_PROCESSOR</Tag>
+		<English>This city's eligible processor is present but inactive.</English>
+		<French>This city's eligible processor is present but inactive.</French>
+		<German>This city's eligible processor is present but inactive.</German>
+		<Italian>This city's eligible processor is present but inactive.</Italian>
+		<Spanish>This city's eligible processor is present but inactive.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_CLAIMED_PROCESSOR</Tag>
+		<English>Every active eligible processor in this city already supports another Guild branch.</English>
+		<French>Every active eligible processor in this city already supports another Guild branch.</French>
+		<German>Every active eligible processor in this city already supports another Guild branch.</German>
+		<Italian>Every active eligible processor in this city already supports another Guild branch.</Italian>
+		<Spanish>Every active eligible processor in this city already supports another Guild branch.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_WAR</Tag>
+		<English>Guild branches cannot be established in a civilization at war with the sponsor.</English>
+		<French>Guild branches cannot be established in a civilization at war with the sponsor.</French>
+		<German>Guild branches cannot be established in a civilization at war with the sponsor.</German>
+		<Italian>Guild branches cannot be established in a civilization at war with the sponsor.</Italian>
+		<Spanish>Guild branches cannot be established in a civilization at war with the sponsor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_CLOSED_BORDERS</Tag>
+		<English>Foreign Guild branches require Open Borders with the sponsor.</English>
+		<French>Foreign Guild branches require Open Borders with the sponsor.</French>
+		<German>Foreign Guild branches require Open Borders with the sponsor.</German>
+		<Italian>Foreign Guild branches require Open Borders with the sponsor.</Italian>
+		<Spanish>Foreign Guild branches require Open Borders with the sponsor.</Spanish>
+	</TEXT>
+	<TEXT>
+		<Tag>TXT_KEY_GUILD_BRANCH_REJECTION_MERCANTILISM</Tag>
+		<English>Mercantilism prevents this city from hosting a foreign Guild branch.</English>
+		<French>Mercantilism prevents this city from hosting a foreign Guild branch.</French>
+		<German>Mercantilism prevents this city from hosting a foreign Guild branch.</German>
+		<Italian>Mercantilism prevents this city from hosting a foreign Guild branch.</Italian>
+		<Spanish>Mercantilism prevents this city from hosting a foreign Guild branch.</Spanish>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_GUILD_ARTIFICERS</Tag>

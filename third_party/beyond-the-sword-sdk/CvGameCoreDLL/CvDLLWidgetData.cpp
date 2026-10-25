@@ -1977,7 +1977,56 @@ void CvDLLWidgetData::parseActionHelp(CvWidgetDataStruct &widgetDataStruct, CvWS
 
 			pMissionCity = pMissionPlot->getPlotCity();
 
-			if (GC.getActionInfo(widgetDataStruct.m_iData1).getMissionType() == MISSION_HEAL)
+			if (GC.getActionInfo(widgetDataStruct.m_iData1).getMissionType() == MISSION_ESTABLISH_GUILD_BRANCH)
+			{
+				const GuildTypes eGuild = pHeadSelectedUnit->getGuildType();
+				if (pMissionCity != NULL && eGuild != NO_GUILD)
+				{
+					const GuildBranchRejectionTypes eRejection = pMissionCity->getGuildBranchRejection(eGuild, pHeadSelectedUnit->getOwnerINLINE());
+					const char* szRejectionKey = NULL;
+					switch (eRejection)
+					{
+					case GUILD_BRANCH_REJECTION_EXISTING_BRANCH:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_EXISTING_BRANCH";
+						break;
+					case GUILD_BRANCH_REJECTION_MISSING_HEADQUARTERS:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_MISSING_HEADQUARTERS";
+						break;
+					case GUILD_BRANCH_REJECTION_STATE_PROPERTY:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_STATE_PROPERTY";
+						break;
+					case GUILD_BRANCH_REJECTION_INELIGIBLE_PROCESSOR:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_INELIGIBLE_PROCESSOR";
+						break;
+					case GUILD_BRANCH_REJECTION_MISSING_PROCESSOR:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_MISSING_PROCESSOR";
+						break;
+					case GUILD_BRANCH_REJECTION_INACTIVE_PROCESSOR:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_INACTIVE_PROCESSOR";
+						break;
+					case GUILD_BRANCH_REJECTION_CLAIMED_PROCESSOR:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_CLAIMED_PROCESSOR";
+						break;
+					case GUILD_BRANCH_REJECTION_WAR:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_WAR";
+						break;
+					case GUILD_BRANCH_REJECTION_CLOSED_BORDERS:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_CLOSED_BORDERS";
+						break;
+					case GUILD_BRANCH_REJECTION_MERCANTILISM:
+						szRejectionKey = "TXT_KEY_GUILD_BRANCH_REJECTION_MERCANTILISM";
+						break;
+					default:
+						break;
+					}
+					if (szRejectionKey != NULL)
+					{
+						szBuffer.append(NEWLINE);
+						szBuffer.append(gDLL->getText(szRejectionKey));
+					}
+				}
+			}
+			else if (GC.getActionInfo(widgetDataStruct.m_iData1).getMissionType() == MISSION_HEAL)
 			{
 				iTurns = 0;
 

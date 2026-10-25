@@ -1779,13 +1779,13 @@ void CvPlayer::acquireCity(CvCity* pOldCity, bool bConquest, bool bTrade, bool b
 		pNewCity->setCultureTimes100(((PlayerTypes)iI), aiCulture[iI], false, false);
 	}
 
-	for (iI = 0; iI < GC.getNumBuildingInfos(); iI++)
+	for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); ++iBuilding)
 	{
 		int iNum = 0;
 
-		if (paiNumRealBuilding[iI] > 0)
+		if (paiNumRealBuilding[iBuilding] > 0)
 		{
-			BuildingClassTypes eBuildingClass = (BuildingClassTypes)GC.getBuildingInfo((BuildingTypes)iI).getBuildingClassType();
+			BuildingClassTypes eBuildingClass = (BuildingClassTypes)GC.getBuildingInfo((BuildingTypes)iBuilding).getBuildingClassType();
 			bool bGuildHeadquarters = false;
 			bool bGuildHouse = false;
 			for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
@@ -1800,7 +1800,7 @@ void CvPlayer::acquireCity(CvCity* pOldCity, bool bConquest, bool bTrade, bool b
 			}
 			if (::isWorldWonderClass(eBuildingClass))
 			{
-				eBuilding = (BuildingTypes)iI;
+				eBuilding = (BuildingTypes)iBuilding;
 			}
 			else
 			{
@@ -1809,68 +1809,76 @@ void CvPlayer::acquireCity(CvCity* pOldCity, bool bConquest, bool bTrade, bool b
 
 			if (eBuilding != NO_BUILDING)
 			{
-				if (bTrade || !(GC.getBuildingInfo((BuildingTypes)iI).isNeverCapture()))
+				if (bTrade || !(GC.getBuildingInfo((BuildingTypes)iBuilding).isNeverCapture()))
 				{
 					if (!isProductionMaxedBuildingClass(((BuildingClassTypes)(GC.getBuildingInfo(eBuilding).getBuildingClassType())), true))
 					{
 						if (pNewCity->isValidBuildingLocation(eBuilding))
 						{
-							if (!bConquest || bRecapture || GC.getGameINLINE().getSorenRandNum(100, "Capture Probability") < GC.getBuildingInfo((BuildingTypes)iI).getConquestProbability())
+							if (!bConquest || bRecapture || GC.getGameINLINE().getSorenRandNum(100, "Capture Probability") < GC.getBuildingInfo((BuildingTypes)iBuilding).getConquestProbability())
 							{
-								iNum += paiNumRealBuilding[iI];
+								iNum += paiNumRealBuilding[iBuilding];
 							}
-						}
-
-						if (bTrade)
-						{
-							for (iI = 0; iI < GC.getNumGuildInfos(); ++iI)
-							{
-								const GuildTypes eGuild = (GuildTypes)iI;
-								const BuildingClassTypes eHouseClass = (BuildingClassTypes)GC.getGuildInfo(eGuild).getHouseBuildingClass();
-								const BuildingTypes eHouse = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eHouseClass);
-								if (aiGuildSponsors[iI] != NO_PLAYER && eHouse != NO_BUILDING && pNewCity->getNumBuilding(eHouse) > 0)
-								{
-									pNewCity->restoreGuildBranchState(eGuild, (PlayerTypes)aiGuildSponsors[iI], (BuildingClassTypes)aiGuildProcessors[iI]);
-								}
-							}
-
-							if (eOldOwner != NO_PLAYER && GET_PLAYER(eOldOwner).isAlive())
-							{
-								CvCity* pRelocationCity = GET_PLAYER(eOldOwner).getCapitalCity();
-								if (pRelocationCity == NULL)
-								{
-									int iRelocationLoop = 0;
-									pRelocationCity = GET_PLAYER(eOldOwner).firstCity(&iRelocationLoop);
-								}
-								if (pRelocationCity != NULL)
-								{
-									for (iI = 0; iI < GC.getNumGuildInfos(); ++iI)
-									{
-										if (!abGuildHeadquarters[iI])
-										{
-											continue;
-										}
-										const BuildingClassTypes eHeadquartersClass = (BuildingClassTypes)GC.getGuildInfo((GuildTypes)iI).getHeadquartersBuildingClass();
-										const BuildingTypes eHeadquarters = (BuildingTypes)GC.getCivilizationInfo(GET_PLAYER(eOldOwner).getCivilizationType()).getCivilizationBuildings(eHeadquartersClass);
-										if (eHeadquarters != NO_BUILDING)
-										{
-											pRelocationCity->setNumRealBuildingTimed(eHeadquarters, 1, false, eOldOwner, GC.getGameINLINE().getGameTurnYear());
-										}
-									}
-								}
-							}
-							CvCity::refreshAllGuildBranches();
-						}
-						else if (bConquest)
-						{
-							CvCity::refreshAllGuildBranches();
 						}
 					}
 				}
 
-				pNewCity->setNumRealBuildingTimed(eBuilding, std::min(pNewCity->getNumRealBuilding(eBuilding) + iNum, GC.getCITY_MAX_NUM_BUILDINGS()), false, ((PlayerTypes)(paiBuildingOriginalOwner[iI])), paiBuildingOriginalTime[iI]);
+				pNewCity->setNumRealBuildingTimed(eBuilding, std::min(pNewCity->getNumRealBuilding(eBuilding) + iNum, GC.getCITY_MAX_NUM_BUILDINGS()), false, ((PlayerTypes)(paiBuildingOriginalOwner[iBuilding])), paiBuildingOriginalTime[iBuilding]);
 			}
 		}
+	}
+
+	if (bTrade)
+	{
+		for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+		{
+			const GuildTypes eGuild = (GuildTypes)iGuild;
+			const BuildingClassTypes eHouseClass = (BuildingClassTypes)GC.getGuildInfo(eGuild).getHouseBuildingClass();
+			const BuildingTypes eHouse = (BuildingTypes)GC.getCivilizationInfo(getCivilizationType()).getCivilizationBuildings(eHouseClass);
+			if (aiGuildSponsors[iGuild] != NO_PLAYER && eHouse != NO_BUILDING && pNewCity->getNumBuilding(eHouse) > 0)
+			{
+				pNewCity->restoreGuildBranchState(eGuild, (PlayerTypes)aiGuildSponsors[iGuild], (BuildingClassTypes)aiGuildProcessors[iGuild]);
+			}
+		}
+
+		if (eOldOwner != NO_PLAYER && GET_PLAYER(eOldOwner).isAlive())
+		{
+			CvCity* pRelocationCity = GET_PLAYER(eOldOwner).getCapitalCity();
+			if (pRelocationCity == NULL)
+			{
+				int iRelocationLoop = 0;
+				for (CvCity* pLoopCity = GET_PLAYER(eOldOwner).firstCity(&iRelocationLoop); pLoopCity != NULL; pLoopCity = GET_PLAYER(eOldOwner).nextCity(&iRelocationLoop))
+				{
+					if (pRelocationCity == NULL ||
+						pLoopCity->getPopulation() > pRelocationCity->getPopulation() ||
+						(pLoopCity->getPopulation() == pRelocationCity->getPopulation() && pLoopCity->getID() < pRelocationCity->getID()))
+					{
+						pRelocationCity = pLoopCity;
+					}
+				}
+			}
+			if (pRelocationCity != NULL)
+			{
+				for (int iGuild = 0; iGuild < GC.getNumGuildInfos(); ++iGuild)
+				{
+					if (!abGuildHeadquarters[iGuild])
+					{
+						continue;
+					}
+					const BuildingClassTypes eHeadquartersClass = (BuildingClassTypes)GC.getGuildInfo((GuildTypes)iGuild).getHeadquartersBuildingClass();
+					const BuildingTypes eHeadquarters = (BuildingTypes)GC.getCivilizationInfo(GET_PLAYER(eOldOwner).getCivilizationType()).getCivilizationBuildings(eHeadquartersClass);
+					if (eHeadquarters != NO_BUILDING)
+					{
+						pRelocationCity->setNumRealBuildingTimed(eHeadquarters, 1, false, eOldOwner, GC.getGameINLINE().getGameTurnYear());
+					}
+				}
+			}
+		}
+	}
+
+	if (bTrade || bConquest)
+	{
+		CvCity::refreshAllGuildBranches();
 	}
 
 	for (std::vector<BuildingYieldChange>::iterator it = aBuildingYieldChange.begin(); it != aBuildingYieldChange.end(); ++it)

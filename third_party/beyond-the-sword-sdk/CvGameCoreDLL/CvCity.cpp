@@ -2558,26 +2558,61 @@ BuildingClassTypes CvCity::getEligibleGuildProcessor(GuildTypes eGuild, PlayerTy
 
 bool CvCity::canEstablishGuildBranch(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor, bool bTestVisible) const
 {
+	return getGuildBranchRejection(eGuild, eSponsor, eProcessor) == NO_GUILD_BRANCH_REJECTION;
+}
+
+GuildBranchRejectionTypes CvCity::getGuildBranchRejection(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor) const
+{
 	if (eGuild < 0 || eGuild >= GC.getNumGuildInfos() || eSponsor == NO_PLAYER || !GET_PLAYER(eSponsor).isAlive())
 	{
-		return false;
+		return GUILD_BRANCH_REJECTION_INVALID;
 	}
-	if (hasGuildBranch(eGuild) || isGuildProcessorClaimed(eProcessor))
+	if (hasGuildBranch(eGuild))
 	{
-		return false;
+		return GUILD_BRANCH_REJECTION_EXISTING_BRANCH;
 	}
 	if (!playerHasGuildHeadquarters(eSponsor, eGuild))
 	{
-		return false;
+		return GUILD_BRANCH_REJECTION_MISSING_HEADQUARTERS;
 	}
 
 	const CivicTypes eStateProperty = getGuildCivic("CIVIC_STATE_PROPERTY");
 	if (eStateProperty != NO_CIVIC && GET_PLAYER(eSponsor).isCivic(eStateProperty))
 	{
-		return false;
+		return GUILD_BRANCH_REJECTION_STATE_PROPERTY;
 	}
 
 	const CvGuildInfo& kGuild = GC.getGuildInfo(eGuild);
+	if (eProcessor == NO_BUILDINGCLASS)
+	{
+		GuildBranchRejectionTypes eBestRejection = GUILD_BRANCH_REJECTION_MISSING_PROCESSOR;
+		for (int iProcessor = 0; iProcessor < kGuild.getNumProcessorBuildingClasses(); ++iProcessor)
+		{
+			const BuildingClassTypes eCandidate = (BuildingClassTypes)kGuild.getProcessorBuildingClass(iProcessor);
+			const BuildingTypes eProcessorBuilding = getGuildBuildingForPlayer(getOwnerINLINE(), eCandidate);
+			if (eProcessorBuilding == NO_BUILDING || getNumBuilding(eProcessorBuilding) <= 0)
+			{
+				continue;
+			}
+			if (getNumActiveBuilding(eProcessorBuilding) <= 0)
+			{
+				eBestRejection = GUILD_BRANCH_REJECTION_INACTIVE_PROCESSOR;
+				continue;
+			}
+			if (isGuildProcessorClaimed(eCandidate))
+			{
+				eBestRejection = GUILD_BRANCH_REJECTION_CLAIMED_PROCESSOR;
+				continue;
+			}
+			eProcessor = eCandidate;
+			break;
+		}
+		if (eProcessor == NO_BUILDINGCLASS)
+		{
+			return eBestRejection;
+		}
+	}
+
 	bool bEligibleProcessor = false;
 	for (int iProcessor = 0; iProcessor < kGuild.getNumProcessorBuildingClasses(); ++iProcessor)
 	{
@@ -2589,30 +2624,42 @@ bool CvCity::canEstablishGuildBranch(GuildTypes eGuild, PlayerTypes eSponsor, Bu
 	}
 	if (!bEligibleProcessor)
 	{
-		return false;
+		return GUILD_BRANCH_REJECTION_INELIGIBLE_PROCESSOR;
+	}
+	if (isGuildProcessorClaimed(eProcessor))
+	{
+		return GUILD_BRANCH_REJECTION_CLAIMED_PROCESSOR;
 	}
 
 	const BuildingTypes eProcessorBuilding = getGuildBuildingForPlayer(getOwnerINLINE(), eProcessor);
-	if (eProcessorBuilding == NO_BUILDING || getNumActiveBuilding(eProcessorBuilding) <= 0)
+	if (eProcessorBuilding == NO_BUILDING || getNumBuilding(eProcessorBuilding) <= 0)
 	{
-		return false;
+		return GUILD_BRANCH_REJECTION_MISSING_PROCESSOR;
+	}
+	if (getNumActiveBuilding(eProcessorBuilding) <= 0)
+	{
+		return GUILD_BRANCH_REJECTION_INACTIVE_PROCESSOR;
 	}
 
 	if (getOwnerINLINE() != eSponsor)
 	{
 		const TeamTypes eSponsorTeam = GET_PLAYER(eSponsor).getTeam();
-		if (GET_TEAM(getTeam()).isAtWar(eSponsorTeam) || !GET_TEAM(getTeam()).isOpenBorders(eSponsorTeam))
+		if (GET_TEAM(getTeam()).isAtWar(eSponsorTeam))
 		{
-			return false;
+			return GUILD_BRANCH_REJECTION_WAR;
+		}
+		if (!GET_TEAM(getTeam()).isOpenBorders(eSponsorTeam))
+		{
+			return GUILD_BRANCH_REJECTION_CLOSED_BORDERS;
 		}
 		const CivicTypes eMercantilism = getGuildCivic("CIVIC_MERCANTILISM");
 		if (eMercantilism != NO_CIVIC && GET_PLAYER(getOwnerINLINE()).isCivic(eMercantilism))
 		{
-			return false;
+			return GUILD_BRANCH_REJECTION_MERCANTILISM;
 		}
 	}
 
-	return true;
+	return NO_GUILD_BRANCH_REJECTION;
 }
 
 bool CvCity::establishGuildBranch(GuildTypes eGuild, PlayerTypes eSponsor, BuildingClassTypes eProcessor)
